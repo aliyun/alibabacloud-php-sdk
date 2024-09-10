@@ -17,6 +17,10 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateTokenRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateTokenResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteCustomTextRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteCustomTextResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteCustomTopicByTopicRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteCustomTopicByTopicResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteCustomTopicViewPointByIdRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteCustomTopicViewPointByIdResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteGeneratedContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteGeneratedContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteInterveneRuleRequest;
@@ -28,6 +32,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DocumentExtractionResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DocumentExtractionShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportGeneratedContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportGeneratedContentResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportHotTopicPlanningProposalsRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportHotTopicPlanningProposalsResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportHotTopicPlanningProposalsShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportIntervenesRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportIntervenesResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FeedbackDialogueRequest;
@@ -48,8 +55,12 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateViewPointResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateViewPointShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomTextRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomTextResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomTopicSelectionPerspectiveAnalysisTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomTopicSelectionPerspectiveAnalysisTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDataSourceOrderConfigRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDataSourceOrderConfigResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDocClusterTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDocClusterTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetGeneratedContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetGeneratedContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetInterveneGlobalReplyRequest;
@@ -64,6 +75,10 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetMaterialByIdRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetMaterialByIdResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetTopicByIdRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetTopicByIdResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetTopicSelectionPerspectiveAnalysisTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetTopicSelectionPerspectiveAnalysisTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ImportInterveneFileAsyncRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ImportInterveneFileAsyncResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ImportInterveneFileRequest;
@@ -81,13 +96,25 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListBuildConfigsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListBuildConfigsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListCustomTextRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListCustomTextResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListCustomViewPointsRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListCustomViewPointsResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListCustomViewPointsShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDialoguesRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDialoguesResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListFreshViewPointsRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListFreshViewPointsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListGeneratedContentsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListGeneratedContentsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListHotNewsWithTypeRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListHotNewsWithTypeResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListHotNewsWithTypeShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListHotSourcesRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListHotSourcesResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListHotTopicsRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListHotTopicsResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListHotTopicsShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListHotViewPointsRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListHotViewPointsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListInterveneCntRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListInterveneCntResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListInterveneImportTasksRequest;
@@ -99,19 +126,37 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListIntervenesResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListMaterialDocumentsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListMaterialDocumentsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListMaterialDocumentsShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListPlanningProposalRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListPlanningProposalResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListPlanningProposalShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListTimedViewAttitudeRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListTimedViewAttitudeResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListTopicRecommendEventListRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListTopicRecommendEventListResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListTopicViewPointRecommendEventListRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListTopicViewPointRecommendEventListResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListVersionsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListVersionsResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListWebReviewPointsRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListWebReviewPointsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryAsyncTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryAsyncTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunAbbreviationContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunAbbreviationContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunContinueContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunContinueContentResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunCustomHotTopicAnalysisRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunCustomHotTopicAnalysisResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunCustomHotTopicViewPointAnalysisRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunCustomHotTopicViewPointAnalysisResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunExpandContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunExpandContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunKeywordsExtractionGenerationRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunKeywordsExtractionGenerationResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunKeywordsExtractionGenerationShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunStepByStepWritingRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunStepByStepWritingResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunStepByStepWritingShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunStyleFeatureAnalysisRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunStyleFeatureAnalysisResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunStyleFeatureAnalysisShrinkRequest;
@@ -144,6 +189,15 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchNewsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchNewsShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitAsyncTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitAsyncTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomTopicSelectionPerspectiveAnalysisTaskShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitDocClusterTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitDocClusterTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitDocClusterTaskShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitTopicSelectionPerspectiveAnalysisTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitTopicSelectionPerspectiveAnalysisTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitTopicSelectionPerspectiveAnalysisTaskShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateCustomTextRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateCustomTextResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateGeneratedContentRequest;
@@ -471,6 +525,110 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * @summary 根据主题删除自定义主题事件
+     *  *
+     * @param DeleteCustomTopicByTopicRequest $request DeleteCustomTopicByTopicRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteCustomTopicByTopicResponse DeleteCustomTopicByTopicResponse
+     */
+    public function deleteCustomTopicByTopicWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->topic)) {
+            $body['Topic'] = $request->topic;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomTopicByTopic',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCustomTopicByTopicResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据主题删除自定义主题事件
+     *  *
+     * @param DeleteCustomTopicByTopicRequest $request DeleteCustomTopicByTopicRequest
+     *
+     * @return DeleteCustomTopicByTopicResponse DeleteCustomTopicByTopicResponse
+     */
+    public function deleteCustomTopicByTopic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomTopicByTopicWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 根据自定义观点ID删除自定义观点
+     *  *
+     * @param DeleteCustomTopicViewPointByIdRequest $request DeleteCustomTopicViewPointByIdRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteCustomTopicViewPointByIdResponse DeleteCustomTopicViewPointByIdResponse
+     */
+    public function deleteCustomTopicViewPointByIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->customViewPointId)) {
+            $body['CustomViewPointId'] = $request->customViewPointId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomTopicViewPointById',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCustomTopicViewPointByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据自定义观点ID删除自定义观点
+     *  *
+     * @param DeleteCustomTopicViewPointByIdRequest $request DeleteCustomTopicViewPointByIdRequest
+     *
+     * @return DeleteCustomTopicViewPointByIdResponse DeleteCustomTopicViewPointByIdResponse
+     */
+    public function deleteCustomTopicViewPointById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomTopicViewPointByIdWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 文档管理-删除。
      *  *
      * @param DeleteGeneratedContentRequest $request DeleteGeneratedContentRequest
@@ -736,6 +894,81 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->exportGeneratedContentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 导出选题策划文档，响应为一个可公开访问的URL。一小时后失效
+     *  *
+     * @param ExportHotTopicPlanningProposalsRequest $tmpReq  ExportHotTopicPlanningProposalsRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExportHotTopicPlanningProposalsResponse ExportHotTopicPlanningProposalsResponse
+     */
+    public function exportHotTopicPlanningProposalsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ExportHotTopicPlanningProposalsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->customViewPointIds)) {
+            $request->customViewPointIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customViewPointIds, 'CustomViewPointIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->titles)) {
+            $request->titlesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->titles, 'Titles', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->customViewPointIdsShrink)) {
+            $body['CustomViewPointIds'] = $request->customViewPointIdsShrink;
+        }
+        if (!Utils::isUnset($request->exportType)) {
+            $body['ExportType'] = $request->exportType;
+        }
+        if (!Utils::isUnset($request->titlesShrink)) {
+            $body['Titles'] = $request->titlesShrink;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $body['Topic'] = $request->topic;
+        }
+        if (!Utils::isUnset($request->topicSource)) {
+            $body['TopicSource'] = $request->topicSource;
+        }
+        if (!Utils::isUnset($request->viewPointType)) {
+            $body['ViewPointType'] = $request->viewPointType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportHotTopicPlanningProposals',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportHotTopicPlanningProposalsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 导出选题策划文档，响应为一个可公开访问的URL。一小时后失效
+     *  *
+     * @param ExportHotTopicPlanningProposalsRequest $request ExportHotTopicPlanningProposalsRequest
+     *
+     * @return ExportHotTopicPlanningProposalsResponse ExportHotTopicPlanningProposalsResponse
+     */
+    public function exportHotTopicPlanningProposals($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportHotTopicPlanningProposalsWithOptions($request, $runtime);
     }
 
     /**
@@ -1209,6 +1442,58 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * @summary 获取自定义选题视角分析任务结果
+     *  *
+     * @param GetCustomTopicSelectionPerspectiveAnalysisTaskRequest $request GetCustomTopicSelectionPerspectiveAnalysisTaskRequest
+     * @param RuntimeOptions                                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetCustomTopicSelectionPerspectiveAnalysisTaskResponse GetCustomTopicSelectionPerspectiveAnalysisTaskResponse
+     */
+    public function getCustomTopicSelectionPerspectiveAnalysisTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCustomTopicSelectionPerspectiveAnalysisTask',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCustomTopicSelectionPerspectiveAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取自定义选题视角分析任务结果
+     *  *
+     * @param GetCustomTopicSelectionPerspectiveAnalysisTaskRequest $request GetCustomTopicSelectionPerspectiveAnalysisTaskRequest
+     *
+     * @return GetCustomTopicSelectionPerspectiveAnalysisTaskResponse GetCustomTopicSelectionPerspectiveAnalysisTaskResponse
+     */
+    public function getCustomTopicSelectionPerspectiveAnalysisTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCustomTopicSelectionPerspectiveAnalysisTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 获取系统数据源配置和个人配置
      *  *
      * @param GetDataSourceOrderConfigRequest $request GetDataSourceOrderConfigRequest
@@ -1258,6 +1543,58 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDataSourceOrderConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取文档聚合任务结果
+     *  *
+     * @param GetDocClusterTaskRequest $request GetDocClusterTaskRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDocClusterTaskResponse GetDocClusterTaskResponse
+     */
+    public function getDocClusterTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDocClusterTask',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDocClusterTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取文档聚合任务结果
+     *  *
+     * @param GetDocClusterTaskRequest $request GetDocClusterTaskRequest
+     *
+     * @return GetDocClusterTaskResponse GetDocClusterTaskResponse
+     */
+    public function getDocClusterTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDocClusterTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -1607,6 +1944,110 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getPropertiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 根据ID获取热点事件信息
+     *  *
+     * @param GetTopicByIdRequest $request GetTopicByIdRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetTopicByIdResponse GetTopicByIdResponse
+     */
+    public function getTopicByIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTopicById',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTopicByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据ID获取热点事件信息
+     *  *
+     * @param GetTopicByIdRequest $request GetTopicByIdRequest
+     *
+     * @return GetTopicByIdResponse GetTopicByIdResponse
+     */
+    public function getTopicById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTopicByIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取选题视角分析任务结果
+     *  *
+     * @param GetTopicSelectionPerspectiveAnalysisTaskRequest $request GetTopicSelectionPerspectiveAnalysisTaskRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetTopicSelectionPerspectiveAnalysisTaskResponse GetTopicSelectionPerspectiveAnalysisTaskResponse
+     */
+    public function getTopicSelectionPerspectiveAnalysisTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTopicSelectionPerspectiveAnalysisTask',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTopicSelectionPerspectiveAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取选题视角分析任务结果
+     *  *
+     * @param GetTopicSelectionPerspectiveAnalysisTaskRequest $request GetTopicSelectionPerspectiveAnalysisTaskRequest
+     *
+     * @return GetTopicSelectionPerspectiveAnalysisTaskResponse GetTopicSelectionPerspectiveAnalysisTaskResponse
+     */
+    public function getTopicSelectionPerspectiveAnalysisTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTopicSelectionPerspectiveAnalysisTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -2034,6 +2475,87 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * @summary 自定义视角列表
+     *  *
+     * @param ListCustomViewPointsRequest $tmpReq  ListCustomViewPointsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListCustomViewPointsResponse ListCustomViewPointsResponse
+     */
+    public function listCustomViewPointsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListCustomViewPointsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->attitudes)) {
+            $request->attitudesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->attitudes, 'Attitudes', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->customViewPointIds)) {
+            $request->customViewPointIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customViewPointIds, 'CustomViewPointIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->attitude)) {
+            $body['Attitude'] = $request->attitude;
+        }
+        if (!Utils::isUnset($request->attitudesShrink)) {
+            $body['Attitudes'] = $request->attitudesShrink;
+        }
+        if (!Utils::isUnset($request->customViewPointId)) {
+            $body['CustomViewPointId'] = $request->customViewPointId;
+        }
+        if (!Utils::isUnset($request->customViewPointIdsShrink)) {
+            $body['CustomViewPointIds'] = $request->customViewPointIdsShrink;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $body['Topic'] = $request->topic;
+        }
+        if (!Utils::isUnset($request->topicId)) {
+            $body['TopicId'] = $request->topicId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCustomViewPoints',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCustomViewPointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 自定义视角列表
+     *  *
+     * @param ListCustomViewPointsRequest $request ListCustomViewPointsRequest
+     *
+     * @return ListCustomViewPointsResponse ListCustomViewPointsResponse
+     */
+    public function listCustomViewPoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomViewPointsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 生成历史列表
      *  *
      * @param ListDialoguesRequest $request ListDialoguesRequest
@@ -2098,6 +2620,67 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDialoguesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 新颖视角列表
+     *  *
+     * @param ListFreshViewPointsRequest $request ListFreshViewPointsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListFreshViewPointsResponse ListFreshViewPointsResponse
+     */
+    public function listFreshViewPointsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $body['Topic'] = $request->topic;
+        }
+        if (!Utils::isUnset($request->topicSource)) {
+            $body['TopicSource'] = $request->topicSource;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFreshViewPoints',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListFreshViewPointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新颖视角列表
+     *  *
+     * @param ListFreshViewPointsRequest $request ListFreshViewPointsRequest
+     *
+     * @return ListFreshViewPointsResponse ListFreshViewPointsResponse
+     */
+    public function listFreshViewPoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFreshViewPointsWithOptions($request, $runtime);
     }
 
     /**
@@ -2237,6 +2820,203 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listHotNewsWithTypeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取所有平台热榜源列表
+     *  *
+     * @param ListHotSourcesRequest $request ListHotSourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListHotSourcesResponse ListHotSourcesResponse
+     */
+    public function listHotSourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListHotSources',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListHotSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取所有平台热榜源列表
+     *  *
+     * @param ListHotSourcesRequest $request ListHotSourcesRequest
+     *
+     * @return ListHotSourcesResponse ListHotSourcesResponse
+     */
+    public function listHotSources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listHotSourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取热点事件列表
+     *  *
+     * @param ListHotTopicsRequest $tmpReq  ListHotTopicsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListHotTopicsResponse ListHotTopicsResponse
+     */
+    public function listHotTopicsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListHotTopicsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->topicIds)) {
+            $request->topicIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->topicIds, 'TopicIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->topics)) {
+            $request->topicsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->topics, 'Topics', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->topicIdsShrink)) {
+            $body['TopicIds'] = $request->topicIdsShrink;
+        }
+        if (!Utils::isUnset($request->topicQuery)) {
+            $body['TopicQuery'] = $request->topicQuery;
+        }
+        if (!Utils::isUnset($request->topicSource)) {
+            $body['TopicSource'] = $request->topicSource;
+        }
+        if (!Utils::isUnset($request->topicVersion)) {
+            $body['TopicVersion'] = $request->topicVersion;
+        }
+        if (!Utils::isUnset($request->topicsShrink)) {
+            $body['Topics'] = $request->topicsShrink;
+        }
+        if (!Utils::isUnset($request->withNews)) {
+            $body['WithNews'] = $request->withNews;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListHotTopics',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListHotTopicsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取热点事件列表
+     *  *
+     * @param ListHotTopicsRequest $request ListHotTopicsRequest
+     *
+     * @return ListHotTopicsResponse ListHotTopicsResponse
+     */
+    public function listHotTopics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listHotTopicsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 热门视角列表
+     *  *
+     * @param ListHotViewPointsRequest $request ListHotViewPointsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListHotViewPointsResponse ListHotViewPointsResponse
+     */
+    public function listHotViewPointsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $body['Topic'] = $request->topic;
+        }
+        if (!Utils::isUnset($request->topicSource)) {
+            $body['TopicSource'] = $request->topicSource;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListHotViewPoints',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListHotViewPointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 热门视角列表
+     *  *
+     * @param ListHotViewPointsRequest $request ListHotViewPointsRequest
+     *
+     * @return ListHotViewPointsResponse ListHotViewPointsResponse
+     */
+    public function listHotViewPoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listHotViewPointsWithOptions($request, $runtime);
     }
 
     /**
@@ -2571,6 +3351,264 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * @summary 获取选题策划列表
+     *  *
+     * @param ListPlanningProposalRequest $tmpReq  ListPlanningProposalRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListPlanningProposalResponse ListPlanningProposalResponse
+     */
+    public function listPlanningProposalWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListPlanningProposalShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->customViewPointIds)) {
+            $request->customViewPointIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customViewPointIds, 'CustomViewPointIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->titles)) {
+            $request->titlesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->titles, 'Titles', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->customViewPointId)) {
+            $body['CustomViewPointId'] = $request->customViewPointId;
+        }
+        if (!Utils::isUnset($request->customViewPointIdsShrink)) {
+            $body['CustomViewPointIds'] = $request->customViewPointIdsShrink;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->titlesShrink)) {
+            $body['Titles'] = $request->titlesShrink;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $body['Topic'] = $request->topic;
+        }
+        if (!Utils::isUnset($request->topicSource)) {
+            $body['TopicSource'] = $request->topicSource;
+        }
+        if (!Utils::isUnset($request->topicVersion)) {
+            $body['TopicVersion'] = $request->topicVersion;
+        }
+        if (!Utils::isUnset($request->viewPointType)) {
+            $body['ViewPointType'] = $request->viewPointType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPlanningProposal',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPlanningProposalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取选题策划列表
+     *  *
+     * @param ListPlanningProposalRequest $request ListPlanningProposalRequest
+     *
+     * @return ListPlanningProposalResponse ListPlanningProposalResponse
+     */
+    public function listPlanningProposal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPlanningProposalWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 时效性视角列表
+     *  *
+     * @param ListTimedViewAttitudeRequest $request ListTimedViewAttitudeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTimedViewAttitudeResponse ListTimedViewAttitudeResponse
+     */
+    public function listTimedViewAttitudeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $body['Topic'] = $request->topic;
+        }
+        if (!Utils::isUnset($request->topicSource)) {
+            $body['TopicSource'] = $request->topicSource;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTimedViewAttitude',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTimedViewAttitudeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 时效性视角列表
+     *  *
+     * @param ListTimedViewAttitudeRequest $request ListTimedViewAttitudeRequest
+     *
+     * @return ListTimedViewAttitudeResponse ListTimedViewAttitudeResponse
+     */
+    public function listTimedViewAttitude($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTimedViewAttitudeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取热点推荐事件
+     *  *
+     * @param ListTopicRecommendEventListRequest $request ListTopicRecommendEventListRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTopicRecommendEventListResponse ListTopicRecommendEventListResponse
+     */
+    public function listTopicRecommendEventListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTopicRecommendEventList',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTopicRecommendEventListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取热点推荐事件
+     *  *
+     * @param ListTopicRecommendEventListRequest $request ListTopicRecommendEventListRequest
+     *
+     * @return ListTopicRecommendEventListResponse ListTopicRecommendEventListResponse
+     */
+    public function listTopicRecommendEventList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTopicRecommendEventListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取主题事件推荐观点列表
+     *  *
+     * @param ListTopicViewPointRecommendEventListRequest $request ListTopicViewPointRecommendEventListRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTopicViewPointRecommendEventListResponse ListTopicViewPointRecommendEventListResponse
+     */
+    public function listTopicViewPointRecommendEventListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTopicViewPointRecommendEventList',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTopicViewPointRecommendEventListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取主题事件推荐观点列表
+     *  *
+     * @param ListTopicViewPointRecommendEventListRequest $request ListTopicViewPointRecommendEventListRequest
+     *
+     * @return ListTopicViewPointRecommendEventListResponse ListTopicViewPointRecommendEventListResponse
+     */
+    public function listTopicViewPointRecommendEventList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTopicViewPointRecommendEventListWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 获取系统所有实例信息
      *  *
      * @param ListVersionsRequest $request ListVersionsRequest
@@ -2615,6 +3653,67 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listVersionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 网友视角列表
+     *  *
+     * @param ListWebReviewPointsRequest $request ListWebReviewPointsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListWebReviewPointsResponse ListWebReviewPointsResponse
+     */
+    public function listWebReviewPointsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $body['Topic'] = $request->topic;
+        }
+        if (!Utils::isUnset($request->topicSource)) {
+            $body['TopicSource'] = $request->topicSource;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWebReviewPoints',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWebReviewPointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 网友视角列表
+     *  *
+     * @param ListWebReviewPointsRequest $request ListWebReviewPointsRequest
+     *
+     * @return ListWebReviewPointsResponse ListWebReviewPointsResponse
+     */
+    public function listWebReviewPoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWebReviewPointsWithOptions($request, $runtime);
     }
 
     /**
@@ -2770,6 +3869,145 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * @summary 自定义热点话题分析
+     *  *
+     * @param RunCustomHotTopicAnalysisRequest $request RunCustomHotTopicAnalysisRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunCustomHotTopicAnalysisResponse RunCustomHotTopicAnalysisResponse
+     */
+    public function runCustomHotTopicAnalysisWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->askUser)) {
+            $body['AskUser'] = $request->askUser;
+        }
+        if (!Utils::isUnset($request->forceAnalysisExistsTopic)) {
+            $body['ForceAnalysisExistsTopic'] = $request->forceAnalysisExistsTopic;
+        }
+        if (!Utils::isUnset($request->prompt)) {
+            $body['Prompt'] = $request->prompt;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->userBack)) {
+            $body['UserBack'] = $request->userBack;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunCustomHotTopicAnalysis',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunCustomHotTopicAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 自定义热点话题分析
+     *  *
+     * @param RunCustomHotTopicAnalysisRequest $request RunCustomHotTopicAnalysisRequest
+     *
+     * @return RunCustomHotTopicAnalysisResponse RunCustomHotTopicAnalysisResponse
+     */
+    public function runCustomHotTopicAnalysis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runCustomHotTopicAnalysisWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 自定义选题视角分析
+     *  *
+     * @param RunCustomHotTopicViewPointAnalysisRequest $request RunCustomHotTopicViewPointAnalysisRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunCustomHotTopicViewPointAnalysisResponse RunCustomHotTopicViewPointAnalysisResponse
+     */
+    public function runCustomHotTopicViewPointAnalysisWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->askUser)) {
+            $body['AskUser'] = $request->askUser;
+        }
+        if (!Utils::isUnset($request->prompt)) {
+            $body['Prompt'] = $request->prompt;
+        }
+        if (!Utils::isUnset($request->searchQuery)) {
+            $body['SearchQuery'] = $request->searchQuery;
+        }
+        if (!Utils::isUnset($request->skipAskUser)) {
+            $body['SkipAskUser'] = $request->skipAskUser;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $body['Topic'] = $request->topic;
+        }
+        if (!Utils::isUnset($request->topicId)) {
+            $body['TopicId'] = $request->topicId;
+        }
+        if (!Utils::isUnset($request->topicSource)) {
+            $body['TopicSource'] = $request->topicSource;
+        }
+        if (!Utils::isUnset($request->topicVersion)) {
+            $body['TopicVersion'] = $request->topicVersion;
+        }
+        if (!Utils::isUnset($request->userBack)) {
+            $body['UserBack'] = $request->userBack;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunCustomHotTopicViewPointAnalysis',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunCustomHotTopicViewPointAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 自定义选题视角分析
+     *  *
+     * @param RunCustomHotTopicViewPointAnalysisRequest $request RunCustomHotTopicViewPointAnalysisRequest
+     *
+     * @return RunCustomHotTopicViewPointAnalysisResponse RunCustomHotTopicViewPointAnalysisResponse
+     */
+    public function runCustomHotTopicViewPointAnalysis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runCustomHotTopicViewPointAnalysisWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 内容扩写
      *  *
      * @param RunExpandContentRequest $request RunExpandContentRequest
@@ -2875,6 +4113,79 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->runKeywordsExtractionGenerationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创作-分步骤写作
+     *  *
+     * @param RunStepByStepWritingRequest $tmpReq  RunStepByStepWritingRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunStepByStepWritingResponse RunStepByStepWritingResponse
+     */
+    public function runStepByStepWritingWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RunStepByStepWritingShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->referenceData)) {
+            $request->referenceDataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->referenceData, 'ReferenceData', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->writingConfig)) {
+            $request->writingConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->writingConfig, 'WritingConfig', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->originSessionId)) {
+            $body['OriginSessionId'] = $request->originSessionId;
+        }
+        if (!Utils::isUnset($request->prompt)) {
+            $body['Prompt'] = $request->prompt;
+        }
+        if (!Utils::isUnset($request->referenceDataShrink)) {
+            $body['ReferenceData'] = $request->referenceDataShrink;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        if (!Utils::isUnset($request->writingConfigShrink)) {
+            $body['WritingConfig'] = $request->writingConfigShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunStepByStepWriting',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunStepByStepWritingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创作-分步骤写作
+     *  *
+     * @param RunStepByStepWritingRequest $request RunStepByStepWritingRequest
+     *
+     * @return RunStepByStepWritingResponse RunStepByStepWritingResponse
+     */
+    public function runStepByStepWriting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runStepByStepWritingWithOptions($request, $runtime);
     }
 
     /**
@@ -3636,6 +4947,201 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitAsyncTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 提交自定义热点选题视角分析任务
+     *  *
+     * @param SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest $tmpReq  SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest
+     * @param RuntimeOptions                                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse
+     */
+    public function submitCustomTopicSelectionPerspectiveAnalysisTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitCustomTopicSelectionPerspectiveAnalysisTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->documents)) {
+            $request->documentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documents, 'Documents', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->documentsShrink)) {
+            $body['Documents'] = $request->documentsShrink;
+        }
+        if (!Utils::isUnset($request->prompt)) {
+            $body['Prompt'] = $request->prompt;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $body['Topic'] = $request->topic;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitCustomTopicSelectionPerspectiveAnalysisTask',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提交自定义热点选题视角分析任务
+     *  *
+     * @param SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest $request SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest
+     *
+     * @return SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse
+     */
+    public function submitCustomTopicSelectionPerspectiveAnalysisTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitCustomTopicSelectionPerspectiveAnalysisTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 提交文档聚合任务
+     *  *
+     * @param SubmitDocClusterTaskRequest $tmpReq  SubmitDocClusterTaskRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitDocClusterTaskResponse SubmitDocClusterTaskResponse
+     */
+    public function submitDocClusterTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitDocClusterTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->documents)) {
+            $request->documentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documents, 'Documents', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->documentsShrink)) {
+            $body['Documents'] = $request->documentsShrink;
+        }
+        if (!Utils::isUnset($request->summaryLength)) {
+            $body['SummaryLength'] = $request->summaryLength;
+        }
+        if (!Utils::isUnset($request->titleLength)) {
+            $body['TitleLength'] = $request->titleLength;
+        }
+        if (!Utils::isUnset($request->topicCount)) {
+            $body['TopicCount'] = $request->topicCount;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitDocClusterTask',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitDocClusterTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提交文档聚合任务
+     *  *
+     * @param SubmitDocClusterTaskRequest $request SubmitDocClusterTaskRequest
+     *
+     * @return SubmitDocClusterTaskResponse SubmitDocClusterTaskResponse
+     */
+    public function submitDocClusterTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitDocClusterTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 提交选题热点分析任务
+     *  *
+     * @param SubmitTopicSelectionPerspectiveAnalysisTaskRequest $tmpReq  SubmitTopicSelectionPerspectiveAnalysisTaskRequest
+     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitTopicSelectionPerspectiveAnalysisTaskResponse SubmitTopicSelectionPerspectiveAnalysisTaskResponse
+     */
+    public function submitTopicSelectionPerspectiveAnalysisTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitTopicSelectionPerspectiveAnalysisTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->documents)) {
+            $request->documentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documents, 'Documents', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->perspectiveTypes)) {
+            $request->perspectiveTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->perspectiveTypes, 'PerspectiveTypes', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->documentsShrink)) {
+            $body['Documents'] = $request->documentsShrink;
+        }
+        if (!Utils::isUnset($request->perspectiveTypesShrink)) {
+            $body['PerspectiveTypes'] = $request->perspectiveTypesShrink;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $body['Topic'] = $request->topic;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitTopicSelectionPerspectiveAnalysisTask',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitTopicSelectionPerspectiveAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提交选题热点分析任务
+     *  *
+     * @param SubmitTopicSelectionPerspectiveAnalysisTaskRequest $request SubmitTopicSelectionPerspectiveAnalysisTaskRequest
+     *
+     * @return SubmitTopicSelectionPerspectiveAnalysisTaskResponse SubmitTopicSelectionPerspectiveAnalysisTaskResponse
+     */
+    public function submitTopicSelectionPerspectiveAnalysisTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitTopicSelectionPerspectiveAnalysisTaskWithOptions($request, $runtime);
     }
 
     /**
