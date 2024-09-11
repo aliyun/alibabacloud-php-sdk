@@ -132,6 +132,8 @@ use AlibabaCloud\SDK\Wyota\V20210420\Models\UnbindAccountLessLoginUserResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\UnbindDeviceSeatsRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\UnbindDeviceSeatsResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\UnbindDeviceSeatsShrinkRequest;
+use AlibabaCloud\SDK\Wyota\V20210420\Models\UnbindPasswordFreeLoginUserRequest;
+use AlibabaCloud\SDK\Wyota\V20210420\Models\UnbindPasswordFreeLoginUserResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\UpdateAliasRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\UpdateAliasResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\UpdateDeviceBindedEndUserRequest;
@@ -3921,6 +3923,56 @@ class Wyota extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unbindDeviceSeatsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 解绑免密登录用户
+     *  *
+     * @param UnbindPasswordFreeLoginUserRequest $request UnbindPasswordFreeLoginUserRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UnbindPasswordFreeLoginUserResponse UnbindPasswordFreeLoginUserResponse
+     */
+    public function unbindPasswordFreeLoginUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->serialNumber)) {
+            $body['SerialNumber'] = $request->serialNumber;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $body['Uuid'] = $request->uuid;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindPasswordFreeLoginUser',
+            'version'     => '2021-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnbindPasswordFreeLoginUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 解绑免密登录用户
+     *  *
+     * @param UnbindPasswordFreeLoginUserRequest $request UnbindPasswordFreeLoginUserRequest
+     *
+     * @return UnbindPasswordFreeLoginUserResponse UnbindPasswordFreeLoginUserResponse
+     */
+    public function unbindPasswordFreeLoginUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unbindPasswordFreeLoginUserWithOptions($request, $runtime);
     }
 
     /**
