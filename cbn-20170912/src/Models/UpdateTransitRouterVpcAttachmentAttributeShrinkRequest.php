@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateTransitRouterVpcAttachmentAttributeRequest extends Model
+class UpdateTransitRouterVpcAttachmentAttributeShrinkRequest extends Model
 {
     /**
      * @description Specifies whether to allow the Enterprise Edition transit router to advertise routes to the VPC. Valid values:
@@ -95,21 +95,21 @@ class UpdateTransitRouterVpcAttachmentAttributeRequest extends Model
     public $transitRouterAttachmentName;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $transitRouterVPCAttachmentOptions;
+    public $transitRouterVPCAttachmentOptionsShrink;
     protected $_name = [
-        'autoPublishRouteEnabled'            => 'AutoPublishRouteEnabled',
-        'clientToken'                        => 'ClientToken',
-        'dryRun'                             => 'DryRun',
-        'ownerAccount'                       => 'OwnerAccount',
-        'ownerId'                            => 'OwnerId',
-        'resourceOwnerAccount'               => 'ResourceOwnerAccount',
-        'resourceOwnerId'                    => 'ResourceOwnerId',
-        'transitRouterAttachmentDescription' => 'TransitRouterAttachmentDescription',
-        'transitRouterAttachmentId'          => 'TransitRouterAttachmentId',
-        'transitRouterAttachmentName'        => 'TransitRouterAttachmentName',
-        'transitRouterVPCAttachmentOptions'  => 'TransitRouterVPCAttachmentOptions',
+        'autoPublishRouteEnabled'                 => 'AutoPublishRouteEnabled',
+        'clientToken'                             => 'ClientToken',
+        'dryRun'                                  => 'DryRun',
+        'ownerAccount'                            => 'OwnerAccount',
+        'ownerId'                                 => 'OwnerId',
+        'resourceOwnerAccount'                    => 'ResourceOwnerAccount',
+        'resourceOwnerId'                         => 'ResourceOwnerId',
+        'transitRouterAttachmentDescription'      => 'TransitRouterAttachmentDescription',
+        'transitRouterAttachmentId'               => 'TransitRouterAttachmentId',
+        'transitRouterAttachmentName'             => 'TransitRouterAttachmentName',
+        'transitRouterVPCAttachmentOptionsShrink' => 'TransitRouterVPCAttachmentOptions',
     ];
 
     public function validate()
@@ -149,8 +149,8 @@ class UpdateTransitRouterVpcAttachmentAttributeRequest extends Model
         if (null !== $this->transitRouterAttachmentName) {
             $res['TransitRouterAttachmentName'] = $this->transitRouterAttachmentName;
         }
-        if (null !== $this->transitRouterVPCAttachmentOptions) {
-            $res['TransitRouterVPCAttachmentOptions'] = $this->transitRouterVPCAttachmentOptions;
+        if (null !== $this->transitRouterVPCAttachmentOptionsShrink) {
+            $res['TransitRouterVPCAttachmentOptions'] = $this->transitRouterVPCAttachmentOptionsShrink;
         }
 
         return $res;
@@ -159,7 +159,7 @@ class UpdateTransitRouterVpcAttachmentAttributeRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateTransitRouterVpcAttachmentAttributeRequest
+     * @return UpdateTransitRouterVpcAttachmentAttributeShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -195,7 +195,7 @@ class UpdateTransitRouterVpcAttachmentAttributeRequest extends Model
             $model->transitRouterAttachmentName = $map['TransitRouterAttachmentName'];
         }
         if (isset($map['TransitRouterVPCAttachmentOptions'])) {
-            $model->transitRouterVPCAttachmentOptions = $map['TransitRouterVPCAttachmentOptions'];
+            $model->transitRouterVPCAttachmentOptionsShrink = $map['TransitRouterVPCAttachmentOptions'];
         }
 
         return $model;

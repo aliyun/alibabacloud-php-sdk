@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class trafficMatchRules extends Model
 {
     /**
+     * @var string
+     */
+    public $addressFamily;
+
+    /**
      * @description The destination CIDR block that is used to match packets.
      *
      * Packets whose destination IP addresses fall into the specified destination CIDR block are considered a match. If you do not specify a destination CIDR block, packets are considered a match regardless of the destination IP address.
@@ -110,6 +115,7 @@ class trafficMatchRules extends Model
      */
     public $trafficMatchRuleName;
     protected $_name = [
+        'addressFamily'               => 'AddressFamily',
         'dstCidr'                     => 'DstCidr',
         'dstPortRange'                => 'DstPortRange',
         'matchDscp'                   => 'MatchDscp',
@@ -127,6 +133,9 @@ class trafficMatchRules extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addressFamily) {
+            $res['AddressFamily'] = $this->addressFamily;
+        }
         if (null !== $this->dstCidr) {
             $res['DstCidr'] = $this->dstCidr;
         }
@@ -163,6 +172,9 @@ class trafficMatchRules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddressFamily'])) {
+            $model->addressFamily = $map['AddressFamily'];
+        }
         if (isset($map['DstCidr'])) {
             $model->dstCidr = $map['DstCidr'];
         }

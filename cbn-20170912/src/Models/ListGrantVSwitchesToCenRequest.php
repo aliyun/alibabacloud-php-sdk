@@ -19,6 +19,11 @@ class ListGrantVSwitchesToCenRequest extends Model
     public $cenId;
 
     /**
+     * @var bool
+     */
+    public $enabledIpv6;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -90,6 +95,7 @@ class ListGrantVSwitchesToCenRequest extends Model
     public $zoneId;
     protected $_name = [
         'cenId'                => 'CenId',
+        'enabledIpv6'          => 'EnabledIpv6',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
@@ -110,6 +116,9 @@ class ListGrantVSwitchesToCenRequest extends Model
         $res = [];
         if (null !== $this->cenId) {
             $res['CenId'] = $this->cenId;
+        }
+        if (null !== $this->enabledIpv6) {
+            $res['EnabledIpv6'] = $this->enabledIpv6;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -152,6 +161,9 @@ class ListGrantVSwitchesToCenRequest extends Model
         $model = new self();
         if (isset($map['CenId'])) {
             $model->cenId = $map['CenId'];
+        }
+        if (isset($map['EnabledIpv6'])) {
+            $model->enabledIpv6 = $map['EnabledIpv6'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

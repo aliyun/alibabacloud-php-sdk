@@ -61,6 +61,7 @@ use AlibabaCloud\SDK\Cbn\V20170912\Models\CreateTransitRouterVbrAttachmentReques
 use AlibabaCloud\SDK\Cbn\V20170912\Models\CreateTransitRouterVbrAttachmentResponse;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\CreateTransitRouterVpcAttachmentRequest;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\CreateTransitRouterVpcAttachmentResponse;
+use AlibabaCloud\SDK\Cbn\V20170912\Models\CreateTransitRouterVpcAttachmentShrinkRequest;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\CreateTransitRouterVpnAttachmentRequest;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\CreateTransitRouterVpnAttachmentResponse;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\CreateTransitRouteTableAggregationRequest;
@@ -295,6 +296,7 @@ use AlibabaCloud\SDK\Cbn\V20170912\Models\UpdateTransitRouterVbrAttachmentAttrib
 use AlibabaCloud\SDK\Cbn\V20170912\Models\UpdateTransitRouterVbrAttachmentAttributeResponse;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\UpdateTransitRouterVpcAttachmentAttributeRequest;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\UpdateTransitRouterVpcAttachmentAttributeResponse;
+use AlibabaCloud\SDK\Cbn\V20170912\Models\UpdateTransitRouterVpcAttachmentAttributeShrinkRequest;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\UpdateTransitRouterVpcAttachmentZonesRequest;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\UpdateTransitRouterVpcAttachmentZonesResponse;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\UpdateTransitRouterVpnAttachmentAttributeRequest;
@@ -2858,14 +2860,19 @@ class Cbn extends OpenApiClient
      * *   To connect to a network instance that belongs to another Alibaba Cloud account, you must first acquire the required permissions from the account. For more information, see [Acquire permissions to connect to a network instance that belongs to another account](https://help.aliyun.com/document_detail/181553.html).
      * *   VPC connections incur fees. Take note of the billing rules of VPC connections before you create a VPC connection. For more information, see [Billing](https://help.aliyun.com/document_detail/189836.html).
      *  *
-     * @param CreateTransitRouterVpcAttachmentRequest $request CreateTransitRouterVpcAttachmentRequest
+     * @param CreateTransitRouterVpcAttachmentRequest $tmpReq  CreateTransitRouterVpcAttachmentRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
      * @return CreateTransitRouterVpcAttachmentResponse CreateTransitRouterVpcAttachmentResponse
      */
-    public function createTransitRouterVpcAttachmentWithOptions($request, $runtime)
+    public function createTransitRouterVpcAttachmentWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateTransitRouterVpcAttachmentShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->transitRouterVPCAttachmentOptions)) {
+            $request->transitRouterVPCAttachmentOptionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->transitRouterVPCAttachmentOptions, 'TransitRouterVPCAttachmentOptions', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->autoPublishRouteEnabled)) {
             $query['AutoPublishRouteEnabled'] = $request->autoPublishRouteEnabled;
@@ -2908,6 +2915,9 @@ class Cbn extends OpenApiClient
         }
         if (!Utils::isUnset($request->transitRouterId)) {
             $query['TransitRouterId'] = $request->transitRouterId;
+        }
+        if (!Utils::isUnset($request->transitRouterVPCAttachmentOptionsShrink)) {
+            $query['TransitRouterVPCAttachmentOptions'] = $request->transitRouterVPCAttachmentOptionsShrink;
         }
         if (!Utils::isUnset($request->vpcId)) {
             $query['VpcId'] = $request->vpcId;
@@ -6179,6 +6189,9 @@ class Cbn extends OpenApiClient
         if (!Utils::isUnset($request->childInstanceOwnerId)) {
             $query['ChildInstanceOwnerId'] = $request->childInstanceOwnerId;
         }
+        if (!Utils::isUnset($request->enabledIpv6)) {
+            $query['EnabledIpv6'] = $request->enabledIpv6;
+        }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
         }
@@ -7692,6 +7705,9 @@ class Cbn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->cenId)) {
             $query['CenId'] = $request->cenId;
+        }
+        if (!Utils::isUnset($request->enabledIpv6)) {
+            $query['EnabledIpv6'] = $request->enabledIpv6;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -12234,14 +12250,19 @@ class Cbn extends OpenApiClient
      * *   If a VPC connection is in the **Modifying** state, the VPC connection is being modified. You can query the VPC connection but cannot perform other operations.
      * *   If a VPC connection is in the **Attached** state, the VPC connection is modified.
      *  *
-     * @param UpdateTransitRouterVpcAttachmentAttributeRequest $request UpdateTransitRouterVpcAttachmentAttributeRequest
+     * @param UpdateTransitRouterVpcAttachmentAttributeRequest $tmpReq  UpdateTransitRouterVpcAttachmentAttributeRequest
      * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
      *
      * @return UpdateTransitRouterVpcAttachmentAttributeResponse UpdateTransitRouterVpcAttachmentAttributeResponse
      */
-    public function updateTransitRouterVpcAttachmentAttributeWithOptions($request, $runtime)
+    public function updateTransitRouterVpcAttachmentAttributeWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new UpdateTransitRouterVpcAttachmentAttributeShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->transitRouterVPCAttachmentOptions)) {
+            $request->transitRouterVPCAttachmentOptionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->transitRouterVPCAttachmentOptions, 'TransitRouterVPCAttachmentOptions', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->autoPublishRouteEnabled)) {
             $query['AutoPublishRouteEnabled'] = $request->autoPublishRouteEnabled;
@@ -12272,6 +12293,9 @@ class Cbn extends OpenApiClient
         }
         if (!Utils::isUnset($request->transitRouterAttachmentName)) {
             $query['TransitRouterAttachmentName'] = $request->transitRouterAttachmentName;
+        }
+        if (!Utils::isUnset($request->transitRouterVPCAttachmentOptionsShrink)) {
+            $query['TransitRouterVPCAttachmentOptions'] = $request->transitRouterVPCAttachmentOptionsShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

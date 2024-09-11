@@ -130,6 +130,11 @@ class transitRouterAttachments extends Model
     public $transitRouterId;
 
     /**
+     * @var string[]
+     */
+    public $transitRouterVPCAttachmentOptions;
+
+    /**
      * @description The VPC ID.
      *
      * @example vpc-bp1h8vbrbcgohcju5****
@@ -175,6 +180,7 @@ class transitRouterAttachments extends Model
         'transitRouterAttachmentId'          => 'TransitRouterAttachmentId',
         'transitRouterAttachmentName'        => 'TransitRouterAttachmentName',
         'transitRouterId'                    => 'TransitRouterId',
+        'transitRouterVPCAttachmentOptions'  => 'TransitRouterVPCAttachmentOptions',
         'vpcId'                              => 'VpcId',
         'vpcOwnerId'                         => 'VpcOwnerId',
         'vpcRegionId'                        => 'VpcRegionId',
@@ -229,6 +235,9 @@ class transitRouterAttachments extends Model
         }
         if (null !== $this->transitRouterId) {
             $res['TransitRouterId'] = $this->transitRouterId;
+        }
+        if (null !== $this->transitRouterVPCAttachmentOptions) {
+            $res['TransitRouterVPCAttachmentOptions'] = $this->transitRouterVPCAttachmentOptions;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -301,6 +310,9 @@ class transitRouterAttachments extends Model
         }
         if (isset($map['TransitRouterId'])) {
             $model->transitRouterId = $map['TransitRouterId'];
+        }
+        if (isset($map['TransitRouterVPCAttachmentOptions'])) {
+            $model->transitRouterVPCAttachmentOptions = $map['TransitRouterVPCAttachmentOptions'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

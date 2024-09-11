@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\SDK\Cbn\V20170912\Models\CreateTransitRouterVpcAttachmentRequest\tag;
-use AlibabaCloud\SDK\Cbn\V20170912\Models\CreateTransitRouterVpcAttachmentRequest\zoneMappings;
+use AlibabaCloud\SDK\Cbn\V20170912\Models\CreateTransitRouterVpcAttachmentShrinkRequest\tag;
+use AlibabaCloud\SDK\Cbn\V20170912\Models\CreateTransitRouterVpcAttachmentShrinkRequest\zoneMappings;
 use AlibabaCloud\Tea\Model;
 
-class CreateTransitRouterVpcAttachmentRequest extends Model
+class CreateTransitRouterVpcAttachmentShrinkRequest extends Model
 {
     /**
      * @description Specifies whether to enable the Enterprise Edition transit router to automatically advertise routes to VPCs. Valid values:
@@ -130,9 +130,9 @@ class CreateTransitRouterVpcAttachmentRequest extends Model
     public $transitRouterId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $transitRouterVPCAttachmentOptions;
+    public $transitRouterVPCAttachmentOptionsShrink;
 
     /**
      * @description The VPC ID.
@@ -162,24 +162,24 @@ class CreateTransitRouterVpcAttachmentRequest extends Model
      */
     public $zoneMappings;
     protected $_name = [
-        'autoPublishRouteEnabled'            => 'AutoPublishRouteEnabled',
-        'cenId'                              => 'CenId',
-        'chargeType'                         => 'ChargeType',
-        'clientToken'                        => 'ClientToken',
-        'dryRun'                             => 'DryRun',
-        'ownerAccount'                       => 'OwnerAccount',
-        'ownerId'                            => 'OwnerId',
-        'regionId'                           => 'RegionId',
-        'resourceOwnerAccount'               => 'ResourceOwnerAccount',
-        'resourceOwnerId'                    => 'ResourceOwnerId',
-        'tag'                                => 'Tag',
-        'transitRouterAttachmentDescription' => 'TransitRouterAttachmentDescription',
-        'transitRouterAttachmentName'        => 'TransitRouterAttachmentName',
-        'transitRouterId'                    => 'TransitRouterId',
-        'transitRouterVPCAttachmentOptions'  => 'TransitRouterVPCAttachmentOptions',
-        'vpcId'                              => 'VpcId',
-        'vpcOwnerId'                         => 'VpcOwnerId',
-        'zoneMappings'                       => 'ZoneMappings',
+        'autoPublishRouteEnabled'                 => 'AutoPublishRouteEnabled',
+        'cenId'                                   => 'CenId',
+        'chargeType'                              => 'ChargeType',
+        'clientToken'                             => 'ClientToken',
+        'dryRun'                                  => 'DryRun',
+        'ownerAccount'                            => 'OwnerAccount',
+        'ownerId'                                 => 'OwnerId',
+        'regionId'                                => 'RegionId',
+        'resourceOwnerAccount'                    => 'ResourceOwnerAccount',
+        'resourceOwnerId'                         => 'ResourceOwnerId',
+        'tag'                                     => 'Tag',
+        'transitRouterAttachmentDescription'      => 'TransitRouterAttachmentDescription',
+        'transitRouterAttachmentName'             => 'TransitRouterAttachmentName',
+        'transitRouterId'                         => 'TransitRouterId',
+        'transitRouterVPCAttachmentOptionsShrink' => 'TransitRouterVPCAttachmentOptions',
+        'vpcId'                                   => 'VpcId',
+        'vpcOwnerId'                              => 'VpcOwnerId',
+        'zoneMappings'                            => 'ZoneMappings',
     ];
 
     public function validate()
@@ -237,8 +237,8 @@ class CreateTransitRouterVpcAttachmentRequest extends Model
         if (null !== $this->transitRouterId) {
             $res['TransitRouterId'] = $this->transitRouterId;
         }
-        if (null !== $this->transitRouterVPCAttachmentOptions) {
-            $res['TransitRouterVPCAttachmentOptions'] = $this->transitRouterVPCAttachmentOptions;
+        if (null !== $this->transitRouterVPCAttachmentOptionsShrink) {
+            $res['TransitRouterVPCAttachmentOptions'] = $this->transitRouterVPCAttachmentOptionsShrink;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -262,7 +262,7 @@ class CreateTransitRouterVpcAttachmentRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateTransitRouterVpcAttachmentRequest
+     * @return CreateTransitRouterVpcAttachmentShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -316,7 +316,7 @@ class CreateTransitRouterVpcAttachmentRequest extends Model
             $model->transitRouterId = $map['TransitRouterId'];
         }
         if (isset($map['TransitRouterVPCAttachmentOptions'])) {
-            $model->transitRouterVPCAttachmentOptions = $map['TransitRouterVPCAttachmentOptions'];
+            $model->transitRouterVPCAttachmentOptionsShrink = $map['TransitRouterVPCAttachmentOptions'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

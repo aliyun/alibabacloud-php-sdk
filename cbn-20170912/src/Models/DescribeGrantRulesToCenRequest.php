@@ -37,6 +37,11 @@ class DescribeGrantRulesToCenRequest extends Model
     public $childInstanceOwnerId;
 
     /**
+     * @var bool
+     */
+    public $enabledIpv6;
+
+    /**
      * @description *   If you do not set **MaxResults**, it indicates that you do not need to query results in batches. The value of **MaxResults** in the response indicates the total number of entries returned.
      *   If you specify a value for **MaxResults**, it indicates that you need to query results in batches. The value of **MaxResults** indicates the number of entries to return in each batch. Valid values: **1** to **100**. The value of **MaxResults** in the response indicates the number of entries in the current batch. We recommend that you set **MaxResults** to **20**.
      *
@@ -106,6 +111,7 @@ class DescribeGrantRulesToCenRequest extends Model
         'cenId'                => 'CenId',
         'childInstanceId'      => 'ChildInstanceId',
         'childInstanceOwnerId' => 'ChildInstanceOwnerId',
+        'enabledIpv6'          => 'EnabledIpv6',
         'maxResults'           => 'MaxResults',
         'nextToken'            => 'NextToken',
         'ownerAccount'         => 'OwnerAccount',
@@ -131,6 +137,9 @@ class DescribeGrantRulesToCenRequest extends Model
         }
         if (null !== $this->childInstanceOwnerId) {
             $res['ChildInstanceOwnerId'] = $this->childInstanceOwnerId;
+        }
+        if (null !== $this->enabledIpv6) {
+            $res['EnabledIpv6'] = $this->enabledIpv6;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -176,6 +185,9 @@ class DescribeGrantRulesToCenRequest extends Model
         }
         if (isset($map['ChildInstanceOwnerId'])) {
             $model->childInstanceOwnerId = $map['ChildInstanceOwnerId'];
+        }
+        if (isset($map['EnabledIpv6'])) {
+            $model->enabledIpv6 = $map['EnabledIpv6'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
