@@ -60,6 +60,16 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\MobileOnlineTimeRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\MobileOnlineTimeResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ModifyDeviceInfoRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ModifyDeviceInfoResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Vehicle5ItemQueryRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Vehicle5ItemQueryResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\VehicleInsureQueryRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\VehicleInsureQueryResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\VehicleMetaVerifyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\VehicleMetaVerifyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\VehicleMetaVerifyV2Request;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\VehicleMetaVerifyV2Response;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\VehicleQueryRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\VehicleQueryResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\VerifyMaterialRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\VerifyMaterialResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
@@ -1885,6 +1895,292 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDeviceInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 车五项信息识别
+     *  *
+     * @param Vehicle5ItemQueryRequest $request Vehicle5ItemQueryRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return Vehicle5ItemQueryResponse Vehicle5ItemQueryResponse
+     */
+    public function vehicle5ItemQueryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->paramType)) {
+            $query['ParamType'] = $request->paramType;
+        }
+        if (!Utils::isUnset($request->vehicleNum)) {
+            $query['VehicleNum'] = $request->vehicleNum;
+        }
+        if (!Utils::isUnset($request->vehicleType)) {
+            $query['VehicleType'] = $request->vehicleType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Vehicle5ItemQuery',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return Vehicle5ItemQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 车五项信息识别
+     *  *
+     * @param Vehicle5ItemQueryRequest $request Vehicle5ItemQueryRequest
+     *
+     * @return Vehicle5ItemQueryResponse Vehicle5ItemQueryResponse
+     */
+    public function vehicle5ItemQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->vehicle5ItemQueryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 车辆投保日期查询
+     *  *
+     * @param VehicleInsureQueryRequest $request VehicleInsureQueryRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return VehicleInsureQueryResponse VehicleInsureQueryResponse
+     */
+    public function vehicleInsureQueryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->paramType)) {
+            $query['ParamType'] = $request->paramType;
+        }
+        if (!Utils::isUnset($request->vehicleNum)) {
+            $query['VehicleNum'] = $request->vehicleNum;
+        }
+        if (!Utils::isUnset($request->vehicleType)) {
+            $query['VehicleType'] = $request->vehicleType;
+        }
+        if (!Utils::isUnset($request->vin)) {
+            $query['Vin'] = $request->vin;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VehicleInsureQuery',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VehicleInsureQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 车辆投保日期查询
+     *  *
+     * @param VehicleInsureQueryRequest $request VehicleInsureQueryRequest
+     *
+     * @return VehicleInsureQueryResponse VehicleInsureQueryResponse
+     */
+    public function vehicleInsureQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->vehicleInsureQueryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 车辆要素核验
+     *  *
+     * @param VehicleMetaVerifyRequest $request VehicleMetaVerifyRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return VehicleMetaVerifyResponse VehicleMetaVerifyResponse
+     */
+    public function vehicleMetaVerifyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->identifyNum)) {
+            $query['IdentifyNum'] = $request->identifyNum;
+        }
+        if (!Utils::isUnset($request->paramType)) {
+            $query['ParamType'] = $request->paramType;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
+        if (!Utils::isUnset($request->vehicleNum)) {
+            $query['VehicleNum'] = $request->vehicleNum;
+        }
+        if (!Utils::isUnset($request->vehicleType)) {
+            $query['VehicleType'] = $request->vehicleType;
+        }
+        if (!Utils::isUnset($request->verifyMetaType)) {
+            $query['VerifyMetaType'] = $request->verifyMetaType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VehicleMetaVerify',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VehicleMetaVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 车辆要素核验
+     *  *
+     * @param VehicleMetaVerifyRequest $request VehicleMetaVerifyRequest
+     *
+     * @return VehicleMetaVerifyResponse VehicleMetaVerifyResponse
+     */
+    public function vehicleMetaVerify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->vehicleMetaVerifyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 车辆要素核验增强版
+     *  *
+     * @param VehicleMetaVerifyV2Request $request VehicleMetaVerifyV2Request
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return VehicleMetaVerifyV2Response VehicleMetaVerifyV2Response
+     */
+    public function vehicleMetaVerifyV2WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->identifyNum)) {
+            $query['IdentifyNum'] = $request->identifyNum;
+        }
+        if (!Utils::isUnset($request->paramType)) {
+            $query['ParamType'] = $request->paramType;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
+        if (!Utils::isUnset($request->vehicleNum)) {
+            $query['VehicleNum'] = $request->vehicleNum;
+        }
+        if (!Utils::isUnset($request->vehicleType)) {
+            $query['VehicleType'] = $request->vehicleType;
+        }
+        if (!Utils::isUnset($request->verifyMetaType)) {
+            $query['VerifyMetaType'] = $request->verifyMetaType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VehicleMetaVerifyV2',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VehicleMetaVerifyV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 车辆要素核验增强版
+     *  *
+     * @param VehicleMetaVerifyV2Request $request VehicleMetaVerifyV2Request
+     *
+     * @return VehicleMetaVerifyV2Response VehicleMetaVerifyV2Response
+     */
+    public function vehicleMetaVerifyV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->vehicleMetaVerifyV2WithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 车辆信息识别
+     *  *
+     * @param VehicleQueryRequest $request VehicleQueryRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return VehicleQueryResponse VehicleQueryResponse
+     */
+    public function vehicleQueryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->paramType)) {
+            $query['ParamType'] = $request->paramType;
+        }
+        if (!Utils::isUnset($request->vehicleNum)) {
+            $query['VehicleNum'] = $request->vehicleNum;
+        }
+        if (!Utils::isUnset($request->vehicleType)) {
+            $query['VehicleType'] = $request->vehicleType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VehicleQuery',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VehicleQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 车辆信息识别
+     *  *
+     * @param VehicleQueryRequest $request VehicleQueryRequest
+     *
+     * @return VehicleQueryResponse VehicleQueryResponse
+     */
+    public function vehicleQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->vehicleQueryWithOptions($request, $runtime);
     }
 
     /**
