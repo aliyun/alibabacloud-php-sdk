@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class relationalTableFilter extends Model
 {
     /**
+     * @example doc_id
+     *
      * @var string
      */
     public $collectionMetadataField;
 
     /**
+     * @example tags @> ARRAY[\\"art\\"]
+     *
      * @var string
      */
     public $condition;
 
     /**
+     * @example id
+     *
      * @var string
      */
     public $tableField;
 
     /**
+     * @example my_rds_table
+     *
      * @var string
      */
     public $tableName;

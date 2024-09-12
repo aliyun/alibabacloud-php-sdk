@@ -60,6 +60,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateStreamingJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateStreamingJobShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateVectorIndexRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateVectorIndexResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteAccountRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteAccountResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteCollectionDataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteCollectionDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteCollectionRequest;
@@ -230,6 +232,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\EnableDBResourceGroupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ExecuteStatementRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ExecuteStatementResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ExecuteStatementShrinkRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetAccountRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetAccountResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSecretValueRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSecretValueResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUploadDocumentJobRequest;
@@ -284,6 +288,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceDescriptionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceDescriptionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceMaintainTimeRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceMaintainTimeResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstancePayTypeRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstancePayTypeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceResourceGroupRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceResourceGroupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceSSLRequest;
@@ -329,6 +335,9 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\RebalanceDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\RebalanceDBInstanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ReleaseInstancePublicConnectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ReleaseInstancePublicConnectionResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\RerankRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\RerankResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\RerankShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetAccountPasswordRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetAccountPasswordResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetIMVMonitorDataRequest;
@@ -2341,6 +2350,56 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createVectorIndexWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除数据库账号
+     *  *
+     * @param DeleteAccountRequest $request DeleteAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteAccountResponse DeleteAccountResponse
+     */
+    public function deleteAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAccount',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除数据库账号
+     *  *
+     * @param DeleteAccountRequest $request DeleteAccountRequest
+     *
+     * @return DeleteAccountResponse DeleteAccountResponse
+     */
+    public function deleteAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAccountWithOptions($request, $runtime);
     }
 
     /**
@@ -7606,6 +7665,56 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @summary 获取特定的账号信息
+     *  *
+     * @param GetAccountRequest $request GetAccountRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAccountResponse GetAccountResponse
+     */
+    public function getAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAccount',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取特定的账号信息
+     *  *
+     * @param GetAccountRequest $request GetAccountRequest
+     *
+     * @return GetAccountResponse GetAccountResponse
+     */
+    public function getAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAccountWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the information about an access credential.
      *  *
      * @param GetSecretValueRequest $request GetSecretValueRequest
@@ -9278,6 +9387,62 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @summary 包年包月/按量付费转换改造
+     *  *
+     * @param ModifyDBInstancePayTypeRequest $request ModifyDBInstancePayTypeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyDBInstancePayTypeResponse ModifyDBInstancePayTypeResponse
+     */
+    public function modifyDBInstancePayTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->usedTime)) {
+            $query['UsedTime'] = $request->usedTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBInstancePayType',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBInstancePayTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 包年包月/按量付费转换改造
+     *  *
+     * @param ModifyDBInstancePayTypeRequest $request ModifyDBInstancePayTypeRequest
+     *
+     * @return ModifyDBInstancePayTypeResponse ModifyDBInstancePayTypeResponse
+     */
+    public function modifyDBInstancePayType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBInstancePayTypeWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Moves an AnalyticDB for PostgreSQL instance to a resource group.
      *  *
      * @description Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
@@ -9793,6 +9958,9 @@ class Gpdb extends OpenApiClient
     /**
      * @summary Enables or disables the SQL Explorer feature for an AnalyticDB for PostgreSQL instance.
      *  *
+     * @description *   You can call this operation only for AnalyticDB for PostgreSQL instances in reserved storage mode.
+     * *   You can call this operation only for AnalyticDB for PostgreSQL instances in Serverless automatic scheduling mode.
+     *  *
      * @param ModifySQLCollectorPolicyRequest $request ModifySQLCollectorPolicyRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -9828,6 +9996,9 @@ class Gpdb extends OpenApiClient
 
     /**
      * @summary Enables or disables the SQL Explorer feature for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description *   You can call this operation only for AnalyticDB for PostgreSQL instances in reserved storage mode.
+     * *   You can call this operation only for AnalyticDB for PostgreSQL instances in Serverless automatic scheduling mode.
      *  *
      * @param ModifySQLCollectorPolicyRequest $request ModifySQLCollectorPolicyRequest
      *
@@ -10715,6 +10886,84 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->releaseInstancePublicConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 通过模型对文档进行打分和重排序
+     *  *
+     * @param RerankRequest  $tmpReq  RerankRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RerankResponse RerankResponse
+     */
+    public function rerankWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RerankShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->documents)) {
+            $request->documentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documents, 'Documents', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->documentsShrink)) {
+            $body['Documents'] = $request->documentsShrink;
+        }
+        if (!Utils::isUnset($request->maxChunksPerDoc)) {
+            $body['MaxChunksPerDoc'] = $request->maxChunksPerDoc;
+        }
+        if (!Utils::isUnset($request->model)) {
+            $body['Model'] = $request->model;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $body['Query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->returnDocuments)) {
+            $body['ReturnDocuments'] = $request->returnDocuments;
+        }
+        if (!Utils::isUnset($request->topK)) {
+            $body['TopK'] = $request->topK;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'Rerank',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RerankResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 通过模型对文档进行打分和重排序
+     *  *
+     * @param RerankRequest $request RerankRequest
+     *
+     * @return RerankResponse RerankResponse
+     */
+    public function rerank($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rerankWithOptions($request, $runtime);
     }
 
     /**
