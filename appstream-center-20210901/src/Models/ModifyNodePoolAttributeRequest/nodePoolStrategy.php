@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class nodePoolStrategy extends Model
 {
     /**
+     * @var int
+     */
+    public $maxIdleAppInstanceAmount;
+
+    /**
      * @example 10
      *
      * @var int
@@ -86,6 +91,7 @@ class nodePoolStrategy extends Model
      */
     public $warmUp;
     protected $_name = [
+        'maxIdleAppInstanceAmount'    => 'MaxIdleAppInstanceAmount',
         'maxScalingAmount'            => 'MaxScalingAmount',
         'nodeAmount'                  => 'NodeAmount',
         'recurrenceSchedules'         => 'RecurrenceSchedules',
@@ -105,6 +111,9 @@ class nodePoolStrategy extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->maxIdleAppInstanceAmount) {
+            $res['MaxIdleAppInstanceAmount'] = $this->maxIdleAppInstanceAmount;
+        }
         if (null !== $this->maxScalingAmount) {
             $res['MaxScalingAmount'] = $this->maxScalingAmount;
         }
@@ -153,6 +162,9 @@ class nodePoolStrategy extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MaxIdleAppInstanceAmount'])) {
+            $model->maxIdleAppInstanceAmount = $map['MaxIdleAppInstanceAmount'];
+        }
         if (isset($map['MaxScalingAmount'])) {
             $model->maxScalingAmount = $map['MaxScalingAmount'];
         }
