@@ -7,12 +7,18 @@ namespace AlibabaCloud\SDK\Searchplat\V20240529;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateDocumentAnalyzeTaskRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateDocumentAnalyzeTaskResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateImageAnalyzeTaskRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateImageAnalyzeTaskResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetDocumentAnalyzeTaskStatusRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetDocumentAnalyzeTaskStatusResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetDocumentRankRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetDocumentRankResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetDocumentSplitRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetDocumentSplitResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetImageAnalyzeTaskStatusRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetImageAnalyzeTaskStatusResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetQueryAnalysisRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetQueryAnalysisResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextEmbeddingRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextEmbeddingResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextGenerationRequest;
@@ -37,7 +43,7 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 创建异步提取任务
+     * @summary 创建文档解析异步提取任务
      *  *
      * @param string                           $workspaceName
      * @param string                           $serviceId
@@ -77,7 +83,7 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 创建异步提取任务
+     * @summary 创建文档解析异步提取任务
      *  *
      * @param string                           $workspaceName
      * @param string                           $serviceId
@@ -94,7 +100,61 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 获取异步提取任务状态
+     * @summary 创建图片解析异步提取任务
+     *  *
+     * @param string                        $workspaceName
+     * @param string                        $serviceId
+     * @param CreateImageAnalyzeTaskRequest $request       CreateImageAnalyzeTaskRequest
+     * @param string[]                      $headers       map
+     * @param RuntimeOptions                $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return CreateImageAnalyzeTaskResponse CreateImageAnalyzeTaskResponse
+     */
+    public function createImageAnalyzeTaskWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->document)) {
+            $body['document'] = $request->document;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateImageAnalyzeTask',
+            'version'     => '2024-05-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v3/openapi/workspaces/' . $workspaceName . '/image-analyze/' . $serviceId . '/async',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateImageAnalyzeTaskResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建图片解析异步提取任务
+     *  *
+     * @param string                        $workspaceName
+     * @param string                        $serviceId
+     * @param CreateImageAnalyzeTaskRequest $request       CreateImageAnalyzeTaskRequest
+     *
+     * @return CreateImageAnalyzeTaskResponse CreateImageAnalyzeTaskResponse
+     */
+    public function createImageAnalyzeTask($workspaceName, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createImageAnalyzeTaskWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取文档解析异步提取任务状态
      *  *
      * @param string                              $workspaceName
      * @param string                              $serviceId
@@ -131,7 +191,7 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 获取异步提取任务状态
+     * @summary 获取文档解析异步提取任务状态
      *  *
      * @param string                              $workspaceName
      * @param string                              $serviceId
@@ -259,6 +319,120 @@ class Searchplat extends OpenApiClient
         $headers = [];
 
         return $this->getDocumentSplitWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取图片解析异步提取任务状态
+     *  *
+     * @param string                           $workspaceName
+     * @param string                           $serviceId
+     * @param GetImageAnalyzeTaskStatusRequest $request       GetImageAnalyzeTaskStatusRequest
+     * @param string[]                         $headers       map
+     * @param RuntimeOptions                   $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return GetImageAnalyzeTaskStatusResponse GetImageAnalyzeTaskStatusResponse
+     */
+    public function getImageAnalyzeTaskStatusWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $query['task_id'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetImageAnalyzeTaskStatus',
+            'version'     => '2024-05-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v3/openapi/workspaces/' . $workspaceName . '/image-analyze/' . $serviceId . '/async/task-status',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetImageAnalyzeTaskStatusResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取图片解析异步提取任务状态
+     *  *
+     * @param string                           $workspaceName
+     * @param string                           $serviceId
+     * @param GetImageAnalyzeTaskStatusRequest $request       GetImageAnalyzeTaskStatusRequest
+     *
+     * @return GetImageAnalyzeTaskStatusResponse GetImageAnalyzeTaskStatusResponse
+     */
+    public function getImageAnalyzeTaskStatus($workspaceName, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getImageAnalyzeTaskStatusWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取query分析结果
+     *  *
+     * @param string                  $workspaceName
+     * @param string                  $serviceId
+     * @param GetQueryAnalysisRequest $request       GetQueryAnalysisRequest
+     * @param string[]                $headers       map
+     * @param RuntimeOptions          $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return GetQueryAnalysisResponse GetQueryAnalysisResponse
+     */
+    public function getQueryAnalysisWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->functions)) {
+            $body['functions'] = $request->functions;
+        }
+        if (!Utils::isUnset($request->history)) {
+            $body['history'] = $request->history;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $body['query'] = $request->query;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetQueryAnalysis',
+            'version'     => '2024-05-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v3/openapi/workspaces/' . $workspaceName . '/query-analyze/' . $serviceId . '',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetQueryAnalysisResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取query分析结果
+     *  *
+     * @param string                  $workspaceName
+     * @param string                  $serviceId
+     * @param GetQueryAnalysisRequest $request       GetQueryAnalysisRequest
+     *
+     * @return GetQueryAnalysisResponse GetQueryAnalysisResponse
+     */
+    public function getQueryAnalysis($workspaceName, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getQueryAnalysisWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
     }
 
     /**
