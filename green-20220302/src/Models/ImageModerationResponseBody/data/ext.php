@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data;
 
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\customImage;
+use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\faceData;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\logoData;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\ocrResult;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\publicFigure;
@@ -20,6 +21,11 @@ class ext extends Model
      * @var customImage[]
      */
     public $customImage;
+
+    /**
+     * @var faceData[]
+     */
+    public $faceData;
 
     /**
      * @description Logo information.
@@ -57,6 +63,7 @@ class ext extends Model
     public $textInImage;
     protected $_name = [
         'customImage'  => 'CustomImage',
+        'faceData'     => 'FaceData',
         'logoData'     => 'LogoData',
         'ocrResult'    => 'OcrResult',
         'publicFigure' => 'PublicFigure',
@@ -77,6 +84,15 @@ class ext extends Model
                 $n = 0;
                 foreach ($this->customImage as $item) {
                     $res['CustomImage'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->faceData) {
+            $res['FaceData'] = [];
+            if (null !== $this->faceData && \is_array($this->faceData)) {
+                $n = 0;
+                foreach ($this->faceData as $item) {
+                    $res['FaceData'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -137,6 +153,15 @@ class ext extends Model
                 $n                  = 0;
                 foreach ($map['CustomImage'] as $item) {
                     $model->customImage[$n++] = null !== $item ? customImage::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['FaceData'])) {
+            if (!empty($map['FaceData'])) {
+                $model->faceData = [];
+                $n               = 0;
+                foreach ($map['FaceData'] as $item) {
+                    $model->faceData[$n++] = null !== $item ? faceData::fromMap($item) : $item;
                 }
             }
         }

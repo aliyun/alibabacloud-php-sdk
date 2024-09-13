@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody;
 
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody\data\pageResult;
+use AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody\data\pageSummary;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -35,6 +36,16 @@ class data extends Model
     public $pageResult;
 
     /**
+     * @var pageSummary
+     */
+    public $pageSummary;
+
+    /**
+     * @var string
+     */
+    public $riskLevel;
+
+    /**
      * @description The URL of the moderation object.
      *
      * @example https://detect-obj.oss-cn-hangzhou.aliyuncs.com/sample/xxxx.pdf
@@ -43,10 +54,12 @@ class data extends Model
      */
     public $url;
     protected $_name = [
-        'dataId'     => 'DataId',
-        'docType'    => 'DocType',
-        'pageResult' => 'PageResult',
-        'url'        => 'Url',
+        'dataId'      => 'DataId',
+        'docType'     => 'DocType',
+        'pageResult'  => 'PageResult',
+        'pageSummary' => 'PageSummary',
+        'riskLevel'   => 'RiskLevel',
+        'url'         => 'Url',
     ];
 
     public function validate()
@@ -70,6 +83,12 @@ class data extends Model
                     $res['PageResult'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageSummary) {
+            $res['PageSummary'] = null !== $this->pageSummary ? $this->pageSummary->toMap() : null;
+        }
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
@@ -100,6 +119,12 @@ class data extends Model
                     $model->pageResult[$n++] = null !== $item ? pageResult::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageSummary'])) {
+            $model->pageSummary = pageSummary::fromMap($map['PageSummary']);
+        }
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];

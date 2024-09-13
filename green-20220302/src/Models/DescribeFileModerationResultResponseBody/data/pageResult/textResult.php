@@ -27,6 +27,11 @@ class textResult extends Model
     public $labels;
 
     /**
+     * @var string
+     */
+    public $riskLevel;
+
+    /**
      * @description The risk details that are hit.
      *
      * @example xxx
@@ -73,6 +78,7 @@ class textResult extends Model
     protected $_name = [
         'description' => 'Description',
         'labels'      => 'Labels',
+        'riskLevel'   => 'RiskLevel',
         'riskTips'    => 'RiskTips',
         'riskWords'   => 'RiskWords',
         'service'     => 'Service',
@@ -92,6 +98,9 @@ class textResult extends Model
         }
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
+        }
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
         if (null !== $this->riskTips) {
             $res['RiskTips'] = $this->riskTips;
@@ -125,6 +134,9 @@ class textResult extends Model
         }
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
+        }
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
         if (isset($map['RiskTips'])) {
             $model->riskTips = $map['RiskTips'];

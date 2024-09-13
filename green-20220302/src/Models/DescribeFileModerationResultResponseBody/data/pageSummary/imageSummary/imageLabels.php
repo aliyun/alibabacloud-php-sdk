@@ -2,38 +2,30 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody\data\pageResult\imageResult;
+namespace AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody\data\pageSummary\imageSummary;
 
 use AlibabaCloud\Tea\Model;
 
-class labelResult extends Model
+class imageLabels extends Model
 {
-    /**
-     * @description Confidence score, 0 to 100, reserved to 2 decimal places.
-     *
-     * @example 25.0
-     *
-     * @var float
-     */
-    public $confidence;
-
     /**
      * @var string
      */
     public $description;
 
     /**
-     * @description The details of the labels.
-     *
-     * @example nonlabel
-     *
      * @var string
      */
     public $label;
+
+    /**
+     * @var int
+     */
+    public $labelSum;
     protected $_name = [
-        'confidence'  => 'Confidence',
         'description' => 'Description',
         'label'       => 'Label',
+        'labelSum'    => 'LabelSum',
     ];
 
     public function validate()
@@ -43,14 +35,14 @@ class labelResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->confidence) {
-            $res['Confidence'] = $this->confidence;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
         if (null !== $this->label) {
             $res['Label'] = $this->label;
+        }
+        if (null !== $this->labelSum) {
+            $res['LabelSum'] = $this->labelSum;
         }
 
         return $res;
@@ -59,19 +51,19 @@ class labelResult extends Model
     /**
      * @param array $map
      *
-     * @return labelResult
+     * @return imageLabels
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Confidence'])) {
-            $model->confidence = $map['Confidence'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
+        }
+        if (isset($map['LabelSum'])) {
+            $model->labelSum = $map['LabelSum'];
         }
 
         return $model;

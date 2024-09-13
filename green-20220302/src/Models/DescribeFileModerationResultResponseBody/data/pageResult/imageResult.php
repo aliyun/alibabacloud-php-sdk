@@ -34,6 +34,11 @@ class imageResult extends Model
     public $location;
 
     /**
+     * @var string
+     */
+    public $riskLevel;
+
+    /**
      * @description The moderation service.
      *
      * @example baselineCheck
@@ -45,6 +50,7 @@ class imageResult extends Model
         'description' => 'Description',
         'labelResult' => 'LabelResult',
         'location'    => 'Location',
+        'riskLevel'   => 'RiskLevel',
         'service'     => 'Service',
     ];
 
@@ -69,6 +75,9 @@ class imageResult extends Model
         }
         if (null !== $this->location) {
             $res['Location'] = null !== $this->location ? $this->location->toMap() : null;
+        }
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
         if (null !== $this->service) {
             $res['Service'] = $this->service;
@@ -99,6 +108,9 @@ class imageResult extends Model
         }
         if (isset($map['Location'])) {
             $model->location = location::fromMap($map['Location']);
+        }
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
         if (isset($map['Service'])) {
             $model->service = $map['Service'];
