@@ -1,3 +1,9 @@
+2024-09-13 Version: 2.9.0
+- Support API InsertWhiteListSetting.
+- Support API PageQueryWhiteListSetting.
+- Support API RemoveWhiteListSetting.
+
+
 2024-09-11 Version: 2.8.0
 - Support API Vehicle5ItemQuery.
 - Support API VehicleInsureQuery.

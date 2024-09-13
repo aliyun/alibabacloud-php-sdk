@@ -46,6 +46,8 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InitFaceVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InitFaceVerifyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InsertWhiteListSettingRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InsertWhiteListSettingResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\LivenessFaceVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\LivenessFaceVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Mobile3MetaDetailVerifyRequest;
@@ -60,6 +62,11 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\MobileOnlineTimeRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\MobileOnlineTimeResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ModifyDeviceInfoRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ModifyDeviceInfoResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\PageQueryWhiteListSettingRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\PageQueryWhiteListSettingResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\RemoveWhiteListSettingRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\RemoveWhiteListSettingResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\RemoveWhiteListSettingShrinkRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Vehicle5ItemQueryRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Vehicle5ItemQueryResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\VehicleInsureQueryRequest;
@@ -1497,6 +1504,68 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
+     * @summary 新增实人白名单
+     *  *
+     * @param InsertWhiteListSettingRequest $request InsertWhiteListSettingRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return InsertWhiteListSettingResponse InsertWhiteListSettingResponse
+     */
+    public function insertWhiteListSettingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certNo)) {
+            $query['CertNo'] = $request->certNo;
+        }
+        if (!Utils::isUnset($request->certifyId)) {
+            $query['CertifyId'] = $request->certifyId;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        if (!Utils::isUnset($request->serviceCode)) {
+            $query['ServiceCode'] = $request->serviceCode;
+        }
+        if (!Utils::isUnset($request->validDay)) {
+            $query['ValidDay'] = $request->validDay;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InsertWhiteListSetting',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InsertWhiteListSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新增实人白名单
+     *  *
+     * @param InsertWhiteListSettingRequest $request InsertWhiteListSettingRequest
+     *
+     * @return InsertWhiteListSettingResponse InsertWhiteListSettingResponse
+     */
+    public function insertWhiteListSetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->insertWhiteListSettingWithOptions($request, $runtime);
+    }
+
+    /**
      * @param LivenessFaceVerifyRequest $request LivenessFaceVerifyRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -1895,6 +1964,132 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDeviceInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 分页查询实人白名单配置
+     *  *
+     * @param PageQueryWhiteListSettingRequest $request PageQueryWhiteListSettingRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return PageQueryWhiteListSettingResponse PageQueryWhiteListSettingResponse
+     */
+    public function pageQueryWhiteListSettingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certNo)) {
+            $query['CertNo'] = $request->certNo;
+        }
+        if (!Utils::isUnset($request->certifyId)) {
+            $query['CertifyId'] = $request->certifyId;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        if (!Utils::isUnset($request->serviceCode)) {
+            $query['ServiceCode'] = $request->serviceCode;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->validEndDate)) {
+            $query['ValidEndDate'] = $request->validEndDate;
+        }
+        if (!Utils::isUnset($request->validStartDate)) {
+            $query['ValidStartDate'] = $request->validStartDate;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PageQueryWhiteListSetting',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PageQueryWhiteListSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 分页查询实人白名单配置
+     *  *
+     * @param PageQueryWhiteListSettingRequest $request PageQueryWhiteListSettingRequest
+     *
+     * @return PageQueryWhiteListSettingResponse PageQueryWhiteListSettingResponse
+     */
+    public function pageQueryWhiteListSetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pageQueryWhiteListSettingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除实人白名单
+     *  *
+     * @param RemoveWhiteListSettingRequest $tmpReq  RemoveWhiteListSettingRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RemoveWhiteListSettingResponse RemoveWhiteListSettingResponse
+     */
+    public function removeWhiteListSettingWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RemoveWhiteListSettingShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ids)) {
+            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->idsShrink)) {
+            $query['Ids'] = $request->idsShrink;
+        }
+        if (!Utils::isUnset($request->serviceCode)) {
+            $query['ServiceCode'] = $request->serviceCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveWhiteListSetting',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveWhiteListSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除实人白名单
+     *  *
+     * @param RemoveWhiteListSettingRequest $request RemoveWhiteListSettingRequest
+     *
+     * @return RemoveWhiteListSettingResponse RemoveWhiteListSettingResponse
+     */
+    public function removeWhiteListSetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeWhiteListSettingWithOptions($request, $runtime);
     }
 
     /**
