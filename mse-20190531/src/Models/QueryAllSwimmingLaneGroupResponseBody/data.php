@@ -78,6 +78,11 @@ class data extends Model
     public $region;
 
     /**
+     * @var int
+     */
+    public $swimVersion;
+
+    /**
      * @example 12345
      *
      * @var string
@@ -95,6 +100,7 @@ class data extends Model
         'paths'                  => 'Paths',
         'recordCanaryDetail'     => 'RecordCanaryDetail',
         'region'                 => 'Region',
+        'swimVersion'            => 'SwimVersion',
         'userId'                 => 'UserId',
     ];
 
@@ -137,6 +143,9 @@ class data extends Model
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+        if (null !== $this->swimVersion) {
+            $res['SwimVersion'] = $this->swimVersion;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -185,6 +194,9 @@ class data extends Model
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+        if (isset($map['SwimVersion'])) {
+            $model->swimVersion = $map['SwimVersion'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

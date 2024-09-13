@@ -88,6 +88,11 @@ class result extends Model
     public $domainNameList;
 
     /**
+     * @var bool
+     */
+    public $dynamicRoute;
+
+    /**
      * @description Indicates whether Web Application Firewall (WAF) is activated.
      *
      * @example false
@@ -241,6 +246,7 @@ class result extends Model
         'domainIdList'       => 'DomainIdList',
         'domainName'         => 'DomainName',
         'domainNameList'     => 'DomainNameList',
+        'dynamicRoute'       => 'DynamicRoute',
         'enableWaf'          => 'EnableWaf',
         'fallback'           => 'Fallback',
         'fallbackServices'   => 'FallbackServices',
@@ -293,6 +299,9 @@ class result extends Model
         }
         if (null !== $this->domainNameList) {
             $res['DomainNameList'] = $this->domainNameList;
+        }
+        if (null !== $this->dynamicRoute) {
+            $res['DynamicRoute'] = $this->dynamicRoute;
         }
         if (null !== $this->enableWaf) {
             $res['EnableWaf'] = $this->enableWaf;
@@ -399,6 +408,9 @@ class result extends Model
             if (!empty($map['DomainNameList'])) {
                 $model->domainNameList = $map['DomainNameList'];
             }
+        }
+        if (isset($map['DynamicRoute'])) {
+            $model->dynamicRoute = $map['DynamicRoute'];
         }
         if (isset($map['EnableWaf'])) {
             $model->enableWaf = $map['EnableWaf'];

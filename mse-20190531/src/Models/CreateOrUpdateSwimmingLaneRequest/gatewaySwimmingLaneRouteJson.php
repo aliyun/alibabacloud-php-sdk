@@ -18,6 +18,11 @@ class gatewaySwimmingLaneRouteJson extends Model
     public $canaryModel;
 
     /**
+     * @var string
+     */
+    public $condition;
+
+    /**
      * @description The matching conditions.
      *
      * @var conditions[]
@@ -67,6 +72,7 @@ class gatewaySwimmingLaneRouteJson extends Model
     public $routeIndependentPercentageList;
     protected $_name = [
         'canaryModel'                      => 'CanaryModel',
+        'condition'                        => 'Condition',
         'conditions'                       => 'Conditions',
         'gatewayId'                        => 'GatewayId',
         'gatewayUniqueId'                  => 'GatewayUniqueId',
@@ -85,6 +91,9 @@ class gatewaySwimmingLaneRouteJson extends Model
         $res = [];
         if (null !== $this->canaryModel) {
             $res['CanaryModel'] = $this->canaryModel;
+        }
+        if (null !== $this->condition) {
+            $res['Condition'] = $this->condition;
         }
         if (null !== $this->conditions) {
             $res['Conditions'] = [];
@@ -133,6 +142,9 @@ class gatewaySwimmingLaneRouteJson extends Model
         $model = new self();
         if (isset($map['CanaryModel'])) {
             $model->canaryModel = $map['CanaryModel'];
+        }
+        if (isset($map['Condition'])) {
+            $model->condition = $map['Condition'];
         }
         if (isset($map['Conditions'])) {
             if (!empty($map['Conditions'])) {

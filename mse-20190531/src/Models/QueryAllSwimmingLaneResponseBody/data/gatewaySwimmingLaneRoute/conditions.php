@@ -23,6 +23,11 @@ class conditions extends Model
     public $name;
 
     /**
+     * @var string[]
+     */
+    public $nameList;
+
+    /**
      * @example header
      *
      * @var string
@@ -36,10 +41,11 @@ class conditions extends Model
      */
     public $value;
     protected $_name = [
-        'cond'  => 'Cond',
-        'name'  => 'Name',
-        'type'  => 'Type',
-        'value' => 'Value',
+        'cond'     => 'Cond',
+        'name'     => 'Name',
+        'nameList' => 'NameList',
+        'type'     => 'Type',
+        'value'    => 'Value',
     ];
 
     public function validate()
@@ -54,6 +60,9 @@ class conditions extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->nameList) {
+            $res['NameList'] = $this->nameList;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -78,6 +87,11 @@ class conditions extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['NameList'])) {
+            if (!empty($map['NameList'])) {
+                $model->nameList = $map['NameList'];
+            }
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

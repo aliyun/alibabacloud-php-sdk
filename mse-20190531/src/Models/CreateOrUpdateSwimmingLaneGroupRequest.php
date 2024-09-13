@@ -132,6 +132,11 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
      * @var int
      */
     public $status;
+
+    /**
+     * @var int
+     */
+    public $swimVersion;
     protected $_name = [
         'acceptLanguage'         => 'AcceptLanguage',
         'appIds'                 => 'AppIds',
@@ -148,6 +153,7 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
         'region'                 => 'Region',
         'routeIds'               => 'RouteIds',
         'status'                 => 'Status',
+        'swimVersion'            => 'SwimVersion',
     ];
 
     public function validate()
@@ -201,6 +207,9 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->swimVersion) {
+            $res['SwimVersion'] = $this->swimVersion;
         }
 
         return $res;
@@ -262,6 +271,9 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['SwimVersion'])) {
+            $model->swimVersion = $map['SwimVersion'];
         }
 
         return $model;

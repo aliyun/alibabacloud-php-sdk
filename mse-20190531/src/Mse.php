@@ -49,6 +49,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyTagPoliciesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyTagPoliciesShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\BindSentinelBlockFallbackDefinitionRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\BindSentinelBlockFallbackDefinitionResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ChangeResourceGroupRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CloneNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CloneNacosConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CloneSentinelRuleFromAhasRequest;
@@ -1956,6 +1958,65 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @summary 资源转组
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     */
+    public function changeResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceRegionId)) {
+            $query['ResourceRegionId'] = $request->resourceRegionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeResourceGroup',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 资源转组
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     *
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     */
+    public function changeResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Clones an existing Nacos configuration from a namespace to another namespace.
      *  *
      * @description mse-200-105
@@ -3294,6 +3355,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->swimVersion)) {
+            $query['SwimVersion'] = $request->swimVersion;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
