@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description The tag key of the elastic container instance. You can specify 1 to 20 tags.
+     * @description The tag key of the elastic container instance.
      *
-     * You cannot specify an empty string as a tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+     * The tag key cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with `acs:` or `aliyun` or contain `http://` or `https://`.
      * @example version
      *
      * @var string
@@ -19,9 +19,9 @@ class tags extends Model
     public $key;
 
     /**
-     * @description The tag value of the elastic container instance. You can specify 1 to 20 tags.
+     * @description The tag value of the elastic container instance.
      *
-     * You can specify an empty string as a tag value. The tag value can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
+     * The tag value can be an empty string. The tag value can be up to 128 characters in length. It cannot start with `acs:` and cannot contain `http://` or `https://`.
      * @example 3
      *
      * @var string

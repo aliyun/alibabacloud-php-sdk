@@ -65,7 +65,7 @@ class volumes extends Model
     public $name;
 
     /**
-     * @description The type of the Host file or path. Examples: File, Directory, and Socket.
+     * @description The type of the Host directory. Examples: File, Directory, and Socket.
      *
      * @example ConfigFileVolume
      *

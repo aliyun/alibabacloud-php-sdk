@@ -1280,10 +1280,10 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Creates a scaling configuration of the Elastic Container Instance type. Auto Scaling uses the scaling configuration as a template to create elastic container instances to meet your business requirements during scale-outs.
+     * @summary Creates a scaling configuration of the Elastic Container Instance type. Auto Scaling uses the scaling configuration as a template to create elastic container instances to meet your business requirements during scale-out events.
      *  *
-     * @description A scaling configuration is a template that is used to create elastic container instances during scale-out activities.
-     * You can specify the Cpu and Memory parameters to determine the range of instance types. If you specify the parameters, Auto Scaling determines the available instance types based on factors such as I/O optimization requirements and zones. Auto Scaling preferentially creates elastic container instances of the instance type that is provided at the lowest price. This scaling mode is available only if Scaling Policy is set to Cost Optimization Policy and no instance type is specified in the scaling configuration.
+     * @description A scaling configuration is a template that is used to create elastic container instances during scale-out events.
+     * You can specify CPU and Memory to determine the range of instance types. Then, Auto Scaling determines the available instance types based on factors such as I/O optimization requirements and zones. Auto Scaling preferentially creates elastic container instances by using the lowest-priced instance type. This method applies only if you set Scaling Policy to Cost Optimization Policy and no instance type is specified in the scaling configuration.
      *  *
      * @param CreateEciScalingConfigurationRequest $request CreateEciScalingConfigurationRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -1460,10 +1460,10 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Creates a scaling configuration of the Elastic Container Instance type. Auto Scaling uses the scaling configuration as a template to create elastic container instances to meet your business requirements during scale-outs.
+     * @summary Creates a scaling configuration of the Elastic Container Instance type. Auto Scaling uses the scaling configuration as a template to create elastic container instances to meet your business requirements during scale-out events.
      *  *
-     * @description A scaling configuration is a template that is used to create elastic container instances during scale-out activities.
-     * You can specify the Cpu and Memory parameters to determine the range of instance types. If you specify the parameters, Auto Scaling determines the available instance types based on factors such as I/O optimization requirements and zones. Auto Scaling preferentially creates elastic container instances of the instance type that is provided at the lowest price. This scaling mode is available only if Scaling Policy is set to Cost Optimization Policy and no instance type is specified in the scaling configuration.
+     * @description A scaling configuration is a template that is used to create elastic container instances during scale-out events.
+     * You can specify CPU and Memory to determine the range of instance types. Then, Auto Scaling determines the available instance types based on factors such as I/O optimization requirements and zones. Auto Scaling preferentially creates elastic container instances by using the lowest-priced instance type. This method applies only if you set Scaling Policy to Cost Optimization Policy and no instance type is specified in the scaling configuration.
      *  *
      * @param CreateEciScalingConfigurationRequest $request CreateEciScalingConfigurationRequest
      *
@@ -2137,11 +2137,20 @@ class Ess extends OpenApiClient
         if (!Utils::isUnset($request->estimatedInstanceWarmup)) {
             $query['EstimatedInstanceWarmup'] = $request->estimatedInstanceWarmup;
         }
+        if (!Utils::isUnset($request->hybridMetrics)) {
+            $query['HybridMetrics'] = $request->hybridMetrics;
+        }
+        if (!Utils::isUnset($request->hybridMonitorNamespace)) {
+            $query['HybridMonitorNamespace'] = $request->hybridMonitorNamespace;
+        }
         if (!Utils::isUnset($request->initialMaxSize)) {
             $query['InitialMaxSize'] = $request->initialMaxSize;
         }
         if (!Utils::isUnset($request->metricName)) {
             $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->metricType)) {
+            $query['MetricType'] = $request->metricType;
         }
         if (!Utils::isUnset($request->minAdjustmentMagnitude)) {
             $query['MinAdjustmentMagnitude'] = $request->minAdjustmentMagnitude;
@@ -6470,11 +6479,20 @@ class Ess extends OpenApiClient
         if (!Utils::isUnset($request->estimatedInstanceWarmup)) {
             $query['EstimatedInstanceWarmup'] = $request->estimatedInstanceWarmup;
         }
+        if (!Utils::isUnset($request->hybridMetrics)) {
+            $query['HybridMetrics'] = $request->hybridMetrics;
+        }
+        if (!Utils::isUnset($request->hybridMonitorNamespace)) {
+            $query['HybridMonitorNamespace'] = $request->hybridMonitorNamespace;
+        }
         if (!Utils::isUnset($request->initialMaxSize)) {
             $query['InitialMaxSize'] = $request->initialMaxSize;
         }
         if (!Utils::isUnset($request->metricName)) {
             $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->metricType)) {
+            $query['MetricType'] = $request->metricType;
         }
         if (!Utils::isUnset($request->minAdjustmentMagnitude)) {
             $query['MinAdjustmentMagnitude'] = $request->minAdjustmentMagnitude;

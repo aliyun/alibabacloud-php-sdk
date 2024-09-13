@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class securityContextSysctls extends Model
 {
     /**
-     * @description The variable name of the security context in which the elastic container instance runs.
+     * @description The variable name of the security context in which the container group runs.
      *
      * @example kernel.msgmax
      *

@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class hostAliases extends Model
 {
     /**
-     * @description The hostname that you want to add.
+     * @description The hostnames of the containers that you want to add.
      *
      * @var string[]
      */
     public $hostnames;
 
     /**
-     * @description The IP address that you want to add.
+     * @description The IP address of the container that you want to add.
      *
      * @example 1.1.1.1
      *

@@ -30,14 +30,14 @@ class containers extends Model
     public $securityContext;
 
     /**
-     * @description The container startup arguments. You can specify up to 10 arguments.
+     * @description The startup arguments of the containers. You can specify up to 10 arguments.
      *
      * @var string[]
      */
     public $args;
 
     /**
-     * @description The commands that you want to run by using the CLI for liveness probing within the container.
+     * @description The commands that you can run by using a CLI to perform liveness probes within the container.
      *
      * @var string[]
      */
@@ -91,14 +91,14 @@ class containers extends Model
     public $imagePullPolicy;
 
     /**
-     * @description The commands that you want to run by using the CLI to configure the postStart callback function within the container.
+     * @description The commands that you can run by using a CLI to configure the postStart callback function within the container.
      *
      * @var string[]
      */
     public $lifecyclePostStartHandlerExecs;
 
     /**
-     * @description The IP address of the host to which you want to send HTTP GET requests to configure the postStart callback function.
+     * @description The IP address of the host to which you send an HTTP GET request to configure the postStart callback function.
      *
      * @example 10.0.XX.XX
      *
@@ -107,7 +107,7 @@ class containers extends Model
     public $lifecyclePostStartHandlerHttpGetHost;
 
     /**
-     * @description The path to which you want to send HTTP GET requests to configure the postStart callback function.
+     * @description The path to which you send an HTTP GET request to configure the postStart callback function.
      *
      * @example /healthyz
      *
@@ -116,7 +116,7 @@ class containers extends Model
     public $lifecyclePostStartHandlerHttpGetPath;
 
     /**
-     * @description The port over which you want to send HTTP GET requests to configure the postStart callback function.
+     * @description The port over which you send an HTTP GET request to configure the postStart callback function.
      *
      * @example 5050
      *
@@ -125,7 +125,7 @@ class containers extends Model
     public $lifecyclePostStartHandlerHttpGetPort;
 
     /**
-     * @description The protocol type of HTTP GET requests that you want to send to configure the postStart callback function. Valid values:
+     * @description The protocol type of the HTTP GET request that you send to configure the postStart callback function. Valid values:
      *
      *   HTTP
      *   HTTPS
@@ -137,7 +137,7 @@ class containers extends Model
     public $lifecyclePostStartHandlerHttpGetScheme;
 
     /**
-     * @description The IP address of the host detected by the TCP sockets that you want to use to configure the postStart callback function.
+     * @description The IP address of the host detected by the TCP socket that you use to configure the postStart callback function.
      *
      * @example 10.0.XX.XX
      *
@@ -146,7 +146,7 @@ class containers extends Model
     public $lifecyclePostStartHandlerTcpSocketHost;
 
     /**
-     * @description The port detected by the TCP sockets that you want to use to configure the postStart callback function.
+     * @description The port detected by the TCP socket that you use to configure the postStart callback function.
      *
      * @example 80
      *
@@ -155,14 +155,14 @@ class containers extends Model
     public $lifecyclePostStartHandlerTcpSocketPort;
 
     /**
-     * @description The commands that you want to run by using the CLI to configure the preStop callback function within the container.
+     * @description The commands that you can run by using a CLI to configure the preStop callback function within the container.
      *
      * @var string[]
      */
     public $lifecyclePreStopHandlerExecs;
 
     /**
-     * @description The IP address of the host to which you want to send HTTP GET requests to configure the preStop callback function.
+     * @description The IP address of the host to which you send an HTTP GET request to configure the preStop callback function.
      *
      * @example 10.0.XX.XX
      *
@@ -171,7 +171,7 @@ class containers extends Model
     public $lifecyclePreStopHandlerHttpGetHost;
 
     /**
-     * @description The path to which you want to send HTTP GET requests to configure the preStop callback function.
+     * @description The path to which you send an HTTP GET request to configure the preStop callback function.
      *
      * @example /healthyz
      *
@@ -180,7 +180,7 @@ class containers extends Model
     public $lifecyclePreStopHandlerHttpGetPath;
 
     /**
-     * @description The port over which you want to send HTTP GET requests to configure the preStop callback function.
+     * @description The port over which you send an HTTP GET request to configure the preStop callback function.
      *
      * @example 88
      *
@@ -189,7 +189,7 @@ class containers extends Model
     public $lifecyclePreStopHandlerHttpGetPort;
 
     /**
-     * @description The protocol type of the HTTP GET requests that you want to send to configure the preStop callback function. Valid values:
+     * @description The protocol type of the HTTP GET request that you send to configure the preStop callback function. Valid values:
      *
      *   HTTP
      *   HTTPS
@@ -201,7 +201,7 @@ class containers extends Model
     public $lifecyclePreStopHandlerHttpGetScheme;
 
     /**
-     * @description The IP address of the host detected by the TCP sockets that you want to use to configure the preStop callback function.
+     * @description The IP address of the host detected by the TCP socket that you use to configure the preStop callback function.
      *
      * @example 10.0.XX.XX
      *
@@ -210,7 +210,7 @@ class containers extends Model
     public $lifecyclePreStopHandlerTcpSocketHost;
 
     /**
-     * @description The port detected by the TCP sockets that you want to use to configure the preStop callback function.
+     * @description The port detected by the TCP socket that you use to configure the preStop callback function.
      *
      * @example 90
      *
@@ -254,9 +254,9 @@ class containers extends Model
     public $stdin;
 
     /**
-     * @description Specifies whether standard input streams remain connected during multiple sessions when StdinOnce is set to true.
+     * @description Specifies whether standard input streams remain connected during multiple sessions if Stdin is set to true.
      *
-     * If StdinOnce is set to true, standard input streams are connected after the container is started, and remain idle until a client is connected to receive data. After the client is disconnected, streams are also disconnected and remain disconnected until the container is restarted.
+     * If you set StdinOnce to true, standard input streams are connected after the container is started, and remain idle until a client is connected to receive data. After the client is disconnected, streams are also disconnected and remain disconnected until the container is restarted.
      * @example false
      *
      * @var bool

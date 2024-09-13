@@ -1,3 +1,14 @@
+2024-09-13 Version: 1.6.1
+- Update API CreateScalingRule: add param HybridMetrics.
+- Update API CreateScalingRule: add param HybridMonitorNamespace.
+- Update API CreateScalingRule: add param MetricType.
+- Update API DescribeAlarms: update response param.
+- Update API DescribeScalingRules: update response param.
+- Update API ModifyScalingRule: add param HybridMetrics.
+- Update API ModifyScalingRule: add param HybridMonitorNamespace.
+- Update API ModifyScalingRule: add param MetricType.
+
+
 2024-08-30 Version: 1.6.0
 - Support API CancelInstanceRefresh.
 - Support API DescribeInstanceRefreshes.

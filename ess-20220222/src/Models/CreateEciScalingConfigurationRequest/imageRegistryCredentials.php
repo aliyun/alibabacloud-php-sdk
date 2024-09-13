@@ -18,7 +18,7 @@ class imageRegistryCredentials extends Model
     public $password;
 
     /**
-     * @description The domain name of the image repository.
+     * @description The endpoint of the image repository.
      *
      * @example registry-vpc.cn-shanghai.aliyuncs.com
      *

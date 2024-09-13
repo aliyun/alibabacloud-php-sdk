@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingRuleRequest\alarmDimensions;
+use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingRuleRequest\hybridMetrics;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingRuleRequest\stepAdjustments;
 use AlibabaCloud\Tea\Model;
 
@@ -73,6 +74,16 @@ class ModifyScalingRuleRequest extends Model
     public $estimatedInstanceWarmup;
 
     /**
+     * @var hybridMetrics[]
+     */
+    public $hybridMetrics;
+
+    /**
+     * @var string
+     */
+    public $hybridMonitorNamespace;
+
+    /**
      * @description The maximum number of ECS instances that can be contained in the scaling group. If you specify InitialMaxSize, you must specify `PredictiveValueBehavior`.
      *
      * @example 100
@@ -105,6 +116,11 @@ class ModifyScalingRuleRequest extends Model
      * @var string
      */
     public $metricName;
+
+    /**
+     * @var string
+     */
+    public $metricType;
 
     /**
      * @description The minimum number of instances to scale. This parameter takes effect only if you create a simple scaling rule or step scaling rule and set `AdjustmentType` to `PercentChangeInCapacity`.
@@ -238,8 +254,11 @@ class ModifyScalingRuleRequest extends Model
         'cooldown'                 => 'Cooldown',
         'disableScaleIn'           => 'DisableScaleIn',
         'estimatedInstanceWarmup'  => 'EstimatedInstanceWarmup',
+        'hybridMetrics'            => 'HybridMetrics',
+        'hybridMonitorNamespace'   => 'HybridMonitorNamespace',
         'initialMaxSize'           => 'InitialMaxSize',
         'metricName'               => 'MetricName',
+        'metricType'               => 'MetricType',
         'minAdjustmentMagnitude'   => 'MinAdjustmentMagnitude',
         'ownerAccount'             => 'OwnerAccount',
         'ownerId'                  => 'OwnerId',
@@ -288,11 +307,26 @@ class ModifyScalingRuleRequest extends Model
         if (null !== $this->estimatedInstanceWarmup) {
             $res['EstimatedInstanceWarmup'] = $this->estimatedInstanceWarmup;
         }
+        if (null !== $this->hybridMetrics) {
+            $res['HybridMetrics'] = [];
+            if (null !== $this->hybridMetrics && \is_array($this->hybridMetrics)) {
+                $n = 0;
+                foreach ($this->hybridMetrics as $item) {
+                    $res['HybridMetrics'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->hybridMonitorNamespace) {
+            $res['HybridMonitorNamespace'] = $this->hybridMonitorNamespace;
+        }
         if (null !== $this->initialMaxSize) {
             $res['InitialMaxSize'] = $this->initialMaxSize;
         }
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
+        }
+        if (null !== $this->metricType) {
+            $res['MetricType'] = $this->metricType;
         }
         if (null !== $this->minAdjustmentMagnitude) {
             $res['MinAdjustmentMagnitude'] = $this->minAdjustmentMagnitude;
@@ -381,11 +415,26 @@ class ModifyScalingRuleRequest extends Model
         if (isset($map['EstimatedInstanceWarmup'])) {
             $model->estimatedInstanceWarmup = $map['EstimatedInstanceWarmup'];
         }
+        if (isset($map['HybridMetrics'])) {
+            if (!empty($map['HybridMetrics'])) {
+                $model->hybridMetrics = [];
+                $n                    = 0;
+                foreach ($map['HybridMetrics'] as $item) {
+                    $model->hybridMetrics[$n++] = null !== $item ? hybridMetrics::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['HybridMonitorNamespace'])) {
+            $model->hybridMonitorNamespace = $map['HybridMonitorNamespace'];
+        }
         if (isset($map['InitialMaxSize'])) {
             $model->initialMaxSize = $map['InitialMaxSize'];
         }
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
+        }
+        if (isset($map['MetricType'])) {
+            $model->metricType = $map['MetricType'];
         }
         if (isset($map['MinAdjustmentMagnitude'])) {
             $model->minAdjustmentMagnitude = $map['MinAdjustmentMagnitude'];

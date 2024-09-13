@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateEciScalingConfigurationResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 89945DD3-9072-47D0-A318-353284CF****
      *
@@ -18,7 +18,7 @@ class CreateEciScalingConfigurationResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the elastic container instance.
+     * @description The ID of the elastic container instance (container group).
      *
      * @example eci-uf6fonnghi50u374****
      *

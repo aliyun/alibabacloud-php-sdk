@@ -18,21 +18,21 @@ class initContainers extends Model
     public $securityContext;
 
     /**
-     * @description The arguments that correspond to the startup commands of the container. You can specify up to 10 arguments.
+     * @description The startup arguments of the init container. You can specify up to 10 arguments.
      *
      * @var string[]
      */
     public $args;
 
     /**
-     * @description The list of commands that you want to run to start the container.
+     * @description The startup commands of the init container.
      *
      * @var string[]
      */
     public $commands;
 
     /**
-     * @description The number of vCPUs that you want to allocate to the container.
+     * @description The number of vCPUs per init container.
      *
      * @example 0.5
      *
@@ -41,7 +41,7 @@ class initContainers extends Model
     public $cpu;
 
     /**
-     * @description The number of GPUs that you want to allocate to the container.
+     * @description The number of GPUs per init container.
      *
      * @example 1
      *
@@ -50,7 +50,7 @@ class initContainers extends Model
     public $gpu;
 
     /**
-     * @description The container image.
+     * @description The image of the init container.
      *
      * @example nginx
      *
@@ -75,21 +75,21 @@ class initContainers extends Model
     public $initContainerEnvironmentVars;
 
     /**
-     * @description The ports of the init container.
+     * @description The ports of init containers.
      *
      * @var initContainerPorts[]
      */
     public $initContainerPorts;
 
     /**
-     * @description Information about the volume mounts of the init container.
+     * @description The volume mounts of the init container.
      *
      * @var initContainerVolumeMounts[]
      */
     public $initContainerVolumeMounts;
 
     /**
-     * @description The size of the memory. Unit: GiB.
+     * @description The memory size per init container. Unit: GiB.
      *
      * @example 1.0
      *
@@ -98,7 +98,7 @@ class initContainers extends Model
     public $memory;
 
     /**
-     * @description The name of the container.
+     * @description The name of the init container.
      *
      * @example test-init
      *
@@ -107,7 +107,7 @@ class initContainers extends Model
     public $name;
 
     /**
-     * @description The working directory.
+     * @description The working directory of the init container.
      *
      * @example /usr/local
      *

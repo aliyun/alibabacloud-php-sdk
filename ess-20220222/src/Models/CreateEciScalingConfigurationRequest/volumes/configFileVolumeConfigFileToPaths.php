@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class configFileVolumeConfigFileToPaths extends Model
 {
     /**
-     * @description The content of the configuration file, which can be up to 32 KB in size.
+     * @description The content of the configuration file (32 KB).
      *
      * @example bGl1bWk=
      *
@@ -18,7 +18,7 @@ class configFileVolumeConfigFileToPaths extends Model
     public $content;
 
     /**
-     * @description The permissions on ConfigFileVolume.
+     * @description The permissions on the configuration file.
      *
      * @example 0644
      *
@@ -27,7 +27,7 @@ class configFileVolumeConfigFileToPaths extends Model
     public $mode;
 
     /**
-     * @description The name of the environment variable. The name must be 1 to 128 characters in length. Specify the name in the `[0-9a-zA-Z]` format. The name can contain underscores and cannot start with a digit.
+     * @description The name of the environment variable.
      *
      * @example PATH
      *

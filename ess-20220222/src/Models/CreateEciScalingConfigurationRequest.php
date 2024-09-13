@@ -18,14 +18,14 @@ use AlibabaCloud\Tea\Model;
 class CreateEciScalingConfigurationRequest extends Model
 {
     /**
-     * @description Information about the Container Registry Enterprise Edition instance.
+     * @description The Container Registry Enterprise Edition instances.
      *
      * @var acrRegistryInfos[]
      */
     public $acrRegistryInfos;
 
     /**
-     * @description The validity period. Unit: seconds.
+     * @description The validity period of the scaling configuration. Unit: seconds.
      *
      * @example 1000
      *
@@ -34,7 +34,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $activeDeadlineSeconds;
 
     /**
-     * @description Specifies whether to automatically create an elastic IP address (EIP) and bind the EIP to the elastic container instance.
+     * @description Specifies whether to automatically create elastic IP addresses (EIPs) and bind the EIPs to elastic container instances.
      *
      * @example true
      *
@@ -58,7 +58,7 @@ class CreateEciScalingConfigurationRequest extends Model
     /**
      * @description The name series of elastic container instances.
      *
-     * If you want to use an ordered container group name, specify the value for this parameter in the following format: name_prefix[begin_number,bits]name_suffix.
+     * If you want to use an ordered instance name, specify the value for this parameter in the following format: name_prefix[begin_number,bits]name_suffix.
      * @example nginx-test
      *
      * @var string
@@ -66,14 +66,14 @@ class CreateEciScalingConfigurationRequest extends Model
     public $containerGroupName;
 
     /**
-     * @description The containers per elastic container instance.
+     * @description The containers on the elastic container instance.
      *
      * @var containers[]
      */
     public $containers;
 
     /**
-     * @description Specifies whether to enable the cost optimization feature. Valid values:
+     * @description Specifies whether to enable the Cost Optimization feature. Valid values:
      *
      *   true
      *   false
@@ -85,7 +85,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $costOptimization;
 
     /**
-     * @description The number of vCPUs of the elastic container instance.
+     * @description The number of vCPUs per elastic container instance.
      *
      * @example 1.0
      *
@@ -94,7 +94,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $cpu;
 
     /**
-     * @description Number of physical CPU cores This parameter is not available for all instance types. For more information, see [Specify custom CPU options](https://help.aliyun.com/document_detail/197781.html).
+     * @description The number of physical CPU cores. You can specify this parameter for specific instance types. For more information, see [Specify CPU options](https://help.aliyun.com/document_detail/197781.html).
      *
      * @example 2
      *
@@ -103,7 +103,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $cpuOptionsCore;
 
     /**
-     * @description The number of threads per core. This parameter is not available for all instance types. A value of 1 indicates that Hyper-Threading is disabled. For more information, see [Specify custom CPU options](https://help.aliyun.com/document_detail/197781.html).
+     * @description The number of threads per core. You can specify this parameter for specific instance types. A value of 1 specifies that Hyper-Threading is disabled. For more information, see [Specify CPU options](https://help.aliyun.com/document_detail/197781.html).
      *
      * @example 2
      *
@@ -112,7 +112,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $cpuOptionsThreadsPerCore;
 
     /**
-     * @description The bucket that caches data.
+     * @description The bucket that you want to use to store data caches.
      *
      * @example default
      *
@@ -121,7 +121,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $dataCacheBucket;
 
     /**
-     * @description Specifies whether to enable the Performance Burst feature for the ESSD AutoPL disk that caches data. Valid values:
+     * @description Specifies whether to enable the performance burst feature when ESSD AutoPL disks are used to store data caches. Valid values:
      *
      *   true
      *   false
@@ -134,12 +134,12 @@ class CreateEciScalingConfigurationRequest extends Model
     public $dataCacheBurstingEnabled;
 
     /**
-     * @description The performance level (PL) of the cloud disk that caches disk. We recommend that you use enhanced SSDs (ESSDs). Valid values:
+     * @description The PL of the cloud disk that you want to use to store data caches. We recommend that you use ESSDs. Valid values:
      *
-     *   PL0: An ESSD can deliver up to 10,000 random read/write IOPS.
-     *   PL1: An ESSD can deliver up to 50,000 random read/write IOPS.
-     *   PL2: An ESSD can deliver up to 100,000 random read/write IOPS.
-     *   PL3: An ESSD can deliver up to 1,000,000 random read/write IOPS.
+     *   PL0: An ESSD can provide up to 10,000 random read/write IOPS.
+     *   PL1: An ESSD can provide up to 50,000 random read/write IOPS.
+     *   PL2: An ESSD can provide up to 100,000 random read/write IOPS.
+     *   PL3: An ESSD can provide up to 1,000,000 random read/write IOPS.
      *
      * >  For more information about ESSDs, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
      * @example PL1
@@ -149,7 +149,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $dataCachePL;
 
     /**
-     * @description The provisioned read/write IOPS of the ESSD AutoPL disk that caches data. Valid values: 0 to min{50,000, 1,000 × *Capacity - Baseline IOPS}. Baseline IOPS = min{1,800+50 x *Capacity, 50,000}.
+     * @description The provisioned IOPS of the ESSD AutoPL disk that you want to use to store data caches. Valid values: 0 to min{50,000, 1,000 × *Capacity - Baseline IOPS}. Baseline IOPS = min{1,800 + 50 × *Capacity, 50,000}.
      *
      * >  For more information about ESSD AutoPL disks, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * @example 40000
@@ -159,7 +159,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $dataCacheProvisionedIops;
 
     /**
-     * @description > This parameter is unavailable.
+     * @description >  This parameter is unavailable for use.
      *
      * @example desc
      *
@@ -175,14 +175,14 @@ class CreateEciScalingConfigurationRequest extends Model
     public $dnsConfigNameServers;
 
     /**
-     * @description The options. Each option is in the name-value pair format. The value in the name-value pair is optional.
+     * @description The options. Each option is a name-value pair. The value in the name-value pair is optional.
      *
      * @var dnsConfigOptions[]
      */
     public $dnsConfigOptions;
 
     /**
-     * @description The DNS lookup domains.
+     * @description The search domains of the DNS servers.
      *
      * @var string[]
      */
@@ -191,8 +191,8 @@ class CreateEciScalingConfigurationRequest extends Model
     /**
      * @description The Domain Name System (DNS) policy. Valid values:
      *
-     *   None: uses the DNS that is set for the DnsConfig field.
-     *   Default: use the DNS that is set for the runtime environment.
+     *   None: uses the DNS that is specified by DnsConfig.
+     *   Default: uses the DNS that is specified for the runtime environment.
      *
      * @example Default
      *
@@ -201,7 +201,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $dnsPolicy;
 
     /**
-     * @description The maximum outbound bandwidth. Unit: bytes.
+     * @description The maximum outbound bandwidth. Unit: bit/s.
      *
      * @example 1024000
      *
@@ -210,7 +210,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $egressBandwidth;
 
     /**
-     * @description The bandwidth of the EIP. Default value: 5 Mbit/s.
+     * @description The EIP bandwidth. Default value: 5. Unit: Mbit/s.
      *
      * @example 5
      *
@@ -219,7 +219,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $eipBandwidth;
 
     /**
-     * @description > This parameter is unavailable.
+     * @description >  This parameter is unavailable for use.
      *
      * @example false
      *
@@ -228,7 +228,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $enableSls;
 
     /**
-     * @description The size of the temporary storage space. By default, an ESSD of the PL1 type is used. Unit: GiB.
+     * @description The size of the temporary storage space. By default, an Enterprise SSD (ESSD) of performance level 1 (PL1) is used. Unit: GiB.
      *
      * @example 20
      *
@@ -237,14 +237,14 @@ class CreateEciScalingConfigurationRequest extends Model
     public $ephemeralStorage;
 
     /**
-     * @description The hostnames and IP addresses of a container that you want to add to the hosts file of the elastic container instance.
+     * @description The custom hostnames of the containers.
      *
      * @var hostAliases[]
      */
     public $hostAliases;
 
     /**
-     * @description The name of the elastic container instance.
+     * @description The hostname series of elastic container instances.
      *
      * @example test
      *
@@ -285,11 +285,11 @@ class CreateEciScalingConfigurationRequest extends Model
     public $initContainers;
 
     /**
-     * @description The level of the instance type, which is used to filter the instance types that meet the specified criteria. This parameter takes effect only if you set the `CostOptimization` parameter to true. Valid values:
+     * @description The level of the instance family. You can specify this parameter to match the available instance types. This parameter takes effect only if you set `CostOptimization` to true. Valid values:
      *
-     *   EntryLevel: shared instance type. Instances of this level are the most cost-effective but may not provide stable computing performance in a consistent manner. Instances of this level are suitable for business scenarios in which the CPU utilization is low. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
-     *   EnterpriseLevel: Instances of this level provide stable performance and dedicated resources, and are suitable for business scenarios that require high stability. For more information, see [Instance family](https://help.aliyun.com/document_detail/25378.html).
-     *   CreditEntryLevel: This value is valid only for burstable instances. CPU credits are used to ensure computing performance. Instances of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see the [Overview](https://help.aliyun.com/document_detail/59977.html) topic of burstable instances.
+     *   EntryLevel: entry level (shared instance types). Instance types of this level are the most cost-effective, but may not ensure stable computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
+     *   EnterpriseLevel: enterprise level. Instance types of this level provide stable performance and dedicated resources, and are suitable for business scenarios that require high stability. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
+     *   CreditEntryLevel: credit-based entry level (burstable instance types). CPU credits are used to ensure computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see [Overview](https://help.aliyun.com/document_detail/59977.html) of burstable instances.
      *
      * @example EnterpriseLevel
      *
@@ -298,6 +298,8 @@ class CreateEciScalingConfigurationRequest extends Model
     public $instanceFamilyLevel;
 
     /**
+     * @description The ECS instance types that you want to use to create elastic container instances. You can specify up to five ECS instance types.
+     *
      * @var string[]
      */
     public $instanceTypes;
@@ -312,7 +314,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $ipv6AddressCount;
 
     /**
-     * @description The weight of the elastic container instance as a backend server. Valid values: 1 to 100.
+     * @description The load balancing weight of each elastic container instance. Valid values: 1 to 100.
      *
      * Default value: 50.
      * @example 50
@@ -322,7 +324,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $loadBalancerWeight;
 
     /**
-     * @description The memory size of the elastic container instance. Unit: GiB.
+     * @description The memory size per elastic container instance. Unit: GiB.
      *
      * @example 2.0
      *
@@ -331,7 +333,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $memory;
 
     /**
-     * @description The domain name of the Network Time Protocol (NTP) server.
+     * @description The endpoints of the Network Time Protocol (NTP) servers.
      *
      * @var string[]
      */
@@ -343,7 +345,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $ownerId;
 
     /**
-     * @description The name of the RAM role for the elastic container instance. You can use an instance RAM role to access both elastic container instances and Elastic Compute Service (ECS) instances. For more information, see [Use an instance RAM role by calling API operations](https://help.aliyun.com/document_detail/61178.html).
+     * @description The name of the instance Resource Access Management (RAM) role. Elastic container instances and Elastic Compute Service (ECS) instances can share the same RAM role. For more information, see [Use an instance RAM role by calling API operations](https://help.aliyun.com/document_detail/61178.html).
      *
      * @example RamTestRole
      *
@@ -366,11 +368,11 @@ class CreateEciScalingConfigurationRequest extends Model
     public $resourceOwnerAccount;
 
     /**
-     * @description The restart policy of the elastic container instance. Valid values:
+     * @description The restart policy of elastic container instances. Valid values:
      *
-     *   Always: always restarts the elastic container instance.
-     *   Never: never restarts the elastic container instance.
-     *   OnFailure: restarts the elastic container instance upon failures.
+     *   Always: always restarts elastic container instances.
+     *   Never: never restarts elastic container instances.
+     *   OnFailure: restarts elastic container instances upon failures.
      *
      * Default value: Always.
      * @example Always
@@ -380,9 +382,9 @@ class CreateEciScalingConfigurationRequest extends Model
     public $restartPolicy;
 
     /**
-     * @description The name of the scaling configuration. The name must be 2 to 64 characters in length, and can contain letters, digits, underscores (_), hyphens (-), and periods (.). The name must start with a letter or a digit.
+     * @description The name of the scaling configuration. The name must be 2 to 64 characters in length and can contain letters, digits, underscores (_), hyphens (-), and periods (.). It must start with a letter or a digit.
      *
-     * The name of the scaling configuration must be unique within a scaling group in a region. If you do not specify this parameter, the value of the ScalingConfigurationId parameter is used.
+     * The name of the scaling configuration must be unique in a scaling group within a region. If you do not specify this parameter, the value of ScalingConfigurationId is used.
      * @example scalingconfig****
      *
      * @var string
@@ -390,7 +392,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $scalingConfigurationName;
 
     /**
-     * @description The ID of the scaling group in which you want to create the scaling configuration.
+     * @description The ID of the scaling group to which the scaling configuration belongs.
      *
      * This parameter is required.
      * @example asg-bp14wlu85wrpchm0****
@@ -407,9 +409,9 @@ class CreateEciScalingConfigurationRequest extends Model
     public $securityContextSysctls;
 
     /**
-     * @description The ID of the security group with which you want to associate the elastic container instance. Elastic container instances that are associated with the same security group can access each other.
+     * @description The ID of the security group to which elastic container instances belong. Elastic container instances that belong to the same security group can communicate with each other.
      *
-     * If you do not specify a security group, the system uses the default security group in the region that you selected. Make sure that the inbound rules of the security group contain the protocols and the port numbers of the containers that you want to expose. If you do not have a default security group in the region, the system creates a default security group, and then adds the declared container protocols and port numbers to the inbound rules of the security group.
+     * If you do not specify a security group, the system uses the default security group in the region that you selected. Make sure that the inbound rules of the security group contain the protocols and port numbers of the containers that you want to expose. If you do not have a default security group in the region, the system creates a default security group, and then adds the container protocols and port numbers that you specified to the inbound rules of the security group.
      * @example sg-uf66jeqopgqa9hdn****
      *
      * @var string
@@ -417,9 +419,9 @@ class CreateEciScalingConfigurationRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The maximum hourly price of the preemptible elastic container instance. The value can be accurate to three decimal places.
+     * @description The maximum hourly price of preemptible elastic container instances. The value can be accurate to three decimal places.
      *
-     * If you set the SpotStrategy parameter to SpotWithPriceLimit, you must also specify the SpotPriceLimit parameter.
+     * If you set SpotStrategy to SpotWithPriceLimit, you must specify SpotPriceLimit.
      * @example 0.025
      *
      * @var float
@@ -441,17 +443,17 @@ class CreateEciScalingConfigurationRequest extends Model
     public $spotStrategy;
 
     /**
-     * @description The tags of the elastic container instance. The tags must be specified in the key-value pair format. You can specify up to 20 tags. When you specify tag keys and tag values, take note of the following items:
+     * @description The tags of elastic container instances. Tags must be specified as key-value pairs. You can specify up to 20 tags for each elastic container instance. When you specify Key and Value, take note of the following items:
      *
-     *   A tag key can be up to 64 characters in length. The key cannot start with acs: or aliyun and cannot contain `http://` or `https://`. You cannot specify an empty string as a tag key.
-     *   A tag value can be up to 128 characters in length. The value cannot start with acs: or aliyun and cannot contain `http://` or `https://`. You can specify an empty string as a tag value.
+     *   A tag key can be up to 64 characters in length. The key cannot start with acs: or aliyun or contain `http://` or `https://`. You cannot specify an empty string as a tag key.
+     *   A tag value can be up to 128 characters in length. The value cannot start with acs: or aliyun or contain `http://` or `https://`. You can specify an empty string as a tag value.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The buffer time in which the program handles operations before the program is stopped. Unit: seconds.
+     * @description The buffer time during which a program handles operations before the program stops. Unit: seconds.
      *
      * @example 60
      *
@@ -460,7 +462,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $terminationGracePeriodSeconds;
 
     /**
-     * @description Information about the volumes.
+     * @description The volumes.
      *
      * @var volumes[]
      */

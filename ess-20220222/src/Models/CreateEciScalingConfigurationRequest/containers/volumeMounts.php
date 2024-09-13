@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class volumeMounts extends Model
 {
     /**
-     * @description The directory in which the container mounts the volume.
+     * @description The directory to which the container mounts the volume.
      *
-     * >  Data under this directory is overwritten by data on the volume. Specify this parameter with caution.
+     * >  Data in this directory is overwritten by data on the volume. Specify this parameter with caution.
      * @example /pod/data
      *
      * @var string
@@ -19,11 +19,11 @@ class volumeMounts extends Model
     public $mountPath;
 
     /**
-     * @description The mount propagation settings of the volume. Mount propagation enables volumes mounted on one container to be shared among other containers within the same pod or across distinct pods residing on the same node. Valid values:
+     * @description The mount propagation settings of the volume. Mount propagation enables volume sharing from one container to other containers within the same pod or to containers across separate pods on the same node. Valid values:
      *
-     *   None: Subsequent mounts executed either on the volume itself or its subdirectories do not propagate to the volume.
-     *   HostToCotainer: Subsequent mounts executed either on the volume itself or its subdirectories propagate to the volume.
-     *   Bidirectional: This value is similar to HostToCotainer. Subsequent mounts executed either on the volume itself or its subdirectories propagate to the volume. In addition, any volume mounts executed on the container not only propagate back to the underlying host but also to all containers across every pod that uses the same volume.
+     *   None: Subsequent mounts executed on the volume or its subdirectories do not propagate to the volume.
+     *   HostToCotainer: Subsequent mounts executed on the volume or its subdirectories propagate to the volume.
+     *   Bidirectional: This value is similar to HostToCotainer. Subsequent mounts executed on the volume or its subdirectories propagate to the volume. All volume mounts executed on the container not only propagate back to the underlying host but also to all containers across every pod that uses the same volume.
      *
      * Default value: None.
      * @example None
@@ -33,7 +33,7 @@ class volumeMounts extends Model
     public $mountPropagation;
 
     /**
-     * @description The volume name. The value of this parameter is the same as the value of Volumes.Name.
+     * @description The name of the volume. The value of this parameter is the same as the value of Volumes.Name.
      *
      * @example default-volume1
      *
@@ -55,7 +55,7 @@ class volumeMounts extends Model
     public $readOnly;
 
     /**
-     * @description The volume subdirectory.
+     * @description The subdirectory of the volume.
      *
      * @example data2/
      *

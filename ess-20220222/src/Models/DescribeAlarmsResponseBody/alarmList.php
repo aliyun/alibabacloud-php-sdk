@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeAlarmsResponseBody;
 
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeAlarmsResponseBody\alarmList\dimensions;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeAlarmsResponseBody\alarmList\expressions;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeAlarmsResponseBody\alarmList\hybridMetrics;
 use AlibabaCloud\Tea\Model;
 
 class alarmList extends Model
@@ -106,6 +107,16 @@ class alarmList extends Model
     public $expressionsLogicOperator;
 
     /**
+     * @var hybridMetrics[]
+     */
+    public $hybridMetrics;
+
+    /**
+     * @var string
+     */
+    public $hybridMonitorNamespace;
+
+    /**
      * @description The metric name. Valid values:
      *
      *   CpuUtilization: the CPU utilization of an Elastic Compute Service (ECS) instance. Unit: %.
@@ -179,6 +190,11 @@ class alarmList extends Model
     public $period;
 
     /**
+     * @var string
+     */
+    public $promQL;
+
+    /**
      * @description The ID of the scaling group to which the event-triggered task is associated.
      *
      * @example asg-bp18p2yfxow2dloq****
@@ -232,10 +248,13 @@ class alarmList extends Model
         'evaluationCount'          => 'EvaluationCount',
         'expressions'              => 'Expressions',
         'expressionsLogicOperator' => 'ExpressionsLogicOperator',
+        'hybridMetrics'            => 'HybridMetrics',
+        'hybridMonitorNamespace'   => 'HybridMonitorNamespace',
         'metricName'               => 'MetricName',
         'metricType'               => 'MetricType',
         'name'                     => 'Name',
         'period'                   => 'Period',
+        'promQL'                   => 'PromQL',
         'scalingGroupId'           => 'ScalingGroupId',
         'state'                    => 'State',
         'statistics'               => 'Statistics',
@@ -291,6 +310,18 @@ class alarmList extends Model
         if (null !== $this->expressionsLogicOperator) {
             $res['ExpressionsLogicOperator'] = $this->expressionsLogicOperator;
         }
+        if (null !== $this->hybridMetrics) {
+            $res['HybridMetrics'] = [];
+            if (null !== $this->hybridMetrics && \is_array($this->hybridMetrics)) {
+                $n = 0;
+                foreach ($this->hybridMetrics as $item) {
+                    $res['HybridMetrics'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->hybridMonitorNamespace) {
+            $res['HybridMonitorNamespace'] = $this->hybridMonitorNamespace;
+        }
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
         }
@@ -302,6 +333,9 @@ class alarmList extends Model
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
+        }
+        if (null !== $this->promQL) {
+            $res['PromQL'] = $this->promQL;
         }
         if (null !== $this->scalingGroupId) {
             $res['ScalingGroupId'] = $this->scalingGroupId;
@@ -371,6 +405,18 @@ class alarmList extends Model
         if (isset($map['ExpressionsLogicOperator'])) {
             $model->expressionsLogicOperator = $map['ExpressionsLogicOperator'];
         }
+        if (isset($map['HybridMetrics'])) {
+            if (!empty($map['HybridMetrics'])) {
+                $model->hybridMetrics = [];
+                $n                    = 0;
+                foreach ($map['HybridMetrics'] as $item) {
+                    $model->hybridMetrics[$n++] = null !== $item ? hybridMetrics::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['HybridMonitorNamespace'])) {
+            $model->hybridMonitorNamespace = $map['HybridMonitorNamespace'];
+        }
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
         }
@@ -382,6 +428,9 @@ class alarmList extends Model
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
+        }
+        if (isset($map['PromQL'])) {
+            $model->promQL = $map['PromQL'];
         }
         if (isset($map['ScalingGroupId'])) {
             $model->scalingGroupId = $map['ScalingGroupId'];
