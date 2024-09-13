@@ -21,6 +21,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMeetingRoomsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMeetingRoomsResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMeetingRoomsShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMeetingRoomsShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddRecordPermissionHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddRecordPermissionRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddRecordPermissionResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddRecordPermissionShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddRecordPermissionShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddScenegroupMemberHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddScenegroupMemberRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddScenegroupMemberResponse;
@@ -489,6 +494,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdByOrgIdAndStaffIdHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdByOrgIdAndStaffIdRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdByOrgIdAndStaffIdResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdByOrgIdAndStaffIdShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdByOrgIdAndStaffIdShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdResponse;
@@ -593,6 +603,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTeamsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTeamsResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTeamsShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTeamsShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTemplateHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTemplateRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTemplateResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTemplateShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTemplateShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListWorkspacesHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListWorkspacesResponse;
@@ -692,6 +707,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgTodoTasksRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgTodoTasksResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgTodoTasksShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgTodoTasksShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryRecordMinutesUrlHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryRecordMinutesUrlRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryRecordMinutesUrlResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryRecordMinutesUrlShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryRecordMinutesUrlShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryReportDetailHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryReportDetailRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryReportDetailResponse;
@@ -1200,6 +1220,82 @@ class Aliding extends OpenApiClient
         $headers = new AddMeetingRoomsHeaders([]);
 
         return $this->addMeetingRoomsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 添加闪记权限
+     *  *
+     * @param AddRecordPermissionRequest $tmpReq    AddRecordPermissionRequest
+     * @param AddRecordPermissionHeaders $tmpHeader AddRecordPermissionHeaders
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return AddRecordPermissionResponse AddRecordPermissionResponse
+     */
+    public function addRecordPermissionWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AddRecordPermissionShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new AddRecordPermissionShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->bizType)) {
+            $body['BizType'] = $request->bizType;
+        }
+        if (!Utils::isUnset($request->conferenceId)) {
+            $body['ConferenceId'] = $request->conferenceId;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddRecordPermission',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/ysp/addRecordPermission',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddRecordPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 添加闪记权限
+     *  *
+     * @param AddRecordPermissionRequest $request AddRecordPermissionRequest
+     *
+     * @return AddRecordPermissionResponse AddRecordPermissionResponse
+     */
+    public function addRecordPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new AddRecordPermissionHeaders([]);
+
+        return $this->addRecordPermissionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -9225,6 +9321,76 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @summary 根据orgId和staffId获取用户userId
+     *  *
+     * @param GetUserIdByOrgIdAndStaffIdRequest $tmpReq    GetUserIdByOrgIdAndStaffIdRequest
+     * @param GetUserIdByOrgIdAndStaffIdHeaders $tmpHeader GetUserIdByOrgIdAndStaffIdHeaders
+     * @param RuntimeOptions                    $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetUserIdByOrgIdAndStaffIdResponse GetUserIdByOrgIdAndStaffIdResponse
+     */
+    public function getUserIdByOrgIdAndStaffIdWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetUserIdByOrgIdAndStaffIdShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetUserIdByOrgIdAndStaffIdShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->orgId)) {
+            $body['OrgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserIdByOrgIdAndStaffId',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/im/getUserIdByOrgIdAndStaffId',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserIdByOrgIdAndStaffIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据orgId和staffId获取用户userId
+     *  *
+     * @param GetUserIdByOrgIdAndStaffIdRequest $request GetUserIdByOrgIdAndStaffIdRequest
+     *
+     * @return GetUserIdByOrgIdAndStaffIdResponse GetUserIdByOrgIdAndStaffIdResponse
+     */
+    public function getUserIdByOrgIdAndStaffId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetUserIdByOrgIdAndStaffIdHeaders([]);
+
+        return $this->getUserIdByOrgIdAndStaffIdWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取用户最新的有效的专属账号迁移方案
      *  *
      * @param GetUserLatestPlanRequest $tmpReq    GetUserLatestPlanRequest
@@ -10801,6 +10967,85 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @summary 查询文档模板
+     *  *
+     * @param ListTemplateRequest $tmpReq    ListTemplateRequest
+     * @param ListTemplateHeaders $tmpHeader ListTemplateHeaders
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ListTemplateResponse ListTemplateResponse
+     */
+    public function listTemplateWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new ListTemplateShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $body['TemplateType'] = $request->templateType;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTemplate',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/documents/listTemplate',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询文档模板
+     *  *
+     * @param ListTemplateRequest $request ListTemplateRequest
+     *
+     * @return ListTemplateResponse ListTemplateResponse
+     */
+    public function listTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListTemplateHeaders([]);
+
+        return $this->listTemplateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取知识库列表
      *  *
      * @param ListWorkspacesRequest $tmpReq    ListWorkspacesRequest
@@ -12322,6 +12567,79 @@ class Aliding extends OpenApiClient
         $headers = new QueryOrgTodoTasksHeaders([]);
 
         return $this->queryOrgTodoTasksWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询闪记的链接，可通过链接查看闪记内容
+     *  *
+     * @param QueryRecordMinutesUrlRequest $tmpReq    QueryRecordMinutesUrlRequest
+     * @param QueryRecordMinutesUrlHeaders $tmpHeader QueryRecordMinutesUrlHeaders
+     * @param RuntimeOptions               $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return QueryRecordMinutesUrlResponse QueryRecordMinutesUrlResponse
+     */
+    public function queryRecordMinutesUrlWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryRecordMinutesUrlShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new QueryRecordMinutesUrlShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->bizType)) {
+            $body['BizType'] = $request->bizType;
+        }
+        if (!Utils::isUnset($request->conferenceId)) {
+            $body['ConferenceId'] = $request->conferenceId;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryRecordMinutesUrl',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/ysp/queryRecordMinutesUrl',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryRecordMinutesUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询闪记的链接，可通过链接查看闪记内容
+     *  *
+     * @param QueryRecordMinutesUrlRequest $request QueryRecordMinutesUrlRequest
+     *
+     * @return QueryRecordMinutesUrlResponse QueryRecordMinutesUrlResponse
+     */
+    public function queryRecordMinutesUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new QueryRecordMinutesUrlHeaders([]);
+
+        return $this->queryRecordMinutesUrlWithOptions($request, $headers, $runtime);
     }
 
     /**
