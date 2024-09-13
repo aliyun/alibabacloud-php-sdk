@@ -264,6 +264,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ReleaseProjectRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ReleaseProjectResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ReleaseWorkerInstanceRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ReleaseWorkerInstanceResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\RemoveStandbyInstanceRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\RemoveStandbyInstanceResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ResumeProjectRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ResumeProjectResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\RetryProjectModifyRecordsRequest;
@@ -7761,6 +7763,59 @@ class OceanBasePro extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->releaseWorkerInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 备实例解耦
+     *  *
+     * @param RemoveStandbyInstanceRequest $request RemoveStandbyInstanceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RemoveStandbyInstanceResponse RemoveStandbyInstanceResponse
+     */
+    public function removeStandbyInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->forced)) {
+            $body['Forced'] = $request->forced;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->targetInstanceId)) {
+            $body['TargetInstanceId'] = $request->targetInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveStandbyInstance',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveStandbyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 备实例解耦
+     *  *
+     * @param RemoveStandbyInstanceRequest $request RemoveStandbyInstanceRequest
+     *
+     * @return RemoveStandbyInstanceResponse RemoveStandbyInstanceResponse
+     */
+    public function removeStandbyInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeStandbyInstanceWithOptions($request, $runtime);
     }
 
     /**
