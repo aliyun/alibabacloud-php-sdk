@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Supportplan\V20210706\Models;
 
+use AlibabaCloud\SDK\Supportplan\V20210706\Models\ListEnterpriseDingtalkGroupCustomerMembersResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
 class ListEnterpriseDingtalkGroupCustomerMembersResponseBody extends Model
@@ -16,7 +17,7 @@ class ListEnterpriseDingtalkGroupCustomerMembersResponseBody extends Model
     public $code;
 
     /**
-     * @var EnterpriseDingtalkGroupMember[]
+     * @var data[]
      */
     public $data;
 
@@ -96,7 +97,7 @@ class ListEnterpriseDingtalkGroupCustomerMembersResponseBody extends Model
                 $model->data = [];
                 $n           = 0;
                 foreach ($map['Data'] as $item) {
-                    $model->data[$n++] = null !== $item ? EnterpriseDingtalkGroupMember::fromMap($item) : $item;
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }
             }
         }

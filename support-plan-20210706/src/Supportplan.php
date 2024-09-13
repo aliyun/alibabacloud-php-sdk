@@ -134,29 +134,23 @@ class Supportplan extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->customerRealName)) {
-            $query['CustomerRealName'] = $request->customerRealName;
+        if (!Utils::isUnset($request->createUserId)) {
+            $query['CreateUserId'] = $request->createUserId;
         }
-        if (!Utils::isUnset($request->customerUserId)) {
-            $query['CustomerUserId'] = $request->customerUserId;
-        }
-        if (!Utils::isUnset($request->importantDescription)) {
-            $query['ImportantDescription'] = $request->importantDescription;
-        }
-        if (!Utils::isUnset($request->isImportant)) {
-            $query['IsImportant'] = $request->isImportant;
+        if (!Utils::isUnset($request->isUrgent)) {
+            $query['IsUrgent'] = $request->isUrgent;
         }
         if (!Utils::isUnset($request->openGroupId)) {
             $query['OpenGroupId'] = $request->openGroupId;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->overview)) {
+            $query['Overview'] = $request->overview;
         }
-        if (!Utils::isUnset($request->productTypeName)) {
-            $query['ProductTypeName'] = $request->productTypeName;
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->taskTitle)) {
-            $query['TaskTitle'] = $request->taskTitle;
+        if (!Utils::isUnset($request->urgentDescription)) {
+            $query['UrgentDescription'] = $request->urgentDescription;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -436,35 +430,23 @@ class Supportplan extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->callerParentId)) {
-            $query['CallerParentId'] = $request->callerParentId;
-        }
-        if (!Utils::isUnset($request->callerType)) {
-            $query['CallerType'] = $request->callerType;
-        }
-        if (!Utils::isUnset($request->callerUid)) {
-            $query['CallerUid'] = $request->callerUid;
-        }
         if (!Utils::isUnset($request->createRealName)) {
             $query['CreateRealName'] = $request->createRealName;
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
+        if (!Utils::isUnset($request->isUrgent)) {
+            $query['IsUrgent'] = $request->isUrgent;
+        }
         if (!Utils::isUnset($request->openGroupId)) {
             $query['OpenGroupId'] = $request->openGroupId;
-        }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
         }
         if (!Utils::isUnset($request->pageNo)) {
             $query['PageNo'] = $request->pageNo;
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->requestId)) {
-            $query['RequestId'] = $request->requestId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -515,12 +497,12 @@ class Supportplan extends OpenApiClient
     public function listEnterpriseDingtalkGroupCustomerMembersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $query = [];
         if (!Utils::isUnset($request->openGroupId)) {
-            $body['OpenGroupId'] = $request->openGroupId;
+            $query['OpenGroupId'] = $request->openGroupId;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListEnterpriseDingtalkGroupCustomerMembers',

@@ -11,7 +11,7 @@ class ListEnterpriseDingtalkGroupCustomerMembersRequest extends Model
     /**
      * @description This parameter is required.
      *
-     * @example 123
+     * @example DAWNN14N
      *
      * @var string
      */

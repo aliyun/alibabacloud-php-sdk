@@ -9,34 +9,18 @@ use AlibabaCloud\Tea\Model;
 class CreateTaskOrderRequest extends Model
 {
     /**
-     * @example 建单人姓名：快手客户
+     * @description This parameter is required.
      *
-     * @var string
-     */
-    public $customerRealName;
-
-    /**
      * @example 123
      *
      * @var string
      */
-    public $customerUserId;
+    public $createUserId;
 
     /**
-     * @example 重要性描述
-     *
-     * @var string
+     * @var bool
      */
-    public $importantDescription;
-
-    /**
-     * @description This parameter is required.
-     *
-     * @example 如:normal或者hurry
-     *
-     * @var string
-     */
-    public $isImportant;
+    public $isUrgent;
 
     /**
      * @description This parameter is required.
@@ -48,40 +32,36 @@ class CreateTaskOrderRequest extends Model
     public $openGroupId;
 
     /**
-     * @description productType
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     * @example 3270
-     *
-     * @var string
-     */
-    public $productType;
-
-    /**
-     * @example lc-云享咨询
-     *
-     * @var string
-     */
-    public $productTypeName;
-
-    /**
-     * @description taskTitle
-     *
-     * This parameter is required.
      * @example 任务单标题：必填
      *
      * @var string
      */
-    public $taskTitle;
+    public $overview;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example ecs
+     *
+     * @var string
+     */
+    public $productCode;
+
+    /**
+     * @example 重要性描述
+     *
+     * @var string
+     */
+    public $urgentDescription;
     protected $_name = [
-        'customerRealName'     => 'CustomerRealName',
-        'customerUserId'       => 'CustomerUserId',
-        'importantDescription' => 'ImportantDescription',
-        'isImportant'          => 'IsImportant',
-        'openGroupId'          => 'OpenGroupId',
-        'productType'          => 'ProductType',
-        'productTypeName'      => 'ProductTypeName',
-        'taskTitle'            => 'TaskTitle',
+        'createUserId'      => 'CreateUserId',
+        'isUrgent'          => 'IsUrgent',
+        'openGroupId'       => 'OpenGroupId',
+        'overview'          => 'Overview',
+        'productCode'       => 'ProductCode',
+        'urgentDescription' => 'UrgentDescription',
     ];
 
     public function validate()
@@ -91,29 +71,23 @@ class CreateTaskOrderRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->customerRealName) {
-            $res['CustomerRealName'] = $this->customerRealName;
+        if (null !== $this->createUserId) {
+            $res['CreateUserId'] = $this->createUserId;
         }
-        if (null !== $this->customerUserId) {
-            $res['CustomerUserId'] = $this->customerUserId;
-        }
-        if (null !== $this->importantDescription) {
-            $res['ImportantDescription'] = $this->importantDescription;
-        }
-        if (null !== $this->isImportant) {
-            $res['IsImportant'] = $this->isImportant;
+        if (null !== $this->isUrgent) {
+            $res['IsUrgent'] = $this->isUrgent;
         }
         if (null !== $this->openGroupId) {
             $res['OpenGroupId'] = $this->openGroupId;
         }
-        if (null !== $this->productType) {
-            $res['ProductType'] = $this->productType;
+        if (null !== $this->overview) {
+            $res['Overview'] = $this->overview;
         }
-        if (null !== $this->productTypeName) {
-            $res['ProductTypeName'] = $this->productTypeName;
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
         }
-        if (null !== $this->taskTitle) {
-            $res['TaskTitle'] = $this->taskTitle;
+        if (null !== $this->urgentDescription) {
+            $res['UrgentDescription'] = $this->urgentDescription;
         }
 
         return $res;
@@ -127,29 +101,23 @@ class CreateTaskOrderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CustomerRealName'])) {
-            $model->customerRealName = $map['CustomerRealName'];
+        if (isset($map['CreateUserId'])) {
+            $model->createUserId = $map['CreateUserId'];
         }
-        if (isset($map['CustomerUserId'])) {
-            $model->customerUserId = $map['CustomerUserId'];
-        }
-        if (isset($map['ImportantDescription'])) {
-            $model->importantDescription = $map['ImportantDescription'];
-        }
-        if (isset($map['IsImportant'])) {
-            $model->isImportant = $map['IsImportant'];
+        if (isset($map['IsUrgent'])) {
+            $model->isUrgent = $map['IsUrgent'];
         }
         if (isset($map['OpenGroupId'])) {
             $model->openGroupId = $map['OpenGroupId'];
         }
-        if (isset($map['ProductType'])) {
-            $model->productType = $map['ProductType'];
+        if (isset($map['Overview'])) {
+            $model->overview = $map['Overview'];
         }
-        if (isset($map['ProductTypeName'])) {
-            $model->productTypeName = $map['ProductTypeName'];
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
         }
-        if (isset($map['TaskTitle'])) {
-            $model->taskTitle = $map['TaskTitle'];
+        if (isset($map['UrgentDescription'])) {
+            $model->urgentDescription = $map['UrgentDescription'];
         }
 
         return $model;
