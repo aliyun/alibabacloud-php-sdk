@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class failedItems extends Model
 {
     /**
+     * @description The error message that is returned.
+     *
      * @example sdg not found
      *
      * @var string
@@ -16,6 +18,8 @@ class failedItems extends Model
     public $errMessage;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example aic-xxxxx-0
      *
      * @var string

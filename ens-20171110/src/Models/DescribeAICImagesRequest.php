@@ -11,6 +11,8 @@ class DescribeAICImagesRequest extends Model
     /**
      * @description The description of the image.
      *
+     * @example Test operation of console
+     *
      * @var string
      */
     public $description;

@@ -20,6 +20,8 @@ class instanceType extends Model
     /**
      * @description This parameter is unavailable.
      *
+     * @example This parameter is not needed temporarily.
+     *
      * @var string
      */
     public $instanceTypeId;

@@ -12,6 +12,8 @@ class routeEntrys extends Model
     /**
      * @description Enter a description for the route.
      *
+     * @example test
+     *
      * @var string
      */
     public $description;

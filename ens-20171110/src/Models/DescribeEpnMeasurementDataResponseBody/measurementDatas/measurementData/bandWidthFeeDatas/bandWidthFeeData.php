@@ -20,6 +20,8 @@ class bandWidthFeeData extends Model
     /**
      * @description The name of the billable item.
      *
+     * @example Beijing, Shanghai, and Guangzhou Mobile
+     *
      * @var string
      */
     public $costName;
@@ -47,6 +49,8 @@ class bandWidthFeeData extends Model
 
     /**
      * @description This parameter is unavailable.
+     *
+     * @example This parameter is not currently in use.
      *
      * @var string
      */

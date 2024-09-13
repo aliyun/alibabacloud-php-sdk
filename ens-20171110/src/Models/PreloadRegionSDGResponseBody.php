@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class PreloadRegionSDGResponseBody extends Model
 {
     /**
+     * @description The returned data object.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example C0003E8B-B930-4F59-ADC0-0E209A9012A8
      *
      * @var string

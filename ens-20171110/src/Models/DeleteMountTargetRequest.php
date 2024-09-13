@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteMountTargetRequest extends Model
 {
     /**
-     * @description The ID of the region.
+     * @description The ID of the edge node.
      *
      * This parameter is required.
      * @example cn-beijing-cmcc

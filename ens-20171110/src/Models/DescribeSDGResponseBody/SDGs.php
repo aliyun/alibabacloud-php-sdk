@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class SDGs extends Model
 {
     /**
+     * @description SDGs that have snapshots.
+     *
      * @var avaliableRegionIds[]
      */
     public $avaliableRegionIds;
 
     /**
+     * @description The ID of the instance on which the SDG is created.
+     *
      * @example aic-5x20dyeos****
      *
      * @var string
@@ -23,6 +27,8 @@ class SDGs extends Model
     public $creationInstanceId;
 
     /**
+     * @description The ID of the node on which the SDG is created.
+     *
      * @example cn-hangzhou-26
      *
      * @var string
@@ -30,6 +36,8 @@ class SDGs extends Model
     public $creationRegionId;
 
     /**
+     * @description The time when the first SDG in the node was created.
+     *
      * @example 2023-02-27 15:07:21
      *
      * @var string
@@ -37,11 +45,17 @@ class SDGs extends Model
     public $creationTime;
 
     /**
+     * @description The description of the SDG.
+     *
+     * @example Testing SDGs
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the source SDG from which you want to create an SDG. The value of this parameter is the value of the **FromSDGId** parameter that you need to specify when you call the [CreateSDG](https://help.aliyun.com/document_detail/608128.html) operation.
+     *
      * @example sdg-xxxxx
      *
      * @var string
@@ -49,11 +63,15 @@ class SDGs extends Model
     public $parentSDGId;
 
     /**
+     * @description The preload information.
+     *
      * @var preloadInfos[]
      */
     public $preloadInfos;
 
     /**
+     * @description The ID of the SDG.
+     *
      * @example sdg-30e1fdba7196bc****
      *
      * @var string
@@ -61,6 +79,8 @@ class SDGs extends Model
     public $SDGId;
 
     /**
+     * @description The size of the SDG. Unit: GB.
+     *
      * @example 20
      *
      * @var int
@@ -68,6 +88,13 @@ class SDGs extends Model
     public $size;
 
     /**
+     * @description The status of the SDG creation. Valid values:
+     *
+     *   **sdg_making**
+     *   **sdg_saving**
+     *   **failed**
+     *   **success**
+     *
      * @example success
      *
      * @var string
@@ -75,6 +102,8 @@ class SDGs extends Model
     public $status;
 
     /**
+     * @description The time when the SDG was last updated.
+     *
      * @example 2023-02-27 16:04:39
      *
      * @var string

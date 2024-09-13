@@ -19,7 +19,7 @@ class AddSnatIpForSnatEntryRequest extends Model
     public $snatEntryId;
 
     /**
-     * @description The EIP that you want to add to the SNAT entry.
+     * @description The EIP specified in the SNAT entry.
      *
      * This parameter is required.
      * @example 219.152.82.144

@@ -11,6 +11,8 @@ class DescribeApplicationResponseBody extends Model
     /**
      * @description The returned application information.
      *
+     * @example {
+     * }
      * @var string
      */
     public $application;

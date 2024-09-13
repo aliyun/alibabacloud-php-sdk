@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveInstanceSDGResponseBody extends Model
 {
     /**
+     * @description The returned service code. 0 indicates that the request was successful.
+     *
      * @example 0
      *
      * @var int
@@ -17,11 +19,15 @@ class RemoveInstanceSDGResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data object.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 125B04C7-3D0D-4245-AF96-14E3758E3F06
      *
      * @var string

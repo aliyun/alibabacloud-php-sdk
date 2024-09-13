@@ -11,14 +11,14 @@ class loadBalancer extends Model
     /**
      * @description The IP address that the ELB instance uses to provide services.
      *
-     * @example 10.10.10.10
+     * @example 10.10.XX.XX
      *
      * @var string
      */
     public $address;
 
     /**
-     * @description The version of the IP address. Valid values: ipv4 and ipv6.
+     * @description The IP version. Valid values: ipv4 and ipv6.
      *
      * @example ipv4
      *
@@ -63,9 +63,9 @@ class loadBalancer extends Model
     public $loadBalancerName;
 
     /**
-     * @description The status of the ELB instance. Valid values:
+     * @description The status of the listener for the ELB instance. Valid values:
      *
-     *   **Active** (default): The listener for the instance can forward the received traffic based on the rule.
+     *   **Active**: The listener for the instance can forward the received traffic based on forwarding rules.
      *   **InActive**: The listener for the instance does not forward the received traffic.
      *
      * @example InActive

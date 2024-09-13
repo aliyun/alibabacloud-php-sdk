@@ -103,6 +103,8 @@ class disks extends Model
     /**
      * @description The name of the instance.
      *
+     * @example Edge Prod Environment Streaming Machine -1063
+     *
      * @var string
      */
     public $instanceName;

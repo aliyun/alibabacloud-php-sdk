@@ -21,6 +21,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\AssignPrivateIpAddressesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AssignPrivateIpAddressesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AssociateEnsEipAddressRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AssociateEnsEipAddressResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\AssociateHaVipRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\AssociateHaVipResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AttachDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AttachDiskResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AttachEnsInstancesRequest;
@@ -101,6 +103,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\CreateSnatEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateStorageGatewayRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateStorageGatewayResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateStorageGatewayShrinkRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateStorageVolumeRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateStorageVolumeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateVSwitchRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateVSwitchResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteApplicationRequest;
@@ -158,6 +162,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSnatIpForSnatEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSnatIpForSnatEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteStorageGatewayRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteStorageGatewayResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteStorageVolumeRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteStorageVolumeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteVSwitchRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteVSwitchResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeployInstanceSDGRequest;
@@ -169,8 +175,6 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DeploySDGShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAICImagesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAICImagesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeApplicationRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeApplicationResourceSummaryRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeApplicationResourceSummaryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeApplicationResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeARMServerInstancesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeARMServerInstancesResponse;
@@ -196,8 +200,6 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDeviceServiceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDeviceServiceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDisksRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDisksResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEipAddressesRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEipAddressesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeElbAvailableResourceInfoResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsCommodityCodeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsCommodityCodeResponse;
@@ -244,6 +246,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeFileSystemsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeFileSystemsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeForwardTableEntriesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeForwardTableEntriesResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeHaVipsRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeHaVipsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeImageInfosRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeImageInfosResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeImageSharePermissionRequest;
@@ -291,6 +295,7 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkInterfacesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkInterfacesResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkInterfacesShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworksRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworksResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribePrePaidInstanceStockRequest;
@@ -307,6 +312,7 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeResourceTimelineRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeResourceTimelineResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGDeploymentStatusRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGDeploymentStatusResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGDeploymentStatusShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGShrinkRequest;
@@ -327,6 +333,10 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSnatAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSnatAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSnatTableEntriesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSnatTableEntriesResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeStorageGatewayRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeStorageGatewayResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeStorageVolumeRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeStorageVolumeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeUserBandWidthDataRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeUserBandWidthDataResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeVSwitchesRequest;
@@ -379,6 +389,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyFileSystemRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyFileSystemResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyForwardEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyForwardEntryResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyHaVipAttributeRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyHaVipAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyImageAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyImageAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyImageSharePermissionRequest;
@@ -405,6 +417,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyVSwitchAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\PreloadRegionSDGRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\PreloadRegionSDGResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\PreloadRegionSDGShrinkRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\PrepareUploadRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\PrepareUploadResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\PushApplicationDataRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\PushApplicationDataResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\PutBucketAclRequest;
@@ -527,6 +541,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\UnassignPrivateIpAddressesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassignPrivateIpAddressesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnAssociateEnsEipAddressRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnAssociateEnsEipAddressResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateHaVipRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateHaVipResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateNetworkAclRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateNetworkAclResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnloadRegionSDGRequest;
@@ -956,6 +972,59 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @summary 调用AssociateHaVip接口将高可用VIP绑定到同地域的云产品实例上。
+     *  *
+     * @param AssociateHaVipRequest $request AssociateHaVipRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AssociateHaVipResponse AssociateHaVipResponse
+     */
+    public function associateHaVipWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->haVipId)) {
+            $query['HaVipId'] = $request->haVipId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AssociateHaVip',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AssociateHaVipResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 调用AssociateHaVip接口将高可用VIP绑定到同地域的云产品实例上。
+     *  *
+     * @param AssociateHaVipRequest $request AssociateHaVipRequest
+     *
+     * @return AssociateHaVipResponse AssociateHaVipResponse
+     */
+    public function associateHaVip($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->associateHaVipWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Attaches a disk to an Edge Node Service (ENS) instance.
      *  *
      * @param AttachDiskRequest $request AttachDiskRequest
@@ -1308,7 +1377,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Copies a snapshot.
+     * @summary Copies a snapshot across nodes.
      *  *
      * @param CopySnapshotRequest $tmpReq  CopySnapshotRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -1355,7 +1424,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Copies a snapshot.
+     * @summary Copies a snapshot across nodes.
      *  *
      * @param CopySnapshotRequest $request CopySnapshotRequest
      *
@@ -1935,7 +2004,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Network Attached Storage (NAS) file system.
+     * @summary Creates a NAS file system.
      *  *
      * @param CreateFileSystemRequest $tmpReq  CreateFileSystemRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -1970,7 +2039,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Network Attached Storage (NAS) file system.
+     * @summary Creates a NAS file system.
      *  *
      * @param CreateFileSystemRequest $request CreateFileSystemRequest
      *
@@ -2417,6 +2486,9 @@ class Ens extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->backendServerPort)) {
+            $query['BackendServerPort'] = $request->backendServerPort;
+        }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
@@ -2524,6 +2596,9 @@ class Ens extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->backendServerPort)) {
+            $query['BackendServerPort'] = $request->backendServerPort;
+        }
         if (!Utils::isUnset($request->cookie)) {
             $query['Cookie'] = $request->cookie;
         }
@@ -2749,6 +2824,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->eipTransmit)) {
             $query['EipTransmit'] = $request->eipTransmit;
+        }
+        if (!Utils::isUnset($request->establishedTimeout)) {
+            $query['EstablishedTimeout'] = $request->establishedTimeout;
         }
         if (!Utils::isUnset($request->healthCheckConnectPort)) {
             $query['HealthCheckConnectPort'] = $request->healthCheckConnectPort;
@@ -3120,10 +3198,13 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Creates a shared data group (SDG) by using a specific device.
+     * @summary Creates a shared data group (SDG) on an Android in Container (AIC) instance.
      *  *
-     * @description ## [](#)
-     * After you create an SDG, you must call the [SaveSDG](https://help.aliyun.com/document_detail/608126.html) operation to save the SDG. Otherwise, the SDG is unavailable.
+     * @description A SDG can be regarded as a data partition image of a virtual device. You can save a data partition of a virtual device as an SDG. A created SDG can be deployed in data partitions of other virtual devices to achieve rapid data distribution and application. The procedure for calling SDG-related API operations:
+     * *   Call the [CreateSDG](~~CreateSDG~~) operation to create an SDG, which is bound to AIC Instance A (InstanceId). After you create the SDG, a blank cloud disk (also known as an original cloud disk) is attached to Device A (InstanceId).
+     * *   Install applications on and deliver files to AIC Instance A (InstanceId).
+     * *   Call the [SaveSDG](~~SaveSDG~~) operation to save the data disk of AIC instance A as SDG A.
+     * *   Call the [DeploySDG](~~DeploySDG~~) operation to deploy SDG A to AIC Instance B. This operattion is executed asynchronously. You can call the [DescribeARMServerInstances](~~DescribeARMServerInstances~~) operation to query the status of AIC Instance B. If the status of AIC Instance B changes to success, AIC insance B is available, and AIC Instances A and B have the same applications running.
      *  *
      * @param CreateSDGRequest $request CreateSDGRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -3153,10 +3234,13 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Creates a shared data group (SDG) by using a specific device.
+     * @summary Creates a shared data group (SDG) on an Android in Container (AIC) instance.
      *  *
-     * @description ## [](#)
-     * After you create an SDG, you must call the [SaveSDG](https://help.aliyun.com/document_detail/608126.html) operation to save the SDG. Otherwise, the SDG is unavailable.
+     * @description A SDG can be regarded as a data partition image of a virtual device. You can save a data partition of a virtual device as an SDG. A created SDG can be deployed in data partitions of other virtual devices to achieve rapid data distribution and application. The procedure for calling SDG-related API operations:
+     * *   Call the [CreateSDG](~~CreateSDG~~) operation to create an SDG, which is bound to AIC Instance A (InstanceId). After you create the SDG, a blank cloud disk (also known as an original cloud disk) is attached to Device A (InstanceId).
+     * *   Install applications on and deliver files to AIC Instance A (InstanceId).
+     * *   Call the [SaveSDG](~~SaveSDG~~) operation to save the data disk of AIC instance A as SDG A.
+     * *   Call the [DeploySDG](~~DeploySDG~~) operation to deploy SDG A to AIC Instance B. This operattion is executed asynchronously. You can call the [DescribeARMServerInstances](~~DescribeARMServerInstances~~) operation to query the status of AIC Instance B. If the status of AIC Instance B changes to success, AIC insance B is available, and AIC Instances A and B have the same applications running.
      *  *
      * @param CreateSDGRequest $request CreateSDGRequest
      *
@@ -3390,6 +3474,80 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createStorageGatewayWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates a storage volume.
+     *  *
+     * @param CreateStorageVolumeRequest $request CreateStorageVolumeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateStorageVolumeResponse CreateStorageVolumeResponse
+     */
+    public function createStorageVolumeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authPassword)) {
+            $query['AuthPassword'] = $request->authPassword;
+        }
+        if (!Utils::isUnset($request->authProtocol)) {
+            $query['AuthProtocol'] = $request->authProtocol;
+        }
+        if (!Utils::isUnset($request->authUser)) {
+            $query['AuthUser'] = $request->authUser;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->ensRegionId)) {
+            $query['EnsRegionId'] = $request->ensRegionId;
+        }
+        if (!Utils::isUnset($request->gatewayId)) {
+            $query['GatewayId'] = $request->gatewayId;
+        }
+        if (!Utils::isUnset($request->isAuth)) {
+            $query['IsAuth'] = $request->isAuth;
+        }
+        if (!Utils::isUnset($request->isEnable)) {
+            $query['IsEnable'] = $request->isEnable;
+        }
+        if (!Utils::isUnset($request->storageId)) {
+            $query['StorageId'] = $request->storageId;
+        }
+        if (!Utils::isUnset($request->volumeName)) {
+            $query['VolumeName'] = $request->volumeName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateStorageVolume',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateStorageVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Creates a storage volume.
+     *  *
+     * @param CreateStorageVolumeRequest $request CreateStorageVolumeRequest
+     *
+     * @return CreateStorageVolumeResponse CreateStorageVolumeResponse
+     */
+    public function createStorageVolume($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStorageVolumeWithOptions($request, $runtime);
     }
 
     /**
@@ -4470,8 +4628,7 @@ class Ens extends OpenApiClient
     /**
      * @summary Deletes a shared data group (SDG).
      *  *
-     * @description ## [](#)
-     * If all the SDGs corresponding to the original disk are deleted, the original disk is automatically cleared.
+     * @description If all the SDGs corresponding to the original disk are deleted, the original disk is automatically cleared.
      *  *
      * @param DeleteSDGRequest $tmpReq  DeleteSDGRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -4511,8 +4668,7 @@ class Ens extends OpenApiClient
     /**
      * @summary Deletes a shared data group (SDG).
      *  *
-     * @description ## [](#)
-     * If all the SDGs corresponding to the original disk are deleted, the original disk is automatically cleared.
+     * @description If all the SDGs corresponding to the original disk are deleted, the original disk is automatically cleared.
      *  *
      * @param DeleteSDGRequest $request DeleteSDGRequest
      *
@@ -4768,6 +4924,53 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a storage volume.
+     *  *
+     * @param DeleteStorageVolumeRequest $request DeleteStorageVolumeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteStorageVolumeResponse DeleteStorageVolumeResponse
+     */
+    public function deleteStorageVolumeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->volumeId)) {
+            $query['VolumeId'] = $request->volumeId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteStorageVolume',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteStorageVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes a storage volume.
+     *  *
+     * @param DeleteStorageVolumeRequest $request DeleteStorageVolumeRequest
+     *
+     * @return DeleteStorageVolumeResponse DeleteStorageVolumeResponse
+     */
+    public function deleteStorageVolume($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteStorageVolumeWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Deletes a vSwitch.
      *  *
      * @description Before you delete a vSwitch, make sure that no instances exist in the vSwitch.
@@ -4819,7 +5022,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 部署SDG到计算实例
+     * @summary Deploys a shared data group (SDG) to compute instances.
      *  *
      * @param DeployInstanceSDGRequest $tmpReq  DeployInstanceSDGRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -4863,7 +5066,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 部署SDG到计算实例
+     * @summary Deploys a shared data group (SDG) to compute instances.
      *  *
      * @param DeployInstanceSDGRequest $request DeployInstanceSDGRequest
      *
@@ -5114,56 +5317,6 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeApplicationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Queries the total quota of resources and the resource usage in different region levels. You can perform resource scale-out based on this information.
-     *  *
-     * @param DescribeApplicationResourceSummaryRequest $request DescribeApplicationResourceSummaryRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DescribeApplicationResourceSummaryResponse DescribeApplicationResourceSummaryResponse
-     */
-    public function describeApplicationResourceSummaryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->level)) {
-            $query['Level'] = $request->level;
-        }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeApplicationResourceSummary',
-            'version'     => '2017-11-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeApplicationResourceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries the total quota of resources and the resource usage in different region levels. You can perform resource scale-out based on this information.
-     *  *
-     * @param DescribeApplicationResourceSummaryRequest $request DescribeApplicationResourceSummaryRequest
-     *
-     * @return DescribeApplicationResourceSummaryResponse DescribeApplicationResourceSummaryResponse
-     */
-    public function describeApplicationResourceSummary($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeApplicationResourceSummaryWithOptions($request, $runtime);
     }
 
     /**
@@ -5783,56 +5936,6 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Queries the properties of elastic IP addresses (EIPs).
-     *  *
-     * @param DescribeEipAddressesRequest $request DescribeEipAddressesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DescribeEipAddressesResponse DescribeEipAddressesResponse
-     */
-    public function describeEipAddressesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->eips)) {
-            $query['Eips'] = $request->eips;
-        }
-        if (!Utils::isUnset($request->ensRegionId)) {
-            $query['EnsRegionId'] = $request->ensRegionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeEipAddresses',
-            'version'     => '2017-11-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeEipAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries the properties of elastic IP addresses (EIPs).
-     *  *
-     * @param DescribeEipAddressesRequest $request DescribeEipAddressesRequest
-     *
-     * @return DescribeEipAddressesResponse DescribeEipAddressesResponse
-     */
-    public function describeEipAddresses($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeEipAddressesWithOptions($request, $runtime);
-    }
-
-    /**
      * @summary Queries the specifications of resources that you can purchase when you create an instance.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -6175,7 +6278,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether an edge node supports IPv6.
+     * @summary Queries whether a node supports IPv6.
      *  *
      * @param DescribeEnsRegionIdIpv6InfoRequest $request DescribeEnsRegionIdIpv6InfoRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -6208,7 +6311,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether an edge node supports IPv6.
+     * @summary Queries whether a node supports IPv6.
      *  *
      * @param DescribeEnsRegionIdIpv6InfoRequest $request DescribeEnsRegionIdIpv6InfoRequest
      *
@@ -7128,6 +7231,50 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @summary 查询高可用VIP
+     *  *
+     * @param DescribeHaVipsRequest $request DescribeHaVipsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeHaVipsResponse DescribeHaVipsResponse
+     */
+    public function describeHaVipsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHaVips',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHaVipsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询高可用VIP
+     *  *
+     * @param DescribeHaVipsRequest $request DescribeHaVipsRequest
+     *
+     * @return DescribeHaVipsResponse DescribeHaVipsResponse
+     */
+    public function describeHaVips($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHaVipsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries available images.
      *  *
      * @param DescribeImageInfosRequest $request DescribeImageInfosRequest
@@ -7695,9 +7842,8 @@ class Ens extends OpenApiClient
     /**
      * @summary Queries detailed information about an Edge Load Balancer (ELB) instance.
      *  *
-     * @description >
-     * *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * @description *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 10 times per second per account.
      *  *
      * @param DescribeLoadBalancerAttributeRequest $request DescribeLoadBalancerAttributeRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -7732,9 +7878,8 @@ class Ens extends OpenApiClient
     /**
      * @summary Queries detailed information about an Edge Load Balancer (ELB) instance.
      *  *
-     * @description >
-     * *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * @description *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 10 times per second per account.
      *  *
      * @param DescribeLoadBalancerAttributeRequest $request DescribeLoadBalancerAttributeRequest
      *
@@ -8016,7 +8161,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Queries Edge Load Balancer (ELB) instances.
+     * @summary Queries the Edge Load Balance (ELB) instances that you have created.
      *  *
      * @description *   You can call this operation up to 100 times per second per account.
      * *   You can call this operation up to 10 times per second per user.
@@ -8049,7 +8194,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Queries Edge Load Balancer (ELB) instances.
+     * @summary Queries the Edge Load Balance (ELB) instances that you have created.
      *  *
      * @description *   You can call this operation up to 100 times per second per account.
      * *   You can call this operation up to 10 times per second per user.
@@ -8362,20 +8507,28 @@ class Ens extends OpenApiClient
     /**
      * @summary Queries Elastic Network Interfaces (ENIs).
      *  *
-     * @param DescribeNetworkInterfacesRequest $request DescribeNetworkInterfacesRequest
+     * @param DescribeNetworkInterfacesRequest $tmpReq  DescribeNetworkInterfacesRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
      * @return DescribeNetworkInterfacesResponse DescribeNetworkInterfacesResponse
      */
-    public function describeNetworkInterfacesWithOptions($request, $runtime)
+    public function describeNetworkInterfacesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new DescribeNetworkInterfacesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ipv6Address)) {
+            $request->ipv6AddressShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ipv6Address, 'Ipv6Address', 'simple');
+        }
         $query = [];
         if (!Utils::isUnset($request->ensRegionId)) {
             $query['EnsRegionId'] = $request->ensRegionId;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ipv6AddressShrink)) {
+            $query['Ipv6Address'] = $request->ipv6AddressShrink;
         }
         if (!Utils::isUnset($request->networkId)) {
             $query['NetworkId'] = $request->networkId;
@@ -8505,7 +8658,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Queries the specifications of resources that you can purchase.
+     * @summary The specifications of resources that can be purchased in subscription billing mode are queried.
      *  *
      * @param DescribePrePaidInstanceStockRequest $request DescribePrePaidInstanceStockRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -8547,7 +8700,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Queries the specifications of resources that you can purchase.
+     * @summary The specifications of resources that can be purchased in subscription billing mode are queried.
      *  *
      * @param DescribePrePaidInstanceStockRequest $request DescribePrePaidInstanceStockRequest
      *
@@ -8806,7 +8959,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 查询SDG信息
+     * @summary Queries basic information about shared data groups (SDGs), including node preload information.
      *  *
      * @param DescribeSDGRequest $tmpReq  DescribeSDGRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -8850,7 +9003,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 查询SDG信息
+     * @summary Queries basic information about shared data groups (SDGs), including node preload information.
      *  *
      * @param DescribeSDGRequest $request DescribeSDGRequest
      *
@@ -8866,16 +9019,45 @@ class Ens extends OpenApiClient
     /**
      * @summary Queries the deployment status of the shared data group (SDG).
      *  *
-     * @param DescribeSDGDeploymentStatusRequest $request DescribeSDGDeploymentStatusRequest
+     * @param DescribeSDGDeploymentStatusRequest $tmpReq  DescribeSDGDeploymentStatusRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
      * @return DescribeSDGDeploymentStatusResponse DescribeSDGDeploymentStatusResponse
      */
-    public function describeSDGDeploymentStatusWithOptions($request, $runtime)
+    public function describeSDGDeploymentStatusWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        Utils::validateModel($tmpReq);
+        $request = new DescribeSDGDeploymentStatusShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->regionIds)) {
+            $request->regionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->deploymentType)) {
+            $query['DeploymentType'] = $request->deploymentType;
+        }
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionIdsShrink)) {
+            $query['RegionIds'] = $request->regionIdsShrink;
+        }
+        if (!Utils::isUnset($request->SDGId)) {
+            $query['SDGId'] = $request->SDGId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -8883,7 +9065,7 @@ class Ens extends OpenApiClient
             'version'     => '2017-11-10',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -9334,6 +9516,133 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @summary 查询存储网关
+     *  *
+     * @param DescribeStorageGatewayRequest $request DescribeStorageGatewayRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeStorageGatewayResponse DescribeStorageGatewayResponse
+     */
+    public function describeStorageGatewayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ensRegionId)) {
+            $query['EnsRegionId'] = $request->ensRegionId;
+        }
+        if (!Utils::isUnset($request->gatewayId)) {
+            $query['GatewayId'] = $request->gatewayId;
+        }
+        if (!Utils::isUnset($request->gatewayType)) {
+            $query['GatewayType'] = $request->gatewayType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeStorageGateway',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeStorageGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询存储网关
+     *  *
+     * @param DescribeStorageGatewayRequest $request DescribeStorageGatewayRequest
+     *
+     * @return DescribeStorageGatewayResponse DescribeStorageGatewayResponse
+     */
+    public function describeStorageGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeStorageGatewayWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询存储卷
+     *  *
+     * @param DescribeStorageVolumeRequest $request DescribeStorageVolumeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeStorageVolumeResponse DescribeStorageVolumeResponse
+     */
+    public function describeStorageVolumeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ensRegionId)) {
+            $query['EnsRegionId'] = $request->ensRegionId;
+        }
+        if (!Utils::isUnset($request->gatewayId)) {
+            $query['GatewayId'] = $request->gatewayId;
+        }
+        if (!Utils::isUnset($request->isEnable)) {
+            $query['IsEnable'] = $request->isEnable;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->storageId)) {
+            $query['StorageId'] = $request->storageId;
+        }
+        if (!Utils::isUnset($request->volumeId)) {
+            $query['VolumeId'] = $request->volumeId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeStorageVolume',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeStorageVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询存储卷
+     *  *
+     * @param DescribeStorageVolumeRequest $request DescribeStorageVolumeRequest
+     *
+     * @return DescribeStorageVolumeResponse DescribeStorageVolumeResponse
+     */
+    public function describeStorageVolume($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeStorageVolumeWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the bandwidth that you use within a specified period of time.
      *  *
      * @param DescribeUserBandWidthDataRequest $request DescribeUserBandWidthDataRequest
@@ -9461,7 +9770,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Detaches a pay-as-you-go data disk or a system disk from an Elastic Compute Service (ECS) instance.
+     * @summary Detaches a pay-as-you-go disk from an Edge Node Service (ENS) instance. You cannot call this operation to detach a disk that is created together with an instance.
      *  *
      * @param DetachDiskRequest $request DetachDiskRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -9497,7 +9806,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Detaches a pay-as-you-go data disk or a system disk from an Elastic Compute Service (ECS) instance.
+     * @summary Detaches a pay-as-you-go disk from an Edge Node Service (ENS) instance. You cannot call this operation to detach a disk that is created together with an instance.
      *  *
      * @param DetachDiskRequest $request DetachDiskRequest
      *
@@ -10456,7 +10765,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 查询资源标签
+     * @summary Queries tags that are added to Edge Node Service (ENS) instances.
      *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -10498,7 +10807,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 查询资源标签
+     * @summary Queries tags that are added to Edge Node Service (ENS) instances.
      *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
@@ -10624,7 +10933,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of a file system.
+     * @summary Modifies the description of a NAS file system.
      *  *
      * @param ModifyFileSystemRequest $request ModifyFileSystemRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -10663,7 +10972,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of a file system.
+     * @summary Modifies the description of a NAS file system.
      *  *
      * @param ModifyFileSystemRequest $request ModifyFileSystemRequest
      *
@@ -10727,6 +11036,56 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyForwardEntryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 调用ModifyHaVipAttribute接口更新高可用VIP的名称和描述。
+     *  *
+     * @param ModifyHaVipAttributeRequest $request ModifyHaVipAttributeRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyHaVipAttributeResponse ModifyHaVipAttributeResponse
+     */
+    public function modifyHaVipAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->haVipId)) {
+            $query['HaVipId'] = $request->haVipId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyHaVipAttribute',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyHaVipAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 调用ModifyHaVipAttribute接口更新高可用VIP的名称和描述。
+     *  *
+     * @param ModifyHaVipAttributeRequest $request ModifyHaVipAttributeRequest
+     *
+     * @return ModifyHaVipAttributeResponse ModifyHaVipAttributeResponse
+     */
+    public function modifyHaVipAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyHaVipAttributeWithOptions($request, $runtime);
     }
 
     /**
@@ -11371,7 +11730,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 节点及AIC的命名空间粒度预热SDG
+     * @summary Preloads a shared data group (SDG).
      *  *
      * @param PreloadRegionSDGRequest $tmpReq  PreloadRegionSDGRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -11421,7 +11780,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 节点及AIC的命名空间粒度预热SDG
+     * @summary Preloads a shared data group (SDG).
      *  *
      * @param PreloadRegionSDGRequest $request PreloadRegionSDGRequest
      *
@@ -11432,6 +11791,56 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->preloadRegionSDGWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Prepares the upload and obtains the location of the bucket.
+     *  *
+     * @param PrepareUploadRequest $request PrepareUploadRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return PrepareUploadResponse PrepareUploadResponse
+     */
+    public function prepareUploadWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bucketName)) {
+            $query['BucketName'] = $request->bucketName;
+        }
+        if (!Utils::isUnset($request->clientIp)) {
+            $query['ClientIp'] = $request->clientIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PrepareUpload',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PrepareUploadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Prepares the upload and obtains the location of the bucket.
+     *  *
+     * @param PrepareUploadRequest $request PrepareUploadRequest
+     *
+     * @return PrepareUploadResponse PrepareUploadResponse
+     */
+    public function prepareUpload($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->prepareUploadWithOptions($request, $runtime);
     }
 
     /**
@@ -11491,7 +11900,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Creates an EOS bucket.
+     * @summary Creates an Edge Object Storage (EOS) bucket.
      *  *
      * @param PutBucketRequest $request PutBucketRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -11539,7 +11948,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Creates an EOS bucket.
+     * @summary Creates an Edge Object Storage (EOS) bucket.
      *  *
      * @param PutBucketRequest $request PutBucketRequest
      *
@@ -12174,7 +12583,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Releases an instance.
+     * @summary Releases an instance. You can call this operation to release only Elastic IP Addresses (EIPs), Edge Load Balancer (ELB) instances, and cloud disk-based instances. We recommend that you call service-specific operations to release or unsubscribe from instances.
      *  *
      * @description *   You can call this operation up to 10,000 times per second per account.
      * *   The maximum number of times that each user can call this operation per second is 50.
@@ -12210,7 +12619,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Releases an instance.
+     * @summary Releases an instance. You can call this operation to release only Elastic IP Addresses (EIPs), Edge Load Balancer (ELB) instances, and cloud disk-based instances. We recommend that you call service-specific operations to release or unsubscribe from instances.
      *  *
      * @description *   You can call this operation up to 10,000 times per second per account.
      * *   The maximum number of times that each user can call this operation per second is 50.
@@ -12382,7 +12791,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 移除计算实例上已挂载的SDG
+     * @summary Removes a deployed shared data group (SDG) on compute instances.
      *  *
      * @param RemoveInstanceSDGRequest $tmpReq  RemoveInstanceSDGRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -12420,7 +12829,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 移除计算实例上已挂载的SDG
+     * @summary Removes a deployed shared data group (SDG) on compute instances.
      *  *
      * @param RemoveInstanceSDGRequest $request RemoveInstanceSDGRequest
      *
@@ -13372,6 +13781,9 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->securityId)) {
             $query['SecurityId'] = $request->securityId;
         }
+        if (!Utils::isUnset($request->spotDuration)) {
+            $query['SpotDuration'] = $request->spotDuration;
+        }
         if (!Utils::isUnset($request->spotStrategy)) {
             $query['SpotStrategy'] = $request->spotStrategy;
         }
@@ -13801,7 +14213,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the status of an Edge Load Balancer (ELB) instance.
+     * @summary Modifies the status of the listener for an Edge Load Balancer (ELB) instance.
      *  *
      * @description *   You can call this operation up to 100 times per second per account.
      * *   You can call this operation up to 10 times per second per user.
@@ -13840,7 +14252,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the status of an Edge Load Balancer (ELB) instance.
+     * @summary Modifies the status of the listener for an Edge Load Balancer (ELB) instance.
      *  *
      * @description *   You can call this operation up to 100 times per second per account.
      * *   You can call this operation up to 10 times per second per user.
@@ -13957,9 +14369,8 @@ class Ens extends OpenApiClient
     /**
      * @summary Modifies the configurations of a UDP listener.
      *  *
-     * @description >
-     * *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * @description *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 10 times per second per account.
      *  *
      * @param SetLoadBalancerUDPListenerAttributeRequest $request SetLoadBalancerUDPListenerAttributeRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
@@ -13975,6 +14386,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->eipTransmit)) {
             $query['EipTransmit'] = $request->eipTransmit;
+        }
+        if (!Utils::isUnset($request->establishedTimeout)) {
+            $query['EstablishedTimeout'] = $request->establishedTimeout;
         }
         if (!Utils::isUnset($request->healthCheckConnectPort)) {
             $query['HealthCheckConnectPort'] = $request->healthCheckConnectPort;
@@ -14027,9 +14441,8 @@ class Ens extends OpenApiClient
     /**
      * @summary Modifies the configurations of a UDP listener.
      *  *
-     * @description >
-     * *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * @description *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 10 times per second per account.
      *  *
      * @param SetLoadBalancerUDPListenerAttributeRequest $request SetLoadBalancerUDPListenerAttributeRequest
      *
@@ -14572,7 +14985,9 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 资源打用户标签
+     * @summary Creates and adds tags to specific Edge Node Service (ENS) resources.
+     *  *
+     * @description Before you add tags to a resource, Alibaba Cloud checks the number of existing tags on the resource. If the number exceeds the upper limit, an error message is returned. Only instance resources, such as virtual machines and bare machines, are supported.
      *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -14611,7 +15026,9 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 资源打用户标签
+     * @summary Creates and adds tags to specific Edge Node Service (ENS) resources.
+     *  *
+     * @description Before you add tags to a resource, Alibaba Cloud checks the number of existing tags on the resource. If the number exceeds the upper limit, an error message is returned. Only instance resources, such as virtual machines and bare machines, are supported.
      *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      *
@@ -14722,6 +15139,56 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @summary 调用UnassociateHaVip接口将高可用VIP从云产品实例上解绑。
+     *  *
+     * @param UnassociateHaVipRequest $request UnassociateHaVipRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UnassociateHaVipResponse UnassociateHaVipResponse
+     */
+    public function unassociateHaVipWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->haVipId)) {
+            $query['HaVipId'] = $request->haVipId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnassociateHaVip',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnassociateHaVipResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 调用UnassociateHaVip接口将高可用VIP从云产品实例上解绑。
+     *  *
+     * @param UnassociateHaVipRequest $request UnassociateHaVipRequest
+     *
+     * @return UnassociateHaVipResponse UnassociateHaVipResponse
+     */
+    public function unassociateHaVip($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unassociateHaVipWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Disassociates a network access control list (ACL) from a network.
      *  *
      * @param UnassociateNetworkAclRequest $request UnassociateNetworkAclRequest
@@ -14772,7 +15239,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 释放预热的节点及AIC的命名空间粒度SDG
+     * @summary Deletes preloaded data.
      *  *
      * @param UnloadRegionSDGRequest $tmpReq  UnloadRegionSDGRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -14819,7 +15286,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 释放预热的节点及AIC的命名空间粒度SDG
+     * @summary Deletes preloaded data.
      *  *
      * @param UnloadRegionSDGRequest $request UnloadRegionSDGRequest
      *
@@ -14833,7 +15300,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 资源去除用户标签
+     * @summary Removes tags from specific Edge Node Service (ENS) resources. After a tag is removed from a resource, the tag is automatically deleted if it is not added to other resources.
      *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -14875,7 +15342,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 资源去除用户标签
+     * @summary Removes tags from specific Edge Node Service (ENS) resources. After a tag is removed from a resource, the tag is automatically deleted if it is not added to other resources.
      *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *

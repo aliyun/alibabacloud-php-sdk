@@ -18,7 +18,7 @@ class allocationId extends Model
     public $ensRegionId;
 
     /**
-     * @description An array of instance IDs.
+     * @description The IDs of the instances.
      *
      * @var string[]
      */

@@ -47,12 +47,16 @@ class ensRegionId extends Model
     /**
      * @description The name of the edge node.
      *
+     * @example Taizhou Telecom, China Unicom, and China Mobile
+     *
      * @var string
      */
     public $name;
 
     /**
      * @description The province.
+     *
+     * @example Zhejiang Province
      *
      * @var string
      */

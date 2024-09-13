@@ -38,12 +38,16 @@ class ensRegions extends Model
     /**
      * @description The name of the node.
      *
+     * @example Dalian Unicom
+     *
      * @var string
      */
     public $name;
 
     /**
      * @description The province where the node is deployed.
+     *
+     * @example Liaoning Province
      *
      * @var string
      */

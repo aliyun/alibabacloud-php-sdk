@@ -18,7 +18,7 @@ class DescribePrePaidInstanceStockResponseBody extends Model
     public $avaliableCount;
 
     /**
-     * @description The number of vCPUs.
+     * @description The number of CPU cores.
      *
      * @example 1
      *
@@ -45,7 +45,7 @@ class DescribePrePaidInstanceStockResponseBody extends Model
     public $ensRegionId;
 
     /**
-     * @description The instance type.
+     * @description The specification of the instance.
      *
      * @example ens.sn1.stiny
      *
@@ -63,7 +63,7 @@ class DescribePrePaidInstanceStockResponseBody extends Model
     public $memory;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 007833C8-E819-4122-B636-0D48D7BF6DFB
      *
@@ -72,7 +72,7 @@ class DescribePrePaidInstanceStockResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The reasons for resource scarcity
+     * @description The reason why resources are insufficient.
      *
      * @example StockNotEnough
      *
@@ -81,7 +81,7 @@ class DescribePrePaidInstanceStockResponseBody extends Model
     public $resourceGap;
 
     /**
-     * @description The size of the system disk. Unit: GB.
+     * @description The size of the system disk.
      *
      * @example 20
      *

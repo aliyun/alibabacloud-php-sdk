@@ -20,6 +20,8 @@ class isps extends Model
     /**
      * @description The name of the ISP.
      *
+     * @example move
+     *
      * @var string
      */
     public $name;

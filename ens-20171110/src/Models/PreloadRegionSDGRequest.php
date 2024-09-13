@@ -9,20 +9,24 @@ use AlibabaCloud\Tea\Model;
 class PreloadRegionSDGRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The IDs of the destination nodes.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $destinationRegionIds;
 
     /**
+     * @description The namespaces.
+     *
      * @var string[]
      */
     public $namespaces;
 
     /**
-     * @description This parameter is required.
+     * @description The number of redundant replicas to support rapid deployment.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -30,8 +34,9 @@ class PreloadRegionSDGRequest extends Model
     public $redundantNum;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the SDG for which data is preloaded.
      *
+     * This parameter is required.
      * @example sdg-xxxx
      *
      * @var string

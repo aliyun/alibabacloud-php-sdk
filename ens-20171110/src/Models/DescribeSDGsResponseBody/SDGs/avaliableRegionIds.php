@@ -18,7 +18,7 @@ class avaliableRegionIds extends Model
     public $creationTime;
 
     /**
-     * @description The ID of the node.
+     * @description The ID of the edge node.
      *
      * @example cn-hangzhou-26
      *

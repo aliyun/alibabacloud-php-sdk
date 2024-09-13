@@ -22,7 +22,7 @@ class orderDetails extends Model
     public $chargeType;
 
     /**
-     * @description The ID of the node.
+     * @description The ID of the edge node.
      *
      * This parameter is required.
      * @example cn-suzhou-telecom
@@ -32,7 +32,7 @@ class orderDetails extends Model
     public $ensRegionId;
 
     /**
-     * @description The name of the file system.
+     * @description The name of the file system. The name must be 1 to 80 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
      *
      * This parameter is required.
      * @example nasFile
@@ -42,7 +42,7 @@ class orderDetails extends Model
     public $fileSystemName;
 
     /**
-     * @description The name of the mount target.
+     * @description The name of the mount target. The name must be 1 to 80 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
      *
      * This parameter is required.
      * @example nasMount
@@ -62,7 +62,7 @@ class orderDetails extends Model
     public $networkId;
 
     /**
-     * @description The type of the order.
+     * @description The type of the order. Set the value to BUY.
      *
      * This parameter is required.
      * @example BUY
@@ -82,7 +82,10 @@ class orderDetails extends Model
     public $protocolType;
 
     /**
-     * @description The type of the storage. Set the value to capacity.
+     * @description The storage type. Valid values:
+     *
+     *   Capacity.
+     *   Performance.
      *
      * This parameter is required.
      * @example capacity

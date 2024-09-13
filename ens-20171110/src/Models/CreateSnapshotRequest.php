@@ -29,7 +29,7 @@ class CreateSnapshotRequest extends Model
     public $diskId;
 
     /**
-     * @description The ID of the edge node.
+     * @description The ID of the ENS node.
      *
      * This parameter is required.
      * @example cn-shenzhen-3

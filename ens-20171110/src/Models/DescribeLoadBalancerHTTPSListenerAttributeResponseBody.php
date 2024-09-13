@@ -9,11 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
 {
     /**
-     * @description The maximum bandwidth of the EIP.
+     * @description The backend port that is used by the ELB instance. Valid values: **1** to **65535**.
      *
-     *   Default value: 5.
-     *   Valid values: **5** to **10000**.
-     *   Unit: Mbit/s.
+     * @example 8080
+     *
+     * @var int
+     */
+    public $backendServerPort;
+
+    /**
+     * @description The peak bandwidth of the Edge Load Balancer (ELB). The default value is -1, which indicates that the bandwidth is not limited.
      *
      * @example 50
      *
@@ -110,7 +115,7 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
     public $healthCheckMethod;
 
     /**
-     * @description The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the server fails to pass the health check.
+     * @description The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the server fails the health check.
      *
      *   Default value: 5.
      *   Valid values: **1** to **300**.
@@ -118,9 +123,9 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
      *
      * >
      *
-     *   This parameter is returned only if the HealthCheck parameter is set to on.
+     *   This parameter takes effect only if the HealthCheck parameter is set to on.
      *
-     *   If the value of the HealthCheckTimeout parameter is smaller than the value of the HealthCheckInterval parameter, the timeout period specified by the HealthCheckTimeout parameter becomes invalid and the value of the HealthCheckInterval parameter is used as the timeout period.
+     *   If the value of HealthCheckTimeout is smaller than the value of HealthCheckInterval, the timeout period specified by HealthCheckTimeout becomes invalid, and the value of HealthCheckInterval is used as the timeout period.
      *
      * @example 5
      *
@@ -219,7 +224,7 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
     /**
      * @description The ID of the server certificate.
      *
-     * @example 6027667
+     * @example 60276**
      *
      * @var string
      */
@@ -250,6 +255,7 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
      */
     public $unhealthyThreshold;
     protected $_name = [
+        'backendServerPort'      => 'BackendServerPort',
         'bandwidth'              => 'Bandwidth',
         'description'            => 'Description',
         'forwardPort'            => 'ForwardPort',
@@ -280,6 +286,9 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backendServerPort) {
+            $res['BackendServerPort'] = $this->backendServerPort;
+        }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
@@ -355,6 +364,9 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackendServerPort'])) {
+            $model->backendServerPort = $map['BackendServerPort'];
+        }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }

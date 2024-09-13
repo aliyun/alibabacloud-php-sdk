@@ -14,6 +14,8 @@ use AlibabaCloud\Tea\Model;
 class supportResource extends Model
 {
     /**
+     * @description Bandwidth billing method.
+     *
      * @var bandwidthTypes
      */
     public $bandwidthTypes;
@@ -37,6 +39,8 @@ class supportResource extends Model
     public $dataDiskMinSize;
 
     /**
+     * @description node ID
+     *
      * @var ensRegionIds
      */
     public $ensRegionIds;
@@ -54,6 +58,8 @@ class supportResource extends Model
     public $instanceSpeces;
 
     /**
+     * @description Operator
+     *
      * @var isp
      */
     public $isp;

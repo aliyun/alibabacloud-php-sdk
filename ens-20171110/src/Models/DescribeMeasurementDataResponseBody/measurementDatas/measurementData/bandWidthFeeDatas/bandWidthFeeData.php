@@ -20,6 +20,8 @@ class bandWidthFeeData extends Model
     /**
      * @description The name of the bandwidth plan.
      *
+     * @example Beijing, Shanghai, and Guangzhou Mobile
+     *
      * @var string
      */
     public $costName;

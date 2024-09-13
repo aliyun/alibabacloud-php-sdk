@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateLoadBalancerTCPListenerRequest extends Model
 {
     /**
-     * @description The backend port that is used by the ELB instance. Valid values: **1** to **65535**.
+     * @description The port used by the backend ELB server of the ELB instance. Valid values: **1** to **65535**.
      *
      * @example 8080
      *
@@ -18,7 +18,7 @@ class CreateLoadBalancerTCPListenerRequest extends Model
     public $backendServerPort;
 
     /**
-     * @description The description of the listener. The description must be **1** to **80** characters in length.
+     * @description The name of the listener. The value must be **1** to **80** characters in length.
      *
      * >  The value cannot start with `http://` or `https://`.
      * @example example
@@ -58,13 +58,13 @@ class CreateLoadBalancerTCPListenerRequest extends Model
     public $healthCheckConnectPort;
 
     /**
-     * @description The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the server fails to pass the health check.
+     * @description The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the server fails the health check.
      *
      *   Default value: 5.
      *   Valid values: **1** to **300**.
      *   Unit: seconds.
      *
-     * >  If the value that you specified for HealthCheckConnectTimeout is smaller than the value of HealthCheckInterval, HealthCheckConnectTimeout becomes invalid and the timeout period that you specified for HealthCheckInterval is used.
+     * >  If the value of the HealthCheckConnectTimeout parameter is smaller than that of the HealthCheckInterval parameter, the timeout period specified by the HealthCheckConnectTimeout parameter is ignored and the period of time specified by the HealthCheckInterval parameter is used as the timeout period.
      * @example 100
      *
      * @var int
@@ -135,7 +135,7 @@ class CreateLoadBalancerTCPListenerRequest extends Model
     public $healthyThreshold;
 
     /**
-     * @description The frontend port that is used by the ELB instance. Valid values: **1** to **65535**.
+     * @description The listener port that is used by Edge Load Balancer (ELB) to receive requests and forward the requests to backend servers. Valid values: **1** to **65535**.
      *
      * This parameter is required.
      * @example 80

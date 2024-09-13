@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class avaliableRegionIds extends Model
 {
     /**
+     * @description The time when the SDG was created on the node.
+     *
      * @example 2023-02-27 15:13:26
      *
      * @var string
@@ -16,6 +18,8 @@ class avaliableRegionIds extends Model
     public $creationTime;
 
     /**
+     * @description The ID of the node.
+     *
      * @example cn-hangzhou-26
      *
      * @var string
@@ -23,6 +27,8 @@ class avaliableRegionIds extends Model
     public $regionId;
 
     /**
+     * @description The ID of the snapshot.
+     *
      * @example sp-517qu0tgznrg622he7nf4wd7n
      *
      * @var string
@@ -30,6 +36,14 @@ class avaliableRegionIds extends Model
     public $snapshotId;
 
     /**
+     * @description The status of the SDG on the node. Valid values:
+     *
+     *   **sdg_making**
+     *   **sdg_saving**
+     *   **sdg_copying**
+     *   **failed**
+     *   **success**
+     *
      * @example success
      *
      * @var string

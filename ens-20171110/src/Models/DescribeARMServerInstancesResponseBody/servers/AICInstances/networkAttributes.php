@@ -11,7 +11,7 @@ class networkAttributes extends Model
     /**
      * @description The IP address of the AIC instance.
      *
-     * @example 192.168.1.1
+     * @example 192.168.XX.XX
      *
      * @var string
      */

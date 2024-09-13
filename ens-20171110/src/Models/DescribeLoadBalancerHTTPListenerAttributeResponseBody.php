@@ -9,13 +9,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
 {
     /**
-     * @description The maximum bandwidth of the EIP.
+     * @description The backend port that is used by the ELB instance. Valid values: **1** to **65535**.
      *
-     *   Default value: 5.
-     *   Valid values: **5** to **10000**.
-     *   Unit: Mbit/s.
+     * @example 8080
      *
-     * @example 50
+     * @var int
+     */
+    public $backendServerPort;
+
+    /**
+     * @description The peak bandwidth of the Edge Load Balancer (ELB) instance. The default value is -1, which indicates that the bandwidth is not limited.
+     *
+     * @example -1
      *
      * @var int
      */
@@ -111,14 +116,18 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
     public $healthCheckMethod;
 
     /**
-     * @description The timeout period of a health check. If a backend server does not respond within the specified timeout period, the server fails to pass the health check.
+     * @description The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the server fails the health check.
      *
      *   Default value: 5.
      *   Valid values: **1** to **300**.
      *   Unit: seconds.
      *
-     * >*   This parameter is returned only if you set HealthCheck to on.
-     * >*   If the value of the HealthCheckTimeout parameter is smaller than the value of the HealthCheckInterval parameter, the timeout period specified by the HealthCheckTimeout parameter becomes invalid and the value of the HealthCheckInterval parameter is used as the timeout period.
+     * >
+     *
+     *   This parameter takes effect only if the HealthCheck parameter is set to on.
+     *
+     *   If the value of HealthCheckTimeout is smaller than the value of HealthCheckInterval, the timeout period specified by HealthCheckTimeout becomes invalid, and the value of HealthCheckInterval is used as the timeout period.
+     *
      * @example 10
      *
      * @var int
@@ -126,10 +135,14 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
     public $healthCheckTimeout;
 
     /**
-     * @description The Uniform Resource Identifier (URI) that is used for health checks. The URI must be **1** to **80** characters in length.
+     * @description The URI used for health checks. The URI must be **1** to **80** characters in length.
      *
-     * >*   The URL must start with a forward slash (`/`) and contain characters other than forward slashes (`/`).
-     * >*   This parameter is returned only if you set HealthCheck to on.
+     * >
+     *
+     *   A URL must start with a forward slash (`/`) but cannot contain only forward slashes (`/`).
+     *
+     *   This parameter takes effect only if the HealthCheck parameter is set to on.
+     *
      * @example /checkpreload.htm
      *
      * @var string
@@ -169,9 +182,9 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
     public $listenerForward;
 
     /**
-     * @description The frontend port that is used by the ELB instance. Valid values: **1** to **65535**.
+     * @description The listener port.
      *
-     * @example 8080
+     * @example 80
      *
      * @var int
      */
@@ -247,10 +260,10 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
     public $unhealthyThreshold;
 
     /**
-     * @description Specifies whether to use the X-Forwarded-For header to obtain the real IP address of the client. Valid values:
+     * @description Indicates whether the X-Forwarded-For header is used to obtain the real IP address of the client. Valid values:
      *
-     *   **on**
-     *   **off** (default)
+     *   **on** (default)
+     *   **off**
      *
      * @example on
      *
@@ -258,6 +271,7 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
      */
     public $XForwardedFor;
     protected $_name = [
+        'backendServerPort'      => 'BackendServerPort',
         'bandwidth'              => 'Bandwidth',
         'description'            => 'Description',
         'forwardPort'            => 'ForwardPort',
@@ -289,6 +303,9 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backendServerPort) {
+            $res['BackendServerPort'] = $this->backendServerPort;
+        }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
@@ -367,6 +384,9 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackendServerPort'])) {
+            $model->backendServerPort = $map['BackendServerPort'];
+        }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }

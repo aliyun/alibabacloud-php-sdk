@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class SetLoadBalancerHTTPListenerAttributeRequest extends Model
 {
     /**
-     * @description The description of the listener. The description must be **1** to **80** characters in length.
+     * @description The name of the listener. The value must be **1** to **80** characters in length.
      *
      * >  The value cannot start with `http://` or `https://`.
-     * @example 监听说明
+     * @example http_8080
      *
      * @var string
      */
@@ -76,7 +76,7 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
     public $healthCheckInterval;
 
     /**
-     * @description The HTTP request method for health checks. Examples:
+     * @description The HTTP request method for health checks. Valid values:
      *
      *   **head**
      *   **get**
@@ -95,8 +95,12 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
      *   Valid values: **1** to **300**.
      *   Unit: seconds.
      *
-     * > *   This parameter takes effect only if you set HealthCheck to on.
-     * >*   If the value of the HealthCheckTimeout parameter is smaller than the value of the HealthCheckInterval parameter, the timeout period specified by the HealthCheckTimeout parameter becomes invalid and the value of the HealthCheckInterval parameter is used as the timeout period.
+     * >
+     *
+     *   This parameter takes effect only if the HealthCheck parameter is set to on.
+     *
+     *   If the value of HealthCheckTimeout is smaller than the value of HealthCheckInterval, the timeout period specified by HealthCheckTimeout becomes invalid, and the value of HealthCheckInterval is used as the timeout period.
+     *
      * @example 5
      *
      * @var int
@@ -104,10 +108,14 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
     public $healthCheckTimeout;
 
     /**
-     * @description The Uniform Resource Identifier (URI) that is used for health checks. The URI must be **1** to **80** characters in length.
+     * @description The URI used for health checks. The URI must be **1** to **80** characters in length.
      *
-     * > *   The URL must start with a forward slash (`/`) and contain characters other than forward slashes (`/`).
-     * >*   This parameter takes effect only if you set HealthCheck to on.
+     * >
+     *
+     *   A URL must start with a forward slash (`/`) but cannot contain only forward slashes (`/`).
+     *
+     *   This parameter takes effect only if the HealthCheck parameter is set to on.
+     *
      * @example /checkpreload.htm
      *
      * @var string
@@ -135,7 +143,7 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
     public $idleTimeout;
 
     /**
-     * @description The frontend port that is used by the ELB instance. Valid values: **1** to **65535**.
+     * @description The listener port whose attributes are to be modified. Valid values: **1** to **65535**.
      *
      * This parameter is required.
      * @example 8080
@@ -165,7 +173,7 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
     public $requestTimeout;
 
     /**
-     * @description The scheduling algorithm. Examples:
+     * @description The scheduling algorithm. Valid values:
      *
      *   **wrr**: Backend servers with higher weights receive more requests than those with lower weights.
      *   **wlc**: Requests are distributed based on the weight and load of each backend server. The load refers to the number of connections on a backend server. If two backend servers have the same weight, the backend server that has fewer connections receives more requests.
@@ -193,8 +201,8 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
     /**
      * @description Specifies whether to use the X-Forwarded-For header to obtain the real IP address of the client. Valid values:
      *
-     *   **on**
-     *   **off** (default)
+     *   **on** (default)
+     *   **off**
      *
      * @example on
      *

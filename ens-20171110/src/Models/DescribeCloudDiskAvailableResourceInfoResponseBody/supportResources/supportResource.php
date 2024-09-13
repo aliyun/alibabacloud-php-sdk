@@ -70,6 +70,8 @@ class supportResource extends Model
     /**
      * @description The name of the task node.
      *
+     * @example Beijing Mobile
+     *
      * @var string
      */
     public $ensRegionName;

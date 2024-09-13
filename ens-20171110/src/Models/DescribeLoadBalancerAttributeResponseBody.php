@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerAttributeResponseBody extends Model
 {
     /**
-     * @description The IP address that the ELB instance uses to provide services.
+     * @description The IP address that the Edge Load Balancer (ELB) instance uses to provide services.
      *
-     * @example 192.168.0.1
+     * @example 192.168XX.XX
      *
      * @var string
      */
@@ -29,16 +29,16 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
     public $addressIPVersion;
 
     /**
-     * @description The backend servers.
+     * @description The list of backend servers.
      *
      * @var backendServers[]
      */
     public $backendServers;
 
     /**
-     * @description The maximum bandwidth of the elastic IP address (EIP). Default value: 5. Valid values: **5** to **10000**. Unit: Mbit/s.
+     * @description The peak bandwidth of the ELB. The default value is -1, which indicates that the bandwidth is unlimited.
      *
-     * @example 2000
+     * @example -1
      *
      * @var int
      */

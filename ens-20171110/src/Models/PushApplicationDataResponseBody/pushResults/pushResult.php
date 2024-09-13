@@ -34,6 +34,8 @@ class pushResult extends Model
     /**
      * @description The description of the push status.
      *
+     * @example success
+     *
      * @var string
      */
     public $resultDescrip;

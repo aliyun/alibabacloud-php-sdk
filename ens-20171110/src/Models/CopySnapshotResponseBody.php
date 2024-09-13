@@ -18,7 +18,7 @@ class CopySnapshotResponseBody extends Model
     public $allocationId;
 
     /**
-     * @description Success status code.
+     * @description The success status code.
      *
      *   **PartSuccess**: partially succeeded.
      *   **AllSuccess**: all succeeded.

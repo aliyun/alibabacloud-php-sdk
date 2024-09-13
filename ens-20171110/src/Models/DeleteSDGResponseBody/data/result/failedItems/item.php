@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @description The ID of the shared data group (SDG).
+     *
+     * @example sdg-dfet5vvvgy
+     *
      * @var string
      */
     public $sdgId;

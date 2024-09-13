@@ -9,20 +9,24 @@ use AlibabaCloud\Tea\Model;
 class UnloadRegionSDGRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The destination nodes.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $destinationRegionIds;
 
     /**
+     * @description The namespaces.
+     *
      * @var string[]
      */
     public $namespaces;
 
     /**
-     * @description This parameter is required.
+     * @description Deletes the shared data group (SDG) ID of the preloaded data.
      *
+     * This parameter is required.
      * @example sdg-xxxx
      *
      * @var string

@@ -59,8 +59,8 @@ class image extends Model
     /**
      * @description The source of the image. Valid values:
      *
-     *   **system**: public images
-     *   **self**: your custom images
+     *   **others**: a custom image that is shared by other Alibaba Cloud accounts.
+     *   **self**: your own custom image.
      *
      * @example system
      *
@@ -78,7 +78,12 @@ class image extends Model
     public $imageSize;
 
     /**
-     * @description The instance ID.
+     * @var string
+     */
+    public $imageStorageSize;
+
+    /**
+     * @description The ID of the instance.
      *
      * @example i-5iqczfxps7csjrxeca****
      *
@@ -112,7 +117,7 @@ class image extends Model
     public $platform;
 
     /**
-     * @description The ID of the snapshot.
+     * @description The snapshot ID.
      *
      * @example sp-5yt3bdedxzdz6t6uuw****
      *
@@ -138,18 +143,19 @@ class image extends Model
      */
     public $status;
     protected $_name = [
-        'architecture'    => 'Architecture',
-        'computeType'     => 'ComputeType',
-        'creationTime'    => 'CreationTime',
-        'imageId'         => 'ImageId',
-        'imageName'       => 'ImageName',
-        'imageOwnerAlias' => 'ImageOwnerAlias',
-        'imageSize'       => 'ImageSize',
-        'instanceId'      => 'InstanceId',
-        'osVersion'       => 'OsVersion',
-        'platform'        => 'Platform',
-        'snapshotId'      => 'SnapshotId',
-        'status'          => 'Status',
+        'architecture'     => 'Architecture',
+        'computeType'      => 'ComputeType',
+        'creationTime'     => 'CreationTime',
+        'imageId'          => 'ImageId',
+        'imageName'        => 'ImageName',
+        'imageOwnerAlias'  => 'ImageOwnerAlias',
+        'imageSize'        => 'ImageSize',
+        'imageStorageSize' => 'ImageStorageSize',
+        'instanceId'       => 'InstanceId',
+        'osVersion'        => 'OsVersion',
+        'platform'         => 'Platform',
+        'snapshotId'       => 'SnapshotId',
+        'status'           => 'Status',
     ];
 
     public function validate()
@@ -179,6 +185,9 @@ class image extends Model
         }
         if (null !== $this->imageSize) {
             $res['ImageSize'] = $this->imageSize;
+        }
+        if (null !== $this->imageStorageSize) {
+            $res['ImageStorageSize'] = $this->imageStorageSize;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -227,6 +236,9 @@ class image extends Model
         }
         if (isset($map['ImageSize'])) {
             $model->imageSize = $map['ImageSize'];
+        }
+        if (isset($map['ImageStorageSize'])) {
+            $model->imageStorageSize = $map['ImageStorageSize'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

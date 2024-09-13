@@ -9,10 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateLoadBalancerHTTPListenerRequest extends Model
 {
     /**
-     * @description The description of the listener. The description must be **1** to **80** characters in length.
+     * @description 负载均衡实例后端服务器使用的端口，取值：**1**~**65535**。
+     *
+     * @example 8080
+     *
+     * @var int
+     */
+    public $backendServerPort;
+
+    /**
+     * @description The name of the listener. The value must be **1** to **80** characters in length.
      *
      * >  The value cannot start with `http://` or `https://`.
-     * @example 监听说明
+     * @example Monitoring instructions
      *
      * @var string
      */
@@ -99,7 +108,7 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
     public $healthCheckMethod;
 
     /**
-     * @description The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the server fails to pass the health check.
+     * @description The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the server fails the health check.
      *
      *   Default value: 5.
      *   Valid values: **1** to **300**.
@@ -107,9 +116,9 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
      *
      * >
      *
-     *   This parameter takes effect only if you set HealthCheck to on.
+     *   This parameter takes effect only if the HealthCheck parameter is set to on.
      *
-     *   If the value of the HealthCheckTimeout parameter is smaller than the value of the HealthCheckInterval parameter, the timeout period specified by the HealthCheckTimeout parameter becomes invalid and the value of the HealthCheckInterval parameter is used as the timeout period.
+     *   If the value of HealthCheckTimeout is smaller than the value of HealthCheckInterval, the timeout period specified by HealthCheckTimeout becomes invalid, and the value of HealthCheckInterval is used as the timeout period.
      *
      * @example 5
      *
@@ -118,13 +127,13 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
     public $healthCheckTimeout;
 
     /**
-     * @description The Uniform Resource Identifier (URI) that you want to use for health checks. The URI must be **1** to **80** characters in length.
+     * @description The URI used for health checks. The URI must be **1** to **80** characters in length.
      *
      * >
      *
-     *   The URL must start with `/` and contain characters other than `/`.
+     *   A URL must start with a forward slash (`/`) but cannot contain only forward slashes (`/`).
      *
-     *   This parameter takes effect only if you set HealthCheck to on.
+     *   This parameter takes effect only if the HealthCheck parameter is set to on.
      *
      * @example /checkpreload.htm
      *
@@ -165,7 +174,7 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
     public $listenerForward;
 
     /**
-     * @description The frontend port that is used by the ELB instance. Valid values: **1** to **65535**.
+     * @description The listener port that is used by Edge Load Balancer (ELB) to receive requests and forward the requests to backend servers. Valid values: **1** to **65535**.
      *
      * This parameter is required.
      * @example 8080
@@ -232,6 +241,7 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
      */
     public $XForwardedFor;
     protected $_name = [
+        'backendServerPort'      => 'BackendServerPort',
         'description'            => 'Description',
         'forwardPort'            => 'ForwardPort',
         'healthCheck'            => 'HealthCheck',
@@ -260,6 +270,9 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backendServerPort) {
+            $res['BackendServerPort'] = $this->backendServerPort;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -329,6 +342,9 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackendServerPort'])) {
+            $model->backendServerPort = $map['BackendServerPort'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

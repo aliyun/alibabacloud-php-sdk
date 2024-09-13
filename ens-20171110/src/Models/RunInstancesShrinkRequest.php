@@ -35,8 +35,8 @@ class RunInstancesShrinkRequest extends Model
     /**
      * @description Specifies whether to enable auto-renewal. Valid values:
      *
-     *   **true**
-     *   **false** (default)
+     *   **true**.
+     *   **false** (default).
      *
      * >  This parameter is not available when InstanceChargeType is set to PostPaid.
      * @example true
@@ -57,8 +57,8 @@ class RunInstancesShrinkRequest extends Model
     /**
      * @description The billing cycle of computing resources of the instance. Only pay-as-you-go instances are supported. Valid values:
      *
-     *   **Day**
-     *   **Month**
+     *   **Day**.
+     *   **Month**.
      *
      * @example Day
      *
@@ -77,7 +77,7 @@ class RunInstancesShrinkRequest extends Model
     public $carrier;
 
     /**
-     * @description The specifications of the data disk.
+     * @description The specifications of data disks.
      *
      * @var string
      */
@@ -182,9 +182,9 @@ class RunInstancesShrinkRequest extends Model
     /**
      * @description The type of the IP address. Valid values:
      *
-     *   **ipv4** (default)
-     *   **ipv6**
-     *   **ipv4Andipv6**
+     *   **ipv4** (default).
+     *   **ipv6**.
+     *   **ipv4Andipv6**.
      *
      * @example ipv4
      *
@@ -258,10 +258,10 @@ class RunInstancesShrinkRequest extends Model
     public $period;
 
     /**
-     * @description The unit of the subscription duration. Valid values:
+     * @description The unit of the subscription period. Valid values:
      *
-     *   **Month** (default)
-     *   **Day**
+     *   **Month** (default).
+     *   **Day**.
      *
      * @example Month
      *
@@ -336,6 +336,11 @@ class RunInstancesShrinkRequest extends Model
      * @var string
      */
     public $securityId;
+
+    /**
+     * @var int
+     */
+    public $spotDuration;
 
     /**
      * @description The bidding policy for the pay-as-you-go instance. This parameter is valid only when the `InstanceChargeType` parameter is set to `PostPaid`. Valid values:
@@ -422,6 +427,7 @@ class RunInstancesShrinkRequest extends Model
         'schedulingPriceStrategy' => 'SchedulingPriceStrategy',
         'schedulingStrategy'      => 'SchedulingStrategy',
         'securityId'              => 'SecurityId',
+        'spotDuration'            => 'SpotDuration',
         'spotStrategy'            => 'SpotStrategy',
         'systemDiskShrink'        => 'SystemDisk',
         'tag'                     => 'Tag',
@@ -526,6 +532,9 @@ class RunInstancesShrinkRequest extends Model
         }
         if (null !== $this->securityId) {
             $res['SecurityId'] = $this->securityId;
+        }
+        if (null !== $this->spotDuration) {
+            $res['SpotDuration'] = $this->spotDuration;
         }
         if (null !== $this->spotStrategy) {
             $res['SpotStrategy'] = $this->spotStrategy;
@@ -652,6 +661,9 @@ class RunInstancesShrinkRequest extends Model
         }
         if (isset($map['SecurityId'])) {
             $model->securityId = $map['SecurityId'];
+        }
+        if (isset($map['SpotDuration'])) {
+            $model->spotDuration = $map['SpotDuration'];
         }
         if (isset($map['SpotStrategy'])) {
             $model->spotStrategy = $map['SpotStrategy'];

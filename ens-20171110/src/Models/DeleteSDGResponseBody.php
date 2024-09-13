@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteSDGResponseBody extends Model
 {
     /**
+     * @description The returned data object.
+     *
      * @var data
      */
     public $data;

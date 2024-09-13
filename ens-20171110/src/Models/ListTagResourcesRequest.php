@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The token of the first page to query.
+     *
      * @example 153ba0bbb2be03f84eb48b699f0a4123
      *
      * @var string
@@ -17,13 +19,18 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The IDs of resources. Valid values of N: 1 to 50.
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the resource. Valid values:
      *
+     *   instance
+     *
+     * This parameter is required.
      * @example instance
      *
      * @var string
@@ -31,6 +38,8 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

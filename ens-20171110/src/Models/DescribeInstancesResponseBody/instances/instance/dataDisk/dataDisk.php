@@ -49,6 +49,16 @@ class dataDisk extends Model
     public $diskSize;
 
     /**
+     * @var string
+     */
+    public $encryptKeyId;
+
+    /**
+     * @var bool
+     */
+    public $encrypted;
+
+    /**
      * @description The size of the disk. Unit: MiB.
      *
      * @example 51200
@@ -108,16 +118,18 @@ class dataDisk extends Model
      */
     public $uuid;
     protected $_name = [
-        'category'   => 'Category',
-        'diskId'     => 'DiskId',
-        'diskName'   => 'DiskName',
-        'diskSize'   => 'DiskSize',
-        'size'       => 'Size',
-        'deviceType' => 'device_type',
-        'diskType'   => 'disk_type',
-        'name'       => 'name',
-        'storage'    => 'storage',
-        'uuid'       => 'uuid',
+        'category'     => 'Category',
+        'diskId'       => 'DiskId',
+        'diskName'     => 'DiskName',
+        'diskSize'     => 'DiskSize',
+        'encryptKeyId' => 'EncryptKeyId',
+        'encrypted'    => 'Encrypted',
+        'size'         => 'Size',
+        'deviceType'   => 'device_type',
+        'diskType'     => 'disk_type',
+        'name'         => 'name',
+        'storage'      => 'storage',
+        'uuid'         => 'uuid',
     ];
 
     public function validate()
@@ -138,6 +150,12 @@ class dataDisk extends Model
         }
         if (null !== $this->diskSize) {
             $res['DiskSize'] = $this->diskSize;
+        }
+        if (null !== $this->encryptKeyId) {
+            $res['EncryptKeyId'] = $this->encryptKeyId;
+        }
+        if (null !== $this->encrypted) {
+            $res['Encrypted'] = $this->encrypted;
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
@@ -180,6 +198,12 @@ class dataDisk extends Model
         }
         if (isset($map['DiskSize'])) {
             $model->diskSize = $map['DiskSize'];
+        }
+        if (isset($map['EncryptKeyId'])) {
+            $model->encryptKeyId = $map['EncryptKeyId'];
+        }
+        if (isset($map['Encrypted'])) {
+            $model->encrypted = $map['Encrypted'];
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];

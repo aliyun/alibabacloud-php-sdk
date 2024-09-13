@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSDGResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeSDGResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeSDGResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example F3B261DD-3858-4D3C-877D-303ADF374600
      *
      * @var string
@@ -31,11 +37,15 @@ class DescribeSDGResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the SDGs.
+     *
      * @var SDGs[]
      */
     public $SDGs;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 49
      *
      * @var int

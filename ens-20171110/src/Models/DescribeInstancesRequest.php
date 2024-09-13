@@ -175,7 +175,7 @@ class DescribeInstancesRequest extends Model
     public $status;
 
     /**
-     * @description The tags that are added to the resource.
+     * @description The tags that are added to the resource. This operation does not return tag information. You can call this operation in combination with the tag-related operations.
      *
      * @var tags[]
      */

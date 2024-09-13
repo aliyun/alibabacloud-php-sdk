@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class PutBucketRequest extends Model
 {
     /**
-     * @description The access control list (ACL) of the bucket.
+     * @description The access control list (ACL) of the bucket. Valid values:
      *
      *   **private** (default)
      *   **public-read-write**
@@ -41,9 +41,11 @@ class PutBucketRequest extends Model
     public $comment;
 
     /**
-     * @description Scheduling Scope, this parameter is only effective for globally scheduled Buckets.
+     * @description The scheduling scope. This parameter takes effect only when the value of the LogicalBucketType parameter is standard. Valid values:
      *
-     * - oversea
+     *   **domestic**: Chinese mainland.
+     *   **oversea**: outside the Chinese mainland.
+     *
      * @example domestic
      *
      * @var string
@@ -51,7 +53,7 @@ class PutBucketRequest extends Model
     public $dispatchScope;
 
     /**
-     * @description The ID of the region where the node is located. If this parameter is not specified, the node is the global default node.
+     * @description The region ID of the node. This parameter is required if the value of the LogicalBucketType parameter is sink.
      *
      * @example cn-beijing-15
      *
@@ -60,7 +62,10 @@ class PutBucketRequest extends Model
     public $ensRegionId;
 
     /**
-     * @description Single-node storage. Set the value to sink.
+     * @description The type of the bucket. Valid values:
+     *
+     *   **sink**: single-node bucket.
+     *   **standard**: bucket for global scheduling.
      *
      * @example sink
      *

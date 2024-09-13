@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteFileSystemRequest extends Model
 {
     /**
-     * @description The ID of the node.
+     * @description The ID of the edge node.
      *
      * This parameter is required.
      * @example cn-chengdu-telecom-4

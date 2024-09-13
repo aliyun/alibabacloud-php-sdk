@@ -10,15 +10,21 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The IDs of the resources. You can add up to 50 resource IDs in a call.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @description This parameter is required.
+     * @description The type of resource to query.
      *
+     * Valid values:
+     *
+     *   instance
+     *
+     * This parameter is required.
      * @example instance
      *
      * @var string
@@ -26,8 +32,9 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description This parameter is required.
+     * @description The tag that is bound to the instance.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

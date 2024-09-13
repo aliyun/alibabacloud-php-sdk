@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class failedItems extends Model
 {
     /**
+     * @description The error message.
+     *
+     * @example sdg not found
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description Description
+     *
      * @var item
      */
     public $item;

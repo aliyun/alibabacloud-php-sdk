@@ -45,7 +45,7 @@ class listenerPortsAndProtocols extends Model
     public $listenerPort;
 
     /**
-     * @description The listener protocol.
+     * @description The listener protocol of the instance.
      *
      * @example tcp
      *

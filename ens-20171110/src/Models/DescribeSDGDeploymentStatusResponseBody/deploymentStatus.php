@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class deploymentStatus extends Model
 {
     /**
-     * @description The ID of the instance
+     * @description The ID of the AIC instance.
      *
      * @example aic-xxxx
      *
@@ -22,13 +22,9 @@ class deploymentStatus extends Model
      *
      * Valid values:
      *
-     *   overlay
+     *   overlay: read/write splitting.
+     *   common: common deployment.
      *
-     * .
-     *
-     *   common
-     *
-     * .
      * @example overlay
      *
      * @var string
@@ -36,7 +32,7 @@ class deploymentStatus extends Model
     public $mountType;
 
     /**
-     * @description The ID of the node.
+     * @description The ID of the edge node.
      *
      * @example cn-hangzhou
      *
@@ -45,21 +41,14 @@ class deploymentStatus extends Model
     public $regionId;
 
     /**
-     * @description The deployment status of the SDG.
+     * @description the deployment status of the shared data group SDG.
      *
      * Valid values:
      *
      *   sdg_deploying
-     *
-     * <!-- -->
-     *
      *   success
-     *
-     * <!-- -->
-     *
      *   failed
      *
-     * <!-- -->
      * @example success
      *
      * @var string

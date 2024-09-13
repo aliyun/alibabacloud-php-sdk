@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class preloadInfos extends Model
 {
     /**
+     * @description The time when the SDG was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2023-02-16T06:18:40Z
      *
      * @var string
@@ -16,6 +18,8 @@ class preloadInfos extends Model
     public $creationTime;
 
     /**
+     * @description The namespace.
+     *
      * @example test-20000
      *
      * @var string
@@ -23,6 +27,8 @@ class preloadInfos extends Model
     public $namespace;
 
     /**
+     * @description The number of redundant replicas to quickly respond to shared mounts.
+     *
      * @example 2
      *
      * @var int
@@ -30,6 +36,8 @@ class preloadInfos extends Model
     public $redundantNum;
 
     /**
+     * @description The ID of the node.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +45,8 @@ class preloadInfos extends Model
     public $regionId;
 
     /**
+     * @description The time when the status was last updated.
+     *
      * @example 2021-01-22T08:17Z
      *
      * @var string

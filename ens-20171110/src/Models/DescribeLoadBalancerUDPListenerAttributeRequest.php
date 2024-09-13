@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerUDPListenerAttributeRequest extends Model
 {
     /**
-     * @description The frontend port that is used by the Edge Load Balance (ELB) instance. Valid values: **1** to **65535**.
+     * @description The listening port that you want to query. Valid values: **1** to **65535**.
      *
      * This parameter is required.
      * @example 80

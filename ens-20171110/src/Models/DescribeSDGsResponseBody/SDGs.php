@@ -54,6 +54,8 @@ class SDGs extends Model
     /**
      * @description The description of the SDG.
      *
+     * @example Testing SDGs
+     *
      * @var string
      */
     public $description;

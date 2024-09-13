@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkInterfacesResponseBody\networkInterfaceSets;
 
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkInterfacesResponseBody\networkInterfaceSets\networkInterfaceSet\ipv6Sets;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkInterfacesResponseBody\networkInterfaceSets\networkInterfaceSet\privateIpSets;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkInterfacesResponseBody\networkInterfaceSets\networkInterfaceSet\securityGroupIds;
 use AlibabaCloud\Tea\Model;
@@ -45,6 +46,11 @@ class networkInterfaceSet extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var ipv6Sets
+     */
+    public $ipv6Sets;
 
     /**
      * @description The MAC address of the ENI.
@@ -157,6 +163,7 @@ class networkInterfaceSet extends Model
         'description'          => 'Description',
         'ensRegionId'          => 'EnsRegionId',
         'instanceId'           => 'InstanceId',
+        'ipv6Sets'             => 'Ipv6Sets',
         'macAddress'           => 'MacAddress',
         'networkId'            => 'NetworkId',
         'networkInterfaceId'   => 'NetworkInterfaceId',
@@ -188,6 +195,9 @@ class networkInterfaceSet extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ipv6Sets) {
+            $res['Ipv6Sets'] = null !== $this->ipv6Sets ? $this->ipv6Sets->toMap() : null;
         }
         if (null !== $this->macAddress) {
             $res['MacAddress'] = $this->macAddress;
@@ -245,6 +255,9 @@ class networkInterfaceSet extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Ipv6Sets'])) {
+            $model->ipv6Sets = ipv6Sets::fromMap($map['Ipv6Sets']);
         }
         if (isset($map['MacAddress'])) {
             $model->macAddress = $map['MacAddress'];

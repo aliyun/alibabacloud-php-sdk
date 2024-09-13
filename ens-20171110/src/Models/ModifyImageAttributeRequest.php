@@ -22,6 +22,8 @@ class ModifyImageAttributeRequest extends Model
      * @description The name of the image.
      *
      * This parameter is required.
+     * @example Image Name
+     *
      * @var string
      */
     public $imageName;

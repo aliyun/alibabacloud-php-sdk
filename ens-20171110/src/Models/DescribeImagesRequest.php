@@ -69,6 +69,8 @@ class DescribeImagesRequest extends Model
     /**
      * @description This parameter is unavailable.
      *
+     * @example This parameter is not currently in use.
+     *
      * @var string
      */
     public $status;

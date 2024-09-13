@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CopySnapshotRequest extends Model
 {
     /**
-     * @description The destination nodes.
+     * @description The IDs of destination nodes.
      *
      * This parameter is required.
      * @var string[]

@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateLoadBalancerHTTPSListenerRequest extends Model
 {
     /**
+     * @description The listening port that is used by the backend instances. Valid values: 1 to 65535.
+     *
+     * @example 8080
+     *
+     * @var int
+     */
+    public $backendServerPort;
+
+    /**
      * @description The cookie that is configured on the server. The cookie must be **1** to **200** characters in length and contain only ASCII characters and digits.
      *
      * >  This parameter is required if you set StickySession to on and StickySessionType to server.
@@ -32,7 +41,7 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
      * @description The description of the listener. The description must be **1** to **80** characters in length.
      *
      * >  The value cannot start with `http://` or `https://`.
-     * @example 监听说明
+     * @example https_80
      *
      * @var string
      */
@@ -127,9 +136,9 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
      *
      * >
      *
-     *   This parameter takes effect only if you set HealthCheck to on.
+     *   This parameter takes effect only if the HealthCheck parameter is set to on.
      *
-     *   If the value of the HealthCheckTimeout parameter is smaller than the value of the HealthCheckInterval parameter, the timeout period specified by the HealthCheckTimeout parameter becomes invalid and the value of the HealthCheckInterval parameter is used as the timeout period.
+     *   If the value of HealthCheckTimeout is smaller than the value of HealthCheckInterval, the timeout period specified by HealthCheckTimeout becomes invalid, and the value of HealthCheckInterval is used as the timeout period.
      *
      * @example 5
      *
@@ -138,12 +147,9 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $healthCheckTimeout;
 
     /**
-     * @description The Uniform Resource Identifier (URI) that you want to use for health checks. The URI must be **1** to **80** characters in length.
+     * @description The URI used for health checks. The URI must be **1** to **80** characters in length.
      *
-     * >
-     *
-     *   The URL must start with a forward slash (`/`) and contain characters other than forward slashes (`/`).
-     *
+     * >  A URL must start with a forward slash (`/`) but cannot contain only forward slashes (`/`).
      * @example /checkpreload.htm
      *
      * @var string
@@ -183,7 +189,7 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $listenerForward;
 
     /**
-     * @description The frontend port that is used by the ELB instance. Valid values: **1** to **65535**.
+     * @description The listening port that is used by Edge Load Balancer (ELB) to receive requests and forward the requests to backend servers. Valid values: **1** to **65535**.
      *
      * This parameter is required.
      * @example 8080
@@ -232,7 +238,7 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
      * @description The ID of the server certificate.
      *
      * This parameter is required.
-     * @example 6027667
+     * @example 60276**
      *
      * @var string
      */
@@ -261,6 +267,7 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
      */
     public $unhealthyThreshold;
     protected $_name = [
+        'backendServerPort'      => 'BackendServerPort',
         'cookie'                 => 'Cookie',
         'cookieTimeout'          => 'CookieTimeout',
         'description'            => 'Description',
@@ -292,6 +299,9 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backendServerPort) {
+            $res['BackendServerPort'] = $this->backendServerPort;
+        }
         if (null !== $this->cookie) {
             $res['Cookie'] = $this->cookie;
         }
@@ -370,6 +380,9 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackendServerPort'])) {
+            $model->backendServerPort = $map['BackendServerPort'];
+        }
         if (isset($map['Cookie'])) {
             $model->cookie = $map['Cookie'];
         }

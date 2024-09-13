@@ -29,6 +29,8 @@ class instanceMonitorData extends Model
     /**
      * @description This parameter is not yet supported.
      *
+     * @example Not currently supported
+     *
      * @var string
      */
     public $memory;

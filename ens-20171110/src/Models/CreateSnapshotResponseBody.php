@@ -27,7 +27,7 @@ class CreateSnapshotResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the snapshot.
+     * @description The IDs of the snapshots.
      *
      * @example s-bp17441ohwka0yuh****
      *

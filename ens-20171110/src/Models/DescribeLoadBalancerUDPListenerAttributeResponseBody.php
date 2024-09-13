@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
 {
     /**
-     * @description The backend port that is used by the ELB instance. Valid values: **1** to **65535**.
+     * @description The port used by the backend ELB server of the ELB instance. Valid values: **1** to **65535**.
      *
      * @example 8080
      *
@@ -18,11 +18,7 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
     public $backendServerPort;
 
     /**
-     * @description The maximum bandwidth of the elastic IP address (EIP).
-     *
-     *   Default value: 5.
-     *   Valid values: **5** to **10000**.
-     *   Unit: Mbit/s.
+     * @description The peak bandwidth of the Edge Load Balancer (ELB) instance. The default value is -1, which indicates that the bandwidth is not limited.
      *
      * @example 5
      *
@@ -31,7 +27,7 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
     public $bandwidth;
 
     /**
-     * @description The description of the listener.
+     * @description The name of the listener.
      *
      * @example example
      *
@@ -50,6 +46,15 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
      * @var string
      */
     public $eipTransmit;
+
+    /**
+     * @description The timeout period of a connection. Valid values: **10** to **900**. Unit: seconds.
+     *
+     * @example 500
+     *
+     * @var int
+     */
+    public $establishedTimeout;
 
     /**
      * @description Specifies whether to enable the health check feature. Valid values:
@@ -73,7 +78,7 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
     public $healthCheckConnectPort;
 
     /**
-     * @description The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the server fails to pass the health check.
+     * @description The timeout period for a health check response. If a backend server does not respond within the specified timeout period, the server fails the health check.
      *
      *   Default value: 5.
      *   Valid values: **1** to **300**.
@@ -81,9 +86,9 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
      *
      * >
      *
-     *   This parameter takes effect only if you set HealthCheck to on.
+     *   This parameter takes effect only if the HealthCheck parameter is set to on.
      *
-     *   If the value of the HealthCheckConnectTimeout parameter is smaller than that of the HealthCheckInterval parameter, the timeout period specified by the HealthCheckConnectTimeout parameter becomes invalid and the value of the HealthCheckInterval parameter is used as the timeout period.
+     *   If the value of the HealthCheckTimeout property is smaller than the value of the HealthCheckInterval property, the timeout period specified by the HealthCheckTimeout property becomes invalid and the value of the HealthCheckInterval property is used as the timeout period.
      *
      * @example 100
      *
@@ -130,7 +135,7 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
     public $healthyThreshold;
 
     /**
-     * @description The frontend port that is used by the ELB instance.
+     * @description The listener port.
      *
      * @example 80
      *
@@ -192,6 +197,7 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
         'bandwidth'                 => 'Bandwidth',
         'description'               => 'Description',
         'eipTransmit'               => 'EipTransmit',
+        'establishedTimeout'        => 'EstablishedTimeout',
         'healthCheck'               => 'HealthCheck',
         'healthCheckConnectPort'    => 'HealthCheckConnectPort',
         'healthCheckConnectTimeout' => 'HealthCheckConnectTimeout',
@@ -224,6 +230,9 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
         }
         if (null !== $this->eipTransmit) {
             $res['EipTransmit'] = $this->eipTransmit;
+        }
+        if (null !== $this->establishedTimeout) {
+            $res['EstablishedTimeout'] = $this->establishedTimeout;
         }
         if (null !== $this->healthCheck) {
             $res['HealthCheck'] = $this->healthCheck;
@@ -284,6 +293,9 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
         }
         if (isset($map['EipTransmit'])) {
             $model->eipTransmit = $map['EipTransmit'];
+        }
+        if (isset($map['EstablishedTimeout'])) {
+            $model->establishedTimeout = $map['EstablishedTimeout'];
         }
         if (isset($map['HealthCheck'])) {
             $model->healthCheck = $map['HealthCheck'];

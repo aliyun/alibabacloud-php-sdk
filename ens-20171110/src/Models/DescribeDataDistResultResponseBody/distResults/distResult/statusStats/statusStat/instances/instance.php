@@ -29,6 +29,8 @@ class instance extends Model
     /**
      * @description The description of the distribution status.
      *
+     * @example SUCCESS
+     *
      * @var string
      */
     public $statusDescrip;

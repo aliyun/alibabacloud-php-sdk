@@ -32,6 +32,8 @@ class resourceInfos extends Model
     /**
      * @description The region name.
      *
+     * @example Jiaozuo City, Henan Province, Central China
+     *
      * @var string
      */
     public $areaName;
@@ -104,6 +106,8 @@ class resourceInfos extends Model
 
     /**
      * @description The name of the region.
+     *
+     * @example China Jiaozuo-2
      *
      * @var string
      */

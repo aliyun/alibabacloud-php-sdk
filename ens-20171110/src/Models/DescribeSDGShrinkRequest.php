@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSDGShrinkRequest extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,9 @@ class DescribeSDGShrinkRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * Default value: 10
      * @example 10
      *
      * @var int
@@ -23,6 +28,8 @@ class DescribeSDGShrinkRequest extends Model
     public $pageSize;
 
     /**
+     * @description The IDs of SDGs that you want to query. By default, all SDGs are queried.
+     *
      * @var string
      */
     public $SDGIdsShrink;

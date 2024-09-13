@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The response message. Success is returned for a successful request.
+     *
      * @example success
      *
      * @var string
@@ -17,11 +19,18 @@ class data extends Model
     public $message;
 
     /**
+     * @description The execution result of the synchronization request.
+     *
      * @var result
      */
     public $result;
 
     /**
+     * @description Indicates whether all tasks are successful. Valid values:
+     *
+     *   **true**: All tasks are successful.
+     *   **false**: Failed tasks exist.
+     *
      * @example true
      *
      * @var bool

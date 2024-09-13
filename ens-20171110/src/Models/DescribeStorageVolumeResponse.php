@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeEipAddressesResponse extends Model
+class DescribeStorageVolumeResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeEipAddressesResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeEipAddressesResponseBody
+     * @var DescribeStorageVolumeResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class DescribeEipAddressesResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeEipAddressesResponse
+     * @return DescribeStorageVolumeResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class DescribeEipAddressesResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeEipAddressesResponseBody::fromMap($map['body']);
+            $model->body = DescribeStorageVolumeResponseBody::fromMap($map['body']);
         }
 
         return $model;

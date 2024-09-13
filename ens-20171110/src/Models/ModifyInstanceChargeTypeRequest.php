@@ -67,14 +67,9 @@ class ModifyInstanceChargeTypeRequest extends Model
     public $period;
 
     /**
-     * @description The unit of the subscription duration. This parameter is required if you set the InstanceChargeType parameter to PrePaid. Examples:
+     * @description The unit of the subscription duration. This parameter is required if you set the InstanceChargeType parameter to PrePaid. Valid values:
      *
-     * Valid values:
-     *
-     *   Year
-     *   Month
-     *   Day
-     *
+     * Day
      * @example Month
      *
      * @var string

@@ -21,16 +21,16 @@ class DescribeServcieScheduleResponseBody extends Model
     /**
      * @description The ID of the scheduled instance.
      *
-     * @example i-5myukg7hnpbto7m024002w8qd
+     * @example i-5myukg7hnpbto7m024002****
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The IP address of the scheduled instance.
+     * @description The ID of the scheduled instance.
      *
-     * @example 120.26.79.96
+     * @example 120.26.XX.XX
      *
      * @var string
      */

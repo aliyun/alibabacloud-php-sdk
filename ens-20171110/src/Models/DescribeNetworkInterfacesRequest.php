@@ -27,6 +27,11 @@ class DescribeNetworkInterfacesRequest extends Model
     public $instanceId;
 
     /**
+     * @var string[]
+     */
+    public $ipv6Address;
+
+    /**
      * @description The ID of the network.
      *
      * @example n-2zeuphj08tt7q3brd****
@@ -129,6 +134,7 @@ class DescribeNetworkInterfacesRequest extends Model
     protected $_name = [
         'ensRegionId'          => 'EnsRegionId',
         'instanceId'           => 'InstanceId',
+        'ipv6Address'          => 'Ipv6Address',
         'networkId'            => 'NetworkId',
         'networkInterfaceId'   => 'NetworkInterfaceId',
         'networkInterfaceName' => 'NetworkInterfaceName',
@@ -153,6 +159,9 @@ class DescribeNetworkInterfacesRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ipv6Address) {
+            $res['Ipv6Address'] = $this->ipv6Address;
         }
         if (null !== $this->networkId) {
             $res['NetworkId'] = $this->networkId;
@@ -201,6 +210,11 @@ class DescribeNetworkInterfacesRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Ipv6Address'])) {
+            if (!empty($map['Ipv6Address'])) {
+                $model->ipv6Address = $map['Ipv6Address'];
+            }
         }
         if (isset($map['NetworkId'])) {
             $model->networkId = $map['NetworkId'];

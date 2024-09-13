@@ -68,6 +68,8 @@ class appMetaData extends Model
     /**
      * @description The description of the application.
      *
+     * @example test application
+     *
      * @var string
      */
     public $description;

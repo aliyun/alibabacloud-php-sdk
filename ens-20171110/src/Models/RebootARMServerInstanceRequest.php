@@ -11,7 +11,7 @@ class RebootARMServerInstanceRequest extends Model
     /**
      * @description The ID of the server.
      *
-     * @example cas-instance****
+     * @example yourInstance ID
      *
      * @var string
      */

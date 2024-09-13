@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeployInstanceSDGShrinkRequest extends Model
 {
     /**
+     * @description The deployment type of the SDG. Valid values:
+     *
+     *   shared: shared read/write splitting deployment. The content of the SDG is read-only, and data updates are written to the local storage of the instance.
+     *
      * @example shared
      *
      * @var string
@@ -16,15 +20,17 @@ class DeployInstanceSDGShrinkRequest extends Model
     public $deploymentType;
 
     /**
-     * @description This parameter is required.
+     * @description The IDs of the instances. The value is a JSON array that consists of up to 100 IDs.
      *
+     * This parameter is required.
      * @var string
      */
     public $instanceIdsShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the SDG.
      *
+     * This parameter is required.
      * @example sdg-xxxx
      *
      * @var string

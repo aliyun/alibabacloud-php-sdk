@@ -11,6 +11,8 @@ class ensNetDistrict extends Model
     /**
      * @description The information about the ISP.
      *
+     * @example {                         "count":2,                         "name":"telecommunication",                         "code":"telecom",                         "country":"cn"                     }
+     *
      * @var string
      */
     public $ensRegionIdCount;
@@ -66,6 +68,8 @@ class ensNetDistrict extends Model
 
     /**
      * @description The Chinese name of the region.
+     *
+     * @example Northeast China
      *
      * @var string
      */

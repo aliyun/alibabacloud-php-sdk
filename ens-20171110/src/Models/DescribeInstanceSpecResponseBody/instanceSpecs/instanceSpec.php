@@ -20,6 +20,8 @@ class instanceSpec extends Model
     /**
      * @description The display name of the instance type.
      *
+     * @example Computational 1C2G
+     *
      * @var string
      */
     public $displayName;

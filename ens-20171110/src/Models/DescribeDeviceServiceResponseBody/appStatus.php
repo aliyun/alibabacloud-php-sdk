@@ -33,6 +33,8 @@ class appStatus extends Model
     /**
      * @description The description of the application status.
      *
+     * @example Creating in progress
+     *
      * @var string
      */
     public $statusDescrip;

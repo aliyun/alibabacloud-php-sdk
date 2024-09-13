@@ -11,7 +11,7 @@ class backendServers extends Model
     /**
      * @description The IP address of the backend server.
      *
-     * @example 192.168.0.5
+     * @example 192.168.XX.XX
      *
      * @var string
      */
@@ -36,7 +36,7 @@ class backendServers extends Model
     public $serverId;
 
     /**
-     * @description The type of the backend server.
+     * @description The type of backend server.
      *
      * @example ens
      *

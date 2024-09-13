@@ -12,7 +12,7 @@ class RollbackApplicationRequest extends Model
      * @description The ID of the application.
      *
      * This parameter is required.
-     * @example 474bdef0-d149-4695-abfb-52912d9143f0
+     * @example 474bdef0-d149-4695-abfb-52912d91****
      *
      * @var string
      */

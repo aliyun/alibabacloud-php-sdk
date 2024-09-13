@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSDGsShrinkRequest extends Model
 {
     /**
-     * @description The IDs of instances that you want to query. By default, all instances are queried.
+     * @description The AIC instance ID to be queried.
      *
-     * >  If you specify the **SDGIds** and **InstanceIds** parameters at the same time, the query result is the intersection of the two conditions.
      * @var string
      */
     public $instanceIdsShrink;

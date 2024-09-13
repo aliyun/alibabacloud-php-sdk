@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeApplicationResourceSummaryResponse extends Model
+class ModifyHaVipAttributeResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeApplicationResourceSummaryResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeApplicationResourceSummaryResponseBody
+     * @var ModifyHaVipAttributeResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class DescribeApplicationResourceSummaryResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeApplicationResourceSummaryResponse
+     * @return ModifyHaVipAttributeResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class DescribeApplicationResourceSummaryResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeApplicationResourceSummaryResponseBody::fromMap($map['body']);
+            $model->body = ModifyHaVipAttributeResponseBody::fromMap($map['body']);
         }
 
         return $model;

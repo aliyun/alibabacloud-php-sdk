@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteSDGRequest extends Model
 {
     /**
-     * @description IDs of SDGs that you want to delete. You can delete a maximum of 10 SDGs at a time.
+     * @description The IDs of the SDGs that you want to delete.
      *
      * This parameter is required.
      * @var string[]

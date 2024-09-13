@@ -19,7 +19,7 @@ class ModifyFileSystemRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the region.
+     * @description The ID of the edge node.
      *
      * This parameter is required.
      * @example cn-beijing-cmcc

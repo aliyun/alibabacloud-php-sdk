@@ -58,6 +58,8 @@ class CreateVSwitchRequest extends Model
      *   The name must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * Default value: null.
+     * @example test
+     *
      * @var string
      */
     public $vSwitchName;

@@ -47,6 +47,8 @@ class ensRegionIdResource extends Model
     /**
      * @description The name of the node.
      *
+     * @example Nanjing Mobile
+     *
      * @var string
      */
     public $ensRegionIdName;

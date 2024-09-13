@@ -60,6 +60,8 @@ class ensNetDistrict extends Model
     /**
      * @description The name of the region.
      *
+     * @example southwest China
+     *
      * @var string
      */
     public $netDistrictName;

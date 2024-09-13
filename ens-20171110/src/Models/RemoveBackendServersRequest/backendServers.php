@@ -11,7 +11,7 @@ class backendServers extends Model
     /**
      * @description The IP address of the backend server.
      *
-     * @example 192.168.0.1
+     * @example 192.XXX.X.X
      *
      * @var string
      */

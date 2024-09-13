@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateEipInstanceRequest extends Model
 {
     /**
-     * @description The peak bandwidth of the EIP. Default value: 5. Valid values: 5 to 10000. Unit: Mbit/s.
+     * @description The maximum bandwidth of the EIP. Default value: 5. Valid values: 5 to 10000. Unit: Mbit/s.
      *
      * @example 5
      *
@@ -59,9 +59,9 @@ class CreateEipInstanceRequest extends Model
     /**
      * @description The Internet service provider. Valid values:
      *
-     *   **cmcc**: China Mobile
-     *   **unicom**: China Unicom
-     *   **telecom**: China Telecom
+     *   **cmcc**: China Mobile.
+     *   **unicom**: China Unicom.
+     *   **telecom**: China Telecom.
      *
      * @example cmcc
      *

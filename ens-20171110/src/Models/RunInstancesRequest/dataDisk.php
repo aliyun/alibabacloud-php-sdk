@@ -23,10 +23,10 @@ class dataDisk extends Model
     public $category;
 
     /**
-     * @description Specifies whether to encrypt the disk. Valid values:
+     * @description Indicates whether the cloud disk is encrypted. Valid values:
      *
-     *   true
-     *   false (default)
+     *   true.
+     *   false (default).
      *
      * @example false
      *
@@ -37,8 +37,8 @@ class dataDisk extends Model
     /**
      * @description The ID of the Key Management Service (KMS) key that is used for the disk. Valid values:
      *
-     *   true
-     *   false (default)
+     *   true.
+     *   false (default).
      *
      * >  If you set the Encrypted parameter to true, the default service key is used when the KMSKeyId parameter is empty.
      * @example false

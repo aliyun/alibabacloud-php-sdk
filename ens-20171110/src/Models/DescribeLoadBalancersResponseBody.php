@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancersResponseBody extends Model
 {
     /**
-     * @description The returned ELB instances.
+     * @description An array of ELB instances.
      *
      * @var loadBalancers
      */
@@ -44,7 +44,7 @@ class DescribeLoadBalancersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
+     * @description The number of entries returned.
      *
      * @example 6
      *

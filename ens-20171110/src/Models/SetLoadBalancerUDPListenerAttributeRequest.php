@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetLoadBalancerUDPListenerAttributeRequest extends Model
 {
     /**
-     * @description The description of the listener. The description must be **1** to **80** characters in length.
+     * @description The name of the listener. The valuemust be **1** to **80** characters in length.
      *
      * >  The value cannot start with `http://` or `https://`.
      * @example example
@@ -31,6 +31,15 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
     public $eipTransmit;
 
     /**
+     * @description The timeout period of a connection. Valid values: **10** to **900**. Default value: **900**. Unit: seconds.
+     *
+     * @example 500
+     *
+     * @var int
+     */
+    public $establishedTimeout;
+
+    /**
      * @description The port that is used for health checks. Valid values: **1** to **65535**. If you leave this parameter empty, the port specified for BackendServerPort is used for health checks.
      *
      * @example 8080
@@ -40,13 +49,13 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
     public $healthCheckConnectPort;
 
     /**
-     * @description The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the server fails to pass the health check.
+     * @description The timeout period of a health check response. If the backend ENS does not respond within the specified time, the health check fails.
      *
      *   Default value: 5.
      *   Valid values: **1** to **300**.
      *   Unit: seconds.
      *
-     * >  If the value that you specified for HealthCheckConnectTimeout is smaller than the value of HealthCheckInterval, HealthCheckConnectTimeout becomes invalid and the timeout period that you specified for HealthCheckInterval is used.
+     * >  If the value of the HealthCheckTimeout property is smaller than the value of the HealthCheckInterval property, the timeout period specified by the HealthCheckTimeout property becomes invalid and the value of the HealthCheckInterval property is used as the timeout period.
      * @example 100
      *
      * @var int
@@ -90,7 +99,7 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
     public $healthyThreshold;
 
     /**
-     * @description The frontend port that is used by the ELB instance. Valid values: **1** to **65535**.
+     * @description The listener port whose attributes are to be modified. Valid values: **1** to **65535**.
      *
      * This parameter is required.
      * @example 80
@@ -136,6 +145,7 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
     protected $_name = [
         'description'               => 'Description',
         'eipTransmit'               => 'EipTransmit',
+        'establishedTimeout'        => 'EstablishedTimeout',
         'healthCheckConnectPort'    => 'HealthCheckConnectPort',
         'healthCheckConnectTimeout' => 'HealthCheckConnectTimeout',
         'healthCheckExp'            => 'HealthCheckExp',
@@ -160,6 +170,9 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
         }
         if (null !== $this->eipTransmit) {
             $res['EipTransmit'] = $this->eipTransmit;
+        }
+        if (null !== $this->establishedTimeout) {
+            $res['EstablishedTimeout'] = $this->establishedTimeout;
         }
         if (null !== $this->healthCheckConnectPort) {
             $res['HealthCheckConnectPort'] = $this->healthCheckConnectPort;
@@ -208,6 +221,9 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
         }
         if (isset($map['EipTransmit'])) {
             $model->eipTransmit = $map['EipTransmit'];
+        }
+        if (isset($map['EstablishedTimeout'])) {
+            $model->establishedTimeout = $map['EstablishedTimeout'];
         }
         if (isset($map['HealthCheckConnectPort'])) {
             $model->healthCheckConnectPort = $map['HealthCheckConnectPort'];

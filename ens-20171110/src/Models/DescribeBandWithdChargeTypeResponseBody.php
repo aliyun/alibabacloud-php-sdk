@@ -11,6 +11,8 @@ class DescribeBandWithdChargeTypeResponseBody extends Model
     /**
      * @description The information about the metering method.
      *
+     * @example { "BandWidthName": "Monthly peak bandwidth of 95", 			"BandWidthType": "95BandwidthByMonth" 		}
+     *
      * @var string
      */
     public $bandWithTypeInfo;

@@ -175,6 +175,11 @@ class instance extends Model
     public $internetMaxBandwidthOut;
 
     /**
+     * @var string
+     */
+    public $keyPairName;
+
+    /**
      * @description The memory size. Unit: MB.
      *
      * @example 2048
@@ -228,7 +233,7 @@ class instance extends Model
     public $securityGroupIds;
 
     /**
-     * @description The code of the instance type.
+     * @description The instance type.
      *
      * @example ens.sn1.stiny
      *
@@ -288,6 +293,7 @@ class instance extends Model
         'instanceTypeFamily'      => 'InstanceTypeFamily',
         'internetMaxBandwidthIn'  => 'InternetMaxBandwidthIn',
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
+        'keyPairName'             => 'KeyPairName',
         'memory'                  => 'Memory',
         'networkAttributes'       => 'NetworkAttributes',
         'OSName'                  => 'OSName',
@@ -356,6 +362,9 @@ class instance extends Model
         }
         if (null !== $this->internetMaxBandwidthOut) {
             $res['InternetMaxBandwidthOut'] = $this->internetMaxBandwidthOut;
+        }
+        if (null !== $this->keyPairName) {
+            $res['KeyPairName'] = $this->keyPairName;
         }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
@@ -452,6 +461,9 @@ class instance extends Model
         }
         if (isset($map['InternetMaxBandwidthOut'])) {
             $model->internetMaxBandwidthOut = $map['InternetMaxBandwidthOut'];
+        }
+        if (isset($map['KeyPairName'])) {
+            $model->keyPairName = $map['KeyPairName'];
         }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
