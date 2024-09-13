@@ -16,14 +16,20 @@ class routePublishTargets extends Model
     public $publishStatus;
 
     /**
+     * @var string
+     */
+    public $publishTargetInstanceId;
+
+    /**
      * @example ECR
      *
      * @var string
      */
     public $publishTargetType;
     protected $_name = [
-        'publishStatus'     => 'PublishStatus',
-        'publishTargetType' => 'PublishTargetType',
+        'publishStatus'           => 'PublishStatus',
+        'publishTargetInstanceId' => 'PublishTargetInstanceId',
+        'publishTargetType'       => 'PublishTargetType',
     ];
 
     public function validate()
@@ -35,6 +41,9 @@ class routePublishTargets extends Model
         $res = [];
         if (null !== $this->publishStatus) {
             $res['PublishStatus'] = $this->publishStatus;
+        }
+        if (null !== $this->publishTargetInstanceId) {
+            $res['PublishTargetInstanceId'] = $this->publishTargetInstanceId;
         }
         if (null !== $this->publishTargetType) {
             $res['PublishTargetType'] = $this->publishTargetType;
@@ -53,6 +62,9 @@ class routePublishTargets extends Model
         $model = new self();
         if (isset($map['PublishStatus'])) {
             $model->publishStatus = $map['PublishStatus'];
+        }
+        if (isset($map['PublishTargetInstanceId'])) {
+            $model->publishTargetInstanceId = $map['PublishTargetInstanceId'];
         }
         if (isset($map['PublishTargetType'])) {
             $model->publishTargetType = $map['PublishTargetType'];
