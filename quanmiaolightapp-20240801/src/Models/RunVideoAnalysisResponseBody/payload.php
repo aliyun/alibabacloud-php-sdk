@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody;
 
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\usage;
 use AlibabaCloud\Tea\Model;
 
 class payload extends Model
@@ -13,8 +14,14 @@ class payload extends Model
      * @var output
      */
     public $output;
+
+    /**
+     * @var usage
+     */
+    public $usage;
     protected $_name = [
         'output' => 'output',
+        'usage'  => 'usage',
     ];
 
     public function validate()
@@ -26,6 +33,9 @@ class payload extends Model
         $res = [];
         if (null !== $this->output) {
             $res['output'] = null !== $this->output ? $this->output->toMap() : null;
+        }
+        if (null !== $this->usage) {
+            $res['usage'] = null !== $this->usage ? $this->usage->toMap() : null;
         }
 
         return $res;
@@ -41,6 +51,9 @@ class payload extends Model
         $model = new self();
         if (isset($map['output'])) {
             $model->output = output::fromMap($map['output']);
+        }
+        if (isset($map['usage'])) {
+            $model->usage = usage::fromMap($map['usage']);
         }
 
         return $model;

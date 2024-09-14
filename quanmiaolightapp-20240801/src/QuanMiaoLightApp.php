@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListHotTopicSummariesRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListHotTopicSummariesResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunMarketingInformationExtractRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunMarketingInformationExtractResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunMarketingInformationExtractShrinkRequest;
@@ -58,6 +60,70 @@ class QuanMiaoLightApp extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 轻应用-新闻播报-获取热点话题摘要列表
+     *  *
+     * @param string                       $workspaceId
+     * @param ListHotTopicSummariesRequest $request     ListHotTopicSummariesRequest
+     * @param string[]                     $headers     map
+     * @param RuntimeOptions               $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return ListHotTopicSummariesResponse ListHotTopicSummariesResponse
+     */
+    public function listHotTopicSummariesWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->category)) {
+            $body['category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->hotTopic)) {
+            $body['hotTopic'] = $request->hotTopic;
+        }
+        if (!Utils::isUnset($request->hotTopicVersion)) {
+            $body['hotTopicVersion'] = $request->hotTopicVersion;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListHotTopicSummaries',
+            'version'     => '2024-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/listHotTopicSummaries',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListHotTopicSummariesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 轻应用-新闻播报-获取热点话题摘要列表
+     *  *
+     * @param string                       $workspaceId
+     * @param ListHotTopicSummariesRequest $request     ListHotTopicSummariesRequest
+     *
+     * @return ListHotTopicSummariesResponse ListHotTopicSummariesResponse
+     */
+    public function listHotTopicSummaries($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listHotTopicSummariesWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
