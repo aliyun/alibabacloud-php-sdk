@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RegisterCustomConnectorRequest extends Model
 {
     /**
-     * @description The URL in which the JAR package of the custom connector is stored. The URL must be connected to the platform.
+     * @description The URL in which the JAR package of the custom connector is stored. The platform must be able to access this address.
      *
      * This parameter is required.
      * @example oss://flink/connector/mysql123

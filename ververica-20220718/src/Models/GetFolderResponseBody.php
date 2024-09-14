@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetFolderResponseBody extends Model
 {
     /**
+     * @description The data structure of the folder.
+     *
      * @var Folder
      */
     public $data;

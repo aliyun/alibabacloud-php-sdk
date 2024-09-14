@@ -6,14 +6,18 @@ namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RescaleJobParam extends Model
+class GetAppliedScheduledPlanRequest extends Model
 {
     /**
-     * @var int
+     * @description This parameter is required.
+     *
+     * @example 5737ef81-d2f1-49cf-8752-30910809****
+     *
+     * @var string
      */
-    public $jobParallelism;
+    public $deploymentId;
     protected $_name = [
-        'jobParallelism' => 'jobParallelism',
+        'deploymentId' => 'deploymentId',
     ];
 
     public function validate()
@@ -23,8 +27,8 @@ class RescaleJobParam extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jobParallelism) {
-            $res['jobParallelism'] = $this->jobParallelism;
+        if (null !== $this->deploymentId) {
+            $res['deploymentId'] = $this->deploymentId;
         }
 
         return $res;
@@ -33,13 +37,13 @@ class RescaleJobParam extends Model
     /**
      * @param array $map
      *
-     * @return RescaleJobParam
+     * @return GetAppliedScheduledPlanRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['jobParallelism'])) {
-            $model->jobParallelism = $map['jobParallelism'];
+        if (isset($map['deploymentId'])) {
+            $model->deploymentId = $map['deploymentId'];
         }
 
         return $model;

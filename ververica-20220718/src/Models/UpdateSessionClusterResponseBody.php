@@ -6,12 +6,10 @@ namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetTablesResponseBody extends Model
+class UpdateSessionClusterResponseBody extends Model
 {
     /**
-     * @description If the value of success was true, the list and details of tables that meet the condition were returned. If the value of success was false, a null value was returned.
-     *
-     * @var Table[]
+     * @var SessionCluster
      */
     public $data;
 
@@ -37,7 +35,7 @@ class GetTablesResponseBody extends Model
     public $httpCode;
 
     /**
-     * @example ECE641B2-AB0B-4174-9C3B-885881558637
+     * @example 1EF03B0C-F44F-47AD-BB48-D002D0F7B8C9
      *
      * @var string
      */
@@ -66,13 +64,7 @@ class GetTablesResponseBody extends Model
     {
         $res = [];
         if (null !== $this->data) {
-            $res['data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['data'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
@@ -96,19 +88,13 @@ class GetTablesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetTablesResponseBody
+     * @return UpdateSessionClusterResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
-            if (!empty($map['data'])) {
-                $model->data = [];
-                $n           = 0;
-                foreach ($map['data'] as $item) {
-                    $model->data[$n++] = null !== $item ? Table::fromMap($item) : $item;
-                }
-            }
+            $model->data = SessionCluster::fromMap($map['data']);
         }
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];

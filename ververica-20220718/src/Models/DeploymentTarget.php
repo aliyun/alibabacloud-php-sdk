@@ -21,9 +21,15 @@ class DeploymentTarget extends Model
      * @var string
      */
     public $namespace;
+
+    /**
+     * @var ResourceQuota
+     */
+    public $quota;
     protected $_name = [
         'name'      => 'name',
         'namespace' => 'namespace',
+        'quota'     => 'quota',
     ];
 
     public function validate()
@@ -38,6 +44,9 @@ class DeploymentTarget extends Model
         }
         if (null !== $this->namespace) {
             $res['namespace'] = $this->namespace;
+        }
+        if (null !== $this->quota) {
+            $res['quota'] = null !== $this->quota ? $this->quota->toMap() : null;
         }
 
         return $res;
@@ -56,6 +65,9 @@ class DeploymentTarget extends Model
         }
         if (isset($map['namespace'])) {
             $model->namespace = $map['namespace'];
+        }
+        if (isset($map['quota'])) {
+            $model->quota = ResourceQuota::fromMap($map['quota']);
         }
 
         return $model;

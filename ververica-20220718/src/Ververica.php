@@ -6,12 +6,17 @@ namespace AlibabaCloud\SDK\Ververica\V20220718;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ApplyScheduledPlanHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ApplyScheduledPlanResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentDraftHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentDraftRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentDraftResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentTargetHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentTargetRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentTargetResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateFolderHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateFolderRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateFolderResponse;
@@ -21,6 +26,12 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateMemberResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateSavepointHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateSavepointRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateSavepointResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateScheduledPlanHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateScheduledPlanRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateScheduledPlanResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateSessionClusterHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateSessionClusterRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateSessionClusterResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateUdfArtifactHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateUdfArtifactRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateUdfArtifactResponse;
@@ -33,6 +44,8 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteDeploymentDraftHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteDeploymentDraftResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteDeploymentHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteDeploymentResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteDeploymentTargetHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteDeploymentTargetResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteFolderHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteFolderResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteJobHeaders;
@@ -41,6 +54,10 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteMemberHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteMemberResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteSavepointHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteSavepointResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteScheduledPlanHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteScheduledPlanResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteSessionClusterHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteSessionClusterResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteUdfArtifactHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteUdfArtifactResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteUdfFunctionHeaders;
@@ -60,6 +77,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\FlinkApiProxyResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GenerateResourcePlanWithFlinkConfAsyncHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GenerateResourcePlanWithFlinkConfAsyncRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GenerateResourcePlanWithFlinkConfAsyncResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetAppliedScheduledPlanHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetAppliedScheduledPlanRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetAppliedScheduledPlanResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetCatalogsHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetCatalogsRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetCatalogsResponse;
@@ -75,6 +95,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\GetDeploymentDraftLockResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetDeploymentDraftResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetDeploymentHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetDeploymentResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetEventsHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetEventsRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetEventsResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetFolderHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetFolderRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetFolderResponse;
@@ -93,6 +116,8 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\GetMemberHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetMemberResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetSavepointHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetSavepointResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetSessionClusterHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetSessionClusterResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetTablesHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetTablesRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetTablesResponse;
@@ -125,6 +150,14 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\ListMembersResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListSavepointsHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListSavepointsRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListSavepointsResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ListScheduledPlanExecutedHistoryHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ListScheduledPlanExecutedHistoryRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ListScheduledPlanExecutedHistoryResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ListScheduledPlanHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ListScheduledPlanRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ListScheduledPlanResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ListSessionClustersHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ListSessionClustersResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListVariablesHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListVariablesRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListVariablesResponse;
@@ -140,21 +173,36 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\StartJobResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StartJobWithParamsHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StartJobWithParamsRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StartJobWithParamsResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\StartSessionClusterHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\StartSessionClusterResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\StopApplyScheduledPlanHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\StopApplyScheduledPlanResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StopJobHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StopJobRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StopJobResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\StopSessionClusterHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\StopSessionClusterResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentDraftHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentDraftRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentDraftResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentTargetHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentTargetRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentTargetResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateFolderHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateFolderRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateFolderResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateMemberHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateMemberRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateMemberResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateScheduledPlanHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateScheduledPlanRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateScheduledPlanResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateSessionClusterHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateSessionClusterRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateSessionClusterResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateUdfArtifactHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateUdfArtifactRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateUdfArtifactResponse;
@@ -198,6 +246,59 @@ class Ververica extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 执行定时计划
+     *  *
+     * @param string                    $namespace
+     * @param string                    $scheduledPlanId
+     * @param ApplyScheduledPlanHeaders $headers         ApplyScheduledPlanHeaders
+     * @param RuntimeOptions            $runtime         runtime options for this request RuntimeOptions
+     *
+     * @return ApplyScheduledPlanResponse ApplyScheduledPlanResponse
+     */
+    public function applyScheduledPlanWithOptions($namespace, $scheduledPlanId, $headers, $runtime)
+    {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'ApplyScheduledPlan',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/scheduled-plans/' . OpenApiUtilClient::getEncodeParam($scheduledPlanId) . '%3Aapply',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ApplyScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 执行定时计划
+     *  *
+     * @param string $namespace
+     * @param string $scheduledPlanId
+     *
+     * @return ApplyScheduledPlanResponse ApplyScheduledPlanResponse
+     */
+    public function applyScheduledPlan($namespace, $scheduledPlanId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ApplyScheduledPlanHeaders([]);
+
+        return $this->applyScheduledPlanWithOptions($namespace, $scheduledPlanId, $headers, $runtime);
     }
 
     /**
@@ -308,6 +409,66 @@ class Ververica extends OpenApiClient
         $headers = new CreateDeploymentDraftHeaders([]);
 
         return $this->createDeploymentDraftWithOptions($namespace, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建deploymentTarget
+     *  *
+     * @param string                        $namespace
+     * @param CreateDeploymentTargetRequest $request   CreateDeploymentTargetRequest
+     * @param CreateDeploymentTargetHeaders $headers   CreateDeploymentTargetHeaders
+     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return CreateDeploymentTargetResponse CreateDeploymentTargetResponse
+     */
+    public function createDeploymentTargetWithOptions($namespace, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deploymentTargetName)) {
+            $query['deploymentTargetName'] = $request->deploymentTargetName;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDeploymentTarget',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployment-targets',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDeploymentTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建deploymentTarget
+     *  *
+     * @param string                        $namespace
+     * @param CreateDeploymentTargetRequest $request   CreateDeploymentTargetRequest
+     *
+     * @return CreateDeploymentTargetResponse CreateDeploymentTargetResponse
+     */
+    public function createDeploymentTarget($namespace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateDeploymentTargetHeaders([]);
+
+        return $this->createDeploymentTargetWithOptions($namespace, $request, $headers, $runtime);
     }
 
     /**
@@ -483,6 +644,116 @@ class Ververica extends OpenApiClient
         $headers = new CreateSavepointHeaders([]);
 
         return $this->createSavepointWithOptions($namespace, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建定时执行计划
+     *  *
+     * @param string                     $namespace
+     * @param CreateScheduledPlanRequest $request   CreateScheduledPlanRequest
+     * @param CreateScheduledPlanHeaders $headers   CreateScheduledPlanHeaders
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return CreateScheduledPlanResponse CreateScheduledPlanResponse
+     */
+    public function createScheduledPlanWithOptions($namespace, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateScheduledPlan',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/scheduled-plans',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建定时执行计划
+     *  *
+     * @param string                     $namespace
+     * @param CreateScheduledPlanRequest $request   CreateScheduledPlanRequest
+     *
+     * @return CreateScheduledPlanResponse CreateScheduledPlanResponse
+     */
+    public function createScheduledPlan($namespace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateScheduledPlanHeaders([]);
+
+        return $this->createScheduledPlanWithOptions($namespace, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建session集群
+     *  *
+     * @param string                      $namespace
+     * @param CreateSessionClusterRequest $request   CreateSessionClusterRequest
+     * @param CreateSessionClusterHeaders $headers   CreateSessionClusterHeaders
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return CreateSessionClusterResponse CreateSessionClusterResponse
+     */
+    public function createSessionClusterWithOptions($namespace, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSessionCluster',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/sessionclusters',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建session集群
+     *  *
+     * @param string                      $namespace
+     * @param CreateSessionClusterRequest $request   CreateSessionClusterRequest
+     *
+     * @return CreateSessionClusterResponse CreateSessionClusterResponse
+     */
+    public function createSessionCluster($namespace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateSessionClusterHeaders([]);
+
+        return $this->createSessionClusterWithOptions($namespace, $request, $headers, $runtime);
     }
 
     /**
@@ -755,6 +1026,59 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 删除deploymentTarget
+     *  *
+     * @param string                        $namespace
+     * @param string                        $deploymentTargetName
+     * @param DeleteDeploymentTargetHeaders $headers              DeleteDeploymentTargetHeaders
+     * @param RuntimeOptions                $runtime              runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDeploymentTargetResponse DeleteDeploymentTargetResponse
+     */
+    public function deleteDeploymentTargetWithOptions($namespace, $deploymentTargetName, $headers, $runtime)
+    {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDeploymentTarget',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployment-targets/' . OpenApiUtilClient::getEncodeParam($deploymentTargetName) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDeploymentTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除deploymentTarget
+     *  *
+     * @param string $namespace
+     * @param string $deploymentTargetName
+     *
+     * @return DeleteDeploymentTargetResponse DeleteDeploymentTargetResponse
+     */
+    public function deleteDeploymentTarget($namespace, $deploymentTargetName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DeleteDeploymentTargetHeaders([]);
+
+        return $this->deleteDeploymentTargetWithOptions($namespace, $deploymentTargetName, $headers, $runtime);
+    }
+
+    /**
      * @summary delete a folder
      *  *
      * @param string              $namespace
@@ -964,6 +1288,112 @@ class Ververica extends OpenApiClient
         $headers = new DeleteSavepointHeaders([]);
 
         return $this->deleteSavepointWithOptions($namespace, $savepointId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除定时执行计划
+     *  *
+     * @param string                     $namespace
+     * @param string                     $scheduledPlanId
+     * @param DeleteScheduledPlanHeaders $headers         DeleteScheduledPlanHeaders
+     * @param RuntimeOptions             $runtime         runtime options for this request RuntimeOptions
+     *
+     * @return DeleteScheduledPlanResponse DeleteScheduledPlanResponse
+     */
+    public function deleteScheduledPlanWithOptions($namespace, $scheduledPlanId, $headers, $runtime)
+    {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteScheduledPlan',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/scheduled-plans/' . OpenApiUtilClient::getEncodeParam($scheduledPlanId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除定时执行计划
+     *  *
+     * @param string $namespace
+     * @param string $scheduledPlanId
+     *
+     * @return DeleteScheduledPlanResponse DeleteScheduledPlanResponse
+     */
+    public function deleteScheduledPlan($namespace, $scheduledPlanId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DeleteScheduledPlanHeaders([]);
+
+        return $this->deleteScheduledPlanWithOptions($namespace, $scheduledPlanId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除session集群
+     *  *
+     * @param string                      $namespace
+     * @param string                      $sessionClusterName
+     * @param DeleteSessionClusterHeaders $headers            DeleteSessionClusterHeaders
+     * @param RuntimeOptions              $runtime            runtime options for this request RuntimeOptions
+     *
+     * @return DeleteSessionClusterResponse DeleteSessionClusterResponse
+     */
+    public function deleteSessionClusterWithOptions($namespace, $sessionClusterName, $headers, $runtime)
+    {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSessionCluster',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/sessionclusters/' . OpenApiUtilClient::getEncodeParam($sessionClusterName) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除session集群
+     *  *
+     * @param string $namespace
+     * @param string $sessionClusterName
+     *
+     * @return DeleteSessionClusterResponse DeleteSessionClusterResponse
+     */
+    public function deleteSessionCluster($namespace, $sessionClusterName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DeleteSessionClusterHeaders([]);
+
+        return $this->deleteSessionClusterWithOptions($namespace, $sessionClusterName, $headers, $runtime);
     }
 
     /**
@@ -1370,6 +1800,65 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 获取应用中的执行定时计划
+     *  *
+     * @param string                         $namespace
+     * @param GetAppliedScheduledPlanRequest $request   GetAppliedScheduledPlanRequest
+     * @param GetAppliedScheduledPlanHeaders $headers   GetAppliedScheduledPlanHeaders
+     * @param RuntimeOptions                 $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetAppliedScheduledPlanResponse GetAppliedScheduledPlanResponse
+     */
+    public function getAppliedScheduledPlanWithOptions($namespace, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deploymentId)) {
+            $query['deploymentId'] = $request->deploymentId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAppliedScheduledPlan',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/scheduled-plans%3AgetExecutedScheduledPlan',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAppliedScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取应用中的执行定时计划
+     *  *
+     * @param string                         $namespace
+     * @param GetAppliedScheduledPlanRequest $request   GetAppliedScheduledPlanRequest
+     *
+     * @return GetAppliedScheduledPlanResponse GetAppliedScheduledPlanResponse
+     */
+    public function getAppliedScheduledPlan($namespace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetAppliedScheduledPlanHeaders([]);
+
+        return $this->getAppliedScheduledPlanWithOptions($namespace, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取catalog
      *  *
      * @param string             $namespace
@@ -1705,6 +2194,71 @@ class Ververica extends OpenApiClient
         $headers = new GetDeploymentDraftLockHeaders([]);
 
         return $this->getDeploymentDraftLockWithOptions($namespace, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取运行事件
+     *  *
+     * @param string           $namespace
+     * @param GetEventsRequest $request   GetEventsRequest
+     * @param GetEventsHeaders $headers   GetEventsHeaders
+     * @param RuntimeOptions   $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetEventsResponse GetEventsResponse
+     */
+    public function getEventsWithOptions($namespace, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deploymentId)) {
+            $query['deploymentId'] = $request->deploymentId;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['pageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEvents',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/events',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取运行事件
+     *  *
+     * @param string           $namespace
+     * @param GetEventsRequest $request   GetEventsRequest
+     *
+     * @return GetEventsResponse GetEventsResponse
+     */
+    public function getEvents($namespace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetEventsHeaders([]);
+
+        return $this->getEventsWithOptions($namespace, $request, $headers, $runtime);
     }
 
     /**
@@ -2135,6 +2689,59 @@ class Ververica extends OpenApiClient
         $headers = new GetSavepointHeaders([]);
 
         return $this->getSavepointWithOptions($namespace, $savepointId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取session集群
+     *  *
+     * @param string                   $namespace
+     * @param string                   $sessionClusterName
+     * @param GetSessionClusterHeaders $headers            GetSessionClusterHeaders
+     * @param RuntimeOptions           $runtime            runtime options for this request RuntimeOptions
+     *
+     * @return GetSessionClusterResponse GetSessionClusterResponse
+     */
+    public function getSessionClusterWithOptions($namespace, $sessionClusterName, $headers, $runtime)
+    {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'GetSessionCluster',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/sessionclusters/' . OpenApiUtilClient::getEncodeParam($sessionClusterName) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取session集群
+     *  *
+     * @param string $namespace
+     * @param string $sessionClusterName
+     *
+     * @return GetSessionClusterResponse GetSessionClusterResponse
+     */
+    public function getSessionCluster($namespace, $sessionClusterName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetSessionClusterHeaders([]);
+
+        return $this->getSessionClusterWithOptions($namespace, $sessionClusterName, $headers, $runtime);
     }
 
     /**
@@ -2879,6 +3486,184 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 列表定时执行计划
+     *  *
+     * @param string                   $namespace
+     * @param ListScheduledPlanRequest $request   ListScheduledPlanRequest
+     * @param ListScheduledPlanHeaders $headers   ListScheduledPlanHeaders
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ListScheduledPlanResponse ListScheduledPlanResponse
+     */
+    public function listScheduledPlanWithOptions($namespace, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deploymentId)) {
+            $query['deploymentId'] = $request->deploymentId;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['pageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListScheduledPlan',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/scheduled-plans',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 列表定时执行计划
+     *  *
+     * @param string                   $namespace
+     * @param ListScheduledPlanRequest $request   ListScheduledPlanRequest
+     *
+     * @return ListScheduledPlanResponse ListScheduledPlanResponse
+     */
+    public function listScheduledPlan($namespace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListScheduledPlanHeaders([]);
+
+        return $this->listScheduledPlanWithOptions($namespace, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取作业资源变更历史
+     *  *
+     * @param string                                  $namespace
+     * @param ListScheduledPlanExecutedHistoryRequest $request   ListScheduledPlanExecutedHistoryRequest
+     * @param ListScheduledPlanExecutedHistoryHeaders $headers   ListScheduledPlanExecutedHistoryHeaders
+     * @param RuntimeOptions                          $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ListScheduledPlanExecutedHistoryResponse ListScheduledPlanExecutedHistoryResponse
+     */
+    public function listScheduledPlanExecutedHistoryWithOptions($namespace, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deploymentId)) {
+            $query['deploymentId'] = $request->deploymentId;
+        }
+        if (!Utils::isUnset($request->origin)) {
+            $query['origin'] = $request->origin;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListScheduledPlanExecutedHistory',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/job-resource-upgradings',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListScheduledPlanExecutedHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取作业资源变更历史
+     *  *
+     * @param string                                  $namespace
+     * @param ListScheduledPlanExecutedHistoryRequest $request   ListScheduledPlanExecutedHistoryRequest
+     *
+     * @return ListScheduledPlanExecutedHistoryResponse ListScheduledPlanExecutedHistoryResponse
+     */
+    public function listScheduledPlanExecutedHistory($namespace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListScheduledPlanExecutedHistoryHeaders([]);
+
+        return $this->listScheduledPlanExecutedHistoryWithOptions($namespace, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 列举session集群
+     *  *
+     * @param string                     $namespace
+     * @param ListSessionClustersHeaders $headers   ListSessionClustersHeaders
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ListSessionClustersResponse ListSessionClustersResponse
+     */
+    public function listSessionClustersWithOptions($namespace, $headers, $runtime)
+    {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'ListSessionClusters',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/sessionclusters',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSessionClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 列举session集群
+     *  *
+     * @param string $namespace
+     *
+     * @return ListSessionClustersResponse ListSessionClustersResponse
+     */
+    public function listSessionClusters($namespace)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListSessionClustersHeaders([]);
+
+        return $this->listSessionClustersWithOptions($namespace, $headers, $runtime);
+    }
+
+    /**
      * @summary Obtains a list of variables.
      *  *
      * @param string               $namespace
@@ -3183,6 +3968,112 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 启动session集群
+     *  *
+     * @param string                     $namespace
+     * @param string                     $sessionClusterName
+     * @param StartSessionClusterHeaders $headers            StartSessionClusterHeaders
+     * @param RuntimeOptions             $runtime            runtime options for this request RuntimeOptions
+     *
+     * @return StartSessionClusterResponse StartSessionClusterResponse
+     */
+    public function startSessionClusterWithOptions($namespace, $sessionClusterName, $headers, $runtime)
+    {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'StartSessionCluster',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/sessionclusters/' . OpenApiUtilClient::getEncodeParam($sessionClusterName) . '%3Astart',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 启动session集群
+     *  *
+     * @param string $namespace
+     * @param string $sessionClusterName
+     *
+     * @return StartSessionClusterResponse StartSessionClusterResponse
+     */
+    public function startSessionCluster($namespace, $sessionClusterName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new StartSessionClusterHeaders([]);
+
+        return $this->startSessionClusterWithOptions($namespace, $sessionClusterName, $headers, $runtime);
+    }
+
+    /**
+     * @summary 停止应用执行定时计划
+     *  *
+     * @param string                        $namespace
+     * @param string                        $scheduledPlanId
+     * @param StopApplyScheduledPlanHeaders $headers         StopApplyScheduledPlanHeaders
+     * @param RuntimeOptions                $runtime         runtime options for this request RuntimeOptions
+     *
+     * @return StopApplyScheduledPlanResponse StopApplyScheduledPlanResponse
+     */
+    public function stopApplyScheduledPlanWithOptions($namespace, $scheduledPlanId, $headers, $runtime)
+    {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'StopApplyScheduledPlan',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/scheduled-plans/' . OpenApiUtilClient::getEncodeParam($scheduledPlanId) . '%3Astop',
+            'method'      => 'PATCH',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopApplyScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 停止应用执行定时计划
+     *  *
+     * @param string $namespace
+     * @param string $scheduledPlanId
+     *
+     * @return StopApplyScheduledPlanResponse StopApplyScheduledPlanResponse
+     */
+    public function stopApplyScheduledPlan($namespace, $scheduledPlanId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new StopApplyScheduledPlanHeaders([]);
+
+        return $this->stopApplyScheduledPlanWithOptions($namespace, $scheduledPlanId, $headers, $runtime);
+    }
+
+    /**
      * @summary Stops a job.
      *  *
      * @param string         $namespace
@@ -3237,6 +4128,59 @@ class Ververica extends OpenApiClient
         $headers = new StopJobHeaders([]);
 
         return $this->stopJobWithOptions($namespace, $jobId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 停止session集群
+     *  *
+     * @param string                    $namespace
+     * @param string                    $sessionClusterName
+     * @param StopSessionClusterHeaders $headers            StopSessionClusterHeaders
+     * @param RuntimeOptions            $runtime            runtime options for this request RuntimeOptions
+     *
+     * @return StopSessionClusterResponse StopSessionClusterResponse
+     */
+    public function stopSessionClusterWithOptions($namespace, $sessionClusterName, $headers, $runtime)
+    {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'StopSessionCluster',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/sessionclusters/' . OpenApiUtilClient::getEncodeParam($sessionClusterName) . '%3Astop',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 停止session集群
+     *  *
+     * @param string $namespace
+     * @param string $sessionClusterName
+     *
+     * @return StopSessionClusterResponse StopSessionClusterResponse
+     */
+    public function stopSessionCluster($namespace, $sessionClusterName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new StopSessionClusterHeaders([]);
+
+        return $this->stopSessionClusterWithOptions($namespace, $sessionClusterName, $headers, $runtime);
     }
 
     /**
@@ -3354,6 +4298,63 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 修改deploymentTarget
+     *  *
+     * @param string                        $namespace
+     * @param string                        $deploymentTargetName
+     * @param UpdateDeploymentTargetRequest $request              UpdateDeploymentTargetRequest
+     * @param UpdateDeploymentTargetHeaders $headers              UpdateDeploymentTargetHeaders
+     * @param RuntimeOptions                $runtime              runtime options for this request RuntimeOptions
+     *
+     * @return UpdateDeploymentTargetResponse UpdateDeploymentTargetResponse
+     */
+    public function updateDeploymentTargetWithOptions($namespace, $deploymentTargetName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDeploymentTarget',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployment-targets/' . OpenApiUtilClient::getEncodeParam($deploymentTargetName) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDeploymentTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改deploymentTarget
+     *  *
+     * @param string                        $namespace
+     * @param string                        $deploymentTargetName
+     * @param UpdateDeploymentTargetRequest $request              UpdateDeploymentTargetRequest
+     *
+     * @return UpdateDeploymentTargetResponse UpdateDeploymentTargetResponse
+     */
+    public function updateDeploymentTarget($namespace, $deploymentTargetName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateDeploymentTargetHeaders([]);
+
+        return $this->updateDeploymentTargetWithOptions($namespace, $deploymentTargetName, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary update a folder
      *  *
      * @param string              $namespace
@@ -3463,6 +4464,120 @@ class Ververica extends OpenApiClient
         $headers = new UpdateMemberHeaders([]);
 
         return $this->updateMemberWithOptions($namespace, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新定时执行计划
+     *  *
+     * @param string                     $namespace
+     * @param string                     $scheduledPlanId
+     * @param UpdateScheduledPlanRequest $request         UpdateScheduledPlanRequest
+     * @param UpdateScheduledPlanHeaders $headers         UpdateScheduledPlanHeaders
+     * @param RuntimeOptions             $runtime         runtime options for this request RuntimeOptions
+     *
+     * @return UpdateScheduledPlanResponse UpdateScheduledPlanResponse
+     */
+    public function updateScheduledPlanWithOptions($namespace, $scheduledPlanId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateScheduledPlan',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/scheduled-plans/' . OpenApiUtilClient::getEncodeParam($scheduledPlanId) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新定时执行计划
+     *  *
+     * @param string                     $namespace
+     * @param string                     $scheduledPlanId
+     * @param UpdateScheduledPlanRequest $request         UpdateScheduledPlanRequest
+     *
+     * @return UpdateScheduledPlanResponse UpdateScheduledPlanResponse
+     */
+    public function updateScheduledPlan($namespace, $scheduledPlanId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateScheduledPlanHeaders([]);
+
+        return $this->updateScheduledPlanWithOptions($namespace, $scheduledPlanId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新session集群
+     *  *
+     * @param string                      $namespace
+     * @param string                      $sessionClusterName
+     * @param UpdateSessionClusterRequest $request            UpdateSessionClusterRequest
+     * @param UpdateSessionClusterHeaders $headers            UpdateSessionClusterHeaders
+     * @param RuntimeOptions              $runtime            runtime options for this request RuntimeOptions
+     *
+     * @return UpdateSessionClusterResponse UpdateSessionClusterResponse
+     */
+    public function updateSessionClusterWithOptions($namespace, $sessionClusterName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSessionCluster',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/sessionclusters/' . OpenApiUtilClient::getEncodeParam($sessionClusterName) . '',
+            'method'      => 'PATCH',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新session集群
+     *  *
+     * @param string                      $namespace
+     * @param string                      $sessionClusterName
+     * @param UpdateSessionClusterRequest $request            UpdateSessionClusterRequest
+     *
+     * @return UpdateSessionClusterResponse UpdateSessionClusterResponse
+     */
+    public function updateSessionCluster($namespace, $sessionClusterName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateSessionClusterHeaders([]);
+
+        return $this->updateSessionClusterWithOptions($namespace, $sessionClusterName, $request, $headers, $runtime);
     }
 
     /**

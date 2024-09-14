@@ -6,12 +6,10 @@ namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetTablesResponseBody extends Model
+class GetEventsResponseBody extends Model
 {
     /**
-     * @description If the value of success was true, the list and details of tables that meet the condition were returned. If the value of success was false, a null value was returned.
-     *
-     * @var Table[]
+     * @var Event[]
      */
     public $data;
 
@@ -37,7 +35,21 @@ class GetTablesResponseBody extends Model
     public $httpCode;
 
     /**
-     * @example ECE641B2-AB0B-4174-9C3B-885881558637
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageIndex;
+
+    /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @example CBC799F0-AS7S-1D30-8A4F-882ED4DD****
      *
      * @var string
      */
@@ -49,13 +61,23 @@ class GetTablesResponseBody extends Model
      * @var bool
      */
     public $success;
+
+    /**
+     * @example 4
+     *
+     * @var int
+     */
+    public $totalSize;
     protected $_name = [
         'data'         => 'data',
         'errorCode'    => 'errorCode',
         'errorMessage' => 'errorMessage',
         'httpCode'     => 'httpCode',
+        'pageIndex'    => 'pageIndex',
+        'pageSize'     => 'pageSize',
         'requestId'    => 'requestId',
         'success'      => 'success',
+        'totalSize'    => 'totalSize',
     ];
 
     public function validate()
@@ -83,11 +105,20 @@ class GetTablesResponseBody extends Model
         if (null !== $this->httpCode) {
             $res['httpCode'] = $this->httpCode;
         }
+        if (null !== $this->pageIndex) {
+            $res['pageIndex'] = $this->pageIndex;
+        }
+        if (null !== $this->pageSize) {
+            $res['pageSize'] = $this->pageSize;
+        }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['success'] = $this->success;
+        }
+        if (null !== $this->totalSize) {
+            $res['totalSize'] = $this->totalSize;
         }
 
         return $res;
@@ -96,7 +127,7 @@ class GetTablesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetTablesResponseBody
+     * @return GetEventsResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -106,7 +137,7 @@ class GetTablesResponseBody extends Model
                 $model->data = [];
                 $n           = 0;
                 foreach ($map['data'] as $item) {
-                    $model->data[$n++] = null !== $item ? Table::fromMap($item) : $item;
+                    $model->data[$n++] = null !== $item ? Event::fromMap($item) : $item;
                 }
             }
         }
@@ -119,11 +150,20 @@ class GetTablesResponseBody extends Model
         if (isset($map['httpCode'])) {
             $model->httpCode = $map['httpCode'];
         }
+        if (isset($map['pageIndex'])) {
+            $model->pageIndex = $map['pageIndex'];
+        }
+        if (isset($map['pageSize'])) {
+            $model->pageSize = $map['pageSize'];
+        }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
         if (isset($map['success'])) {
             $model->success = $map['success'];
+        }
+        if (isset($map['totalSize'])) {
+            $model->totalSize = $map['totalSize'];
         }
 
         return $model;

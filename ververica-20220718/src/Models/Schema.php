@@ -14,7 +14,7 @@ class Schema extends Model
     public $columns;
 
     /**
-     * @var PrimaryKey[]
+     * @var PrimaryKey
      */
     public $primaryKey;
 
@@ -45,13 +45,7 @@ class Schema extends Model
             }
         }
         if (null !== $this->primaryKey) {
-            $res['primaryKey'] = [];
-            if (null !== $this->primaryKey && \is_array($this->primaryKey)) {
-                $n = 0;
-                foreach ($this->primaryKey as $item) {
-                    $res['primaryKey'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['primaryKey'] = null !== $this->primaryKey ? $this->primaryKey->toMap() : null;
         }
         if (null !== $this->watermarkSpecs) {
             $res['watermarkSpecs'] = [];
@@ -84,13 +78,7 @@ class Schema extends Model
             }
         }
         if (isset($map['primaryKey'])) {
-            if (!empty($map['primaryKey'])) {
-                $model->primaryKey = [];
-                $n                 = 0;
-                foreach ($map['primaryKey'] as $item) {
-                    $model->primaryKey[$n++] = null !== $item ? PrimaryKey::fromMap($item) : $item;
-                }
-            }
+            $model->primaryKey = PrimaryKey::fromMap($map['primaryKey']);
         }
         if (isset($map['watermarkSpecs'])) {
             if (!empty($map['watermarkSpecs'])) {

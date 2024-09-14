@@ -6,12 +6,10 @@ namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetTablesResponseBody extends Model
+class ListSessionClustersResponseBody extends Model
 {
     /**
-     * @description If the value of success was true, the list and details of tables that meet the condition were returned. If the value of success was false, a null value was returned.
-     *
-     * @var Table[]
+     * @var SessionCluster[]
      */
     public $data;
 
@@ -37,7 +35,7 @@ class GetTablesResponseBody extends Model
     public $httpCode;
 
     /**
-     * @example ECE641B2-AB0B-4174-9C3B-885881558637
+     * @example CBC799F0-ABCD-1D30-8A4F-882ED4DD****
      *
      * @var string
      */
@@ -96,7 +94,7 @@ class GetTablesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetTablesResponseBody
+     * @return ListSessionClustersResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -106,7 +104,7 @@ class GetTablesResponseBody extends Model
                 $model->data = [];
                 $n           = 0;
                 foreach ($map['data'] as $item) {
-                    $model->data[$n++] = null !== $item ? Table::fromMap($item) : $item;
+                    $model->data[$n++] = null !== $item ? SessionCluster::fromMap($item) : $item;
                 }
             }
         }

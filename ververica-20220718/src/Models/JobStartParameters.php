@@ -14,6 +14,11 @@ class JobStartParameters extends Model
     public $deploymentId;
 
     /**
+     * @var string
+     */
+    public $jobId;
+
+    /**
      * @var LocalVariable[]
      */
     public $localVariables;
@@ -31,6 +36,7 @@ class JobStartParameters extends Model
     public $restoreStrategy;
     protected $_name = [
         'deploymentId'      => 'deploymentId',
+        'jobId'             => 'jobId',
         'localVariables'    => 'localVariables',
         'resourceQueueName' => 'resourceQueueName',
         'restoreStrategy'   => 'restoreStrategy',
@@ -45,6 +51,9 @@ class JobStartParameters extends Model
         $res = [];
         if (null !== $this->deploymentId) {
             $res['deploymentId'] = $this->deploymentId;
+        }
+        if (null !== $this->jobId) {
+            $res['jobId'] = $this->jobId;
         }
         if (null !== $this->localVariables) {
             $res['localVariables'] = [];
@@ -75,6 +84,9 @@ class JobStartParameters extends Model
         $model = new self();
         if (isset($map['deploymentId'])) {
             $model->deploymentId = $map['deploymentId'];
+        }
+        if (isset($map['jobId'])) {
+            $model->jobId = $map['jobId'];
         }
         if (isset($map['localVariables'])) {
             if (!empty($map['localVariables'])) {
