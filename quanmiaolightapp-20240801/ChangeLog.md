@@ -1,3 +1,8 @@
+2024-09-14 Version: 1.3.0
+- Support API ListHotTopicSummaries.
+- Update API RunVideoAnalysis: update response param.
+
+
 2024-09-14 Version: 1.2.0
 - Support API ListHotTopicSummaries.
 - Update API RunVideoAnalysis: update response param.
