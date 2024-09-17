@@ -30,6 +30,11 @@ class RetrieveShrinkRequest extends Model
     public $enableRewrite;
 
     /**
+     * @var string
+     */
+    public $imagesShrink;
+
+    /**
      * @description This parameter is required.
      *
      * @example 5pwe0m2g6t
@@ -89,6 +94,7 @@ class RetrieveShrinkRequest extends Model
         'denseSimilarityTopK'  => 'DenseSimilarityTopK',
         'enableReranking'      => 'EnableReranking',
         'enableRewrite'        => 'EnableRewrite',
+        'imagesShrink'         => 'Images',
         'indexId'              => 'IndexId',
         'query'                => 'Query',
         'rerankShrink'         => 'Rerank',
@@ -115,6 +121,9 @@ class RetrieveShrinkRequest extends Model
         }
         if (null !== $this->enableRewrite) {
             $res['EnableRewrite'] = $this->enableRewrite;
+        }
+        if (null !== $this->imagesShrink) {
+            $res['Images'] = $this->imagesShrink;
         }
         if (null !== $this->indexId) {
             $res['IndexId'] = $this->indexId;
@@ -163,6 +172,9 @@ class RetrieveShrinkRequest extends Model
         }
         if (isset($map['EnableRewrite'])) {
             $model->enableRewrite = $map['EnableRewrite'];
+        }
+        if (isset($map['Images'])) {
+            $model->imagesShrink = $map['Images'];
         }
         if (isset($map['IndexId'])) {
             $model->indexId = $map['IndexId'];

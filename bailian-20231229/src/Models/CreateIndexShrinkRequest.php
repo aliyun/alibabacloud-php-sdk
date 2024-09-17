@@ -28,6 +28,11 @@ class CreateIndexShrinkRequest extends Model
     /**
      * @var string
      */
+    public $dataSourceShrink;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -121,6 +126,7 @@ class CreateIndexShrinkRequest extends Model
         'categoryIdsShrink'  => 'CategoryIds',
         'chunkSize'          => 'ChunkSize',
         'columnsShrink'      => 'Columns',
+        'dataSourceShrink'   => 'DataSource',
         'description'        => 'Description',
         'documentIdsShrink'  => 'DocumentIds',
         'embeddingModelName' => 'EmbeddingModelName',
@@ -151,6 +157,9 @@ class CreateIndexShrinkRequest extends Model
         }
         if (null !== $this->columnsShrink) {
             $res['Columns'] = $this->columnsShrink;
+        }
+        if (null !== $this->dataSourceShrink) {
+            $res['DataSource'] = $this->dataSourceShrink;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -211,6 +220,9 @@ class CreateIndexShrinkRequest extends Model
         }
         if (isset($map['Columns'])) {
             $model->columnsShrink = $map['Columns'];
+        }
+        if (isset($map['DataSource'])) {
+            $model->dataSourceShrink = $map['DataSource'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

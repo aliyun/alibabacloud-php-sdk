@@ -367,6 +367,9 @@ class Bailian extends OpenApiClient
         if (!Utils::isUnset($tmpReq->columns)) {
             $request->columnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->columns, 'Columns', 'json');
         }
+        if (!Utils::isUnset($tmpReq->dataSource)) {
+            $request->dataSourceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataSource, 'DataSource', 'json');
+        }
         if (!Utils::isUnset($tmpReq->documentIds)) {
             $request->documentIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documentIds, 'DocumentIds', 'json');
         }
@@ -379,6 +382,9 @@ class Bailian extends OpenApiClient
         }
         if (!Utils::isUnset($request->columnsShrink)) {
             $query['Columns'] = $request->columnsShrink;
+        }
+        if (!Utils::isUnset($request->dataSourceShrink)) {
+            $query['DataSource'] = $request->dataSourceShrink;
         }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
@@ -1634,6 +1640,9 @@ class Bailian extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new RetrieveShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->images)) {
+            $request->imagesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->images, 'Images', 'simple');
+        }
         if (!Utils::isUnset($tmpReq->rerank)) {
             $request->rerankShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rerank, 'Rerank', 'json');
         }
@@ -1652,6 +1661,9 @@ class Bailian extends OpenApiClient
         }
         if (!Utils::isUnset($request->enableRewrite)) {
             $query['EnableRewrite'] = $request->enableRewrite;
+        }
+        if (!Utils::isUnset($request->imagesShrink)) {
+            $query['Images'] = $request->imagesShrink;
         }
         if (!Utils::isUnset($request->indexId)) {
             $query['IndexId'] = $request->indexId;

@@ -32,6 +32,11 @@ class RetrieveRequest extends Model
     public $enableRewrite;
 
     /**
+     * @var string[]
+     */
+    public $images;
+
+    /**
      * @description This parameter is required.
      *
      * @example 5pwe0m2g6t
@@ -91,6 +96,7 @@ class RetrieveRequest extends Model
         'denseSimilarityTopK'  => 'DenseSimilarityTopK',
         'enableReranking'      => 'EnableReranking',
         'enableRewrite'        => 'EnableRewrite',
+        'images'               => 'Images',
         'indexId'              => 'IndexId',
         'query'                => 'Query',
         'rerank'               => 'Rerank',
@@ -117,6 +123,9 @@ class RetrieveRequest extends Model
         }
         if (null !== $this->enableRewrite) {
             $res['EnableRewrite'] = $this->enableRewrite;
+        }
+        if (null !== $this->images) {
+            $res['Images'] = $this->images;
         }
         if (null !== $this->indexId) {
             $res['IndexId'] = $this->indexId;
@@ -177,6 +186,11 @@ class RetrieveRequest extends Model
         }
         if (isset($map['EnableRewrite'])) {
             $model->enableRewrite = $map['EnableRewrite'];
+        }
+        if (isset($map['Images'])) {
+            if (!empty($map['Images'])) {
+                $model->images = $map['Images'];
+            }
         }
         if (isset($map['IndexId'])) {
             $model->indexId = $map['IndexId'];

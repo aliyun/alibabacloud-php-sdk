@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models;
 
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexRequest\columns;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexRequest\dataSource;
 use AlibabaCloud\Tea\Model;
 
 class CreateIndexRequest extends Model
@@ -25,6 +26,11 @@ class CreateIndexRequest extends Model
      * @var columns[]
      */
     public $columns;
+
+    /**
+     * @var dataSource
+     */
+    public $dataSource;
 
     /**
      * @var string
@@ -122,6 +128,7 @@ class CreateIndexRequest extends Model
         'categoryIds'        => 'CategoryIds',
         'chunkSize'          => 'ChunkSize',
         'columns'            => 'Columns',
+        'dataSource'         => 'DataSource',
         'description'        => 'Description',
         'documentIds'        => 'DocumentIds',
         'embeddingModelName' => 'EmbeddingModelName',
@@ -158,6 +165,9 @@ class CreateIndexRequest extends Model
                     $res['Columns'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->dataSource) {
+            $res['DataSource'] = null !== $this->dataSource ? $this->dataSource->toMap() : null;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -226,6 +236,9 @@ class CreateIndexRequest extends Model
                     $model->columns[$n++] = null !== $item ? columns::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DataSource'])) {
+            $model->dataSource = dataSource::fromMap($map['DataSource']);
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
