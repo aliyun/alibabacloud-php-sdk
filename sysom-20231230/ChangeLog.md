@@ -5,6 +5,13 @@
 - Update API InvokeDiagnosis: update response param.
 
 
+2024-09-18 Version: 1.1.1
+- Update API AuthDiagnosis: update param body.
+- Update API GenerateCopilotResponse: update response param.
+- Update API GetDiagnosisResult: update response param.
+- Update API InvokeDiagnosis: update response param.
+
+
 2024-04-09 Version: 1.1.0
 - Support API GenerateCopilotResponse.
 
