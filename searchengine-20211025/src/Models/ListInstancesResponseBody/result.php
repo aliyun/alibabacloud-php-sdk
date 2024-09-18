@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\ListInstancesResponseBody;
 
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListInstancesResponseBody\result\dataSourceDetails;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListInstancesResponseBody\result\network;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListInstancesResponseBody\result\spec;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListInstancesResponseBody\result\tags;
@@ -37,6 +38,11 @@ class result extends Model
      * @var string
      */
     public $createTime;
+
+    /**
+     * @var dataSourceDetails[]
+     */
+    public $dataSourceDetails;
 
     /**
      * @description The description of the instance.
@@ -149,24 +155,25 @@ class result extends Model
      */
     public $version;
     protected $_name = [
-        'chargeType'      => 'chargeType',
-        'commodityCode'   => 'commodityCode',
-        'createTime'      => 'createTime',
-        'description'     => 'description',
-        'edition'         => 'edition',
-        'expiredTime'     => 'expiredTime',
-        'inDebt'          => 'inDebt',
-        'instanceId'      => 'instanceId',
-        'lockMode'        => 'lockMode',
-        'network'         => 'network',
-        'noQrs'           => 'noQrs',
-        'resourceGroupId' => 'resourceGroupId',
-        'spec'            => 'spec',
-        'status'          => 'status',
-        'tags'            => 'tags',
-        'updateTime'      => 'updateTime',
-        'userName'        => 'userName',
-        'version'         => 'version',
+        'chargeType'        => 'chargeType',
+        'commodityCode'     => 'commodityCode',
+        'createTime'        => 'createTime',
+        'dataSourceDetails' => 'dataSourceDetails',
+        'description'       => 'description',
+        'edition'           => 'edition',
+        'expiredTime'       => 'expiredTime',
+        'inDebt'            => 'inDebt',
+        'instanceId'        => 'instanceId',
+        'lockMode'          => 'lockMode',
+        'network'           => 'network',
+        'noQrs'             => 'noQrs',
+        'resourceGroupId'   => 'resourceGroupId',
+        'spec'              => 'spec',
+        'status'            => 'status',
+        'tags'              => 'tags',
+        'updateTime'        => 'updateTime',
+        'userName'          => 'userName',
+        'version'           => 'version',
     ];
 
     public function validate()
@@ -184,6 +191,15 @@ class result extends Model
         }
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
+        }
+        if (null !== $this->dataSourceDetails) {
+            $res['dataSourceDetails'] = [];
+            if (null !== $this->dataSourceDetails && \is_array($this->dataSourceDetails)) {
+                $n = 0;
+                foreach ($this->dataSourceDetails as $item) {
+                    $res['dataSourceDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
@@ -256,6 +272,15 @@ class result extends Model
         }
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
+        }
+        if (isset($map['dataSourceDetails'])) {
+            if (!empty($map['dataSourceDetails'])) {
+                $model->dataSourceDetails = [];
+                $n                        = 0;
+                foreach ($map['dataSourceDetails'] as $item) {
+                    $model->dataSourceDetails[$n++] = null !== $item ? dataSourceDetails::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];

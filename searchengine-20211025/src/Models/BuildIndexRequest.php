@@ -70,6 +70,11 @@ class BuildIndexRequest extends Model
      * @var string
      */
     public $partition;
+
+    /**
+     * @var string
+     */
+    public $tag;
     protected $_name = [
         'buildMode'      => 'buildMode',
         'dataSourceName' => 'dataSourceName',
@@ -78,6 +83,7 @@ class BuildIndexRequest extends Model
         'domain'         => 'domain',
         'generation'     => 'generation',
         'partition'      => 'partition',
+        'tag'            => 'tag',
     ];
 
     public function validate()
@@ -107,6 +113,9 @@ class BuildIndexRequest extends Model
         }
         if (null !== $this->partition) {
             $res['partition'] = $this->partition;
+        }
+        if (null !== $this->tag) {
+            $res['tag'] = $this->tag;
         }
 
         return $res;
@@ -140,6 +149,9 @@ class BuildIndexRequest extends Model
         }
         if (isset($map['partition'])) {
             $model->partition = $map['partition'];
+        }
+        if (isset($map['tag'])) {
+            $model->tag = $map['tag'];
         }
 
         return $model;

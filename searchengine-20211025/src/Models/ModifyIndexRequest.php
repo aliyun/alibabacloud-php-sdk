@@ -85,6 +85,11 @@ class ModifyIndexRequest extends Model
     public $domain;
 
     /**
+     * @var mixed[]
+     */
+    public $extend;
+
+    /**
      * @description The maximum number of full indexes that can be concurrently merged.
      *
      * @example 2
@@ -134,6 +139,7 @@ class ModifyIndexRequest extends Model
         'dataSourceInfo'    => 'dataSourceInfo',
         'description'       => 'description',
         'domain'            => 'domain',
+        'extend'            => 'extend',
         'mergeParallelNum'  => 'mergeParallelNum',
         'partition'         => 'partition',
         'pushMode'          => 'pushMode',
@@ -178,6 +184,9 @@ class ModifyIndexRequest extends Model
         }
         if (null !== $this->domain) {
             $res['domain'] = $this->domain;
+        }
+        if (null !== $this->extend) {
+            $res['extend'] = $this->extend;
         }
         if (null !== $this->mergeParallelNum) {
             $res['mergeParallelNum'] = $this->mergeParallelNum;
@@ -229,6 +238,9 @@ class ModifyIndexRequest extends Model
         }
         if (isset($map['domain'])) {
             $model->domain = $map['domain'];
+        }
+        if (isset($map['extend'])) {
+            $model->extend = $map['extend'];
         }
         if (isset($map['mergeParallelNum'])) {
             $model->mergeParallelNum = $map['mergeParallelNum'];

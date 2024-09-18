@@ -264,6 +264,9 @@ class Searchengine extends OpenApiClient
         if (!Utils::isUnset($request->partition)) {
             $body['partition'] = $request->partition;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $body['tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
@@ -906,6 +909,12 @@ class Searchengine extends OpenApiClient
         }
         if (!Utils::isUnset($request->order)) {
             $body['order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['resourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $body['tags'] = $request->tags;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3531,8 +3540,17 @@ class Searchengine extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->catalog)) {
+            $query['catalog'] = $request->catalog;
+        }
+        if (!Utils::isUnset($request->database)) {
+            $query['database'] = $request->database;
+        }
         if (!Utils::isUnset($request->newMode)) {
             $query['newMode'] = $request->newMode;
+        }
+        if (!Utils::isUnset($request->table)) {
+            $query['table'] = $request->table;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3659,6 +3677,15 @@ class Searchengine extends OpenApiClient
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'tags', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->catalog)) {
+            $query['catalog'] = $request->catalog;
+        }
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $query['dataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->database)) {
+            $query['database'] = $request->database;
+        }
         if (!Utils::isUnset($request->description)) {
             $query['description'] = $request->description;
         }
@@ -3676,6 +3703,9 @@ class Searchengine extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['resourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->table)) {
+            $query['table'] = $request->table;
         }
         if (!Utils::isUnset($request->tagsShrink)) {
             $query['tags'] = $request->tagsShrink;
@@ -5020,6 +5050,9 @@ class Searchengine extends OpenApiClient
         }
         if (!Utils::isUnset($request->domain)) {
             $body['domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->extend)) {
+            $body['extend'] = $request->extend;
         }
         if (!Utils::isUnset($request->mergeParallelNum)) {
             $body['mergeParallelNum'] = $request->mergeParallelNum;

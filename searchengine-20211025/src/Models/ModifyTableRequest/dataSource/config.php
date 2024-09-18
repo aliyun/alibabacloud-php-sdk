@@ -36,6 +36,16 @@ class config extends Model
     public $bucket;
 
     /**
+     * @var string
+     */
+    public $catalog;
+
+    /**
+     * @var string
+     */
+    public $database;
+
+    /**
      * @description The endpoint of the MaxCompute data source.
      *
      * @example http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
@@ -79,15 +89,23 @@ class config extends Model
      * @var string
      */
     public $table;
+
+    /**
+     * @var string
+     */
+    public $tag;
     protected $_name = [
         'accessKey'    => 'accessKey',
         'accessSecret' => 'accessSecret',
         'bucket'       => 'bucket',
+        'catalog'      => 'catalog',
+        'database'     => 'database',
         'endpoint'     => 'endpoint',
         'ossPath'      => 'ossPath',
         'partition'    => 'partition',
         'project'      => 'project',
         'table'        => 'table',
+        'tag'          => 'tag',
     ];
 
     public function validate()
@@ -106,6 +124,12 @@ class config extends Model
         if (null !== $this->bucket) {
             $res['bucket'] = $this->bucket;
         }
+        if (null !== $this->catalog) {
+            $res['catalog'] = $this->catalog;
+        }
+        if (null !== $this->database) {
+            $res['database'] = $this->database;
+        }
         if (null !== $this->endpoint) {
             $res['endpoint'] = $this->endpoint;
         }
@@ -120,6 +144,9 @@ class config extends Model
         }
         if (null !== $this->table) {
             $res['table'] = $this->table;
+        }
+        if (null !== $this->tag) {
+            $res['tag'] = $this->tag;
         }
 
         return $res;
@@ -142,6 +169,12 @@ class config extends Model
         if (isset($map['bucket'])) {
             $model->bucket = $map['bucket'];
         }
+        if (isset($map['catalog'])) {
+            $model->catalog = $map['catalog'];
+        }
+        if (isset($map['database'])) {
+            $model->database = $map['database'];
+        }
         if (isset($map['endpoint'])) {
             $model->endpoint = $map['endpoint'];
         }
@@ -156,6 +189,9 @@ class config extends Model
         }
         if (isset($map['table'])) {
             $model->table = $map['table'];
+        }
+        if (isset($map['tag'])) {
+            $model->tag = $map['tag'];
         }
 
         return $model;

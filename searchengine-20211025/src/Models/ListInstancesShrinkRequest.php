@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $catalog;
+
+    /**
+     * @var string
+     */
+    public $dataSourceType;
+
+    /**
+     * @var string
+     */
+    public $database;
+
+    /**
      * @description The description of the instance. You can use this description to filter instances. Fuzzy match is supported.
      *
      * @example Havenask instance
@@ -63,18 +78,27 @@ class ListInstancesShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $table;
+
+    /**
      * @description The tags of the instance.
      *
      * @var string
      */
     public $tagsShrink;
     protected $_name = [
+        'catalog'         => 'catalog',
+        'dataSourceType'  => 'dataSourceType',
+        'database'        => 'database',
         'description'     => 'description',
         'edition'         => 'edition',
         'instanceId'      => 'instanceId',
         'pageNumber'      => 'pageNumber',
         'pageSize'        => 'pageSize',
         'resourceGroupId' => 'resourceGroupId',
+        'table'           => 'table',
         'tagsShrink'      => 'tags',
     ];
 
@@ -85,6 +109,15 @@ class ListInstancesShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->catalog) {
+            $res['catalog'] = $this->catalog;
+        }
+        if (null !== $this->dataSourceType) {
+            $res['dataSourceType'] = $this->dataSourceType;
+        }
+        if (null !== $this->database) {
+            $res['database'] = $this->database;
+        }
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -103,6 +136,9 @@ class ListInstancesShrinkRequest extends Model
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
         }
+        if (null !== $this->table) {
+            $res['table'] = $this->table;
+        }
         if (null !== $this->tagsShrink) {
             $res['tags'] = $this->tagsShrink;
         }
@@ -118,6 +154,15 @@ class ListInstancesShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['catalog'])) {
+            $model->catalog = $map['catalog'];
+        }
+        if (isset($map['dataSourceType'])) {
+            $model->dataSourceType = $map['dataSourceType'];
+        }
+        if (isset($map['database'])) {
+            $model->database = $map['database'];
+        }
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
@@ -135,6 +180,9 @@ class ListInstancesShrinkRequest extends Model
         }
         if (isset($map['resourceGroupId'])) {
             $model->resourceGroupId = $map['resourceGroupId'];
+        }
+        if (isset($map['table'])) {
+            $model->table = $map['table'];
         }
         if (isset($map['tags'])) {
             $model->tagsShrink = $map['tags'];

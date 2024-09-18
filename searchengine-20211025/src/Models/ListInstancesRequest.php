@@ -10,6 +10,21 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $catalog;
+
+    /**
+     * @var string
+     */
+    public $dataSourceType;
+
+    /**
+     * @var string
+     */
+    public $database;
+
+    /**
      * @description The description of the instance. You can use this description to filter instances. Fuzzy match is supported.
      *
      * @example Havenask instance
@@ -64,18 +79,27 @@ class ListInstancesRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $table;
+
+    /**
      * @description The tags of the instance.
      *
      * @var tags[]
      */
     public $tags;
     protected $_name = [
+        'catalog'         => 'catalog',
+        'dataSourceType'  => 'dataSourceType',
+        'database'        => 'database',
         'description'     => 'description',
         'edition'         => 'edition',
         'instanceId'      => 'instanceId',
         'pageNumber'      => 'pageNumber',
         'pageSize'        => 'pageSize',
         'resourceGroupId' => 'resourceGroupId',
+        'table'           => 'table',
         'tags'            => 'tags',
     ];
 
@@ -86,6 +110,15 @@ class ListInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->catalog) {
+            $res['catalog'] = $this->catalog;
+        }
+        if (null !== $this->dataSourceType) {
+            $res['dataSourceType'] = $this->dataSourceType;
+        }
+        if (null !== $this->database) {
+            $res['database'] = $this->database;
+        }
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -103,6 +136,9 @@ class ListInstancesRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->table) {
+            $res['table'] = $this->table;
         }
         if (null !== $this->tags) {
             $res['tags'] = [];
@@ -125,6 +161,15 @@ class ListInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['catalog'])) {
+            $model->catalog = $map['catalog'];
+        }
+        if (isset($map['dataSourceType'])) {
+            $model->dataSourceType = $map['dataSourceType'];
+        }
+        if (isset($map['database'])) {
+            $model->database = $map['database'];
+        }
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
@@ -142,6 +187,9 @@ class ListInstancesRequest extends Model
         }
         if (isset($map['resourceGroupId'])) {
             $model->resourceGroupId = $map['resourceGroupId'];
+        }
+        if (isset($map['table'])) {
+            $model->table = $map['table'];
         }
         if (isset($map['tags'])) {
             if (!empty($map['tags'])) {
