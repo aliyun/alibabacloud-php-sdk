@@ -37,6 +37,13 @@ class OrderResult extends Model
     public $orderAmount;
 
     /**
+     * @example 系统关单
+     *
+     * @var string
+     */
+    public $orderClosedReason;
+
+    /**
      * @example 6692****5457
      *
      * @var string
@@ -62,14 +69,15 @@ class OrderResult extends Model
      */
     public $requestId;
     protected $_name = [
-        'createDate'      => 'createDate',
-        'distributorId'   => 'distributorId',
-        'logisticsStatus' => 'logisticsStatus',
-        'orderAmount'     => 'orderAmount',
-        'orderId'         => 'orderId',
-        'orderLineList'   => 'orderLineList',
-        'orderStatus'     => 'orderStatus',
-        'requestId'       => 'requestId',
+        'createDate'        => 'createDate',
+        'distributorId'     => 'distributorId',
+        'logisticsStatus'   => 'logisticsStatus',
+        'orderAmount'       => 'orderAmount',
+        'orderClosedReason' => 'orderClosedReason',
+        'orderId'           => 'orderId',
+        'orderLineList'     => 'orderLineList',
+        'orderStatus'       => 'orderStatus',
+        'requestId'         => 'requestId',
     ];
 
     public function validate()
@@ -90,6 +98,9 @@ class OrderResult extends Model
         }
         if (null !== $this->orderAmount) {
             $res['orderAmount'] = $this->orderAmount;
+        }
+        if (null !== $this->orderClosedReason) {
+            $res['orderClosedReason'] = $this->orderClosedReason;
         }
         if (null !== $this->orderId) {
             $res['orderId'] = $this->orderId;
@@ -132,6 +143,9 @@ class OrderResult extends Model
         }
         if (isset($map['orderAmount'])) {
             $model->orderAmount = $map['orderAmount'];
+        }
+        if (isset($map['orderClosedReason'])) {
+            $model->orderClosedReason = $map['orderClosedReason'];
         }
         if (isset($map['orderId'])) {
             $model->orderId = $map['orderId'];
