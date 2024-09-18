@@ -39,7 +39,7 @@ class DescribeBackupPolicyResponseBody extends Model
     public $logBackupRetentionPeriod;
 
     /**
-     * @description The cycle based on which backups are performed. If more than one day of the week are specified, the days of the week are separated by commas (,). Valid value:
+     * @description The cycle based on which backups are performed. If more than one day of the week is specified, the days of the week are separated by commas (,). Valid value:
      *
      *   Monday
      *   Tuesday

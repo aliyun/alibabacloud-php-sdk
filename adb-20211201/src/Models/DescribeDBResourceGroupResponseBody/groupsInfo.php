@@ -37,7 +37,7 @@ class groupsInfo extends Model
     public $createTime;
 
     /**
-     * @description The minimum amount of elastic computing resources. Unit: ACUs.
+     * @description The minimum amount of elastic computing resources.
      *
      * @example 16ACU
      *
@@ -109,7 +109,7 @@ class groupsInfo extends Model
     public $maxClusterCount;
 
     /**
-     * @description The maximum amount of reserved computing resources. Unit: ACUs.
+     * @description The maximum amount of reserved computing resources.
      *
      * @example 512ACU
      *
@@ -134,7 +134,7 @@ class groupsInfo extends Model
     public $minClusterCount;
 
     /**
-     * @description The minimum amount of reserved computing resources. Unit: AnalyticDB compute units (ACUs).
+     * @description The minimum amount of reserved computing resources.
      *
      * @example 0ACU
      *

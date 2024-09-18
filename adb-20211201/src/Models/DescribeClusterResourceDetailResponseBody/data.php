@@ -19,7 +19,7 @@ class data extends Model
     public $computeResource;
 
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * @description The cluster ID.
      *
      * @example amv-adbxxxxx
      *

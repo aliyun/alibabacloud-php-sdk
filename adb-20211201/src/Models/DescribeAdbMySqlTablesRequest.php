@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAdbMySqlTablesRequest extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
      *
      * This parameter is required.
      * @example amv-bp11q28kvl688****
@@ -19,7 +19,7 @@ class DescribeAdbMySqlTablesRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description The region ID of the cluster.
+     * @description The region ID.
      *
      * This parameter is required.
      * @example cn-hangzhou

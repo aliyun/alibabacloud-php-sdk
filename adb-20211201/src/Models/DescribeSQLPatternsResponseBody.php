@@ -33,7 +33,7 @@ class DescribeSQLPatternsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The queried SQL pattern.
+     * @description The queried SQL patterns.
      *
      * @var patternDetails[]
      */

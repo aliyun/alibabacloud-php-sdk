@@ -19,7 +19,7 @@ class DescribeClusterResourceDetailResponseBody extends Model
     public $code;
 
     /**
-     * @description The information about the cluster resource usage.
+     * @description The queried resource usage.
      *
      * @var data
      */

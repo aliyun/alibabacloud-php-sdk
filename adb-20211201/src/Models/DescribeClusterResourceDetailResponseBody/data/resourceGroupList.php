@@ -50,7 +50,7 @@ class resourceGroupList extends Model
     public $maxClusterCount;
 
     /**
-     * @description The maximum amount of reserved computing resources. Unit: ACUs.
+     * @description The maximum amount of reserved computing resources.
      *
      * @example 128ACU
      *
@@ -68,7 +68,7 @@ class resourceGroupList extends Model
     public $minClusterCount;
 
     /**
-     * @description The minimum amount of reserved computing resources. Unit: ACUs.
+     * @description The minimum amount of reserved computing resources.
      *
      * @example 16ACU
      *

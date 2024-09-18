@@ -95,12 +95,12 @@ class CreateDBResourceGroupShrinkRequest extends Model
     public $maxClusterCount;
 
     /**
-     * @description The maximum reserved computing resources. Unit: ACU.
+     * @description The maximum reserved computing resources.
      *
-     *   If GroupType is set to Interactive, the maximum amount of reserved computing resources refers to the amount of resources that are not allocated in the cluster. Set this parameter to a value in increments of 16 ACUs.
-     *   If GroupType is set to Job, the maximum amount of reserved computing resources refers to the amount of resources that are not allocated in the cluster. Set this parameter to a value in increments of 8 ACUs.
+     *   If GroupType is set to Interactive, the maximum amount of reserved computing resources refers to the amount of resources that are not allocated in the cluster. Set this parameter to a value in increments of 16ACU.
+     *   If GroupType is set to Job, the maximum amount of reserved computing resources refers to the amount of resources that are not allocated in the cluster. Set this parameter to a value in increments of 8ACU.
      *
-     * @example 48
+     * @example 48ACU
      *
      * @var string
      */
@@ -116,12 +116,12 @@ class CreateDBResourceGroupShrinkRequest extends Model
     public $minClusterCount;
 
     /**
-     * @description The minimum reserved computing resources. Unit: AnalyticDB Compute Units (ACUs).
+     * @description The minimum reserved computing resources.
      *
-     *   When GroupType is set to Interactive, set this parameter to 16 ACUs.
-     *   When GroupType is set to Job, set this parameter to 0 ACUs.
+     *   When GroupType is set to Interactive, set this parameter to 16ACU.
+     *   When GroupType is set to Job, set this parameter to 0ACU.
      *
-     * @example 0
+     * @example 0ACU
      *
      * @var string
      */

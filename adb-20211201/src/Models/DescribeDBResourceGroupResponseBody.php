@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBResourceGroupResponseBody extends Model
 {
     /**
-     * @description The queried resource group.
+     * @description The queried resource groups.
      *
      * @var groupsInfo[]
      */

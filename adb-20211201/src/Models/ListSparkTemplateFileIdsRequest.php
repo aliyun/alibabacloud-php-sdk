@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListSparkTemplateFileIdsRequest extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
      *
      * @example amv-bp11q28kvl688****
      *

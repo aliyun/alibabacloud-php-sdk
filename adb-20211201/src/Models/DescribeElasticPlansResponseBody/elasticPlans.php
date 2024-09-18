@@ -11,8 +11,8 @@ class elasticPlans extends Model
     /**
      * @description Indicates whether **Proportional Default Scaling for EIUs** is enabled. Valid values:
      *
-     *   true
-     *   false
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -30,10 +30,10 @@ class elasticPlans extends Model
     public $elasticPlanName;
 
     /**
-     * @description Indicates whether the scaling plan was immediately enabled after the plan is created. Valid values:
+     * @description Indicates whether the scaling plan is immediately enabled after the plan is created. Valid values:
      *
-     *   true
-     *   false
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -73,8 +73,8 @@ class elasticPlans extends Model
     /**
      * @description The type of the scaling plan. Valid values:
      *
-     *   EXECUTOR: interactive resource group.
-     *   WORKER: EIU.
+     *   **EXECUTOR**: the interactive resource group type, which specifies the computing resource type.
+     *   **WORKER**: the EIU type.
      *
      * @example EXECUTOR
      *

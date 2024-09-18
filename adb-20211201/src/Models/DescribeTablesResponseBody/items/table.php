@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class table extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
      *
      * @example amv-bp1xxxxxxxx47
      *

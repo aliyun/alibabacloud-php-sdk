@@ -20,7 +20,7 @@ class CreateDBClusterRequest extends Model
     public $backupSetId;
 
     /**
-     * @description The amount of reserved computing resources. Unit: ACUs. Valid values: 0 to 4096. The value must be in increments of 16 ACUs. Each ACU is equivalent to 1 core and 4 GB memory.
+     * @description The amount of reserved computing resources. Valid values: 0ACU to 4096ACU. The value must be in increments of 16ACU. Each ACU is approximately equal to 1 core and 4 GB memory.
      *
      * >  This parameter must be specified with a unit.
      * @example 16ACU
@@ -175,7 +175,7 @@ class CreateDBClusterRequest extends Model
     public $sourceDbClusterId;
 
     /**
-     * @description The amount of reserved storage resources. Unit: AnalyticDB compute units (ACUs). Valid values: 0 to 2064. The value must be in increments of 24 ACUs. Each ACU is equivalent to 1 core and 4 GB memory.
+     * @description The amount of reserved storage resources. Valid values: 0ACU to 2064ACU. The value must be in increments of 24ACU. Each ACU is approximately equal to 1 core and 4 GB memory.
      *
      * >  This parameter must be specified with a unit.
      * @example 24ACU

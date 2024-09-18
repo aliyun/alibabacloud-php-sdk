@@ -22,7 +22,7 @@ class ModifyAuditLogConfigRequest extends Model
     public $auditLogStatus;
 
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
      *
      * This parameter is required.
      * @example amv-t4nj8619bz2w3****
@@ -47,7 +47,7 @@ class ModifyAuditLogConfigRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID.
+     * @description The region ID of the cluster.
      *
      * This parameter is required.
      * @example cn-hangzhou

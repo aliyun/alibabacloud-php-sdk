@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBResourceGroupRequest extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
      *
      * This parameter is required.
      * @example amv-bp11q28kvl688****
@@ -34,7 +34,7 @@ class DescribeDBResourceGroupRequest extends Model
      *   **Interactive**
      *   **Job**
      *
-     * > For information about resource groups of Data Lakehouse Edition, see [Resource groups](https://help.aliyun.com/document_detail/428610.html).
+     * >  For more information about resource groups, see [Resource group overview](https://help.aliyun.com/document_detail/428610.html).
      * @example Job
      *
      * @var string

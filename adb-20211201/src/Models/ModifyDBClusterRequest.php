@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterRequest extends Model
 {
     /**
-     * @description The reserved computing resources. Unit: ACUs. Valid values: 0 to 4096. The value must be in increments of 16 ACUs. Each ACU is approximately equal to 1 core and 4 GB memory.
+     * @description The reserved computing resources. Valid values: 0ACU to 4096ACU. The value must be in increments of 16ACU. Each ACU is approximately equal to 1 core and 4 GB memory.
      *
      * >  This parameter must be specified with a unit.
      * @example 16ACU
@@ -51,6 +51,13 @@ class ModifyDBClusterRequest extends Model
     public $ownerId;
 
     /**
+     * @example LegacyForm
+     *
+     * @var string
+     */
+    public $productForm;
+
+    /**
      * @description The region ID of the cluster.
      *
      * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the most recent region list.
@@ -76,7 +83,7 @@ class ModifyDBClusterRequest extends Model
     public $resourceOwnerAccount;
 
     /**
-     * @description The reserved storage resources. Unit: ACUs. Valid values: 0 to 2064. The value must be in increments of 24 ACUs. Each ACU is approximately equal to 1 core and 4 GB memory.
+     * @description The reserved storage resources. Valid values: 0ACU to 2064ACU. The value must be in increments of 24ACU. Each ACU is approximately equal to 1 core and 4 GB memory.
      *
      * >  This parameter must be specified with a unit.
      * @example 24ACU
@@ -90,6 +97,7 @@ class ModifyDBClusterRequest extends Model
         'enableDefaultResourcePool' => 'EnableDefaultResourcePool',
         'ownerAccount'              => 'OwnerAccount',
         'ownerId'                   => 'OwnerId',
+        'productForm'               => 'ProductForm',
         'regionId'                  => 'RegionId',
         'reservedNodeCount'         => 'ReservedNodeCount',
         'reservedNodeSize'          => 'ReservedNodeSize',
@@ -118,6 +126,9 @@ class ModifyDBClusterRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->productForm) {
+            $res['ProductForm'] = $this->productForm;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -160,6 +171,9 @@ class ModifyDBClusterRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ProductForm'])) {
+            $model->productForm = $map['ProductForm'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
