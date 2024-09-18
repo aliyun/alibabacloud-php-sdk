@@ -8,6 +8,7 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetRemindResponseBody\data
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetRemindResponseBody\data\bizProcesses;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetRemindResponseBody\data\nodes;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetRemindResponseBody\data\projects;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetRemindResponseBody\data\receivers;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetRemindResponseBody\data\robots;
 use AlibabaCloud\Tea\Model;
 
@@ -40,6 +41,11 @@ class data extends Model
      * @var string
      */
     public $alertUnit;
+
+    /**
+     * @var int[]
+     */
+    public $allowNodes;
 
     /**
      * @description The baselines to which the custom alert rule is applied. This parameter is returned if the value of the RemindUnit parameter is BASELINE.
@@ -119,6 +125,11 @@ class data extends Model
     public $projects;
 
     /**
+     * @var receivers[]
+     */
+    public $receivers;
+
+    /**
      * @description The custom alert rule ID.
      *
      * @example 1234
@@ -177,6 +188,7 @@ class data extends Model
         'alertMethods'  => 'AlertMethods',
         'alertTargets'  => 'AlertTargets',
         'alertUnit'     => 'AlertUnit',
+        'allowNodes'    => 'AllowNodes',
         'baselines'     => 'Baselines',
         'bizProcesses'  => 'BizProcesses',
         'detail'        => 'Detail',
@@ -186,6 +198,7 @@ class data extends Model
         'maxAlertTimes' => 'MaxAlertTimes',
         'nodes'         => 'Nodes',
         'projects'      => 'Projects',
+        'receivers'     => 'Receivers',
         'remindId'      => 'RemindId',
         'remindName'    => 'RemindName',
         'remindType'    => 'RemindType',
@@ -213,6 +226,9 @@ class data extends Model
         }
         if (null !== $this->alertUnit) {
             $res['AlertUnit'] = $this->alertUnit;
+        }
+        if (null !== $this->allowNodes) {
+            $res['AllowNodes'] = $this->allowNodes;
         }
         if (null !== $this->baselines) {
             $res['Baselines'] = [];
@@ -262,6 +278,15 @@ class data extends Model
                 $n = 0;
                 foreach ($this->projects as $item) {
                     $res['Projects'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->receivers) {
+            $res['Receivers'] = [];
+            if (null !== $this->receivers && \is_array($this->receivers)) {
+                $n = 0;
+                foreach ($this->receivers as $item) {
+                    $res['Receivers'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -320,6 +345,11 @@ class data extends Model
         if (isset($map['AlertUnit'])) {
             $model->alertUnit = $map['AlertUnit'];
         }
+        if (isset($map['AllowNodes'])) {
+            if (!empty($map['AllowNodes'])) {
+                $model->allowNodes = $map['AllowNodes'];
+            }
+        }
         if (isset($map['Baselines'])) {
             if (!empty($map['Baselines'])) {
                 $model->baselines = [];
@@ -368,6 +398,15 @@ class data extends Model
                 $n               = 0;
                 foreach ($map['Projects'] as $item) {
                     $model->projects[$n++] = null !== $item ? projects::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Receivers'])) {
+            if (!empty($map['Receivers'])) {
+                $model->receivers = [];
+                $n                = 0;
+                foreach ($map['Receivers'] as $item) {
+                    $model->receivers[$n++] = null !== $item ? receivers::fromMap($item) : $item;
                 }
             }
         }
