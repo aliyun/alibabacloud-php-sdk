@@ -493,6 +493,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTodoTaskHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTodoTaskRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTodoTaskResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTodoTaskShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTodoTaskShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdByOrgIdAndStaffIdHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdByOrgIdAndStaffIdRequest;
@@ -9178,6 +9183,76 @@ class Aliding extends OpenApiClient
         $headers = new GetTemplateListByUserIdHeaders([]);
 
         return $this->getTemplateListByUserIdWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取钉钉待办任务详情
+     *  *
+     * @param GetTodoTaskRequest $tmpReq    GetTodoTaskRequest
+     * @param GetTodoTaskHeaders $tmpHeader GetTodoTaskHeaders
+     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetTodoTaskResponse GetTodoTaskResponse
+     */
+    public function getTodoTaskWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetTodoTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetTodoTaskShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTodoTask',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/task/getTodoTask',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取钉钉待办任务详情
+     *  *
+     * @param GetTodoTaskRequest $request GetTodoTaskRequest
+     *
+     * @return GetTodoTaskResponse GetTodoTaskResponse
+     */
+    public function getTodoTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetTodoTaskHeaders([]);
+
+        return $this->getTodoTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
