@@ -52,6 +52,13 @@ class measureList extends Model
     public $factColumn;
 
     /**
+     * @example hhhh
+     *
+     * @var string
+     */
+    public $fieldDescription;
+
+    /**
      * @description An expression that calculates a measure; valid only for calculated measures.
      *
      * @example calculate_measure
@@ -78,13 +85,14 @@ class measureList extends Model
      */
     public $uid;
     protected $_name = [
-        'caption'       => 'Caption',
-        'dataType'      => 'DataType',
-        'expression'    => 'Expression',
-        'factColumn'    => 'FactColumn',
-        'measureType'   => 'MeasureType',
-        'tableUniqueId' => 'TableUniqueId',
-        'uid'           => 'Uid',
+        'caption'          => 'Caption',
+        'dataType'         => 'DataType',
+        'expression'       => 'Expression',
+        'factColumn'       => 'FactColumn',
+        'fieldDescription' => 'FieldDescription',
+        'measureType'      => 'MeasureType',
+        'tableUniqueId'    => 'TableUniqueId',
+        'uid'              => 'Uid',
     ];
 
     public function validate()
@@ -105,6 +113,9 @@ class measureList extends Model
         }
         if (null !== $this->factColumn) {
             $res['FactColumn'] = $this->factColumn;
+        }
+        if (null !== $this->fieldDescription) {
+            $res['FieldDescription'] = $this->fieldDescription;
         }
         if (null !== $this->measureType) {
             $res['MeasureType'] = $this->measureType;
@@ -138,6 +149,9 @@ class measureList extends Model
         }
         if (isset($map['FactColumn'])) {
             $model->factColumn = $map['FactColumn'];
+        }
+        if (isset($map['FieldDescription'])) {
+            $model->fieldDescription = $map['FieldDescription'];
         }
         if (isset($map['MeasureType'])) {
             $model->measureType = $map['MeasureType'];

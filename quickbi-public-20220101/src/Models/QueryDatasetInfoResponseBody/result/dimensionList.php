@@ -58,6 +58,13 @@ class dimensionList extends Model
     public $factColumn;
 
     /**
+     * @example hhhh
+     *
+     * @var string
+     */
+    public $fieldDescription;
+
+    /**
      * @description The type of the dimension. Valid values:
      *
      *   standard_dimension: General Dimension
@@ -97,15 +104,16 @@ class dimensionList extends Model
      */
     public $uid;
     protected $_name = [
-        'caption'       => 'Caption',
-        'dataType'      => 'DataType',
-        'dimensionType' => 'DimensionType',
-        'expression'    => 'Expression',
-        'factColumn'    => 'FactColumn',
-        'granularity'   => 'Granularity',
-        'refUid'        => 'RefUid',
-        'tableUniqueId' => 'TableUniqueId',
-        'uid'           => 'Uid',
+        'caption'          => 'Caption',
+        'dataType'         => 'DataType',
+        'dimensionType'    => 'DimensionType',
+        'expression'       => 'Expression',
+        'factColumn'       => 'FactColumn',
+        'fieldDescription' => 'FieldDescription',
+        'granularity'      => 'Granularity',
+        'refUid'           => 'RefUid',
+        'tableUniqueId'    => 'TableUniqueId',
+        'uid'              => 'Uid',
     ];
 
     public function validate()
@@ -129,6 +137,9 @@ class dimensionList extends Model
         }
         if (null !== $this->factColumn) {
             $res['FactColumn'] = $this->factColumn;
+        }
+        if (null !== $this->fieldDescription) {
+            $res['FieldDescription'] = $this->fieldDescription;
         }
         if (null !== $this->granularity) {
             $res['Granularity'] = $this->granularity;
@@ -168,6 +179,9 @@ class dimensionList extends Model
         }
         if (isset($map['FactColumn'])) {
             $model->factColumn = $map['FactColumn'];
+        }
+        if (isset($map['FieldDescription'])) {
+            $model->fieldDescription = $map['FieldDescription'];
         }
         if (isset($map['Granularity'])) {
             $model->granularity = $map['Granularity'];

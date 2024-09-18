@@ -634,6 +634,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 添加成员到指定工作空间。
+     *  *
      * @param AddUserToWorkspaceRequest $request AddUserToWorkspaceRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -671,6 +673,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 添加成员到指定工作空间。
+     *  *
      * @param AddUserToWorkspaceRequest $request AddUserToWorkspaceRequest
      *
      * @return AddUserToWorkspaceResponse AddUserToWorkspaceResponse
@@ -683,6 +687,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 批量添加成员到工作空间。
+     *  *
      * @param AddWorkspaceUsersRequest $request AddWorkspaceUsersRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -720,6 +726,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 批量添加成员到工作空间。
+     *  *
      * @param AddWorkspaceUsersRequest $request AddWorkspaceUsersRequest
      *
      * @return AddWorkspaceUsersResponse AddWorkspaceUsersResponse
@@ -732,7 +740,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 触发数据集抽取加速
+     * @summary 触发数据集抽取加速。
      *  *
      * @param AllotDatasetAccelerationTaskRequest $request AllotDatasetAccelerationTaskRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -765,7 +773,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 触发数据集抽取加速
+     * @summary 触发数据集抽取加速。
      *  *
      * @param AllotDatasetAccelerationTaskRequest $request AllotDatasetAccelerationTaskRequest
      *
@@ -838,7 +846,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 批量添加飞书用户
+     * @summary 批量添加飞书用户。
      *  *
      * @param BatchAddFeishuUsersRequest $request BatchAddFeishuUsersRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -883,7 +891,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 批量添加飞书用户
+     * @summary 批量添加飞书用户。
      *  *
      * @param BatchAddFeishuUsersRequest $request BatchAddFeishuUsersRequest
      *
@@ -897,6 +905,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 根据门户菜单ID，取消指定用户、用户组的授权记录。
+     *  *
      * @param CancelAuthorizationMenuRequest $request CancelAuthorizationMenuRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -937,6 +947,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 根据门户菜单ID，取消指定用户、用户组的授权记录。
+     *  *
      * @param CancelAuthorizationMenuRequest $request CancelAuthorizationMenuRequest
      *
      * @return CancelAuthorizationMenuResponse CancelAuthorizationMenuResponse
@@ -1155,7 +1167,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 生成三方嵌入的ticket
+     * @summary 生成三方嵌入的ticket。
      *  *
      * @param CreateTicketRequest $request CreateTicketRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -1212,7 +1224,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 生成三方嵌入的ticket
+     * @summary 生成三方嵌入的ticket。
      *  *
      * @param CreateTicketRequest $request CreateTicketRequest
      *
@@ -1226,7 +1238,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 生成智能小Q嵌入ticket
+     * @summary 生成智能小Q嵌入ticket。
      *  *
      * @param CreateTicket4CopilotRequest $request CreateTicket4CopilotRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -1274,7 +1286,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 生成智能小Q嵌入ticket
+     * @summary 生成智能小Q嵌入ticket。
      *  *
      * @param CreateTicket4CopilotRequest $request CreateTicket4CopilotRequest
      *
@@ -1344,7 +1356,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询引用指定数据集下的作品信息
+     * @summary 查询引用指定数据集下的作品信息。
      *  *
      * @param DataSetBloodRequest $request DataSetBloodRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -1383,7 +1395,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询引用指定数据集下的作品信息
+     * @summary 查询引用指定数据集下的作品信息。
      *  *
      * @param DataSetBloodRequest $request DataSetBloodRequest
      *
@@ -1397,7 +1409,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询引用指定数据源下的数据集信息
+     * @summary 查询引用指定数据源下的数据集信息。
      *  *
      * @param DataSourceBloodRequest $request DataSourceBloodRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -1430,7 +1442,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询引用指定数据源下的数据集信息
+     * @summary 查询引用指定数据源下的数据集信息。
      *  *
      * @param DataSourceBloodRequest $request DataSourceBloodRequest
      *
@@ -1696,6 +1708,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定工作空间的成员。
+     *  *
      * @param DeleteUserFromWorkspaceRequest $request DeleteUserFromWorkspaceRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -1730,6 +1744,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定工作空间的成员。
+     *  *
      * @param DeleteUserFromWorkspaceRequest $request DeleteUserFromWorkspaceRequest
      *
      * @return DeleteUserFromWorkspaceResponse DeleteUserFromWorkspaceResponse
@@ -1987,7 +2003,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 概述
+     * @summary 查询API数据源列表。
      *  *
      * @param ListApiDatasourceRequest $request ListApiDatasourceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -2029,7 +2045,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 概述
+     * @summary 查询API数据源列表。
      *  *
      * @param ListApiDatasourceRequest $request ListApiDatasourceRequest
      *
@@ -2191,6 +2207,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 根据行列权限种类，获取数据集行列权限的白名单列表。
+     *  *
      * @param ListDataLevelPermissionWhiteListRequest $request ListDataLevelPermissionWhiteListRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -2225,6 +2243,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 根据行列权限种类，获取数据集行列权限的白名单列表。
+     *  *
      * @param ListDataLevelPermissionWhiteListRequest $request ListDataLevelPermissionWhiteListRequest
      *
      * @return ListDataLevelPermissionWhiteListResponse ListDataLevelPermissionWhiteListResponse
@@ -2237,7 +2257,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 概述
+     * @summary 获取指定用户在首页看板中展示的收藏作品列表。
      *  *
      * @param ListFavoriteReportsRequest $request ListFavoriteReportsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -2279,7 +2299,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 概述
+     * @summary 获取指定用户在首页看板中展示的收藏作品列表。
      *  *
      * @param ListFavoriteReportsRequest $request ListFavoriteReportsRequest
      *
@@ -2293,7 +2313,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取指定组织角色下的用户列表
+     * @summary 获取指定组织角色下的用户列表。
      *  *
      * @param ListOrganizationRoleUsersRequest $request ListOrganizationRoleUsersRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -2335,7 +2355,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取指定组织角色下的用户列表
+     * @summary 获取指定组织角色下的用户列表。
      *  *
      * @param ListOrganizationRoleUsersRequest $request ListOrganizationRoleUsersRequest
      *
@@ -2349,7 +2369,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取组织级别自定义角色列表
+     * @summary 获取组织级别自定义角色列表。
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -2374,7 +2394,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取组织级别自定义角色列表
+     * @summary 获取组织级别自定义角色列表。
      *  *
      * @return ListOrganizationRolesResponse ListOrganizationRolesResponse
      */
@@ -2483,7 +2503,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取首页看板常看和足迹列表
+     * @summary 获取首页看板常看和足迹列表。
      *  *
      * @param ListRecentViewReportsRequest $request ListRecentViewReportsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -2531,7 +2551,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取首页看板常看和足迹列表
+     * @summary 获取首页看板常看和足迹列表。
      *  *
      * @param ListRecentViewReportsRequest $request ListRecentViewReportsRequest
      *
@@ -2545,7 +2565,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 概述
+     * @summary 获取指定用户在首页看板中展示的被授权的作品列表。
      *  *
      * @param ListSharedReportsRequest $request ListSharedReportsRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -2587,7 +2607,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 概述
+     * @summary 获取指定用户在首页看板中展示的被授权的作品列表。
      *  *
      * @param ListSharedReportsRequest $request ListSharedReportsRequest
      *
@@ -2648,7 +2668,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取指定空间角色下的用户列表
+     * @summary 获取指定空间角色下的用户列表。
      *  *
      * @param ListWorkspaceRoleUsersRequest $request ListWorkspaceRoleUsersRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -2693,7 +2713,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取指定空间角色下的用户列表
+     * @summary 获取指定空间角色下的用户列表。
      *  *
      * @param ListWorkspaceRoleUsersRequest $request ListWorkspaceRoleUsersRequest
      *
@@ -2707,7 +2727,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取空间角色列表
+     * @summary 获取空间角色列表。
      *  *
      * @param ListWorkspaceRolesRequest $request ListWorkspaceRolesRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -2740,7 +2760,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取空间角色列表
+     * @summary 获取空间角色列表。
      *  *
      * @param ListWorkspaceRolesRequest $request ListWorkspaceRolesRequest
      *
@@ -2754,7 +2774,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 修改指定API数据源参数值
+     * @summary 修改指定API数据源参数值。
      *  *
      * @param ModifyApiDatasourceParametersRequest $request ModifyApiDatasourceParametersRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -2793,7 +2813,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 修改指定API数据源参数值
+     * @summary 修改指定API数据源参数值。
      *  *
      * @param ModifyApiDatasourceParametersRequest $request ModifyApiDatasourceParametersRequest
      *
@@ -2807,7 +2827,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 修改智能问数嵌入配置
+     * @summary 修改智能问数嵌入配置。
      *  *
      * @param ModifyCopilotEmbedConfigRequest $request ModifyCopilotEmbedConfigRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -2849,7 +2869,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 修改智能问数嵌入配置
+     * @summary 修改智能问数嵌入配置。
      *  *
      * @param ModifyCopilotEmbedConfigRequest $request ModifyCopilotEmbedConfigRequest
      *
@@ -2863,7 +2883,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据审批人获取相应的审批流信息
+     * @summary 根据审批人获取相应的审批流信息。
      *  *
      * @param QueryApprovalInfoRequest $request QueryApprovalInfoRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -2905,7 +2925,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据审批人获取相应的审批流信息
+     * @summary 根据审批人获取相应的审批流信息。
      *  *
      * @param QueryApprovalInfoRequest $request QueryApprovalInfoRequest
      *
@@ -2919,7 +2939,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询审计日志信息
+     * @summary 查询审计日志信息。
      *  *
      * @param QueryAuditLogRequest $request QueryAuditLogRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -2970,7 +2990,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询审计日志信息
+     * @summary 查询审计日志信息。
      *  *
      * @param QueryAuditLogRequest $request QueryAuditLogRequest
      *
@@ -2984,7 +3004,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询组件性能列表
+     * @summary 查询组件性能列表。
      *  *
      * @param QueryComponentPerformanceRequest $request QueryComponentPerformanceRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -3035,7 +3055,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询组件性能列表
+     * @summary 查询组件性能列表。
      *  *
      * @param QueryComponentPerformanceRequest $request QueryComponentPerformanceRequest
      *
@@ -3049,7 +3069,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取开通小Q嵌入的配置列表
+     * @summary 获取开通小Q嵌入的配置列表。
      *  *
      * @param QueryCopilotEmbedConfigRequest $request QueryCopilotEmbedConfigRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -3082,7 +3102,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取开通小Q嵌入的配置列表
+     * @summary 获取开通小Q嵌入的配置列表。
      *  *
      * @param QueryCopilotEmbedConfigRequest $request QueryCopilotEmbedConfigRequest
      *
@@ -3096,7 +3116,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询数据集优化建议
+     * @summary 查询数据集优化建议。
      *  *
      * @param QueryCubeOptimizationRequest $request QueryCubeOptimizationRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -3129,7 +3149,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询数据集优化建议
+     * @summary 查询数据集优化建议。
      *  *
      * @param QueryCubeOptimizationRequest $request QueryCubeOptimizationRequest
      *
@@ -3143,7 +3163,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询数据集性能
+     * @summary 查询数据集性能。
      *  *
      * @param QueryCubePerformanceRequest $request QueryCubePerformanceRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -3191,7 +3211,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询数据集性能
+     * @summary 查询数据集性能。
      *  *
      * @param QueryCubePerformanceRequest $request QueryCubePerformanceRequest
      *
@@ -3205,7 +3225,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 调用开放数据服务API
+     * @summary 调用开放数据服务API。
      *  *
      * @param QueryDataRequest $request QueryDataRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -3247,7 +3267,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 调用开放数据服务API
+     * @summary 调用开放数据服务API。
      *  *
      * @param QueryDataRequest $request QueryDataRequest
      *
@@ -3261,7 +3281,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据范围目录列表
+     * @summary 获取数据范围目录列表。
      *  *
      * @param QueryDataRangeRequest $request QueryDataRangeRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -3297,7 +3317,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据范围目录列表
+     * @summary 获取数据范围目录列表。
      *  *
      * @param QueryDataRangeRequest $request QueryDataRangeRequest
      *
@@ -3368,7 +3388,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询数据服务API列表
+     * @summary 查询数据服务API列表。
      *  *
      * @param QueryDataServiceListRequest $request QueryDataServiceListRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -3410,7 +3430,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询数据服务API列表
+     * @summary 查询数据服务API列表。
      *  *
      * @param QueryDataServiceListRequest $request QueryDataServiceListRequest
      *
@@ -3588,6 +3608,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 获取指定数据集的行级权限开关状态。
+     *  *
      * @param QueryDatasetSwitchInfoRequest $request QueryDatasetSwitchInfoRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -3619,6 +3641,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 获取指定数据集的行级权限开关状态。
+     *  *
      * @param QueryDatasetSwitchInfoRequest $request QueryDatasetSwitchInfoRequest
      *
      * @return QueryDatasetSwitchInfoResponse QueryDatasetSwitchInfoResponse
@@ -4118,6 +4142,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 获取用户组下的成员列表信息。
+     *  *
      * @param QueryUserGroupMemberRequest $request QueryUserGroupMemberRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -4152,6 +4178,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 获取用户组下的成员列表信息。
+     *  *
      * @param QueryUserGroupMemberRequest $request QueryUserGroupMemberRequest
      *
      * @return QueryUserGroupMemberResponse QueryUserGroupMemberResponse
@@ -4261,6 +4289,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 查询组织成员列表信息。
+     *  *
      * @param QueryUserListRequest $request QueryUserListRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -4289,6 +4319,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 查询组织成员列表信息。
+     *  *
      * @param QueryUserListRequest $request QueryUserListRequest
      *
      * @return QueryUserListResponse QueryUserListResponse
@@ -4301,6 +4333,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 获取指定工作空间成员的预置空间角色信息。
+     *  *
      * @param QueryUserRoleInfoInWorkspaceRequest $request QueryUserRoleInfoInWorkspaceRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -4335,6 +4369,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 获取指定工作空间成员的预置空间角色信息。
+     *  *
      * @param QueryUserRoleInfoInWorkspaceRequest $request QueryUserRoleInfoInWorkspaceRequest
      *
      * @return QueryUserRoleInfoInWorkspaceResponse QueryUserRoleInfoInWorkspaceResponse
@@ -4690,6 +4726,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 查询指定工作空间下的成员列表信息。
+     *  *
      * @param QueryWorkspaceUserListRequest $request QueryWorkspaceUserListRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -4730,6 +4768,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 查询指定工作空间下的成员列表信息。
+     *  *
      * @param QueryWorkspaceUserListRequest $request QueryWorkspaceUserListRequest
      *
      * @return QueryWorkspaceUserListResponse QueryWorkspaceUserListResponse
@@ -4845,6 +4885,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 设置行列权限的额外配置
+     *  *
      * @param SetDataLevelPermissionExtraConfigRequest $request SetDataLevelPermissionExtraConfigRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
@@ -4882,6 +4924,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 设置行列权限的额外配置
+     *  *
      * @param SetDataLevelPermissionExtraConfigRequest $request SetDataLevelPermissionExtraConfigRequest
      *
      * @return SetDataLevelPermissionExtraConfigResponse SetDataLevelPermissionExtraConfigResponse
@@ -4894,6 +4938,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 设置单条数据集行列权限配置信息（新增和更新）
+     *  *
      * @param SetDataLevelPermissionRuleConfigRequest $request SetDataLevelPermissionRuleConfigRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -4925,6 +4971,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 设置单条数据集行列权限配置信息（新增和更新）
+     *  *
      * @param SetDataLevelPermissionRuleConfigRequest $request SetDataLevelPermissionRuleConfigRequest
      *
      * @return SetDataLevelPermissionRuleConfigResponse SetDataLevelPermissionRuleConfigResponse
@@ -5271,6 +5319,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 用于更新组织成员标签元信息
+     *  *
      * @param UpdateUserTagMetaRequest $request UpdateUserTagMetaRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -5308,6 +5358,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 用于更新组织成员标签元信息
+     *  *
      * @param UpdateUserTagMetaRequest $request UpdateUserTagMetaRequest
      *
      * @return UpdateUserTagMetaResponse UpdateUserTagMetaResponse
@@ -5320,6 +5372,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 更新组织成员标签值
+     *  *
      * @param UpdateUserTagValueRequest $request UpdateUserTagValueRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -5357,6 +5411,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 更新组织成员标签值
+     *  *
      * @param UpdateUserTagValueRequest $request UpdateUserTagValueRequest
      *
      * @return UpdateUserTagValueResponse UpdateUserTagValueResponse
@@ -5369,6 +5425,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 修改工作空间下指定成员的角色，已有的角色会被覆盖
+     *  *
      * @param UpdateWorkspaceUserRoleRequest $request UpdateWorkspaceUserRoleRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -5406,6 +5464,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 修改工作空间下指定成员的角色，已有的角色会被覆盖
+     *  *
      * @param UpdateWorkspaceUserRoleRequest $request UpdateWorkspaceUserRoleRequest
      *
      * @return UpdateWorkspaceUserRoleResponse UpdateWorkspaceUserRoleResponse
@@ -5418,6 +5478,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 批量更新工作空间成员的角色信息，已有角色会被覆盖
+     *  *
      * @param UpdateWorkspaceUsersRoleRequest $request UpdateWorkspaceUsersRoleRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -5455,6 +5517,8 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 批量更新工作空间成员的角色信息，已有角色会被覆盖
+     *  *
      * @param UpdateWorkspaceUsersRoleRequest $request UpdateWorkspaceUsersRoleRequest
      *
      * @return UpdateWorkspaceUsersRoleResponse UpdateWorkspaceUsersRoleResponse
