@@ -9,61 +9,109 @@ use AlibabaCloud\Tea\Model;
 class spec extends Model
 {
     /**
+     * @description The region of the asset.
+     *
+     * @example international_and_hmt
+     *
      * @var string
      */
     public $coverage;
 
     /**
+     * @description The diversion mode. Valid values: on-demand always-on
+     *
+     * @example on-demand
+     *
      * @var string
      */
     public $diversionType;
 
     /**
+     * @description The mitigation plan.
+     *
+     * @example enterprise
+     *
      * @var string
      */
     public $edition;
 
     /**
+     * @description The number of data centers. Valid values: 1 to 10.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $idcNumbers;
 
     /**
+     * @description The initial installation mode.
+     *
+     * @example gre_tunnel_by_pccw
+     *
      * @var string
      */
     public $initialInstallation;
 
     /**
+     * @description The initial installation quantity.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $initialQty;
 
     /**
+     * @description The number of CIDR blocks. Value range: 1 to 10000.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $ipSubnetNums;
 
     /**
+     * @description The mitigation analysis feature.
+     *
+     * @example off
+     *
      * @var string
      */
     public $mitigationAnalysis;
 
     /**
+     * @description The log storage capacity.
+     *
+     * @example 3T
+     *
      * @var string
      */
     public $mitigationAnalysisCapacity;
 
     /**
+     * @description The maximum mitigation capability.
+     *
+     * @example unlimited
+     *
      * @var string
      */
     public $mitigationCapacity;
 
     /**
+     * @description The number of mitigation sessions.
+     *
+     * @example unlimited
+     *
      * @var string
      */
     public $mitigationNums;
 
     /**
+     * @description The service traffic. Unit: Mbit/s.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $normalBandwidth;

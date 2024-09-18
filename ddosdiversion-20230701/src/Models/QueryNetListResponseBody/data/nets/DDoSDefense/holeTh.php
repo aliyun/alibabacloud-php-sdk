@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class holeTh extends Model
 {
     /**
+     * @description The blackhole filtering threshold.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $threshMbps;

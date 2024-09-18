@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class djPolicy extends Model
 {
     /**
+     * @description The name of the mitigation policy.
+     *
+     * @example test_polilciy-xxx
+     *
      * @var string
      */
     public $policyName;

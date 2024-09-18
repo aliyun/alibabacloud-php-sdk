@@ -10,56 +10,99 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @description The description.
+     *
+     * @example description
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The purchase time.
+     *
+     * @example 2022-12-15 11:10:42
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The expiration time.
+     *
+     * @example 2023-02-23 00:00:00
+     *
      * @var string
      */
     public $gmtExpire;
 
     /**
+     * @description The update time.
+     *
+     * @example 2022-12-15 11:10:42
+     *
      * @var string
      */
     public $gmtModify;
 
     /**
+     * @description The alias of the instance.
+     *
+     * @example ddos_diversion_public_cn-xxxxxxxxxxxxx_xxxxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The configurations of the instance.
+     *
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example ddos_diversion_public_cn-xxxxxxxxxxxxx
+     *
      * @var string
      */
     public $saleId;
 
     /**
+     * @description The specifications of the instance.
+     *
      * @var spec
      */
     public $spec;
 
     /**
+     * @description The status of the instance. Valid values:
+     *
+     * - stopped
+     * @example normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The user ID.
+     *
+     * @example 177xxxxxxxxxxxxx
+     *
      * @var string
      */
     public $userId;

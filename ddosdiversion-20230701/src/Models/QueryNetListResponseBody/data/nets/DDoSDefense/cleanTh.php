@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class cleanTh extends Model
 {
     /**
+     * @description The traffic scrubbing threshold in Mbit/s.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $mbps;
 
     /**
+     * @description The traffic scrubbing threshold in packets per second (pps)
+     *
+     * @example 0
+     *
      * @var int
      */
     public $pps;

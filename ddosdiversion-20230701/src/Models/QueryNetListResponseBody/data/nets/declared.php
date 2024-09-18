@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class declared extends Model
 {
     /**
+     * @description Indicates whether the CIDR block is advertised. Valid values:
+     *
+     * - 1: The CIDR block is advertised.
+     * @example 0
+     *
      * @var string
      */
     public $declared;
 
     /**
+     * @description The region in which the CIDR block is advertised.
+     *
+     * @example oe26
+     *
      * @var string
      */
     public $region;

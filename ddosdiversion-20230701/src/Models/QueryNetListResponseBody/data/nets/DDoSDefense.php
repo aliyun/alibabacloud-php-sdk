@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class DDoSDefense extends Model
 {
     /**
+     * @description The configuration of traffic scrubbing.
+     *
      * @var cleanTh
      */
     public $cleanTh;
 
     /**
+     * @description The configuration of the mitigation policy.
+     *
      * @var djPolicy
      */
     public $djPolicy;
 
     /**
+     * @description The configuration of blackhole filtering.
+     *
      * @var holeTh
      */
     public $holeTh;

@@ -12,9 +12,7 @@ class QueryNetListResponseBody extends Model
     /**
      * @description The status code.
      *
-     *   **200**: The request was successful.
-     *   Other codes: The request failed.
-     *
+     * - Other codes: The request failed.
      * @example 200
      *
      * @var int

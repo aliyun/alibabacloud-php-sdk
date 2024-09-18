@@ -11,6 +11,8 @@ class ListInstanceRequest extends Model
     /**
      * @description The name of the instance.
      *
+     * @example test
+     *
      * @var string
      */
     public $name;
@@ -45,11 +47,7 @@ class ListInstanceRequest extends Model
     /**
      * @description The status of the instance. Valid values:
      *
-     *   normal
-     *   expired
-     *   deleting
-     *   stopped
-     *
+     * - stopped
      * @example normal
      *
      * @var string

@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The details of the anti-DDoS diversion instance.
+     *
      * @var instances[]
      */
     public $instances;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $num;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $total;

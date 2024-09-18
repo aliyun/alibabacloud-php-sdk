@@ -20,9 +20,7 @@ class QueryNetListRequest extends Model
     /**
      * @description The scheduling mode. Valid values:
      *
-     *   manual: manual scheduling
-     *   netflow-auto: automatic scheduling
-     *
+     * - netflow-auto: automatic scheduling
      * @example netflow-auto
      *
      * @var string
@@ -32,7 +30,8 @@ class QueryNetListRequest extends Model
     /**
      * @description The CIDR block of the anti-DDoS diversion instance.
      *
-     * >  If no extended CIDR blocks are configured for the anti-DDoS diversion instance, this parameter specifies the CIDR block of the instance. If an extended CIDR block is configured for the anti-DDoS diversion instance, this parameter specifies the extended CIDR block that is configured for the instance. If this parameter is specified, the MainNet parameter is required.
+     *
+     * > If no extended CIDR blocks are configured for the anti-DDoS diversion instance, this parameter specifies the CIDR block of the instance. If an extended CIDR block is configured for the anti-DDoS diversion instance, this parameter specifies the extended CIDR block that is configured for the instance. If this parameter is specified, the MainNet parameter is required.
      * @example 192.168.XX.XX/24
      *
      * @var string

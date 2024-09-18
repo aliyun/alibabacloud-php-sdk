@@ -52,10 +52,12 @@ class DdosDiversion extends OpenApiClient
     }
 
     /**
-     * @param ConfigNetStatusRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Configures the advertising of a CIDR block.
+     *  *
+     * @param ConfigNetStatusRequest $request ConfigNetStatusRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfigNetStatusResponse
+     * @return ConfigNetStatusResponse ConfigNetStatusResponse
      */
     public function configNetStatusWithOptions($request, $runtime)
     {
@@ -95,9 +97,11 @@ class DdosDiversion extends OpenApiClient
     }
 
     /**
-     * @param ConfigNetStatusRequest $request
+     * @summary Configures the advertising of a CIDR block.
+     *  *
+     * @param ConfigNetStatusRequest $request ConfigNetStatusRequest
      *
-     * @return ConfigNetStatusResponse
+     * @return ConfigNetStatusResponse ConfigNetStatusResponse
      */
     public function configNetStatus($request)
     {
@@ -107,10 +111,12 @@ class DdosDiversion extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries anti-DDoS diversion instances.
+     *  *
+     * @param ListInstanceRequest $request ListInstanceRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceResponse
+     * @return ListInstanceResponse ListInstanceResponse
      */
     public function listInstanceWithOptions($request, $runtime)
     {
@@ -150,9 +156,11 @@ class DdosDiversion extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceRequest $request
+     * @summary Queries anti-DDoS diversion instances.
+     *  *
+     * @param ListInstanceRequest $request ListInstanceRequest
      *
-     * @return ListInstanceResponse
+     * @return ListInstanceResponse ListInstanceResponse
      */
     public function listInstance($request)
     {
@@ -162,10 +170,12 @@ class DdosDiversion extends OpenApiClient
     }
 
     /**
-     * @param QueryNetListRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries the CIDR blocks of an anti-DDoS diversion instance.
+     *  *
+     * @param QueryNetListRequest $request QueryNetListRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryNetListResponse
+     * @return QueryNetListResponse QueryNetListResponse
      */
     public function queryNetListWithOptions($request, $runtime)
     {
@@ -208,9 +218,11 @@ class DdosDiversion extends OpenApiClient
     }
 
     /**
-     * @param QueryNetListRequest $request
+     * @summary Queries the CIDR blocks of an anti-DDoS diversion instance.
+     *  *
+     * @param QueryNetListRequest $request QueryNetListRequest
      *
-     * @return QueryNetListResponse
+     * @return QueryNetListResponse QueryNetListResponse
      */
     public function queryNetList($request)
     {
