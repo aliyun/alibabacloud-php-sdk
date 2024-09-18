@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InvokeDiagnosisRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cloud_assist
      *
      * @var string
@@ -16,6 +18,8 @@ class InvokeDiagnosisRequest extends Model
     public $channel;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {
      * }
      * @var string
@@ -23,6 +27,8 @@ class InvokeDiagnosisRequest extends Model
     public $params;
 
     /**
+     * @description This parameter is required.
+     *
      * @example memgraph
      *
      * @var string

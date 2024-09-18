@@ -23,6 +23,11 @@ class data extends Model
     public $command;
 
     /**
+     * @var string
+     */
+    public $createdAt;
+
+    /**
      * @example Diagnosis failed
      *
      * @var string
@@ -65,6 +70,11 @@ class data extends Model
     public $taskId;
 
     /**
+     * @var string
+     */
+    public $updatedAt;
+
+    /**
      * @example /diagnose/detail/qe3Z34sa
      *
      * @var string
@@ -73,12 +83,14 @@ class data extends Model
     protected $_name = [
         'code'        => 'code',
         'command'     => 'command',
+        'createdAt'   => 'created_at',
         'errMsg'      => 'err_msg',
         'params'      => 'params',
         'result'      => 'result',
         'serviceName' => 'service_name',
         'status'      => 'status',
         'taskId'      => 'task_id',
+        'updatedAt'   => 'updated_at',
         'url'         => 'url',
     ];
 
@@ -94,6 +106,9 @@ class data extends Model
         }
         if (null !== $this->command) {
             $res['command'] = $this->command;
+        }
+        if (null !== $this->createdAt) {
+            $res['created_at'] = $this->createdAt;
         }
         if (null !== $this->errMsg) {
             $res['err_msg'] = $this->errMsg;
@@ -112,6 +127,9 @@ class data extends Model
         }
         if (null !== $this->taskId) {
             $res['task_id'] = $this->taskId;
+        }
+        if (null !== $this->updatedAt) {
+            $res['updated_at'] = $this->updatedAt;
         }
         if (null !== $this->url) {
             $res['url'] = $this->url;
@@ -134,6 +152,9 @@ class data extends Model
         if (isset($map['command'])) {
             $model->command = $map['command'];
         }
+        if (isset($map['created_at'])) {
+            $model->createdAt = $map['created_at'];
+        }
         if (isset($map['err_msg'])) {
             $model->errMsg = $map['err_msg'];
         }
@@ -151,6 +172,9 @@ class data extends Model
         }
         if (isset($map['task_id'])) {
             $model->taskId = $map['task_id'];
+        }
+        if (isset($map['updated_at'])) {
+            $model->updatedAt = $map['updated_at'];
         }
         if (isset($map['url'])) {
             $model->url = $map['url'];

@@ -54,16 +54,24 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @param AuthDiagnosisRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 授权 SysOM 对某个机器进行诊断
+     *  *
+     * @param AuthDiagnosisRequest $request AuthDiagnosisRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AuthDiagnosisResponse
+     * @return AuthDiagnosisResponse AuthDiagnosisResponse
      */
     public function authDiagnosisWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->autoCreateRole)) {
+            $body['autoCreateRole'] = $request->autoCreateRole;
+        }
+        if (!Utils::isUnset($request->autoInstallAgent)) {
+            $body['autoInstallAgent'] = $request->autoInstallAgent;
+        }
         if (!Utils::isUnset($request->instances)) {
             $body['instances'] = $request->instances;
         }
@@ -87,9 +95,11 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @param AuthDiagnosisRequest $request
+     * @summary 授权 SysOM 对某个机器进行诊断
+     *  *
+     * @param AuthDiagnosisRequest $request AuthDiagnosisRequest
      *
-     * @return AuthDiagnosisResponse
+     * @return AuthDiagnosisResponse AuthDiagnosisResponse
      */
     public function authDiagnosis($request)
     {
@@ -100,11 +110,13 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @param GenerateCopilotResponseRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 获取copilot服务的返回结果
+     *  *
+     * @param GenerateCopilotResponseRequest $request GenerateCopilotResponseRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateCopilotResponseResponse
+     * @return GenerateCopilotResponseResponse GenerateCopilotResponseResponse
      */
     public function generateCopilotResponseWithOptions($request, $headers, $runtime)
     {
@@ -133,9 +145,11 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @param GenerateCopilotResponseRequest $request
+     * @summary 获取copilot服务的返回结果
+     *  *
+     * @param GenerateCopilotResponseRequest $request GenerateCopilotResponseRequest
      *
-     * @return GenerateCopilotResponseResponse
+     * @return GenerateCopilotResponseResponse GenerateCopilotResponseResponse
      */
     public function generateCopilotResponse($request)
     {
@@ -146,11 +160,13 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @param GetDiagnosisResultRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 获取诊断结果
+     *  *
+     * @param GetDiagnosisResultRequest $request GetDiagnosisResultRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDiagnosisResultResponse
+     * @return GetDiagnosisResultResponse GetDiagnosisResultResponse
      */
     public function getDiagnosisResultWithOptions($request, $headers, $runtime)
     {
@@ -179,9 +195,11 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @param GetDiagnosisResultRequest $request
+     * @summary 获取诊断结果
+     *  *
+     * @param GetDiagnosisResultRequest $request GetDiagnosisResultRequest
      *
-     * @return GetDiagnosisResultResponse
+     * @return GetDiagnosisResultResponse GetDiagnosisResultResponse
      */
     public function getDiagnosisResult($request)
     {
@@ -192,11 +210,13 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @param InvokeDiagnosisRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 发起诊断
+     *  *
+     * @param InvokeDiagnosisRequest $request InvokeDiagnosisRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return InvokeDiagnosisResponse
+     * @return InvokeDiagnosisResponse InvokeDiagnosisResponse
      */
     public function invokeDiagnosisWithOptions($request, $headers, $runtime)
     {
@@ -231,9 +251,11 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * @param InvokeDiagnosisRequest $request
+     * @summary 发起诊断
+     *  *
+     * @param InvokeDiagnosisRequest $request InvokeDiagnosisRequest
      *
-     * @return InvokeDiagnosisResponse
+     * @return InvokeDiagnosisResponse InvokeDiagnosisResponse
      */
     public function invokeDiagnosis($request)
     {

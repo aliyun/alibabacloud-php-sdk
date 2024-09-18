@@ -10,11 +10,23 @@ use AlibabaCloud\Tea\Model;
 class AuthDiagnosisRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoCreateRole;
+
+    /**
+     * @var bool
+     */
+    public $autoInstallAgent;
+
+    /**
      * @var instances[]
      */
     public $instances;
     protected $_name = [
-        'instances' => 'instances',
+        'autoCreateRole'   => 'autoCreateRole',
+        'autoInstallAgent' => 'autoInstallAgent',
+        'instances'        => 'instances',
     ];
 
     public function validate()
@@ -24,6 +36,12 @@ class AuthDiagnosisRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoCreateRole) {
+            $res['autoCreateRole'] = $this->autoCreateRole;
+        }
+        if (null !== $this->autoInstallAgent) {
+            $res['autoInstallAgent'] = $this->autoInstallAgent;
+        }
         if (null !== $this->instances) {
             $res['instances'] = [];
             if (null !== $this->instances && \is_array($this->instances)) {
@@ -45,6 +63,12 @@ class AuthDiagnosisRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['autoCreateRole'])) {
+            $model->autoCreateRole = $map['autoCreateRole'];
+        }
+        if (isset($map['autoInstallAgent'])) {
+            $model->autoInstallAgent = $map['autoInstallAgent'];
+        }
         if (isset($map['instances'])) {
             if (!empty($map['instances'])) {
                 $model->instances = [];
