@@ -140,6 +140,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\GetCaseFileUploadUrlRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCaseFileUploadUrlResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetChatMediaUrlRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetChatMediaUrlResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetChatRoutingProfileRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetChatRoutingProfileResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetContactFlowRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetContactFlowResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetConversationDetailRequest;
@@ -469,6 +471,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\UnregisterDeviceRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UnregisterDeviceResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateCampaignRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateCampaignResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateChatRoutingProfileRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateChatRoutingProfileResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateConfigItemsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateConfigItemsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateSchemaPropertyRequest;
@@ -3973,6 +3977,49 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getChatMediaUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetChatRoutingProfileRequest $request GetChatRoutingProfileRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetChatRoutingProfileResponse GetChatRoutingProfileResponse
+     */
+    public function getChatRoutingProfileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetChatRoutingProfile',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetChatRoutingProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetChatRoutingProfileRequest $request GetChatRoutingProfileRequest
+     *
+     * @return GetChatRoutingProfileResponse GetChatRoutingProfileResponse
+     */
+    public function getChatRoutingProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getChatRoutingProfileWithOptions($request, $runtime);
     }
 
     /**
@@ -12901,6 +12948,52 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateCampaignWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateChatRoutingProfileRequest $request UpdateChatRoutingProfileRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateChatRoutingProfileResponse UpdateChatRoutingProfileResponse
+     */
+    public function updateChatRoutingProfileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->routingProfiles)) {
+            $query['RoutingProfiles'] = $request->routingProfiles;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateChatRoutingProfile',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateChatRoutingProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateChatRoutingProfileRequest $request UpdateChatRoutingProfileRequest
+     *
+     * @return UpdateChatRoutingProfileResponse UpdateChatRoutingProfileResponse
+     */
+    public function updateChatRoutingProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateChatRoutingProfileWithOptions($request, $runtime);
     }
 
     /**
