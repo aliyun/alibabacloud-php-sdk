@@ -154,6 +154,8 @@ class user extends Model
     public $phoneRegion;
 
     /**
+     * @description Preferred language
+     *
      * @example en-US
      *
      * @var string

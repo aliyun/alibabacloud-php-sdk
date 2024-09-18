@@ -6,10 +6,10 @@ namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SetApplicationSsoConfigResponseBody extends Model
+class DeleteOrganizationalUnitChildrenResponseBody extends Model
 {
     /**
-     * @description The request ID.
+     * @description Request ID.
      *
      * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
      *
@@ -37,7 +37,7 @@ class SetApplicationSsoConfigResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return SetApplicationSsoConfigResponseBody
+     * @return DeleteOrganizationalUnitChildrenResponseBody
      */
     public static function fromMap($map = [])
     {

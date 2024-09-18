@@ -35,6 +35,11 @@ class samlSsoConfig extends Model
     public $defaultRelayState;
 
     /**
+     * @var string
+     */
+    public $idPEntityId;
+
+    /**
      * @description The Format attribute of the NameID element in the SAML assertion. Valid values:
      *
      *   urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified: No format is specified. How to resolve the NameID element depends on the application.
@@ -96,6 +101,7 @@ class samlSsoConfig extends Model
         'assertionSigned'       => 'AssertionSigned',
         'attributeStatements'   => 'AttributeStatements',
         'defaultRelayState'     => 'DefaultRelayState',
+        'idPEntityId'           => 'IdPEntityId',
         'nameIdFormat'          => 'NameIdFormat',
         'nameIdValueExpression' => 'NameIdValueExpression',
         'responseSigned'        => 'ResponseSigned',
@@ -125,6 +131,9 @@ class samlSsoConfig extends Model
         }
         if (null !== $this->defaultRelayState) {
             $res['DefaultRelayState'] = $this->defaultRelayState;
+        }
+        if (null !== $this->idPEntityId) {
+            $res['IdPEntityId'] = $this->idPEntityId;
         }
         if (null !== $this->nameIdFormat) {
             $res['NameIdFormat'] = $this->nameIdFormat;
@@ -170,6 +179,9 @@ class samlSsoConfig extends Model
         }
         if (isset($map['DefaultRelayState'])) {
             $model->defaultRelayState = $map['DefaultRelayState'];
+        }
+        if (isset($map['IdPEntityId'])) {
+            $model->idPEntityId = $map['IdPEntityId'];
         }
         if (isset($map['NameIdFormat'])) {
             $model->nameIdFormat = $map['NameIdFormat'];

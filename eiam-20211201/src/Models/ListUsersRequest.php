@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListUsersRequest extends Model
 {
     /**
-     * @description 账户展示名，模糊匹配
+     * @description Displayname
      *
      * @example name_001
      *
@@ -104,7 +104,7 @@ class ListUsersRequest extends Model
     public $userExternalId;
 
     /**
-     * @description 账户的ID集合
+     * @description User ID set
      *
      * @var string[]
      */
@@ -135,7 +135,7 @@ class ListUsersRequest extends Model
     public $userSourceType;
 
     /**
-     * @description 账户名，左模糊匹配
+     * @description Username
      *
      * @example name_001
      *

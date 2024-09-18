@@ -19,7 +19,7 @@ class SetApplicationProvisioningScopeRequest extends Model
     public $applicationId;
 
     /**
-     * @description 授权同步出的组列表
+     * @description List of groups that are authorized to be synchronized from
      *
      * @var string[]
      */

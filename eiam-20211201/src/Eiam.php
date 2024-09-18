@@ -48,6 +48,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteInstanceRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteInstanceResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteNetworkAccessEndpointRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteNetworkAccessEndpointResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteOrganizationalUnitChildrenRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteOrganizationalUnitChildrenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteOrganizationalUnitRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteOrganizationalUnitResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteUserRequest;
@@ -1479,6 +1481,56 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteOrganizationalUnitWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Delete organizational unit information, forcibly deleting all accounts and sub-organizations beneath it
+     *  *
+     * @param DeleteOrganizationalUnitChildrenRequest $request DeleteOrganizationalUnitChildrenRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteOrganizationalUnitChildrenResponse DeleteOrganizationalUnitChildrenResponse
+     */
+    public function deleteOrganizationalUnitChildrenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->organizationalUnitId)) {
+            $query['OrganizationalUnitId'] = $request->organizationalUnitId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteOrganizationalUnitChildren',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteOrganizationalUnitChildrenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Delete organizational unit information, forcibly deleting all accounts and sub-organizations beneath it
+     *  *
+     * @param DeleteOrganizationalUnitChildrenRequest $request DeleteOrganizationalUnitChildrenRequest
+     *
+     * @return DeleteOrganizationalUnitChildrenResponse DeleteOrganizationalUnitChildrenResponse
+     */
+    public function deleteOrganizationalUnitChildren($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteOrganizationalUnitChildrenWithOptions($request, $runtime);
     }
 
     /**

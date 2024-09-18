@@ -18,11 +18,19 @@ class groups extends Model
     public $groupId;
 
     /**
+     * @description Account membership source ID
+     *
+     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
+     *
      * @var string
      */
     public $groupMemberRelationSourceId;
 
     /**
+     * @description Account membership source type
+     *
+     * @example build_in
+     *
      * @var string
      */
     public $groupMemberRelationSourceType;

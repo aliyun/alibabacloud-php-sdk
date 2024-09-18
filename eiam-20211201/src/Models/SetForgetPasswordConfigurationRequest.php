@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetForgetPasswordConfigurationRequest extends Model
 {
     /**
-     * @description 身份认证渠道。枚举取值:email(邮件)、sms(短信)
+     * @description The authentication channels. Valid values: email and sms.
      *
      * @example email
      *
@@ -18,7 +18,7 @@ class SetForgetPasswordConfigurationRequest extends Model
     public $authenticationChannels;
 
     /**
-     * @description 忘记密码配置状态。枚举取值:enabled(开启)、disabled(禁用)
+     * @description The status of the forgot password feature. Valid values: enabled and disabled.
      *
      * This parameter is required.
      * @example enabled

@@ -10,7 +10,10 @@ use AlibabaCloud\Tea\Model;
 class samlSsoConfig extends Model
 {
     /**
-     * @description assertion是否签名
+     * @description Specifies whether to calculate the signature for the assertion. You cannot set ResponseSigned and AssertionSigned to false at the same time.
+     *
+     *   true
+     *   false
      *
      * @example true
      *
@@ -33,6 +36,11 @@ class samlSsoConfig extends Model
      * @var string
      */
     public $defaultRelayState;
+
+    /**
+     * @var string
+     */
+    public $idPEntityId;
 
     /**
      * @description The Format attribute of the NameID element in the SAML assertion. Valid values:
@@ -58,7 +66,10 @@ class samlSsoConfig extends Model
     public $nameIdValueExpression;
 
     /**
-     * @description response是否签名
+     * @description Specifies whether to calculate the signature for the response. You cannot set ResponseSigned and AssertionSigned to false at the same time.
+     *
+     *   true
+     *   false
      *
      * @example true
      *
@@ -69,6 +80,11 @@ class samlSsoConfig extends Model
     /**
      * @description The algorithm that is used to calculate the signature for the SAML assertion.
      *
+     * Enumeration value:
+     *
+     *   RSA-SHA256
+     *
+     * .
      * @example RSA-SHA256
      *
      * @var string
@@ -76,7 +92,7 @@ class samlSsoConfig extends Model
     public $signatureAlgorithm;
 
     /**
-     * @description The entity ID of the application in SAML. The application assumes the role of service provider.
+     * @description The entity ID of the application in SAML.
      *
      * @example urn:alibaba:cloudcomputing
      *
@@ -85,7 +101,7 @@ class samlSsoConfig extends Model
     public $spEntityId;
 
     /**
-     * @description The Assertion Consumer Service (ACS) URL of the application in SAML. The application assumes the role of service provider.
+     * @description The Assertion Consumer Service (ACS) URL of the application in SAML.
      *
      * @example https://signin.aliyun.com/saml-role/sso
      *
@@ -96,6 +112,7 @@ class samlSsoConfig extends Model
         'assertionSigned'       => 'AssertionSigned',
         'attributeStatements'   => 'AttributeStatements',
         'defaultRelayState'     => 'DefaultRelayState',
+        'idPEntityId'           => 'IdPEntityId',
         'nameIdFormat'          => 'NameIdFormat',
         'nameIdValueExpression' => 'NameIdValueExpression',
         'responseSigned'        => 'ResponseSigned',
@@ -125,6 +142,9 @@ class samlSsoConfig extends Model
         }
         if (null !== $this->defaultRelayState) {
             $res['DefaultRelayState'] = $this->defaultRelayState;
+        }
+        if (null !== $this->idPEntityId) {
+            $res['IdPEntityId'] = $this->idPEntityId;
         }
         if (null !== $this->nameIdFormat) {
             $res['NameIdFormat'] = $this->nameIdFormat;
@@ -170,6 +190,9 @@ class samlSsoConfig extends Model
         }
         if (isset($map['DefaultRelayState'])) {
             $model->defaultRelayState = $map['DefaultRelayState'];
+        }
+        if (isset($map['IdPEntityId'])) {
+            $model->idPEntityId = $map['IdPEntityId'];
         }
         if (isset($map['NameIdFormat'])) {
             $model->nameIdFormat = $map['NameIdFormat'];

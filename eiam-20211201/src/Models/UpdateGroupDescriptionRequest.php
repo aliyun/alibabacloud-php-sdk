@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateGroupDescriptionRequest extends Model
 {
     /**
-     * @description The description of the account group. The value can be up to 256 characters in length.
+     * @description The description of the account group.
      *
      * @example group_d6sbsuumeta4h66ec3il7yxxxx
      *

@@ -42,7 +42,7 @@ class SetApplicationSsoConfigRequest extends Model
     public $initLoginUrl;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -59,7 +59,7 @@ class SetApplicationSsoConfigRequest extends Model
     public $oidcSsoConfig;
 
     /**
-     * @description The Security Assertion Markup Language (SAML)-based SSO configuration attributes of the application.
+     * @description The Security Assertion Markup Language (SAML)-based single sign-on (SSO) configuration attributes of the application.
      *
      * @var samlSsoConfig
      */

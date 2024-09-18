@@ -19,7 +19,7 @@ class ListOrganizationalUnitsRequest extends Model
     public $instanceId;
 
     /**
-     * @description 组织ID列表。size限制最大100。
+     * @description The IDs of organizational units.
      *
      * @example [ou_wovwffm62xifdziem7an7xxxxx]
      *
@@ -37,7 +37,7 @@ class ListOrganizationalUnitsRequest extends Model
     public $organizationalUnitName;
 
     /**
-     * @description 组织名称，左匹配
+     * @description Organization name, matching left
      *
      * @example name
      *
