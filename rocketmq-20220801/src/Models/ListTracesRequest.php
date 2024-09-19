@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTracesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-05-19 10:10:09
      *
      * @var string
@@ -30,6 +32,8 @@ class ListTracesRequest extends Model
     public $messageKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +41,8 @@ class ListTracesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +50,8 @@ class ListTracesRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example MESSAGE_ID
      *
      * @var string
@@ -51,6 +59,8 @@ class ListTracesRequest extends Model
     public $queryType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-05-10 10:42:11
      *
      * @var string
