@@ -53,24 +53,14 @@ class AssociateWebCertRequest extends Model
      * @var string
      */
     public $key;
-
-    /**
-     * @description The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
-     *
-     * @example default
-     *
-     * @var string
-     */
-    public $resourceGroupId;
     protected $_name = [
-        'cert'            => 'Cert',
-        'certId'          => 'CertId',
-        'certIdentifier'  => 'CertIdentifier',
-        'certName'        => 'CertName',
-        'certRegion'      => 'CertRegion',
-        'domain'          => 'Domain',
-        'key'             => 'Key',
-        'resourceGroupId' => 'ResourceGroupId',
+        'cert'           => 'Cert',
+        'certId'         => 'CertId',
+        'certIdentifier' => 'CertIdentifier',
+        'certName'       => 'CertName',
+        'certRegion'     => 'CertRegion',
+        'domain'         => 'Domain',
+        'key'            => 'Key',
     ];
 
     public function validate()
@@ -100,9 +90,6 @@ class AssociateWebCertRequest extends Model
         }
         if (null !== $this->key) {
             $res['Key'] = $this->key;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -136,9 +123,6 @@ class AssociateWebCertRequest extends Model
         }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

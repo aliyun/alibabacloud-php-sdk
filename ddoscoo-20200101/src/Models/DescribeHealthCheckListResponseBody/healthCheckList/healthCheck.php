@@ -11,7 +11,7 @@ class healthCheck extends Model
     /**
      * @description The domain name.
      *
-     * > This parameter is returned only when the Layer 7 health check configuration is queried.
+     * >  This parameter is returned only when the Layer 7 health check configuration is queried.
      * @example www.aliyun.com
      *
      * @var string
@@ -78,7 +78,7 @@ class healthCheck extends Model
     /**
      * @description The check path.
      *
-     * > This parameter is returned only when the Layer 7 health check configuration is queried.
+     * >  This parameter is returned only when the Layer 7 health check configuration is queried.
      * @example /abc
      *
      * @var string

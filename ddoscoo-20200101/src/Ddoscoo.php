@@ -534,10 +534,6 @@ class Ddoscoo extends OpenApiClient
     public function associateWebCertWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
         $body = [];
         if (!Utils::isUnset($request->cert)) {
             $body['Cert'] = $request->cert;
@@ -561,8 +557,7 @@ class Ddoscoo extends OpenApiClient
             $body['Key'] = $request->key;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AssociateWebCert',
@@ -7812,9 +7807,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Indicates whether Allow Access Only from SM Certificates-based Clients is turned on.
-     * *   0: no
-     * *   1: yes
+     * @summary Query Configuration of Website Business Forwarding Rules.
+     *  *
+     * @description This interface is used for paginated querying of the configurations of website business forwarding rules you have created, such as forwarding protocol types, source server addresses, HTTPS configurations, IP blacklist configurations, and more.
+     * Before calling this interface, you must have already called [CreateWebRule](~~CreateWebRule~~) to create website business forwarding rules.
+     * ### QPS Limit
+     * The per-user QPS limit for this interface is 50 times/second. Exceeding this limit will result in API calls being throttled, which may impact your business; please use it reasonably.
      *  *
      * @param DescribeWebRulesRequest $request DescribeWebRulesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -7865,9 +7863,12 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Indicates whether Allow Access Only from SM Certificates-based Clients is turned on.
-     * *   0: no
-     * *   1: yes
+     * @summary Query Configuration of Website Business Forwarding Rules.
+     *  *
+     * @description This interface is used for paginated querying of the configurations of website business forwarding rules you have created, such as forwarding protocol types, source server addresses, HTTPS configurations, IP blacklist configurations, and more.
+     * Before calling this interface, you must have already called [CreateWebRule](~~CreateWebRule~~) to create website business forwarding rules.
+     * ### QPS Limit
+     * The per-user QPS limit for this interface is 50 times/second. Exceeding this limit will result in API calls being throttled, which may impact your business; please use it reasonably.
      *  *
      * @param DescribeWebRulesRequest $request DescribeWebRulesRequest
      *
@@ -9189,7 +9190,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the session persistence settings of a port forwarding rule.
+     * @summary Modifies the session persistence and DDoS mitigation policy settings of a port forwarding rule.
      *  *
      * @param ModifyNetworkRuleAttributeRequest $request ModifyNetworkRuleAttributeRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -9231,7 +9232,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the session persistence settings of a port forwarding rule.
+     * @summary Modifies the session persistence and DDoS mitigation policy settings of a port forwarding rule.
      *  *
      * @param ModifyNetworkRuleAttributeRequest $request ModifyNetworkRuleAttributeRequest
      *
@@ -10258,7 +10259,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the accurate access control rule of a website.
+     * @summary Creates or modifies an accurate access control rule of a website.
      *  *
      * @param ModifyWebPreciseAccessRuleRequest $request ModifyWebPreciseAccessRuleRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -10300,7 +10301,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the accurate access control rule of a website.
+     * @summary Creates or modifies an accurate access control rule of a website.
      *  *
      * @param ModifyWebPreciseAccessRuleRequest $request ModifyWebPreciseAccessRuleRequest
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebRulesRequest extends Model
 {
     /**
+     * @description The CNAME address to query.
+     *
      * @example kzmk7b8tt351****.aliyunddos1014****
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeWebRulesRequest extends Model
     public $cname;
 
     /**
+     * @description The domain name of the website to query.
+     *
+     * > The domain must have been configured with website business forwarding rules. You can call [DescribeDomains](~~DescribeDomains~~) to query all domains that have been configured with website business forwarding rules.
      * @example example.com
      *
      * @var string
@@ -23,6 +28,8 @@ class DescribeWebRulesRequest extends Model
     public $domain;
 
     /**
+     * @description The list of DDoS protection instance IDs to query.
+     *
      * @example ddoscoo-cn-mp91j1ao****
      *
      * @var string[]
@@ -30,6 +37,8 @@ class DescribeWebRulesRequest extends Model
     public $instanceIds;
 
     /**
+     * @description When paginating, set the page number of the current page. The default value is 1.
+     *
      * @example 1
      *
      * @var int
@@ -37,7 +46,7 @@ class DescribeWebRulesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description This parameter is required.
+     * @description When paginating, set the number of forwarding rules per page. The range of values is: 1~10.
      *
      * @example 10
      *
@@ -46,6 +55,9 @@ class DescribeWebRulesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The query matching pattern. Values:
+     * - **fuzzy** (default): Indicates fuzzy query.
+     * - **exact**: Indicates exact query.
      * @example exact
      *
      * @var string
@@ -53,6 +65,9 @@ class DescribeWebRulesRequest extends Model
     public $queryDomainPattern;
 
     /**
+     * @description The resource group ID of the DDoS protection instance in the resource management service.
+     *
+     * Not setting this parameter indicates the default resource group.
      * @example rg-acfm2pz25js****
      *
      * @var string

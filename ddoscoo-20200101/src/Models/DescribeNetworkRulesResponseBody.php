@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkRulesResponseBody extends Model
 {
     /**
-     * @description The details of a port forwarding rule.
+     * @description The details of the port forwarding rule.
      *
      * @var networkRules[]
      */

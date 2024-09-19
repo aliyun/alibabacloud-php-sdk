@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteSceneDefensePolicyResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example F65DF043-E0EB-4796-9467-23DDCDF92C1D
      *
@@ -20,8 +20,8 @@ class DeleteSceneDefensePolicyResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *

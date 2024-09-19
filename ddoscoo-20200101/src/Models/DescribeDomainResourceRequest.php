@@ -25,7 +25,7 @@ class DescribeDomainResourceRequest extends Model
     public $instanceIds;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -34,9 +34,8 @@ class DescribeDomainResourceRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
-     * This parameter is required.
      * @example 10
      *
      * @var int

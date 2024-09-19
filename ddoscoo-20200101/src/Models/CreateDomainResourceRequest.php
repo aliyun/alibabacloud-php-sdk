@@ -66,9 +66,9 @@ class CreateDomainResourceRequest extends Model
     /**
      * @description The address type of the origin server. Valid values:
      *
-     *   **0**: IP address
+     *   **0**: IP address.
      *
-     *   **1**: domain name
+     *   **1**: domain name.
      *
      * This parameter is required.
      * @example 0

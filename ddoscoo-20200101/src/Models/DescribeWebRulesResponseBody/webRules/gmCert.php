@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class gmCert extends Model
 {
     /**
+     * @description The ID of the SM certificate.
+     *
      * @example 725****
      *
      * @var string
@@ -16,6 +18,11 @@ class gmCert extends Model
     public $certId;
 
     /**
+     * @description Indicates whether Enable SM Certificate-based Verification is turned on.
+     *
+     *   0: no
+     *   1: yes
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +30,11 @@ class gmCert extends Model
     public $gmEnable;
 
     /**
+     * @description Indicates whether Allow Access Only from SM Certificates-based Clients is turned on.
+     *
+     *   0: no
+     *   1: yes
+     *
      * @example 1
      *
      * @var int

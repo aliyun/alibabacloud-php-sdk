@@ -12,11 +12,18 @@ use AlibabaCloud\Tea\Model;
 class webRules extends Model
 {
     /**
+     * @description The IP addresses in the blacklist for the domain name.
+     *
      * @var string[]
      */
     public $blackList;
 
     /**
+     * @description Indicates whether the Frequency Control policy is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -24,6 +31,11 @@ class webRules extends Model
     public $ccEnabled;
 
     /**
+     * @description Indicates whether the Custom Rule switch of the Frequency Control policy is turned on. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -31,6 +43,13 @@ class webRules extends Model
     public $ccRuleEnabled;
 
     /**
+     * @description The mode of the Frequency Control policy. Valid values:
+     *
+     *   **default**: the Normal mode
+     *   **gf_under_attack**: the Emergency mode
+     *   **gf_sos_verify**: the Strict mode
+     *   **gf_sos_verify**: the Super Strict mode
+     *
      * @example default
      *
      * @var string
@@ -38,6 +57,8 @@ class webRules extends Model
     public $ccTemplate;
 
     /**
+     * @description The name of the SSL certificate.
+     *
      * @example testcert
      *
      * @var string
@@ -45,11 +66,20 @@ class webRules extends Model
     public $certName;
 
     /**
+     * @description The region where the certificate is used. Valid values:
+     *
+     *   cn-hangzhou (default): the Chinese mainland
+     *   ap-southeast-1: outside the Chinese mainland
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $certRegion;
 
     /**
+     * @description The CNAME provided by the Anti-DDoS Pro or Anti-DDoS Premium instance to which the domain name is added.
+     *
      * @example kzmk7b8tt351****.aliyunddos1014****
      *
      * @var string
@@ -57,11 +87,15 @@ class webRules extends Model
     public $cname;
 
     /**
+     * @description The custom cipher suites.
+     *
      * @var string[]
      */
     public $customCiphers;
 
     /**
+     * @description The domain name of the website.
+     *
      * @example example.com
      *
      * @var string
@@ -69,11 +103,18 @@ class webRules extends Model
     public $domain;
 
     /**
+     * @description The SM certificate settings.
+     *
      * @var gmCert
      */
     public $gmCert;
 
     /**
+     * @description Indicates whether Enable HTTP/2 is turned on. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -81,6 +122,11 @@ class webRules extends Model
     public $http2Enable;
 
     /**
+     * @description Indicates whether Enable HTTPS Redirection was turned on. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -88,6 +134,11 @@ class webRules extends Model
     public $http2HttpsEnable;
 
     /**
+     * @description Indicates whether Enable HTTP Redirection of Back-to-origin Requests is turned on. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -95,6 +146,11 @@ class webRules extends Model
     public $https2HttpEnable;
 
     /**
+     * @description Indicates whether the Online Certificate Status Protocol (OCSP) feature is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -102,6 +158,12 @@ class webRules extends Model
     public $ocspEnabled;
 
     /**
+     * @description The load balancing algorithm for back-to-origin traffic. Valid values:
+     *
+     *   **ip_hash**: the IP hash algorithm. This algorithm is used to redirect the requests from the same IP address to the same origin server.
+     *   **rr**: the round-robin algorithm. This algorithm is used to redirect requests to origin servers in turn.
+     *   **least_time**: the least response time algorithm. This algorithm is used to minimize the latency when requests are forwarded from Anti-DDoS Pro or Anti-DDoS Premium instances to origin servers based on the intelligent DNS resolution feature.
+     *
      * @example ip_hash
      *
      * @var string
@@ -109,6 +171,11 @@ class webRules extends Model
     public $policyMode;
 
     /**
+     * @description Indicates whether the forwarding rule is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -116,11 +183,19 @@ class webRules extends Model
     public $proxyEnabled;
 
     /**
+     * @description The details of the protocol type and port number.
+     *
      * @var proxyTypes[]
      */
     public $proxyTypes;
 
     /**
+     * @description The reason why the domain name is invalid. Valid values:
+     *
+     *   **1**: No Content Provider (ICP) filing is completed for the domain name.
+     *   **2**: The business for which you registered the domain name does not meet regulatory requirements.
+     *
+     * If the two reasons are both involved, the value **2** is returned.
      * @example 1
      *
      * @var int
@@ -128,6 +203,11 @@ class webRules extends Model
     public $punishReason;
 
     /**
+     * @description Indicates whether the domain name is invalid. Valid values:
+     *
+     *   **true**: You can view the specific reasons from the **PunishReason** parameter.
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -135,11 +215,18 @@ class webRules extends Model
     public $punishStatus;
 
     /**
+     * @description The details of the origin server address.
+     *
      * @var realServers[]
      */
     public $realServers;
 
     /**
+     * @description Indicates whether TLS 1.3 is supported. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -147,6 +234,12 @@ class webRules extends Model
     public $ssl13Enabled;
 
     /**
+     * @description The type of the cipher suite. Valid values:
+     *
+     *   **default**: custom cipher suites
+     *   **all**: all cipher suites, which contain strong and weak cipher suites
+     *   **strong**: strong cipher suites
+     *
      * @example default
      *
      * @var string
@@ -154,6 +247,12 @@ class webRules extends Model
     public $sslCiphers;
 
     /**
+     * @description The version of the Transport Layer Security (TLS) protocol. Valid values:
+     *
+     *   **tls1.0**: TLS 1.0 or later
+     *   **tls1.1**: TLS 1.1 or later
+     *   **tls1.2**: TLS 1.2 or later
+     *
      * @example tls1.1
      *
      * @var string
@@ -161,6 +260,17 @@ class webRules extends Model
     public $sslProtocols;
 
     /**
+     * @description The name of the certificate uploaded by the user to the certificate center.
+     *
+     * @example test
+     *
+     * @var string
+     */
+    public $userCertName;
+
+    /**
+     * @description The IP addresses in the whitelist for the domain name.
+     *
      * @var string[]
      */
     public $whiteList;
@@ -188,6 +298,7 @@ class webRules extends Model
         'ssl13Enabled'     => 'Ssl13Enabled',
         'sslCiphers'       => 'SslCiphers',
         'sslProtocols'     => 'SslProtocols',
+        'userCertName'     => 'UserCertName',
         'whiteList'        => 'WhiteList',
     ];
 
@@ -278,6 +389,9 @@ class webRules extends Model
         }
         if (null !== $this->sslProtocols) {
             $res['SslProtocols'] = $this->sslProtocols;
+        }
+        if (null !== $this->userCertName) {
+            $res['UserCertName'] = $this->userCertName;
         }
         if (null !== $this->whiteList) {
             $res['WhiteList'] = $this->whiteList;
@@ -378,6 +492,9 @@ class webRules extends Model
         }
         if (isset($map['SslProtocols'])) {
             $model->sslProtocols = $map['SslProtocols'];
+        }
+        if (isset($map['UserCertName'])) {
+            $model->userCertName = $map['UserCertName'];
         }
         if (isset($map['WhiteList'])) {
             if (!empty($map['WhiteList'])) {

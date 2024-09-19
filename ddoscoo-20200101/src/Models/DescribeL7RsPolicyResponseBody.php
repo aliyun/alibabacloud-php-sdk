@@ -39,6 +39,11 @@ class DescribeL7RsPolicyResponseBody extends Model
     public $requestId;
 
     /**
+     * @var int
+     */
+    public $rsAttrRwTimeoutMax;
+
+    /**
      * @description The back-to-origin retry switch. Valid values:
      *
      *   **1**: on
@@ -50,10 +55,11 @@ class DescribeL7RsPolicyResponseBody extends Model
      */
     public $upstreamRetry;
     protected $_name = [
-        'attributes'    => 'Attributes',
-        'proxyMode'     => 'ProxyMode',
-        'requestId'     => 'RequestId',
-        'upstreamRetry' => 'UpstreamRetry',
+        'attributes'         => 'Attributes',
+        'proxyMode'          => 'ProxyMode',
+        'requestId'          => 'RequestId',
+        'rsAttrRwTimeoutMax' => 'RsAttrRwTimeoutMax',
+        'upstreamRetry'      => 'UpstreamRetry',
     ];
 
     public function validate()
@@ -77,6 +83,9 @@ class DescribeL7RsPolicyResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->rsAttrRwTimeoutMax) {
+            $res['RsAttrRwTimeoutMax'] = $this->rsAttrRwTimeoutMax;
         }
         if (null !== $this->upstreamRetry) {
             $res['UpstreamRetry'] = $this->upstreamRetry;
@@ -107,6 +116,9 @@ class DescribeL7RsPolicyResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['RsAttrRwTimeoutMax'])) {
+            $model->rsAttrRwTimeoutMax = $map['RsAttrRwTimeoutMax'];
         }
         if (isset($map['UpstreamRetry'])) {
             $model->upstreamRetry = $map['UpstreamRetry'];

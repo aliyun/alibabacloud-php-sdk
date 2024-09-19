@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebRulesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 0F5B72DD-96F4-423A-B12B-A5151DD746B8
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeWebRulesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of queried website business forwarding rules.
+     *
      * @example 1
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeWebRulesResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The configurations of the forwarding rule.
+     *
      * @var webRules[]
      */
     public $webRules;

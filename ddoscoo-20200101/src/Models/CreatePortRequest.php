@@ -28,7 +28,7 @@ class CreatePortRequest extends Model
     public $frontendPort;
 
     /**
-     * @description The type of the protocol. Valid values:
+     * @description The type of the forwarding protocol. Valid values:
      *
      *   **tcp**
      *   **udp**

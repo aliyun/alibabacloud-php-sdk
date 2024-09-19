@@ -17,7 +17,7 @@ class DescribeHealthCheckListResponseBody extends Model
     public $healthCheckList;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 83B4AF42-E8EE-4DC9-BD73-87B7733A36F9
      *

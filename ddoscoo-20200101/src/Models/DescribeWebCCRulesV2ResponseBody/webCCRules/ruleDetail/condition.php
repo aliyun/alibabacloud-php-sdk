@@ -18,6 +18,10 @@ class condition extends Model
     public $content;
 
     /**
+     * @description The match content when the match method is Equals to One of Multiple Values.
+     *
+     * @example ["2","3","ad"]
+     *
      * @var string
      */
     public $contentList;

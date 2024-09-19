@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class realServers extends Model
 {
     /**
+     * @description The address of the origin server.
+     *
      * @example 192.0.XX.XX
      *
      * @var string
@@ -16,6 +18,11 @@ class realServers extends Model
     public $realServer;
 
     /**
+     * @description The type of the origin server address. Valid values:
+     *
+     *   **0**: IP address
+     *   **1**: domain name The domain name of the origin server is returned if you deploy proxies, such as Web Application Firewall (WAF), between the origin server and the instance. In this case, the address of the proxy, such as the CNAME provided by WAF, is returned.
+     *
      * @example 0
      *
      * @var int
