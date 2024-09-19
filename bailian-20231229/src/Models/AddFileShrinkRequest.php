@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Bailian\V20231229\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AddFileRequest extends Model
+class AddFileShrinkRequest extends Model
 {
     /**
      * @description This parameter is required.
@@ -36,14 +36,14 @@ class AddFileRequest extends Model
     public $parser;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $tags;
+    public $tagsShrink;
     protected $_name = [
         'categoryId' => 'CategoryId',
         'leaseId'    => 'LeaseId',
         'parser'     => 'Parser',
-        'tags'       => 'Tags',
+        'tagsShrink' => 'Tags',
     ];
 
     public function validate()
@@ -62,8 +62,8 @@ class AddFileRequest extends Model
         if (null !== $this->parser) {
             $res['Parser'] = $this->parser;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
+        if (null !== $this->tagsShrink) {
+            $res['Tags'] = $this->tagsShrink;
         }
 
         return $res;
@@ -72,7 +72,7 @@ class AddFileRequest extends Model
     /**
      * @param array $map
      *
-     * @return AddFileRequest
+     * @return AddFileShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -87,9 +87,7 @@ class AddFileRequest extends Model
             $model->parser = $map['Parser'];
         }
         if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = $map['Tags'];
-            }
+            $model->tagsShrink = $map['Tags'];
         }
 
         return $model;

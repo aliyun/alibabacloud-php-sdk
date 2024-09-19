@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\AddCategoryRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\AddCategoryResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\AddFileRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\AddFileResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\AddFileShrinkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ApplyFileUploadLeaseRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ApplyFileUploadLeaseResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateAndPulishAgentRequest;
@@ -166,15 +167,20 @@ class Bailian extends OpenApiClient
      * @summary 将临时上传的文档导入百炼数据中心，导入成功之后会自动触发文档解析。
      *  *
      * @param string         $WorkspaceId
-     * @param AddFileRequest $request     AddFileRequest
+     * @param AddFileRequest $tmpReq      AddFileRequest
      * @param string[]       $headers     map
      * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
      * @return AddFileResponse AddFileResponse
      */
-    public function addFileWithOptions($WorkspaceId, $request, $headers, $runtime)
+    public function addFileWithOptions($WorkspaceId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new AddFileShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
         $body = [];
         if (!Utils::isUnset($request->categoryId)) {
             $body['CategoryId'] = $request->categoryId;
@@ -184,6 +190,9 @@ class Bailian extends OpenApiClient
         }
         if (!Utils::isUnset($request->parser)) {
             $body['Parser'] = $request->parser;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $body['Tags'] = $request->tagsShrink;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,

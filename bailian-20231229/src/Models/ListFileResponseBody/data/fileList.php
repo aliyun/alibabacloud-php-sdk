@@ -63,6 +63,11 @@ class fileList extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string[]
+     */
+    public $tags;
     protected $_name = [
         'categoryId'  => 'CategoryId',
         'createTime'  => 'CreateTime',
@@ -72,6 +77,7 @@ class fileList extends Model
         'parser'      => 'Parser',
         'sizeInBytes' => 'SizeInBytes',
         'status'      => 'Status',
+        'tags'        => 'Tags',
     ];
 
     public function validate()
@@ -104,6 +110,9 @@ class fileList extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
 
         return $res;
@@ -140,6 +149,11 @@ class fileList extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = $map['Tags'];
+            }
         }
 
         return $model;
