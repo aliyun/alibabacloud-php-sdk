@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class news extends Model
 {
     /**
+     * @var string
+     */
+    public $content;
+
+    /**
      * @example 9957175DEDCF49C5ACF7A956B4FD67B2
      *
      * @var string
@@ -30,6 +35,16 @@ class news extends Model
     public $imageUrls;
 
     /**
+     * @var string
+     */
+    public $source;
+
+    /**
+     * @var string
+     */
+    public $summary;
+
+    /**
      * @example ["标签1","标签2"]
      *
      * @var string[]
@@ -37,17 +52,32 @@ class news extends Model
     public $tags;
 
     /**
+     * @var string
+     */
+    public $title;
+
+    /**
      * @example 文章主题
      *
      * @var string
      */
     public $topic;
+
+    /**
+     * @var string
+     */
+    public $url;
     protected $_name = [
+        'content'   => 'Content',
         'docId'     => 'DocId',
         'docUuid'   => 'DocUuid',
         'imageUrls' => 'ImageUrls',
+        'source'    => 'Source',
+        'summary'   => 'Summary',
         'tags'      => 'Tags',
+        'title'     => 'Title',
         'topic'     => 'Topic',
+        'url'       => 'Url',
     ];
 
     public function validate()
@@ -57,6 +87,9 @@ class news extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
+        }
         if (null !== $this->docId) {
             $res['DocId'] = $this->docId;
         }
@@ -66,11 +99,23 @@ class news extends Model
         if (null !== $this->imageUrls) {
             $res['ImageUrls'] = $this->imageUrls;
         }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
+        }
+        if (null !== $this->summary) {
+            $res['Summary'] = $this->summary;
+        }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
         }
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
+        }
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -84,6 +129,9 @@ class news extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
+        }
         if (isset($map['DocId'])) {
             $model->docId = $map['DocId'];
         }
@@ -95,13 +143,25 @@ class news extends Model
                 $model->imageUrls = $map['ImageUrls'];
             }
         }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
+        }
+        if (isset($map['Summary'])) {
+            $model->summary = $map['Summary'];
+        }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = $map['Tags'];
             }
         }
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
+        }
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;
