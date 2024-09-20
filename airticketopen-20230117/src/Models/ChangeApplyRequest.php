@@ -12,21 +12,29 @@ use AlibabaCloud\Tea\Model;
 class ChangeApplyRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var changePassengerList[]
      */
     public $changePassengerList;
 
     /**
+     * @description This parameter is required.
+     *
      * @var changedJourneys[]
      */
     public $changedJourneys;
 
     /**
+     * @description This parameter is required.
+     *
      * @var contact
      */
     public $contact;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 4988430***950
      *
      * @var int
@@ -41,6 +49,8 @@ class ChangeApplyRequest extends Model
     public $remark;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int

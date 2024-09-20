@@ -16,6 +16,8 @@ class changePassengerList extends Model
     public $document;
 
     /**
+     * @description This parameter is required.
+     *
      * @example SAN
      *
      * @var string
@@ -23,6 +25,8 @@ class changePassengerList extends Model
     public $firstName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ZHANG
      *
      * @var string

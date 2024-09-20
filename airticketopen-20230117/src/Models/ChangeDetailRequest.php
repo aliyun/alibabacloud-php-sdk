@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChangeDetailRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 4988430***950
      *
      * @var int

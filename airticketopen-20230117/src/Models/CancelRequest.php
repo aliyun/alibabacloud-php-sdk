@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 496***2617111
      *
      * @var int

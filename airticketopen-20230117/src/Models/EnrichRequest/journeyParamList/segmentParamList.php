@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class segmentParamList extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example MFM
      *
      * @var string
@@ -37,6 +39,8 @@ class segmentParamList extends Model
     public $childCabin;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PVG
      *
      * @var string
@@ -51,6 +55,8 @@ class segmentParamList extends Model
     public $departureCity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-03-10 07:55:00
      *
      * @var string
@@ -58,6 +64,8 @@ class segmentParamList extends Model
     public $departureTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example HO1295
      *
      * @var string

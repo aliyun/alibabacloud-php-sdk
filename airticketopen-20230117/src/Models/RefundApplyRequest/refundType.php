@@ -16,6 +16,8 @@ class refundType extends Model
     public $file;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int

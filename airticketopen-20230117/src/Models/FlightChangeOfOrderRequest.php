@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FlightChangeOfOrderRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 4966***617111
      *
      * @var int

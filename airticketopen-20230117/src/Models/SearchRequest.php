@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models;
 
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\SearchRequest\airLegs;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\SearchRequest\searchControlOptions;
 use AlibabaCloud\Tea\Model;
 
 class SearchRequest extends Model
@@ -17,6 +18,8 @@ class SearchRequest extends Model
     public $adults;
 
     /**
+     * @description This parameter is required.
+     *
      * @var airLegs[]
      */
     public $airLegs;
@@ -41,12 +44,18 @@ class SearchRequest extends Model
      * @var int
      */
     public $infants;
+
+    /**
+     * @var searchControlOptions
+     */
+    public $searchControlOptions;
     protected $_name = [
-        'adults'     => 'adults',
-        'airLegs'    => 'air_legs',
-        'cabinClass' => 'cabin_class',
-        'children'   => 'children',
-        'infants'    => 'infants',
+        'adults'               => 'adults',
+        'airLegs'              => 'air_legs',
+        'cabinClass'           => 'cabin_class',
+        'children'             => 'children',
+        'infants'              => 'infants',
+        'searchControlOptions' => 'search_control_options',
     ];
 
     public function validate()
@@ -76,6 +85,9 @@ class SearchRequest extends Model
         }
         if (null !== $this->infants) {
             $res['infants'] = $this->infants;
+        }
+        if (null !== $this->searchControlOptions) {
+            $res['search_control_options'] = null !== $this->searchControlOptions ? $this->searchControlOptions->toMap() : null;
         }
 
         return $res;
@@ -109,6 +121,9 @@ class SearchRequest extends Model
         }
         if (isset($map['infants'])) {
             $model->infants = $map['infants'];
+        }
+        if (isset($map['search_control_options'])) {
+            $model->searchControlOptions = searchControlOptions::fromMap($map['search_control_options']);
         }
 
         return $model;

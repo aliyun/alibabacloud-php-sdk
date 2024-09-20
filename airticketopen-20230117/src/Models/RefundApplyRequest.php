@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class RefundApplyRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 4966***617111
      *
      * @var int
@@ -19,16 +21,22 @@ class RefundApplyRequest extends Model
     public $orderNum;
 
     /**
+     * @description This parameter is required.
+     *
      * @var refundJourneys[]
      */
     public $refundJourneys;
 
     /**
+     * @description This parameter is required.
+     *
      * @var refundPassengerList[]
      */
     public $refundPassengerList;
 
     /**
+     * @description This parameter is required.
+     *
      * @var refundType
      */
     public $refundType;

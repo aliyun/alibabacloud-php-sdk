@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChangeDetailListOfOrderNumRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 4988430***700
      *
      * @var int

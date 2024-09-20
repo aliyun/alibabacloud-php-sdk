@@ -16,6 +16,8 @@ class segmentList extends Model
     public $arrivalAirport;
 
     /**
+     * @description This parameter is required.
+     *
      * @example MFM
      *
      * @var string
@@ -51,6 +53,8 @@ class segmentList extends Model
     public $departureAirport;
 
     /**
+     * @description This parameter is required.
+     *
      * @example SHA
      *
      * @var string
@@ -58,6 +62,8 @@ class segmentList extends Model
     public $departureCity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 20230320
      *
      * @var string
@@ -79,6 +85,8 @@ class segmentList extends Model
     public $departureTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example HO1295
      *
      * @var string

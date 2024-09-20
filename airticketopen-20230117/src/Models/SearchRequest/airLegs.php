@@ -16,6 +16,8 @@ class airLegs extends Model
     public $arrivalAirportList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example MFM
      *
      * @var string
@@ -30,6 +32,8 @@ class airLegs extends Model
     public $departureAirportList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example SHA
      *
      * @var string
@@ -37,6 +41,8 @@ class airLegs extends Model
     public $departureCity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 20230310
      *
      * @var string

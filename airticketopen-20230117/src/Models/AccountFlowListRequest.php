@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AccountFlowListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +32,8 @@ class AccountFlowListRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1677427200000
      *
      * @var int

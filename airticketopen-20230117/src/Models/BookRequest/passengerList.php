@@ -22,6 +22,8 @@ class passengerList extends Model
     public $credential;
 
     /**
+     * @description This parameter is required.
+     *
      * @example SAN
      *
      * @var string
@@ -36,6 +38,8 @@ class passengerList extends Model
     public $gender;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ZHANG
      *
      * @var string
@@ -43,6 +47,8 @@ class passengerList extends Model
     public $lastName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 86
      *
      * @var string
@@ -50,6 +56,8 @@ class passengerList extends Model
     public $mobileCountryCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 183******95
      *
      * @var string
@@ -64,6 +72,8 @@ class passengerList extends Model
     public $nationality;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int

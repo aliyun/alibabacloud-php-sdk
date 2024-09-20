@@ -127,11 +127,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param AccountFlowListRequest $request
-     * @param AccountFlowListHeaders $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 账号资金流水
+     *  *
+     * @param AccountFlowListRequest $request AccountFlowListRequest
+     * @param AccountFlowListHeaders $headers AccountFlowListHeaders
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AccountFlowListResponse
+     * @return AccountFlowListResponse AccountFlowListResponse
      */
     public function accountFlowListWithOptions($request, $headers, $runtime)
     {
@@ -179,9 +181,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param AccountFlowListRequest $request
+     * @summary 账号资金流水
+     *  *
+     * @param AccountFlowListRequest $request AccountFlowListRequest
      *
-     * @return AccountFlowListResponse
+     * @return AccountFlowListResponse AccountFlowListResponse
      */
     public function accountFlowList($request)
     {
@@ -192,11 +196,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param AncillarySuggestRequest $request
-     * @param AncillarySuggestHeaders $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 辅营-推荐
+     *  *
+     * @param AncillarySuggestRequest $request AncillarySuggestRequest
+     * @param AncillarySuggestHeaders $headers AncillarySuggestHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AncillarySuggestResponse
+     * @return AncillarySuggestResponse AncillarySuggestResponse
      */
     public function ancillarySuggestWithOptions($request, $headers, $runtime)
     {
@@ -235,9 +241,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param AncillarySuggestRequest $request
+     * @summary 辅营-推荐
+     *  *
+     * @param AncillarySuggestRequest $request AncillarySuggestRequest
      *
-     * @return AncillarySuggestResponse
+     * @return AncillarySuggestResponse AncillarySuggestResponse
      */
     public function ancillarySuggest($request)
     {
@@ -248,11 +256,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param BookRequest    $tmpReq
-     * @param BookHeaders    $headers
-     * @param RuntimeOptions $runtime
+     * @summary 交易-预定
+     *  *
+     * @param BookRequest    $tmpReq  BookRequest
+     * @param BookHeaders    $headers BookHeaders
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return BookResponse
+     * @return BookResponse BookResponse
      */
     public function bookWithOptions($tmpReq, $headers, $runtime)
     {
@@ -314,9 +324,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param BookRequest $request
+     * @summary 交易-预定
+     *  *
+     * @param BookRequest $request BookRequest
      *
-     * @return BookResponse
+     * @return BookResponse BookResponse
      */
     public function book($request)
     {
@@ -327,11 +339,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param CancelRequest  $request
-     * @param CancelHeaders  $headers
-     * @param RuntimeOptions $runtime
+     * @summary 交易-未支付取消
+     *  *
+     * @param CancelRequest  $request CancelRequest
+     * @param CancelHeaders  $headers CancelHeaders
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelResponse
+     * @return CancelResponse CancelResponse
      */
     public function cancelWithOptions($request, $headers, $runtime)
     {
@@ -370,9 +384,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param CancelRequest $request
+     * @summary 交易-未支付取消
+     *  *
+     * @param CancelRequest $request CancelRequest
      *
-     * @return CancelResponse
+     * @return CancelResponse CancelResponse
      */
     public function cancel($request)
     {
@@ -383,11 +399,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param ChangeApplyRequest $tmpReq
-     * @param ChangeApplyHeaders $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 改签-Apply
+     *  *
+     * @param ChangeApplyRequest $tmpReq  ChangeApplyRequest
+     * @param ChangeApplyHeaders $headers ChangeApplyHeaders
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeApplyResponse
+     * @return ChangeApplyResponse ChangeApplyResponse
      */
     public function changeApplyWithOptions($tmpReq, $headers, $runtime)
     {
@@ -452,9 +470,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param ChangeApplyRequest $request
+     * @summary 改签-Apply
+     *  *
+     * @param ChangeApplyRequest $request ChangeApplyRequest
      *
-     * @return ChangeApplyResponse
+     * @return ChangeApplyResponse ChangeApplyResponse
      */
     public function changeApply($request)
     {
@@ -465,11 +485,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param ChangeCancelRequest $request
-     * @param ChangeCancelHeaders $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 改签-取消
+     *  *
+     * @param ChangeCancelRequest $request ChangeCancelRequest
+     * @param ChangeCancelHeaders $headers ChangeCancelHeaders
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeCancelResponse
+     * @return ChangeCancelResponse ChangeCancelResponse
      */
     public function changeCancelWithOptions($request, $headers, $runtime)
     {
@@ -508,9 +530,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param ChangeCancelRequest $request
+     * @summary 改签-取消
+     *  *
+     * @param ChangeCancelRequest $request ChangeCancelRequest
      *
-     * @return ChangeCancelResponse
+     * @return ChangeCancelResponse ChangeCancelResponse
      */
     public function changeCancel($request)
     {
@@ -521,11 +545,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param ChangeConfirmRequest $request
-     * @param ChangeConfirmHeaders $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 改签-确认
+     *  *
+     * @param ChangeConfirmRequest $request ChangeConfirmRequest
+     * @param ChangeConfirmHeaders $headers ChangeConfirmHeaders
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeConfirmResponse
+     * @return ChangeConfirmResponse ChangeConfirmResponse
      */
     public function changeConfirmWithOptions($request, $headers, $runtime)
     {
@@ -564,9 +590,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param ChangeConfirmRequest $request
+     * @summary 改签-确认
+     *  *
+     * @param ChangeConfirmRequest $request ChangeConfirmRequest
      *
-     * @return ChangeConfirmResponse
+     * @return ChangeConfirmResponse ChangeConfirmResponse
      */
     public function changeConfirm($request)
     {
@@ -577,11 +605,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param ChangeDetailRequest $request
-     * @param ChangeDetailHeaders $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 改签-Detail
+     *  *
+     * @param ChangeDetailRequest $request ChangeDetailRequest
+     * @param ChangeDetailHeaders $headers ChangeDetailHeaders
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeDetailResponse
+     * @return ChangeDetailResponse ChangeDetailResponse
      */
     public function changeDetailWithOptions($request, $headers, $runtime)
     {
@@ -620,9 +650,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param ChangeDetailRequest $request
+     * @summary 改签-Detail
+     *  *
+     * @param ChangeDetailRequest $request ChangeDetailRequest
      *
-     * @return ChangeDetailResponse
+     * @return ChangeDetailResponse ChangeDetailResponse
      */
     public function changeDetail($request)
     {
@@ -633,11 +665,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param ChangeDetailListOfBuyerRequest $request
-     * @param ChangeDetailListOfBuyerHeaders $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 改签单列表-关于买家账号
+     *  *
+     * @param ChangeDetailListOfBuyerRequest $request ChangeDetailListOfBuyerRequest
+     * @param ChangeDetailListOfBuyerHeaders $headers ChangeDetailListOfBuyerHeaders
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeDetailListOfBuyerResponse
+     * @return ChangeDetailListOfBuyerResponse ChangeDetailListOfBuyerResponse
      */
     public function changeDetailListOfBuyerWithOptions($request, $headers, $runtime)
     {
@@ -685,9 +719,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param ChangeDetailListOfBuyerRequest $request
+     * @summary 改签单列表-关于买家账号
+     *  *
+     * @param ChangeDetailListOfBuyerRequest $request ChangeDetailListOfBuyerRequest
      *
-     * @return ChangeDetailListOfBuyerResponse
+     * @return ChangeDetailListOfBuyerResponse ChangeDetailListOfBuyerResponse
      */
     public function changeDetailListOfBuyer($request)
     {
@@ -698,11 +734,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param ChangeDetailListOfOrderNumRequest $request
-     * @param ChangeDetailListOfOrderNumHeaders $headers
-     * @param RuntimeOptions                    $runtime
+     * @summary 改签单列表-关于正向订单
+     *  *
+     * @param ChangeDetailListOfOrderNumRequest $request ChangeDetailListOfOrderNumRequest
+     * @param ChangeDetailListOfOrderNumHeaders $headers ChangeDetailListOfOrderNumHeaders
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeDetailListOfOrderNumResponse
+     * @return ChangeDetailListOfOrderNumResponse ChangeDetailListOfOrderNumResponse
      */
     public function changeDetailListOfOrderNumWithOptions($request, $headers, $runtime)
     {
@@ -747,9 +785,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param ChangeDetailListOfOrderNumRequest $request
+     * @summary 改签单列表-关于正向订单
+     *  *
+     * @param ChangeDetailListOfOrderNumRequest $request ChangeDetailListOfOrderNumRequest
      *
-     * @return ChangeDetailListOfOrderNumResponse
+     * @return ChangeDetailListOfOrderNumResponse ChangeDetailListOfOrderNumResponse
      */
     public function changeDetailListOfOrderNum($request)
     {
@@ -760,11 +800,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param EnrichRequest  $tmpReq
-     * @param EnrichHeaders  $headers
-     * @param RuntimeOptions $runtime
+     * @summary 搜索-Enrich
+     *  *
+     * @param EnrichRequest  $tmpReq  EnrichRequest
+     * @param EnrichHeaders  $headers EnrichHeaders
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnrichResponse
+     * @return EnrichResponse EnrichResponse
      */
     public function enrichWithOptions($tmpReq, $headers, $runtime)
     {
@@ -823,9 +865,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param EnrichRequest $request
+     * @summary 搜索-Enrich
+     *  *
+     * @param EnrichRequest $request EnrichRequest
      *
-     * @return EnrichResponse
+     * @return EnrichResponse EnrichResponse
      */
     public function enrich($request)
     {
@@ -836,11 +880,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param FileUploadRequest $request
-     * @param FileUploadHeaders $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 附件上传
+     *  *
+     * @param FileUploadRequest $request FileUploadRequest
+     * @param FileUploadHeaders $headers FileUploadHeaders
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return FileUploadResponse
+     * @return FileUploadResponse FileUploadResponse
      */
     public function fileUploadWithOptions($request, $headers, $runtime)
     {
@@ -882,9 +928,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param FileUploadRequest $request
+     * @summary 附件上传
+     *  *
+     * @param FileUploadRequest $request FileUploadRequest
      *
-     * @return FileUploadResponse
+     * @return FileUploadResponse FileUploadResponse
      */
     public function fileUpload($request)
     {
@@ -895,11 +943,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightChangeOfOrderRequest $request
-     * @param FlightChangeOfOrderHeaders $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 航变信息-关于订单
+     *  *
+     * @param FlightChangeOfOrderRequest $request FlightChangeOfOrderRequest
+     * @param FlightChangeOfOrderHeaders $headers FlightChangeOfOrderHeaders
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlightChangeOfOrderResponse
+     * @return FlightChangeOfOrderResponse FlightChangeOfOrderResponse
      */
     public function flightChangeOfOrderWithOptions($request, $headers, $runtime)
     {
@@ -938,9 +988,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param FlightChangeOfOrderRequest $request
+     * @summary 航变信息-关于订单
+     *  *
+     * @param FlightChangeOfOrderRequest $request FlightChangeOfOrderRequest
      *
-     * @return FlightChangeOfOrderResponse
+     * @return FlightChangeOfOrderResponse FlightChangeOfOrderResponse
      */
     public function flightChangeOfOrder($request)
     {
@@ -951,11 +1003,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param GetTokenRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @summary 获取token
+     *  *
+     * @param GetTokenRequest $request GetTokenRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTokenResponse
+     * @return GetTokenResponse GetTokenResponse
      */
     public function getTokenWithOptions($request, $headers, $runtime)
     {
@@ -987,9 +1041,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param GetTokenRequest $request
+     * @summary 获取token
+     *  *
+     * @param GetTokenRequest $request GetTokenRequest
      *
-     * @return GetTokenResponse
+     * @return GetTokenResponse GetTokenResponse
      */
     public function getToken($request)
     {
@@ -1000,11 +1056,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param LuggageDirectRequest $tmpReq
-     * @param LuggageDirectHeaders $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 航程行李直挂
+     *  *
+     * @param LuggageDirectRequest $tmpReq  LuggageDirectRequest
+     * @param LuggageDirectHeaders $headers LuggageDirectHeaders
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return LuggageDirectResponse
+     * @return LuggageDirectResponse LuggageDirectResponse
      */
     public function luggageDirectWithOptions($tmpReq, $headers, $runtime)
     {
@@ -1048,9 +1106,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param LuggageDirectRequest $request
+     * @summary 航程行李直挂
+     *  *
+     * @param LuggageDirectRequest $request LuggageDirectRequest
      *
-     * @return LuggageDirectResponse
+     * @return LuggageDirectResponse LuggageDirectResponse
      */
     public function luggageDirect($request)
     {
@@ -1061,11 +1121,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param OrderDetailRequest $request
-     * @param OrderDetailHeaders $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 交易-订单详情
+     *  *
+     * @param OrderDetailRequest $request OrderDetailRequest
+     * @param OrderDetailHeaders $headers OrderDetailHeaders
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return OrderDetailResponse
+     * @return OrderDetailResponse OrderDetailResponse
      */
     public function orderDetailWithOptions($request, $headers, $runtime)
     {
@@ -1107,9 +1169,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param OrderDetailRequest $request
+     * @summary 交易-订单详情
+     *  *
+     * @param OrderDetailRequest $request OrderDetailRequest
      *
-     * @return OrderDetailResponse
+     * @return OrderDetailResponse OrderDetailResponse
      */
     public function orderDetail($request)
     {
@@ -1120,11 +1184,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param OrderListRequest $request
-     * @param OrderListHeaders $headers
-     * @param RuntimeOptions   $runtime
+     * @summary 交易-订单列表
+     *  *
+     * @param OrderListRequest $request OrderListRequest
+     * @param OrderListHeaders $headers OrderListHeaders
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return OrderListResponse
+     * @return OrderListResponse OrderListResponse
      */
     public function orderListWithOptions($request, $headers, $runtime)
     {
@@ -1175,9 +1241,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param OrderListRequest $request
+     * @summary 交易-订单列表
+     *  *
+     * @param OrderListRequest $request OrderListRequest
      *
-     * @return OrderListResponse
+     * @return OrderListResponse OrderListResponse
      */
     public function orderList($request)
     {
@@ -1188,11 +1256,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param PricingRequest $request
-     * @param PricingHeaders $headers
-     * @param RuntimeOptions $runtime
+     * @summary Pricing
+     *  *
+     * @param PricingRequest $request PricingRequest
+     * @param PricingHeaders $headers PricingHeaders
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return PricingResponse
+     * @return PricingResponse PricingResponse
      */
     public function pricingWithOptions($request, $headers, $runtime)
     {
@@ -1231,9 +1301,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param PricingRequest $request
+     * @summary Pricing
+     *  *
+     * @param PricingRequest $request PricingRequest
      *
-     * @return PricingResponse
+     * @return PricingResponse PricingResponse
      */
     public function pricing($request)
     {
@@ -1244,11 +1316,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param RefundApplyRequest $tmpReq
-     * @param RefundApplyHeaders $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 退票-申请
+     *  *
+     * @param RefundApplyRequest $tmpReq  RefundApplyRequest
+     * @param RefundApplyHeaders $headers RefundApplyHeaders
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefundApplyResponse
+     * @return RefundApplyResponse RefundApplyResponse
      */
     public function refundApplyWithOptions($tmpReq, $headers, $runtime)
     {
@@ -1307,9 +1381,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param RefundApplyRequest $request
+     * @summary 退票-申请
+     *  *
+     * @param RefundApplyRequest $request RefundApplyRequest
      *
-     * @return RefundApplyResponse
+     * @return RefundApplyResponse RefundApplyResponse
      */
     public function refundApply($request)
     {
@@ -1320,11 +1396,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param RefundDetailRequest $request
-     * @param RefundDetailHeaders $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 退票-Detail
+     *  *
+     * @param RefundDetailRequest $request RefundDetailRequest
+     * @param RefundDetailHeaders $headers RefundDetailHeaders
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefundDetailResponse
+     * @return RefundDetailResponse RefundDetailResponse
      */
     public function refundDetailWithOptions($request, $headers, $runtime)
     {
@@ -1363,9 +1441,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param RefundDetailRequest $request
+     * @summary 退票-Detail
+     *  *
+     * @param RefundDetailRequest $request RefundDetailRequest
      *
-     * @return RefundDetailResponse
+     * @return RefundDetailResponse RefundDetailResponse
      */
     public function refundDetail($request)
     {
@@ -1376,11 +1456,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param RefundDetailListRequest $request
-     * @param RefundDetailListHeaders $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 退票-DetailList
+     *  *
+     * @param RefundDetailListRequest $request RefundDetailListRequest
+     * @param RefundDetailListHeaders $headers RefundDetailListHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefundDetailListResponse
+     * @return RefundDetailListResponse RefundDetailListResponse
      */
     public function refundDetailListWithOptions($request, $headers, $runtime)
     {
@@ -1431,9 +1513,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param RefundDetailListRequest $request
+     * @summary 退票-DetailList
+     *  *
+     * @param RefundDetailListRequest $request RefundDetailListRequest
      *
-     * @return RefundDetailListResponse
+     * @return RefundDetailListResponse RefundDetailListResponse
      */
     public function refundDetailList($request)
     {
@@ -1444,11 +1528,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param SearchRequest  $tmpReq
-     * @param SearchHeaders  $headers
-     * @param RuntimeOptions $runtime
+     * @summary 搜索
+     *  *
+     * @param SearchRequest  $tmpReq  SearchRequest
+     * @param SearchHeaders  $headers SearchHeaders
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchResponse
+     * @return SearchResponse SearchResponse
      */
     public function searchWithOptions($tmpReq, $headers, $runtime)
     {
@@ -1457,6 +1543,9 @@ class AirticketOpen extends OpenApiClient
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->airLegs)) {
             $request->airLegsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->airLegs, 'air_legs', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->searchControlOptions)) {
+            $request->searchControlOptionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->searchControlOptions, 'search_control_options', 'json');
         }
         $body = [];
         if (!Utils::isUnset($request->adults)) {
@@ -1473,6 +1562,9 @@ class AirticketOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->infants)) {
             $body['infants'] = $request->infants;
+        }
+        if (!Utils::isUnset($request->searchControlOptionsShrink)) {
+            $body['search_control_options'] = $request->searchControlOptionsShrink;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -1504,9 +1596,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param SearchRequest $request
+     * @summary 搜索
+     *  *
+     * @param SearchRequest $request SearchRequest
      *
-     * @return SearchResponse
+     * @return SearchResponse SearchResponse
      */
     public function search($request)
     {
@@ -1517,11 +1611,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param TicketingRequest $request
-     * @param TicketingHeaders $headers
-     * @param RuntimeOptions   $runtime
+     * @summary 交易-支付出票
+     *  *
+     * @param TicketingRequest $request TicketingRequest
+     * @param TicketingHeaders $headers TicketingHeaders
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return TicketingResponse
+     * @return TicketingResponse TicketingResponse
      */
     public function ticketingWithOptions($request, $headers, $runtime)
     {
@@ -1560,9 +1656,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param TicketingRequest $request
+     * @summary 交易-支付出票
+     *  *
+     * @param TicketingRequest $request TicketingRequest
      *
-     * @return TicketingResponse
+     * @return TicketingResponse TicketingResponse
      */
     public function ticketing($request)
     {
@@ -1573,11 +1671,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param TicketingCheckRequest $request
-     * @param TicketingCheckHeaders $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 交易-支付前校验
+     *  *
+     * @param TicketingCheckRequest $request TicketingCheckRequest
+     * @param TicketingCheckHeaders $headers TicketingCheckHeaders
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return TicketingCheckResponse
+     * @return TicketingCheckResponse TicketingCheckResponse
      */
     public function ticketingCheckWithOptions($request, $headers, $runtime)
     {
@@ -1616,9 +1716,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param TicketingCheckRequest $request
+     * @summary 交易-支付前校验
+     *  *
+     * @param TicketingCheckRequest $request TicketingCheckRequest
      *
-     * @return TicketingCheckResponse
+     * @return TicketingCheckResponse TicketingCheckResponse
      */
     public function ticketingCheck($request)
     {
@@ -1629,11 +1731,13 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param TransitVisaRequest $tmpReq
-     * @param TransitVisaHeaders $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 航程过境签
+     *  *
+     * @param TransitVisaRequest $tmpReq  TransitVisaRequest
+     * @param TransitVisaHeaders $headers TransitVisaHeaders
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return TransitVisaResponse
+     * @return TransitVisaResponse TransitVisaResponse
      */
     public function transitVisaWithOptions($tmpReq, $headers, $runtime)
     {
@@ -1677,9 +1781,11 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @param TransitVisaRequest $request
+     * @summary 航程过境签
+     *  *
+     * @param TransitVisaRequest $request TransitVisaRequest
      *
-     * @return TransitVisaResponse
+     * @return TransitVisaResponse TransitVisaResponse
      */
     public function transitVisa($request)
     {

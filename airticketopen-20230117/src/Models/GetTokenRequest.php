@@ -11,6 +11,7 @@ class GetTokenRequest extends Model
     /**
      * @description appKey
      *
+     * This parameter is required.
      * @example fu1bltcu3400iurywuri
      *
      * @var string
@@ -20,6 +21,7 @@ class GetTokenRequest extends Model
     /**
      * @description appSecret
      *
+     * This parameter is required.
      * @example ZzQ3MW1mb3E1ODAwI2ldUjYlWUdJn5YI
      *
      * @var string

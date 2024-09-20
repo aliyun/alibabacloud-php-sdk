@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RefundApplyShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 4966***617111
      *
      * @var int
@@ -16,16 +18,22 @@ class RefundApplyShrinkRequest extends Model
     public $orderNum;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $refundJourneysShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $refundPassengerListShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $refundTypeShrink;

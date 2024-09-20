@@ -30,6 +30,8 @@ class RefundDetailListRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1677229002000
      *
      * @var int
@@ -37,6 +39,8 @@ class RefundDetailListRequest extends Model
     public $refundCreateBeginTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1677229005000
      *
      * @var int

@@ -16,6 +16,8 @@ class SearchShrinkRequest extends Model
     public $adults;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $airLegsShrink;
@@ -40,12 +42,18 @@ class SearchShrinkRequest extends Model
      * @var int
      */
     public $infants;
+
+    /**
+     * @var string
+     */
+    public $searchControlOptionsShrink;
     protected $_name = [
-        'adults'        => 'adults',
-        'airLegsShrink' => 'air_legs',
-        'cabinClass'    => 'cabin_class',
-        'children'      => 'children',
-        'infants'       => 'infants',
+        'adults'                     => 'adults',
+        'airLegsShrink'              => 'air_legs',
+        'cabinClass'                 => 'cabin_class',
+        'children'                   => 'children',
+        'infants'                    => 'infants',
+        'searchControlOptionsShrink' => 'search_control_options',
     ];
 
     public function validate()
@@ -69,6 +77,9 @@ class SearchShrinkRequest extends Model
         }
         if (null !== $this->infants) {
             $res['infants'] = $this->infants;
+        }
+        if (null !== $this->searchControlOptionsShrink) {
+            $res['search_control_options'] = $this->searchControlOptionsShrink;
         }
 
         return $res;
@@ -96,6 +107,9 @@ class SearchShrinkRequest extends Model
         }
         if (isset($map['infants'])) {
             $model->infants = $map['infants'];
+        }
+        if (isset($map['search_control_options'])) {
+            $model->searchControlOptionsShrink = $map['search_control_options'];
         }
 
         return $model;

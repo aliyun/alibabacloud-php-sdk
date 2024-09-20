@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class flightSegmentParamList extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example SIN
      *
      * @var string
@@ -23,6 +25,8 @@ class flightSegmentParamList extends Model
     public $arrivalTerminal;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1705285430445
      *
      * @var int
@@ -30,6 +34,8 @@ class flightSegmentParamList extends Model
     public $arrivalTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +43,8 @@ class flightSegmentParamList extends Model
     public $codeShare;
 
     /**
+     * @description This parameter is required.
+     *
      * @example HGH
      *
      * @var string
@@ -51,6 +59,8 @@ class flightSegmentParamList extends Model
     public $departureTerminal;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1705285430445
      *
      * @var int
@@ -58,6 +68,8 @@ class flightSegmentParamList extends Model
     public $departureTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CZ
      *
      * @var string
@@ -65,6 +77,8 @@ class flightSegmentParamList extends Model
     public $marketingAirline;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CZ616
      *
      * @var string

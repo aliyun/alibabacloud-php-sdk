@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ChangeApplyShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $changePassengerListShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $changedJourneysShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $contactShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 4988430***950
      *
      * @var int
@@ -38,6 +46,8 @@ class ChangeApplyShrinkRequest extends Model
     public $remark;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int

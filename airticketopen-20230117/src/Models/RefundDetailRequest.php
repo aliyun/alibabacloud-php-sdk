@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RefundDetailRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 4966***617732
      *
      * @var int

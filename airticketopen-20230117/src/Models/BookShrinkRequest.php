@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BookShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $contactShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example x091-2023-0220-j-0001
      *
      * @var string
@@ -26,6 +30,8 @@ class BookShrinkRequest extends Model
     public $passengerAncillaryPurchaseMapListShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $passengerListShrink;
@@ -33,6 +39,7 @@ class BookShrinkRequest extends Model
     /**
      * @description solution_id
      *
+     * This parameter is required.
      * @example eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
      *
      * @var string

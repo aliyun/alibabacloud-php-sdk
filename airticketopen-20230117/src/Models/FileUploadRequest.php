@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FileUploadRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 0r2LSuIsHlxEoGZcnGe34U1njBOR83Q4HNSvMDGrDPK5J71VjcGdRIWz2x3+tFxvQaduwHB46Z9K
      * SR/kULQZHsDDd2zgA9RRTsEQF2OSxFFFx2P/2Q==
      * @var string
@@ -16,6 +18,8 @@ class FileUploadRequest extends Model
     public $fileContent;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 496***2617111
      *
      * @var int

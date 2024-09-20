@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OrderListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1677229006000
      *
      * @var int
@@ -16,6 +18,8 @@ class OrderListRequest extends Model
     public $bookTimeEnd;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1677229005000
      *
      * @var int
