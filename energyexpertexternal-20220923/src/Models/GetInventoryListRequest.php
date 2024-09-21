@@ -39,8 +39,7 @@ class GetInventoryListRequest extends Model
     public $group;
 
     /**
-     * @description The type of the obtained environmental impact: gwp indicates the carbon footprint of climate change. For more information, see the type value of the enumerated values.
-     *
+     * @description The type of the obtained environmental impact: gwp indicates the carbon footprint of climate change.
      * This parameter is required.
      * @example gwp
      *

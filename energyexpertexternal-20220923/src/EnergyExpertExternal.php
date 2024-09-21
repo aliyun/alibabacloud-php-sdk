@@ -6,6 +6,14 @@ namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\BatchSaveInstructionStatusRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\BatchSaveInstructionStatusResponse;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\BatchUpdateSystemRunningPlanRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\BatchUpdateSystemRunningPlanResponse;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\EditProhibitedDevicesRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\EditProhibitedDevicesResponse;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\EditUnfavorableAreaDevicesRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\EditUnfavorableAreaDevicesResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GenerateResultRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GenerateResultResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetAreaElecConstituteRequest;
@@ -65,6 +73,8 @@ use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\RecalculateCarbonEmis
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\RecalculateCarbonEmissionResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\SendDocumentAskQuestionRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\SendDocumentAskQuestionResponse;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\SetRunningPlanRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\SetRunningPlanResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\SubmitDocumentAnalyzeJobAdvanceRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\SubmitDocumentAnalyzeJobRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\SubmitDocumentAnalyzeJobResponse;
@@ -113,6 +123,263 @@ class EnergyExpertExternal extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 策略执行状态反馈
+     *  *
+     * @param BatchSaveInstructionStatusRequest $request BatchSaveInstructionStatusRequest
+     * @param string[]                          $headers map
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchSaveInstructionStatusResponse BatchSaveInstructionStatusResponse
+     */
+    public function batchSaveInstructionStatusWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->factoryId)) {
+            $body['factoryId'] = $request->factoryId;
+        }
+        if (!Utils::isUnset($request->pKey)) {
+            $body['pKey'] = $request->pKey;
+        }
+        if (!Utils::isUnset($request->statusList)) {
+            $body['statusList'] = $request->statusList;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchSaveInstructionStatus',
+            'version'     => '2022-09-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/carbon/hvac/batchSaveInstructionStatus',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchSaveInstructionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 策略执行状态反馈
+     *  *
+     * @param BatchSaveInstructionStatusRequest $request BatchSaveInstructionStatusRequest
+     *
+     * @return BatchSaveInstructionStatusResponse BatchSaveInstructionStatusResponse
+     */
+    public function batchSaveInstructionStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchSaveInstructionStatusWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 批量设置空调站点运行计划
+     *  *
+     * @param BatchUpdateSystemRunningPlanRequest $request BatchUpdateSystemRunningPlanRequest
+     * @param string[]                            $headers map
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchUpdateSystemRunningPlanResponse BatchUpdateSystemRunningPlanResponse
+     */
+    public function batchUpdateSystemRunningPlanWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->controlType)) {
+            $body['controlType'] = $request->controlType;
+        }
+        if (!Utils::isUnset($request->dateType)) {
+            $body['dateType'] = $request->dateType;
+        }
+        if (!Utils::isUnset($request->earliestStartupTime)) {
+            $body['earliestStartupTime'] = $request->earliestStartupTime;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['endTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->factoryId)) {
+            $body['factoryId'] = $request->factoryId;
+        }
+        if (!Utils::isUnset($request->latestShutdownTime)) {
+            $body['latestShutdownTime'] = $request->latestShutdownTime;
+        }
+        if (!Utils::isUnset($request->maxCarbonDioxide)) {
+            $body['maxCarbonDioxide'] = $request->maxCarbonDioxide;
+        }
+        if (!Utils::isUnset($request->maxTem)) {
+            $body['maxTem'] = $request->maxTem;
+        }
+        if (!Utils::isUnset($request->minTem)) {
+            $body['minTem'] = $request->minTem;
+        }
+        if (!Utils::isUnset($request->seasonMode)) {
+            $body['seasonMode'] = $request->seasonMode;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['startTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->systemId)) {
+            $body['systemId'] = $request->systemId;
+        }
+        if (!Utils::isUnset($request->workingEndTime)) {
+            $body['workingEndTime'] = $request->workingEndTime;
+        }
+        if (!Utils::isUnset($request->workingStartTime)) {
+            $body['workingStartTime'] = $request->workingStartTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchUpdateSystemRunningPlan',
+            'version'     => '2022-09-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/carbon/hvac/batchUpdateSystemRunningPlan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchUpdateSystemRunningPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量设置空调站点运行计划
+     *  *
+     * @param BatchUpdateSystemRunningPlanRequest $request BatchUpdateSystemRunningPlanRequest
+     *
+     * @return BatchUpdateSystemRunningPlanResponse BatchUpdateSystemRunningPlanResponse
+     */
+    public function batchUpdateSystemRunningPlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchUpdateSystemRunningPlanWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 编辑禁用设备
+     *  *
+     * @param EditProhibitedDevicesRequest $request EditProhibitedDevicesRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return EditProhibitedDevicesResponse EditProhibitedDevicesResponse
+     */
+    public function editProhibitedDevicesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->factoryId)) {
+            $body['factoryId'] = $request->factoryId;
+        }
+        if (!Utils::isUnset($request->hvacDeviceConfigVOList)) {
+            $body['hvacDeviceConfigVOList'] = $request->hvacDeviceConfigVOList;
+        }
+        if (!Utils::isUnset($request->systemId)) {
+            $body['systemId'] = $request->systemId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'EditProhibitedDevices',
+            'version'     => '2022-09-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/carbon/hvac/editProhibitedDevices',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return EditProhibitedDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 编辑禁用设备
+     *  *
+     * @param EditProhibitedDevicesRequest $request EditProhibitedDevicesRequest
+     *
+     * @return EditProhibitedDevicesResponse EditProhibitedDevicesResponse
+     */
+    public function editProhibitedDevices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->editProhibitedDevicesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 编辑不利区设备
+     *  *
+     * @param EditUnfavorableAreaDevicesRequest $request EditUnfavorableAreaDevicesRequest
+     * @param string[]                          $headers map
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return EditUnfavorableAreaDevicesResponse EditUnfavorableAreaDevicesResponse
+     */
+    public function editUnfavorableAreaDevicesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->factoryId)) {
+            $body['factoryId'] = $request->factoryId;
+        }
+        if (!Utils::isUnset($request->hvacDeviceConfigVOList)) {
+            $body['hvacDeviceConfigVOList'] = $request->hvacDeviceConfigVOList;
+        }
+        if (!Utils::isUnset($request->systemId)) {
+            $body['systemId'] = $request->systemId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'EditUnfavorableAreaDevices',
+            'version'     => '2022-09-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/carbon/hvac/editUnfavorableAreaDevices',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return EditUnfavorableAreaDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 编辑不利区设备
+     *  *
+     * @param EditUnfavorableAreaDevicesRequest $request EditUnfavorableAreaDevicesRequest
+     *
+     * @return EditUnfavorableAreaDevicesResponse EditUnfavorableAreaDevicesResponse
+     */
+    public function editUnfavorableAreaDevices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->editUnfavorableAreaDevicesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -413,8 +680,8 @@ class EnergyExpertExternal extends OpenApiClient
      * @description *   You can call this operation to query the parameters of a data collection device based on the device ID. If the verification is passed, the device parameters are returned. If the verification fails, a null value is returned.
      * *   You can query the parameters of a single device by day. If data of the device does not exist, a null value is returned.
      * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
-     * - To use this API, you need to be added to the whitelist. Please contact us through the official website <props="china">[here](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
-     * <props="intl">[here](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
+     * - To use this API, you need to be added to the whitelist. Please contact us through  <props="china">[official website](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
+     * <props="intl">[official website](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
      *  *
      * @param GetDeviceInfoRequest $request GetDeviceInfoRequest
      * @param string[]             $headers map
@@ -460,8 +727,8 @@ class EnergyExpertExternal extends OpenApiClient
      * @description *   You can call this operation to query the parameters of a data collection device based on the device ID. If the verification is passed, the device parameters are returned. If the verification fails, a null value is returned.
      * *   You can query the parameters of a single device by day. If data of the device does not exist, a null value is returned.
      * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
-     * - To use this API, you need to be added to the whitelist. Please contact us through the official website <props="china">[here](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
-     * <props="intl">[here](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
+     * - To use this API, you need to be added to the whitelist. Please contact us through  <props="china">[official website](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
+     * <props="intl">[official website](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
      *  *
      * @param GetDeviceInfoRequest $request GetDeviceInfoRequest
      *
@@ -481,8 +748,8 @@ class EnergyExpertExternal extends OpenApiClient
      * @description *   You can query the information about data collection devices of a site based on the ID of the site. If the verification is passed, the information about the devices of the site is returned. If the verification fails, a null value is returned.
      * *   Virtual meters at the site are not returned.
      * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
-     * - To use this API, you need to be added to the whitelist. Please contact us through the official website <props="china">[here](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
-     * <props="intl">[here](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
+     * - To use this API, you need to be added to the whitelist. Please contact us through  <props="china">[official website](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
+     * <props="intl">[official website](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
      *  *
      * @param GetDeviceListRequest $request GetDeviceListRequest
      * @param string[]             $headers map
@@ -522,8 +789,8 @@ class EnergyExpertExternal extends OpenApiClient
      * @description *   You can query the information about data collection devices of a site based on the ID of the site. If the verification is passed, the information about the devices of the site is returned. If the verification fails, a null value is returned.
      * *   Virtual meters at the site are not returned.
      * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
-     * - To use this API, you need to be added to the whitelist. Please contact us through the official website <props="china">[here](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
-     * <props="intl">[here](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
+     * - To use this API, you need to be added to the whitelist. Please contact us through  <props="china">[official website](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
+     * <props="intl">[official website](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
      *  *
      * @param GetDeviceListRequest $request GetDeviceListRequest
      *
@@ -1367,8 +1634,8 @@ class EnergyExpertExternal extends OpenApiClient
      *  *
      * @description *   If an activated site exists, the information about the site and the organization to which the site belongs is returned. If no activated site exists, null is returned.
      * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
-     * - To use this API, you need to be added to the whitelist. Please contact us through the official website <props="china">[here](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
-     * <props="intl">[here](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
+     * - To use this API, you need to be added to the whitelist. Please contact us through  <props="china">[official website](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
+     * <props="intl">[official website](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
      *  *
      * @param string[]       $headers map
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -1400,8 +1667,8 @@ class EnergyExpertExternal extends OpenApiClient
      *  *
      * @description *   If an activated site exists, the information about the site and the organization to which the site belongs is returned. If no activated site exists, null is returned.
      * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
-     * - To use this API, you need to be added to the whitelist. Please contact us through the official website <props="china">[here](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
-     * <props="intl">[here](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
+     * - To use this API, you need to be added to the whitelist. Please contact us through  <props="china">[official website](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
+     * <props="intl">[official website](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
      *  *
      * @return GetOrgAndFactoryResponse GetOrgAndFactoryResponse
      */
@@ -1883,6 +2150,101 @@ class EnergyExpertExternal extends OpenApiClient
         $headers = [];
 
         return $this->sendDocumentAskQuestionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 设置运行计划
+     *  *
+     * @param SetRunningPlanRequest $request SetRunningPlanRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SetRunningPlanResponse SetRunningPlanResponse
+     */
+    public function setRunningPlanWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->controlType)) {
+            $body['controlType'] = $request->controlType;
+        }
+        if (!Utils::isUnset($request->dateType)) {
+            $body['dateType'] = $request->dateType;
+        }
+        if (!Utils::isUnset($request->earliestStartupTime)) {
+            $body['earliestStartupTime'] = $request->earliestStartupTime;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['endTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->factoryId)) {
+            $body['factoryId'] = $request->factoryId;
+        }
+        if (!Utils::isUnset($request->latestShutdownTime)) {
+            $body['latestShutdownTime'] = $request->latestShutdownTime;
+        }
+        if (!Utils::isUnset($request->maxCarbonDioxide)) {
+            $body['maxCarbonDioxide'] = $request->maxCarbonDioxide;
+        }
+        if (!Utils::isUnset($request->maxTem)) {
+            $body['maxTem'] = $request->maxTem;
+        }
+        if (!Utils::isUnset($request->minTem)) {
+            $body['minTem'] = $request->minTem;
+        }
+        if (!Utils::isUnset($request->pKey)) {
+            $body['pKey'] = $request->pKey;
+        }
+        if (!Utils::isUnset($request->seasonMode)) {
+            $body['seasonMode'] = $request->seasonMode;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['startTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->statisticsTime)) {
+            $body['statisticsTime'] = $request->statisticsTime;
+        }
+        if (!Utils::isUnset($request->systemId)) {
+            $body['systemId'] = $request->systemId;
+        }
+        if (!Utils::isUnset($request->workingEndTime)) {
+            $body['workingEndTime'] = $request->workingEndTime;
+        }
+        if (!Utils::isUnset($request->workingStartTime)) {
+            $body['workingStartTime'] = $request->workingStartTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SetRunningPlan',
+            'version'     => '2022-09-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/carbon/hvac/setRunningPlan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetRunningPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 设置运行计划
+     *  *
+     * @param SetRunningPlanRequest $request SetRunningPlanRequest
+     *
+     * @return SetRunningPlanResponse SetRunningPlanResponse
+     */
+    public function setRunningPlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->setRunningPlanWithOptions($request, $headers, $runtime);
     }
 
     /**

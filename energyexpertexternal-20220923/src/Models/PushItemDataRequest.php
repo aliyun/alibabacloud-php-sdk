@@ -20,7 +20,7 @@ class PushItemDataRequest extends Model
     public $code;
 
     /**
-     * @description Push data list.
+     * @description List of data to be pushed.
      *
      * This parameter is required.
      * @var items
