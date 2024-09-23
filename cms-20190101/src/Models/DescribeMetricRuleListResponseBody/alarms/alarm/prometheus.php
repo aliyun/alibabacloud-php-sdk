@@ -18,11 +18,11 @@ class prometheus extends Model
     public $annotations;
 
     /**
-     * @description The level of the alert. Valid values:
+     * @description The alert level. Valid values:
      *
-     *   Critical
-     *   Warn
-     *   Info
+     *   CRITICAL
+     *   WARN
+     *   INFO
      *
      * @example Critical
      *

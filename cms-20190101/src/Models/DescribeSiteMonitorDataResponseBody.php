@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSiteMonitorDataResponseBody extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The responses code.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -19,7 +19,7 @@ class DescribeSiteMonitorDataResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned monitoring data.
+     * @description The monitoring data.
      *
      * @example [{"Maximum":247,"Mimimum":61,"Average":154,"userId":"127067667954****","taskId":"49f7b317-7645-4cc9-94fd-ea42e522****","timestamp":1551581760000}]
      *
@@ -37,7 +37,7 @@ class DescribeSiteMonitorDataResponseBody extends Model
     public $message;
 
     /**
-     * @description The pagination cursor.
+     * @description The pagination token.
      *
      * @example ea42e5220930ea42e522****
      *
@@ -46,7 +46,7 @@ class DescribeSiteMonitorDataResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 3febb181-0d98-4af9-8b04-7faf36b048b9
      *
@@ -55,7 +55,7 @@ class DescribeSiteMonitorDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+     * @description Indicates whether the request was successful. Valid values: true: The request was successful. false: The request failed.
      *
      * @example true
      *

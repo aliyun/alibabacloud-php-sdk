@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteMetricRuleResourcesRequest extends Model
 {
     /**
-     * @description The resources to be disassociated from the alert rule.
+     * @description The resources that are associated with the alert rule.
      *
      * This parameter is required.
      * @example [{"instanceId":"i-uf6hm9lnlzsarrc7****"}]

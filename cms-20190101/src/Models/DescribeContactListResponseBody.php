@@ -12,7 +12,7 @@ class DescribeContactListResponseBody extends Model
     /**
      * @description The HTTP status code.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -27,7 +27,7 @@ class DescribeContactListResponseBody extends Model
     public $contacts;
 
     /**
-     * @description The error message.
+     * @description The error message returned.
      *
      * @example The Request is not authorization.
      *
@@ -36,7 +36,7 @@ class DescribeContactListResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 06D5ECC2-B9BE-42A4-8FA3-1A610FB08B83
      *
@@ -45,10 +45,10 @@ class DescribeContactListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call was successful.
-     *   false: The call failed.
+     *   true: The request was successful.
+     *   false: The request failed.
      *
      * @example true
      *
@@ -57,7 +57,7 @@ class DescribeContactListResponseBody extends Model
     public $success;
 
     /**
-     * @description The total number of returned entries.
+     * @description The total number of entries returned.
      *
      * @example 15
      *

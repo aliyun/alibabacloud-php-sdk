@@ -43,8 +43,9 @@ class CreateDynamicTagGroupRequest extends Model
     public $enableSubscribeEvent;
 
     /**
-     * @description This parameter is required.
+     * @description The conditional expressions used to create an application group based on the tag.
      *
+     * This parameter is required.
      * @var matchExpress[]
      */
     public $matchExpress;

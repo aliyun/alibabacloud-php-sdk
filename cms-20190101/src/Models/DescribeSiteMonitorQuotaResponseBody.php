@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSiteMonitorQuotaResponseBody extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The responses code.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -20,7 +20,7 @@ class DescribeSiteMonitorQuotaResponseBody extends Model
     public $code;
 
     /**
-     * @description The quotas and version of site monitoring.
+     * @description The quota.
      *
      * @var data
      */
@@ -34,7 +34,7 @@ class DescribeSiteMonitorQuotaResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 26860260-76C6-404E-AB7A-EB98D36A6885
      *
@@ -43,10 +43,10 @@ class DescribeSiteMonitorQuotaResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call was successful.
-     *   false: The call failed.
+     *   true
+     *   false
      *
      * @example true
      *

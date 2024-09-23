@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSiteMonitorStatisticsRequest extends Model
 {
     /**
-     * @description The name of the metric. Valid values:
+     * @description The metric name. Valid values:
      *
      *   Availability
      *   ErrorRate
@@ -28,7 +28,7 @@ class DescribeSiteMonitorStatisticsRequest extends Model
     public $regionId;
 
     /**
-     * @description The timestamp that specifies the beginning of the time range to query.
+     * @description The beginning of the time range to query.
      *
      * Unit: milliseconds. The default value is 1 hour ahead of the current time.
      * @example 1576142850527
@@ -50,7 +50,7 @@ class DescribeSiteMonitorStatisticsRequest extends Model
     /**
      * @description The statistical period.
      *
-     * Unit: minutes. Default value: 1440 (1 day). Maximum value: 43200 (30 days).
+     * Unit: minutes. Default value: 1440 (one day). Maximum value: 43200 (30 days).
      * @example 1440
      *
      * @var string

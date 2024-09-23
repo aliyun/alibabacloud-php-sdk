@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricRuleListResponseBody extends Model
 {
     /**
-     * @description The details of the alert rules.
+     * @description The alert rules.
      *
      * @var alarms
      */

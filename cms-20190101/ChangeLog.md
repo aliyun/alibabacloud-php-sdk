@@ -1,3 +1,7 @@
+2024-09-23 Version: 8.0.1
+- Update API DescribeSiteMonitorAttribute: update response param.
+
+
 2024-09-10 Version: 8.0.0
 - Delete API BatchCreateIntantSiteMonitor.
 - Delete API CreateCmsCallNumOrder.

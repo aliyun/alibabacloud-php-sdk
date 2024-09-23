@@ -11,7 +11,7 @@ class channelsState extends Model
     /**
      * @description The status of the TradeManager ID.
      *
-     * >  This parameter can be returned only on the China site (aliyun.com).
+     * >  This parameter applies only to the Alibaba Cloud China site (aliyun.com).
      * @example OK
      *
      * @var string
@@ -31,8 +31,8 @@ class channelsState extends Model
     /**
      * @description The status of the email address. Valid values:
      *
-     *   PENDING: The email address is not activated. Alert notifications can be sent to the email address only after the email address is activated.
-     *   OK: The email address is activated and can receive alert notifications.
+     *   PENDING: The phone number is not activated. Alert notifications can be sent to the phone number by using text messages only after the phone number is activated.
+     *   OK: The phone number is activated and can receive alert notifications.
      *
      * @example PENDING
      *
@@ -46,7 +46,7 @@ class channelsState extends Model
      *   PENDING: The phone number is not activated. Alert notifications can be sent to the phone number by using text messages only after the phone number is activated.
      *   OK: The phone number is activated and can receive alert notifications.
      *
-     * >  This parameter can be returned only on the China site (aliyun.com).
+     * >  This parameter applies only to the Alibaba Cloud China site (aliyun.com).
      * @example OK
      *
      * @var string

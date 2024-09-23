@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeSiteMonitorDataRequest extends Model
 {
     /**
-     * @description The end of the time range for the query. Supported formats:
+     * @description The end of the time range to query. The following formats are supported:
      *
-     *   UNIX timestamp: The value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
-     *   Time format: The value is in the YYYY-MM-DDThh:mm:ssZ format.
+     *   UNIX timestamp: the number of milliseconds that have elapsed since 00:00:00 UTC on Thursday, January 1, 1970.
+     *   UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format.
      *
      * @example 1551581437000
      *
@@ -30,7 +30,7 @@ class DescribeSiteMonitorDataRequest extends Model
     public $length;
 
     /**
-     * @description The name of the metric. Valid values:
+     * @description The metric name. Valid values:
      *
      *   Availability
      *   ResponseTime
@@ -43,7 +43,7 @@ class DescribeSiteMonitorDataRequest extends Model
     public $metricName;
 
     /**
-     * @description The pagination cursor.
+     * @description The pagination token.
      *
      * @example 49f7b317-7645-4cc9-94fd-ea42e5220930ea42e5220930ea42e522****
      *
@@ -52,7 +52,7 @@ class DescribeSiteMonitorDataRequest extends Model
     public $nextToken;
 
     /**
-     * @description The interval at which monitoring data is returned. The value is an integral multiple of 60. Unit: seconds.
+     * @description The statistical period. The value is an integral multiple of 60. Unit: seconds.
      *
      * >  The default value equals the minimum interval at which detection requests are sent to the monitored address.
      * @example 60
@@ -67,10 +67,10 @@ class DescribeSiteMonitorDataRequest extends Model
     public $regionId;
 
     /**
-     * @description The beginning of the time range for the query. Supported formats:
+     * @description The start of the time range to query. The following formats are supported:
      *
-     *   UNIX timestamp: The value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
-     *   Time format: The value is in the YYYY-MM-DDThh:mm:ssZ format.
+     *   UNIX timestamp: the number of milliseconds that have elapsed since 00:00:00 UTC on Thursday, January 1, 1970.
+     *   UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format.
      *
      * @example 1551579637000
      *
@@ -79,7 +79,7 @@ class DescribeSiteMonitorDataRequest extends Model
     public $startTime;
 
     /**
-     * @description The ID of the site monitoring task.
+     * @description The job ID.
      *
      * This parameter is required.
      * @example 49f7b317-7645-4cc9-94fd-ea42e522****

@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description Indicates whether the second-level monitoring is enabled. Valid values:
+     * @description Indicates whether second-level monitoring is enabled. Valid values:
      *
-     *   true
-     *   false
+     *   true: Second-level monitoring is enabled.
+     *   false: Second-level monitoring is disabled.
      *
      * @example false
      *

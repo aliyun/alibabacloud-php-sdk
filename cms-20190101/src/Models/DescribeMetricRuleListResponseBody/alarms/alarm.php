@@ -164,9 +164,9 @@ class alarm extends Model
     public $period;
 
     /**
-     * @description The Prometheus alert rule.
+     * @description The Prometheus alerts.
      *
-     * >  This parameter is required only when you create a Prometheus alert rule for Hybrid Cloud Monitoring.
+     * >  This parameter is required only if you create a Prometheus alert rule for Hybrid Cloud Monitoring.
      * @var prometheus
      */
     public $prometheus;

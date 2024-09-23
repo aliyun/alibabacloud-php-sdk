@@ -36,7 +36,7 @@ class channels extends Model
     public $mail;
 
     /**
-     * @description The phone number of the alert contact.
+     * @description The phone number of the alert contac.
      *
      * @example 1333333****
      *

@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class EnableSiteMonitorsResponseBody extends Model
 {
     /**
-     * @description The status code.
+     * @description The responses code.
      *
-     * >  The status code 200 indicates a success.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -36,7 +36,7 @@ class EnableSiteMonitorsResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 3fcd12e7-d387-42ee-b77e-661c775bb17f
      *
@@ -45,10 +45,10 @@ class EnableSiteMonitorsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the operation was successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: successful.
-     *   false: failed.
+     *   true
+     *   false
      *
      * @example true
      *

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomMetricListResponseBody extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The responses code.
      *
-     * >  The value 200 indicates that the call is successful.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -28,7 +28,7 @@ class DescribeCustomMetricListResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1AF425E4-1DEA-54F2-910A-8117C9686140
      *

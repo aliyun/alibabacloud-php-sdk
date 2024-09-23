@@ -27,7 +27,7 @@ class contact extends Model
     public $channelsState;
 
     /**
-     * @description The alert contact groups.
+     * @description None.
      *
      * @var contactGroups
      */
@@ -44,7 +44,7 @@ class contact extends Model
     public $createTime;
 
     /**
-     * @description The description of the alert contact.
+     * @description The description.
      *
      * @var string
      */

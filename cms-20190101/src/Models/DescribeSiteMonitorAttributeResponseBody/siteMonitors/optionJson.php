@@ -148,6 +148,8 @@ class optionJson extends Model
     public $dnsType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $emptyMessage;
@@ -205,6 +207,10 @@ class optionJson extends Model
     public $httpMethod;
 
     /**
+     * @description ip_network indicates the network type of the task. Valid values: v4, v6, and auto. Default value: v4.
+     *
+     * @example v4
+     *
      * @var string
      */
     public $ipNetwork;
@@ -261,6 +267,12 @@ class optionJson extends Model
     public $pingPort;
 
     /**
+     * @description The PING protocol type. Valid values:
+     *
+     *   icmp
+     *   tcp
+     *   udp
+     *
      * @example icmp,tcp,udp
      *
      * @var string
@@ -286,11 +298,17 @@ class optionJson extends Model
     public $protocol;
 
     /**
+     * @description Indicates whether the Quick UDP Internet Connections (QUIC) protocol is used for browser detection. Valid values: true false Default value: false.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $quicEnabled;
 
     /**
+     * @description The sites for which the QUIC protocol is forcibly used.
+     *
      * @var quicTarget
      */
     public $quicTarget;
@@ -343,6 +361,11 @@ class optionJson extends Model
      * @var int
      */
     public $retryDelay;
+
+    /**
+     * @var bool
+     */
+    public $screenShot;
 
     /**
      * @example false
@@ -433,6 +456,7 @@ class optionJson extends Model
         'responseContent'               => 'response_content',
         'responseFormat'                => 'response_format',
         'retryDelay'                    => 'retry_delay',
+        'screenShot'                    => 'screen_shot',
         'strictMode'                    => 'strict_mode',
         'timeOut'                       => 'time_out',
         'trafficHijackElementBlacklist' => 'traffic_hijack_element_blacklist',
@@ -568,6 +592,9 @@ class optionJson extends Model
         }
         if (null !== $this->retryDelay) {
             $res['retry_delay'] = $this->retryDelay;
+        }
+        if (null !== $this->screenShot) {
+            $res['screen_shot'] = $this->screenShot;
         }
         if (null !== $this->strictMode) {
             $res['strict_mode'] = $this->strictMode;
@@ -721,6 +748,9 @@ class optionJson extends Model
         }
         if (isset($map['retry_delay'])) {
             $model->retryDelay = $map['retry_delay'];
+        }
+        if (isset($map['screen_shot'])) {
+            $model->screenShot = $map['screen_shot'];
         }
         if (isset($map['strict_mode'])) {
             $model->strictMode = $map['strict_mode'];

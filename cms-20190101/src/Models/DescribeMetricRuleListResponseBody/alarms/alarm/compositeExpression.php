@@ -42,11 +42,11 @@ class compositeExpression extends Model
     public $expressionRaw;
 
     /**
-     * @description The level of the alert. Valid values:
+     * @description The alert level. Valid values:
      *
-     *   Critical
-     *   Warn
-     *   Info
+     *   CRITICAL
+     *   WARN
+     *   INFO
      *
      * @example Critical
      *

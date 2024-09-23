@@ -14,8 +14,9 @@ class DisableMetricRulesRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the alert rule. Valid values of N: 1 to 20.
      *
+     * This parameter is required.
      * @example detect_87****_HTTP_HttpLatency
      *
      * @var string[]

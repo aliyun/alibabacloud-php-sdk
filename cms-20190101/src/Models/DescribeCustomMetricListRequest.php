@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomMetricListRequest extends Model
 {
     /**
-     * @description The dimensions that specify the resources for which you want to query custom metrics.
+     * @description The dimensions based on which the resources are queried.
      *
      * @example {sampleName1=value1&amp;sampleName2=value2}
      *
@@ -20,7 +20,7 @@ class DescribeCustomMetricListRequest extends Model
     /**
      * @description The ID of the application group.
      *
-     * For more information, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
+     * For information about how to query the IDs of application groups, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
      * @example 7378****
      *
      * @var string
@@ -28,7 +28,7 @@ class DescribeCustomMetricListRequest extends Model
     public $groupId;
 
     /**
-     * @description The MD5 value of the HTTP request body. The MD5 value is a 128-bit hash value used to verify the uniqueness of the reported custom metrics.
+     * @description The MD5 value of the HTTP request body. The MD5 value is a 128-bit hash value used to verify the uniqueness of the reported monitoring data.
      *
      * @example 97c25982d9745a231276bff27469****
      *
@@ -46,7 +46,7 @@ class DescribeCustomMetricListRequest extends Model
     public $metricName;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * Pages start from page 1. Default value: 1.
      * @example 1
@@ -56,7 +56,7 @@ class DescribeCustomMetricListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * Pages start from page 1. Default value: 10.
      * @example 10

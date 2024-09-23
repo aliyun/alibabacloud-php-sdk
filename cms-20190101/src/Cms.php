@@ -3954,9 +3954,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the reported custom metrics of a cloud service.
+     * @summary Queries the reported monitoring data.
      *  *
-     * @description >  You can call the DescribeMetricList operation to query the metrics of a cloud service. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html).
+     * @description >  You can call the DescribeMetricList operation to query the metrics of cloud services. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html).
      *  *
      * @param DescribeCustomMetricListRequest $request DescribeCustomMetricListRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -4004,9 +4004,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the reported custom metrics of a cloud service.
+     * @summary Queries the reported monitoring data.
      *  *
-     * @description >  You can call the DescribeMetricList operation to query the metrics of a cloud service. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html).
+     * @description >  You can call the DescribeMetricList operation to query the metrics of cloud services. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html).
      *  *
      * @param DescribeCustomMetricListRequest $request DescribeCustomMetricListRequest
      *
@@ -6534,6 +6534,8 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @summary Queries the fine-grained monitoring data of a site monitoring task.
+     *  *
      * @param DescribeSiteMonitorDataRequest $request DescribeSiteMonitorDataRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -6586,6 +6588,8 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @summary Queries the fine-grained monitoring data of a site monitoring task.
+     *  *
      * @param DescribeSiteMonitorDataRequest $request DescribeSiteMonitorDataRequest
      *
      * @return DescribeSiteMonitorDataResponse DescribeSiteMonitorDataResponse
@@ -6813,6 +6817,8 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @summary Queries the quotas and version of site monitoring.
+     *  *
      * @param DescribeSiteMonitorQuotaRequest $request DescribeSiteMonitorQuotaRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -6838,6 +6844,8 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @summary Queries the quotas and version of site monitoring.
+     *  *
      * @param DescribeSiteMonitorQuotaRequest $request DescribeSiteMonitorQuotaRequest
      *
      * @return DescribeSiteMonitorQuotaResponse DescribeSiteMonitorQuotaResponse
@@ -6850,7 +6858,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @description This topic provides an example to show how to query the statistics of the `Availability` metric for a site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The result indicates that the availability rate of the site is `100%`.
+     * @summary Queries the statistics of a specified metric for a specified site monitoring task.
+     *  *
+     * @description This topic provides an example on how to query the statistics of the `Availability` metric for a site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The result indicates that the availability rate of the site is `100%`.
      *  *
      * @param DescribeSiteMonitorStatisticsRequest $request DescribeSiteMonitorStatisticsRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -6892,7 +6902,9 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @description This topic provides an example to show how to query the statistics of the `Availability` metric for a site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The result indicates that the availability rate of the site is `100%`.
+     * @summary Queries the statistics of a specified metric for a specified site monitoring task.
+     *  *
+     * @description This topic provides an example on how to query the statistics of the `Availability` metric for a site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The result indicates that the availability rate of the site is `100%`.
      *  *
      * @param DescribeSiteMonitorStatisticsRequest $request DescribeSiteMonitorStatisticsRequest
      *
@@ -7443,6 +7455,8 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @summary Disables alert rules.
+     *  *
      * @param DisableMetricRulesRequest $request DisableMetricRulesRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -7474,6 +7488,8 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @summary Disables alert rules.
+     *  *
      * @param DisableMetricRulesRequest $request DisableMetricRulesRequest
      *
      * @return DisableMetricRulesResponse DisableMetricRulesResponse
@@ -7486,6 +7502,8 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @summary Disables site monitoring tasks.
+     *  *
      * @param DisableSiteMonitorsRequest $request DisableSiteMonitorsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -7517,6 +7535,8 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @summary Disables site monitoring tasks.
+     *  *
      * @param DisableSiteMonitorsRequest $request DisableSiteMonitorsRequest
      *
      * @return DisableSiteMonitorsResponse DisableSiteMonitorsResponse
@@ -7755,6 +7775,8 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @summary Enables site monitoring tasks.
+     *  *
      * @param EnableSiteMonitorsRequest $request EnableSiteMonitorsRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -7786,6 +7808,8 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @summary Enables site monitoring tasks.
+     *  *
      * @param EnableSiteMonitorsRequest $request EnableSiteMonitorsRequest
      *
      * @return EnableSiteMonitorsResponse EnableSiteMonitorsResponse
@@ -9612,7 +9636,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates an alert rule for a metric of a resource.
+     * @summary Configures an alert rule.
      *  *
      * @description This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
      *  *
@@ -9706,7 +9730,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates an alert rule for a metric of a resource.
+     * @summary Configures an alert rule.
      *  *
      * @description This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
      *  *

@@ -82,7 +82,7 @@ class CreateSiteMonitorRequest extends Model
     public $taskName;
 
     /**
-     * @description The type of the site monitoring task.
+     * @description The protocol that is used by the site monitoring task.
      *
      * This parameter is required.
      * @example HTTPS

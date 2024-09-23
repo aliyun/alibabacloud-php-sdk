@@ -18,7 +18,7 @@ class matchExpress extends Model
     public $tagName;
 
     /**
-     * @description The tag values of the cloud resources. In this example, set the value of N to 1.
+     * @description The tag values of the cloud resources. Set the value of N to 1.
      *
      * >  If you set the `MatchExpress.N.TagValueMatchFunction` parameter, you must also set the `MatchExpress.N.TagValue` parameter.
      * @example instance
@@ -28,7 +28,7 @@ class matchExpress extends Model
     public $tagValue;
 
     /**
-     * @description The method that is used to match the tag values of the cloud resources. In this example, set the value of N to 1. Valid values:
+     * @description The method that is used to match the tag values of the cloud resources. Set the value of N to 1. Valid values:
      *
      *   contains: contains
      *   startWith: starts with a prefix

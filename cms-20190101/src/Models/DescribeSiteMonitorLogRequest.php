@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeSiteMonitorLogRequest extends Model
 {
     /**
-     * @description 浏览器类型。
-     *
      * @example Chrome
      *
      * @var string
@@ -18,10 +16,6 @@ class DescribeSiteMonitorLogRequest extends Model
     public $browser;
 
     /**
-     * @description 该参数已废弃，无需关注。
-     *
-     * @example 无
-     *
      * @var string
      */
     public $browserInfo;
@@ -36,8 +30,6 @@ class DescribeSiteMonitorLogRequest extends Model
     public $city;
 
     /**
-     * @description 设备类型（模拟屏幕大小类型）。
-     *
      * @example laptop
      *
      * @var string

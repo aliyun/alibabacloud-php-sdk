@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateMetricRuleResourcesRequest extends Model
 {
     /**
-     * @description Specifies whether to overwrite the existing data. Valid values:
+     * @description Specifies whether to overwrite existing resources. Valid values:
      *
-     *   true: The resources submitted this time will overwrite the previous associated resources.
-     *   false: The resources submitted this time will not overwrite the previous associated resources. The associated resources after submission include the previous associated resources and the resources submitted this time.
+     *   true: The resources submitted this time overwrite the previously associated resources.
+     *   false: The resources submitted this time do not overwrite the previously associated resources. The associated resources after submission include the previously associated resources and the resources submitted this time.
      *
      * @example false
      *
@@ -21,7 +21,7 @@ class CreateMetricRuleResourcesRequest extends Model
     public $overwrite;
 
     /**
-     * @description The resources to be associated with the alert rule. The value is a JSON array.
+     * @description The resources that are associated with the alert rule. Set the value to a JSON array.
      *
      * This parameter is required.
      * @example [{"instanceId":"i-a2d5q7pm3f9yr29e****"}]

@@ -74,7 +74,7 @@ class taskOption extends Model
     public $httpResponseMatchContent;
 
     /**
-     * @description The URI that you want to monitor. This parameter must be specified when TaskType is set to HTTP.
+     * @description The URI that you want to monitor. This parameter is required if the TaskType parameter is set to HTTP or Telnet.
      *
      * @example https://www.aliyun.com
      *
@@ -95,7 +95,7 @@ class taskOption extends Model
     /**
      * @description The domain name or IP address that you want to monitor.
      *
-     * > This parameter must be specified when TaskType is set to PING or TELNET.
+     * >  This parameter is required if the TaskType parameter is set to PING.
      * @example www.aliyun.com
      *
      * @var string
