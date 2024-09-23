@@ -30,6 +30,11 @@ class UpdateIpamPoolRequest extends Model
     public $allocationMinCidrMask;
 
     /**
+     * @var bool
+     */
+    public $autoImport;
+
+    /**
      * @example true
      *
      * @var bool
@@ -105,6 +110,7 @@ class UpdateIpamPoolRequest extends Model
         'allocationDefaultCidrMask'      => 'AllocationDefaultCidrMask',
         'allocationMaxCidrMask'          => 'AllocationMaxCidrMask',
         'allocationMinCidrMask'          => 'AllocationMinCidrMask',
+        'autoImport'                     => 'AutoImport',
         'clearAllocationDefaultCidrMask' => 'ClearAllocationDefaultCidrMask',
         'clientToken'                    => 'ClientToken',
         'dryRun'                         => 'DryRun',
@@ -133,6 +139,9 @@ class UpdateIpamPoolRequest extends Model
         }
         if (null !== $this->allocationMinCidrMask) {
             $res['AllocationMinCidrMask'] = $this->allocationMinCidrMask;
+        }
+        if (null !== $this->autoImport) {
+            $res['AutoImport'] = $this->autoImport;
         }
         if (null !== $this->clearAllocationDefaultCidrMask) {
             $res['ClearAllocationDefaultCidrMask'] = $this->clearAllocationDefaultCidrMask;
@@ -187,6 +196,9 @@ class UpdateIpamPoolRequest extends Model
         }
         if (isset($map['AllocationMinCidrMask'])) {
             $model->allocationMinCidrMask = $map['AllocationMinCidrMask'];
+        }
+        if (isset($map['AutoImport'])) {
+            $model->autoImport = $map['AutoImport'];
         }
         if (isset($map['ClearAllocationDefaultCidrMask'])) {
             $model->clearAllocationDefaultCidrMask = $map['ClearAllocationDefaultCidrMask'];

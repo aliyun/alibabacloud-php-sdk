@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\VpcIpam\V20230228\Models;
 
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\CreateIpamPoolRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateIpamPoolRequest extends Model
@@ -28,6 +29,11 @@ class CreateIpamPoolRequest extends Model
      * @var int
      */
     public $allocationMinCidrMask;
+
+    /**
+     * @var bool
+     */
+    public $autoImport;
 
     /**
      * @example 123e4567-e89b-12d3-a456-426655440000
@@ -115,10 +121,16 @@ class CreateIpamPoolRequest extends Model
      * @var string
      */
     public $sourceIpamPoolId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'allocationDefaultCidrMask' => 'AllocationDefaultCidrMask',
         'allocationMaxCidrMask'     => 'AllocationMaxCidrMask',
         'allocationMinCidrMask'     => 'AllocationMinCidrMask',
+        'autoImport'                => 'AutoImport',
         'clientToken'               => 'ClientToken',
         'dryRun'                    => 'DryRun',
         'ipVersion'                 => 'IpVersion',
@@ -132,6 +144,7 @@ class CreateIpamPoolRequest extends Model
         'resourceOwnerAccount'      => 'ResourceOwnerAccount',
         'resourceOwnerId'           => 'ResourceOwnerId',
         'sourceIpamPoolId'          => 'SourceIpamPoolId',
+        'tag'                       => 'Tag',
     ];
 
     public function validate()
@@ -149,6 +162,9 @@ class CreateIpamPoolRequest extends Model
         }
         if (null !== $this->allocationMinCidrMask) {
             $res['AllocationMinCidrMask'] = $this->allocationMinCidrMask;
+        }
+        if (null !== $this->autoImport) {
+            $res['AutoImport'] = $this->autoImport;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -189,6 +205,15 @@ class CreateIpamPoolRequest extends Model
         if (null !== $this->sourceIpamPoolId) {
             $res['SourceIpamPoolId'] = $this->sourceIpamPoolId;
         }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -209,6 +234,9 @@ class CreateIpamPoolRequest extends Model
         }
         if (isset($map['AllocationMinCidrMask'])) {
             $model->allocationMinCidrMask = $map['AllocationMinCidrMask'];
+        }
+        if (isset($map['AutoImport'])) {
+            $model->autoImport = $map['AutoImport'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
@@ -248,6 +276,15 @@ class CreateIpamPoolRequest extends Model
         }
         if (isset($map['SourceIpamPoolId'])) {
             $model->sourceIpamPoolId = $map['SourceIpamPoolId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

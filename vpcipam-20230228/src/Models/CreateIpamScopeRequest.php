@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\VpcIpam\V20230228\Models;
 
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\CreateIpamScopeRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateIpamScopeRequest extends Model
@@ -80,6 +81,11 @@ class CreateIpamScopeRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'clientToken'          => 'ClientToken',
         'dryRun'               => 'DryRun',
@@ -92,6 +98,7 @@ class CreateIpamScopeRequest extends Model
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'tag'                  => 'Tag',
     ];
 
     public function validate()
@@ -133,6 +140,15 @@ class CreateIpamScopeRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -178,6 +194,15 @@ class CreateIpamScopeRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListIpamResourceCidrsResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $count;
+
+    /**
      * @var ipamResourceCidrs[]
      */
     public $ipamResourceCidrs;
@@ -42,6 +47,7 @@ class ListIpamResourceCidrsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
+        'count'             => 'Count',
         'ipamResourceCidrs' => 'IpamResourceCidrs',
         'maxResults'        => 'MaxResults',
         'nextToken'         => 'NextToken',
@@ -56,6 +62,9 @@ class ListIpamResourceCidrsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
         if (null !== $this->ipamResourceCidrs) {
             $res['IpamResourceCidrs'] = [];
             if (null !== $this->ipamResourceCidrs && \is_array($this->ipamResourceCidrs)) {
@@ -89,6 +98,9 @@ class ListIpamResourceCidrsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
         if (isset($map['IpamResourceCidrs'])) {
             if (!empty($map['IpamResourceCidrs'])) {
                 $model->ipamResourceCidrs = [];

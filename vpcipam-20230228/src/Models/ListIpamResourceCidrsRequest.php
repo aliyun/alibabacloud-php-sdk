@@ -63,6 +63,11 @@ class ListIpamResourceCidrsRequest extends Model
      * @var string
      */
     public $resourceType;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'ipamPoolId'      => 'IpamPoolId',
         'ipamScopeId'     => 'IpamScopeId',
@@ -72,6 +77,7 @@ class ListIpamResourceCidrsRequest extends Model
         'resourceId'      => 'ResourceId',
         'resourceOwnerId' => 'ResourceOwnerId',
         'resourceType'    => 'ResourceType',
+        'vpcId'           => 'VpcId',
     ];
 
     public function validate()
@@ -104,6 +110,9 @@ class ListIpamResourceCidrsRequest extends Model
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -140,6 +149,9 @@ class ListIpamResourceCidrsRequest extends Model
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

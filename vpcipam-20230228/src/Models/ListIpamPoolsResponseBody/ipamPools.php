@@ -31,6 +31,11 @@ class ipamPools extends Model
     public $allocationMinCidrMask;
 
     /**
+     * @var bool
+     */
+    public $autoImport;
+
+    /**
      * @example 2023-04-19T16:49:01Z
      *
      * @var string
@@ -101,6 +106,11 @@ class ipamPools extends Model
     public $ipamScopeType;
 
     /**
+     * @var bool
+     */
+    public $isShared;
+
+    /**
      * @example 1210123456******
      *
      * @var int
@@ -150,6 +160,7 @@ class ipamPools extends Model
         'allocationDefaultCidrMask' => 'AllocationDefaultCidrMask',
         'allocationMaxCidrMask'     => 'AllocationMaxCidrMask',
         'allocationMinCidrMask'     => 'AllocationMinCidrMask',
+        'autoImport'                => 'AutoImport',
         'createTime'                => 'CreateTime',
         'hasSubPool'                => 'HasSubPool',
         'ipVersion'                 => 'IpVersion',
@@ -160,6 +171,7 @@ class ipamPools extends Model
         'ipamRegionId'              => 'IpamRegionId',
         'ipamScopeId'               => 'IpamScopeId',
         'ipamScopeType'             => 'IpamScopeType',
+        'isShared'                  => 'IsShared',
         'ownerId'                   => 'OwnerId',
         'poolDepth'                 => 'PoolDepth',
         'poolRegionId'              => 'PoolRegionId',
@@ -184,6 +196,9 @@ class ipamPools extends Model
         }
         if (null !== $this->allocationMinCidrMask) {
             $res['AllocationMinCidrMask'] = $this->allocationMinCidrMask;
+        }
+        if (null !== $this->autoImport) {
+            $res['AutoImport'] = $this->autoImport;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -214,6 +229,9 @@ class ipamPools extends Model
         }
         if (null !== $this->ipamScopeType) {
             $res['IpamScopeType'] = $this->ipamScopeType;
+        }
+        if (null !== $this->isShared) {
+            $res['IsShared'] = $this->isShared;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -263,6 +281,9 @@ class ipamPools extends Model
         if (isset($map['AllocationMinCidrMask'])) {
             $model->allocationMinCidrMask = $map['AllocationMinCidrMask'];
         }
+        if (isset($map['AutoImport'])) {
+            $model->autoImport = $map['AutoImport'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -292,6 +313,9 @@ class ipamPools extends Model
         }
         if (isset($map['IpamScopeType'])) {
             $model->ipamScopeType = $map['IpamScopeType'];
+        }
+        if (isset($map['IsShared'])) {
+            $model->isShared = $map['IsShared'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

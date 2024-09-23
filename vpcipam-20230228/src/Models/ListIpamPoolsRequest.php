@@ -29,6 +29,11 @@ class ListIpamPoolsRequest extends Model
     public $ipamScopeId;
 
     /**
+     * @var bool
+     */
+    public $isShared;
+
+    /**
      * @example 10
      *
      * @var int
@@ -100,6 +105,7 @@ class ListIpamPoolsRequest extends Model
         'ipamPoolIds'          => 'IpamPoolIds',
         'ipamPoolName'         => 'IpamPoolName',
         'ipamScopeId'          => 'IpamScopeId',
+        'isShared'             => 'IsShared',
         'maxResults'           => 'MaxResults',
         'nextToken'            => 'NextToken',
         'ownerAccount'         => 'OwnerAccount',
@@ -128,6 +134,9 @@ class ListIpamPoolsRequest extends Model
         }
         if (null !== $this->ipamScopeId) {
             $res['IpamScopeId'] = $this->ipamScopeId;
+        }
+        if (null !== $this->isShared) {
+            $res['IsShared'] = $this->isShared;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -190,6 +199,9 @@ class ListIpamPoolsRequest extends Model
         }
         if (isset($map['IpamScopeId'])) {
             $model->ipamScopeId = $map['IpamScopeId'];
+        }
+        if (isset($map['IsShared'])) {
+            $model->isShared = $map['IsShared'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

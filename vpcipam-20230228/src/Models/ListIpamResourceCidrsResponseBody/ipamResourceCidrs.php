@@ -119,6 +119,11 @@ class ipamResourceCidrs extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'aliUid'           => 'AliUid',
         'cidr'             => 'Cidr',
@@ -136,6 +141,7 @@ class ipamResourceCidrs extends Model
         'resourceType'     => 'ResourceType',
         'sourceCidr'       => 'SourceCidr',
         'status'           => 'Status',
+        'vpcId'            => 'VpcId',
     ];
 
     public function validate()
@@ -192,6 +198,9 @@ class ipamResourceCidrs extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -252,6 +261,9 @@ class ipamResourceCidrs extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

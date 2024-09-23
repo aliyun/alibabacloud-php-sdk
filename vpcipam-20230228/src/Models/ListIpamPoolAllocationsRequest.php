@@ -21,6 +21,8 @@ class ListIpamPoolAllocationsRequest extends Model
     public $ipamPoolAllocationIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ipam-pool-6rcq3tobayc20t****
      *
      * @var string

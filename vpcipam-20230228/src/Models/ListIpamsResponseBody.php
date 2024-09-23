@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListIpamsResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $count;
+
+    /**
      * @var ipams[]
      */
     public $ipams;
@@ -42,6 +47,7 @@ class ListIpamsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
+        'count'      => 'Count',
         'ipams'      => 'Ipams',
         'maxResults' => 'MaxResults',
         'nextToken'  => 'NextToken',
@@ -56,6 +62,9 @@ class ListIpamsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
         if (null !== $this->ipams) {
             $res['Ipams'] = [];
             if (null !== $this->ipams && \is_array($this->ipams)) {
@@ -89,6 +98,9 @@ class ListIpamsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
         if (isset($map['Ipams'])) {
             if (!empty($map['Ipams'])) {
                 $model->ipams = [];

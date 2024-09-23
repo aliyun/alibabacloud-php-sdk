@@ -259,6 +259,9 @@ class VpcIpam extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -310,6 +313,9 @@ class VpcIpam extends OpenApiClient
         if (!Utils::isUnset($request->allocationMinCidrMask)) {
             $query['AllocationMinCidrMask'] = $request->allocationMinCidrMask;
         }
+        if (!Utils::isUnset($request->autoImport)) {
+            $query['AutoImport'] = $request->autoImport;
+        }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -348,6 +354,9 @@ class VpcIpam extends OpenApiClient
         }
         if (!Utils::isUnset($request->sourceIpamPoolId)) {
             $query['SourceIpamPoolId'] = $request->sourceIpamPoolId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -479,6 +488,9 @@ class VpcIpam extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1009,6 +1021,9 @@ class VpcIpam extends OpenApiClient
         if (!Utils::isUnset($request->ipamScopeId)) {
             $query['IpamScopeId'] = $request->ipamScopeId;
         }
+        if (!Utils::isUnset($request->isShared)) {
+            $query['IsShared'] = $request->isShared;
+        }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
         }
@@ -1105,6 +1120,9 @@ class VpcIpam extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceType)) {
             $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1665,6 +1683,9 @@ class VpcIpam extends OpenApiClient
         }
         if (!Utils::isUnset($request->allocationMinCidrMask)) {
             $query['AllocationMinCidrMask'] = $request->allocationMinCidrMask;
+        }
+        if (!Utils::isUnset($request->autoImport)) {
+            $query['AutoImport'] = $request->autoImport;
         }
         if (!Utils::isUnset($request->clearAllocationDefaultCidrMask)) {
             $query['ClearAllocationDefaultCidrMask'] = $request->clearAllocationDefaultCidrMask;
