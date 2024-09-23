@@ -854,6 +854,12 @@ class Cas extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a private certificate from a certificate application repository.
+     *  *
+     * @description You can call the DeletePCACert operation to delete a private certificate from a certificate application repository.
+     * ### Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeletePCACertRequest $request DeletePCACertRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -885,6 +891,12 @@ class Cas extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a private certificate from a certificate application repository.
+     *  *
+     * @description You can call the DeletePCACert operation to delete a private certificate from a certificate application repository.
+     * ### Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeletePCACertRequest $request DeletePCACertRequest
      *
      * @return DeletePCACertResponse DeletePCACertResponse

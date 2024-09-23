@@ -56,6 +56,8 @@ class contactList extends Model
     /**
      * @description The name of the contact.
      *
+     * @example ty-yaoyue.com
+     *
      * @var string
      */
     public $name;

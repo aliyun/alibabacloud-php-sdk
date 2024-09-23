@@ -31,6 +31,8 @@ class CreateCsrRequest extends Model
     /**
      * @description The name of the company.
      *
+     * @example aly
+     *
      * @var string
      */
     public $corpName;

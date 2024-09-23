@@ -39,6 +39,15 @@ class GetUserCertificateDetailResponseBody extends Model
     public $cert;
 
     /**
+     * @description The unique identifier of the certificate. The value of this parameter must be in the {Certificate ID}-cn-hangzhou format.
+     *
+     * @example 10741304-cn-hangzhou
+     *
+     * @var string
+     */
+    public $certIdentifier;
+
+    /**
      * @description The city of the company or organization to which the certificate purchaser belongs.
      *
      * @example hangzhou
@@ -264,6 +273,7 @@ class GetUserCertificateDetailResponseBody extends Model
         'algorithm'         => 'Algorithm',
         'buyInAliyun'       => 'BuyInAliyun',
         'cert'              => 'Cert',
+        'certIdentifier'    => 'CertIdentifier',
         'city'              => 'City',
         'common'            => 'Common',
         'country'           => 'Country',
@@ -305,6 +315,9 @@ class GetUserCertificateDetailResponseBody extends Model
         }
         if (null !== $this->cert) {
             $res['Cert'] = $this->cert;
+        }
+        if (null !== $this->certIdentifier) {
+            $res['CertIdentifier'] = $this->certIdentifier;
         }
         if (null !== $this->city) {
             $res['City'] = $this->city;
@@ -398,6 +411,9 @@ class GetUserCertificateDetailResponseBody extends Model
         }
         if (isset($map['Cert'])) {
             $model->cert = $map['Cert'];
+        }
+        if (isset($map['CertIdentifier'])) {
+            $model->certIdentifier = $map['CertIdentifier'];
         }
         if (isset($map['City'])) {
             $model->city = $map['City'];

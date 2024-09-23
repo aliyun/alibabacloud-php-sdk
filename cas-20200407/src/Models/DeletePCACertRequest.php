@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeletePCACertRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The unique identifier of the certificate. You can call the [ListCert](https://help.aliyun.com/document_detail/452331.html) operation to query the unique identifiers of certificates.
      *
+     * This parameter is required.
      * @example ccaf0c629c2be1e2ab
      *
      * @var string

@@ -29,6 +29,8 @@ class csrList extends Model
     /**
      * @description The name of the company.
      *
+     * @example corp_name
+     *
      * @var string
      */
     public $corpName;
