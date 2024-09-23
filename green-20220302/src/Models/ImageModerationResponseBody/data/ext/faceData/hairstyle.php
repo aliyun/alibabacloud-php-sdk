@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class hairstyle extends Model
 {
     /**
+     * @description The confidence level of the hairstyle recognition result. Valid values: 0 to 100. A higher value indicates a more credible result.
+     *
+     * @example 81.88
+     *
      * @var float
      */
     public $confidence;
 
     /**
+     * @description The hairstyle recognition result. Valid values:
+     *
+     * - Short: Short hair.
+     * @example Short
+     *
      * @var string
      */
     public $value;

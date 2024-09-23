@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class hat extends Model
 {
     /**
+     * @description The confidence level of the result of wearing the hat. Valid values: 0 to 100. A higher value indicates a more credible result.
+     *
+     * @example 88.88
+     *
      * @var float
      */
     public $confidence;
 
     /**
+     * @description The recognition result of whether to wear the hat. Valid values:
+     *
+     * - None: No hat.
+     * @example Wear
+     *
      * @var string
      */
     public $value;

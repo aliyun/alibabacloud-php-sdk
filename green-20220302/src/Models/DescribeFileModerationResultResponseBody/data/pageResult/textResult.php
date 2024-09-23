@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class textResult extends Model
 {
     /**
-     * @description Description
+     * @description The description.
      *
      * @example This is a title.
      *
@@ -27,6 +27,10 @@ class textResult extends Model
     public $labels;
 
     /**
+     * @description Risk Level
+     *
+     * @example high
+     *
      * @var string
      */
     public $riskLevel;
@@ -59,7 +63,7 @@ class textResult extends Model
     public $service;
 
     /**
-     * @description Text content.
+     * @description The text content.
      *
      * @example This is a text.
      *
@@ -68,7 +72,7 @@ class textResult extends Model
     public $text;
 
     /**
-     * @description Text segmentation information.
+     * @description The text segmentation information.
      *
      * @example [0,999]
      *

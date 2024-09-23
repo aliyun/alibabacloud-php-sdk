@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class pageSummary extends Model
 {
     /**
+     * @description Image Results Summary
+     *
      * @var imageSummary
      */
     public $imageSummary;
 
     /**
+     * @description Number of pages
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSum;
 
     /**
+     * @description Text Results Summary
+     *
      * @var textSummary
      */
     public $textSummary;

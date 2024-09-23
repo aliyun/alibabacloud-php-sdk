@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class bang extends Model
 {
     /**
+     * @description The confidence level of the bang recognition result. Valid values: 0 to 100. A higher value indicates a more credible result.
+     *
+     * @example 81.88
+     *
      * @var float
      */
     public $confidence;
 
     /**
+     * @description Indicates whether the recognition result of bangs is available.
+     *
+     * @example Has
+     *
      * @var string
      */
     public $value;

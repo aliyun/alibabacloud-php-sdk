@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class mask extends Model
 {
     /**
+     * @description The confidence level of the result of wearing the mask. Valid values: 0 to 100. A higher value indicates a more credible result.
+     *
+     * @example 99.99
+     *
      * @var float
      */
     public $confidence;
 
     /**
+     * @description The recognition result of whether to wear a mask. Valid values:
+     *
+     * - None: No mask.
+     * @example Wear
+     *
      * @var string
      */
     public $value;

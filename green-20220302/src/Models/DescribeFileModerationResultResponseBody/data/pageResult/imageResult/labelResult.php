@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class labelResult extends Model
 {
     /**
-     * @description Confidence score, 0 to 100, reserved to 2 decimal places.
+     * @description The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places.
      *
      * @example 25.0
      *
@@ -18,6 +18,10 @@ class labelResult extends Model
     public $confidence;
 
     /**
+     * @description The description.
+     *
+     * @example This is a title.
+     *
      * @var string
      */
     public $description;

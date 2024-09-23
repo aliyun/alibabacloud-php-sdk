@@ -43,6 +43,11 @@ class data extends Model
     public $liveId;
 
     /**
+     * @var string
+     */
+    public $riskLevel;
+
+    /**
      * @description The task ID.
      *
      * @example xxxxx-xxxxx
@@ -55,6 +60,7 @@ class data extends Model
         'dataId'      => 'DataId',
         'frameResult' => 'FrameResult',
         'liveId'      => 'LiveId',
+        'riskLevel'   => 'RiskLevel',
         'taskId'      => 'TaskId',
     ];
 
@@ -76,6 +82,9 @@ class data extends Model
         }
         if (null !== $this->liveId) {
             $res['LiveId'] = $this->liveId;
+        }
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -103,6 +112,9 @@ class data extends Model
         }
         if (isset($map['LiveId'])) {
             $model->liveId = $map['LiveId'];
+        }
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

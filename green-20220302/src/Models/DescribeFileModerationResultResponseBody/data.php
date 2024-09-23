@@ -20,7 +20,7 @@ class data extends Model
     public $dataId;
 
     /**
-     * @description Optional, document type.
+     * @description Optional. The document type.
      *
      * @example doc
      *
@@ -29,24 +29,30 @@ class data extends Model
     public $docType;
 
     /**
-     * @description The pagination information.
+     * @description An array that consists of the moderation results.
      *
      * @var pageResult[]
      */
     public $pageResult;
 
     /**
+     * @description Summary of results
+     *
      * @var pageSummary
      */
     public $pageSummary;
 
     /**
+     * @description Risk Level
+     *
+     * @example high
+     *
      * @var string
      */
     public $riskLevel;
 
     /**
-     * @description The URL of the moderation object.
+     * @description The URL of the moderated object.
      *
      * @example https://detect-obj.oss-cn-hangzhou.aliyuncs.com/sample/xxxx.pdf
      *

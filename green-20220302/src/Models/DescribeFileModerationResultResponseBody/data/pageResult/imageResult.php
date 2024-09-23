@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class imageResult extends Model
 {
     /**
-     * @description Description.
+     * @description The description.
      *
      * @example This is a title.
      *
@@ -20,20 +20,24 @@ class imageResult extends Model
     public $description;
 
     /**
-     * @description Label information.
+     * @description The label information.
      *
      * @var labelResult[]
      */
     public $labelResult;
 
     /**
-     * @description Location information.
+     * @description The location information
      *
      * @var location
      */
     public $location;
 
     /**
+     * @description Risk Level
+     *
+     * @example high
+     *
      * @var string
      */
     public $riskLevel;

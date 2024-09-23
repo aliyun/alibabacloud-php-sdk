@@ -18,6 +18,11 @@ class audioResult extends Model
     public $audioSummarys;
 
     /**
+     * @var string
+     */
+    public $riskLevel;
+
+    /**
      * @description The details about the text in the moderated voice. The value is a JSON array that contains one or more elements. Each element corresponds to a text entry.
      *
      * @var sliceDetails[]
@@ -25,6 +30,7 @@ class audioResult extends Model
     public $sliceDetails;
     protected $_name = [
         'audioSummarys' => 'AudioSummarys',
+        'riskLevel'     => 'RiskLevel',
         'sliceDetails'  => 'SliceDetails',
     ];
 
@@ -43,6 +49,9 @@ class audioResult extends Model
                     $res['AudioSummarys'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
         if (null !== $this->sliceDetails) {
             $res['SliceDetails'] = [];
@@ -73,6 +82,9 @@ class audioResult extends Model
                     $model->audioSummarys[$n++] = null !== $item ? audioSummarys::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
         if (isset($map['SliceDetails'])) {
             if (!empty($map['SliceDetails'])) {

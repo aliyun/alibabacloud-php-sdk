@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class imageLabels extends Model
 {
     /**
+     * @description The description.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The details of the labels.
+     *
+     * @example contraband
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The number of times that the label is matched.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $labelSum;

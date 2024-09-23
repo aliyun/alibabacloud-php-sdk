@@ -23,6 +23,8 @@ class ext extends Model
     public $customImage;
 
     /**
+     * @description The returned face attribute information
+     *
      * @var faceData[]
      */
     public $faceData;

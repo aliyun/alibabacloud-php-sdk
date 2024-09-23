@@ -20,6 +20,8 @@ class DescribeFileModerationResultRequest extends Model
     /**
      * @description The parameters required by the moderation service. The value is a JSON string.
      *
+     *   taskId: required. The URL of the object that you want to moderate. Make sure that the URL can be accessed over the Internet.
+     *
      * @example {\\"taskId\\":\\"vi_f_hPgx9PFIQISdlfA888hOFG-1yJq8v\\"}
      *
      * @var string

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class textLabels extends Model
 {
     /**
+     * @description The details of the labels.
+     *
+     * @example contraband
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The number of times that the label is matched.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $labelSum;

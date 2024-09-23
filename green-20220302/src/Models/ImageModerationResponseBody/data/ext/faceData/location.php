@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class location extends Model
 {
     /**
+     * @description The height of the face area. Unit: pixels.
+     *
+     * @example 26
+     *
      * @var int
      */
     public $h;
 
     /**
+     * @description The width of the face area. Unit: pixels.
+     *
+     * @example 83
+     *
      * @var int
      */
     public $w;
 
     /**
+     * @description The distance from the upper-left corner of the face area to the y-axis with the upper-left corner of the image as the coordinate origin. Unit: pixels.
+     *
+     * @example 41
+     *
      * @var int
      */
     public $x;
 
     /**
+     * @description The distance from the upper-left corner of the face area to the x-axis with the upper-left corner of the image as the coordinate origin. Unit: pixels.
+     *
+     * @example 84
+     *
      * @var int
      */
     public $y;

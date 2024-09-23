@@ -45,6 +45,11 @@ class sliceDetails extends Model
     public $labels;
 
     /**
+     * @var string
+     */
+    public $riskLevel;
+
+    /**
      * @description Subcategory labels. Multiple labels are separated by commas (,).
      *
      * @example ""
@@ -111,6 +116,7 @@ class sliceDetails extends Model
         'endTimestamp'   => 'EndTimestamp',
         'extend'         => 'Extend',
         'labels'         => 'Labels',
+        'riskLevel'      => 'RiskLevel',
         'riskTips'       => 'RiskTips',
         'riskWords'      => 'RiskWords',
         'score'          => 'Score',
@@ -138,6 +144,9 @@ class sliceDetails extends Model
         }
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
+        }
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
         if (null !== $this->riskTips) {
             $res['RiskTips'] = $this->riskTips;
@@ -183,6 +192,9 @@ class sliceDetails extends Model
         }
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
+        }
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
         if (isset($map['RiskTips'])) {
             $model->riskTips = $map['RiskTips'];

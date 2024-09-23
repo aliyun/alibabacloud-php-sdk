@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class imageSummary extends Model
 {
     /**
+     * @description Image Label
+     *
      * @var imageLabels[]
      */
     public $imageLabels;
 
     /**
+     * @description Risk Level
+     *
+     * @example high
+     *
      * @var string
      */
     public $riskLevel;

@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class quality extends Model
 {
     /**
+     * @description The blur of the face image. Valid values: 0 to 100. The higher the score, the more fuzzy it is.
+     * Recommended values: 0 to 25.
+     * @example 5.88
+     *
      * @var float
      */
     public $blur;
 
     /**
+     * @description The integrity of the human face. Recommended values:80 to 100.
+     *
+     * @example 100.0
+     *
      * @var float
      */
     public $integrity;
 
     /**
+     * @description The head-up or head-down angle of the face.
+     * Recommended values:-30 to 30.
+     * @example 5.88
+     *
      * @var float
      */
     public $pitch;
 
     /**
+     * @description The plane rotation angle of the face.
+     * Recommended values:-30 to 30.
+     * @example 5.18
+     *
      * @var float
      */
     public $roll;
 
     /**
+     * @description The left and right shaking angle of the human face.
+     * Recommended values:-30 to 30.
+     * @example 5.18
+     *
      * @var float
      */
     public $yaw;

@@ -26,6 +26,11 @@ class frames extends Model
     public $results;
 
     /**
+     * @var string
+     */
+    public $riskLevel;
+
+    /**
      * @description The temporary URL of a captured frame. This URL is valid for 30 minutes.
      *
      * @example http://xxxx.abc.jpg
@@ -45,6 +50,7 @@ class frames extends Model
     protected $_name = [
         'offset'    => 'Offset',
         'results'   => 'Results',
+        'riskLevel' => 'RiskLevel',
         'tempUrl'   => 'TempUrl',
         'timestamp' => 'Timestamp',
     ];
@@ -67,6 +73,9 @@ class frames extends Model
                     $res['Results'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
         if (null !== $this->tempUrl) {
             $res['TempUrl'] = $this->tempUrl;
@@ -97,6 +106,9 @@ class frames extends Model
                     $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
         if (isset($map['TempUrl'])) {
             $model->tempUrl = $map['TempUrl'];

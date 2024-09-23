@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class pageResult extends Model
 {
     /**
-     * @description Image detection results.
+     * @description The image moderation results.
      *
      * @var imageResult[]
      */
     public $imageResult;
 
     /**
-     * @description The image url.
+     * @description The image URL.
      *
      * @example https://detect-obj.oss-cn-hangzhou.aliyuncs.com/sample/xxxx.jpg
      *
@@ -36,14 +36,14 @@ class pageResult extends Model
     public $pageNum;
 
     /**
-     * @description Text detection results.
+     * @description The text moderation results.
      *
      * @var textResult[]
      */
     public $textResult;
 
     /**
-     * @description the text url.
+     * @description The text URL.
      *
      * @example https://detect-obj.oss-cn-hangzhou.aliyuncs.com/sample/xxxx.txt
      *

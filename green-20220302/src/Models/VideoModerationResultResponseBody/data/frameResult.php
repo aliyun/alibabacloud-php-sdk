@@ -32,10 +32,16 @@ class frameResult extends Model
      * @var frames[]
      */
     public $frames;
+
+    /**
+     * @var string
+     */
+    public $riskLevel;
     protected $_name = [
         'frameNum'      => 'FrameNum',
         'frameSummarys' => 'FrameSummarys',
         'frames'        => 'Frames',
+        'riskLevel'     => 'RiskLevel',
     ];
 
     public function validate()
@@ -65,6 +71,9 @@ class frameResult extends Model
                     $res['Frames'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
 
         return $res;
@@ -98,6 +107,9 @@ class frameResult extends Model
                     $model->frames[$n++] = null !== $item ? frames::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
 
         return $model;

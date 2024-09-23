@@ -17,56 +17,85 @@ use AlibabaCloud\Tea\Model;
 class faceData extends Model
 {
     /**
+     * @description The age recognition result.
+     *
+     * @example 18
+     *
      * @var int
      */
     public $age;
 
     /**
+     * @description Indicates whether the recognition result of bangs is available.
+     *
      * @var bang
      */
     public $bang;
 
     /**
+     * @description The gender recognition result.
+     *
      * @var gender
      */
     public $gender;
 
     /**
+     * @description The recognition result of whether to wear glasses.
+     *
+     * - Sunglass: Wear sunglasses.
+     * @example Common
+     *
      * @var string
      */
     public $glasses;
 
     /**
+     * @description The hairstyle recognition result.
+     *
      * @var hairstyle
      */
     public $hairstyle;
 
     /**
+     * @description The recognition result of whether to wear a hat.
+     *
      * @var hat
      */
     public $hat;
 
     /**
+     * @description The location of the face.
+     *
      * @var location
      */
     public $location;
 
     /**
+     * @description The recognition result of whether to wear a mask.
+     *
      * @var mask
      */
     public $mask;
 
     /**
+     * @description The identification result of whether there is a beard.
+     *
      * @var mustache
      */
     public $mustache;
 
     /**
+     * @description The quality information of the face image.
+     *
      * @var quality
      */
     public $quality;
 
     /**
+     * @description The smiling degree of the face.
+     *
+     * @example 85.88
+     *
      * @var float
      */
     public $smile;

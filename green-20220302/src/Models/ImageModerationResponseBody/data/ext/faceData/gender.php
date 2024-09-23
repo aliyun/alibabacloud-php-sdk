@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class gender extends Model
 {
     /**
+     * @description The confidence level of the gender recognition result. Valid values: 0 to 100. A higher value indicates a more credible result.
+     *
+     * @example 81.88
+     *
      * @var float
      */
     public $confidence;
 
     /**
+     * @description The gender recognition result. Valid values:
+     *
+     * - FeMale
+     * @example FeMale
+     *
      * @var string
      */
     public $value;

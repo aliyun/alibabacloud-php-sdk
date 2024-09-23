@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class textSummary extends Model
 {
     /**
+     * @description Risk Level
+     *
+     * @example high
+     *
      * @var string
      */
     public $riskLevel;
 
     /**
+     * @description Text Label
+     *
      * @var textLabels[]
      */
     public $textLabels;
