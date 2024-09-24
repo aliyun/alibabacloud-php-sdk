@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\DianJin\V20240628;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateFinReportSummaryTaskRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateFinReportSummaryTaskResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateLibraryRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateLibraryResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreatePredefinedDocumentRequest;
@@ -14,6 +16,8 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\DeleteDocumentRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\DeleteDocumentResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\DeleteLibraryRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\DeleteLibraryResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\EvictTaskRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\EvictTaskResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetAppConfigResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDocumentChunkListRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDocumentChunkListResponse;
@@ -31,12 +35,18 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\GetLibraryRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetLibraryResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetParseResultRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetParseResultResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetSummaryTaskResultRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetSummaryTaskResultResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetTaskStatusRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetTaskStatusResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\InvokePluginRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\InvokePluginResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\PreviewDocumentRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\PreviewDocumentResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RecallDocumentRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RecallDocumentResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\RecognizeIntentionRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\RecognizeIntentionResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\ReIndexRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\ReIndexResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RunChatResultGenerationRequest;
@@ -95,6 +105,79 @@ class DianJin extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 创建财报总结任务
+     *  *
+     * @param string                            $workspaceId
+     * @param CreateFinReportSummaryTaskRequest $request     CreateFinReportSummaryTaskRequest
+     * @param string[]                          $headers     map
+     * @param RuntimeOptions                    $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return CreateFinReportSummaryTaskResponse CreateFinReportSummaryTaskResponse
+     */
+    public function createFinReportSummaryTaskWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->docId)) {
+            $body['docId'] = $request->docId;
+        }
+        if (!Utils::isUnset($request->enableTable)) {
+            $body['enableTable'] = $request->enableTable;
+        }
+        if (!Utils::isUnset($request->endPage)) {
+            $body['endPage'] = $request->endPage;
+        }
+        if (!Utils::isUnset($request->instruction)) {
+            $body['instruction'] = $request->instruction;
+        }
+        if (!Utils::isUnset($request->libraryId)) {
+            $body['libraryId'] = $request->libraryId;
+        }
+        if (!Utils::isUnset($request->modelId)) {
+            $body['modelId'] = $request->modelId;
+        }
+        if (!Utils::isUnset($request->startPage)) {
+            $body['startPage'] = $request->startPage;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $body['taskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFinReportSummaryTask',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/api/task/summary',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateFinReportSummaryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建财报总结任务
+     *  *
+     * @param string                            $workspaceId
+     * @param CreateFinReportSummaryTaskRequest $request     CreateFinReportSummaryTaskRequest
+     *
+     * @return CreateFinReportSummaryTaskResponse CreateFinReportSummaryTaskResponse
+     */
+    public function createFinReportSummaryTask($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createFinReportSummaryTaskWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -321,6 +404,58 @@ class DianJin extends OpenApiClient
         $headers = [];
 
         return $this->deleteLibraryWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 中断任务
+     *  *
+     * @param string           $workspaceId
+     * @param EvictTaskRequest $request     EvictTaskRequest
+     * @param string[]         $headers     map
+     * @param RuntimeOptions   $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return EvictTaskResponse EvictTaskResponse
+     */
+    public function evictTaskWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $query['taskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EvictTask',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/api/task/evict',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return EvictTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 中断任务
+     *  *
+     * @param string           $workspaceId
+     * @param EvictTaskRequest $request     EvictTaskRequest
+     *
+     * @return EvictTaskResponse EvictTaskResponse
+     */
+    public function evictTask($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->evictTaskWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -850,6 +985,110 @@ class DianJin extends OpenApiClient
     }
 
     /**
+     * @summary 获取财报总结任务结果
+     *  *
+     * @param string                      $workspaceId
+     * @param GetSummaryTaskResultRequest $request     GetSummaryTaskResultRequest
+     * @param string[]                    $headers     map
+     * @param RuntimeOptions              $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return GetSummaryTaskResultResponse GetSummaryTaskResultResponse
+     */
+    public function getSummaryTaskResultWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $query['taskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSummaryTaskResult',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/api/task/summary/result',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSummaryTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取财报总结任务结果
+     *  *
+     * @param string                      $workspaceId
+     * @param GetSummaryTaskResultRequest $request     GetSummaryTaskResultRequest
+     *
+     * @return GetSummaryTaskResultResponse GetSummaryTaskResultResponse
+     */
+    public function getSummaryTaskResult($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getSummaryTaskResultWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取财报总结任务结果
+     *  *
+     * @param string               $workspaceId
+     * @param GetTaskStatusRequest $request     GetTaskStatusRequest
+     * @param string[]             $headers     map
+     * @param RuntimeOptions       $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return GetTaskStatusResponse GetTaskStatusResponse
+     */
+    public function getTaskStatusWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $query['taskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTaskStatus',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/api/task/status',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取财报总结任务结果
+     *  *
+     * @param string               $workspaceId
+     * @param GetTaskStatusRequest $request     GetTaskStatusRequest
+     *
+     * @return GetTaskStatusResponse GetTaskStatusResponse
+     */
+    public function getTaskStatus($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTaskStatusWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 插件调试接口
      *  *
      * @param string              $workspaceId
@@ -1067,6 +1306,79 @@ class DianJin extends OpenApiClient
         $headers = [];
 
         return $this->recallDocumentWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 意图识别
+     *  *
+     * @param string                    $workspaceId
+     * @param RecognizeIntentionRequest $request     RecognizeIntentionRequest
+     * @param string[]                  $headers     map
+     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return RecognizeIntentionResponse RecognizeIntentionResponse
+     */
+    public function recognizeIntentionWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->analysis)) {
+            $body['analysis'] = $request->analysis;
+        }
+        if (!Utils::isUnset($request->bizType)) {
+            $body['bizType'] = $request->bizType;
+        }
+        if (!Utils::isUnset($request->conversation)) {
+            $body['conversation'] = $request->conversation;
+        }
+        if (!Utils::isUnset($request->globalIntentionList)) {
+            $body['globalIntentionList'] = $request->globalIntentionList;
+        }
+        if (!Utils::isUnset($request->hierarchicalIntentionList)) {
+            $body['hierarchicalIntentionList'] = $request->hierarchicalIntentionList;
+        }
+        if (!Utils::isUnset($request->intentionList)) {
+            $body['intentionList'] = $request->intentionList;
+        }
+        if (!Utils::isUnset($request->opType)) {
+            $body['opType'] = $request->opType;
+        }
+        if (!Utils::isUnset($request->recommend)) {
+            $body['recommend'] = $request->recommend;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeIntention',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/api/recog/intent',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeIntentionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 意图识别
+     *  *
+     * @param string                    $workspaceId
+     * @param RecognizeIntentionRequest $request     RecognizeIntentionRequest
+     *
+     * @return RecognizeIntentionResponse RecognizeIntentionResponse
+     */
+    public function recognizeIntention($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->recognizeIntentionWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
