@@ -99,6 +99,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteSmartJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteSmartJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteTemplateResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeAIAgentInstanceRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeAIAgentInstanceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsEditUsageRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsEditUsageResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsMediaConvertUHDUsageRequest;
@@ -109,6 +111,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsMpsAiUsageRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsMpsAiUsageResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsSummaryRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsSummaryResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeNotifyConfigRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeNotifyConfigResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayListRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayListResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeRtcRobotInstanceRequest;
@@ -119,6 +123,9 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DropSearchIndexRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DropSearchIndexResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DropSearchLibRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DropSearchLibResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GenerateAIAgentCallRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GenerateAIAgentCallResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GenerateAIAgentCallShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GenerateKMSDataKeyResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAvatarRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAvatarResponse;
@@ -203,6 +210,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetWorkflowTaskRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetWorkflowTaskResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\InsertMediaToSearchLibRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\InsertMediaToSearchLibResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListAIAgentInstanceRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListAIAgentInstanceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAllPublicMediaTagsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAllPublicMediaTagsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAvatarsRequest;
@@ -310,6 +319,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchPublicMediaInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchPublicMediaInfoResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SendAIAgentSpeechRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SendAIAgentSpeechResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SendLiveSnapshotJobCommandRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SendLiveSnapshotJobCommandResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SendLiveTranscodeJobCommandRequest;
@@ -322,11 +333,18 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SetDefaultStorageLocationRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SetDefaultStorageLocationResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SetEventCallbackRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SetEventCallbackResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SetNotifyConfigRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SetNotifyConfigResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\StartAIAgentInstanceRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\StartAIAgentInstanceResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\StartAIAgentInstanceShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartRtcRobotInstanceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartRtcRobotInstanceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartRtcRobotInstanceShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartWorkflowRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartWorkflowResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\StopAIAgentInstanceRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\StopAIAgentInstanceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StopRtcRobotInstanceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StopRtcRobotInstanceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitASRJobRequest;
@@ -396,6 +414,9 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitVideoTranslationJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitVideoTranslationJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateAIAgentInstanceRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateAIAgentInstanceResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateAIAgentInstanceShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateAvatarTrainingJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateAvatarTrainingJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateCategoryRequest;
@@ -2931,6 +2952,53 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary 查询实例
+     *  *
+     * @param DescribeAIAgentInstanceRequest $request DescribeAIAgentInstanceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAIAgentInstanceResponse DescribeAIAgentInstanceResponse
+     */
+    public function describeAIAgentInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAIAgentInstance',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAIAgentInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询实例
+     *  *
+     * @param DescribeAIAgentInstanceRequest $request DescribeAIAgentInstanceRequest
+     *
+     * @return DescribeAIAgentInstanceResponse DescribeAIAgentInstanceResponse
+     */
+    public function describeAIAgentInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAIAgentInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeMeterImsEditUsageRequest $request DescribeMeterImsEditUsageRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -3189,6 +3257,53 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeMeterImsSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 描述回调配置
+     *  *
+     * @param DescribeNotifyConfigRequest $request DescribeNotifyConfigRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeNotifyConfigResponse DescribeNotifyConfigResponse
+     */
+    public function describeNotifyConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->AIAgentId)) {
+            $query['AIAgentId'] = $request->AIAgentId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNotifyConfig',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeNotifyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 描述回调配置
+     *  *
+     * @param DescribeNotifyConfigRequest $request DescribeNotifyConfigRequest
+     *
+     * @return DescribeNotifyConfigResponse DescribeNotifyConfigResponse
+     */
+    public function describeNotifyConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNotifyConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -3453,6 +3568,67 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->dropSearchLibWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建一个智能体实例，返回智能体所在的频道、频道内名称以及进入频道所需的token。
+     *  *
+     * @param GenerateAIAgentCallRequest $tmpReq  GenerateAIAgentCallRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GenerateAIAgentCallResponse GenerateAIAgentCallResponse
+     */
+    public function generateAIAgentCallWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GenerateAIAgentCallShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->templateConfig)) {
+            $request->templateConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->templateConfig, 'TemplateConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->AIAgentId)) {
+            $query['AIAgentId'] = $request->AIAgentId;
+        }
+        if (!Utils::isUnset($request->expire)) {
+            $query['Expire'] = $request->expire;
+        }
+        if (!Utils::isUnset($request->templateConfigShrink)) {
+            $query['TemplateConfig'] = $request->templateConfigShrink;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateAIAgentCall',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateAIAgentCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建一个智能体实例，返回智能体所在的频道、频道内名称以及进入频道所需的token。
+     *  *
+     * @param GenerateAIAgentCallRequest $request GenerateAIAgentCallRequest
+     *
+     * @return GenerateAIAgentCallResponse GenerateAIAgentCallResponse
+     */
+    public function generateAIAgentCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateAIAgentCallWithOptions($request, $runtime);
     }
 
     /**
@@ -5557,6 +5733,65 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->insertMediaToSearchLibWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 列出实例
+     *  *
+     * @param ListAIAgentInstanceRequest $request ListAIAgentInstanceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAIAgentInstanceResponse ListAIAgentInstanceResponse
+     */
+    public function listAIAgentInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->AIAgentId)) {
+            $query['AIAgentId'] = $request->AIAgentId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAIAgentInstance',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAIAgentInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 列出实例
+     *  *
+     * @param ListAIAgentInstanceRequest $request ListAIAgentInstanceRequest
+     *
+     * @return ListAIAgentInstanceResponse ListAIAgentInstanceResponse
+     */
+    public function listAIAgentInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAIAgentInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -8696,6 +8931,59 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary 用来立即让某个智能体实例播报指定的文本。
+     *  *
+     * @param SendAIAgentSpeechRequest $request SendAIAgentSpeechRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SendAIAgentSpeechResponse SendAIAgentSpeechResponse
+     */
+    public function sendAIAgentSpeechWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->enableInterrupt)) {
+            $query['EnableInterrupt'] = $request->enableInterrupt;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->text)) {
+            $query['Text'] = $request->text;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SendAIAgentSpeech',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendAIAgentSpeechResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 用来立即让某个智能体实例播报指定的文本。
+     *  *
+     * @param SendAIAgentSpeechRequest $request SendAIAgentSpeechRequest
+     *
+     * @return SendAIAgentSpeechResponse SendAIAgentSpeechResponse
+     */
+    public function sendAIAgentSpeech($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendAIAgentSpeechWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 发送实时截图任务指令
      *  *
      * @param SendLiveSnapshotJobCommandRequest $request SendLiveSnapshotJobCommandRequest
@@ -9011,6 +9299,129 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary 更新回调配置
+     *  *
+     * @param SetNotifyConfigRequest $request SetNotifyConfigRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SetNotifyConfigResponse SetNotifyConfigResponse
+     */
+    public function setNotifyConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->AIAgentId)) {
+            $query['AIAgentId'] = $request->AIAgentId;
+        }
+        if (!Utils::isUnset($request->callbackUrl)) {
+            $query['CallbackUrl'] = $request->callbackUrl;
+        }
+        if (!Utils::isUnset($request->enableNotify)) {
+            $query['EnableNotify'] = $request->enableNotify;
+        }
+        if (!Utils::isUnset($request->eventTypes)) {
+            $query['EventTypes'] = $request->eventTypes;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetNotifyConfig',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetNotifyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新回调配置
+     *  *
+     * @param SetNotifyConfigRequest $request SetNotifyConfigRequest
+     *
+     * @return SetNotifyConfigResponse SetNotifyConfigResponse
+     */
+    public function setNotifyConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setNotifyConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 启动一个智能体实例，并加入通话。
+     *  *
+     * @param StartAIAgentInstanceRequest $tmpReq  StartAIAgentInstanceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StartAIAgentInstanceResponse StartAIAgentInstanceResponse
+     */
+    public function startAIAgentInstanceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new StartAIAgentInstanceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->runtimeConfig)) {
+            $request->runtimeConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->runtimeConfig, 'RuntimeConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->templateConfig)) {
+            $request->templateConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->templateConfig, 'TemplateConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->AIAgentId)) {
+            $query['AIAgentId'] = $request->AIAgentId;
+        }
+        if (!Utils::isUnset($request->runtimeConfigShrink)) {
+            $query['RuntimeConfig'] = $request->runtimeConfigShrink;
+        }
+        if (!Utils::isUnset($request->templateConfigShrink)) {
+            $query['TemplateConfig'] = $request->templateConfigShrink;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartAIAgentInstance',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartAIAgentInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 启动一个智能体实例，并加入通话。
+     *  *
+     * @param StartAIAgentInstanceRequest $request StartAIAgentInstanceRequest
+     *
+     * @return StartAIAgentInstanceResponse StartAIAgentInstanceResponse
+     */
+    public function startAIAgentInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startAIAgentInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 开启一个机器人实例
      *  *
      * @param StartRtcRobotInstanceRequest $tmpReq  StartRtcRobotInstanceRequest
@@ -9128,6 +9539,53 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startWorkflowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 停止一个智能体实例。
+     *  *
+     * @param StopAIAgentInstanceRequest $request StopAIAgentInstanceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StopAIAgentInstanceResponse StopAIAgentInstanceResponse
+     */
+    public function stopAIAgentInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopAIAgentInstance',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopAIAgentInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 停止一个智能体实例。
+     *  *
+     * @param StopAIAgentInstanceRequest $request StopAIAgentInstanceRequest
+     *
+     * @return StopAIAgentInstanceResponse StopAIAgentInstanceResponse
+     */
+    public function stopAIAgentInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopAIAgentInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -10978,6 +11436,64 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitVideoTranslationJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改实例的配置
+     *  *
+     * @param UpdateAIAgentInstanceRequest $tmpReq  UpdateAIAgentInstanceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateAIAgentInstanceResponse UpdateAIAgentInstanceResponse
+     */
+    public function updateAIAgentInstanceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateAIAgentInstanceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->templateConfig)) {
+            $request->templateConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->templateConfig, 'TemplateConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->templateConfigShrink)) {
+            $query['TemplateConfig'] = $request->templateConfigShrink;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAIAgentInstance',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAIAgentInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改实例的配置
+     *  *
+     * @param UpdateAIAgentInstanceRequest $request UpdateAIAgentInstanceRequest
+     *
+     * @return UpdateAIAgentInstanceResponse UpdateAIAgentInstanceResponse
+     */
+    public function updateAIAgentInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAIAgentInstanceWithOptions($request, $runtime);
     }
 
     /**
