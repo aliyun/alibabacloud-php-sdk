@@ -37,6 +37,10 @@ use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetFoTaskStatusRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetFoTaskStatusResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetPotentialFailZonesRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetPotentialFailZonesResponse;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetResource4ModifyRecordRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetResource4ModifyRecordResponse;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetResult4QueryInstancePrice4ModifyRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetResult4QueryInstancePrice4ModifyResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetTemplateRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetTemplateResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetTokenRequest;
@@ -50,6 +54,15 @@ use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListTemplateRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListTemplateResponse;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\ModifyApplicationSpecRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\ModifyApplicationSpecResponse;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\ModifyApplicationSpecShrinkRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\QueryInstancePrice4ModifyRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\QueryInstancePrice4ModifyResponse;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\QueryInstancePrice4ModifyShrinkRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\QueryInstanceSpec4ModifyRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\QueryInstanceSpec4ModifyResponse;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\QueryInstanceSpec4ModifyShrinkRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ReConfigApplicationRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ReConfigApplicationResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ReleaseApplicationRequest;
@@ -881,6 +894,109 @@ class BPStudio extends OpenApiClient
     }
 
     /**
+     * @summary 获取询价应用变配记录
+     *  *
+     * @param GetResource4ModifyRecordRequest $request GetResource4ModifyRecordRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetResource4ModifyRecordResponse GetResource4ModifyRecordResponse
+     */
+    public function getResource4ModifyRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetResource4ModifyRecord',
+            'version'     => '2021-09-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetResource4ModifyRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取询价应用变配记录
+     *  *
+     * @param GetResource4ModifyRecordRequest $request GetResource4ModifyRecordRequest
+     *
+     * @return GetResource4ModifyRecordResponse GetResource4ModifyRecordResponse
+     */
+    public function getResource4ModifyRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getResource4ModifyRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取询价结果
+     *  *
+     * @param GetResult4QueryInstancePrice4ModifyRequest $request GetResult4QueryInstancePrice4ModifyRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetResult4QueryInstancePrice4ModifyResponse GetResult4QueryInstancePrice4ModifyResponse
+     */
+    public function getResult4QueryInstancePrice4ModifyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetResult4QueryInstancePrice4Modify',
+            'version'     => '2021-09-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetResult4QueryInstancePrice4ModifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取询价结果
+     *  *
+     * @param GetResult4QueryInstancePrice4ModifyRequest $request GetResult4QueryInstancePrice4ModifyRequest
+     *
+     * @return GetResult4QueryInstancePrice4ModifyResponse GetResult4QueryInstancePrice4ModifyResponse
+     */
+    public function getResult4QueryInstancePrice4Modify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getResult4QueryInstancePrice4ModifyWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Get template images and information about architecture diagrams.
      *  *
      * @param GetTemplateRequest $request GetTemplateRequest
@@ -1279,6 +1395,180 @@ class BPStudio extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 提交应用变配
+     *  *
+     * @param ModifyApplicationSpecRequest $tmpReq  ModifyApplicationSpecRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyApplicationSpecResponse ModifyApplicationSpecResponse
+     */
+    public function modifyApplicationSpecWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyApplicationSpecShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceSpec)) {
+            $request->instanceSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceSpec, 'InstanceSpec', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
+        }
+        if (!Utils::isUnset($request->instanceSpecShrink)) {
+            $body['InstanceSpec'] = $request->instanceSpecShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyApplicationSpec',
+            'version'     => '2021-09-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyApplicationSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提交应用变配
+     *  *
+     * @param ModifyApplicationSpecRequest $request ModifyApplicationSpecRequest
+     *
+     * @return ModifyApplicationSpecResponse ModifyApplicationSpecResponse
+     */
+    public function modifyApplicationSpec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyApplicationSpecWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询变配价格
+     *  *
+     * @param QueryInstancePrice4ModifyRequest $tmpReq  QueryInstancePrice4ModifyRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryInstancePrice4ModifyResponse QueryInstancePrice4ModifyResponse
+     */
+    public function queryInstancePrice4ModifyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryInstancePrice4ModifyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->configuration)) {
+            $request->configurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configuration, 'Configuration', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
+        }
+        if (!Utils::isUnset($request->configurationShrink)) {
+            $body['Configuration'] = $request->configurationShrink;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryInstancePrice4Modify',
+            'version'     => '2021-09-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryInstancePrice4ModifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询变配价格
+     *  *
+     * @param QueryInstancePrice4ModifyRequest $request QueryInstancePrice4ModifyRequest
+     *
+     * @return QueryInstancePrice4ModifyResponse QueryInstancePrice4ModifyResponse
+     */
+    public function queryInstancePrice4Modify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryInstancePrice4ModifyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询变配规格列表
+     *  *
+     * @param QueryInstanceSpec4ModifyRequest $tmpReq  QueryInstanceSpec4ModifyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryInstanceSpec4ModifyResponse QueryInstanceSpec4ModifyResponse
+     */
+    public function queryInstanceSpec4ModifyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryInstanceSpec4ModifyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->methodName)) {
+            $body['MethodName'] = $request->methodName;
+        }
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $body['Parameters'] = $request->parametersShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryInstanceSpec4Modify',
+            'version'     => '2021-09-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryInstanceSpec4ModifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询变配规格列表
+     *  *
+     * @param QueryInstanceSpec4ModifyRequest $request QueryInstanceSpec4ModifyRequest
+     *
+     * @return QueryInstanceSpec4ModifyResponse QueryInstanceSpec4ModifyResponse
+     */
+    public function queryInstanceSpec4Modify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryInstanceSpec4ModifyWithOptions($request, $runtime);
     }
 
     /**
