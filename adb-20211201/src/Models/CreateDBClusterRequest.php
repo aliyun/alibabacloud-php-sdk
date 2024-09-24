@@ -20,6 +20,11 @@ class CreateDBClusterRequest extends Model
     public $backupSetId;
 
     /**
+     * @var string
+     */
+    public $cloneSourceRegionId;
+
+    /**
      * @description The amount of reserved computing resources. Valid values: 0ACU to 4096ACU. The value must be in increments of 16ACU. Each ACU is approximately equal to 1 core and 4 GB memory.
      *
      * >  This parameter must be specified with a unit.
@@ -235,6 +240,7 @@ class CreateDBClusterRequest extends Model
     public $zoneId;
     protected $_name = [
         'backupSetId'               => 'BackupSetId',
+        'cloneSourceRegionId'       => 'CloneSourceRegionId',
         'computeResource'           => 'ComputeResource',
         'DBClusterDescription'      => 'DBClusterDescription',
         'DBClusterNetworkType'      => 'DBClusterNetworkType',
@@ -269,6 +275,9 @@ class CreateDBClusterRequest extends Model
         $res = [];
         if (null !== $this->backupSetId) {
             $res['BackupSetId'] = $this->backupSetId;
+        }
+        if (null !== $this->cloneSourceRegionId) {
+            $res['CloneSourceRegionId'] = $this->cloneSourceRegionId;
         }
         if (null !== $this->computeResource) {
             $res['ComputeResource'] = $this->computeResource;
@@ -359,6 +368,9 @@ class CreateDBClusterRequest extends Model
         $model = new self();
         if (isset($map['BackupSetId'])) {
             $model->backupSetId = $map['BackupSetId'];
+        }
+        if (isset($map['CloneSourceRegionId'])) {
+            $model->cloneSourceRegionId = $map['CloneSourceRegionId'];
         }
         if (isset($map['ComputeResource'])) {
             $model->computeResource = $map['ComputeResource'];

@@ -758,6 +758,9 @@ class Adb extends OpenApiClient
         if (!Utils::isUnset($request->backupSetId)) {
             $query['BackupSetId'] = $request->backupSetId;
         }
+        if (!Utils::isUnset($request->cloneSourceRegionId)) {
+            $query['CloneSourceRegionId'] = $request->cloneSourceRegionId;
+        }
         if (!Utils::isUnset($request->computeResource)) {
             $query['ComputeResource'] = $request->computeResource;
         }
