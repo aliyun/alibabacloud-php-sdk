@@ -18,7 +18,7 @@ class priceList extends Model
     /**
      * @var string
      */
-    public $ERROR;
+    public $error;
 
     /**
      * @example vpc
@@ -52,7 +52,7 @@ class priceList extends Model
     public $tradeAmount;
     protected $_name = [
         'discountAmount' => 'DiscountAmount',
-        'ERROR'          => 'ERROR',
+        'error'          => 'Error',
         'nodeType'       => 'NodeType',
         'originalAmount' => 'OriginalAmount',
         'priceUnit'      => 'PriceUnit',
@@ -70,8 +70,8 @@ class priceList extends Model
         if (null !== $this->discountAmount) {
             $res['DiscountAmount'] = $this->discountAmount;
         }
-        if (null !== $this->ERROR) {
-            $res['ERROR'] = $this->ERROR;
+        if (null !== $this->error) {
+            $res['Error'] = $this->error;
         }
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
@@ -103,8 +103,8 @@ class priceList extends Model
         if (isset($map['DiscountAmount'])) {
             $model->discountAmount = $map['DiscountAmount'];
         }
-        if (isset($map['ERROR'])) {
-            $model->ERROR = $map['ERROR'];
+        if (isset($map['Error'])) {
+            $model->error = $map['Error'];
         }
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
