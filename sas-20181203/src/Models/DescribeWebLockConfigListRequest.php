@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockConfigListRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $id;
+
+    /**
      * @description The language of the content within the request and response. Valid values:
      *
      *   **zh**: Chinese
@@ -39,6 +44,7 @@ class DescribeWebLockConfigListRequest extends Model
      */
     public $uuid;
     protected $_name = [
+        'id'       => 'Id',
         'lang'     => 'Lang',
         'sourceIp' => 'SourceIp',
         'uuid'     => 'Uuid',
@@ -51,6 +57,9 @@ class DescribeWebLockConfigListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -72,6 +81,9 @@ class DescribeWebLockConfigListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

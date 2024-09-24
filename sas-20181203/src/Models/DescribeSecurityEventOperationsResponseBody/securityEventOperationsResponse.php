@@ -4,12 +4,18 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecurityEventOperationsResponseBody;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecurityEventOperationsResponseBody\securityEventOperationsResponse\mappingMarkFields;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecurityEventOperationsResponseBody\securityEventOperationsResponse\markField;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecurityEventOperationsResponseBody\securityEventOperationsResponse\markFieldsSource;
 use AlibabaCloud\Tea\Model;
 
 class securityEventOperationsResponse extends Model
 {
+    /**
+     * @var mappingMarkFields[]
+     */
+    public $mappingMarkFields;
+
     /**
      * @description An array consisting of the configuration information that is used when the value of the OperationCode parameter is **advance_mark_mis_info**.
      *
@@ -66,11 +72,12 @@ class securityEventOperationsResponse extends Model
      */
     public $userCanOperate;
     protected $_name = [
-        'markField'        => 'MarkField',
-        'markFieldsSource' => 'MarkFieldsSource',
-        'operationCode'    => 'OperationCode',
-        'operationParams'  => 'OperationParams',
-        'userCanOperate'   => 'UserCanOperate',
+        'mappingMarkFields' => 'MappingMarkFields',
+        'markField'         => 'MarkField',
+        'markFieldsSource'  => 'MarkFieldsSource',
+        'operationCode'     => 'OperationCode',
+        'operationParams'   => 'OperationParams',
+        'userCanOperate'    => 'UserCanOperate',
     ];
 
     public function validate()
@@ -80,6 +87,15 @@ class securityEventOperationsResponse extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->mappingMarkFields) {
+            $res['MappingMarkFields'] = [];
+            if (null !== $this->mappingMarkFields && \is_array($this->mappingMarkFields)) {
+                $n = 0;
+                foreach ($this->mappingMarkFields as $item) {
+                    $res['MappingMarkFields'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->markField) {
             $res['MarkField'] = [];
             if (null !== $this->markField && \is_array($this->markField)) {
@@ -119,6 +135,15 @@ class securityEventOperationsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MappingMarkFields'])) {
+            if (!empty($map['MappingMarkFields'])) {
+                $model->mappingMarkFields = [];
+                $n                        = 0;
+                foreach ($map['MappingMarkFields'] as $item) {
+                    $model->mappingMarkFields[$n++] = null !== $item ? mappingMarkFields::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['MarkField'])) {
             if (!empty($map['MarkField'])) {
                 $model->markField = [];

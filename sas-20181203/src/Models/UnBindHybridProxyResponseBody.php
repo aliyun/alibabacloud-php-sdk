@@ -6,23 +6,15 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyWebLockCreateConfigResponseBody extends Model
+class UnBindHybridProxyResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $configId;
-
-    /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example D9354C1A-D709-4873-9AAE-41513327B247
+     * @example 3956048F-9D73-5EDB-834B-4827BB483977
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'configId'  => 'ConfigId',
         'requestId' => 'RequestId',
     ];
 
@@ -33,9 +25,6 @@ class ModifyWebLockCreateConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->configId) {
-            $res['ConfigId'] = $this->configId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,14 +35,11 @@ class ModifyWebLockCreateConfigResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyWebLockCreateConfigResponseBody
+     * @return UnBindHybridProxyResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ConfigId'])) {
-            $model->configId = $map['ConfigId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

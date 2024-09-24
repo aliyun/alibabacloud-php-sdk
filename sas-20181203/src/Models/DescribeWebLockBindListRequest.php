@@ -67,6 +67,11 @@ class DescribeWebLockBindListRequest extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
         'currentPage' => 'CurrentPage',
         'lang'        => 'Lang',
@@ -74,6 +79,7 @@ class DescribeWebLockBindListRequest extends Model
         'remark'      => 'Remark',
         'sourceIp'    => 'SourceIp',
         'status'      => 'Status',
+        'uuid'        => 'Uuid',
     ];
 
     public function validate()
@@ -100,6 +106,9 @@ class DescribeWebLockBindListRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -130,6 +139,9 @@ class DescribeWebLockBindListRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

@@ -33,6 +33,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\AddInstallCodeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddInstallCodeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddPrivateRegistryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddPrivateRegistryResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\AddPublishBatchRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\AddPublishBatchResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddSasContainerWebDefenseRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddSasContainerWebDefenseRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddSasModuleTrialRequest;
@@ -45,6 +47,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\AddVpcHoneyPotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddVpcHoneyPotResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AdvanceSecurityEventOperationsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AdvanceSecurityEventOperationsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\BatchCreateMaliciousNoteRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\BatchCreateMaliciousNoteResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\BatchDeleteMaliciousFileWhitelistConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\BatchDeleteMaliciousFileWhitelistConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\BatchOperateCommonOverallConfigRequest;
@@ -515,6 +519,14 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHoneyPotAuthRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHoneyPotAuthResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHoneyPotSuspStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHoneyPotSuspStatisticsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHybridProxyClusterListRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHybridProxyClusterListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHybridProxyLinkedClientListRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHybridProxyLinkedClientListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHybridProxyListRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHybridProxyListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHybridProxyPolicyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHybridProxyPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeIdcAssetCriteriaRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeIdcAssetCriteriaResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeIdcProbeScanResultListRequest;
@@ -951,6 +963,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetCommonSwitchConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCommonSwitchConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetContainerDefenseRuleDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetContainerDefenseRuleDetailResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetCurrentVersionPublishResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetDataTrendRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetDataTrendResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetDefenceCountResponse;
@@ -1095,6 +1108,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessRiskUuidResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetCleanConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetInfoPublishRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetInfoPublishResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetRefreshTaskConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetRefreshTaskConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetSelectionSelectedTargetRequest;
@@ -1211,10 +1226,13 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListPluginForUuidResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListPluginForUuidShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListPodRiskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListPodRiskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListPrivateK8sResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListPrivateRegistryListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListPrivateRegistryListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListPrivateRegistryTypeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListPrivateRegistryTypeResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListPublishBatchRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListPublishBatchResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListQueryRaspAppInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListQueryRaspAppInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListRdDefaultSyncListResponse;
@@ -1260,6 +1278,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAssetGroupRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAssetGroupResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAssetImportantRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAssetImportantResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAttestorRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAttestorResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAutoDelConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAutoDelConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyBackupPolicyRequest;
@@ -1506,6 +1526,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\SendCustomizeReportRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SendCustomizeReportResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetClusterInterceptionConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetClusterInterceptionConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\SetImageBuildRiskStatusRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\SetImageBuildRiskStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetImageSensitiveFileStatusRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetImageSensitiveFileStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetRegistryScanDayNumRequest;
@@ -1533,6 +1555,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\SubmitOperationTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\TriggerCheckResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UnbindAegisRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UnbindAegisResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UnBindHybridProxyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UnBindHybridProxyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallBackupClientRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallBackupClientResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallRaspAttachRequest;
@@ -2568,6 +2592,62 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary 新增发布批次
+     *  *
+     * @param AddPublishBatchRequest $request AddPublishBatchRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AddPublishBatchResponse AddPublishBatchResponse
+     */
+    public function addPublishBatchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->batchName)) {
+            $query['BatchName'] = $request->batchName;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->operationBase)) {
+            $query['OperationBase'] = $request->operationBase;
+        }
+        if (!Utils::isUnset($request->upgradeVersion)) {
+            $query['UpgradeVersion'] = $request->upgradeVersion;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddPublishBatch',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddPublishBatchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新增发布批次
+     *  *
+     * @param AddPublishBatchRequest $request AddPublishBatchRequest
+     *
+     * @return AddPublishBatchResponse AddPublishBatchResponse
+     */
+    public function addPublishBatch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addPublishBatchWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates a rule for container tamper-proofing.
      *  *
      * @param AddSasContainerWebDefenseRuleRequest $request AddSasContainerWebDefenseRuleRequest
@@ -2881,6 +2961,53 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->advanceSecurityEventOperationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 批量创建恶意文件告警备注
+     *  *
+     * @param BatchCreateMaliciousNoteRequest $request BatchCreateMaliciousNoteRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchCreateMaliciousNoteResponse BatchCreateMaliciousNoteResponse
+     */
+    public function batchCreateMaliciousNoteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->imageMaliciousFileList)) {
+            $query['ImageMaliciousFileList'] = $request->imageMaliciousFileList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchCreateMaliciousNote',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchCreateMaliciousNoteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量创建恶意文件告警备注
+     *  *
+     * @param BatchCreateMaliciousNoteRequest $request BatchCreateMaliciousNoteRequest
+     *
+     * @return BatchCreateMaliciousNoteResponse BatchCreateMaliciousNoteResponse
+     */
+    public function batchCreateMaliciousNote($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchCreateMaliciousNoteWithOptions($request, $runtime);
     }
 
     /**
@@ -16110,6 +16237,221 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary 查询代理集群列表
+     *  *
+     * @param DescribeHybridProxyClusterListRequest $request DescribeHybridProxyClusterListRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeHybridProxyClusterListResponse DescribeHybridProxyClusterListResponse
+     */
+    public function describeHybridProxyClusterListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHybridProxyClusterList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHybridProxyClusterListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询代理集群列表
+     *  *
+     * @param DescribeHybridProxyClusterListRequest $request DescribeHybridProxyClusterListRequest
+     *
+     * @return DescribeHybridProxyClusterListResponse DescribeHybridProxyClusterListResponse
+     */
+    public function describeHybridProxyClusterList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHybridProxyClusterListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询代理连接的客户端
+     *  *
+     * @param DescribeHybridProxyLinkedClientListRequest $request DescribeHybridProxyLinkedClientListRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeHybridProxyLinkedClientListResponse DescribeHybridProxyLinkedClientListResponse
+     */
+    public function describeHybridProxyLinkedClientListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->proxyUuid)) {
+            $query['ProxyUuid'] = $request->proxyUuid;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHybridProxyLinkedClientList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHybridProxyLinkedClientListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询代理连接的客户端
+     *  *
+     * @param DescribeHybridProxyLinkedClientListRequest $request DescribeHybridProxyLinkedClientListRequest
+     *
+     * @return DescribeHybridProxyLinkedClientListResponse DescribeHybridProxyLinkedClientListResponse
+     */
+    public function describeHybridProxyLinkedClientList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHybridProxyLinkedClientListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询代理
+     *  *
+     * @param DescribeHybridProxyListRequest $request DescribeHybridProxyListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeHybridProxyListResponse DescribeHybridProxyListResponse
+     */
+    public function describeHybridProxyListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHybridProxyList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHybridProxyListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询代理
+     *  *
+     * @param DescribeHybridProxyListRequest $request DescribeHybridProxyListRequest
+     *
+     * @return DescribeHybridProxyListResponse DescribeHybridProxyListResponse
+     */
+    public function describeHybridProxyList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHybridProxyListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询用户代理策略设置
+     *  *
+     * @param DescribeHybridProxyPolicyRequest $request DescribeHybridProxyPolicyRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeHybridProxyPolicyResponse DescribeHybridProxyPolicyResponse
+     */
+    public function describeHybridProxyPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHybridProxyPolicy',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHybridProxyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询用户代理策略设置
+     *  *
+     * @param DescribeHybridProxyPolicyRequest $request DescribeHybridProxyPolicyRequest
+     *
+     * @return DescribeHybridProxyPolicyResponse DescribeHybridProxyPolicyResponse
+     */
+    public function describeHybridProxyPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHybridProxyPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the search conditions that can be used to query data center assets found after scanning in fuzzy match mode.
      *  *
      * @param DescribeIdcAssetCriteriaRequest $request DescribeIdcAssetCriteriaRequest
@@ -25174,6 +25516,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
         }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -25218,6 +25563,9 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -29101,6 +29449,43 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getContainerDefenseRuleDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取版本发布信息
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetCurrentVersionPublishResponse GetCurrentVersionPublishResponse
+     */
+    public function getCurrentVersionPublishWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetCurrentVersionPublish',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCurrentVersionPublishResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取版本发布信息
+     *  *
+     * @return GetCurrentVersionPublishResponse GetCurrentVersionPublishResponse
+     */
+    public function getCurrentVersionPublish()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCurrentVersionPublishWithOptions($runtime);
     }
 
     /**
@@ -33057,6 +33442,56 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary  获取资产列表
+     *  *
+     * @param ListAssetInfoPublishRequest $request ListAssetInfoPublishRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAssetInfoPublishResponse ListAssetInfoPublishResponse
+     */
+    public function listAssetInfoPublishWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->uuidList)) {
+            $query['UuidList'] = $request->uuidList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAssetInfoPublish',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAssetInfoPublishResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary  获取资产列表
+     *  *
+     * @param ListAssetInfoPublishRequest $request ListAssetInfoPublishRequest
+     *
+     * @return ListAssetInfoPublishResponse ListAssetInfoPublishResponse
+     */
+    public function listAssetInfoPublish($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAssetInfoPublishWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the configurations of asset synchronization.
      *  *
      * @param ListAssetRefreshTaskConfigRequest $request ListAssetRefreshTaskConfigRequest
@@ -36473,6 +36908,43 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary 获取私有K8s列表
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListPrivateK8sResponse ListPrivateK8sResponse
+     */
+    public function listPrivateK8sWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListPrivateK8s',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPrivateK8sResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取私有K8s列表
+     *  *
+     * @return ListPrivateK8sResponse ListPrivateK8sResponse
+     */
+    public function listPrivateK8s()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPrivateK8sWithOptions($runtime);
+    }
+
+    /**
      * @summary Queries image repositories.
      *  *
      * @param ListPrivateRegistryListRequest $request ListPrivateRegistryListRequest
@@ -36564,6 +37036,62 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listPrivateRegistryTypeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询发布批次
+     *  *
+     * @param ListPublishBatchRequest $request ListPublishBatchRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListPublishBatchResponse ListPublishBatchResponse
+     */
+    public function listPublishBatchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->batchName)) {
+            $query['BatchName'] = $request->batchName;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->upgradeVersion)) {
+            $query['UpgradeVersion'] = $request->upgradeVersion;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPublishBatch',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPublishBatchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询发布批次
+     *  *
+     * @param ListPublishBatchRequest $request ListPublishBatchRequest
+     *
+     * @return ListPublishBatchResponse ListPublishBatchResponse
+     */
+    public function listPublishBatch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPublishBatchWithOptions($request, $runtime);
     }
 
     /**
@@ -37845,6 +38373,71 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAssetImportantWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改证明者
+     *  *
+     * @param ModifyAttestorRequest $request ModifyAttestorRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyAttestorResponse ModifyAttestorResponse
+     */
+    public function modifyAttestorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
+        if (!Utils::isUnset($request->keyRegionId)) {
+            $query['KeyRegionId'] = $request->keyRegionId;
+        }
+        if (!Utils::isUnset($request->keyVersionId)) {
+            $query['KeyVersionId'] = $request->keyVersionId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAttestor',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyAttestorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改证明者
+     *  *
+     * @param ModifyAttestorRequest $request ModifyAttestorRequest
+     *
+     * @return ModifyAttestorResponse ModifyAttestorResponse
+     */
+    public function modifyAttestor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAttestorWithOptions($request, $runtime);
     }
 
     /**
@@ -44737,6 +45330,59 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary 设置镜像构建风险状态。
+     *  *
+     * @param SetImageBuildRiskStatusRequest $request SetImageBuildRiskStatusRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SetImageBuildRiskStatusResponse SetImageBuildRiskStatusResponse
+     */
+    public function setImageBuildRiskStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->imageUuids)) {
+            $query['ImageUuids'] = $request->imageUuids;
+        }
+        if (!Utils::isUnset($request->riskKey)) {
+            $query['RiskKey'] = $request->riskKey;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetImageBuildRiskStatus',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetImageBuildRiskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 设置镜像构建风险状态。
+     *  *
+     * @param SetImageBuildRiskStatusRequest $request SetImageBuildRiskStatusRequest
+     *
+     * @return SetImageBuildRiskStatusResponse SetImageBuildRiskStatusResponse
+     */
+    public function setImageBuildRiskStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setImageBuildRiskStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Modifies the status of sensitive files in an image.
      *  *
      * @param SetImageSensitiveFileStatusRequest $request SetImageSensitiveFileStatusRequest
@@ -45418,6 +46064,56 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->triggerCheckWithOptions($runtime);
+    }
+
+    /**
+     * @summary 解绑客户端代理
+     *  *
+     * @param UnBindHybridProxyRequest $request UnBindHybridProxyRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UnBindHybridProxyResponse UnBindHybridProxyResponse
+     */
+    public function unBindHybridProxyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
+        if (!Utils::isUnset($request->yundunUuids)) {
+            $query['YundunUuids'] = $request->yundunUuids;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnBindHybridProxy',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnBindHybridProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 解绑客户端代理
+     *  *
+     * @param UnBindHybridProxyRequest $request UnBindHybridProxyRequest
+     *
+     * @return UnBindHybridProxyResponse UnBindHybridProxyResponse
+     */
+    public function unBindHybridProxy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unBindHybridProxyWithOptions($request, $runtime);
     }
 
     /**

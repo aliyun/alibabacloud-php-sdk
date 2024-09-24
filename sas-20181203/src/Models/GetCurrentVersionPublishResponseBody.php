@@ -4,25 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetCurrentVersionPublishResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class ModifyWebLockCreateConfigResponseBody extends Model
+class GetCurrentVersionPublishResponseBody extends Model
 {
     /**
-     * @var string
+     * @var data
      */
-    public $configId;
+    public $data;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example D9354C1A-D709-4873-9AAE-41513327B247
+     * @example 1383B0DB-D5D6-4B0C-9E6B-75939C8E67FE
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'configId'  => 'ConfigId',
+        'data'      => 'Data',
         'requestId' => 'RequestId',
     ];
 
@@ -33,8 +32,8 @@ class ModifyWebLockCreateConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->configId) {
-            $res['ConfigId'] = $this->configId;
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -46,13 +45,13 @@ class ModifyWebLockCreateConfigResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyWebLockCreateConfigResponseBody
+     * @return GetCurrentVersionPublishResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ConfigId'])) {
-            $model->configId = $map['ConfigId'];
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
