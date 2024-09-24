@@ -226,6 +226,8 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorQuotaRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorQuotaResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorStatisticsRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorStatisticsResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSyntheticProbeListRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSyntheticProbeListResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSystemEventAttributeRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSystemEventAttributeResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSystemEventCountRequest;
@@ -6915,6 +6917,74 @@ class Cms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSiteMonitorStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询拨测探测节点列表
+     *  *
+     * @param DescribeSyntheticProbeListRequest $request DescribeSyntheticProbeListRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSyntheticProbeListResponse DescribeSyntheticProbeListResponse
+     */
+    public function describeSyntheticProbeListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->city)) {
+            $query['City'] = $request->city;
+        }
+        if (!Utils::isUnset($request->idcProbe)) {
+            $query['IdcProbe'] = $request->idcProbe;
+        }
+        if (!Utils::isUnset($request->ipv4)) {
+            $query['Ipv4'] = $request->ipv4;
+        }
+        if (!Utils::isUnset($request->ipv6)) {
+            $query['Ipv6'] = $request->ipv6;
+        }
+        if (!Utils::isUnset($request->isp)) {
+            $query['Isp'] = $request->isp;
+        }
+        if (!Utils::isUnset($request->lmProbe)) {
+            $query['LmProbe'] = $request->lmProbe;
+        }
+        if (!Utils::isUnset($request->mbProbe)) {
+            $query['MbProbe'] = $request->mbProbe;
+        }
+        if (!Utils::isUnset($request->viewAll)) {
+            $query['ViewAll'] = $request->viewAll;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSyntheticProbeList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSyntheticProbeListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询拨测探测节点列表
+     *  *
+     * @param DescribeSyntheticProbeListRequest $request DescribeSyntheticProbeListRequest
+     *
+     * @return DescribeSyntheticProbeListResponse DescribeSyntheticProbeListResponse
+     */
+    public function describeSyntheticProbeList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSyntheticProbeListWithOptions($request, $runtime);
     }
 
     /**

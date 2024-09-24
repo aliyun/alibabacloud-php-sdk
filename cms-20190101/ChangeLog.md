@@ -1,3 +1,8 @@
+2024-09-24 Version: 8.1.0
+- Support API DescribeSyntheticProbeList.
+- Update API DescribeSiteMonitorAttribute: update response param.
+
+
 2024-09-23 Version: 8.0.1
 - Update API DescribeSiteMonitorAttribute: update response param.
 

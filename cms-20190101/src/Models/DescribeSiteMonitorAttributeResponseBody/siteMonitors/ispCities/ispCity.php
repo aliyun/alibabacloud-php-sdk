@@ -39,11 +39,17 @@ class ispCity extends Model
      * @var string
      */
     public $ispName;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'city'     => 'City',
         'cityName' => 'CityName',
         'isp'      => 'Isp',
         'ispName'  => 'IspName',
+        'type'     => 'Type',
     ];
 
     public function validate()
@@ -64,6 +70,9 @@ class ispCity extends Model
         }
         if (null !== $this->ispName) {
             $res['IspName'] = $this->ispName;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class ispCity extends Model
         }
         if (isset($map['IspName'])) {
             $model->ispName = $map['IspName'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;
