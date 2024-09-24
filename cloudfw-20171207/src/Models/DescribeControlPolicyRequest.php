@@ -67,10 +67,10 @@ class DescribeControlPolicyRequest extends Model
     public $destination;
 
     /**
-     * @description The direction of the traffic to which the access control policy applies. Valid values:
+     * @description The direction of the traffic to which the access control policies apply. Valid values:
      *
-     *   **in**: inbound traffic
-     *   **out**: outbound traffic
+     *   **in**: inbound.
+     *   **out**: outbound.
      *
      * @example in
      *

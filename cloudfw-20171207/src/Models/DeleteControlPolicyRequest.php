@@ -23,8 +23,8 @@ class DeleteControlPolicyRequest extends Model
      *
      * Valid values:
      *
-     *   **in**: inbound traffic
-     *   **out**: outbound traffic
+     *   **in**: inbound.
+     *   **out**: outbound.
      *
      * @example in
      *

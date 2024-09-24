@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class members extends Model
 {
     /**
-     * @description The remarks of member that you want to add to Cloud Firewall. The remarks must be 1 to 256 characters in length.
+     * @description The remarks of the member. The value must be 1 to 256 characters in length.
      *
      * @example renewal
      *
@@ -18,7 +18,7 @@ class members extends Model
     public $memberDesc;
 
     /**
-     * @description The UID of member that you want to add to Cloud Firewall.
+     * @description The UID of the member. You can add up to 20 members to Cloud Firewall at a time.
      *
      * This parameter is required.
      * @example 258039427902****

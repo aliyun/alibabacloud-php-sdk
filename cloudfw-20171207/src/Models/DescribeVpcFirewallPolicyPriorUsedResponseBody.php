@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcFirewallPolicyPriorUsedResponseBody extends Model
 {
     /**
-     * @description The lowest priority for the access control policy.
+     * @description The lowest priority for the access control policies.
      *
      * @example 150
      *
@@ -18,7 +18,7 @@ class DescribeVpcFirewallPolicyPriorUsedResponseBody extends Model
     public $end;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2837D
      *
@@ -27,7 +27,7 @@ class DescribeVpcFirewallPolicyPriorUsedResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The highest priority for the access control policy.
+     * @description The highest priority for the access control policies.
      *
      * @example 1
      *

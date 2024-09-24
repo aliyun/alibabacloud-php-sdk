@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateSecurityProxyRequest extends Model
 {
     /**
+     * @description The status of the NAT firewall. Valid values:
+     *
+     *   **open**: enabled
+     *   **close**: disabled
+     *
      * @example close
      *
      * @var string
@@ -17,6 +22,11 @@ class CreateSecurityProxyRequest extends Model
     public $firewallSwitch;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -24,8 +34,9 @@ class CreateSecurityProxyRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the NAT gateway.
      *
+     * This parameter is required.
      * @example ngw-bp1okz6k7s4n4mnk5f1g3
      *
      * @var string
@@ -33,15 +44,17 @@ class CreateSecurityProxyRequest extends Model
     public $natGatewayId;
 
     /**
-     * @description This parameter is required.
+     * @description The routes to be switched to the NAT gateway.
      *
+     * This parameter is required.
      * @var natRouteEntryList[]
      */
     public $natRouteEntryList;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the NAT firewall. The name must be 4 to 50 characters in length, and can contain letters, digits, and underscores (_). However, it cannot start with an underscore.
      *
+     * This parameter is required.
      * @example nat-idmp-fir
      *
      * @var string
@@ -49,8 +62,9 @@ class CreateSecurityProxyRequest extends Model
     public $proxyName;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the virtual private cloud (VPC).
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -58,6 +72,11 @@ class CreateSecurityProxyRequest extends Model
     public $regionNo;
 
     /**
+     * @description Specifies whether to enable the strict mode. Valid values:
+     *
+     *   1: yes
+     *   0: no
+     *
      * @example 0
      *
      * @var int
@@ -65,8 +84,9 @@ class CreateSecurityProxyRequest extends Model
     public $strictMode;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the VPC.
      *
+     * This parameter is required.
      * @example vpc-uf6b5lyul0xfgv74i01ph
      *
      * @var string
@@ -74,6 +94,11 @@ class CreateSecurityProxyRequest extends Model
     public $vpcId;
 
     /**
+     * @description The mode of the vSwitch that you want to use. Valid values:
+     *
+     *   **true**: automatic
+     *   **false**: manual
+     *
      * @example true
      *
      * @var string
@@ -81,6 +106,8 @@ class CreateSecurityProxyRequest extends Model
     public $vswitchAuto;
 
     /**
+     * @description The CIDR block of the vSwitch.
+     *
      * @example 0.0.0.0/0
      *
      * @var string
@@ -88,6 +115,8 @@ class CreateSecurityProxyRequest extends Model
     public $vswitchCidr;
 
     /**
+     * @description The ID of the vSwitch. This parameter is required if you set the VswitchAuto parameter to true.
+     *
      * @example vsw-bp1sqg9wms9w9y1uxcs1x
      *
      * @var string

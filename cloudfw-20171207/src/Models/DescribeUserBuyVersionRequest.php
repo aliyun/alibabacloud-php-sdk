@@ -6,18 +6,14 @@ namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteInstanceMembersResponseBody extends Model
+class DescribeUserBuyVersionRequest extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 03E8AA70-0CC9-42EA-97AA-EA68377930B4
-     *
      * @var string
      */
-    public $requestId;
+    public $instanceId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -27,8 +23,8 @@ class DeleteInstanceMembersResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -37,13 +33,13 @@ class DeleteInstanceMembersResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteInstanceMembersResponseBody
+     * @return DescribeUserBuyVersionRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

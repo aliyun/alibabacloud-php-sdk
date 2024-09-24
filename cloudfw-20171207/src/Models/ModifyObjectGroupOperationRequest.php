@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyObjectGroupOperationRequest extends Model
 {
     /**
+     * @description The remarks of the operation.
+     *
      * @example test
      *
      * @var string
@@ -16,8 +18,14 @@ class ModifyObjectGroupOperationRequest extends Model
     public $comment;
 
     /**
-     * @description This parameter is required.
+     * @description The direction of the traffic to which the access control policy applies.
      *
+     * Valid values:
+     *
+     *   **in**: inbound.
+     *   **out**: outbound.
+     *
+     * This parameter is required.
      * @example out
      *
      * @var string
@@ -25,6 +33,11 @@ class ModifyObjectGroupOperationRequest extends Model
     public $direction;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh** (default)
+     *   **en**
+     *
      * @example zh
      *
      * @var string
@@ -32,15 +45,22 @@ class ModifyObjectGroupOperationRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
+     * @description The operation objects.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $objectList;
 
     /**
-     * @description This parameter is required.
+     * @description The operation. Valid values:
      *
+     *   **ignore**: adds the operation object to the whitelist.
+     *   **cancelIgnore**: removes the operation object from the whitelist.
+     *   **subscribe**: follows the operation object.
+     *   **unsubscribe**: unfollows the operation object.
+     *
+     * This parameter is required.
      * @example ignore
      *
      * @var string
@@ -48,8 +68,16 @@ class ModifyObjectGroupOperationRequest extends Model
     public $objectOperation;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the operation object.
      *
+     * Valid values:
+     *
+     *   **assetsIp**: the asset IP address.
+     *   **destinationIp**: the destination IP address.
+     *   **destinationPort**: the destination port.
+     *   **destinationDomain**: the destination domain name.
+     *
+     * This parameter is required.
      * @example destinationDomain
      *
      * @var string
@@ -57,6 +85,8 @@ class ModifyObjectGroupOperationRequest extends Model
     public $objectType;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 123.xxx.251.60
      *
      * @var string

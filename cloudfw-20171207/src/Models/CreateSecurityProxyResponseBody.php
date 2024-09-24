@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSecurityProxyResponseBody extends Model
 {
     /**
+     * @description The ID of the NAT firewall.
+     *
      * @example proxy-nat97ac4d7cc3834a5daf40
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateSecurityProxyResponseBody extends Model
     public $proxyId;
 
     /**
+     * @description The request ID.
+     *
      * @example 15FCCC52-1E23-57AE-B5EF-3E00A3DC3CAB
      *
      * @var string

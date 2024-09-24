@@ -55,7 +55,7 @@ class vpcFirewalls extends Model
     public $firewallSwitchStatus;
 
     /**
-     * @description The information about the intrusion prevention system (IPS) configuration.
+     * @description The intrusion prevention system (IPS) configurations.
      *
      * @var ipsConfig
      */

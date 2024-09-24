@@ -147,6 +147,14 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
     public $destinationType;
 
     /**
+     * @description The domain name resolution method of the access control policy. By default, an access control policy is enabled after the policy is created. Valid values:
+     *
+     * **FQDN**: fully qualified domain name (FQDN)-based resolution
+     * **DNS**: DNS-based dynamic resolution
+     * **FQDN_AND_DNS**: FQDN and DNS-based dynamic resolution
+     *
+     * @example FQDN
+     *
      * @var string
      */
     public $domainResolveType;

@@ -126,9 +126,9 @@ class CreateNatFirewallControlPolicyRequest extends Model
     public $destinationType;
 
     /**
-     * @description The direction of the traffic to which the access control policy applies. Valid values:
+     * @description The direction of the traffic to which the access control policy applies. Valid value:
      *
-     *   **out**: outbound traffic
+     *   **out**: outbound.
      *
      * This parameter is required.
      * @example out
@@ -210,7 +210,7 @@ class CreateNatFirewallControlPolicyRequest extends Model
      *
      * Valid values:
      *
-     *   ANY: all types of protocols
+     *   ANY: all types of protocols.
      *   TCP
      *   UDP
      *   ICMP

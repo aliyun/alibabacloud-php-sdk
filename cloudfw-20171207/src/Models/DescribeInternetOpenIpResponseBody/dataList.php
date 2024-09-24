@@ -126,6 +126,16 @@ class dataList extends Model
     public $serviceNameList;
 
     /**
+     * @var int
+     */
+    public $srcIpCnt;
+
+    /**
+     * @var int
+     */
+    public $totalReplyBytes;
+
+    /**
      * @description The percentage of traffic of a day. Unit: percent (%).
      *
      * @example 11.1
@@ -164,6 +174,8 @@ class dataList extends Model
         'riskLevel'           => 'RiskLevel',
         'riskReason'          => 'RiskReason',
         'serviceNameList'     => 'ServiceNameList',
+        'srcIpCnt'            => 'SrcIpCnt',
+        'totalReplyBytes'     => 'TotalReplyBytes',
         'trafficPercent1Day'  => 'TrafficPercent1Day',
         'trafficPercent30Day' => 'TrafficPercent30Day',
         'trafficPercent7Day'  => 'TrafficPercent7Day',
@@ -211,6 +223,12 @@ class dataList extends Model
         }
         if (null !== $this->serviceNameList) {
             $res['ServiceNameList'] = $this->serviceNameList;
+        }
+        if (null !== $this->srcIpCnt) {
+            $res['SrcIpCnt'] = $this->srcIpCnt;
+        }
+        if (null !== $this->totalReplyBytes) {
+            $res['TotalReplyBytes'] = $this->totalReplyBytes;
         }
         if (null !== $this->trafficPercent1Day) {
             $res['TrafficPercent1Day'] = $this->trafficPercent1Day;
@@ -272,6 +290,12 @@ class dataList extends Model
             if (!empty($map['ServiceNameList'])) {
                 $model->serviceNameList = $map['ServiceNameList'];
             }
+        }
+        if (isset($map['SrcIpCnt'])) {
+            $model->srcIpCnt = $map['SrcIpCnt'];
+        }
+        if (isset($map['TotalReplyBytes'])) {
+            $model->totalReplyBytes = $map['TotalReplyBytes'];
         }
         if (isset($map['TrafficPercent1Day'])) {
             $model->trafficPercent1Day = $map['TrafficPercent1Day'];

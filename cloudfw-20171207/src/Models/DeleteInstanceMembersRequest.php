@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceMembersRequest extends Model
 {
     /**
-     * @description The unique identifiers (UID) of members that you want to remove from Cloud Firewall.
+     * @description The UIDs of the members.
      *
      * This parameter is required.
      * @example 1234123412341234

@@ -13,8 +13,8 @@ class DescribePolicyPriorUsedRequest extends Model
      *
      * Valid values:
      *
-     *   **in**: inbound traffic
-     *   **out**: outbound traffic
+     *   **in**: inbound.
+     *   **out**: outbound.
      *
      * This parameter is required.
      * @example in
@@ -28,8 +28,8 @@ class DescribePolicyPriorUsedRequest extends Model
      *
      * Valid values:
      *
-     *   **4**: IPv4 (default)
-     *   **6**: IPv6
+     *   **4** (default): IPv4.
+     *   **6**: IPv6.
      *
      * @example 6
      *
@@ -38,12 +38,12 @@ class DescribePolicyPriorUsedRequest extends Model
     public $ipVersion;
 
     /**
-     * @description The natural language of the request and response.
+     * @description The language of the content within the request and response.
      *
      * Valid values:
      *
-     *   **zh**: Chinese (default)
-     *   **en**: English
+     *   **zh** (default)
+     *   **en**
      *
      * @example zh
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcFirewallControlPolicyResponseBody extends Model
 {
     /**
-     * @description The access control policies.
+     * @description The details of the access control policies.
      *
      * @var policys[]
      */

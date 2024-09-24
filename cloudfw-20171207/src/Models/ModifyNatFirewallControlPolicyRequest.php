@@ -111,9 +111,9 @@ class ModifyNatFirewallControlPolicyRequest extends Model
     public $destinationType;
 
     /**
-     * @description The direction of the traffic to which the access control policy applies.
+     * @description The direction of the traffic to which the access control policy applies. Valid value:
      *
-     *   Set the value to **out**.
+     *   **out**: outbound.
      *
      * @example out
      *

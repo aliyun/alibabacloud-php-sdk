@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeNatAclPageStatusResponseBody extends Model
 {
     /**
+     * @description Extra error information.
+     *
+     * @example proxy_not_exist
+     *
      * @var string
      */
     public $detail;

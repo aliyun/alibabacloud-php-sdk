@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAssetRiskListResponseBody extends Model
 {
     /**
-     * @description The details of the asset.
+     * @description The details of the assets.
      *
      * @var assetList[]
      */

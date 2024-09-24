@@ -50,6 +50,11 @@ class trafficList extends Model
     public $protectionDuration;
 
     /**
+     * @var string
+     */
+    public $regionNo;
+
+    /**
      * @description The resource ID. The resource ID for the Internet firewall is the public IP address that is protected the Internet firewall, and the resource ID for a NAT firewall is the instance ID of the NAT firewall.
      *
      * @example 39.106.146.214
@@ -94,6 +99,7 @@ class trafficList extends Model
         'instanceType'       => 'InstanceType',
         'outBytes'           => 'OutBytes',
         'protectionDuration' => 'ProtectionDuration',
+        'regionNo'           => 'RegionNo',
         'resourceId'         => 'ResourceId',
         'totalBytes'         => 'TotalBytes',
         'trafficDay'         => 'TrafficDay',
@@ -121,6 +127,9 @@ class trafficList extends Model
         }
         if (null !== $this->protectionDuration) {
             $res['ProtectionDuration'] = $this->protectionDuration;
+        }
+        if (null !== $this->regionNo) {
+            $res['RegionNo'] = $this->regionNo;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -160,6 +169,9 @@ class trafficList extends Model
         }
         if (isset($map['ProtectionDuration'])) {
             $model->protectionDuration = $map['ProtectionDuration'];
+        }
+        if (isset($map['RegionNo'])) {
+            $model->regionNo = $map['RegionNo'];
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];

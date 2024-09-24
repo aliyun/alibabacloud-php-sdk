@@ -77,6 +77,16 @@ class ModifyAddressBookRequest extends Model
     public $lang;
 
     /**
+     * @description Modification mode with the following values:
+     *
+     * - **Cover**: Use the value of the AddressList parameter to overwrite the original address book.
+     * - **Append**: After the original address book, append addresses using the value of the AddressList parameter.
+     * - **Delete**: Delete addresses using the value of the AddressList parameter from the address book.
+     *
+     * >When GroupType is **ip**, **ipv6**, **port**, or **domain**, if this parameter is not configured, the default is to use the **Cover** method to modify the address book.
+     * >Notice: When GroupType is **tag**, this parameter must be empty.</notice>
+     * @example Cover
+     *
      * @var string
      */
     public $modifyMode;

@@ -61,6 +61,11 @@ class DescribePostpayTrafficDetailRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $regionNo;
+
+    /**
      * @description The instance ID or the IP address of the asset.
      *
      * @example 192.0.XX.XX
@@ -82,9 +87,9 @@ class DescribePostpayTrafficDetailRequest extends Model
     /**
      * @description The traffic type. This parameter is required. Valid values:
      *
-     *   **EIP_TRAFFIC**: traffic for the Internet firewall
-     *   **NatGateway_TRAFFIC**: traffic for NAT firewalls
-     *   **VPC_TRAFFIC**: traffic for virtual private cloud (VPC) firewalls
+     *   **EIP_TRAFFIC**: traffic for the Internet firewall.
+     *   **NatGateway_TRAFFIC**: traffic for NAT firewalls.
+     *   **VPC_TRAFFIC**: traffic for virtual private cloud (VPC) firewalls.
      *
      * This parameter is required.
      * @example EIP_TRAFFIC
@@ -98,6 +103,7 @@ class DescribePostpayTrafficDetailRequest extends Model
         'lang'        => 'Lang',
         'order'       => 'Order',
         'pageSize'    => 'PageSize',
+        'regionNo'    => 'RegionNo',
         'searchItem'  => 'SearchItem',
         'startTime'   => 'StartTime',
         'trafficType' => 'TrafficType',
@@ -124,6 +130,9 @@ class DescribePostpayTrafficDetailRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionNo) {
+            $res['RegionNo'] = $this->regionNo;
         }
         if (null !== $this->searchItem) {
             $res['SearchItem'] = $this->searchItem;
@@ -160,6 +169,9 @@ class DescribePostpayTrafficDetailRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionNo'])) {
+            $model->regionNo = $map['RegionNo'];
         }
         if (isset($map['SearchItem'])) {
             $model->searchItem = $map['SearchItem'];
