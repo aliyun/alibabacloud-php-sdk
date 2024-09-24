@@ -11,11 +11,15 @@ class DescribeRCInstanceAttributeRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example rc-dh2jf9n6j4s14926****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

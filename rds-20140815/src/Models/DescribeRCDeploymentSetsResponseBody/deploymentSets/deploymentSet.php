@@ -16,46 +16,64 @@ class deploymentSet extends Model
     public $capacities;
 
     /**
+     * @example 2024-06-19T07:15:44Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $deploymentSetDescription;
 
     /**
+     * @example ds-ob5n4rbgy****
+     *
      * @var string
      */
     public $deploymentSetId;
 
     /**
+     * @example deployment_test
+     *
      * @var string
      */
     public $deploymentSetName;
 
     /**
+     * @example Availability
+     *
      * @var string
      */
     public $deploymentStrategy;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example None
+     *
      * @var string
      */
     public $granularity;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $groupCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $instanceAmount;
@@ -66,6 +84,8 @@ class deploymentSet extends Model
     public $instanceIds;
 
     /**
+     * @example LooseDispersion
+     *
      * @var string
      */
     public $strategy;

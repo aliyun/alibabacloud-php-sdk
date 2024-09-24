@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteRCInstancesShrinkRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example Yes
+     *
      * @var bool
      */
     public $force;
@@ -26,11 +30,15 @@ class DeleteRCInstancesShrinkRequest extends Model
     public $instanceIdShrink;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $terminateSubscription;

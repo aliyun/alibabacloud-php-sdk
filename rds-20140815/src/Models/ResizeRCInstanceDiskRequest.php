@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ResizeRCInstanceDiskRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example rm-uf62br2491p5l****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $newSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example online
+     *
      * @var string
      */
     public $type;

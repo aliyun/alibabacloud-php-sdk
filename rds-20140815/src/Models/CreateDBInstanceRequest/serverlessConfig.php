@@ -28,7 +28,7 @@ class serverlessConfig extends Model
      *   Serverless ApsaraDB RDS for SQL Server instances: **2 to 8**
      *   Serverless ApsaraDB RDS for PostgreSQL instances: **1 to 14**
      *
-     * >  The value of this parameter must be greater than or equal to the value of **MinCapacity** and can be set only to an **integer**.
+     * >  The value of this parameter must be greater than or equal to the value of the **MinCapacity** parameter and can be set only to an **integer**.
      * @example 8
      *
      * @var float
@@ -36,13 +36,13 @@ class serverlessConfig extends Model
     public $maxCapacity;
 
     /**
-     * @description The minimum value of RCUs. Valid values:
+     * @description The minimum number of RCUs. Valid values:
      *
      *   Serverless ApsaraDB RDS for MySQL instances: **0.5 to 32**.
      *   Serverless ApsaraDB RDS for SQL Server instances: **2 to 8**. Only integers are supported.
      *   Serverless ApsaraDB RDS for PostgreSQL instances: **0.5 to 14**.
      *
-     * >  The value of this parameter must be less than or equal to the value of **MaxCapacity**.
+     * >  The value of this parameter must be less than or equal to the value of the **MaxCapacity** parameter.
      * @example 0.5
      *
      * @var float

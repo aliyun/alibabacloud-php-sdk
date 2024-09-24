@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateRCDeploymentSetResponseBody extends Model
 {
     /**
+     * @example ds-uf6c8qerk019bj1l****
+     *
      * @var string
      */
     public $deploymentSetId;
 
     /**
+     * @example 8B993DA9-5272-5414-94E3-4CA8BA0146C2
+     *
      * @var string
      */
     public $requestId;

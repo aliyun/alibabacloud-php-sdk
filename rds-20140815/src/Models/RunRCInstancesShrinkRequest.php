@@ -11,21 +11,29 @@ class RunRCInstancesShrinkRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example 1
+     *
      * @var int
      */
     public $amount;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @example ETnLKlblzczshOTUbOCz****
+     *
      * @var string
      */
     public $clientToken;
@@ -36,31 +44,43 @@ class RunRCInstancesShrinkRequest extends Model
     public $dataDiskShrink;
 
     /**
+     * @example ds-uf6670sipmph5j5b6ke4
+     *
      * @var string
      */
     public $deploymentSetId;
 
     /**
+     * @example Instance_Description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example image-dsvjzw2ii8n4fvr6de
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example Prepaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @example ceshi
+     *
      * @var string
      */
     public $instanceName;
@@ -68,41 +88,57 @@ class RunRCInstancesShrinkRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example mysql.i8.large.2cm
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example null
+     *
      * @var int
      */
     public $internetMaxBandwidthOut;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $ioOptimized;
 
     /**
+     * @example dell5502
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @example 2F9e9@a69c!e18b569c8
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example Year
+     *
      * @var string
      */
     public $periodUnit;
@@ -110,16 +146,22 @@ class RunRCInstancesShrinkRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $securityEnhancementStrategy;
 
     /**
+     * @example sg-uf6av412xaxixuezol6w
+     *
      * @var string
      */
     public $securityGroupId;
@@ -132,11 +174,15 @@ class RunRCInstancesShrinkRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example vsw-2vcd61ngm890sk****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example cn-beijing-f
+     *
      * @var string
      */
     public $zoneId;

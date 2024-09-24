@@ -10,8 +10,11 @@ use AlibabaCloud\Tea\Model;
 class extra extends Model
 {
     /**
-     * @description Instance account group policy.
-     * - MinimumPasswordAge: Minimum usage time
+     * @description The group policy of the instance account.
+     *
+     *   MaximumPasswordAge: maximum use time
+     *   MinimumPasswordAge: minimum use time
+     *
      * @example {"MaximumPasswordAge": 42,"MinimumPasswordAge": 30}
      *
      * @var string

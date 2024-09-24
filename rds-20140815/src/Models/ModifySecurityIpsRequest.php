@@ -71,7 +71,7 @@ class ModifySecurityIpsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the IP addresses in the IP address whitelist. Set the value to IPv4. IPv6 is not supported.
+     * @description The IP address type. The value is fixed as IPv4.
      *
      * @example IPv4
      *

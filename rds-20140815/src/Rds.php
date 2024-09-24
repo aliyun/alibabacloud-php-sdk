@@ -2311,7 +2311,7 @@ class Rds extends OpenApiClient
      * *   SQL Server
      * *   MariaDB
      * ### [](#)Usage notes
-     * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also use an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function of DBS](https://help.aliyun.com/document_detail/437245.html).
+     * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also use an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function of DBS](https://help.aliyun.com/document_detail/2402073.html).
      * ### [](#)Precautions
      * Before you call this operation, make sure that the following requirements are met:
      * *   The instance is in the Running state.
@@ -2377,7 +2377,7 @@ class Rds extends OpenApiClient
      * *   SQL Server
      * *   MariaDB
      * ### [](#)Usage notes
-     * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also use an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function of DBS](https://help.aliyun.com/document_detail/437245.html).
+     * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also use an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function of DBS](https://help.aliyun.com/document_detail/2402073.html).
      * ### [](#)Precautions
      * Before you call this operation, make sure that the following requirements are met:
      * *   The instance is in the Running state.
@@ -14907,7 +14907,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of the task that is used to create a disaster recovery instance for an ApsaraDB RDS instance.
+     * @summary Queries the operation logs of the data synchronization task for a specified ApsaraDB RDS instance.
      *  *
      * @description ### [](#)Supported database engine
      * *   PostgreSQL
@@ -14958,7 +14958,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of the task that is used to create a disaster recovery instance for an ApsaraDB RDS instance.
+     * @summary Queries the operation logs of the data synchronization task for a specified ApsaraDB RDS instance.
      *  *
      * @description ### [](#)Supported database engine
      * *   PostgreSQL
@@ -18004,7 +18004,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 修改账号检查策略
+     * @summary Checks whether a password policy is applied to an account.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   SQL Server
      *  *
      * @param ModifyAccountCheckPolicyRequest $request ModifyAccountCheckPolicyRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -18061,7 +18064,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 修改账号检查策略
+     * @summary Checks whether a password policy is applied to an account.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   SQL Server
      *  *
      * @param ModifyAccountCheckPolicyRequest $request ModifyAccountCheckPolicyRequest
      *
@@ -18175,6 +18181,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->privilege)) {
             $query['Privilege'] = $request->privilege;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -18217,7 +18226,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 修改密码策略
+     * @summary Configures or modifies the password policy for an account of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * SQL Server
+     * ### [](#)References
+     * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [Create a custom password policy for an account of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95640.html)
      *  *
      * @param ModifyAccountSecurityPolicyRequest $request ModifyAccountSecurityPolicyRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -18271,7 +18286,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 修改密码策略
+     * @summary Configures or modifies the password policy for an account of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * SQL Server
+     * ### [](#)References
+     * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [Create a custom password policy for an account of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95640.html)
      *  *
      * @param ModifyAccountSecurityPolicyRequest $request ModifyAccountSecurityPolicyRequest
      *
@@ -21775,6 +21796,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;

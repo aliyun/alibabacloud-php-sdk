@@ -66,6 +66,11 @@ class DBInstanceAccount extends Model
     public $bypassRLS;
 
     /**
+     * @description Indicates whether the password policy is applied.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example true
+     *
      * @var bool
      */
     public $checkPolicy;
@@ -113,6 +118,11 @@ class DBInstanceAccount extends Model
     public $databasePrivileges;
 
     /**
+     * @description The expiration time of the password.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 2024-10-21
+     *
      * @var string
      */
     public $passwordExpireTime;

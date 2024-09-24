@@ -37,7 +37,7 @@ class DescribeReplicationLinkLogsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the task. You can call the **CreateReplicationLink** operation to create the task ID of the disaster recovery instance.
+     * @description The task ID. You must set this parameter to the ID of the task that you create by calling the **CreateReplicationLink** operation for the disaster recovery instance.
      *
      * @example 8413252
      *
@@ -46,7 +46,7 @@ class DescribeReplicationLinkLogsRequest extends Model
     public $taskId;
 
     /**
-     * @description The name of the task. You can call the **CreateReplicationLink** operation to create a disaster recovery instance. You can specify a task name in the request parameters of the call.
+     * @description The task name. You must set this parameter to the name of the task that you create by calling the **CreateReplicationLink** operation for the disaster recovery instance.
      *
      * @example test01
      *

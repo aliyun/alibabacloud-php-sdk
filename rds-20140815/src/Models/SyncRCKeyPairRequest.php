@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SyncRCKeyPairRequest extends Model
 {
     /**
+     * @example customer_keypairs
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

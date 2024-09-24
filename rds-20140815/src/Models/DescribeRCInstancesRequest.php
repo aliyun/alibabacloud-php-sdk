@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeRCInstancesRequest extends Model
 {
     /**
+     * @example rm-2ze704f*****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example vpc-uf6f7l4fg90****
+     *
      * @var string
      */
     public $vpcId;

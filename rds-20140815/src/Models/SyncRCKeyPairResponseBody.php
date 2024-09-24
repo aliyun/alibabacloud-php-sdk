@@ -15,6 +15,8 @@ class SyncRCKeyPairResponseBody extends Model
     public $data;
 
     /**
+     * @example 60478CCB-95EA-5D06-8A51-CAC83A316E9A
+     *
      * @var string
      */
     public $requestId;

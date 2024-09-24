@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeRCImageListRequest extends Model
 {
     /**
+     * @example x86_64
+     *
      * @var string
      */
     public $architecture;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
@@ -26,11 +32,15 @@ class DescribeRCImageListRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example self
+     *
      * @var string
      */
     public $type;

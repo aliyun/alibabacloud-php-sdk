@@ -11,12 +11,8 @@ class DeleteBackupFileRequest extends Model
     /**
      * @description The backup set ID. You can specify the IDs of up to 100 backup sets at a time. Separate the IDs with commas (,).
      *
-     * >
-     *
-     *   If the instance runs SQL Server, only the ID of the backup set for an individual database is supported.
-     *
-     *   You can call the DescribeBackups operation to query the backup set ID.
-     *
+     * > *   If the instance runs SQL Server, only the ID of the backup set for an individual database is supported.
+     * > *   You can call the DescribeBackups operation to query the backup set ID.
      * @example 29304****
      *
      * @var string

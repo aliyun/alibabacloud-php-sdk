@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class vpcAttributes extends Model
 {
     /**
+     * @example None
+     *
      * @var string
      */
     public $natIpAddress;
@@ -20,11 +22,15 @@ class vpcAttributes extends Model
     public $privateIpAddress;
 
     /**
+     * @example vsw-bp1nt15muovrc5qdj****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vpc-2zeu747v4765aw2id****
+     *
      * @var string
      */
     public $vpcId;

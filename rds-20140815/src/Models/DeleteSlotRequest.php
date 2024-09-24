@@ -70,8 +70,8 @@ class DeleteSlotRequest extends Model
     /**
      * @description The status of the replication slot. You can call the DescribeSlots operation to query the status of the replication slot. Valid values:
      *
-     *   ACTIVE
-     *   INACTIVE
+     *   **ACTIVE**
+     *   **INACTIVE**
      *
      * This parameter is required.
      * @example INACTIVE

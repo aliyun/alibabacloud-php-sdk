@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class capacity extends Model
 {
     /**
+     * @example 18
+     *
      * @var int
      */
     public $availableAmount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $usedAmount;
 
     /**
+     * @example cn-hangzhou-j
+     *
      * @var string
      */
     public $zoneId;

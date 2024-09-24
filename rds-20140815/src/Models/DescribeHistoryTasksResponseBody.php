@@ -17,7 +17,7 @@ class DescribeHistoryTasksResponseBody extends Model
     public $items;
 
     /**
-     * @description The page number. Pages start from page 1. Default value: **1**.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeHistoryTasksResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Valid values: **10 to 100**. Default value: **10**.
+     * @description The number of entries per page.
      *
      * @example 10
      *

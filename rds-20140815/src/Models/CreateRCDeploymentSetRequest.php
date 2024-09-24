@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateRCDeploymentSetRequest extends Model
 {
     /**
+     * @example ETnLKlblzczshOTUbOCz****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example deployment_test
+     *
      * @var string
      */
     public $deploymentSetName;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $groupCount;
 
     /**
+     * @example CancelMembershipAndStart
+     *
      * @var string
      */
     public $onUnableToRedeployFailedInstance;
@@ -36,11 +46,15 @@ class CreateRCDeploymentSetRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example Availability
+     *
      * @var string
      */
     public $strategy;

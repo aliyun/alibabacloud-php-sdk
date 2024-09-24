@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeRCMetricListRequest extends Model
 {
     /**
+     * @example 2024-08-06 10:15:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example None
+     *
      * @var string
      */
     public $express;
 
     /**
+     * @example rc-dh2jf9n6j4s14926****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1000
+     *
      * @var string
      */
     public $length;
@@ -31,26 +39,36 @@ class DescribeRCMetricListRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example CPUUtilization
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @example 6178f1825f9fb76ce0b5e8707e68181f
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 60
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 2024-08-06 10:05:00
+     *
      * @var string
      */
     public $startTime;

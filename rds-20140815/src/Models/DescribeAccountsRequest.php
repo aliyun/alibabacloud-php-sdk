@@ -37,7 +37,7 @@ class DescribeAccountsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid value: **30 to 200**. Default value: **30**.
+     * @description The number of entries per page. Valid value: **30 to 200**. Default value: **30**.
      *
      * @example 30
      *

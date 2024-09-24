@@ -80,7 +80,7 @@ class DescribeVSwitchesRequest extends Model
     public $securityToken;
 
     /**
-     * @description The ID of the VPC to which the VSwitch belongs.
+     * @description The ID of the VPC to which the vSwitch belongs.
      *
      * > You must configure this parameter or **DedicatedHostGroupId**.
      * @example vpc-bp1opxu1zkhn**********
@@ -90,7 +90,7 @@ class DescribeVSwitchesRequest extends Model
     public $vpcId;
 
     /**
-     * @description The ID of the zone to which the VSwitch belongs. You can call the DescribeAvailableZones operation to query zone IDs. If you specify this parameter, the query results are filtered based on the value of this parameter and only the details of the VSwitch that is deployed in the specified zone are returned.
+     * @description The ID of the zone to which the vSwitch belongs. You can call the DescribeAvailableZones operation to query zone IDs. If you specify this parameter, the query results are filtered based on the value of this parameter and only the details of the VSwitch that is deployed in the specified zone are returned.
      *
      * @example cn-hangzhou-i
      *

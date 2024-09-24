@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RebootRCInstanceRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $forceStop;
@@ -21,11 +25,15 @@ class RebootRCInstanceRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example rc-m5sc1271fv344a1r****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

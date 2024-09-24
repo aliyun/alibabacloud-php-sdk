@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class images extends Model
 {
     /**
+     * @example x86_64
+     *
      * @var string
      */
     public $architecture;
 
     /**
+     * @example 2024-04-25T02:17:40Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example m-2oqiu973jwcxe****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example Created_from_i-2zeh17y17sz677x****
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $imageVersion;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isPublic;
@@ -49,26 +63,36 @@ class images extends Model
     public $OSName;
 
     /**
+     * @example Alibaba Cloud Linux  2.1903 LTS 64 bit Quick Boot
+     *
      * @var string
      */
     public $OSNameEn;
 
     /**
+     * @example linux
+     *
      * @var string
      */
     public $OSType;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example instance
+     *
      * @var string
      */
     public $usage;

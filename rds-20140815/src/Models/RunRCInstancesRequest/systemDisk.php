@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class systemDisk extends Model
 {
     /**
+     * @example cloud_essd
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $size;

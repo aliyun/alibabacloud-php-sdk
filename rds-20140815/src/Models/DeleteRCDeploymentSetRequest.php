@@ -11,12 +11,16 @@ class DeleteRCDeploymentSetRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example ds-uf6c8qerk019bj1l****
+     *
      * @var string
      */
     public $deploymentSetId;
 
     /**
      * @description This parameter is required.
+     *
+     * @example cn-hangzhou
      *
      * @var string
      */

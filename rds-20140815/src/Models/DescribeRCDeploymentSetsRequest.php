@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeRCDeploymentSetsRequest extends Model
 {
     /**
+     * @example ["ds-2zeeuw16zo2gr9e6****"]
+     *
      * @var string
      */
     public $deploymentSetIds;
 
     /**
+     * @example deployment_test
+     *
      * @var string
      */
     public $deploymentSetName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -31,11 +39,15 @@ class DescribeRCDeploymentSetsRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example Availability
+     *
      * @var string
      */
     public $strategy;

@@ -1,3 +1,10 @@
+2024-09-24 Version: 7.2.1
+- Update API CreateDBInstance: update param Period.
+- Update API DescribeAvailableClasses: update param DBInstanceStorageType.
+- Update API ModifyAccountMaskingPrivilege: add param RegionId.
+- Update API ModifyMaskingRules: add param RegionId.
+
+
 2024-09-10 Version: 7.2.0
 - Support API ModifyAccountCheckPolicy.
 - Support API ModifyAccountSecurityPolicy.

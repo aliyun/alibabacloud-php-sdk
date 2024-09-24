@@ -17,21 +17,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeRCInstanceAttributeResponseBody extends Model
 {
     /**
+     * @example None
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @example 2024-04-22T06:52:23Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example None
+     *
      * @var string
      */
     public $creditSpecification;
@@ -47,21 +55,29 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $dedicatedHostAttribute;
 
     /**
+     * @example ds-uf6c8qerk019bj1l****
+     *
      * @var string
      */
     public $deploymentSetId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example None
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @example ecs.g6.2xlarge
+     *
      * @var string
      */
     public $ecsInstanceType;
@@ -72,26 +88,36 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $eipAddress;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableJumboFrame;
 
     /**
+     * @example 2024-08-10T00:00:00Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @example iZ2zej1n3cin51rlmby****
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example dhg_cloud_ssd
+     *
      * @var string
      */
     public $hostType;
 
     /**
+     * @example m-2oqiu973jwcxe****
+     *
      * @var string
      */
     public $imageId;
@@ -102,51 +128,71 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $innerIpAddress;
 
     /**
+     * @example rc-dh2jf9n6j4s14926****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example vpc
+     *
      * @var string
      */
     public $instanceNetworkType;
 
     /**
+     * @example mysql.x4.xlarge.6cm
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example PayByTraffic
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $internetMaxBandwidthIn;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $internetMaxBandwidthOut;
 
     /**
+     * @example optimized
+     *
      * @var string
      */
     public $ioOptimized;
 
     /**
+     * @example test_01
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @example 8192
+     *
      * @var int
      */
     public $memory;
@@ -162,11 +208,15 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $publicIpAddress;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example EA2D4F34-01A7-46EB-A339-D80882135206
+     *
      * @var string
      */
     public $requestId;
@@ -177,21 +227,29 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $securityGroupIds;
 
     /**
+     * @example b076f6ff-46d1-4234-a608-4e951ed6****
+     *
      * @var string
      */
     public $serialNumber;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example Not-applicable
+     *
      * @var string
      */
     public $stoppedMode;
 
     /**
+     * @example None
+     *
      * @var string
      */
     public $vlanId;
@@ -202,6 +260,8 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $vpcAttributes;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

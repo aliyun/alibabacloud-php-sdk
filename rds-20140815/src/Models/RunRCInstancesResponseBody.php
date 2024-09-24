@@ -15,11 +15,15 @@ class RunRCInstancesResponseBody extends Model
     public $instanceIdSets;
 
     /**
+     * @example 237850846720798
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 535BD857-E88F-5B4F-A18C-FAF59A74741F
+     *
      * @var string
      */
     public $requestId;

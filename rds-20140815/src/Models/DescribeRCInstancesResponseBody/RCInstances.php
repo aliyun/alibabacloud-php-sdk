@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class RCInstances extends Model
 {
     /**
+     * @example testrdscustom
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @example rds_custom
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 2023-03-22 07:56:53.0
+     *
      * @var string
      */
     public $gmtCreated;
 
     /**
+     * @example 172.30.XXX.XXX
+     *
      * @var string
      */
     public $hostIp;
 
     /**
+     * @example i-2zeaiz4g9u23f40m****
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example rm-2ze704f*****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example vpc-uf6f7l4fg90****
+     *
      * @var string
      */
     public $vpcId;

@@ -11,11 +11,15 @@ class StartRCInstanceRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example rc-l02u59b2kjfd2us0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -80,6 +80,11 @@ class CreateAccountRequest extends Model
     public $accountType;
 
     /**
+     * @description Specifies whether to apply the password policy.
+     *
+     * >  This parameter is available only for specific ApsaraDB RDS for SQL Server instances. If your instance uses the shared instance family or runs SQL Server 2008 R2, this parameter is unavailable.
+     * @example true
+     *
      * @var bool
      */
     public $checkPolicy;

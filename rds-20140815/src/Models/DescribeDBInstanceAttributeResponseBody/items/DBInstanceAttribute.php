@@ -227,7 +227,7 @@ class DBInstanceAttribute extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description The disk usage of the instance. Unit: MB.
+     * @description The disk usage of the instance. Unit: byte.
      *
      * @example 300
      *
@@ -342,7 +342,7 @@ class DBInstanceAttribute extends Model
     public $deletionProtection;
 
     /**
-     * @description Disaster recovery source instance information.
+     * @description Disaster Recovery Instance Information
      *
      * @example {"replicatorAccount": "******","sourcePort":******,"sourceAddress": "pgm-2ze******","sourceCategory": "aliyunRDS","sourceInstanceRegionId": "cn-******","replicatorPassword": "******","sourceInstanceName": "pgm-2ze******"}
      *
@@ -393,7 +393,7 @@ class DBInstanceAttribute extends Model
     public $expireTime;
 
     /**
-     * @description The extended information of the instance.
+     * @description The extended information about the instance.
      *
      * @var extra
      */

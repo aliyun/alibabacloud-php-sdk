@@ -11,7 +11,12 @@ class items extends Model
     /**
      * @description A set of allowed actions that can be taken on the task. The system matches the current step name and status of the task to the available actions specified by ActionInfo. If no matching action is found, the current status of the task does not support any action. Example:
      *
-     * The system may support the following actions: retry cancel modifySwitchTime: changes the switching or restoration time.
+     * The system may support the following actions:
+     *
+     *   **retry**: retries the action.
+     *   **cancel**: cancels the action.
+     *   **modifySwitchTime**: changes the switching time or restoration time.
+     *
      * @example {\\"steps\\":[{\\"action_info\\":{\\"Waiting\\":[\\"modifySwitchTime\\"]},\\"step_name\\":\\"exec_task\\"}]}
      *
      * @var string
@@ -28,7 +33,10 @@ class items extends Model
     public $callerSource;
 
     /**
-     * @description The request source. Valid values: System User
+     * @description The source of the request. Valid values:
+     *
+     *   **System**
+     *   **User**
      *
      * @example User
      *
@@ -55,7 +63,7 @@ class items extends Model
     public $dbType;
 
     /**
-     * @description The end time of the task. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     * @description The end time of the task.
      *
      * @example 2022-02-03T12:06:17Z
      *
@@ -64,7 +72,7 @@ class items extends Model
     public $endTime;
 
     /**
-     * @description The instance ID. Example: rm-xxx.
+     * @description The instance ID.
      *
      * @example rm-uf62br2491p5l****
      *
@@ -73,7 +81,7 @@ class items extends Model
     public $instanceId;
 
     /**
-     * @description The instance name, which is a user-defined alias.
+     * @description The instance name.
      *
      * @example test
      *
@@ -82,7 +90,7 @@ class items extends Model
     public $instanceName;
 
     /**
-     * @description The type of the instance. Example: user instance.
+     * @description The instance category.
      *
      * @example Instance
      *
@@ -91,7 +99,7 @@ class items extends Model
     public $instanceType;
 
     /**
-     * @description The product. Example: rds.
+     * @description The service name.
      *
      * @example rds
      *
@@ -100,7 +108,7 @@ class items extends Model
     public $product;
 
     /**
-     * @description The task progress. Valid values: 0 to 100.
+     * @description Indicates the task progress.
      *
      * @example 79.0
      *
@@ -136,7 +144,7 @@ class items extends Model
     public $remainTime;
 
     /**
-     * @description The start time of the task. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     * @description The start time of the task.
      *
      * @example 2022-02-03T11:31:03Z
      *
@@ -145,7 +153,7 @@ class items extends Model
     public $startTime;
 
     /**
-     * @description The status of the task.
+     * @description The task status. Valid values:
      *
      *   Scheduled
      *   Running
@@ -162,7 +170,7 @@ class items extends Model
     public $status;
 
     /**
-     * @description The task details provided in the form of a JSON string. The JSON string can be customized and extended to include additional information about the task. The details vary based on the task type.
+     * @description The task details.
      *
      * @example {\\"callerUid\\":\\"test\\"}
      *
@@ -171,7 +179,7 @@ class items extends Model
     public $taskDetail;
 
     /**
-     * @description The task ID in the t-\\*\\*\\* format.
+     * @description The task ID.
      *
      * @example t-83br18hloy3faf****
      *
@@ -180,7 +188,7 @@ class items extends Model
     public $taskId;
 
     /**
-     * @description The task type or name.
+     * @description The task type.
      *
      * @example autotest_dispatch_cases
      *

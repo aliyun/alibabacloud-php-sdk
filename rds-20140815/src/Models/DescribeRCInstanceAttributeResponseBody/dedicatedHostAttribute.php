@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class dedicatedHostAttribute extends Model
 {
     /**
+     * @example None
+     *
      * @var string
      */
     public $dedicatedHostId;
 
     /**
+     * @example None
+     *
      * @var string
      */
     public $dedicatedHostName;

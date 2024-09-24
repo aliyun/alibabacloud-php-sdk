@@ -35,6 +35,11 @@ class ModifyAccountMaskingPrivilegeRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -53,6 +58,7 @@ class ModifyAccountMaskingPrivilegeRequest extends Model
         'expireTime'           => 'ExpireTime',
         'ownerId'              => 'OwnerId',
         'privilege'            => 'Privilege',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'userName'             => 'UserName',
@@ -76,6 +82,9 @@ class ModifyAccountMaskingPrivilegeRequest extends Model
         }
         if (null !== $this->privilege) {
             $res['Privilege'] = $this->privilege;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -109,6 +118,9 @@ class ModifyAccountMaskingPrivilegeRequest extends Model
         }
         if (isset($map['Privilege'])) {
             $model->privilege = $map['Privilege'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

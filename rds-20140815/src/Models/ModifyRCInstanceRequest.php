@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ModifyRCInstanceRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @example Up
+     *
      * @var string
      */
     public $direction;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example rm-uf62br2491p5l****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example mysql.i8.large.2cm
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example cn-hagnzhou
+     *
      * @var string
      */
     public $regionId;

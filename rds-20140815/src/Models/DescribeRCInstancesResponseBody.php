@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeRCInstancesResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -25,11 +29,15 @@ class DescribeRCInstancesResponseBody extends Model
     public $RCInstances;
 
     /**
+     * @example E9DD55F4-1A5F-48CA-BA57-DFB3CA8C4C34
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

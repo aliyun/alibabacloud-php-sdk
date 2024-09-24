@@ -10,6 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceSpecRequest extends Model
 {
     /**
+     * @description Specifies whether to upgrade the major engine version of the instance. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
+     * >When you upgrade the major engine version of an ApsaraDB RDS for SQL Server instance, set this parameter to true. When you upgrade the major engine version, you must also specify required parameters such as DBInstanceId, EngineVersion, DBInstanceClass, and Category, and optional parameters such as ZoneId, ZoneIdSlave1, and VSwitchId.
+     * @example false
+     *
      * @var bool
      */
     public $allowMajorVersionUpgrade;
@@ -51,10 +59,9 @@ class ModifyDBInstanceSpecRequest extends Model
      *   **serverless_standard**: RDS High-availability Edition. This edition is available only for serverless instances that run MySQL and PostgreSQL.
      *   **serverless_ha**: RDS High-availability Edition for ApsaraDB RDS for SQL Server.
      *
-     **
      *
-     **Note** If you set the **EngineVersion** parameter to an SQL Server version number, you must also specify this parameter.
      *
+     * > If you set the **EngineVersion** parameter to an SQL Server version number, you must also specify this parameter.
      * @example HighAvailability
      *
      * @var string
@@ -133,9 +140,9 @@ class ModifyDBInstanceSpecRequest extends Model
      *   **Up** (default): upgrades a subscription instance, or upgrades or downgrades a pay-as-you-go instance.
      *   **Down**: downgrades a subscription instance.
      *   **TempUpgrade**: performs auto scaling on a subscription instance that runs SQL Server. This value is required for auto scaling.
-     *   **Serverless**: modifies the auto scaling settings of a serverless instance. This value is required if you want to modify the auto scaling settings of a serverless instance.
+     *   **Serverless**: modifies the auto scaling settings of a serverless instance.
      *
-     * >  If you specify only **DBInstanceStorageType**, you can leave Direction empty. For example, if you want to change only the storage type of the instance from standard SSD to ESSD, you do not need to specify Direction.
+     * >  If you specify only **DBInstanceStorageType**, you can leave Direction empty. For example, if you want to change only the storage type of the instance from standard SSD to Enterprise SSD (ESSD), you do not need to specify Direction.
      * @example Up
      *
      * @var string
@@ -147,7 +154,7 @@ class ModifyDBInstanceSpecRequest extends Model
      *
      *   **Immediate** (default): The effective time immediately takes effect.
      *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
-     *   **ScheduleTime**: The effective time takes effect at the point in time that you specify. The schedule time must be a specific point in time that is 12 hours later than the current time. In this case, EffectiveTime is calculated by using the following formula: EffectiveTime = ScheduleTime + SwitchTime.
+     *   **ScheduleTime**: The effective time takes effect at the point in time that you specify. The value of ScheduleTime must be a specific point in time that is 12 hours later than the current time. In this case, The value of EffectiveTime is calculated by using the following formula: EffectiveTime = ScheduleTime + SwitchTime.
      *
      * @example MaintainTime
      *
@@ -274,6 +281,14 @@ class ModifyDBInstanceSpecRequest extends Model
     public $usedTime;
 
     /**
+     * @description The vSwitch ID. The vSwitch must belong to the zone that is specified by **ZoneId**.
+     *
+     *   If you set **InstanceNetworkType** to **VPC**, you must also specify this parameter.
+     *   If you specify ZoneSlaveId1, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,).
+     *
+     * > When you upgrade the major engine version, if you want to specify a vSwitch or change the vSwitch for the RDS instance, you must also specify this parameter.
+     * @example vsw-bp1oxflciovg9l7163lr7
+     *
      * @var string
      */
     public $vSwitchId;
@@ -294,6 +309,11 @@ class ModifyDBInstanceSpecRequest extends Model
     public $zoneId;
 
     /**
+     * @description The zone ID of the secondary instance. If you set this parameter to the same value as the **ZoneId** parameter, the single-zone deployment method is used. If you set this parameter to a different value from the **ZoneId** parameter, the multi-zone deployment method is used.
+     *
+     * > If you must specify a secondary zone or change the secondary zone to upgrade the major engine version of an ApsaraDB RDS for SQL Server instance, you must also specify this parameter.
+     * @example cn-hangzhou-c
+     *
      * @var string
      */
     public $zoneIdSlave1;

@@ -24,10 +24,10 @@ class CreateDBInstanceShrinkRequest extends Model
     public $amount;
 
     /**
-     * @description Specifies whether to automatically create a proxy. Valid values:
+     * @description Specifies whether to automatically create a database proxy. Valid values:
      *
-     *   **true**: automatically creates a proxy. By default, general-purpose proxies are enabled.
-     *   **false**: does not automatically create a proxy.
+     *   **true**: automatically creates a database proxy. By default, a general-purpose database proxy is created.
+     *   **false**: does not automatically create a database proxy.
      *
      * @example false
      *
@@ -38,10 +38,10 @@ class CreateDBInstanceShrinkRequest extends Model
     /**
      * @description Specifies whether to enable the automatic payment feature. Valid values:
      *
-     *   **true**: enables the feature. Make sure that your account balance is sufficient.
+     *   **true**: enables the feature. You must make sure that your account balance is sufficient.
      *   **false**: disables the feature. An unpaid order is generated.
      *
-     * >  The default value is true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
+     * >  Default value: true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
      * @example true
      *
      * @var bool
@@ -414,9 +414,14 @@ class CreateDBInstanceShrinkRequest extends Model
      *   **VPC**: virtual private cloud (VPC)
      *   **Classic**: the classic network
      *
-     * > *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
-     * > *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
-     * > *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
+     * >
+     *
+     *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
+     *
+     *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
+     *
+     *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
+     *
      * @example Classic
      *
      * @var string
@@ -456,7 +461,7 @@ class CreateDBInstanceShrinkRequest extends Model
      *   **Year**
      *   **Month**
      *
-     * >  If you set the PayType parameter to **Prepaid**, you must specify this parameter.
+     * >  If you set the PayType parameter to **Prepaid**, you must also specify this parameter.
      * @example Year
      *
      * @var string
@@ -539,7 +544,7 @@ class CreateDBInstanceShrinkRequest extends Model
     public $serverlessConfigShrink;
 
     /**
-     * @description Specifies whether to enable the automatic storage expansion feature for the instance. This feature is supported if the instance runs MySQL or PostgreSQL. Valid values:
+     * @description Specifies whether to enable the automatic storage expansion feature for the instance. If the instance runs MySQL or PostgreSQL, this feature is supported. Valid values:
      *
      *   **Enable**
      *   **Disable** (default)
@@ -560,7 +565,7 @@ class CreateDBInstanceShrinkRequest extends Model
      *   **40**
      *   **50**
      *
-     * >  If you set the **StorageAutoScale** parameter to **Enable**, you must specify this parameter.
+     * >  If you set the **StorageAutoScale** parameter to **Enable**, you must also specify this parameter.
      * @example 50
      *
      * @var int
@@ -660,12 +665,12 @@ class CreateDBInstanceShrinkRequest extends Model
     public $targetMinorVersion;
 
     /**
-     * @description The subscription duration of the instance.
+     * @description The subscription duration of the instance. Valid values:
      *
      *   If you set the **Period** parameter to **Year**, the value of the **UsedTime** parameter ranges from **1 to 5**.
      *   If you set the **Period** parameter to **Month**, the value of the **UsedTime** parameter ranges from **1 to 11**.
      *
-     * >  If you set the PayType parameter to **Prepaid**, you must specify this parameter.
+     * >  If you set the PayType parameter to **Prepaid**, you must also specify this parameter.
      * @example 2
      *
      * @var string
