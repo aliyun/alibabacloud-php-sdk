@@ -104,6 +104,9 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateScratchRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateScratchResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateSummaryRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateSummaryResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ImportStacksToStackGroupRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ImportStacksToStackGroupResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ImportStacksToStackGroupShrinkRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListAITaskEventsRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListAITaskEventsResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListAITasksRequest;
@@ -866,6 +869,9 @@ class ROS extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->stackArn)) {
+            $query['StackArn'] = $request->stackArn;
         }
         if (!Utils::isUnset($request->stackGroupName)) {
             $query['StackGroupName'] = $request->stackGroupName;
@@ -3454,6 +3460,78 @@ class ROS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTemplateSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ImportStacksToStackGroupRequest $tmpReq  ImportStacksToStackGroupRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ImportStacksToStackGroupResponse ImportStacksToStackGroupResponse
+     */
+    public function importStacksToStackGroupWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ImportStacksToStackGroupShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->operationPreferences)) {
+            $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->resourceDirectoryFolderIds)) {
+            $request->resourceDirectoryFolderIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceDirectoryFolderIds, 'ResourceDirectoryFolderIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->stackArns)) {
+            $request->stackArnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->stackArns, 'StackArns', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->operationDescription)) {
+            $query['OperationDescription'] = $request->operationDescription;
+        }
+        if (!Utils::isUnset($request->operationPreferencesShrink)) {
+            $query['OperationPreferences'] = $request->operationPreferencesShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceDirectoryFolderIdsShrink)) {
+            $query['ResourceDirectoryFolderIds'] = $request->resourceDirectoryFolderIdsShrink;
+        }
+        if (!Utils::isUnset($request->stackArnsShrink)) {
+            $query['StackArns'] = $request->stackArnsShrink;
+        }
+        if (!Utils::isUnset($request->stackGroupName)) {
+            $query['StackGroupName'] = $request->stackGroupName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportStacksToStackGroup',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImportStacksToStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ImportStacksToStackGroupRequest $request ImportStacksToStackGroupRequest
+     *
+     * @return ImportStacksToStackGroupResponse ImportStacksToStackGroupResponse
+     */
+    public function importStacksToStackGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importStacksToStackGroupWithOptions($request, $runtime);
     }
 
     /**

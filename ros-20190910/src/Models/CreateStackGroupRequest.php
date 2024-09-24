@@ -108,6 +108,11 @@ class CreateStackGroupRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $stackArn;
+
+    /**
      * @description The name of the stack group. The name must be unique within a region.\\
      * This parameter is required.
      * @example MyStackGroup
@@ -168,6 +173,7 @@ class CreateStackGroupRequest extends Model
         'permissionModel'        => 'PermissionModel',
         'regionId'               => 'RegionId',
         'resourceGroupId'        => 'ResourceGroupId',
+        'stackArn'               => 'StackArn',
         'stackGroupName'         => 'StackGroupName',
         'tags'                   => 'Tags',
         'templateBody'           => 'TemplateBody',
@@ -218,6 +224,9 @@ class CreateStackGroupRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->stackArn) {
+            $res['StackArn'] = $this->stackArn;
         }
         if (null !== $this->stackGroupName) {
             $res['StackGroupName'] = $this->stackGroupName;
@@ -292,6 +301,9 @@ class CreateStackGroupRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['StackArn'])) {
+            $model->stackArn = $map['StackArn'];
         }
         if (isset($map['StackGroupName'])) {
             $model->stackGroupName = $map['StackGroupName'];
