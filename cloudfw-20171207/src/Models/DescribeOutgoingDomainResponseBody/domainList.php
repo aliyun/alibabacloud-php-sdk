@@ -61,6 +61,16 @@ class domainList extends Model
     public $addressGroupUUID;
 
     /**
+     * @var string[]
+     */
+    public $applicationNameList;
+
+    /**
+     * @var int
+     */
+    public $assetCount;
+
+    /**
      * @description The website service.
      *
      * @example Alibaba Cloud
@@ -188,6 +198,11 @@ class domainList extends Model
     public $outBytes;
 
     /**
+     * @var int
+     */
+    public $privateAssetCount;
+
+    /**
      * @description The ID of the access control policy.
      *
      * @example add-dfadf-f****
@@ -252,30 +267,33 @@ class domainList extends Model
      */
     public $totalBytes;
     protected $_name = [
-        'aclCoverage'        => 'AclCoverage',
-        'aclRecommendDetail' => 'AclRecommendDetail',
-        'aclStatus'          => 'AclStatus',
-        'addressGroupName'   => 'AddressGroupName',
-        'addressGroupUUID'   => 'AddressGroupUUID',
-        'business'           => 'Business',
-        'categoryClassId'    => 'CategoryClassId',
-        'categoryId'         => 'CategoryId',
-        'categoryName'       => 'CategoryName',
-        'domain'             => 'Domain',
-        'groupName'          => 'GroupName',
-        'hasAcl'             => 'HasAcl',
-        'hasAclRecommend'    => 'HasAclRecommend',
-        'inBytes'            => 'InBytes',
-        'isMarkNormal'       => 'IsMarkNormal',
-        'organization'       => 'Organization',
-        'outBytes'           => 'OutBytes',
-        'ruleId'             => 'RuleId',
-        'ruleName'           => 'RuleName',
-        'securityReason'     => 'SecurityReason',
-        'securitySuggest'    => 'SecuritySuggest',
-        'sessionCount'       => 'SessionCount',
-        'tagList'            => 'TagList',
-        'totalBytes'         => 'TotalBytes',
+        'aclCoverage'         => 'AclCoverage',
+        'aclRecommendDetail'  => 'AclRecommendDetail',
+        'aclStatus'           => 'AclStatus',
+        'addressGroupName'    => 'AddressGroupName',
+        'addressGroupUUID'    => 'AddressGroupUUID',
+        'applicationNameList' => 'ApplicationNameList',
+        'assetCount'          => 'AssetCount',
+        'business'            => 'Business',
+        'categoryClassId'     => 'CategoryClassId',
+        'categoryId'          => 'CategoryId',
+        'categoryName'        => 'CategoryName',
+        'domain'              => 'Domain',
+        'groupName'           => 'GroupName',
+        'hasAcl'              => 'HasAcl',
+        'hasAclRecommend'     => 'HasAclRecommend',
+        'inBytes'             => 'InBytes',
+        'isMarkNormal'        => 'IsMarkNormal',
+        'organization'        => 'Organization',
+        'outBytes'            => 'OutBytes',
+        'privateAssetCount'   => 'PrivateAssetCount',
+        'ruleId'              => 'RuleId',
+        'ruleName'            => 'RuleName',
+        'securityReason'      => 'SecurityReason',
+        'securitySuggest'     => 'SecuritySuggest',
+        'sessionCount'        => 'SessionCount',
+        'tagList'             => 'TagList',
+        'totalBytes'          => 'TotalBytes',
     ];
 
     public function validate()
@@ -299,6 +317,12 @@ class domainList extends Model
         }
         if (null !== $this->addressGroupUUID) {
             $res['AddressGroupUUID'] = $this->addressGroupUUID;
+        }
+        if (null !== $this->applicationNameList) {
+            $res['ApplicationNameList'] = $this->applicationNameList;
+        }
+        if (null !== $this->assetCount) {
+            $res['AssetCount'] = $this->assetCount;
         }
         if (null !== $this->business) {
             $res['Business'] = $this->business;
@@ -335,6 +359,9 @@ class domainList extends Model
         }
         if (null !== $this->outBytes) {
             $res['OutBytes'] = $this->outBytes;
+        }
+        if (null !== $this->privateAssetCount) {
+            $res['PrivateAssetCount'] = $this->privateAssetCount;
         }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
@@ -390,6 +417,14 @@ class domainList extends Model
         if (isset($map['AddressGroupUUID'])) {
             $model->addressGroupUUID = $map['AddressGroupUUID'];
         }
+        if (isset($map['ApplicationNameList'])) {
+            if (!empty($map['ApplicationNameList'])) {
+                $model->applicationNameList = $map['ApplicationNameList'];
+            }
+        }
+        if (isset($map['AssetCount'])) {
+            $model->assetCount = $map['AssetCount'];
+        }
         if (isset($map['Business'])) {
             $model->business = $map['Business'];
         }
@@ -425,6 +460,9 @@ class domainList extends Model
         }
         if (isset($map['OutBytes'])) {
             $model->outBytes = $map['OutBytes'];
+        }
+        if (isset($map['PrivateAssetCount'])) {
+            $model->privateAssetCount = $map['PrivateAssetCount'];
         }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];

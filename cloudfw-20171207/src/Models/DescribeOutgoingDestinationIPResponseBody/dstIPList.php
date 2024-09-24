@@ -59,6 +59,11 @@ class dstIPList extends Model
     public $applicationPortList;
 
     /**
+     * @var int
+     */
+    public $assetCount;
+
+    /**
      * @description The type of the tag. Valid values:
      *
      *   **Suspicious**
@@ -159,6 +164,11 @@ class dstIPList extends Model
     public $isMarkNormal;
 
     /**
+     * @var string
+     */
+    public $locationName;
+
+    /**
      * @description The outbound traffic. Unit: bytes.
      *
      * @example 965
@@ -166,6 +176,11 @@ class dstIPList extends Model
      * @var int
      */
     public $outBytes;
+
+    /**
+     * @var int
+     */
+    public $privateAssetCount;
 
     /**
      * @description The UUID of the access control policy.
@@ -237,6 +252,7 @@ class dstIPList extends Model
         'aclStatus'           => 'AclStatus',
         'addressGroupList'    => 'AddressGroupList',
         'applicationPortList' => 'ApplicationPortList',
+        'assetCount'          => 'AssetCount',
         'categoryClassId'     => 'CategoryClassId',
         'categoryId'          => 'CategoryId',
         'categoryName'        => 'CategoryName',
@@ -246,7 +262,9 @@ class dstIPList extends Model
         'hasAclRecommend'     => 'HasAclRecommend',
         'inBytes'             => 'InBytes',
         'isMarkNormal'        => 'IsMarkNormal',
+        'locationName'        => 'LocationName',
         'outBytes'            => 'OutBytes',
+        'privateAssetCount'   => 'PrivateAssetCount',
         'ruleId'              => 'RuleId',
         'ruleName'            => 'RuleName',
         'securityReason'      => 'SecurityReason',
@@ -290,6 +308,9 @@ class dstIPList extends Model
                 }
             }
         }
+        if (null !== $this->assetCount) {
+            $res['AssetCount'] = $this->assetCount;
+        }
         if (null !== $this->categoryClassId) {
             $res['CategoryClassId'] = $this->categoryClassId;
         }
@@ -317,8 +338,14 @@ class dstIPList extends Model
         if (null !== $this->isMarkNormal) {
             $res['IsMarkNormal'] = $this->isMarkNormal;
         }
+        if (null !== $this->locationName) {
+            $res['LocationName'] = $this->locationName;
+        }
         if (null !== $this->outBytes) {
             $res['OutBytes'] = $this->outBytes;
+        }
+        if (null !== $this->privateAssetCount) {
+            $res['PrivateAssetCount'] = $this->privateAssetCount;
         }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
@@ -386,6 +413,9 @@ class dstIPList extends Model
                 }
             }
         }
+        if (isset($map['AssetCount'])) {
+            $model->assetCount = $map['AssetCount'];
+        }
         if (isset($map['CategoryClassId'])) {
             $model->categoryClassId = $map['CategoryClassId'];
         }
@@ -413,8 +443,14 @@ class dstIPList extends Model
         if (isset($map['IsMarkNormal'])) {
             $model->isMarkNormal = $map['IsMarkNormal'];
         }
+        if (isset($map['LocationName'])) {
+            $model->locationName = $map['LocationName'];
+        }
         if (isset($map['OutBytes'])) {
             $model->outBytes = $map['OutBytes'];
+        }
+        if (isset($map['PrivateAssetCount'])) {
+            $model->privateAssetCount = $map['PrivateAssetCount'];
         }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
