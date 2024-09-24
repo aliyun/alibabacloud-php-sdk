@@ -28,7 +28,7 @@ class userSetPropertiesModels extends Model
     public $propertyKey;
 
     /**
-     * @description The property ID.
+     * @description The property type.
      *
      * @example 2
      *
@@ -37,14 +37,14 @@ class userSetPropertiesModels extends Model
     public $propertyType;
 
     /**
-     * @description The property value.
+     * @description The property values.
      *
      * @var propertyValues[]
      */
     public $propertyValues;
 
     /**
-     * @description The ID of the user that is bound to the property.
+     * @description The ID of the convenience user that is bound to the property.
      *
      * @example 12345
      *
@@ -53,7 +53,7 @@ class userSetPropertiesModels extends Model
     public $userId;
 
     /**
-     * @description The name of the user that is bound to the property.
+     * @description The username of the convenience user that is bound to the property.
      *
      * @example testName
      *

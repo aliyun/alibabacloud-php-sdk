@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class externalInfo extends Model
 {
     /**
-     * @description The account that is connected to the user.
+     * @description The account that is associated with the convenience user.
      *
      * @example test
      *
@@ -18,7 +18,7 @@ class externalInfo extends Model
     public $externalName;
 
     /**
-     * @description The account, student ID, or employee ID that is connected to the user.
+     * @description The account, student ID, or employee ID that is associated with the convenience user.
      *
      * @example 030801
      *

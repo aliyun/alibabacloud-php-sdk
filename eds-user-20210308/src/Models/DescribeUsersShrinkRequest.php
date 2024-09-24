@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeUsersRequest extends Model
+class DescribeUsersShrinkRequest extends Model
 {
     /**
      * @var string
@@ -37,9 +37,9 @@ class DescribeUsersRequest extends Model
     public $filter;
 
     /**
-     * @var bool[]
+     * @var string
      */
-    public $filterWithAssignedResources;
+    public $filterWithAssignedResourcesShrink;
 
     /**
      * @description The ID of the organization in which you want to query convenience users.
@@ -81,26 +81,26 @@ class DescribeUsersRequest extends Model
     public $orgId;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $showExtras;
+    public $showExtrasShrink;
 
     /**
      * @var string
      */
     public $solutionId;
     protected $_name = [
-        'bizType'                     => 'BizType',
-        'endUserIds'                  => 'EndUserIds',
-        'excludeEndUserIds'           => 'ExcludeEndUserIds',
-        'filter'                      => 'Filter',
-        'filterWithAssignedResources' => 'FilterWithAssignedResources',
-        'groupId'                     => 'GroupId',
-        'maxResults'                  => 'MaxResults',
-        'nextToken'                   => 'NextToken',
-        'orgId'                       => 'OrgId',
-        'showExtras'                  => 'ShowExtras',
-        'solutionId'                  => 'SolutionId',
+        'bizType'                           => 'BizType',
+        'endUserIds'                        => 'EndUserIds',
+        'excludeEndUserIds'                 => 'ExcludeEndUserIds',
+        'filter'                            => 'Filter',
+        'filterWithAssignedResourcesShrink' => 'FilterWithAssignedResources',
+        'groupId'                           => 'GroupId',
+        'maxResults'                        => 'MaxResults',
+        'nextToken'                         => 'NextToken',
+        'orgId'                             => 'OrgId',
+        'showExtrasShrink'                  => 'ShowExtras',
+        'solutionId'                        => 'SolutionId',
     ];
 
     public function validate()
@@ -122,8 +122,8 @@ class DescribeUsersRequest extends Model
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
         }
-        if (null !== $this->filterWithAssignedResources) {
-            $res['FilterWithAssignedResources'] = $this->filterWithAssignedResources;
+        if (null !== $this->filterWithAssignedResourcesShrink) {
+            $res['FilterWithAssignedResources'] = $this->filterWithAssignedResourcesShrink;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -137,8 +137,8 @@ class DescribeUsersRequest extends Model
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
         }
-        if (null !== $this->showExtras) {
-            $res['ShowExtras'] = $this->showExtras;
+        if (null !== $this->showExtrasShrink) {
+            $res['ShowExtras'] = $this->showExtrasShrink;
         }
         if (null !== $this->solutionId) {
             $res['SolutionId'] = $this->solutionId;
@@ -150,7 +150,7 @@ class DescribeUsersRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeUsersRequest
+     * @return DescribeUsersShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -172,7 +172,7 @@ class DescribeUsersRequest extends Model
             $model->filter = $map['Filter'];
         }
         if (isset($map['FilterWithAssignedResources'])) {
-            $model->filterWithAssignedResources = $map['FilterWithAssignedResources'];
+            $model->filterWithAssignedResourcesShrink = $map['FilterWithAssignedResources'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
@@ -187,7 +187,7 @@ class DescribeUsersRequest extends Model
             $model->orgId = $map['OrgId'];
         }
         if (isset($map['ShowExtras'])) {
-            $model->showExtras = $map['ShowExtras'];
+            $model->showExtrasShrink = $map['ShowExtras'];
         }
         if (isset($map['SolutionId'])) {
             $model->solutionId = $map['SolutionId'];

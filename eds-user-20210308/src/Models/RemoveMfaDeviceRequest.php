@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class RemoveMfaDeviceRequest extends Model
 {
     /**
+     * @description The domain of the Active Directory (AD) workspace.
+     *
+     * @example alpha.lftltd.net
+     *
      * @var string
      */
     public $adDomain;
 
     /**
+     * @description The serial number of the virtual MFA device. The serial number is unique for each device.
+     *
+     * This parameter is required.
      * @example dc856334-446b-4035-bfbc-18af261e****
      *
      * @var string

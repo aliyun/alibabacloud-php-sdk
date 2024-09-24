@@ -28,7 +28,7 @@ class FilterUsersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Details of the convenience users.
+     * @description The information about the convenience user.
      *
      * @var users[]
      */

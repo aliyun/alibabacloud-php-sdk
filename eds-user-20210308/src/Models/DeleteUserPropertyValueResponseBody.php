@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserPropertyValueResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example D6C62E40-F937-5803-B008-92E813399BA5
      *
      * @var string

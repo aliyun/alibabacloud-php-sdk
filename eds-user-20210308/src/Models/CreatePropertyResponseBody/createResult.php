@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class createResult extends Model
 {
     /**
+     * @description The ID of the property.
+     *
      * @example 390
      *
      * @var int
@@ -17,6 +19,8 @@ class createResult extends Model
     public $propertyId;
 
     /**
+     * @description The name of the property.
+     *
      * @example department
      *
      * @var string
@@ -24,6 +28,8 @@ class createResult extends Model
     public $propertyKey;
 
     /**
+     * @description The result of creating the property value.
+     *
      * @var savePropertyValueModel
      */
     public $savePropertyValueModel;

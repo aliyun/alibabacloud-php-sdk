@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetUserPropertyValueRequest extends Model
 {
     /**
+     * @description The property ID. You can call the [ListProperty](~~ListProperty~~) operation to query the property ID.
+     *
+     * This parameter is required.
      * @example 390
      *
      * @var int
@@ -16,6 +19,9 @@ class SetUserPropertyValueRequest extends Model
     public $propertyId;
 
     /**
+     * @description The ID of the property value. You can call the [ListProperty](~~ListProperty~~) operation to query the ID of the property value.
+     *
+     * This parameter is required.
      * @example 978
      *
      * @var int
@@ -23,8 +29,9 @@ class SetUserPropertyValueRequest extends Model
     public $propertyValueId;
 
     /**
-     * @description Associates a user property with a user.
+     * @description The ID of the convenience user. You can call the [DescribeUsers](~~DescribeUsers~~) operation to query the user ID.
      *
+     * This parameter is required.
      * @example 11
      *
      * @var int
@@ -32,8 +39,9 @@ class SetUserPropertyValueRequest extends Model
     public $userId;
 
     /**
-     * @description SetUserPropertyValue
+     * @description The username of the convenience user.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

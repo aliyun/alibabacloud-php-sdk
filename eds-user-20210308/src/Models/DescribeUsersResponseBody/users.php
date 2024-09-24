@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersResponseBody;
 
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersResponseBody\users\extras;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersResponseBody\users\groups;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersResponseBody\users\orgs;
 use AlibabaCloud\Tea\Model;
@@ -11,17 +12,25 @@ use AlibabaCloud\Tea\Model;
 class users extends Model
 {
     /**
+     * @description The work address of the convenience user.
+     *
+     * @example Hangzhou \\*\\*\\*
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @description The profile picture of the convenience user.
+     *
+     * @example https://cdn.*****
+     *
      * @var string
      */
     public $avatar;
 
     /**
-     * @description The email address.
+     * @description The email address of the convenience user.
      *
      * @example username@example.com
      *
@@ -30,7 +39,7 @@ class users extends Model
     public $email;
 
     /**
-     * @description The name of the user.
+     * @description The username of the convenience user.
      *
      * @example alice
      *
@@ -39,12 +48,19 @@ class users extends Model
     public $endUserId;
 
     /**
+     * @var extras
+     */
+    public $extras;
+
+    /**
+     * @description The user groups to which the convenience user belongs.
+     *
      * @var groups[]
      */
     public $groups;
 
     /**
-     * @description The ID of the user.
+     * @description The ID of the convenience user.
      *
      * @example 4205**
      *
@@ -53,7 +69,7 @@ class users extends Model
     public $id;
 
     /**
-     * @description Indicates whether the user is an administrator. If the convenience user is of the administrator-activated type, you must specify a user administrator. Notifications such as password reset on a client are sent to the email address or mobile phone of the user administrator. For more information, see [Create a convenience user](~~214472~~).
+     * @description Indicates whether the convenience user is an administrator. If the convenience user is of the administrator-activated type, you must specify a user administrator. Notifications such as password reset on a client are sent to the email address or mobile number of the user administrator. For more information, see [Create a convenience user](https://help.aliyun.com/document_detail/214472.html).
      *
      * @example true
      *
@@ -62,12 +78,16 @@ class users extends Model
     public $isTenantManager;
 
     /**
+     * @description The employee number of the convenience user.
+     *
+     * @example A10000**
+     *
      * @var string
      */
     public $jobNumber;
 
     /**
-     * @description The nickname of the user.
+     * @description The nickname of the convenience user.
      *
      * @example Lee
      *
@@ -76,8 +96,9 @@ class users extends Model
     public $nickName;
 
     /**
-     * @description The ID of the organization to which the user belongs.
+     * @description The ID of the organization to which the convenience user belongs.
      *
+     * >  This parameter will be deprecated in the future.
      * @example org-4mdgc1cocc59z****
      *
      * @var string
@@ -85,6 +106,8 @@ class users extends Model
     public $orgId;
 
     /**
+     * @description The organizations to which the convenience user belongs.
+     *
      * @var orgs[]
      */
     public $orgs;
@@ -92,8 +115,8 @@ class users extends Model
     /**
      * @description The type of the convenience account.
      *
-     *   The administrator-activated type. The administrator specifies the username and the password of the convenience account. User notifications such as password reset are sent to the email address or mobile number of the administrator.
-     *   The user-activated type. The administrator specifies the username and the email address or mobile number of a user. Activation notifications are sent to the email address or mobile number of the user.
+     *   Administrator-activated type: The administrator specifies the username and password of the convenience account. User notifications such as password reset notifications are sent to the email address or mobile number of the administrator.
+     *   User-activated type: The administrator specifies the username and the email address or mobile number of a convenience user. Notifications such as activation notifications that contain the default password are sent to the email address or mobile number of the convenience user.
      *
      * Valid values:
      *
@@ -101,7 +124,7 @@ class users extends Model
      *
      * <!-- -->
      *
-     *   Normal: user-activated
+     *   Normal
      *
      * <!-- -->
      * @example Normal
@@ -111,7 +134,7 @@ class users extends Model
     public $ownerType;
 
     /**
-     * @description The mobile number of the user. If you leave this parameter empty, the value of this parameter is not returned.
+     * @description The mobile number of the convenience user. If you leave this parameter empty, the value of this parameter is not returned.
      *
      * @example 1381111****
      *
@@ -120,15 +143,31 @@ class users extends Model
     public $phone;
 
     /**
-     * @description The remarks on the user.
+     * @var string
+     */
+    public $realNickName;
+
+    /**
+     * @description The remarks on the convenience user.
+     *
+     * @example TestUser
      *
      * @var string
      */
     public $remark;
 
     /**
-     * @description The status of the user.
+     * @description The status of the convenience user.
      *
+     * Valid values:
+     *
+     *   0: The convenience user is normal.
+     *
+     * <!-- -->
+     *
+     *   9: The convenience user is locked.
+     *
+     * <!-- -->
      * @example 0
      *
      * @var int
@@ -136,7 +175,7 @@ class users extends Model
     public $status;
 
     /**
-     * @description The user ID that is globally unique.
+     * @description The globally unique ID of the convenience user.
      *
      * @example 41fd1254d8f7****
      *
@@ -148,6 +187,7 @@ class users extends Model
         'avatar'          => 'Avatar',
         'email'           => 'Email',
         'endUserId'       => 'EndUserId',
+        'extras'          => 'Extras',
         'groups'          => 'Groups',
         'id'              => 'Id',
         'isTenantManager' => 'IsTenantManager',
@@ -157,6 +197,7 @@ class users extends Model
         'orgs'            => 'Orgs',
         'ownerType'       => 'OwnerType',
         'phone'           => 'Phone',
+        'realNickName'    => 'RealNickName',
         'remark'          => 'Remark',
         'status'          => 'Status',
         'wyId'            => 'WyId',
@@ -180,6 +221,9 @@ class users extends Model
         }
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
+        }
+        if (null !== $this->extras) {
+            $res['Extras'] = null !== $this->extras ? $this->extras->toMap() : null;
         }
         if (null !== $this->groups) {
             $res['Groups'] = [];
@@ -220,6 +264,9 @@ class users extends Model
         if (null !== $this->phone) {
             $res['Phone'] = $this->phone;
         }
+        if (null !== $this->realNickName) {
+            $res['RealNickName'] = $this->realNickName;
+        }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
@@ -252,6 +299,9 @@ class users extends Model
         }
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
+        }
+        if (isset($map['Extras'])) {
+            $model->extras = extras::fromMap($map['Extras']);
         }
         if (isset($map['Groups'])) {
             if (!empty($map['Groups'])) {
@@ -291,6 +341,9 @@ class users extends Model
         }
         if (isset($map['Phone'])) {
             $model->phone = $map['Phone'];
+        }
+        if (isset($map['RealNickName'])) {
+            $model->realNickName = $map['RealNickName'];
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];

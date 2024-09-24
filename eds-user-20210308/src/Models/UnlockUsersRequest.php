@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class UnlockUsersRequest extends Model
 {
     /**
+     * @description The date on which the convenience users are automatically locked.
+     *
+     * @example 2023-03-03
+     *
      * @var string
      */
     public $autoLockTime;
 
     /**
+     * @description The usernames of the convenience users that you want to unlock.
+     *
+     * This parameter is required.
      * @example test1
      *
      * @var string[]

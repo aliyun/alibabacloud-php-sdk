@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserPropertyValueRequest extends Model
 {
     /**
-     * @description DeleteUserPropertyValue
+     * @description The property ID.
      *
+     * This parameter is required.
      * @example 390
      *
      * @var int
@@ -18,6 +19,9 @@ class DeleteUserPropertyValueRequest extends Model
     public $propertyId;
 
     /**
+     * @description The ID of the property value.
+     *
+     * This parameter is required.
      * @example 978
      *
      * @var int
@@ -25,8 +29,9 @@ class DeleteUserPropertyValueRequest extends Model
     public $propertyValueId;
 
     /**
-     * @description Dissociates a user property from a user.
+     * @description The ID of the convenience user.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var int

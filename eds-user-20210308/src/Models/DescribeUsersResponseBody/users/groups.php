@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class groups extends Model
 {
     /**
+     * @description The ID of the user group.
+     *
+     * @example ug-12341234****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the user group.
+     *
+     * @example User Group 1
+     *
      * @var string
      */
     public $groupName;

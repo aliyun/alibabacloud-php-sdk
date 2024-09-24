@@ -9,21 +9,14 @@ use AlibabaCloud\Tea\Model;
 class orderParam extends Model
 {
     /**
-     * @description The way to sort query results.
+     * @description The parameter based on which to sort query results.
      *
      * Valid values:
      *
-     *   EndUserId
+     *   EndUserId: the username.
+     *   id: the ID of the user primary key.
+     *   gmt_created: the time when the convenience user was created.
      *
-     * <!-- -->
-     *
-     *   id
-     *
-     * <!-- -->
-     *
-     *   gmt_created
-     *
-     * <!-- -->
      * @example id
      *
      * @var string
@@ -31,7 +24,7 @@ class orderParam extends Model
     public $orderField;
 
     /**
-     * @description Specifies whether to sort query results in ascending or descending order. Valid values:
+     * @description Specifies whether to sort query results in ascending or descending order.
      *
      * Valid values:
      *

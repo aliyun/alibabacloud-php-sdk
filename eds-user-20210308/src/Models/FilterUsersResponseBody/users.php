@@ -11,7 +11,12 @@ use AlibabaCloud\Tea\Model;
 class users extends Model
 {
     /**
-     * @description The number of cloud desktops that are assigned to the user.
+     * @var string
+     */
+    public $autoLockTime;
+
+    /**
+     * @description The number of cloud desktops that are assigned to the convenience user.
      *
      * @example 1
      *
@@ -20,7 +25,7 @@ class users extends Model
     public $desktopCount;
 
     /**
-     * @description The number of authorized desktop groups that are owned by the user. This value is returned if you set `IncludeDesktopGroupCount` to `true`.
+     * @description The number of cloud desktop pools that are assigned to the convenience user. This value is returned if you set `IncludeDesktopGroupCount` to `true`.
      *
      * @example 2
      *
@@ -29,7 +34,7 @@ class users extends Model
     public $desktopGroupCount;
 
     /**
-     * @description The email address.
+     * @description The email address of the convenience user.
      *
      * @example testName@example.com
      *
@@ -38,7 +43,7 @@ class users extends Model
     public $email;
 
     /**
-     * @description Indicates whether the user is a local administrator.
+     * @description Indicates whether the convenience user is a local administrator.
      *
      * Valid values:
      *
@@ -56,7 +61,7 @@ class users extends Model
     public $enableAdminAccess;
 
     /**
-     * @description The username.
+     * @description The username of the convenience user.
      *
      * @example testName
      *
@@ -65,14 +70,14 @@ class users extends Model
     public $endUserId;
 
     /**
-     * @description The additional information about the user.
+     * @description The additional information about the convenience user.
      *
      * @var externalInfo
      */
     public $externalInfo;
 
     /**
-     * @description The user ID.
+     * @description The ID of the convenience user.
      *
      * @example 12345
      *
@@ -81,7 +86,7 @@ class users extends Model
     public $id;
 
     /**
-     * @description Indicates whether the user is a tenant administrator.
+     * @description Indicates whether the convenience user is a tenant administrator.
      *
      * Valid values:
      *
@@ -103,13 +108,9 @@ class users extends Model
      *
      * Valid values:
      *
-     *   CreateFromManager
+     *   CreateFromManager: administrator-activated
+     *   Normal: user-activated
      *
-     * <!-- -->
-     *
-     *   Normal
-     *
-     * <!-- -->
      * @example Normal
      *
      * @var string
@@ -117,7 +118,17 @@ class users extends Model
     public $ownerType;
 
     /**
-     * @description The mobile number.
+     * @var int
+     */
+    public $passwordExpireDays;
+
+    /**
+     * @var int
+     */
+    public $passwordExpireRestDays;
+
+    /**
+     * @description The mobile number of the convenience user.
      *
      * @example 1381111****
      *
@@ -126,12 +137,16 @@ class users extends Model
     public $phone;
 
     /**
+     * @description The nickname of the convenience user.
+     *
+     * @example Oliver
+     *
      * @var string
      */
     public $realNickName;
 
     /**
-     * @description The remarks.
+     * @description The remarks on the convenience user.
      *
      * @example 1
      *
@@ -140,15 +155,15 @@ class users extends Model
     public $remark;
 
     /**
-     * @description The user status.
+     * @description The status of the convenience user.
      *
      * Valid values:
      *
-     *   0: The user status is normal.
+     *   0: The convenience user is normal.
      *
      * <!-- -->
      *
-     *   9: The user is locked.
+     *   9: The convenience user is locked.
      *
      * <!-- -->
      * @example 0
@@ -158,12 +173,13 @@ class users extends Model
     public $status;
 
     /**
-     * @description Details of the properties.
+     * @description The information about the properties.
      *
      * @var userSetPropertiesModels[]
      */
     public $userSetPropertiesModels;
     protected $_name = [
+        'autoLockTime'            => 'AutoLockTime',
         'desktopCount'            => 'DesktopCount',
         'desktopGroupCount'       => 'DesktopGroupCount',
         'email'                   => 'Email',
@@ -173,6 +189,8 @@ class users extends Model
         'id'                      => 'Id',
         'isTenantManager'         => 'IsTenantManager',
         'ownerType'               => 'OwnerType',
+        'passwordExpireDays'      => 'PasswordExpireDays',
+        'passwordExpireRestDays'  => 'PasswordExpireRestDays',
         'phone'                   => 'Phone',
         'realNickName'            => 'RealNickName',
         'remark'                  => 'Remark',
@@ -187,6 +205,9 @@ class users extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoLockTime) {
+            $res['AutoLockTime'] = $this->autoLockTime;
+        }
         if (null !== $this->desktopCount) {
             $res['DesktopCount'] = $this->desktopCount;
         }
@@ -213,6 +234,12 @@ class users extends Model
         }
         if (null !== $this->ownerType) {
             $res['OwnerType'] = $this->ownerType;
+        }
+        if (null !== $this->passwordExpireDays) {
+            $res['PasswordExpireDays'] = $this->passwordExpireDays;
+        }
+        if (null !== $this->passwordExpireRestDays) {
+            $res['PasswordExpireRestDays'] = $this->passwordExpireRestDays;
         }
         if (null !== $this->phone) {
             $res['Phone'] = $this->phone;
@@ -247,6 +274,9 @@ class users extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoLockTime'])) {
+            $model->autoLockTime = $map['AutoLockTime'];
+        }
         if (isset($map['DesktopCount'])) {
             $model->desktopCount = $map['DesktopCount'];
         }
@@ -273,6 +303,12 @@ class users extends Model
         }
         if (isset($map['OwnerType'])) {
             $model->ownerType = $map['OwnerType'];
+        }
+        if (isset($map['PasswordExpireDays'])) {
+            $model->passwordExpireDays = $map['PasswordExpireDays'];
+        }
+        if (isset($map['PasswordExpireRestDays'])) {
+            $model->passwordExpireRestDays = $map['PasswordExpireRestDays'];
         }
         if (isset($map['Phone'])) {
             $model->phone = $map['Phone'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetManagerInfoByAuthCodeResponseBody extends Model
 {
     /**
+     * @description The organization ID.
+     *
      * @example 12345678901234****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetManagerInfoByAuthCodeResponseBody extends Model
     public $orgId;
 
     /**
+     * @description The mobile number.
+     *
      * @example 1301234****
      *
      * @var string
@@ -23,6 +27,8 @@ class GetManagerInfoByAuthCodeResponseBody extends Model
     public $phone;
 
     /**
+     * @description The request ID.
+     *
      * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
      *
      * @var string
@@ -30,6 +36,8 @@ class GetManagerInfoByAuthCodeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The team name.
+     *
      * @example devteam
      *
      * @var string
@@ -37,6 +45,8 @@ class GetManagerInfoByAuthCodeResponseBody extends Model
     public $teamName;
 
     /**
+     * @description The tenant name.
+     *
      * @example zhangsan
      *
      * @var string
@@ -44,6 +54,8 @@ class GetManagerInfoByAuthCodeResponseBody extends Model
     public $userName;
 
     /**
+     * @description The ID of the Elastic Desktop Service account.
+     *
      * @example 12345678901234****
      *
      * @var int

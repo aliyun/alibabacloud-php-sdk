@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class UpdatePropertyRequest extends Model
 {
     /**
-     * @description The ID of the property that you want to modify. You can call the [ListProperty](~~410890~~) operation to query the property ID.
+     * @description The ID of the property that you want to modify. You can call the [ListProperty](https://help.aliyun.com/document_detail/410890.html) operation to query the property ID.
      *
+     * This parameter is required.
      * @example 390
      *
      * @var int
@@ -21,6 +22,7 @@ class UpdatePropertyRequest extends Model
     /**
      * @description The new property name.
      *
+     * This parameter is required.
      * @example testkey
      *
      * @var string

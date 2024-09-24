@@ -6,19 +6,24 @@ namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class LockUsersRequest extends Model
+class BatchSetDesktopManagerRequest extends Model
 {
     /**
-     * @description The usernames of the convenience users that you want to lock.
+     * @example 1
      *
-     * This parameter is required.
-     * @example test1
+     * @var string
+     */
+    public $isDesktopManager;
+
+    /**
+     * @description This parameter is required.
      *
      * @var string[]
      */
     public $users;
     protected $_name = [
-        'users' => 'Users',
+        'isDesktopManager' => 'IsDesktopManager',
+        'users'            => 'Users',
     ];
 
     public function validate()
@@ -28,6 +33,9 @@ class LockUsersRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->isDesktopManager) {
+            $res['IsDesktopManager'] = $this->isDesktopManager;
+        }
         if (null !== $this->users) {
             $res['Users'] = $this->users;
         }
@@ -38,11 +46,14 @@ class LockUsersRequest extends Model
     /**
      * @param array $map
      *
-     * @return LockUsersRequest
+     * @return BatchSetDesktopManagerRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IsDesktopManager'])) {
+            $model->isDesktopManager = $map['IsDesktopManager'];
+        }
         if (isset($map['Users'])) {
             if (!empty($map['Users'])) {
                 $model->users = $map['Users'];

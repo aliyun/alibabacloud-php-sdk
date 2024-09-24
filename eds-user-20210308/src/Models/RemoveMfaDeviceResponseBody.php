@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveMfaDeviceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example FB550AAB-FB36-4A91-93F6-F4374AF65403
      *
      * @var string

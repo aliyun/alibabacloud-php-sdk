@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class mfaDevices extends Model
 {
     /**
-     * @description The number of consecutive failures to bind the virtual MFA device, or the number of MFA failures based on the virtual MFA device.
+     * @description The number of consecutive failures to bind the virtual MFA device, or the number of authentication failures based on the virtual MFA device.
      *
      * @example 0
      *
@@ -18,7 +18,7 @@ class mfaDevices extends Model
     public $consecutiveFails;
 
     /**
-     * @description The types of the virtual MFA device. Set the value to TOTP_VIRTUAL, which indicates that the virtual MFA devices follow the Time-based One-time Password (TOTP) algorithm.
+     * @description The type of the virtual MFA device. The value can only be TOTP_VIRTUAL. This value indicates that the virtual MFA device follows the Time-based One-time Password (TOTP) algorithm.
      *
      * @example TOTP_VIRTUAL
      *
@@ -27,7 +27,7 @@ class mfaDevices extends Model
     public $deviceType;
 
     /**
-     * @description This parameter is unavailable.
+     * @description >  This parameter is not publicly available.
      *
      * @example username@example.com
      *
@@ -54,7 +54,7 @@ class mfaDevices extends Model
     public $gmtEnabled;
 
     /**
-     * @description The time when a locked virtual MFA device is automatically unlocked. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the locked virtual MFA device was automatically unlocked. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2021-06-23T06:20:49Z
      *
@@ -63,7 +63,7 @@ class mfaDevices extends Model
     public $gmtUnlock;
 
     /**
-     * @description This parameter is unavailable.
+     * @description >  This parameter is not publicly available.
      *
      * @example 36
      *
@@ -72,7 +72,7 @@ class mfaDevices extends Model
     public $id;
 
     /**
-     * @description The serial number of the virtual MFA device, which is a unique identifier.
+     * @description The serial number of the virtual MFA device. The serial number is unique for each device.
      *
      * @example dc856334-446b-4035-bfbc-18af261e****
      *
@@ -81,12 +81,21 @@ class mfaDevices extends Model
     public $serialNumber;
 
     /**
-     * @description The status of the virtual MFA device. Valid values:
+     * @description The status of the virtual MFA device.
      *
-     *   UNBOUND
-     *   NORMAL
+     * Valid values:
+     *
      *   LOCKED
      *
+     * <!-- -->
+     *
+     *   UNBOUND
+     *
+     * <!-- -->
+     *
+     *   NORMAL
+     *
+     * <!-- -->
      * @example NORMAL
      *
      * @var string

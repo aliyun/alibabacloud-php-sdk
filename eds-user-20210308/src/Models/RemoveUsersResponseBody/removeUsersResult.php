@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class removeUsersResult extends Model
 {
     /**
+     * @description The convenience users that failed to be removed.
+     *
      * @var failedUsers[]
      */
     public $failedUsers;
 
     /**
+     * @description The convenience users that were removed.
+     *
      * @var string[]
      */
     public $removedUsers;

@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeMfaDevicesRequest extends Model
 {
     /**
+     * @description The domain of the Active Directory (AD) workspace.
+     *
+     * @example cn.misumi.pri
+     *
      * @var string
      */
     public $adDomain;
 
     /**
-     * @description The list of username of convenience users.
+     * @description The usernames of the convenience users.
      *
      * @example test
      *
@@ -23,8 +27,7 @@ class DescribeMfaDevicesRequest extends Model
     public $endUserIds;
 
     /**
-     * @description The maximum number of entries to return. Valid values: 1 to 500.
-     *
+     * @description The maximum number of entries to return. Valid values: 1 to 500.\\
      * Default value: 100.
      * @example 100
      *
@@ -33,7 +36,7 @@ class DescribeMfaDevicesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The query token. Set the value to the NextToken value returned in the last call.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Set the value to the token that is obtained from the previous query.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -42,7 +45,7 @@ class DescribeMfaDevicesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The list of serial numbers of the virtual MFA devices.
+     * @description The serial numbers of the virtual MFA devices.
      *
      * @example c2d9ae94-a64b-4a0d-8024-9519ca50****
      *

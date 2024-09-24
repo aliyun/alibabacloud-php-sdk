@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UnlockMfaDeviceRequest extends Model
 {
     /**
-     * @description The address of the Active Directory (AD) workspace.
+     * @description The domain of the Active Directory (AD) workspace.
      *
      * @example welab.co.id
      *
@@ -18,8 +18,9 @@ class UnlockMfaDeviceRequest extends Model
     public $adDomain;
 
     /**
-     * @description The serial number of the virtual MFA device, which is a unique identifier.
+     * @description The serial number of the virtual MFA device. The serial number is unique for each device.
      *
+     * This parameter is required.
      * @example dc856334-446b-4035-bfbc-18af261e****
      *
      * @var string

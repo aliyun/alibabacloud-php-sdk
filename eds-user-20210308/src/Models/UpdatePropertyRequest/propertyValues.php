@@ -18,7 +18,7 @@ class propertyValues extends Model
     public $propertyValue;
 
     /**
-     * @description The ID of property value that you want to modify. You can call the [ListProperty](~~410890~~) operation to query the property value ID.
+     * @description The ID of property value that you want to modify. You can call the [ListProperty](https://help.aliyun.com/document_detail/410890.html) operation to query the property value ID.
      *
      * @example 978
      *

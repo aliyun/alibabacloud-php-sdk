@@ -19,7 +19,7 @@ class FilterUsersRequest extends Model
     public $excludeEndUserIds;
 
     /**
-     * @description The string that is used for fuzzy search. You can use usernames and email addresses to perform fuzzy search. Wildcard characters (\*) are supported for this parameter. For example, if you set this parameter to a\*m, the usernames or an email addresses that start with a or end with m are returned.
+     * @description The string that is used for fuzzy search. You can use usernames and email addresses to perform fuzzy search. Wildcard characters (\\*) are supported for this parameter. For example, if you set this parameter to a\\*m, the usernames or an email addresses that start with a or end with m are returned.
      *
      * @example test
      *
@@ -28,8 +28,17 @@ class FilterUsersRequest extends Model
     public $filter;
 
     /**
-     * @description Specifies whether to return information about cloud desktops that are assigned to the convenience user.
+     * @description Specifies whether to return the number of cloud desktops that are assigned to the convenience user.
      *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool
@@ -37,8 +46,17 @@ class FilterUsersRequest extends Model
     public $includeDesktopCount;
 
     /**
-     * @description Specifies whether to return the number of desktop groups that are assigned to the user.
+     * @description Specifies whether to return the number of cloud desktop pools that are assigned to the convenience user.
      *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example false
      *
      * @var bool
@@ -64,7 +82,7 @@ class FilterUsersRequest extends Model
     public $nextToken;
 
     /**
-     * @description The parameter that supports to sort query results.
+     * @description The parameters that are used to sort query results.
      *
      * @var orderParam
      */
@@ -101,6 +119,11 @@ class FilterUsersRequest extends Model
      * @var propertyKeyValueFilterParam[]
      */
     public $propertyKeyValueFilterParam;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
         'excludeEndUserIds'           => 'ExcludeEndUserIds',
         'filter'                      => 'Filter',
@@ -113,6 +136,7 @@ class FilterUsersRequest extends Model
         'ownerType'                   => 'OwnerType',
         'propertyFilterParam'         => 'PropertyFilterParam',
         'propertyKeyValueFilterParam' => 'PropertyKeyValueFilterParam',
+        'status'                      => 'Status',
     ];
 
     public function validate()
@@ -166,6 +190,9 @@ class FilterUsersRequest extends Model
                     $res['PropertyKeyValueFilterParam'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -225,6 +252,9 @@ class FilterUsersRequest extends Model
                     $model->propertyKeyValueFilterParam[$n++] = null !== $item ? propertyKeyValueFilterParam::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -36,6 +36,10 @@ class createdUsers extends Model
     public $phone;
 
     /**
+     * @description The display name of the end user.
+     *
+     * @example Bean
+     *
      * @var string
      */
     public $realNickName;

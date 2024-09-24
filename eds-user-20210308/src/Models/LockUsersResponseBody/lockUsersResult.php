@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class lockUsersResult extends Model
 {
     /**
+     * @description The convenience users that failed to be locked.
+     *
      * @var failedUsers[]
      */
     public $failedUsers;
 
     /**
+     * @description The convenience users that were locked.
+     *
      * @var string[]
      */
     public $lockedUsers;

@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Edsuser\V20210308;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\BatchSetDesktopManagerRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\BatchSetDesktopManagerResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CheckUsedPropertyRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CheckUsedPropertyResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CheckUsedPropertyValueRequest;
@@ -18,8 +20,11 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\DeleteUserPropertyValueRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DeleteUserPropertyValueResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeMfaDevicesRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeMfaDevicesResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeOrgsRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeOrgsResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersShrinkRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersShrinkRequest;
@@ -63,7 +68,8 @@ class Edsuser extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'regional';
+        $this->_signatureAlgorithm = 'v2';
+        $this->_endpointRule       = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('eds-user', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -92,10 +98,62 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param CheckUsedPropertyRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 批量设置桌面管理员
+     *  *
+     * @param BatchSetDesktopManagerRequest $request BatchSetDesktopManagerRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckUsedPropertyResponse
+     * @return BatchSetDesktopManagerResponse BatchSetDesktopManagerResponse
+     */
+    public function batchSetDesktopManagerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->isDesktopManager)) {
+            $body['IsDesktopManager'] = $request->isDesktopManager;
+        }
+        if (!Utils::isUnset($request->users)) {
+            $body['Users'] = $request->users;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchSetDesktopManager',
+            'version'     => '2021-03-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchSetDesktopManagerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量设置桌面管理员
+     *  *
+     * @param BatchSetDesktopManagerRequest $request BatchSetDesktopManagerRequest
+     *
+     * @return BatchSetDesktopManagerResponse BatchSetDesktopManagerResponse
+     */
+    public function batchSetDesktopManager($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchSetDesktopManagerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries whether a property is associated with one or more convenience users.
+     *  *
+     * @param CheckUsedPropertyRequest $request CheckUsedPropertyRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CheckUsedPropertyResponse CheckUsedPropertyResponse
      */
     public function checkUsedPropertyWithOptions($request, $runtime)
     {
@@ -123,9 +181,11 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param CheckUsedPropertyRequest $request
+     * @summary Queries whether a property is associated with one or more convenience users.
+     *  *
+     * @param CheckUsedPropertyRequest $request CheckUsedPropertyRequest
      *
-     * @return CheckUsedPropertyResponse
+     * @return CheckUsedPropertyResponse CheckUsedPropertyResponse
      */
     public function checkUsedProperty($request)
     {
@@ -135,8 +195,10 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * Before you call the operation, you can call the [ListProperty](~~410890~~) operation to query the existing user properties and their IDs (PropertyId) and values (PropertyValueId).
-     *   *
+     * @summary Checks whether a property value is associated with a user.
+     *  *
+     * @description Before you call the operation, you can call the [ListProperty](https://help.aliyun.com/document_detail/410890.html) operation to query the existing user properties and their IDs (PropertyId) and values (PropertyValueId).
+     *  *
      * @param CheckUsedPropertyValueRequest $request CheckUsedPropertyValueRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -171,8 +233,10 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * Before you call the operation, you can call the [ListProperty](~~410890~~) operation to query the existing user properties and their IDs (PropertyId) and values (PropertyValueId).
-     *   *
+     * @summary Checks whether a property value is associated with a user.
+     *  *
+     * @description Before you call the operation, you can call the [ListProperty](https://help.aliyun.com/document_detail/410890.html) operation to query the existing user properties and their IDs (PropertyId) and values (PropertyValueId).
+     *  *
      * @param CheckUsedPropertyValueRequest $request CheckUsedPropertyValueRequest
      *
      * @return CheckUsedPropertyValueResponse CheckUsedPropertyValueResponse
@@ -185,10 +249,12 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param CreatePropertyRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Creates a user property.
+     *  *
+     * @param CreatePropertyRequest $request CreatePropertyRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePropertyResponse
+     * @return CreatePropertyResponse CreatePropertyResponse
      */
     public function createPropertyWithOptions($request, $runtime)
     {
@@ -219,9 +285,11 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param CreatePropertyRequest $request
+     * @summary Creates a user property.
+     *  *
+     * @param CreatePropertyRequest $request CreatePropertyRequest
      *
-     * @return CreatePropertyResponse
+     * @return CreatePropertyResponse CreatePropertyResponse
      */
     public function createProperty($request)
     {
@@ -231,8 +299,10 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * Convenience users are dedicated Elastic Desktop Service (EDS) user accounts and are suitable for scenarios in which you do not need to connect to enterprise Active Directory (AD) systems. The information about a convenience user includes the username, email address, and mobile number. You must specify the username or email address.
-     *   *
+     * @summary Creates a convenience user.
+     *  *
+     * @description Convenience users are dedicated Elastic Desktop Service (EDS) user accounts and are suitable for scenarios in which you do not need to connect to enterprise Active Directory (AD) systems. The information about a convenience user includes the username, email address, and mobile number. You must specify the username or email address.
+     *  *
      * @param CreateUsersRequest $request CreateUsersRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -244,6 +314,12 @@ class Edsuser extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->autoLockTime)) {
             $query['AutoLockTime'] = $request->autoLockTime;
+        }
+        if (!Utils::isUnset($request->isLocalAdmin)) {
+            $query['IsLocalAdmin'] = $request->isLocalAdmin;
+        }
+        if (!Utils::isUnset($request->passwordExpireDays)) {
+            $query['PasswordExpireDays'] = $request->passwordExpireDays;
         }
         $body = [];
         if (!Utils::isUnset($request->password)) {
@@ -272,8 +348,10 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * Convenience users are dedicated Elastic Desktop Service (EDS) user accounts and are suitable for scenarios in which you do not need to connect to enterprise Active Directory (AD) systems. The information about a convenience user includes the username, email address, and mobile number. You must specify the username or email address.
-     *   *
+     * @summary Creates a convenience user.
+     *  *
+     * @description Convenience users are dedicated Elastic Desktop Service (EDS) user accounts and are suitable for scenarios in which you do not need to connect to enterprise Active Directory (AD) systems. The information about a convenience user includes the username, email address, and mobile number. You must specify the username or email address.
+     *  *
      * @param CreateUsersRequest $request CreateUsersRequest
      *
      * @return CreateUsersResponse CreateUsersResponse
@@ -286,8 +364,10 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **DeleteUserPropertyValue**.
-     *   *
+     * @summary Dissociates a user property from a user.
+     *  *
+     * @description Before you call this operation, you can call the FilterUsers operation to query the users that are associated with user properties.
+     *  *
      * @param DeleteUserPropertyValueRequest $request DeleteUserPropertyValueRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -325,8 +405,10 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **DeleteUserPropertyValue**.
-     *   *
+     * @summary Dissociates a user property from a user.
+     *  *
+     * @description Before you call this operation, you can call the FilterUsers operation to query the users that are associated with user properties.
+     *  *
      * @param DeleteUserPropertyValueRequest $request DeleteUserPropertyValueRequest
      *
      * @return DeleteUserPropertyValueResponse DeleteUserPropertyValueResponse
@@ -339,10 +421,12 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param DescribeMfaDevicesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience users.
+     *  *
+     * @param DescribeMfaDevicesRequest $request DescribeMfaDevicesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMfaDevicesResponse
+     * @return DescribeMfaDevicesResponse DescribeMfaDevicesResponse
      */
     public function describeMfaDevicesWithOptions($request, $runtime)
     {
@@ -382,9 +466,11 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param DescribeMfaDevicesRequest $request
+     * @summary Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience users.
+     *  *
+     * @param DescribeMfaDevicesRequest $request DescribeMfaDevicesRequest
      *
-     * @return DescribeMfaDevicesResponse
+     * @return DescribeMfaDevicesResponse DescribeMfaDevicesResponse
      */
     public function describeMfaDevices($request)
     {
@@ -394,14 +480,84 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param DescribeUsersRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries organizations.
+     *  *
+     * @description An organization is in a tree structure. The root organization ID is in the following format: org-aliyun-wy-org-id.
+     *  *
+     * @param DescribeOrgsRequest $request DescribeOrgsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUsersResponse
+     * @return DescribeOrgsResponse DescribeOrgsResponse
      */
-    public function describeUsersWithOptions($request, $runtime)
+    public function describeOrgsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->orgName)) {
+            $query['OrgName'] = $request->orgName;
+        }
+        if (!Utils::isUnset($request->parentOrgId)) {
+            $query['ParentOrgId'] = $request->parentOrgId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeOrgs',
+            'version'     => '2021-03-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeOrgsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries organizations.
+     *  *
+     * @description An organization is in a tree structure. The root organization ID is in the following format: org-aliyun-wy-org-id.
+     *  *
+     * @param DescribeOrgsRequest $request DescribeOrgsRequest
+     *
+     * @return DescribeOrgsResponse DescribeOrgsResponse
+     */
+    public function describeOrgs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOrgsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the information about convenience users. The information of a convenience user includes a username, an email address, and a description.
+     *  *
+     * @param DescribeUsersRequest $tmpReq  DescribeUsersRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeUsersResponse DescribeUsersResponse
+     */
+    public function describeUsersWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeUsersShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->filterWithAssignedResources)) {
+            $request->filterWithAssignedResourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterWithAssignedResources, 'FilterWithAssignedResources', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->showExtras)) {
+            $request->showExtrasShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->showExtras, 'ShowExtras', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->filter)) {
             $query['Filter'] = $request->filter;
@@ -422,11 +578,17 @@ class Edsuser extends OpenApiClient
         if (!Utils::isUnset($request->excludeEndUserIds)) {
             $body['ExcludeEndUserIds'] = $request->excludeEndUserIds;
         }
+        if (!Utils::isUnset($request->filterWithAssignedResourcesShrink)) {
+            $body['FilterWithAssignedResources'] = $request->filterWithAssignedResourcesShrink;
+        }
         if (!Utils::isUnset($request->groupId)) {
             $body['GroupId'] = $request->groupId;
         }
         if (!Utils::isUnset($request->orgId)) {
             $body['OrgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->showExtrasShrink)) {
+            $body['ShowExtras'] = $request->showExtrasShrink;
         }
         if (!Utils::isUnset($request->solutionId)) {
             $body['SolutionId'] = $request->solutionId;
@@ -451,9 +613,11 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param DescribeUsersRequest $request
+     * @summary Queries the information about convenience users. The information of a convenience user includes a username, an email address, and a description.
+     *  *
+     * @param DescribeUsersRequest $request DescribeUsersRequest
      *
-     * @return DescribeUsersResponse
+     * @return DescribeUsersResponse DescribeUsersResponse
      */
     public function describeUsers($request)
     {
@@ -463,10 +627,12 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param FilterUsersRequest $tmpReq
-     * @param RuntimeOptions     $runtime
+     * @summary Filters convenience users by property.
+     *  *
+     * @param FilterUsersRequest $tmpReq  FilterUsersRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return FilterUsersResponse
+     * @return FilterUsersResponse FilterUsersResponse
      */
     public function filterUsersWithOptions($tmpReq, $runtime)
     {
@@ -510,6 +676,9 @@ class Edsuser extends OpenApiClient
         if (!Utils::isUnset($request->propertyKeyValueFilterParam)) {
             $query['PropertyKeyValueFilterParam'] = $request->propertyKeyValueFilterParam;
         }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -529,9 +698,11 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param FilterUsersRequest $request
+     * @summary Filters convenience users by property.
+     *  *
+     * @param FilterUsersRequest $request FilterUsersRequest
      *
-     * @return FilterUsersResponse
+     * @return FilterUsersResponse FilterUsersResponse
      */
     public function filterUsers($request)
     {
@@ -541,10 +712,12 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param GetManagerInfoByAuthCodeRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Obtains the information about the current logon administrator based on the authorization code.
+     *  *
+     * @param GetManagerInfoByAuthCodeRequest $request GetManagerInfoByAuthCodeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetManagerInfoByAuthCodeResponse
+     * @return GetManagerInfoByAuthCodeResponse GetManagerInfoByAuthCodeResponse
      */
     public function getManagerInfoByAuthCodeWithOptions($request, $runtime)
     {
@@ -572,9 +745,11 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param GetManagerInfoByAuthCodeRequest $request
+     * @summary Obtains the information about the current logon administrator based on the authorization code.
+     *  *
+     * @param GetManagerInfoByAuthCodeRequest $request GetManagerInfoByAuthCodeRequest
      *
-     * @return GetManagerInfoByAuthCodeResponse
+     * @return GetManagerInfoByAuthCodeResponse GetManagerInfoByAuthCodeResponse
      */
     public function getManagerInfoByAuthCode($request)
     {
@@ -584,9 +759,11 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries all user properties within an Alibaba Cloud account.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPropertyResponse
+     * @return ListPropertyResponse ListPropertyResponse
      */
     public function listPropertyWithOptions($runtime)
     {
@@ -607,7 +784,9 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @return ListPropertyResponse
+     * @summary Queries all user properties within an Alibaba Cloud account.
+     *  *
+     * @return ListPropertyResponse ListPropertyResponse
      */
     public function listProperty()
     {
@@ -617,10 +796,12 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param ListPropertyValueRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries property values of a user property.
+     *  *
+     * @param ListPropertyValueRequest $request ListPropertyValueRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPropertyValueResponse
+     * @return ListPropertyValueResponse ListPropertyValueResponse
      */
     public function listPropertyValueWithOptions($request, $runtime)
     {
@@ -648,9 +829,11 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param ListPropertyValueRequest $request
+     * @summary Queries property values of a user property.
+     *  *
+     * @param ListPropertyValueRequest $request ListPropertyValueRequest
      *
-     * @return ListPropertyValueResponse
+     * @return ListPropertyValueResponse ListPropertyValueResponse
      */
     public function listPropertyValue($request)
     {
@@ -660,9 +843,10 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * After a virtual MFA device is locked, the status of the virtual MFA device changes to LOCKED. The convenience user to which the MFA device is bound cannot log on to the cloud desktop that resides in the workspace with the MFA feature enabled because the convenience user will fail authentication based on the virtual MFA device. You can call the UnlockMfaDevice operation to unlock the virtual MFA device.
-     *   *
+     * @summary Locks a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
+     *  *
+     * @description After a virtual MFA device is locked, the status of the virtual MFA device changes to LOCKED. The convenience user to which the MFA device is bound cannot log on to the cloud desktop that resides in the workspace with the MFA feature enabled because the identity of the convenience user cannot be verified based on the virtual MFA device. You can call the [UnlockMfaDevice](https://help.aliyun.com/document_detail/286534.html) operation to unlock the virtual MFA device.
+     *  *
      * @param LockMfaDeviceRequest $request LockMfaDeviceRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -697,9 +881,10 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * After a virtual MFA device is locked, the status of the virtual MFA device changes to LOCKED. The convenience user to which the MFA device is bound cannot log on to the cloud desktop that resides in the workspace with the MFA feature enabled because the convenience user will fail authentication based on the virtual MFA device. You can call the UnlockMfaDevice operation to unlock the virtual MFA device.
-     *   *
+     * @summary Locks a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
+     *  *
+     * @description After a virtual MFA device is locked, the status of the virtual MFA device changes to LOCKED. The convenience user to which the MFA device is bound cannot log on to the cloud desktop that resides in the workspace with the MFA feature enabled because the identity of the convenience user cannot be verified based on the virtual MFA device. You can call the [UnlockMfaDevice](https://help.aliyun.com/document_detail/286534.html) operation to unlock the virtual MFA device.
+     *  *
      * @param LockMfaDeviceRequest $request LockMfaDeviceRequest
      *
      * @return LockMfaDeviceResponse LockMfaDeviceResponse
@@ -712,10 +897,12 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param LockUsersRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Locks one or more convenience users.
+     *  *
+     * @param LockUsersRequest $request LockUsersRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return LockUsersResponse
+     * @return LockUsersResponse LockUsersResponse
      */
     public function lockUsersWithOptions($request, $runtime)
     {
@@ -743,9 +930,11 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param LockUsersRequest $request
+     * @summary Locks one or more convenience users.
+     *  *
+     * @param LockUsersRequest $request LockUsersRequest
      *
-     * @return LockUsersResponse
+     * @return LockUsersResponse LockUsersResponse
      */
     public function lockUsers($request)
     {
@@ -755,10 +944,12 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param ModifyUserRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Modifies user information.
+     *  *
+     * @param ModifyUserRequest $request ModifyUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyUserResponse
+     * @return ModifyUserResponse ModifyUserResponse
      */
     public function modifyUserWithOptions($request, $runtime)
     {
@@ -792,9 +983,11 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param ModifyUserRequest $request
+     * @summary Modifies user information.
+     *  *
+     * @param ModifyUserRequest $request ModifyUserRequest
      *
-     * @return ModifyUserResponse
+     * @return ModifyUserResponse ModifyUserResponse
      */
     public function modifyUser($request)
     {
@@ -804,9 +997,11 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 查询edu同步信息
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySyncStatusByAliUidResponse
+     * @return QuerySyncStatusByAliUidResponse QuerySyncStatusByAliUidResponse
      */
     public function querySyncStatusByAliUidWithOptions($runtime)
     {
@@ -827,7 +1022,9 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @return QuerySyncStatusByAliUidResponse
+     * @summary 查询edu同步信息
+     *  *
+     * @return QuerySyncStatusByAliUidResponse QuerySyncStatusByAliUidResponse
      */
     public function querySyncStatusByAliUid()
     {
@@ -837,10 +1034,14 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param RemoveMfaDeviceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
+     *  *
+     * @description If you remove a virtual MFA device that is bound to a convenience user, the convenience user can no longer use the virtual MFA device to log on to cloud desktops. Before the convenience user can log on to cloud desktops again, a new virtual MFA device must be bound to the convenience user.
+     *  *
+     * @param RemoveMfaDeviceRequest $request RemoveMfaDeviceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveMfaDeviceResponse
+     * @return RemoveMfaDeviceResponse RemoveMfaDeviceResponse
      */
     public function removeMfaDeviceWithOptions($request, $runtime)
     {
@@ -871,9 +1072,13 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param RemoveMfaDeviceRequest $request
+     * @summary Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
+     *  *
+     * @description If you remove a virtual MFA device that is bound to a convenience user, the convenience user can no longer use the virtual MFA device to log on to cloud desktops. Before the convenience user can log on to cloud desktops again, a new virtual MFA device must be bound to the convenience user.
+     *  *
+     * @param RemoveMfaDeviceRequest $request RemoveMfaDeviceRequest
      *
-     * @return RemoveMfaDeviceResponse
+     * @return RemoveMfaDeviceResponse RemoveMfaDeviceResponse
      */
     public function removeMfaDevice($request)
     {
@@ -883,10 +1088,12 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param RemovePropertyRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Deletes a user property.
+     *  *
+     * @param RemovePropertyRequest $request RemovePropertyRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemovePropertyResponse
+     * @return RemovePropertyResponse RemovePropertyResponse
      */
     public function removePropertyWithOptions($request, $runtime)
     {
@@ -914,9 +1121,11 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param RemovePropertyRequest $request
+     * @summary Deletes a user property.
+     *  *
+     * @param RemovePropertyRequest $request RemovePropertyRequest
      *
-     * @return RemovePropertyResponse
+     * @return RemovePropertyResponse RemovePropertyResponse
      */
     public function removeProperty($request)
     {
@@ -926,10 +1135,12 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param RemoveUsersRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Removes one or more convenience users.
+     *  *
+     * @param RemoveUsersRequest $request RemoveUsersRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveUsersResponse
+     * @return RemoveUsersResponse RemoveUsersResponse
      */
     public function removeUsersWithOptions($request, $runtime)
     {
@@ -957,9 +1168,11 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param RemoveUsersRequest $request
+     * @summary Removes one or more convenience users.
+     *  *
+     * @param RemoveUsersRequest $request RemoveUsersRequest
      *
-     * @return RemoveUsersResponse
+     * @return RemoveUsersResponse RemoveUsersResponse
      */
     public function removeUsers($request)
     {
@@ -969,10 +1182,12 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param ResetUserPasswordRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Resets the password for a convenience user. If you call this operation, a token that is used to reset the password is generated, and the system sends a password reset email that includes the token to the email address of the convenience user.
+     *  *
+     * @param ResetUserPasswordRequest $request ResetUserPasswordRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetUserPasswordResponse
+     * @return ResetUserPasswordResponse ResetUserPasswordResponse
      */
     public function resetUserPasswordWithOptions($request, $runtime)
     {
@@ -1003,9 +1218,11 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param ResetUserPasswordRequest $request
+     * @summary Resets the password for a convenience user. If you call this operation, a token that is used to reset the password is generated, and the system sends a password reset email that includes the token to the email address of the convenience user.
+     *  *
+     * @param ResetUserPasswordRequest $request ResetUserPasswordRequest
      *
-     * @return ResetUserPasswordResponse
+     * @return ResetUserPasswordResponse ResetUserPasswordResponse
      */
     public function resetUserPassword($request)
     {
@@ -1015,8 +1232,8 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
-     *   *
+     * @summary Associates a user property with a convenience user.
+     *  *
      * @param SetUserPropertyValueRequest $request SetUserPropertyValueRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -1057,8 +1274,8 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
-     *   *
+     * @summary Associates a user property with a convenience user.
+     *  *
      * @param SetUserPropertyValueRequest $request SetUserPropertyValueRequest
      *
      * @return SetUserPropertyValueResponse SetUserPropertyValueResponse
@@ -1071,9 +1288,11 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 从钉钉手动同步老师学生信息
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return SyncAllEduInfoResponse
+     * @return SyncAllEduInfoResponse SyncAllEduInfoResponse
      */
     public function syncAllEduInfoWithOptions($runtime)
     {
@@ -1094,7 +1313,9 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @return SyncAllEduInfoResponse
+     * @summary 从钉钉手动同步老师学生信息
+     *  *
+     * @return SyncAllEduInfoResponse SyncAllEduInfoResponse
      */
     public function syncAllEduInfo()
     {
@@ -1104,10 +1325,12 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param UnlockMfaDeviceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Unlocks a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
+     *  *
+     * @param UnlockMfaDeviceRequest $request UnlockMfaDeviceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnlockMfaDeviceResponse
+     * @return UnlockMfaDeviceResponse UnlockMfaDeviceResponse
      */
     public function unlockMfaDeviceWithOptions($request, $runtime)
     {
@@ -1138,9 +1361,11 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param UnlockMfaDeviceRequest $request
+     * @summary Unlocks a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
+     *  *
+     * @param UnlockMfaDeviceRequest $request UnlockMfaDeviceRequest
      *
-     * @return UnlockMfaDeviceResponse
+     * @return UnlockMfaDeviceResponse UnlockMfaDeviceResponse
      */
     public function unlockMfaDevice($request)
     {
@@ -1150,10 +1375,12 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param UnlockUsersRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Unlocks one or more convenience users.
+     *  *
+     * @param UnlockUsersRequest $request UnlockUsersRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnlockUsersResponse
+     * @return UnlockUsersResponse UnlockUsersResponse
      */
     public function unlockUsersWithOptions($request, $runtime)
     {
@@ -1186,9 +1413,11 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param UnlockUsersRequest $request
+     * @summary Unlocks one or more convenience users.
+     *  *
+     * @param UnlockUsersRequest $request UnlockUsersRequest
      *
-     * @return UnlockUsersResponse
+     * @return UnlockUsersResponse UnlockUsersResponse
      */
     public function unlockUsers($request)
     {
@@ -1198,10 +1427,12 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param UpdatePropertyRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Modifies a user property.
+     *  *
+     * @param UpdatePropertyRequest $request UpdatePropertyRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePropertyResponse
+     * @return UpdatePropertyResponse UpdatePropertyResponse
      */
     public function updatePropertyWithOptions($request, $runtime)
     {
@@ -1235,9 +1466,11 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @param UpdatePropertyRequest $request
+     * @summary Modifies a user property.
+     *  *
+     * @param UpdatePropertyRequest $request UpdatePropertyRequest
      *
-     * @return UpdatePropertyResponse
+     * @return UpdatePropertyResponse UpdatePropertyResponse
      */
     public function updateProperty($request)
     {

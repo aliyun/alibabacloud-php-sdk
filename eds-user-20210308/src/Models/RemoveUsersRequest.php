@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RemoveUsersRequest extends Model
 {
     /**
+     * @description The usernames of the convenience users that you want to remove.
+     *
+     * This parameter is required.
      * @example test1
      *
      * @var string[]

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeUsersResponseBody extends Model
 {
     /**
+     * @description The token that determines the start point of the next query. If this parameter is left empty, all results are returned.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeUsersResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
      *
      * @var string
@@ -24,7 +28,7 @@ class DescribeUsersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Details of the convenience users.
+     * @description The information about the convenience users.
      *
      * @var users[]
      */

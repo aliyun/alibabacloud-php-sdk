@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreatePropertyRequest extends Model
 {
     /**
+     * @description The property name.
+     *
+     * This parameter is required.
      * @example department
      *
      * @var string
@@ -16,6 +19,8 @@ class CreatePropertyRequest extends Model
     public $propertyKey;
 
     /**
+     * @description The values of the property. You can specify up to 50 values for a property.
+     *
      * @var string[]
      */
     public $propertyValues;

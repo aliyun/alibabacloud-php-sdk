@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckUsedPropertyResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 22C97624-2405-54AC-BD44-A63FBE97CC2D
      *
      * @var string
@@ -16,6 +18,8 @@ class CheckUsedPropertyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of convenience users that are associated with the property.
+     *
      * @example 7
      *
      * @var int

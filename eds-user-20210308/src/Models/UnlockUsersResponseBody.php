@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UnlockUsersResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 023F4EC4-3602-4A3E-A514-4970847D59DB
      *
      * @var string
@@ -17,6 +19,8 @@ class UnlockUsersResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The result of unlocking the convenience user.
+     *
      * @var unlockUsersResult
      */
     public $unlockUsersResult;

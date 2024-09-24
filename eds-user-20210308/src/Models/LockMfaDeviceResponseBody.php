@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class LockMfaDeviceResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 42FE70D8-4336-471B-8314-CCCFCE4159FD
      *

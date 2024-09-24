@@ -10,9 +10,18 @@ use AlibabaCloud\Tea\Model;
 class CreateUsersRequest extends Model
 {
     /**
+     * @description The date on which the convenience users are automatically locked.
+     *
+     * @example 2023-03-03
+     *
      * @var string
      */
     public $autoLockTime;
+
+    /**
+     * @var bool
+     */
+    public $isLocalAdmin;
 
     /**
      * @description The initial password. If this parameter is left empty, an email for password reset is sent to the specified email address.
@@ -24,17 +33,25 @@ class CreateUsersRequest extends Model
     public $password;
 
     /**
-     * @description Details of the convenience users.
+     * @var string
+     */
+    public $passwordExpireDays;
+
+    /**
+     * @description The information about the convenience user.
      *
+     * This parameter is required.
      * @example CreateUsers
      *
      * @var users[]
      */
     public $users;
     protected $_name = [
-        'autoLockTime' => 'AutoLockTime',
-        'password'     => 'Password',
-        'users'        => 'Users',
+        'autoLockTime'       => 'AutoLockTime',
+        'isLocalAdmin'       => 'IsLocalAdmin',
+        'password'           => 'Password',
+        'passwordExpireDays' => 'PasswordExpireDays',
+        'users'              => 'Users',
     ];
 
     public function validate()
@@ -47,8 +64,14 @@ class CreateUsersRequest extends Model
         if (null !== $this->autoLockTime) {
             $res['AutoLockTime'] = $this->autoLockTime;
         }
+        if (null !== $this->isLocalAdmin) {
+            $res['IsLocalAdmin'] = $this->isLocalAdmin;
+        }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
+        }
+        if (null !== $this->passwordExpireDays) {
+            $res['PasswordExpireDays'] = $this->passwordExpireDays;
         }
         if (null !== $this->users) {
             $res['Users'] = [];
@@ -74,8 +97,14 @@ class CreateUsersRequest extends Model
         if (isset($map['AutoLockTime'])) {
             $model->autoLockTime = $map['AutoLockTime'];
         }
+        if (isset($map['IsLocalAdmin'])) {
+            $model->isLocalAdmin = $map['IsLocalAdmin'];
+        }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
+        }
+        if (isset($map['PasswordExpireDays'])) {
+            $model->passwordExpireDays = $map['PasswordExpireDays'];
         }
         if (isset($map['Users'])) {
             if (!empty($map['Users'])) {

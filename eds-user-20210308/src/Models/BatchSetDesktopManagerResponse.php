@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreatePropertyResponse extends Model
+class BatchSetDesktopManagerResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class CreatePropertyResponse extends Model
     public $statusCode;
 
     /**
-     * @var CreatePropertyResponseBody
+     * @var BatchSetDesktopManagerResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class CreatePropertyResponse extends Model
     /**
      * @param array $map
      *
-     * @return CreatePropertyResponse
+     * @return BatchSetDesktopManagerResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class CreatePropertyResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = CreatePropertyResponseBody::fromMap($map['body']);
+            $model->body = BatchSetDesktopManagerResponseBody::fromMap($map['body']);
         }
 
         return $model;

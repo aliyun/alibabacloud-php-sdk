@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeMfaDevicesResponseBody extends Model
 {
     /**
-     * @description Details about the virtual MFA devices.
+     * @description The information about the virtual MFA devices.
      *
      * @var mfaDevices[]
      */
     public $mfaDevices;
 
     /**
-     * @description The token that determines the start point of the next query.
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
      *
      * @example AAAAAV3MpHK1AP0pfERHZN5pu6na6YlN9asMM31MsMcdQNpp
      *
@@ -26,7 +26,7 @@ class DescribeMfaDevicesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 33DBB8EC-6E68-4726-91C4-E09C59D9A7D8
      *
