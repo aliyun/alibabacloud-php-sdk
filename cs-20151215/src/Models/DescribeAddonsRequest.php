@@ -22,12 +22,11 @@ class DescribeAddonsRequest extends Model
     public $clusterProfile;
 
     /**
-     * @description The edition of the cluster. If you set the cluster type to `ManagedKubernetes`, the following editions are supported:
+     * @description If you set `cluster_type` to `ManagedKubernetes` and specify `profile`, you can further specify the edition of the cluster. Valid values:
      *
-     *   `ack.pro.small`: ACK Pro cluster
-     *   `ack.standard`: ACK Basic cluster
+     *   `ack.pro.small`: creates an ACK Pro cluster.
+     *   `ack.standard`: creates an ACK Basic cluster. If you leave the parameter empty, an ACK Basic cluster is created.
      *
-     * By default, this parameter is left empty. If you leave this parameter empty, clusters are not filtered by edition.
      * @example ack.pro.small
      *
      * @var string
@@ -35,10 +34,8 @@ class DescribeAddonsRequest extends Model
     public $clusterSpec;
 
     /**
-     * @description The type of cluster. Valid values:
-     *
-     *   `Kubernetes`: ACK dedicated cluster.
-     *   `ManagedKubernetes`: ACK managed cluster. ACK managed clusters include ACK Pro clusters, ACK Basic clusters, ACK Serverless Pro clusters, ACK Serverless Basic clusters, ACK Edge Pro clusters, and ACK Edge Basic clusters.
+     * @description *   `Kubernetes`: ACK dedicated cluster.
+     *   `ManagedKubernetes`: ACK managed cluster. ACK managed clusters include ACK Basic clusters, ACK Pro clusters, ACK Serverless Basic clusters, ACK Serverless Pro clusters, ACK Edge Basic clusters, ACK Edge Pro clusters, and ACK Lingjun Pro clusters.
      *   `ExternalKubernetes`: registered cluster.
      *
      * @example kubernetes

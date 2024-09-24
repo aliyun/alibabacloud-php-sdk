@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class rollingPolicy extends Model
 {
     /**
+     * @description The update interval between batches takes effect only when the pause policy is set to NotPause. Unit: minutes. Valid values: 5 to 120.
+     *
+     * @example 5 minutes
+     *
      * @var int
      */
     public $batchInterval;
 
     /**
+     * @description The maximum number of unavailable nodes.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $maxParallelism;
 
     /**
+     * @description The policy that is used to pause the update. Valid values:
+     *
+     *   FirstBatch: pauses the update after the first batch is completed.
+     *   EveryBatch: pauses after each batch is completed.
+     *   NotPause: does not pause.
+     *
+     * @example NotPause
+     *
      * @var string
      */
     public $pausePolicy;

@@ -18,12 +18,11 @@ class DescribeClustersV1Request extends Model
     public $clusterId;
 
     /**
-     * @description The cluster type, which is available only when the cluster type is set to `ManagedKubernetes`. Valid values:
+     * @description After you set `cluster_type` to `ManagedKubernetes` and configure the `profile` parameter, you can further specify the edition of the cluster. Valid values:
      *
-     *   `ack.pro.small`: ACK Pro cluster
-     *   `ack.standard`: ACK Basic cluster
+     *   `ack.pro.small`: ACK Pro cluster.
+     *   `ack.standard`: ACK Basic cluster. If you leave the parameter empty, ACK Basic cluster is selected.
      *
-     * By default, this parameter is left empty, which means that ACK clusters are not filtered by this parameter.
      * @example ack.pro.small
      *
      * @var string
@@ -31,10 +30,8 @@ class DescribeClustersV1Request extends Model
     public $clusterSpec;
 
     /**
-     * @description The cluster type. Valid values:
-     *
-     *   `Kubernetes`: ACK dedicated cluster.
-     *   `ManagedKubernetes`: ACK managed cluster. ACK managed clusters include ACK Pro clusters, ACK Basic clusters, ACK Serverless Pro clusters, ACK Serverless Basic clusters, ACK Edge Pro clusters, and ACK Edge Basic clusters.
+     * @description *   `Kubernetes`: ACK dedicated cluster.
+     *   `ManagedKubernetes`: ACK managed cluster. ACK managed clusters include ACK Basic clusters, ACK Pro clusters, ACK Serverless Basic clusters, ACK Serverless Pro clusters, ACK Edge Basic clusters, ACK Edge Pro clusters, and ACK Lingjun Pro clusters.
      *   `ExternalKubernetes`: registered cluster.
      *
      * @example Kubernetes
@@ -72,13 +69,13 @@ class DescribeClustersV1Request extends Model
     public $pageSize;
 
     /**
-     * @description The identifier of the cluster. Valid values when the cluster_type parameter is set to `ManagedKubernetes`:
+     * @description If you set `cluster_type` to `ManagedKubernetes`, an ACK managed cluster is created. In this case, you can further specify the cluster edition. Valid values:
      *
-     *   `Default`: ACK managed cluster
-     *   `Serverless`: ACK Serverless cluster
-     *   `Edge`: ACK Edge cluster
+     *   `Default`: ACK managed cluster. ACK managed clusters include ACK Basic clusters and ACK Pro clusters.
+     *   `Edge`: ACK Edge cluster. ACK Edge clusters include ACK Edge Basic clusters and ACK Edge Pro clusters.
+     *   `Serverless`: ACK Serverless cluster. ACK Serverless clusters include ACK Serverless Basic clusters and ACK Serverless Pro clusters.
+     *   `Lingjun`: ACK Lingjun Pro cluster.
      *
-     * By default, this parameter is left empty. If you leave this parameter empty, ACK clusters are not filtered by identifier.
      * @example Default
      *
      * @var string

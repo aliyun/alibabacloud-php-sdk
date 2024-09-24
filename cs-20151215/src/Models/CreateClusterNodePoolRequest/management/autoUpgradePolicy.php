@@ -11,8 +11,8 @@ class autoUpgradePolicy extends Model
     /**
      * @description Specifies whether to allow auto update of the kubelet. This parameter takes effect only if `auto_upgrade` is set to true. Valid values:
      *
-     *   `true`
-     *   `false`
+     *   `true`: allows auto update of the kubelet.
+     *   `false`: does not allow auto update of the kubelet.
      *
      * If `auto_upgrade` is set to true, the default value of this parameter is `true`. If `auto_upgrade` is set to false, the default value of this parameter is `false`.
      * @example true
@@ -22,15 +22,23 @@ class autoUpgradePolicy extends Model
     public $autoUpgradeKubelet;
 
     /**
-     * @description 是否允许自动升级操作系统，仅当`auto_upgrade=true`时生效。取值：
-     * 默认值为`false`
+     * @description Specifies whether to allow auto update of the OS. This parameter takes effect only if `auto_upgrade` is set to true. Valid values:
+     *
+     *   `true`: allows auto update of the OS.
+     *   `false`: does not allow auto update of the OS.
+     *
+     * Default value: `false`.
      * @var bool
      */
     public $autoUpgradeOs;
 
     /**
-     * @description 是否允许自动升级运行时，仅当`auto_upgrade=true`时生效。取值：
-     * 默认值为`false`
+     * @description Specifies whether to allow auto update of the runtime. This parameter takes effect only if `auto_upgrade` is set to true. Valid values:
+     *
+     *   `true`: allows auto update of the runtime.
+     *   `false`: does not allow auto update of the runtime.
+     *
+     * Default value: `false`.
      * @var bool
      */
     public $autoUpgradeRuntime;

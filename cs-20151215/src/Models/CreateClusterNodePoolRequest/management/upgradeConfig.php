@@ -11,12 +11,12 @@ class upgradeConfig extends Model
     /**
      * @description Specifies whether to enable auto update. Valid values:
      *
-     *   `true`
-     *   `false`
+     *   `true`: enables auto update.
+     *   `false`: disables auto update.
      *
      **
      *
-     **Important** This parameter is discontinued. Use the preceding auto_upgrade parameter.
+     **Caution** This parameter is deprecated. Use the preceding auto_upgrade parameter.
      *
      * @example false
      *
@@ -37,7 +37,7 @@ class upgradeConfig extends Model
     public $maxUnavailable;
 
     /**
-     * @description The number of additional nodes.
+     * @description The number of additional nodes that are temporarily added to the node pool during an auto update.
      *
      * @example 0
      *
@@ -46,7 +46,7 @@ class upgradeConfig extends Model
     public $surge;
 
     /**
-     * @description The percentage of additional nodes to the total nodes in the node pool. You must specify this parameter or the `surge` parameter.
+     * @description The percentage of additional nodes that are temporarily added to the node pool during an auto update. You must set this parameter or `surge`.
      *
      * @example 0
      *

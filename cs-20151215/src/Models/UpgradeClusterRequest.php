@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class UpgradeClusterRequest extends Model
 {
     /**
-     * @description This parameter is discontinued.
+     * @description This parameter is deprecated.
      *
      * @example k8s
      *
@@ -23,8 +23,8 @@ class UpgradeClusterRequest extends Model
     /**
      * @description Specifies whether to update only the master nodes. Valid values:
      *
-     *   true: Updates only the master nodes.
-     *   false: Updates the master nodes and worker nodes.
+     *   true: updates only the master nodes.
+     *   false: updates the master nodes and worker nodes.
      *
      * @example true
      *
@@ -47,7 +47,7 @@ class UpgradeClusterRequest extends Model
     public $rollingPolicy;
 
     /**
-     * @description This parameter is discontinued. Specify the Kubernetes version by using the next_version parameter.
+     * @description This parameter is deprecated. Specify the Kubernetes version by using the next_version parameter.
      *
      * @example 1.14.8-aliyun.1
      *

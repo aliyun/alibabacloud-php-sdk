@@ -79,7 +79,7 @@ class nodepools extends Model
     public $nodepoolInfo;
 
     /**
-     * @description The configurations of the scaling group.
+     * @description The configuration of the scaling group.
      *
      * @var scalingGroup
      */

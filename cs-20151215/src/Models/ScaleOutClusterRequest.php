@@ -33,10 +33,10 @@ class ScaleOutClusterRequest extends Model
     public $count;
 
     /**
-     * @description The CPU management policy of the nodes in a node pool. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later.
+     * @description The CPU management policy of nodes. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later:
      *
-     *   `static`: This policy allows pods with specific resource characteristics on the node to be granted with enhanced CPU affinity and exclusivity.
-     *   `none`: The default CPU affinity is used.
+     *   `static`: allows pods with specific resource characteristics on the node to be granted with enhanced CPU affinity and exclusivity.
+     *   `none`: specifies that the default CPU affinity is used.
      *
      * Default value: `none`.
      * @example none
@@ -46,7 +46,7 @@ class ScaleOutClusterRequest extends Model
     public $cpuPolicy;
 
     /**
-     * @description Specifies a custom image for nodes. By default, the image provided by Container Service for Kubernetes (ACK) is used. You can select a custom image to replace the default image. For more information, see [Custom images](https://help.aliyun.com/document_detail/146647.html).
+     * @description Specifies a custom image for nodes. By default, the image provided by ACK is used. You can select a custom image to replace the default image. For more information, see [Custom images](https://help.aliyun.com/document_detail/146647.html).
      *
      * @example m-bp16z7xko3vvv8gt****
      *
@@ -55,7 +55,7 @@ class ScaleOutClusterRequest extends Model
     public $imageId;
 
     /**
-     * @description The name of the key pair. You must set this parameter or the `login_password` parameter.
+     * @description The name of the key pair. You must configure this parameter or the `login_password` parameter.
      *
      * This parameter is required.
      * @example secrity-key
@@ -65,7 +65,7 @@ class ScaleOutClusterRequest extends Model
     public $keyPair;
 
     /**
-     * @description The password for SSH logon. You must set this parameter or the `key_pair` parameter. The password must be 8 to 30 characters in length, and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+     * @description The password for SSH logon. You must configure this parameter or the `key_pair` parameter. The password must be 8 to 30 characters in length, and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
      *
      * This parameter is required.
      * @example Hello@1234
@@ -75,7 +75,7 @@ class ScaleOutClusterRequest extends Model
     public $loginPassword;
 
     /**
-     * @description After you specify the list of ApsaraDB RDS instances, the ECS instances in the cluster are automatically added to the whitelist of the ApsaraDB RDS instances.
+     * @description The ApsaraDB RDS instances. If you specify a list of ApsaraDB RDS instances, ECS instances in the cluster are automatically added to the whitelist of the ApsaraDB RDS instances.
      *
      * @var string[]
      */
@@ -91,22 +91,22 @@ class ScaleOutClusterRequest extends Model
     /**
      * @description The labels that you want to add to nodes. You must add labels based on the following rules:
      *
-     *   Each label is a case-sensitive key-value pair. You can add up to 20 labels.
-     *   A key must be unique and cannot exceed 64 characters in length. A value can be empty and cannot exceed 128 characters in length. Keys and values cannot start with aliyun, acs:, https://, or http://. For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
+     *   A label is a case-sensitive key-value pair. You can add up to 20 labels.
+     *   When you add a label, you must specify a unique key but you can leave the value empty. A key cannot exceed 64 characters in length and a value cannot exceed 128 characters in length. Keys and values cannot start with aliyun, acs:, https://, or http://. For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
      *
      * @var Tag[]
      */
     public $tags;
 
     /**
-     * @description The taints that you want to add to nodes. Taints are added to nodes to prevent pods from being scheduled to inappropriate nodes. However, tolerations allow pods to be scheduled to nodes with matching taints. For more information, see [Taints and Tolerations](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
+     * @description The taints that you want to add to nodes. Taints can be used together with tolerations to avoid scheduling pods to specified nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
      *
      * @var Taint[]
      */
     public $taints;
 
     /**
-     * @description The user data of the node pool. For more information, see [Generate user-defined data](https://help.aliyun.com/document_detail/49121.html).
+     * @description The user-defined data of the node pool. For more information, see [Generate user-defined data](https://help.aliyun.com/document_detail/49121.html).
      *
      * @example IyEvdXNyL2Jpbi9iYXNoCmVjaG8gIkhlbGxvIEFD****
      *
@@ -115,7 +115,7 @@ class ScaleOutClusterRequest extends Model
     public $userData;
 
     /**
-     * @description The IDs of the vSwitches. You can select one to three vSwitches when you create a cluster. We recommend that you select vSwitches in different zones to ensure high availability.
+     * @description The vSwitch IDs. You can select one to three vSwitches when you create a cluster. To ensure the high availability of the cluster, we recommend that you select vSwitches in different zones.
      *
      * This parameter is required.
      * @var string[]
@@ -123,10 +123,10 @@ class ScaleOutClusterRequest extends Model
     public $vswitchIds;
 
     /**
-     * @description Specifies whether to enable auto-renewal for worker nodes. This parameter takes effect only if `worker_instance_charge_type` is set to `PrePaid`. Valid values:
+     * @description Specifies whether to enable auto-renewal for worker nodes. This parameter takes effect and is required only if `worker_instance_charge_type` is set to `PrePaid`. Valid values:
      *
      *   `true`: enables auto-renewal.
-     *   `false`: disables auto-renewal.
+     *   `false`: does not enable auto-renewal.
      *
      * Default value: `true`.
      * @example true
@@ -136,7 +136,7 @@ class ScaleOutClusterRequest extends Model
     public $workerAutoRenew;
 
     /**
-     * @description The auto-renewal period for worker nodes after the subscriptions of worker nodes expire. This parameter takes effect and is required only if the subscription billing method is selected for worker nodes.
+     * @description The auto-renewal duration of worker nodes. This parameter takes effect and is required only if the subscription billing method is selected for worker nodes.
      *
      * Default value: `1`.
      * @example 6
@@ -146,7 +146,7 @@ class ScaleOutClusterRequest extends Model
     public $workerAutoRenewPeriod;
 
     /**
-     * @description The configuration of the data disk that is mounted to worker nodes. The configuration includes the disk type and disk size.
+     * @description The configurations of the data disks that you want to mount to worker nodes. The configurations include the disk type and disk size.
      *
      * @var workerDataDisks[]
      */
@@ -184,7 +184,7 @@ class ScaleOutClusterRequest extends Model
     public $workerPeriod;
 
     /**
-     * @description The billing cycle of worker nodes. This parameter is required if worker_instance_charge_type is set to `PrePaid`.
+     * @description The billing cycle of worker nodes. This parameter is required only if worker_instance_charge_type is set to `PrePaid`.
      *
      * Set the value to `Month`. Worker nodes are billed only on a monthly basis.
      * @example Month
@@ -194,11 +194,11 @@ class ScaleOutClusterRequest extends Model
     public $workerPeriodUnit;
 
     /**
-     * @description The type of system disk that you want to use for worker nodes. Valid values:
+     * @description The system disk type of worker nodes. Valid values:
      *
      *   `cloud_efficiency`: ultra disk.
      *   `cloud_ssd`: standard SSD.
-     *   `cloud_essd`: enhanced SSD (ESSD).
+     *   `cloud_essd`: Enterprise SSD (ESSD).
      *
      * This parameter is required.
      * @example cloud_efficiency
@@ -208,7 +208,7 @@ class ScaleOutClusterRequest extends Model
     public $workerSystemDiskCategory;
 
     /**
-     * @description The size of the system disk that you want to use for worker nodes. Unit: GiB.
+     * @description The system disk size of worker nodes. Unit: GiB.
      *
      * This parameter is required.
      * @example 120

@@ -31,14 +31,14 @@ class ModifyClusterNodePoolRequest extends Model
     public $concurrency;
 
     /**
-     * @description The configuration of the cluster where the node pool is deployed.
+     * @description The configurations of the cluster in which the node pool is deployed.
      *
      * @var kubernetesConfig
      */
     public $kubernetesConfig;
 
     /**
-     * @description The configuration of the managed node pool feature.
+     * @description The configurations of the managed node pool feature.
      *
      * @var management
      */
@@ -52,7 +52,7 @@ class ModifyClusterNodePoolRequest extends Model
     public $nodepoolInfo;
 
     /**
-     * @description The configurations of the scaling group.
+     * @description The configurations of the scaling group that is used by the node pool.
      *
      * @var scalingGroup
      */

@@ -24,7 +24,7 @@ class ListClusterKubeconfigStatesRequest extends Model
      * @description The number of entries per page.
      *
      *   Valid values: 10 to 50.
-     *   Default value: 10.
+     *   Default value: 10
      *
      * @example 10
      *

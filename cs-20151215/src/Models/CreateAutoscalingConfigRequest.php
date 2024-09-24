@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateAutoscalingConfigRequest extends Model
 {
     /**
-     * @description The waiting time before the auto scaling feature performs a scale-in activity. Only if the resource usage on a node remains below the scale-in threshold within the waiting time, the node is removed after the waiting time ends. Unit: minutes.
+     * @description The waiting time before the auto scaling feature performs a scale-in activity. It is an interval between the time when the scale-in threshold is reached and the time when the scale-in activity (reduce the number of pods) starts. Unit: minutes. Default value: 10.
      *
      * @example 10 m
      *
@@ -18,7 +18,7 @@ class CreateAutoscalingConfigRequest extends Model
     public $coolDownDuration;
 
     /**
-     * @description Specifies whether to evict DaemonSet pods during scale-in activities. Valid values:
+     * @description Specifies whether to evict pods created by DaemonSets when the cluster autoscaler performs a scale-in activity. Valid values:
      *
      *   `true`: evicts DaemonSet pods.
      *   `false`: does not evict DaemonSet pods.
@@ -45,6 +45,7 @@ class CreateAutoscalingConfigRequest extends Model
     /**
      * @description The scale-in threshold of GPU utilization. This threshold specifies the ratio of the GPU resources that are requested by pods to the total GPU resources on the node.
      *
+     * A scale-in activity is performed only when the CPU utilization, memory utilization, and GPU utilization of a GPU-accelerated node are lower than the scale-in threshold of GPU utilization.
      * @example 0.5
      *
      * @var string
@@ -52,7 +53,7 @@ class CreateAutoscalingConfigRequest extends Model
     public $gpuUtilizationThreshold;
 
     /**
-     * @description The maximum amount of time that the cluster autoscaler waits for pods on the nodes to terminate during scale-in activities. Unit: seconds.
+     * @description The maximum amount of time to wait for pods on a node to terminate during a scale-in activity. Unit: seconds.
      *
      * @example 14400s
      *
@@ -61,7 +62,7 @@ class CreateAutoscalingConfigRequest extends Model
     public $maxGracefulTerminationSec;
 
     /**
-     * @description The minimum number of pods that must be guaranteed during scale-in activities.
+     * @description The minimum number of pods allowed in each ReplicaSet before a scale-in activity is performed.
      *
      * @example 0
      *
@@ -70,7 +71,10 @@ class CreateAutoscalingConfigRequest extends Model
     public $minReplicaCount;
 
     /**
-     * @description Specifies whether to delete the corresponding Kubernetes node objects after nodes are removed in swift mode.
+     * @description Specifies whether to delete the corresponding Kubernetes node objects after nodes are removed in swift mode. For more information about the swift mode, see [Scaling mode](https://help.aliyun.com/document_detail/119099.html). Default value: false. Valid values:
+     *
+     *   `true`: deletes the corresponding Kubernetes node objects after nodes are removed in swift mode. We recommend that you do not set the value to true because data inconsistency may occur in Kubernetes objects.
+     *   `false`: retains the corresponding Kubernetes node objects after nodes are removed in swift mode.
      *
      * @example false
      *
@@ -91,7 +95,10 @@ class CreateAutoscalingConfigRequest extends Model
     public $scaleDownEnabled;
 
     /**
-     * @description Specifies whether the cluster autoscaler performs scale-out activities when the number of ready nodes in the cluster is zero.
+     * @description Specifies whether the cluster autoscaler performs a scale-out activity when the number of ready nodes in the cluster is 0. Default value: true. Valid values:
+     *
+     *   `true`: performs a scale-out activity.
+     *   `false`: does not perform a scale-out activity.
      *
      * @example true
      *
@@ -100,7 +107,7 @@ class CreateAutoscalingConfigRequest extends Model
     public $scaleUpFromZero;
 
     /**
-     * @description The interval at which the cluster is scanned and evaluated for scaling. Unit: seconds.
+     * @description The interval at which the system scans for events that trigger scaling activities. Unit: seconds. Default value: 60.
      *
      * @example 30s
      *
@@ -109,7 +116,7 @@ class CreateAutoscalingConfigRequest extends Model
     public $scanInterval;
 
     /**
-     * @description Specifies whether to allow the cluster autoscaler to scale in nodes that host pods mounted with local storage, such as EmptyDir volumes or HostPath volumes. Valid values:
+     * @description Specifies whether the cluster autoscaler scales in nodes that host pods mounted with local volumes, such as EmptyDir or HostPath volumes. Valid values:
      *
      *   `true`: does not allow the cluster autoscaler to scale in these nodes.
      *   `false`: allows the cluster autoscaler to scale in these nodes.
@@ -121,7 +128,7 @@ class CreateAutoscalingConfigRequest extends Model
     public $skipNodesWithLocalStorage;
 
     /**
-     * @description Specifies whether to allow the cluster autoscaler to scale in nodes that host pods in the kube-system namespace, excluding DaemonSet pods and mirror pods. Valid values:
+     * @description Specifies whether the cluster autoscaler scales in nodes that host pods in the kube-system namespace. This parameter does not take effect on pods created by DaemonSets and mirror pods. Valid values:
      *
      *   `true`: does not allow the cluster autoscaler to scale in these nodes.
      *   `false`: allows the cluster autoscaler to scale in these nodes.
@@ -133,7 +140,7 @@ class CreateAutoscalingConfigRequest extends Model
     public $skipNodesWithSystemPods;
 
     /**
-     * @description The cooldown period. Newly added nodes can be removed in scale-in activities only after the cooldown period ends. Unit: minutes.
+     * @description The cooldown period. After the autoscaler performs a scale-out activity, the autoscaler waits a cooldown period before it can perform a scale-in activity. Newly added nodes can be removed in scale-in activities only after the cooldown period ends. Unit: minutes.
      *
      * @example 10 m
      *
@@ -144,6 +151,7 @@ class CreateAutoscalingConfigRequest extends Model
     /**
      * @description The scale-in threshold. This threshold specifies the ratio of the resources that are requested by pods to the total resources on the node.
      *
+     * A scale-in activity is performed only when the CPU utilization and memory utilization of a node are lower than the scale-in threshold.
      * @example 0.5
      *
      * @var string

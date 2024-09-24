@@ -10,50 +10,64 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterRequest extends Model
 {
     /**
-     * @description The access control list (ACL) rule of the SLB instance associated with the API server if the cluster is a registered cluster.
+     * @description The network access control list (ACL) of the SLB instance associated with the API server if the cluster is a registered cluster.
      *
      * @var string[]
      */
     public $accessControlList;
 
     /**
-     * @description The components that you want to install in the cluster. When you create a cluster, you can configure the `addons` parameter to install specific components.
+     * @description The components that you want to install in the cluster. When you create a cluster, you can configure the `addons` parameter to specify the components that you want to install.
      *
      **Network plug-in**: required. The Flannel and Terway plug-ins are supported. Select one of the plug-ins for the cluster.
      *
-     *   Specify the Flannel plug-in in the following format: [{"name":"flannel","config":""}].
-     *   Specify the Flannel plug-in in the following format: [{"name": "terway-eniip","config": ""}].
+     *   If you want to use the Terway component, specify the network plug-in in the [{"name":"flannel","config":""}] format.
+     *   If you want to use the Terway component, specify the value network plug-in in the [{"Name": "terway-eniip","Config": ""}] format.
      *
-     **Volume plug-in**: optional. Only the `CSI` plug-in is supported.
+     **Volume plug-in**: optional. Only the `Container Storage Interface (CSI)` plug-in is supported.
      *
      * Specify the `CSI` plug-in in the following format: [{"name":"csi-plugin","config": ""},{"name": "csi-provisioner","config": ""}].
      *
      **Simple Log Service component**: optional. We recommend that you enable Simple Log Service. If Simple Log Service is disabled, you cannot use the cluster auditing feature.
      *
-     *   To use an existing `Simple Log Service project`, specify the value in the following format: [{"name": "logtail-ds","config": "{"IngressDashboardEnabled":"true","sls_project_name":"your_sls_project_name"}"}].
-     *   To create a `Simple Log Service project`, specify the value in the following format: [{"name": "logtail-ds","config": "{"IngressDashboardEnabled":"true"}"}].
+     *   Specify an existing `Simple Log Service project` in the following format: [{"name": "logtail-ds","config": "{"IngressDashboardEnabled":"true","sls_project_name":"your_sls_project_name"}"}].
+     *   To create a `Simple Log Service project`, specify the component in the following format: [{"name": "logtail-ds","config": "{"IngressDashboardEnabled":"true"}"}].
      *
      **Ingress controller**: optional. By default, the `nginx-ingress-controller` component is installed in ACK dedicated clusters.
      *
-     *   To install nginx-ingress-controller and enable Internet access, specify the value in the following format: [{"name":"nginx-ingress-controller","config":"{"IngressSlbNetworkType":"internet"}"}].
-     *   To disable the system to automatically install nginx-ingress-controller, specify the value in the following format: [{"name": "nginx-ingress-controller","config": "","disabled": true}].
+     *   To install nginx-ingress-controller and enable Internet access, specify the Ingress controller in the following format: [{"name":"nginx-ingress-controller","config":"{"IngressSlbNetworkType":"internet"}"}].
+     *   To disable the automatic installation of nginx-ingress-controller, specify the Ingress controller in the following format: [{"name": "nginx-ingress-controller","config": "","disabled": true}].
      *
      **Event center**: optional. By default, the event center feature is enabled.
      *
-     * To enable the ack-node-problem-detector component, specify the value in the following format: [{"name":"ack-node-problem-detector","config":"{"sls_project_name":"your_sls_project_name"}"}].
+     * To enable the event center feature, specify the event center component in the following format: [{"name":"ack-node-problem-detector","config":"{"sls_project_name":"your_sls_project_name"}"}].
      * @var Addon[]
      */
     public $addons;
 
     /**
-     * @description Service accounts provide identities for pods when pods communicate with the `API server` of the cluster. `api-audiences` are used by the `API server` to check whether the `tokens` of requests are legitimate.`` Separate multiple `audiences` with commas (,).
+     * @description Service accounts provide identities for pods when pods communicate with the `API server` of the cluster. The `api-audiences` parameter validates `tokens` and is used by the `API server` to check whether the `tokens` of requests are valid. Separate multiple values with commas (,).``
      *
-     * For more information about `ServiceAccount`, see [Enable service account token volume projection](https://help.aliyun.com/document_detail/160384.html).
+     * For more information about `service accounts`, see [Enable service account token volume projection](https://help.aliyun.com/document_detail/160384.html).
      * @example kubernetes.default.svc
      *
      * @var string
      */
     public $apiAudiences;
+
+    /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $autoRenew;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $autoRenewPeriod;
 
     /**
      * @description The billing method of the cluster. The following resources are billed on a subscription basis:
@@ -66,9 +80,8 @@ class CreateClusterRequest extends Model
     public $chargeType;
 
     /**
-     * @description [This parameter is deprecated]
+     * @description This parameter is deprecated. Use security_hardening_os instead.
      *
-     * Please replace this parameter with security_hardening_os.
      * @example false
      *
      * @deprecated
@@ -101,10 +114,10 @@ class CreateClusterRequest extends Model
     public $clusterDomain;
 
     /**
-     * @description After you set `cluster_type` to `ManagedKubernetes` and configure the `profile` parameter, you can further specify the edition of the cluster. Valid values:
+     * @description After you set `cluster_type` to `ManagedKubernetes` and configure the `profile` parameter, you can further specify the cluster edition. Valid values:
      *
-     *   `ack.pro.small`: Pro.
-     *   `ack.standard`: Basic. If you leave the parameter empty, the Basic edition is selected.
+     *   `ack.pro.small`: Pro Edition.
+     *   `ack.standard`: Basic Edition. If you leave the parameter empty, an ACK Basic cluster is created.
      *
      * @example ack.pro.small
      *
@@ -114,7 +127,7 @@ class CreateClusterRequest extends Model
 
     /**
      * @description *   `Kubernetes`: ACK dedicated cluster.
-     *   `ManagedKubernetes`: ACK managed cluster. ACK managed clusters include ACK Basic clusters, ACK Pro clusters, ACK Serverless clusters (Basic and Pro), ACK Edge clusters (Basic and Pro), and ACK Lingjun clusters (Pro).
+     *   `ManagedKubernetes`: ACK managed cluster. ACK managed clusters include ACK Basic clusters, ACK Pro clusters, ACK Serverless clusters (Basic Edition and Pro Edition), ACK Edge clusters (Basic Edition and Pro Edition), and ACK Lingjun clusters (Pro Edition).
      *   `ExternalKubernetes`: registered cluster.
      *
      * This parameter is required.
@@ -125,9 +138,9 @@ class CreateClusterRequest extends Model
     public $clusterType;
 
     /**
-     * @description The CIDR block of pods. You can specify 10.0.0.0/8, 172.16-31.0.0/12-16, 192.168.0.0/16, or their subnets as the CIDR block of pods. The pod CIDR block cannot overlap with the CIDR block of the VPC in which the cluster is deployed and the CIDR blocks of existing clusters in the VPC. You cannot modify the pod CIDR block after you create the cluster.
+     * @description The pod CIDR block. You can specify 10.0.0.0/8, 172.16-31.0.0/12-16, 192.168.0.0/16, or their subnets as the pod CIDR block. The pod CIDR block cannot overlap with the CIDR block of the VPC in which the cluster is deployed and the CIDR blocks of existing clusters in the VPC. You cannot modify the pod CIDR block after you create the cluster.
      *
-     * >  This parameter is required if the cluster uses Flannel as the network plug-in.
+     * >  This parameter is required if the cluster uses the Flannel plug-in.
      * @example 172.20.0.0/16
      *
      * @var string
@@ -137,7 +150,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The list of control plane components for which you want to enable log collection.
      *
-     * By default, the log of kube-apiserver, kube-controller-manager, and kube-scheduler is collected.
+     * By default, the logs of kube-apiserver, kube-controller-manager, and kube-scheduler are collected.
      * @var string[]
      */
     public $controlplaneLogComponents;
@@ -161,7 +174,7 @@ class CreateClusterRequest extends Model
     public $controlplaneLogTtl;
 
     /**
-     * @description The CPU management policy of the nodes in the node pool. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later:
+     * @description The CPU management policy of nodes in the node pool. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later:
      *
      *   `static`: allows pods with specific resource characteristics on the node to be granted with enhanced CPU affinity and exclusivity.
      *   `none`: specifies that the default CPU affinity is used.
@@ -174,7 +187,7 @@ class CreateClusterRequest extends Model
     public $cpuPolicy;
 
     /**
-     * @description Specifies custom subject alternative names (SANs) for the API server certificate to accept requests from specified IP addresses or domain names. Separate multiple IP addresses or domain names with commas (,).
+     * @description The custom subject alternative names (SANs) for the API server certificate to accept requests from specified IP addresses or domain names. Separate multiple IP addresses and domain names with commas (,).
      *
      * @example cs.aliyun.com
      *
@@ -183,10 +196,10 @@ class CreateClusterRequest extends Model
     public $customSan;
 
     /**
-     * @description Specifies whether to enable cluster deletion protection. If this option is enabled, the cluster cannot be deleted in the console or by calling API operations. Valid values:
+     * @description Specifies whether to enable cluster deletion protection. If this option is enabled, the cluster cannot be deleted in the ACK console or by calling API operations. Valid values:
      *
-     *   `true`: enables deletion protection for the cluster. This way, the cluster cannot be deleted in the Container Service console or by calling API operations.
-     *   `false`: disables deletion protection for the cluster. This way, the cluster can be deleted in the Container Service console or by calling API operations.
+     *   `true`: enables deletion protection for the cluster. This way, the cluster cannot be deleted in the ACK console or by calling API operations.
+     *   `false`: disables deletion protection for the cluster. This way, the cluster can be deleted in the ACK console or by calling API operations.
      *
      * Default value: `false`.
      * @example true
@@ -196,10 +209,10 @@ class CreateClusterRequest extends Model
     public $deletionProtection;
 
     /**
-     * @description Specifies whether to perform a rollback if the cluster fails to be created. Valid values:
+     * @description Specifies whether to perform a rollback when the cluster fails to be created. Valid values:
      *
-     *   `true`: performs a rollback if the system fails to create the cluster.
-     *   `false`: does not perform a rollback if the system fails to create the cluster.
+     *   `true`: performs a rollback when the cluster fails to be created.
+     *   `false`: does not perform a rollback when the cluster fails to be created.
      *
      * Default value: `true`.
      * @example true
@@ -220,7 +233,7 @@ class CreateClusterRequest extends Model
     public $enableRrsa;
 
     /**
-     * @description The ID of a key that is managed by Key Management Service (KMS). The key is used to encrypt data disks. For more information, see [KMS](https://help.aliyun.com/document_detail/28935.html).
+     * @description The ID of the Key Management Service (KMS) key that is used to encrypt the system disk. For more information, see [What is KMS?](https://help.aliyun.com/document_detail/28935.html)
      *
      * >  The key can be used only in ACK Pro clusters.
      * @example 0fe64791-55eb-4fc7-84c5-c6c7cdca****
@@ -232,8 +245,8 @@ class CreateClusterRequest extends Model
     /**
      * @description Specifies whether to enable Internet access for the cluster. You can use an elastic IP address (EIP) to expose the API server. This way, you can access the cluster over the Internet. Valid values:
      *
-     *   `true`: enables Internet access.
-     *   `false`: disables Internet access. If you set this parameter to false, the API server cannot be accessed over the Internet.
+     *   `true`: enables Internet access for the cluster.
+     *   `false`: disables Internet access for the cluster. If you set the value to false, the API server cannot be accessed over the Internet.
      *
      * Default value: `false`.
      * @example true
@@ -245,7 +258,7 @@ class CreateClusterRequest extends Model
     /**
      * @description Specifies whether to mount a data disk to a node that is created based on an existing ECS instance. Valid values:
      *
-     *   `true`: stores the data of containers and images on a data disk. Back up the existing data on the data disk first.
+     *   `true`: stores the data of containers and images on a data disk. The existing data stored on the data disk is lost. Back up the existing data first.
      *   `false`: does not store the data of containers and images on a data disk.
      *
      * How data disks are mounted:
@@ -260,7 +273,7 @@ class CreateClusterRequest extends Model
     public $formatDisk;
 
     /**
-     * @description Specifies a custom image for nodes. By default, the image provided by ACK is used. You can select a custom image to replace the default image. For more information, see [Custom images](https://help.aliyun.com/document_detail/146647.html).
+     * @description The custom image. By default, the image provided by ACK is used. You can select a custom image to replace the default image. For more information, see [Use a custom image to create an ACK cluster](https://help.aliyun.com/document_detail/146647.html).
      *
      * @example m-bp16z7xko3vvv8gt****
      *
@@ -289,9 +302,9 @@ class CreateClusterRequest extends Model
     public $imageType;
 
     /**
-     * @description The list of existing Elastic Compute Service (ECS) instances that are specified as worker nodes for the cluster.
+     * @description The existing ECS instances that are specified as worker nodes for the cluster.
      *
-     * >  This parameter is required when you create worker nodes based on existing ECS instances.
+     * >  This parameter is required if you create worker nodes on existing ECS instances.
      * @var string[]
      */
     public $instances;
@@ -306,9 +319,9 @@ class CreateClusterRequest extends Model
     public $ipStack;
 
     /**
-     * @description Specifies whether to create an advanced security group. This parameter takes effect only if `security_group_id` is left empty.
+     * @description Specifies whether to create an advanced security group. This parameter takes effect only if `security_group_id` is not specified.
      *
-     * >  To use a basic security group, make sure that the sum of the number of nodes in the cluster and the number of pods that use Terway does not exceed 2,000. Therefore, we recommend that you specify an advanced security group for a cluster that has Terway installed.
+     * >  To use a basic security group, make sure that the sum of the number of nodes in the cluster and the number of pods that use Terway does not exceed 2,000. Therefore, we recommend that you specify an advanced security group for a cluster that uses Terway.
      *
      *   `true`: creates an advanced security group.
      *   `false`: does not create an advanced security group.
@@ -334,7 +347,7 @@ class CreateClusterRequest extends Model
     public $keepInstanceName;
 
     /**
-     * @description The name of the key pair. You must configure this parameter or the `login_password` parameter.
+     * @description The name of the key pair. You must specify this parameter or the `login_password` parameter.
      *
      * @example secrity-key
      *
@@ -343,9 +356,9 @@ class CreateClusterRequest extends Model
     public $keyPair;
 
     /**
-     * @description The Kubernetes version of the cluster. The Kubernetes versions supported by ACK are the same as the Kubernetes versions supported by open source Kubernetes. We recommend that you specify the latest Kubernetes version. If you do not configure this parameter, the latest Kubernetes version is used.
+     * @description The Kubernetes version of the cluster. The Kubernetes versions supported by ACK are the same as the Kubernetes versions supported by open source Kubernetes. We recommend that you specify the latest Kubernetes version. If you do not specify this parameter, the latest Kubernetes version is used.
      *
-     * You can create clusters of the latest two Kubernetes versions in the ACK console. If you want to create clusters that run earlier Kubernetes versions, use the API. For more information about the Kubernetes versions supported by ACK, see [Release notes on Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
+     * You can create clusters of the latest two Kubernetes versions in the ACK console. If you want to create clusters that run earlier Kubernetes versions, use the ACK API. For more information about the Kubernetes versions supported by ACK, see [Support for Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
      * @example 1.16.9-aliyun.1
      *
      * @var string
@@ -353,6 +366,8 @@ class CreateClusterRequest extends Model
     public $kubernetesVersion;
 
     /**
+     * @example lb-wz9t256gqa3vbouk****
+     *
      * @var string
      */
     public $loadBalancerId;
@@ -375,7 +390,7 @@ class CreateClusterRequest extends Model
     public $loadBalancerSpec;
 
     /**
-     * @description Enables Simple Log Service for the cluster. This parameter takes effect only on ACK Serverless clusters. Set the value to `SLS`.
+     * @description Enables Simple Log Service for the cluster. This parameter takes effect only for ACK Serverless clusters. Valid value: `SLS`.
      *
      * @example SLS
      *
@@ -384,7 +399,7 @@ class CreateClusterRequest extends Model
     public $loggingType;
 
     /**
-     * @description The password for SSH logon. You must configure this parameter or the `key_pair` parameter. The password must be 8 to 30 characters in length, and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+     * @description The password for SSH logon. You must specify this parameter or `key_pair`. The password must be 8 to 30 characters in length, and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
      *
      * @example Hello@1234
      *
@@ -393,7 +408,7 @@ class CreateClusterRequest extends Model
     public $loginPassword;
 
     /**
-     * @description Specifies whether to enable auto-renewal for master nodes. This parameter takes effect only if `master_instance_charge_type` is set to `PrePaid`. Valid values:
+     * @description Specifies whether to enable auto-renewal for master nodes. This parameter takes effect only when `master_instance_charge_type` is set to `PrePaid`. Valid values:
      *
      *   `true`: enables auto-renewal.
      *   `false`: disables auto-renewal.
@@ -406,7 +421,7 @@ class CreateClusterRequest extends Model
     public $masterAutoRenew;
 
     /**
-     * @description The cycle of auto-renewal. This parameter takes effect and is required only if the subscription billing method is selected for master nodes.
+     * @description The auto-renewal duration. This parameter takes effect and is required only when the subscription billing method is selected for master nodes.
      *
      * Default value: 1.
      * @example 1
@@ -429,7 +444,7 @@ class CreateClusterRequest extends Model
      * @description The billing method of master nodes. Valid values:
      *
      *   `PrePaid`: subscription.
-     *   `PostPaid`: pay-as-you-go.
+     *   `PostPaid`: the pay-as-you-go.
      *
      * Default value: `PostPaid`.
      * @example PrePaid
@@ -446,7 +461,7 @@ class CreateClusterRequest extends Model
     public $masterInstanceTypes;
 
     /**
-     * @description The subscription duration of master nodes. This parameter takes effect and is required only if `master_instance_charge_type` is set to `PrePaid`.
+     * @description The subscription duration of master nodes. This parameter takes effect and is required only when `master_instance_charge_type` is set to `PrePaid`.
      *
      * Default value: 1.
      * @example 1
@@ -456,9 +471,9 @@ class CreateClusterRequest extends Model
     public $masterPeriod;
 
     /**
-     * @description The billing cycle of master nodes. This parameter is required if master_instance_charge_type is set to `PrePaid`.
+     * @description The billing cycle of the master nodes in the cluster. This parameter is required if master_instance_charge_type is set to `PrePaid`.
      *
-     * Set the value to `Month`. Master nodes are billed only on a monthly basis.
+     * Valid value: `Month`, which indicates that master nodes are billed only on a monthly basis.
      * @example Month
      *
      * @var string
@@ -466,11 +481,11 @@ class CreateClusterRequest extends Model
     public $masterPeriodUnit;
 
     /**
-     * @description The type of system disk that you want to use for the master nodes. Valid values:
+     * @description The system disk type of master nodes. Valid values:
      *
      *   `cloud_efficiency`: ultra disk.
      *   `cloud_ssd`: standard SSD.
-     *   `cloud_essd`: enhanced SSD (ESSD).
+     *   `cloud_essd`: Enterprise SSD (ESSD).
      *
      * Default value: `cloud_ssd`. The default value may vary in different zones.
      * @example cloud_ssd
@@ -489,7 +504,7 @@ class CreateClusterRequest extends Model
     public $masterSystemDiskPerformanceLevel;
 
     /**
-     * @description The size of the system disk that is specified for master nodes. Valid values: 40 to 500. Unit: GiB.
+     * @description The system disk size of master nodes. Valid values: 40 to 500. Unit: GiB.
      *
      * Default value: `120`.
      * @example 120
@@ -510,13 +525,13 @@ class CreateClusterRequest extends Model
     /**
      * @description The IDs of the vSwitches that are specified for master nodes. You can specify up to three vSwitches. We recommend that you specify three vSwitches in different zones to ensure high availability.
      *
-     * The number of vSwitches must be the same as that specified in `master_count` and the same as those specified in `master_vswitch_ids`.
+     * The number of vSwitches must be the same as the value of the `master_count` parameter and also the same as the number of vSwitches specified in the `master_vswitch_ids` parameter.
      * @var string[]
      */
     public $masterVswitchIds;
 
     /**
-     * @description The name of the cluster.
+     * @description The cluster name.
      *
      * This parameter is required.
      * @example cluster-demo
@@ -526,10 +541,10 @@ class CreateClusterRequest extends Model
     public $name;
 
     /**
-     * @description Specifies whether to create a NAT gateway and configure SNAT rules when the system creates the ACK Serverless cluster. Valid values:
+     * @description Specifies whether to create a NAT gateway and configure SNAT rules if you create an ACK Serverless cluster. Valid values:
      *
      *   `true`: automatically creates a NAT gateway and configures SNAT rules. This enables Internet access for the VPC in which the cluster is deployed.
-     *   `false`: does not create a NAT gateway or configure SNAT rules. In this case, the cluster in the VPC cannot access the Internet.
+     *   `false`: does not create a NAT gateway or configure SNAT rules. If you specify this value, the cluster in the VPC cannot access the Internet.
      *
      * Default value: `false`.
      * @example true
@@ -539,7 +554,7 @@ class CreateClusterRequest extends Model
     public $natGateway;
 
     /**
-     * @description The maximum number of IP addresses that can be assigned to nodes. This number is determined by the node CIDR block. This parameter takes effect only if the cluster uses Flannel as the network plug-in.
+     * @description The maximum number of IP addresses that can be assigned to each node. This number is determined by the subnet mask of the specified CIDR block. This parameter takes effect only if the cluster uses the Flannel plug-in.
      *
      * Default value: `26`.
      * @example 25
@@ -549,14 +564,14 @@ class CreateClusterRequest extends Model
     public $nodeCidrMask;
 
     /**
-     * @description The name of the custom node.
+     * @description The custom node name.
      *
-     * A node name consists of a prefix, an IP substring, and a suffix.
+     * A custom node name consists of a prefix, a node IP address, and a suffix.
      *
      *   The prefix and suffix can contain multiple parts that are separated by periods (.). Each part can contain lowercase letters, digits, and hyphens (-), and must start and end with a lowercase letter or digit.
      *   The IP substring length specifies the number of digits to be truncated from the end of the node IP address. The IP substring length ranges from 5 to 12.
      *
-     * For example, if the node IP address is 192.168.0.55, the prefix is aliyun.com, the IP substring length is 5, and the suffix is test, the node name will be aliyun.com00055test.
+     * For example, if the node IP address is 192.168.0.55, the prefix is aliyun.com, the IP substring length is 5, and the suffix is test, the node name will aliyun.com00055test.
      * @example aliyun.com00055test
      *
      * @var string
@@ -605,7 +620,7 @@ class CreateClusterRequest extends Model
     public $osType;
 
     /**
-     * @description The subscription duration. This parameter takes effect and is required only if you set charge_type to PrePaid.
+     * @description The subscription duration of the instance. This parameter takes effect and is required only when you set charge_type to PrePaid.
      *
      * Default value: 1.
      * @example FY2023
@@ -617,7 +632,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The billing cycle. This parameter is required if charge_type is set to PrePaid.
      *
-     * Set the value to Month. Master nodes are billed only on a monthly basis.
+     * Set the value to Month. Subscription clusters are billed only on a monthly basis.
      * @example Month
      *
      * @var string
@@ -625,7 +640,7 @@ class CreateClusterRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The OS distribution. Valid values:
+     * @description The OS distribution that is used. Valid values:
      *
      *   CentOS
      *   AliyunLinux
@@ -642,9 +657,9 @@ class CreateClusterRequest extends Model
     public $platform;
 
     /**
-     * @description The list of pod vSwitches. You need to specify at least one pod vSwitch for each node vSwitch, and the pod vSwitches must be different from the node vSwitches (`vswitch`). We recommend that you specify pod vSwitches whose mask lengths are no longer than 19.
+     * @description If you select Terway as the network plug-in, you must allocate vSwitches to pods. For each vSwitch that allocates IP addresses to worker nodes, you must select a vSwitch in the same zone to allocate IP addresses to pods.
      *
-     * >  The `pod_vswitch_ids` parameter is required if the cluster uses Terway as the network plug-in.
+     * >  We recommend that you select pod vSwitches whose subnet masks that do not exceed 19 bits in length. The maximum subnet mask length of a pod vSwitch is 25 bits. If you select a pod vSwitch whose subnet mask exceeds 25 bits in length, the IP addresses that can be allocated to pods may be insufficient.
      * @var string[]
      */
     public $podVswitchIds;
@@ -666,8 +681,8 @@ class CreateClusterRequest extends Model
     /**
      * @description The kube-proxy mode. Valid values:
      *
-     *   `iptables`: iptables is a kube-proxy mode. It uses iptables rules to conduct Service discovery and load balancing. The performance of this mode is limited by the size of the cluster. This mode is suitable for clusters that run a small number of Services.
-     *   `ipvs`: provides high performance and uses IP Virtual Server (IPVS). This allows you to configure service discovery and load balancing. This mode is suitable for clusters that are required to run a large number of services. We recommend that you use this mode in scenarios when high load balancing performance is required.
+     *   `iptables`: a mature and stable mode that uses iptables rules to conduct service discovery and load balancing. The performance of this mode is limited by the size of the cluster. This mode is suitable for clusters that run a small number of Services.
+     *   `ipvs`: a mode that provides high performance and uses IP Virtual Server (IPVS) to conduct service discovery and load balancing. This mode is suitable for clusters that run a large number of Services. We recommend that you use this mode in scenarios that require high-performance load balancing.
      *
      * Default value: `ipvs`.
      * @example ipvs
@@ -677,14 +692,14 @@ class CreateClusterRequest extends Model
     public $proxyMode;
 
     /**
-     * @description The list of ApsaraDB RDS instances. Select the ApsaraDB RDS instances that you want to add to the whitelist. We recommend that you add the CIDR block of pods and CIDR block of nodes to the ApsaraDB RDS instances in the ApsaraDB RDS console. When you set the ApsaraDB RDS instances, you cannot scale out the number of nodes because the instances are not in the Running state.
+     * @description The ApsaraDB RDS instances. The pod CIDR block and node CIDR block are added to the whitelists of the ApsaraDB RDS instances. We recommend that you add the pod CIDR block and node CIDR block to the whitelists of the ApsaraDB RDS instances in the ApsaraDB RDS console. If the RDS instances are not in the Running state, new nodes cannot be added to the cluster.
      *
      * @var string[]
      */
     public $rdsInstances;
 
     /**
-     * @description The ID of the region in which you want to deploy the cluster.
+     * @description The ID of the region in which the cluster is deployed.
      *
      * This parameter is required.
      * @example cn-beijing
@@ -705,13 +720,13 @@ class CreateClusterRequest extends Model
     /**
      * @description The container runtime. The default container runtime is Docker. containerd and Sandboxed-Container are also supported.
      *
-     * For more information about how to select a proper container runtime, see [How to select between Docker and Sandboxed-Container](https://help.aliyun.com/document_detail/160313.html).
+     * For more information about how to select a proper container runtime, see [Comparison among Docker, containerd, and Sandboxed-Container](https://help.aliyun.com/document_detail/160313.html).
      * @var Runtime
      */
     public $runtime;
 
     /**
-     * @description The ID of an existing security group. You need to choose between this parameter and the `is_enterprise_security_group` parameter. Cluster nodes are automatically added to the security group.
+     * @description The ID of an existing security group. You must specify this parameter or the `is_enterprise_security_group` parameter. Cluster nodes are automatically added to the security group.
      *
      * @example sg-bp1bdue0qc1g7k****
      *
@@ -720,9 +735,12 @@ class CreateClusterRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description Specifies whether to enable Alibaba Cloud Linux Security Hardening.
+     * @description Specifies whether to enable Alibaba Cloud Linux Security Hardening. Valid values:
      *
-     * Default value: false
+     *   `true`: enables Alibaba Cloud Linux Security Hardening.
+     *   `false`: disables Alibaba Cloud Linux Security Hardening.
+     *
+     * Default value: `false`.
      * @example false
      *
      * @var bool
@@ -730,9 +748,9 @@ class CreateClusterRequest extends Model
     public $securityHardeningOs;
 
     /**
-     * @description Service accounts provide identities for pods when pods communicate with the `API server` of the cluster. `service-account-issuer` is the issuer of the `serviceaccount token`, which corresponds to the `iss` field in the `token payload`.
+     * @description Service accounts provide identities for pods when pods communicate with the `API server` of the cluster. The `service-account-issuer` parameter specifies the issuer of the `service account token`, which is specified by using the `iss` field in the `token payload`.
      *
-     * For more information about `ServiceAccount`, see [Enable service account token volume projection](https://help.aliyun.com/document_detail/160384.html).
+     * For more information about `service accounts`, see [Enable service account token volume projection](https://help.aliyun.com/document_detail/160384.html).
      * @example kubernetes.default.svc
      *
      * @var string
@@ -740,7 +758,7 @@ class CreateClusterRequest extends Model
     public $serviceAccountIssuer;
 
     /**
-     * @description The CIDR block of Services. Valid values: 10.0.0.0/16-24, 172.16-31.0.0/16-24, and 192.168.0.0/16-24. The CIDR block of Services cannot overlap with the CIDR block of the VPC (10.1.0.0/21) or the CIDR blocks of existing clusters in the VPC. You cannot modify the CIDR block of Services after the cluster is created.
+     * @description The Service CIDR block. Valid values: 10.0.0.0/16-24, 172.16-31.0.0/16-24, and 192.168.0.0/16-24. The Service CIDR block cannot overlap with the VPC CIDR block (10.1.0.0/21) or the CIDR blocks of existing clusters in the VPC. You cannot modify the Service CIDR block after the cluster is created.
      *
      * This parameter is required.
      * @example 172.21.0.0/20
@@ -752,8 +770,8 @@ class CreateClusterRequest extends Model
     /**
      * @description The type of service discovery that is implemented in the `ACK Serverless` cluster.
      *
-     *   `CoreDNS`: CoreDNS is a standard service discovery plug-in that is provided by open source Kubernetes. To use DNS resolution, you must provision pods. By default, two elastic container instances are used. The specification of each instance is 0.25 vCores and 512 MiB of memory.
-     *   `PrivateZone`: a DNS resolution service provided by Alibaba Cloud. You must activate Alibaba Cloud DNS PrivateZone before you can use it for service discovery.
+     *   `CoreDNS`: a standard service discovery plug-in provided by open source Kubernetes. To use DNS resolution, you must provision pods. By default, two elastic container instances are used. The specification of each instance is 0.25 vCPUs and 512 MiB of memory.
+     *   `PrivateZone`: a DNS resolution service provided by Alibaba Cloud. You must activate Alibaba Cloud DNS PrivateZone before you can use it to implement service discovery.
      *
      * By default, this parameter is not specified.
      * @var string[]
@@ -761,9 +779,9 @@ class CreateClusterRequest extends Model
     public $serviceDiscoveryTypes;
 
     /**
-     * @description Specifies whether to configure Source Network Address Translation (SNAT) rules for the VPC in which the cluster is deployed. Valid values:
+     * @description Specifies whether to configure SNAT rules for the VPC in which your cluster is deployed. Valid values:
      *
-     *   `true`: automatically creates a NAT gateway and configures SNAT rules. Set this parameter to `true` if nodes and applications in the cluster need to access the Internet.
+     *   `true`: automatically creates a NAT gateway and configures SNAT rules. Set the value to `true` if nodes and applications in the cluster need to access the Internet.
      *   `false`: does not create a NAT gateway or configure SNAT rules. In this case, nodes and applications in the cluster cannot access the Internet.
      *
      * Default value: `true`.
@@ -774,12 +792,12 @@ class CreateClusterRequest extends Model
     public $snatEntry;
 
     /**
-     * @description Specifies whether to enable reinforcement based on Multi-Level Protection Scheme (MLPS). For more information, see [ACK reinforcement based on classified protection](https://help.aliyun.com/document_detail/196148.html).
+     * @description Specifies whether to enable security hardening based on Multi-Level Protection Scheme (MLPS). For more information, see [ACK security hardening based on MLPS](https://help.aliyun.com/document_detail/196148.html).
      *
      * Valid values:
      *
-     *   `true`: enables reinforcement based on MLPS.
-     *   `false`: disables reinforcement based on MLPS.
+     *   `true`: enables security hardening based on MLPS.
+     *   `false`: disables security hardening based on MLPS.
      *
      * Default value: `false`.
      * @example false
@@ -812,7 +830,7 @@ class CreateClusterRequest extends Model
     public $tags;
 
     /**
-     * @description The taints of the nodes in the node pool. Taints can be used together with tolerations to avoid scheduling pods to specified nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
+     * @description The taints that you want to add to nodes. Taints can be used together with tolerations to avoid scheduling pods to specific nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
      *
      * @var Taint[]
      */
@@ -856,9 +874,8 @@ class CreateClusterRequest extends Model
     public $userData;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) in which you want to deploy the cluster. This parameter is required.
+     * @description The virtual private cloud (VPC) in which you want to deploy the cluster. This parameter is required.
      *
-     * This parameter is required.
      * @example vpc-2zeik9h3ahvv2zz95****
      *
      * @var string
@@ -866,20 +883,19 @@ class CreateClusterRequest extends Model
     public $vpcid;
 
     /**
-     * @description The vSwitches that are specified for nodes in the cluster. This parameter is required when you create an ACK managed cluster that does not contain nodes.
+     * @description The vSwitches for nodes in the cluster. This parameter is required if you create an ACK managed cluster that does not contain nodes.
      *
-     * This parameter is required.
      * @var string[]
      */
     public $vswitchIds;
 
     /**
-     * @description Specifies whether to enable auto-renewal for worker nodes. This parameter takes effect and is required only if `worker_instance_charge_type` is set to `PrePaid`. Valid values:
+     * @description Specifies whether to enable auto-renewal for worker nodes. This parameter takes effect and is required only when `worker_instance_charge_type` is set to `PrePaid`. Valid values:
      *
      *   `true`: enables auto-renewal.
      *   `false`: disables auto-renewal.
      *
-     * Default value: `true`.
+     * Default value: `true`
      * @example true
      *
      * @deprecated
@@ -889,7 +905,7 @@ class CreateClusterRequest extends Model
     public $workerAutoRenew;
 
     /**
-     * @description The cycle of auto-renewal. This parameter takes effect and is required only if the subscription billing method is selected for worker nodes.
+     * @description The auto-renewal duration. This parameter takes effect and is required only when the subscription billing method is selected for worker nodes.
      *
      * Valid values: 1, 2, 3, 6, and 12.
      * @example 1
@@ -934,7 +950,7 @@ class CreateClusterRequest extends Model
     public $workerInstanceTypes;
 
     /**
-     * @description The subscription duration of worker nodes. This parameter takes effect and is required only if `worker_instance_charge_type` is set to `PrePaid`.
+     * @description The subscription duration of worker nodes. This parameter takes effect and is required only when `worker_instance_charge_type` is set to `PrePaid`.
      *
      * Default value: 1.
      * @example 1
@@ -948,7 +964,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The billing cycle of worker nodes. This parameter is required if worker_instance_charge_type is set to `PrePaid`.
      *
-     * Set the value to `Month`. Worker nodes are billed only on a monthly basis.
+     * Set the value to `Month`. Subscription worker nodes are billed only on a monthly basis.
      * @example Month
      *
      * @deprecated
@@ -958,7 +974,7 @@ class CreateClusterRequest extends Model
     public $workerPeriodUnit;
 
     /**
-     * @description The category of the system disks for worker nodes. For more information, see [Elastic Block Storage devices](https://help.aliyun.com/document_detail/63136.html).
+     * @description The system disk type of worker nodes. For more information, see [Overview of Block Storage](https://help.aliyun.com/document_detail/63136.html).
      *
      * Valid values:
      *
@@ -975,7 +991,7 @@ class CreateClusterRequest extends Model
     public $workerSystemDiskCategory;
 
     /**
-     * @description If the system disk is an ESSD, you can set the PL of the ESSD. For more information, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+     * @description If the system disk is an ESSD, you can specify the PL of the ESSD. For more information, see [Enterprise SSDs](https://help.aliyun.com/document_detail/122389.html).
      *
      * Valid values:
      *
@@ -1016,9 +1032,9 @@ class CreateClusterRequest extends Model
     public $workerSystemDiskSnapshotPolicyId;
 
     /**
-     * @description The list of vSwitches that are specified for nodes. Each node is allocated a vSwitch.
+     * @description The vSwitches for worker nodes. Each worker node is allocated a vSwitch.
      *
-     * The `worker_vswitch_ids` parameter is optional but the `vswitch_ids` parameter is required when you create an ACK managed cluster that does not contain nodes.
+     * `worker_vswitch_ids` is optional but `vswitch_ids` is required if you create an ACK managed cluster that does not contain nodes.
      * @deprecated
      *
      * @var string[]
@@ -1026,18 +1042,27 @@ class CreateClusterRequest extends Model
     public $workerVswitchIds;
 
     /**
-     * @description The ID of the zone to which the cluster belongs. This parameter takes effect for only ACK Serverless clusters.
+     * @description The ID of the zone to which the cluster belongs. This parameter takes effect only for ACK Serverless clusters.
      *
-     * When you create an ACK Serverless cluster, you must configure `zone_id` if `vpc_id` and `vswitch_ids` are not configured. This way, the system automatically creates a VPC in the specified zone.
+     * If you create an ACK Serverless cluster, you must specify `zone_id` if `vpc_id` and `vswitch_ids` are not specified. This way, the system automatically creates a VPC in the specified zone.
      * @example cn-beiji****
+     *
+     * @deprecated
      *
      * @var string
      */
     public $zoneId;
+
+    /**
+     * @var string[]
+     */
+    public $zoneIds;
     protected $_name = [
         'accessControlList'                => 'access_control_list',
         'addons'                           => 'addons',
         'apiAudiences'                     => 'api_audiences',
+        'autoRenew'                        => 'auto_renew',
+        'autoRenewPeriod'                  => 'auto_renew_period',
         'chargeType'                       => 'charge_type',
         'cisEnabled'                       => 'cis_enabled',
         'cloudMonitorFlags'                => 'cloud_monitor_flags',
@@ -1127,6 +1152,7 @@ class CreateClusterRequest extends Model
         'workerSystemDiskSnapshotPolicyId' => 'worker_system_disk_snapshot_policy_id',
         'workerVswitchIds'                 => 'worker_vswitch_ids',
         'zoneId'                           => 'zone_id',
+        'zoneIds'                          => 'zone_ids',
     ];
 
     public function validate()
@@ -1150,6 +1176,12 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->apiAudiences) {
             $res['api_audiences'] = $this->apiAudiences;
+        }
+        if (null !== $this->autoRenew) {
+            $res['auto_renew'] = $this->autoRenew;
+        }
+        if (null !== $this->autoRenewPeriod) {
+            $res['auto_renew_period'] = $this->autoRenewPeriod;
         }
         if (null !== $this->chargeType) {
             $res['charge_type'] = $this->chargeType;
@@ -1442,6 +1474,9 @@ class CreateClusterRequest extends Model
         if (null !== $this->zoneId) {
             $res['zone_id'] = $this->zoneId;
         }
+        if (null !== $this->zoneIds) {
+            $res['zone_ids'] = $this->zoneIds;
+        }
 
         return $res;
     }
@@ -1470,6 +1505,12 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['api_audiences'])) {
             $model->apiAudiences = $map['api_audiences'];
+        }
+        if (isset($map['auto_renew'])) {
+            $model->autoRenew = $map['auto_renew'];
+        }
+        if (isset($map['auto_renew_period'])) {
+            $model->autoRenewPeriod = $map['auto_renew_period'];
         }
         if (isset($map['charge_type'])) {
             $model->chargeType = $map['charge_type'];
@@ -1781,6 +1822,11 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['zone_id'])) {
             $model->zoneId = $map['zone_id'];
+        }
+        if (isset($map['zone_ids'])) {
+            if (!empty($map['zone_ids'])) {
+                $model->zoneIds = $map['zone_ids'];
+            }
         }
 
         return $model;

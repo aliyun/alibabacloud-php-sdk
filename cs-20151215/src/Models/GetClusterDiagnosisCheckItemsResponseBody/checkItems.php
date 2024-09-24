@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class checkItems extends Model
 {
     /**
+     * @description The description.
+     *
      * @example Check whether the node can access host dns service
      *
      * @var string
@@ -16,6 +18,8 @@ class checkItems extends Model
     public $desc;
 
     /**
+     * @description The display name.
+     *
      * @example HostDNS
      *
      * @var string
@@ -23,6 +27,8 @@ class checkItems extends Model
     public $display;
 
     /**
+     * @description The name of the group to which the check item belongs.
+     *
      * @example Node
      *
      * @var string
@@ -30,6 +36,14 @@ class checkItems extends Model
     public $group;
 
     /**
+     * @description The severity level of the check result.
+     *
+     * Valid values:
+     *
+     *   normal
+     *   warning
+     *   error
+     *
      * @example normal
      *
      * @var string
@@ -37,6 +51,8 @@ class checkItems extends Model
     public $level;
 
     /**
+     * @description The check result.
+     *
      * @example success
      *
      * @var string
@@ -44,6 +60,8 @@ class checkItems extends Model
     public $message;
 
     /**
+     * @description The name of the check item.
+     *
      * @example HostDNS
      *
      * @var string
@@ -51,6 +69,8 @@ class checkItems extends Model
     public $name;
 
     /**
+     * @description The reference value.
+     *
      * @example True
      *
      * @var string
@@ -58,6 +78,8 @@ class checkItems extends Model
     public $refer;
 
     /**
+     * @description The value of the check item.
+     *
      * @example True
      *
      * @var string

@@ -69,7 +69,7 @@ class images extends Model
     public $imageType;
 
     /**
-     * @description The type of operating system. Examples:
+     * @description The type of OS. Examples:
      *
      *   `Windows`
      *   `Linux`

@@ -15,8 +15,8 @@ class management extends Model
     /**
      * @description Specifies whether to enable auto node repair. This parameter takes effect only if `enable` is set to true.
      *
-     *   `true`
-     *   `false`
+     *   `true`: enables auto node repair.
+     *   `false`: disables auto node repair.
      *
      * If `enable` is set to true, the default value of this parameter is `true`. If `enable` is set to false, the default value of this parameter is `false`.
      * @example false
@@ -35,8 +35,8 @@ class management extends Model
     /**
      * @description Specifies whether to enable auto node update. This parameter takes effect only if `enable` is set to true.
      *
-     *   `true`
-     *   `false`
+     *   `true`: enables auto node update.
+     *   `false`: disables auto node update.
      *
      * If `enable` is set to true, the default value of this parameter is `true`. If `enable` is set to false, the default value of this parameter is `false`.
      * @example true
@@ -53,10 +53,10 @@ class management extends Model
     public $autoUpgradePolicy;
 
     /**
-     * @description Specifies whether to enable auto CVE patching. This parameter takes effect only if `enable` is set to true.
+     * @description Specifies whether to enable auto Common Vulnerabilities and Exposures (CVE) patching. This parameter takes effect only if `enable` is set to true.
      *
-     *   `true`
-     *   `false`
+     *   `true`: enables auto CVE patching.
+     *   `false`: disables auto CVE patching.
      *
      * If `enable` is set to true, the default value of this parameter is `true`. If `enable` is set to false, the default value of this parameter is `false`.
      * @example true
@@ -75,10 +75,10 @@ class management extends Model
     /**
      * @description Specifies whether to enable the managed node pool feature. Valid values:
      *
-     *   `true`
-     *   `false`: If you set this parameter to false, other parameters of management do not take effect.
+     *   `true`: enables the managed node pool feature.
+     *   `false`: disables the managed node pool feature. Other parameters in this section take effect only if enable is set to true.
      *
-     * Default value: false.
+     * Default value: false
      * @example false
      *
      * @var bool
@@ -86,7 +86,7 @@ class management extends Model
     public $enable;
 
     /**
-     * @description The configurations of auto update. This parameter takes effect only if `enable` is set to true.
+     * @description The configurations of auto update. The configurations take effects only if `enable` is set to true.
      *
      * @deprecated
      *

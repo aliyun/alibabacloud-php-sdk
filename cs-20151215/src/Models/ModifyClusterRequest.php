@@ -12,19 +12,21 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterRequest extends Model
 {
     /**
-     * @description The network access control list (ACL) of the SLB instance associated with the API server if the cluster is a registered cluster.
+     * @description The network access control lists (ACLs) of the SLB instance associated with the API server if the cluster is a registered cluster.
      *
      * @var string[]
      */
     public $accessControlList;
 
     /**
+     * @description The custom subject alternative names (SANs) for the API server certificate to accept requests from specified IP addresses or domain names. This parameter is available only for ACK managed clusters.
+     *
      * @var apiServerCustomCertSans
      */
     public $apiServerCustomCertSans;
 
     /**
-     * @description Specifies whether to associate an elastic IP address (EIP) with the cluster. This EIP is used for accessing the API server over the Internet. Valid values:
+     * @description Specifies whether to associate an elastic IP address (EIP) with the cluster. This EIP is used to enable access to the API server over the Internet. Valid values:
      *
      *   `true`: associates an EIP with the cluster.
      *   `false`: does not associate an EIP with the cluster.
@@ -45,9 +47,9 @@ class ModifyClusterRequest extends Model
     public $apiServerEipId;
 
     /**
-     * @description The cluster name.
+     * @description The name of the cluster.
      *
-     * The cluster name must be 1 to 63 characters in length, and can contain digits, letters, and hyphens (_). The cluster name cannot start with a hyphen (-).
+     * The cluster name must be 1 to 63 characters in length, and can contain digits, letters, and hyphens (-). The cluster name cannot start with a hyphen (-).
      * @example cluster-new-name
      *
      * @var string
@@ -55,12 +57,12 @@ class ModifyClusterRequest extends Model
     public $clusterName;
 
     /**
-     * @description Specifies whether to enable cluster deletion protection. If this option is enabled, the cluster cannot be deleted in the console or by calling API operations. Valid values:
+     * @description Specifies whether to enable cluster deletion protection. If you enable this option, the cluster cannot be deleted in the console or by calling API operations. Valid values:
      *
-     *   `true`
-     *   `false`
+     *   `true`: enables cluster deletion protection.
+     *   `false`: disables cluster deletion protection.
      *
-     * Default value: `false`
+     * Default value: `false`.
      * @example true
      *
      * @var bool
@@ -68,10 +70,10 @@ class ModifyClusterRequest extends Model
     public $deletionProtection;
 
     /**
-     * @description Specifies whether to enable the RRSA feature. Valid values:
+     * @description Specifies whether to enable the RAM Roles for Service Accounts (RRSA) feature. This parameter is available only for ACK managed clusters. Valid values:
      *
-     *   `true`
-     *   `false`
+     *   `true`: enables the RRSA feature.
+     *   `false`: disables the RRSA feature.
      *
      * @example true
      *
@@ -82,10 +84,10 @@ class ModifyClusterRequest extends Model
     /**
      * @description Specifies whether to remap the test domain name of the cluster. Valid values:
      *
-     *   `true`
-     *   `false`
+     *   `true`: remaps the test domain name of the cluster.
+     *   `false`: does not remap the test domain name of the cluster.
      *
-     * Default value: `false`
+     * Default value: `false`.
      * @example true
      *
      * @var bool
@@ -102,12 +104,12 @@ class ModifyClusterRequest extends Model
     public $ingressLoadbalancerId;
 
     /**
-     * @description Specifies whether to enable instance deletion protection. If this option is enabled, the instance cannot be deleted in the console or by calling API operations. Valid values:
+     * @description Specifies whether to enable instance deletion protection. If you enable this option, the instance cannot be deleted in the console or by calling API operations. Valid values:
      *
-     *   `true`
-     *   `false`
+     *   `true`: enables instance deletion protection.
+     *   `false`: disables instance deletion protection.
      *
-     * Default value: `false`
+     * Default value: `false`.
      * @example true
      *
      * @var bool
@@ -115,19 +117,21 @@ class ModifyClusterRequest extends Model
     public $instanceDeletionProtection;
 
     /**
-     * @description The cluster maintenance window. This feature takes effect only for managed Pro clusters.
+     * @description The cluster maintenance window. This feature takes effect only for ACK Pro clusters.
      *
      * @var MaintenanceWindow
      */
     public $maintenanceWindow;
 
     /**
+     * @description The automatic O\\&M policy of the cluster.
+     *
      * @var operationPolicy
      */
     public $operationPolicy;
 
     /**
-     * @description The ID of the cluster resource group.
+     * @description The cluster resource group ID.
      *
      * @example rg-acfmyvw3wjm****
      *

@@ -16,7 +16,7 @@ class RunClusterCheckRequest extends Model
     public $options;
 
     /**
-     * @description 检查目标。
+     * @description The target to be checked.
      *
      * @example np1f6779297c4444a3a1cdd29be8e5****
      *

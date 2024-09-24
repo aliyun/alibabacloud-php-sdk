@@ -24,9 +24,9 @@ class kubernetesConfig extends Model
     public $cmsEnabled;
 
     /**
-     * @description The CPU management policy of the nodes in the node pool. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later:
+     * @description The CPU management policy of nodes in the node pool. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later:
      *
-     *   `static`: allows pods with specific resource characteristics on the node to be granted enhanced CPU affinity and exclusivity.
+     *   `static`: allows pods with specific resource characteristics on the node to be granted with enhanced CPU affinity and exclusivity.
      *   `none`: specifies that the default CPU affinity is used.
      *
      * Default value: `none`.
@@ -37,9 +37,9 @@ class kubernetesConfig extends Model
     public $cpuPolicy;
 
     /**
-     * @description The labels of the nodes in the node pool. You can add labels to the nodes in the cluster. You must add labels based on the following rules:
+     * @description The labels that you want to add to nodes in the cluster. You must add labels based on the following rules:
      *
-     *   A tag is a case-sensitive key-value pair. You can add up to 20 tags.
+     *   A label is a case-sensitive key-value pair. You can add up to 20 labels.
      *   The key must be unique and cannot exceed 64 characters in length. The value can be empty and cannot exceed 128 characters in length. Keys and values cannot start with `aliyun`, `acs:`, `https://`, or `http://`. For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
      *
      * @var Tag[]
@@ -65,7 +65,7 @@ class kubernetesConfig extends Model
     public $runtimeVersion;
 
     /**
-     * @description The configuration of a node taint.
+     * @description The taints.
      *
      * @var Taint[]
      */
@@ -81,7 +81,7 @@ class kubernetesConfig extends Model
     public $unschedulable;
 
     /**
-     * @description The user-defined data of the node pool. For more information, see [Prepare user data](https://help.aliyun.com/document_detail/49121.html).
+     * @description The user data on the node. For more information, see [Prepare user data](https://help.aliyun.com/document_detail/49121.html).
      *
      * @example IyEvdXNyL2Jpbi9iYXNoCmVjaG8gIkhlbGxvIEFDSyEi
      *

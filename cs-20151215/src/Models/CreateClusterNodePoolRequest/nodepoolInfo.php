@@ -19,7 +19,7 @@ class nodepoolInfo extends Model
     public $name;
 
     /**
-     * @description The ID of the resource group. Instances that are added to the node pool belong to this resource group.
+     * @description The ID of the resource group to which the node pool belongs. Instances that are added to the node pool belong to this resource group.
      *
      * @example rg-acfmyvw3wjmb****
      *
@@ -28,9 +28,9 @@ class nodepoolInfo extends Model
     public $resourceGroupId;
 
     /**
-     * @description The type of the node pool. Valid values:
+     * @description The type of node pool. Valid values:
      *
-     *   `ess`: regular node pool, which supports the managed node pool feature and auto scaling feature.
+     *   `ess`: regular node pool, which supports the managed node pool feature and the auto scaling feature.
      *   `edge`: edge node pool.
      *   `lingjun`: Lingjun node pool.
      *

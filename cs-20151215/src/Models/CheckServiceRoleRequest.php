@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CheckServiceRoleRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The service roles that you want to check.
      *
+     * This parameter is required.
      * @var roles[]
      */
     public $roles;

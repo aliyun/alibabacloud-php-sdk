@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class interconnectConfig extends Model
 {
     /**
-     * @description This parameter is discontinued.
+     * @description This parameter is deprecated.
      *
      * The bandwidth of the enhanced edge node pool. Unit: Mbit/s.
      * @example 10
@@ -19,7 +19,7 @@ class interconnectConfig extends Model
     public $bandwidth;
 
     /**
-     * @description This parameter is discontinued.
+     * @description This parameter is deprecated.
      *
      * The ID of the Cloud Connect Network (CCN) instance that is associated with the enhanced edge node pool.
      * @example ccn-qm5i0i0q9yi*******
@@ -29,9 +29,9 @@ class interconnectConfig extends Model
     public $ccnId;
 
     /**
-     * @description This parameter is discontinued.
+     * @description This parameter is deprecated.
      *
-     * The region in which the CCN instance that is associated with the enhanced edge node pool resides.
+     * The region to which the CCN instance that is associated with the enhanced edge node pool belongs.
      * @example cn-shanghai
      *
      * @var string
@@ -39,7 +39,7 @@ class interconnectConfig extends Model
     public $ccnRegionId;
 
     /**
-     * @description This parameter is discontinued.
+     * @description This parameter is deprecated.
      *
      * The ID of the Cloud Enterprise Network (CEN) instance that is associated with the enhanced edge node pool.
      * @example cen-ey9k9nfhz0f*******
@@ -49,9 +49,9 @@ class interconnectConfig extends Model
     public $cenId;
 
     /**
-     * @description This parameter is discontinued.
+     * @description This parameter is deprecated.
      *
-     * The subscription duration of the enhanced edge node pool. Unit: months.
+     * The subscription duration of the enhanced edge node pool. The duration is measured in months.
      * @example 1
      *
      * @var string

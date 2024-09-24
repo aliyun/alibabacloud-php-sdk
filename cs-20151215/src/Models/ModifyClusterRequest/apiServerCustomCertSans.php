@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class apiServerCustomCertSans extends Model
 {
     /**
+     * @description Specifies whether to overwrite or add SANs. Valid values:
+     *
+     *   overwrite: overwrites SANs.
+     *   append: adds SANs.
+     *
      * @example append
      *
      * @var string
@@ -16,6 +21,8 @@ class apiServerCustomCertSans extends Model
     public $action;
 
     /**
+     * @description The SANs.
+     *
      * @var string[]
      */
     public $subjectAlternativeNames;

@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class autoUpgradePolicy extends Model
 {
     /**
-     * @description Specifies whether ACK is allowed to automatically update the kubelet. Valid values:
+     * @description Specifies whether to allow auto update of the kubelet. Valid values:
      *
-     *   `true`: yes.
-     *   `false`: no.
+     *   `true`: allows auto update of the kubelet.
+     *   `false`: does not allow auto update of the kubelet.
      *
      * @example true
      *
@@ -21,10 +21,10 @@ class autoUpgradePolicy extends Model
     public $autoUpgradeKubelet;
 
     /**
-     * @description Specifies whether ACK is allowed to automatically update the operating system. This parameter takes effect only when you specify `auto_upgrade=true`. Valid values:
+     * @description Specifies whether to allow auto update of the OS. This parameter takes effect only when you specify `auto_upgrade=true`. Valid values:
      *
-     *   `true`: yes.
-     *   `false`: no.
+     *   `true`: allows auto update of the OS.
+     *   `false`: does not allow auto update of the OS.
      *
      * Default value: `false`.
      * @var bool
@@ -32,10 +32,10 @@ class autoUpgradePolicy extends Model
     public $autoUpgradeOs;
 
     /**
-     * @description Specifies whether ACK is allowed to automatically update the runtime. This parameter takes effect only when you specify `auto_upgrade=true`. Valid values:
+     * @description Specifies whether to allow auto update of the runtime. This parameter takes effect only when you specify `auto_upgrade=true`. Valid values:
      *
-     *   `true`: yes.
-     *   `false`: no.
+     *   `true`: allows auto update of the runtime.
+     *   `false`: does not allow auto update of the runtime.
      *
      * Default value: `false`.
      * @var bool

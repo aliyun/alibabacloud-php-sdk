@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterDiagnosisRequest extends Model
 {
     /**
+     * @description The parameter used to specify the diagnostic object. Examples of parameters for different types of diagnostic objects:
+     *
+     * {"namespace": "kube-system", "name": "nginx-ingress-lb"}
      * @example {"namespace": "kube-system", "name": "csi-plugin-2cg9f"}
      *
      * @var mixed[]
@@ -16,6 +19,18 @@ class CreateClusterDiagnosisRequest extends Model
     public $target;
 
     /**
+     * @description The type of the diagnostic.
+     *
+     * Valid values:
+     *
+     *   node
+     *   ingress
+     *   cluster
+     *   memory
+     *   pod
+     *   service
+     *   network
+     *
      * @example node
      *
      * @var string

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterNodePoolsRequest extends Model
 {
     /**
-     * @description 节点池名称。
-     *
      * @example nodepool-test
      *
      * @var string

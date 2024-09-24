@@ -20,10 +20,10 @@ class clusters extends Model
     public $clusterId;
 
     /**
-     * @description The type of ACK managed cluster. This parameter is available only for ACK managed clusters. Valid values:
+     * @description After you set `cluster_type` to `ManagedKubernetes` and configure the `profile` parameter, you can further specify the edition of the cluster. Valid values:
      *
-     *   `ack.pro.small`: ACK Pro cluster
-     *   `ack.standard`: ACK Basic cluster
+     *   `ack.pro.small`: ACK Pro cluster.
+     *   `ack.standard`: ACK Basic cluster. If you leave the parameter empty, ACK Basic cluster is selected.
      *
      * @example ack.standard
      *
@@ -32,12 +32,9 @@ class clusters extends Model
     public $clusterSpec;
 
     /**
-     * @description The cluster type. Valid values:
-     *
-     *   `Kubernetes`: ACK dedicated cluster
-     *   `ManagedKubernetes`: ACK managed cluster
-     *   `Ask`: ACK Serverless cluster
-     *   `ExternalKubernetes`: registered cluster
+     * @description *   `Kubernetes`: ACK dedicated cluster.
+     *   `ManagedKubernetes`: ACK managed cluster. ACK managed clusters include ACK Basic clusters, ACK Pro clusters, ACK Serverless Basic clusters, ACK Serverless Pro clusters, ACK Edge Basic clusters, ACK Edge Pro clusters, and ACK Lingjun Pro clusters.
+     *   `ExternalKubernetes`: registered cluster.
      *
      * @example Kubernetes
      *
@@ -64,10 +61,10 @@ class clusters extends Model
     public $currentVersion;
 
     /**
-     * @description Indicates whether deletion protection is enabled for the cluster. If deletion protection is enabled, the cluster cannot be deleted in the ACK console or by calling API operations. Valid values:
+     * @description Specifies whether to enable cluster deletion protection. If this option is enabled, the cluster cannot be deleted in the ACK console or by calling API operations. Valid values:
      *
-     *   `true`: Deletion protection is enabled for the cluster. The cluster cannot be deleted in the ACK console or by calling API operations.
-     *   `false`: Deletion protection is disabled for the cluster. The cluster can be deleted in the ACK console or by calling API operations.
+     *   `true`: enables deletion protection for the cluster. This way, the cluster cannot be deleted in the ACK console or by calling API operations.
+     *   `false`: disables deletion protection for the cluster. This way, the cluster can be deleted in the ACK console or by calling API operations.
      *
      * @example true
      *
@@ -85,7 +82,7 @@ class clusters extends Model
     public $dockerVersion;
 
     /**
-     * @description The ID of the Server Load Balancer (SLB) instance that is used by the Ingress of the cluster.
+     * @description The ID of the Server Load Balancer (SLB) instance that is used by the Ingresses of the cluster.
      *
      * The default SLB specification is slb.s1.small, which belongs to the high-performance instance type.
      * @example lb-2vcrbmlevo6kjpgch****
@@ -95,9 +92,9 @@ class clusters extends Model
     public $externalLoadbalancerId;
 
     /**
-     * @description The Kubernetes version of the cluster. The Kubernetes versions supported by ACK are the same as the versions of open source Kubernetes. We recommend that you specify the latest Kubernetes version. If you do not specify this parameter, the latest Kubernetes version is used.
+     * @description The Kubernetes version of the cluster. The Kubernetes versions supported by ACK are the same as the Kubernetes versions supported by open source Kubernetes. We recommend that you specify the latest Kubernetes version. If you do not configure this parameter, the latest Kubernetes version is used.
      *
-     * You can create clusters of the latest two Kubernetes versions in the ACK console. You can call the corresponding ACK API operation to create clusters of other Kubernetes versions. For more information about the Kubernetes versions supported by ACK, see [Release notes for Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
+     * You can create clusters that run the latest two Kubernetes versions in the ACK console. You can call the API operation to create clusters of other Kubernetes versions. For more information about the Kubernetes versions supported by ACK, see [Release notes for Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
      * @example 1.16.9-aliyun.1
      *
      * @var string
@@ -105,14 +102,14 @@ class clusters extends Model
     public $initVersion;
 
     /**
-     * @description The maintenance window of the cluster. This feature is available only for ACK Pro clusters.
+     * @description The maintenance window of the cluster. This feature is available only for ACK managed clusters and ACK Serverless clusters.
      *
      * @var MaintenanceWindow
      */
     public $maintenanceWindow;
 
     /**
-     * @description The endpoint of the cluster API server, including an internal endpoint and a public endpoint.
+     * @description The address of the cluster API server. It includes an internal endpoint and a public endpoint.
      *
      * @example {\\"api_server_endpoint\\":\\"\\",\\"intranet_api_server_endpoint\\":\\"https://192.168.0.251:6443\\"}
      *
@@ -132,7 +129,7 @@ class clusters extends Model
     /**
      * @description The cluster name.
      *
-     * The name must be 1 to 63 characters in length and can contain digits, letters, and hyphens (-). The name cannot start with a hyphen (-).
+     * The name must be 1 to 63 characters in length, and can contain digits, letters, and hyphens (-). The name cannot start with a hyphen (-).
      * @example cluster-demo
      *
      * @var string
@@ -142,9 +139,9 @@ class clusters extends Model
     /**
      * @description The network mode of the cluster. Valid values:
      *
-     *   `classic`: classic network
-     *   `vpc`: virtual private cloud (VPC)
-     *   `overlay`: overlay network
+     *   `classic`: classic network.
+     *   `vpc`: virtual private cloud (VPC).
+     *   `overlay`: overlay network.
      *   `calico`: network powered by Calico.
      *
      * @example vpc
@@ -177,8 +174,10 @@ class clusters extends Model
     /**
      * @description The cluster identifier. Valid values:
      *
-     *   `Edge`: The cluster is an ACK Edge cluster.
-     *   `Default`: The cluster is not an ACK Edge cluster.
+     *   `Default`: ACK managed cluster. ACK managed clusters include ACK Basic clusters and ACK Pro clusters.
+     *   `Edge`: ACK Edge cluster. ACK Edge clusters include ACK Edge Basic clusters and ACK Edge Pro clusters.
+     *   `Serverless`: ACK Serverless cluster. ACK Serverless clusters include ACK Serverless Basic clusters and ACK Serverless Pro clusters.
+     *   `Lingjun`: ACK Lingjun Pro cluster.
      *
      * @example Default
      *
@@ -205,7 +204,7 @@ class clusters extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the security group to which the instances of the cluster belong.
+     * @description The ID of the security group of the cluster.
      *
      * @example sg-2vcgwsrwgt5mp0yi****
      *
@@ -249,7 +248,7 @@ class clusters extends Model
      *   172.16-31.0.0/12-16
      *   192.168.0.0/16
      *
-     * For more information, see [Plan CIDR blocks for an ACK cluster](https://help.aliyun.com/document_detail/86500.html).
+     * For more information about the network planning of ACK clusters, see [Plan CIDR blocks for an ACK cluster](https://help.aliyun.com/document_detail/86500.html).
      * @example 172.21.0.0/16
      *
      * @var string
@@ -291,7 +290,7 @@ class clusters extends Model
     public $vswitchId;
 
     /**
-     * @description The name of the worker Resource Access Management (RAM) role. The RAM role is assigned to the worker nodes of the cluster to allow the worker nodes to manage Elastic Compute Service (ECS) instances.
+     * @description The name of the worker Resource Access Management (RAM) role. The RAM role is assigned to the worker nodes of the cluster to allow the worker nodes to manage ECS instances.
      *
      * @example KubernetesWorkerRole-ec87d15b-edca-4302-933f-c8a16bf0****
      *
@@ -300,7 +299,7 @@ class clusters extends Model
     public $workerRamRoleName;
 
     /**
-     * @description The zone ID.
+     * @description The ID of the zone where the cluster is deployed.
      *
      * @example cn-beijing-b
      *

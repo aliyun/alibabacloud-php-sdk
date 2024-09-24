@@ -29,12 +29,12 @@ class DescribeClusterAddonInstanceResponseBody extends Model
     /**
      * @description The status of the component. Valid values:
      *
-     *   initial: The component is being installed.
-     *   active: The component is installed.
-     *   unhealthy: The component is in an abnormal state.
-     *   upgrading: The component is being updated.
-     *   updating: The component is being modified.
-     *   deleting: The component is being uninstalled.
+     *   initial: the component is being installed.
+     *   active: the component is installed.
+     *   unhealthy: the component abnormal.
+     *   upgrading: the component is being updated.
+     *   updating: the component is being modified.
+     *   deleting: the component is being uninstalled.
      *   deleted: The component is deleted.
      *
      * @example active

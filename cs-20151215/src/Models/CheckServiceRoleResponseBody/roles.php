@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class roles extends Model
 {
     /**
+     * @description Specifies whether the service role is granted required permissions.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class roles extends Model
     public $granted;
 
     /**
+     * @description The message returned if the service role is not granted required permissions.
+     *
      * @example The role does not exist: AliyunCSManagedAutoScalerRole
      *
      * @var string
@@ -23,6 +27,8 @@ class roles extends Model
     public $message;
 
     /**
+     * @description The service role name.
+     *
      * @example AliyunCSManagedAutoScalerRole
      *
      * @var string

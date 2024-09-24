@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CheckServiceRoleResponseBody extends Model
 {
     /**
+     * @description The check results.
+     *
      * @var roles[]
      */
     public $roles;

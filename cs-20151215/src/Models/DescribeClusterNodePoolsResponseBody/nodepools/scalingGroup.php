@@ -253,7 +253,7 @@ class scalingGroup extends Model
     public $privatePoolOptions;
 
     /**
-     * @description The name of the worker Resource Access Management (RAM) role. The RAM role is assigned to the worker nodes of the cluster to allow the worker nodes to manage ECS instances.
+     * @description This field is deprecated and replaced by the ram_role_name parameter.
      *
      * @example KubernetesWorkerRole-021dc54f-929b-437a-8ae0-34c24d3e****
      *
@@ -313,9 +313,6 @@ class scalingGroup extends Model
     public $securityGroupIds;
 
     /**
-     * @description 阿里云OS安全加固。取值：
-     *
-     * 默认值：`false`。
      * @var bool
      */
     public $securityHardeningOs;

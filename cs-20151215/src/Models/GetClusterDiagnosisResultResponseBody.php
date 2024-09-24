@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetClusterDiagnosisResultResponseBody extends Model
 {
     /**
+     * @description The code that indicates the diagnostic result. Valid values:
+     *
+     *   0: the diagnostic is completed.
+     *   1: the diagnostic failed.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +21,8 @@ class GetClusterDiagnosisResultResponseBody extends Model
     public $code;
 
     /**
+     * @description The time when the diagnostic is initiated.
+     *
      * @example 2024-05-28T11:29Z
      *
      * @var string
@@ -23,6 +30,8 @@ class GetClusterDiagnosisResultResponseBody extends Model
     public $created;
 
     /**
+     * @description The diagnostic ID.
+     *
      * @example 6cf6b62e334e4583bdfd26707516****
      *
      * @var string
@@ -30,6 +39,8 @@ class GetClusterDiagnosisResultResponseBody extends Model
     public $diagnosisId;
 
     /**
+     * @description The time when the diagnostic is completed.
+     *
      * @example 2024-05-28T11:29Z
      *
      * @var string
@@ -37,6 +48,8 @@ class GetClusterDiagnosisResultResponseBody extends Model
     public $finished;
 
     /**
+     * @description The diagnostic status information.
+     *
      * @example success
      *
      * @var string
@@ -44,6 +57,8 @@ class GetClusterDiagnosisResultResponseBody extends Model
     public $message;
 
     /**
+     * @description The diagnostic result.
+     *
      * @example {"phase":5,"version":"20240101"}
      *
      * @var string
@@ -51,6 +66,12 @@ class GetClusterDiagnosisResultResponseBody extends Model
     public $result;
 
     /**
+     * @description The status of the diagnostic. Valid values:
+     *
+     *   0: The diagnostic is created.
+     *   1: The diagnostic is running.
+     *   2: The diagnostic is completed.
+     *
      * @example 2
      *
      * @var int
@@ -58,6 +79,8 @@ class GetClusterDiagnosisResultResponseBody extends Model
     public $status;
 
     /**
+     * @description The diagnostic object.
+     *
      * @example {"name":"cn-hongkong.10.0.0.246"}
      *
      * @var string
@@ -65,6 +88,18 @@ class GetClusterDiagnosisResultResponseBody extends Model
     public $target;
 
     /**
+     * @description The type of the diagnostic.
+     *
+     * Valid values:
+     *
+     *   node
+     *   ingress
+     *   cluster
+     *   memory
+     *   pod
+     *   service
+     *   network
+     *
      * @example Node
      *
      * @var string

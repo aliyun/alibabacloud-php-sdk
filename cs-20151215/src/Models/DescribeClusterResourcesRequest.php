@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterResourcesRequest extends Model
 {
     /**
-     * @description Specifies whether to query the resources created by cluster components at the same time.
+     * @description Specifies whether to query the resources created by cluster components.
      *
      * @var bool
      */

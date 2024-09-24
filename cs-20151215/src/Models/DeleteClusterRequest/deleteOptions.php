@@ -21,7 +21,7 @@ class deleteOptions extends Model
     public $deleteMode;
 
     /**
-     * @description Valid values:
+     * @description The type of the resource. Valid values:
      *
      *   SLB: SLB resources created for Services. By default, the SLB resources are automatically deleted.
      *   ALB: Application Load Balancer (ALB) resources created by the ALB Ingress controller. By default, the ALB resources are retained.

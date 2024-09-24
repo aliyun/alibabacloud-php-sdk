@@ -18,7 +18,7 @@ class systemEventsLogging extends Model
     public $enabled;
 
     /**
-     * @description The name of the LogProject that stores system events.
+     * @description The name of the Simple Log Service project that stores system events.
      *
      * @example k8s-log-cb95aa626a47740afbf6aa099b65****
      *

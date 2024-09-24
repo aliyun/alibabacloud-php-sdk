@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetClusterDiagnosisCheckItemsResponseBody extends Model
 {
     /**
+     * @description The check item.
+     *
      * @var checkItems[]
      */
     public $checkItems;
 
     /**
+     * @description The status code.
+     *
      * @example success
      *
      * @var string
@@ -22,6 +26,8 @@ class GetClusterDiagnosisCheckItemsResponseBody extends Model
     public $code;
 
     /**
+     * @description Indicates whether the check is successful.
+     *
      * @example true
      *
      * @var bool
@@ -29,6 +35,8 @@ class GetClusterDiagnosisCheckItemsResponseBody extends Model
     public $isSuccess;
 
     /**
+     * @description The request ID.
+     *
      * @example 1DFFD8C6-259E-582B-8B40-002C17DC****
      *
      * @var string

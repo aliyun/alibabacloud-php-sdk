@@ -19,7 +19,7 @@ class UpgradeClusterNodepoolRequest extends Model
     public $imageId;
 
     /**
-     * @description The Kubernetes version that is used by the nodes.
+     * @description The Kubernetes version that is used by the nodes. You can call the [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) operation to query the Kubernetes version of the cluster returned in the current_version parameter.
      *
      * @example 1.22.15-aliyun.1
      *
@@ -28,17 +28,21 @@ class UpgradeClusterNodepoolRequest extends Model
     public $kubernetesVersion;
 
     /**
+     * @description The nodes that you want to update. If you do not specify this parameter, all nodes in the node pool are updated by default.
+     *
      * @var string[]
      */
     public $nodeNames;
 
     /**
+     * @description The rotation configuration.
+     *
      * @var rollingPolicy
      */
     public $rollingPolicy;
 
     /**
-     * @description The runtime type. Valid values: containerd and docker.
+     * @description The runtime type. You can call the [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) operation to query the runtime information returned in the runtime parameter.
      *
      * @example containerd
      *
@@ -47,7 +51,7 @@ class UpgradeClusterNodepoolRequest extends Model
     public $runtimeType;
 
     /**
-     * @description The version of the container runtime that is used by the nodes.
+     * @description The version of the container runtime that is used by the nodes. You can call the [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) operation to query the runtime version information returned in the runtime parameter.
      *
      * @example 1.5.10
      *
@@ -56,6 +60,14 @@ class UpgradeClusterNodepoolRequest extends Model
     public $runtimeVersion;
 
     /**
+     * @description Specifies whether to perform the update by replacing the system disk. Valid values:
+     *
+     *   true: updates by replacing the system disk.
+     *   false: does not update by replacing the system disk.
+     *
+     * Default value: false.
+     * @example false
+     *
      * @var bool
      */
     public $useReplace;

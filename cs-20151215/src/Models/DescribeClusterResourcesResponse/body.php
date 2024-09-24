@@ -108,11 +108,11 @@ class body extends Model
     public $deleteBehavior;
 
     /**
-     * @description The type of the resource creator. Valid values:
+     * @description The resource creator. Valid values:
      *
-     *   user: the resource is created by the user.
-     *   system: the resource is created by the ACK management system.
-     *   addon: the resource is created by a cluster component.
+     *   user: The resource is created by the user.
+     *   system: The resource is created by the ACK management system.
+     *   addon: The resource is created by a cluster component.
      *
      * @example addon
      *

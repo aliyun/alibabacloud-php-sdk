@@ -18,7 +18,7 @@ class ListClusterKubeconfigStatesResponseBody extends Model
     public $page;
 
     /**
-     * @description The status of the kubeconfig files associated with the cluster.
+     * @description The status list of the kubeconfig files associated with the cluster.
      *
      * @var states[]
      */

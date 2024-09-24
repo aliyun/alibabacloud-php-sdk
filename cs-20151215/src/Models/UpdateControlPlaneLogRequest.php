@@ -25,7 +25,7 @@ class UpdateControlPlaneLogRequest extends Model
     public $components;
 
     /**
-     * @description The name of the Simple Log Service project that you want to use to store the logs of control plane components.
+     * @description The name of the Simple Log Service Project that you want to use to store the logs of control plane components.
      *
      * Default value: k8s-log-$Cluster ID.
      * @example k8s-log-c5b5e80b0b64a4bf6939d2d8fbbc5****

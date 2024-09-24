@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class RepairClusterNodePoolRequest extends Model
 {
     /**
-     * @description Specifies whether to allow node restart.
+     * @description Specifies whether to restart the instance of the node.
      *
      * @example true
      *
@@ -19,7 +19,7 @@ class RepairClusterNodePoolRequest extends Model
     public $autoRestart;
 
     /**
-     * @description The nodes that you want to repair. If you do not specify nodes, all nodes in the node pool are repaired.
+     * @description The list of nodes. If you do not specify nodes, all nodes in the node pool are selected.
      *
      * @var string[]
      */

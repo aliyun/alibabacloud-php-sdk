@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterDiagnosisResponseBody extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example c5cdf7e3938bc4f8eb0e44b21a80f****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateClusterDiagnosisResponseBody extends Model
     public $clusterId;
 
     /**
+     * @description The diagnostic ID.
+     *
      * @example 6f719f23098240818eb26fe3a37d****
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateClusterDiagnosisResponseBody extends Model
     public $diagnosisId;
 
     /**
+     * @description The request ID.
+     *
      * @example 687C5BAA-D103-4993-884B-C35E4314****
      *
      * @var string

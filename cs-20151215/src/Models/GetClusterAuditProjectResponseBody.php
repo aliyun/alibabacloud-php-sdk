@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetClusterAuditProjectResponseBody extends Model
 {
     /**
+     * @description Indicates whether the cluster auditing feature is enabled for the cluster. `true`: The cluster auditing feature is enabled for the cluster. `false`: The cluster auditing feature is disabled for the cluster.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $auditEnabled;
 
     /**
+     * @description The SLS project in which the audit logs of the API server are stored.
+     *
      * @example k8s-log-cad1230511cbb4db4a488e58518******
      *
      * @var string

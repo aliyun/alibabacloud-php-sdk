@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class roles extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The service role name.
      *
+     * This parameter is required.
      * @example AliyunCSManagedAutoScalerRole
      *
      * @var string

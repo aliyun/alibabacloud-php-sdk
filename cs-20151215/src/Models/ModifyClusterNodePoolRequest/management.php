@@ -52,10 +52,10 @@ class management extends Model
     public $autoUpgradePolicy;
 
     /**
-     * @description Specifies whether ACK is allowed to automatically patch CVE vulnerabilities. Valid values:
+     * @description Specifies whether to enable auto Common Vulnerabilities and Exposures (CVE) patching. Valid values:
      *
-     *   `true`: yes.
-     *   `true`: no.
+     *   `true`: enables auto CVE patching.
+     *   `true`: disables auto CVE patching.
      *
      * @example true
      *
@@ -84,7 +84,7 @@ class management extends Model
     public $enable;
 
     /**
-     * @description The configuration of auto update. The configuration takes effect only when `enable=true` is specified.
+     * @description The configurations of auto update. The configuration takes effect only when you specify `enable=true`.
      *
      * @deprecated
      *

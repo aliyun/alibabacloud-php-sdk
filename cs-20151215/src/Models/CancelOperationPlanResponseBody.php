@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CancelOperationPlanResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 873DC52C-28AA-5A5C-938C-684D3D4B****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'requestId' => 'requestId',
+        'requestId' => 'request_id',
     ];
 
     public function validate()
@@ -28,7 +24,7 @@ class CancelOperationPlanResponseBody extends Model
     {
         $res = [];
         if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
+            $res['request_id'] = $this->requestId;
         }
 
         return $res;
@@ -42,8 +38,8 @@ class CancelOperationPlanResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
+        if (isset($map['request_id'])) {
+            $model->requestId = $map['request_id'];
         }
 
         return $model;

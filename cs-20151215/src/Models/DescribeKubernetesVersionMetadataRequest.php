@@ -60,6 +60,10 @@ class DescribeKubernetesVersionMetadataRequest extends Model
     public $profile;
 
     /**
+     * @description Specify whether to query the Kubernetes versions available for updates. This parameter takes effect only when the KubernetesVersion parameter is specified.
+     *
+     * @example 1.30.1-aliyun.1
+     *
      * @var bool
      */
     public $queryUpgradableVersion;

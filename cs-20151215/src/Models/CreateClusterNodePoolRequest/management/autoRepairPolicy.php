@@ -11,8 +11,8 @@ class autoRepairPolicy extends Model
     /**
      * @description Specifies whether to allow node restart. This parameter takes effect only if `auto_repair` is set to true. Valid values:
      *
-     *   `true`
-     *   `false`
+     *   `true`: allows node restart.
+     *   `false`: does not allow node restart.
      *
      * If `auto_repair` is set to true, the default value of this parameter is `true`. If `auto_repair` is set to false, the default value of this parameter is `false`.
      * @example true

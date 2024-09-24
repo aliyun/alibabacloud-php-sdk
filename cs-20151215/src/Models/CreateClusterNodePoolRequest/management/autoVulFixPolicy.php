@@ -11,8 +11,8 @@ class autoVulFixPolicy extends Model
     /**
      * @description Specifies whether to allow node restart. This parameter takes effect only if `auto_vul_fix` is set to true. Valid values:
      *
-     *   `true`
-     *   `false` If `auto_vul_fix` is set to true, the default value of this parameter is `false`. If `auto_vul_fix` is set to false, the default value of this parameter is `false`.
+     *   `true`: allows node restart.
+     *   `false`: does not allow node restart. If `auto_vul_fix` is set to true, the default value of this parameter is `false`. If `auto_vul_fix` is set to false, the default value of this parameter is `false`.
      *
      * @example true
      *
@@ -21,11 +21,11 @@ class autoVulFixPolicy extends Model
     public $restartNode;
 
     /**
-     * @description The level of CVEs that can be automatically patched. Separate multiple levels with commas (,). Example: `asap,later`. Valid values:
+     * @description The severity levels of CVEs that can be automatically patched. Separate multiple levels with commas (,). Example: `asap,later`. Valid values:
      *
-     *   `asap`: high
-     *   `later`: medium
-     *   `nntf`: low
+     *   `asap`: high.
+     *   `later`: medium.
+     *   `nntf`: low.
      *
      * If `auto_vul_fix` is set to true, the default value of this parameter is `asap`.
      * @example asap,nntf

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class states extends Model
 {
     /**
-     * @description The display name of the account.
+     * @description The displayed name or role name of the RAM user.
      *
      * @example tom
      *
@@ -27,7 +27,7 @@ class states extends Model
     public $accountId;
 
     /**
-     * @description The name of the account.
+     * @description The logon name or role name of the RAM user.
      *
      * @example tom
      *
@@ -36,7 +36,7 @@ class states extends Model
     public $accountName;
 
     /**
-     * @description The status of the account. Valid values:
+     * @description The status of the account.
      *
      *   Active: The account is active.
      *   InActive: The account is locked.
@@ -49,7 +49,7 @@ class states extends Model
     public $accountState;
 
     /**
-     * @description The type of the account. Valid values:
+     * @description The type of the account.
      *
      *   RootAccount: Alibaba Cloud account.
      *   RamUser: RAM user.
@@ -62,7 +62,7 @@ class states extends Model
     public $accountType;
 
     /**
-     * @description Expiration time of the certificate.
+     * @description The expiration time of the client certificate for the kubeconfig file.
      *
      * @example 2027-07-15T01:32:20Z
      *
@@ -71,7 +71,7 @@ class states extends Model
     public $certExpireTime;
 
     /**
-     * @description The status of the certificate.
+     * @description The status of the client certificate for the kubeconfig file.
      *
      *   Unexpired: The certificate is not expired.
      *   Expired: The certificate is expired.
@@ -84,7 +84,7 @@ class states extends Model
     public $certState;
 
     /**
-     * @description Indicates whether the certificate can be revoked.
+     * @description Indicates whether the client certificate for the kubeconfig file can be revoked.
      *
      * @example true
      *

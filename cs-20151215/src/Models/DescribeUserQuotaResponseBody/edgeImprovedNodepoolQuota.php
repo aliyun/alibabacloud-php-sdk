@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class edgeImprovedNodepoolQuota extends Model
 {
     /**
-     * @description This parameter is deprecated.
+     * @description This parameter is discontinued.
      *
-     * The maximum bandwidth of each enhanced node pool. Unit: Mbit/s.
+     * The maximum bandwidth of each enhanced edge node pool. Unit: Mbit/s.
      * @example 10
      *
      * @var int
@@ -19,9 +19,9 @@ class edgeImprovedNodepoolQuota extends Model
     public $bandwidth;
 
     /**
-     * @description This parameter is deprecated.
+     * @description This parameter is discontinued.
      *
-     * The quota of enhanced edge node pools that belong to an Alibaba Cloud account.
+     * The maximum number of enhanced edge node pools that you can create within an Alibaba Cloud account.
      * @example 3
      *
      * @var int
@@ -29,9 +29,9 @@ class edgeImprovedNodepoolQuota extends Model
     public $count;
 
     /**
-     * @description This parameter is deprecated.
+     * @description This parameter is discontinued.
      *
-     * > You can ignore this parameter because enhanced edge node pools are pay-as-you-go resources.
+     * >  You are charged for enhanced edge node pools based on the pay-as-you-go billing method. Therefore, you can ignore this parameter.
      * @example 3
      *
      * @var int
