@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\CancelAutoSnapshotPolicyRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CancelAutoSnapshotPolicyResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CancelDataFlowAutoRefreshRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CancelDataFlowAutoRefreshResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\CancelDataFlowSubTaskRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\CancelDataFlowSubTaskResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CancelDataFlowTaskRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CancelDataFlowTaskResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CancelDirQuotaRequest;
@@ -38,6 +40,8 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\CreateAutoSnapshotPolicyRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateAutoSnapshotPolicyResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateDataFlowRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateDataFlowResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\CreateDataFlowSubTaskRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\CreateDataFlowSubTaskResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateDataFlowTaskRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateDataFlowTaskResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CreateDirRequest;
@@ -112,6 +116,8 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeBlackListClientsRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeBlackListClientsResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeDataFlowsRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeDataFlowsResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeDataFlowSubTasksRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeDataFlowSubTasksResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeDataFlowTasksRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeDataFlowTasksResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeDirQuotasRequest;
@@ -685,6 +691,68 @@ class NAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelDataFlowAutoRefreshWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 取消数据流动任务队列中尚未执行的子任务
+     *  *
+     * @param CancelDataFlowSubTaskRequest $request CancelDataFlowSubTaskRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CancelDataFlowSubTaskResponse CancelDataFlowSubTaskResponse
+     */
+    public function cancelDataFlowSubTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dataFlowId)) {
+            $query['DataFlowId'] = $request->dataFlowId;
+        }
+        if (!Utils::isUnset($request->dataFlowSubTaskId)) {
+            $query['DataFlowSubTaskId'] = $request->dataFlowSubTaskId;
+        }
+        if (!Utils::isUnset($request->dataFlowTaskId)) {
+            $query['DataFlowTaskId'] = $request->dataFlowTaskId;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelDataFlowSubTask',
+            'version'     => '2017-06-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelDataFlowSubTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 取消数据流动任务队列中尚未执行的子任务
+     *  *
+     * @param CancelDataFlowSubTaskRequest $request CancelDataFlowSubTaskRequest
+     *
+     * @return CancelDataFlowSubTaskResponse CancelDataFlowSubTaskResponse
+     */
+    public function cancelDataFlowSubTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelDataFlowSubTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -1459,6 +1527,74 @@ class NAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDataFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建数据流动子任务
+     *  *
+     * @param CreateDataFlowSubTaskRequest $request CreateDataFlowSubTaskRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDataFlowSubTaskResponse CreateDataFlowSubTaskResponse
+     */
+    public function createDataFlowSubTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->condition)) {
+            $query['Condition'] = $request->condition;
+        }
+        if (!Utils::isUnset($request->dataFlowId)) {
+            $query['DataFlowId'] = $request->dataFlowId;
+        }
+        if (!Utils::isUnset($request->dataFlowTaskId)) {
+            $query['DataFlowTaskId'] = $request->dataFlowTaskId;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->dstFilePath)) {
+            $query['DstFilePath'] = $request->dstFilePath;
+        }
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
+        }
+        if (!Utils::isUnset($request->srcFilePath)) {
+            $query['SrcFilePath'] = $request->srcFilePath;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDataFlowSubTask',
+            'version'     => '2017-06-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDataFlowSubTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建数据流动子任务
+     *  *
+     * @param CreateDataFlowSubTaskRequest $request CreateDataFlowSubTaskRequest
+     *
+     * @return CreateDataFlowSubTaskResponse CreateDataFlowSubTaskResponse
+     */
+    public function createDataFlowSubTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataFlowSubTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -3749,6 +3885,62 @@ class NAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeBlackListClientsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询数据流动子任务
+     *  *
+     * @param DescribeDataFlowSubTasksRequest $request DescribeDataFlowSubTasksRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDataFlowSubTasksResponse DescribeDataFlowSubTasksResponse
+     */
+    public function describeDataFlowSubTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
+        }
+        if (!Utils::isUnset($request->filters)) {
+            $query['Filters'] = $request->filters;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDataFlowSubTasks',
+            'version'     => '2017-06-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDataFlowSubTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询数据流动子任务
+     *  *
+     * @param DescribeDataFlowSubTasksRequest $request DescribeDataFlowSubTasksRequest
+     *
+     * @return DescribeDataFlowSubTasksResponse DescribeDataFlowSubTasksResponse
+     */
+    public function describeDataFlowSubTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataFlowSubTasksWithOptions($request, $runtime);
     }
 
     /**
