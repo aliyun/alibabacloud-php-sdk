@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListClustersRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The page number.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -18,8 +19,9 @@ class ListClustersRequest extends Model
     public $currentPage;
 
     /**
-     * @description This parameter is required.
+     * @description The number of entries per page. Valid values: 1 to 1000.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int
@@ -27,8 +29,9 @@ class ListClustersRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

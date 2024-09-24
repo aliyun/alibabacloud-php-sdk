@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SyncClusterRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cluster-BqxX63Bsgytet****
      *
      * @var string

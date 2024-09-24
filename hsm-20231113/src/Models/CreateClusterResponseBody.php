@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterResponseBody extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example cluster-729dm40FG****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateClusterResponseBody extends Model
     public $clusterId;
 
     /**
+     * @description The request ID.
+     *
      * @example 5F58413E-8F57-585B-BE48-64CC1E31133C
      *
      * @var string

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class cluster extends Model
 {
     /**
+     * @description The cluster certificate.
+     *
      * @example -----BEGIN CERTIFICATE-----
      * BAYTAmNuMQswCQYDVQQIDAJ6ajELMAkGA1UEBwwCaHoxFjAUBgNVBAoMDUFsaWJh
      * YmEgQ2xvdWQxFDA****
@@ -20,6 +22,8 @@ class cluster extends Model
     public $clusterCertificate;
 
     /**
+     * @description The certificate signing request (CSR) file of the cluster.
+     *
      * @example -----BEGIN CERTIFICATE REQUEST-----\\nMIIC5TCCAc0CAQAwgZ8xWTAJBgNVBAYTAlVTMAkGA1UECAwCQ0EwDQYDVQQKDAZD\\nYXZpdW0wDQYDVQQLDAZOM0ZJUFMwDgYDVQQHDAdTYW5Kb3NlMBMGA1UdEQwMMTk****
      * -----END CERTIFICATE REQUEST-----
      * @var string
@@ -27,6 +31,8 @@ class cluster extends Model
     public $clusterCsr;
 
     /**
+     * @description The cluster ID.
+     *
      * @example cluster-p94y1dud9ts****
      *
      * @var string
@@ -34,6 +40,8 @@ class cluster extends Model
     public $clusterId;
 
     /**
+     * @description The cluster name.
+     *
      * @example cluster_polar_****
      *
      * @var string
@@ -41,6 +49,8 @@ class cluster extends Model
     public $clusterName;
 
     /**
+     * @description The self-signed certificate of the cluster.
+     *
      * @example ----BEGIN CERTIFICATE-----
      * BAgMAnpqMQswCQYDVQQHDAJoejEWMBQGA1UECgwNQWxpYmFiYSBDbG91ZDEUMBIG
      * A1UECwwLU2VjQ2xvdWRIc20wHhcNMjQwNzAzM****
@@ -50,6 +60,8 @@ class cluster extends Model
     public $clusterOwnerCertificate;
 
     /**
+     * @description The time when the cluster was created. Unit: milliseconds. The value is a UNIX timestamp.
+     *
      * @example 1641275680000
      *
      * @var int
@@ -57,6 +69,8 @@ class cluster extends Model
     public $createTime;
 
     /**
+     * @description The device type.
+     *
      * @example jnta
      *
      * @var string
@@ -64,11 +78,15 @@ class cluster extends Model
     public $deviceType;
 
     /**
+     * @description The HSMs in the cluster.
+     *
      * @var instances[]
      */
     public $instances;
 
     /**
+     * @description The ID of the region in which the cluster resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -76,6 +94,8 @@ class cluster extends Model
     public $regionId;
 
     /**
+     * @description The number of hardware security modules (HSMs) in the cluster.
+     *
      * @example 2
      *
      * @var int
@@ -83,6 +103,14 @@ class cluster extends Model
     public $size;
 
     /**
+     * @description The cluster status.
+     *
+     *   NEW: The cluster is not initialized.
+     *   INITIALIZED: The cluster is initialized.
+     *   DELETED: The cluster is deleted.
+     *   SYNCHRONIZING: The cluster is being synchronized.
+     *   TO_DELETE: The cluster is to be deleted.
+     *
      * @example NEW
      *
      * @var string
@@ -90,6 +118,8 @@ class cluster extends Model
     public $status;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the cluster belongs.
+     *
      * @example vpc-8vbt0fjdm29hofvbo****
      *
      * @var string
@@ -97,6 +127,8 @@ class cluster extends Model
     public $vpcId;
 
     /**
+     * @description The IP address whitelist of the cluster.
+     *
      * @example 130.176.XX.XX
      *
      * @var string
@@ -104,6 +136,8 @@ class cluster extends Model
     public $whitelist;
 
     /**
+     * @description The information about the zone in which the cluster is deployed.
+     *
      * @var zones[]
      */
     public $zones;

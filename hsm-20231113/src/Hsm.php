@@ -126,7 +126,11 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户地域下审计日志功能开通
+     * @summary Enables or disables the audit log feature and delivers audit logs to buckets.
+     *  *
+     * @description *   The region of the bucket must be the same as the region where the security audit feature is enabled.
+     * *   If the security audit feature is enabled, do not delete Object Storage Service (OSS) buckets. If you delete OSS buckets, audit logs fail to be delivered.
+     * *   Only electronic virtual security modules (EVSMs) and general virtual security modules (GVSMs) within the Chinese mainland support the security audit feature.
      *  *
      * @param ConfigAuditLogRequest $request ConfigAuditLogRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -165,7 +169,11 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户地域下审计日志功能开通
+     * @summary Enables or disables the audit log feature and delivers audit logs to buckets.
+     *  *
+     * @description *   The region of the bucket must be the same as the region where the security audit feature is enabled.
+     * *   If the security audit feature is enabled, do not delete Object Storage Service (OSS) buckets. If you delete OSS buckets, audit logs fail to be delivered.
+     * *   Only electronic virtual security modules (EVSMs) and general virtual security modules (GVSMs) within the Chinese mainland support the security audit feature.
      *  *
      * @param ConfigAuditLogRequest $request ConfigAuditLogRequest
      *
@@ -344,7 +352,7 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary 配置集群名称
+     * @summary Modifies the name of a cluster.
      *  *
      * @param ConfigClusterNameRequest $request ConfigClusterNameRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -380,7 +388,7 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary 配置集群名称
+     * @summary Modifies the name of a cluster.
      *  *
      * @param ConfigClusterNameRequest $request ConfigClusterNameRequest
      *
@@ -455,7 +463,9 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary 配置集群名称
+     * @summary Modifies the IP address whitelist of a cluster.
+     *  *
+     * @description The IP address whitelist of a cluster has a higher priority than the IP address whitelist of a hardware security module (HSM) in the cluster. In cluster mode, we recommend that you create an IP address whitelist for your cluster. In this case, you do not need to create an IP address for the HSM in the cluster.
      *  *
      * @param ConfigClusterWhitelistRequest $request ConfigClusterWhitelistRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -491,7 +501,9 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary 配置集群名称
+     * @summary Modifies the IP address whitelist of a cluster.
+     *  *
+     * @description The IP address whitelist of a cluster has a higher priority than the IP address whitelist of a hardware security module (HSM) in the cluster. In cluster mode, we recommend that you create an IP address whitelist for your cluster. In this case, you do not need to create an IP address for the HSM in the cluster.
      *  *
      * @param ConfigClusterWhitelistRequest $request ConfigClusterWhitelistRequest
      *
@@ -555,6 +567,10 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the virtual private cloud (VPC) endpoint of a hardware security module (HSM).
+     *  *
+     * @description After you add an HSM to a cluster, you cannot modify the VPC endpoint of the HSM.
+     *  *
      * @param ConfigInstanceIpAddressRequest $request ConfigInstanceIpAddressRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -598,6 +614,10 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the virtual private cloud (VPC) endpoint of a hardware security module (HSM).
+     *  *
+     * @description After you add an HSM to a cluster, you cannot modify the VPC endpoint of the HSM.
+     *  *
      * @param ConfigInstanceIpAddressRequest $request ConfigInstanceIpAddressRequest
      *
      * @return ConfigInstanceIpAddressResponse ConfigInstanceIpAddressResponse
@@ -610,6 +630,8 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the description of a hardware security module (HSM).
+     *  *
      * @param ConfigInstanceRemarkRequest $request ConfigInstanceRemarkRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -644,6 +666,8 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the description of a hardware security module (HSM).
+     *  *
      * @param ConfigInstanceRemarkRequest $request ConfigInstanceRemarkRequest
      *
      * @return ConfigInstanceRemarkResponse ConfigInstanceRemarkResponse
@@ -756,6 +780,10 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Specifies a hardware security module (HSM) as the master HSM to create a cluster.
+     *  *
+     * @description The master HSM that you specify to create a cluster must be in the ACTIVE state.
+     *  *
      * @param CreateClusterRequest $request CreateClusterRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -793,6 +821,10 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Specifies a hardware security module (HSM) as the master HSM to create a cluster.
+     *  *
+     * @description The master HSM that you specify to create a cluster must be in the ACTIVE state.
+     *  *
      * @param CreateClusterRequest $request CreateClusterRequest
      *
      * @return CreateClusterResponse CreateClusterResponse
@@ -805,6 +837,10 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a cluster.
+     *  *
+     * @description You can delete a cluster only when no hardware security modules (HSMs) exist in the cluster.
+     *  *
      * @param DeleteClusterRequest $request DeleteClusterRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -836,6 +872,10 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a cluster.
+     *  *
+     * @description You can delete a cluster only when no hardware security modules (HSMs) exist in the cluster.
+     *  *
      * @param DeleteClusterRequest $request DeleteClusterRequest
      *
      * @return DeleteClusterResponse DeleteClusterResponse
@@ -1088,6 +1128,8 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Queries information about a cluster.
+     *  *
      * @param GetClusterRequest $request GetClusterRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -1119,6 +1161,8 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Queries information about a cluster.
+     *  *
      * @param GetClusterRequest $request GetClusterRequest
      *
      * @return GetClusterResponse GetClusterResponse
@@ -1178,6 +1222,8 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Queries information about a hardware security module (HSM).
+     *  *
      * @param GetInstanceRequest $request GetInstanceRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -1209,6 +1255,8 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Queries information about a hardware security module (HSM).
+     *  *
      * @param GetInstanceRequest $request GetInstanceRequest
      *
      * @return GetInstanceResponse GetInstanceResponse
@@ -1305,7 +1353,10 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary 初始化集群（原activeCluster）
+     * @summary Initializes a cluster.
+     *  *
+     * @description *   The cluster is not initialized, but the master hardware security module (HSM) of the cluster is initialized.
+     * *   Two or more vSwitches are configured for the cluster.
      *  *
      * @param InitializeClusterRequest $request InitializeClusterRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -1338,7 +1389,10 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary 初始化集群（原activeCluster）
+     * @summary Initializes a cluster.
+     *  *
+     * @description *   The cluster is not initialized, but the master hardware security module (HSM) of the cluster is initialized.
+     * *   Two or more vSwitches are configured for the cluster.
      *  *
      * @param InitializeClusterRequest $request InitializeClusterRequest
      *
@@ -1352,6 +1406,10 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Adds a hardware security module (HSM) to the current cluster.
+     *  *
+     * @description You can add an HSM only to the cluster that is in the INITIALIZED state, and the HSM must be enabled or disabled and is not initialized.
+     *  *
      * @param JoinClusterRequest $request JoinClusterRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -1386,6 +1444,10 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Adds a hardware security module (HSM) to the current cluster.
+     *  *
+     * @description You can add an HSM only to the cluster that is in the INITIALIZED state, and the HSM must be enabled or disabled and is not initialized.
+     *  *
      * @param JoinClusterRequest $request JoinClusterRequest
      *
      * @return JoinClusterResponse JoinClusterResponse
@@ -1398,6 +1460,11 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Removes a hardware security module (HSM) from the current cluster.
+     *  *
+     * @description *   If non-master HSMs exist in a cluster, you cannot remove the master HSM from the cluster.
+     * *   After the master HSM is removed from a cluster, the cluster enters the TO_DELETE state and cannot be restored to be available. Proceed with caution.
+     *  *
      * @param LeaveClusterRequest $request LeaveClusterRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -1432,6 +1499,11 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Removes a hardware security module (HSM) from the current cluster.
+     *  *
+     * @description *   If non-master HSMs exist in a cluster, you cannot remove the master HSM from the cluster.
+     * *   After the master HSM is removed from a cluster, the cluster enters the TO_DELETE state and cannot be restored to be available. Proceed with caution.
+     *  *
      * @param LeaveClusterRequest $request LeaveClusterRequest
      *
      * @return LeaveClusterResponse LeaveClusterResponse
@@ -1506,6 +1578,8 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Obtains the clusters that meet the query conditions.
+     *  *
      * @param ListClustersRequest $request ListClustersRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -1543,6 +1617,8 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Obtains the clusters that meet the query conditions.
+     *  *
      * @param ListClustersRequest $request ListClustersRequest
      *
      * @return ListClustersResponse ListClustersResponse
@@ -1614,6 +1690,8 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Queries the hardware security modules (HSMs) that meet the query conditions.
+     *  *
      * @param ListInstancesRequest $request ListInstancesRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -1631,6 +1709,9 @@ class Hsm extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->tenantIsolationType)) {
+            $body['TenantIsolationType'] = $request->tenantIsolationType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -1651,6 +1732,8 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Queries the hardware security modules (HSMs) that meet the query conditions.
+     *  *
      * @param ListInstancesRequest $request ListInstancesRequest
      *
      * @return ListInstancesResponse ListInstancesResponse
@@ -1719,6 +1802,10 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Deactivates a hardware security module (HSM).
+     *  *
+     * @description After you deactivate an HSM, the relevant service operations fail. Proceed with caution.
+     *  *
      * @param PauseInstanceRequest $request PauseInstanceRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -1750,6 +1837,10 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Deactivates a hardware security module (HSM).
+     *  *
+     * @description After you deactivate an HSM, the relevant service operations fail. Proceed with caution.
+     *  *
      * @param PauseInstanceRequest $request PauseInstanceRequest
      *
      * @return PauseInstanceResponse PauseInstanceResponse
@@ -1762,6 +1853,10 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Initializes a hardware security module (HSM).
+     *  *
+     * @description This operation is supported only for general virtual security modules (GVSMs) that are deployed in regions in the Chinese mainland.
+     *  *
      * @param QuickInitInstanceRequest $request QuickInitInstanceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -1793,6 +1888,10 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Initializes a hardware security module (HSM).
+     *  *
+     * @description This operation is supported only for general virtual security modules (GVSMs) that are deployed in regions in the Chinese mainland.
+     *  *
      * @param QuickInitInstanceRequest $request QuickInitInstanceRequest
      *
      * @return QuickInitInstanceResponse QuickInitInstanceResponse
@@ -1852,6 +1951,10 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Resets a hardware security module (HSM).
+     *  *
+     * @description After an HSM is reset, all related data is deleted and cannot be recovered. Exercise caution.
+     *  *
      * @param ResetInstanceRequest $request ResetInstanceRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -1883,6 +1986,10 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Resets a hardware security module (HSM).
+     *  *
+     * @description After an HSM is reset, all related data is deleted and cannot be recovered. Exercise caution.
+     *  *
      * @param ResetInstanceRequest $request ResetInstanceRequest
      *
      * @return ResetInstanceResponse ResetInstanceResponse
@@ -1895,6 +2002,10 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Restores a hardware security module (HSM) by using an image.
+     *  *
+     * @description You can use images to restore only HSMs that are suspended or deactivated.
+     *  *
      * @param RestoreInstanceRequest $request RestoreInstanceRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -1929,6 +2040,10 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Restores a hardware security module (HSM) by using an image.
+     *  *
+     * @description You can use images to restore only HSMs that are suspended or deactivated.
+     *  *
      * @param RestoreInstanceRequest $request RestoreInstanceRequest
      *
      * @return RestoreInstanceResponse RestoreInstanceResponse
@@ -1941,6 +2056,8 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Resumes a deactivated hardware security module (HSM).
+     *  *
      * @param ResumeInstanceRequest $request ResumeInstanceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -1972,6 +2089,8 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Resumes a deactivated hardware security module (HSM).
+     *  *
      * @param ResumeInstanceRequest $request ResumeInstanceRequest
      *
      * @return ResumeInstanceResponse ResumeInstanceResponse
@@ -1984,6 +2103,8 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Promote a non-master hardware security module (HSM) in a cluster to the master HSM.
+     *  *
      * @param SwitchClusterMasterRequest $request SwitchClusterMasterRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -2018,6 +2139,8 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Promote a non-master hardware security module (HSM) in a cluster to the master HSM.
+     *  *
      * @param SwitchClusterMasterRequest $request SwitchClusterMasterRequest
      *
      * @return SwitchClusterMasterResponse SwitchClusterMasterResponse
@@ -2030,6 +2153,10 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Synchronizes HSM data in a cluster.
+     *  *
+     * @description This operation is supported only for hardware security modules (HSMs) that are created in regions in the Chinese mainland.
+     *  *
      * @param SyncClusterRequest $request SyncClusterRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -2061,6 +2188,10 @@ class Hsm extends OpenApiClient
     }
 
     /**
+     * @summary Synchronizes HSM data in a cluster.
+     *  *
+     * @description This operation is supported only for hardware security modules (HSMs) that are created in regions in the Chinese mainland.
+     *  *
      * @param SyncClusterRequest $request SyncClusterRequest
      *
      * @return SyncClusterResponse SyncClusterResponse

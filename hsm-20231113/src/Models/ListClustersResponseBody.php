@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListClustersResponseBody extends Model
 {
     /**
+     * @description Details of the clusters.
+     *
      * @var clusters[]
      */
     public $clusters;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListClustersResponseBody extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -29,6 +35,8 @@ class ListClustersResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 4C467B38-3910-447D-87BC-AC049166F216
      *
      * @var string
@@ -36,6 +44,8 @@ class ListClustersResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 114
      *
      * @var int

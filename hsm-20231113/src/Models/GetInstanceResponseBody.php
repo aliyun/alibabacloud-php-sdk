@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceResponseBody extends Model
 {
     /**
+     * @description The HSM details.
+     *
      * @var instance
      */
     public $instance;
 
     /**
+     * @description The request ID.
+     *
      * @example 4C467B38-3910-447D-87BC-AC049166F216
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,11 +19,15 @@ class ListInstancesResponseBody extends Model
     public $currentPage;
 
     /**
+     * @description The HSMs.
+     *
      * @var instances[]
      */
     public $instances;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 1000.
+     *
      * @example 20
      *
      * @var int
@@ -29,6 +35,8 @@ class ListInstancesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 4C467B38-3910-447D-87BC-AC049166F216
      *
      * @var string
@@ -36,6 +44,8 @@ class ListInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 80
      *
      * @var int

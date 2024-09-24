@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The cluster name.
      *
+     * This parameter is required.
      * @example cluster_on****
      *
      * @var string
@@ -18,8 +19,9 @@ class CreateClusterRequest extends Model
     public $clusterName;
 
     /**
-     * @description This parameter is required.
+     * @description The HSM ID.
      *
+     * This parameter is required.
      * @example hsm_intl-sg-uz63ixak****
      *
      * @var string
@@ -27,8 +29,9 @@ class CreateClusterRequest extends Model
     public $masterInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

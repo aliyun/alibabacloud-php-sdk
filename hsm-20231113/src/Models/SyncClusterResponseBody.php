@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class SyncClusterResponseBody extends Model
 {
     /**
+     * @description The task details.
+     *
      * @var job
      */
     public $job;
 
     /**
+     * @description The request ID.
+     *
      * @example 4C467B38-3910-447D-87BC-AC049166F216
      *
      * @var string

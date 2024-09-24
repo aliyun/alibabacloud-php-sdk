@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @description The HSM ID.
+     *
      * @example hsm-cn-vj30bil8****
      *
      * @var string
@@ -16,6 +18,8 @@ class instances extends Model
     public $instanceId;
 
     /**
+     * @description The HSM status. PENDING ACTIVE EXPIRED INVALID FAILURE RESET PAUSED MODIFYING
+     *
      * @example ACTIVE
      *
      * @var string

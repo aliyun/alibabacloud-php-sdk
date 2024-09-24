@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class clusters extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example cluster-w3G9vOJI2****
      *
      * @var string
@@ -16,6 +18,14 @@ class clusters extends Model
     public $clusterId;
 
     /**
+     * @description The cluster status.
+     *
+     *   NEW: not initialized
+     *   INITIALIZED: initialized
+     *   DELETED: deleted
+     *   SYNCHRONIZING: being synchronized
+     *   TO_DELETE: pending deletion
+     *
      * @example INITIALIZED
      *
      * @var string

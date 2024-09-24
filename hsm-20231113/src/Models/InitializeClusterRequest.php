@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class InitializeClusterRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cluster-p94y1dud9****
      *
      * @var string

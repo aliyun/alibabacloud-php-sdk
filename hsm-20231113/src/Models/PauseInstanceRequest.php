@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class PauseInstanceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The HSM ID.
      *
+     * This parameter is required.
      * @example hsm-cn-vj30bil8****
      *
      * @var string

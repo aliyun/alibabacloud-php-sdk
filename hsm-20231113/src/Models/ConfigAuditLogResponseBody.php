@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ConfigAuditLogResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 42B118FB-16A6-56FB-B877-D58637EEC6AF
      *
      * @var string

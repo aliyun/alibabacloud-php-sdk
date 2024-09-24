@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RestoreInstanceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the image that you want to use to restore the HSM.
      *
+     * This parameter is required.
      * @example image-eaOGHkRDQgh4****
      *
      * @var string
@@ -18,8 +19,9 @@ class RestoreInstanceRequest extends Model
     public $imageId;
 
     /**
-     * @description This parameter is required.
+     * @description The HSM ID.
      *
+     * This parameter is required.
      * @example hsm-cn-mp90fxef****
      *
      * @var string

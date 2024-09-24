@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class JoinClusterRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cluster-NZB9Oj5Yfd8Y****
      *
      * @var string
@@ -18,8 +19,9 @@ class JoinClusterRequest extends Model
     public $clusterId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the HSM that you want to add to the cluster.
      *
+     * This parameter is required.
      * @example hsm-cn-vj30bil8****
      *
      * @var string

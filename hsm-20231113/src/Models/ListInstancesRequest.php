@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesRequest extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListInstancesRequest extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -23,15 +27,23 @@ class ListInstancesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $tenantIsolationType;
     protected $_name = [
-        'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
+        'currentPage'         => 'CurrentPage',
+        'pageSize'            => 'PageSize',
+        'regionId'            => 'RegionId',
+        'tenantIsolationType' => 'TenantIsolationType',
     ];
 
     public function validate()
@@ -49,6 +61,9 @@ class ListInstancesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->tenantIsolationType) {
+            $res['TenantIsolationType'] = $this->tenantIsolationType;
         }
 
         return $res;
@@ -70,6 +85,9 @@ class ListInstancesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['TenantIsolationType'])) {
+            $model->tenantIsolationType = $map['TenantIsolationType'];
         }
 
         return $model;

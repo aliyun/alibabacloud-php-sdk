@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class zones extends Model
 {
     /**
+     * @description The vSwitch ID.
+     *
      * @example vsw-uf61s651p69bdgmki****
      *
      * @var string
@@ -16,6 +18,8 @@ class zones extends Model
     public $vSwitchId;
 
     /**
+     * @description The zone ID.
+     *
      * @example cn-hangzhou-j
      *
      * @var string

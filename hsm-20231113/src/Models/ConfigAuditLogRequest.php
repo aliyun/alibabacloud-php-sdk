@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ConfigAuditLogRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The status of the audit log feature.
      *
+     *   enable
+     *   disable
+     *
+     * This parameter is required.
      * @example enable
      *
      * @var string
@@ -18,6 +22,8 @@ class ConfigAuditLogRequest extends Model
     public $auditAction;
 
     /**
+     * @description The bucket to which audit logs are delivered.
+     *
      * @example hsm-log
      *
      * @var string
@@ -25,8 +31,9 @@ class ConfigAuditLogRequest extends Model
     public $auditOssBucket;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

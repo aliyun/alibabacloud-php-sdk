@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SwitchClusterMasterRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cluster-w3G9vOJI2****
      *
      * @var string
@@ -18,8 +19,9 @@ class SwitchClusterMasterRequest extends Model
     public $clusterId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the HSM that you want to promote to the master HSM.
      *
+     * This parameter is required.
      * @example hsm-cn-vj30bil8****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description The ID of the cluster to which the HSM belongs.
+     *
      * @example cluster-w3G9vOJI2****
      *
      * @var string
@@ -16,6 +18,8 @@ class instance extends Model
     public $clusterId;
 
     /**
+     * @description The cluster name.
+     *
      * @example cluster_online
      *
      * @var string
@@ -23,6 +27,8 @@ class instance extends Model
     public $clusterName;
 
     /**
+     * @description The time when the HSM was created.
+     *
      * @example 1699515963000
      *
      * @var int
@@ -30,6 +36,8 @@ class instance extends Model
     public $createTime;
 
     /**
+     * @description The device type.
+     *
      * @example jnta.SJJ1528-G
      *
      * @var string
@@ -37,6 +45,8 @@ class instance extends Model
     public $deviceType;
 
     /**
+     * @description The time when the instance expired.
+     *
      * @example 1699496389720
      *
      * @var int
@@ -44,6 +54,8 @@ class instance extends Model
     public $expireTime;
 
     /**
+     * @description The HSM ID.
+     *
      * @example hsm-cn-g4t3jwsc****
      *
      * @var string
@@ -51,6 +63,8 @@ class instance extends Model
     public $instanceId;
 
     /**
+     * @description The IP address of the HSM in the VPC.
+     *
      * @example 10.192.XX.XX
      *
      * @var string
@@ -58,6 +72,11 @@ class instance extends Model
     public $ip;
 
     /**
+     * @description Indicates whether the HSM is for trial use. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -65,6 +84,11 @@ class instance extends Model
     public $isTrial;
 
     /**
+     * @description Indicates whether the HSM is the master HSM.
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -72,6 +96,8 @@ class instance extends Model
     public $master;
 
     /**
+     * @description The order ID.
+     *
      * @example 23576634952****
      *
      * @var string
@@ -79,6 +105,8 @@ class instance extends Model
     public $orderId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -86,6 +114,8 @@ class instance extends Model
     public $regionId;
 
     /**
+     * @description The HSM description.
+     *
      * @example hsmOnline
      *
      * @var string
@@ -93,6 +123,17 @@ class instance extends Model
     public $remark;
 
     /**
+     * @description The HSM status.
+     *
+     *   PENDING
+     *   ACTIVE
+     *   EXPIRED
+     *   INVALID
+     *   FAILURE
+     *   RESET
+     *   PAUSED
+     *   MODIFYING
+     *
      * @example EXPIRED
      *
      * @var string
@@ -100,6 +141,13 @@ class instance extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $tenantIsolationType;
+
+    /**
+     * @description The ID of the vSwitch configured for the HSM.
+     *
      * @example vsw-bp1mvfs31ltt0wyhf****
      *
      * @var string
@@ -107,6 +155,8 @@ class instance extends Model
     public $vSwitchId;
 
     /**
+     * @description The vendor information.
+     *
      * @example jnta
      *
      * @var string
@@ -114,6 +164,8 @@ class instance extends Model
     public $vendor;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the HSM belongs.
+     *
      * @example vpc-uf69i66j9kmoko52p****
      *
      * @var string
@@ -121,6 +173,8 @@ class instance extends Model
     public $vpcId;
 
     /**
+     * @description The IP address whitelist of the HSM.
+     *
      * @example 18.68.XX.XX
      *
      * @var string
@@ -128,30 +182,33 @@ class instance extends Model
     public $whitelist;
 
     /**
+     * @description The zone ID.
+     *
      * @example cn-hangzhou-b
      *
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
-        'clusterName' => 'ClusterName',
-        'createTime'  => 'CreateTime',
-        'deviceType'  => 'DeviceType',
-        'expireTime'  => 'ExpireTime',
-        'instanceId'  => 'InstanceId',
-        'ip'          => 'Ip',
-        'isTrial'     => 'IsTrial',
-        'master'      => 'Master',
-        'orderId'     => 'OrderId',
-        'regionId'    => 'RegionId',
-        'remark'      => 'Remark',
-        'status'      => 'Status',
-        'vSwitchId'   => 'VSwitchId',
-        'vendor'      => 'Vendor',
-        'vpcId'       => 'VpcId',
-        'whitelist'   => 'Whitelist',
-        'zoneId'      => 'ZoneId',
+        'clusterId'           => 'ClusterId',
+        'clusterName'         => 'ClusterName',
+        'createTime'          => 'CreateTime',
+        'deviceType'          => 'DeviceType',
+        'expireTime'          => 'ExpireTime',
+        'instanceId'          => 'InstanceId',
+        'ip'                  => 'Ip',
+        'isTrial'             => 'IsTrial',
+        'master'              => 'Master',
+        'orderId'             => 'OrderId',
+        'regionId'            => 'RegionId',
+        'remark'              => 'Remark',
+        'status'              => 'Status',
+        'tenantIsolationType' => 'TenantIsolationType',
+        'vSwitchId'           => 'VSwitchId',
+        'vendor'              => 'Vendor',
+        'vpcId'               => 'VpcId',
+        'whitelist'           => 'Whitelist',
+        'zoneId'              => 'ZoneId',
     ];
 
     public function validate()
@@ -199,6 +256,9 @@ class instance extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tenantIsolationType) {
+            $res['TenantIsolationType'] = $this->tenantIsolationType;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -265,6 +325,9 @@ class instance extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TenantIsolationType'])) {
+            $model->tenantIsolationType = $map['TenantIsolationType'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
