@@ -4,14 +4,21 @@
 
 namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models;
 
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest\categoryTags;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest\dialogue;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest\examples;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest\fields;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest\serviceInspection;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest\userProfiles;
 use AlibabaCloud\Tea\Model;
 
 class AnalyzeConversationRequest extends Model
 {
+    /**
+     * @var categoryTags[]
+     */
+    public $categoryTags;
+
     /**
      * @description This parameter is required.
      *
@@ -61,7 +68,13 @@ class AnalyzeConversationRequest extends Model
      * @var bool
      */
     public $stream;
+
+    /**
+     * @var userProfiles[]
+     */
+    public $userProfiles;
     protected $_name = [
+        'categoryTags'      => 'categoryTags',
         'dialogue'          => 'dialogue',
         'examples'          => 'examples',
         'fields'            => 'fields',
@@ -70,6 +83,7 @@ class AnalyzeConversationRequest extends Model
         'sceneName'         => 'sceneName',
         'serviceInspection' => 'serviceInspection',
         'stream'            => 'stream',
+        'userProfiles'      => 'userProfiles',
     ];
 
     public function validate()
@@ -79,6 +93,15 @@ class AnalyzeConversationRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->categoryTags) {
+            $res['categoryTags'] = [];
+            if (null !== $this->categoryTags && \is_array($this->categoryTags)) {
+                $n = 0;
+                foreach ($this->categoryTags as $item) {
+                    $res['categoryTags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->dialogue) {
             $res['dialogue'] = null !== $this->dialogue ? $this->dialogue->toMap() : null;
         }
@@ -115,6 +138,15 @@ class AnalyzeConversationRequest extends Model
         if (null !== $this->stream) {
             $res['stream'] = $this->stream;
         }
+        if (null !== $this->userProfiles) {
+            $res['userProfiles'] = [];
+            if (null !== $this->userProfiles && \is_array($this->userProfiles)) {
+                $n = 0;
+                foreach ($this->userProfiles as $item) {
+                    $res['userProfiles'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -127,6 +159,15 @@ class AnalyzeConversationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['categoryTags'])) {
+            if (!empty($map['categoryTags'])) {
+                $model->categoryTags = [];
+                $n                   = 0;
+                foreach ($map['categoryTags'] as $item) {
+                    $model->categoryTags[$n++] = null !== $item ? categoryTags::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['dialogue'])) {
             $model->dialogue = dialogue::fromMap($map['dialogue']);
         }
@@ -164,6 +205,15 @@ class AnalyzeConversationRequest extends Model
         }
         if (isset($map['stream'])) {
             $model->stream = $map['stream'];
+        }
+        if (isset($map['userProfiles'])) {
+            if (!empty($map['userProfiles'])) {
+                $model->userProfiles = [];
+                $n                   = 0;
+                foreach ($map['userProfiles'] as $item) {
+                    $model->userProfiles[$n++] = null !== $item ? userProfiles::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

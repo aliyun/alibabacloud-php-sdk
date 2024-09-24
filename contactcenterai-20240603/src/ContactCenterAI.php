@@ -70,6 +70,9 @@ class ContactCenterAI extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->categoryTags)) {
+            $body['categoryTags'] = $request->categoryTags;
+        }
         if (!Utils::isUnset($request->dialogue)) {
             $body['dialogue'] = $request->dialogue;
         }
@@ -93,6 +96,9 @@ class ContactCenterAI extends OpenApiClient
         }
         if (!Utils::isUnset($request->stream)) {
             $body['stream'] = $request->stream;
+        }
+        if (!Utils::isUnset($request->userProfiles)) {
+            $body['userProfiles'] = $request->userProfiles;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
