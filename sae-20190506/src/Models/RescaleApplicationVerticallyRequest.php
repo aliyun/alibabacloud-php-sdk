@@ -37,10 +37,28 @@ class RescaleApplicationVerticallyRequest extends Model
      * @var string
      */
     public $memory;
+
+    /**
+     * @var bool
+     */
+    public $autoEnableApplicationScalingRule;
+
+    /**
+     * @var int
+     */
+    public $minReadyInstanceRatio;
+
+    /**
+     * @var int
+     */
+    public $minReadyInstances;
     protected $_name = [
-        'appId'  => 'AppId',
-        'cpu'    => 'Cpu',
-        'memory' => 'Memory',
+        'appId'                            => 'AppId',
+        'cpu'                              => 'Cpu',
+        'memory'                           => 'Memory',
+        'autoEnableApplicationScalingRule' => 'autoEnableApplicationScalingRule',
+        'minReadyInstanceRatio'            => 'minReadyInstanceRatio',
+        'minReadyInstances'                => 'minReadyInstances',
     ];
 
     public function validate()
@@ -58,6 +76,15 @@ class RescaleApplicationVerticallyRequest extends Model
         }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
+        }
+        if (null !== $this->autoEnableApplicationScalingRule) {
+            $res['autoEnableApplicationScalingRule'] = $this->autoEnableApplicationScalingRule;
+        }
+        if (null !== $this->minReadyInstanceRatio) {
+            $res['minReadyInstanceRatio'] = $this->minReadyInstanceRatio;
+        }
+        if (null !== $this->minReadyInstances) {
+            $res['minReadyInstances'] = $this->minReadyInstances;
         }
 
         return $res;
@@ -79,6 +106,15 @@ class RescaleApplicationVerticallyRequest extends Model
         }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
+        }
+        if (isset($map['autoEnableApplicationScalingRule'])) {
+            $model->autoEnableApplicationScalingRule = $map['autoEnableApplicationScalingRule'];
+        }
+        if (isset($map['minReadyInstanceRatio'])) {
+            $model->minReadyInstanceRatio = $map['minReadyInstanceRatio'];
+        }
+        if (isset($map['minReadyInstances'])) {
+            $model->minReadyInstances = $map['minReadyInstances'];
         }
 
         return $model;

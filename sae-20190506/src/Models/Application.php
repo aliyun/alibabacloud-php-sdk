@@ -221,6 +221,11 @@ class Application extends Model
     /**
      * @var string
      */
+    public $programmingLanguage;
+
+    /**
+     * @var string
+     */
     public $runtime;
 
     /**
@@ -310,6 +315,7 @@ class Application extends Model
         'namespaceName'           => 'namespaceName',
         'nasConfig'               => 'nasConfig',
         'ossMountConfig'          => 'ossMountConfig',
+        'programmingLanguage'     => 'programmingLanguage',
         'runtime'                 => 'runtime',
         'scaleConfig'             => 'scaleConfig',
         'slsConfig'               => 'slsConfig',
@@ -454,6 +460,9 @@ class Application extends Model
         }
         if (null !== $this->ossMountConfig) {
             $res['ossMountConfig'] = null !== $this->ossMountConfig ? $this->ossMountConfig->toMap() : null;
+        }
+        if (null !== $this->programmingLanguage) {
+            $res['programmingLanguage'] = $this->programmingLanguage;
         }
         if (null !== $this->runtime) {
             $res['runtime'] = $this->runtime;
@@ -626,6 +635,9 @@ class Application extends Model
         }
         if (isset($map['ossMountConfig'])) {
             $model->ossMountConfig = OSSMountConfig::fromMap($map['ossMountConfig']);
+        }
+        if (isset($map['programmingLanguage'])) {
+            $model->programmingLanguage = $map['programmingLanguage'];
         }
         if (isset($map['runtime'])) {
             $model->runtime = $map['runtime'];

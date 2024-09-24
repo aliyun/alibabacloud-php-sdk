@@ -57,6 +57,11 @@ class data extends Model
     public $id;
 
     /**
+     * @var int
+     */
+    public $idleTimeout;
+
+    /**
      * @description The default rule.
      *
      * @example 443
@@ -145,6 +150,7 @@ class data extends Model
         'defaultRule'      => 'DefaultRule',
         'description'      => 'Description',
         'id'               => 'Id',
+        'idleTimeout'      => 'IdleTimeout',
         'listenerPort'     => 'ListenerPort',
         'listenerProtocol' => 'ListenerProtocol',
         'loadBalanceType'  => 'LoadBalanceType',
@@ -178,6 +184,9 @@ class data extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->idleTimeout) {
+            $res['IdleTimeout'] = $this->idleTimeout;
         }
         if (null !== $this->listenerPort) {
             $res['ListenerPort'] = $this->listenerPort;
@@ -241,6 +250,9 @@ class data extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['IdleTimeout'])) {
+            $model->idleTimeout = $map['IdleTimeout'];
         }
         if (isset($map['ListenerPort'])) {
             $model->listenerPort = $map['ListenerPort'];

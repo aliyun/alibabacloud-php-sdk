@@ -154,6 +154,11 @@ class UpdateApplicationInput extends Model
     public $memorySize;
 
     /**
+     * @var string
+     */
+    public $namespaceID;
+
+    /**
      * @var NASConfig
      */
     public $nasConfig;
@@ -162,6 +167,11 @@ class UpdateApplicationInput extends Model
      * @var OSSMountConfig
      */
     public $ossMountConfig;
+
+    /**
+     * @var string
+     */
+    public $programmingLanguage;
 
     /**
      * @var string
@@ -227,8 +237,10 @@ class UpdateApplicationInput extends Model
         'livenessProbe'           => 'livenessProbe',
         'logConfig'               => 'logConfig',
         'memorySize'              => 'memorySize',
+        'namespaceID'             => 'namespaceID',
         'nasConfig'               => 'nasConfig',
         'ossMountConfig'          => 'ossMountConfig',
+        'programmingLanguage'     => 'programmingLanguage',
         'runtime'                 => 'runtime',
         'scaleConfig'             => 'scaleConfig',
         'slsConfig'               => 'slsConfig',
@@ -332,11 +344,17 @@ class UpdateApplicationInput extends Model
         if (null !== $this->memorySize) {
             $res['memorySize'] = $this->memorySize;
         }
+        if (null !== $this->namespaceID) {
+            $res['namespaceID'] = $this->namespaceID;
+        }
         if (null !== $this->nasConfig) {
             $res['nasConfig'] = null !== $this->nasConfig ? $this->nasConfig->toMap() : null;
         }
         if (null !== $this->ossMountConfig) {
             $res['ossMountConfig'] = null !== $this->ossMountConfig ? $this->ossMountConfig->toMap() : null;
+        }
+        if (null !== $this->programmingLanguage) {
+            $res['programmingLanguage'] = $this->programmingLanguage;
         }
         if (null !== $this->runtime) {
             $res['runtime'] = $this->runtime;
@@ -460,11 +478,17 @@ class UpdateApplicationInput extends Model
         if (isset($map['memorySize'])) {
             $model->memorySize = $map['memorySize'];
         }
+        if (isset($map['namespaceID'])) {
+            $model->namespaceID = $map['namespaceID'];
+        }
         if (isset($map['nasConfig'])) {
             $model->nasConfig = NASConfig::fromMap($map['nasConfig']);
         }
         if (isset($map['ossMountConfig'])) {
             $model->ossMountConfig = OSSMountConfig::fromMap($map['ossMountConfig']);
+        }
+        if (isset($map['programmingLanguage'])) {
+            $model->programmingLanguage = $map['programmingLanguage'];
         }
         if (isset($map['runtime'])) {
             $model->runtime = $map['runtime'];

@@ -652,6 +652,9 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->deploy)) {
             $query['Deploy'] = $request->deploy;
         }
+        if (!Utils::isUnset($request->dotnet)) {
+            $query['Dotnet'] = $request->dotnet;
+        }
         if (!Utils::isUnset($request->edasContainerVersion)) {
             $query['EdasContainerVersion'] = $request->edasContainerVersion;
         }
@@ -1082,6 +1085,9 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->idleTimeout)) {
+            $query['IdleTimeout'] = $request->idleTimeout;
         }
         if (!Utils::isUnset($request->listenerPort)) {
             $query['ListenerPort'] = $request->listenerPort;
@@ -2228,6 +2234,9 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->deploy)) {
             $query['Deploy'] = $request->deploy;
+        }
+        if (!Utils::isUnset($request->dotnet)) {
+            $query['Dotnet'] = $request->dotnet;
         }
         if (!Utils::isUnset($request->edasContainerVersion)) {
             $query['EdasContainerVersion'] = $request->edasContainerVersion;
@@ -6129,6 +6138,15 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->memory)) {
             $query['Memory'] = $request->memory;
         }
+        if (!Utils::isUnset($request->autoEnableApplicationScalingRule)) {
+            $query['autoEnableApplicationScalingRule'] = $request->autoEnableApplicationScalingRule;
+        }
+        if (!Utils::isUnset($request->minReadyInstanceRatio)) {
+            $query['minReadyInstanceRatio'] = $request->minReadyInstanceRatio;
+        }
+        if (!Utils::isUnset($request->minReadyInstances)) {
+            $query['minReadyInstances'] = $request->minReadyInstances;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -7144,6 +7162,9 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->idleTimeout)) {
+            $query['IdleTimeout'] = $request->idleTimeout;
         }
         if (!Utils::isUnset($request->ingressId)) {
             $query['IngressId'] = $request->ingressId;

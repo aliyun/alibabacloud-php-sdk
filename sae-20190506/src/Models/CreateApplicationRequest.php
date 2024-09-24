@@ -128,6 +128,11 @@ class CreateApplicationRequest extends Model
     public $deploy;
 
     /**
+     * @var string
+     */
+    public $dotnet;
+
+    /**
      * @description 3.5.3
      *
      * @example 3.5.3
@@ -537,6 +542,7 @@ class CreateApplicationRequest extends Model
         'cpu'                           => 'Cpu',
         'customHostAlias'               => 'CustomHostAlias',
         'deploy'                        => 'Deploy',
+        'dotnet'                        => 'Dotnet',
         'edasContainerVersion'          => 'EdasContainerVersion',
         'enableEbpf'                    => 'EnableEbpf',
         'enableNewArms'                 => 'EnableNewArms',
@@ -635,6 +641,9 @@ class CreateApplicationRequest extends Model
         }
         if (null !== $this->deploy) {
             $res['Deploy'] = $this->deploy;
+        }
+        if (null !== $this->dotnet) {
+            $res['Dotnet'] = $this->dotnet;
         }
         if (null !== $this->edasContainerVersion) {
             $res['EdasContainerVersion'] = $this->edasContainerVersion;
@@ -833,6 +842,9 @@ class CreateApplicationRequest extends Model
         }
         if (isset($map['Deploy'])) {
             $model->deploy = $map['Deploy'];
+        }
+        if (isset($map['Dotnet'])) {
+            $model->dotnet = $map['Dotnet'];
         }
         if (isset($map['EdasContainerVersion'])) {
             $model->edasContainerVersion = $map['EdasContainerVersion'];

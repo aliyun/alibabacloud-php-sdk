@@ -144,6 +144,11 @@ class DeployApplicationRequest extends Model
     public $deploy;
 
     /**
+     * @var string
+     */
+    public $dotnet;
+
+    /**
      * @description The version of the container, such as Ali-Tomcat, in which an application developed based on High-speed Service Framework (HSF) is deployed.
      *
      * @example 3.5.3
@@ -677,6 +682,7 @@ class DeployApplicationRequest extends Model
         'cpu'                              => 'Cpu',
         'customHostAlias'                  => 'CustomHostAlias',
         'deploy'                           => 'Deploy',
+        'dotnet'                           => 'Dotnet',
         'edasContainerVersion'             => 'EdasContainerVersion',
         'enableAhas'                       => 'EnableAhas',
         'enableGreyTagRoute'               => 'EnableGreyTagRoute',
@@ -772,6 +778,9 @@ class DeployApplicationRequest extends Model
         }
         if (null !== $this->deploy) {
             $res['Deploy'] = $this->deploy;
+        }
+        if (null !== $this->dotnet) {
+            $res['Dotnet'] = $this->dotnet;
         }
         if (null !== $this->edasContainerVersion) {
             $res['EdasContainerVersion'] = $this->edasContainerVersion;
@@ -967,6 +976,9 @@ class DeployApplicationRequest extends Model
         }
         if (isset($map['Deploy'])) {
             $model->deploy = $map['Deploy'];
+        }
+        if (isset($map['Dotnet'])) {
+            $model->dotnet = $map['Dotnet'];
         }
         if (isset($map['EdasContainerVersion'])) {
             $model->edasContainerVersion = $map['EdasContainerVersion'];

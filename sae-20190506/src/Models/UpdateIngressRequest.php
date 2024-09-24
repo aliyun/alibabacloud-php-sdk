@@ -37,6 +37,11 @@ class UpdateIngressRequest extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $idleTimeout;
+
+    /**
      * @description This parameter is required.
      *
      * @example 87
@@ -87,6 +92,7 @@ class UpdateIngressRequest extends Model
         'certIds'          => 'CertIds',
         'defaultRule'      => 'DefaultRule',
         'description'      => 'Description',
+        'idleTimeout'      => 'IdleTimeout',
         'ingressId'        => 'IngressId',
         'listenerPort'     => 'ListenerPort',
         'listenerProtocol' => 'ListenerProtocol',
@@ -114,6 +120,9 @@ class UpdateIngressRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->idleTimeout) {
+            $res['IdleTimeout'] = $this->idleTimeout;
         }
         if (null !== $this->ingressId) {
             $res['IngressId'] = $this->ingressId;
@@ -159,6 +168,9 @@ class UpdateIngressRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['IdleTimeout'])) {
+            $model->idleTimeout = $map['IdleTimeout'];
         }
         if (isset($map['IngressId'])) {
             $model->ingressId = $map['IngressId'];

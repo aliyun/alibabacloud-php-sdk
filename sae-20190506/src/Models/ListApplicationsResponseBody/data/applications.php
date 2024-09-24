@@ -77,6 +77,11 @@ class applications extends Model
     public $cpu;
 
     /**
+     * @var string
+     */
+    public $imageUrl;
+
+    /**
      * @description The number of application instances.
      *
      * @example 2
@@ -127,6 +132,11 @@ class applications extends Model
     /**
      * @var string
      */
+    public $packageUrl;
+
+    /**
+     * @var string
+     */
     public $programmingLanguage;
 
     /**
@@ -161,11 +171,13 @@ class applications extends Model
         'baseAppId'           => 'BaseAppId',
         'children'            => 'Children',
         'cpu'                 => 'Cpu',
+        'imageUrl'            => 'ImageUrl',
         'instances'           => 'Instances',
         'mem'                 => 'Mem',
         'mseEnabled'          => 'MseEnabled',
         'mseNamespaceId'      => 'MseNamespaceId',
         'namespaceId'         => 'NamespaceId',
+        'packageUrl'          => 'PackageUrl',
         'programmingLanguage' => 'ProgrammingLanguage',
         'regionId'            => 'RegionId',
         'runningInstances'    => 'RunningInstances',
@@ -206,6 +218,9 @@ class applications extends Model
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
+        if (null !== $this->imageUrl) {
+            $res['ImageUrl'] = $this->imageUrl;
+        }
         if (null !== $this->instances) {
             $res['Instances'] = $this->instances;
         }
@@ -220,6 +235,9 @@ class applications extends Model
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
+        }
+        if (null !== $this->packageUrl) {
+            $res['PackageUrl'] = $this->packageUrl;
         }
         if (null !== $this->programmingLanguage) {
             $res['ProgrammingLanguage'] = $this->programmingLanguage;
@@ -278,6 +296,9 @@ class applications extends Model
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
+        if (isset($map['ImageUrl'])) {
+            $model->imageUrl = $map['ImageUrl'];
+        }
         if (isset($map['Instances'])) {
             $model->instances = $map['Instances'];
         }
@@ -292,6 +313,9 @@ class applications extends Model
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
+        }
+        if (isset($map['PackageUrl'])) {
+            $model->packageUrl = $map['PackageUrl'];
         }
         if (isset($map['ProgrammingLanguage'])) {
             $model->programmingLanguage = $map['ProgrammingLanguage'];

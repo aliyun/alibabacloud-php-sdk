@@ -39,6 +39,11 @@ class CreateIngressRequest extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $idleTimeout;
+
+    /**
      * @description This parameter is required.
      *
      * @example 80
@@ -102,6 +107,7 @@ class CreateIngressRequest extends Model
         'certIds'          => 'CertIds',
         'defaultRule'      => 'DefaultRule',
         'description'      => 'Description',
+        'idleTimeout'      => 'IdleTimeout',
         'listenerPort'     => 'ListenerPort',
         'listenerProtocol' => 'ListenerProtocol',
         'loadBalanceType'  => 'LoadBalanceType',
@@ -130,6 +136,9 @@ class CreateIngressRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->idleTimeout) {
+            $res['IdleTimeout'] = $this->idleTimeout;
         }
         if (null !== $this->listenerPort) {
             $res['ListenerPort'] = $this->listenerPort;
@@ -178,6 +187,9 @@ class CreateIngressRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['IdleTimeout'])) {
+            $model->idleTimeout = $map['IdleTimeout'];
         }
         if (isset($map['ListenerPort'])) {
             $model->listenerPort = $map['ListenerPort'];

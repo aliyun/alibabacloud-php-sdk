@@ -69,6 +69,11 @@ class CreateApplicationInput extends Model
     public $diskSize;
 
     /**
+     * @var bool
+     */
+    public $enableAppMetric;
+
+    /**
      * @var string[]
      */
     public $environmentVariables;
@@ -166,6 +171,11 @@ class CreateApplicationInput extends Model
     /**
      * @var string
      */
+    public $programmingLanguage;
+
+    /**
+     * @var string
+     */
     public $runtime;
 
     /**
@@ -210,6 +220,7 @@ class CreateApplicationInput extends Model
         'customRuntimeConfig'     => 'customRuntimeConfig',
         'description'             => 'description',
         'diskSize'                => 'diskSize',
+        'enableAppMetric'         => 'enableAppMetric',
         'environmentVariables'    => 'environmentVariables',
         'gpuMemorySize'           => 'gpuMemorySize',
         'handler'                 => 'handler',
@@ -229,6 +240,7 @@ class CreateApplicationInput extends Model
         'namespaceID'             => 'namespaceID',
         'nasConfig'               => 'nasConfig',
         'ossMountConfig'          => 'ossMountConfig',
+        'programmingLanguage'     => 'programmingLanguage',
         'runtime'                 => 'runtime',
         'scaleConfig'             => 'scaleConfig',
         'slsConfig'               => 'slsConfig',
@@ -280,6 +292,9 @@ class CreateApplicationInput extends Model
         }
         if (null !== $this->diskSize) {
             $res['diskSize'] = $this->diskSize;
+        }
+        if (null !== $this->enableAppMetric) {
+            $res['enableAppMetric'] = $this->enableAppMetric;
         }
         if (null !== $this->environmentVariables) {
             $res['environmentVariables'] = $this->environmentVariables;
@@ -337,6 +352,9 @@ class CreateApplicationInput extends Model
         }
         if (null !== $this->ossMountConfig) {
             $res['ossMountConfig'] = null !== $this->ossMountConfig ? $this->ossMountConfig->toMap() : null;
+        }
+        if (null !== $this->programmingLanguage) {
+            $res['programmingLanguage'] = $this->programmingLanguage;
         }
         if (null !== $this->runtime) {
             $res['runtime'] = $this->runtime;
@@ -407,6 +425,9 @@ class CreateApplicationInput extends Model
         if (isset($map['diskSize'])) {
             $model->diskSize = $map['diskSize'];
         }
+        if (isset($map['enableAppMetric'])) {
+            $model->enableAppMetric = $map['enableAppMetric'];
+        }
         if (isset($map['environmentVariables'])) {
             $model->environmentVariables = $map['environmentVariables'];
         }
@@ -465,6 +486,9 @@ class CreateApplicationInput extends Model
         }
         if (isset($map['ossMountConfig'])) {
             $model->ossMountConfig = OSSMountConfig::fromMap($map['ossMountConfig']);
+        }
+        if (isset($map['programmingLanguage'])) {
+            $model->programmingLanguage = $map['programmingLanguage'];
         }
         if (isset($map['runtime'])) {
             $model->runtime = $map['runtime'];

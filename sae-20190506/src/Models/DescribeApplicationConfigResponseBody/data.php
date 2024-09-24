@@ -144,6 +144,11 @@ class data extends Model
     public $customHostAlias;
 
     /**
+     * @var string
+     */
+    public $dotnet;
+
+    /**
      * @description The version of the container, such as Ali-Tomcat, in which an application developed based on High-speed Service Framework (HSF) is deployed.
      *
      * @example 3.5.3
@@ -753,6 +758,7 @@ class data extends Model
         'configMapMountDesc'            => 'ConfigMapMountDesc',
         'cpu'                           => 'Cpu',
         'customHostAlias'               => 'CustomHostAlias',
+        'dotnet'                        => 'Dotnet',
         'edasContainerVersion'          => 'EdasContainerVersion',
         'enableAhas'                    => 'EnableAhas',
         'enableGreyTagRoute'            => 'EnableGreyTagRoute',
@@ -862,6 +868,9 @@ class data extends Model
         }
         if (null !== $this->customHostAlias) {
             $res['CustomHostAlias'] = $this->customHostAlias;
+        }
+        if (null !== $this->dotnet) {
+            $res['Dotnet'] = $this->dotnet;
         }
         if (null !== $this->edasContainerVersion) {
             $res['EdasContainerVersion'] = $this->edasContainerVersion;
@@ -1105,6 +1114,9 @@ class data extends Model
         }
         if (isset($map['CustomHostAlias'])) {
             $model->customHostAlias = $map['CustomHostAlias'];
+        }
+        if (isset($map['Dotnet'])) {
+            $model->dotnet = $map['Dotnet'];
         }
         if (isset($map['EdasContainerVersion'])) {
             $model->edasContainerVersion = $map['EdasContainerVersion'];
