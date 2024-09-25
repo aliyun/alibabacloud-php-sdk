@@ -76,6 +76,11 @@ class CreateServiceRequest extends Model
     public $deployType;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @description The duration for which hosted O\\&M is implemented. Unit: seconds.
      *
      * @example 0
@@ -276,6 +281,7 @@ class CreateServiceRequest extends Model
         'clientToken'          => 'ClientToken',
         'deployMetadata'       => 'DeployMetadata',
         'deployType'           => 'DeployType',
+        'dryRun'               => 'DryRun',
         'duration'             => 'Duration',
         'isSupportOperated'    => 'IsSupportOperated',
         'licenseMetadata'      => 'LicenseMetadata',
@@ -322,6 +328,9 @@ class CreateServiceRequest extends Model
         }
         if (null !== $this->deployType) {
             $res['DeployType'] = $this->deployType;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
@@ -424,6 +433,9 @@ class CreateServiceRequest extends Model
         }
         if (isset($map['DeployType'])) {
             $model->deployType = $map['DeployType'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];

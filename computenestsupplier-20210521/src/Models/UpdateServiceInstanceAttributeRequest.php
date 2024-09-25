@@ -27,6 +27,11 @@ class UpdateServiceInstanceAttributeRequest extends Model
     public $licenseData;
 
     /**
+     * @var string
+     */
+    public $reason;
+
+    /**
      * @description The region ID.
      *
      * This parameter is required.
@@ -48,6 +53,7 @@ class UpdateServiceInstanceAttributeRequest extends Model
     protected $_name = [
         'endTime'           => 'EndTime',
         'licenseData'       => 'LicenseData',
+        'reason'            => 'Reason',
         'regionId'          => 'RegionId',
         'serviceInstanceId' => 'ServiceInstanceId',
     ];
@@ -64,6 +70,9 @@ class UpdateServiceInstanceAttributeRequest extends Model
         }
         if (null !== $this->licenseData) {
             $res['LicenseData'] = null !== $this->licenseData ? $this->licenseData->toMap() : null;
+        }
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -88,6 +97,9 @@ class UpdateServiceInstanceAttributeRequest extends Model
         }
         if (isset($map['LicenseData'])) {
             $model->licenseData = licenseData::fromMap($map['LicenseData']);
+        }
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

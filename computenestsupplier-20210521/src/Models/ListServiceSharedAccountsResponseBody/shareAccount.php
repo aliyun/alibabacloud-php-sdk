@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class shareAccount extends Model
 {
     /**
+     * @description The time when the service was created.
+     *
      * @example 2021-12-28T02:47:46.000
      *
      * @var string
@@ -16,6 +18,8 @@ class shareAccount extends Model
     public $createTime;
 
     /**
+     * @description Service logo.
+     *
      * @example logo
      *
      * @var string
@@ -23,6 +27,11 @@ class shareAccount extends Model
     public $logo;
 
     /**
+     * @description The name of the service instance. The value must meet the following requirements:
+     *
+     *   The name cannot exceed 64 characters in length.
+     *   It can contain digits, letters, hyphens (-), and underscores (_). It must start with a digit or a letter.
+     *
      * @example name
      *
      * @var string
@@ -30,6 +39,11 @@ class shareAccount extends Model
     public $name;
 
     /**
+     * @description The permissions on the service. Valid values:
+     *
+     *   Deployable: Permissions to deploy the service.
+     *   Accessible: Permissions to access the service.
+     *
      * @example Deployable
      *
      * @var string
@@ -37,6 +51,8 @@ class shareAccount extends Model
     public $permission;
 
     /**
+     * @description The service ID.
+     *
      * @example service-e10349089de34exxxxxx
      *
      * @var string
@@ -44,6 +60,8 @@ class shareAccount extends Model
     public $serviceId;
 
     /**
+     * @description The time when the service was updated.
+     *
      * @example 2023-02-13T02:16:03.756Z
      *
      * @var string

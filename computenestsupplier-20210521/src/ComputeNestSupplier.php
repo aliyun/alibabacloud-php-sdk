@@ -45,6 +45,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceTemplatePara
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceTemplateParameterConstraintsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetUploadCredentialsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetUploadCredentialsResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\LaunchServiceRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\LaunchServiceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListAcrImageRepositoriesRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListAcrImageRepositoriesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListAcrImageTagsRequest;
@@ -64,6 +66,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceUsagesReque
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceUsagesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ModifyServiceInstanceResourcesRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ModifyServiceInstanceResourcesResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\PreLaunchServiceRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\PreLaunchServiceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\PushMeteringDataRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\PushMeteringDataResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\RegisterServiceRequest;
@@ -420,6 +424,9 @@ class ComputeNestSupplier extends OpenApiClient
         if (!Utils::isUnset($request->deployType)) {
             $query['DeployType'] = $request->deployType;
         }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->duration)) {
             $query['Duration'] = $request->duration;
         }
@@ -601,7 +608,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * @summary 创建代销申请
+     * @summary Create  Service resell application.
      *  *
      * @param CreateServiceUsageRequest $request CreateServiceUsageRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -640,7 +647,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * @summary 创建代销申请
+     * @summary Create  Service resell application.
      *  *
      * @param CreateServiceUsageRequest $request CreateServiceUsageRequest
      *
@@ -1281,6 +1288,64 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * @param LaunchServiceRequest $request LaunchServiceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return LaunchServiceResponse LaunchServiceResponse
+     */
+    public function launchServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->categories)) {
+            $query['Categories'] = $request->categories;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->recommend)) {
+            $query['Recommend'] = $request->recommend;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['ServiceVersion'] = $request->serviceVersion;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'LaunchService',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return LaunchServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param LaunchServiceRequest $request LaunchServiceRequest
+     *
+     * @return LaunchServiceResponse LaunchServiceResponse
+     */
+    public function launchService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->launchServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries a list of images uploaded to Container Registry.
      *  *
      * @param ListAcrImageRepositoriesRequest $request ListAcrImageRepositoriesRequest
@@ -1839,6 +1904,59 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * @summary 预发布服务
+     *  *
+     * @param PreLaunchServiceRequest $request PreLaunchServiceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return PreLaunchServiceResponse PreLaunchServiceResponse
+     */
+    public function preLaunchServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PreLaunchService',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PreLaunchServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 预发布服务
+     *  *
+     * @param PreLaunchServiceRequest $request PreLaunchServiceRequest
+     *
+     * @return PreLaunchServiceResponse PreLaunchServiceResponse
+     */
+    public function preLaunchService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->preLaunchServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Pushes metering data of an Alibaba Cloud Marketplace commodity.
      *  *
      * @param PushMeteringDataRequest $request PushMeteringDataRequest
@@ -2048,6 +2166,8 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * @summary Remove  service shared account.
+     *  *
      * @param RemoveServiceSharedAccountsRequest $request RemoveServiceSharedAccountsRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -2091,6 +2211,8 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * @summary Remove  service shared account.
+     *  *
      * @param RemoveServiceSharedAccountsRequest $request RemoveServiceSharedAccountsRequest
      *
      * @return RemoveServiceSharedAccountsResponse RemoveServiceSharedAccountsResponse
@@ -2363,6 +2485,9 @@ class ComputeNestSupplier extends OpenApiClient
         if (!Utils::isUnset($request->deployType)) {
             $query['DeployType'] = $request->deployType;
         }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->duration)) {
             $query['Duration'] = $request->duration;
         }
@@ -2471,6 +2596,9 @@ class ComputeNestSupplier extends OpenApiClient
         }
         if (!Utils::isUnset($request->licenseDataShrink)) {
             $query['LicenseData'] = $request->licenseDataShrink;
+        }
+        if (!Utils::isUnset($request->reason)) {
+            $query['Reason'] = $request->reason;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;

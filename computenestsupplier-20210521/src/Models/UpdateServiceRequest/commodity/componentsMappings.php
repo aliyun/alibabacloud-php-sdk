@@ -13,7 +13,7 @@ class componentsMappings extends Model
      *
      * @example This parameter is not publicly accessible.
      *
-     * @var string
+     * @var string[]
      */
     public $mappings;
 

@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class updateOption extends Model
 {
     /**
+     * @description Is need to update the artifacts
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $updateArtifact;
+
+    /**
      * @description The options for update the service. Valid values:
      * - PARAMETERS
      * @example PARAMETERS
@@ -17,7 +26,8 @@ class updateOption extends Model
      */
     public $updateFrom;
     protected $_name = [
-        'updateFrom' => 'UpdateFrom',
+        'updateArtifact' => 'UpdateArtifact',
+        'updateFrom'     => 'UpdateFrom',
     ];
 
     public function validate()
@@ -27,6 +37,9 @@ class updateOption extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->updateArtifact) {
+            $res['UpdateArtifact'] = $this->updateArtifact;
+        }
         if (null !== $this->updateFrom) {
             $res['UpdateFrom'] = $this->updateFrom;
         }
@@ -42,6 +55,9 @@ class updateOption extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['UpdateArtifact'])) {
+            $model->updateArtifact = $map['UpdateArtifact'];
+        }
         if (isset($map['UpdateFrom'])) {
             $model->updateFrom = $map['UpdateFrom'];
         }

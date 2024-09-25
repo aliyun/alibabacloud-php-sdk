@@ -6,11 +6,9 @@ namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ApproveServiceUsageResponseBody extends Model
+class PreLaunchServiceResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
      * @example 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
      *
      * @var string
@@ -37,7 +35,7 @@ class ApproveServiceUsageResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ApproveServiceUsageResponseBody
+     * @return PreLaunchServiceResponseBody
      */
     public static function fromMap($map = [])
     {

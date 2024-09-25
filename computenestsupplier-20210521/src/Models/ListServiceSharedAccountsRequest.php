@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListServiceSharedAccountsRequest extends Model
 {
     /**
+     * @description The filters.
+     *
      * @var filter[]
      */
     public $filter;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -22,6 +26,8 @@ class ListServiceSharedAccountsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
      * @example AAAAAR130adlM4fHHVSWpTca/t4=
      *
      * @var string
@@ -29,6 +35,11 @@ class ListServiceSharedAccountsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The permissions on the service. Valid values:
+     *
+     *   Deployable: Permissions to deploy the service.
+     *   Accessible: Permissions to access the service.
+     *
      * @example Accessible
      *
      * @var string
@@ -36,8 +47,9 @@ class ListServiceSharedAccountsRequest extends Model
     public $permission;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID where the service instance resides.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -45,6 +57,8 @@ class ListServiceSharedAccountsRequest extends Model
     public $regionId;
 
     /**
+     * @description The service ID.
+     *
      * @example service-e10349089de34exxxxxx
      *
      * @var string

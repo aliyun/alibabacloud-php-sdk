@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceResponseBody\dryRunResult;
 use AlibabaCloud\Tea\Model;
 
 class CreateServiceResponseBody extends Model
 {
+    /**
+     * @var dryRunResult
+     */
+    public $dryRunResult;
+
     /**
      * @description The request ID.
      *
@@ -44,10 +50,11 @@ class CreateServiceResponseBody extends Model
      */
     public $version;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'serviceId' => 'ServiceId',
-        'status'    => 'Status',
-        'version'   => 'Version',
+        'dryRunResult' => 'DryRunResult',
+        'requestId'    => 'RequestId',
+        'serviceId'    => 'ServiceId',
+        'status'       => 'Status',
+        'version'      => 'Version',
     ];
 
     public function validate()
@@ -57,6 +64,9 @@ class CreateServiceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dryRunResult) {
+            $res['DryRunResult'] = null !== $this->dryRunResult ? $this->dryRunResult->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -81,6 +91,9 @@ class CreateServiceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRunResult'])) {
+            $model->dryRunResult = dryRunResult::fromMap($map['DryRunResult']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -6,19 +6,17 @@ namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateServiceUsageRequest extends Model
+class PreLaunchServiceRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-     *
-     * @example mRdxWuW2ts
+     * @example 10CM943JP0EN9D51H
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description The region ID.
+     * @description This parameter is required.
      *
      * @example cn-hangzhou
      *
@@ -27,10 +25,9 @@ class CreateServiceUsageRequest extends Model
     public $regionId;
 
     /**
-     * @description The service ID.
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     * @example service-c2d118c9193e49xxxxxx
+     * @example service-f7024a22ea5149xxxxxx
      *
      * @var string
      */
@@ -64,7 +61,7 @@ class CreateServiceUsageRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateServiceUsageRequest
+     * @return PreLaunchServiceRequest
      */
     public static function fromMap($map = [])
     {

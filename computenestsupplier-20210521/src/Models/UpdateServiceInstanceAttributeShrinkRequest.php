@@ -26,6 +26,11 @@ class UpdateServiceInstanceAttributeShrinkRequest extends Model
     public $licenseDataShrink;
 
     /**
+     * @var string
+     */
+    public $reason;
+
+    /**
      * @description The region ID.
      *
      * This parameter is required.
@@ -47,6 +52,7 @@ class UpdateServiceInstanceAttributeShrinkRequest extends Model
     protected $_name = [
         'endTime'           => 'EndTime',
         'licenseDataShrink' => 'LicenseData',
+        'reason'            => 'Reason',
         'regionId'          => 'RegionId',
         'serviceInstanceId' => 'ServiceInstanceId',
     ];
@@ -63,6 +69,9 @@ class UpdateServiceInstanceAttributeShrinkRequest extends Model
         }
         if (null !== $this->licenseDataShrink) {
             $res['LicenseData'] = $this->licenseDataShrink;
+        }
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -87,6 +96,9 @@ class UpdateServiceInstanceAttributeShrinkRequest extends Model
         }
         if (isset($map['LicenseData'])) {
             $model->licenseDataShrink = $map['LicenseData'];
+        }
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

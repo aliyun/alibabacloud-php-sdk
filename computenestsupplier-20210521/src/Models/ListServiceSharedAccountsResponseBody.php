@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListServiceSharedAccountsResponseBody extends Model
 {
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -17,6 +19,8 @@ class ListServiceSharedAccountsResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description A pagination token.
+     *
      * @example AAAAAWns8w4MmhzeptXVRG0PUEU=
      *
      * @var string
@@ -24,6 +28,8 @@ class ListServiceSharedAccountsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example CA3AE512-6D30-549A-B52D-B9042CA8D515
      *
      * @var string
@@ -36,6 +42,8 @@ class ListServiceSharedAccountsResponseBody extends Model
     public $shareAccount;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int
