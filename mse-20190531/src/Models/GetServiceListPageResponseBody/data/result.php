@@ -63,6 +63,11 @@ class result extends Model
     public $serviceName;
 
     /**
+     * @var string
+     */
+    public $serviceType;
+
+    /**
      * @description The service version.
      *
      * @example 1
@@ -77,6 +82,7 @@ class result extends Model
         'group'         => 'Group',
         'instanceNum'   => 'InstanceNum',
         'serviceName'   => 'ServiceName',
+        'serviceType'   => 'ServiceType',
         'version'       => 'Version',
     ];
 
@@ -104,6 +110,9 @@ class result extends Model
         }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
+        }
+        if (null !== $this->serviceType) {
+            $res['ServiceType'] = $this->serviceType;
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
@@ -137,6 +146,9 @@ class result extends Model
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+        if (isset($map['ServiceType'])) {
+            $model->serviceType = $map['ServiceType'];
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
