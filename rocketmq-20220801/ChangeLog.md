@@ -1,3 +1,6 @@
+2024-09-25 Version: 1.4.2
+- Generated php 2022-08-01 for RocketMQ.
+
 2024-09-19 Version: 1.4.1
 - Update API GetTrace: update param instanceId.
 - Update API GetTrace: update param topicName.
