@@ -11,6 +11,11 @@ class vpcConfig extends Model
     /**
      * @var string
      */
+    public $region;
+
+    /**
+     * @var string
+     */
     public $securityGroupId;
 
     /**
@@ -23,6 +28,7 @@ class vpcConfig extends Model
      */
     public $vswitchId;
     protected $_name = [
+        'region'          => 'Region',
         'securityGroupId' => 'SecurityGroupId',
         'vpcId'           => 'VpcId',
         'vswitchId'       => 'VswitchId',
@@ -35,6 +41,9 @@ class vpcConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
+        }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
@@ -56,6 +65,9 @@ class vpcConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
+        }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
