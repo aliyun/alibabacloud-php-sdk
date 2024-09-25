@@ -91,6 +91,11 @@ class flowLog extends Model
     public $flowLogName;
 
     /**
+     * @var string
+     */
+    public $ipVersion;
+
+    /**
      * @description The Logstore that stores the captured traffic data.
      *
      * @example FlowLogStore
@@ -213,6 +218,7 @@ class flowLog extends Model
         'flowLogDeliverStatus'       => 'FlowLogDeliverStatus',
         'flowLogId'                  => 'FlowLogId',
         'flowLogName'                => 'FlowLogName',
+        'ipVersion'                  => 'IpVersion',
         'logStoreName'               => 'LogStoreName',
         'projectName'                => 'ProjectName',
         'regionId'                   => 'RegionId',
@@ -256,6 +262,9 @@ class flowLog extends Model
         }
         if (null !== $this->flowLogName) {
             $res['FlowLogName'] = $this->flowLogName;
+        }
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
         }
         if (null !== $this->logStoreName) {
             $res['LogStoreName'] = $this->logStoreName;
@@ -325,6 +334,9 @@ class flowLog extends Model
         }
         if (isset($map['FlowLogName'])) {
             $model->flowLogName = $map['FlowLogName'];
+        }
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
         }
         if (isset($map['LogStoreName'])) {
             $model->logStoreName = $map['LogStoreName'];

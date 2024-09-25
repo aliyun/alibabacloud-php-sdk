@@ -50,6 +50,11 @@ class ModifyFlowLogAttributeRequest extends Model
     /**
      * @var string
      */
+    public $ipVersion;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -81,6 +86,7 @@ class ModifyFlowLogAttributeRequest extends Model
         'description'          => 'Description',
         'flowLogId'            => 'FlowLogId',
         'flowLogName'          => 'FlowLogName',
+        'ipVersion'            => 'IpVersion',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -106,6 +112,9 @@ class ModifyFlowLogAttributeRequest extends Model
         }
         if (null !== $this->flowLogName) {
             $res['FlowLogName'] = $this->flowLogName;
+        }
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -145,6 +154,9 @@ class ModifyFlowLogAttributeRequest extends Model
         }
         if (isset($map['FlowLogName'])) {
             $model->flowLogName = $map['FlowLogName'];
+        }
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

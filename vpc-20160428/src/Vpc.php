@@ -5053,6 +5053,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->flowLogName)) {
             $query['FlowLogName'] = $request->flowLogName;
         }
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
+        }
         if (!Utils::isUnset($request->logStoreName)) {
             $query['LogStoreName'] = $request->logStoreName;
         }
@@ -24301,6 +24304,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->flowLogName)) {
             $query['FlowLogName'] = $request->flowLogName;
+        }
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;

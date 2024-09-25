@@ -39,6 +39,11 @@ class CreateFlowLogRequest extends Model
     public $flowLogName;
 
     /**
+     * @var string
+     */
+    public $ipVersion;
+
+    /**
      * @description The name of the Logstore that stores the captured traffic data.
      *
      *   The name can contain only lowercase letters, digits, hyphens (-), and underscores (_).
@@ -163,6 +168,7 @@ class CreateFlowLogRequest extends Model
         'aggregationInterval'  => 'AggregationInterval',
         'description'          => 'Description',
         'flowLogName'          => 'FlowLogName',
+        'ipVersion'            => 'IpVersion',
         'logStoreName'         => 'LogStoreName',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -193,6 +199,9 @@ class CreateFlowLogRequest extends Model
         }
         if (null !== $this->flowLogName) {
             $res['FlowLogName'] = $this->flowLogName;
+        }
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
         }
         if (null !== $this->logStoreName) {
             $res['LogStoreName'] = $this->logStoreName;
@@ -259,6 +268,9 @@ class CreateFlowLogRequest extends Model
         }
         if (isset($map['FlowLogName'])) {
             $model->flowLogName = $map['FlowLogName'];
+        }
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
         }
         if (isset($map['LogStoreName'])) {
             $model->logStoreName = $map['LogStoreName'];
