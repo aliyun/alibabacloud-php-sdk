@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models;
 
-use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyRequest\merchantDetail;
 use AlibabaCloud\Tea\Model;
 
-class CredentialVerifyRequest extends Model
+class CredentialVerifyShrinkRequest extends Model
 {
     /**
      * @example 4601*****
@@ -66,9 +65,9 @@ class CredentialVerifyRequest extends Model
     public $isOCR;
 
     /**
-     * @var merchantDetail[]
+     * @var string
      */
-    public $merchantDetail;
+    public $merchantDetailShrink;
 
     /**
      * @var string
@@ -95,20 +94,20 @@ class CredentialVerifyRequest extends Model
      */
     public $userName;
     protected $_name = [
-        'certNum'        => 'CertNum',
-        'credName'       => 'CredName',
-        'credType'       => 'CredType',
-        'identifyNum'    => 'IdentifyNum',
-        'imageContext'   => 'ImageContext',
-        'imageUrl'       => 'ImageUrl',
-        'isCheck'        => 'IsCheck',
-        'isOCR'          => 'IsOCR',
-        'merchantDetail' => 'MerchantDetail',
-        'merchantId'     => 'MerchantId',
-        'productCode'    => 'ProductCode',
-        'prompt'         => 'Prompt',
-        'promptModel'    => 'PromptModel',
-        'userName'       => 'UserName',
+        'certNum'              => 'CertNum',
+        'credName'             => 'CredName',
+        'credType'             => 'CredType',
+        'identifyNum'          => 'IdentifyNum',
+        'imageContext'         => 'ImageContext',
+        'imageUrl'             => 'ImageUrl',
+        'isCheck'              => 'IsCheck',
+        'isOCR'                => 'IsOCR',
+        'merchantDetailShrink' => 'MerchantDetail',
+        'merchantId'           => 'MerchantId',
+        'productCode'          => 'ProductCode',
+        'prompt'               => 'Prompt',
+        'promptModel'          => 'PromptModel',
+        'userName'             => 'UserName',
     ];
 
     public function validate()
@@ -142,14 +141,8 @@ class CredentialVerifyRequest extends Model
         if (null !== $this->isOCR) {
             $res['IsOCR'] = $this->isOCR;
         }
-        if (null !== $this->merchantDetail) {
-            $res['MerchantDetail'] = [];
-            if (null !== $this->merchantDetail && \is_array($this->merchantDetail)) {
-                $n = 0;
-                foreach ($this->merchantDetail as $item) {
-                    $res['MerchantDetail'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->merchantDetailShrink) {
+            $res['MerchantDetail'] = $this->merchantDetailShrink;
         }
         if (null !== $this->merchantId) {
             $res['MerchantId'] = $this->merchantId;
@@ -173,7 +166,7 @@ class CredentialVerifyRequest extends Model
     /**
      * @param array $map
      *
-     * @return CredentialVerifyRequest
+     * @return CredentialVerifyShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -203,13 +196,7 @@ class CredentialVerifyRequest extends Model
             $model->isOCR = $map['IsOCR'];
         }
         if (isset($map['MerchantDetail'])) {
-            if (!empty($map['MerchantDetail'])) {
-                $model->merchantDetail = [];
-                $n                     = 0;
-                foreach ($map['MerchantDetail'] as $item) {
-                    $model->merchantDetail[$n++] = null !== $item ? merchantDetail::fromMap($item) : $item;
-                }
-            }
+            $model->merchantDetailShrink = $map['MerchantDetail'];
         }
         if (isset($map['MerchantId'])) {
             $model->merchantId = $map['MerchantId'];

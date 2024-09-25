@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyResponseBody;
 
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyResponseBody\resultObject\vlResult;
 use AlibabaCloud\Tea\Model;
 
 class resultObject extends Model
@@ -50,6 +51,11 @@ class resultObject extends Model
      * @var string
      */
     public $verifyResult;
+
+    /**
+     * @var vlResult
+     */
+    public $vlResult;
     protected $_name = [
         'materialInfo' => 'MaterialInfo',
         'ocrInfo'      => 'OcrInfo',
@@ -58,6 +64,7 @@ class resultObject extends Model
         'riskTag'      => 'RiskTag',
         'verifyDetail' => 'VerifyDetail',
         'verifyResult' => 'VerifyResult',
+        'vlResult'     => 'VlResult',
     ];
 
     public function validate()
@@ -87,6 +94,9 @@ class resultObject extends Model
         }
         if (null !== $this->verifyResult) {
             $res['VerifyResult'] = $this->verifyResult;
+        }
+        if (null !== $this->vlResult) {
+            $res['VlResult'] = null !== $this->vlResult ? $this->vlResult->toMap() : null;
         }
 
         return $res;
@@ -120,6 +130,9 @@ class resultObject extends Model
         }
         if (isset($map['VerifyResult'])) {
             $model->verifyResult = $map['VerifyResult'];
+        }
+        if (isset($map['VlResult'])) {
+            $model->vlResult = vlResult::fromMap($map['VlResult']);
         }
 
         return $model;

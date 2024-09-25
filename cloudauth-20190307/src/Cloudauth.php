@@ -23,6 +23,7 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateVerifySettingRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateVerifySettingResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyShrinkRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeepfakeDetectRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeepfakeDetectResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeDeviceInfoRequest;
@@ -686,14 +687,19 @@ class Cloudauth extends OpenApiClient
     /**
      * @summary 凭证核验
      *  *
-     * @param CredentialVerifyRequest $request CredentialVerifyRequest
+     * @param CredentialVerifyRequest $tmpReq  CredentialVerifyRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
      * @return CredentialVerifyResponse CredentialVerifyResponse
      */
-    public function credentialVerifyWithOptions($request, $runtime)
+    public function credentialVerifyWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CredentialVerifyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->merchantDetail)) {
+            $request->merchantDetailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->merchantDetail, 'MerchantDetail', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->certNum)) {
             $query['CertNum'] = $request->certNum;
@@ -716,8 +722,20 @@ class Cloudauth extends OpenApiClient
         if (!Utils::isUnset($request->isOCR)) {
             $query['IsOCR'] = $request->isOCR;
         }
+        if (!Utils::isUnset($request->merchantDetailShrink)) {
+            $query['MerchantDetail'] = $request->merchantDetailShrink;
+        }
         if (!Utils::isUnset($request->merchantId)) {
             $query['MerchantId'] = $request->merchantId;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->prompt)) {
+            $query['Prompt'] = $request->prompt;
+        }
+        if (!Utils::isUnset($request->promptModel)) {
+            $query['PromptModel'] = $request->promptModel;
         }
         if (!Utils::isUnset($request->userName)) {
             $query['UserName'] = $request->userName;
