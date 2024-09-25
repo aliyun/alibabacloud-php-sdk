@@ -90,6 +90,11 @@ class SQLSlowRecord extends Model
     public $returnRowCounts;
 
     /**
+     * @var string
+     */
+    public $SQLHash;
+
+    /**
      * @description The SQL statement that is executed in the query.
      *
      * @var string
@@ -105,6 +110,7 @@ class SQLSlowRecord extends Model
         'queryTimeMS'        => 'QueryTimeMS',
         'queryTimes'         => 'QueryTimes',
         'returnRowCounts'    => 'ReturnRowCounts',
+        'SQLHash'            => 'SQLHash',
         'SQLText'            => 'SQLText',
     ];
 
@@ -141,6 +147,9 @@ class SQLSlowRecord extends Model
         }
         if (null !== $this->returnRowCounts) {
             $res['ReturnRowCounts'] = $this->returnRowCounts;
+        }
+        if (null !== $this->SQLHash) {
+            $res['SQLHash'] = $this->SQLHash;
         }
         if (null !== $this->SQLText) {
             $res['SQLText'] = $this->SQLText;
@@ -183,6 +192,9 @@ class SQLSlowRecord extends Model
         }
         if (isset($map['ReturnRowCounts'])) {
             $model->returnRowCounts = $map['ReturnRowCounts'];
+        }
+        if (isset($map['SQLHash'])) {
+            $model->SQLHash = $map['SQLHash'];
         }
         if (isset($map['SQLText'])) {
             $model->SQLText = $map['SQLText'];

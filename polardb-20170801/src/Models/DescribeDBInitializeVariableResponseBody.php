@@ -10,10 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInitializeVariableResponseBody extends Model
 {
     /**
-     * @description The type of the database engine. Valid values:
+     * @description The database type. Valid values:
      *
      *   Oracle
      *   PostgreSQL
+     *   MySQL
      *
      * @example PostgreSQL
      *

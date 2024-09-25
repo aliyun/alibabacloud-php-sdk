@@ -4532,7 +4532,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the attributes that are supported by a PolarDB for PostgreSQL (Compatible with Oracle) cluster or a PolarDB for PostgreSQL cluster, such as the character sets and collations.
+     * @summary Queries attributes such as character sets and collations supported by a database in a PolarDB cluster.
      *  *
      * @param DescribeDBInitializeVariableRequest $request DescribeDBInitializeVariableRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -4577,7 +4577,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the attributes that are supported by a PolarDB for PostgreSQL (Compatible with Oracle) cluster or a PolarDB for PostgreSQL cluster, such as the character sets and collations.
+     * @summary Queries attributes such as character sets and collations supported by a database in a PolarDB cluster.
      *  *
      * @param DescribeDBInitializeVariableRequest $request DescribeDBInitializeVariableRequest
      *

@@ -74,7 +74,7 @@ class UpgradeDBClusterVersionRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The code of the version to which you want to upgrade the cluster. You can call the [DescribeDBClusterVersion](https://help.aliyun.com/document_detail/2319145.html) operation to query the version code.
+     * @description The code of the db version to which you want to upgrade the cluster. You can call the [DescribeDBClusterVersion](https://help.aliyun.com/document_detail/2319145.html) operation to query the version code.
      *
      * @example 20230707
      *
@@ -83,6 +83,10 @@ class UpgradeDBClusterVersionRequest extends Model
     public $targetDBRevisionVersionCode;
 
     /**
+     * @description The code of the proxy version to which you want to upgrade the cluster. You can call the [DescribeDBClusterVersion](https://help.aliyun.com/document_detail/2319145.html) operation to query the version code.
+     *
+     * @example 20240702
+     *
      * @var string
      */
     public $targetProxyRevisionVersionCode;
@@ -99,10 +103,10 @@ class UpgradeDBClusterVersionRequest extends Model
     public $upgradeLabel;
 
     /**
-     * @description The upgrade policy. Valid values:
+     * @description The engine version upgrade policy. Valid values:
      *
      *   **HOT**: hot upgrade.
-     *   **COLD**: cold upgrade. Only PolarDB for MySQL Cluster Edition that runs MySQL 8.0 supports this upgrade method.
+     *   **COLD**: cold upgrade. Only PolarDB for MySQL 8.0 Cluster Edition supports this upgrade method.
      *
      * @example HOT
      *
