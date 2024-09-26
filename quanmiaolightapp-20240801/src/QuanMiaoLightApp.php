@@ -6,8 +6,12 @@ namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GenerateBroadcastNewsRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GenerateBroadcastNewsResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListHotTopicSummariesRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListHotTopicSummariesResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunCommentGenerationRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunCommentGenerationResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunMarketingInformationExtractRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunMarketingInformationExtractResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunMarketingInformationExtractShrinkRequest;
@@ -60,6 +64,58 @@ class QuanMiaoLightApp extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 新闻播报-抽取分类获取播报热点
+     *  *
+     * @param string                       $workspaceId
+     * @param GenerateBroadcastNewsRequest $request     GenerateBroadcastNewsRequest
+     * @param string[]                     $headers     map
+     * @param RuntimeOptions               $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return GenerateBroadcastNewsResponse GenerateBroadcastNewsResponse
+     */
+    public function generateBroadcastNewsWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->prompt)) {
+            $body['prompt'] = $request->prompt;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateBroadcastNews',
+            'version'     => '2024-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/GenerateBroadcastNews',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateBroadcastNewsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新闻播报-抽取分类获取播报热点
+     *  *
+     * @param string                       $workspaceId
+     * @param GenerateBroadcastNewsRequest $request     GenerateBroadcastNewsRequest
+     *
+     * @return GenerateBroadcastNewsResponse GenerateBroadcastNewsResponse
+     */
+    public function generateBroadcastNews($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->generateBroadcastNewsWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -124,6 +180,67 @@ class QuanMiaoLightApp extends OpenApiClient
         $headers = [];
 
         return $this->listHotTopicSummariesWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 评论生成服务
+     *  *
+     * @param string                      $workspaceId
+     * @param RunCommentGenerationRequest $request     RunCommentGenerationRequest
+     * @param string[]                    $headers     map
+     * @param RuntimeOptions              $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return RunCommentGenerationResponse RunCommentGenerationResponse
+     */
+    public function runCommentGenerationWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->length)) {
+            $body['length'] = $request->length;
+        }
+        if (!Utils::isUnset($request->numComments)) {
+            $body['numComments'] = $request->numComments;
+        }
+        if (!Utils::isUnset($request->sourceMaterial)) {
+            $body['sourceMaterial'] = $request->sourceMaterial;
+        }
+        if (!Utils::isUnset($request->style)) {
+            $body['style'] = $request->style;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunCommentGeneration',
+            'version'     => '2024-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/runCommentGeneration',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunCommentGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 评论生成服务
+     *  *
+     * @param string                      $workspaceId
+     * @param RunCommentGenerationRequest $request     RunCommentGenerationRequest
+     *
+     * @return RunCommentGenerationResponse RunCommentGenerationResponse
+     */
+    public function runCommentGeneration($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runCommentGenerationWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -484,8 +601,14 @@ class QuanMiaoLightApp extends OpenApiClient
         if (!Utils::isUnset($request->originalSessionId)) {
             $body['originalSessionId'] = $request->originalSessionId;
         }
+        if (!Utils::isUnset($request->snapshotInterval)) {
+            $body['snapshotInterval'] = $request->snapshotInterval;
+        }
         if (!Utils::isUnset($request->taskId)) {
             $body['taskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->videoExtraInfo)) {
+            $body['videoExtraInfo'] = $request->videoExtraInfo;
         }
         if (!Utils::isUnset($request->videoModelCustomPromptTemplate)) {
             $body['videoModelCustomPromptTemplate'] = $request->videoModelCustomPromptTemplate;

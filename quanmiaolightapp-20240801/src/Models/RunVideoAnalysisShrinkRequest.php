@@ -40,11 +40,21 @@ class RunVideoAnalysisShrinkRequest extends Model
     public $originalSessionId;
 
     /**
+     * @var float
+     */
+    public $snapshotInterval;
+
+    /**
      * @example a3d1c2ac-f086-4a21-9069-f5631542f5a2
      *
      * @var string
      */
     public $taskId;
+
+    /**
+     * @var string
+     */
+    public $videoExtraInfo;
 
     /**
      * @var string
@@ -70,7 +80,9 @@ class RunVideoAnalysisShrinkRequest extends Model
         'modelCustomPromptTemplateId'    => 'modelCustomPromptTemplateId',
         'modelId'                        => 'modelId',
         'originalSessionId'              => 'originalSessionId',
+        'snapshotInterval'               => 'snapshotInterval',
         'taskId'                         => 'taskId',
+        'videoExtraInfo'                 => 'videoExtraInfo',
         'videoModelCustomPromptTemplate' => 'videoModelCustomPromptTemplate',
         'videoModelId'                   => 'videoModelId',
         'videoUrl'                       => 'videoUrl',
@@ -98,8 +110,14 @@ class RunVideoAnalysisShrinkRequest extends Model
         if (null !== $this->originalSessionId) {
             $res['originalSessionId'] = $this->originalSessionId;
         }
+        if (null !== $this->snapshotInterval) {
+            $res['snapshotInterval'] = $this->snapshotInterval;
+        }
         if (null !== $this->taskId) {
             $res['taskId'] = $this->taskId;
+        }
+        if (null !== $this->videoExtraInfo) {
+            $res['videoExtraInfo'] = $this->videoExtraInfo;
         }
         if (null !== $this->videoModelCustomPromptTemplate) {
             $res['videoModelCustomPromptTemplate'] = $this->videoModelCustomPromptTemplate;
@@ -137,8 +155,14 @@ class RunVideoAnalysisShrinkRequest extends Model
         if (isset($map['originalSessionId'])) {
             $model->originalSessionId = $map['originalSessionId'];
         }
+        if (isset($map['snapshotInterval'])) {
+            $model->snapshotInterval = $map['snapshotInterval'];
+        }
         if (isset($map['taskId'])) {
             $model->taskId = $map['taskId'];
+        }
+        if (isset($map['videoExtraInfo'])) {
+            $model->videoExtraInfo = $map['videoExtraInfo'];
         }
         if (isset($map['videoModelCustomPromptTemplate'])) {
             $model->videoModelCustomPromptTemplate = $map['videoModelCustomPromptTemplate'];
