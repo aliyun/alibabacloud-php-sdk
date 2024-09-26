@@ -21,6 +21,11 @@ class ModifyDBClusterServerlessConfRequest extends Model
     public $allowShutDown;
 
     /**
+     * @var string
+     */
+    public $crontabJobId;
+
+    /**
      * @description The ID of the serverless cluster.
      *
      * This parameter is required.
@@ -160,8 +165,14 @@ class ModifyDBClusterServerlessConfRequest extends Model
      * @var string
      */
     public $serverlessRuleMode;
+
+    /**
+     * @var string
+     */
+    public $taskId;
     protected $_name = [
         'allowShutDown'                     => 'AllowShutDown',
+        'crontabJobId'                      => 'CrontabJobId',
         'DBClusterId'                       => 'DBClusterId',
         'fromTimeService'                   => 'FromTimeService',
         'ownerAccount'                      => 'OwnerAccount',
@@ -180,6 +191,7 @@ class ModifyDBClusterServerlessConfRequest extends Model
         'serverlessRuleCpuEnlargeThreshold' => 'ServerlessRuleCpuEnlargeThreshold',
         'serverlessRuleCpuShrinkThreshold'  => 'ServerlessRuleCpuShrinkThreshold',
         'serverlessRuleMode'                => 'ServerlessRuleMode',
+        'taskId'                            => 'TaskId',
     ];
 
     public function validate()
@@ -191,6 +203,9 @@ class ModifyDBClusterServerlessConfRequest extends Model
         $res = [];
         if (null !== $this->allowShutDown) {
             $res['AllowShutDown'] = $this->allowShutDown;
+        }
+        if (null !== $this->crontabJobId) {
+            $res['CrontabJobId'] = $this->crontabJobId;
         }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
@@ -246,6 +261,9 @@ class ModifyDBClusterServerlessConfRequest extends Model
         if (null !== $this->serverlessRuleMode) {
             $res['ServerlessRuleMode'] = $this->serverlessRuleMode;
         }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
+        }
 
         return $res;
     }
@@ -260,6 +278,9 @@ class ModifyDBClusterServerlessConfRequest extends Model
         $model = new self();
         if (isset($map['AllowShutDown'])) {
             $model->allowShutDown = $map['AllowShutDown'];
+        }
+        if (isset($map['CrontabJobId'])) {
+            $model->crontabJobId = $map['CrontabJobId'];
         }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
@@ -314,6 +335,9 @@ class ModifyDBClusterServerlessConfRequest extends Model
         }
         if (isset($map['ServerlessRuleMode'])) {
             $model->serverlessRuleMode = $map['ServerlessRuleMode'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

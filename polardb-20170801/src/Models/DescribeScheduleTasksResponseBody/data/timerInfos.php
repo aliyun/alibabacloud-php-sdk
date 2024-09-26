@@ -18,6 +18,11 @@ class timerInfos extends Model
     public $action;
 
     /**
+     * @var string
+     */
+    public $crontabJobId;
+
+    /**
      * @description The cluster ID.
      *
      * @example pc-**************
@@ -126,6 +131,7 @@ class timerInfos extends Model
     public $taskId;
     protected $_name = [
         'action'                 => 'Action',
+        'crontabJobId'           => 'CrontabJobId',
         'DBClusterId'            => 'DBClusterId',
         'dbClusterDescription'   => 'DbClusterDescription',
         'dbClusterStatus'        => 'DbClusterStatus',
@@ -149,6 +155,9 @@ class timerInfos extends Model
         $res = [];
         if (null !== $this->action) {
             $res['Action'] = $this->action;
+        }
+        if (null !== $this->crontabJobId) {
+            $res['CrontabJobId'] = $this->crontabJobId;
         }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
@@ -200,6 +209,9 @@ class timerInfos extends Model
         $model = new self();
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
+        }
+        if (isset($map['CrontabJobId'])) {
+            $model->crontabJobId = $map['CrontabJobId'];
         }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];

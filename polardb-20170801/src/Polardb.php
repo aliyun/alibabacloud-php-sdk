@@ -8442,6 +8442,9 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->allowShutDown)) {
             $query['AllowShutDown'] = $request->allowShutDown;
         }
+        if (!Utils::isUnset($request->crontabJobId)) {
+            $query['CrontabJobId'] = $request->crontabJobId;
+        }
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
         }
@@ -8495,6 +8498,9 @@ class Polardb extends OpenApiClient
         }
         if (!Utils::isUnset($request->serverlessRuleMode)) {
             $query['ServerlessRuleMode'] = $request->serverlessRuleMode;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -8619,6 +8625,9 @@ class Polardb extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->enableAutomaticRotation)) {
+            $query['EnableAutomaticRotation'] = $request->enableAutomaticRotation;
         }
         if (!Utils::isUnset($request->encryptNewTables)) {
             $query['EncryptNewTables'] = $request->encryptNewTables;

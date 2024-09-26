@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterTDEResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $automaticRotation;
+
+    /**
      * @description The ID of the cluster.
      *
      * @example pc-***************
@@ -48,6 +53,11 @@ class DescribeDBClusterTDEResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $rotationInterval;
+
+    /**
      * @description The region where the TDE key resides.
      *
      * @example cn-beijing
@@ -68,12 +78,14 @@ class DescribeDBClusterTDEResponseBody extends Model
      */
     public $TDEStatus;
     protected $_name = [
-        'DBClusterId'      => 'DBClusterId',
-        'encryptNewTables' => 'EncryptNewTables',
-        'encryptionKey'    => 'EncryptionKey',
-        'requestId'        => 'RequestId',
-        'TDERegion'        => 'TDERegion',
-        'TDEStatus'        => 'TDEStatus',
+        'automaticRotation' => 'AutomaticRotation',
+        'DBClusterId'       => 'DBClusterId',
+        'encryptNewTables'  => 'EncryptNewTables',
+        'encryptionKey'     => 'EncryptionKey',
+        'requestId'         => 'RequestId',
+        'rotationInterval'  => 'RotationInterval',
+        'TDERegion'         => 'TDERegion',
+        'TDEStatus'         => 'TDEStatus',
     ];
 
     public function validate()
@@ -83,6 +95,9 @@ class DescribeDBClusterTDEResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->automaticRotation) {
+            $res['AutomaticRotation'] = $this->automaticRotation;
+        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
@@ -94,6 +109,9 @@ class DescribeDBClusterTDEResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->rotationInterval) {
+            $res['RotationInterval'] = $this->rotationInterval;
         }
         if (null !== $this->TDERegion) {
             $res['TDERegion'] = $this->TDERegion;
@@ -113,6 +131,9 @@ class DescribeDBClusterTDEResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutomaticRotation'])) {
+            $model->automaticRotation = $map['AutomaticRotation'];
+        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
@@ -124,6 +145,9 @@ class DescribeDBClusterTDEResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['RotationInterval'])) {
+            $model->rotationInterval = $map['RotationInterval'];
         }
         if (isset($map['TDERegion'])) {
             $model->TDERegion = $map['TDERegion'];

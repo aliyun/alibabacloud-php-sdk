@@ -19,6 +19,13 @@ class ModifyDBClusterTDERequest extends Model
     public $DBClusterId;
 
     /**
+     * @example false
+     *
+     * @var string
+     */
+    public $enableAutomaticRotation;
+
+    /**
      * @description Specifies whether to enable automatic encryption for new tables. Valid values:
      *
      *   **ON**
@@ -78,15 +85,16 @@ class ModifyDBClusterTDERequest extends Model
      */
     public $TDEStatus;
     protected $_name = [
-        'DBClusterId'          => 'DBClusterId',
-        'encryptNewTables'     => 'EncryptNewTables',
-        'encryptionKey'        => 'EncryptionKey',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'roleArn'              => 'RoleArn',
-        'TDEStatus'            => 'TDEStatus',
+        'DBClusterId'             => 'DBClusterId',
+        'enableAutomaticRotation' => 'EnableAutomaticRotation',
+        'encryptNewTables'        => 'EncryptNewTables',
+        'encryptionKey'           => 'EncryptionKey',
+        'ownerAccount'            => 'OwnerAccount',
+        'ownerId'                 => 'OwnerId',
+        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
+        'resourceOwnerId'         => 'ResourceOwnerId',
+        'roleArn'                 => 'RoleArn',
+        'TDEStatus'               => 'TDEStatus',
     ];
 
     public function validate()
@@ -98,6 +106,9 @@ class ModifyDBClusterTDERequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->enableAutomaticRotation) {
+            $res['EnableAutomaticRotation'] = $this->enableAutomaticRotation;
         }
         if (null !== $this->encryptNewTables) {
             $res['EncryptNewTables'] = $this->encryptNewTables;
@@ -137,6 +148,9 @@ class ModifyDBClusterTDERequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['EnableAutomaticRotation'])) {
+            $model->enableAutomaticRotation = $map['EnableAutomaticRotation'];
         }
         if (isset($map['EncryptNewTables'])) {
             $model->encryptNewTables = $map['EncryptNewTables'];
