@@ -67,6 +67,11 @@ class externalAuthZ extends Model
     public $tokenKey;
 
     /**
+     * @var bool
+     */
+    public $withRematchRoute;
+
+    /**
      * @example true
      *
      * @var bool
@@ -82,6 +87,7 @@ class externalAuthZ extends Model
         'serviceId'            => 'ServiceId',
         'timeout'              => 'Timeout',
         'tokenKey'             => 'TokenKey',
+        'withRematchRoute'     => 'WithRematchRoute',
         'withRequestBody'      => 'WithRequestBody',
     ];
 
@@ -118,6 +124,9 @@ class externalAuthZ extends Model
         }
         if (null !== $this->tokenKey) {
             $res['TokenKey'] = $this->tokenKey;
+        }
+        if (null !== $this->withRematchRoute) {
+            $res['WithRematchRoute'] = $this->withRematchRoute;
         }
         if (null !== $this->withRequestBody) {
             $res['WithRequestBody'] = $this->withRequestBody;
@@ -164,6 +173,9 @@ class externalAuthZ extends Model
         }
         if (isset($map['TokenKey'])) {
             $model->tokenKey = $map['TokenKey'];
+        }
+        if (isset($map['WithRematchRoute'])) {
+            $model->withRematchRoute = $map['WithRematchRoute'];
         }
         if (isset($map['WithRequestBody'])) {
             $model->withRequestBody = $map['WithRequestBody'];
