@@ -31,7 +31,7 @@ class ModifyPostPayModuleSwitchRequest extends Model
      *   Value: A value of 0 specifies disabled. A value of 1 specifies enabled.
      *
      * >  If you do not specify a value for a module, the original value of the module is retained.
-     * @example {"VUL":1，"CSPM":0}
+     * @example {"VUL":1,"CSPM":0}
      *
      * @var string
      */

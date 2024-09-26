@@ -18,6 +18,21 @@ class exposedInstances extends Model
     public $asapVulCount;
 
     /**
+     * @var int
+     */
+    public $assetType;
+
+    /**
+     * @var string
+     */
+    public $cloudAssetInfo;
+
+    /**
+     * @var int
+     */
+    public $cspmAlarmCount;
+
+    /**
      * @description The total number of servers that are exposed on the Internet.
      *
      * @example 0
@@ -182,6 +197,9 @@ class exposedInstances extends Model
     public $uuid;
     protected $_name = [
         'asapVulCount'       => 'AsapVulCount',
+        'assetType'          => 'AssetType',
+        'cloudAssetInfo'     => 'CloudAssetInfo',
+        'cspmAlarmCount'     => 'CspmAlarmCount',
         'exploitHealthCount' => 'ExploitHealthCount',
         'exposureComponent'  => 'ExposureComponent',
         'exposureIp'         => 'ExposureIp',
@@ -210,6 +228,15 @@ class exposedInstances extends Model
         $res = [];
         if (null !== $this->asapVulCount) {
             $res['AsapVulCount'] = $this->asapVulCount;
+        }
+        if (null !== $this->assetType) {
+            $res['AssetType'] = $this->assetType;
+        }
+        if (null !== $this->cloudAssetInfo) {
+            $res['CloudAssetInfo'] = $this->cloudAssetInfo;
+        }
+        if (null !== $this->cspmAlarmCount) {
+            $res['CspmAlarmCount'] = $this->cspmAlarmCount;
         }
         if (null !== $this->exploitHealthCount) {
             $res['ExploitHealthCount'] = $this->exploitHealthCount;
@@ -276,6 +303,15 @@ class exposedInstances extends Model
         $model = new self();
         if (isset($map['AsapVulCount'])) {
             $model->asapVulCount = $map['AsapVulCount'];
+        }
+        if (isset($map['AssetType'])) {
+            $model->assetType = $map['AssetType'];
+        }
+        if (isset($map['CloudAssetInfo'])) {
+            $model->cloudAssetInfo = $map['CloudAssetInfo'];
+        }
+        if (isset($map['CspmAlarmCount'])) {
+            $model->cspmAlarmCount = $map['CspmAlarmCount'];
         }
         if (isset($map['ExploitHealthCount'])) {
             $model->exploitHealthCount = $map['ExploitHealthCount'];

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceDetailResponseBody;
 
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceDetailResponseBody\exposedChains\allVulList;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceDetailResponseBody\exposedChains\cspmRiskList;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceDetailResponseBody\exposedChains\realVulList;
 use AlibabaCloud\Tea\Model;
 
@@ -16,6 +17,11 @@ class exposedChains extends Model
      * @var allVulList[]
      */
     public $allVulList;
+
+    /**
+     * @var cspmRiskList[]
+     */
+    public $cspmRiskList;
 
     /**
      * @description The server component that is exposed on the Internet.
@@ -144,6 +150,7 @@ class exposedChains extends Model
     public $uuid;
     protected $_name = [
         'allVulList'        => 'AllVulList',
+        'cspmRiskList'      => 'CspmRiskList',
         'exposureComponent' => 'ExposureComponent',
         'exposureIp'        => 'ExposureIp',
         'exposurePort'      => 'ExposurePort',
@@ -172,6 +179,15 @@ class exposedChains extends Model
                 $n = 0;
                 foreach ($this->allVulList as $item) {
                     $res['AllVulList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->cspmRiskList) {
+            $res['CspmRiskList'] = [];
+            if (null !== $this->cspmRiskList && \is_array($this->cspmRiskList)) {
+                $n = 0;
+                foreach ($this->cspmRiskList as $item) {
+                    $res['CspmRiskList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -238,6 +254,15 @@ class exposedChains extends Model
                 $n                 = 0;
                 foreach ($map['AllVulList'] as $item) {
                     $model->allVulList[$n++] = null !== $item ? allVulList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['CspmRiskList'])) {
+            if (!empty($map['CspmRiskList'])) {
+                $model->cspmRiskList = [];
+                $n                   = 0;
+                foreach ($map['CspmRiskList'] as $item) {
+                    $model->cspmRiskList[$n++] = null !== $item ? cspmRiskList::fromMap($item) : $item;
                 }
             }
         }

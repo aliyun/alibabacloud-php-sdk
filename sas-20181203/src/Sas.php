@@ -15365,6 +15365,12 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->assetType)) {
+            $query['AssetType'] = $request->assetType;
+        }
+        if (!Utils::isUnset($request->cspmStatus)) {
+            $query['CspmStatus'] = $request->cspmStatus;
+        }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }

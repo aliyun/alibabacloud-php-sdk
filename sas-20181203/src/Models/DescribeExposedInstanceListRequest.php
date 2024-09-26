@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedInstanceListRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $assetType;
+
+    /**
+     * @var bool
+     */
+    public $cspmStatus;
+
+    /**
      * @description The number of the page to return.
      *
      * @example 1
@@ -117,6 +127,8 @@ class DescribeExposedInstanceListRequest extends Model
      */
     public $vulStatus;
     protected $_name = [
+        'assetType'                  => 'AssetType',
+        'cspmStatus'                 => 'CspmStatus',
         'currentPage'                => 'CurrentPage',
         'exposureComponent'          => 'ExposureComponent',
         'exposureIp'                 => 'ExposureIp',
@@ -137,6 +149,12 @@ class DescribeExposedInstanceListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->assetType) {
+            $res['AssetType'] = $this->assetType;
+        }
+        if (null !== $this->cspmStatus) {
+            $res['CspmStatus'] = $this->cspmStatus;
+        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -182,6 +200,12 @@ class DescribeExposedInstanceListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AssetType'])) {
+            $model->assetType = $map['AssetType'];
+        }
+        if (isset($map['CspmStatus'])) {
+            $model->cspmStatus = $map['CspmStatus'];
+        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }

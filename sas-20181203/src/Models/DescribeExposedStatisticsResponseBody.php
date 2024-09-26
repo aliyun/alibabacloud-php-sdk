@@ -27,6 +27,16 @@ class DescribeExposedStatisticsResponseBody extends Model
     public $exposedComponentCount;
 
     /**
+     * @var int
+     */
+    public $exposedDdsCount;
+
+    /**
+     * @var int
+     */
+    public $exposedEcsCount;
+
+    /**
      * @description The total number of servers that are exposed on the Internet.
      *
      * @example 100
@@ -43,6 +53,11 @@ class DescribeExposedStatisticsResponseBody extends Model
      * @var int
      */
     public $exposedIpCount;
+
+    /**
+     * @var int
+     */
+    public $exposedKvstoreCount;
 
     /**
      * @description The total number of medium-risk vulnerabilities that are exposed on the Internet and can be exploited by attackers.
@@ -70,6 +85,11 @@ class DescribeExposedStatisticsResponseBody extends Model
      * @var int
      */
     public $exposedPortCount;
+
+    /**
+     * @var int
+     */
+    public $exposedRdsCount;
 
     /**
      * @description The total number of system keys that are detected on your servers and are exposed on the Internet.
@@ -100,11 +120,15 @@ class DescribeExposedStatisticsResponseBody extends Model
     protected $_name = [
         'exposedAsapVulCount'             => 'ExposedAsapVulCount',
         'exposedComponentCount'           => 'ExposedComponentCount',
+        'exposedDdsCount'                 => 'ExposedDdsCount',
+        'exposedEcsCount'                 => 'ExposedEcsCount',
         'exposedInstanceCount'            => 'ExposedInstanceCount',
         'exposedIpCount'                  => 'ExposedIpCount',
+        'exposedKvstoreCount'             => 'ExposedKvstoreCount',
         'exposedLaterVulCount'            => 'ExposedLaterVulCount',
         'exposedNntfVulCount'             => 'ExposedNntfVulCount',
         'exposedPortCount'                => 'ExposedPortCount',
+        'exposedRdsCount'                 => 'ExposedRdsCount',
         'exposedWeekPasswordMachineCount' => 'ExposedWeekPasswordMachineCount',
         'gatewayAssetCount'               => 'GatewayAssetCount',
         'requestId'                       => 'RequestId',
@@ -123,11 +147,20 @@ class DescribeExposedStatisticsResponseBody extends Model
         if (null !== $this->exposedComponentCount) {
             $res['ExposedComponentCount'] = $this->exposedComponentCount;
         }
+        if (null !== $this->exposedDdsCount) {
+            $res['ExposedDdsCount'] = $this->exposedDdsCount;
+        }
+        if (null !== $this->exposedEcsCount) {
+            $res['ExposedEcsCount'] = $this->exposedEcsCount;
+        }
         if (null !== $this->exposedInstanceCount) {
             $res['ExposedInstanceCount'] = $this->exposedInstanceCount;
         }
         if (null !== $this->exposedIpCount) {
             $res['ExposedIpCount'] = $this->exposedIpCount;
+        }
+        if (null !== $this->exposedKvstoreCount) {
+            $res['ExposedKvstoreCount'] = $this->exposedKvstoreCount;
         }
         if (null !== $this->exposedLaterVulCount) {
             $res['ExposedLaterVulCount'] = $this->exposedLaterVulCount;
@@ -137,6 +170,9 @@ class DescribeExposedStatisticsResponseBody extends Model
         }
         if (null !== $this->exposedPortCount) {
             $res['ExposedPortCount'] = $this->exposedPortCount;
+        }
+        if (null !== $this->exposedRdsCount) {
+            $res['ExposedRdsCount'] = $this->exposedRdsCount;
         }
         if (null !== $this->exposedWeekPasswordMachineCount) {
             $res['ExposedWeekPasswordMachineCount'] = $this->exposedWeekPasswordMachineCount;
@@ -165,11 +201,20 @@ class DescribeExposedStatisticsResponseBody extends Model
         if (isset($map['ExposedComponentCount'])) {
             $model->exposedComponentCount = $map['ExposedComponentCount'];
         }
+        if (isset($map['ExposedDdsCount'])) {
+            $model->exposedDdsCount = $map['ExposedDdsCount'];
+        }
+        if (isset($map['ExposedEcsCount'])) {
+            $model->exposedEcsCount = $map['ExposedEcsCount'];
+        }
         if (isset($map['ExposedInstanceCount'])) {
             $model->exposedInstanceCount = $map['ExposedInstanceCount'];
         }
         if (isset($map['ExposedIpCount'])) {
             $model->exposedIpCount = $map['ExposedIpCount'];
+        }
+        if (isset($map['ExposedKvstoreCount'])) {
+            $model->exposedKvstoreCount = $map['ExposedKvstoreCount'];
         }
         if (isset($map['ExposedLaterVulCount'])) {
             $model->exposedLaterVulCount = $map['ExposedLaterVulCount'];
@@ -179,6 +224,9 @@ class DescribeExposedStatisticsResponseBody extends Model
         }
         if (isset($map['ExposedPortCount'])) {
             $model->exposedPortCount = $map['ExposedPortCount'];
+        }
+        if (isset($map['ExposedRdsCount'])) {
+            $model->exposedRdsCount = $map['ExposedRdsCount'];
         }
         if (isset($map['ExposedWeekPasswordMachineCount'])) {
             $model->exposedWeekPasswordMachineCount = $map['ExposedWeekPasswordMachineCount'];
