@@ -17,6 +17,8 @@ class DescribeNodePoolVulsResponseBody extends Model
     public $vulRecords;
 
     /**
+     * @description Whether the Cloud Security CVE Remediation Service has been purchased
+     *
      * @example false
      *
      * @var bool

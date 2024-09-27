@@ -37,7 +37,7 @@ class kubernetesConfig extends Model
     public $cpuPolicy;
 
     /**
-     * @description The labels that you want to add to nodes in the cluster. You must add labels based on the following rules:
+     * @description The labels of the nodes in the node pool. You can add labels to the nodes in the cluster. You must add labels based on the following rules:
      *
      *   A label is a case-sensitive key-value pair. You can add up to 20 labels.
      *   The key must be unique and cannot exceed 64 characters in length. The value can be empty and cannot exceed 128 characters in length. Keys and values cannot start with `aliyun`, `acs:`, `https://`, or `http://`. For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
@@ -45,6 +45,11 @@ class kubernetesConfig extends Model
      * @var Tag[]
      */
     public $labels;
+
+    /**
+     * @var string
+     */
+    public $preUserData;
 
     /**
      * @description The name of the container runtime.
@@ -65,7 +70,7 @@ class kubernetesConfig extends Model
     public $runtimeVersion;
 
     /**
-     * @description The taints.
+     * @description The configuration of a node taint.
      *
      * @var Taint[]
      */
@@ -81,7 +86,7 @@ class kubernetesConfig extends Model
     public $unschedulable;
 
     /**
-     * @description The user data on the node. For more information, see [Prepare user data](https://help.aliyun.com/document_detail/49121.html).
+     * @description The user data of the node pool. For more information, see [Prepare user data](https://help.aliyun.com/document_detail/49121.html).
      *
      * @example IyEvdXNyL2Jpbi9iYXNoCmVjaG8gIkhlbGxvIEFDSyEi
      *
@@ -92,6 +97,7 @@ class kubernetesConfig extends Model
         'cmsEnabled'     => 'cms_enabled',
         'cpuPolicy'      => 'cpu_policy',
         'labels'         => 'labels',
+        'preUserData'    => 'pre_user_data',
         'runtime'        => 'runtime',
         'runtimeVersion' => 'runtime_version',
         'taints'         => 'taints',
@@ -120,6 +126,9 @@ class kubernetesConfig extends Model
                     $res['labels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->preUserData) {
+            $res['pre_user_data'] = $this->preUserData;
         }
         if (null !== $this->runtime) {
             $res['runtime'] = $this->runtime;
@@ -168,6 +177,9 @@ class kubernetesConfig extends Model
                     $model->labels[$n++] = null !== $item ? Tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['pre_user_data'])) {
+            $model->preUserData = $map['pre_user_data'];
         }
         if (isset($map['runtime'])) {
             $model->runtime = $map['runtime'];

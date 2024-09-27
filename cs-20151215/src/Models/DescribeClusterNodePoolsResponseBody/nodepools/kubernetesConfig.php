@@ -58,6 +58,11 @@ class kubernetesConfig extends Model
     public $nodeNameMode;
 
     /**
+     * @var string
+     */
+    public $preUserData;
+
+    /**
      * @description The name of the container runtime.
      *
      * @example docker
@@ -104,6 +109,7 @@ class kubernetesConfig extends Model
         'cpuPolicy'      => 'cpu_policy',
         'labels'         => 'labels',
         'nodeNameMode'   => 'node_name_mode',
+        'preUserData'    => 'pre_user_data',
         'runtime'        => 'runtime',
         'runtimeVersion' => 'runtime_version',
         'taints'         => 'taints',
@@ -135,6 +141,9 @@ class kubernetesConfig extends Model
         }
         if (null !== $this->nodeNameMode) {
             $res['node_name_mode'] = $this->nodeNameMode;
+        }
+        if (null !== $this->preUserData) {
+            $res['pre_user_data'] = $this->preUserData;
         }
         if (null !== $this->runtime) {
             $res['runtime'] = $this->runtime;
@@ -186,6 +195,9 @@ class kubernetesConfig extends Model
         }
         if (isset($map['node_name_mode'])) {
             $model->nodeNameMode = $map['node_name_mode'];
+        }
+        if (isset($map['pre_user_data'])) {
+            $model->preUserData = $map['pre_user_data'];
         }
         if (isset($map['runtime'])) {
             $model->runtime = $map['runtime'];

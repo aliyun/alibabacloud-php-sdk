@@ -20,6 +20,8 @@ class UpdateResourcesDeleteProtectionResponseBody extends Model
     /**
      * @description Indicates the status of deletion protection. A value of true indicates that deletion protection is enabled and a value of false indicates that deletion protection is disabled.
      *
+     * @example enable
+     *
      * @var string
      */
     public $protection;
@@ -35,6 +37,8 @@ class UpdateResourcesDeleteProtectionResponseBody extends Model
 
     /**
      * @description The type of resource for which deletion protection is enabled or disabled.
+     *
+     * @example namespaces
      *
      * @var string
      */

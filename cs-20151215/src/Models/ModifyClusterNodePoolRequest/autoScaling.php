@@ -20,7 +20,7 @@ class autoScaling extends Model
     public $eipBandwidth;
 
     /**
-     * @description The metering method of the elastic IP address (EIP). Valid values:
+     * @description The billing method of the EIP. Valid values:
      *
      *   `PayByBandwidth`: pay-by-bandwidth.
      *   `PayByTraffic`: pay-by-data-transfer.
@@ -48,7 +48,7 @@ class autoScaling extends Model
     public $enable;
 
     /**
-     * @description Specifies whether to associate an EIP with the node pool. Valid values:
+     * @description Specifies whether to associate an elastic IP address (EIP) with the node pool. Valid values:
      *
      *   `true`: associates an EIP with the node pool.
      *   `false`: No EIP is associated with the node pool.
@@ -81,7 +81,7 @@ class autoScaling extends Model
     public $minInstances;
 
     /**
-     * @description The instance type that is used for auto scaling. Valid values:
+     * @description The instance types that can be used for the auto scaling of the node pool. Valid values:
      *
      *   `cpu`: regular instance.
      *   `gpu`: GPU-accelerated instance.

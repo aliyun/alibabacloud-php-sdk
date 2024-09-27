@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveNodePoolNodesRequest extends Model
 {
     /**
+     * @description Whether to remove concurrently.
+     *
      * @example false
      *
      * @var bool

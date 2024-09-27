@@ -36,6 +36,8 @@ class scalingGroup extends Model
     public $autoRenewPeriod;
 
     /**
+     * @description 【The field is deprecated】Please use the parameter security_hardening_os instead.
+     *
      * @example false
      *
      * @deprecated
@@ -91,6 +93,8 @@ class scalingGroup extends Model
     public $imageId;
 
     /**
+     * @description Operating system image type.
+     *
      * @example AliyunLinux
      *
      * @var string
@@ -110,7 +114,7 @@ class scalingGroup extends Model
     public $instanceChargeType;
 
     /**
-     * @description 实例属性
+     * @description Instance attributes
      *
      * @var InstancePatterns[]
      */
@@ -151,6 +155,8 @@ class scalingGroup extends Model
     public $keyPair;
 
     /**
+     * @description Whether the popped ECS instance uses a non-root user for login.
+     *
      * @example true
      *
      * @var bool
@@ -256,7 +262,7 @@ class scalingGroup extends Model
     public $ramPolicy;
 
     /**
-     * @description Worker RAM角色名称。
+     * @description Worker RAM role name.
      *
      * @example KubernetesWorkerRole-4a4fa089-80c1-48a5-b3c6-9349311f****
      *
@@ -309,6 +315,8 @@ class scalingGroup extends Model
     public $securityGroupIds;
 
     /**
+     * @description Alibaba Cloud OS security hardening. Values:
+     * Default value: `false`.
      * @example false
      *
      * @var bool
@@ -316,6 +324,8 @@ class scalingGroup extends Model
     public $securityHardeningOs;
 
     /**
+     * @description Indicates whether to enable security reinforcement compliant with the hardening standards. This option is available only when the system image is set to Alibaba Cloud Linux 2 or Alibaba Cloud Linux 3. Alibaba Cloud provides baseline check standards and scanning programs compliant with Grade 3, Version 2.0 of the hardening standards for both Alibaba Cloud Linux 2 and Alibaba Cloud Linux 3 images.
+     *
      * @example false
      *
      * @var bool
@@ -365,6 +375,8 @@ class scalingGroup extends Model
     public $spotStrategy;
 
     /**
+     * @description Whether to enable Burst (performance burst) for the node system disk, configured when the disk type is cloud_auto.
+     *
      * @example true
      *
      * @var bool
@@ -404,6 +416,8 @@ class scalingGroup extends Model
     public $systemDiskCategory;
 
     /**
+     * @description Encryption algorithm used for the system disk. Valid values: aes-256.
+     *
      * @example aes-256
      *
      * @var string
@@ -423,6 +437,8 @@ class scalingGroup extends Model
     public $systemDiskEncrypted;
 
     /**
+     * @description System disk\\"s KMS key ID.
+     *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
      *
      * @var string
@@ -439,6 +455,8 @@ class scalingGroup extends Model
     public $systemDiskPerformanceLevel;
 
     /**
+     * @description Pre-configured read and write IOPS for the system disk of the node, configured when the disk type is cloud_auto.
+     *
      * @example 1000
      *
      * @var int

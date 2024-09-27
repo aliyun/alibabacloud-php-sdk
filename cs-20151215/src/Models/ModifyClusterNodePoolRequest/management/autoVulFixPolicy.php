@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class autoVulFixPolicy extends Model
 {
     /**
-     * @description Specifies whether to allow node restart. Valid values:
+     * @description Specifies whether ACK is allowed to automatically restart nodes after repairing the nodes. Valid values:
      *
      *   `true`: allows node restart.
      *   `false`: does not allow node restart.
@@ -21,7 +21,7 @@ class autoVulFixPolicy extends Model
     public $restartNode;
 
     /**
-     * @description The severity levels of CVEs that can be automatically patched. Separate multiple levels with commas (,).
+     * @description The severity levels of vulnerabilities that ACK is allowed to automatically patch. Multiple severity levels are separated by commas (,).
      *
      * @example asap,nntf
      *

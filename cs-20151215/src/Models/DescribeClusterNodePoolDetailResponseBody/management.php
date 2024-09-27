@@ -25,11 +25,15 @@ class management extends Model
     public $autoRepair;
 
     /**
+     * @description Automatic repair node policy.
+     *
      * @var autoRepairPolicy
      */
     public $autoRepairPolicy;
 
     /**
+     * @description Whether to automatically upgrade.
+     *
      * @example true
      *
      * @var bool
@@ -37,11 +41,15 @@ class management extends Model
     public $autoUpgrade;
 
     /**
+     * @description Automatic upgrade policy.
+     *
      * @var autoUpgradePolicy
      */
     public $autoUpgradePolicy;
 
     /**
+     * @description Whether to automatically fix CVEs.
+     *
      * @example true
      *
      * @var bool
@@ -49,6 +57,8 @@ class management extends Model
     public $autoVulFix;
 
     /**
+     * @description Automatically repair CVE policies.
+     *
      * @var autoVulFixPolicy
      */
     public $autoVulFixPolicy;

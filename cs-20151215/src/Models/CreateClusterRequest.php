@@ -56,6 +56,9 @@ class CreateClusterRequest extends Model
     public $apiAudiences;
 
     /**
+     * @description Specifies whether to enable auto-renewal, which takes effect only when the `charge_type` value is set to `PrePaid`.
+     *
+     * Default value: `false`.
      * @example true
      *
      * @var bool
@@ -63,6 +66,8 @@ class CreateClusterRequest extends Model
     public $autoRenew;
 
     /**
+     * @description Renewal period, which takes effect only when Prepaid and Auto-Renewal are selected. When `PeriodUnit=Month`, the value range is {1, 2, 3, 6, 12}.
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -366,6 +371,8 @@ class CreateClusterRequest extends Model
     public $kubernetesVersion;
 
     /**
+     * @description Specifies the CLB instance ID for accessing the APIServer. When this parameter is set, an APIServer CLB will no longer be automatically created.
+     *
      * @example lb-wz9t256gqa3vbouk****
      *
      * @var string
@@ -1054,6 +1061,8 @@ class CreateClusterRequest extends Model
     public $zoneId;
 
     /**
+     * @description List of availability zone IDs in the region where the cluster resides. This parameter is specific to ACK managed clusters.
+     * When creating an ACK managed cluster, if `vpc_id` and `vswitch_ids` are not specified, specifying `zone_ids` allows for automatic creation of VPC network resources across multiple availability zones. If `vpc_id` and `vswitch_ids` are specified, this parameter becomes ineffective.
      * @var string[]
      */
     public $zoneIds;

@@ -11,6 +11,8 @@ class ListClusterChecksRequest extends Model
     /**
      * @description The targets to check.
      *
+     * @example ngw-bp19ay6nnvd4cexxxx
+     *
      * @var string
      */
     public $target;

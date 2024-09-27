@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class autoRepairPolicy extends Model
 {
     /**
+     * @description Whether to allow restarting nodes.
+     *
      * @example true
      *
      * @var bool

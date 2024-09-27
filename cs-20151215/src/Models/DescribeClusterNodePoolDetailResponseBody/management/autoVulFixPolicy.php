@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class autoVulFixPolicy extends Model
 {
     /**
+     * @description Whether to allow restarting nodes.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class autoVulFixPolicy extends Model
     public $restartNode;
 
     /**
+     * @description The vulnerability levels allowed for auto-fixing, separated by commas.
+     *
      * @example asap,nntf
      *
      * @var string

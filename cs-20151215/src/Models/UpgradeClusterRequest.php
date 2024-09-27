@@ -42,6 +42,8 @@ class UpgradeClusterRequest extends Model
     public $nextVersion;
 
     /**
+     * @description Policy of rolling.
+     *
      * @var rollingPolicy
      */
     public $rollingPolicy;

@@ -64,6 +64,8 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
     public $maxNodes;
 
     /**
+     * @description Node configuration.
+     *
      * @var nodeConfig
      */
     public $nodeConfig;

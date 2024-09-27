@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ScaleClusterNodePoolRequest extends Model
 {
     /**
-     * @description The number of worker nodes that you want to add. For example, the current node pool contains two nodes. After the node pool is scaled out, the node pool contains four nodes. Due to the limit of the node quota, you can add at most 500 nodes in each request.
+     * @description The number of worker nodes that you want to add. For example, the current node pool contains two nodes. After the two node is scaled out, the node pool contains four nodes. Due to the limit of the node quota, you can add at most 500 nodes in each request.
      *
-     * @example 1
+     * @example 2
      *
      * @var int
      */

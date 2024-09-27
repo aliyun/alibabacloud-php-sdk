@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class upgradeConfig extends Model
 {
     /**
-     * @description Specifies whether to enable auto update. Valid values:
+     * @description Specifies whether to enable auto update.
      *
      *   true: enables auto update.
      *   false: disables auto update.
@@ -24,9 +24,9 @@ class upgradeConfig extends Model
     public $autoUpgrade;
 
     /**
-     * @description The maximum number of unavailable nodes.
+     * @description The maximum number of nodes that can be in the Unavailable state.
      *
-     * Default value: 1.
+     * Default value: 1
      * @example 1
      *
      * @var int
@@ -34,9 +34,9 @@ class upgradeConfig extends Model
     public $maxUnavailable;
 
     /**
-     * @description The number of additional nodes that are temporarily added to the node pool during an auto update. A node is unavailable during an update. Additional nodes are used to temporarily host the workloads of nodes that are being updated.
+     * @description The number of nodes that are temporarily added to the node pool during an auto upgrade. Additional nodes are used to host the workloads of nodes that are being updated.
      *
-     * >  We recommend that you set the number of additional nodes to a value that does not exceed the current number of existing nodes in the node pool.
+     * >  We recommend that you set the number of additional nodes to a value that does not exceed the current number of existing nodes.
      * @example 5
      *
      * @var int
@@ -44,7 +44,7 @@ class upgradeConfig extends Model
     public $surge;
 
     /**
-     * @description The percentage of additional nodes that are temporarily added to the node pool during an auto update. You must set this parameter or `surge`.
+     * @description The percentage of additional nodes to the nodes in the node pool. You must set this parameter or `surge`.
      *
      * @example 0
      *

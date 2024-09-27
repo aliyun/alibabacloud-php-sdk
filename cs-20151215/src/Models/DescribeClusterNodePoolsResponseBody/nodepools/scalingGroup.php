@@ -114,6 +114,8 @@ class scalingGroup extends Model
     public $instanceChargeType;
 
     /**
+     * @description Instance attributes
+     *
      * @var InstancePatterns[]
      */
     public $instancePatterns;
@@ -262,6 +264,8 @@ class scalingGroup extends Model
     public $ramPolicy;
 
     /**
+     * @description Worker RAM role name.
+     *
      * @example KubernetesWorkerRole-4a4fa089-80c1-48a5-b3c6-9349311f****
      *
      * @var string
@@ -313,6 +317,10 @@ class scalingGroup extends Model
     public $securityGroupIds;
 
     /**
+     * @description Alibaba Cloud OS security hardening. Values:
+     * Default value: `false`.
+     * @example false
+     *
      * @var bool
      */
     public $securityHardeningOs;
