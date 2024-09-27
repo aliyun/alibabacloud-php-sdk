@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class EditProhibitedDevicesResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description Id of the request
+     *
+     * @example 9bc20a5a-b26b-4c28-922a-7cd10b61f96f
+     *
      * @var string
      */
     public $requestId;

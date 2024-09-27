@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BatchSaveInstructionStatusRequest extends Model
 {
     /**
+     * @example ***
+     *
      * @var string
      */
     public $factoryId;
 
     /**
+     * @example ib
+     *
      * @var string
      */
     public $pKey;

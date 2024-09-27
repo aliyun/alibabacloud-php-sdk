@@ -9,81 +9,113 @@ use AlibabaCloud\Tea\Model;
 class SetRunningPlanRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $controlType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $dateType;
 
     /**
+     * @example 05:00:00
+     *
      * @var string
      */
     public $earliestStartupTime;
 
     /**
+     * @example 2024-07-21
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example ***
+     *
      * @var string
      */
     public $factoryId;
 
     /**
+     * @example 05:30:00
+     *
      * @var string
      */
     public $latestShutdownTime;
 
     /**
+     * @example 2.1
+     *
      * @var float
      */
     public $maxCarbonDioxide;
 
     /**
+     * @example 3.1
+     *
      * @var float
      */
     public $maxTem;
 
     /**
+     * @example 2.1
+     *
      * @var float
      */
     public $minTem;
 
     /**
+     * @example ib
+     *
      * @var string
      */
     public $pKey;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $seasonMode;
 
     /**
+     * @example 2024-07-20
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 2024-07-31
+     *
      * @var string
      */
     public $statisticsTime;
 
     /**
+     * @example system1
+     *
      * @var string
      */
     public $systemId;
 
     /**
+     * @example 05:30:00
+     *
      * @var string
      */
     public $workingEndTime;
 
     /**
+     * @example 05:00:00
+     *
      * @var string
      */
     public $workingStartTime;

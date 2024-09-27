@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class SetRunningPlanResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description Id of the request
+     *
+     * @example 83A5A7DD-8974-5769-952E-590A97BEA34E
+     *
      * @var string
      */
     public $requestId;

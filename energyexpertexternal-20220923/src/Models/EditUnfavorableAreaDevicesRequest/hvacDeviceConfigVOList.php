@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class hvacDeviceConfigVOList extends Model
 {
     /**
+     * @example buildingId1
+     *
      * @var string
      */
     public $buildingId;
 
     /**
+     * @example id1
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example name1
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $deviceType;
 
     /**
+     * @example fenceId1
+     *
      * @var string
      */
     public $fenceId;
 
     /**
+     * @example floorId2
+     *
      * @var string
      */
     public $floorId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isForbidden;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isUnfavorableArea;

@@ -9,71 +9,99 @@ use AlibabaCloud\Tea\Model;
 class BatchUpdateSystemRunningPlanRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $controlType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $dateType;
 
     /**
+     * @example 05:00:00
+     *
      * @var string
      */
     public $earliestStartupTime;
 
     /**
+     * @example 2024-08-30
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example ***
+     *
      * @var string
      */
     public $factoryId;
 
     /**
+     * @example 05:30:00
+     *
      * @var string
      */
     public $latestShutdownTime;
 
     /**
+     * @example 37.1
+     *
      * @var float
      */
     public $maxCarbonDioxide;
 
     /**
+     * @example 25.3
+     *
      * @var float
      */
     public $maxTem;
 
     /**
+     * @example 20.1
+     *
      * @var float
      */
     public $minTem;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $seasonMode;
 
     /**
+     * @example 2024-08-21
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example system1
+     *
      * @var string
      */
     public $systemId;
 
     /**
+     * @example 05:30:00
+     *
      * @var string
      */
     public $workingEndTime;
 
     /**
+     * @example 05:00:00
+     *
      * @var string
      */
     public $workingStartTime;

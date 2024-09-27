@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class EditUnfavorableAreaDevicesRequest extends Model
 {
     /**
+     * @example ***
+     *
      * @var string
      */
     public $factoryId;
@@ -20,6 +22,8 @@ class EditUnfavorableAreaDevicesRequest extends Model
     public $hvacDeviceConfigVOList;
 
     /**
+     * @example system1
+     *
      * @var string
      */
     public $systemId;
