@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class alertGroup extends Model
 {
     /**
+     * @description The name of the alert contact group.
+     *
+     * @example [\\"Default\\"]
+     *
      * @var string
      */
     public $groupName;

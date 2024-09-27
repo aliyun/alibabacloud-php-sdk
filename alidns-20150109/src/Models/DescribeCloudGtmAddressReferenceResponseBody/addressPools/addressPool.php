@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class addressPool extends Model
 {
     /**
+     * @description Load balancing policy among addresses in the address pool:
+     * - source_nearest: Source-nearest, i.e., intelligent resolution function, where GTM can return different addresses based on the source of different DNS resolution requests, achieving the effect of users accessing nearby.
      * @example round_robin
      *
      * @var string
@@ -17,6 +19,8 @@ class addressPool extends Model
     public $addressLbStrategy;
 
     /**
+     * @description The ID of the address pool.
+     *
      * @example pool-895280232254422016
      *
      * @var string
@@ -24,6 +28,8 @@ class addressPool extends Model
     public $addressPoolId;
 
     /**
+     * @description Address pool name.
+     *
      * @example AddressPool-1
      *
      * @var string
@@ -31,6 +37,8 @@ class addressPool extends Model
     public $addressPoolName;
 
     /**
+     * @description Address pool type:
+     * - domain
      * @example IPv4
      *
      * @var string
@@ -38,6 +46,8 @@ class addressPool extends Model
     public $addressPoolType;
 
     /**
+     * @description Address pool availability status:
+     * - unavailable
      * @example available
      *
      * @var string
@@ -45,6 +55,8 @@ class addressPool extends Model
     public $availableStatus;
 
     /**
+     * @description Address pool status:
+     * - disable: Disabled status
      * @example enable
      *
      * @var string
@@ -52,6 +64,14 @@ class addressPool extends Model
     public $enableStatus;
 
     /**
+     * @description The condition for determining the health status of the address pool. Valid values:
+     *
+     *   any_ok: At least one address in the address pool is available.
+     *   p30_ok: At least 30% of the addresses in the address pool are available.
+     *   p50_ok: At least 50% of the addresses in the address pool are available.
+     *   p70_ok: At least 70% of the addresses in the address pool are available.
+     *   all_ok: All addresses in the address pool are available.
+     *
      * @example any_ok
      *
      * @var string
@@ -59,6 +79,12 @@ class addressPool extends Model
     public $healthJudgement;
 
     /**
+     * @description The health state of the address pool. Valid values:
+     *
+     *   ok: The health state of the address pool is normal and all addresses that are referenced by the address pool are available.
+     *   ok_alert: The health state of the address pool is warning and some of the addresses that are referenced by the address pool are unavailable. However, the address pool is deemed normal. In this case, only the available addresses are returned for DNS requests.
+     *   exceptional: The health state of the address pool is abnormal and some or all of the addresses that are referenced by the address pool are unavailable. In this case, the address pool is deemed abnormal.
+     *
      * @example ok
      *
      * @var string
@@ -66,11 +92,15 @@ class addressPool extends Model
     public $healthStatus;
 
     /**
+     * @description The instances that reference the address pool.
+     *
      * @var instanceConfigs
      */
     public $instanceConfigs;
 
     /**
+     * @description Remarks for the address pool.
+     *
      * @example pool-1
      *
      * @var string
@@ -78,6 +108,8 @@ class addressPool extends Model
     public $remark;
 
     /**
+     * @description Load balancing policy between addresses in sequential mode during the recovery of preceding resources service mode:
+     * - non_preemptive: Non-preemption mode, where upon recovery of preceding resources, the current address continues to be used;
      * @example preemptive
      *
      * @var string

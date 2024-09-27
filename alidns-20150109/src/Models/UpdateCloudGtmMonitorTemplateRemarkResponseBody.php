@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateCloudGtmMonitorTemplateRemarkResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 6856BCF6-11D6-4D7E-AC53-FD579933522B
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateCloudGtmMonitorTemplateRemarkResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Modify the health check template remark operation status:
+     * - false: Operation failed
      * @example true
      *
      * @var bool

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmInstancesRequest extends Model
 {
     /**
-     * @description The keyword that you use for query. Fuzzy search by instance ID or instance name is supported.
+     * @description The keyword that you use for the query. Fuzzy search by instance ID or instance name is supported.
      *
      * @example instance1
      *
@@ -18,7 +18,7 @@ class DescribeDnsGtmInstancesRequest extends Model
     public $keyword;
 
     /**
-     * @description The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+     * @description The language of the values for specific response parameters. Default value: en. Valid values: en, zh, and ja.
      *
      * @example en
      *
@@ -27,7 +27,7 @@ class DescribeDnsGtmInstancesRequest extends Model
     public $lang;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number. Pages start from page **1**. Default value: **1**.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class DescribeDnsGtmInstancesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page. Maximum value: **100**. Default value: **20**.
      *
      * @example 1
      *
@@ -45,7 +45,7 @@ class DescribeDnsGtmInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the resource group where you want to query instances.
+     * @description The resource group ID.
      *
      * @example rg-testgroupid
      *

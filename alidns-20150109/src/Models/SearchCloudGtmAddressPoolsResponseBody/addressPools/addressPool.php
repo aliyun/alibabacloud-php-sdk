@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class addressPool extends Model
 {
     /**
+     * @description Load balancing policy among addresses in the address pool:
+     * - source_nearest: Source-nearest, i.e., intelligent resolution function, where GTM can return different addresses based on the source of different DNS resolution requests, achieving the effect of users accessing nearby.
      * @example round_robin
      *
      * @var string
@@ -17,6 +19,8 @@ class addressPool extends Model
     public $addressLbStrategy;
 
     /**
+     * @description The ID of the address pool. This ID uniquely identifies the address pool.
+     *
      * @example pool-895280232254422016
      *
      * @var string
@@ -24,6 +28,8 @@ class addressPool extends Model
     public $addressPoolId;
 
     /**
+     * @description Address pool name.
+     *
      * @example AddressPool-1
      *
      * @var string
@@ -31,6 +37,8 @@ class addressPool extends Model
     public $addressPoolName;
 
     /**
+     * @description Address pool type:
+     * - domain
      * @example IPv4
      *
      * @var string
@@ -38,11 +46,15 @@ class addressPool extends Model
     public $addressPoolType;
 
     /**
+     * @description The IP addresses or domain names.
+     *
      * @var addresses
      */
     public $addresses;
 
     /**
+     * @description Address pool availability status:
+     * - unavailable: Unavailable
      * @example available
      *
      * @var string
@@ -50,6 +62,8 @@ class addressPool extends Model
     public $availableStatus;
 
     /**
+     * @description Address pool creation time.
+     *
      * @example 2024-03-15T01:46Z
      *
      * @var string
@@ -57,6 +71,8 @@ class addressPool extends Model
     public $createTime;
 
     /**
+     * @description Address pool creation time (timestamp).
+     *
      * @example 1527690629357
      *
      * @var int
@@ -64,6 +80,8 @@ class addressPool extends Model
     public $createTimestamp;
 
     /**
+     * @description Address pool status:
+     * - disable: Disabled status
      * @example enable
      *
      * @var string
@@ -71,6 +89,14 @@ class addressPool extends Model
     public $enableStatus;
 
     /**
+     * @description The condition for determining the health status of the address pool. Valid values:
+     *
+     *   any_ok: At least one address in the address pool is available.
+     *   p30_ok: At least 30% of the addresses in the address pool are available.
+     *   p50_ok: At least 50% of the addresses in the address pool are available.
+     *   p70_ok: At least 70% of the addresses in the address pool are available.
+     *   all_ok: All addresses in the address pool are available.
+     *
      * @example any_ok
      *
      * @var string
@@ -78,6 +104,12 @@ class addressPool extends Model
     public $healthJudgement;
 
     /**
+     * @description The health state of the address pool. Valid values:
+     *
+     *   ok: The health state of the address pool is normal and all addresses that are referenced by the address pool are available.
+     *   ok_alert: The health state of the address pool is warning and some of the addresses that are referenced by the address pool are unavailable. However, the address pool is deemed normal. In this case, only the available addresses are returned for DNS requests.
+     *   exceptional: The health state of the address pool is abnormal and some or all of the addresses that are referenced by the address pool are unavailable. In this case, the address pool is deemed abnormal.
+     *
      * @example ok
      *
      * @var string
@@ -85,6 +117,8 @@ class addressPool extends Model
     public $healthStatus;
 
     /**
+     * @description Address remarks.
+     *
      * @example test
      *
      * @var string
@@ -92,6 +126,11 @@ class addressPool extends Model
     public $remark;
 
     /**
+     * @description The mode used if the address with the smallest sequence number is recovered. This parameter is returned only when the policy for load balancing between addresses is sequence. Valid values:
+     *
+     *   preemptive: The address with the smallest sequence number is preferentially used if this address is recovered.
+     *   non_preemptive: The current address is still used even if the address with the smallest sequence number is recovered.
+     *
      * @example preemptive
      *
      * @var string
@@ -99,6 +138,8 @@ class addressPool extends Model
     public $sequenceLbStrategyMode;
 
     /**
+     * @description Last modification time of the address pool.
+     *
      * @example 024-03-15T01:46Z
      *
      * @var string
@@ -106,6 +147,8 @@ class addressPool extends Model
     public $updateTime;
 
     /**
+     * @description Last modification time of the address pool (timestamp).
+     *
      * @example 1527690629357
      *
      * @var int

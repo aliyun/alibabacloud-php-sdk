@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetDomainDnssecStatusRequest extends Model
 {
     /**
-     * @description The domain name for which you want to set the DNSSEC status.
+     * @description The domain name for which you want to enable the DNSSEC. Only the users of the paid editions of Alibaba Cloud DNS can enable this feature.
      *
      * This parameter is required.
      * @example example.com
@@ -19,8 +19,12 @@ class SetDomainDnssecStatusRequest extends Model
     public $domainName;
 
     /**
-     * @description The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages. Default value: en. Valid values: en, zh, and ja.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string

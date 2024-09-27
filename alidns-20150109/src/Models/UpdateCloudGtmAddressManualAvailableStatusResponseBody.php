@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateCloudGtmAddressManualAvailableStatusResponseBody extends Model
 {
     /**
+     * @description Unique request identification code.
+     *
      * @example 0F32959D-417B-4D66-8463-68606605E3E2
      *
      * @var string
@@ -16,6 +18,11 @@ class UpdateCloudGtmAddressManualAvailableStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @example true
      *
      * @var bool

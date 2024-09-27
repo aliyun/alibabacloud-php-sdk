@@ -12,8 +12,14 @@ class CreatePdnsAppKeyRequest extends Model
      * @var string
      */
     public $lang;
+
+    /**
+     * @var string
+     */
+    public $remark;
     protected $_name = [
-        'lang' => 'Lang',
+        'lang'   => 'Lang',
+        'remark' => 'Remark',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class CreatePdnsAppKeyRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class CreatePdnsAppKeyRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
 
         return $model;

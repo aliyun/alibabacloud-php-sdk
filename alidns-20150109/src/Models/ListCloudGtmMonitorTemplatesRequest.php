@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListCloudGtmMonitorTemplatesRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh-CN: Chinese
+     *   en-US (default): English
+     *
      * @example en-US
      *
      * @var string
@@ -16,6 +21,11 @@ class ListCloudGtmMonitorTemplatesRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The IP address type of health check nodes. Valid values:
+     *
+     *   IPv4: applicable when health checks are performed on IPv4 addresses.
+     *   IPv6: applicable when health checks are performed on IPv6 addresses.
+     *
      * @example IPv4
      *
      * @var string
@@ -23,6 +33,8 @@ class ListCloudGtmMonitorTemplatesRequest extends Model
     public $ipVersion;
 
     /**
+     * @description The name of the health check probe template, which is recommended to be distinguishable for configuration personnel to differentiate and remember, ideally indicating the health check protocol.
+     *
      * @example IPv4-Ping
      *
      * @var string
@@ -30,8 +42,9 @@ class ListCloudGtmMonitorTemplatesRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description Current page number, starting from **1**, default is **1**.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -39,8 +52,9 @@ class ListCloudGtmMonitorTemplatesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description This parameter is required.
+     * @description The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int
@@ -48,6 +62,8 @@ class ListCloudGtmMonitorTemplatesRequest extends Model
     public $pageSize;
 
     /**
+     * @description Protocol types for initiating probes to the target IP address:
+     * - https
      * @example ping
      *
      * @var string

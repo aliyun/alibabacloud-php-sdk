@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class healthTask extends Model
 {
     /**
+     * @description The target service port for health checks. When the Ping protocol is selected for health checks, configuration of the service port is not supported.
+     *
      * @example 80
      *
      * @var int
@@ -16,6 +18,8 @@ class healthTask extends Model
     public $port;
 
     /**
+     * @description The ID of the health check template associated with the address.
+     *
      * @example mtp-89518052425100**80
      *
      * @var string
@@ -23,6 +27,8 @@ class healthTask extends Model
     public $templateId;
 
     /**
+     * @description Health check template name.
+     *
      * @example IPv4-Ping
      *
      * @var string

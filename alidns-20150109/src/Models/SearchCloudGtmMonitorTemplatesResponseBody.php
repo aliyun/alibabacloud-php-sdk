@@ -31,6 +31,8 @@ class SearchCloudGtmMonitorTemplatesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The health check templates.
+     *
      * @var templates
      */
     public $templates;

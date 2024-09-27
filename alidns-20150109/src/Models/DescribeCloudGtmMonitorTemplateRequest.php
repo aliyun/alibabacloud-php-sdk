@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudGtmMonitorTemplateRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   **zh-CN**: Chinese
+     *   **en-US** (default): English
+     *
      * @example en-US
      *
      * @var string
@@ -16,8 +21,9 @@ class DescribeCloudGtmMonitorTemplateRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the health check template that you want to query. This ID uniquely identifies the health check template.
      *
+     * This parameter is required.
      * @example mtp-89518052425100**80
      *
      * @var string

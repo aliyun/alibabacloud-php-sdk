@@ -13,7 +13,7 @@ class DescribeBatchResultCountRequest extends Model
      *
      *   **DOMAIN_ADD**: adds domain names in batches.
      *   **DOMAIN_DEL**: deletes domain names in batches.
-     *   **RR_ADD**: adds DNS records in batches.
+     *   **RR_ADD**: adds Domain Name System (DNS) records in batches.
      *   **RR_DEL**: deletes DNS records in batches.
      *
      * @example DOMAIN_ADD
@@ -23,7 +23,7 @@ class DescribeBatchResultCountRequest extends Model
     public $batchType;
 
     /**
-     * @description The language type.
+     * @description The language.
      *
      * @example en
      *
@@ -32,7 +32,7 @@ class DescribeBatchResultCountRequest extends Model
     public $lang;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * If you specify TaskId, the execution result of the specified task is returned. If you do not specify TaskId, the execution result of the last task is returned.
      * @example 123456

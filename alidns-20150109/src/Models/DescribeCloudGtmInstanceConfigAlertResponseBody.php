@@ -11,16 +11,25 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudGtmInstanceConfigAlertResponseBody extends Model
 {
     /**
+     * @description The alert configurations.
+     *
      * @var alertConfig
      */
     public $alertConfig;
 
     /**
+     * @description The alert contact groups.
+     *
      * @var alertGroup
      */
     public $alertGroup;
 
     /**
+     * @description The alert configuration mode of the instance. Valid values:
+     *
+     *   global: global alert configuration
+     *   instance_config: custom alert configuration
+     *
      * @example global
      *
      * @var string
@@ -28,6 +37,8 @@ class DescribeCloudGtmInstanceConfigAlertResponseBody extends Model
     public $alertMode;
 
     /**
+     * @description The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
+     *
      * @example Config-000**11
      *
      * @var string
@@ -35,6 +46,8 @@ class DescribeCloudGtmInstanceConfigAlertResponseBody extends Model
     public $configId;
 
     /**
+     * @description The ID of the GTM 3.0 instance.
+     *
      * @example gtm-cn-wwo3a3hbz**
      *
      * @var string
@@ -42,6 +55,8 @@ class DescribeCloudGtmInstanceConfigAlertResponseBody extends Model
     public $instanceId;
 
     /**
+     * @description The request ID.
+     *
      * @example 0F32959D-417B-4D66-8463-68606605E3E2
      *
      * @var string

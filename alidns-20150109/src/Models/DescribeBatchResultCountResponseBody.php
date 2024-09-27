@@ -36,7 +36,7 @@ class DescribeBatchResultCountResponseBody extends Model
     public $reason;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 75446CC1-FC9A-4595-8D96-089D73D7A63D
      *
@@ -45,11 +45,11 @@ class DescribeBatchResultCountResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status of the task. Valid values:
+     * @description The state of the task. Valid values:
      *
      *   **-1**: No task for importing domain names or DNS records is submitted.
      *   **0**: The task is being processed.
-     *   **1**: The task is completed.
+     *   **1**: The task is complete.
      *   **2**: The task failed.
      *
      * @example 0
@@ -59,7 +59,7 @@ class DescribeBatchResultCountResponseBody extends Model
     public $status;
 
     /**
-     * @description The total number of successfully processed domain names or DNS records.
+     * @description The total number of domain names or DNS records that were processed.
      *
      * @example 2
      *

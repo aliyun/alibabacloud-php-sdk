@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCloudGtmMonitorTemplateResponseBody extends Model
 {
     /**
+     * @description Unique request identification code.
+     *
      * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteCloudGtmMonitorTemplateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the operation to delete the health check template was successful:
+     * - false: Operation failed
      * @example true
      *
      * @var bool

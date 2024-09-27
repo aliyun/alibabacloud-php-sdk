@@ -27,7 +27,7 @@ class DescribeGtmInstanceStatusResponseBody extends Model
     public $addrPoolNotAvailableNum;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 389DFFA3-77A5-4A9E-BF3D-147C6F98A5BA
      *
@@ -36,10 +36,10 @@ class DescribeGtmInstanceStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status of the instance. Valid values:
+     * @description The state of the instance. Valid values:
      *
-     *   ALLOW: Operations on the instance are allowed.
-     *   DENY: Operations on the instance are not allowed.
+     *   ALLOW: The operation on the instance is allowed.
+     *   DENY: The operation on the instance is not allowed.
      *
      * @example ALLOW
      *
@@ -48,9 +48,9 @@ class DescribeGtmInstanceStatusResponseBody extends Model
     public $status;
 
     /**
-     * @description List of reasons for an instance status. Valid values:
+     * @description The reasons why the instance is in the current state. Valid values:
      *
-     *   INSTANCE_OPERATE_BLACK_LIST: The instance is in the blacklist.
+     *   INSTANCE_OPERATE_BLACK_LIST: The operation on the instance is not allowed.
      *   BETA_INSTANCE: The instance is in public preview.
      *
      * @example ["BETA_INSTANCE"]
@@ -60,7 +60,7 @@ class DescribeGtmInstanceStatusResponseBody extends Model
     public $statusReason;
 
     /**
-     * @description The number of access policies that are unavailable in the active address pool.
+     * @description The number of unavailable access policies.
      *
      * @example 10
      *
@@ -69,7 +69,7 @@ class DescribeGtmInstanceStatusResponseBody extends Model
     public $strategyNotAvailableNum;
 
     /**
-     * @description The number of access policies that fail over to the secondary address pool.
+     * @description The number of access policies switched to the secondary address pool.
      *
      * @example 10
      *

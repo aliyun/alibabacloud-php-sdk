@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmAddrAttributeInfoRequest extends Model
 {
     /**
-     * @description The addresses whose source regions you want to query.
+     * @description The addresses.
      *
      * This parameter is required.
      * @example ["1.1.1.1"]
@@ -19,7 +19,7 @@ class DescribeDnsGtmAddrAttributeInfoRequest extends Model
     public $addrs;
 
     /**
-     * @description The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+     * @description The language of the values for specific response parameters. Default value: en. Valid values: en, zh, and ja.
      *
      * @example en
      *
@@ -28,10 +28,10 @@ class DescribeDnsGtmAddrAttributeInfoRequest extends Model
     public $lang;
 
     /**
-     * @description The type of the addresses. Valid values:
+     * @description The type of addresses. Valid values:
      *
      *   IPV4: IPv4 address
-     *   IPV6: IPv6 address
+     *   IPv6: IPv6 address
      *   DOMAIN: domain name
      *
      * This parameter is required.

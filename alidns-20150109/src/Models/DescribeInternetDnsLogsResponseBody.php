@@ -24,6 +24,8 @@ class DescribeInternetDnsLogsResponseBody extends Model
     public $curPage;
 
     /**
+     * @description The logs.
+     *
      * @var logs
      */
     public $logs;

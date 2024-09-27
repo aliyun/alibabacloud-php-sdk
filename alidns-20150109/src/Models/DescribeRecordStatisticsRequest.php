@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecordStatisticsRequest extends Model
 {
     /**
-     * @description The domain name.
+     * @description The primary domain name.
      *
      * This parameter is required.
      * @example dns-example.com
@@ -50,7 +50,7 @@ class DescribeRecordStatisticsRequest extends Model
     public $lang;
 
     /**
-     * @description The hostname. If you want to resolve the subdomain name www.dns-exmaple.top, set this parameter to www.
+     * @description The hostname. If you want to resolve www.dns-exmaple.top, set Rr to www.
      *
      * This parameter is required.
      * @example www

@@ -23,6 +23,8 @@ class CreateCloudGtmMonitorTemplateResponseBody extends Model
     public $success;
 
     /**
+     * @description The ID of the health check template. This ID uniquely identifies the health check template.
+     *
      * @example mtp-89518052425100**80
      *
      * @var string

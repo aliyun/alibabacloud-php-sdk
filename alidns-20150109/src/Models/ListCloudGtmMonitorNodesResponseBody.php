@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListCloudGtmMonitorNodesResponseBody extends Model
 {
     /**
+     * @description Public IPv4 monitoring node list.
+     *
      * @var ipv4IspCityNodes
      */
     public $ipv4IspCityNodes;
 
     /**
+     * @description List of public IPv6 monitoring nodes.
+     *
      * @var ipv6IspCityNodes
      */
     public $ipv6IspCityNodes;
 
     /**
+     * @description Unique request identification code.
+     *
      * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
      *
      * @var string

@@ -126,7 +126,7 @@ class UpdateDnsGtmMonitorRequest extends Model
     public $protocolType;
 
     /**
-     * @description The health check timeout period. Unit: milliseconds.
+     * @description The timeout period. Unit: milliseconds.
      *
      * @example 3000
      *

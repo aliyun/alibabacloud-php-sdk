@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListCloudGtmInstanceConfigsRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh-CN: Chinese
+     *   en-US (default): English
+     *
      * @example en-US
      *
      * @var string
@@ -16,6 +21,8 @@ class ListCloudGtmInstanceConfigsRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example 1ae05db4-10e7-11ef-b126-00163e24**22
      *
      * @var string
@@ -23,6 +30,11 @@ class ListCloudGtmInstanceConfigsRequest extends Model
     public $clientToken;
 
     /**
+     * @description The enabling state of the access domain name. Valid values:
+     *
+     *   enable: The access domain name is enabled and the intelligent scheduling policy of the GTM instance takes effect.
+     *   disable: The access domain name is disabled and the intelligent scheduling policy of the GTM instance does not take effect.
+     *
      * @example enable
      *
      * @var string
@@ -30,6 +42,8 @@ class ListCloudGtmInstanceConfigsRequest extends Model
     public $enableStatus;
 
     /**
+     * @description The ID of the GTM 3.0 instance.
+     *
      * @example gtm-cn-wwo3a3hbz**
      *
      * @var string
@@ -37,6 +51,8 @@ class ListCloudGtmInstanceConfigsRequest extends Model
     public $instanceId;
 
     /**
+     * @description Current page number, starting at **1**, default is **1**.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +60,8 @@ class ListCloudGtmInstanceConfigsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of rows per page when paginating queries, with a maximum value of **100**, and a default of **20**.
+     *
      * @example 20
      *
      * @var int
@@ -51,6 +69,8 @@ class ListCloudGtmInstanceConfigsRequest extends Model
     public $pageSize;
 
     /**
+     * @description Remarks.
+     *
      * @example test
      *
      * @var string
@@ -58,6 +78,8 @@ class ListCloudGtmInstanceConfigsRequest extends Model
     public $remark;
 
     /**
+     * @description The GTM access domain name. The value of this parameter is composed of the value of ScheduleHostname and the value of ScheduleZoneName.
+     *
      * @example www.example.com
      *
      * @var string
@@ -65,6 +87,8 @@ class ListCloudGtmInstanceConfigsRequest extends Model
     public $scheduleDomainName;
 
     /**
+     * @description The zone (such as example.com) or subzone (such as a.example.com) of the GTM access domain name. In most cases, the zone or subzone is hosted in Authoritative DNS Resolution of the Alibaba Cloud DNS console within the account to which the GTM instance belongs.
+     *
      * @example example.com
      *
      * @var string

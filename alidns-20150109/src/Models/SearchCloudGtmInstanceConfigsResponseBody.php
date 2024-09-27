@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class SearchCloudGtmInstanceConfigsResponseBody extends Model
 {
     /**
+     * @description The instances list.
+     *
      * @var instanceConfigs
      */
     public $instanceConfigs;
 
     /**
+     * @description Current page number, starting from 1, default is 1.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class SearchCloudGtmInstanceConfigsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of rows per page when paginating queries, with a maximum value of **100**, and a default of **20**.
+     *
      * @example 20
      *
      * @var int
@@ -29,6 +35,8 @@ class SearchCloudGtmInstanceConfigsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description Unique request identification code.
+     *
      * @example 6AEC7A64-3CB1-4C49-8B35-0B901F1E26BF
      *
      * @var string
@@ -36,6 +44,8 @@ class SearchCloudGtmInstanceConfigsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Total number of instance configuration entries.
+     *
      * @example 15
      *
      * @var int
@@ -43,6 +53,8 @@ class SearchCloudGtmInstanceConfigsResponseBody extends Model
     public $totalItems;
 
     /**
+     * @description Total number of pages.
+     *
      * @example 1
      *
      * @var int

@@ -11,8 +11,8 @@ class alertConfig extends Model
     /**
      * @description Specifies whether to configure DingTalk notifications. Valid values:
      *
-     *   true: DingTalk notifications are configured. DingTalk notifications are sent when alerts are triggered.
-     *   false: DingTalk notifications are not configured.
+     *   true: configures DingTalk notifications. DingTalk notifications are sent when alerts are triggered.
+     *   false: does not configure DingTalk notifications.
      *
      * @example true
      *
@@ -23,8 +23,8 @@ class alertConfig extends Model
     /**
      * @description Specifies whether to configure email notifications. Valid values:
      *
-     *   true: Email notifications are configured. Emails are sent when alerts are triggered.
-     *   false: Email notifications are not configured.
+     *   true: configures email notifications. Emails are sent when alerts are triggered.
+     *   false: does not configure email notifications.
      *
      * @example true
      *
@@ -49,8 +49,8 @@ class alertConfig extends Model
     /**
      * @description Specifies whether to configure text message notifications. Valid values:
      *
-     *   true: Text message notifications are configured. Text messages are sent when alerts are triggered.
-     *   false: Text message notifications are not configured.
+     *   true: configures text message notifications. Text messages are sent when alerts are triggered.
+     *   false: does not configure text message notifications.
      *
      * Only the China site (aliyun.com) supports text message notifications.
      * @example true

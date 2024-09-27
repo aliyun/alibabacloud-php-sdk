@@ -19,8 +19,12 @@ class AddDomainBackupRequest extends Model
     public $domainName;
 
     /**
-     * @description The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -30,8 +34,8 @@ class AddDomainBackupRequest extends Model
     /**
      * @description The backup cycle. Valid values:
      *
-     *   **DAY**: Backs up data once every day.
-     *   **HOUR**: Backs up data once every hour.
+     *   DAY: backs up data on a daily basis.
+     *   HOUR: backs up data on an hourly basis.
      *
      * This parameter is required.
      * @example HOUR

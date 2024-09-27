@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateCloudGtmAddressPoolRemarkRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh-CN: Chinese
+     *   en-US (default): English
+     *
      * @example en-US
      *
      * @var string
@@ -16,6 +21,8 @@ class UpdateCloudGtmAddressPoolRemarkRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The ID of the address pool. This ID uniquely identifies the address pool.
+     *
      * @example pool-89528023225442**16
      *
      * @var string
@@ -23,6 +30,8 @@ class UpdateCloudGtmAddressPoolRemarkRequest extends Model
     public $addressPoolId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example 1ae05db4-10e7-11ef-b126-00163e24**22
      *
      * @var string
@@ -30,6 +39,8 @@ class UpdateCloudGtmAddressPoolRemarkRequest extends Model
     public $clientToken;
 
     /**
+     * @description The input parameter serves as the updated note; if an empty value is passed, the note will be deleted.
+     *
      * @example test
      *
      * @var string

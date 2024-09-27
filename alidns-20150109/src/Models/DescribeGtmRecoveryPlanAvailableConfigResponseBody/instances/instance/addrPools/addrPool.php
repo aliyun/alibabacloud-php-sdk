@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class addrPool extends Model
 {
     /**
-     * @description The ID of the address pool.
+     * @description The address pool ID.
      *
      * @var string
      */

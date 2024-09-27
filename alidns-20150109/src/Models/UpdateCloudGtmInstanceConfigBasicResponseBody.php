@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateCloudGtmInstanceConfigBasicResponseBody extends Model
 {
     /**
+     * @description Unique request identification code.
+     *
      * @example 6856BCF6-11D6-4D7E-AC53-FD579933522B
      *
      * @var string
@@ -16,6 +18,9 @@ class UpdateCloudGtmInstanceConfigBasicResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the operation was successful:
+     * - **true**: The call succeeded.
+     * - **false**: The call failed.
      * @example true
      *
      * @var bool

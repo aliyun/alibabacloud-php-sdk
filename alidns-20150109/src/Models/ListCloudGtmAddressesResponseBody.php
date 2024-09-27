@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListCloudGtmAddressesResponseBody extends Model
 {
     /**
+     * @description The addresses.
+     *
      * @var addresses
      */
     public $addresses;
 
     /**
+     * @description Current page number, starting from **1**, default is **1**.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListCloudGtmAddressesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+     *
      * @example 20
      *
      * @var int
@@ -29,6 +35,8 @@ class ListCloudGtmAddressesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description Unique request identification code.
+     *
      * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
      *
      * @var string
@@ -36,6 +44,8 @@ class ListCloudGtmAddressesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Get the total number of addresses in the address list.
+     *
      * @example 30
      *
      * @var int
@@ -43,6 +53,8 @@ class ListCloudGtmAddressesResponseBody extends Model
     public $totalItems;
 
     /**
+     * @description Total number of pages.
+     *
      * @example 2
      *
      * @var int

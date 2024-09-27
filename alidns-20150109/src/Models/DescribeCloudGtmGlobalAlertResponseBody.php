@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudGtmGlobalAlertResponseBody extends Model
 {
     /**
+     * @description The alert configurations.
+     *
      * @var alertConfig
      */
     public $alertConfig;
 
     /**
+     * @description The alert contact groups.
+     *
      * @var alertGroup
      */
     public $alertGroup;
 
     /**
+     * @description The request ID.
+     *
      * @example B57C121B-A45F-44D8-A9B2-13E5A5044195
      *
      * @var string

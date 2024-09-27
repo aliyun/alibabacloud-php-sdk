@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListCloudGtmMonitorTemplatesResponseBody extends Model
 {
     /**
+     * @description Current page number, starting from 1, default is 1.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListCloudGtmMonitorTemplatesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+     *
      * @example 20
      *
      * @var int
@@ -24,6 +28,8 @@ class ListCloudGtmMonitorTemplatesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description Unique request identification code.
+     *
      * @example 75446CC1-FC9A-4595-8D96-089D73D7A63D
      *
      * @var string
@@ -31,11 +37,15 @@ class ListCloudGtmMonitorTemplatesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The health check templates.
+     *
      * @var templates
      */
     public $templates;
 
     /**
+     * @description Total number of health check template entries retrieved.
+     *
      * @example 30
      *
      * @var int
@@ -43,6 +53,8 @@ class ListCloudGtmMonitorTemplatesResponseBody extends Model
     public $totalItems;
 
     /**
+     * @description Total number of pages after data pagination.
+     *
      * @example 2
      *
      * @var int

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SearchCloudGtmAddressPoolsRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh-CN: Chinese
+     *   en-US (default): English
+     *
      * @example en-US
      *
      * @var string
@@ -16,6 +21,8 @@ class SearchCloudGtmAddressPoolsRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description Address pool name, supports fuzzy search for the entered address pool name.
+     *
      * @example AddressPool-1
      *
      * @var string
@@ -23,6 +30,8 @@ class SearchCloudGtmAddressPoolsRequest extends Model
     public $addressPoolName;
 
     /**
+     * @description Address pool type, supports precise query for address pool types:
+     * - domain
      * @example IPv4
      *
      * @var string
@@ -30,6 +39,8 @@ class SearchCloudGtmAddressPoolsRequest extends Model
     public $addressPoolType;
 
     /**
+     * @description Address pool availability status, supporting precise queries for address pool availability:
+     * - unavailable: Unavailable
      * @example available
      *
      * @var string
@@ -37,6 +48,8 @@ class SearchCloudGtmAddressPoolsRequest extends Model
     public $availableStatus;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example 1ae05db4-10e7-11ef-b126-00163e24**22
      *
      * @var string
@@ -44,6 +57,8 @@ class SearchCloudGtmAddressPoolsRequest extends Model
     public $clientToken;
 
     /**
+     * @description Address pool enable status, supports precise query of address pool enable status:
+     * - disable: Disabled status
      * @example enable
      *
      * @var string
@@ -51,6 +66,9 @@ class SearchCloudGtmAddressPoolsRequest extends Model
     public $enableStatus;
 
     /**
+     * @description The health state of the address pool. You can enter a health state for exact search. Valid values:
+     *
+     * exceptional: The health state of the address pool is abnormal and some or all of the addresses that are referenced by the address pool are unavailable. In this case, the address pool is deemed abnormal.
      * @example ok
      *
      * @var string
@@ -58,6 +76,8 @@ class SearchCloudGtmAddressPoolsRequest extends Model
     public $healthStatus;
 
     /**
+     * @description Current page number, starting from 1, default is 1.
+     *
      * @example 1
      *
      * @var int
@@ -65,6 +85,8 @@ class SearchCloudGtmAddressPoolsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+     *
      * @example 20
      *
      * @var int
@@ -72,6 +94,8 @@ class SearchCloudGtmAddressPoolsRequest extends Model
     public $pageSize;
 
     /**
+     * @description Address pool remarks, supporting fuzzy search for the input remarks.
+     *
      * @example test
      *
      * @var string

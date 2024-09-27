@@ -18,9 +18,9 @@ class UpdateDomainRecordRequest extends Model
     public $lang;
 
     /**
-     * @description The DNS resolution line. Default value: **default**.
+     * @description The resolution line. Default value: **default**.
      *
-     * [DNS lines](https://www.alibabacloud.com/help/zh/doc-detail/29807.htm).
+     * [DNS resolution lines](https://www.alibabacloud.com/help/zh/doc-detail/29807.htm).
      * @example default
      *
      * @var string
@@ -30,7 +30,7 @@ class UpdateDomainRecordRequest extends Model
     /**
      * @description The priority of the mail exchanger (MX) record. Valid values: `1 to 50`.
      *
-     * This parameter must be specified if the type of the DNS record is MX.
+     * This parameter is required if the type of the DNS record is MX.
      * @example 1
      *
      * @var int
@@ -58,7 +58,7 @@ class UpdateDomainRecordRequest extends Model
     public $recordId;
 
     /**
-     * @description The time-to-live (TTL) of the DNS record. Default value: 600. Unit: seconds.
+     * @description The time to live (TTL) value of the Domain Name System (DNS) record. Default value: 600. Unit: seconds.
      *
      * [TTL definition](https://www.alibabacloud.com/help/zh/doc-detail/29806.htm).
      * @example 600

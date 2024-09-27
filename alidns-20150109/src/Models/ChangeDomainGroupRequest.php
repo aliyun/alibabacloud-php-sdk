@@ -19,12 +19,12 @@ class ChangeDomainGroupRequest extends Model
     public $domainName;
 
     /**
-     * @description The ID of the destination domain name group.
+     * @description The ID of the target domain name group.
      *
-     *   If you do not specify GroupId, the domain name is moved to the default group.
-     *   If you set GroupId to an empty string, the domain name is moved to the default group.
-     *   If you set GroupId to defaultGroup, the domain name is moved to the default group.
-     *   If you do not set GroupId to one of the preceding values and set GroupId to an existing group ID, the domain name is moved to the existing group. If you set GroupId to a group ID that does not exist, the domain name remains in the original group.
+     *   If you do not specify GroupId, the domain name belongs to the default group.
+     *   If you specify an empty string "" for GroupId, the domain name belongs to the default group.
+     *   If you set GroupId to defaultGroup, the domain name belongs to the default group.
+     *   If you specify GroupId to another value and the value is verified existent, the value of GroupId for the target domain name is updated. If the value is verified inexistent, the value of GroupId for the target domain name is not updated.
      *
      * @example 2223
      *
@@ -33,8 +33,12 @@ class ChangeDomainGroupRequest extends Model
     public $groupId;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en
      * @example en
      *
      * @var string

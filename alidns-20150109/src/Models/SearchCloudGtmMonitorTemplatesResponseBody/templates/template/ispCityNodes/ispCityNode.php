@@ -40,6 +40,12 @@ class ispCityNode extends Model
     public $groupName;
 
     /**
+     * @description The group type of health check nodes. Valid values:
+     *
+     *   BGP: BGP node
+     *   OVERSEAS: node outside the Chinese mainland
+     *   ISP: Internet service provider (ISP) node
+     *
      * @example BGP
      *
      * @var string

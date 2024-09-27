@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCloudGtmInstanceConfigResponseBody extends Model
 {
     /**
+     * @description The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
+     *
      * @example config-000**1
      *
      * @var bool
@@ -16,6 +18,8 @@ class CreateCloudGtmInstanceConfigResponseBody extends Model
     public $configId;
 
     /**
+     * @description The request ID.
+     *
      * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
      *
      * @var string
@@ -23,6 +27,11 @@ class CreateCloudGtmInstanceConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

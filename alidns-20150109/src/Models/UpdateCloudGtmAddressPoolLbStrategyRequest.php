@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateCloudGtmAddressPoolLbStrategyRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh-CN: Chinese
+     *   en-US (default): English
+     *
      * @example en-US
      *
      * @var string
@@ -16,6 +21,8 @@ class UpdateCloudGtmAddressPoolLbStrategyRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description Load balancing policy among addresses in the address pool:
+     * - source_nearest: Source-nearest, i.e., intelligent resolution function, where GTM can return different addresses based on the source of different DNS resolution requests, achieving the effect of users accessing nearby.
      * @example sequence
      *
      * @var string
@@ -23,6 +30,8 @@ class UpdateCloudGtmAddressPoolLbStrategyRequest extends Model
     public $addressLbStrategy;
 
     /**
+     * @description The ID of the address pool. This ID uniquely identifies the address pool.
+     *
      * @example pool-89528023225442**16
      *
      * @var string
@@ -30,6 +39,8 @@ class UpdateCloudGtmAddressPoolLbStrategyRequest extends Model
     public $addressPoolId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example 1ae05db4-10e7-11ef-b126-00163e24**22
      *
      * @var string
@@ -37,6 +48,11 @@ class UpdateCloudGtmAddressPoolLbStrategyRequest extends Model
     public $clientToken;
 
     /**
+     * @description The mode used if the address with the smallest sequence number is recovered. This parameter is required only when AddressLbStrategy is set to sequence. Valid values:
+     *
+     *   preemptive: The address with the smallest sequence number is preferentially used if this address is recovered.
+     *   non_preemptive: The current address is still used even if the address with the smallest sequence number is recovered.
+     *
      * @example preemptive
      *
      * @var string

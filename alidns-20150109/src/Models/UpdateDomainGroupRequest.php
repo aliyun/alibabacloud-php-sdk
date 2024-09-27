@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateDomainGroupRequest extends Model
 {
     /**
-     * @description The ID of the domain name group.
+     * @description The ID of the domain name group whose name you want to modify.
      *
      * This parameter is required.
      * @example 2223
@@ -29,8 +29,12 @@ class UpdateDomainGroupRequest extends Model
     public $groupName;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class systemLine extends Model
 {
     /**
+     * @description The line code.
+     *
      * @example aliyun_r_ap-south-1
      *
      * @var string
@@ -16,11 +18,20 @@ class systemLine extends Model
     public $code;
 
     /**
+     * @description The display name of the line.
+     *
+     * @example Default
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description Indicates whether the line can be selected as the source of a Domain Name System (DNS) request. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -28,11 +39,17 @@ class systemLine extends Model
     public $isAvailable;
 
     /**
+     * @description The name of the line.
+     *
+     * @example Default
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The code of the parent line.
+     *
      * @example String	aliyun
      *
      * @var string

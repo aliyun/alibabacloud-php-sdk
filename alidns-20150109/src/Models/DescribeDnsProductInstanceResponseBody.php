@@ -10,10 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsProductInstanceResponseBody extends Model
 {
     /**
-     * @description The auto-renewal status of the instance. Valid values:
+     * @description Indicates whether auto-renewal was enabled. Valid values:
      *
-     *   **true**: Auto-renewal is enabled.
-     *   **false**: Auto-renewal is disabled.
+     *   true: Auto-renewal was enabled.
+     *   false: Auto-renewal was not enabled.
      *
      * @example true
      *
@@ -85,11 +85,11 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $dnsSLBCount;
 
     /**
-     * @description The DNS protection level. Valid values:
+     * @description The level of DNS protection. Valid values:
      *
-     *   **no**: DNS protection is not provided.
-     *   **basic**: Basic DNS attack defense is provided.
-     *   **advanced**: Advanced DNS attack defense is provided.
+     *   no: No DNS protection is provided.
+     *   basic: Basic DNS protection is provided.
+     *   advanced: Advanced DNS protection is provided.
      *
      * @example advanced
      *
@@ -145,7 +145,10 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $endTimestamp;
 
     /**
-     * @description Indicates whether global server load balancing (GSLB) is supported.
+     * @description Indicates whether global server load balancing (GSLB) is supported. Valid values:
+     *
+     *   true: GSLB is supported.
+     *   false: GSLB is not supported.
      *
      * @example true
      *
@@ -154,21 +157,36 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $gslb;
 
     /**
-     * @description The Internet service provider (ISP) lines for DNS resolution.
+     * @description The ISP resolution lines. Valid values:
+     *
+     *   China Telecom
+     *   China Mobile
+     *   China Unicom
+     *   China Education and Research Network (CERNET)
+     *   China Broadcasting Network (CBN)
+     *   Dr Peng Telecom & Media Group
      *
      * @var string
      */
     public $ISPLines;
 
     /**
-     * @description The regional ISP lines for DNS resolution.
+     * @description The regional ISP resolution lines. Valid values:
+     *
+     *   China Telecom (province)
+     *   China Mobile (province)
+     *   China Unicom (province)
+     *   CERNET (province)
      *
      * @var string
      */
     public $ISPRegionLines;
 
     /**
-     * @description Indicates whether the Domain Name System (DNS) servers stopped responding to all requests sent to the domain names.
+     * @description Indicates whether the Domain Name System (DNS) servers stopped responding to all DNS requests. Valid values:
+     *
+     *   true: The DNS servers stopped responding to all DNS requests.
+     *   false: The DNS servers did not stop responding to all DNS requests.
      *
      * @example false
      *
@@ -178,6 +196,9 @@ class DescribeDnsProductInstanceResponseBody extends Model
 
     /**
      * @description Indicates whether the DNS servers stopped responding to abnormal requests sent to the domain names.
+     *
+     *   true: The DNS servers stopped responding to abnormal requests sent to the domain names.
+     *   false: The DNS servers did not stop responding to abnormal requests sent to the domain names.
      *
      * @example false
      *
@@ -247,7 +268,10 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $paymentType;
 
     /**
-     * @description Indicates whether regional lines are supported.
+     * @description Indicates whether the DNS request lines are regional lines. Valid values:
+     *
+     *   true: The DNS request lines are regional lines.
+     *   false: The DNS request lines are not regional lines.
      *
      * @example true
      *
@@ -265,7 +289,12 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The search engine lines for DNS resolution.
+     * @description The search engine resolution lines. Valid values:
+     *
+     *   Google
+     *   Baidu
+     *   Bing
+     *   Youdao
      *
      * @var string
      */

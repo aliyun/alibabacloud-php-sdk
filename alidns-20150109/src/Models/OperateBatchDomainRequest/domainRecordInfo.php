@@ -19,7 +19,7 @@ class domainRecordInfo extends Model
     public $domain;
 
     /**
-     * @description The resolution line. Default value: default.
+     * @description The DNS request source. Default value: default.
      *
      * @example default
      *

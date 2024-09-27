@@ -19,8 +19,12 @@ class UpdateDomainRemarkRequest extends Model
     public $domainName;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en
      * @example cn
      *
      * @var string
@@ -30,6 +34,7 @@ class UpdateDomainRemarkRequest extends Model
     /**
      * @description The description of your domain name.
      *
+     * It can be up to 50 characters in length and can contain digits, letters, and the following special characters: _ - , .
      * @var string
      */
     public $remark;

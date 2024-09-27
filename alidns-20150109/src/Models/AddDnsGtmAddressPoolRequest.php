@@ -76,21 +76,21 @@ class AddDnsGtmAddressPoolRequest extends Model
     public $lbaStrategy;
 
     /**
-     * @description The extended information. The required parameters vary based on the value of ProtocolType.
+     * @description The extended information. The required parameters vary based on the health check protocol.
      *
-     *   HTTP or HTTPS
+     *   HTTP or HTTPS:
      *
      *   port: the port that you want to check
      *
      *   host: the host settings
      *
-     *   path: the URL path
+     *   path: the URL
      *
-     *   code: the response code. The health check result is deemed abnormal if the returned value is greater than the specified value. Values: 400, 500.
+     *   code: the return code. The health check result is deemed abnormal if the returned value is greater than the specified value. Valid values: 400 and 500.
      *
      *   failureRate: the failure rate
      *
-     *   sni: specifies whether to enable server name indication (SNI). This parameter is available only when ProtocolType is set to HTTPS. Valid values:
+     *   sni: specifies whether to enable Server Name Indication (SNI). This parameter is available only when ProtocolType is set to HTTPS. Valid values:
      *
      *   true: enables SNI.
      *   other: disables SNI.
@@ -100,7 +100,7 @@ class AddDnsGtmAddressPoolRequest extends Model
      *   IPV4
      *   IPV6
      *
-     *   PING
+     *   ping:
      *
      *   failureRate: the failure rate
      *
@@ -113,7 +113,7 @@ class AddDnsGtmAddressPoolRequest extends Model
      *   IPV4
      *   IPV6
      *
-     *   TCP
+     *   TCP:
      *
      *   port: the port that you want to check
      *

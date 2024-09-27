@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class usedQuota extends Model
 {
     /**
+     * @description The total number of sent DingTalk notifications.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $dingtalkUsedCount;
 
     /**
-     * @description The total number of email notifications that were sent.
+     * @description The total number of sent email notifications.
      *
      * @example 100
      *
@@ -23,7 +27,7 @@ class usedQuota extends Model
     public $emailUsedCount;
 
     /**
-     * @description The total number of SMS notifications that were sent.
+     * @description The total number of sent SMS notifications.
      *
      * @example 100
      *
@@ -32,7 +36,7 @@ class usedQuota extends Model
     public $smsUsedCount;
 
     /**
-     * @description The number of detection tasks that were created.
+     * @description The number of created detection tasks.
      *
      * @example 100
      *

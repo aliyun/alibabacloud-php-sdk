@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudGtmInstanceConfigAlertRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   **zh-CN**: Chinese
+     *   **en-US**: English
+     *
      * @example en-US
      *
      * @var string
@@ -16,6 +21,8 @@ class DescribeCloudGtmInstanceConfigAlertRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example 1ae05db4-10e7-11ef-b126-00163e24**22
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeCloudGtmInstanceConfigAlertRequest extends Model
     public $clientToken;
 
     /**
+     * @description The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
+     *
      * @example Config-000**11
      *
      * @var string
@@ -30,6 +39,8 @@ class DescribeCloudGtmInstanceConfigAlertRequest extends Model
     public $configId;
 
     /**
+     * @description The ID of the Global Traffic Manager (GTM) 3.0 instance.
+     *
      * @example gtm-cn-wwo3a3hbz**
      *
      * @var string

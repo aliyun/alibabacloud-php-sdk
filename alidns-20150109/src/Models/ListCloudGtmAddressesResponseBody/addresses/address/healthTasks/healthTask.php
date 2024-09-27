@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class healthTask extends Model
 {
     /**
+     * @description The state of the health check task. Valid values:
+     *
+     *   ok: The task is normal.
+     *   alert: An alert is triggered.
+     *   no_data: No data is available. In most cases, the health check task is newly created and no data is collected.
+     *
      * @example ok
      *
      * @var string
@@ -16,6 +22,8 @@ class healthTask extends Model
     public $monitorStatus;
 
     /**
+     * @description The target service port for health check probes. When the health check protocol is set to Ping, configuration of the service port is not supported.
+     *
      * @example 80
      *
      * @var int
@@ -23,6 +31,8 @@ class healthTask extends Model
     public $port;
 
     /**
+     * @description The ID of the health check template associated with the address.
+     *
      * @example mtp-89518052425100**80
      *
      * @var string
@@ -30,6 +40,8 @@ class healthTask extends Model
     public $templateId;
 
     /**
+     * @description Health check template name.
+     *
      * @example Ping-IPv4
      *
      * @var string

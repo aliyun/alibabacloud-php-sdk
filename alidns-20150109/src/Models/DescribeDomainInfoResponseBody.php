@@ -53,6 +53,8 @@ class DescribeDomainInfoResponseBody extends Model
     public $domainId;
 
     /**
+     * @description Indicates whether the DNS traffic analysis feature is enabled. Valid values:
+     *
      * @var string
      */
     public $domainLoggingSwitchStatus;

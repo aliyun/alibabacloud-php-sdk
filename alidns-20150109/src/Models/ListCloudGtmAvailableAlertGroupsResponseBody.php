@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListCloudGtmAvailableAlertGroupsResponseBody extends Model
 {
     /**
+     * @description The alert contact groups.
+     *
      * @var alertGroups
      */
     public $alertGroups;
 
     /**
+     * @description The request ID.
+     *
      * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
      *
      * @var string

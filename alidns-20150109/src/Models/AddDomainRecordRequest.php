@@ -28,9 +28,9 @@ class AddDomainRecordRequest extends Model
     public $lang;
 
     /**
-     * @description The DNS resolution line. Default value: **default**. For more information, see
+     * @description The resolution line. Default value: **default**. For more information, see
      *
-     * [DNS lines](https://www.alibabacloud.com/help/zh/doc-detail/29807.htm).
+     * [DNS resolution lines](https://www.alibabacloud.com/help/zh/doc-detail/29807.htm).
      * @example default
      *
      * @var string
@@ -40,7 +40,7 @@ class AddDomainRecordRequest extends Model
     /**
      * @description The priority of the mail exchanger (MX) record. Valid values: `1 to 50`.
      *
-     * This parameter must be specified if the type of the DNS record is MX. A smaller value indicates a higher priority.
+     * This parameter is required if the type of the DNS record is MX. A smaller value indicates a higher priority.
      * @example 1
      *
      * @var int
@@ -58,7 +58,7 @@ class AddDomainRecordRequest extends Model
     public $RR;
 
     /**
-     * @description The time-to-live (TTL) of the DNS record. Default value: 600. Unit: seconds. For more information, see
+     * @description The time to live (TTL) period of the Domain Name System (DNS) record. Default value: 600. Unit: seconds. For more information, see
      *
      * [TTL definition](https://www.alibabacloud.com/help/zh/doc-detail/29806.htm).
      * @example 600

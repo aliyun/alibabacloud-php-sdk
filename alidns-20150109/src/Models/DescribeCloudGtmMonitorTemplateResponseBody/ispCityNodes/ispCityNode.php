@@ -9,35 +9,53 @@ use AlibabaCloud\Tea\Model;
 class ispCityNode extends Model
 {
     /**
-     * @example 503
+     * @description City code
+     *
+     * @example 357
      *
      * @var string
      */
     public $cityCode;
 
     /**
+     * @description City name
+     *
+     * @example Shanghai
+     *
      * @var string
      */
     public $cityName;
 
     /**
-     * @example 001
+     * @description Country Code
+     *
+     * @example 629
      *
      * @var string
      */
     public $countryCode;
 
     /**
+     * @description Country Name
+     *
+     * @example China
+     *
      * @var string
      */
     public $countryName;
 
     /**
+     * @description Probe node group type name
+     *
+     * @example BGP Nodes
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description Probe node group types:
+     * - ISP: Carrier nodes
      * @example BGP
      *
      * @var string
@@ -45,6 +63,8 @@ class ispCityNode extends Model
     public $groupType;
 
     /**
+     * @description Operator Code
+     *
      * @example 465
      *
      * @var string
@@ -52,6 +72,10 @@ class ispCityNode extends Model
     public $ispCode;
 
     /**
+     * @description Operator Name
+     *
+     * @example Alibaba
+     *
      * @var string
      */
     public $ispName;

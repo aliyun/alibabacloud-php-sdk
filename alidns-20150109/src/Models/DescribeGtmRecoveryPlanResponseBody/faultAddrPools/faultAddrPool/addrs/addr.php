@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class addr extends Model
 {
     /**
-     * @description The ID of the address.
+     * @description The address ID.
      *
      * @example 739
      *
@@ -18,7 +18,7 @@ class addr extends Model
     public $id;
 
     /**
-     * @description The address work mode. It is the mode that was set for the IP address to work.
+     * @description The address mode.
      *
      * @example OFFLINE
      *
@@ -27,7 +27,7 @@ class addr extends Model
     public $mode;
 
     /**
-     * @description The address value.
+     * @description The address.
      *
      * @example 1.1.1.1
      *

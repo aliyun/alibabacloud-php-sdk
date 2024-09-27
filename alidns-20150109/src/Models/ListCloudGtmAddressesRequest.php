@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCloudGtmAddressesRequest extends Model
 {
     /**
+     * @description Return language value, options:
+     * - en-US: English.
      * @example en-US
      *
      * @var string
@@ -16,6 +18,8 @@ class ListCloudGtmAddressesRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description IP address or domain name.
+     *
      * @example 223.5.XX.XX
      *
      * @var string
@@ -23,6 +27,8 @@ class ListCloudGtmAddressesRequest extends Model
     public $address;
 
     /**
+     * @description The address ID. This ID uniquely identifies the address.
+     *
      * @example addr-89518218114368**92
      *
      * @var string
@@ -30,6 +36,8 @@ class ListCloudGtmAddressesRequest extends Model
     public $addressId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example 1ae05db4-10e7-11ef-b126-00163e24**22
      *
      * @var string
@@ -37,6 +45,8 @@ class ListCloudGtmAddressesRequest extends Model
     public $clientToken;
 
     /**
+     * @description Indicates the current availability of the address:
+     * - disable: Disabled status
      * @example enable
      *
      * @var string
@@ -44,6 +54,13 @@ class ListCloudGtmAddressesRequest extends Model
     public $enableStatus;
 
     /**
+     * @description The health check state of the address. Valid values:
+     *
+     *   ok: The address passes all health checks of the referenced health check templates.
+     *   ok_alert: The address fails some health checks of the referenced health check templates but the address is deemed normal.
+     *   ok_no_monitor: The address does not reference a health check template.
+     *   exceptional: The address fails some or all health checks of the referenced health check templates and the address is deemed abnormal.
+     *
      * @example ok
      *
      * @var string
@@ -51,6 +68,8 @@ class ListCloudGtmAddressesRequest extends Model
     public $healthStatus;
 
     /**
+     * @description The ID of the health check template. This ID uniquely identifies the health check template.
+     *
      * @example mtp-89518052425100**80
      *
      * @var string
@@ -58,6 +77,8 @@ class ListCloudGtmAddressesRequest extends Model
     public $monitorTemplateId;
 
     /**
+     * @description Address name.
+     *
      * @example test
      *
      * @var string
@@ -65,8 +86,9 @@ class ListCloudGtmAddressesRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description Current page number, starting from **1**, default is **1**.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -74,8 +96,9 @@ class ListCloudGtmAddressesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description This parameter is required.
+     * @description The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int
@@ -83,6 +106,8 @@ class ListCloudGtmAddressesRequest extends Model
     public $pageSize;
 
     /**
+     * @description Address type:
+     * - domain
      * @example IPv4
      *
      * @var string

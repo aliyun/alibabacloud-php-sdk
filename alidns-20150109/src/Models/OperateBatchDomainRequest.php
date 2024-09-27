@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class OperateBatchDomainRequest extends Model
 {
     /**
-     * @description The DNS records. You can submit up to 1000 DNS records.
+     * @description The Domain Name System (DNS) records. You can submit up to 1,000 DNS records.
      *
      * This parameter is required.
      * @var domainRecordInfo[]

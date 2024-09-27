@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class recordLine extends Model
 {
     /**
-     * @description 2021-12-06T02:47:26.000+0000
+     * @description The code of the parent line. This parameter is not returned if the line has no parent line.
      *
      * @example unicom
      *
@@ -18,7 +18,7 @@ class recordLine extends Model
     public $fatherCode;
 
     /**
-     * @description 子线路Code。
+     * @description The code of the line.
      *
      * @example cn_unicom_shanxi
      *
@@ -27,18 +27,18 @@ class recordLine extends Model
     public $lineCode;
 
     /**
-     * @description 父线路展示名称。
+     * @description The display name of the parent line.
      *
-     * @example 联通
+     * @example China Unicom
      *
      * @var string
      */
     public $lineDisplayName;
 
     /**
-     * @description 子线路展示名称。
+     * @description The display name of the line.
      *
-     * @example 联通_山西
+     * @example China Unicom_Shanxi
      *
      * @var string
      */

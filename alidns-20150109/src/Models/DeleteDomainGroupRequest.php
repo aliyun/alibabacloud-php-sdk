@@ -19,8 +19,12 @@ class DeleteDomainGroupRequest extends Model
     public $groupId;
 
     /**
-     * @description The language type.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string

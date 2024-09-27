@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCloudGtmInstanceConfigResponseBody extends Model
 {
     /**
+     * @description Unique request identification code.
+     *
      * @example 6856BCF6-11D6-4D7E-AC53-FD579933522B
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteCloudGtmInstanceConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the operation to delete domain instance configurations was successful:
+     * - true: Operation successful - false: Operation failed
      * @example true
      *
      * @var bool

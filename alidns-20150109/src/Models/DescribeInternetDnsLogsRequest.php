@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeInternetDnsLogsRequest extends Model
 {
     /**
+     * @description The account ID displayed on the Recursive Resolution (Public DNS) page after you activate Alibaba Cloud Public DNS.
+     *
+     * @example 51**4
+     *
      * @var int
      */
     public $accountId;
 
     /**
+     * @description The domain name.
+     *
      * @example example.com
      *
      * @var string

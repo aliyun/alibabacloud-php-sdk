@@ -18,7 +18,7 @@ class gtmInstances extends Model
     public $config;
 
     /**
-     * @description The time when the instance was created.
+     * @description The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2020-10-14T06:58Z
      *
@@ -27,7 +27,7 @@ class gtmInstances extends Model
     public $createTime;
 
     /**
-     * @description The timestamp that indicates when the instance was created.
+     * @description The time when the instance was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1602658709000
      *
@@ -36,7 +36,7 @@ class gtmInstances extends Model
     public $createTimestamp;
 
     /**
-     * @description The time when the instance expires.
+     * @description The time when the instance expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2020-10-14T06:58Z
      *
@@ -45,7 +45,7 @@ class gtmInstances extends Model
     public $expireTime;
 
     /**
-     * @description The timestamp that indicates when the instance expires.
+     * @description The time when the instance expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1602658709000
      *
@@ -54,7 +54,7 @@ class gtmInstances extends Model
     public $expireTimestamp;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example instance1
      *
@@ -63,9 +63,9 @@ class gtmInstances extends Model
     public $instanceId;
 
     /**
-     * @description The billing method of the instance.
+     * @description The billing method of the GTM instance. Valid value:
      *
-     *   The value is set to Subscription.
+     *   Subscription.
      *
      * @example Subscription
      *
@@ -74,7 +74,7 @@ class gtmInstances extends Model
     public $paymentType;
 
     /**
-     * @description The ID of the resource group to which the instance belongs.
+     * @description The ID of the resource group.
      *
      * @example resourceGroupid123
      *
@@ -83,7 +83,7 @@ class gtmInstances extends Model
     public $resourceGroupId;
 
     /**
-     * @description The total number of SMS notifications.
+     * @description The total number of Short Message Service (SMS) notifications.
      *
      * @example 1
      *

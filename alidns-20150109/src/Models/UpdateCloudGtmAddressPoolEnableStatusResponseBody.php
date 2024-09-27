@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateCloudGtmAddressPoolEnableStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the address pool. This ID uniquely identifies the address pool.
+     *
      * @example pool-89528023225442**16
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateCloudGtmAddressPoolEnableStatusResponseBody extends Model
     public $addressPoolId;
 
     /**
+     * @description Unique request identification code.
+     *
      * @example 89184F33-48A1-4401-9C0F-40E45DB091AB
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateCloudGtmAddressPoolEnableStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the modification operation was successful:
+     * - false: Operation failed
      * @example true
      *
      * @var bool

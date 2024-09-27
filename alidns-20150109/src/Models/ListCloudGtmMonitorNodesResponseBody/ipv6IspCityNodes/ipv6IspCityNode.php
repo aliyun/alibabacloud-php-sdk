@@ -10,30 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ipv6IspCityNode extends Model
 {
     /**
-     * @example 503
+     * @description City code.
+     *
+     * @example 357
      *
      * @var string
      */
     public $cityCode;
 
     /**
+     * @description City name.
+     *
+     * @example Shanghai
+     *
      * @var string
      */
     public $cityName;
 
     /**
-     * @example 001
+     * @description Country code.
+     *
+     * @example 629
      *
      * @var string
      */
     public $countryCode;
 
     /**
+     * @description Country name.
+     *
+     * @example China
+     *
      * @var string
      */
     public $countryName;
 
     /**
+     * @description Monitor node default selection:
+     * - false: Not selected by default
      * @example true
      *
      * @var bool
@@ -41,11 +55,17 @@ class ipv6IspCityNode extends Model
     public $defaultSelected;
 
     /**
+     * @description Monitoring probe group name.
+     *
+     * @example BGP
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description Monitoring node group type, currently supported:
+     * - ISP: Carrier node
      * @example BGP
      *
      * @var string
@@ -53,11 +73,15 @@ class ipv6IspCityNode extends Model
     public $groupType;
 
     /**
+     * @description List of node IP addresses.
+     *
      * @var ips
      */
     public $ips;
 
     /**
+     * @description Operator code.
+     *
      * @example 465
      *
      * @var string
@@ -65,11 +89,17 @@ class ipv6IspCityNode extends Model
     public $ispCode;
 
     /**
+     * @description Operator name.
+     *
+     * @example Alibaba
+     *
      * @var string
      */
     public $ispName;
 
     /**
+     * @description Unique identifier ID of the probe node.
+     *
      * @example node-ewze1bysndy4gf**j8
      *
      * @var string

@@ -9,15 +9,22 @@ use AlibabaCloud\Tea\Model;
 class alertConfig extends Model
 {
     /**
+     * @description Indicates whether DingTalk alert notifications are configured. Valid values:
+     *
+     *   true
+     *   false | null
+     *
+     * @example true
+     *
      * @var string
      */
     public $dingtalkNotice;
 
     /**
-     * @description Indicates whether email notifications were configured. Valid values:
+     * @description Indicates whether email notifications are configured. Valid values:
      *
-     *   true: configured
-     *   false | null: not configured
+     *   true
+     *   false | null
      *
      * @example true
      *
@@ -29,9 +36,9 @@ class alertConfig extends Model
      * @description The type of the alert event. Valid values:
      *
      *   ADDR_ALERT: The address is unavailable.
-     *   ADDR_RESUME: The address is restored and becomes available.
-     *   ADDR_POOL_GROUP_UNAVAILABLE: The address pool group is unavailable.
-     *   ADDR_POOL_GROUP_AVAILABLE: The address pool group is restored and becomes available.
+     *   ADDR_RESUME: The address becomes available.
+     *   ADDR_POOL_GROUP_UNAVAILABLE: The address pool set is unavailable.
+     *   ADDR_POOL_GROUP_AVAILABLE: The address pool set becomes available.
      *   ACCESS_STRATEGY_POOL_GROUP_SWITCH: Switchover is triggered between the primary and secondary address pools.
      *
      * @example ADDR_ALERT
@@ -41,10 +48,10 @@ class alertConfig extends Model
     public $noticeType;
 
     /**
-     * @description Indicates whether SMS notifications were configured. Valid values:
+     * @description Indicates whether SMS notifications are configured. Valid values:
      *
-     *   true: configured
-     *   false | null: not configured
+     *   true
+     *   false | null
      *
      * @example true
      *

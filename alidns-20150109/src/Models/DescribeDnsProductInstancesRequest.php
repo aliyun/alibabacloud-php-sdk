@@ -9,9 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsProductInstancesRequest extends Model
 {
     /**
-     * @description The Sorting direction. Values:
-     * **DESC**: Descending (if not specified, the default is descending order)
-     * **ASC**: Ascending
+     * @description The order in which you want to sort returned entries. Valid values:
+     *
+     *   DESC: Returned entries are sorted in descending order. If this parameter is left empty, returned entries are sorted in descending order by default.
+     *   ASC: Returned entries are sorted in ascending order.
      *
      * @example DESC
      *
@@ -32,11 +33,12 @@ class DescribeDnsProductInstancesRequest extends Model
     public $domainType;
 
     /**
-     * @description The language of the content within the request and response. Valid values:
+     * @description The language of the response. Valid values:
      *
-     *   **zh** : Chinese
-     *   **en** (default) : English
+     *   zh: Chinese
+     *   en: English
      *
+     * Default value: en
      * @example en
      *
      * @var string
@@ -44,9 +46,10 @@ class DescribeDnsProductInstancesRequest extends Model
     public $lang;
 
     /**
-     * @description The Sorting parameter. Values:
-     * createDate: Sort by creation time (if not specified, the default is to sort by creation time)
-     * expireDate: Sort by expiration time
+     * @description The method that is used to sort returned entries. Valid values:
+     *
+     *   createDate: sorts returned entries by creation time. If this parameter is left empty, returned entries are sorted by creation time by default.
+     *   expireDate: sorts returned entries by expiration time.
      *
      * @example createDate
      *

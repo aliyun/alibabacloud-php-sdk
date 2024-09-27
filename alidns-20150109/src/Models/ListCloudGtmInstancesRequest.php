@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCloudGtmInstancesRequest extends Model
 {
     /**
+     * @description Return language value. Options:
+     * - en-US: English.
      * @example en-US
      *
      * @var string
@@ -16,6 +18,8 @@ class ListCloudGtmInstancesRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example 1ae05db4-10e7-11ef-b126-00163e24**22
      *
      * @var string
@@ -23,6 +27,8 @@ class ListCloudGtmInstancesRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the GTM instance.
+     *
      * @example gtm-cn-jmp3qnw**03
      *
      * @var string
@@ -30,6 +36,8 @@ class ListCloudGtmInstancesRequest extends Model
     public $instanceId;
 
     /**
+     * @description Instance name, used to distinguish the business purpose of the instance.
+     *
      * @example test
      *
      * @var string
@@ -37,6 +45,8 @@ class ListCloudGtmInstancesRequest extends Model
     public $instanceName;
 
     /**
+     * @description Current page number, starting from **1**, default is **1**.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,8 @@ class ListCloudGtmInstancesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of rows per page when paginating queries, with a maximum value of **100**, and a default of **20**.
+     *
      * @example 20
      *
      * @var int

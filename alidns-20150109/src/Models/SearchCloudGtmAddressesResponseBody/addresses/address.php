@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class address extends Model
 {
     /**
+     * @description IP address or domain name.
+     *
      * @example 223.5.XX.XX
      *
      * @var string
@@ -17,6 +19,8 @@ class address extends Model
     public $address;
 
     /**
+     * @description ID of the address, unique identifier for the address.
+     *
      * @example addr-89518218114368**92
      *
      * @var string
@@ -24,11 +28,20 @@ class address extends Model
     public $addressId;
 
     /**
+     * @description Address ownership information, not supported in the current version.
+     *
+     * @example The parameter should be none.
+     *
      * @var string
      */
     public $attributeInfo;
 
     /**
+     * @description The failover method that is used if the address fails health checks. Valid values:
+     *
+     *   auto: the automatic mode. The system determines whether to return an address based on the health check results. If the address fails health checks, the system does not return the address. If the address passes health checks, the system returns the address.
+     *   manual: the manual mode. If an address is in the unavailable state, the address is not returned for Domain Name System (DNS) requests even if the address passes health checks. If an address is in the available state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
+     *
      * @example auto
      *
      * @var string
@@ -36,6 +49,11 @@ class address extends Model
     public $availableMode;
 
     /**
+     * @description The availability state of the address when AvailableMode is set to manual. Valid values:
+     *
+     *   available: The address is normal. In this state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
+     *   unavailable: The address is abnormal. In this state, the address is not returned for DNS requests even if the address passes health checks.
+     *
      * @example available
      *
      * @var string
@@ -43,6 +61,8 @@ class address extends Model
     public $availableStatus;
 
     /**
+     * @description Creation time of the address.
+     *
      * @example 2024-03-23T13:09Z
      *
      * @var string
@@ -50,6 +70,8 @@ class address extends Model
     public $createTime;
 
     /**
+     * @description Creation time of the address (timestamp).
+     *
      * @example 1527690629357
      *
      * @var int
@@ -57,6 +79,8 @@ class address extends Model
     public $createTimestamp;
 
     /**
+     * @description Current activation status of the address:
+     * - disable: Disabled status
      * @example enable
      *
      * @var string
@@ -64,6 +88,14 @@ class address extends Model
     public $enableStatus;
 
     /**
+     * @description The condition for determining the health status of the address. Valid values:
+     *
+     *   any_ok: The health check results of at least one health check template are normal.
+     *   p30_ok: The health check results of at least 30% of health check templates are normal.
+     *   p50_ok: The health check results of at least 50% of health check templates are normal.
+     *   p70_ok: The health check results of at least 70% of health check templates are normal.
+     *   all_ok: The health check results of all health check templates are normal.
+     *
      * @example p50_ok
      *
      * @var string
@@ -71,6 +103,13 @@ class address extends Model
     public $healthJudgement;
 
     /**
+     * @description The health check state of the address. Valid values:
+     *
+     *   ok: The address passes all health checks of the referenced health check templates.
+     *   ok_alert: The address fails some health checks of the referenced health check templates, but the address is deemed available.
+     *   ok_no_monitor: The address does not reference any health check template.
+     *   exceptional: The address fails some or all health checks of the referenced health check templates, and the address is deemed unavailable.
+     *
      * @example ok
      *
      * @var string
@@ -78,11 +117,18 @@ class address extends Model
     public $healthStatus;
 
     /**
+     * @description The health check tasks.
+     *
      * @var healthTasks
      */
     public $healthTasks;
 
     /**
+     * @description The availability state of the address when AvailableMode is set to manual. Valid values:
+     *
+     *   available: The address is normal. In this state, the address is returned for DNS requests even if an alert is triggered when the address fails health checks.
+     *   unavailable: The address is abnormal. In this state, the address is not returned for DNS requests even if the address passes health checks.
+     *
      * @example available
      *
      * @var string
@@ -90,6 +136,8 @@ class address extends Model
     public $manualAvailableStatus;
 
     /**
+     * @description Address name.
+     *
      * @example Address-1
      *
      * @var string
@@ -97,6 +145,8 @@ class address extends Model
     public $name;
 
     /**
+     * @description Remarks.
+     *
      * @example test
      *
      * @var string
@@ -104,6 +154,8 @@ class address extends Model
     public $remark;
 
     /**
+     * @description Address type:
+     * - IPv4: ipv4 address - IPv6: ipv6 address - domain: domain name
      * @example IPv4
      *
      * @var string
@@ -111,6 +163,8 @@ class address extends Model
     public $type;
 
     /**
+     * @description The last modification time of the address.
+     *
      * @example 2024-03-29T13:20Z
      *
      * @var string
@@ -118,6 +172,8 @@ class address extends Model
     public $updateTime;
 
     /**
+     * @description The last modification time of the address (timestamp).
+     *
      * @example 1527690629357
      *
      * @var int

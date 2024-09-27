@@ -46,7 +46,7 @@ class DescribeDomainStatisticsSummaryRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **100**. Minimum value: **1**. Default value: **20**.
+     * @description The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
      *
      * @example 20
      *

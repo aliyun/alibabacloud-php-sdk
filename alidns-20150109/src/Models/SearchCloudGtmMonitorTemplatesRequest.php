@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SearchCloudGtmMonitorTemplatesRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh-CN: Chinese
+     *   en-US (default): English
+     *
      * @example en-US
      *
      * @var string
@@ -16,6 +21,11 @@ class SearchCloudGtmMonitorTemplatesRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The IP address type of health check nodes. An exact search is performed based on the IP address type. Valid values:
+     *
+     *   IPv4: applicable when the destination address of health checks is an IPv4 address
+     *   IPv6: applicable when the destination address of health checks is an IPv6 address
+     *
      * @example IPv4
      *
      * @var string

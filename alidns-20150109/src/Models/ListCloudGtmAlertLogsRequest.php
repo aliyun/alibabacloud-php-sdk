@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCloudGtmAlertLogsRequest extends Model
 {
     /**
+     * @description Alert type:
+     * - RESUME
      * @example ALERT
      *
      * @var string
@@ -16,8 +18,9 @@ class ListCloudGtmAlertLogsRequest extends Model
     public $actionType;
 
     /**
-     * @description This parameter is required.
+     * @description The end time of the query (timestamp).
      *
+     * This parameter is required.
      * @example 1711328826977
      *
      * @var int
@@ -25,6 +28,8 @@ class ListCloudGtmAlertLogsRequest extends Model
     public $endTimestamp;
 
     /**
+     * @description Alarm object types:
+     * - GTM_MONITOR_TEMPLATE: Health Check Template
      * @example GTM_ADDRESS
      *
      * @var string
@@ -32,6 +37,8 @@ class ListCloudGtmAlertLogsRequest extends Model
     public $entityType;
 
     /**
+     * @description Search keyword, usually an address ID, address pool ID, domain information, etc.
+     *
      * @example pool-895280232254422016
      *
      * @var string
@@ -39,6 +46,8 @@ class ListCloudGtmAlertLogsRequest extends Model
     public $keyword;
 
     /**
+     * @description Language type of the returned information:
+     * - en-US: English
      * @example zh-CN
      *
      * @var string
@@ -46,8 +55,9 @@ class ListCloudGtmAlertLogsRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
+     * @description Current page number, starting from **1**, default is **1**.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -55,8 +65,9 @@ class ListCloudGtmAlertLogsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description This parameter is required.
+     * @description The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int
@@ -64,8 +75,9 @@ class ListCloudGtmAlertLogsRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The start time of the query (timestamp).
      *
+     * This parameter is required.
      * @example 1611328826977
      *
      * @var int

@@ -26,11 +26,17 @@ class appKeys extends Model
     /**
      * @var string
      */
+    public $remark;
+
+    /**
+     * @var string
+     */
     public $state;
     protected $_name = [
         'appKeyId'        => 'AppKeyId',
         'createDate'      => 'CreateDate',
         'createTimestamp' => 'CreateTimestamp',
+        'remark'          => 'Remark',
         'state'           => 'State',
     ];
 
@@ -49,6 +55,9 @@ class appKeys extends Model
         }
         if (null !== $this->createTimestamp) {
             $res['CreateTimestamp'] = $this->createTimestamp;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -73,6 +82,9 @@ class appKeys extends Model
         }
         if (isset($map['CreateTimestamp'])) {
             $model->createTimestamp = $map['CreateTimestamp'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateCloudGtmAddressRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh-CN: Chinese
+     *   en-US (default): English
+     *
      * @example en-US
      *
      * @var string
@@ -17,6 +22,8 @@ class UpdateCloudGtmAddressRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description IP address or domain name.
+     *
      * @example 223.5.XX.XX
      *
      * @var string
@@ -24,8 +31,9 @@ class UpdateCloudGtmAddressRequest extends Model
     public $address;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the address. This ID uniquely identifies the address.
      *
+     * This parameter is required.
      * @example addr-89518218114368**92
      *
      * @var string
@@ -33,11 +41,17 @@ class UpdateCloudGtmAddressRequest extends Model
     public $addressId;
 
     /**
+     * @description Address Attribution information.
+     *
+     * @example This parameter is not supported in the current version and does not need to be input.
+     *
      * @var string
      */
     public $attributeInfo;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can specify a custom value for this parameter, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example 1ae05db4-10e7-11ef-b126-00163e24**22
      *
      * @var string
@@ -45,6 +59,14 @@ class UpdateCloudGtmAddressRequest extends Model
     public $clientToken;
 
     /**
+     * @description The condition for determining the health status of the address. This parameter is required when HealthTasks is specified. Valid values:
+     *
+     *   any_ok: The health check results of at least one health check template are normal.
+     *   p30_ok: The health check results of at least 30% of health check templates are normal.
+     *   p50_ok: The health check results of at least 50% of health check templates are normal.
+     *   p70_ok: The health check results of at least 70% of health check templates are normal.
+     *   all_ok: The health check results of all health check templates are normal.
+     *
      * @example p50_ok
      *
      * @var string
@@ -52,11 +74,15 @@ class UpdateCloudGtmAddressRequest extends Model
     public $healthJudgement;
 
     /**
+     * @description The health check tasks.
+     *
      * @var healthTasks[]
      */
     public $healthTasks;
 
     /**
+     * @description Address name.
+     *
      * @example Address-1
      *
      * @var string

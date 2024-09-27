@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmRecoveryPlanAvailableConfigResponseBody extends Model
 {
     /**
-     * @description The list of GTM instances involved in the disaster recovery plan.
+     * @description The instances.
      *
      * @var instances
      */
     public $instances;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example F8F8EF50-8B7F-4702-B294-97170A423403
      *

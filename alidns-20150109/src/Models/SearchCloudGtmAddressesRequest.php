@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SearchCloudGtmAddressesRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh-CN: Chinese
+     *   en-US (default): English
+     *
      * @example en-US
      *
      * @var string
@@ -16,6 +21,8 @@ class SearchCloudGtmAddressesRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description Query by service address with precise conditions, supporting IP addresses or domain names.
+     *
      * @example 223.5.XX.XX
      *
      * @var string
@@ -23,6 +30,8 @@ class SearchCloudGtmAddressesRequest extends Model
     public $address;
 
     /**
+     * @description The address ID. This ID uniquely identifies the address.
+     *
      * @example addr-89518218114368**92
      *
      * @var string
@@ -30,6 +39,8 @@ class SearchCloudGtmAddressesRequest extends Model
     public $addressId;
 
     /**
+     * @description Search by address availability status with precise conditions:
+     * - unavailable
      * @example available
      *
      * @var string
@@ -37,6 +48,8 @@ class SearchCloudGtmAddressesRequest extends Model
     public $availableStatus;
 
     /**
+     * @description Query by exact address enable status:
+     * - disable: disabled status
      * @example enable
      *
      * @var string
@@ -44,6 +57,13 @@ class SearchCloudGtmAddressesRequest extends Model
     public $enableStatus;
 
     /**
+     * @description The health state of the addresses that you want to query. Valid values:
+     *
+     *   ok: The addresses pass all health checks of the referenced health check templates.
+     *   ok_alert: The addresses fail some health checks of the referenced health check templates, but the addresses are deemed available.
+     *   ok_no_monitor: The addresses do not reference any health check template.
+     *   exceptional: The addresses fail some or all health checks of the referenced health check templates, and the addresses are deemed unavailable.
+     *
      * @example ok
      *
      * @var string
@@ -51,6 +71,8 @@ class SearchCloudGtmAddressesRequest extends Model
     public $healthStatus;
 
     /**
+     * @description Health check template name.
+     *
      * @example Ping-IPv4
      *
      * @var string
@@ -58,6 +80,11 @@ class SearchCloudGtmAddressesRequest extends Model
     public $monitorTemplateName;
 
     /**
+     * @description The logical condition for querying addresses by name. This parameter is required if you want to query addresses by name. Valid values:
+     *
+     *   and: displays the results that match all search conditions.
+     *   or: displays the results that match some or all search conditions.
+     *
      * @example or
      *
      * @var string
@@ -65,13 +92,16 @@ class SearchCloudGtmAddressesRequest extends Model
     public $nameSearchCondition;
 
     /**
+     * @description Address name, usually for users to distinguish between different addresses.
+     *
      * @var string[]
      */
     public $names;
 
     /**
-     * @description This parameter is required.
+     * @description Current page number, starting from 1, default is 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -79,8 +109,9 @@ class SearchCloudGtmAddressesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description This parameter is required.
+     * @description The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int
@@ -88,6 +119,9 @@ class SearchCloudGtmAddressesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The logical condition for querying addresses by additional description. This parameter is required if you want to query addresses by additional description. Valid values:
+     *
+     * or: displays the results that match some or all search conditions.
      * @example or
      *
      * @var string
@@ -95,11 +129,15 @@ class SearchCloudGtmAddressesRequest extends Model
     public $remarkSearchCondition;
 
     /**
+     * @description Remarks for the address.
+     *
      * @var string[]
      */
     public $remarks;
 
     /**
+     * @description Search precisely by address type conditions:
+     * - domain
      * @example IPv4
      *
      * @var string

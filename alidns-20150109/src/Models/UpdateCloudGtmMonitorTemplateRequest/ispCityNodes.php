@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ispCityNodes extends Model
 {
     /**
+     * @description The city code of the health check node.
+     *
      * @example 503
      *
      * @var string
@@ -16,6 +18,8 @@ class ispCityNodes extends Model
     public $cityCode;
 
     /**
+     * @description The Internet service provider (ISP) code of the health check node.
+     *
      * @example 465
      *
      * @var string

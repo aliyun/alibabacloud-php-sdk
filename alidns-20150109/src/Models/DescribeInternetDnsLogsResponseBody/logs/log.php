@@ -29,6 +29,8 @@ class log extends Model
     public $protocol;
 
     /**
+     * @description The domain name for which you want to query Domain Name System (DNS) records.
+     *
      * @example example.com
      *
      * @var string
@@ -83,6 +85,10 @@ class log extends Model
     public $value;
 
     /**
+     * @description The zone name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $zoneName;

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
-     * @description The alert notification methods.
+     * @description The alert notification method.
      *
      * @var alertConfig[]
      */
     public $alertConfig;
 
     /**
-     * @description The alert group.
+     * @description The alert contact groups. The value is in the JSON format.
      *
      * @example testgroup
      *
@@ -26,9 +26,9 @@ class config extends Model
     public $alertGroup;
 
     /**
-     * @description The access type of the CNAME domain name.
+     * @description The type of the CNAME. Valid value:
      *
-     *   The value was set to PUBLIC, which indicates Internet access.
+     *   PUBLIC
      *
      * @example public
      *
@@ -46,10 +46,10 @@ class config extends Model
     public $instanceName;
 
     /**
-     * @description Indicates whether a custom CNAME domain name or a CNAME domain name assigned by the system is used to access GTM over the Internet. Valid values:
+     * @description Specifies whether to use a custom CNAME or a system-assigned CNAME to access GTM over the Internet. Valid values:
      *
-     *   CUSTOM: a custom CNAME domain name
-     *   SYSTEM_ASSIGN: a CNAME domain name assigned by the system
+     *   CUSTOM: a custom CNAME
+     *   SYSTEM_ASSIGN: a system-assigned CNAME. You cannot set PublicCnameMode to this value.
      *
      * @example custom
      *
@@ -58,6 +58,8 @@ class config extends Model
     public $publicCnameMode;
 
     /**
+     * @description The hostname of the domain name that is used to access GTM over the Internet.
+     *
      * @example test.rr
      *
      * @var string
@@ -65,7 +67,7 @@ class config extends Model
     public $publicRr;
 
     /**
-     * @description The website domain name that the user uses on the Internet.
+     * @description The domain name that is used to access GTM over the Internet.
      *
      * @example example.com
      *
@@ -74,7 +76,7 @@ class config extends Model
     public $publicUserDomainName;
 
     /**
-     * @description The domain name that is used to access GTM over the Internet.
+     * @description The canonical name (CNAME) that is used to access GTM over the Internet.
      *
      * @example test.rr.gtm-003.com
      *
@@ -85,8 +87,8 @@ class config extends Model
     /**
      * @description The type of the access policy. Valid values:
      *
-     *   LATENCY: latency-based
-     *   GEO: geographical location-based
+     *   LATENCY: latency-based access policy
+     *   GEO: geographical location-based access policy
      *
      * @example geo
      *

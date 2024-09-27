@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmRecoveryPlanResponseBody extends Model
 {
     /**
-     * @description The time when the disaster recovery plan was created.
+     * @description The time when the disaster recovery plan was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2019-08-11T05:04Z
      *
@@ -19,6 +19,8 @@ class DescribeGtmRecoveryPlanResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The time when the disaster recovery plan was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1565499867000
      *
      * @var int
@@ -35,14 +37,14 @@ class DescribeGtmRecoveryPlanResponseBody extends Model
     public $faultAddrPoolNum;
 
     /**
-     * @description The list of faulty address pools.
+     * @description The faulty address pools.
      *
      * @var faultAddrPools
      */
     public $faultAddrPools;
 
     /**
-     * @description The last time when the recovery plan was executed.
+     * @description The time when the disaster recovery plan was last executed. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2019-08-11T05:04Z
      *
@@ -51,7 +53,7 @@ class DescribeGtmRecoveryPlanResponseBody extends Model
     public $lastExecuteTime;
 
     /**
-     * @description A timestamp that indicates the last time when the recovery plan was executed.
+     * @description The time when the disaster recovery plan was last executed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1565505898000
      *
@@ -60,7 +62,7 @@ class DescribeGtmRecoveryPlanResponseBody extends Model
     public $lastExecuteTimestamp;
 
     /**
-     * @description The last time when the disaster recovery plan was rolled back.
+     * @description The time when the disaster recovery plan was last rolled back. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 2019-08-11T06:45Z
      *
@@ -69,7 +71,7 @@ class DescribeGtmRecoveryPlanResponseBody extends Model
     public $lastRollbackTime;
 
     /**
-     * @description A timestamp that indicates the last time when the disaster recovery plan was rolled back.
+     * @description The time when the disaster recovery plan was last rolled back. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1565505919000
      *
@@ -78,7 +80,7 @@ class DescribeGtmRecoveryPlanResponseBody extends Model
     public $lastRollbackTimestamp;
 
     /**
-     * @description The name of the disaster recovery plan queried.
+     * @description The name of the disaster recovery plan.
      *
      * @example name-example
      *
@@ -87,7 +89,7 @@ class DescribeGtmRecoveryPlanResponseBody extends Model
     public $name;
 
     /**
-     * @description The ID of the disaster recovery plan queried.
+     * @description The ID of the disaster recovery plan.
      *
      * @example 55
      *
@@ -96,7 +98,7 @@ class DescribeGtmRecoveryPlanResponseBody extends Model
     public $recoveryPlanId;
 
     /**
-     * @description The remarks on the disaster recovery plan.
+     * @description The description of the disaster recovery plan.
      *
      * @example remark-example
      *
@@ -105,7 +107,7 @@ class DescribeGtmRecoveryPlanResponseBody extends Model
     public $remark;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0A5F4315-D6E8-435E-82DF-24F4C97D6999
      *
@@ -114,7 +116,7 @@ class DescribeGtmRecoveryPlanResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status of the disaster recovery plan queried.
+     * @description The status of the disaster recovery plan.
      *
      * @example UNEXECUTED
      *
@@ -123,7 +125,7 @@ class DescribeGtmRecoveryPlanResponseBody extends Model
     public $status;
 
     /**
-     * @description The last time when the disaster recovery plan was updated.
+     * @description The time when the disaster recovery plan was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2019-08-11T06:45Z
      *
@@ -132,7 +134,7 @@ class DescribeGtmRecoveryPlanResponseBody extends Model
     public $updateTime;
 
     /**
-     * @description A timestamp that indicates the last time when the disaster recovery plan was updated.
+     * @description The time when the disaster recovery plan was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1565499867000
      *

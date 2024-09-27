@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmMonitorConfigResponseBody extends Model
 {
     /**
-     * @description The time when the health check task was created.
+     * @description The time when the health check configuration was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      *
      * @example 2017-12-28T13:08Z
      *
@@ -19,7 +19,7 @@ class DescribeDnsGtmMonitorConfigResponseBody extends Model
     public $createTime;
 
     /**
-     * @description The timestamp that indicates when the health check task was created.
+     * @description The time when the health check configuration was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1527690629357
      *
@@ -28,7 +28,7 @@ class DescribeDnsGtmMonitorConfigResponseBody extends Model
     public $createTimestamp;
 
     /**
-     * @description The number of consecutive times of failed health check attempts.
+     * @description The number of consecutive failures.
      *
      * @example 1
      *
@@ -37,7 +37,7 @@ class DescribeDnsGtmMonitorConfigResponseBody extends Model
     public $evaluationCount;
 
     /**
-     * @description The interval at which the health check task is executed. Unit: seconds.
+     * @description The health check interval. Unit: seconds.
      *
      * @example 1
      *
@@ -46,14 +46,14 @@ class DescribeDnsGtmMonitorConfigResponseBody extends Model
     public $interval;
 
     /**
-     * @description The monitored node.
+     * @description The health check nodes.
      *
      * @var ispCityNodes
      */
     public $ispCityNodes;
 
     /**
-     * @description The ID of the health check task.
+     * @description The ID of the health check configuration.
      *
      * @example MonitorConfigId1
      *
@@ -62,50 +62,50 @@ class DescribeDnsGtmMonitorConfigResponseBody extends Model
     public $monitorConfigId;
 
     /**
-     * @description The extended information. The following parameters are required for different health check protocols:
+     * @description The extended information. The required parameters vary based on the value of ProtocolType.
      *
-     *   HTTP or HTTPS:
+     *   HTTP or HTTPS
      *
-     *   port: the check port.
+     *   port: the port that you want to check
      *
-     *   host: the host settings.
+     *   host: the host settings
      *
-     *   path: the URL path.
+     *   path: the URL path
      *
-     *   code: the return code greater than the specified value.
+     *   code: the response code. The health check result is deemed abnormal if the returned value is greater than the specified value.
      *
-     *   failureRate: the failure rate.
+     *   failureRate: the failure rate
      *
-     *   sni: specifies whether to enable server name indication (SNI). This parameter is used only for the HTTPS protocol. Valid values:
+     *   sni: specifies whether to enable server name indication (SNI). This parameter is available only when ProtocolType is set to HTTPS. Valid values:
      *
-     *   true: enable SNI.
-     *   false: disable SNI.
+     *   true: enables SNI.
+     *   false: disables SNI.
      *
-     *   nodeType: the type of the node to monitor when the address pool type is DOMAIN. Valid values:
+     *   nodeType: the type of the node for monitoring when the address pool type is domain name. Valid values:
      *
      *   IPV4
      *   IPV6
      *
      *   PING:
      *
-     *   failureRate: the failure rate.
+     *   failureRate: the failure rate
      *
-     *   packetNum: the number of ping packets.
+     *   packetNum: the number of ping packets
      *
-     *   packetLossRate: the loss rate of ping packets.
+     *   packetLossRate: the loss rate of ping packets
      *
-     *   nodeType: the type of the node to monitor when the address pool type is DOMAIN. Valid values:
+     *   nodeType: the type of the node for monitoring when the address pool type is domain name. Valid values:
      *
      *   IPV4
      *   IPV6
      *
-     *   TCP:
+     *   TCP
      *
-     *   port: the check port.
+     *   port: the port that you want to check
      *
-     *   failureRate: the failure rate.
+     *   failureRate: the failure rate
      *
-     *   nodeType: the type of the node to monitor when the address pool type is DOMAIN. Valid values:
+     *   nodeType: the type of the node for monitoring when the address pool type is domain name. Valid values:
      *
      *   IPV4
      *   IPV6
@@ -131,7 +131,7 @@ class DescribeDnsGtmMonitorConfigResponseBody extends Model
     public $protocolType;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 6856BCF6-11D6-4D7E-AC53-FD579933522B
      *
@@ -149,7 +149,7 @@ class DescribeDnsGtmMonitorConfigResponseBody extends Model
     public $timeout;
 
     /**
-     * @description The time when the information about the health check task was updated.
+     * @description The time when the health check configuration was updated. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      *
      * @example 2018-01-03T08:57Z
      *
@@ -158,7 +158,7 @@ class DescribeDnsGtmMonitorConfigResponseBody extends Model
     public $updateTime;
 
     /**
-     * @description The timestamp that indicates when the information about the health check task was updated.
+     * @description The time when the health check configuration was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1527690629357
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateCloudGtmInstanceNameResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
      *
      * @var string
@@ -16,6 +18,11 @@ class UpdateCloudGtmInstanceNameResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

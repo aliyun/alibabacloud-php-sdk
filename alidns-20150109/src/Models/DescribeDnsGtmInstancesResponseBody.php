@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmInstancesResponseBody extends Model
 {
     /**
-     * @description The returned instances.
+     * @description The Global Traffic Manager (GTM) instances.
      *
      * @var gtmInstances[]
      */
     public $gtmInstances;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number. Pages start from page **1**. Default value: **1**.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeDnsGtmInstancesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page. Maximum value: 100. Default value: 20.
      *
      * @example 1
      *
@@ -35,7 +35,7 @@ class DescribeDnsGtmInstancesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 84314904-D047-4176-A0EC-256D7F68C7F5
      *
@@ -44,7 +44,7 @@ class DescribeDnsGtmInstancesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries returned on all pages.
+     * @description The total number of entries returned.
      *
      * @example 100
      *
@@ -53,7 +53,7 @@ class DescribeDnsGtmInstancesResponseBody extends Model
     public $totalItems;
 
     /**
-     * @description The total number of returned pages.
+     * @description The total number of pages returned.
      *
      * @example 123
      *

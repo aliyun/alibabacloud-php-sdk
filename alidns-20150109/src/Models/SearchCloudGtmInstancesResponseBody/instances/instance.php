@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description The commodity code. Valid values:
+     *
+     *   dns_gtm_public_cn: commodity code on the China site (aliyun.com)
+     *   dns_gtm_public_intl: commodity code on the international site (alibabacloud.com)
+     *
      * @example dns_gtm_public_cn
      *
      * @var string
@@ -16,6 +21,8 @@ class instance extends Model
     public $commodityCode;
 
     /**
+     * @description Instance creation time.
+     *
      * @example 2024-03-15T01:46Z
      *
      * @var string
@@ -23,6 +30,8 @@ class instance extends Model
     public $createTime;
 
     /**
+     * @description Instance creation time (timestamp).
+     *
      * @example 1710467214858
      *
      * @var int
@@ -30,6 +39,8 @@ class instance extends Model
     public $createTimestamp;
 
     /**
+     * @description Instance expiration time.
+     *
      * @example 2024-09-05T16:00Z
      *
      * @var int
@@ -37,6 +48,8 @@ class instance extends Model
     public $expireTime;
 
     /**
+     * @description Instance expiration time (timestamp).
+     *
      * @example 1725552000000
      *
      * @var string
@@ -44,6 +57,8 @@ class instance extends Model
     public $expireTimestamp;
 
     /**
+     * @description The ID of the GTM 3.0 instance.
+     *
      * @example gtm-cn-wwo3a3hbz**
      *
      * @var string
@@ -51,6 +66,8 @@ class instance extends Model
     public $instanceId;
 
     /**
+     * @description Schedule instance name.
+     *
      * @example test
      *
      * @var string
@@ -58,6 +75,8 @@ class instance extends Model
     public $instanceName;
 
     /**
+     * @description Monitor probe task quota.
+     *
      * @example 100
      *
      * @var int
@@ -65,6 +84,8 @@ class instance extends Model
     public $monitorTaskQuota;
 
     /**
+     * @description Monthly email sending volume.
+     *
      * @example 200
      *
      * @var int
@@ -72,6 +93,8 @@ class instance extends Model
     public $monthlyEmailUsed;
 
     /**
+     * @description SMS quota, only supported on the China site. International site does not support SMS.
+     *
      * @example 2000
      *
      * @var int
@@ -79,6 +102,8 @@ class instance extends Model
     public $monthlySmsQuota;
 
     /**
+     * @description Monthly SMS sending volume, only supported by the China site as international sites do not support SMS.
+     *
      * @example 200
      *
      * @var int
@@ -86,6 +111,8 @@ class instance extends Model
     public $monthlySmsUsed;
 
     /**
+     * @description Monthly webhook dispatch volume.
+     *
      * @example 100
      *
      * @var int
@@ -93,6 +120,8 @@ class instance extends Model
     public $monthlyWebhookUsed;
 
     /**
+     * @description The access domain name, which consists of a hostname and a zone or a subzone.
+     *
      * @example www.example.com
      *
      * @var string
@@ -100,6 +129,8 @@ class instance extends Model
     public $scheduleDomainName;
 
     /**
+     * @description The last modified time of the instance.
+     *
      * @example 2024-03-15T01:46Z
      *
      * @var string
@@ -107,6 +138,8 @@ class instance extends Model
     public $updateTime;
 
     /**
+     * @description The last modified time of the instance (timestamp).
+     *
      * @example 1710467214858
      *
      * @var int
@@ -114,6 +147,8 @@ class instance extends Model
     public $updateTimestamp;
 
     /**
+     * @description Global Traffic Management version 3.0 instance types:
+     * - ultimate: Ultimate Edition
      * @example ultimate
      *
      * @var string

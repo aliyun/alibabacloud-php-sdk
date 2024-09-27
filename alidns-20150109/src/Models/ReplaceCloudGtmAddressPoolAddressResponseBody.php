@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReplaceCloudGtmAddressPoolAddressResponseBody extends Model
 {
     /**
+     * @description The ID of the address pool. This ID uniquely identifies the address pool.
+     *
      * @example pool-89618921167339**24
      *
      * @var string
@@ -16,6 +18,8 @@ class ReplaceCloudGtmAddressPoolAddressResponseBody extends Model
     public $addressPoolId;
 
     /**
+     * @description Unique request identification code.
+     *
      * @example B57C121B-A45F-44D8-A9B2-13E5A5044195
      *
      * @var string
@@ -23,6 +27,8 @@ class ReplaceCloudGtmAddressPoolAddressResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the operation was successful:
+     * - true: Successful. - false: Failed.
      * @example true
      *
      * @var bool

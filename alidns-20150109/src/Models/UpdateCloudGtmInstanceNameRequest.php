@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateCloudGtmInstanceNameRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh-CN: Chinese
+     *   en-US: English
+     *
      * @example en-US
      *
      * @var string
@@ -16,6 +21,8 @@ class UpdateCloudGtmInstanceNameRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can specify a custom value for this parameter, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example 1ae05db4-10e7-11ef-b126-00163e24**22
      *
      * @var string
@@ -23,6 +30,8 @@ class UpdateCloudGtmInstanceNameRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the Global Traffic Manager (GTM) instance.
+     *
      * @example gtm-cn-jmp3qnw**03
      *
      * @var string
@@ -30,6 +39,8 @@ class UpdateCloudGtmInstanceNameRequest extends Model
     public $instanceId;
 
     /**
+     * @description The name of the instance. You cannot leave this parameter empty.
+     *
      * @example test
      *
      * @var string

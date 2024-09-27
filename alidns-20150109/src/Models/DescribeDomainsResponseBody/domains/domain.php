@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class domain extends Model
 {
     /**
-     * @description Indicates whether the domain name was registered in Alibaba Cloud.
+     * @description Indicates whether the domain name was registered with Alibaba Cloud.
      *
      * @example true
      *
@@ -20,7 +20,7 @@ class domain extends Model
     public $aliDomain;
 
     /**
-     * @description The time when the domain name was added.
+     * @description The time when the domain name was added. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      *
      * @example 2019-01-30T05:25Z
      *
@@ -38,7 +38,7 @@ class domain extends Model
     public $createTimestamp;
 
     /**
-     * @description The names of the DNS servers configured for the domain name.
+     * @description The names of the DNS servers configured for the domain name assigned by Alibaba Cloud DNS.
      *
      * @var dnsServers
      */
@@ -54,6 +54,13 @@ class domain extends Model
     public $domainId;
 
     /**
+     * @description Indicates whether the DNS traffic analysis feature is enabled for the domain name. Valid values:
+     *
+     *   OPEN
+     *   CLOSE
+     *
+     * @example OPEN
+     *
      * @var string
      */
     public $domainLoggingSwitchStatus;
@@ -86,7 +93,7 @@ class domain extends Model
     public $groupName;
 
     /**
-     * @description The time when the Alibaba Cloud DNS instance expires.
+     * @description The time when the Alibaba Cloud DNS instance expires. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      *
      * @example 2020-03-14T16:00Z
      *

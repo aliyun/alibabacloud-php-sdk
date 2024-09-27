@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class RollbackGtmRecoveryPlanRequest extends Model
 {
     /**
-     * @description The language used by the user.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -18,7 +22,7 @@ class RollbackGtmRecoveryPlanRequest extends Model
     public $lang;
 
     /**
-     * @description The ID of the disaster recovery plan that you want to roll back.
+     * @description The ID of the disaster recovery plan.
      *
      * This parameter is required.
      * @example 100

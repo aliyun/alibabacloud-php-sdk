@@ -19,8 +19,12 @@ class DescribeDnsProductInstanceRequest extends Model
     public $instanceId;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en
      * @example en
      *
      * @var string

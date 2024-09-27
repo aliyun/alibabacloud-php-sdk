@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsProductInstancesResponseBody extends Model
 {
     /**
-     * @description The list of Alibaba Cloud DNS instances obtained by this operation.
+     * @description The paid Alibaba Cloud DNS instances.
      *
      * @var dnsProducts
      */
@@ -47,7 +47,7 @@ class DescribeDnsProductInstancesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
      *

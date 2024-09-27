@@ -57,50 +57,50 @@ class AddDnsGtmMonitorRequest extends Model
     public $lang;
 
     /**
-     * @description The extended information, that is, the parameters required for the protocol. Different protocols require different parameters:
+     * @description The extended information. The required parameters vary based on the value of ProtocolType.
      *
-     *   HTTP or HTTPS:
+     *   HTTP or HTTPS
      *
-     *   port: the port to check.
+     *   port: the port that you want to check
      *
-     *   host: the host configuration.
+     *   host: the host settings
      *
-     *   path: the health check URL.
+     *   path: the URL path
      *
-     *   code: the status code threshold. If the returned status code is greater than the specified threshold, the application service is deemed abnormal.
+     *   code: the response code. The health check result is deemed abnormal if the returned value is greater than the specified value.
      *
-     *   failureRate: the failure rate.
+     *   failureRate: the failure rate
      *
-     *   sni: specifies whether to enable Server Name Indication (SNI). This parameter is only required for the HTTPS protocol. Valid values:
+     *   sni: specifies whether to enable server name indication (SNI). This parameter is available only when ProtocolType is set to HTTPS. Valid values:
      *
      *   true: enables SNI.
      *   false: disables SNI.
      *
-     *   nodeType: the type of the monitored node when the address pool type is DOMAIN. Valid values:
+     *   nodeType: the type of the node for monitoring when Type is set to DOMAIN. Valid values:
      *
      *   IPV4
      *   IPV6
      *
-     *   PING:
+     *   PING
      *
-     *   failureRate: the failure rate.
+     *   failureRate: the failure rate
      *
-     *   packetNum: the number of ping packets.
+     *   packetNum: the number of ping packets
      *
-     *   packetLossRate: the loss rate of ping packets.
+     *   packetLossRate: the loss rate of ping packets
      *
-     *   nodeType: the type of the monitored node when the address pool type is DOMAIN. Valid values:
+     *   nodeType: the type of the node for monitoring when Type is set to DOMAIN. Valid values:
      *
      *   IPV4
      *   IPV6
      *
-     *   TCP:
+     *   TCP
      *
-     *   port: the port to check.
+     *   port: the port that you want to check
      *
-     *   failureRate: the failure rate.
+     *   failureRate: the failure rate
      *
-     *   nodeType: the type of the monitored node when the address pool type is DOMAIN. Valid values:
+     *   nodeType: the type of the node for monitoring when Type is set to DOMAIN. Valid values:
      *
      *   IPV4
      *   IPV6
@@ -113,7 +113,7 @@ class AddDnsGtmMonitorRequest extends Model
     public $monitorExtendInfo;
 
     /**
-     * @description The protocol used for the health check. Valid values:
+     * @description The health check protocol. Valid values:
      *
      *   HTTP
      *   HTTPS
@@ -128,7 +128,7 @@ class AddDnsGtmMonitorRequest extends Model
     public $protocolType;
 
     /**
-     * @description The health check timeout period. Unit: milliseconds.
+     * @description The timeout period. Unit: milliseconds.
      *
      * This parameter is required.
      * @example 30000

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateCloudGtmAddressRemarkResponseBody extends Model
 {
     /**
+     * @description Unique request identification code.
+     *
      * @example B57C121B-A45F-44D8-A9B2-13E5A5044195
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateCloudGtmAddressRemarkResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the modification operation was successful:
+     * - false: Operation was failed
      * @example true
      *
      * @var bool

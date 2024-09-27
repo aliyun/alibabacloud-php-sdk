@@ -9,12 +9,11 @@ use AlibabaCloud\Tea\Model;
 class dnsProduct extends Model
 {
     /**
-     * @description Indicates whether auto-renewal is enabled for the extra internal bandwidth that you purchased. Valid values:
+     * @description Indicates whether auto-renewal was enabled. Valid values:
      *
-     *   **true**: Auto-renewal is enabled.
-     *   **false**: Auto-renewal is disabled.
+     *   true: Auto-renewal was enabled.
+     *   false: Auto-renewal was not enabled.
      *
-     * > If no extra internal bandwidth is purchased, this parameter is not returned.
      * @example true
      *
      * @var bool
@@ -85,11 +84,11 @@ class dnsProduct extends Model
     public $dnsSLBCount;
 
     /**
-     * @description The DNS security policy. Valid values:
+     * @description The level of DNS protection. Valid values:
      *
-     *   **no**: not required.
-     *   **basic**: anti-DDoS basic.
-     *   **advanced**: anti-DDoS advanced.
+     *   no: No DNS protection is provided.
+     *   basic: Basic DNS protection is provided.
+     *   advanced: Advanced DNS protection is provided.
      *
      * @example no
      *
@@ -125,7 +124,10 @@ class dnsProduct extends Model
     public $endTimestamp;
 
     /**
-     * @description Indicates whether global server load balancing (GSLB) was allowed.
+     * @description Indicates whether global server load balancing (GSLB) is supported.
+     *
+     *   true: GSLB is supported.
+     *   false: GSLB is not supported.
      *
      * @example true
      *
@@ -134,7 +136,14 @@ class dnsProduct extends Model
     public $gslb;
 
     /**
-     * @description The list of ISP lines.
+     * @description The ISP resolution lines.
+     *
+     *   China Telecom
+     *   China Mobile
+     *   China Unicom
+     *   CERNET
+     *   China Broadcasting Network (CBN)
+     *   Dr Peng Telecom & Media Group
      *
      * @example China Mobile,China Unicom,China Telecom,China Edu
      *
@@ -143,7 +152,12 @@ class dnsProduct extends Model
     public $ISPLines;
 
     /**
-     * @description The list of ISP line subdivisions.
+     * @description The regional ISP resolution lines. Valid values:
+     *
+     *   China Telecom (province)
+     *   China Mobile (province)
+     *   China Unicom (province)
+     *   China Education and Research Network (CERNET) (province)
      *
      * @example Telecom (Province), Mobile (Province), Unicom (Province), Education Network (Province)
      *
@@ -152,7 +166,10 @@ class dnsProduct extends Model
     public $ISPRegionLines;
 
     /**
-     * @description Indicates whether the request for domain name resolution was in the black hole.
+     * @description Indicates whether the Domain Name System (DNS) servers stopped responding to all requests. Valid values:
+     *
+     *   true: The DNS servers stopped responding to all requests.
+     *   false: The DNS servers did not stop responding to all requests.
      *
      * @example false
      *
@@ -224,9 +241,7 @@ class dnsProduct extends Model
     public $overseaLine;
 
     /**
-     * @description The billing method. Valid value:
-     *
-     *   Subscription: You can pay in advance for the use of resources.
+     * @description The billing method.
      *
      * @example Subscription
      *
@@ -235,7 +250,10 @@ class dnsProduct extends Model
     public $paymentType;
 
     /**
-     * @description Indicates whether regional lines were allowed.
+     * @description Indicates whether the DNS request lines are regional lines.
+     *
+     *   true: The DNS request lines are regional lines.
+     *   false: The DNS request lines are not regional lines.
      *
      * @example true
      *
@@ -244,7 +262,12 @@ class dnsProduct extends Model
     public $regionLines;
 
     /**
-     * @description The list of search engine lines.
+     * @description The search engine resolution lines. Valid values:
+     *
+     *   Google
+     *   Baidu
+     *   Bing
+     *   Youdao
      *
      * @example Search Engine Robots,Google Robots,Baidu Robots,Bing Robots
      *

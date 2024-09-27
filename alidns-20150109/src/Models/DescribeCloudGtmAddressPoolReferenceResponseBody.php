@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudGtmAddressPoolReferenceResponseBody extends Model
 {
     /**
+     * @description The ID of the address pool. This ID uniquely identifies the address pool.
+     *
      * @example pool-89528023225442**16
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeCloudGtmAddressPoolReferenceResponseBody extends Model
     public $addressPoolId;
 
     /**
+     * @description Address pool name.
+     *
      * @example app
      *
      * @var string
@@ -24,11 +28,15 @@ class DescribeCloudGtmAddressPoolReferenceResponseBody extends Model
     public $addressPoolName;
 
     /**
+     * @description The access domain names that reference the address pool.
+     *
      * @var instanceConfigs
      */
     public $instanceConfigs;
 
     /**
+     * @description Unique request identification code.
+     *
      * @example 853805EA-3D47-47D5-9A1A-A45C24313ABD
      *
      * @var string

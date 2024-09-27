@@ -19,17 +19,17 @@ class addr extends Model
     public $addr;
 
     /**
-     * @description The source region of the address, in JSON-formatted string.
+     * @description The information about the source region of the address. The value of the parameter is a string in the JSON format. Valid values:
      *
-     *   LineCode: the line code of the source region of the address. The LineCode field is deprecated, and the lineCodes field is used as a substitute.
+     *   LineCode: the line code of the source region. This parameter is deprecated. Use lineCodes instead.
      *
-     *   LineCodes: the line code list of the source regions of addresses.
+     *   lineCodes: the line codes of the source region
      *
-     *   lineCodeRectifyType: the rectification type of the line codes. Default value: AUTO. Valid values:
+     *   lineCodeRectifyType: the rectification type of the line code. Default value: AUTO. Valid values:
      *
-     *   NO_NEED: no need for rectification.
-     *   RECTIFIED: rectified.
-     *   AUTO: automatic rectification.
+     *   NO_NEED: no need for rectification
+     *   RECTIFIED: rectified
+     *   AUTO: automatic rectification
      *
      * @example Linecode:default,lineCodes:["default"],lineCodeRectifyType:"NO_NEED"
      *
@@ -47,11 +47,11 @@ class addr extends Model
     public $lbaWeight;
 
     /**
-     * @description The response mode: Valid values:
+     * @description The return mode of the addresses. Valid values:
      *
-     *   SMART: smart return.
-     *   ONLINE: always online.
-     *   OFFLINE: always offline.
+     *   SMART: smart return
+     *   ONLINE: always online
+     *   OFFLINE: always offline
      *
      * This parameter is required.
      * @example online
@@ -61,7 +61,7 @@ class addr extends Model
     public $mode;
 
     /**
-     * @description The additional information about the address.
+     * @description The description of the address pool.
      *
      * @example test
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateCloudGtmMonitorTemplateResponseBody extends Model
 {
     /**
+     * @description Unique request identification code.
+     *
      * @example 6856BCF6-11D6-4D7E-AC53-FD579933522B
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateCloudGtmMonitorTemplateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Modify the health check template operation status:
+     * - false: Operation failed
      * @example true
      *
      * @var bool

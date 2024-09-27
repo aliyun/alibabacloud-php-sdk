@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCloudGtmAddressPoolResponseBody extends Model
 {
     /**
+     * @description The ID of the address pool. This ID uniquely identifies the address pool.
+     *
      * @example pool-89528023225442**16
      *
      * @var string

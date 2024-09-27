@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudGtmMonitorTemplateResponseBody extends Model
 {
     /**
+     * @description Health check template creation time.
+     *
      * @example 2024-03-23T13:09Z
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeCloudGtmMonitorTemplateResponseBody extends Model
     public $createTime;
 
     /**
+     * @description Health check template creation time (timestamp).
+     *
      * @example 1527690629357
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeCloudGtmMonitorTemplateResponseBody extends Model
     public $createTimestamp;
 
     /**
+     * @description Retries count. The system will only judge the application service as abnormal after consecutive monitoring failures to prevent inaccurate monitoring results due to momentary network fluctuations or other reasons. Available retry counts are:
+     * - 3
      * @example 2
      *
      * @var int
@@ -31,6 +37,35 @@ class DescribeCloudGtmMonitorTemplateResponseBody extends Model
     public $evaluationCount;
 
     /**
+     * @description The extended information. The value of this parameter is a JSON string. The required parameters vary based on the health check protocol.
+     *
+     *   HTTP or HTTPS:
+     *
+     **host**: the Host field of an HTTP or HTTPS request header during an HTTP or HTTPS health check. The parameter value indicates the HTTP website that you want to visit. By default, the value is the primary domain name. You can change the value based on your business requirements.
+     *
+     **path**: the URL for HTTP or HTTPS health checks. Default value: /.
+     *
+     **code**: the alert threshold. During an HTTP or HTTPS health check, the system checks whether a web server functions as expected based on the status code that is returned from the web server. If the returned status code is greater than the specified threshold, the corresponding application service address is deemed abnormal. Valid values:
+     *
+     *   400: indicates an invalid request. If an HTTP or HTTPS request contains invalid request parameters, a web server returns a status code that is greater than 400. You must specify an exact URL for path if you set code to 400.
+     *   500: indicates a server error. If some exceptions occur on a web server, the web server returns a status code that is greater than 500. This value is used by default.
+     *
+     **sni**: indicates whether Server Name Indication (SNI) is enabled. This parameter is used only when the health check protocol is HTTPS. SNI is an extension to the Transport Layer Security (TLS) protocol, which allows a client to specify the host to be connected when the client sends a TLS handshake request. TLS handshakes occur before any data of HTTP requests is sent. Therefore, SNI enables servers to identify the services that clients are attempting to access before certificates are sent. This allows the servers to present correct certificates to the clients. Valid values:
+     *
+     *   true: SNI is enabled.
+     *   false: SNI is disabled.
+     *
+     **followRedirect**: indicates whether 3XX redirects are followed. Valid values:
+     *
+     *   true: 3XX redirects are followed. You are redirected to the destination address if a 3XX status code such as 301, 302, 303, 307, or 308 is returned.
+     *   false: 3XX redirects are not followed.
+     *
+     *   ping:
+     *
+     **packetNum**: the total number of Internet Control Message Protocol (ICMP) packets that are sent to the address for each ping-based health check. Valid values: 20, 50, and 100.
+     *
+     **packetLossRate**: the ICMP packet loss rate for each ping-based health check. The packet loss rate in a health check can be calculated by using the following formula: Packet loss rate in a health check = (Number of lost packets/Total number of sent ICMP packets) × 100%. If the packet loss rate reaches the threshold, an alert is triggered. Valid values: 10, 30, 40, 80, 90, and 100.
+     *
      * @example {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
      *
      * @var string
@@ -38,6 +73,8 @@ class DescribeCloudGtmMonitorTemplateResponseBody extends Model
     public $extendInfo;
 
     /**
+     * @description Percentage of selected node probe failures (%), that is, the percentage of abnormal detection points among the total detection points. When the failure ratio exceeds the set threshold, the service address is judged as abnormal. The available failure ratio thresholds are:
+     * - 100
      * @example 50
      *
      * @var int
@@ -45,6 +82,8 @@ class DescribeCloudGtmMonitorTemplateResponseBody extends Model
     public $failureRate;
 
     /**
+     * @description The time interval (in seconds) between each check, with a default interval of 1 minute. The minimum supported health check interval is 15 seconds, available for flagship edition instances.
+     *
      * @example 60
      *
      * @var int
@@ -52,6 +91,8 @@ class DescribeCloudGtmMonitorTemplateResponseBody extends Model
     public $interval;
 
     /**
+     * @description Detect the type of the node IP address:
+     * - IPv6: Applicable when the target address type is IPv6.
      * @example IPv4
      *
      * @var string
@@ -59,11 +100,15 @@ class DescribeCloudGtmMonitorTemplateResponseBody extends Model
     public $ipVersion;
 
     /**
+     * @description Probe node list, detailed information can be obtained by calling ListCloudGtmMonitorNodes.
+     *
      * @var ispCityNodes
      */
     public $ispCityNodes;
 
     /**
+     * @description The name of the health check probe template, which is recommended to be distinguishable for configuration personnel to differentiate and remember, ideally indicating the health check protocol.
+     *
      * @example Ping-IPv4
      *
      * @var string
@@ -71,6 +116,8 @@ class DescribeCloudGtmMonitorTemplateResponseBody extends Model
     public $name;
 
     /**
+     * @description Protocol types to initiate probes to the target IP address:
+     * - https
      * @example ping
      *
      * @var string
@@ -78,6 +125,8 @@ class DescribeCloudGtmMonitorTemplateResponseBody extends Model
     public $protocol;
 
     /**
+     * @description Remarks for the health check template.
+     *
      * @example test
      *
      * @var string
@@ -85,6 +134,8 @@ class DescribeCloudGtmMonitorTemplateResponseBody extends Model
     public $remark;
 
     /**
+     * @description Unique request identification code.
+     *
      * @example 6AEC7A64-3CB1-4C49-8B35-0B901F1E26BF
      *
      * @var string
@@ -92,6 +143,8 @@ class DescribeCloudGtmMonitorTemplateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the health check template. This ID uniquely identifies the health check template.
+     *
      * @example mtp-89518052425100**80
      *
      * @var string
@@ -99,6 +152,8 @@ class DescribeCloudGtmMonitorTemplateResponseBody extends Model
     public $templateId;
 
     /**
+     * @description Probe timeout (in milliseconds), data packets not returned within the timeout period are deemed as health check timeouts:
+     * - 10000
      * @example 5000
      *
      * @var int
@@ -106,6 +161,8 @@ class DescribeCloudGtmMonitorTemplateResponseBody extends Model
     public $timeout;
 
     /**
+     * @description Health check template configuration modification time.
+     *
      * @example 2024-03-29T13:20Z
      *
      * @var string
@@ -113,6 +170,8 @@ class DescribeCloudGtmMonitorTemplateResponseBody extends Model
     public $updateTime;
 
     /**
+     * @description Health check template configuration modification time (timestamp).
+     *
      * @example 1527690629357
      *
      * @var int

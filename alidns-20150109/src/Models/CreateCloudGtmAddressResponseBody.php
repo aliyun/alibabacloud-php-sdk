@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCloudGtmAddressResponseBody extends Model
 {
     /**
+     * @description The address ID. This ID uniquely identifies the address.
+     *
      * @example addr-8951821811436**192
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateCloudGtmAddressResponseBody extends Model
     public $addressId;
 
     /**
+     * @description Unique request identification code.
+     *
      * @example 46973D4C-E3E4-4ABA-9190-9A9DE406C7E
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateCloudGtmAddressResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the address creation operation is successful:
+     * - false: Operation was failed
      * @example true
      *
      * @var bool

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmAddrAttributeInfoResponseBody extends Model
 {
     /**
-     * @description The addresses that were queried.
+     * @description The address in the address pool.
      *
      * @var addr
      */
     public $addr;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 6856BCF6-11D6-4D7E-AC53-FD579933522B
      *

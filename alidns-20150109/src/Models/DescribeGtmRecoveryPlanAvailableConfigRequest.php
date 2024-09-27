@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmRecoveryPlanAvailableConfigRequest extends Model
 {
     /**
-     * @description The language used by the user.
+     * @description The language in which the returned results are displayed. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string

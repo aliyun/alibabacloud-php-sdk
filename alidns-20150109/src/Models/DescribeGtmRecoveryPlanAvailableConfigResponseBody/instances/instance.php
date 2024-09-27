@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
-     * @description The list of address pools for the GTM instance.
+     * @description The address pools.
      *
      * @var addrPools
      */
     public $addrPools;
 
     /**
-     * @description The ID of the GTM instance.
+     * @description The instance ID.
      *
      * @example instance-example
      *
@@ -26,7 +26,7 @@ class instance extends Model
     public $instanceId;
 
     /**
-     * @description The name of the GTM instance.
+     * @description The instance name.
      *
      * @example instance-name-example
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class addr extends Model
 {
     /**
-     * @description The address that was queried.
+     * @description The address in the address pool.
      *
      * @example 1.1.1.1
      *
@@ -19,7 +19,7 @@ class addr extends Model
     public $addr;
 
     /**
-     * @description The source region of the address.
+     * @description The information about the source region of the address.
      *
      * @var attributeInfo
      */

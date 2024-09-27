@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudGtmSystemLinesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 389DFFA3-77A5-4A9E-BF3D-147C6F98A5BA
      *
      * @var string
@@ -17,11 +19,17 @@ class DescribeCloudGtmSystemLinesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The system lines.
+     *
      * @var systemLines
      */
     public $systemLines;
 
     /**
+     * @description The system lines, which are in a tree structure. Only a system line is listed in this example.
+     *
+     * @example [{\\"displayName\\":\\"Default\\",\\"id\\":\\"default\\",\\"isAvailable\\":true,\\"name\\":\\"Default\\",\\"parentId\\":\\"\\"}]
+     *
      * @var string
      */
     public $systemLinesTree;

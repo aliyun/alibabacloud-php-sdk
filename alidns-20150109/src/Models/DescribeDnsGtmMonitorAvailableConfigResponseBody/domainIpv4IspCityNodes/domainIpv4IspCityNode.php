@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class domainIpv4IspCityNode extends Model
 {
     /**
-     * @description The code of the city where the monitored node is deployed.
+     * @description The city code.
      *
      * @example 503
      *
@@ -19,7 +19,7 @@ class domainIpv4IspCityNode extends Model
     public $cityCode;
 
     /**
-     * @description The display name of the city where the monitored node is deployed.
+     * @description The display name of the city.
      *
      * @example Zhangjiakou
      *
@@ -28,7 +28,7 @@ class domainIpv4IspCityNode extends Model
     public $cityName;
 
     /**
-     * @description Indicates whether the monitored node is selected for the health check by default.
+     * @description Indicates whether the health check node is selected by default.
      *
      * @example true
      *
@@ -37,7 +37,7 @@ class domainIpv4IspCityNode extends Model
     public $defaultSelected;
 
     /**
-     * @description The name of the group to which the monitored node belongs.
+     * @description The name of the node group.
      *
      * @example BGP Nodes
      *
@@ -46,11 +46,11 @@ class domainIpv4IspCityNode extends Model
     public $groupName;
 
     /**
-     * @description The type of the group to which the monitored node belongs. Valid values:
+     * @description The type of the node group. Valid values:
      *
-     *   BGP: BGP nodes
-     *   OVERSEAS: nodes outside the Chinese mainland
-     *   ISP: ISP nodes
+     *   BGP: BGP node
+     *   OVERSEAS: node outside the Chinese mainland
+     *   ISP: ISP node
      *
      * @example BGP
      *
@@ -59,12 +59,14 @@ class domainIpv4IspCityNode extends Model
     public $groupType;
 
     /**
+     * @description The IP addresses of the health check nodes.
+     *
      * @var ips
      */
     public $ips;
 
     /**
-     * @description The code of the ISP to which the monitored node belongs.
+     * @description The ISP code.
      *
      * @example 465
      *
@@ -73,7 +75,7 @@ class domainIpv4IspCityNode extends Model
     public $ispCode;
 
     /**
-     * @description The display name of the ISP to which the monitored node belongs.
+     * @description The display name of the ISP.
      *
      * @example Alibaba
      *

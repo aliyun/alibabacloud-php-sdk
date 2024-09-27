@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCloudGtmAddressResponseBody extends Model
 {
     /**
+     * @description Unique request identification code.
+     *
      * @example 6856BCF6-11D6-4D7E-AC53-FD579933522B
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteCloudGtmAddressResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the address deletion operation was successful:
+     * - false: Operation failed
      * @example true
      *
      * @var bool
