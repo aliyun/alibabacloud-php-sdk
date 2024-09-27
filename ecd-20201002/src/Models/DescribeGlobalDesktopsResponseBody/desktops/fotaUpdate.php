@@ -37,6 +37,11 @@ class fotaUpdate extends Model
     public $newAppVersion;
 
     /**
+     * @var string
+     */
+    public $newDcdVersion;
+
+    /**
      * @example testProject
      *
      * @var string
@@ -69,6 +74,7 @@ class fotaUpdate extends Model
         'currentAppVersion' => 'CurrentAppVersion',
         'force'             => 'Force',
         'newAppVersion'     => 'NewAppVersion',
+        'newDcdVersion'     => 'NewDcdVersion',
         'project'           => 'Project',
         'releaseNote'       => 'ReleaseNote',
         'releaseNoteEn'     => 'ReleaseNoteEn',
@@ -94,6 +100,9 @@ class fotaUpdate extends Model
         }
         if (null !== $this->newAppVersion) {
             $res['NewAppVersion'] = $this->newAppVersion;
+        }
+        if (null !== $this->newDcdVersion) {
+            $res['NewDcdVersion'] = $this->newDcdVersion;
         }
         if (null !== $this->project) {
             $res['Project'] = $this->project;
@@ -133,6 +142,9 @@ class fotaUpdate extends Model
         }
         if (isset($map['NewAppVersion'])) {
             $model->newAppVersion = $map['NewAppVersion'];
+        }
+        if (isset($map['NewDcdVersion'])) {
+            $model->newDcdVersion = $map['NewDcdVersion'];
         }
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
