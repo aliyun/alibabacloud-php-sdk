@@ -27,7 +27,7 @@ class region extends Model
     public $regionEndpoint;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region.
      *
      * @example cn-qingdao-et2-bo1
      *

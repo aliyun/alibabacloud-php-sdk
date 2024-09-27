@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeLaunchTemplatesResponseBody extends Model
 {
     /**
-     * @description The information about the launch template.
+     * @description The queried launch templates.
      *
      * @var launchTemplateSets
      */

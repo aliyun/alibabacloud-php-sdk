@@ -48,6 +48,11 @@ class securityGroup extends Model
     public $ecsCount;
 
     /**
+     * @var int
+     */
+    public $groupToGroupRuleCount;
+
+    /**
      * @description The ID of the resource group to which the security group belongs.
      *
      * @example rg-bp67acfmxazb4p****
@@ -55,6 +60,11 @@ class securityGroup extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var int
+     */
+    public $ruleCount;
 
     /**
      * @description The ID of the security group.
@@ -124,7 +134,9 @@ class securityGroup extends Model
         'creationTime'            => 'CreationTime',
         'description'             => 'Description',
         'ecsCount'                => 'EcsCount',
+        'groupToGroupRuleCount'   => 'GroupToGroupRuleCount',
         'resourceGroupId'         => 'ResourceGroupId',
+        'ruleCount'               => 'RuleCount',
         'securityGroupId'         => 'SecurityGroupId',
         'securityGroupName'       => 'SecurityGroupName',
         'securityGroupType'       => 'SecurityGroupType',
@@ -153,8 +165,14 @@ class securityGroup extends Model
         if (null !== $this->ecsCount) {
             $res['EcsCount'] = $this->ecsCount;
         }
+        if (null !== $this->groupToGroupRuleCount) {
+            $res['GroupToGroupRuleCount'] = $this->groupToGroupRuleCount;
+        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->ruleCount) {
+            $res['RuleCount'] = $this->ruleCount;
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
@@ -201,8 +219,14 @@ class securityGroup extends Model
         if (isset($map['EcsCount'])) {
             $model->ecsCount = $map['EcsCount'];
         }
+        if (isset($map['GroupToGroupRuleCount'])) {
+            $model->groupToGroupRuleCount = $map['GroupToGroupRuleCount'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['RuleCount'])) {
+            $model->ruleCount = $map['RuleCount'];
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];

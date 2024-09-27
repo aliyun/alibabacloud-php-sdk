@@ -123,11 +123,6 @@ class ModifyInstanceSpecRequest extends Model
     /**
      * @description >  This parameter is not publicly available.
      *
-     * Valid values:
-     *
-     *   Online
-     *   Offline
-     *
      * @example null
      *
      * @var string

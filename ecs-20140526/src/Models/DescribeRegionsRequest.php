@@ -23,10 +23,12 @@ class DescribeRegionsRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The billing method of instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values:
+     * @description The billing method of the instance. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values:
      *
      *   PrePaid: subscription. If you set this parameter to PrePaid, make sure that you have sufficient balance or credits in your account. Otherwise, the InvalidPayMethod error code is returned.
      *   PostPaid: pay-as-you-go.
+     *   SpotWithPriceLimit: preemptible instance for which a maximum hourly price is specified.
+     *   SpotAsPriceGo: preemptible instance for which the market price at the time of purchase is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
      *
      * Default value: PostPaid.
      * @example PrePaid
@@ -56,7 +58,7 @@ class DescribeRegionsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The resource type. Valid value:
+     * @description The type of resource. Valid values:
      *
      *   instance: Elastic Compute Service (ECS) instance
      *   disk: disk

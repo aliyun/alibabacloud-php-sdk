@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DisableDiskEncryptionByDefaultRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

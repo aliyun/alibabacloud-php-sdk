@@ -32,12 +32,12 @@ class CreateLaunchTemplateRequest extends Model
     public $autoReleaseTime;
 
     /**
-     * @description Specifies whether to enable auto-renewal for the instance. This parameter is valid only if `InstanceChargeType` is set to `PrePaid`. Valid values:
+     * @description Specifies whether to enable auto-renewal. Valid values:
      *
      *   true
      *   false
      *
-     * Default value: false.
+     * >  This parameter takes effect only if you set `InstanceChargeType` to `PrePaid`.
      * @example true
      *
      * @var bool
@@ -320,7 +320,7 @@ class CreateLaunchTemplateRequest extends Model
      * @description The private IP address to assign to the instance.
      *
      * To assign a private IP address to an instance that resides in a VPC, make sure that the IP address is an idle IP address within the CIDR block of the vSwitch specified by the `VSwitchId` parameter.
-     * @example 10.1.\*\*.**
+     * @example ``10.1.**.**``
      *
      * @var string
      */
@@ -432,8 +432,11 @@ class CreateLaunchTemplateRequest extends Model
     public $spotStrategy;
 
     /**
-     * @description The tags to add to the instance, disks, and primary ENI.
+     * @description The tags to add to the instance, disks, and primary ENI that are created from the launch template.
      *
+     **Scenario**
+     *
+     * If you created a launch template by calling the CreateLaunchTemplate operation and use the default version that is automatically generated for the launch template to create instances, the specified tags are automatically added to the created instances, disks, and primary ENIs. For more information about the default versions of launch templates, see [xxxx]\\(url).
      * @var tag[]
      */
     public $tag;
@@ -450,6 +453,7 @@ class CreateLaunchTemplateRequest extends Model
     /**
      * @description The tags to add to the launch template.
      *
+     * >  You can add tags to or query the tags of launch templates by calling API operations. You cannot add tags to or query the tags of launch templates in the ECS console.
      * @var templateTag[]
      */
     public $templateTag;

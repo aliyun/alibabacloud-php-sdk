@@ -10,7 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeLaunchTemplatesRequest extends Model
 {
     /**
-     * @description The IDs of launch templates. You can specify up to 100 launch template IDs. You must specify LaunchTemplateId or LaunchTemplateName to determine a launch template.
+     * @description The IDs of launch templates.
+     *
+     *   You can query up to 100 launch templates.
+     *   You must specify LaunchTemplateId or LaunchTemplateName to specify a launch template.
      *
      * @example lt-m5e3ofjr1zn1aw7q****
      *
@@ -19,7 +22,10 @@ class DescribeLaunchTemplatesRequest extends Model
     public $launchTemplateId;
 
     /**
-     * @description The names of launch templates. You can specify up to 100 launch template names.
+     * @description The names of launch templates.
+     *
+     *   You can query up to 100 launch templates.
+     *   You must specify LaunchTemplateId or LaunchTemplateName to specify a launch template.
      *
      * @example wd-152630748****
      *
@@ -87,8 +93,9 @@ class DescribeLaunchTemplatesRequest extends Model
     public $templateResourceGroupId;
 
     /**
-     * @description The tag of the launch template.
+     * @description The tags of the launch template.
      *
+     * >  You can only call API operations to add tags to and query the tags of a launch template. You cannot add tags to or view the tags of a launch template in the Elastic Compute Service (ECS) console.
      * @var templateTag[]
      */
     public $templateTag;

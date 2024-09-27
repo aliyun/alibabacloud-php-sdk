@@ -167,7 +167,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $instanceName;
 
     /**
-     * @description The instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the most recent instance type list.
+     * @description The instance type. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html). You can also call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the most recent list of instance types.
      *
      * @example ecs.g5.large
      *
@@ -325,7 +325,7 @@ class CreateLaunchTemplateVersionRequest extends Model
      * @description The private IP address to assign to the instance.
      *
      * To assign a private IP address to an instance of the VPC type, make sure that the IP address is an idle IP address within the CIDR block of the vSwitch specified by the `VSwitchId` parameter.
-     * @example 10.1.\*\*.**
+     * @example ``10.1.**.**``
      *
      * @var string
      */
@@ -382,9 +382,9 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $securityEnhancementStrategy;
 
     /**
-     * @description The ID of the security group to which to assign the instance. Instances within the same security group can access each other.
+     * @description The ID of the security group to which to assign the ECS instance created based on the launch template version. Instances in the same security group can access each other.
      *
-     * > The `SecurityGroupId` parameter and the `SecurityGroupIds.N` parameter are mutually exclusive.
+     * >  You cannot specify `SecurityGroupId` and `SecurityGroupIds.N` in the same request.
      * @example sg-bp15ed6xe1yxeycg****
      *
      * @var string
@@ -437,7 +437,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $spotStrategy;
 
     /**
-     * @description The tags to add to the instance, disks, and primary ENI.
+     * @description The tags to add to the ECS instance, disks, and primary elastic network interface (ENI) created based on the launch template version.
      *
      * @var tag[]
      */
@@ -471,7 +471,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $versionDescription;
 
     /**
-     * @description The ID of the virtual private cloud (VPC).
+     * @description The ID of the virtual private cloud (VPC) in which to create the ECS instance.
      *
      * @example vpc-bp12433upq1y5scen****
      *

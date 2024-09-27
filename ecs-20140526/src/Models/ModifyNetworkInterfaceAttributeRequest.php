@@ -142,6 +142,11 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
     public $securityGroupId;
 
     /**
+     * @var bool
+     */
+    public $sourceDestCheck;
+
+    /**
      * @description The Tx queue depth of the ENI.
      *
      * Take note of the following items:
@@ -170,6 +175,7 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
         'resourceOwnerId'                 => 'ResourceOwnerId',
         'rxQueueSize'                     => 'RxQueueSize',
         'securityGroupId'                 => 'SecurityGroupId',
+        'sourceDestCheck'                 => 'SourceDestCheck',
         'txQueueSize'                     => 'TxQueueSize',
     ];
 
@@ -224,6 +230,9 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->sourceDestCheck) {
+            $res['SourceDestCheck'] = $this->sourceDestCheck;
         }
         if (null !== $this->txQueueSize) {
             $res['TxQueueSize'] = $this->txQueueSize;
@@ -286,6 +295,9 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
             if (!empty($map['SecurityGroupId'])) {
                 $model->securityGroupId = $map['SecurityGroupId'];
             }
+        }
+        if (isset($map['SourceDestCheck'])) {
+            $model->sourceDestCheck = $map['SourceDestCheck'];
         }
         if (isset($map['TxQueueSize'])) {
             $model->txQueueSize = $map['TxQueueSize'];

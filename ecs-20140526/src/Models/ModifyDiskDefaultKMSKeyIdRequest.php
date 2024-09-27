@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiskDefaultKMSKeyIdRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the new KMS key.
      *
+     * This parameter is required.
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
      *
      * @var string
@@ -18,8 +19,9 @@ class ModifyDiskDefaultKMSKeyIdRequest extends Model
     public $KMSKeyId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

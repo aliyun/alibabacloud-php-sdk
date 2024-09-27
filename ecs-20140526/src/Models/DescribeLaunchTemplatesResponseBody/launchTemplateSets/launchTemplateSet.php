@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class launchTemplateSet extends Model
 {
     /**
-     * @description The ID of the resource group to which the launch template belongs.
+     * @description The time when the launch template was created.
      *
+     * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      * @example 2018-05-14T14:18:00Z
      *
      * @var string
@@ -19,7 +20,7 @@ class launchTemplateSet extends Model
     public $createTime;
 
     /**
-     * @description The latest version number of the launch template.
+     * @description The ID of the Alibaba Cloud account that created the launch template.
      *
      * @example 1234567890
      *
@@ -64,8 +65,9 @@ class launchTemplateSet extends Model
     public $launchTemplateName;
 
     /**
-     * @description The ID of the launch template.
+     * @description The time when a version was added to or deleted from the launch template.
      *
+     * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      * @example 2018-05-14T14:18:00Z
      *
      * @var string
@@ -82,8 +84,9 @@ class launchTemplateSet extends Model
     public $resourceGroupId;
 
     /**
-     * @description The tag of the launch template.
+     * @description The tags of the launch template.
      *
+     * >  You can only call API operations to add tags to and query the tags of a launch template. You cannot add tags to or view the tags of a launch template in the ECS console.
      * @var tags
      */
     public $tags;

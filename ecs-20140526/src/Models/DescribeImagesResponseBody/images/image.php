@@ -30,7 +30,9 @@ class image extends Model
      *
      *   BIOS: Basic Input/Output System (BIOS)
      *   UEFI: Unified Extensible Firmware Interface (UEFI)
+     *   UEFI-Preferred: BIOS and UEFI
      *
+     * For information about the image boot modes, see [Image boot modes](~~2244655#b9caa9b8bb1wf~~).
      * @example BIOS
      *
      * @var string
@@ -273,6 +275,7 @@ class image extends Model
     /**
      * @description The size of the image. Unit: GiB.
      *
+     * >  If the image contains data disk snapshots, this parameter indicates only the size of the system disk snapshot contained in the image.
      * @example 60
      *
      * @var int

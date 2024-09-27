@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The tag value of the launch template.
+     *
      * @example TestKey
      *
      * @var string
@@ -16,7 +18,7 @@ class tag extends Model
     public $tagKey;
 
     /**
-     * @description The key of tag N of the launch template.
+     * @description The tag key of the launch template.
      *
      * @example TestValue
      *

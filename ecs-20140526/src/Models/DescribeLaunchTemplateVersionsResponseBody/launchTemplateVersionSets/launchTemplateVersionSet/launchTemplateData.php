@@ -275,7 +275,7 @@ class launchTemplateData extends Model
     /**
      * @description The private IP address to assign to the instance.
      *
-     * @example 10.1.\*\*.**
+     * @example ``10.1.**.**``
      *
      * @var string
      */

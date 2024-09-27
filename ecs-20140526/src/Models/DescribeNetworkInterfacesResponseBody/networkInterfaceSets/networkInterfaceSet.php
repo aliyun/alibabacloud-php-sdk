@@ -143,7 +143,7 @@ class networkInterfaceSet extends Model
     /**
      * @description The primary private IP address of the ENI.
      *
-     * @example 172.17.\*\*.**
+     * @example ``172.17.**.**``
      *
      * @var string
      */
@@ -212,6 +212,11 @@ class networkInterfaceSet extends Model
      * @var bool
      */
     public $serviceManaged;
+
+    /**
+     * @var bool
+     */
+    public $sourceDestCheck;
 
     /**
      * @description The state of the ENI.
@@ -287,6 +292,7 @@ class networkInterfaceSet extends Model
         'securityGroupIds'            => 'SecurityGroupIds',
         'serviceID'                   => 'ServiceID',
         'serviceManaged'              => 'ServiceManaged',
+        'sourceDestCheck'             => 'SourceDestCheck',
         'status'                      => 'Status',
         'tags'                        => 'Tags',
         'type'                        => 'Type',
@@ -367,6 +373,9 @@ class networkInterfaceSet extends Model
         }
         if (null !== $this->serviceManaged) {
             $res['ServiceManaged'] = $this->serviceManaged;
+        }
+        if (null !== $this->sourceDestCheck) {
+            $res['SourceDestCheck'] = $this->sourceDestCheck;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -463,6 +472,9 @@ class networkInterfaceSet extends Model
         }
         if (isset($map['ServiceManaged'])) {
             $model->serviceManaged = $map['ServiceManaged'];
+        }
+        if (isset($map['SourceDestCheck'])) {
+            $model->sourceDestCheck = $map['SourceDestCheck'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

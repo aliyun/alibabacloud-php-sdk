@@ -176,7 +176,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     /**
      * @description The private IP address of the ENI.
      *
-     * @example 10.1.\*\*.**
+     * @example ``10.1.**.**``
      *
      * @var string
      */
@@ -271,6 +271,11 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
      * @var slaveInterfaceSpecification
      */
     public $slaveInterfaceSpecification;
+
+    /**
+     * @var bool
+     */
+    public $sourceDestCheck;
 
     /**
      * @description The state of the ENI. Valid values:
@@ -371,6 +376,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
         'serviceID'                       => 'ServiceID',
         'serviceManaged'                  => 'ServiceManaged',
         'slaveInterfaceSpecification'     => 'SlaveInterfaceSpecification',
+        'sourceDestCheck'                 => 'SourceDestCheck',
         'status'                          => 'Status',
         'tags'                            => 'Tags',
         'tcpOptionAddressEnabled'         => 'TcpOptionAddressEnabled',
@@ -470,6 +476,9 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
         }
         if (null !== $this->slaveInterfaceSpecification) {
             $res['SlaveInterfaceSpecification'] = null !== $this->slaveInterfaceSpecification ? $this->slaveInterfaceSpecification->toMap() : null;
+        }
+        if (null !== $this->sourceDestCheck) {
+            $res['SourceDestCheck'] = $this->sourceDestCheck;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -587,6 +596,9 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
         }
         if (isset($map['SlaveInterfaceSpecification'])) {
             $model->slaveInterfaceSpecification = slaveInterfaceSpecification::fromMap($map['SlaveInterfaceSpecification']);
+        }
+        if (isset($map['SourceDestCheck'])) {
+            $model->sourceDestCheck = $map['SourceDestCheck'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyLaunchTemplateDefaultVersionResponseBody extends Model
 {
     /**
-     * @description The ID of the launch template. For more information, see [DescribeLaunchTemplates](https://help.aliyun.com/document_detail/73759.html). You must specify `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template.
+     * @description The ID of the launch template. For more information, see [DescribeLaunchTemplates](https://help.aliyun.com/document_detail/73759.html).
      *
      * @example lt-bp1apo0bbbkuy0rj****
      *

@@ -12,7 +12,7 @@ class vpcAttributes extends Model
     /**
      * @description The NAT IP address of the instance. The NAT IP address is used by ECS instances in different VPCs for communication.
      *
-     * @example 172.17.\*\*.**
+     * @example ``172.17.**.**``
      *
      * @var string
      */

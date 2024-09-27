@@ -15,6 +15,11 @@ class ModifyElasticityAssuranceRequest extends Model
     public $privatePoolOptions;
 
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description The description of the elasticity assurance. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
      *
      * @example This is description.
@@ -22,6 +27,11 @@ class ModifyElasticityAssuranceRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var int
+     */
+    public $instanceAmount;
 
     /**
      * @var string
@@ -54,7 +64,9 @@ class ModifyElasticityAssuranceRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'privatePoolOptions'   => 'PrivatePoolOptions',
+        'clientToken'          => 'ClientToken',
         'description'          => 'Description',
+        'instanceAmount'       => 'InstanceAmount',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -72,8 +84,14 @@ class ModifyElasticityAssuranceRequest extends Model
         if (null !== $this->privatePoolOptions) {
             $res['PrivatePoolOptions'] = null !== $this->privatePoolOptions ? $this->privatePoolOptions->toMap() : null;
         }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->instanceAmount) {
+            $res['InstanceAmount'] = $this->instanceAmount;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -105,8 +123,14 @@ class ModifyElasticityAssuranceRequest extends Model
         if (isset($map['PrivatePoolOptions'])) {
             $model->privatePoolOptions = privatePoolOptions::fromMap($map['PrivatePoolOptions']);
         }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['InstanceAmount'])) {
+            $model->instanceAmount = $map['InstanceAmount'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

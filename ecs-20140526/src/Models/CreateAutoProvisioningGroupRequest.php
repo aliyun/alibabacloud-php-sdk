@@ -83,7 +83,7 @@ class CreateAutoProvisioningGroupRequest extends Model
      * @description Specifies whether to release scaled-in instances when the real-time capacity of the auto provisioning group exceeds the target capacity and the group is triggered to scale in. Valid values:
      *
      *   termination: releases the scaled-in instances in the auto provisioning group.
-     *   no-termination: only removes the scaled-in instances from the auto provisioning group but does not release the instances.
+     *   no-termination: removes the scaled-in instances from the auto provisioning group but does not release the instances.
      *
      * Default value: no-termination.
      * @example termination

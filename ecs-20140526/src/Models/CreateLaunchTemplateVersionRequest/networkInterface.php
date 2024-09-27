@@ -56,7 +56,7 @@ class networkInterface extends Model
     /**
      * @description The primary private IP address of the secondary ENI. The value of N in `NetworkInterface.N` cannot be greater than 1.
      *
-     * @example 192.168.\*\*.**
+     * @example ``192.168.**.**``
      *
      * @var string
      */

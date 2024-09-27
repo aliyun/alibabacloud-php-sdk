@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ResetDiskDefaultKMSKeyIdRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the region. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

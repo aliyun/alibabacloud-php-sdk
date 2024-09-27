@@ -19,7 +19,7 @@ class CreateLaunchTemplateVersionResponseBody extends Model
     public $launchTemplateId;
 
     /**
-     * @description The version number of the launch template.
+     * @description The number of the created version of the launch template.
      *
      * @example 2
      *

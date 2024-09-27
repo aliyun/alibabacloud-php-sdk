@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskDefaultKMSKeyIdResponseBody extends Model
 {
     /**
+     * @description The ID of the KMS key.
+     *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDiskDefaultKMSKeyIdResponseBody extends Model
     public $KMSKeyId;
 
     /**
+     * @description The request ID.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
      * @var string
