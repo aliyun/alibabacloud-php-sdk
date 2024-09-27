@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models;
 
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\ExecuteOperationSyncResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
 class ExecuteOperationSyncResponseBody extends Model
@@ -18,7 +19,7 @@ class ExecuteOperationSyncResponseBody extends Model
     /**
      * @example op_xxxxxxxxxxxxxxxxxx_dds_modifyInstanceType_BYSOQGWUV6PME412_ERMEZLXNN3K9N3OL
      *
-     * @var string
+     * @var data
      */
     public $data;
 
@@ -53,7 +54,7 @@ class ExecuteOperationSyncResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -77,7 +78,7 @@ class ExecuteOperationSyncResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
