@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Ecsworkbench\V20220220\Models\GetInstanceRecordConfigReques
 use AlibabaCloud\SDK\Ecsworkbench\V20220220\Models\GetInstanceRecordConfigResponse;
 use AlibabaCloud\SDK\Ecsworkbench\V20220220\Models\ListInstanceRecordsRequest;
 use AlibabaCloud\SDK\Ecsworkbench\V20220220\Models\ListInstanceRecordsResponse;
+use AlibabaCloud\SDK\Ecsworkbench\V20220220\Models\ListTerminalCommandsRequest;
+use AlibabaCloud\SDK\Ecsworkbench\V20220220\Models\ListTerminalCommandsResponse;
 use AlibabaCloud\SDK\Ecsworkbench\V20220220\Models\LoginInstanceRequest;
 use AlibabaCloud\SDK\Ecsworkbench\V20220220\Models\LoginInstanceResponse;
 use AlibabaCloud\SDK\Ecsworkbench\V20220220\Models\SetInstanceRecordConfigRequest;
@@ -159,6 +161,62 @@ class Ecsworkbench extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listInstanceRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查看实例Workbench登录后执行命令的历史列表。
+     *  *
+     * @param ListTerminalCommandsRequest $request ListTerminalCommandsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTerminalCommandsResponse ListTerminalCommandsResponse
+     */
+    public function listTerminalCommandsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->terminalSessionToken)) {
+            $body['TerminalSessionToken'] = $request->terminalSessionToken;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTerminalCommands',
+            'version'     => '2022-02-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTerminalCommandsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看实例Workbench登录后执行命令的历史列表。
+     *  *
+     * @param ListTerminalCommandsRequest $request ListTerminalCommandsRequest
+     *
+     * @return ListTerminalCommandsResponse ListTerminalCommandsResponse
+     */
+    public function listTerminalCommands($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTerminalCommandsWithOptions($request, $runtime);
     }
 
     /**
