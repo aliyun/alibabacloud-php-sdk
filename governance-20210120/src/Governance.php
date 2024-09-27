@@ -38,6 +38,7 @@ use AlibabaCloud\SDK\Governance\V20210120\Models\UpdateAccountFactoryBaselineReq
 use AlibabaCloud\SDK\Governance\V20210120\Models\UpdateAccountFactoryBaselineResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -47,8 +48,10 @@ class Governance extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_signatureAlgorithm = 'v2';
-        $this->_endpointRule       = 'regional';
+        $this->_productId    = 'governance';
+        $gatewayClient       = new Client();
+        $this->_spi          = $gatewayClient;
+        $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('governance', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -114,8 +117,11 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BatchEnrollAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchEnrollAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchEnrollAccountsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -170,8 +176,11 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAccountFactoryBaselineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -220,8 +229,11 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAccountFactoryBaselineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -294,8 +306,11 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return EnrollAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnrollAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnrollAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -347,8 +362,11 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAccountFactoryBaselineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -397,8 +415,11 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetEnrolledAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetEnrolledAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEnrolledAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -459,8 +480,11 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListAccountFactoryBaselineItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAccountFactoryBaselineItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAccountFactoryBaselineItemsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -512,8 +536,11 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListAccountFactoryBaselinesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAccountFactoryBaselinesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAccountFactoryBaselinesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -565,8 +592,11 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListEnrolledAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEnrolledAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEnrolledAccountsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -615,8 +645,11 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListEvaluationMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEvaluationMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEvaluationMetadataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -674,8 +707,11 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListEvaluationMetricDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEvaluationMetricDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEvaluationMetricDetailsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -693,7 +729,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary 查看检测结果
+     * @summary Queries the result and status of a governance maturity check.
      *  *
      * @param ListEvaluationResultsRequest $request ListEvaluationResultsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -724,12 +760,15 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEvaluationResultsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查看检测结果
+     * @summary Queries the result and status of a governance maturity check.
      *  *
      * @param ListEvaluationResultsRequest $request ListEvaluationResultsRequest
      *
@@ -754,6 +793,9 @@ class Governance extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
         if (!Utils::isUnset($request->endDate)) {
             $query['EndDate'] = $request->endDate;
         }
@@ -777,8 +819,11 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListEvaluationScoreHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEvaluationScoreHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEvaluationScoreHistoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -830,8 +875,11 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RunEvaluationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RunEvaluationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RunEvaluationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -889,8 +937,11 @@ class Governance extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAccountFactoryBaselineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**

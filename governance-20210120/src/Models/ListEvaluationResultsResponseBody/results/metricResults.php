@@ -11,11 +11,16 @@ use AlibabaCloud\Tea\Model;
 class metricResults extends Model
 {
     /**
+     * @description The error information.
+     *
+     * >  This parameter is returned only if the value of `Status` is `Failed`.
      * @var errorInfo
      */
     public $errorInfo;
 
     /**
+     * @description The end time of the check item. The time is displayed in UTC.
+     *
      * @example 2023-12-13T03:34:02Z
      *
      * @var string
@@ -23,6 +28,8 @@ class metricResults extends Model
     public $evaluationTime;
 
     /**
+     * @description The ID of the check item.
+     *
      * @example r7xdcu****
      *
      * @var string
@@ -30,11 +37,15 @@ class metricResults extends Model
     public $id;
 
     /**
+     * @description The checked resources.
+     *
      * @var resourcesSummary
      */
     public $resourcesSummary;
 
     /**
+     * @description The rate of the non-compliant resources.
+     *
      * @example 0.67
      *
      * @var float
@@ -42,6 +53,12 @@ class metricResults extends Model
     public $result;
 
     /**
+     * @description The risk level. Valid values:
+     *
+     *   Error: high risk
+     *   Warning: medium risk
+     *   None: no risk
+     *
      * @example Error
      *
      * @var string
@@ -49,6 +66,12 @@ class metricResults extends Model
     public $risk;
 
     /**
+     * @description The status of the check item. Valid values:
+     *
+     *   Running: The check is in progress.
+     *   Finished: The check is complete.
+     *   failed: The check fails.
+     *
      * @example Running
      *
      * @var string

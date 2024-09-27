@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListEvaluationResultsRequest extends Model
 {
     /**
+     * @description The Alibaba Cloud account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
+     *
      * @example 176618589410****
      *
      * @var int
@@ -16,6 +18,8 @@ class ListEvaluationResultsRequest extends Model
     public $accountId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

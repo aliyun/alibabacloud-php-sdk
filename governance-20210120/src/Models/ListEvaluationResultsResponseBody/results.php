@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @description The end time of the overall check. The time is displayed in UTC.
+     *
      * @example 2023-12-13T03:35:00Z
      *
      * @var string
@@ -17,11 +19,19 @@ class results extends Model
     public $evaluationTime;
 
     /**
+     * @description The check results.
+     *
      * @var metricResults[]
      */
     public $metricResults;
 
     /**
+     * @description The status of the overall check. Valid values:
+     *
+     *   Running: The check is in progress.
+     *   Finished: The check is complete.
+     *   failed: The check fails.
+     *
      * @example Running
      *
      * @var string
@@ -29,6 +39,8 @@ class results extends Model
     public $status;
 
     /**
+     * @description The overall score.
+     *
      * @example 0.6453
      *
      * @var float

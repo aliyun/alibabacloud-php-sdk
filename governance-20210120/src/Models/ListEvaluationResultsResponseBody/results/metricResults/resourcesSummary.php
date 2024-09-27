@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourcesSummary extends Model
 {
     /**
+     * @description The number of non-compliant resources.
+     *
      * @example 2
      *
      * @var int

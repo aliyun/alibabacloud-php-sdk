@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListEvaluationScoreHistoryRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $accountId;
+
+    /**
      * @example 2024-07-11
      *
      * @var string
@@ -29,6 +34,7 @@ class ListEvaluationScoreHistoryRequest extends Model
      */
     public $startDate;
     protected $_name = [
+        'accountId' => 'AccountId',
         'endDate'   => 'EndDate',
         'regionId'  => 'RegionId',
         'startDate' => 'StartDate',
@@ -41,6 +47,9 @@ class ListEvaluationScoreHistoryRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
+        }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
@@ -62,6 +71,9 @@ class ListEvaluationScoreHistoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
+        }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }

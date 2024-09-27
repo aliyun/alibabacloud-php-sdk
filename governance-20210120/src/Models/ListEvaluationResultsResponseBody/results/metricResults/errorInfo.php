@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class errorInfo extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example EcsInsightEnableFailed
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The error message.
+     *
+     * @example Unable to enable ECS Insight due to a server error.
+     *
      * @var string
      */
     public $message;

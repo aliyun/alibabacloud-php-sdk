@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListEvaluationResultsResponseBody extends Model
 {
     /**
+     * @description The Alibaba Cloud account ID of the member.
+     *
      * @example 176618589410****
      *
      * @var int
@@ -17,6 +19,8 @@ class ListEvaluationResultsResponseBody extends Model
     public $accountId;
 
     /**
+     * @description The request ID.
+     *
      * @example BD57329E-131A-59F4-8746-E1CD8D7B****
      *
      * @var string
@@ -24,6 +28,8 @@ class ListEvaluationResultsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The check results, including the status of the overall check and the results of check items.
+     *
      * @var results
      */
     public $results;

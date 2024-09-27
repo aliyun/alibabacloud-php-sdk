@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @var string
+     */
+    public $complianceType;
+
+    /**
      * @example cn-hangzhou
      *
      * @var string
@@ -54,6 +59,7 @@ class resources extends Model
      */
     public $resourceType;
     protected $_name = [
+        'complianceType'         => 'ComplianceType',
         'regionId'               => 'RegionId',
         'resourceClassification' => 'ResourceClassification',
         'resourceId'             => 'ResourceId',
@@ -70,6 +76,9 @@ class resources extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->complianceType) {
+            $res['ComplianceType'] = $this->complianceType;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -109,6 +118,9 @@ class resources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ComplianceType'])) {
+            $model->complianceType = $map['ComplianceType'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
