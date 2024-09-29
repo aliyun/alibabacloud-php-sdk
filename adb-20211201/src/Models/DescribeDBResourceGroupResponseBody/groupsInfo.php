@@ -118,6 +118,11 @@ class groupsInfo extends Model
     public $maxComputeResource;
 
     /**
+     * @var int
+     */
+    public $maxGpuQuantity;
+
+    /**
      * @description This parameter is required.
      *
      * @var string
@@ -143,6 +148,11 @@ class groupsInfo extends Model
     public $minComputeResource;
 
     /**
+     * @var int
+     */
+    public $minGpuQuantity;
+
+    /**
      * @description The job resubmission rules.
      *
      * @var rules[]
@@ -159,6 +169,11 @@ class groupsInfo extends Model
     public $runningClusterCount;
 
     /**
+     * @var string
+     */
+    public $specName;
+
+    /**
      * @description The status of the resource group. Valid values:
      *
      *   **creating**: The resource group is being created.
@@ -170,6 +185,11 @@ class groupsInfo extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $targetResourceGroupName;
 
     /**
      * @description The time when the resource group was updated. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time is displayed in UTC.
@@ -192,12 +212,16 @@ class groupsInfo extends Model
         'groupUsers'                => 'GroupUsers',
         'maxClusterCount'           => 'MaxClusterCount',
         'maxComputeResource'        => 'MaxComputeResource',
+        'maxGpuQuantity'            => 'MaxGpuQuantity',
         'message'                   => 'Message',
         'minClusterCount'           => 'MinClusterCount',
         'minComputeResource'        => 'MinComputeResource',
+        'minGpuQuantity'            => 'MinGpuQuantity',
         'rules'                     => 'Rules',
         'runningClusterCount'       => 'RunningClusterCount',
+        'specName'                  => 'SpecName',
         'status'                    => 'Status',
+        'targetResourceGroupName'   => 'TargetResourceGroupName',
         'updateTime'                => 'UpdateTime',
     ];
 
@@ -244,6 +268,9 @@ class groupsInfo extends Model
         if (null !== $this->maxComputeResource) {
             $res['MaxComputeResource'] = $this->maxComputeResource;
         }
+        if (null !== $this->maxGpuQuantity) {
+            $res['MaxGpuQuantity'] = $this->maxGpuQuantity;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -252,6 +279,9 @@ class groupsInfo extends Model
         }
         if (null !== $this->minComputeResource) {
             $res['MinComputeResource'] = $this->minComputeResource;
+        }
+        if (null !== $this->minGpuQuantity) {
+            $res['MinGpuQuantity'] = $this->minGpuQuantity;
         }
         if (null !== $this->rules) {
             $res['Rules'] = [];
@@ -265,8 +295,14 @@ class groupsInfo extends Model
         if (null !== $this->runningClusterCount) {
             $res['RunningClusterCount'] = $this->runningClusterCount;
         }
+        if (null !== $this->specName) {
+            $res['SpecName'] = $this->specName;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->targetResourceGroupName) {
+            $res['TargetResourceGroupName'] = $this->targetResourceGroupName;
         }
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
@@ -319,6 +355,9 @@ class groupsInfo extends Model
         if (isset($map['MaxComputeResource'])) {
             $model->maxComputeResource = $map['MaxComputeResource'];
         }
+        if (isset($map['MaxGpuQuantity'])) {
+            $model->maxGpuQuantity = $map['MaxGpuQuantity'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -327,6 +366,9 @@ class groupsInfo extends Model
         }
         if (isset($map['MinComputeResource'])) {
             $model->minComputeResource = $map['MinComputeResource'];
+        }
+        if (isset($map['MinGpuQuantity'])) {
+            $model->minGpuQuantity = $map['MinGpuQuantity'];
         }
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
@@ -340,8 +382,14 @@ class groupsInfo extends Model
         if (isset($map['RunningClusterCount'])) {
             $model->runningClusterCount = $map['RunningClusterCount'];
         }
+        if (isset($map['SpecName'])) {
+            $model->specName = $map['SpecName'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TargetResourceGroupName'])) {
+            $model->targetResourceGroupName = $map['TargetResourceGroupName'];
         }
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];

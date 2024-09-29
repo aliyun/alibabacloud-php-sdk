@@ -108,6 +108,11 @@ class CreateDBResourceGroupRequest extends Model
     public $maxComputeResource;
 
     /**
+     * @var int
+     */
+    public $maxGpuQuantity;
+
+    /**
      * @description A reserved parameter.
      *
      * @example N/A
@@ -129,6 +134,11 @@ class CreateDBResourceGroupRequest extends Model
     public $minComputeResource;
 
     /**
+     * @var int
+     */
+    public $minGpuQuantity;
+
+    /**
      * @description The region ID of the cluster.
      *
      * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612393.html) operation to query the most recent region list.
@@ -144,21 +154,35 @@ class CreateDBResourceGroupRequest extends Model
      * @var rules[]
      */
     public $rules;
+
+    /**
+     * @var string
+     */
+    public $specName;
+
+    /**
+     * @var string
+     */
+    public $targetResourceGroupName;
     protected $_name = [
-        'clusterMode'         => 'ClusterMode',
-        'clusterSizeResource' => 'ClusterSizeResource',
-        'DBClusterId'         => 'DBClusterId',
-        'enableSpot'          => 'EnableSpot',
-        'engine'              => 'Engine',
-        'engineParams'        => 'EngineParams',
-        'groupName'           => 'GroupName',
-        'groupType'           => 'GroupType',
-        'maxClusterCount'     => 'MaxClusterCount',
-        'maxComputeResource'  => 'MaxComputeResource',
-        'minClusterCount'     => 'MinClusterCount',
-        'minComputeResource'  => 'MinComputeResource',
-        'regionId'            => 'RegionId',
-        'rules'               => 'Rules',
+        'clusterMode'             => 'ClusterMode',
+        'clusterSizeResource'     => 'ClusterSizeResource',
+        'DBClusterId'             => 'DBClusterId',
+        'enableSpot'              => 'EnableSpot',
+        'engine'                  => 'Engine',
+        'engineParams'            => 'EngineParams',
+        'groupName'               => 'GroupName',
+        'groupType'               => 'GroupType',
+        'maxClusterCount'         => 'MaxClusterCount',
+        'maxComputeResource'      => 'MaxComputeResource',
+        'maxGpuQuantity'          => 'MaxGpuQuantity',
+        'minClusterCount'         => 'MinClusterCount',
+        'minComputeResource'      => 'MinComputeResource',
+        'minGpuQuantity'          => 'MinGpuQuantity',
+        'regionId'                => 'RegionId',
+        'rules'                   => 'Rules',
+        'specName'                => 'SpecName',
+        'targetResourceGroupName' => 'TargetResourceGroupName',
     ];
 
     public function validate()
@@ -198,11 +222,17 @@ class CreateDBResourceGroupRequest extends Model
         if (null !== $this->maxComputeResource) {
             $res['MaxComputeResource'] = $this->maxComputeResource;
         }
+        if (null !== $this->maxGpuQuantity) {
+            $res['MaxGpuQuantity'] = $this->maxGpuQuantity;
+        }
         if (null !== $this->minClusterCount) {
             $res['MinClusterCount'] = $this->minClusterCount;
         }
         if (null !== $this->minComputeResource) {
             $res['MinComputeResource'] = $this->minComputeResource;
+        }
+        if (null !== $this->minGpuQuantity) {
+            $res['MinGpuQuantity'] = $this->minGpuQuantity;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -215,6 +245,12 @@ class CreateDBResourceGroupRequest extends Model
                     $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->specName) {
+            $res['SpecName'] = $this->specName;
+        }
+        if (null !== $this->targetResourceGroupName) {
+            $res['TargetResourceGroupName'] = $this->targetResourceGroupName;
         }
 
         return $res;
@@ -258,11 +294,17 @@ class CreateDBResourceGroupRequest extends Model
         if (isset($map['MaxComputeResource'])) {
             $model->maxComputeResource = $map['MaxComputeResource'];
         }
+        if (isset($map['MaxGpuQuantity'])) {
+            $model->maxGpuQuantity = $map['MaxGpuQuantity'];
+        }
         if (isset($map['MinClusterCount'])) {
             $model->minClusterCount = $map['MinClusterCount'];
         }
         if (isset($map['MinComputeResource'])) {
             $model->minComputeResource = $map['MinComputeResource'];
+        }
+        if (isset($map['MinGpuQuantity'])) {
+            $model->minGpuQuantity = $map['MinGpuQuantity'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -275,6 +317,12 @@ class CreateDBResourceGroupRequest extends Model
                     $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['SpecName'])) {
+            $model->specName = $map['SpecName'];
+        }
+        if (isset($map['TargetResourceGroupName'])) {
+            $model->targetResourceGroupName = $map['TargetResourceGroupName'];
         }
 
         return $model;
