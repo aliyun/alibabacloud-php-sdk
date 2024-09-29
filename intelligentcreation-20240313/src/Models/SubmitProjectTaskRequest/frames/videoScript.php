@@ -16,6 +16,11 @@ class videoScript extends Model
     public $audioUrl;
 
     /**
+     * @var bool
+     */
+    public $speechOpen;
+
+    /**
      * @example 2.0
      *
      * @var string
@@ -49,6 +54,7 @@ class videoScript extends Model
     public $volume;
     protected $_name = [
         'audioUrl'        => 'audioUrl',
+        'speechOpen'      => 'speechOpen',
         'speedRate'       => 'speedRate',
         'textContent'     => 'textContent',
         'type'            => 'type',
@@ -65,6 +71,9 @@ class videoScript extends Model
         $res = [];
         if (null !== $this->audioUrl) {
             $res['audioUrl'] = $this->audioUrl;
+        }
+        if (null !== $this->speechOpen) {
+            $res['speechOpen'] = $this->speechOpen;
         }
         if (null !== $this->speedRate) {
             $res['speedRate'] = $this->speedRate;
@@ -95,6 +104,9 @@ class videoScript extends Model
         $model = new self();
         if (isset($map['audioUrl'])) {
             $model->audioUrl = $map['audioUrl'];
+        }
+        if (isset($map['speechOpen'])) {
+            $model->speechOpen = $map['speechOpen'];
         }
         if (isset($map['speedRate'])) {
             $model->speedRate = $map['speedRate'];
