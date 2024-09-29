@@ -18,11 +18,15 @@ class UpdatePrometheusInstanceRequest extends Model
     public $archiveDuration;
 
     /**
+     * @description The IP addresses or CIDR blocks for which password-free read is enabled. Separate multiple IP addresses with line breaks.
+     *
      * @var string
      */
     public $authFreeReadPolicy;
 
     /**
+     * @description The IP addresses or CIDR blocks for which password-free write is enabled. Separate multiple IP addresses with line breaks.
+     *
      * @var string
      */
     public $authFreeWritePolicy;
@@ -38,16 +42,22 @@ class UpdatePrometheusInstanceRequest extends Model
     public $clusterId;
 
     /**
+     * @description Specifies whether to enable password-free read.
+     *
      * @var bool
      */
     public $enableAuthFreeRead;
 
     /**
+     * @description Specifies whether to enable password-free write.
+     *
      * @var bool
      */
     public $enableAuthFreeWrite;
 
     /**
+     * @description Specifies whether to enable access token authentication.
+     *
      * @var bool
      */
     public $enableAuthToken;

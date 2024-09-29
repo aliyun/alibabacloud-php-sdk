@@ -129,7 +129,13 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $autoAddNewApplication;
 
     /**
-     * @description The configurations that are automatically appended to monitor the application based on the specified alert rule. autoAddMatchType: the matching mode. Valid values: REGULAR and NOT_REGULAR. autoAddMatchExp: the regular expression
+     * @description The configurations that are automatically appended to monitor the application based on the specified alert rule.
+     *
+     *   autoAddMatchType:
+     *
+     * the matching mode. Valid values: REGULAR and NOT_REGULAR.
+     *
+     *   autoAddMatchExp: the regular expression
      *
      * @example {\\"autoAddMatchType\\":\\"REGULAR\\",\\"autoAddMatchExp\\":\\".*cbw.*\\"}
      *
@@ -253,8 +259,6 @@ class CreateOrUpdateAlertRuleRequest extends Model
     /**
      * @description The notification mode. You can specify the normal mode or simple mode.
      *
-     * Valid values:
-     *
      *   DIRECTED_MODE
      *   NORMAL_MODE
      *
@@ -286,7 +290,7 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $pids;
 
     /**
-     * @description When creating a Prometheus alert rule, the backend will verify whether this product exists, which is used to distinguish cloud product filtering queries.
+     * @description The product code. If you specify this parameter when you create a Prometheus alert rule, the backend checks whether the product exists.
      *
      * @example clickhouse
      *

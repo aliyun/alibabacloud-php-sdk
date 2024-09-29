@@ -247,6 +247,8 @@ class data extends Model
     /**
      * @description The ID of the security group associated with the environment.
      *
+     * @example sg-8vbdgmf4nraiqa9bx0jo
+     *
      * @var string
      */
     public $securityGroupId;
@@ -277,7 +279,9 @@ class data extends Model
     public $vpcId;
 
     /**
-     * @description The switch ID bound to the environment.
+     * @description The ID of the vSwitch associated with the environment.
+     *
+     * @example vsw-2ze7yr3f1x8snryaioo7u
      *
      * @var string
      */

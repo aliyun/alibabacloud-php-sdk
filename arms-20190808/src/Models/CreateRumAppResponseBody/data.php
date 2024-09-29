@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The SDK Domain.
+     * @description The domain name of the SDK.
      *
      * @example bxxxxxxx-sdk.rum.aliyuncs.com/v2/browser-sdk.js
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $cdnDomain;
 
     /**
-     * @description The endpoint of the event target.
+     * @description The endpoint that is used to report application data.
      *
      * @example xxxxxxxx-default-cn.rum.aliyuncs.com
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $endpoint;
 
     /**
-     * @description The application ID.
+     * @description The process ID (PID) of the application.
      *
      * @example avccccxxxx@24cxxxxbf384dc6
      *

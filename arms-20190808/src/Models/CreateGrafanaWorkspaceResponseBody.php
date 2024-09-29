@@ -18,6 +18,8 @@ class CreateGrafanaWorkspaceResponseBody extends Model
     public $code;
 
     /**
+     * @description The information about the Grafana workspace.
+     *
      * @var GrafanaWorkspace
      */
     public $data;

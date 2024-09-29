@@ -18,7 +18,7 @@ class GetRumAppInfoRequest extends Model
     public $appGroup;
 
     /**
-     * @description The application ID.
+     * @description The process ID (PID) of the application.
      *
      * This parameter is required.
      * @example atc889zkcf@d8deedfa9bf****

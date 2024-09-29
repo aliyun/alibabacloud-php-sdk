@@ -30,6 +30,13 @@ class data extends Model
     public $appType;
 
     /**
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $backendServiceTraceRegion;
+
+    /**
      * @description The mobile collection configurations.
      *
      * @var bonreeSDKConfig
@@ -183,26 +190,27 @@ class data extends Model
      */
     public $type;
     protected $_name = [
-        'appGroup'             => 'AppGroup',
-        'appType'              => 'AppType',
-        'bonreeSDKConfig'      => 'BonreeSDKConfig',
-        'cdnDomain'            => 'CdnDomain',
-        'createTime'           => 'CreateTime',
-        'description'          => 'Description',
-        'endpoint'             => 'Endpoint',
-        'isSubscription'       => 'IsSubscription',
-        'name'                 => 'Name',
-        'nickName'             => 'NickName',
-        'packageName'          => 'PackageName',
-        'pid'                  => 'Pid',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'serviceDomainConfigs' => 'ServiceDomainConfigs',
-        'slsLogstore'          => 'SlsLogstore',
-        'slsProject'           => 'SlsProject',
-        'status'               => 'Status',
-        'tags'                 => 'Tags',
-        'type'                 => 'Type',
+        'appGroup'                  => 'AppGroup',
+        'appType'                   => 'AppType',
+        'backendServiceTraceRegion' => 'BackendServiceTraceRegion',
+        'bonreeSDKConfig'           => 'BonreeSDKConfig',
+        'cdnDomain'                 => 'CdnDomain',
+        'createTime'                => 'CreateTime',
+        'description'               => 'Description',
+        'endpoint'                  => 'Endpoint',
+        'isSubscription'            => 'IsSubscription',
+        'name'                      => 'Name',
+        'nickName'                  => 'NickName',
+        'packageName'               => 'PackageName',
+        'pid'                       => 'Pid',
+        'regionId'                  => 'RegionId',
+        'resourceGroupId'           => 'ResourceGroupId',
+        'serviceDomainConfigs'      => 'ServiceDomainConfigs',
+        'slsLogstore'               => 'SlsLogstore',
+        'slsProject'                => 'SlsProject',
+        'status'                    => 'Status',
+        'tags'                      => 'Tags',
+        'type'                      => 'Type',
     ];
 
     public function validate()
@@ -217,6 +225,9 @@ class data extends Model
         }
         if (null !== $this->appType) {
             $res['AppType'] = $this->appType;
+        }
+        if (null !== $this->backendServiceTraceRegion) {
+            $res['BackendServiceTraceRegion'] = $this->backendServiceTraceRegion;
         }
         if (null !== $this->bonreeSDKConfig) {
             $res['BonreeSDKConfig'] = null !== $this->bonreeSDKConfig ? $this->bonreeSDKConfig->toMap() : null;
@@ -301,6 +312,9 @@ class data extends Model
         }
         if (isset($map['AppType'])) {
             $model->appType = $map['AppType'];
+        }
+        if (isset($map['BackendServiceTraceRegion'])) {
+            $model->backendServiceTraceRegion = $map['BackendServiceTraceRegion'];
         }
         if (isset($map['BonreeSDKConfig'])) {
             $model->bonreeSDKConfig = bonreeSDKConfig::fromMap($map['BonreeSDKConfig']);

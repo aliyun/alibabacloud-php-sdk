@@ -49,7 +49,7 @@ class GetAlertRulesRequest extends Model
     public $alertStatus;
 
     /**
-     * @description The type of the alert rule. Valid values:
+     * @description The type of the alert rule. This parameter is required for the new version of Alert Management.
      *
      *   APPLICATION_MONITORING_ALERT_RULE: alert rule for Application Monitoring
      *   BROWSER_MONITORING_ALERT_RULE: alert rule for Browser Monitoring

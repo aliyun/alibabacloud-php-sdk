@@ -24,10 +24,21 @@ class UpdateRumAppRequest extends Model
      *
      * @var string
      */
+    public $backendServiceTraceRegion;
+
+    /**
+     * @description The collection configurations of the mobile SDK. You can enable or disable collection configurations based on the app version.
+     *
+     * @example {\\"moduleConfig\\":{\\"enable\\":true,\\"defaultConfig\\":{\\"network\\":{\\"enable\\":true},\\"h5\\":{\\"enable\\":true},\\"routechange\\":{\\"enable\\":true},\\"crash\\":{\\"enable\\":true},\\"view\\":{\\"enable\\":true},\\"coollaunch\\":{\\"enable\\":true},\\"hotlaunch\\":{\\"enable\\":true},\\"action\\":{\\"enable\\":true},\\"lagstuck\\":{\\"enable\\":true},\\"lagfps\\":{\\"enable\\":true},\\"statechange\\":{\\"enable\\":true},\\"anr\\":{\\"enable\\":true},\\"customlog\\":{\\"enable\\":true},\\"customevent\\":{\\"enable\\":true},\\"custommetric\\":{\\"enable\\":true}},\\"versionConfigs\\":{\\"1.1.0\\":{\\"useCustom\\":true,\\"customConfig\\":{\\"network\\":{\\"enable\\":true},\\"h5\\":{\\"enable\\":true},\\"routechange\\":{\\"enable\\":true},\\"crash\\":{\\"enable\\":true},\\"view\\":{\\"enable\\":true},\\"coollaunch\\":{\\"enable\\":true},\\"hotlaunch\\":{\\"enable\\":true},\\"action\\":{\\"enable\\":true},\\"lagstuck\\":{\\"enable\\":false},\\"lagfps\\":{\\"enable\\":false},\\"statechange\\":{\\"enable\\":true},\\"anr\\":{\\"enable\\":true},\\"customlog\\":{\\"enable\\":true},\\"customevent\\":{\\"enable\\":true},\\"custommetric\\":{\\"enable\\":true}}},\\"1.2.0\\":{\\"useCustom\\":false,\\"customConfig\\":{}}}}}
+     *
+     * @var string
+     */
     public $bonreeSDKConfigJson;
 
     /**
      * @description The description of the application.
+     *
+     * @example test
      *
      * @var string
      */
@@ -45,6 +56,8 @@ class UpdateRumAppRequest extends Model
     /**
      * @description The alias of the application.
      *
+     * @example Android Test
+     *
      * @var string
      */
     public $nickname;
@@ -60,6 +73,10 @@ class UpdateRumAppRequest extends Model
     public $pid;
 
     /**
+     * @description Backend application deployment area (used in end-to-end link scenarios).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $realRegionId;
@@ -102,6 +119,7 @@ class UpdateRumAppRequest extends Model
     public $stop;
     protected $_name = [
         'autoRestart'                => 'AutoRestart',
+        'backendServiceTraceRegion'  => 'BackendServiceTraceRegion',
         'bonreeSDKConfigJson'        => 'BonreeSDKConfigJson',
         'description'                => 'Description',
         'isSubscribe'                => 'IsSubscribe',
@@ -123,6 +141,9 @@ class UpdateRumAppRequest extends Model
         $res = [];
         if (null !== $this->autoRestart) {
             $res['AutoRestart'] = $this->autoRestart;
+        }
+        if (null !== $this->backendServiceTraceRegion) {
+            $res['BackendServiceTraceRegion'] = $this->backendServiceTraceRegion;
         }
         if (null !== $this->bonreeSDKConfigJson) {
             $res['BonreeSDKConfigJson'] = $this->bonreeSDKConfigJson;
@@ -168,6 +189,9 @@ class UpdateRumAppRequest extends Model
         $model = new self();
         if (isset($map['AutoRestart'])) {
             $model->autoRestart = $map['AutoRestart'];
+        }
+        if (isset($map['BackendServiceTraceRegion'])) {
+            $model->backendServiceTraceRegion = $map['BackendServiceTraceRegion'];
         }
         if (isset($map['BonreeSDKConfigJson'])) {
             $model->bonreeSDKConfigJson = $map['BonreeSDKConfigJson'];

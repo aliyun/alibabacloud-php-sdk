@@ -28,7 +28,7 @@ class data extends Model
     public $archiveDuration;
 
     /**
-     * @description Read the whitelist policy for password-free addresses.
+     * @description The whitelist of IP addresses for which password-free read is enabled.
      *
      * @example null
      *
@@ -37,7 +37,7 @@ class data extends Model
     public $authFreeReadPolicy;
 
     /**
-     * @description Write exempt password address whitelist policy.
+     * @description The whitelist of IP addresses for which password-free write is enabled.
      *
      * @example null
      *
@@ -96,7 +96,7 @@ class data extends Model
     public $dbInstanceStatus;
 
     /**
-     * @description Whether to enable password-free reading.
+     * @description Indicates whether password-free read is enabled.
      *
      * @example false
      *
@@ -105,7 +105,7 @@ class data extends Model
     public $enableAuthFreeRead;
 
     /**
-     * @description Whether to enable write access without password.
+     * @description Indicates whether password-free write is enabled.
      *
      * @example false
      *
@@ -123,6 +123,8 @@ class data extends Model
     public $enableAuthToken;
 
     /**
+     * @description 扩展信息（仅控制台请求才返回）
+     *
      * @var string[]
      */
     public $extraInfo;

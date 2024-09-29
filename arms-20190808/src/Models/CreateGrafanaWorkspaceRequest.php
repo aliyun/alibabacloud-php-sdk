@@ -10,7 +10,10 @@ use AlibabaCloud\Tea\Model;
 class CreateGrafanaWorkspaceRequest extends Model
 {
     /**
-     * @description The language. Valid values: zh and en. Default value: zh.
+     * @description The language. Default value: zh. Valid values:
+     *
+     *   zh
+     *   en
      *
      * @example zh
      *

@@ -38,7 +38,7 @@ class CreateRumAppRequest extends Model
     public $description;
 
     /**
-     * @description The nick name.
+     * @description The nickname of the application.
      *
      * @example test-app
      *

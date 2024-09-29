@@ -10,6 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetAgentDownloadUrlV2ResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.\\
+     **Valid values:**
+     *
+     *   2xx: The request was successful.
+     *   3xx: The request was redirected.
+     *   4xx: The request was invalid.
+     *   5xx: A server error occurred.
+     *
      * @example 200
      *
      * @var int
@@ -17,16 +25,22 @@ class GetAgentDownloadUrlV2ResponseBody extends Model
     public $code;
 
     /**
+     * @description The version number and download URL of the agent.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 78901766-3806-4E96-8E47-CFEF59E4****
      *
      * @var string
@@ -34,6 +48,12 @@ class GetAgentDownloadUrlV2ResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.\\
+     **Valid values:**
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

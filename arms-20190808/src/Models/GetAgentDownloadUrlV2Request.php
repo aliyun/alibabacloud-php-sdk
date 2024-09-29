@@ -9,8 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetAgentDownloadUrlV2Request extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The agent type.\\
+     **Valid values:**
      *
+     *   **JavaAgent**
+     *   **Instgo**
+     *
+     * This parameter is required.
      * @example JavaAgent
      *
      * @var string
@@ -18,6 +23,13 @@ class GetAgentDownloadUrlV2Request extends Model
     public $agentType;
 
     /**
+     * @description The architecture type of the environment where the agent is installed.\\
+     * This parameter is required and valid only when **AgentType** is set to **Instgo**.\\
+     **Valid values:**
+     *
+     *   **amd64**
+     *   **arm64**
+     *
      * @example amd64
      *
      * @var string
@@ -25,6 +37,14 @@ class GetAgentDownloadUrlV2Request extends Model
     public $archType;
 
     /**
+     * @description The operating system of the environment where the agent is installed.\\
+     * This parameter is required and valid only when **AgentType** is set to **Instgo**.\\
+     **Valid values:**
+     *
+     *   **linux**
+     *   **darwin**
+     *   **windows**
+     *
      * @example linux
      *
      * @var string

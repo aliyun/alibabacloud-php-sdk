@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The download URL of the agent.
+     *
      * @example http://arms-apm-cn-hangzhou.oss-cn-hangzhou-internal.aliyuncs.com/3.2.9/ArmsAgent.zip
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $url;
 
     /**
+     * @description The version number of the agent.
+     *
      * @example 3.2.9
      *
      * @var string

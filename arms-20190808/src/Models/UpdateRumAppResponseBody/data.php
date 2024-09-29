@@ -11,6 +11,8 @@ class data extends Model
     /**
      * @description The user configurations. This is a reserved parameter.
      *
+     * @example null
+     *
      * @var string
      */
     public $config;
