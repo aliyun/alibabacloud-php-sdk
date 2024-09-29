@@ -19,6 +19,10 @@ class CreateFileRequest extends Model
     public $advancedSettings;
 
     /**
+     * @description Specifies whether scheduling configurations immediately take effect after the node is deployed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $applyScheduleImmediately;
@@ -29,7 +33,7 @@ class CreateFileRequest extends Model
      *   true
      *   false
      *
-     * This parameter corresponds to the Analyze Code parameter that is displayed after Same Cycle is selected in the Dependencies section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
+     * This parameter corresponds to the Analyze Code parameter that is displayed after Same Cycle is selected in the Dependencies section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
      * @example true
      *
      * @var bool
@@ -82,7 +86,7 @@ class CreateFileRequest extends Model
     public $createFolderIfNotExists;
 
     /**
-     * @description The CRON expression that represents the periodic scheduling policy of the node. This parameter corresponds to the Cron Expression parameter in the Schedule section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console). After you configure the Scheduling Cycle and Scheduled time parameters in the DataWorks console, DataWorks generates the value of the Cron Expression parameter.
+     * @description The CRON expression that represents the periodic scheduling policy of the node. This parameter corresponds to the Cron Expression parameter in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console). After you configure the Scheduling Cycle and Scheduled time parameters in the DataWorks console, DataWorks generates the value of the Cron Expression parameter.
      *
      * Examples:
      *
@@ -108,7 +112,7 @@ class CreateFileRequest extends Model
     /**
      * @description The type of the scheduling cycle of the node that corresponds to the file. Valid values: NOT_DAY and DAY. The value NOT_DAY indicates that the node is scheduled to run by minute or hour. The value DAY indicates that the node is scheduled to run by day, week, or month.
      *
-     * This parameter corresponds to the Scheduling Cycle parameter in the Schedule section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
+     * This parameter corresponds to the Scheduling Cycle parameter in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
      * @example DAY
      *
      * @var string
@@ -265,7 +269,7 @@ class CreateFileRequest extends Model
      *   FAILURE_ALLOWED: The node can be rerun only after it fails to run.
      *   ALL_DENIED: The node cannot be rerun regardless of whether it is successfully run or fails to run.
      *
-     * This parameter corresponds to the Rerun parameter in the Schedule section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
+     * This parameter corresponds to the Rerun parameter in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
      * @example ALL_ALLOWED
      *
      * @var string
@@ -298,7 +302,7 @@ class CreateFileRequest extends Model
      *   NORMAL: The node is an auto triggered node.
      *   MANUAL: The node is a manually triggered node. Manually triggered nodes cannot be automatically triggered. They correspond to the nodes in the Manually Triggered Workflows pane.
      *   PAUSE: The node is a paused node.
-     *   SKIP: The node is a dry-run node. Dry-run nodes are started as scheduled but the scheduling system sets the status of the nodes to successful when the scheduling system starts to run the nodes.
+     *   SKIP: The node is a dry-run node. Dry-run nodes are started as scheduled, but the system sets the status of the nodes to successful when it starts to run them
      *
      * @example NORMAL
      *
@@ -309,7 +313,7 @@ class CreateFileRequest extends Model
     /**
      * @description The start time of automatic scheduling. Set the value to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
-     * Configuring this parameter is equivalent to specifying a start time for the Validity Period parameter in the Schedule section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
+     * Configuring this parameter is equivalent to specifying a start time for the Validity Period parameter in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
      * @example 1671608450000
      *
      * @var int
@@ -332,7 +336,7 @@ class CreateFileRequest extends Model
      *   true
      *   false
      *
-     * This parameter corresponds to the Recurrence parameter in the Schedule section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
+     * This parameter corresponds to the Recurrence parameter in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
      * @example false
      *
      * @var bool

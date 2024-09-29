@@ -13,6 +13,10 @@ use AlibabaCloud\Tea\Model;
 class nodeConfiguration extends Model
 {
     /**
+     * @description Indicates whether scheduling configurations immediately take effect after the deployment.
+     *
+     * @example true
+     *
      * @var string
      */
     public $applyScheduleImmediately;
