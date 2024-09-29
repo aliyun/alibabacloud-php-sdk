@@ -44,6 +44,7 @@ use AlibabaCloud\SDK\EmrStudio\V20240430\Models\UpdateWorkflowRequest;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\UpdateWorkflowResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -53,6 +54,9 @@ class EmrStudio extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId    = 'EmrStudio';
+        $gatewayClient       = new Client();
+        $this->_spi          = $gatewayClient;
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('emrstudio', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -175,8 +179,11 @@ class EmrStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateWorkflowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -228,8 +235,11 @@ class EmrStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteWorkflowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -282,8 +292,11 @@ class EmrStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeManualTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeManualTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeManualTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -336,8 +349,11 @@ class EmrStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeManualTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeManualTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeManualTaskInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -389,8 +405,11 @@ class EmrStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -443,8 +462,11 @@ class EmrStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -499,8 +521,11 @@ class EmrStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeTaskInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -554,8 +579,11 @@ class EmrStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeWorkflowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -608,8 +636,11 @@ class EmrStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeWorkflowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeWorkflowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeWorkflowInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -679,8 +710,11 @@ class EmrStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListManualTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListManualTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListManualTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -743,8 +777,11 @@ class EmrStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListManualTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListManualTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListManualTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -803,8 +840,11 @@ class EmrStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListProjectsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -875,8 +915,11 @@ class EmrStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -942,8 +985,11 @@ class EmrStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1012,8 +1058,11 @@ class EmrStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListWorkflowInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListWorkflowInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListWorkflowInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1073,8 +1122,11 @@ class EmrStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListWorkflowsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListWorkflowsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListWorkflowsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1164,8 +1216,11 @@ class EmrStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RunWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RunWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RunWorkflowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1279,8 +1334,11 @@ class EmrStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateWorkflowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
