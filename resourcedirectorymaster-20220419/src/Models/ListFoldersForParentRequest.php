@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListFoldersForParentRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ListFoldersForParentRequest extends Model
@@ -47,11 +48,17 @@ class ListFoldersForParentRequest extends Model
      * @var string
      */
     public $queryKeyword;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
         'parentFolderId' => 'ParentFolderId',
         'queryKeyword'   => 'QueryKeyword',
+        'tag'            => 'Tag',
     ];
 
     public function validate()
@@ -72,6 +79,15 @@ class ListFoldersForParentRequest extends Model
         }
         if (null !== $this->queryKeyword) {
             $res['QueryKeyword'] = $this->queryKeyword;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -96,6 +112,15 @@ class ListFoldersForParentRequest extends Model
         }
         if (isset($map['QueryKeyword'])) {
             $model->queryKeyword = $map['QueryKeyword'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

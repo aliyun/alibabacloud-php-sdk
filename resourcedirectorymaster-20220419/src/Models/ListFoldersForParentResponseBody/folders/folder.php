@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListFoldersForParentResponseBody\folders;
 
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListFoldersForParentResponseBody\folders\folder\tags;
 use AlibabaCloud\Tea\Model;
 
 class folder extends Model
@@ -34,10 +35,16 @@ class folder extends Model
      * @var string
      */
     public $folderName;
+
+    /**
+     * @var tags
+     */
+    public $tags;
     protected $_name = [
         'createTime' => 'CreateTime',
         'folderId'   => 'FolderId',
         'folderName' => 'FolderName',
+        'tags'       => 'Tags',
     ];
 
     public function validate()
@@ -55,6 +62,9 @@ class folder extends Model
         }
         if (null !== $this->folderName) {
             $res['FolderName'] = $this->folderName;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
 
         return $res;
@@ -76,6 +86,9 @@ class folder extends Model
         }
         if (isset($map['FolderName'])) {
             $model->folderName = $map['FolderName'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         return $model;
