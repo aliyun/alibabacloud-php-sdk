@@ -24,20 +24,28 @@ use AlibabaCloud\SDK\EmrStudio\V20240430\Models\DescribeWorkflowInstanceRequest;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\DescribeWorkflowInstanceResponse;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\DescribeWorkflowRequest;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\DescribeWorkflowResponse;
+use AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListAlertGroupsRequest;
+use AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListAlertGroupsResponse;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListManualTaskInstancesRequest;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListManualTaskInstancesResponse;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListManualTasksRequest;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListManualTasksResponse;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListProjectsRequest;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListProjectsResponse;
+use AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListResourceGroupsRequest;
+use AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListResourceGroupsResponse;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListTaskInstancesRequest;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListTaskInstancesResponse;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListTasksRequest;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListTasksResponse;
+use AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListWorkflowDirectoriesRequest;
+use AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListWorkflowDirectoriesResponse;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListWorkflowInstancesRequest;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListWorkflowInstancesResponse;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListWorkflowsRequest;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\ListWorkflowsResponse;
+use AlibabaCloud\SDK\EmrStudio\V20240430\Models\OperateWorkflowInstanceRequest;
+use AlibabaCloud\SDK\EmrStudio\V20240430\Models\OperateWorkflowInstanceResponse;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\RunWorkflowRequest;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\RunWorkflowResponse;
 use AlibabaCloud\SDK\EmrStudio\V20240430\Models\UpdateWorkflowRequest;
@@ -661,6 +669,70 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
+     * @summary 查询告警组列表
+     *  *
+     * @param string                 $projectId
+     * @param ListAlertGroupsRequest $request   ListAlertGroupsRequest
+     * @param string[]               $headers   map
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ListAlertGroupsResponse ListAlertGroupsResponse
+     */
+    public function listAlertGroupsWithOptions($projectId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->searchVal)) {
+            $query['searchVal'] = $request->searchVal;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAlertGroups',
+            'version'     => '2024-04-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dolphinscheduler/v3/alert-groups',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListAlertGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListAlertGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询告警组列表
+     *  *
+     * @param string                 $projectId
+     * @param ListAlertGroupsRequest $request   ListAlertGroupsRequest
+     *
+     * @return ListAlertGroupsResponse ListAlertGroupsResponse
+     */
+    public function listAlertGroups($projectId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAlertGroupsWithOptions($projectId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取手动任务实例列表
      *  *
      * @param string                         $projectId
@@ -863,6 +935,71 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
+     * @summary 查询调度资源组列表
+     *  *
+     * @param ListResourceGroupsRequest $request ListResourceGroupsRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListResourceGroupsResponse ListResourceGroupsResponse
+     */
+    public function listResourceGroupsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceGroupName)) {
+            $query['resourceGroupName'] = $request->resourceGroupName;
+        }
+        if (!Utils::isUnset($request->resourceGroupType)) {
+            $query['resourceGroupType'] = $request->resourceGroupType;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListResourceGroups',
+            'version'     => '2024-04-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dolphinscheduler/v3/resourcegroups',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListResourceGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询调度资源组列表
+     *  *
+     * @param ListResourceGroupsRequest $request ListResourceGroupsRequest
+     *
+     * @return ListResourceGroupsResponse ListResourceGroupsResponse
+     */
+    public function listResourceGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listResourceGroupsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取任务实例列表
      *  *
      * @param string                   $projectId
@@ -1009,6 +1146,73 @@ class EmrStudio extends OpenApiClient
     }
 
     /**
+     * @summary 查询工作流目录列表
+     *  *
+     * @param string                         $projectId
+     * @param ListWorkflowDirectoriesRequest $request   ListWorkflowDirectoriesRequest
+     * @param string[]                       $headers   map
+     * @param RuntimeOptions                 $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ListWorkflowDirectoriesResponse ListWorkflowDirectoriesResponse
+     */
+    public function listWorkflowDirectoriesWithOptions($projectId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['directoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->parentDirectoryId)) {
+            $query['parentDirectoryId'] = $request->parentDirectoryId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWorkflowDirectories',
+            'version'     => '2024-04-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dolphinscheduler/v3/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/directories',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListWorkflowDirectoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListWorkflowDirectoriesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询工作流目录列表
+     *  *
+     * @param string                         $projectId
+     * @param ListWorkflowDirectoriesRequest $request   ListWorkflowDirectoriesRequest
+     *
+     * @return ListWorkflowDirectoriesResponse ListWorkflowDirectoriesResponse
+     */
+    public function listWorkflowDirectories($projectId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWorkflowDirectoriesWithOptions($projectId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取工作流实例列表
      *  *
      * @param string                       $projectId
@@ -1143,6 +1347,69 @@ class EmrStudio extends OpenApiClient
         $headers = [];
 
         return $this->listWorkflowsWithOptions($projectId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 操作工作流实例
+     *  *
+     * @param string                         $projectId
+     * @param OperateWorkflowInstanceRequest $request   OperateWorkflowInstanceRequest
+     * @param string[]                       $headers   map
+     * @param RuntimeOptions                 $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return OperateWorkflowInstanceResponse OperateWorkflowInstanceResponse
+     */
+    public function operateWorkflowInstanceWithOptions($projectId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->execType)) {
+            $body['execType'] = $request->execType;
+        }
+        if (!Utils::isUnset($request->workflowInstanceId)) {
+            $body['workflowInstanceId'] = $request->workflowInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'OperateWorkflowInstance',
+            'version'     => '2024-04-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dolphinscheduler/v3/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/executors/execute',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OperateWorkflowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return OperateWorkflowInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 操作工作流实例
+     *  *
+     * @param string                         $projectId
+     * @param OperateWorkflowInstanceRequest $request   OperateWorkflowInstanceRequest
+     *
+     * @return OperateWorkflowInstanceResponse OperateWorkflowInstanceResponse
+     */
+    public function operateWorkflowInstance($projectId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->operateWorkflowInstanceWithOptions($projectId, $request, $headers, $runtime);
     }
 
     /**
