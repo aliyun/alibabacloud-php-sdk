@@ -66,6 +66,7 @@ use AlibabaCloud\SDK\Tag\V20180828\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Tag\V20180828\Models\UntagResourcesResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -75,6 +76,9 @@ class Tag extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId    = 'Tag';
+        $gatewayClient       = new Client();
+        $this->_spi          = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap  = [
             'cn-qingdao'                  => 'tag.aliyuncs.com',
@@ -147,9 +151,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * If you use the Tag Policy feature in single-account mode, you can call this API operation to attach a tag policy to the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to attach a tag policy to the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
-     *   * This topic provides an example on how to call the API operation to attach the tag policy with an ID of `p-de62a0bf400e4b69****` to the current logon account. In this example, the Tag Policy feature in single-account mode is used.
-     *   *
+     * @summary 绑定策略
+     *  *
+     * @description If you use the Tag Policy feature in single-account mode, you can call this API operation to attach a tag policy to the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to attach a tag policy to the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
+     * This topic provides an example on how to call the API operation to attach the tag policy with an ID of `p-de62a0bf400e4b69****` to the current logon account. In this example, the Tag Policy feature in single-account mode is used.
+     *  *
      * @param AttachPolicyRequest $request AttachPolicyRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -194,14 +200,19 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AttachPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * If you use the Tag Policy feature in single-account mode, you can call this API operation to attach a tag policy to the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to attach a tag policy to the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
-     *   * This topic provides an example on how to call the API operation to attach the tag policy with an ID of `p-de62a0bf400e4b69****` to the current logon account. In this example, the Tag Policy feature in single-account mode is used.
-     *   *
+     * @summary 绑定策略
+     *  *
+     * @description If you use the Tag Policy feature in single-account mode, you can call this API operation to attach a tag policy to the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to attach a tag policy to the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
+     * This topic provides an example on how to call the API operation to attach the tag policy with an ID of `p-de62a0bf400e4b69****` to the current logon account. In this example, the Tag Policy feature in single-account mode is used.
+     *  *
      * @param AttachPolicyRequest $request AttachPolicyRequest
      *
      * @return AttachPolicyResponse AttachPolicyResponse
@@ -214,10 +225,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param CheckCreatedByEnabledRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 校验CreatedBy开通状态
+     *  *
+     * @param CheckCreatedByEnabledRequest $request CheckCreatedByEnabledRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckCreatedByEnabledResponse
+     * @return CheckCreatedByEnabledResponse CheckCreatedByEnabledResponse
      */
     public function checkCreatedByEnabledWithOptions($request, $runtime)
     {
@@ -252,14 +265,19 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CheckCreatedByEnabledResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckCreatedByEnabledResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckCreatedByEnabledResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CheckCreatedByEnabledRequest $request
+     * @summary 校验CreatedBy开通状态
+     *  *
+     * @param CheckCreatedByEnabledRequest $request CheckCreatedByEnabledRequest
      *
-     * @return CheckCreatedByEnabledResponse
+     * @return CheckCreatedByEnabledResponse CheckCreatedByEnabledResponse
      */
     public function checkCreatedByEnabled($request)
     {
@@ -269,10 +287,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param CloseCreatedByRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 关闭CreatedBy服务
+     *  *
+     * @param CloseCreatedByRequest $request CloseCreatedByRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CloseCreatedByResponse
+     * @return CloseCreatedByResponse CloseCreatedByResponse
      */
     public function closeCreatedByWithOptions($request, $runtime)
     {
@@ -307,14 +327,19 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CloseCreatedByResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CloseCreatedByResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CloseCreatedByResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CloseCreatedByRequest $request
+     * @summary 关闭CreatedBy服务
+     *  *
+     * @param CloseCreatedByRequest $request CloseCreatedByRequest
      *
-     * @return CloseCreatedByResponse
+     * @return CloseCreatedByResponse CloseCreatedByResponse
      */
     public function closeCreatedBy($request)
     {
@@ -324,9 +349,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * This topic provides an example on how to call the API operation to create a tag policy named `test`. In this example, the Tag Policy feature in multi-account mode is used. The tag policy defines that resources to which the `CostCenter:Beijing` or `CostCenter:Shanghai` tag is added are compliant and other resources are not compliant.
-     *   *
+     * @summary Creates a tag policy.
+     *  *
+     * @description ###
+     * This topic provides an example on how to call the API operation to create a tag policy named `test`. In this example, the Tag Policy feature in multi-account mode is used. The tag policy defines that resources to which the `CostCenter:Beijing` or `CostCenter:Shanghai` tag is added are compliant and other resources are not compliant.
+     *  *
      * @param CreatePolicyRequest $request CreatePolicyRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -377,14 +404,19 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * ###
-     *   * This topic provides an example on how to call the API operation to create a tag policy named `test`. In this example, the Tag Policy feature in multi-account mode is used. The tag policy defines that resources to which the `CostCenter:Beijing` or `CostCenter:Shanghai` tag is added are compliant and other resources are not compliant.
-     *   *
+     * @summary Creates a tag policy.
+     *  *
+     * @description ###
+     * This topic provides an example on how to call the API operation to create a tag policy named `test`. In this example, the Tag Policy feature in multi-account mode is used. The tag policy defines that resources to which the `CostCenter:Beijing` or `CostCenter:Shanghai` tag is added are compliant and other resources are not compliant.
+     *  *
      * @param CreatePolicyRequest $request CreatePolicyRequest
      *
      * @return CreatePolicyResponse CreatePolicyResponse
@@ -397,10 +429,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * A preset tag is a tag that you create in advance and is available for the resources in all regions. You can create preset tags in the stage of tag planning and add them to specific resources in the stage of tag implementation. When you create a preset tag, you can specify only the tag key. You can specify a tag value in the future.
-     *   * This topic provides an example on how to call the API operation to create a preset tag whose tag key is `Environment` to indicate the business environment.
-     *   *
+     * @summary Creates preset tags.
+     *  *
+     * @description ###
+     * A preset tag is a tag that you create in advance and is available for the resources in all regions. You can create preset tags in the stage of tag planning and add them to specific resources in the stage of tag implementation. When you create a preset tag, you can specify only the tag key. You can specify a tag value in the future.
+     * This topic provides an example on how to call the API operation to create a preset tag whose tag key is `Environment` to indicate the business environment.
+     *  *
      * @param CreateTagsRequest $request CreateTagsRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -439,15 +473,20 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateTagsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * ###
-     *   * A preset tag is a tag that you create in advance and is available for the resources in all regions. You can create preset tags in the stage of tag planning and add them to specific resources in the stage of tag implementation. When you create a preset tag, you can specify only the tag key. You can specify a tag value in the future.
-     *   * This topic provides an example on how to call the API operation to create a preset tag whose tag key is `Environment` to indicate the business environment.
-     *   *
+     * @summary Creates preset tags.
+     *  *
+     * @description ###
+     * A preset tag is a tag that you create in advance and is available for the resources in all regions. You can create preset tags in the stage of tag planning and add them to specific resources in the stage of tag implementation. When you create a preset tag, you can specify only the tag key. You can specify a tag value in the future.
+     * This topic provides an example on how to call the API operation to create a preset tag whose tag key is `Environment` to indicate the business environment.
+     *  *
      * @param CreateTagsRequest $request CreateTagsRequest
      *
      * @return CreateTagsResponse CreateTagsResponse
@@ -460,9 +499,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * Before you delete a tag policy, make sure that the tag policy is detached from all objects to which the tag policy is attached. For more information about how to detach a tag policy, see [DetachPolicy](~~429724~~).
-     *   * This topic provides an example on how to call the API operation to delete the tag policy with an ID of `p-557cb141331f41c7****`.
-     *   *
+     * @summary 删除策略
+     *  *
+     * @description Before you delete a tag policy, make sure that the tag policy is detached from all objects to which the tag policy is attached. For more information about how to detach a tag policy, see [DetachPolicy](https://help.aliyun.com/document_detail/429724.html).
+     * This topic provides an example on how to call the API operation to delete the tag policy with an ID of `p-557cb141331f41c7****`.
+     *  *
      * @param DeletePolicyRequest $request DeletePolicyRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -501,14 +542,19 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeletePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * Before you delete a tag policy, make sure that the tag policy is detached from all objects to which the tag policy is attached. For more information about how to detach a tag policy, see [DetachPolicy](~~429724~~).
-     *   * This topic provides an example on how to call the API operation to delete the tag policy with an ID of `p-557cb141331f41c7****`.
-     *   *
+     * @summary 删除策略
+     *  *
+     * @description Before you delete a tag policy, make sure that the tag policy is detached from all objects to which the tag policy is attached. For more information about how to detach a tag policy, see [DetachPolicy](https://help.aliyun.com/document_detail/429724.html).
+     * This topic provides an example on how to call the API operation to delete the tag policy with an ID of `p-557cb141331f41c7****`.
+     *  *
      * @param DeletePolicyRequest $request DeletePolicyRequest
      *
      * @return DeletePolicyResponse DeletePolicyResponse
@@ -521,8 +567,10 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to delete the preset tag whose tag key is `Environment` and tag value is `test`.
-     *   *
+     * @summary Deletes a preset tag.
+     *  *
+     * @description This topic provides an example on how to call the API operation to delete the preset tag whose tag key is `Environment` and tag value is `test`.
+     *  *
      * @param DeleteTagRequest $request DeleteTagRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -564,13 +612,18 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteTagResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * This topic provides an example on how to call the API operation to delete the preset tag whose tag key is `Environment` and tag value is `test`.
-     *   *
+     * @summary Deletes a preset tag.
+     *  *
+     * @description This topic provides an example on how to call the API operation to delete the preset tag whose tag key is `Environment` and tag value is `test`.
+     *  *
      * @param DeleteTagRequest $request DeleteTagRequest
      *
      * @return DeleteTagResponse DeleteTagResponse
@@ -583,10 +636,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the regions where the Tag service is available.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -624,14 +679,19 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @summary Queries the regions where the Tag service is available.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -641,9 +701,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * If you use the Tag Policy feature in single-account mode, you can call this API operation to detach a tag policy from the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to detach a tag policy from the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
-     *   * This topic provides an example on how to call the API operation to detach the tag policy with an ID of `p-a3381efe2fe34a75****` from the current logon account. In this example, the Tag Policy feature in single-account mode is used.
-     *   *
+     * @summary 解除策略绑定
+     *  *
+     * @description If you use the Tag Policy feature in single-account mode, you can call this API operation to detach a tag policy from the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to detach a tag policy from the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
+     * This topic provides an example on how to call the API operation to detach the tag policy with an ID of `p-a3381efe2fe34a75****` from the current logon account. In this example, the Tag Policy feature in single-account mode is used.
+     *  *
      * @param DetachPolicyRequest $request DetachPolicyRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -688,14 +750,19 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DetachPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * If you use the Tag Policy feature in single-account mode, you can call this API operation to detach a tag policy from the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to detach a tag policy from the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
-     *   * This topic provides an example on how to call the API operation to detach the tag policy with an ID of `p-a3381efe2fe34a75****` from the current logon account. In this example, the Tag Policy feature in single-account mode is used.
-     *   *
+     * @summary 解除策略绑定
+     *  *
+     * @description If you use the Tag Policy feature in single-account mode, you can call this API operation to detach a tag policy from the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to detach a tag policy from the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
+     * This topic provides an example on how to call the API operation to detach the tag policy with an ID of `p-a3381efe2fe34a75****` from the current logon account. In this example, the Tag Policy feature in single-account mode is used.
+     *  *
      * @param DetachPolicyRequest $request DetachPolicyRequest
      *
      * @return DetachPolicyResponse DetachPolicyResponse
@@ -708,10 +775,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param DisablePolicyTypeRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 关闭策略
+     *  *
+     * @param DisablePolicyTypeRequest $request DisablePolicyTypeRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisablePolicyTypeResponse
+     * @return DisablePolicyTypeResponse DisablePolicyTypeResponse
      */
     public function disablePolicyTypeWithOptions($request, $runtime)
     {
@@ -752,14 +821,19 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DisablePolicyTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisablePolicyTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisablePolicyTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DisablePolicyTypeRequest $request
+     * @summary 关闭策略
+     *  *
+     * @param DisablePolicyTypeRequest $request DisablePolicyTypeRequest
      *
-     * @return DisablePolicyTypeResponse
+     * @return DisablePolicyTypeResponse DisablePolicyTypeResponse
      */
     public function disablePolicyType($request)
     {
@@ -769,10 +843,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param EnablePolicyTypeRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 开通策略
+     *  *
+     * @param EnablePolicyTypeRequest $request EnablePolicyTypeRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnablePolicyTypeResponse
+     * @return EnablePolicyTypeResponse EnablePolicyTypeResponse
      */
     public function enablePolicyTypeWithOptions($request, $runtime)
     {
@@ -813,14 +889,19 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return EnablePolicyTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnablePolicyTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnablePolicyTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param EnablePolicyTypeRequest $request
+     * @summary 开通策略
+     *  *
+     * @param EnablePolicyTypeRequest $request EnablePolicyTypeRequest
      *
-     * @return EnablePolicyTypeResponse
+     * @return EnablePolicyTypeResponse EnablePolicyTypeResponse
      */
     public function enablePolicyType($request)
     {
@@ -830,9 +911,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * If you use the Tag Policy feature in single-account mode, you can call this API operation to generate a resource non-compliance report for the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to generate a resource non-compliance report for the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
-     *   * This topic provides an example on how to call this API operation to generate a resource non-compliance report for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
-     *   *
+     * @summary 生成规则检测报告
+     *  *
+     * @description If you use the Tag Policy feature in single-account mode, you can call this API operation to generate a resource non-compliance report for the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to generate a resource non-compliance report for the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
+     * This topic provides an example on how to call this API operation to generate a resource non-compliance report for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
+     *  *
      * @param GenerateConfigRuleReportRequest $request GenerateConfigRuleReportRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -877,14 +960,19 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GenerateConfigRuleReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenerateConfigRuleReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateConfigRuleReportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * If you use the Tag Policy feature in single-account mode, you can call this API operation to generate a resource non-compliance report for the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to generate a resource non-compliance report for the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
-     *   * This topic provides an example on how to call this API operation to generate a resource non-compliance report for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
-     *   *
+     * @summary 生成规则检测报告
+     *  *
+     * @description If you use the Tag Policy feature in single-account mode, you can call this API operation to generate a resource non-compliance report for the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to generate a resource non-compliance report for the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
+     * This topic provides an example on how to call this API operation to generate a resource non-compliance report for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
+     *  *
      * @param GenerateConfigRuleReportRequest $request GenerateConfigRuleReportRequest
      *
      * @return GenerateConfigRuleReportResponse GenerateConfigRuleReportResponse
@@ -897,9 +985,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the basic information of the resource non-compliance report that is last generated for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the basic information of the resource non-compliance report that is last generated for an object in the resource directory. The object can be the Root folder, a folder other than the Root folder, or a member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
-     *   * This topic provides an example on how to call this API operation to query the basic information of the resource non-compliance report that is last generated for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that the ID of the report is `crp-ao0786618088006c****`.
-     *   *
+     * @summary Queries the basic information of the resource non-compliance report that is last generated.
+     *  *
+     * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the basic information of the resource non-compliance report that is last generated for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the basic information of the resource non-compliance report that is last generated for an object in the resource directory. The object can be the Root folder, a folder other than the Root folder, or a member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
+     * This topic provides an example on how to call this API operation to query the basic information of the resource non-compliance report that is last generated for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that the ID of the report is `crp-ao0786618088006c****`.
+     *  *
      * @param GetConfigRuleReportRequest $request GetConfigRuleReportRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -944,14 +1034,19 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetConfigRuleReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetConfigRuleReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetConfigRuleReportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the basic information of the resource non-compliance report that is last generated for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the basic information of the resource non-compliance report that is last generated for an object in the resource directory. The object can be the Root folder, a folder other than the Root folder, or a member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
-     *   * This topic provides an example on how to call this API operation to query the basic information of the resource non-compliance report that is last generated for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that the ID of the report is `crp-ao0786618088006c****`.
-     *   *
+     * @summary Queries the basic information of the resource non-compliance report that is last generated.
+     *  *
+     * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the basic information of the resource non-compliance report that is last generated for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the basic information of the resource non-compliance report that is last generated for an object in the resource directory. The object can be the Root folder, a folder other than the Root folder, or a member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
+     * This topic provides an example on how to call this API operation to query the basic information of the resource non-compliance report that is last generated for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that the ID of the report is `crp-ao0786618088006c****`.
+     *  *
      * @param GetConfigRuleReportRequest $request GetConfigRuleReportRequest
      *
      * @return GetConfigRuleReportResponse GetConfigRuleReportResponse
@@ -964,10 +1059,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the effective tag policy for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the effective tag policy for the Root folder, a folder other than the Root folder, or a member in the resource directory. You can also use a member of a resource directory to call this API operation to query the effective tag policy for the member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
-     *   * An effective tag policy is obtained based on tag policy inheritance. For more information, see [Inheritance of a tag policy and calculation of an effective tag policy](~~417435~~).
-     *   * This topic provides an example on how to call the API operation to query the effective tag policy for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
-     *   *
+     * @summary 查询有效策略
+     *  *
+     * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the effective tag policy for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the effective tag policy for the Root folder, a folder other than the Root folder, or a member in the resource directory. You can also use a member of a resource directory to call this API operation to query the effective tag policy for the member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
+     * An effective tag policy is obtained based on tag policy inheritance. For more information, see [Inheritance of a tag policy and calculation of an effective tag policy](https://help.aliyun.com/document_detail/417435.html).
+     * This topic provides an example on how to call the API operation to query the effective tag policy for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
+     *  *
      * @param GetEffectivePolicyRequest $request GetEffectivePolicyRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -1009,15 +1106,20 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetEffectivePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetEffectivePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEffectivePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the effective tag policy for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the effective tag policy for the Root folder, a folder other than the Root folder, or a member in the resource directory. You can also use a member of a resource directory to call this API operation to query the effective tag policy for the member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
-     *   * An effective tag policy is obtained based on tag policy inheritance. For more information, see [Inheritance of a tag policy and calculation of an effective tag policy](~~417435~~).
-     *   * This topic provides an example on how to call the API operation to query the effective tag policy for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
-     *   *
+     * @summary 查询有效策略
+     *  *
+     * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the effective tag policy for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the effective tag policy for the Root folder, a folder other than the Root folder, or a member in the resource directory. You can also use a member of a resource directory to call this API operation to query the effective tag policy for the member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
+     * An effective tag policy is obtained based on tag policy inheritance. For more information, see [Inheritance of a tag policy and calculation of an effective tag policy](https://help.aliyun.com/document_detail/417435.html).
+     * This topic provides an example on how to call the API operation to query the effective tag policy for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
+     *  *
      * @param GetEffectivePolicyRequest $request GetEffectivePolicyRequest
      *
      * @return GetEffectivePolicyResponse GetEffectivePolicyResponse
@@ -1030,8 +1132,10 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the details of the tag policy with an ID of `p-557cb141331f41c7****`.
-     *   *
+     * @summary 查询策略
+     *  *
+     * @description This topic provides an example on how to call the API operation to query the details of the tag policy with an ID of `p-557cb141331f41c7****`.
+     *  *
      * @param GetPolicyRequest $request GetPolicyRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -1070,13 +1174,18 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the details of the tag policy with an ID of `p-557cb141331f41c7****`.
-     *   *
+     * @summary 查询策略
+     *  *
+     * @description This topic provides an example on how to call the API operation to query the details of the tag policy with an ID of `p-557cb141331f41c7****`.
+     *  *
      * @param GetPolicyRequest $request GetPolicyRequest
      *
      * @return GetPolicyResponse GetPolicyResponse
@@ -1089,8 +1198,10 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the status of the Tag Policy feature for the current logon account. The response shows that the Tag Policy feature in multi-account mode is enabled for the current logon account.
-     *   *
+     * @summary Queries the status of the Tag Policy feature.
+     *  *
+     * @description This topic provides an example on how to call the API operation to query the status of the Tag Policy feature for the current logon account. The response shows that the Tag Policy feature in multi-account mode is enabled for the current logon account.
+     *  *
      * @param GetPolicyEnableStatusRequest $request GetPolicyEnableStatusRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -1135,13 +1246,18 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetPolicyEnableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPolicyEnableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPolicyEnableStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the status of the Tag Policy feature for the current logon account. The response shows that the Tag Policy feature in multi-account mode is enabled for the current logon account.
-     *   *
+     * @summary Queries the status of the Tag Policy feature.
+     *  *
+     * @description This topic provides an example on how to call the API operation to query the status of the Tag Policy feature for the current logon account. The response shows that the Tag Policy feature in multi-account mode is enabled for the current logon account.
+     *  *
      * @param GetPolicyEnableStatusRequest $request GetPolicyEnableStatusRequest
      *
      * @return GetPolicyEnableStatusResponse GetPolicyEnableStatusResponse
@@ -1154,9 +1270,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the tag detection tasks for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the tag detection tasks for the Root folder, a folder other than the Root folder, or a member in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
-     *   * This topic provides an example on how to call the API operation to query the tag detection tasks for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that only one tag detection task exists.
-     *   *
+     * @summary Queries a list of tag detection tasks for an object.
+     *  *
+     * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the tag detection tasks for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the tag detection tasks for the Root folder, a folder other than the Root folder, or a member in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
+     * This topic provides an example on how to call the API operation to query the tag detection tasks for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that only one tag detection task exists.
+     *  *
      * @param ListConfigRulesForTargetRequest $request ListConfigRulesForTargetRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -1213,14 +1331,19 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListConfigRulesForTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListConfigRulesForTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListConfigRulesForTargetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the tag detection tasks for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the tag detection tasks for the Root folder, a folder other than the Root folder, or a member in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
-     *   * This topic provides an example on how to call the API operation to query the tag detection tasks for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that only one tag detection task exists.
-     *   *
+     * @summary Queries a list of tag detection tasks for an object.
+     *  *
+     * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the tag detection tasks for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the tag detection tasks for the Root folder, a folder other than the Root folder, or a member in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
+     * This topic provides an example on how to call the API operation to query the tag detection tasks for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that only one tag detection task exists.
+     *  *
      * @param ListConfigRulesForTargetRequest $request ListConfigRulesForTargetRequest
      *
      * @return ListConfigRulesForTargetResponse ListConfigRulesForTargetResponse
@@ -1233,9 +1356,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query all tag policies that are created for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query all tag policies that are created for the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
-     *   * This topic provides an example on how to call the API operation to query all tag policies that are created for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that two tag policies are created.
-     *   *
+     * @summary Queries tag policies.
+     *  *
+     * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query all tag policies that are created for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query all tag policies that are created for the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
+     * This topic provides an example on how to call the API operation to query all tag policies that are created for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that two tag policies are created.
+     *  *
      * @param ListPoliciesRequest $request ListPoliciesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -1286,14 +1411,19 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query all tag policies that are created for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query all tag policies that are created for the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
-     *   * This topic provides an example on how to call the API operation to query all tag policies that are created for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that two tag policies are created.
-     *   *
+     * @summary Queries tag policies.
+     *  *
+     * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query all tag policies that are created for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query all tag policies that are created for the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
+     * This topic provides an example on how to call the API operation to query all tag policies that are created for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that two tag policies are created.
+     *  *
      * @param ListPoliciesRequest $request ListPoliciesRequest
      *
      * @return ListPoliciesResponse ListPoliciesResponse
@@ -1306,9 +1436,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the tag policies that are attached to the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the tag policies that are attached to the Root folder, a folder other than the Root folder, or a member in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
-     *   * This topic provides an example on how to call the API operation to query the tag policies that are attached to the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that only one tag policy is attached to the current logon account.
-     *   *
+     * @summary Queries the tag policies that are attached to an object.
+     *  *
+     * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the tag policies that are attached to the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the tag policies that are attached to the Root folder, a folder other than the Root folder, or a member in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
+     * This topic provides an example on how to call the API operation to query the tag policies that are attached to the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that only one tag policy is attached to the current logon account.
+     *  *
      * @param ListPoliciesForTargetRequest $request ListPoliciesForTargetRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -1356,14 +1488,19 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListPoliciesForTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPoliciesForTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPoliciesForTargetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the tag policies that are attached to the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the tag policies that are attached to the Root folder, a folder other than the Root folder, or a member in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
-     *   * This topic provides an example on how to call the API operation to query the tag policies that are attached to the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that only one tag policy is attached to the current logon account.
-     *   *
+     * @summary Queries the tag policies that are attached to an object.
+     *  *
+     * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the tag policies that are attached to the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the tag policies that are attached to the Root folder, a folder other than the Root folder, or a member in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
+     * This topic provides an example on how to call the API operation to query the tag policies that are attached to the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that only one tag policy is attached to the current logon account.
+     *  *
      * @param ListPoliciesForTargetRequest $request ListPoliciesForTargetRequest
      *
      * @return ListPoliciesForTargetResponse ListPoliciesForTargetResponse
@@ -1376,8 +1513,10 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation in the China (Shenzhen) region to query virtual private clouds (VPCs) to which the tag key `k1` is added. The response shows that the tag key is added to two VPCs.
-     *   *
+     * @summary Queries resources to which a specified tag is added or resources to which a specified tag is not added.
+     *  *
+     * @description This topic provides an example on how to call the API operation in the China (Shenzhen) region to query virtual private clouds (VPCs) to which the tag key `k1` is added. The response shows that the tag key is added to two VPCs.
+     *  *
      * @param ListResourcesByTagRequest $request ListResourcesByTagRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -1434,13 +1573,18 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListResourcesByTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListResourcesByTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListResourcesByTagResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * This topic provides an example on how to call the API operation in the China (Shenzhen) region to query virtual private clouds (VPCs) to which the tag key `k1` is added. The response shows that the tag key is added to two VPCs.
-     *   *
+     * @summary Queries resources to which a specified tag is added or resources to which a specified tag is not added.
+     *  *
+     * @description This topic provides an example on how to call the API operation in the China (Shenzhen) region to query virtual private clouds (VPCs) to which the tag key `k1` is added. The response shows that the tag key is added to two VPCs.
+     *  *
      * @param ListResourcesByTagRequest $request ListResourcesByTagRequest
      *
      * @return ListResourcesByTagResponse ListResourcesByTagResponse
@@ -1453,11 +1597,13 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * ### [](#)Call examples
-     *   * *   Query a list of resource types supported by TagResources or UntagResources. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22,%22SupportCode%22:%22TAG_CONSOLE_SUPPORT%22%7D).
-     *   * *   Query a list of resource types supported by ListTagResources or ListResourcesByTag. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22%7D).
-     *   * *   Query a list of resource types that support createdby tags. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22,%22SupportCode%22:%22CREATED_BY_TAG_CONSOLE_SUPPORT%22%7D).
-     *   *
+     * @summary Queries the resource types supported by tags and tag-related capability items.
+     *  *
+     * @description ### [](#)Call examples
+     * *   Query a list of resource types supported by TagResources or UntagResources. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22,%22SupportCode%22:%22TAG_CONSOLE_SUPPORT%22%7D).
+     * *   Query a list of resource types supported by ListTagResources or ListResourcesByTag. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22%7D).
+     * *   Query a list of resource types that support createdby tags. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22,%22SupportCode%22:%22CREATED_BY_TAG_CONSOLE_SUPPORT%22%7D).
+     *  *
      * @param ListSupportResourceTypesRequest $request ListSupportResourceTypesRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -1511,16 +1657,21 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListSupportResourceTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSupportResourceTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSupportResourceTypesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * ### [](#)Call examples
-     *   * *   Query a list of resource types supported by TagResources or UntagResources. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22,%22SupportCode%22:%22TAG_CONSOLE_SUPPORT%22%7D).
-     *   * *   Query a list of resource types supported by ListTagResources or ListResourcesByTag. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22%7D).
-     *   * *   Query a list of resource types that support createdby tags. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22,%22SupportCode%22:%22CREATED_BY_TAG_CONSOLE_SUPPORT%22%7D).
-     *   *
+     * @summary Queries the resource types supported by tags and tag-related capability items.
+     *  *
+     * @description ### [](#)Call examples
+     * *   Query a list of resource types supported by TagResources or UntagResources. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22,%22SupportCode%22:%22TAG_CONSOLE_SUPPORT%22%7D).
+     * *   Query a list of resource types supported by ListTagResources or ListResourcesByTag. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22%7D).
+     * *   Query a list of resource types that support createdby tags. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22,%22SupportCode%22:%22CREATED_BY_TAG_CONSOLE_SUPPORT%22%7D).
+     *  *
      * @param ListSupportResourceTypesRequest $request ListSupportResourceTypesRequest
      *
      * @return ListSupportResourceTypesResponse ListSupportResourceTypesResponse
@@ -1533,8 +1684,10 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the tag keys in the `cn-hangzhou` region. The response shows that the following tag keys exist: `team`, `k1`, and `k2`.
-     *   *
+     * @summary Queries tag keys.
+     *  *
+     * @description This topic provides an example on how to call the API operation to query the tag keys in the `cn-hangzhou` region. The response shows that the following tag keys exist: `team`, `k1`, and `k2`.
+     *  *
      * @param ListTagKeysRequest $request ListTagKeysRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -1594,13 +1747,18 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagKeysResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the tag keys in the `cn-hangzhou` region. The response shows that the following tag keys exist: `team`, `k1`, and `k2`.
-     *   *
+     * @summary Queries tag keys.
+     *  *
+     * @description This topic provides an example on how to call the API operation to query the tag keys in the `cn-hangzhou` region. The response shows that the following tag keys exist: `team`, `k1`, and `k2`.
+     *  *
      * @param ListTagKeysRequest $request ListTagKeysRequest
      *
      * @return ListTagKeysResponse ListTagKeysResponse
@@ -1613,8 +1771,10 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * For information about the Alibaba Cloud services that support tags, see [Services that work with Tag](~~171455~~).
-     *   *
+     * @summary Queries the tags that are added to the resources of various Alibaba Cloud services.
+     *  *
+     * @description For information about the Alibaba Cloud services that support tags, see [Services that work with Tag](https://help.aliyun.com/document_detail/171455.html).
+     *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -1668,13 +1828,18 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * For information about the Alibaba Cloud services that support tags, see [Services that work with Tag](~~171455~~).
-     *   *
+     * @summary Queries the tags that are added to the resources of various Alibaba Cloud services.
+     *  *
+     * @description For information about the Alibaba Cloud services that support tags, see [Services that work with Tag](https://help.aliyun.com/document_detail/171455.html).
+     *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
      * @return ListTagResourcesResponse ListTagResourcesResponse
@@ -1687,8 +1852,10 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the values of the tag key `k1` in the `cn-hangzhou` region. The response shows that the value of the tag key `k1` is `v1`.
-     *   *
+     * @summary Queries the tag values of a tag key.
+     *  *
+     * @description This topic provides an example on how to call the API operation to query the values of the tag key `k1` in the `cn-hangzhou` region. The response shows that the value of the tag key `k1` is `v1`.
+     *  *
      * @param ListTagValuesRequest $request ListTagValuesRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -1748,13 +1915,18 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagValuesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the values of the tag key `k1` in the `cn-hangzhou` region. The response shows that the value of the tag key `k1` is `v1`.
-     *   *
+     * @summary Queries the tag values of a tag key.
+     *  *
+     * @description This topic provides an example on how to call the API operation to query the values of the tag key `k1` in the `cn-hangzhou` region. The response shows that the value of the tag key `k1` is `v1`.
+     *  *
      * @param ListTagValuesRequest $request ListTagValuesRequest
      *
      * @return ListTagValuesResponse ListTagValuesResponse
@@ -1767,9 +1939,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the object to which a tag policy is attached. The object is the current logon account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the objects to which a tag policy is attached. The objects include the Root folder, folders other than the Root folder, and members in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
-     *   * This topic provides an example on how to call the API operation to query the objects to which the tag policy with an ID of `p-de62a0bf400e4b69****` is attached. In this example, the Tag Policy feature in multi-account mode is used. The response shows that the tag policy is attached to two members in the related resource directory.
-     *   *
+     * @summary Queries the objects to which a tag policy is attached.
+     *  *
+     * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the object to which a tag policy is attached. The object is the current logon account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the objects to which a tag policy is attached. The objects include the Root folder, folders other than the Root folder, and members in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
+     * This topic provides an example on how to call the API operation to query the objects to which the tag policy with an ID of `p-de62a0bf400e4b69****` is attached. In this example, the Tag Policy feature in multi-account mode is used. The response shows that the tag policy is attached to two members in the related resource directory.
+     *  *
      * @param ListTargetsForPolicyRequest $request ListTargetsForPolicyRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -1814,14 +1988,19 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTargetsForPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTargetsForPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTargetsForPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the object to which a tag policy is attached. The object is the current logon account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the objects to which a tag policy is attached. The objects include the Root folder, folders other than the Root folder, and members in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
-     *   * This topic provides an example on how to call the API operation to query the objects to which the tag policy with an ID of `p-de62a0bf400e4b69****` is attached. In this example, the Tag Policy feature in multi-account mode is used. The response shows that the tag policy is attached to two members in the related resource directory.
-     *   *
+     * @summary Queries the objects to which a tag policy is attached.
+     *  *
+     * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the object to which a tag policy is attached. The object is the current logon account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the objects to which a tag policy is attached. The objects include the Root folder, folders other than the Root folder, and members in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
+     * This topic provides an example on how to call the API operation to query the objects to which the tag policy with an ID of `p-de62a0bf400e4b69****` is attached. In this example, the Tag Policy feature in multi-account mode is used. The response shows that the tag policy is attached to two members in the related resource directory.
+     *  *
      * @param ListTargetsForPolicyRequest $request ListTargetsForPolicyRequest
      *
      * @return ListTargetsForPolicyResponse ListTargetsForPolicyResponse
@@ -1834,8 +2013,10 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to change the name of a tag policy to `test`.
-     *   *
+     * @summary 修改策略
+     *  *
+     * @description This topic provides an example on how to call the API operation to change the name of a tag policy to `test`.
+     *  *
      * @param ModifyPolicyRequest $request ModifyPolicyRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -1886,13 +2067,18 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * This topic provides an example on how to call the API operation to change the name of a tag policy to `test`.
-     *   *
+     * @summary 修改策略
+     *  *
+     * @description This topic provides an example on how to call the API operation to change the name of a tag policy to `test`.
+     *  *
      * @param ModifyPolicyRequest $request ModifyPolicyRequest
      *
      * @return ModifyPolicyResponse ModifyPolicyResponse
@@ -1905,8 +2091,10 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * createdby tags can help you analyze costs and bills and manage the costs of cloud resources in an efficient manner. You can identify the creators of resources based on the createdby tags added to the resources. createdby tags are system tags that are provided by Alibaba Cloud and automatically added to resources. The key of createdby tags is `acs:tag:createdby`.
-     *   *
+     * @summary Enables createdby tags.
+     *  *
+     * @description createdby tags can help you analyze costs and bills and manage the costs of cloud resources in an efficient manner. You can identify the creators of resources based on the createdby tags added to the resources. createdby tags are system tags that are provided by Alibaba Cloud and automatically added to resources. The key of createdby tags is `acs:tag:createdby`.
+     *  *
      * @param OpenCreatedByRequest $request OpenCreatedByRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -1945,13 +2133,18 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OpenCreatedByResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OpenCreatedByResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OpenCreatedByResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * createdby tags can help you analyze costs and bills and manage the costs of cloud resources in an efficient manner. You can identify the creators of resources based on the createdby tags added to the resources. createdby tags are system tags that are provided by Alibaba Cloud and automatically added to resources. The key of createdby tags is `acs:tag:createdby`.
-     *   *
+     * @summary Enables createdby tags.
+     *  *
+     * @description createdby tags can help you analyze costs and bills and manage the costs of cloud resources in an efficient manner. You can identify the creators of resources based on the createdby tags added to the resources. createdby tags are system tags that are provided by Alibaba Cloud and automatically added to resources. The key of createdby tags is `acs:tag:createdby`.
+     *  *
      * @param OpenCreatedByRequest $request OpenCreatedByRequest
      *
      * @return OpenCreatedByResponse OpenCreatedByResponse
@@ -1964,9 +2157,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * Tags are used to identify resources. Tags allow you to categorize, search for, and aggregate resources that have the same characteristics from different dimensions. This facilitates resource management. For more information, see [Tag overview](~~156983~~).
-     *   * For information about the Alibaba Cloud services that support tags, see [Services that work with Tag](~~171455~~).
-     *   *
+     * @summary Adds tags to the resources of various Alibaba Cloud services.
+     *  *
+     * @description Tags are used to identify resources. Tags allow you to categorize, search for, and aggregate resources that have the same characteristics from different dimensions. This facilitates resource management. For more information, see [Tag overview](https://help.aliyun.com/document_detail/156983.html).
+     * For information about the Alibaba Cloud services that support tags, see [Services that work with Tag](https://help.aliyun.com/document_detail/171455.html).
+     *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -2011,14 +2206,19 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * Tags are used to identify resources. Tags allow you to categorize, search for, and aggregate resources that have the same characteristics from different dimensions. This facilitates resource management. For more information, see [Tag overview](~~156983~~).
-     *   * For information about the Alibaba Cloud services that support tags, see [Services that work with Tag](~~171455~~).
-     *   *
+     * @summary Adds tags to the resources of various Alibaba Cloud services.
+     *  *
+     * @description Tags are used to identify resources. Tags allow you to categorize, search for, and aggregate resources that have the same characteristics from different dimensions. This facilitates resource management. For more information, see [Tag overview](https://help.aliyun.com/document_detail/156983.html).
+     * For information about the Alibaba Cloud services that support tags, see [Services that work with Tag](https://help.aliyun.com/document_detail/171455.html).
+     *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      *
      * @return TagResourcesResponse TagResourcesResponse
@@ -2031,9 +2231,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * After you remove a tag, the tag is automatically deleted within 24 hours if it is not added to other resources.
-     *   * For information about the Alibaba Cloud services that support tags, see [Services that work with Tag](~~171455~~).
-     *   *
+     * @summary Removes tags from the resources of various Alibaba Cloud services.
+     *  *
+     * @description After you remove a tag, the tag is automatically deleted within 24 hours if it is not added to other resources.
+     * For information about the Alibaba Cloud services that support tags, see [Services that work with Tag](https://help.aliyun.com/document_detail/171455.html).
+     *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -2078,14 +2280,19 @@ class Tag extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * After you remove a tag, the tag is automatically deleted within 24 hours if it is not added to other resources.
-     *   * For information about the Alibaba Cloud services that support tags, see [Services that work with Tag](~~171455~~).
-     *   *
+     * @summary Removes tags from the resources of various Alibaba Cloud services.
+     *  *
+     * @description After you remove a tag, the tag is automatically deleted within 24 hours if it is not added to other resources.
+     * For information about the Alibaba Cloud services that support tags, see [Services that work with Tag](https://help.aliyun.com/document_detail/171455.html).
+     *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *
      * @return UntagResourcesResponse UntagResourcesResponse

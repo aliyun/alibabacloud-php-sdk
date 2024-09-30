@@ -22,7 +22,7 @@ class tagKeyValueParamList extends Model
     /**
      * @description The key of tag N.
      *
-     * Valid values of N: 1 to 10.
+     * This parameter is required.
      * @example Environment
      *
      * @var string

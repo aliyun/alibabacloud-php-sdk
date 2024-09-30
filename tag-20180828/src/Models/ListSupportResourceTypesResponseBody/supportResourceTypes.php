@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class supportResourceTypes extends Model
 {
     /**
+     * @var string
+     */
+    public $arnTemplate;
+
+    /**
      * @description The service code.
      *
      * @example ecs
@@ -35,6 +40,7 @@ class supportResourceTypes extends Model
      */
     public $supportItems;
     protected $_name = [
+        'arnTemplate'  => 'ArnTemplate',
         'productCode'  => 'ProductCode',
         'resourceType' => 'ResourceType',
         'supportItems' => 'SupportItems',
@@ -47,6 +53,9 @@ class supportResourceTypes extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->arnTemplate) {
+            $res['ArnTemplate'] = $this->arnTemplate;
+        }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
@@ -74,6 +83,9 @@ class supportResourceTypes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArnTemplate'])) {
+            $model->arnTemplate = $map['ArnTemplate'];
+        }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }

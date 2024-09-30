@@ -33,7 +33,7 @@ class CreatePolicyRequest extends Model
     /**
      * @description The document of the tag policy.
      *
-     * For more information about the syntax of a tag policy, see [Syntax of a tag policy](~~417436~~).
+     * This parameter is required.
      * @example {"tags":{"CostCenter":{"tag_value":{"@@assign":["Beijing","Shanghai"]},"tag_key":{"@@assign":"CostCenter"}}}}
      *
      * @var string
@@ -53,7 +53,7 @@ class CreatePolicyRequest extends Model
     /**
      * @description The name of the tag policy.
      *
-     * The name must be 1 to 128 characters in length and can contain letters, digits, and underscores (\_).
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -80,7 +80,7 @@ class CreatePolicyRequest extends Model
      *   USER: single-account mode. Set the value to USER if you use an Alibaba Cloud account or a member of a resource directory to call this API operation to create a tag policy for the Alibaba Cloud account or member.
      *   RD: multi-account mode. Set the value to RD if you use the management account of a resource directory to call this API operation to create a tag policy for the resource directory.
      *
-     * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
+     * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
      * @example RD
      *
      * @var string

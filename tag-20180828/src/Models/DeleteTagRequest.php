@@ -11,7 +11,7 @@ class DeleteTagRequest extends Model
     /**
      * @description The tag key.
      *
-     * If no tag value is associated with a tag key, you can specify the `Key` parameter without specifying the Value parameter to delete the tag key. Otherwise, you must specify both the `Key` and `Value` parameters to delete a preset tag.
+     * This parameter is required.
      * @example Environment
      *
      * @var string
@@ -31,7 +31,7 @@ class DeleteTagRequest extends Model
     /**
      * @description The region ID.
      *
-     * >  Only `cn-hangzhou` is supported.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

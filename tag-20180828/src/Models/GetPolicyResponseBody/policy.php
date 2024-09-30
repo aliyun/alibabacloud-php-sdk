@@ -11,7 +11,7 @@ class policy extends Model
     /**
      * @description The document of the tag policy.
      *
-     * @example {\"tags\":{\"CostCenter\":{\"tag_value\":{\"@@assign\":[\"Beijing\",\"Shanghai\"]},\"tag_key\":{\"@@assign\":\"CostCenter\"}}}}
+     * @example {\\"tags\\":{\\"CostCenter\\":{\\"tag_value\\":{\\"@@assign\\":[\\"Beijing\\",\\"Shanghai\\"]},\\"tag_key\\":{\\"@@assign\\":\\"CostCenter\\"}}}}
      *
      * @var string
      */
@@ -41,7 +41,7 @@ class policy extends Model
      *   USER: single-account mode
      *   RD: multi-account mode
      *
-     * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
+     * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
      * @example USER
      *
      * @var string

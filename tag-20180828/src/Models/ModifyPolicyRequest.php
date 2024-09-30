@@ -33,7 +33,7 @@ class ModifyPolicyRequest extends Model
     /**
      * @description The document of the tag policy.
      *
-     * For more information about the syntax of a tag policy, see [Syntax of a tag policy](~~417436~~).
+     * For more information about the syntax of a tag policy, see [Syntax of a tag policy](https://help.aliyun.com/document_detail/417436.html).
      * @example {"tags":{"CostCenter":{"tag_value":{"@@assign":["Beijing","Shanghai"]},"tag_key":{"@@assign":"CostCenter"}}}}
      *
      * @var string
@@ -53,6 +53,7 @@ class ModifyPolicyRequest extends Model
     /**
      * @description The ID of the tag policy.
      *
+     * This parameter is required.
      * @example p-5732750813924f90****
      *
      * @var string
@@ -62,7 +63,7 @@ class ModifyPolicyRequest extends Model
     /**
      * @description The name of the tag policy.
      *
-     * The name must be 1 to 128 characters in length and can contain letters, digits, and underscores (\_).
+     * The name must be 1 to 128 characters in length and can contain letters, digits, and underscores (_).
      * @example test
      *
      * @var string

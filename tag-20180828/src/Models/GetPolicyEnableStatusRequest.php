@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetPolicyEnableStatusRequest extends Model
 {
     /**
+     * @description The enabling type. Valid values:
+     *
+     *   TAG_POLICY: the Tag Policy feature.
+     *   VERIFY_NO_TAG: the strong verification feature.
+     *
+     * @example TAG_POLICY
+     *
      * @var string
      */
     public $openType;

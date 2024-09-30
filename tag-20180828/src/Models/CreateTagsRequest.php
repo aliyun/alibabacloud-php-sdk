@@ -22,7 +22,7 @@ class CreateTagsRequest extends Model
     /**
      * @description The region ID.
      *
-     * > Only `cn-hangzhou` is supported.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +37,7 @@ class CreateTagsRequest extends Model
     /**
      * @description The information about the tags.
      *
+     * This parameter is required.
      * @var tagKeyValueParamList[]
      */
     public $tagKeyValueParamList;

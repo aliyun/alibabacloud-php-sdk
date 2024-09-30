@@ -21,6 +21,7 @@ class DetachPolicyRequest extends Model
     /**
      * @description The ID of the tag policy.
      *
+     * This parameter is required.
      * @example p-a3381efe2fe34a75****
      *
      * @var string

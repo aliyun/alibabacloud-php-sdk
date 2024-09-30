@@ -21,6 +21,7 @@ class OpenCreatedByRequest extends Model
     /**
      * @description The region ID. Set the value to cn-shanghai.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

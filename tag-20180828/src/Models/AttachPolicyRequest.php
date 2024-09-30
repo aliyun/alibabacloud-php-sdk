@@ -21,6 +21,7 @@ class AttachPolicyRequest extends Model
     /**
      * @description The ID of the tag policy.
      *
+     * This parameter is required.
      * @example p-de62a0bf400e4b69****
      *
      * @var string

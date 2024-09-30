@@ -21,6 +21,7 @@ class GetPolicyRequest extends Model
     /**
      * @description The ID of the tag policy.
      *
+     * This parameter is required.
      * @example p-557cb141331f41c7****
      *
      * @var string

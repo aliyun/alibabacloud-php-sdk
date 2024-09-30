@@ -54,9 +54,10 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The region ID.
      *
-     *   If the resources belong to a service that is centrally deployed, set the value to the region ID of the resources by referring to [Regions supported by tag-related operations on resources of centrally deployed Alibaba Cloud services](~~2579691~~).
+     *   If the resources belong to a service that is centrally deployed, set the value to the region ID of the resources by referring to [Regions supported by tag-related operations on resources of centrally deployed Alibaba Cloud services](https://help.aliyun.com/document_detail/2579691.html).
      *   If the resources belong to a service that is not centrally deployed, set the value to the region ID of the resources.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

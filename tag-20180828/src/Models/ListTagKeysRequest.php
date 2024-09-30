@@ -86,7 +86,7 @@ class ListTagKeysRequest extends Model
     /**
      * @description The region ID.
      *
-     * For more information about region IDs, see [Endpoints](~~2330902~~).
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -103,8 +103,8 @@ class ListTagKeysRequest extends Model
      *
      * Format: `ALIYUN::${ProductCode}::${ResourceType}`. All letters in the value of this parameter must be in uppercase.
      *
-     *   `ProductCode`: the service code. You can set this field to a value obtained from the response of the [ListSupportResourceTypes](~~2330915~~) operation.
-     *   `ResourceType`: the resource type. You can set this field to a value obtained from the response of the [ListSupportResourceTypes](~~2330915~~) operation.
+     *   `ProductCode`: the service code. You can set this field to a value obtained from the response of the [ListSupportResourceTypes](https://help.aliyun.com/document_detail/2330915.html) operation.
+     *   `ResourceType`: the resource type. You can set this field to a value obtained from the response of the [ListSupportResourceTypes](https://help.aliyun.com/document_detail/2330915.html) operation.
      *
      * @example ALIYUN::ECS::INSTANCE
      *

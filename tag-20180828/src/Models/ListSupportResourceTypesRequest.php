@@ -50,7 +50,7 @@ class ListSupportResourceTypesRequest extends Model
     /**
      * @description The region ID.
      *
-     * For more information about region IDs, see [Endpoints](~~2330902~~).
+     * For more information about region IDs, see [Endpoints](https://help.aliyun.com/document_detail/2330902.html).
      * @example cn-hangzhou
      *
      * @var string

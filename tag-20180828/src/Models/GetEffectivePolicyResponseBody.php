@@ -11,7 +11,7 @@ class GetEffectivePolicyResponseBody extends Model
     /**
      * @description The effective tag policy.
      *
-     * @example {\"tags\":{\"costcenter\":{\"tag_value\":[\"Beijing\",\"Shanghai\"],\"tag_key\":\"CostCenter\"}}}
+     * @example {\\"tags\\":{\\"costcenter\\":{\\"tag_value\\":[\\"Beijing\\",\\"Shanghai\\"],\\"tag_key\\":\\"CostCenter\\"}}}
      *
      * @var string
      */

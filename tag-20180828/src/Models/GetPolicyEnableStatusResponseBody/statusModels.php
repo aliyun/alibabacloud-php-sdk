@@ -28,7 +28,7 @@ class statusModels extends Model
      *   USER: single-account mode
      *   RD: multi-account mode
      *
-     * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
+     * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
      * @example RD
      *
      * @var string

@@ -11,7 +11,7 @@ class tagFilter extends Model
     /**
      * @description The tag key. This parameter specifies a filter condition for the query.
      *
-     * The tag key can be a maximum of 128 characters in length. It cannot contain `http://` or `https://` and cannot start with `acs:` or `aliyun`.
+     * This parameter is required.
      * @example k1
      *
      * @var string

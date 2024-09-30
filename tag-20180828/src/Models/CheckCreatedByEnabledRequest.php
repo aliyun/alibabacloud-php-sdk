@@ -19,6 +19,8 @@ class CheckCreatedByEnabledRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shanghai
      *
      * @var string
