@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\Wss\V20211221\Models\DescribePackageDeductionsRequest;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribePackageDeductionsResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -20,6 +21,9 @@ class Wss extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId    = 'wss';
+        $gatewayClient       = new Client();
+        $this->_spi          = $gatewayClient;
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('wss', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -67,8 +71,11 @@ class Wss extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDeliveryAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDeliveryAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDeliveryAddressResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -122,8 +129,11 @@ class Wss extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribePackageDeductionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePackageDeductionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePackageDeductionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
