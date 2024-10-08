@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateFinReportSummaryTaskRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateFinReportSummaryTaskResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateLibraryRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateLibraryResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\CreatePdfTranslateTaskRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\CreatePdfTranslateTaskResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreatePredefinedDocumentRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreatePredefinedDocumentResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\DeleteDocumentRequest;
@@ -37,6 +39,8 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\GetParseResultRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetParseResultResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetSummaryTaskResultRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetSummaryTaskResultResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetTaskResultRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetTaskResultResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetTaskStatusRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetTaskStatusResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\InvokePluginRequest;
@@ -236,6 +240,70 @@ class DianJin extends OpenApiClient
         $headers = [];
 
         return $this->createLibraryWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建PDF翻译任务
+     *  *
+     * @param string                        $workspaceId
+     * @param CreatePdfTranslateTaskRequest $request     CreatePdfTranslateTaskRequest
+     * @param string[]                      $headers     map
+     * @param RuntimeOptions                $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return CreatePdfTranslateTaskResponse CreatePdfTranslateTaskResponse
+     */
+    public function createPdfTranslateTaskWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->docId)) {
+            $body['docId'] = $request->docId;
+        }
+        if (!Utils::isUnset($request->knowledge)) {
+            $body['knowledge'] = $request->knowledge;
+        }
+        if (!Utils::isUnset($request->libraryId)) {
+            $body['libraryId'] = $request->libraryId;
+        }
+        if (!Utils::isUnset($request->modelId)) {
+            $body['modelId'] = $request->modelId;
+        }
+        if (!Utils::isUnset($request->translateTo)) {
+            $body['translateTo'] = $request->translateTo;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePdfTranslateTask',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/api/task/pdfTranslate',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePdfTranslateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建PDF翻译任务
+     *  *
+     * @param string                        $workspaceId
+     * @param CreatePdfTranslateTaskRequest $request     CreatePdfTranslateTaskRequest
+     *
+     * @return CreatePdfTranslateTaskResponse CreatePdfTranslateTaskResponse
+     */
+    public function createPdfTranslateTask($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createPdfTranslateTaskWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1037,6 +1105,58 @@ class DianJin extends OpenApiClient
     }
 
     /**
+     * @summary 获取异步任务结果
+     *  *
+     * @param string               $workspaceId
+     * @param GetTaskResultRequest $request     GetTaskResultRequest
+     * @param string[]             $headers     map
+     * @param RuntimeOptions       $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return GetTaskResultResponse GetTaskResultResponse
+     */
+    public function getTaskResultWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $query['taskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTaskResult',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/api/task/result',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取异步任务结果
+     *  *
+     * @param string               $workspaceId
+     * @param GetTaskResultRequest $request     GetTaskResultRequest
+     *
+     * @return GetTaskResultResponse GetTaskResultResponse
+     */
+    public function getTaskResult($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTaskResultWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取财报总结任务结果
      *  *
      * @param string               $workspaceId
@@ -1248,7 +1368,7 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * @summary 文档召回
+     * @summary 文档召回。
      *  *
      * @param string                $workspaceId
      * @param RecallDocumentRequest $request     RecallDocumentRequest
@@ -1293,7 +1413,7 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * @summary 文档召回
+     * @summary 文档召回。
      *  *
      * @param string                $workspaceId
      * @param RecallDocumentRequest $request     RecallDocumentRequest
