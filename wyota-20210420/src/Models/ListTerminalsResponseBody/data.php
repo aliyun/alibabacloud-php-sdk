@@ -16,6 +16,11 @@ class data extends Model
     public $alias;
 
     /**
+     * @var int
+     */
+    public $bindUserCount;
+
+    /**
      * @example 7.0.2-RS-20240805.044924
      *
      * @var string
@@ -53,6 +58,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $lastLoginUser;
+
+    /**
+     * @var string
+     */
     public $locationInfo;
 
     /**
@@ -82,6 +92,11 @@ class data extends Model
     public $passwordFreeLoginUser;
 
     /**
+     * @var string
+     */
+    public $publicIpv4;
+
+    /**
      * @example ODN49YQCPQYC****
      *
      * @var string
@@ -108,16 +123,19 @@ class data extends Model
     public $uuid;
     protected $_name = [
         'alias'                        => 'Alias',
+        'bindUserCount'                => 'BindUserCount',
         'buildId'                      => 'BuildId',
         'clientType'                   => 'ClientType',
         'currentConnectDesktop'        => 'CurrentConnectDesktop',
         'currentLoginUser'             => 'CurrentLoginUser',
         'ipv4'                         => 'Ipv4',
+        'lastLoginUser'                => 'LastLoginUser',
         'locationInfo'                 => 'LocationInfo',
         'manageTime'                   => 'ManageTime',
         'model'                        => 'Model',
         'online'                       => 'Online',
         'passwordFreeLoginUser'        => 'PasswordFreeLoginUser',
+        'publicIpv4'                   => 'PublicIpv4',
         'serialNumber'                 => 'SerialNumber',
         'setPasswordFreeLoginUserTime' => 'SetPasswordFreeLoginUserTime',
         'terminalGroupId'              => 'TerminalGroupId',
@@ -134,6 +152,9 @@ class data extends Model
         if (null !== $this->alias) {
             $res['Alias'] = $this->alias;
         }
+        if (null !== $this->bindUserCount) {
+            $res['BindUserCount'] = $this->bindUserCount;
+        }
         if (null !== $this->buildId) {
             $res['BuildId'] = $this->buildId;
         }
@@ -149,6 +170,9 @@ class data extends Model
         if (null !== $this->ipv4) {
             $res['Ipv4'] = $this->ipv4;
         }
+        if (null !== $this->lastLoginUser) {
+            $res['LastLoginUser'] = $this->lastLoginUser;
+        }
         if (null !== $this->locationInfo) {
             $res['LocationInfo'] = $this->locationInfo;
         }
@@ -163,6 +187,9 @@ class data extends Model
         }
         if (null !== $this->passwordFreeLoginUser) {
             $res['PasswordFreeLoginUser'] = $this->passwordFreeLoginUser;
+        }
+        if (null !== $this->publicIpv4) {
+            $res['PublicIpv4'] = $this->publicIpv4;
         }
         if (null !== $this->serialNumber) {
             $res['SerialNumber'] = $this->serialNumber;
@@ -191,6 +218,9 @@ class data extends Model
         if (isset($map['Alias'])) {
             $model->alias = $map['Alias'];
         }
+        if (isset($map['BindUserCount'])) {
+            $model->bindUserCount = $map['BindUserCount'];
+        }
         if (isset($map['BuildId'])) {
             $model->buildId = $map['BuildId'];
         }
@@ -206,6 +236,9 @@ class data extends Model
         if (isset($map['Ipv4'])) {
             $model->ipv4 = $map['Ipv4'];
         }
+        if (isset($map['LastLoginUser'])) {
+            $model->lastLoginUser = $map['LastLoginUser'];
+        }
         if (isset($map['LocationInfo'])) {
             $model->locationInfo = $map['LocationInfo'];
         }
@@ -220,6 +253,9 @@ class data extends Model
         }
         if (isset($map['PasswordFreeLoginUser'])) {
             $model->passwordFreeLoginUser = $map['PasswordFreeLoginUser'];
+        }
+        if (isset($map['PublicIpv4'])) {
+            $model->publicIpv4 = $map['PublicIpv4'];
         }
         if (isset($map['SerialNumber'])) {
             $model->serialNumber = $map['SerialNumber'];

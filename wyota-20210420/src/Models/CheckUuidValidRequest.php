@@ -60,16 +60,22 @@ class CheckUuidValidRequest extends Model
      * @var string
      */
     public $wlan;
+
+    /**
+     * @var string
+     */
+    public $wosAppVersion;
     protected $_name = [
-        'bluetooth' => 'Bluetooth',
-        'buildId'   => 'BuildId',
-        'chipId'    => 'ChipId',
-        'clientId'  => 'ClientId',
-        'customId'  => 'CustomId',
-        'etherMac'  => 'EtherMac',
-        'serialNo'  => 'SerialNo',
-        'uuid'      => 'Uuid',
-        'wlan'      => 'Wlan',
+        'bluetooth'     => 'Bluetooth',
+        'buildId'       => 'BuildId',
+        'chipId'        => 'ChipId',
+        'clientId'      => 'ClientId',
+        'customId'      => 'CustomId',
+        'etherMac'      => 'EtherMac',
+        'serialNo'      => 'SerialNo',
+        'uuid'          => 'Uuid',
+        'wlan'          => 'Wlan',
+        'wosAppVersion' => 'WosAppVersion',
     ];
 
     public function validate()
@@ -105,6 +111,9 @@ class CheckUuidValidRequest extends Model
         }
         if (null !== $this->wlan) {
             $res['Wlan'] = $this->wlan;
+        }
+        if (null !== $this->wosAppVersion) {
+            $res['WosAppVersion'] = $this->wosAppVersion;
         }
 
         return $res;
@@ -144,6 +153,9 @@ class CheckUuidValidRequest extends Model
         }
         if (isset($map['Wlan'])) {
             $model->wlan = $map['Wlan'];
+        }
+        if (isset($map['WosAppVersion'])) {
+            $model->wosAppVersion = $map['WosAppVersion'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListTerminalsRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $inManage;
+
+    /**
      * @example 200
      *
      * @var int
@@ -21,6 +26,11 @@ class ListTerminalsRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $passwordFreeLoginUser;
 
     /**
      * @example DemoDevice
@@ -45,13 +55,21 @@ class ListTerminalsRequest extends Model
      * @var string[]
      */
     public $uuids;
+
+    /**
+     * @var bool
+     */
+    public $withBindUser;
     protected $_name = [
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'searchKeyword'   => 'SearchKeyword',
-        'serialNumbers'   => 'SerialNumbers',
-        'terminalGroupId' => 'TerminalGroupId',
-        'uuids'           => 'Uuids',
+        'inManage'              => 'InManage',
+        'maxResults'            => 'MaxResults',
+        'nextToken'             => 'NextToken',
+        'passwordFreeLoginUser' => 'PasswordFreeLoginUser',
+        'searchKeyword'         => 'SearchKeyword',
+        'serialNumbers'         => 'SerialNumbers',
+        'terminalGroupId'       => 'TerminalGroupId',
+        'uuids'                 => 'Uuids',
+        'withBindUser'          => 'WithBindUser',
     ];
 
     public function validate()
@@ -61,11 +79,17 @@ class ListTerminalsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->inManage) {
+            $res['InManage'] = $this->inManage;
+        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->passwordFreeLoginUser) {
+            $res['PasswordFreeLoginUser'] = $this->passwordFreeLoginUser;
         }
         if (null !== $this->searchKeyword) {
             $res['SearchKeyword'] = $this->searchKeyword;
@@ -79,6 +103,9 @@ class ListTerminalsRequest extends Model
         if (null !== $this->uuids) {
             $res['Uuids'] = $this->uuids;
         }
+        if (null !== $this->withBindUser) {
+            $res['WithBindUser'] = $this->withBindUser;
+        }
 
         return $res;
     }
@@ -91,11 +118,17 @@ class ListTerminalsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InManage'])) {
+            $model->inManage = $map['InManage'];
+        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['PasswordFreeLoginUser'])) {
+            $model->passwordFreeLoginUser = $map['PasswordFreeLoginUser'];
         }
         if (isset($map['SearchKeyword'])) {
             $model->searchKeyword = $map['SearchKeyword'];
@@ -112,6 +145,9 @@ class ListTerminalsRequest extends Model
             if (!empty($map['Uuids'])) {
                 $model->uuids = $map['Uuids'];
             }
+        }
+        if (isset($map['WithBindUser'])) {
+            $model->withBindUser = $map['WithBindUser'];
         }
 
         return $model;

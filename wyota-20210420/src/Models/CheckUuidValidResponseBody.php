@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
+use AlibabaCloud\SDK\Wyota\V20210420\Models\CheckUuidValidResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
 class CheckUuidValidResponseBody extends Model
@@ -12,6 +13,11 @@ class CheckUuidValidResponseBody extends Model
      * @var string
      */
     public $code;
+
+    /**
+     * @var data
+     */
+    public $data;
 
     /**
      * @var string
@@ -24,6 +30,7 @@ class CheckUuidValidResponseBody extends Model
     public $requestId;
     protected $_name = [
         'code'      => 'Code',
+        'data'      => 'Data',
         'message'   => 'Message',
         'requestId' => 'RequestId',
     ];
@@ -37,6 +44,9 @@ class CheckUuidValidResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -58,6 +68,9 @@ class CheckUuidValidResponseBody extends Model
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

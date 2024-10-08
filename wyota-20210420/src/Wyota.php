@@ -870,6 +870,9 @@ class Wyota extends OpenApiClient
         if (!Utils::isUnset($request->wlan)) {
             $body['Wlan'] = $request->wlan;
         }
+        if (!Utils::isUnset($request->wosAppVersion)) {
+            $body['WosAppVersion'] = $request->wosAppVersion;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -2848,29 +2851,38 @@ class Wyota extends OpenApiClient
     public function listTerminalsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->serialNumbers)) {
-            $query['SerialNumbers'] = $request->serialNumbers;
-        }
-        if (!Utils::isUnset($request->uuids)) {
-            $query['Uuids'] = $request->uuids;
-        }
         $body = [];
+        if (!Utils::isUnset($request->inManage)) {
+            $body['InManage'] = $request->inManage;
+        }
         if (!Utils::isUnset($request->maxResults)) {
             $body['MaxResults'] = $request->maxResults;
         }
         if (!Utils::isUnset($request->nextToken)) {
             $body['NextToken'] = $request->nextToken;
         }
+        if (!Utils::isUnset($request->passwordFreeLoginUser)) {
+            $body['PasswordFreeLoginUser'] = $request->passwordFreeLoginUser;
+        }
         if (!Utils::isUnset($request->searchKeyword)) {
             $body['SearchKeyword'] = $request->searchKeyword;
+        }
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->serialNumbers)) {
+            $bodyFlat['SerialNumbers'] = $request->serialNumbers;
         }
         if (!Utils::isUnset($request->terminalGroupId)) {
             $body['TerminalGroupId'] = $request->terminalGroupId;
         }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+        if (!Utils::isUnset($request->uuids)) {
+            $bodyFlat['Uuids'] = $request->uuids;
+        }
+        if (!Utils::isUnset($request->withBindUser)) {
+            $body['WithBindUser'] = $request->withBindUser;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListTerminals',
