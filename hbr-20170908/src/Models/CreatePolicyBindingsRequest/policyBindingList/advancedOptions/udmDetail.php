@@ -18,14 +18,14 @@ class udmDetail extends Model
     public $appConsistent;
 
     /**
-     * @description The IDs of the disks that need to be protected. If all disks need to be protected, this parameter is empty.
+     * @description The IDs of the disks that need to be protected. If all disks need to be protected, leave this parameter empty.
      *
      * @var string[]
      */
     public $diskIdList;
 
     /**
-     * @description This parameter is required only if the **AppConsistent** parameter is set to **true**. This parameter specifies whether to enable Linux fsfreeze to put file systems into the read-only state before application-consistent snapshots are created. Default value: true.
+     * @description This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies whether to enable Linux fsfreeze to put file systems into the read-only state before application-consistent snapshots are created. Default value: true.
      *
      * @example true
      *
@@ -34,7 +34,7 @@ class udmDetail extends Model
     public $enableFsFreeze;
 
     /**
-     * @description This parameter is required only if the **AppConsistent** parameter is set to **true**. This parameter specifies whether to create application-consistent snapshots. Valid values:
+     * @description This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies whether to create application-consistent snapshots. Valid values:
      *
      *   true: creates application-consistent snapshots.
      *   false: creates file system-consistent snapshots.
@@ -54,7 +54,7 @@ class udmDetail extends Model
     public $excludeDiskIdList;
 
     /**
-     * @description This parameter is required only if the **AppConsistent** parameter is set to **true**. This parameter specifies the path of the post-thaw scripts that are executed after application-consistent snapshots are created.
+     * @description This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies the path of the post-thaw scripts that are executed after application-consistent snapshots are created.
      *
      * @example /tmp/postscript.sh
      *
@@ -63,7 +63,7 @@ class udmDetail extends Model
     public $postScriptPath;
 
     /**
-     * @description This parameter is required only if the **AppConsistent** parameter is set to **true**. This parameter specifies the path of the pre-freeze scripts that are executed before application-consistent snapshots are created.
+     * @description This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies the path of the pre-freeze scripts that are executed before application-consistent snapshots are created.
      *
      * @example /tmp/prescript.sh
      *
@@ -72,7 +72,7 @@ class udmDetail extends Model
     public $preScriptPath;
 
     /**
-     * @description This parameter is required only if the **AppConsistent** parameter is set to **true**. This parameter specifies the name of the RAM role that is required to create application-consistent snapshots.
+     * @description This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies the name of the RAM role that is required to create application-consistent snapshots.
      *
      * @example AliyunECSInstanceForHbrRole
      *
@@ -90,7 +90,7 @@ class udmDetail extends Model
     public $snapshotGroup;
 
     /**
-     * @description This parameter is required only if the **AppConsistent** parameter is set to **true**. This parameter specifies the I/O freeze timeout period. Default value: 30. Unit: seconds.
+     * @description This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies the I/O freeze timeout period. Default value: 30. Unit: seconds.
      *
      * @example 30
      *

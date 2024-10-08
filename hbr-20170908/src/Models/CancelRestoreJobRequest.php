@@ -11,6 +11,7 @@ class CancelRestoreJobRequest extends Model
     /**
      * @description The ID of the restore job.
      *
+     * This parameter is required.
      * @example r-*********************
      *
      * @var string
@@ -20,6 +21,7 @@ class CancelRestoreJobRequest extends Model
     /**
      * @description The ID of the backup vault.
      *
+     * This parameter is required.
      * @example v-*********************
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckRoleResponseBody extends Model
 {
     /**
+     * @description The response code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class CheckRoleResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
+     *
      * @example successful
      *
      * @var string
@@ -23,6 +27,8 @@ class CheckRoleResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 2F63CA9B-744E-51C0-A638-27882BB03078
      *
      * @var string
@@ -30,6 +36,11 @@ class CheckRoleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

@@ -38,7 +38,7 @@ class restoreJob extends Model
     public $bytesDone;
 
     /**
-     * @description The total amount of data that is backed up from the data source. Unit: bytes.
+     * @description The total amount of data that was backed up from the data source. Unit: bytes.
      *
      * @example 1000
      *
@@ -56,7 +56,7 @@ class restoreJob extends Model
     public $clusterId;
 
     /**
-     * @description The time when the restore job was completed. The value is a UNIX timestamp. Unit: seconds.
+     * @description The time when the restore job was completed. This value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1554347313
      *
@@ -65,7 +65,7 @@ class restoreJob extends Model
     public $completeTime;
 
     /**
-     * @description The time when the restore job was created. The value is a UNIX timestamp. Unit: seconds.
+     * @description The time when the restore job was created. This value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1554347313
      *
@@ -74,7 +74,7 @@ class restoreJob extends Model
     public $createdTime;
 
     /**
-     * @description The name of the RAM role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
+     * @description The name of the Resource Access Management (RAM) role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
      *
      * @example BackupRole
      *
@@ -104,7 +104,7 @@ class restoreJob extends Model
     public $crossAccountUserId;
 
     /**
-     * @description The list of the files that failed to be restored.
+     * @description The files that failed to be restored.
      *
      * @example "test.csv"
      *
@@ -122,7 +122,7 @@ class restoreJob extends Model
     public $errorMessage;
 
     /**
-     * @description This parameter is returned only if the **SourceType** parameter is set to **ECS_FILE**. This parameter indicates the paths to the files that are excluded from the restore job. The value can be 1 to 255 characters in length.
+     * @description This parameter is valid only if the **SourceType** parameter is set to **ECS_FILE**. This parameter indicates the paths to the files that are excluded from the restore job. The value can be up to 255 characters in length.
      *
      * @example ["/var", "/proc"]
      *
@@ -140,6 +140,10 @@ class restoreJob extends Model
     public $expireTime;
 
     /**
+     * @description The details about the VMware failback task.
+     *
+     * @example {"cpu":4,"extra":"{\\"restoreVMNamePrefix\\":\\"627-\\",\\"dataCenterName\\":\\"SDDC-Datacenter\\",\\"dataStoreId\\":\\"datastore-50\\",\\"folderId\\":\\"group-v49\\",\\"resourcePoolId\\":\\"resgroup-46\\",\\"locationName\\":\\"vcenter.pc-uf600arcwi9td3eyj641.acvs.aliyuncs.com/SDDC-Datacenter/Workloads\\",\\"computeResourceName\\":\\"SDDC-Datacenter/Default_c-uf600arcwi9td3eyj640\\",\\"dataStoreName\\":\\"Default_c-uf600arcwi9td3eyj640/WorkloadDatastore\\",\\"networkMoReference\\":\\"DistributedVirtualPortgroup:dvportgroup-1001\\",\\"useHotAdd\\":false}","instanceId":"i-2vc357i2eannmmotcagz","memoryInMB":8192,"serverId":"0fdc0c86-eb92-4e05-91ab-eeaf9fb6ad01","uefiBoot":false}
+     *
      * @var string
      */
     public $failbackDetail;
@@ -172,17 +176,25 @@ class restoreJob extends Model
     public $itemsTotal;
 
     /**
+     * @description The amount of data that was restored. Unit: bytes. This parameter is valid only if the StorageClass parameter is set to ARCHIVE. The minimum billable size of the data stored at the Archive tier is 1 MB.
+     *
+     * @example 1048576
+     *
      * @var int
      */
     public $meteringBytesDone;
 
     /**
+     * @description The total amount of data that was backed up from the data source. Unit: bytes. This parameter is valid only if the StorageClass parameter is set to ARCHIVE. The minimum billable size of the data stored at the Archive tier is 1 MB.
+     *
+     * @example 1048576
+     *
      * @var int
      */
     public $meteringBytesTotal;
 
     /**
-     * @description This parameter is returned only if the **SourceType** parameter is set to **ECS_FILE**. This parameter indicates whether Windows Volume Shadow Copy Service (VSS) is used to define a restoration path.
+     * @description This parameter is valid only if the **SourceType** parameter is set to **ECS_FILE**. This parameter indicates whether Windows Volume Shadow Copy Service (VSS) is used to define a restoration path.
      *
      *   This parameter is available only for Windows ECS instances.
      *   If data changes occur in the backup source, the source data must be the same as the data to be backed up before you can set this parameter to `["UseVSS":true]`.
@@ -211,7 +223,7 @@ class restoreJob extends Model
     public $parentId;
 
     /**
-     * @description The progress of the restore job. For example, 10000 indicates that the progress is 100%.
+     * @description The progress of the restore job. Valid values: [0,10000]. For example, 10000 indicates that the progress is 100%.
      *
      * @example 10000
      *
@@ -220,6 +232,8 @@ class restoreJob extends Model
     public $progress;
 
     /**
+     * @description The report of the restore job.
+     *
      * @var report
      */
     public $report;
@@ -264,8 +278,8 @@ class restoreJob extends Model
      * @description The type of the data source. Valid values:
      *
      *   **ECS_FILE**: ECS files
-     *   **OSS**: OSS buckets
-     *   **NAS**: NAS file systems
+     *   **OSS**: Object Storage Service (OSS) buckets
+     *   **NAS**: Apsara File Storage NAS (NAS) file systems
      *   **OTS_TABLE**: Tablestore instances
      *   **UDM_ECS**: ECS instances
      *
@@ -285,7 +299,7 @@ class restoreJob extends Model
     public $speed;
 
     /**
-     * @description The time when the restore job starts. The value is a UNIX timestamp. Unit: seconds.
+     * @description The time when the restore job started. This value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1554347313
      *
@@ -296,9 +310,9 @@ class restoreJob extends Model
     /**
      * @description The status of the restore job. Valid values:
      *
-     *   **COMPLETE**: The restore job is completed.
-     *   **PARTIAL_COMPLETE**: The restore job is partially completed.
-     *   **FAILED**: The restore job has failed.
+     *   **COMPLETE**: The job is completed.
+     *   **PARTIAL_COMPLETE**: The job is partially completed.
+     *   **FAILED**: The job failed.
      *
      * @example COMPLETE
      *
@@ -307,6 +321,13 @@ class restoreJob extends Model
     public $status;
 
     /**
+     * @description The storage class of the backup data. Valid values:
+     *
+     *   **STANDARD**
+     *   **ARCHIVE**
+     *
+     * @example STANDARD
+     *
      * @var string
      */
     public $storageClass;
@@ -330,7 +351,7 @@ class restoreJob extends Model
     public $targetClientId;
 
     /**
-     * @description This parameter is returned only for NAS file systems. This parameter indicates the time when the file system was created.
+     * @description The time when the file system was created. This parameter is returned only for NAS file systems.
      *
      * @example 1634714531
      *
@@ -377,7 +398,7 @@ class restoreJob extends Model
     /**
      * @description The destination file path of the restore job.
      *
-     * @example "D:\\rebk"
+     * @example "D:\\\\rebk"
      *
      * @var string
      */
@@ -402,7 +423,7 @@ class restoreJob extends Model
     public $targetTableName;
 
     /**
-     * @description The time when the Tablestore instance was backed up. The value is a UNIX timestamp. Unit: seconds.
+     * @description The time when the Tablestore instance was backed up. This value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1642560261
      *
@@ -411,16 +432,16 @@ class restoreJob extends Model
     public $targetTime;
 
     /**
-     * @description The details about ECS instance backup.
+     * @description The details about Elastic Compute Service (ECS) instance backup.
      *
-     * @example {\"doCopy\":true,\"doBackup\":false,\"instanceName\":\"instance example\",\"appConsistent\":false,\"destinationRegionId\":\"cn-shanghai\",\"enableFsFreeze\":true,\"osNameEn\":\"Windows Server  2019 Data Center Edition 64bit Chinese Edition\",\"osName\":\"Windows Server  2019 Data Center Edition 64bit Chinese Edition\",\"diskIdList\":[],\"backupVaultId\":\"\",\"snapshotGroup\":true,\"destinationRetention\":35,\"platform\":\"Windows Server 2012\",\"timeoutInSeconds\":60,\"backupRetention\":1,\"osType\":\"windows\",\"preScriptPath\":\"\",\"postScriptPath\":\"\",\"enableWriters\":true,\"ecsDeleted\":false}
+     * @example {\\"doCopy\\":true,\\"doBackup\\":false,\\"instanceName\\":\\"instance example\\",\\"appConsistent\\":false,\\"destinationRegionId\\":\\"cn-shanghai\\",\\"enableFsFreeze\\":true,\\"osNameEn\\":\\"Windows Server  2019 Data Center Edition 64bit Chinese Edition\\",\\"osName\\":\\"Windows Server  2019 Data Center Edition 64bit Chinese Edition\\",\\"diskIdList\\":[],\\"backupVaultId\\":\\"\\",\\"snapshotGroup\\":true,\\"destinationRetention\\":35,\\"platform\\":\\"Windows Server 2012\\",\\"timeoutInSeconds\\":60,\\"backupRetention\\":1,\\"osType\\":\\"windows\\",\\"preScriptPath\\":\\"\\",\\"postScriptPath\\":\\"\\",\\"enableWriters\\":true,\\"ecsDeleted\\":false}
      *
      * @var string
      */
     public $udmDetail;
 
     /**
-     * @description The time when the restore job was updated. The value is a UNIX timestamp. Unit: seconds.
+     * @description The time when the restore job was updated. This value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1554347313
      *

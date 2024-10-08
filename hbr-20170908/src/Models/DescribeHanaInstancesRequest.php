@@ -19,7 +19,7 @@ class DescribeHanaInstancesRequest extends Model
     public $clusterId;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class DescribeHanaInstancesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 99. Default value: 10.
+     * @description The number of entries per page. Valid values: 1 to 99. Default value: 10.
      *
      * @example 10
      *
@@ -46,7 +46,7 @@ class DescribeHanaInstancesRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The tags of SAP HANA instance.
+     * @description The tags of the SAP HANA instance.
      *
      * @var tag[]
      */

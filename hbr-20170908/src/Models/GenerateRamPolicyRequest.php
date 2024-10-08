@@ -14,6 +14,7 @@ class GenerateRamPolicyRequest extends Model
      *   custom: custom policy
      *   system: system policy
      *
+     * This parameter is required.
      * @example system
      *
      * @var string
@@ -44,6 +45,7 @@ class GenerateRamPolicyRequest extends Model
     /**
      * @description The ID of the backup vault.
      *
+     * This parameter is required.
      * @example v-0007al3m******7ao
      *
      * @var string

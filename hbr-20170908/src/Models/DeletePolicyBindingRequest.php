@@ -18,6 +18,7 @@ class DeletePolicyBindingRequest extends Model
     /**
      * @description The ID of the backup policy.
      *
+     * This parameter is required.
      * @example po-000************hgp
      *
      * @var string

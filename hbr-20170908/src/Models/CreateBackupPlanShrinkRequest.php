@@ -12,6 +12,7 @@ class CreateBackupPlanShrinkRequest extends Model
     /**
      * @description The backup type. Valid value: **COMPLETE**, which indicates full backup.
      *
+     * This parameter is required.
      * @example COMPLETE
      *
      * @var string
@@ -76,7 +77,7 @@ class CreateBackupPlanShrinkRequest extends Model
     public $crossAccountUserId;
 
     /**
-     * @example {\"prefix\":\"/\"}
+     * @example {\\"prefix\\":\\"/\\"}
      *
      * @var string
      */
@@ -104,13 +105,15 @@ class CreateBackupPlanShrinkRequest extends Model
      *   preScriptPath: the path to the prescript file.
      *   postScriptPath: the path to the postscript file.
      *
-     * @example {\"EnableFsFreeze\":true,\"appConsistent\":false,\"postScriptPath\":\"\",\"preScriptPath\":\"\",\"snapshotGroup\":true,\"timeoutInSeconds\":60}
+     * @example {\\"EnableFsFreeze\\":true,\\"appConsistent\\":false,\\"postScriptPath\\":\\"\\",\\"preScriptPath\\":\\"\\",\\"snapshotGroup\\":true,\\"timeoutInSeconds\\":60}
      *
      * @var string
      */
     public $detailShrink;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $disabled;
@@ -202,6 +205,7 @@ class CreateBackupPlanShrinkRequest extends Model
     /**
      * @description The name of the backup schedule. The name must be 1 to 64 characters in length. The name of a backup schedule for each type of data source must be unique within a backup vault.
      *
+     * This parameter is required.
      * @example planname
      *
      * @var string
@@ -239,6 +243,7 @@ class CreateBackupPlanShrinkRequest extends Model
      *   **startTime**: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds.
      *   **interval**: the interval at which the system runs a backup job. The interval must follow the ISO 8601 standard. For example, PT1H specifies an interval of one hour. P1D specifies an interval of one day.
      *
+     * This parameter is required.
      * @example I|1602673264|P1D
      *
      * @var string
@@ -254,6 +259,7 @@ class CreateBackupPlanShrinkRequest extends Model
      *   **OTS**: backs up Tablestore instances.
      *   **UDM_ECS**: backs up ECS instances.
      *
+     * This parameter is required.
      * @example ECS_FILE
      *
      * @var string

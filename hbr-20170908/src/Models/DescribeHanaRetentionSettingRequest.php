@@ -11,6 +11,7 @@ class DescribeHanaRetentionSettingRequest extends Model
     /**
      * @description The ID of the SAP HANA instance.
      *
+     * This parameter is required.
      * @example cl-0002ys1i******wwtf
      *
      * @var string
@@ -18,7 +19,7 @@ class DescribeHanaRetentionSettingRequest extends Model
     public $clusterId;
 
     /**
-     * @description The name of the database.
+     * @description The database name.
      *
      * @example C4P
      *
@@ -29,6 +30,7 @@ class DescribeHanaRetentionSettingRequest extends Model
     /**
      * @description The ID of the backup vault.
      *
+     * This parameter is required.
      * @example v-000ii8t******ntrt2
      *
      * @var string

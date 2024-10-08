@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class policyBindingList extends Model
 {
     /**
-     * @description Advanced options.
+     * @description The advanced options.
      *
      * @var advancedOptions
      */
@@ -26,10 +26,10 @@ class policyBindingList extends Model
     public $crossAccountRoleName;
 
     /**
-     * @description Specifies whether data is backed up and restored within the same Alibaba Cloud account or across Alibaba Cloud accounts. Valid values:
+     * @description Specifies whether to back up and restore data within the same Alibaba Cloud account or across Alibaba Cloud accounts. Default value: SELF_ACCOUNT. Valid values:
      *
-     *   SELF_ACCOUNT: Data is backed up and restored within the same Alibaba Cloud account.
-     *   CROSS_ACCOUNT: Data is backed up and restored across Alibaba Cloud accounts.
+     *   **SELF_ACCOUNT**: Data is backed up within the same Alibaba Cloud account.
+     *   **CROSS_ACCOUNT**: Data is backed up across Alibaba Cloud accounts.
      *
      * @example SELF_ACCOUNT
      *
@@ -38,7 +38,7 @@ class policyBindingList extends Model
     public $crossAccountType;
 
     /**
-     * @description The source Alibaba Cloud account ID when backup across Alibaba Cloud accounts.
+     * @description The ID of the source Alibaba Cloud account that authorizes the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
      *
      * @example 144**********732
      *
@@ -47,13 +47,47 @@ class policyBindingList extends Model
     public $crossAccountUserId;
 
     /**
-     * @description The ID of the data source.
+     * @description The ID of the data source. The meaning of this parameter depends on the **SourceType** parameter.
+     *
+     *   **UDM_ECS**: the ID of the Elastic Compute Service (ECS) instance
+     *   **OSS**: the name of the Object Storage Service (OSS) bucket
+     *   **NAS**: the ID of the Apsara File Storage NAS (NAS) file system
+     *   **COMMON_NAS**: the ID of the on-premises NAS file system
+     *   **ECS_FILE**: the ID of the ECS instance
+     *   **File**: the ID of the Cloud Backup client
      *
      * @example i-bp1************dl8
      *
      * @var string
      */
     public $dataSourceId;
+
+    /**
+     * @description 策略对该数据源是否暂停生效。
+     * - false：未暂停
+     * @example true
+     *
+     * @var string
+     */
+    public $disabled;
+
+    /**
+     * @description 仅当**SourceType**取值为**ECS_FILE**或**File**时，需要配置该参数。表示不需要进行备份的文件类型，该类型的所有文件都不备份。最多支持255个字符。
+     *
+     * @example [\\"*.doc\\",\\"*.xltm\\"]
+     *
+     * @var string
+     */
+    public $exclude;
+
+    /**
+     * @description 仅当**SourceType**取值为**ECS_FILE**或**File**时，需要配置该参数。表示要进行备份的文件类型，这些类型的所有文件都备份。最多支持255个字符。
+     *
+     * @example [\\"*.doc\\",\\"*.xltm\\"]
+     *
+     * @var string
+     */
+    public $include;
 
     /**
      * @description The description of the association.
@@ -65,7 +99,7 @@ class policyBindingList extends Model
     public $policyBindingDescription;
 
     /**
-     * @description The prefix of the path to the folder that you want to back up. By default, the entire OSS bucket is backed up.
+     * @description The prefix of the path to the folder that you want to back up. By default, the entire OSS bucket is backed up. This parameter is required only if you set the SourceType parameter to **OSS**.
      *
      * @example backup/
      *
@@ -76,22 +110,43 @@ class policyBindingList extends Model
     /**
      * @description The type of the data source. Valid values:
      *
-     *   **UDM_ECS**: ECS instance backup
+     *   **UDM_ECS**: ECS instance
+     *   **OSS**: OSS bucket
+     *   **NAS**: Apsara File Storage NAS file system
+     *   **COMMON_NAS**: on-premises NAS file system
+     *   **ECS_FILE**: ECS files
+     *   **File**: on-premises files
      *
      * @example UDM_ECS
      *
      * @var string
      */
     public $sourceType;
+
+    /**
+     * @description 仅当**SourceType**取值为**ECS_FILE**或**File**时，需要配置该参数。表示备份流量控制。格式为`{start}{end}{bandwidth}`。多个流量控制配置使用分隔，并且配置时间不允许有重叠。
+     *
+     * - **start**：起始小时。
+     * - **end**：结束小时。
+     * - **bandwidth**：限制速率，单位KB/s。
+     * @example 0:24:1024
+     *
+     * @var string
+     */
+    public $speedLimit;
     protected $_name = [
         'advancedOptions'          => 'AdvancedOptions',
         'crossAccountRoleName'     => 'CrossAccountRoleName',
         'crossAccountType'         => 'CrossAccountType',
         'crossAccountUserId'       => 'CrossAccountUserId',
         'dataSourceId'             => 'DataSourceId',
+        'disabled'                 => 'Disabled',
+        'exclude'                  => 'Exclude',
+        'include'                  => 'Include',
         'policyBindingDescription' => 'PolicyBindingDescription',
         'source'                   => 'Source',
         'sourceType'               => 'SourceType',
+        'speedLimit'               => 'SpeedLimit',
     ];
 
     public function validate()
@@ -116,6 +171,15 @@ class policyBindingList extends Model
         if (null !== $this->dataSourceId) {
             $res['DataSourceId'] = $this->dataSourceId;
         }
+        if (null !== $this->disabled) {
+            $res['Disabled'] = $this->disabled;
+        }
+        if (null !== $this->exclude) {
+            $res['Exclude'] = $this->exclude;
+        }
+        if (null !== $this->include) {
+            $res['Include'] = $this->include;
+        }
         if (null !== $this->policyBindingDescription) {
             $res['PolicyBindingDescription'] = $this->policyBindingDescription;
         }
@@ -124,6 +188,9 @@ class policyBindingList extends Model
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
+        }
+        if (null !== $this->speedLimit) {
+            $res['SpeedLimit'] = $this->speedLimit;
         }
 
         return $res;
@@ -152,6 +219,15 @@ class policyBindingList extends Model
         if (isset($map['DataSourceId'])) {
             $model->dataSourceId = $map['DataSourceId'];
         }
+        if (isset($map['Disabled'])) {
+            $model->disabled = $map['Disabled'];
+        }
+        if (isset($map['Exclude'])) {
+            $model->exclude = $map['Exclude'];
+        }
+        if (isset($map['Include'])) {
+            $model->include = $map['Include'];
+        }
         if (isset($map['PolicyBindingDescription'])) {
             $model->policyBindingDescription = $map['PolicyBindingDescription'];
         }
@@ -160,6 +236,9 @@ class policyBindingList extends Model
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
+        }
+        if (isset($map['SpeedLimit'])) {
+            $model->speedLimit = $map['SpeedLimit'];
         }
 
         return $model;

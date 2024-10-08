@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecoverableOtsInstancesResponseBody extends Model
 {
     /**
-     * @description The HTTP status code. The status code 200 indicates that the call is successful.
+     * @description The response code. The status code 200 indicates that the request was successful.
      *
      * @example 200
      *
@@ -19,7 +19,7 @@ class DescribeRecoverableOtsInstancesResponseBody extends Model
     public $code;
 
     /**
-     * @description The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+     * @description The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
      *
      * @example successful
      *
@@ -35,7 +35,7 @@ class DescribeRecoverableOtsInstancesResponseBody extends Model
     public $otsInstances;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 14DC089E-5DD3-5028-AEDB-93D78E11DB2A
      *
@@ -44,10 +44,10 @@ class DescribeRecoverableOtsInstancesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful.
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call is successful.
-     *   false: The call fails.
+     *   true
+     *   false
      *
      * @example true
      *

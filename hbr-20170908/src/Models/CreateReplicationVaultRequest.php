@@ -18,9 +18,21 @@ class CreateReplicationVaultRequest extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $encryptType;
+
+    /**
+     * @var string
+     */
+    public $kmsKeyId;
+
+    /**
      * @description The data redundancy type of the backup vault. Valid values:
      *
-     * - ZRS: Zone-redundant storage (ZRS) is enabled for the backup vault. HBR uses the multi-zone mechanism to distribute data across three zones within the same region. If a zone becomes unavailable, the data can still be accessed.
+     *   LRS: standard locally redundant storage (LRS). Cloud Backup stores the copies of each object on multiple devices of different facilities in the same zone. This way, Cloud Backup ensures data durability and availability even if hardware failures occur.
+     *   ZRS: standard zone-redundant storage (ZRS). Cloud Backup uses the multi-zone mechanism to distribute data across three zones within the same region. If a zone fails, the data that is stored in the other two zones is still accessible.
+     *
      * @example LRS
      *
      * @var string
@@ -30,6 +42,7 @@ class CreateReplicationVaultRequest extends Model
     /**
      * @description The ID of the region where the source vault resides.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -39,6 +52,7 @@ class CreateReplicationVaultRequest extends Model
     /**
      * @description The ID of the source vault.
      *
+     * This parameter is required.
      * @example v-*********************
      *
      * @var string
@@ -48,6 +62,7 @@ class CreateReplicationVaultRequest extends Model
     /**
      * @description The name of the backup vault. The name must be 1 to 64 characters in length.
      *
+     * This parameter is required.
      * @example mirrorvaultname
      *
      * @var string
@@ -57,6 +72,7 @@ class CreateReplicationVaultRequest extends Model
     /**
      * @description The ID of the region where the backup vault resides.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -64,7 +80,7 @@ class CreateReplicationVaultRequest extends Model
     public $vaultRegionId;
 
     /**
-     * @description The storage type of the backup vault. Valid value: **STANDARD**. The value indicates standard storage.
+     * @description The storage class of the backup vault. Valid value: **STANDARD**, which indicates standard storage.
      *
      * @example STANDARD
      *
@@ -73,6 +89,8 @@ class CreateReplicationVaultRequest extends Model
     public $vaultStorageClass;
     protected $_name = [
         'description'               => 'Description',
+        'encryptType'               => 'EncryptType',
+        'kmsKeyId'                  => 'KmsKeyId',
         'redundancyType'            => 'RedundancyType',
         'replicationSourceRegionId' => 'ReplicationSourceRegionId',
         'replicationSourceVaultId'  => 'ReplicationSourceVaultId',
@@ -90,6 +108,12 @@ class CreateReplicationVaultRequest extends Model
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->encryptType) {
+            $res['EncryptType'] = $this->encryptType;
+        }
+        if (null !== $this->kmsKeyId) {
+            $res['KmsKeyId'] = $this->kmsKeyId;
         }
         if (null !== $this->redundancyType) {
             $res['RedundancyType'] = $this->redundancyType;
@@ -123,6 +147,12 @@ class CreateReplicationVaultRequest extends Model
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['EncryptType'])) {
+            $model->encryptType = $map['EncryptType'];
+        }
+        if (isset($map['KmsKeyId'])) {
+            $model->kmsKeyId = $map['KmsKeyId'];
         }
         if (isset($map['RedundancyType'])) {
             $model->redundancyType = $map['RedundancyType'];

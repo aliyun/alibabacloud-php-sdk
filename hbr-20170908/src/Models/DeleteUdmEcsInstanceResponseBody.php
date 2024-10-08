@@ -6,9 +6,11 @@ namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AttachNasFileSystemResponseBody extends Model
+class DeleteUdmEcsInstanceResponseBody extends Model
 {
     /**
+     * @description The response code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class AttachNasFileSystemResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
+     *
      * @example successful
      *
      * @var string
@@ -23,31 +27,30 @@ class AttachNasFileSystemResponseBody extends Model
     public $message;
 
     /**
-     * @example 33AA3AAE-89E1-5D3A-A51D-0C0A80850F68
+     * @description The request ID.
+     *
+     * @example 0497C0D3-82B5-56B2-8D64-D62E61B90E95
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
      */
     public $success;
-
-    /**
-     * @example t-000h9x5t02vhyksf1x7k
-     *
-     * @var string
-     */
-    public $taskId;
     protected $_name = [
         'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
-        'taskId'    => 'TaskId',
     ];
 
     public function validate()
@@ -69,9 +72,6 @@ class AttachNasFileSystemResponseBody extends Model
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
 
         return $res;
     }
@@ -79,7 +79,7 @@ class AttachNasFileSystemResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return AttachNasFileSystemResponseBody
+     * @return DeleteUdmEcsInstanceResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -95,9 +95,6 @@ class AttachNasFileSystemResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
         }
 
         return $model;

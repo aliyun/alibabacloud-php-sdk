@@ -20,6 +20,7 @@ class UpdateClientSettingsRequest extends Model
     /**
      * @description The ID of the HBR client.
      *
+     * This parameter is required.
      * @example c-*********************
      *
      * @var string

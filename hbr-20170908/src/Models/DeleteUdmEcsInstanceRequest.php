@@ -6,18 +6,19 @@ namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeRegionsRequest extends Model
+class DeleteUdmEcsInstanceRequest extends Model
 {
     /**
-     * @description Specifies whether to return detailed information. Default value: false.
+     * @description The ID of the ECS instance.
      *
-     * @example false
+     * This parameter is required.
+     * @example i-2zed************tlrm
      *
-     * @var bool
+     * @var string
      */
-    public $needVaultCount;
+    public $instanceId;
     protected $_name = [
-        'needVaultCount' => 'NeedVaultCount',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -27,8 +28,8 @@ class DescribeRegionsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->needVaultCount) {
-            $res['NeedVaultCount'] = $this->needVaultCount;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -37,13 +38,13 @@ class DescribeRegionsRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeRegionsRequest
+     * @return DeleteUdmEcsInstanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NeedVaultCount'])) {
-            $model->needVaultCount = $map['NeedVaultCount'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

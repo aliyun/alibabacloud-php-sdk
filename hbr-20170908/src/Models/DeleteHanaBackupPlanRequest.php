@@ -11,6 +11,7 @@ class DeleteHanaBackupPlanRequest extends Model
     /**
      * @description The ID of the SAP HANA instance.
      *
+     * This parameter is required.
      * @example cl-000br3******0ooy2
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteHanaBackupPlanRequest extends Model
     /**
      * @description The ID of the backup plan.
      *
+     * This parameter is required.
      * @example pl-00035lc8pwp1azdf3qku
      *
      * @var string
@@ -38,6 +40,7 @@ class DeleteHanaBackupPlanRequest extends Model
     /**
      * @description The ID of the backup vault.
      *
+     * This parameter is required.
      * @example v-0007o******1ssno
      *
      * @var string

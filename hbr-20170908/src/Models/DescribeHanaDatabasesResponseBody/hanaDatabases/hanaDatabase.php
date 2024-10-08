@@ -21,7 +21,7 @@ class hanaDatabase extends Model
     public $activeStatus;
 
     /**
-     * @description The name of the database.
+     * @description The database name.
      *
      * @example SYSTEMDB
      *
@@ -48,7 +48,7 @@ class hanaDatabase extends Model
     public $host;
 
     /**
-     * @description The name of the service.
+     * @description The service name.
      *
      * @example indexserver
      *

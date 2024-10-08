@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class commonNasDetail extends Model
 {
     /**
-     * @description The ID of the HBR client.
+     * @description The ID of the Cloud Backup client.
      *
      * @example c-0001eg6mcvjs93f46s2d
      *
@@ -18,6 +18,8 @@ class commonNasDetail extends Model
     public $clientId;
 
     /**
+     * @example cl-000gkcofngi04j6k680a
+     *
      * @var string
      */
     public $clusterId;

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class EnableBackupPlanRequest extends Model
 {
     /**
-     * @description The ID of the backup schedule.
+     * @description The ID of the backup plan.
      *
+     * This parameter is required.
      * @example plan-*********************
      *
      * @var string
@@ -20,9 +21,9 @@ class EnableBackupPlanRequest extends Model
     /**
      * @description The type of the data source. Valid values:
      *
-     *   **ECS_FILE**: The system backs up data from Elastic Compute Service (ECS) instances.
-     *   **OSS**: The system backs up data from Object Storage Service (OSS) buckets.
-     *   **NAS**: The system backs up data from Apsara File Storage NAS file systems.
+     *   **ECS_FILE**: ECS files
+     *   **OSS**: Object Storage Service (OSS) buckets
+     *   **NAS**: Apsara File Storage NAS (NAS) file systems
      *
      * @example ECS_FILE
      *

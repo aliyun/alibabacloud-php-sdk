@@ -9,6 +9,17 @@ use AlibabaCloud\Tea\Model;
 class backupPlanStatistics extends Model
 {
     /**
+     * @description The number of archive plans.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $archive;
+
+    /**
+     * @description The number of backup plans for General-purpose NAS file systems.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +27,8 @@ class backupPlanStatistics extends Model
     public $commonNas;
 
     /**
+     * @description The number of backup plans for Cloud Storage Gateway (CSG) gateways.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +36,8 @@ class backupPlanStatistics extends Model
     public $csg;
 
     /**
+     * @description The number of backup plans for ECS files.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +45,8 @@ class backupPlanStatistics extends Model
     public $ecsFile;
 
     /**
+     * @description The number of backup plans for SAP HANA instances.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +54,8 @@ class backupPlanStatistics extends Model
     public $ecsHana;
 
     /**
+     * @description The number of backup plans for Isilon storage systems.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +63,8 @@ class backupPlanStatistics extends Model
     public $isilon;
 
     /**
+     * @description The number of backup plans for on-premises servers.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +72,8 @@ class backupPlanStatistics extends Model
     public $localFile;
 
     /**
+     * @description The number of backup plans for on-premises virtual machines (VMs).
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +81,8 @@ class backupPlanStatistics extends Model
     public $localVm;
 
     /**
+     * @description The number of backup plans for MySQL databases.
+     *
      * @example 1
      *
      * @var int
@@ -65,6 +90,8 @@ class backupPlanStatistics extends Model
     public $mySql;
 
     /**
+     * @description The number of backup plans for NAS file systems.
+     *
      * @example 1
      *
      * @var int
@@ -72,6 +99,8 @@ class backupPlanStatistics extends Model
     public $nas;
 
     /**
+     * @description The number of backup plans for Oracle databases.
+     *
      * @example 1
      *
      * @var int
@@ -79,6 +108,8 @@ class backupPlanStatistics extends Model
     public $oracle;
 
     /**
+     * @description The number of backup plans for OSS buckets.
+     *
      * @example 1
      *
      * @var int
@@ -86,6 +117,8 @@ class backupPlanStatistics extends Model
     public $oss;
 
     /**
+     * @description The number of backup plans for Tablestore instances.
+     *
      * @example 1
      *
      * @var int
@@ -93,12 +126,15 @@ class backupPlanStatistics extends Model
     public $ots;
 
     /**
+     * @description The number of backup plans for SQL Server databases.
+     *
      * @example 1
      *
      * @var int
      */
     public $sqlServer;
     protected $_name = [
+        'archive'   => 'Archive',
         'commonNas' => 'CommonNas',
         'csg'       => 'Csg',
         'ecsFile'   => 'EcsFile',
@@ -121,6 +157,9 @@ class backupPlanStatistics extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->archive) {
+            $res['Archive'] = $this->archive;
+        }
         if (null !== $this->commonNas) {
             $res['CommonNas'] = $this->commonNas;
         }
@@ -172,6 +211,9 @@ class backupPlanStatistics extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Archive'])) {
+            $model->archive = $map['Archive'];
+        }
         if (isset($map['CommonNas'])) {
             $model->commonNas = $map['CommonNas'];
         }

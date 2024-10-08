@@ -11,7 +11,7 @@ class resource extends Model
     /**
      * @description Additional information about the data source.
      *
-     * @example {\"doBackup\":false,\"diskName\":\"data_disk\",\"size\":100,\"type\":\"data\",\"category\":\"cloud_essd\",\"imageId\":\"\",\"device\":\"/dev/xvdb\",\"encrypted\":false}
+     * @example {\\"doBackup\\":false,\\"diskName\\":\\"data_disk\\",\\"size\\":100,\\"type\\":\\"data\\",\\"category\\":\\"cloud_essd\\",\\"imageId\\":\\"\\",\\"device\\":\\"/dev/xvdb\\",\\"encrypted\\":false}
      *
      * @var string
      */

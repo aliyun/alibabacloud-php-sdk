@@ -18,8 +18,9 @@ class UpdateHanaRetentionSettingRequest extends Model
     public $clusterId;
 
     /**
-     * @description The name of the database.
+     * @description The database name.
      *
+     * This parameter is required.
      * @example SYSTEMDB
      *
      * @var string
@@ -32,6 +33,7 @@ class UpdateHanaRetentionSettingRequest extends Model
      *   true: The backup is permanently retained.
      *   false: The backup is retained for the specified number of days.
      *
+     * This parameter is required.
      * @example false
      *
      * @var bool
@@ -39,8 +41,9 @@ class UpdateHanaRetentionSettingRequest extends Model
     public $disabled;
 
     /**
-     * @description The number of days for which the backup is retained. If you set the Disabled parameter to false, the backup is retained for the number of days specified by this parameter.
+     * @description The retention period of the backup data. Unit: days. If you set the Disabled parameter to false, the backup is retained for the number of days specified by this parameter.
      *
+     * This parameter is required.
      * @example 90
      *
      * @var int
@@ -50,9 +53,10 @@ class UpdateHanaRetentionSettingRequest extends Model
     /**
      * @description The policy to update the retention period. Format: `I|{startTime}|{interval}`. The retention period is updated at an interval of {interval} starting from {startTime}.
      *
-     *   startTime: the time at which the system starts to update the retention period. The time must follow the UNIX time format. Unit: seconds.
-     *   interval: the interval at which the system updates the retention period. The interval must follow the ISO 8601 standard. For example, PT1H specifies an interval of 1 hour and P1D specifies an interval of one day.
+     *   startTime: the time at which the system starts to run a backup job. The time follows the UNIX time format. Unit: seconds.
+     *   interval: the interval at which the system runs a backup job. The interval follows the ISO 8601 standard. For example, PT1H indicates an interval of 1 hour, and P1D indicates an interval of one day.
      *
+     * This parameter is required.
      * @example I|0|P1D
      *
      * @var string

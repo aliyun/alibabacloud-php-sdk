@@ -91,6 +91,7 @@ class CreateRestoreJobShrinkRequest extends Model
      *   **OTS_TABLE**: restores data to Tablestore instances.
      *   **UDM_ECS_ROLLBACK**: restores data to ECS instances.
      *
+     * This parameter is required.
      * @example ECS_FILE
      *
      * @var string
@@ -124,6 +125,7 @@ class CreateRestoreJobShrinkRequest extends Model
      *   **OTS_TABLE**: Tablestore instances
      *   **UDM_ECS**: ECS instances
      *
+     * This parameter is required.
      * @example ECS_FILE
      *
      * @var string
@@ -142,7 +144,7 @@ class CreateRestoreJobShrinkRequest extends Model
     /**
      * @description The details about the container to which you want to restore data.
      *
-     * @example {\"host\":\"k8s-node1\",\"hostPrefix\":\"/var/lib/kubelet/pods/4acb31fe-8577-40ff-bc8c-eccabd835f73/volumes/kubernetes.io~csi/pvc-b050b00e-ef17-4792-aab1-1642355cf1f4/mount\",\"pvPath\":\"/\"}
+     * @example {\\"host\\":\\"k8s-node1\\",\\"hostPrefix\\":\\"/var/lib/kubelet/pods/4acb31fe-8577-40ff-bc8c-eccabd835f73/volumes/kubernetes.io~csi/pvc-b050b00e-ef17-4792-aab1-1642355cf1f4/mount\\",\\"pvPath\\":\\"/\\"}
      *
      * @var string
      */
@@ -196,7 +198,7 @@ class CreateRestoreJobShrinkRequest extends Model
     /**
      * @description This parameter is required only if the **RestoreType** parameter is set to **ECS_FILE**. This parameter specifies the destination file path.
      *
-     * @example C:\
+     * @example C:\\
      *
      * @var string
      */
@@ -232,7 +234,7 @@ class CreateRestoreJobShrinkRequest extends Model
     /**
      * @description The details of ECS instance backup.
      *
-     * @example {\"sourceInstanceId\":\"i-uf62te6pm3iwsyxyz66q\",\"bootAfterRestore\":false}
+     * @example {\\"sourceInstanceId\\":\\"i-uf62te6pm3iwsyxyz66q\\",\\"bootAfterRestore\\":false}
      *
      * @var string
      */

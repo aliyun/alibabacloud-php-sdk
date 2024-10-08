@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class report extends Model
 {
     /**
+     * @description The files that failed to be executed.
+     *
+     * @example /temp/report/158975xxxxxx4625/r-0001hfxxxxxymsspjjtl/job-0001hfxxxxxymsspjjtl_failed.zip
+     *
      * @var string
      */
     public $failedFiles;
 
     /**
+     * @description The status of the report generation.
+     *
+     * @example COMPLETE
+     *
      * @var string
      */
     public $reportTaskStatus;
 
     /**
+     * @description The skipped files.
+     *
+     * @example /temp/report/158975xxxxxx4625/r-0001hfxxxxxymsspjjtl/job-0001hfxxxxxymsspjjtl_skipped.zip
+     *
      * @var string
      */
     public $skippedFiles;
 
     /**
+     * @description The files that are successfully executed.
+     *
+     * @example /temp/report/158975xxxxxx4625/r-0001hfxxxxxymsspjjtl/job-0001hfxxxxxymsspjjtl_success.zip
+     *
      * @var string
      */
     public $successFiles;
 
     /**
+     * @description The full files that are restored based on the file list.
+     *
+     * @example /temp/report/158975xxxxxx4625/job-0001hfxxxxxymsspjjtl/job-0001hfxxxxxymsspjjtl_total.csv
+     *
      * @var string
      */
     public $totalFiles;

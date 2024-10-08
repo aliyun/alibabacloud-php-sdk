@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsResponseBody extends Model
 {
     /**
-     * @description The HTTP status code. The status code 200 indicates that the call is successful.
+     * @description The response code. The status code 200 indicates that the request was successful.
      *
      * @example 200
      *
@@ -19,7 +19,7 @@ class DescribeRegionsResponseBody extends Model
     public $code;
 
     /**
-     * @description The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+     * @description The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
      *
      * @example successful
      *
@@ -28,14 +28,14 @@ class DescribeRegionsResponseBody extends Model
     public $message;
 
     /**
-     * @description The list of regions.
+     * @description The regions returned.
      *
      * @var regions
      */
     public $regions;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B3395EC6-7A4A-5282-A9AB-7A442F2CFC90
      *
@@ -44,10 +44,10 @@ class DescribeRegionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful.
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call is successful.
-     *   false: The call fails.
+     *   true
+     *   false
      *
      * @example true
      *

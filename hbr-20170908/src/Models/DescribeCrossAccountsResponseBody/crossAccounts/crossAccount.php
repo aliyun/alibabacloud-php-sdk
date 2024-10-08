@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class crossAccount extends Model
 {
     /**
+     * @description The account alias. The value can be up to 32 bits in length.
+     *
      * @example content
      *
      * @var string
@@ -16,6 +18,8 @@ class crossAccount extends Model
     public $alias;
 
     /**
+     * @description The time when the account was created. This value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1654570439
      *
      * @var int
@@ -23,6 +27,8 @@ class crossAccount extends Model
     public $createdTime;
 
     /**
+     * @description The name of the RAM role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
+     *
      * @example BackupRole
      *
      * @var string
@@ -30,6 +36,8 @@ class crossAccount extends Model
     public $crossAccountRoleName;
 
     /**
+     * @description The ID of the source Alibaba Cloud account that authorizes the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
+     *
      * @example 15897534xxxxx625
      *
      * @var int
@@ -37,6 +45,8 @@ class crossAccount extends Model
     public $crossAccountUserId;
 
     /**
+     * @description The ID of the backup type.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,8 @@ class crossAccount extends Model
     public $id;
 
     /**
+     * @description The ID of the current account.
+     *
      * @example 184164xxxxx49795
      *
      * @var int
@@ -51,6 +63,8 @@ class crossAccount extends Model
     public $ownerId;
 
     /**
+     * @description The time when the account information was updated. The value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1640157098
      *
      * @var int

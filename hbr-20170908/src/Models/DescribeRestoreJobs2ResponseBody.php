@@ -55,9 +55,9 @@ class DescribeRestoreJobs2ResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details about the restore jobs.
+     * @description The queried restore jobs.
      *
-     * @example {\"RestoreJob\": []}
+     * @example {\\"RestoreJob\\": []}
      *
      * @var restoreJobs
      */

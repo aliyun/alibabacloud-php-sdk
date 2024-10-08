@@ -16,6 +16,8 @@ class ExecutePolicyV2Request extends Model
     public $dataSourceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example po-000************hky
      *
      * @var string
@@ -23,6 +25,8 @@ class ExecutePolicyV2Request extends Model
     public $policyId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example rule-0002*****ux8
      *
      * @var string

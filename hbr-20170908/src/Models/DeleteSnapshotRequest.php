@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteSnapshotRequest extends Model
 {
     /**
-     * @description The ID of the backup client. If you delete a backup file for Elastic Compute Service (ECS) instances, you must set one of the **InstanceId** and ClientId parameters.
+     * @description The ID of the Cloud Backup client. If you delete a backup snapshot for Elastic Compute Service (ECS) instances, you must specify one of the ClientId and **InstanceId** parameters.
      *
      * @example c-*********************
      *
@@ -18,10 +18,10 @@ class DeleteSnapshotRequest extends Model
     public $clientId;
 
     /**
-     * @description Specifies whether to forcibly delete the most recent backup file. Valid values:
+     * @description Specifies whether to forcibly delete the most recent backup snapshot. Valid values:
      *
-     *   true: The system forcibly deletes the last backup file.
-     *   false: The system does not forcibly delete the last backup file. Default value: false.
+     *   true: The system forcibly deletes the most recent backup snapshot.
+     *   false (default): The system does not forcibly delete the most recent backup snapshot.
      *
      * @example false
      *
@@ -30,7 +30,7 @@ class DeleteSnapshotRequest extends Model
     public $force;
 
     /**
-     * @description The ID of the ECS instance. If you delete a backup file for Elastic Compute Service (ECS) instances, you must set one of the **ClientId** and InstanceId parameters.
+     * @description The ID of the ECS instance. If you delete a backup snapshot for ECS instances, you must specify one of the InstanceId and **ClientId** parameters.
      *
      * @example i-*********************
      *
@@ -39,8 +39,9 @@ class DeleteSnapshotRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the backup file.
+     * @description The ID of the backup snapshot.
      *
+     * This parameter is required.
      * @example s-*********************
      *
      * @var string
@@ -50,9 +51,9 @@ class DeleteSnapshotRequest extends Model
     /**
      * @description The type of the backup source. Valid values:
      *
-     *   **ECS_FILE**: indicates backup files for ECS instances.
-     *   **OSS**: indicates backup files for Object Storage Service (OSS) buckets.
-     *   **NAS**: indicates the backup files for Apsara File Storage NAS file systems.
+     *   **ECS_FILE**: backup snapshots for ECS files
+     *   **OSS**: backup snapshots for Object Storage Service (OSS) buckets
+     *   **NAS**: backup snapshots for Apsara File Storage NAS (NAS) file systems
      *
      * @example ECS_FILE
      *
@@ -61,7 +62,7 @@ class DeleteSnapshotRequest extends Model
     public $sourceType;
 
     /**
-     * @description The token.
+     * @description The token that you want to delete.
      *
      * @example 02WJDOE7
      *

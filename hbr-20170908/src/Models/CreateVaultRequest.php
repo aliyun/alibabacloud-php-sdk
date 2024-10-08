@@ -41,6 +41,7 @@ class CreateVaultRequest extends Model
     /**
      * @description The name of the backup vault. The name must be 1 to 64 characters in length.
      *
+     * This parameter is required.
      * @example backupvaultname
      *
      * @var string
@@ -50,6 +51,7 @@ class CreateVaultRequest extends Model
     /**
      * @description The ID of the region where the backup vault resides.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

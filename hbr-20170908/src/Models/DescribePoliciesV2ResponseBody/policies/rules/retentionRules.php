@@ -11,9 +11,9 @@ class retentionRules extends Model
     /**
      * @description The type of the special retention rule. Valid values:
      *
-     *   **WEEKLY**: weekly backups.
-     *   **MONTHLY**: monthly backups.
-     *   **YEARLY**: yearly backups.
+     *   **WEEKLY**: weekly backups
+     *   **MONTHLY**: monthly backups
+     *   **YEARLY**: yearly backups
      *
      * @example YEARLY
      *
@@ -22,7 +22,7 @@ class retentionRules extends Model
     public $advancedRetentionType;
 
     /**
-     * @description The retention period of the backup data. Minimum value: 1. Unit: days.
+     * @description The special retention period of backups. Minimum value: 1. Unit: days.
      *
      * @example 730
      *

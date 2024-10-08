@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class commonFileSystemDetail extends Model
 {
     /**
+     * @example 100000
+     *
      * @var int
      */
     public $fetchSliceSize;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $fullOnIncrementFail;

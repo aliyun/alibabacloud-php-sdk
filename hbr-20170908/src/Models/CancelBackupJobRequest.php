@@ -11,6 +11,7 @@ class CancelBackupJobRequest extends Model
     /**
      * @description The ID of the backup job.
      *
+     * This parameter is required.
      * @example j-******************************
      *
      * @var string

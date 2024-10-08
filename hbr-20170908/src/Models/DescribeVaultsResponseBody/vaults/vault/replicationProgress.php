@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class replicationProgress extends Model
 {
     /**
+     * @description The progress of historical data synchronization from the backup vault to the mirror vault. Valid values: 0 to 100.
+     *
      * @example 100
      *
      * @var int
@@ -16,6 +18,8 @@ class replicationProgress extends Model
     public $historicalReplicationProgress;
 
     /**
+     * @description The latest synchronization time of incremental data in the mirror vault.
+     *
      * @example 1579413159
      *
      * @var int

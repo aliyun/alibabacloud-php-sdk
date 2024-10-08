@@ -80,6 +80,11 @@ class detail extends Model
     public $doCopy;
 
     /**
+     * @var mixed[]
+     */
+    public $instanceInfos;
+
+    /**
      * @description The ID of the backup snapshot.
      *
      * @example s-******************
@@ -96,6 +101,7 @@ class detail extends Model
         'destinationSnapshotId'                 => 'DestinationSnapshotId',
         'diskNativeSnapshotIdList'              => 'DiskNativeSnapshotIdList',
         'doCopy'                                => 'DoCopy',
+        'instanceInfos'                         => 'InstanceInfos',
         'nativeSnapshotId'                      => 'NativeSnapshotId',
     ];
 
@@ -129,6 +135,9 @@ class detail extends Model
         }
         if (null !== $this->doCopy) {
             $res['DoCopy'] = $this->doCopy;
+        }
+        if (null !== $this->instanceInfos) {
+            $res['InstanceInfos'] = $this->instanceInfos;
         }
         if (null !== $this->nativeSnapshotId) {
             $res['NativeSnapshotId'] = $this->nativeSnapshotId;
@@ -168,6 +177,9 @@ class detail extends Model
         }
         if (isset($map['DoCopy'])) {
             $model->doCopy = $map['DoCopy'];
+        }
+        if (isset($map['InstanceInfos'])) {
+            $model->instanceInfos = $map['InstanceInfos'];
         }
         if (isset($map['NativeSnapshotId'])) {
             $model->nativeSnapshotId = $map['NativeSnapshotId'];

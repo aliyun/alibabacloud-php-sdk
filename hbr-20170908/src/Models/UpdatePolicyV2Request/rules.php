@@ -4,7 +4,9 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\UpdatePolicyV2Request;
 
+use AlibabaCloud\SDK\Hbr\V20170908\Models\UpdatePolicyV2Request\rules\dataSourceFilters;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\UpdatePolicyV2Request\rules\retentionRules;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\UpdatePolicyV2Request\rules\tagFilters;
 use AlibabaCloud\Tea\Model;
 
 class rules extends Model
@@ -35,6 +37,11 @@ class rules extends Model
      * @var int
      */
     public $coldArchiveDays;
+
+    /**
+     * @var dataSourceFilters[]
+     */
+    public $dataSourceFilters;
 
     /**
      * @description Specifies whether to enable the feature of keeping at least one backup version. Valid values:
@@ -86,7 +93,7 @@ class rules extends Model
     public $ruleId;
 
     /**
-     * @description The type of the rule. Each backup policy must have at least one rule of the **BACKUP** type and only one rule of the **TRANSITION** type.
+     * @description The type of the rule. Each backup policy must have at least one rule of the **BACKUP** type and only one rule of the **TRANSITION** type. Valid values:
      *
      *   **BACKUP**: backup rule
      *   **TRANSITION**: lifecycle rule
@@ -99,20 +106,26 @@ class rules extends Model
     public $ruleType;
 
     /**
-     * @description This parameter is required only if the **RuleType** parameter is set to **BACKUP**. This parameter specifies the backup schedule settings. Format: `I|{startTime}|{interval}`. The system runs the first backup job at a point in time that is specified in the {startTime} parameter and the subsequent backup jobs at an interval that is specified in the {interval} parameter. The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is complete. For example, `I|1631685600|P1D` specifies that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
+     * @description This parameter is required only if the **RuleType** parameter is set to **BACKUP**. This parameter specifies the backup schedule settings. Format: `I|{startTime}|{interval}`. The system runs the first backup job at a point in time that is specified in the {startTime} parameter and the subsequent backup jobs at an interval that is specified in the {interval} parameter. The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is completed. For example, `I|1631685600|P1D` specifies that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
      *
      *   startTime: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds.
-     *   interval: the interval at which the system runs a backup job. The interval must follow the ISO 8601 standard. For example, PT1H specifies an interval of one hour. P1D specifies an interval of one day.
+     *   interval: the interval at which the system runs a backup job. The interval must follow the ISO 8601 standard. For example, PT1H specifies an interval of 1 hour. P1D specifies an interval of one day.
      *
      * @example I|1648647166|P1D
      *
      * @var string
      */
     public $schedule;
+
+    /**
+     * @var tagFilters[]
+     */
+    public $tagFilters;
     protected $_name = [
         'archiveDays'         => 'ArchiveDays',
         'backupType'          => 'BackupType',
         'coldArchiveDays'     => 'ColdArchiveDays',
+        'dataSourceFilters'   => 'DataSourceFilters',
         'keepLatestSnapshots' => 'KeepLatestSnapshots',
         'replicationRegionId' => 'ReplicationRegionId',
         'retention'           => 'Retention',
@@ -120,6 +133,7 @@ class rules extends Model
         'ruleId'              => 'RuleId',
         'ruleType'            => 'RuleType',
         'schedule'            => 'Schedule',
+        'tagFilters'          => 'TagFilters',
     ];
 
     public function validate()
@@ -137,6 +151,15 @@ class rules extends Model
         }
         if (null !== $this->coldArchiveDays) {
             $res['ColdArchiveDays'] = $this->coldArchiveDays;
+        }
+        if (null !== $this->dataSourceFilters) {
+            $res['DataSourceFilters'] = [];
+            if (null !== $this->dataSourceFilters && \is_array($this->dataSourceFilters)) {
+                $n = 0;
+                foreach ($this->dataSourceFilters as $item) {
+                    $res['DataSourceFilters'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->keepLatestSnapshots) {
             $res['KeepLatestSnapshots'] = $this->keepLatestSnapshots;
@@ -165,6 +188,15 @@ class rules extends Model
         if (null !== $this->schedule) {
             $res['Schedule'] = $this->schedule;
         }
+        if (null !== $this->tagFilters) {
+            $res['TagFilters'] = [];
+            if (null !== $this->tagFilters && \is_array($this->tagFilters)) {
+                $n = 0;
+                foreach ($this->tagFilters as $item) {
+                    $res['TagFilters'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -185,6 +217,15 @@ class rules extends Model
         }
         if (isset($map['ColdArchiveDays'])) {
             $model->coldArchiveDays = $map['ColdArchiveDays'];
+        }
+        if (isset($map['DataSourceFilters'])) {
+            if (!empty($map['DataSourceFilters'])) {
+                $model->dataSourceFilters = [];
+                $n                        = 0;
+                foreach ($map['DataSourceFilters'] as $item) {
+                    $model->dataSourceFilters[$n++] = null !== $item ? dataSourceFilters::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['KeepLatestSnapshots'])) {
             $model->keepLatestSnapshots = $map['KeepLatestSnapshots'];
@@ -212,6 +253,15 @@ class rules extends Model
         }
         if (isset($map['Schedule'])) {
             $model->schedule = $map['Schedule'];
+        }
+        if (isset($map['TagFilters'])) {
+            if (!empty($map['TagFilters'])) {
+                $model->tagFilters = [];
+                $n                 = 0;
+                foreach ($map['TagFilters'] as $item) {
+                    $model->tagFilters[$n++] = null !== $item ? tagFilters::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

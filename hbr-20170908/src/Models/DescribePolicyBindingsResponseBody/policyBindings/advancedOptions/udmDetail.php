@@ -18,6 +18,8 @@ class udmDetail extends Model
     public $appConsistent;
 
     /**
+     * @description The ID of the custom KMS key in the destination region. If this parameter is not empty and geo-replication is enabled, the key is used for encrypted geo-replication.
+     *
      * @example 4ed37b1e-da51-4187-aceb-9db4f9b7148b
      *
      * @var string
@@ -32,7 +34,7 @@ class udmDetail extends Model
     public $diskIdList;
 
     /**
-     * @description This parameter is returned only if **AppConsistent** is set to **true**. This parameter indicates whether Linux fsfreeze is enabled to put file systems into the read-only state before application-consistent snapshots are created. Default value: true.
+     * @description This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter indicates whether to enable Linux fsfreeze to put file systems into the read-only state before application-consistent snapshots are created. Default value: true.
      *
      * @example true
      *
@@ -41,7 +43,7 @@ class udmDetail extends Model
     public $enableFsFreeze;
 
     /**
-     * @description This parameter is returned only if **AppConsistent** is set to **true**. This parameter indicates whether application-consistent snapshots are created. Valid values:
+     * @description This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter indicates whether application-consistent snapshots are created. Valid values:
      *
      *   true: Application-consistent snapshots are created.
      *   false: File system-consistent snapshots are created.
@@ -54,14 +56,14 @@ class udmDetail extends Model
     public $enableWriters;
 
     /**
-     * @description The IDs of the disks that do not need to be protected. If DiskIdList is not empty, this parameter is ignored.
+     * @description The IDs of the disks that do not need to be protected. If the DiskIdList parameter is not empty, this parameter is ignored.
      *
      * @var string[]
      */
     public $excludeDiskIdList;
 
     /**
-     * @description This parameter is returned only if **AppConsistent** is set to **true**. This parameter indicates the path of the post-thaw scripts that are executed after application-consistent snapshots are created.
+     * @description This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter indicates the path of the post-thaw scripts that are executed after application-consistent snapshots are created.
      *
      * @example /tmp/postscript.sh
      *
@@ -70,7 +72,7 @@ class udmDetail extends Model
     public $postScriptPath;
 
     /**
-     * @description This parameter is returned only if **AppConsistent** is set to **true**. This parameter indicates the path of the pre-freeze scripts that are executed before application-consistent snapshots are created.
+     * @description This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter indicates the path of the pre-freeze scripts that are executed before application-consistent snapshots are created.
      *
      * @example /tmp/prescript.sh
      *
@@ -79,7 +81,7 @@ class udmDetail extends Model
     public $preScriptPath;
 
     /**
-     * @description This parameter is returned only if **AppConsistent** is set to **true**. This parameter indicates the name of the RAM role that is required to create application-consistent snapshots.
+     * @description This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter indicates the name of the RAM role that is required to create application-consistent snapshots.
      *
      * @example AliyunECSInstanceForHbrRole
      *
@@ -97,7 +99,7 @@ class udmDetail extends Model
     public $snapshotGroup;
 
     /**
-     * @description This parameter is returned only if **AppConsistent** is set to **true**. This parameter indicates the I/O freeze timeout period. Default value: 30. Unit: seconds.
+     * @description This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter indicates the I/O freeze timeout period. Default value: 30. Unit: seconds.
      *
      * @example 30
      *

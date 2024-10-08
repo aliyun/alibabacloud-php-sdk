@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeClientsResponseBody extends Model
 {
     /**
-     * @description The backup clients.
+     * @description The Cloud Backup clients.
      *
      * @var clients
      */
     public $clients;
 
     /**
-     * @description The HTTP status code. The status code 200 indicates that the call is successful.
+     * @description The response code. The status code 200 indicates that the request was successful.
      *
      * @example 200
      *
@@ -26,7 +26,7 @@ class DescribeClientsResponseBody extends Model
     public $code;
 
     /**
-     * @description The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+     * @description The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
      *
      * @example successful
      *
@@ -35,7 +35,7 @@ class DescribeClientsResponseBody extends Model
     public $message;
 
     /**
-     * @description The page number of the returned page. Pages start from page 1. Default value: 1.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -44,7 +44,7 @@ class DescribeClientsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page. Valid values: 1 to 99. Default value: 10.
+     * @description The number of entries per page. Valid values: 1 to 99. Default value: 10.
      *
      * @example 10
      *
@@ -53,7 +53,7 @@ class DescribeClientsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 17189276-465D-5EF3-8FFD-0FF51B5A41A0
      *
@@ -62,10 +62,10 @@ class DescribeClientsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call is successful.
-     *   false: The call fails.
+     *   true
+     *   false
      *
      * @example true
      *
@@ -74,7 +74,7 @@ class DescribeClientsResponseBody extends Model
     public $success;
 
     /**
-     * @description The total number of returned entries.
+     * @description The total number of entries returned.
      *
      * @example 12
      *

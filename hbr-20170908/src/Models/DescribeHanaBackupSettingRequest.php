@@ -11,6 +11,7 @@ class DescribeHanaBackupSettingRequest extends Model
     /**
      * @description The ID of the SAP HANA instance.
      *
+     * This parameter is required.
      * @example cl-00068btz******oku
      *
      * @var string

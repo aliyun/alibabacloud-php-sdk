@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePolicyBindingsResponseBody;
 
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePolicyBindingsResponseBody\policyBindings\advancedOptions;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePolicyBindingsResponseBody\policyBindings\hitTags;
 use AlibabaCloud\Tea\Model;
 
 class policyBindings extends Model
@@ -17,7 +18,12 @@ class policyBindings extends Model
     public $advancedOptions;
 
     /**
-     * @description The time when the backup policy was created. This value is a UNIX timestamp. Unit: seconds.
+     * @var bool
+     */
+    public $createdByTag;
+
+    /**
+     * @description The time when the backup policy was created. The value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1661399570
      *
@@ -77,6 +83,25 @@ class policyBindings extends Model
     public $disabled;
 
     /**
+     * @example [\\"*.doc\\",\\"*.xltm\\"]
+     *
+     * @var string
+     */
+    public $exclude;
+
+    /**
+     * @var hitTags[]
+     */
+    public $hitTags;
+
+    /**
+     * @example [\\"*.doc\\",\\"*.xltm\\"]
+     *
+     * @var string
+     */
+    public $include;
+
+    /**
      * @description The description of the association.
      *
      * @example po-000************eslc-i-uf6************y5g
@@ -95,13 +120,20 @@ class policyBindings extends Model
     public $policyBindingId;
 
     /**
-     * @description The policy ID.
+     * @description The ID of the backup policy.
      *
      * @example po-000************56y
      *
      * @var string
      */
     public $policyId;
+
+    /**
+     * @example backup/
+     *
+     * @var string
+     */
+    public $source;
 
     /**
      * @description The type of the data source. Valid values:
@@ -115,6 +147,13 @@ class policyBindings extends Model
     public $sourceType;
 
     /**
+     * @example 0:24:10240
+     *
+     * @var string
+     */
+    public $speedLimit;
+
+    /**
      * @description The time when the backup policy was updated. The value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1653611573
@@ -124,16 +163,22 @@ class policyBindings extends Model
     public $updatedTime;
     protected $_name = [
         'advancedOptions'          => 'AdvancedOptions',
+        'createdByTag'             => 'CreatedByTag',
         'createdTime'              => 'CreatedTime',
         'crossAccountRoleName'     => 'CrossAccountRoleName',
         'crossAccountType'         => 'CrossAccountType',
         'crossAccountUserId'       => 'CrossAccountUserId',
         'dataSourceId'             => 'DataSourceId',
         'disabled'                 => 'Disabled',
+        'exclude'                  => 'Exclude',
+        'hitTags'                  => 'HitTags',
+        'include'                  => 'Include',
         'policyBindingDescription' => 'PolicyBindingDescription',
         'policyBindingId'          => 'PolicyBindingId',
         'policyId'                 => 'PolicyId',
+        'source'                   => 'Source',
         'sourceType'               => 'SourceType',
+        'speedLimit'               => 'SpeedLimit',
         'updatedTime'              => 'UpdatedTime',
     ];
 
@@ -146,6 +191,9 @@ class policyBindings extends Model
         $res = [];
         if (null !== $this->advancedOptions) {
             $res['AdvancedOptions'] = null !== $this->advancedOptions ? $this->advancedOptions->toMap() : null;
+        }
+        if (null !== $this->createdByTag) {
+            $res['CreatedByTag'] = $this->createdByTag;
         }
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
@@ -165,6 +213,21 @@ class policyBindings extends Model
         if (null !== $this->disabled) {
             $res['Disabled'] = $this->disabled;
         }
+        if (null !== $this->exclude) {
+            $res['Exclude'] = $this->exclude;
+        }
+        if (null !== $this->hitTags) {
+            $res['HitTags'] = [];
+            if (null !== $this->hitTags && \is_array($this->hitTags)) {
+                $n = 0;
+                foreach ($this->hitTags as $item) {
+                    $res['HitTags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->include) {
+            $res['Include'] = $this->include;
+        }
         if (null !== $this->policyBindingDescription) {
             $res['PolicyBindingDescription'] = $this->policyBindingDescription;
         }
@@ -174,8 +237,14 @@ class policyBindings extends Model
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
+        }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
+        }
+        if (null !== $this->speedLimit) {
+            $res['SpeedLimit'] = $this->speedLimit;
         }
         if (null !== $this->updatedTime) {
             $res['UpdatedTime'] = $this->updatedTime;
@@ -195,6 +264,9 @@ class policyBindings extends Model
         if (isset($map['AdvancedOptions'])) {
             $model->advancedOptions = advancedOptions::fromMap($map['AdvancedOptions']);
         }
+        if (isset($map['CreatedByTag'])) {
+            $model->createdByTag = $map['CreatedByTag'];
+        }
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
@@ -213,6 +285,21 @@ class policyBindings extends Model
         if (isset($map['Disabled'])) {
             $model->disabled = $map['Disabled'];
         }
+        if (isset($map['Exclude'])) {
+            $model->exclude = $map['Exclude'];
+        }
+        if (isset($map['HitTags'])) {
+            if (!empty($map['HitTags'])) {
+                $model->hitTags = [];
+                $n              = 0;
+                foreach ($map['HitTags'] as $item) {
+                    $model->hitTags[$n++] = null !== $item ? hitTags::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Include'])) {
+            $model->include = $map['Include'];
+        }
         if (isset($map['PolicyBindingDescription'])) {
             $model->policyBindingDescription = $map['PolicyBindingDescription'];
         }
@@ -222,8 +309,14 @@ class policyBindings extends Model
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
+        }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
+        }
+        if (isset($map['SpeedLimit'])) {
+            $model->speedLimit = $map['SpeedLimit'];
         }
         if (isset($map['UpdatedTime'])) {
             $model->updatedTime = $map['UpdatedTime'];

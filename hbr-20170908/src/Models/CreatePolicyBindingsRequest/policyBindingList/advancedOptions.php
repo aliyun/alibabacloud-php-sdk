@@ -19,11 +19,15 @@ class advancedOptions extends Model
     public $commonFileSystemDetail;
 
     /**
+     * @description The advanced options for on-premises NAS backup.
+     *
      * @var commonNasDetail
      */
     public $commonNasDetail;
 
     /**
+     * @description The advanced options for file backup.
+     *
      * @var fileDetail
      */
     public $fileDetail;
@@ -36,7 +40,7 @@ class advancedOptions extends Model
     public $ossDetail;
 
     /**
-     * @description The details of ECS instance backup.
+     * @description The advanced options for ECS instance backup.
      *
      * @var udmDetail
      */

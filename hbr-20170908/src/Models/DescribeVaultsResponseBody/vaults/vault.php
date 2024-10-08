@@ -14,21 +14,31 @@ use AlibabaCloud\Tea\Model;
 class vault extends Model
 {
     /**
+     * @example 1024000
+     *
      * @var int
      */
     public $archiveBytesDone;
 
     /**
+     * @description The billable storage usage of the Archive tier. Unit: bytes.
+     *
+     * @example 1024000
+     *
      * @var int
      */
     public $archiveStorageSize;
 
     /**
+     * @description The statistics of backup plans that use the backup vault.
+     *
      * @var backupPlanStatistics
      */
     public $backupPlanStatistics;
 
     /**
+     * @description The name of the OSS bucket used by the backup vault.
+     *
      * @example hbr-0005i51******t58
      *
      * @var string
@@ -36,6 +46,8 @@ class vault extends Model
     public $bucketName;
 
     /**
+     * @description The amount of data that is backed up. Unit: bytes.
+     *
      * @example 20
      *
      * @var int
@@ -43,6 +55,8 @@ class vault extends Model
     public $bytesDone;
 
     /**
+     * @description The billing method of the backup vault.
+     *
      * @example FREE
      *
      * @var string
@@ -50,6 +64,8 @@ class vault extends Model
     public $chargeType;
 
     /**
+     * @description The billable storage usage of the archive vault. Unit: bytes.
+     *
      * @example 1024000
      *
      * @var int
@@ -57,6 +73,12 @@ class vault extends Model
     public $chargedStorageSize;
 
     /**
+     * @description The encryption algorithm used to compress the backup vault. Valid values:
+     *
+     *   DISABLED: The backup vault is not compressed.
+     *   SNAPPY: The backup vault is compressed by using the SNAPPY encryption algorithm.
+     *   ZSTD: The backup vault is compressed by using Zstandard, a fast lossless compression algorithm.
+     *
      * @example ZSTD
      *
      * @var string
@@ -64,6 +86,8 @@ class vault extends Model
     public $compressionAlgorithm;
 
     /**
+     * @description The time when the backup vault was created. The value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1554347313
      *
      * @var int
@@ -71,6 +95,8 @@ class vault extends Model
     public $createdTime;
 
     /**
+     * @description Indicates whether the deduplication feature is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -78,6 +104,8 @@ class vault extends Model
     public $dedup;
 
     /**
+     * @description The description of the backup vault.
+     *
      * @example vault description
      *
      * @var string
@@ -85,6 +113,12 @@ class vault extends Model
     public $description;
 
     /**
+     * @description The encryption type of the backup vault. Valid values:
+     *
+     *   NONE: The backup vault is not encrypted.
+     *   HBR_PRIVATE (default): The backup vault is encrypted by using a key provided by Cloud Backup.
+     *   KMS: The backup vault is encrypted by using a custom master key (CMK) created in Key Management Service (KMS).
+     *
      * @example HBR_PRIVATE
      *
      * @var string
@@ -92,6 +126,8 @@ class vault extends Model
     public $encryptType;
 
     /**
+     * @description Indicates whether indexes are available. Indexes are available when they are not being updated.
+     *
      * @example true
      *
      * @var bool
@@ -99,6 +135,12 @@ class vault extends Model
     public $indexAvailable;
 
     /**
+     * @description The index level.
+     *
+     *   OFF: No indexes are created.
+     *   META: Metadata indexes are created.
+     *   ALL: Full-text indexes are created.
+     *
      * @example OFF
      *
      * @var string
@@ -106,6 +148,8 @@ class vault extends Model
     public $indexLevel;
 
     /**
+     * @description The time when the index was updated.
+     *
      * @example 1639645628
      *
      * @var int
@@ -113,6 +157,8 @@ class vault extends Model
     public $indexUpdateTime;
 
     /**
+     * @description The ID or alias of the CMK created in KMS. This parameter is returned only when EncryptType is set to KMS.
+     *
      * @example alias/acs/acm
      *
      * @var string
@@ -120,6 +166,8 @@ class vault extends Model
     public $kmsKeyId;
 
     /**
+     * @description The time when the last remote backup was synchronized. The value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1554347313
      *
      * @var int
@@ -127,6 +175,11 @@ class vault extends Model
     public $latestReplicationTime;
 
     /**
+     * @description The data redundancy type of the backup vault. Valid values:
+     *
+     *   LRS: Locally redundant storage (LRS) is enabled for the backup vault. Cloud Backup stores the copies of each object on multiple devices of different facilities in the same zone. This way, Cloud Backup ensures data durability and availability even if hardware failures occur.
+     *   ZRS: Zone-redundant storage (ZRS) is enabled for the backup vault. Cloud Backup uses the multi-zone mechanism to distribute data across three zones within the same region. If a zone fails, the data that is stored in the other two zones is still accessible.
+     *
      * @example LRS
      *
      * @var string
@@ -134,6 +187,11 @@ class vault extends Model
     public $redundancyType;
 
     /**
+     * @description Indicates whether the backup vault is a remote backup vault. Valid values:
+     *
+     *   true: The backup vault is a remote backup vault.
+     *   false: The backup vault is a local backup vault.
+     *
      * @example false
      *
      * @var bool
@@ -141,11 +199,15 @@ class vault extends Model
     public $replication;
 
     /**
+     * @description The progress of data synchronization from the backup vault to the mirror vault.
+     *
      * @var replicationProgress
      */
     public $replicationProgress;
 
     /**
+     * @description The ID of the region in which the source vault resides. This parameter is valid only for remote backup vaults.
+     *
      * @example v-*********************
      *
      * @var string
@@ -153,11 +215,20 @@ class vault extends Model
     public $replicationSourceRegionId;
 
     /**
+     * @description Indicate whether the backup vault is the source vault that corresponds to the remote backup vault. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example false
+     *
      * @var bool
      */
     public $replicationSourceVault;
 
     /**
+     * @description The ID of the source vault that corresponds to the remote backup vault.
+     *
      * @example v-*********************
      *
      * @var string
@@ -165,11 +236,15 @@ class vault extends Model
     public $replicationSourceVaultId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $replicationTargetRegionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-*********************
      *
      * @var string
@@ -177,6 +252,8 @@ class vault extends Model
     public $resourceGroupId;
 
     /**
+     * @description The retention period of the backup vault. Unit: days.
+     *
      * @example 2
      *
      * @var int
@@ -184,6 +261,8 @@ class vault extends Model
     public $retention;
 
     /**
+     * @description Indicates whether the backup search feature is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -191,6 +270,8 @@ class vault extends Model
     public $searchEnabled;
 
     /**
+     * @description The number of snapshots in the backup vault.
+     *
      * @example 0
      *
      * @var int
@@ -198,11 +279,20 @@ class vault extends Model
     public $snapshotCount;
 
     /**
+     * @description The data source types of the backup vault.
+     *
      * @var sourceTypes
      */
     public $sourceTypes;
 
     /**
+     * @description The status of the backup vault. Valid values:
+     *
+     *   **UNKNOWN**: The backup vault is in an unknown state.
+     *   **INITIALIZING**: The backup vault is being initialized.
+     *   **CREATED**: The backup vault is created.
+     *   **ERROR**: An error occurs on the backup vault.
+     *
      * @example CREATED
      *
      * @var string
@@ -210,6 +300,8 @@ class vault extends Model
     public $status;
 
     /**
+     * @description The usage of the backup vault. Unit: bytes.
+     *
      * @example 10
      *
      * @var int
@@ -217,16 +309,22 @@ class vault extends Model
     public $storageSize;
 
     /**
+     * @description The tags of the backup vault.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The free trial information.
+     *
      * @var trialInfo
      */
     public $trialInfo;
 
     /**
+     * @description The time when the backup vault was updated. The value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1554347313
      *
      * @var int
@@ -234,6 +332,8 @@ class vault extends Model
     public $updatedTime;
 
     /**
+     * @description The ID of the backup vault.
+     *
      * @example v-*********************
      *
      * @var string
@@ -241,6 +341,8 @@ class vault extends Model
     public $vaultId;
 
     /**
+     * @description The name of the backup vault.
+     *
      * @example vaultname
      *
      * @var string
@@ -248,6 +350,8 @@ class vault extends Model
     public $vaultName;
 
     /**
+     * @description The ID of the region in which the backup vault resides.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -255,6 +359,11 @@ class vault extends Model
     public $vaultRegionId;
 
     /**
+     * @description The status message that is returned when the backup vault is in the ERROR state. This parameter is valid only for remote backup vaults. Valid values:
+     *
+     *   **UNKNOWN_ERROR**: An unknown error occurs.
+     *   **SOURCE_VAULT_ALREADY_HAS_REPLICATION**: A mirror vault is configured for the source vault.
+     *
      * @example SOURCE_VAULT_ALREADY_HAS_REPLICATION
      *
      * @var string
@@ -262,6 +371,8 @@ class vault extends Model
     public $vaultStatusMessage;
 
     /**
+     * @description The storage class of the backup vault. Valid value: **STANDARD**, which indicates standard storage.
+     *
      * @example STANDARD
      *
      * @var string
@@ -269,6 +380,8 @@ class vault extends Model
     public $vaultStorageClass;
 
     /**
+     * @description The type of the backup vault. Valid value: **STANDARD**, which indicates a standard backup vault.
+     *
      * @example STANDARD
      *
      * @var string
@@ -276,6 +389,8 @@ class vault extends Model
     public $vaultType;
 
     /**
+     * @description Indicates whether the immutable backup feature is enabled.
+     *
      * @example true
      *
      * @var bool

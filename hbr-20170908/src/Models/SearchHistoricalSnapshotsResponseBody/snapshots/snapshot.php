@@ -29,6 +29,8 @@ class snapshot extends Model
     public $actualItems;
 
     /**
+     * @example 1640334062
+     *
      * @var int
      */
     public $archiveTime;
@@ -108,13 +110,15 @@ class snapshot extends Model
     /**
      * @description The files that record the information about backup failures, including the information about partially completed backups.
      *
-     * @example Item	Error Message C:\Program Files (x86)\Symantec\Symantec Endpoint Protection\14.3.558.0000.105\Bin\service.dat	Open: open \\?\C:\Program Files (x86)\Symantec\Symantec Endpoint Protection\14.3.558.0000.105\Bin\service.dat: The process cannot access the file because it is being used by another process. C:\ProgramData\McAfee\Agent\data\InstallerFiles\172e8a3b04b7ab0fd0215f4fb7707e3744b37d83b6743b3eacb94447c74dc9af_contrib.ini	Open: open \\?\C:\ProgramData\McAfee\Agent\data\InstallerFiles\172e8a3b04b7ab0fd0215f4fb7707e3744b37d83b6743b3eacb94447c74dc9af_contrib.ini: Access is denied.
+     * @example Item	Error Message C:\\Program Files (x86)\\Symantec\\Symantec Endpoint Protection\\14.3.558.0000.105\\Bin\\service.dat	Open: open \\\\?\\C:\\Program Files (x86)\\Symantec\\Symantec Endpoint Protection\\14.3.558.0000.105\\Bin\\service.dat: The process cannot access the file because it is being used by another process. C:\\ProgramData\\McAfee\\Agent\\data\\InstallerFiles\\172e8a3b04b7ab0fd0215f4fb7707e3744b37d83b6743b3eacb94447c74dc9af_contrib.ini	Open: open \\\\?\\C:\\ProgramData\\McAfee\\Agent\\data\\InstallerFiles\\172e8a3b04b7ab0fd0215f4fb7707e3744b37d83b6743b3eacb94447c74dc9af_contrib.ini: Access is denied.
      *
      * @var string
      */
     public $errorFile;
 
     /**
+     * @example [\\"/test/example_cn-hangzhou_7.txt\\", \\"/test/example_cn-hangzhou_1.txt\\", \\"/test/example_cn-hangzhou_3.txt\\", \\"/test/example_cn-hangzhou_9.txt\\", \\"/test/example_cn-hangzhou_6.txt\\"]
+     *
      * @var string
      */
     public $exclude;
@@ -138,6 +142,8 @@ class snapshot extends Model
     public $fileSystemId;
 
     /**
+     * @example [\\"/test/example_cn-huhehaote_3.txt\\", \\"/test/example_cn-huhehaote_9.txt\\", \\"/test/example_cn-huhehaote_5.txt\\", \\"/test/example_cn-huhehaote_1.txt\\", \\"/test/example_cn-huhehaote_7.txt\\"]
+     *
      * @var string
      */
     public $include;
@@ -271,11 +277,15 @@ class snapshot extends Model
     public $snapshotId;
 
     /**
+     * @example qwer***
+     *
      * @var string
      */
     public $sourceParentSnapshotHash;
 
     /**
+     * @example qwer***
+     *
      * @var string
      */
     public $sourceSnapshotHash;
@@ -316,6 +326,8 @@ class snapshot extends Model
     public $status;
 
     /**
+     * @example STANDARD
+     *
      * @var string
      */
     public $storageClass;
@@ -339,6 +351,8 @@ class snapshot extends Model
     public $updatedTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $useCommonNas;

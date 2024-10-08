@@ -20,6 +20,7 @@ class DescribeUdmSnapshotsRequest extends Model
     /**
      * @description The end of the time range to query. The value must be a UNIX timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1643092168
      *
      * @var int
@@ -47,7 +48,7 @@ class DescribeUdmSnapshotsRequest extends Model
     /**
      * @description The list of backup snapshots.
      *
-     * @example [\"s-000e3vhhu62xsm6v92r0\"]
+     * @example [\\"s-000e3vhhu62xsm6v92r0\\"]
      *
      * @var mixed[]
      */
@@ -60,6 +61,7 @@ class DescribeUdmSnapshotsRequest extends Model
      *   **UDM_ECS_DISK**: disk backup subtask of ECS instance backup
      *   **UDM_DISK**: disk backup
      *
+     * This parameter is required.
      * @example UDM_ECS
      *
      * @var string
@@ -69,6 +71,7 @@ class DescribeUdmSnapshotsRequest extends Model
     /**
      * @description The beginning of the time range to query. The value must be a UNIX timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1642057551
      *
      * @var int
@@ -78,6 +81,7 @@ class DescribeUdmSnapshotsRequest extends Model
     /**
      * @description The ID of the region where the ECS instance resides.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

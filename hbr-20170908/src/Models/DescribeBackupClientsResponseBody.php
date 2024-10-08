@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupClientsResponseBody extends Model
 {
     /**
-     * @description The HBR clients.
+     * @description The queried backup clients.
      *
-     * @example {\"Client\": []}
+     * @example {\\"Client\\": []}
      *
      * @var clients[]
      */

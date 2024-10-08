@@ -11,6 +11,7 @@ class ExecuteBackupPlanRequest extends Model
     /**
      * @description The ID of the backup plan.
      *
+     * This parameter is required.
      * @example plan-*********************
      *
      * @var string
@@ -31,7 +32,7 @@ class ExecuteBackupPlanRequest extends Model
      *
      *   **ECS_FILE**: Elastic Compute Service (ECS) files
      *   **OSS**: Object Storage Service (OSS) buckets
-     *   **NAS**: Apsara File Storage NAS file systems
+     *   **NAS**: Apsara File Storage NAS (NAS) file systems
      *
      * @example ECS_FILE
      *

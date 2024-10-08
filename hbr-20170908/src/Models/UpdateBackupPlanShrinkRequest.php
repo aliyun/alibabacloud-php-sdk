@@ -26,7 +26,7 @@ class UpdateBackupPlanShrinkRequest extends Model
      *   preScriptPath: the path to the pre-freeze scripts.
      *   postScriptPath: the path to the post-thaw scripts.
      *
-     * @example {\"EnableFsFreeze\":true,\"appConsistent\":false,\"postScriptPath\":\"\",\"preScriptPath\":\"\",\"snapshotGroup\":true,\"timeoutInSeconds\":60}
+     * @example {\\"EnableFsFreeze\\":true,\\"appConsistent\\":false,\\"postScriptPath\\":\\"\\",\\"preScriptPath\\":\\"\\",\\"snapshotGroup\\":true,\\"timeoutInSeconds\\":60}
      *
      * @var string
      */
@@ -92,6 +92,7 @@ class UpdateBackupPlanShrinkRequest extends Model
     /**
      * @description The ID of the backup plan.
      *
+     * This parameter is required.
      * @example plan-20211***735
      *
      * @var string

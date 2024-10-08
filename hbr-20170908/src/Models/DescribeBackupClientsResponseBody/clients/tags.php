@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description The tag key of the backup vault. Valid values of N: 1 to 20.
+     * @description The tag key of the backup vault. Valid values of N: 1 to 20
      *
      *   The tag key cannot start with `aliyun` or `acs:`.
      *   The tag key cannot contain `http://` or `https://`.
@@ -22,7 +22,7 @@ class tags extends Model
     public $key;
 
     /**
-     * @description The tag value of the backup vault. Valid values of N: 1 to 20.
+     * @description The tag value of the backup vault. Valid values of N: 1 to 20
      *
      *   The tag value cannot start with `aliyun` or `acs:`.
      *   The tag value cannot contain `http://` or `https://`.

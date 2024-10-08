@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UninstallBackupClientsShrinkRequest extends Model
 {
     /**
-     * @description The ID of the backup client. The sum of the number of backup client IDs and the number of ECS instance IDs cannot exceed 20. Otherwise, an error occurs.
+     * @description The IDs of Cloud Backup clients. The sum of the number of Cloud Backup client IDs and the number of ECS instance IDs cannot exceed 20. Otherwise, an error occurs.
      *
      * @example ["c-*********************"]
      *
@@ -48,7 +48,7 @@ class UninstallBackupClientsShrinkRequest extends Model
     public $crossAccountUserId;
 
     /**
-     * @description The ID of the ECS instance. You can specify up to 20 IDs.
+     * @description The IDs of ECS instances. You can specify a maximum of 20 ECS instances.
      *
      * @example ["i-0xi5wj5*****v3j3bh2gj5"]
      *

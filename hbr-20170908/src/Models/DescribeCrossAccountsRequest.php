@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCrossAccountsRequest extends Model
 {
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeCrossAccountsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 99. Default value: 10.
+     *
      * @example 10
      *
      * @var int

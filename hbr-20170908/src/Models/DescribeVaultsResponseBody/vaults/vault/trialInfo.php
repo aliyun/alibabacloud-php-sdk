@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class trialInfo extends Model
 {
     /**
+     * @description Indicates whether you are billed based on the pay-as-you-go method after the free trial ends.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class trialInfo extends Model
     public $keepAfterTrialExpiration;
 
     /**
+     * @description The expiration time of the free trial.
+     *
      * @example 1584597600
      *
      * @var int
@@ -23,6 +27,8 @@ class trialInfo extends Model
     public $trialExpireTime;
 
     /**
+     * @description The start time of the free trial.
+     *
      * @example 1579413159
      *
      * @var int
@@ -30,6 +36,8 @@ class trialInfo extends Model
     public $trialStartTime;
 
     /**
+     * @description The time when the free-trial backup vault is released.
+     *
      * @example 1594965600
      *
      * @var int

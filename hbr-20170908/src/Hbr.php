@@ -8,8 +8,6 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\AddContainerClusterRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\AddContainerClusterResponse;
-use AlibabaCloud\SDK\Hbr\V20170908\Models\AttachNasFileSystemRequest;
-use AlibabaCloud\SDK\Hbr\V20170908\Models\AttachNasFileSystemResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CancelBackupJobRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CancelBackupJobResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CancelRestoreJobRequest;
@@ -67,6 +65,10 @@ use AlibabaCloud\SDK\Hbr\V20170908\Models\DeletePolicyV2Request;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeletePolicyV2Response;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteSnapshotRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteSnapshotResponse;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteUdmDiskRequest;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteUdmDiskResponse;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteUdmEcsInstanceRequest;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteUdmEcsInstanceResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteVaultRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteVaultResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupClientsRequest;
@@ -105,7 +107,6 @@ use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePolicyBindingsResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePolicyBindingsShrinkRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeRecoverableOtsInstancesRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeRecoverableOtsInstancesResponse;
-use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeRestoreJobs2Request;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeRestoreJobs2Response;
@@ -192,8 +193,9 @@ class Hbr extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
+        $this->_signatureAlgorithm = 'v2';
+        $this->_endpointRule       = 'regional';
+        $this->_endpointMap        = [
             'ap-northeast-2-pop'          => 'hbr.aliyuncs.com',
             'cn-beijing-finance-1'        => 'hbr.aliyuncs.com',
             'cn-beijing-finance-pop'      => 'hbr.aliyuncs.com',
@@ -256,10 +258,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param AddContainerClusterRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Registers a Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @param AddContainerClusterRequest $request AddContainerClusterRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddContainerClusterResponse
+     * @return AddContainerClusterResponse AddContainerClusterResponse
      */
     public function addContainerClusterWithOptions($request, $runtime)
     {
@@ -299,9 +303,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param AddContainerClusterRequest $request
+     * @summary Registers a Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @param AddContainerClusterRequest $request AddContainerClusterRequest
      *
-     * @return AddContainerClusterResponse
+     * @return AddContainerClusterResponse AddContainerClusterResponse
      */
     public function addContainerCluster($request)
     {
@@ -311,65 +317,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param AttachNasFileSystemRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Cancels a backup job.
+     *  *
+     * @param CancelBackupJobRequest $request CancelBackupJobRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachNasFileSystemResponse
-     */
-    public function attachNasFileSystemWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->createTime)) {
-            $query['CreateTime'] = $request->createTime;
-        }
-        if (!Utils::isUnset($request->crossAccountRoleName)) {
-            $query['CrossAccountRoleName'] = $request->crossAccountRoleName;
-        }
-        if (!Utils::isUnset($request->crossAccountType)) {
-            $query['CrossAccountType'] = $request->crossAccountType;
-        }
-        if (!Utils::isUnset($request->crossAccountUserId)) {
-            $query['CrossAccountUserId'] = $request->crossAccountUserId;
-        }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'AttachNasFileSystem',
-            'version'     => '2017-09-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return AttachNasFileSystemResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param AttachNasFileSystemRequest $request
-     *
-     * @return AttachNasFileSystemResponse
-     */
-    public function attachNasFileSystem($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->attachNasFileSystemWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CancelBackupJobRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CancelBackupJobResponse
+     * @return CancelBackupJobResponse CancelBackupJobResponse
      */
     public function cancelBackupJobWithOptions($request, $runtime)
     {
@@ -400,9 +353,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param CancelBackupJobRequest $request
+     * @summary Cancels a backup job.
+     *  *
+     * @param CancelBackupJobRequest $request CancelBackupJobRequest
      *
-     * @return CancelBackupJobResponse
+     * @return CancelBackupJobResponse CancelBackupJobResponse
      */
     public function cancelBackupJob($request)
     {
@@ -412,10 +367,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param CancelRestoreJobRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Cancels a restore job.
+     *  *
+     * @param CancelRestoreJobRequest $request CancelRestoreJobRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelRestoreJobResponse
+     * @return CancelRestoreJobResponse CancelRestoreJobResponse
      */
     public function cancelRestoreJobWithOptions($request, $runtime)
     {
@@ -446,9 +403,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param CancelRestoreJobRequest $request
+     * @summary Cancels a restore job.
+     *  *
+     * @param CancelRestoreJobRequest $request CancelRestoreJobRequest
      *
-     * @return CancelRestoreJobResponse
+     * @return CancelRestoreJobResponse CancelRestoreJobResponse
      */
     public function cancelRestoreJob($request)
     {
@@ -458,10 +417,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   In the Hybrid Backup Recovery (HBR), you can use resource groups to manage resources such as backup vaults, backup clients, and SAP HANA instances.
-     *   * *   A resource is a cloud service entity that you create on Alibaba Cloud, such as an ECS instance, a backup vault, or an SAP HANA instance.
-     *   * *   You can sort resources owned by your Alibaba Cloud account into various resource groups. This facilitates resource management among multiple projects or applications within your Alibaba Cloud account and simplifies permission management.
-     *   *
+     * @summary Changes the resource group to which an instance belongs.
+     *  *
+     * @description *   In Cloud Backup, you can use resource groups to manage resources such as backup vaults, backup clients, and SAP HANA instances.
+     * *   A resource is a cloud service entity that you create on Alibaba Cloud, such as an Elastic Compute Service (ECS) instance, a backup vault, or an SAP HANA instance.
+     * *   You can sort resources owned by your Alibaba Cloud account into various resource groups. Resource groups facilitate resource management among multiple projects or applications within your Alibaba Cloud account and simplify permission management.
+     *  *
      * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -499,10 +460,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   In the Hybrid Backup Recovery (HBR), you can use resource groups to manage resources such as backup vaults, backup clients, and SAP HANA instances.
-     *   * *   A resource is a cloud service entity that you create on Alibaba Cloud, such as an ECS instance, a backup vault, or an SAP HANA instance.
-     *   * *   You can sort resources owned by your Alibaba Cloud account into various resource groups. This facilitates resource management among multiple projects or applications within your Alibaba Cloud account and simplifies permission management.
-     *   *
+     * @summary Changes the resource group to which an instance belongs.
+     *  *
+     * @description *   In Cloud Backup, you can use resource groups to manage resources such as backup vaults, backup clients, and SAP HANA instances.
+     * *   A resource is a cloud service entity that you create on Alibaba Cloud, such as an Elastic Compute Service (ECS) instance, a backup vault, or an SAP HANA instance.
+     * *   You can sort resources owned by your Alibaba Cloud account into various resource groups. Resource groups facilitate resource management among multiple projects or applications within your Alibaba Cloud account and simplify permission management.
+     *  *
      * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
      * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
@@ -515,10 +478,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param CheckRoleRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Checks whether the user has permissions to access the current resource or page.
+     *  *
+     * @param CheckRoleRequest $request CheckRoleRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckRoleResponse
+     * @return CheckRoleResponse CheckRoleResponse
      */
     public function checkRoleWithOptions($request, $runtime)
     {
@@ -552,9 +517,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param CheckRoleRequest $request
+     * @summary Checks whether the user has permissions to access the current resource or page.
+     *  *
+     * @param CheckRoleRequest $request CheckRoleRequest
      *
-     * @return CheckRoleResponse
+     * @return CheckRoleResponse CheckRoleResponse
      */
     public function checkRole($request)
     {
@@ -564,10 +531,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param CreateBackupJobRequest $tmpReq
-     * @param RuntimeOptions         $runtime
+     * @summary Creates a backup job.
+     *  *
+     * @param CreateBackupJobRequest $tmpReq  CreateBackupJobRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBackupJobResponse
+     * @return CreateBackupJobResponse CreateBackupJobResponse
      */
     public function createBackupJobWithOptions($tmpReq, $runtime)
     {
@@ -651,9 +620,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param CreateBackupJobRequest $request
+     * @summary Creates a backup job.
+     *  *
+     * @param CreateBackupJobRequest $request CreateBackupJobRequest
      *
-     * @return CreateBackupJobResponse
+     * @return CreateBackupJobResponse CreateBackupJobResponse
      */
     public function createBackupJob($request)
     {
@@ -663,11 +634,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   A backup schedule defines the data source, backup policy, and other configurations. After you execute a backup schedule, a backup job is generated to record the backup progress and the backup result. If a backup job is complete, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
-     *   * *   You can specify only one type of data source in a backup schedule.
-     *   * *   You can specify only one interval as a backup cycle in a backup schedule.
-     *   * *   Each backup schedule allows you to back up data to only one backup vault.
-     *   *
+     * @summary Creates a backup plan.
+     *  *
+     * @description *   A backup schedule defines the data source, backup policy, and other configurations. After you execute a backup schedule, a backup job is generated to record the backup progress and the backup result. If a backup job is complete, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
+     * *   You can specify only one type of data source in a backup schedule.
+     * *   You can specify only one interval as a backup cycle in a backup schedule.
+     * *   Each backup schedule allows you to back up data to only one backup vault.
+     *  *
      * @param CreateBackupPlanRequest $tmpReq  CreateBackupPlanRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -799,11 +772,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   A backup schedule defines the data source, backup policy, and other configurations. After you execute a backup schedule, a backup job is generated to record the backup progress and the backup result. If a backup job is complete, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
-     *   * *   You can specify only one type of data source in a backup schedule.
-     *   * *   You can specify only one interval as a backup cycle in a backup schedule.
-     *   * *   Each backup schedule allows you to back up data to only one backup vault.
-     *   *
+     * @summary Creates a backup plan.
+     *  *
+     * @description *   A backup schedule defines the data source, backup policy, and other configurations. After you execute a backup schedule, a backup job is generated to record the backup progress and the backup result. If a backup job is complete, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
+     * *   You can specify only one type of data source in a backup schedule.
+     * *   You can specify only one interval as a backup cycle in a backup schedule.
+     * *   Each backup schedule allows you to back up data to only one backup vault.
+     *  *
      * @param CreateBackupPlanRequest $request CreateBackupPlanRequest
      *
      * @return CreateBackupPlanResponse CreateBackupPlanResponse
@@ -816,8 +791,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you fully understand the billing methods and pricing of Hybrid Backup Recovery (HBR). For more information, see [Billable items and billing methods](~~89062~~).
-     *   *
+     * @summary Installs one or more HBR clients on specified instances.
+     *  *
+     * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of Hybrid Backup Recovery (HBR). For more information, see [Billable items and billing methods](https://help.aliyun.com/document_detail/89062.html).
+     *  *
      * @param CreateClientsRequest $request CreateClientsRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -832,6 +809,15 @@ class Hbr extends OpenApiClient
         }
         if (!Utils::isUnset($request->clientInfo)) {
             $query['ClientInfo'] = $request->clientInfo;
+        }
+        if (!Utils::isUnset($request->crossAccountRoleName)) {
+            $query['CrossAccountRoleName'] = $request->crossAccountRoleName;
+        }
+        if (!Utils::isUnset($request->crossAccountType)) {
+            $query['CrossAccountType'] = $request->crossAccountType;
+        }
+        if (!Utils::isUnset($request->crossAccountUserId)) {
+            $query['CrossAccountUserId'] = $request->crossAccountUserId;
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
@@ -861,8 +847,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you fully understand the billing methods and pricing of Hybrid Backup Recovery (HBR). For more information, see [Billable items and billing methods](~~89062~~).
-     *   *
+     * @summary Installs one or more HBR clients on specified instances.
+     *  *
+     * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of Hybrid Backup Recovery (HBR). For more information, see [Billable items and billing methods](https://help.aliyun.com/document_detail/89062.html).
+     *  *
      * @param CreateClientsRequest $request CreateClientsRequest
      *
      * @return CreateClientsResponse CreateClientsResponse
@@ -875,11 +863,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   A backup plan defines the data source, backup policy, and other configurations. After you execute a backup plan, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
-     *   * *   You can specify only one type of data source in a backup plan.
-     *   * *   You can specify only one interval as a backup cycle in a backup plan.
-     *   * *   Each backup plan allows you to back up data to only one backup vault.
-     *   *
+     * @summary Creates a backup plan for an SAP HANA instance.
+     *  *
+     * @description *   A backup plan defines the data source, backup policy, and other configurations. After you execute a backup plan, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
+     * *   You can specify only one type of data source in a backup plan.
+     * *   You can specify only one interval as a backup cycle in a backup plan.
+     * *   Each backup plan allows you to back up data to only one backup vault.
+     *  *
      * @param CreateHanaBackupPlanRequest $request CreateHanaBackupPlanRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -932,11 +922,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   A backup plan defines the data source, backup policy, and other configurations. After you execute a backup plan, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
-     *   * *   You can specify only one type of data source in a backup plan.
-     *   * *   You can specify only one interval as a backup cycle in a backup plan.
-     *   * *   Each backup plan allows you to back up data to only one backup vault.
-     *   *
+     * @summary Creates a backup plan for an SAP HANA instance.
+     *  *
+     * @description *   A backup plan defines the data source, backup policy, and other configurations. After you execute a backup plan, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
+     * *   You can specify only one type of data source in a backup plan.
+     * *   You can specify only one interval as a backup cycle in a backup plan.
+     * *   Each backup plan allows you to back up data to only one backup vault.
+     *  *
      * @param CreateHanaBackupPlanRequest $request CreateHanaBackupPlanRequest
      *
      * @return CreateHanaBackupPlanResponse CreateHanaBackupPlanResponse
@@ -949,8 +941,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * To register an SAP HANA instance, you must configure the connection parameters of the SAP HANA instance. After the SAP HANA instance is registered, HBR installs an HBR client on the ECS instance that hosts the SAP HANA instance.
-     *   *
+     * @summary Registers an SAP HANA instance.
+     *  *
+     * @description To register an SAP HANA instance, you must configure the connection parameters of the SAP HANA instance. After the SAP HANA instance is registered, Cloud Backup installs a Cloud Backup client on the Elastic Compute Service (ECS) instance that hosts the SAP HANA instance.
+     *  *
      * @param CreateHanaInstanceRequest $request CreateHanaInstanceRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -962,6 +956,15 @@ class Hbr extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->alertSetting)) {
             $query['AlertSetting'] = $request->alertSetting;
+        }
+        if (!Utils::isUnset($request->crossAccountRoleName)) {
+            $query['CrossAccountRoleName'] = $request->crossAccountRoleName;
+        }
+        if (!Utils::isUnset($request->crossAccountType)) {
+            $query['CrossAccountType'] = $request->crossAccountType;
+        }
+        if (!Utils::isUnset($request->crossAccountUserId)) {
+            $query['CrossAccountUserId'] = $request->crossAccountUserId;
         }
         if (!Utils::isUnset($request->ecsInstanceId)) {
             $query['EcsInstanceId'] = $request->ecsInstanceId;
@@ -1015,8 +1018,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * To register an SAP HANA instance, you must configure the connection parameters of the SAP HANA instance. After the SAP HANA instance is registered, HBR installs an HBR client on the ECS instance that hosts the SAP HANA instance.
-     *   *
+     * @summary Registers an SAP HANA instance.
+     *  *
+     * @description To register an SAP HANA instance, you must configure the connection parameters of the SAP HANA instance. After the SAP HANA instance is registered, Cloud Backup installs a Cloud Backup client on the Elastic Compute Service (ECS) instance that hosts the SAP HANA instance.
+     *  *
      * @param CreateHanaInstanceRequest $request CreateHanaInstanceRequest
      *
      * @return CreateHanaInstanceResponse CreateHanaInstanceResponse
@@ -1029,8 +1034,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * If you call this operation to restore a database, the database is restored to a specified state. Proceed with caution. For more information, see [Restore databases to an SAP HANA instance](~~101178~~).
-     *   *
+     * @summary Creates a restore job for an SAP HANA database.
+     *  *
+     * @description If you call this operation to restore a database, the database is restored to a specified state. Proceed with caution. For more information, see [Restore databases to an SAP HANA instance](https://help.aliyun.com/document_detail/101178.html).
+     *  *
      * @param CreateHanaRestoreRequest $request CreateHanaRestoreRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -1113,8 +1120,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * If you call this operation to restore a database, the database is restored to a specified state. Proceed with caution. For more information, see [Restore databases to an SAP HANA instance](~~101178~~).
-     *   *
+     * @summary Creates a restore job for an SAP HANA database.
+     *  *
+     * @description If you call this operation to restore a database, the database is restored to a specified state. Proceed with caution. For more information, see [Restore databases to an SAP HANA instance](https://help.aliyun.com/document_detail/101178.html).
+     *  *
      * @param CreateHanaRestoreRequest $request CreateHanaRestoreRequest
      *
      * @return CreateHanaRestoreResponse CreateHanaRestoreResponse
@@ -1127,9 +1136,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   You can bind data sources to only one policy in each request.
-     *   * *   Elastic Compute Service (ECS) instances can be bound to only one policy.
-     *   *
+     * @summary Binds one or more data sources to a backup policy.
+     *  *
+     * @description *   You can bind data sources to only one policy in each request.
+     * *   Elastic Compute Service (ECS) instances can be bound to only one policy.
+     *  *
      * @param CreatePolicyBindingsRequest $tmpReq  CreatePolicyBindingsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -1171,9 +1182,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   You can bind data sources to only one policy in each request.
-     *   * *   Elastic Compute Service (ECS) instances can be bound to only one policy.
-     *   *
+     * @summary Binds one or more data sources to a backup policy.
+     *  *
+     * @description *   You can bind data sources to only one policy in each request.
+     * *   Elastic Compute Service (ECS) instances can be bound to only one policy.
+     *  *
      * @param CreatePolicyBindingsRequest $request CreatePolicyBindingsRequest
      *
      * @return CreatePolicyBindingsResponse CreatePolicyBindingsResponse
@@ -1186,11 +1199,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * A backup policy records the information required for backup. After you execute a backup policy, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
-     *   * *   A backup policy supports multiple data sources. The data sources can be only Elastic Compute Service (ECS) instances.
-     *   * *   You can specify only one interval as a backup cycle in a backup policy.
-     *   * *   Each backup policy allows you to back up data to only one backup vault.
-     *   *
+     * @summary Creates a backup policy.
+     *  *
+     * @description A backup policy records the information required for backup. After you execute a backup policy, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
+     * *   A backup policy supports multiple data sources. The data sources can be only Elastic Compute Service (ECS) instances.
+     * *   You can specify only one interval as a backup cycle in a backup policy.
+     * *   Each backup policy allows you to back up data to only one backup vault.
+     *  *
      * @param CreatePolicyV2Request $tmpReq  CreatePolicyV2Request
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -1210,6 +1225,9 @@ class Hbr extends OpenApiClient
         }
         if (!Utils::isUnset($request->policyName)) {
             $body['PolicyName'] = $request->policyName;
+        }
+        if (!Utils::isUnset($request->policyType)) {
+            $body['PolicyType'] = $request->policyType;
         }
         if (!Utils::isUnset($request->rulesShrink)) {
             $body['Rules'] = $request->rulesShrink;
@@ -1233,11 +1251,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * A backup policy records the information required for backup. After you execute a backup policy, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
-     *   * *   A backup policy supports multiple data sources. The data sources can be only Elastic Compute Service (ECS) instances.
-     *   * *   You can specify only one interval as a backup cycle in a backup policy.
-     *   * *   Each backup policy allows you to back up data to only one backup vault.
-     *   *
+     * @summary Creates a backup policy.
+     *  *
+     * @description A backup policy records the information required for backup. After you execute a backup policy, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
+     * *   A backup policy supports multiple data sources. The data sources can be only Elastic Compute Service (ECS) instances.
+     * *   You can specify only one interval as a backup cycle in a backup policy.
+     * *   Each backup policy allows you to back up data to only one backup vault.
+     *  *
      * @param CreatePolicyV2Request $request CreatePolicyV2Request
      *
      * @return CreatePolicyV2Response CreatePolicyV2Response
@@ -1250,8 +1270,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * After a backup vault is created, the backup vault is in the INITIALIZING state, and the system automatically runs an initialization task to initialize the backup vault. After the initialization task is completed, the backup vault is in the CREATED state.
-     *   *
+     * @summary Creates a mirror vault.
+     *  *
+     * @description After a backup vault is created, the backup vault is in the INITIALIZING state, and the system automatically runs an initialization task to initialize the backup vault. After the initialization task is completed, the backup vault is in the CREATED state.
+     *  *
      * @param CreateReplicationVaultRequest $request CreateReplicationVaultRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -1263,6 +1285,12 @@ class Hbr extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->encryptType)) {
+            $query['EncryptType'] = $request->encryptType;
+        }
+        if (!Utils::isUnset($request->kmsKeyId)) {
+            $query['KmsKeyId'] = $request->kmsKeyId;
         }
         if (!Utils::isUnset($request->redundancyType)) {
             $query['RedundancyType'] = $request->redundancyType;
@@ -1301,8 +1329,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * After a backup vault is created, the backup vault is in the INITIALIZING state, and the system automatically runs an initialization task to initialize the backup vault. After the initialization task is completed, the backup vault is in the CREATED state.
-     *   *
+     * @summary Creates a mirror vault.
+     *  *
+     * @description After a backup vault is created, the backup vault is in the INITIALIZING state, and the system automatically runs an initialization task to initialize the backup vault. After the initialization task is completed, the backup vault is in the CREATED state.
+     *  *
      * @param CreateReplicationVaultRequest $request CreateReplicationVaultRequest
      *
      * @return CreateReplicationVaultResponse CreateReplicationVaultResponse
@@ -1315,9 +1345,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   You must create a restore job based on the specified backup snapshot and restore destination.
-     *   * *   The type of the data source from which you restore data must be the same as the type of the restore destination.
-     *   *
+     * @summary Creates a restore job.
+     *  *
+     * @description *   You must create a restore job based on the specified backup snapshot and restore destination.
+     * *   The type of the data source from which you restore data must be the same as the type of the restore destination.
+     *  *
      * @param CreateRestoreJobRequest $tmpReq  CreateRestoreJobRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -1440,9 +1472,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   You must create a restore job based on the specified backup snapshot and restore destination.
-     *   * *   The type of the data source from which you restore data must be the same as the type of the restore destination.
-     *   *
+     * @summary Creates a restore job.
+     *  *
+     * @description *   You must create a restore job based on the specified backup snapshot and restore destination.
+     * *   The type of the data source from which you restore data must be the same as the type of the restore destination.
+     *  *
      * @param CreateRestoreJobRequest $request CreateRestoreJobRequest
      *
      * @return CreateRestoreJobResponse CreateRestoreJobResponse
@@ -1455,10 +1489,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * 1.  You can directly upload a file to Object Storage Service (OSS) by using a form based on the returned value of this operation.
-     *   * 2.  For more information about how to upload a file to OSS by using a form, see OSS documentation.
-     *   * 3.  The system periodically deletes files that are uploaded to OSS.
-     *   *
+     * @summary Generates the parameters and signature required for a file upload URL.
+     *  *
+     * @description 1.  You can directly upload a file to Object Storage Service (OSS) by using a form based on the returned value of this operation.
+     * 2.  For more information about how to upload a file to OSS by using a form, see OSS documentation.
+     * 3.  The system periodically deletes files that are uploaded to OSS.
+     *  *
      * @param CreateTempFileUploadUrlRequest $request CreateTempFileUploadUrlRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -1490,10 +1526,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * 1.  You can directly upload a file to Object Storage Service (OSS) by using a form based on the returned value of this operation.
-     *   * 2.  For more information about how to upload a file to OSS by using a form, see OSS documentation.
-     *   * 3.  The system periodically deletes files that are uploaded to OSS.
-     *   *
+     * @summary Generates the parameters and signature required for a file upload URL.
+     *  *
+     * @description 1.  You can directly upload a file to Object Storage Service (OSS) by using a form based on the returned value of this operation.
+     * 2.  For more information about how to upload a file to OSS by using a form, see OSS documentation.
+     * 3.  The system periodically deletes files that are uploaded to OSS.
+     *  *
      * @param CreateTempFileUploadUrlRequest $request CreateTempFileUploadUrlRequest
      *
      * @return CreateTempFileUploadUrlResponse CreateTempFileUploadUrlResponse
@@ -1506,9 +1544,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   Each Alibaba Cloud account can create up to 100 backup vaults.
-     *   * *   After a backup vault is created, the backup vault is in the INITIALIZING state, and the system automatically runs an initialization task to initialize the backup vault. After the initialization task is completed, the backup vault is in the CREATED state. A backup job can use a backup vault to store backup data only if the backup vault is in the CREATED state.
-     *   *
+     * @summary Creates a backup vault.
+     *  *
+     * @description *   Each Alibaba Cloud account can create up to 100 backup vaults.
+     * *   After a backup vault is created, the backup vault is in the INITIALIZING state, and the system automatically runs an initialization task to initialize the backup vault. After the initialization task is completed, the backup vault is in the CREATED state. A backup job can use a backup vault to store backup data only if the backup vault is in the CREATED state.
+     *     **
+     *     **Note** Before you call this operation, make sure that you fully understand the billing of Cloud Backup.
+     *  *
      * @param CreateVaultRequest $request CreateVaultRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -1558,9 +1600,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   Each Alibaba Cloud account can create up to 100 backup vaults.
-     *   * *   After a backup vault is created, the backup vault is in the INITIALIZING state, and the system automatically runs an initialization task to initialize the backup vault. After the initialization task is completed, the backup vault is in the CREATED state. A backup job can use a backup vault to store backup data only if the backup vault is in the CREATED state.
-     *   *
+     * @summary Creates a backup vault.
+     *  *
+     * @description *   Each Alibaba Cloud account can create up to 100 backup vaults.
+     * *   After a backup vault is created, the backup vault is in the INITIALIZING state, and the system automatically runs an initialization task to initialize the backup vault. After the initialization task is completed, the backup vault is in the CREATED state. A backup job can use a backup vault to store backup data only if the backup vault is in the CREATED state.
+     *     **
+     *     **Note** Before you call this operation, make sure that you fully understand the billing of Cloud Backup.
+     *  *
      * @param CreateVaultRequest $request CreateVaultRequest
      *
      * @return CreateVaultResponse CreateVaultResponse
@@ -1573,12 +1619,14 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   You cannot delete an active backup client from which a heartbeat packet is received within the previous hour. After you call the UninstallBackupClients operation to uninstall a backup client, the status of the backup client changes to inactive.
-     *   * *   This operation deletes the resources that are related to the backup client. The following resources are included:
-     *   *     *   Backup plans
-     *   *     *   Backup jobs
-     *   *     *   Backup files.
-     *   *
+     * @summary Deletes a Cloud Backup client.
+     *  *
+     * @description *   You cannot delete the active Cloud Backup clients that receive heartbeat packets within 1 hour. You can call the UninstallBackupClients operation to uninstall a Cloud Backup client. Then, the client becomes inactive.
+     * *   When you perform this operation, resources that are associated with the client are also deleted, including:
+     *     *   Backup plans
+     *     *   Backup jobs
+     *     *   Snapshots
+     *  *
      * @param DeleteBackupClientRequest $request DeleteBackupClientRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -1610,12 +1658,14 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   You cannot delete an active backup client from which a heartbeat packet is received within the previous hour. After you call the UninstallBackupClients operation to uninstall a backup client, the status of the backup client changes to inactive.
-     *   * *   This operation deletes the resources that are related to the backup client. The following resources are included:
-     *   *     *   Backup plans
-     *   *     *   Backup jobs
-     *   *     *   Backup files.
-     *   *
+     * @summary Deletes a Cloud Backup client.
+     *  *
+     * @description *   You cannot delete the active Cloud Backup clients that receive heartbeat packets within 1 hour. You can call the UninstallBackupClients operation to uninstall a Cloud Backup client. Then, the client becomes inactive.
+     * *   When you perform this operation, resources that are associated with the client are also deleted, including:
+     *     *   Backup plans
+     *     *   Backup jobs
+     *     *   Snapshots
+     *  *
      * @param DeleteBackupClientRequest $request DeleteBackupClientRequest
      *
      * @return DeleteBackupClientResponse DeleteBackupClientResponse
@@ -1628,8 +1678,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * This operation deletes only the resources that are related to HBR clients. The resources include backup plans, backup jobs, and backup snapshots. The operation does not delete HBR clients.
-     *   *
+     * @summary Deletes the resources that are related to one or more HBR clients.
+     *  *
+     * @description This operation deletes only the resources that are related to HBR clients. The resources include backup plans, backup jobs, and backup snapshots. The operation does not delete HBR clients.
+     *  *
      * @param DeleteBackupClientResourceRequest $tmpReq  DeleteBackupClientResourceRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -1666,8 +1718,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * This operation deletes only the resources that are related to HBR clients. The resources include backup plans, backup jobs, and backup snapshots. The operation does not delete HBR clients.
-     *   *
+     * @summary Deletes the resources that are related to one or more HBR clients.
+     *  *
+     * @description This operation deletes only the resources that are related to HBR clients. The resources include backup plans, backup jobs, and backup snapshots. The operation does not delete HBR clients.
+     *  *
      * @param DeleteBackupClientResourceRequest $request DeleteBackupClientResourceRequest
      *
      * @return DeleteBackupClientResourceResponse DeleteBackupClientResourceResponse
@@ -1680,9 +1734,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   If you delete a backup plan, the backup jobs are also deleted.
-     *   * *   If you delete a backup plan, the created snapshot files are not deleted.
-     *   *
+     * @summary Deletes a backup plan.
+     *  *
+     * @description *   If you delete a backup plan, the backup jobs are also deleted.
+     * *   If you delete a backup plan, the created snapshot files are not deleted.
+     *  *
      * @param DeleteBackupPlanRequest $request DeleteBackupPlanRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -1723,9 +1779,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   If you delete a backup plan, the backup jobs are also deleted.
-     *   * *   If you delete a backup plan, the created snapshot files are not deleted.
-     *   *
+     * @summary Deletes a backup plan.
+     *  *
+     * @description *   If you delete a backup plan, the backup jobs are also deleted.
+     * *   If you delete a backup plan, the created snapshot files are not deleted.
+     *  *
      * @param DeleteBackupPlanRequest $request DeleteBackupPlanRequest
      *
      * @return DeleteBackupPlanResponse DeleteBackupPlanResponse
@@ -1738,10 +1796,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DeleteClientRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param DeleteClientRequest $request DeleteClientRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteClientResponse
+     * @return DeleteClientResponse DeleteClientResponse
      */
     public function deleteClientWithOptions($request, $runtime)
     {
@@ -1775,9 +1833,9 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DeleteClientRequest $request
+     * @param DeleteClientRequest $request DeleteClientRequest
      *
-     * @return DeleteClientResponse
+     * @return DeleteClientResponse DeleteClientResponse
      */
     public function deleteClient($request)
     {
@@ -1787,10 +1845,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DeleteHanaBackupPlanRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Deletes an SAP HANA backup plan.
+     *  *
+     * @param DeleteHanaBackupPlanRequest $request DeleteHanaBackupPlanRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteHanaBackupPlanResponse
+     * @return DeleteHanaBackupPlanResponse DeleteHanaBackupPlanResponse
      */
     public function deleteHanaBackupPlanWithOptions($request, $runtime)
     {
@@ -1827,9 +1887,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DeleteHanaBackupPlanRequest $request
+     * @summary Deletes an SAP HANA backup plan.
+     *  *
+     * @param DeleteHanaBackupPlanRequest $request DeleteHanaBackupPlanRequest
      *
-     * @return DeleteHanaBackupPlanResponse
+     * @return DeleteHanaBackupPlanResponse DeleteHanaBackupPlanResponse
      */
     public function deleteHanaBackupPlan($request)
     {
@@ -1839,8 +1901,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * If you delete an SAP HANA instance, the existing backup data is also deleted and the running backup and restore jobs fail to be completed. Before you delete the SAP HANA instance, make sure that you no longer need the data in the HBR client of the instance and no backup or restore jobs are running for the instance. To delete an SAP HANA instance, you must specify the security identifier (SID) of the instance. The SID is three characters in length and starts with a letter. For more information, see [How to find sid user and instance number of HANA db?](https://answers.sap.com/questions/555192/how-to-find-sid-user-and-instance-number-of-hana-d.html?).
-     *   *
+     * @summary Deletes an SAP HANA instance.
+     *  *
+     * @description If you delete an SAP HANA instance, the existing backup data is also deleted and the running backup and restore jobs fail to be completed. Before you delete the SAP HANA instance, make sure that you no longer need the backup data of the instance and no backup or restore jobs are running for the instance. To delete an SAP HANA instance, you must specify the security identifier (SID) of the instance. The SID is three characters in length and starts with a letter. For more information, see [How to find sid user and instance number of HANA db?](https://answers.sap.com/questions/555192/how-to-find-sid-user-and-instance-number-of-hana-d.html?)
+     *  *
      * @param DeleteHanaInstanceRequest $request DeleteHanaInstanceRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -1881,8 +1945,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * If you delete an SAP HANA instance, the existing backup data is also deleted and the running backup and restore jobs fail to be completed. Before you delete the SAP HANA instance, make sure that you no longer need the data in the HBR client of the instance and no backup or restore jobs are running for the instance. To delete an SAP HANA instance, you must specify the security identifier (SID) of the instance. The SID is three characters in length and starts with a letter. For more information, see [How to find sid user and instance number of HANA db?](https://answers.sap.com/questions/555192/how-to-find-sid-user-and-instance-number-of-hana-d.html?).
-     *   *
+     * @summary Deletes an SAP HANA instance.
+     *  *
+     * @description If you delete an SAP HANA instance, the existing backup data is also deleted and the running backup and restore jobs fail to be completed. Before you delete the SAP HANA instance, make sure that you no longer need the backup data of the instance and no backup or restore jobs are running for the instance. To delete an SAP HANA instance, you must specify the security identifier (SID) of the instance. The SID is three characters in length and starts with a letter. For more information, see [How to find sid user and instance number of HANA db?](https://answers.sap.com/questions/555192/how-to-find-sid-user-and-instance-number-of-hana-d.html?)
+     *  *
      * @param DeleteHanaInstanceRequest $request DeleteHanaInstanceRequest
      *
      * @return DeleteHanaInstanceResponse DeleteHanaInstanceResponse
@@ -1895,10 +1961,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DeletePolicyBindingRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary Disassociates one or more data sources from a backup policy. After you disassociate the data sources from the backup policy, the backup policy no longer protects the data sources. Proceed with caution.
+     *  *
+     * @param DeletePolicyBindingRequest $tmpReq  DeletePolicyBindingRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePolicyBindingResponse
+     * @return DeletePolicyBindingResponse DeletePolicyBindingResponse
      */
     public function deletePolicyBindingWithOptions($tmpReq, $runtime)
     {
@@ -1939,9 +2007,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DeletePolicyBindingRequest $request
+     * @summary Disassociates one or more data sources from a backup policy. After you disassociate the data sources from the backup policy, the backup policy no longer protects the data sources. Proceed with caution.
+     *  *
+     * @param DeletePolicyBindingRequest $request DeletePolicyBindingRequest
      *
-     * @return DeletePolicyBindingResponse
+     * @return DeletePolicyBindingResponse DeletePolicyBindingResponse
      */
     public function deletePolicyBinding($request)
     {
@@ -1951,8 +2021,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * If you delete a backup policy, the backup policy is disassociated with all data sources. Proceed with caution.
-     *   *
+     * @summary Deletes a backup policy.
+     *  *
+     * @description If you delete a backup policy, the backup policy is disassociated with all data sources. Proceed with caution.
+     *  *
      * @param DeletePolicyV2Request $request DeletePolicyV2Request
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -1984,8 +2056,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * If you delete a backup policy, the backup policy is disassociated with all data sources. Proceed with caution.
-     *   *
+     * @summary Deletes a backup policy.
+     *  *
+     * @description If you delete a backup policy, the backup policy is disassociated with all data sources. Proceed with caution.
+     *  *
      * @param DeletePolicyV2Request $request DeletePolicyV2Request
      *
      * @return DeletePolicyV2Response DeletePolicyV2Response
@@ -1998,8 +2072,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * If you delete the most recent backup file for a data source, you must set the `Force parameter to true`. Otherwise, an error occurs.
-     *   *
+     * @summary Deletes a backup snapshot.
+     *  *
+     * @description If you delete the most recent backup snapshot for a data source, you must set the Force parameter to `true`. Otherwise, an error occurs.
+     *  *
      * @param DeleteSnapshotRequest $request DeleteSnapshotRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -2049,8 +2125,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * If you delete the most recent backup file for a data source, you must set the `Force parameter to true`. Otherwise, an error occurs.
-     *   *
+     * @summary Deletes a backup snapshot.
+     *  *
+     * @description If you delete the most recent backup snapshot for a data source, you must set the Force parameter to `true`. Otherwise, an error occurs.
+     *  *
      * @param DeleteSnapshotRequest $request DeleteSnapshotRequest
      *
      * @return DeleteSnapshotResponse DeleteSnapshotResponse
@@ -2063,9 +2141,105 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   You cannot delete a backup vault within 2 hours after the backup vault is created or a backup vault that is in the INITIALIZING state.
-     *   * *   After you delete a backup vault, all resources that are associated with the backup vault are deleted. The resources include backup clients of earlier versions, backup plans, backup jobs, snapshots, and restore jobs.
-     *   *
+     * @summary 取消保护云盘
+     *  *
+     * @param DeleteUdmDiskRequest $request DeleteUdmDiskRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteUdmDiskResponse DeleteUdmDiskResponse
+     */
+    public function deleteUdmDiskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->diskId)) {
+            $query['DiskId'] = $request->diskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteUdmDisk',
+            'version'     => '2017-09-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteUdmDiskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 取消保护云盘
+     *  *
+     * @param DeleteUdmDiskRequest $request DeleteUdmDiskRequest
+     *
+     * @return DeleteUdmDiskResponse DeleteUdmDiskResponse
+     */
+    public function deleteUdmDisk($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteUdmDiskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Stops protection for Elastic Compute Service (ECS) instance backup.
+     *  *
+     * @param DeleteUdmEcsInstanceRequest $request DeleteUdmEcsInstanceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteUdmEcsInstanceResponse DeleteUdmEcsInstanceResponse
+     */
+    public function deleteUdmEcsInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteUdmEcsInstance',
+            'version'     => '2017-09-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteUdmEcsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Stops protection for Elastic Compute Service (ECS) instance backup.
+     *  *
+     * @param DeleteUdmEcsInstanceRequest $request DeleteUdmEcsInstanceRequest
+     *
+     * @return DeleteUdmEcsInstanceResponse DeleteUdmEcsInstanceResponse
+     */
+    public function deleteUdmEcsInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteUdmEcsInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes a backup vault.
+     *  *
+     * @description *   You cannot delete a backup vault within 2 hours after the backup vault is created or a backup vault that is in the INITIALIZING state.
+     * *   After you delete a backup vault, all resources that are associated with the backup vault are deleted. The resources include the Cloud Backup client of the old version, backup plans, backup jobs, snapshots, and restore jobs.
+     *  *
      * @param DeleteVaultRequest $request DeleteVaultRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -2103,9 +2277,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   You cannot delete a backup vault within 2 hours after the backup vault is created or a backup vault that is in the INITIALIZING state.
-     *   * *   After you delete a backup vault, all resources that are associated with the backup vault are deleted. The resources include backup clients of earlier versions, backup plans, backup jobs, snapshots, and restore jobs.
-     *   *
+     * @summary Deletes a backup vault.
+     *  *
+     * @description *   You cannot delete a backup vault within 2 hours after the backup vault is created or a backup vault that is in the INITIALIZING state.
+     * *   After you delete a backup vault, all resources that are associated with the backup vault are deleted. The resources include the Cloud Backup client of the old version, backup plans, backup jobs, snapshots, and restore jobs.
+     *  *
      * @param DeleteVaultRequest $request DeleteVaultRequest
      *
      * @return DeleteVaultResponse DeleteVaultResponse
@@ -2118,10 +2294,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupClientsRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the information about one or more HBR clients that meet the specified conditions.
+     *  *
+     * @param DescribeBackupClientsRequest $tmpReq  DescribeBackupClientsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupClientsResponse
+     * @return DescribeBackupClientsResponse DescribeBackupClientsResponse
      */
     public function describeBackupClientsWithOptions($tmpReq, $runtime)
     {
@@ -2186,9 +2364,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupClientsRequest $request
+     * @summary Queries the information about one or more HBR clients that meet the specified conditions.
+     *  *
+     * @param DescribeBackupClientsRequest $request DescribeBackupClientsRequest
      *
-     * @return DescribeBackupClientsResponse
+     * @return DescribeBackupClientsResponse DescribeBackupClientsResponse
      */
     public function describeBackupClients($request)
     {
@@ -2198,10 +2378,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupJobs2Request $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the information about one or more backup jobs that meet the specified conditions.
+     *  *
+     * @param DescribeBackupJobs2Request $request DescribeBackupJobs2Request
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupJobs2Response
+     * @return DescribeBackupJobs2Response DescribeBackupJobs2Response
      */
     public function describeBackupJobs2WithOptions($request, $runtime)
     {
@@ -2241,9 +2423,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupJobs2Request $request
+     * @summary Queries the information about one or more backup jobs that meet the specified conditions.
+     *  *
+     * @param DescribeBackupJobs2Request $request DescribeBackupJobs2Request
      *
-     * @return DescribeBackupJobs2Response
+     * @return DescribeBackupJobs2Response DescribeBackupJobs2Response
      */
     public function describeBackupJobs2($request)
     {
@@ -2253,10 +2437,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPlansRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the information about one or more backup plans that meet the specified conditions.
+     *  *
+     * @param DescribeBackupPlansRequest $request DescribeBackupPlansRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupPlansResponse
+     * @return DescribeBackupPlansResponse DescribeBackupPlansResponse
      */
     public function describeBackupPlansWithOptions($request, $runtime)
     {
@@ -2293,9 +2479,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPlansRequest $request
+     * @summary Queries the information about one or more backup plans that meet the specified conditions.
+     *  *
+     * @param DescribeBackupPlansRequest $request DescribeBackupPlansRequest
      *
-     * @return DescribeBackupPlansResponse
+     * @return DescribeBackupPlansResponse DescribeBackupPlansResponse
      */
     public function describeBackupPlans($request)
     {
@@ -2305,8 +2493,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * This operation is applicable only to SAP HANA backup. For backup clients of other data sources, call the DescribeBackupClients operation.
-     *   *
+     * @summary Queries one or more Cloud Backup clients that meet the specified conditions.
+     *  *
+     * @description This operation is applicable only to SAP HANA backup. For Cloud Backup clients of other data sources, call the DescribeBackupClients operation.
+     *  *
      * @param DescribeClientsRequest $request DescribeClientsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -2359,8 +2549,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * This operation is applicable only to SAP HANA backup. For backup clients of other data sources, call the DescribeBackupClients operation.
-     *   *
+     * @summary Queries one or more Cloud Backup clients that meet the specified conditions.
+     *  *
+     * @description This operation is applicable only to SAP HANA backup. For Cloud Backup clients of other data sources, call the DescribeBackupClients operation.
+     *  *
      * @param DescribeClientsRequest $request DescribeClientsRequest
      *
      * @return DescribeClientsResponse DescribeClientsResponse
@@ -2373,8 +2565,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query only Container Service for Kubernetes (ACK) clusters.
-     *   *
+     * @summary Queries one or more container clusters that meet the specified conditions.
+     *  *
+     * @description You can call this operation to query only Container Service for Kubernetes (ACK) clusters.
+     *  *
      * @param DescribeContainerClusterRequest $request DescribeContainerClusterRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -2415,8 +2609,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query only Container Service for Kubernetes (ACK) clusters.
-     *   *
+     * @summary Queries one or more container clusters that meet the specified conditions.
+     *  *
+     * @description You can call this operation to query only Container Service for Kubernetes (ACK) clusters.
+     *  *
      * @param DescribeContainerClusterRequest $request DescribeContainerClusterRequest
      *
      * @return DescribeContainerClusterResponse DescribeContainerClusterResponse
@@ -2429,10 +2625,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeCrossAccountsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the information about the accounts used in cross-account backup.
+     *  *
+     * @param DescribeCrossAccountsRequest $request DescribeCrossAccountsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCrossAccountsResponse
+     * @return DescribeCrossAccountsResponse DescribeCrossAccountsResponse
      */
     public function describeCrossAccountsWithOptions($request, $runtime)
     {
@@ -2463,9 +2661,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeCrossAccountsRequest $request
+     * @summary Queries the information about the accounts used in cross-account backup.
+     *  *
+     * @param DescribeCrossAccountsRequest $request DescribeCrossAccountsRequest
      *
-     * @return DescribeCrossAccountsResponse
+     * @return DescribeCrossAccountsResponse DescribeCrossAccountsResponse
      */
     public function describeCrossAccounts($request)
     {
@@ -2475,10 +2675,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeHanaBackupPlansRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries one or more SAP HANA backup plans that meet the specified conditions.
+     *  *
+     * @param DescribeHanaBackupPlansRequest $request DescribeHanaBackupPlansRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHanaBackupPlansResponse
+     * @return DescribeHanaBackupPlansResponse DescribeHanaBackupPlansResponse
      */
     public function describeHanaBackupPlansWithOptions($request, $runtime)
     {
@@ -2521,9 +2723,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeHanaBackupPlansRequest $request
+     * @summary Queries one or more SAP HANA backup plans that meet the specified conditions.
+     *  *
+     * @param DescribeHanaBackupPlansRequest $request DescribeHanaBackupPlansRequest
      *
-     * @return DescribeHanaBackupPlansResponse
+     * @return DescribeHanaBackupPlansResponse DescribeHanaBackupPlansResponse
      */
     public function describeHanaBackupPlans($request)
     {
@@ -2533,8 +2737,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * If you want to query the backup retention period of a database, you can call the DescribeHanaRetentionSetting operation.
-     *   *
+     * @summary Queries the backup parameters of an SAP HANA database.
+     *  *
+     * @description If you want to query the backup retention period of a database, you can call the DescribeHanaRetentionSetting operation.
+     *  *
      * @param DescribeHanaBackupSettingRequest $request DescribeHanaBackupSettingRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -2572,8 +2778,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * If you want to query the backup retention period of a database, you can call the DescribeHanaRetentionSetting operation.
-     *   *
+     * @summary Queries the backup parameters of an SAP HANA database.
+     *  *
+     * @description If you want to query the backup retention period of a database, you can call the DescribeHanaRetentionSetting operation.
+     *  *
      * @param DescribeHanaBackupSettingRequest $request DescribeHanaBackupSettingRequest
      *
      * @return DescribeHanaBackupSettingResponse DescribeHanaBackupSettingResponse
@@ -2586,8 +2794,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * After you call the DescribeHanaBackupsAsync operation to query the SAP HANA backups that meet the specified conditions, call the DescribeTask operation to query the execution result of the asynchronous job.
-     *   *
+     * @summary Queries one or more SAP HANA backups that meet the specified conditions.
+     *  *
+     * @description After you call the DescribeHanaBackupsAsync operation to query the SAP HANA backups that meet the specified conditions, call the DescribeTask operation to query the final result.
+     *  *
      * @param DescribeHanaBackupsAsyncRequest $request DescribeHanaBackupsAsyncRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -2667,8 +2877,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * After you call the DescribeHanaBackupsAsync operation to query the SAP HANA backups that meet the specified conditions, call the DescribeTask operation to query the execution result of the asynchronous job.
-     *   *
+     * @summary Queries one or more SAP HANA backups that meet the specified conditions.
+     *  *
+     * @description After you call the DescribeHanaBackupsAsync operation to query the SAP HANA backups that meet the specified conditions, call the DescribeTask operation to query the final result.
+     *  *
      * @param DescribeHanaBackupsAsyncRequest $request DescribeHanaBackupsAsyncRequest
      *
      * @return DescribeHanaBackupsAsyncResponse DescribeHanaBackupsAsyncResponse
@@ -2681,8 +2893,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * After you register an SAP HANA instance and install a backup client on the instance, you can call this operation to query the information about SAP HANA databases. You can call the StartHanaDatabaseAsync operation to start a database and call the StopHanaDatabaseAsync operation to stop a database.
-     *   *
+     * @summary Queries the information about SAP HANA databases.
+     *  *
+     * @description After you register an SAP HANA instance and install a Cloud Backup client on the instance, you can call this operation to query the information about SAP HANA databases. You can call the StartHanaDatabaseAsync operation to start a database and call the StopHanaDatabaseAsync operation to stop a database.
+     *  *
      * @param DescribeHanaDatabasesRequest $request DescribeHanaDatabasesRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -2726,8 +2940,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * After you register an SAP HANA instance and install a backup client on the instance, you can call this operation to query the information about SAP HANA databases. You can call the StartHanaDatabaseAsync operation to start a database and call the StopHanaDatabaseAsync operation to stop a database.
-     *   *
+     * @summary Queries the information about SAP HANA databases.
+     *  *
+     * @description After you register an SAP HANA instance and install a Cloud Backup client on the instance, you can call this operation to query the information about SAP HANA databases. You can call the StartHanaDatabaseAsync operation to start a database and call the StopHanaDatabaseAsync operation to stop a database.
+     *  *
      * @param DescribeHanaDatabasesRequest $request DescribeHanaDatabasesRequest
      *
      * @return DescribeHanaDatabasesResponse DescribeHanaDatabasesResponse
@@ -2740,10 +2956,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeHanaInstancesRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries one or more SAP HANA instances that meet the specified conditions.
+     *  *
+     * @param DescribeHanaInstancesRequest $request DescribeHanaInstancesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHanaInstancesResponse
+     * @return DescribeHanaInstancesResponse DescribeHanaInstancesResponse
      */
     public function describeHanaInstancesWithOptions($request, $runtime)
     {
@@ -2788,9 +3006,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeHanaInstancesRequest $request
+     * @summary Queries one or more SAP HANA instances that meet the specified conditions.
+     *  *
+     * @param DescribeHanaInstancesRequest $request DescribeHanaInstancesRequest
      *
-     * @return DescribeHanaInstancesResponse
+     * @return DescribeHanaInstancesResponse DescribeHanaInstancesResponse
      */
     public function describeHanaInstances($request)
     {
@@ -2800,10 +3020,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeHanaRestoresRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries one or more SAP HANA restore jobs that meet the specified conditions.
+     *  *
+     * @param DescribeHanaRestoresRequest $request DescribeHanaRestoresRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHanaRestoresResponse
+     * @return DescribeHanaRestoresResponse DescribeHanaRestoresResponse
      */
     public function describeHanaRestoresWithOptions($request, $runtime)
     {
@@ -2855,9 +3077,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeHanaRestoresRequest $request
+     * @summary Queries one or more SAP HANA restore jobs that meet the specified conditions.
+     *  *
+     * @param DescribeHanaRestoresRequest $request DescribeHanaRestoresRequest
      *
-     * @return DescribeHanaRestoresResponse
+     * @return DescribeHanaRestoresResponse DescribeHanaRestoresResponse
      */
     public function describeHanaRestores($request)
     {
@@ -2867,9 +3091,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   If you want to query the backup parameters of a database, you can call the DescribeHanaBackupSetting operation.
-     *   * *   HBR deletes the expired catalogs and data that are related to Backint and file backup. The deleted catalogs and data cannot be restored. We recommend that you set the retention period based on your business requirements.
-     *   *
+     * @summary Queries the backup retention period of an SAP HANA database.
+     *  *
+     * @description *   If you want to query the backup parameters of a database, you can call the DescribeHanaBackupSetting operation.
+     * *   Cloud Backup deletes the expired catalogs and data that are related to Backint and file backup. The deleted catalogs and data cannot be restored. We recommend that you set the retention period based on your business requirements.
+     *  *
      * @param DescribeHanaRetentionSettingRequest $request DescribeHanaRetentionSettingRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -2907,9 +3133,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   If you want to query the backup parameters of a database, you can call the DescribeHanaBackupSetting operation.
-     *   * *   HBR deletes the expired catalogs and data that are related to Backint and file backup. The deleted catalogs and data cannot be restored. We recommend that you set the retention period based on your business requirements.
-     *   *
+     * @summary Queries the backup retention period of an SAP HANA database.
+     *  *
+     * @description *   If you want to query the backup parameters of a database, you can call the DescribeHanaBackupSetting operation.
+     * *   Cloud Backup deletes the expired catalogs and data that are related to Backint and file backup. The deleted catalogs and data cannot be restored. We recommend that you set the retention period based on your business requirements.
+     *  *
      * @param DescribeHanaRetentionSettingRequest $request DescribeHanaRetentionSettingRequest
      *
      * @return DescribeHanaRetentionSettingResponse DescribeHanaRetentionSettingResponse
@@ -2922,10 +3150,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeOtsTableSnapshotsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the details about Tablestore instances that are backed up.
+     *  *
+     * @param DescribeOtsTableSnapshotsRequest $request DescribeOtsTableSnapshotsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOtsTableSnapshotsResponse
+     * @return DescribeOtsTableSnapshotsResponse DescribeOtsTableSnapshotsResponse
      */
     public function describeOtsTableSnapshotsWithOptions($request, $runtime)
     {
@@ -2981,9 +3211,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeOtsTableSnapshotsRequest $request
+     * @summary Queries the details about Tablestore instances that are backed up.
+     *  *
+     * @param DescribeOtsTableSnapshotsRequest $request DescribeOtsTableSnapshotsRequest
      *
-     * @return DescribeOtsTableSnapshotsResponse
+     * @return DescribeOtsTableSnapshotsResponse DescribeOtsTableSnapshotsResponse
      */
     public function describeOtsTableSnapshots($request)
     {
@@ -2993,10 +3225,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribePoliciesV2Request $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries one or more backup policies.
+     *  *
+     * @param DescribePoliciesV2Request $request DescribePoliciesV2Request
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePoliciesV2Response
+     * @return DescribePoliciesV2Response DescribePoliciesV2Response
      */
     public function describePoliciesV2WithOptions($request, $runtime)
     {
@@ -3030,9 +3264,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribePoliciesV2Request $request
+     * @summary Queries one or more backup policies.
+     *  *
+     * @param DescribePoliciesV2Request $request DescribePoliciesV2Request
      *
-     * @return DescribePoliciesV2Response
+     * @return DescribePoliciesV2Response DescribePoliciesV2Response
      */
     public function describePoliciesV2($request)
     {
@@ -3042,10 +3278,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribePolicyBindingsRequest $tmpReq
-     * @param RuntimeOptions                $runtime
+     * @summary Queries one or more data sources bound to a backup policy or queries one or more backup policies bound to a data source.
+     *  *
+     * @param DescribePolicyBindingsRequest $tmpReq  DescribePolicyBindingsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePolicyBindingsResponse
+     * @return DescribePolicyBindingsResponse DescribePolicyBindingsResponse
      */
     public function describePolicyBindingsWithOptions($tmpReq, $runtime)
     {
@@ -3095,9 +3333,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribePolicyBindingsRequest $request
+     * @summary Queries one or more data sources bound to a backup policy or queries one or more backup policies bound to a data source.
+     *  *
+     * @param DescribePolicyBindingsRequest $request DescribePolicyBindingsRequest
      *
-     * @return DescribePolicyBindingsResponse
+     * @return DescribePolicyBindingsResponse DescribePolicyBindingsResponse
      */
     public function describePolicyBindings($request)
     {
@@ -3107,10 +3347,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecoverableOtsInstancesRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries the tables of a restorable Tablestore instance.
+     *  *
+     * @param DescribeRecoverableOtsInstancesRequest $request DescribeRecoverableOtsInstancesRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRecoverableOtsInstancesResponse
+     * @return DescribeRecoverableOtsInstancesResponse DescribeRecoverableOtsInstancesResponse
      */
     public function describeRecoverableOtsInstancesWithOptions($request, $runtime)
     {
@@ -3144,9 +3386,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecoverableOtsInstancesRequest $request
+     * @summary Queries the tables of a restorable Tablestore instance.
+     *  *
+     * @param DescribeRecoverableOtsInstancesRequest $request DescribeRecoverableOtsInstancesRequest
      *
-     * @return DescribeRecoverableOtsInstancesResponse
+     * @return DescribeRecoverableOtsInstancesResponse DescribeRecoverableOtsInstancesResponse
      */
     public function describeRecoverableOtsInstances($request)
     {
@@ -3156,21 +3400,15 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries available regions.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
-    public function describeRegionsWithOptions($request, $runtime)
+    public function describeRegionsWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->needVaultCount)) {
-            $query['NeedVaultCount'] = $request->needVaultCount;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
+        $req    = new OpenApiRequest([]);
         $params = new Params([
             'action'      => 'DescribeRegions',
             'version'     => '2017-09-08',
@@ -3187,22 +3425,24 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     *
-     * @return DescribeRegionsResponse
+     * @summary Queries available regions.
+     *  *
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
-    public function describeRegions($request)
+    public function describeRegions()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeRegionsWithOptions($request, $runtime);
+        return $this->describeRegionsWithOptions($runtime);
     }
 
     /**
-     * @param DescribeRestoreJobs2Request $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries one or more restore jobs that meet the specified conditions.
+     *  *
+     * @param DescribeRestoreJobs2Request $request DescribeRestoreJobs2Request
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRestoreJobs2Response
+     * @return DescribeRestoreJobs2Response DescribeRestoreJobs2Response
      */
     public function describeRestoreJobs2WithOptions($request, $runtime)
     {
@@ -3239,9 +3479,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeRestoreJobs2Request $request
+     * @summary Queries one or more restore jobs that meet the specified conditions.
+     *  *
+     * @param DescribeRestoreJobs2Request $request DescribeRestoreJobs2Request
      *
-     * @return DescribeRestoreJobs2Response
+     * @return DescribeRestoreJobs2Response DescribeRestoreJobs2Response
      */
     public function describeRestoreJobs2($request)
     {
@@ -3251,10 +3493,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeTaskRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries an asynchronous job.
+     *  *
+     * @param DescribeTaskRequest $request DescribeTaskRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTaskResponse
+     * @return DescribeTaskResponse DescribeTaskResponse
      */
     public function describeTaskWithOptions($request, $runtime)
     {
@@ -3288,9 +3532,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeTaskRequest $request
+     * @summary Queries an asynchronous job.
+     *  *
+     * @param DescribeTaskRequest $request DescribeTaskRequest
      *
-     * @return DescribeTaskResponse
+     * @return DescribeTaskResponse DescribeTaskResponse
      */
     public function describeTask($request)
     {
@@ -3300,10 +3546,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeUdmSnapshotsRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the backup snapshots of an Elastic Compute Service (ECS) instance.
+     *  *
+     * @param DescribeUdmSnapshotsRequest $tmpReq  DescribeUdmSnapshotsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUdmSnapshotsResponse
+     * @return DescribeUdmSnapshotsResponse DescribeUdmSnapshotsResponse
      */
     public function describeUdmSnapshotsWithOptions($tmpReq, $runtime)
     {
@@ -3359,9 +3607,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeUdmSnapshotsRequest $request
+     * @summary Queries the backup snapshots of an Elastic Compute Service (ECS) instance.
+     *  *
+     * @param DescribeUdmSnapshotsRequest $request DescribeUdmSnapshotsRequest
      *
-     * @return DescribeUdmSnapshotsResponse
+     * @return DescribeUdmSnapshotsResponse DescribeUdmSnapshotsResponse
      */
     public function describeUdmSnapshots($request)
     {
@@ -3371,10 +3621,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeVaultReplicationRegionsRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries the regions that support cross-region replication.
+     *  *
+     * @param DescribeVaultReplicationRegionsRequest $request DescribeVaultReplicationRegionsRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVaultReplicationRegionsResponse
+     * @return DescribeVaultReplicationRegionsResponse DescribeVaultReplicationRegionsResponse
      */
     public function describeVaultReplicationRegionsWithOptions($request, $runtime)
     {
@@ -3405,9 +3657,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeVaultReplicationRegionsRequest $request
+     * @summary Queries the regions that support cross-region replication.
+     *  *
+     * @param DescribeVaultReplicationRegionsRequest $request DescribeVaultReplicationRegionsRequest
      *
-     * @return DescribeVaultReplicationRegionsResponse
+     * @return DescribeVaultReplicationRegionsResponse DescribeVaultReplicationRegionsResponse
      */
     public function describeVaultReplicationRegions($request)
     {
@@ -3417,10 +3671,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeVaultsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the information about one or more backup vaults that meet the specified conditions.
+     *  *
+     * @param DescribeVaultsRequest $request DescribeVaultsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVaultsResponse
+     * @return DescribeVaultsResponse DescribeVaultsResponse
      */
     public function describeVaultsWithOptions($request, $runtime)
     {
@@ -3471,9 +3727,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param DescribeVaultsRequest $request
+     * @summary Queries the information about one or more backup vaults that meet the specified conditions.
+     *  *
+     * @param DescribeVaultsRequest $request DescribeVaultsRequest
      *
-     * @return DescribeVaultsResponse
+     * @return DescribeVaultsResponse DescribeVaultsResponse
      */
     public function describeVaults($request)
     {
@@ -3483,9 +3741,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   If the request is successful, the mount target is deleted.
-     *   * *   After you create a backup plan for an Apsara File Storage NAS file system, HBR automatically creates a mount target for the file system. You can call this operation to delete the mount target. In the **Status** column of the mount target of the NAS file system, the following information is displayed: **This mount target is created by an Alibaba Cloud internal service and cannot be operated. Service name: HBR**.
-     *   *
+     * @summary Deletes a mount target that is created by Hybrid Backup Recovery (HBR).
+     *  *
+     * @description *   If the request is successful, the mount target is deleted.
+     * *   After you create a backup plan for an Apsara File Storage NAS file system, HBR automatically creates a mount target for the file system. You can call this operation to delete the mount target. In the **Status** column of the mount target of the NAS file system, the following information is displayed: **This mount target is created by an Alibaba Cloud internal service and cannot be operated. Service name: HBR**.
+     *  *
      * @param DetachNasFileSystemRequest $request DetachNasFileSystemRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -3529,9 +3789,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   If the request is successful, the mount target is deleted.
-     *   * *   After you create a backup plan for an Apsara File Storage NAS file system, HBR automatically creates a mount target for the file system. You can call this operation to delete the mount target. In the **Status** column of the mount target of the NAS file system, the following information is displayed: **This mount target is created by an Alibaba Cloud internal service and cannot be operated. Service name: HBR**.
-     *   *
+     * @summary Deletes a mount target that is created by Hybrid Backup Recovery (HBR).
+     *  *
+     * @description *   If the request is successful, the mount target is deleted.
+     * *   After you create a backup plan for an Apsara File Storage NAS file system, HBR automatically creates a mount target for the file system. You can call this operation to delete the mount target. In the **Status** column of the mount target of the NAS file system, the following information is displayed: **This mount target is created by an Alibaba Cloud internal service and cannot be operated. Service name: HBR**.
+     *  *
      * @param DetachNasFileSystemRequest $request DetachNasFileSystemRequest
      *
      * @return DetachNasFileSystemResponse DetachNasFileSystemResponse
@@ -3544,8 +3806,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * If the request is successful, the specified backup plan is disabled. If you call the DescribeBackupPlans operation to query backup plans, the Disabled parameter is set to true for the backup plan.
-     *   *
+     * @summary Disables a backup plan.
+     *  *
+     * @description After you call this operation, the backup plan is suspended. In the DescribeBackupPlans operation, the Disabled parameter is set to true.
+     *  *
      * @param DisableBackupPlanRequest $request DisableBackupPlanRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -3583,8 +3847,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * If the request is successful, the specified backup plan is disabled. If you call the DescribeBackupPlans operation to query backup plans, the Disabled parameter is set to true for the backup plan.
-     *   *
+     * @summary Disables a backup plan.
+     *  *
+     * @description After you call this operation, the backup plan is suspended. In the DescribeBackupPlans operation, the Disabled parameter is set to true.
+     *  *
      * @param DisableBackupPlanRequest $request DisableBackupPlanRequest
      *
      * @return DisableBackupPlanResponse DisableBackupPlanResponse
@@ -3597,8 +3863,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * To enable the backup plan again, call the EnableHanaBackupPlan operation.
-     *   *
+     * @summary Disables an SAP HANA backup plan.
+     *  *
+     * @description To enable the backup plan again, call the EnableHanaBackupPlan operation.
+     *  *
      * @param DisableHanaBackupPlanRequest $request DisableHanaBackupPlanRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -3639,8 +3907,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * To enable the backup plan again, call the EnableHanaBackupPlan operation.
-     *   *
+     * @summary Disables an SAP HANA backup plan.
+     *  *
+     * @description To enable the backup plan again, call the EnableHanaBackupPlan operation.
+     *  *
      * @param DisableHanaBackupPlanRequest $request DisableHanaBackupPlanRequest
      *
      * @return DisableHanaBackupPlanResponse DisableHanaBackupPlanResponse
@@ -3653,8 +3923,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * If the request is successful, the system enables the backup plan and backs up data based on the polices that are specified in the backup plan. If you call the DescribeBackupPlans operation to query backup plans, the Disabled parameter is automatically set to false for the backup plan.
-     *   *
+     * @summary Enables a backup plan.
+     *  *
+     * @description After you call this operation, the backup plan is restarted (Disabled is set to false in the DescribeBackupPlans operation). Cloud Backup continues to perform backups based on the policy specified in the backup plan.
+     *  *
      * @param EnableBackupPlanRequest $request EnableBackupPlanRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -3692,8 +3964,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * If the request is successful, the system enables the backup plan and backs up data based on the polices that are specified in the backup plan. If you call the DescribeBackupPlans operation to query backup plans, the Disabled parameter is automatically set to false for the backup plan.
-     *   *
+     * @summary Enables a backup plan.
+     *  *
+     * @description After you call this operation, the backup plan is restarted (Disabled is set to false in the DescribeBackupPlans operation). Cloud Backup continues to perform backups based on the policy specified in the backup plan.
+     *  *
      * @param EnableBackupPlanRequest $request EnableBackupPlanRequest
      *
      * @return EnableBackupPlanResponse EnableBackupPlanResponse
@@ -3706,8 +3980,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * To disable the backup plan again, call the DisableHanaBackupPlan operation.
-     *   *
+     * @summary Enables an SAP HANA backup plan.
+     *  *
+     * @description To disable the backup plan again, call the DisableHanaBackupPlan operation.
+     *  *
      * @param EnableHanaBackupPlanRequest $request EnableHanaBackupPlanRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -3748,8 +4024,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * To disable the backup plan again, call the DisableHanaBackupPlan operation.
-     *   *
+     * @summary Enables an SAP HANA backup plan.
+     *  *
+     * @description To disable the backup plan again, call the DisableHanaBackupPlan operation.
+     *  *
      * @param EnableHanaBackupPlanRequest $request EnableHanaBackupPlanRequest
      *
      * @return EnableHanaBackupPlanResponse EnableHanaBackupPlanResponse
@@ -3762,10 +4040,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param ExecuteBackupPlanRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Executes a backup plan.
+     *  *
+     * @param ExecuteBackupPlanRequest $request ExecuteBackupPlanRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExecuteBackupPlanResponse
+     * @return ExecuteBackupPlanResponse ExecuteBackupPlanResponse
      */
     public function executeBackupPlanWithOptions($request, $runtime)
     {
@@ -3802,9 +4082,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param ExecuteBackupPlanRequest $request
+     * @summary Executes a backup plan.
+     *  *
+     * @param ExecuteBackupPlanRequest $request ExecuteBackupPlanRequest
      *
-     * @return ExecuteBackupPlanResponse
+     * @return ExecuteBackupPlanResponse ExecuteBackupPlanResponse
      */
     public function executeBackupPlan($request)
     {
@@ -3814,10 +4096,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param ExecutePolicyV2Request $request
-     * @param RuntimeOptions         $runtime
+     * @param ExecutePolicyV2Request $request ExecutePolicyV2Request
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExecutePolicyV2Response
+     * @return ExecutePolicyV2Response ExecutePolicyV2Response
      */
     public function executePolicyV2WithOptions($request, $runtime)
     {
@@ -3856,9 +4138,9 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param ExecutePolicyV2Request $request
+     * @param ExecutePolicyV2Request $request ExecutePolicyV2Request
      *
-     * @return ExecutePolicyV2Response
+     * @return ExecutePolicyV2Response ExecutePolicyV2Response
      */
     public function executePolicyV2($request)
     {
@@ -3868,10 +4150,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param GenerateRamPolicyRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Generates a Resource Access Management (RAM) policy.
+     *  *
+     * @param GenerateRamPolicyRequest $request GenerateRamPolicyRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateRamPolicyResponse
+     * @return GenerateRamPolicyResponse GenerateRamPolicyResponse
      */
     public function generateRamPolicyWithOptions($request, $runtime)
     {
@@ -3908,9 +4192,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param GenerateRamPolicyRequest $request
+     * @summary Generates a Resource Access Management (RAM) policy.
+     *  *
+     * @param GenerateRamPolicyRequest $request GenerateRamPolicyRequest
      *
-     * @return GenerateRamPolicyResponse
+     * @return GenerateRamPolicyResponse GenerateRamPolicyResponse
      */
     public function generateRamPolicy($request)
     {
@@ -3920,10 +4206,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param GetTempFileDownloadLinkRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Obtains download links of files such as job reports.
+     *  *
+     * @param GetTempFileDownloadLinkRequest $request GetTempFileDownloadLinkRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTempFileDownloadLinkResponse
+     * @return GetTempFileDownloadLinkResponse GetTempFileDownloadLinkResponse
      */
     public function getTempFileDownloadLinkWithOptions($request, $runtime)
     {
@@ -3951,9 +4239,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param GetTempFileDownloadLinkRequest $request
+     * @summary Obtains download links of files such as job reports.
+     *  *
+     * @param GetTempFileDownloadLinkRequest $request GetTempFileDownloadLinkRequest
      *
-     * @return GetTempFileDownloadLinkResponse
+     * @return GetTempFileDownloadLinkResponse GetTempFileDownloadLinkResponse
      */
     public function getTempFileDownloadLink($request)
     {
@@ -3963,10 +4253,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to install an HBR client on an ECS instance.
-     *   * *   You can call the [DescribeTask](~~431265~~) operation to query the execution result of an asynchronous job.
-     *   * *   The timeout period of an asynchronous job is 15 minutes. We recommend that you call the DescribeTask operation to run the first query 60 seconds after you call the InstallBackupClients operation to install HBR clients. Then, run the next queries at an interval of 30 seconds.
-     *   *
+     * @summary Installs an HBR client on one or more Elastic Compute Service (ECS) instances.
+     *  *
+     * @description *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to install an HBR client on an ECS instance.
+     * *   You can call the [DescribeTask](https://help.aliyun.com/document_detail/431265.html) operation to query the execution result of an asynchronous job.
+     * *   The timeout period of an asynchronous job is 15 minutes. We recommend that you call the DescribeTask operation to run the first query 60 seconds after you call the InstallBackupClients operation to install HBR clients. Then, run the next queries at an interval of 30 seconds.
+     *  *
      * @param InstallBackupClientsRequest $tmpReq  InstallBackupClientsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -4012,10 +4304,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to install an HBR client on an ECS instance.
-     *   * *   You can call the [DescribeTask](~~431265~~) operation to query the execution result of an asynchronous job.
-     *   * *   The timeout period of an asynchronous job is 15 minutes. We recommend that you call the DescribeTask operation to run the first query 60 seconds after you call the InstallBackupClients operation to install HBR clients. Then, run the next queries at an interval of 30 seconds.
-     *   *
+     * @summary Installs an HBR client on one or more Elastic Compute Service (ECS) instances.
+     *  *
+     * @description *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to install an HBR client on an ECS instance.
+     * *   You can call the [DescribeTask](https://help.aliyun.com/document_detail/431265.html) operation to query the execution result of an asynchronous job.
+     * *   The timeout period of an asynchronous job is 15 minutes. We recommend that you call the DescribeTask operation to run the first query 60 seconds after you call the InstallBackupClients operation to install HBR clients. Then, run the next queries at an interval of 30 seconds.
+     *  *
      * @param InstallBackupClientsRequest $request InstallBackupClientsRequest
      *
      * @return InstallBackupClientsResponse InstallBackupClientsResponse
@@ -4028,9 +4322,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Activates Hybrid Backup Recovery (HBR).
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenHbrServiceResponse
+     * @return OpenHbrServiceResponse OpenHbrServiceResponse
      */
     public function openHbrServiceWithOptions($runtime)
     {
@@ -4051,7 +4347,9 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @return OpenHbrServiceResponse
+     * @summary Activates Hybrid Backup Recovery (HBR).
+     *  *
+     * @return OpenHbrServiceResponse OpenHbrServiceResponse
      */
     public function openHbrService()
     {
@@ -4061,10 +4359,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param SearchHistoricalSnapshotsRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the information about one or more backup snapshots that meet the specified conditions.
+     *  *
+     * @param SearchHistoricalSnapshotsRequest $tmpReq  SearchHistoricalSnapshotsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchHistoricalSnapshotsResponse
+     * @return SearchHistoricalSnapshotsResponse SearchHistoricalSnapshotsResponse
      */
     public function searchHistoricalSnapshotsWithOptions($tmpReq, $runtime)
     {
@@ -4112,9 +4412,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param SearchHistoricalSnapshotsRequest $request
+     * @summary Queries the information about one or more backup snapshots that meet the specified conditions.
+     *  *
+     * @param SearchHistoricalSnapshotsRequest $request SearchHistoricalSnapshotsRequest
      *
-     * @return SearchHistoricalSnapshotsResponse
+     * @return SearchHistoricalSnapshotsResponse SearchHistoricalSnapshotsResponse
      */
     public function searchHistoricalSnapshots($request)
     {
@@ -4124,8 +4426,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * To stop the database again, call the StopHanaDatabaseAsync operation.
-     *   *
+     * @summary Starts an SAP HANA database.
+     *  *
+     * @description To stop the database again, call the StopHanaDatabaseAsync operation.
+     *  *
      * @param StartHanaDatabaseAsyncRequest $request StartHanaDatabaseAsyncRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -4163,8 +4467,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * To stop the database again, call the StopHanaDatabaseAsync operation.
-     *   *
+     * @summary Starts an SAP HANA database.
+     *  *
+     * @description To stop the database again, call the StopHanaDatabaseAsync operation.
+     *  *
      * @param StartHanaDatabaseAsyncRequest $request StartHanaDatabaseAsyncRequest
      *
      * @return StartHanaDatabaseAsyncResponse StartHanaDatabaseAsyncResponse
@@ -4177,8 +4483,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * To start the database again, call the StartHanaDatabaseAsync operation.
-     *   *
+     * @summary Stops an SAP HANA database.
+     *  *
+     * @description To start the database again, call the StartHanaDatabaseAsync operation.
+     *  *
      * @param StopHanaDatabaseAsyncRequest $request StopHanaDatabaseAsyncRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -4216,8 +4524,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * To start the database again, call the StartHanaDatabaseAsync operation.
-     *   *
+     * @summary Stops an SAP HANA database.
+     *  *
+     * @description To start the database again, call the StartHanaDatabaseAsync operation.
+     *  *
      * @param StopHanaDatabaseAsyncRequest $request StopHanaDatabaseAsyncRequest
      *
      * @return StopHanaDatabaseAsyncResponse StopHanaDatabaseAsyncResponse
@@ -4230,10 +4540,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to uninstall a backup client from an ECS instance.
-     *   * *   You can call the DescribeTask operation to query the execution result of an asynchronous job.
-     *   * *   The timeout period of an asynchronous job is 15 minutes. We recommend that you call the DescribeTask operation to run the first query 30 seconds after you call the UninstallBackupClients operation to uninstall backup clients. Then, run the next queries at an interval of 30 seconds.
-     *   *
+     * @summary Uninstalls a Cloud Backup client from one or more Elastic Compute Service (ECS) instance.
+     *  *
+     * @description *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to uninstall a backup client from an ECS instance.
+     * *   You can call the DescribeTask operation to query the execution result of an asynchronous job.
+     * *   The timeout period of an asynchronous job is 15 minutes. We recommend that you call the DescribeTask operation to run the first query 30 seconds after you call the UninstallBackupClients operation to uninstall backup clients. Then, run the next queries at an interval of 30 seconds.
+     *  *
      * @param UninstallBackupClientsRequest $tmpReq  UninstallBackupClientsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -4285,10 +4597,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to uninstall a backup client from an ECS instance.
-     *   * *   You can call the DescribeTask operation to query the execution result of an asynchronous job.
-     *   * *   The timeout period of an asynchronous job is 15 minutes. We recommend that you call the DescribeTask operation to run the first query 30 seconds after you call the UninstallBackupClients operation to uninstall backup clients. Then, run the next queries at an interval of 30 seconds.
-     *   *
+     * @summary Uninstalls a Cloud Backup client from one or more Elastic Compute Service (ECS) instance.
+     *  *
+     * @description *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to uninstall a backup client from an ECS instance.
+     * *   You can call the DescribeTask operation to query the execution result of an asynchronous job.
+     * *   The timeout period of an asynchronous job is 15 minutes. We recommend that you call the DescribeTask operation to run the first query 30 seconds after you call the UninstallBackupClients operation to uninstall backup clients. Then, run the next queries at an interval of 30 seconds.
+     *  *
      * @param UninstallBackupClientsRequest $request UninstallBackupClientsRequest
      *
      * @return UninstallBackupClientsResponse UninstallBackupClientsResponse
@@ -4301,8 +4615,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * If you call this operation, the specified HBR client is uninstalled. To reinstall the HBR client, call the CreateClients operation.
-     *   *
+     * @summary Uninstalls an HBR client.
+     *  *
+     * @description If you call this operation, the specified HBR client is uninstalled. To reinstall the HBR client, call the CreateClients operation.
+     *  *
      * @param UninstallClientRequest $request UninstallClientRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -4340,8 +4656,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * If you call this operation, the specified HBR client is uninstalled. To reinstall the HBR client, call the CreateClients operation.
-     *   *
+     * @summary Uninstalls an HBR client.
+     *  *
+     * @description If you call this operation, the specified HBR client is uninstalled. To reinstall the HBR client, call the CreateClients operation.
+     *  *
      * @param UninstallClientRequest $request UninstallClientRequest
      *
      * @return UninstallClientResponse UninstallClientResponse
@@ -4354,10 +4672,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param UpdateBackupPlanRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary Updates a backup plan.
+     *  *
+     * @param UpdateBackupPlanRequest $tmpReq  UpdateBackupPlanRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateBackupPlanResponse
+     * @return UpdateBackupPlanResponse UpdateBackupPlanResponse
      */
     public function updateBackupPlanWithOptions($tmpReq, $runtime)
     {
@@ -4446,9 +4766,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param UpdateBackupPlanRequest $request
+     * @summary Updates a backup plan.
+     *  *
+     * @param UpdateBackupPlanRequest $request UpdateBackupPlanRequest
      *
-     * @return UpdateBackupPlanResponse
+     * @return UpdateBackupPlanResponse UpdateBackupPlanResponse
      */
     public function updateBackupPlan($request)
     {
@@ -4458,8 +4780,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * You can call this operation to update the configurations of both the old and new HBR clients.
-     *   *
+     * @summary Updates the configurations of an HBR client.
+     *  *
+     * @description You can call this operation to update the configurations of both the old and new HBR clients.
+     *  *
      * @param UpdateClientSettingsRequest $request UpdateClientSettingsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -4530,8 +4854,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * You can call this operation to update the configurations of both the old and new HBR clients.
-     *   *
+     * @summary Updates the configurations of an HBR client.
+     *  *
+     * @description You can call this operation to update the configurations of both the old and new HBR clients.
+     *  *
      * @param UpdateClientSettingsRequest $request UpdateClientSettingsRequest
      *
      * @return UpdateClientSettingsResponse UpdateClientSettingsResponse
@@ -4544,10 +4870,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param UpdateContainerClusterRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Updates the name and network type of a Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @param UpdateContainerClusterRequest $request UpdateContainerClusterRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateContainerClusterResponse
+     * @return UpdateContainerClusterResponse UpdateContainerClusterResponse
      */
     public function updateContainerClusterWithOptions($request, $runtime)
     {
@@ -4587,9 +4915,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param UpdateContainerClusterRequest $request
+     * @summary Updates the name and network type of a Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @param UpdateContainerClusterRequest $request UpdateContainerClusterRequest
      *
-     * @return UpdateContainerClusterResponse
+     * @return UpdateContainerClusterResponse UpdateContainerClusterResponse
      */
     public function updateContainerCluster($request)
     {
@@ -4599,11 +4929,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   A backup plan defines the data source, backup policy, and other configurations. After you execute a backup plan, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
-     *   * *   You can specify only one type of data source in a backup plan.
-     *   * *   You can specify only one interval as a backup cycle in a backup plan.
-     *   * *   Each backup plan allows you to back up data to only one backup vault.
-     *   *
+     * @summary Updates an SAP HANA backup plan.
+     *  *
+     * @description *   A backup plan defines the data source, backup policy, and other configurations. After you execute a backup plan, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
+     * *   You can specify only one type of data source in a backup plan.
+     * *   You can specify only one interval as a backup cycle in a backup plan.
+     * *   Each backup plan allows you to back up data to only one backup vault.
+     *  *
      * @param UpdateHanaBackupPlanRequest $request UpdateHanaBackupPlanRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -4653,11 +4985,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   A backup plan defines the data source, backup policy, and other configurations. After you execute a backup plan, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
-     *   * *   You can specify only one type of data source in a backup plan.
-     *   * *   You can specify only one interval as a backup cycle in a backup plan.
-     *   * *   Each backup plan allows you to back up data to only one backup vault.
-     *   *
+     * @summary Updates an SAP HANA backup plan.
+     *  *
+     * @description *   A backup plan defines the data source, backup policy, and other configurations. After you execute a backup plan, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
+     * *   You can specify only one type of data source in a backup plan.
+     * *   You can specify only one interval as a backup cycle in a backup plan.
+     * *   Each backup plan allows you to back up data to only one backup vault.
+     *  *
      * @param UpdateHanaBackupPlanRequest $request UpdateHanaBackupPlanRequest
      *
      * @return UpdateHanaBackupPlanResponse UpdateHanaBackupPlanResponse
@@ -4670,8 +5004,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * You can call the UpdateHanaRetentionSetting operation to update the backup retention period of a database.
-     *   *
+     * @summary Updates the backup parameters of an SAP HANA database.
+     *  *
+     * @description You can call the UpdateHanaRetentionSetting operation to update the backup retention period of a database.
+     *  *
      * @param UpdateHanaBackupSettingRequest $request UpdateHanaBackupSettingRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -4730,8 +5066,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * You can call the UpdateHanaRetentionSetting operation to update the backup retention period of a database.
-     *   *
+     * @summary Updates the backup parameters of an SAP HANA database.
+     *  *
+     * @description You can call the UpdateHanaRetentionSetting operation to update the backup retention period of a database.
+     *  *
      * @param UpdateHanaBackupSettingRequest $request UpdateHanaBackupSettingRequest
      *
      * @return UpdateHanaBackupSettingResponse UpdateHanaBackupSettingResponse
@@ -4744,10 +5082,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param UpdateHanaInstanceRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Updates an SAP HANA instance.
+     *  *
+     * @param UpdateHanaInstanceRequest $request UpdateHanaInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateHanaInstanceResponse
+     * @return UpdateHanaInstanceResponse UpdateHanaInstanceResponse
      */
     public function updateHanaInstanceWithOptions($request, $runtime)
     {
@@ -4805,9 +5145,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param UpdateHanaInstanceRequest $request
+     * @summary Updates an SAP HANA instance.
+     *  *
+     * @param UpdateHanaInstanceRequest $request UpdateHanaInstanceRequest
      *
-     * @return UpdateHanaInstanceResponse
+     * @return UpdateHanaInstanceResponse UpdateHanaInstanceResponse
      */
     public function updateHanaInstance($request)
     {
@@ -4817,9 +5159,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   If you want to update the backup parameters of a database, you can call the UpdateHanaBackupSetting operation.
-     *   * *   HBR deletes the expired catalogs and data that are related to Backint and file backup. The deleted catalogs and data cannot be restored. We recommend that you set the retention period based on your business requirements.
-     *   *
+     * @summary Updates the backup retention period of an SAP HANA database.
+     *  *
+     * @description *   If you want to update the backup parameters of a database, you can call the UpdateHanaBackupSetting operation.
+     * *   Cloud Backup deletes the expired catalogs and data that are related to Backint and file backup. The deleted catalogs and data cannot be restored. We recommend that you set the retention period based on your business requirements.
+     *  *
      * @param UpdateHanaRetentionSettingRequest $request UpdateHanaRetentionSettingRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -4866,9 +5210,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   If you want to update the backup parameters of a database, you can call the UpdateHanaBackupSetting operation.
-     *   * *   HBR deletes the expired catalogs and data that are related to Backint and file backup. The deleted catalogs and data cannot be restored. We recommend that you set the retention period based on your business requirements.
-     *   *
+     * @summary Updates the backup retention period of an SAP HANA database.
+     *  *
+     * @description *   If you want to update the backup parameters of a database, you can call the UpdateHanaBackupSetting operation.
+     * *   Cloud Backup deletes the expired catalogs and data that are related to Backint and file backup. The deleted catalogs and data cannot be restored. We recommend that you set the retention period based on your business requirements.
+     *  *
      * @param UpdateHanaRetentionSettingRequest $request UpdateHanaRetentionSettingRequest
      *
      * @return UpdateHanaRetentionSettingResponse UpdateHanaRetentionSettingResponse
@@ -4881,10 +5227,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param UpdatePolicyBindingRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary Modifies the association between a backup policy and a data source.
+     *  *
+     * @param UpdatePolicyBindingRequest $tmpReq  UpdatePolicyBindingRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePolicyBindingResponse
+     * @return UpdatePolicyBindingResponse UpdatePolicyBindingResponse
      */
     public function updatePolicyBindingWithOptions($tmpReq, $runtime)
     {
@@ -4901,11 +5249,23 @@ class Hbr extends OpenApiClient
         if (!Utils::isUnset($request->disabled)) {
             $query['Disabled'] = $request->disabled;
         }
+        if (!Utils::isUnset($request->exclude)) {
+            $query['Exclude'] = $request->exclude;
+        }
+        if (!Utils::isUnset($request->include_)) {
+            $query['Include'] = $request->include_;
+        }
         if (!Utils::isUnset($request->policyBindingDescription)) {
             $query['PolicyBindingDescription'] = $request->policyBindingDescription;
         }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
         if (!Utils::isUnset($request->sourceType)) {
             $query['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->speedLimit)) {
+            $query['SpeedLimit'] = $request->speedLimit;
         }
         $body = [];
         if (!Utils::isUnset($request->dataSourceId)) {
@@ -4934,9 +5294,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param UpdatePolicyBindingRequest $request
+     * @summary Modifies the association between a backup policy and a data source.
+     *  *
+     * @param UpdatePolicyBindingRequest $request UpdatePolicyBindingRequest
      *
-     * @return UpdatePolicyBindingResponse
+     * @return UpdatePolicyBindingResponse UpdatePolicyBindingResponse
      */
     public function updatePolicyBinding($request)
     {
@@ -4946,8 +5308,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * If you modify a backup policy, the modification takes effect on all data sources that are bound to the backup policy. Proceed with caution.
-     *   *
+     * @summary Modifies a backup policy.
+     *  *
+     * @description If you modify a backup policy, the modification takes effect on all data sources that are bound to the backup policy. Proceed with caution.
+     *  *
      * @param UpdatePolicyV2Request $tmpReq  UpdatePolicyV2Request
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -4993,8 +5357,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * If you modify a backup policy, the modification takes effect on all data sources that are bound to the backup policy. Proceed with caution.
-     *   *
+     * @summary Modifies a backup policy.
+     *  *
+     * @description If you modify a backup policy, the modification takes effect on all data sources that are bound to the backup policy. Proceed with caution.
+     *  *
      * @param UpdatePolicyV2Request $request UpdatePolicyV2Request
      *
      * @return UpdatePolicyV2Response UpdatePolicyV2Response
@@ -5007,10 +5373,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param UpdateVaultRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Updates the configuration information about the backup vault.
+     *  *
+     * @param UpdateVaultRequest $request UpdateVaultRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateVaultResponse
+     * @return UpdateVaultResponse UpdateVaultResponse
      */
     public function updateVaultWithOptions($request, $runtime)
     {
@@ -5047,9 +5415,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param UpdateVaultRequest $request
+     * @summary Updates the configuration information about the backup vault.
+     *  *
+     * @param UpdateVaultRequest $request UpdateVaultRequest
      *
-     * @return UpdateVaultResponse
+     * @return UpdateVaultResponse UpdateVaultResponse
      */
     public function updateVault($request)
     {
@@ -5059,10 +5429,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to upgrade an HBR client that is installed on an ECS instance.
-     *   * *   You can call the DescribeTask operation to query the execution result of an asynchronous job.
-     *   * *   The timeout period of an asynchronous job is 15 minutes.
-     *   *
+     * @summary Upgrades an HBR client on one or more Elastic Compute Service (ECS) instances.
+     *  *
+     * @description *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to upgrade an HBR client that is installed on an ECS instance.
+     * *   You can call the DescribeTask operation to query the execution result of an asynchronous job.
+     * *   The timeout period of an asynchronous job is 15 minutes.
+     *  *
      * @param UpgradeBackupClientsRequest $tmpReq  UpgradeBackupClientsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -5114,10 +5486,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to upgrade an HBR client that is installed on an ECS instance.
-     *   * *   You can call the DescribeTask operation to query the execution result of an asynchronous job.
-     *   * *   The timeout period of an asynchronous job is 15 minutes.
-     *   *
+     * @summary Upgrades an HBR client on one or more Elastic Compute Service (ECS) instances.
+     *  *
+     * @description *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to upgrade an HBR client that is installed on an ECS instance.
+     * *   You can call the DescribeTask operation to query the execution result of an asynchronous job.
+     * *   The timeout period of an asynchronous job is 15 minutes.
+     *  *
      * @param UpgradeBackupClientsRequest $request UpgradeBackupClientsRequest
      *
      * @return UpgradeBackupClientsResponse UpgradeBackupClientsResponse
@@ -5130,8 +5504,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * You can call this operation to upgrade a backup client to the latest version. After the backup client is upgraded, the version of the backup client cannot be rolled back.
-     *   *
+     * @summary Upgrades the Cloud Backup client.
+     *  *
+     * @description You can call this operation to upgrade a Cloud Backup client to the latest version. After the Cloud Backup client is upgraded, the version of the client cannot be rolled back.
+     *  *
      * @param UpgradeClientRequest $request UpgradeClientRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -5169,8 +5545,10 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * You can call this operation to upgrade a backup client to the latest version. After the backup client is upgraded, the version of the backup client cannot be rolled back.
-     *   *
+     * @summary Upgrades the Cloud Backup client.
+     *  *
+     * @description You can call this operation to upgrade a Cloud Backup client to the latest version. After the Cloud Backup client is upgraded, the version of the client cannot be rolled back.
+     *  *
      * @param UpgradeClientRequest $request UpgradeClientRequest
      *
      * @return UpgradeClientResponse UpgradeClientResponse

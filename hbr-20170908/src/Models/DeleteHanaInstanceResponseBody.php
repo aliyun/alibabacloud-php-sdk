@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteHanaInstanceResponseBody extends Model
 {
     /**
-     * @description The HTTP status code. The status code 200 indicates that the call is successful.
+     * @description The response code. The status code 200 indicates that the request was successful.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class DeleteHanaInstanceResponseBody extends Model
     public $code;
 
     /**
-     * @description The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+     * @description The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
      *
      * @example successful
      *
@@ -27,7 +27,7 @@ class DeleteHanaInstanceResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 28EAF89A-E0D8-5C04-9A1D-B373B29BCFB9
      *
@@ -36,10 +36,10 @@ class DeleteHanaInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call is successful.
-     *   false: The call fails.
+     *   true
+     *   false
      *
      * @example true
      *

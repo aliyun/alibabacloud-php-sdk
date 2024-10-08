@@ -23,6 +23,7 @@ class UpdateHanaBackupSettingRequest extends Model
      *   true: Backint is used to back up catalogs.
      *   false: Backint is not used to back up catalogs.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -32,6 +33,7 @@ class UpdateHanaBackupSettingRequest extends Model
     /**
      * @description The ID of the SAP HANA instance.
      *
+     * This parameter is required.
      * @example cl-000ezvg******8znz
      *
      * @var string
@@ -50,6 +52,7 @@ class UpdateHanaBackupSettingRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example SYSTEMDB
      *
      * @var string
@@ -62,6 +65,7 @@ class UpdateHanaBackupSettingRequest extends Model
      *   **true**: enables automatic log backup.
      *   **false**: disables automatic log backup.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -92,6 +96,7 @@ class UpdateHanaBackupSettingRequest extends Model
      *   true: Backint is used to back up logs.
      *   false: Backint is not used to back up logs.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool

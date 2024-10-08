@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeClientsRequest extends Model
 {
     /**
-     * @description The ID of the backup client.
+     * @description The ID of the Cloud Backup client.
      *
      * @example c-000ed600******6b0
      *
@@ -18,7 +18,7 @@ class DescribeClientsRequest extends Model
     public $clientId;
 
     /**
-     * @description The type of the backup client. Valid value:**ECS_AGENT**, which indicates an SAP HANA backup client.
+     * @description The type of the Cloud Backup client. Valid value: **ECS_AGENT**, which indicates an SAP HANA backup client.
      *
      * @example ECS_AGENT
      *
@@ -36,7 +36,7 @@ class DescribeClientsRequest extends Model
     public $clusterId;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -45,7 +45,7 @@ class DescribeClientsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 99. Default value: 10.
+     * @description The number of entries per page. Valid values: 1 to 99. Default value: 10.
      *
      * @example 10
      *

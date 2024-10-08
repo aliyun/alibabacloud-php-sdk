@@ -11,6 +11,7 @@ class DescribeHanaBackupsAsyncRequest extends Model
     /**
      * @description The ID of the SAP HANA instance.
      *
+     * This parameter is required.
      * @example cl-00098******yuqvu
      *
      * @var string
@@ -18,7 +19,7 @@ class DescribeHanaBackupsAsyncRequest extends Model
     public $clusterId;
 
     /**
-     * @description The name of the database.
+     * @description The database name.
      *
      * @example BPD
      *
@@ -86,7 +87,7 @@ class DescribeHanaBackupsAsyncRequest extends Model
     public $mode;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -95,7 +96,7 @@ class DescribeHanaBackupsAsyncRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 99. Default value: 10.
+     * @description The number of entries per page. Valid values: 1 to 99. Default value: 10.
      *
      * @example 10
      *
@@ -104,7 +105,7 @@ class DescribeHanaBackupsAsyncRequest extends Model
     public $pageSize;
 
     /**
-     * @description The point in time to which you want to restore the database. This parameter is valid only if you set the Mode parameter to **RECOVERY_TO_POINT_IN_TIME**. HBR restores the database to a state closest to the specified point in time.
+     * @description The point in time to which you want to restore the database. This parameter is valid only if you set the Mode parameter to **RECOVERY_TO_POINT_IN_TIME**. Cloud Backup restores the database to a state closest to the specified point in time.
      *
      * @example 1649851200
      *
@@ -140,7 +141,7 @@ class DescribeHanaBackupsAsyncRequest extends Model
     public $sourceClusterId;
 
     /**
-     * @description Specifies whether to restore the database to a different instance. Valid values:
+     * @description Specifies whether to restore the database to a different instance.
      *
      *   true: restores the database to a different instance.
      *   false: restores the database within the same instance.

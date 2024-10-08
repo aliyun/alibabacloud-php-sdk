@@ -24,6 +24,7 @@ class DescribeBackupClientsShrinkRequest extends Model
      *   **ECS_CLIENT**: HBR client for Elastic Compute Service (ECS) file backup
      *   **CONTAINER_CLIENT**: HBR client for container backup
      *
+     * This parameter is required.
      * @example ECS_CLIENT
      *
      * @var string

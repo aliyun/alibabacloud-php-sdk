@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCrossAccountsResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribeCrossAccountsResponseBody extends Model
     public $code;
 
     /**
+     * @description The information about the accounts used in cross-account backup.
+     *
      * @var crossAccounts
      */
     public $crossAccounts;
 
     /**
+     * @description The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
+     *
      * @example successful
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeCrossAccountsResponseBody extends Model
     public $message;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -36,6 +44,8 @@ class DescribeCrossAccountsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 99. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -43,6 +53,8 @@ class DescribeCrossAccountsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
@@ -50,6 +62,11 @@ class DescribeCrossAccountsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -57,6 +74,8 @@ class DescribeCrossAccountsResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 22
      *
      * @var int

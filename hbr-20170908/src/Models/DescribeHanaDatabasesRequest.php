@@ -11,6 +11,7 @@ class DescribeHanaDatabasesRequest extends Model
     /**
      * @description The ID of the SAP HANA instance.
      *
+     * This parameter is required.
      * @example cl-000hpc******uv14x
      *
      * @var string
@@ -18,7 +19,7 @@ class DescribeHanaDatabasesRequest extends Model
     public $clusterId;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -27,7 +28,7 @@ class DescribeHanaDatabasesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 99. Default value: 10.
+     * @description The number of entries per page. Valid values: 1 to 99. Default value: 10.
      *
      * @example 10
      *

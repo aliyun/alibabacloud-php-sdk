@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class hana extends Model
 {
     /**
-     * @description The alert settings. Valid value: INHERITED, which indicates that the backup client sends alert notifications in the same way as the backup vault.
+     * @description The alert settings. Valid value: INHERITED, which indicates that the Cloud Backup client sends alert notifications by using the same method configured for the backup vault.
      *
      * @example INHERITED
      *
@@ -26,6 +26,35 @@ class hana extends Model
      * @var string
      */
     public $clusterId;
+
+    /**
+     * @description The name of the Resource Access Management (RAM) role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
+     *
+     * @example hbrcrossrole
+     *
+     * @var string
+     */
+    public $crossAccountRoleName;
+
+    /**
+     * @description The backup type. Valid values:
+     *
+     * - **SELF_ACCOUNT**: Data is backed up within the same Alibaba Cloud account.
+     * - **CROSS_ACCOUNT**: Data is backed up across Alibaba Cloud accounts.
+     * @example CROSS_ACCOUNT
+     *
+     * @var string
+     */
+    public $crossAccountType;
+
+    /**
+     * @description The ID of the source Alibaba Cloud account that authorizes the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
+     *
+     * @example 158975xxxxx4625
+     *
+     * @var int
+     */
+    public $crossAccountUserId;
 
     /**
      * @description The name of the SAP HANA instance.
@@ -55,7 +84,7 @@ class hana extends Model
     public $instanceNumber;
 
     /**
-     * @description The ID of resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmvnf22m7itha
      *
@@ -132,19 +161,22 @@ class hana extends Model
      */
     public $vaultId;
     protected $_name = [
-        'alertSetting'        => 'AlertSetting',
-        'clusterId'           => 'ClusterId',
-        'hanaName'            => 'HanaName',
-        'host'                => 'Host',
-        'instanceNumber'      => 'InstanceNumber',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'status'              => 'Status',
-        'statusMessage'       => 'StatusMessage',
-        'tags'                => 'Tags',
-        'useSsl'              => 'UseSsl',
-        'userName'            => 'UserName',
-        'validateCertificate' => 'ValidateCertificate',
-        'vaultId'             => 'VaultId',
+        'alertSetting'         => 'AlertSetting',
+        'clusterId'            => 'ClusterId',
+        'crossAccountRoleName' => 'CrossAccountRoleName',
+        'crossAccountType'     => 'CrossAccountType',
+        'crossAccountUserId'   => 'CrossAccountUserId',
+        'hanaName'             => 'HanaName',
+        'host'                 => 'Host',
+        'instanceNumber'       => 'InstanceNumber',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'status'               => 'Status',
+        'statusMessage'        => 'StatusMessage',
+        'tags'                 => 'Tags',
+        'useSsl'               => 'UseSsl',
+        'userName'             => 'UserName',
+        'validateCertificate'  => 'ValidateCertificate',
+        'vaultId'              => 'VaultId',
     ];
 
     public function validate()
@@ -159,6 +191,15 @@ class hana extends Model
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->crossAccountRoleName) {
+            $res['CrossAccountRoleName'] = $this->crossAccountRoleName;
+        }
+        if (null !== $this->crossAccountType) {
+            $res['CrossAccountType'] = $this->crossAccountType;
+        }
+        if (null !== $this->crossAccountUserId) {
+            $res['CrossAccountUserId'] = $this->crossAccountUserId;
         }
         if (null !== $this->hanaName) {
             $res['HanaName'] = $this->hanaName;
@@ -210,6 +251,15 @@ class hana extends Model
         }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['CrossAccountRoleName'])) {
+            $model->crossAccountRoleName = $map['CrossAccountRoleName'];
+        }
+        if (isset($map['CrossAccountType'])) {
+            $model->crossAccountType = $map['CrossAccountType'];
+        }
+        if (isset($map['CrossAccountUserId'])) {
+            $model->crossAccountUserId = $map['CrossAccountUserId'];
         }
         if (isset($map['HanaName'])) {
             $model->hanaName = $map['HanaName'];

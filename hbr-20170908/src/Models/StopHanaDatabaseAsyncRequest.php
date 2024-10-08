@@ -18,8 +18,9 @@ class StopHanaDatabaseAsyncRequest extends Model
     public $clusterId;
 
     /**
-     * @description The name of the database.
+     * @description The database name.
      *
+     * This parameter is required.
      * @example BWP
      *
      * @var string

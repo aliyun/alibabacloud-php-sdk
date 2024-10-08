@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpgradeClientRequest extends Model
 {
     /**
-     * @description The ID of the backup client.
+     * @description The ID of the Cloud Backup client.
      *
      * @example c-000boklw******63a9
      *

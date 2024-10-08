@@ -18,7 +18,7 @@ class DescribeTaskResponseBody extends Model
     public $code;
 
     /**
-     * @description The time when the job was completed. This value is a UNIX timestamp. Unit: seconds.
+     * @description The time when the task was complete. The time is a UNIX timestamp. Unit: seconds.
      *
      * @example 1615607706
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpgradeBackupClientsShrinkRequest extends Model
 {
     /**
-     * @description The ID of the HBR client. The sum of the number of HBR client IDs and the number of ECS instance IDs cannot exceed 100.
+     * @description The IDs of Cloud Backup clients. The total number of Cloud Backup client IDs and ECS instance IDs cannot exceed 100.
      *
      * @example ["i-0xi5wj******3j3bh2gj5"]
      *
@@ -48,7 +48,7 @@ class UpgradeBackupClientsShrinkRequest extends Model
     public $crossAccountUserId;
 
     /**
-     * @description The IDs of the ECS instances. The sum of the number of HBR client IDs and the number of ECS instance IDs cannot exceed 100.
+     * @description The IDs of Elastic Compute Service (ECS) instances. The total number of ECS instance IDs and Cloud Backup client IDs cannot exceed 100.
      *
      * @example ["c-*********************"]
      *

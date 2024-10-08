@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class hanaRestores extends Model
 {
     /**
-     * @description The ID of the backup.
+     * @description The backup ID.
      *
      * @example 1635315505
      *
@@ -29,8 +29,8 @@ class hanaRestores extends Model
     /**
      * @description Indicates whether the differential backup and log backup are validated. Valid values:
      *
-     *   true: HBR checks whether the required differential backup and log backup are available before the restore job starts. If the differential backup or log backup is unavailable, HBR does not start the restore job.
-     *   false: HBR does not check whether the required differential backup and log backup are available before the restore job starts.
+     *   true: Cloud Backup checks whether the required differential backup and log backup are available before the restore job starts. If the differential backup or log backup is unavailable, Cloud Backup does not start the restore job.
+     *   false: Cloud Backup does not check whether the required differential backup and log backup are available before the restore job starts.
      *
      * @example true
      *
@@ -75,7 +75,7 @@ class hanaRestores extends Model
     public $currentProgress;
 
     /**
-     * @description The name of the database.
+     * @description The database name.
      *
      * @example BWD
      *
@@ -170,7 +170,7 @@ class hanaRestores extends Model
     public $reachedTime;
 
     /**
-     * @description The point in time to which the database is restored. This parameter is returned only if the value of the Mode parameter is **RECOVERY_TO_POINT_IN_TIME**. HBR restores the database to a state closest to the specified point in time.
+     * @description The point in time to which the database is restored. This parameter is returned only if the value of the Mode parameter is **RECOVERY_TO_POINT_IN_TIME**. Cloud Backup restores the database to a state closest to the specified point in time.
      *
      * @example 1649851200
      *
@@ -226,12 +226,12 @@ class hanaRestores extends Model
     /**
      * @description The status of the restore job. Valid values:
      *
-     *   **RUNNING**: The restore job is running.
-     *   **COMPLETE**: The restore job is completed.
-     *   **PARTIAL_COMPLETE**: The restore job is partially completed.
-     *   **FAILED**: The restore job has failed.
-     *   **CANCELED**: The restore job is canceled.
-     *   **EXPIRED**: The restore job has timed out.
+     *   **RUNNING**: The job is running.
+     *   **COMPLETE**: The job is completed.
+     *   **PARTIAL_COMPLETE**: The job is partially completed.
+     *   **FAILED**: The job failed.
+     *   **CANCELED**: The job is canceled.
+     *   **EXPIRED**: The job timed out.
      *
      * @example COMPLETE
      *
@@ -252,7 +252,7 @@ class hanaRestores extends Model
     public $systemCopy;
 
     /**
-     * @description Indicates whether a catalog backup is used to restore the database. This parameter is returned only if the value of the Mode parameter is **RECOVERY_TO_SPECIFIC_BACKUP**. If the return value is false, HBR finds the backup file based on the specified prefix and then restores the backup file.
+     * @description Indicates whether a catalog backup is used to restore the database. This parameter is returned only if the value of the Mode parameter is **RECOVERY_TO_SPECIFIC_BACKUP**. If the return value is false, Cloud Backup finds the backup file based on the specified prefix and then restores the backup file.
      *
      * @example false
      *
@@ -261,7 +261,7 @@ class hanaRestores extends Model
     public $useCatalog;
 
     /**
-     * @description Indicates whether a differential backup or an incremental backup is used to restore the database. Valid values: true and false. If the return value is true, HBR uses a differential backup or an incremental backup to restore the database. If the return value is false, HBR uses a log backup to restore the database.
+     * @description Indicates whether a differential backup or an incremental backup is used to restore the database. Valid values: true and false. If the return value is true, Cloud Backup uses a differential backup or an incremental backup to restore the database. If the return value is false, Cloud Backup uses a log backup to restore the database.
      *
      * @example true
      *

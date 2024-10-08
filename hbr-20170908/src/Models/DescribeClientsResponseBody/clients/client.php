@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class client extends Model
 {
     /**
-     * @description The alert settings. Valid value: INHERITED, which indicates that the backup client sends alert notifications in the same way as the backup vault.
+     * @description The alert settings. Valid value: INHERITED, which indicates that the Cloud Backup client sends alert notifications by using the same method configured for the backup vault.
      *
      * @example INHERITED
      *
@@ -18,7 +18,7 @@ class client extends Model
     public $alertSetting;
 
     /**
-     * @description The ID of the backup client.
+     * @description The ID of the Cloud Backup client.
      *
      * @example c-00062uu******2fgj
      *
@@ -27,7 +27,7 @@ class client extends Model
     public $clientId;
 
     /**
-     * @description The name of the backup client.
+     * @description The client name.
      *
      * @example client-20211224-101226
      *
@@ -36,7 +36,7 @@ class client extends Model
     public $clientName;
 
     /**
-     * @description The type of the backup client. Valid value:**ECS_AGENT**, which indicates an SAP HANA backup client.
+     * @description The type of the Cloud Backup client. Valid value: **ECS_AGENT**, which indicates an SAP HANA backup client.
      *
      * @example ECS_AGENT
      *
@@ -45,7 +45,7 @@ class client extends Model
     public $clientType;
 
     /**
-     * @description The version number of the backup client.
+     * @description The version number of the Cloud Backup client.
      *
      * @example 1.11.16
      *
@@ -63,7 +63,7 @@ class client extends Model
     public $clusterId;
 
     /**
-     * @description The time when the backup client was created.
+     * @description The time when the Cloud Backup client was created.
      *
      * @example 1554347313
      *
@@ -72,7 +72,7 @@ class client extends Model
     public $createdTime;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example i-wz9b6wya******n8yo
      *
@@ -90,7 +90,7 @@ class client extends Model
     public $instanceName;
 
     /**
-     * @description The maximum version number of the backup client.
+     * @description The maximum version number of the Cloud Backup client.
      *
      * @example 1.11.23
      *
@@ -101,8 +101,8 @@ class client extends Model
     /**
      * @description The network type. Valid values:
      *
-     *   **CLASSIC**: classic network
-     *   **VPC**: virtual private cloud (VPC)
+     *   **CLASSIC**: the classic network
+     *   **VPC**: the virtual private cloud (VPC)
      *
      * @example VPC
      *
@@ -111,11 +111,11 @@ class client extends Model
     public $networkType;
 
     /**
-     * @description The status of the backup client. Valid values:
+     * @description The status of the Cloud Backup client. Valid values:
      *
      *   **REGISTERED**: The backup client is registered.
-     *   **ACTIVATED**: The backup client is enabled.
-     *   **DEACTIVATED**: The backup client fails to be enabled.
+     *   **ACTIVATED**: The backup client is activated.
+     *   **DEACTIVATED**: The backup client fails to be activated.
      *   **INSTALLING**: The backup client is being installed.
      *   **INSTALL_FAILED**: The backup client fails to be installed.
      *   **NOT_INSTALLED**: The backup client is not installed.
@@ -142,7 +142,7 @@ class client extends Model
     public $statusMessage;
 
     /**
-     * @description The time when the backup client was updated. This value is a UNIX timestamp. Unit: seconds.
+     * @description The time when the Cloud Backup client was updated. This value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1554347313
      *

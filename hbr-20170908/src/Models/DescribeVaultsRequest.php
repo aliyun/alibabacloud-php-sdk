@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVaultsRequest extends Model
 {
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeVaultsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 99. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -31,6 +35,13 @@ class DescribeVaultsRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The status of the backup vault. Valid values:
+     *
+     *   **UNKNOWN**: The backup vault is in an unknown state.
+     *   **INITIALIZING**: The backup vault is being initialized.
+     *   **CREATED**: The backup vault is created.
+     *   **ERROR**: An error occurs on the backup vault.
+     *
      * @example CREATED
      *
      * @var string

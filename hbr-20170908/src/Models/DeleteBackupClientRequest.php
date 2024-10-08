@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteBackupClientRequest extends Model
 {
     /**
-     * @description The ID of the backup client.
+     * @description The ID of the Cloud Backup client.
      *
+     * This parameter is required.
      * @example c-*********************
      *
      * @var string

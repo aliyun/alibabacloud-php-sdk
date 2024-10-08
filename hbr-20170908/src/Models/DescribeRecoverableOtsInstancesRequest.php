@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecoverableOtsInstancesRequest extends Model
 {
     /**
-     * @description The role name created in the RAM of the original account used for cross-account backup.
+     * @description The name of the Resource Access Management (RAM) role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
      *
      * @example hbrcrossrole
      *
@@ -18,9 +18,10 @@ class DescribeRecoverableOtsInstancesRequest extends Model
     public $crossAccountRoleName;
 
     /**
-     * @description The type of cross-account backup. Supported:
-     * SELF_ACCOUNT: backup of this account
-     * CROSS_ACCOUNT: Cross-account backup
+     * @description Specifies whether data is backed up within the same Alibaba Cloud account or across Alibaba Cloud accounts. Valid values:
+     *
+     *   SELF_ACCOUNT: Data is backed up within the same Alibaba Cloud account.
+     *   CROSS_ACCOUNT: Data is backed up across Alibaba Cloud accounts.
      *
      * @example CROSS_ACCOUNT
      *
@@ -29,7 +30,7 @@ class DescribeRecoverableOtsInstancesRequest extends Model
     public $crossAccountType;
 
     /**
-     * @description The Alibaba Cloud Uid of the original account used to cross accounts.
+     * @description The ID of the source Alibaba Cloud account that authorizes the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
      *
      * @example 1440155109798732
      *

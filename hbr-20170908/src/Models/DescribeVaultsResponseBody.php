@@ -59,7 +59,9 @@ class DescribeVaultsResponseBody extends Model
     public $totalCount;
 
     /**
-     * @example {\"Vault\": []}
+     * @description The backup vaults.
+     *
+     * @example {\\"Vault\\": []}
      *
      * @var vaults
      */

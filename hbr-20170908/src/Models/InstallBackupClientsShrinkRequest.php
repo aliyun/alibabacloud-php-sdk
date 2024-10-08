@@ -41,6 +41,7 @@ class InstallBackupClientsShrinkRequest extends Model
     /**
      * @description The IDs of the ECS instances. You can specify up to 20 IDs.
      *
+     * This parameter is required.
      * @example ["i-0xi5wj5*****v3j3bh2gj5"]
      *
      * @var string

@@ -41,7 +41,7 @@ class CreateBackupJobRequest extends Model
     /**
      * @description The cluster resources. This parameter is required only if you set the **SourceType** parameter to **CONTAINER**.
      *
-     * @example [{\"resourceType\":\"PV\",\"backupMethod\":\"FILE\",\"resourceId\":\"674dac6d-74cd-47e9-a675-09e2f10d2c45\",\"resourceInfo\":\"{\\\"pv_name\\\":\\\"nas-650dac6d-74cd-47e9-a675-09e2f10d2c45\\\",\\\"pv_size\\\":\\\"8Gi\\\",\\\"storage_class\\\":\\\"alibabacloud-cnfs-nas\\\",\\\"pvc_name\\\":\\\"data-postgresql-default-0\\\",\\\"namespace\\\":\\\"database\\\"}\",\"host\":\"cn-huhehaote.192.168.13.133\",\"hostPrefix\":\"6f5e758e-8d35-4584-b9ce-8333adfc7547/volumes/kubernetes.io~csi/nas-670dac6d-74cd-47e9-a675-09e2f10d2c45/mount\",\"pvPath\":\"/\"}]
+     * @example [{\\"resourceType\\":\\"PV\\",\\"backupMethod\\":\\"FILE\\",\\"resourceId\\":\\"674dac6d-74cd-47e9-a675-09e2f10d2c45\\",\\"resourceInfo\\":\\"{\\\\\\"pv_name\\\\\\":\\\\\\"nas-650dac6d-74cd-47e9-a675-09e2f10d2c45\\\\\\",\\\\\\"pv_size\\\\\\":\\\\\\"8Gi\\\\\\",\\\\\\"storage_class\\\\\\":\\\\\\"alibabacloud-cnfs-nas\\\\\\",\\\\\\"pvc_name\\\\\\":\\\\\\"data-postgresql-default-0\\\\\\",\\\\\\"namespace\\\\\\":\\\\\\"database\\\\\\"}\\",\\"host\\":\\"cn-huhehaote.192.168.13.133\\",\\"hostPrefix\\":\\"6f5e758e-8d35-4584-b9ce-8333adfc7547/volumes/kubernetes.io~csi/nas-670dac6d-74cd-47e9-a675-09e2f10d2c45/mount\\",\\"pvPath\\":\\"/\\"}]
      *
      * @var string
      */
@@ -78,6 +78,8 @@ class CreateBackupJobRequest extends Model
     public $crossAccountUserId;
 
     /**
+     * @example {
+     * }
      * @var mixed[]
      */
     public $detail;
@@ -156,6 +158,7 @@ class CreateBackupJobRequest extends Model
      *   **UDM_ECS**: ECS instances
      *   **CONTAINER**: containers
      *
+     * This parameter is required.
      * @example CONTAINER
      *
      * @var string

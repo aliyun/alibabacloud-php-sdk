@@ -18,7 +18,7 @@ class DescribeHanaRetentionSettingResponseBody extends Model
     public $clusterId;
 
     /**
-     * @description The HTTP status code. The status code 200 indicates that the call is successful.
+     * @description The response code. The status code 200 indicates that the request was successful.
      *
      * @example 200
      *
@@ -27,7 +27,7 @@ class DescribeHanaRetentionSettingResponseBody extends Model
     public $code;
 
     /**
-     * @description The name of the database.
+     * @description The database name.
      *
      * @example Q01
      *
@@ -48,7 +48,7 @@ class DescribeHanaRetentionSettingResponseBody extends Model
     public $disabled;
 
     /**
-     * @description The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+     * @description The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
      *
      * @example successful
      *
@@ -57,7 +57,7 @@ class DescribeHanaRetentionSettingResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 280DD872-EE25-52E8-9CB4-491067173DD0
      *
@@ -77,8 +77,8 @@ class DescribeHanaRetentionSettingResponseBody extends Model
     /**
      * @description The policy to update the retention period. Format: `I|{startTime}|{interval}`, which indicates that the retention period is updated at an interval of {interval} starting from {startTime}.
      *
-     *   startTime: the time at which the system starts to update the retention period. The time follows the UNIX time format. Unit: seconds.
-     *   interval: the interval at which the system updates the retention period. The interval follows the ISO 8601 standard. For example, PT1H indicates an interval of 1 hour. P1D indicates an interval of one day.
+     *   startTime: the time at which the system starts to run a backup job. The time follows the UNIX time format. Unit: seconds.
+     *   interval: the interval at which the system runs a backup job. The interval follows the ISO 8601 standard. For example, PT1H indicates an interval of 1 hour. P1D indicates an interval of one day.
      *
      * @example I|0|P1D
      *
@@ -87,10 +87,10 @@ class DescribeHanaRetentionSettingResponseBody extends Model
     public $schedule;
 
     /**
-     * @description Indicates whether the call is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call is successful.
-     *   false: The call fails.
+     *   true
+     *   false
      *
      * @example true
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class rule extends Model
 {
     /**
-     * @description The backup type. **COMPLETE** indicates full backup.
+     * @description The backup type. Valid value: **COMPLETE**, which indicates full backup.
      *
      * @example COMPLETE
      *
@@ -63,7 +63,7 @@ class rule extends Model
     public $retention;
 
     /**
-     * @description The ID of the policy.
+     * @description The policy ID.
      *
      * @example rule-0008i52rf0ulpni6kn6m
      *
@@ -72,7 +72,7 @@ class rule extends Model
     public $ruleId;
 
     /**
-     * @description The name of the policy.
+     * @description The policy name.
      *
      * @example Disk Golden Rule
      *

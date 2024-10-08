@@ -11,10 +11,10 @@ use AlibabaCloud\Tea\Model;
 class clients extends Model
 {
     /**
-     * @description Indicates whether the HBR client is installed on an all-in-one PC that integrates hardware and monitoring program. Valid values:
+     * @description Indicates whether the client is installed on an all-in-one PC that integrates hardware and monitoring program. Valid values:
      *
-     *   true: The HBR client is installed on an all-in-one PC that integrates hardware and monitoring program.
-     *   false: The HBR client is not installed on an all-in-one PC that integrates hardware and monitoring program.
+     *   true: The client is installed on an all-in-one PC that integrates hardware and monitoring program.
+     *   false: The client is not installed on an all-in-one PC that integrates hardware and monitoring program.
      *
      * @example false
      *
@@ -23,7 +23,7 @@ class clients extends Model
     public $appliance;
 
     /**
-     * @description This parameter is valid only if the **ClientType** parameter is set to **ECS_CLIENT**. This parameter indicates the system architecture where the HBR client resides. Valid values:
+     * @description This parameter is valid only if the **ClientType** parameter is set to **ECS_CLIENT**. This parameter indicates the system architecture where the backup client resides. Valid values:
      *
      *   **amd64**
      *   **386**
@@ -35,10 +35,10 @@ class clients extends Model
     public $archType;
 
     /**
-     * @description The protection status of the HBR client. Valid values:
+     * @description The protection status of the backup client. Valid values:
      *
-     *   **UNPROTECTED**: The HBR client is not protected.
-     *   **PROTECTED**: The HBR client is protected.
+     *   **UNPROTECTED**: The backup client is not protected.
+     *   **PROTECTED**: The backup client is protected.
      *
      * @example PROTECTED
      *
@@ -47,7 +47,7 @@ class clients extends Model
     public $backupStatus;
 
     /**
-     * @description The ID of the HBR client.
+     * @description The ID of the backup client.
      *
      * @example c-*********************
      *
@@ -56,7 +56,7 @@ class clients extends Model
     public $clientId;
 
     /**
-     * @description The type of the HBR client. Valid value: **ECS_CLIENT**, which indicates an HBR client for ECS file backup.
+     * @description The type of the backup client. Valid value: **ECS_CLIENT**, which indicates a client for ECS file backup.
      *
      * @example ECS_CLIENT
      *
@@ -65,7 +65,7 @@ class clients extends Model
     public $clientType;
 
     /**
-     * @description The version number of the HBR client.
+     * @description The version number of the backup client.
      *
      * @example 2.4.5
      *
@@ -74,7 +74,7 @@ class clients extends Model
     public $clientVersion;
 
     /**
-     * @description The time when the HBR client was created. The value is a UNIX timestamp. Unit: seconds.
+     * @description The time when the backup client was created. The value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1554347313
      *
@@ -83,7 +83,7 @@ class clients extends Model
     public $createdTime;
 
     /**
-     * @description The hostname of the HBR client.
+     * @description The hostname of the backup client.
      *
      * @example hostname
      *
@@ -92,10 +92,10 @@ class clients extends Model
     public $hostname;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
-     *   If the HBR client is used to back up ECS files, this parameter indicates the ID of an ECS instance.
-     *   If the HBR client is used to back up on-premises files, this parameter indicates the hardware fingerprint that is generated based on the system information.
+     *   If the client is used to back up ECS files, this parameter indicates the ID of an ECS instance.
+     *   If the client is used to back up on-premises files, this parameter indicates the hardware fingerprint that is generated based on the system information.
      *
      * @example i-*********************
      *
@@ -113,7 +113,7 @@ class clients extends Model
     public $instanceName;
 
     /**
-     * @description The last heartbeat time of the HBR client. The value is a UNIX timestamp. Unit: seconds.
+     * @description The last heartbeat time of the backup client. The value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1554347313
      *
@@ -122,7 +122,7 @@ class clients extends Model
     public $lastHeartBeatTime;
 
     /**
-     * @description The latest version number of the HBR client.
+     * @description The latest version number of the backup client.
      *
      * @example 2.4.5
      *
@@ -131,7 +131,7 @@ class clients extends Model
     public $maxClientVersion;
 
     /**
-     * @description This parameter is valid only if the **ClientType** parameter is set to **ECS_CLIENT**. This parameter indicates the operating system type of the HBR client. Valid values:
+     * @description This parameter is valid only if the **ClientType** parameter is set to **ECS_CLIENT**. This parameter indicates the operating system type of the backup client. Valid values:
      *
      *   **windows**
      *   **linux**
@@ -152,27 +152,27 @@ class clients extends Model
     public $privateIpV4;
 
     /**
-     * @description The configuration information of the HBR client.
+     * @description The configuration information of the backup client.
      *
      * @var settings
      */
     public $settings;
 
     /**
-     * @description The status of the HBR client. Valid values:
+     * @description The status of the backup client. Valid values:
      *
-     *   **REGISTERED**: The HBR client is registered.
-     *   **ACTIVATED**: The HBR client is enabled.
-     *   **DEACTIVATED**: The HBR client fails to be enabled.
-     *   **INSTALLING**: The HBR client is being installed.
-     *   **INSTALL_FAILED**: The HBR client fails to be installed.
-     *   **NOT_INSTALLED**: The HBR client is not installed.
-     *   **UPGRADING**: The HBR client is being upgraded.
-     *   **UPGRADE_FAILED**: The HBR client fails to be upgraded.
-     *   **UNINSTALLING**: The HBR client is being uninstalled.
-     *   **UNINSTALL_FAILED**: The HBR client fails to be uninstalled.
-     *   **STOPPED**: The HBR client is out of service.
-     *   **UNKNOWN**: The HBR client is disconnected.
+     *   **REGISTERED**: The backup client is registered.
+     *   **ACTIVATED**: The backup client is activated.
+     *   **DEACTIVATED**: The backup client fails to be activated.
+     *   **INSTALLING**: The backup client is being installed.
+     *   **INSTALL_FAILED**: The backup client fails to be installed.
+     *   **NOT_INSTALLED**: The backup client is not installed.
+     *   **UPGRADING**: The backup client is being upgraded.
+     *   **UPGRADE_FAILED**: The backup client fails to be upgraded.
+     *   **UNINSTALLING**: The backup client is being uninstalled.
+     *   **UNINSTALL_FAILED**: The backup client fails to be uninstalled.
+     *   **STOPPED**: The backup client is out of service.
+     *   **UNKNOWN**: The backup client is disconnected.
      *
      * @example ACTIVATED
      *
@@ -188,7 +188,7 @@ class clients extends Model
     public $tags;
 
     /**
-     * @description The time when the HBR client was updated. The value is a UNIX timestamp. Unit: seconds.
+     * @description The time when the backup client was updated. The value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1554347313
      *
@@ -197,7 +197,7 @@ class clients extends Model
     public $updatedTime;
 
     /**
-     * @description This parameter is valid only if the **ClientType** parameter is set to **ECS_CLIENT**. This parameter indicates the zone of the HBR client.
+     * @description This parameter is valid only if the **ClientType** parameter is set to **ECS_CLIENT**. This parameter indicates the zone of the backup client.
      *
      * @example cn-hangzhou-f
      *

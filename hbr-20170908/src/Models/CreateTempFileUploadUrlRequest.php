@@ -11,6 +11,7 @@ class CreateTempFileUploadUrlRequest extends Model
     /**
      * @description The name of the file to be uploaded.
      *
+     * This parameter is required.
      * @example file-list.txt
      *
      * @var string

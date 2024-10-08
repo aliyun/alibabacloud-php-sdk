@@ -27,6 +27,35 @@ class CreateClientsRequest extends Model
     public $clientInfo;
 
     /**
+     * @description The name of the Resource Access Management (RAM) role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
+     *
+     * @example hbrcrossrole
+     *
+     * @var string
+     */
+    public $crossAccountRoleName;
+
+    /**
+     * @description The backup type. Valid values:
+     *
+     * - **SELF_ACCOUNT**: Data is backed up within the same Alibaba Cloud account.
+     * - **CROSS_ACCOUNT**: Data is backed up across Alibaba Cloud accounts.
+     * @example CROSS_ACCOUNT
+     *
+     * @var string
+     */
+    public $crossAccountType;
+
+    /**
+     * @description The ID of the source Alibaba Cloud account that authorizes the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
+     *
+     * @example 158975xxxxx4625
+     *
+     * @var int
+     */
+    public $crossAccountUserId;
+
+    /**
      * @description The ID of the resource group.
      *
      * @example rg-aekzvx7d3c4kpny
@@ -50,17 +79,21 @@ class CreateClientsRequest extends Model
     /**
      * @description The ID of the backup vault.
      *
+     * This parameter is required.
      * @example v-0001ufe******kgm
      *
      * @var string
      */
     public $vaultId;
     protected $_name = [
-        'alertSetting'    => 'AlertSetting',
-        'clientInfo'      => 'ClientInfo',
-        'resourceGroupId' => 'ResourceGroupId',
-        'useHttps'        => 'UseHttps',
-        'vaultId'         => 'VaultId',
+        'alertSetting'         => 'AlertSetting',
+        'clientInfo'           => 'ClientInfo',
+        'crossAccountRoleName' => 'CrossAccountRoleName',
+        'crossAccountType'     => 'CrossAccountType',
+        'crossAccountUserId'   => 'CrossAccountUserId',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'useHttps'             => 'UseHttps',
+        'vaultId'              => 'VaultId',
     ];
 
     public function validate()
@@ -75,6 +108,15 @@ class CreateClientsRequest extends Model
         }
         if (null !== $this->clientInfo) {
             $res['ClientInfo'] = $this->clientInfo;
+        }
+        if (null !== $this->crossAccountRoleName) {
+            $res['CrossAccountRoleName'] = $this->crossAccountRoleName;
+        }
+        if (null !== $this->crossAccountType) {
+            $res['CrossAccountType'] = $this->crossAccountType;
+        }
+        if (null !== $this->crossAccountUserId) {
+            $res['CrossAccountUserId'] = $this->crossAccountUserId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -102,6 +144,15 @@ class CreateClientsRequest extends Model
         }
         if (isset($map['ClientInfo'])) {
             $model->clientInfo = $map['ClientInfo'];
+        }
+        if (isset($map['CrossAccountRoleName'])) {
+            $model->crossAccountRoleName = $map['CrossAccountRoleName'];
+        }
+        if (isset($map['CrossAccountType'])) {
+            $model->crossAccountType = $map['CrossAccountType'];
+        }
+        if (isset($map['CrossAccountUserId'])) {
+            $model->crossAccountUserId = $map['CrossAccountUserId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

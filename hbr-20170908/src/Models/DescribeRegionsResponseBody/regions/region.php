@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class region extends Model
 {
     /**
-     * @description The name of the region.
+     * @description The region name.
      *
      * @example China (Hangzhou)
      *
@@ -18,26 +18,16 @@ class region extends Model
     public $localName;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
-
-    /**
-     * @description The number of repositories in the region.
-     *
-     * @example 11
-     *
-     * @var int
-     */
-    public $vaultCount;
     protected $_name = [
-        'localName'  => 'LocalName',
-        'regionId'   => 'RegionId',
-        'vaultCount' => 'VaultCount',
+        'localName' => 'LocalName',
+        'regionId'  => 'RegionId',
     ];
 
     public function validate()
@@ -52,9 +42,6 @@ class region extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->vaultCount) {
-            $res['VaultCount'] = $this->vaultCount;
         }
 
         return $res;
@@ -73,9 +60,6 @@ class region extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['VaultCount'])) {
-            $model->vaultCount = $map['VaultCount'];
         }
 
         return $model;

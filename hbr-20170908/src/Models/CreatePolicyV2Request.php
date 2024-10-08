@@ -28,6 +28,11 @@ class CreatePolicyV2Request extends Model
     public $policyName;
 
     /**
+     * @var string
+     */
+    public $policyType;
+
+    /**
      * @description The rules in the backup policy.
      *
      * @var rules[]
@@ -36,6 +41,7 @@ class CreatePolicyV2Request extends Model
     protected $_name = [
         'policyDescription' => 'PolicyDescription',
         'policyName'        => 'PolicyName',
+        'policyType'        => 'PolicyType',
         'rules'             => 'Rules',
     ];
 
@@ -51,6 +57,9 @@ class CreatePolicyV2Request extends Model
         }
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
+        }
+        if (null !== $this->policyType) {
+            $res['PolicyType'] = $this->policyType;
         }
         if (null !== $this->rules) {
             $res['Rules'] = [];
@@ -78,6 +87,9 @@ class CreatePolicyV2Request extends Model
         }
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
+        }
+        if (isset($map['PolicyType'])) {
+            $model->policyType = $map['PolicyType'];
         }
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {

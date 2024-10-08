@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeContainerClusterRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * @example cc-000*************hg9
      *
@@ -18,7 +18,7 @@ class DescribeContainerClusterRequest extends Model
     public $clusterId;
 
     /**
-     * @description The identifier of container cluster.
+     * @description The identifier of the container cluster. For a Container Service for Kubernetes (ACK) cluster, specify the cluster ID.
      *
      * @example cca*******************************87a
      *

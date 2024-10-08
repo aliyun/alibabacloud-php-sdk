@@ -23,7 +23,7 @@ class backupPlan extends Model
     public $backupSourceGroupId;
 
     /**
-     * @description The backup type. **COMPLETE** indicates full backup.
+     * @description The backup type. Valid value: **COMPLETE**, which indicates full backup.
      *
      * @example COMPLETE
      *
@@ -41,7 +41,7 @@ class backupPlan extends Model
     public $bucket;
 
     /**
-     * @description The configurations of the incremental file synchronization. This parameter is required only for data synchronization.
+     * @description The configurations of the incremental file synchronization. This parameter is returned only for data synchronization.
      *
      * @example {"dataSourceId": "ds-123456789", "path": "/changelist"}
      *
@@ -125,16 +125,16 @@ class backupPlan extends Model
     public $dataSourceId;
 
     /**
-     * @description The data source details at the destination. This parameter is required only for data synchronization.
+     * @description The data source details at the destination. This parameter is returned only for data synchronization.
      *
-     * @example {\"prefix\":\"/\"}
+     * @example {\\"prefix\\":\\"/\\"}
      *
      * @var string
      */
     public $destDataSourceDetail;
 
     /**
-     * @description The data source ID at the destination. This parameter is required only for data synchronization.
+     * @description The data source ID at the destination. This parameter is returned only for data synchronization.
      *
      * @example ds-*********************
      *
@@ -143,7 +143,7 @@ class backupPlan extends Model
     public $destDataSourceId;
 
     /**
-     * @description The data source type at the destination. This parameter is required only for data synchronization.
+     * @description The data source type at the destination. This parameter is returned only for data synchronization.
      *
      * @example OSS
      *
@@ -154,7 +154,7 @@ class backupPlan extends Model
     /**
      * @description The details about ECS instance backup.
      *
-     * @example {\"doCopy\":true,\"doBackup\":false,\"instanceName\":\"instance example\",\"appConsistent\":false,\"destinationRegionId\":\"cn-shanghai\",\"enableFsFreeze\":true,\"osNameEn\":\"Windows Server  2019 Data Center Edition 64bit Chinese Edition\",\"osName\":\"Windows Server  2019 Data Center Edition 64bit Chinese Edition\",\"diskIdList\":[],\"backupVaultId\":\"\",\"snapshotGroup\":true,\"destinationRetention\":35,\"platform\":\"Windows Server 2012\",\"timeoutInSeconds\":60,\"backupRetention\":1,\"osType\":\"windows\",\"preScriptPath\":\"\",\"postScriptPath\":\"\",\"enableWriters\":true,\"ecsDeleted\":false}
+     * @example {\\"doCopy\\":true,\\"doBackup\\":false,\\"instanceName\\":\\"instance example\\",\\"appConsistent\\":false,\\"destinationRegionId\\":\\"cn-shanghai\\",\\"enableFsFreeze\\":true,\\"osNameEn\\":\\"Windows Server  2019 Data Center Edition 64bit Chinese Edition\\",\\"osName\\":\\"Windows Server  2019 Data Center Edition 64bit Chinese Edition\\",\\"diskIdList\\":[],\\"backupVaultId\\":\\"\\",\\"snapshotGroup\\":true,\\"destinationRetention\\":35,\\"platform\\":\\"Windows Server 2012\\",\\"timeoutInSeconds\\":60,\\"backupRetention\\":1,\\"osType\\":\\"windows\\",\\"preScriptPath\\":\\"\\",\\"postScriptPath\\":\\"\\",\\"enableWriters\\":true,\\"ecsDeleted\\":false}
      *
      * @var string
      */
@@ -241,14 +241,14 @@ class backupPlan extends Model
     /**
      * @description The latest execution job id of plan.
      *
-     * @example j-12345678
+     * @example job-12345678
      *
      * @var string
      */
     public $latestExecuteJobId;
 
     /**
-     * @description This parameter is valid only when **SourceType** is set to **ECS_FILE**. This parameter indicates whether VSS is used to define a source path.
+     * @description This parameter is valid only when **SourceType** is set to **ECS_FILE**. This parameter indicates whether Windows Volume Shadow Copy Service (VSS) is used to define a source path.
      *
      * @example {"UseVSS":false}
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeHanaRestoresRequest extends Model
 {
     /**
-     * @description The ID of the backup.
+     * @description The backup ID.
      *
      * @example 1632754800158
      *
@@ -20,6 +20,7 @@ class DescribeHanaRestoresRequest extends Model
     /**
      * @description The ID of the SAP HANA instance.
      *
+     * This parameter is required.
      * @example cl-000b******soejg
      *
      * @var string
@@ -27,7 +28,7 @@ class DescribeHanaRestoresRequest extends Model
     public $clusterId;
 
     /**
-     * @description The name of the database.
+     * @description The database name.
      *
      * @example SYSTEMDB
      *
@@ -36,7 +37,7 @@ class DescribeHanaRestoresRequest extends Model
     public $databaseName;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -45,7 +46,7 @@ class DescribeHanaRestoresRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 99. Default value: 10.
+     * @description The number of entries per page. Valid values: 1 to 99. Default value: 10.
      *
      * @example 10
      *
@@ -74,12 +75,12 @@ class DescribeHanaRestoresRequest extends Model
     /**
      * @description The status of the restore job. Valid values:
      *
-     *   **RUNNING**: The restore job is running.
-     *   **COMPLETE**: The restore job is completed.
-     *   **PARTIAL_COMPLETE**: The restore job is partially completed.
-     *   **FAILED**: The restore job has failed.
-     *   **CANCELED**: The restore job is canceled.
-     *   **EXPIRED**: The restore job has timed out.
+     *   **RUNNING**: The job is running.
+     *   **COMPLETE**: The job is completed.
+     *   **PARTIAL_COMPLETE**: The job is partially completed.
+     *   **FAILED**: The job failed.
+     *   **CANCELED**: The job is canceled.
+     *   **EXPIRED**: The job timed out.
      *
      * @example COMPLETE
      *

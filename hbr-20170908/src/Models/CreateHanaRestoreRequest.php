@@ -20,6 +20,7 @@ class CreateHanaRestoreRequest extends Model
     /**
      * @description The backup prefix.
      *
+     * This parameter is required.
      * @example COMPLETE_DATA_BACKUP_2022_05_02_15_39
      *
      * @var string
@@ -47,6 +48,7 @@ class CreateHanaRestoreRequest extends Model
     /**
      * @description The ID of the SAP HANA instance that you want to restore.
      *
+     * This parameter is required.
      * @example cl-000fbrs5******ka9w
      *
      * @var string
@@ -56,6 +58,7 @@ class CreateHanaRestoreRequest extends Model
     /**
      * @description The name of the database that you want to restore.
      *
+     * This parameter is required.
      * @example TS2
      *
      * @var string
@@ -88,6 +91,7 @@ class CreateHanaRestoreRequest extends Model
      *   **RECOVERY_TO_SPECIFIC_BACKUP**: restores the database to a specified backup.
      *   **RECOVERY_TO_LOG_POSITION**: restores the database to a specified log position.
      *
+     * This parameter is required.
      * @example RECOVERY_TO_POINT_IN_TIME
      *
      * @var string
@@ -158,7 +162,7 @@ class CreateHanaRestoreRequest extends Model
     public $useDelta;
 
     /**
-     * @description The ID of the vault.
+     * @description The ID of the backup vault.
      *
      * @example v-000************yqr
      *

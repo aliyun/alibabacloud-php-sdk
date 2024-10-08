@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateContainerClusterRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cc-000**************134
      *
      * @var string

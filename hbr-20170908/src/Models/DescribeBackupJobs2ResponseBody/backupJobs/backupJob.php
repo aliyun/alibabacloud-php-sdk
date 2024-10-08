@@ -152,7 +152,7 @@ class backupJob extends Model
     /**
      * @description The data source details at the destination. This parameter is returned only for data synchronization.
      *
-     * @example {\"prefix\":\"/\"}
+     * @example {\\"prefix\\":\\"/\\"}
      *
      * @var string
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateHanaInstanceRequest extends Model
 {
     /**
-     * @description The alert settings. Valid value: INHERITED, which indicates that the backup client sends alert notifications in the same way as the backup vault.
+     * @description The alert settings. Valid value: INHERITED, which indicates that the Cloud Backup client sends alert notifications by using the same method configured for the backup vault.
      *
      * @example INHERITED
      *
@@ -47,6 +47,7 @@ class UpdateHanaInstanceRequest extends Model
     /**
      * @description The instance number of the SAP HANA system.
      *
+     * This parameter is required.
      * @example 00
      *
      * @var int
@@ -77,6 +78,7 @@ class UpdateHanaInstanceRequest extends Model
      *   true: The SAP HANA database is connected over SSL.
      *   false: The SAP HANA database is not connected over SSL.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -95,9 +97,10 @@ class UpdateHanaInstanceRequest extends Model
     /**
      * @description Specifies whether to verify the SSL certificate of the SAP HANA database. Valid values:
      *
-     *   true: The SSL certificate of the SAP HANA instance is verified.
-     *   false: The SSL certificate of the SAP HANA instance is not verified.
+     *   true: The SSL certificate of the SAP HANA database is verified.
+     *   false: The SSL certificate of the SAP HANA database is not verified.
      *
+     * This parameter is required.
      * @example false
      *
      * @var bool

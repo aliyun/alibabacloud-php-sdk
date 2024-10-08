@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AttachNasFileSystemResponse extends Model
+class DeleteUdmDiskResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class AttachNasFileSystemResponse extends Model
     public $statusCode;
 
     /**
-     * @var AttachNasFileSystemResponseBody
+     * @var DeleteUdmDiskResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class AttachNasFileSystemResponse extends Model
     /**
      * @param array $map
      *
-     * @return AttachNasFileSystemResponse
+     * @return DeleteUdmDiskResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class AttachNasFileSystemResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = AttachNasFileSystemResponseBody::fromMap($map['body']);
+            $model->body = DeleteUdmDiskResponseBody::fromMap($map['body']);
         }
 
         return $model;

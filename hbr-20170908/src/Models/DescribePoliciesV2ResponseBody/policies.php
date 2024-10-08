@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class policies extends Model
 {
     /**
-     * @description The time when the backup policy was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The time when the backup policy was created. The value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1650248136
      *
@@ -55,6 +55,11 @@ class policies extends Model
     public $policyName;
 
     /**
+     * @var string
+     */
+    public $policyType;
+
+    /**
      * @description The rules in the backup policy.
      *
      * @var rules[]
@@ -62,7 +67,7 @@ class policies extends Model
     public $rules;
 
     /**
-     * @description The time when the backup policy was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The time when the backup policy was updated. The value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1662080404
      *
@@ -75,6 +80,7 @@ class policies extends Model
         'policyDescription'  => 'PolicyDescription',
         'policyId'           => 'PolicyId',
         'policyName'         => 'PolicyName',
+        'policyType'         => 'PolicyType',
         'rules'              => 'Rules',
         'updatedTime'        => 'UpdatedTime',
     ];
@@ -100,6 +106,9 @@ class policies extends Model
         }
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
+        }
+        if (null !== $this->policyType) {
+            $res['PolicyType'] = $this->policyType;
         }
         if (null !== $this->rules) {
             $res['Rules'] = [];
@@ -139,6 +148,9 @@ class policies extends Model
         }
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
+        }
+        if (isset($map['PolicyType'])) {
+            $model->policyType = $map['PolicyType'];
         }
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {

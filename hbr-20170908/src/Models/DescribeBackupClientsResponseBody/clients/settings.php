@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class settings extends Model
 {
     /**
+     * @description Indicates whether alerts are generated for partially completed jobs. This parameter is valid only for on-premises file backup and ECS file backup.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $alertOnPartialComplete;
@@ -30,7 +34,7 @@ class settings extends Model
      * @description The proxy configuration on the data plane. Valid values:
      *
      *   **DISABLE**: The proxy is not used.
-     *   \*\*USE_CONTROL_PROXY \*\* (default value): The configuration is the same as that on the control plane.
+     *   **USE_CONTROL_PROXY** (default): The configuration is the same as that on the control plane.
      *   **CUSTOM**: The configuration is customized (HTTP).
      *
      * @example USE_CONTROL_PROXY
@@ -49,6 +53,10 @@ class settings extends Model
     public $maxCpuCore;
 
     /**
+     * @description The maximum memory that can be used by the client. Unit: bytes. Only V2.13.0 and later are supported.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $maxMemory;

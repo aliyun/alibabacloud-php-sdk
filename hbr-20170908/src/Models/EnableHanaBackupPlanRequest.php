@@ -11,6 +11,7 @@ class EnableHanaBackupPlanRequest extends Model
     /**
      * @description The ID of the SAP HANA instance.
      *
+     * This parameter is required.
      * @example cl-0001zfcn******0pr3
      *
      * @var string
@@ -20,6 +21,7 @@ class EnableHanaBackupPlanRequest extends Model
     /**
      * @description The ID of the backup plan.
      *
+     * This parameter is required.
      * @example plan-*********************
      *
      * @var string
@@ -38,6 +40,7 @@ class EnableHanaBackupPlanRequest extends Model
     /**
      * @description The ID of the backup vault.
      *
+     * This parameter is required.
      * @example v-00030j3c******sn
      *
      * @var string

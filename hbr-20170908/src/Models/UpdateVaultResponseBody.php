@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateVaultResponseBody extends Model
 {
     /**
+     * @description The response code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateVaultResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message. If the request was successful, a success message is returned. If the request failed, an error message is returned.
+     *
      * @example successful
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateVaultResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
@@ -30,6 +36,11 @@ class UpdateVaultResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

@@ -27,6 +27,11 @@ class CreatePolicyV2ShrinkRequest extends Model
     public $policyName;
 
     /**
+     * @var string
+     */
+    public $policyType;
+
+    /**
      * @description The rules in the backup policy.
      *
      * @var string
@@ -35,6 +40,7 @@ class CreatePolicyV2ShrinkRequest extends Model
     protected $_name = [
         'policyDescription' => 'PolicyDescription',
         'policyName'        => 'PolicyName',
+        'policyType'        => 'PolicyType',
         'rulesShrink'       => 'Rules',
     ];
 
@@ -50,6 +56,9 @@ class CreatePolicyV2ShrinkRequest extends Model
         }
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
+        }
+        if (null !== $this->policyType) {
+            $res['PolicyType'] = $this->policyType;
         }
         if (null !== $this->rulesShrink) {
             $res['Rules'] = $this->rulesShrink;
@@ -71,6 +80,9 @@ class CreatePolicyV2ShrinkRequest extends Model
         }
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
+        }
+        if (isset($map['PolicyType'])) {
+            $model->policyType = $map['PolicyType'];
         }
         if (isset($map['Rules'])) {
             $model->rulesShrink = $map['Rules'];

@@ -27,6 +27,13 @@ class SearchHistoricalSnapshotsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The ordering mode. Valid values:
+     *
+     *   ASC (default): ascending order
+     *   DESC: descending order
+     *
+     * @example ASC
+     *
      * @var string
      */
     public $order;
@@ -70,6 +77,10 @@ class SearchHistoricalSnapshotsRequest extends Model
     public $query;
 
     /**
+     * @description The field that is used to sort data.
+     *
+     * @example CreatedTime
+     *
      * @var string
      */
     public $sortBy;

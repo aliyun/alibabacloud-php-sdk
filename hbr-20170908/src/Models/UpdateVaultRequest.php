@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateVaultRequest extends Model
 {
     /**
+     * @description The description of the backup vault. The description must be 0 to 255 characters in length.
+     *
      * @example vault description
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateVaultRequest extends Model
     public $description;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfm2fa2xeiebyy
      *
      * @var string
@@ -23,6 +27,9 @@ class UpdateVaultRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The ID of the backup vault.
+     *
+     * This parameter is required.
      * @example v-*********************
      *
      * @var string
@@ -30,6 +37,8 @@ class UpdateVaultRequest extends Model
     public $vaultId;
 
     /**
+     * @description The name of the backup vault. The name must be 1 to 64 characters in length.
+     *
      * @example vaultname
      *
      * @var string

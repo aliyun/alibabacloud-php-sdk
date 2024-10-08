@@ -11,6 +11,7 @@ class DeleteBackupPlanRequest extends Model
     /**
      * @description The ID of the backup plan.
      *
+     * This parameter is required.
      * @example plan-*********************
      *
      * @var string
@@ -18,6 +19,10 @@ class DeleteBackupPlanRequest extends Model
     public $planId;
 
     /**
+     * @description Specifies whether no running jobs are required.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $requireNoRunningJobs;
