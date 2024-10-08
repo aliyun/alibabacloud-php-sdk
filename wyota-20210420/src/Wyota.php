@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\Wyota\V20210420\Models\AddOrUpdateDeviceSeatsRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\AddOrUpdateDeviceSeatsResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\AddTerminalRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\AddTerminalResponse;
+use AlibabaCloud\SDK\Wyota\V20210420\Models\AddTerminalsRequest;
+use AlibabaCloud\SDK\Wyota\V20210420\Models\AddTerminalsResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\AttachEndUsersRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\AttachEndUsersResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\AttachLabelRequest;
@@ -567,6 +569,55 @@ class Wyota extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addTerminalWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 添加终端
+     *  *
+     * @param AddTerminalsRequest $request AddTerminalsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AddTerminalsResponse AddTerminalsResponse
+     */
+    public function addTerminalsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body     = [];
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->addTerminalParams)) {
+            $bodyFlat['AddTerminalParams'] = $request->addTerminalParams;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddTerminals',
+            'version'     => '2021-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddTerminalsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 添加终端
+     *  *
+     * @param AddTerminalsRequest $request AddTerminalsRequest
+     *
+     * @return AddTerminalsResponse AddTerminalsResponse
+     */
+    public function addTerminals($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addTerminalsWithOptions($request, $runtime);
     }
 
     /**
