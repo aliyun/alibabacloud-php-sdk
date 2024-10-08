@@ -90,6 +90,18 @@ class ruleList extends Model
     public $status;
 
     /**
+     * @description Whether the current rule switch takes effect. Valid values:
+     *
+     *   **true**: enabled
+     *   **false**: disabled
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $switchEnable;
+
+    /**
      * @description The switch ID of the system defense rule.
      *
      * @example USER-ENABLE-SWITCH-TYPE_****
@@ -106,6 +118,7 @@ class ruleList extends Model
         'ruleName'        => 'RuleName',
         'ruleType'        => 'RuleType',
         'status'          => 'Status',
+        'switchEnable'    => 'SwitchEnable',
         'switchId'        => 'SwitchId',
     ];
 
@@ -145,6 +158,9 @@ class ruleList extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->switchEnable) {
+            $res['SwitchEnable'] = $this->switchEnable;
         }
         if (null !== $this->switchId) {
             $res['SwitchId'] = $this->switchId;
@@ -190,6 +206,9 @@ class ruleList extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['SwitchEnable'])) {
+            $model->switchEnable = $map['SwitchEnable'];
         }
         if (isset($map['SwitchId'])) {
             $model->switchId = $map['SwitchId'];

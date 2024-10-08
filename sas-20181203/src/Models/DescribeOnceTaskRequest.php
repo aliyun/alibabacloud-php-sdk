@@ -46,6 +46,11 @@ class DescribeOnceTaskRequest extends Model
     public $rootTaskId;
 
     /**
+     * @var string
+     */
+    public $source;
+
+    /**
      * @description The timestamp when the root task starts. Unit: milliseconds.
      *
      * @example 1651737301000
@@ -81,6 +86,7 @@ class DescribeOnceTaskRequest extends Model
         'endTimeQuery'   => 'EndTimeQuery',
         'pageSize'       => 'PageSize',
         'rootTaskId'     => 'RootTaskId',
+        'source'         => 'Source',
         'startTimeQuery' => 'StartTimeQuery',
         'taskId'         => 'TaskId',
         'taskType'       => 'TaskType',
@@ -104,6 +110,9 @@ class DescribeOnceTaskRequest extends Model
         }
         if (null !== $this->rootTaskId) {
             $res['RootTaskId'] = $this->rootTaskId;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
         if (null !== $this->startTimeQuery) {
             $res['StartTimeQuery'] = $this->startTimeQuery;
@@ -137,6 +146,9 @@ class DescribeOnceTaskRequest extends Model
         }
         if (isset($map['RootTaskId'])) {
             $model->rootTaskId = $map['RootTaskId'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
         if (isset($map['StartTimeQuery'])) {
             $model->startTimeQuery = $map['StartTimeQuery'];

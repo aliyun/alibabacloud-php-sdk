@@ -122,6 +122,7 @@ class list_ extends Model
      *
      *   **1**: failed
      *   **3**: passed
+     *   **6**: Added to Whitelist
      *
      * @example 1
      *

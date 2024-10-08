@@ -42,6 +42,7 @@ class ListCheckItemWarningSummaryRequest extends Model
      * @description The risk status. Default value: null, which indicates that check items in all states are queried.Valid values:
      *   **1**: failed
      *   **3**: passed
+     *   **6**: Added to Whitelist
      *
      * @example 3
      *

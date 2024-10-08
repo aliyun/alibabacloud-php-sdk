@@ -925,6 +925,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetAuthSummaryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAuthVersionStatisticResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetBackupAutoConfigStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetBackupStorageCountResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetBuildRiskDefineRuleConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetBuildRiskDefineRuleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCanTrySasRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCanTrySasResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckConfigResponse;
@@ -1524,6 +1526,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\SaveWhiteListStrategyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SaveWhiteListStrategyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SendCustomizeReportRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SendCustomizeReportResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\SetBuildRiskDefineRuleConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\SetBuildRiskDefineRuleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetClusterInterceptionConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetClusterInterceptionConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetImageBuildRiskStatusRequest;
@@ -19508,6 +19512,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->rootTaskId)) {
             $query['RootTaskId'] = $request->rootTaskId;
         }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
         if (!Utils::isUnset($request->startTimeQuery)) {
             $query['StartTimeQuery'] = $request->startTimeQuery;
         }
@@ -28460,6 +28467,53 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getBackupStorageCountWithOptions($runtime);
+    }
+
+    /**
+     * @summary 查询用户的构建指令风险规则配置
+     *  *
+     * @param GetBuildRiskDefineRuleConfigRequest $request GetBuildRiskDefineRuleConfigRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetBuildRiskDefineRuleConfigResponse GetBuildRiskDefineRuleConfigResponse
+     */
+    public function getBuildRiskDefineRuleConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBuildRiskDefineRuleConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBuildRiskDefineRuleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询用户的构建指令风险规则配置
+     *  *
+     * @param GetBuildRiskDefineRuleConfigRequest $request GetBuildRiskDefineRuleConfigRequest
+     *
+     * @return GetBuildRiskDefineRuleConfigResponse GetBuildRiskDefineRuleConfigResponse
+     */
+    public function getBuildRiskDefineRuleConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBuildRiskDefineRuleConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -45280,6 +45334,53 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sendCustomizeReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 设置用户的构建指令风险规则配置
+     *  *
+     * @param SetBuildRiskDefineRuleConfigRequest $request SetBuildRiskDefineRuleConfigRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SetBuildRiskDefineRuleConfigResponse SetBuildRiskDefineRuleConfigResponse
+     */
+    public function setBuildRiskDefineRuleConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetBuildRiskDefineRuleConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetBuildRiskDefineRuleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 设置用户的构建指令风险规则配置
+     *  *
+     * @param SetBuildRiskDefineRuleConfigRequest $request SetBuildRiskDefineRuleConfigRequest
+     *
+     * @return SetBuildRiskDefineRuleConfigResponse SetBuildRiskDefineRuleConfigResponse
+     */
+    public function setBuildRiskDefineRuleConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setBuildRiskDefineRuleConfigWithOptions($request, $runtime);
     }
 
     /**

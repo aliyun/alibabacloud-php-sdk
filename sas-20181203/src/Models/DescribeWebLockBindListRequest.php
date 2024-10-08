@@ -69,6 +69,11 @@ class DescribeWebLockBindListRequest extends Model
     public $status;
 
     /**
+     * @description The UUID of the asset that you want to query.
+     *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUID.
+     * @example 7151f27e-1d51-4e98-a540-8936a****
+     *
      * @var string
      */
     public $uuid;
