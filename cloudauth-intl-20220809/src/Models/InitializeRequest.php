@@ -162,6 +162,11 @@ class InitializeRequest extends Model
     /**
      * @var string
      */
+    public $showGuidePage;
+
+    /**
+     * @var string
+     */
     public $showOcrResult;
 
     /**
@@ -194,6 +199,7 @@ class InitializeRequest extends Model
         'sceneCode'         => 'SceneCode',
         'securityLevel'     => 'SecurityLevel',
         'showAlbumIcon'     => 'ShowAlbumIcon',
+        'showGuidePage'     => 'ShowGuidePage',
         'showOcrResult'     => 'ShowOcrResult',
         'styleConfig'       => 'StyleConfig',
     ];
@@ -279,6 +285,9 @@ class InitializeRequest extends Model
         }
         if (null !== $this->showAlbumIcon) {
             $res['ShowAlbumIcon'] = $this->showAlbumIcon;
+        }
+        if (null !== $this->showGuidePage) {
+            $res['ShowGuidePage'] = $this->showGuidePage;
         }
         if (null !== $this->showOcrResult) {
             $res['ShowOcrResult'] = $this->showOcrResult;
@@ -372,6 +381,9 @@ class InitializeRequest extends Model
         }
         if (isset($map['ShowAlbumIcon'])) {
             $model->showAlbumIcon = $map['ShowAlbumIcon'];
+        }
+        if (isset($map['ShowGuidePage'])) {
+            $model->showGuidePage = $map['ShowGuidePage'];
         }
         if (isset($map['ShowOcrResult'])) {
             $model->showOcrResult = $map['ShowOcrResult'];
