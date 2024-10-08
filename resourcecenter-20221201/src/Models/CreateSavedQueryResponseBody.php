@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateSavedQueryResponseBody extends Model
 {
     /**
-     * @description The query ID.
+     * @description The template ID.
      *
      * @example sq-GeAck****
      *

@@ -17,6 +17,16 @@ class ExecuteMultiAccountSQLQueryResponseBody extends Model
     public $columns;
 
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @description The request ID.
      *
      * @example 44C8A952-D6B0-5BC8-82D5-93BA02E26F2E
@@ -32,9 +42,11 @@ class ExecuteMultiAccountSQLQueryResponseBody extends Model
      */
     public $rows;
     protected $_name = [
-        'columns'   => 'Columns',
-        'requestId' => 'RequestId',
-        'rows'      => 'Rows',
+        'columns'    => 'Columns',
+        'maxResults' => 'MaxResults',
+        'nextToken'  => 'NextToken',
+        'requestId'  => 'RequestId',
+        'rows'       => 'Rows',
     ];
 
     public function validate()
@@ -52,6 +64,12 @@ class ExecuteMultiAccountSQLQueryResponseBody extends Model
                     $res['Columns'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -79,6 +97,12 @@ class ExecuteMultiAccountSQLQueryResponseBody extends Model
                     $model->columns[$n++] = null !== $item ? columns::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

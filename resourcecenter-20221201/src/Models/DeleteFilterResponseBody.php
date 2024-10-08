@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteFilterResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example A4A63E3C-89EC-51F9-9934-C9AF1BCBAAA5
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class savedQueries extends Model
 {
     /**
-     * @description The time when the template was created.
+     * @description The time when the template was created. The time is displayed in UTC.
      *
      * @example 2022-01-13T05:50:35Z
      *
@@ -27,7 +27,7 @@ class savedQueries extends Model
     public $description;
 
     /**
-     * @description The name of the template.
+     * @description The template name.
      *
      * @example Query of All Alibaba Cloud Resources
      *
@@ -36,7 +36,7 @@ class savedQueries extends Model
     public $name;
 
     /**
-     * @description The ID of the template.
+     * @description The template ID.
      *
      * @example sq-GeAck****
      *
@@ -45,7 +45,7 @@ class savedQueries extends Model
     public $queryId;
 
     /**
-     * @description The time when the template was last updated.
+     * @description The time when the template was updated. The time is displayed in UTC.
      *
      * @example 2023-03-14 10:27:07
      *

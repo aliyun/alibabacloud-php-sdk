@@ -11,6 +11,7 @@ class GetResourceConfigurationRequest extends Model
     /**
      * @description The ID of the resource.
      *
+     * This parameter is required.
      * @example eip-bp1kyg72m****
      *
      * @var string
@@ -20,6 +21,7 @@ class GetResourceConfigurationRequest extends Model
     /**
      * @description The region ID of the resource.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -29,7 +31,7 @@ class GetResourceConfigurationRequest extends Model
     /**
      * @description The type of the resource.
      *
-     * For more information about the resource types supported by Resource Center, see [Services that work with Resource Center](~~477798~~).
+     * This parameter is required.
      * @example ACS::VPC::RouteTable
      *
      * @var string

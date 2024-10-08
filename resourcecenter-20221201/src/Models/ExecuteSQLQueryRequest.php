@@ -11,7 +11,7 @@ class ExecuteSQLQueryRequest extends Model
     /**
      * @description The SQL statement to be executed.
      *
-     * For more information about the SQL syntax, see [Basic SQL syntax](~~2539395~~).
+     * This parameter is required.
      * @example SELECT * FROM resources LIMIT 100;
      *
      * @var string
@@ -21,7 +21,7 @@ class ExecuteSQLQueryRequest extends Model
     /**
      * @description The search scope.
      *
-     * For information about how to obtain the ID of a resource group, see [ListResourceGroups](~~158855~~).
+     * For information about how to obtain the ID of a resource group, see [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html).
      * @example rg-acfmzawhxxc****
      *
      * @var string

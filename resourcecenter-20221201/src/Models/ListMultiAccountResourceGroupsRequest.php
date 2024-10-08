@@ -11,6 +11,7 @@ class ListMultiAccountResourceGroupsRequest extends Model
     /**
      * @description The ID of the management account or member of the resource directory.
      *
+     * This parameter is required.
      * @example 1394339739****
      *
      * @var string

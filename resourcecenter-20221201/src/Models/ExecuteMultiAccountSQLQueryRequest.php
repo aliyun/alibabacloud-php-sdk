@@ -11,7 +11,7 @@ class ExecuteMultiAccountSQLQueryRequest extends Model
     /**
      * @description The SQL statement to be executed.
      *
-     * For more information about the SQL syntax, see [Basic SQL syntax](~~2539395~~).
+     * This parameter is required.
      * @example SELECT * FROM resources LIMIT 100;
      *
      * @var string
@@ -27,7 +27,7 @@ class ExecuteMultiAccountSQLQueryRequest extends Model
      *   ID of a member: Resources within the member are searched.
      *   ID of a member/ID of a Resource group: Resources within the member in the resource group are searched.
      *
-     * For more information about how to obtain the ID of a resource directory, the Root folder, a folder, a member, or a resource group, see [GetResourceDirectory](~~159995~~), [ListFoldersForParent](~~159997~~), [ListFoldersForParent](~~159997~~), [ListAccounts](~~160016~~), or [ListResourceGroups](~~158855~~).
+     * This parameter is required.
      * @example rd-r4****
      *
      * @var string

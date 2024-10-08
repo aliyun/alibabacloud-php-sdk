@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListFiltersResponseBody extends Model
 {
     /**
+     * @description The name of the default filter.
+     *
      * @var string
      */
     public $defaultFilterName;
 
     /**
+     * @description The configurations of the filter.
+     *
      * @var filters[]
      */
     public $filters;
 
     /**
+     * @description The request ID.
+     *
      * @example AA39FB9C-CB74-5E73-8DFE-3A2B096F0759
      *
      * @var string

@@ -43,6 +43,7 @@ class ListTagValuesRequest extends Model
     /**
      * @description The tag key.
      *
+     * This parameter is required.
      * @example test_key
      *
      * @var string

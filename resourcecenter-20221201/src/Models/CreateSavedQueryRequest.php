@@ -21,6 +21,7 @@ class CreateSavedQueryRequest extends Model
     /**
      * @description The query statement in the template.
      *
+     * This parameter is required.
      * @example SELECT * FROM resources;
      *
      * @var string
@@ -31,9 +32,10 @@ class CreateSavedQueryRequest extends Model
      * @description The name of the template.
      *
      *   The name must be 1 to 64 characters in length.
-     *   The name can contain letters, digits, underscores (\_), and hyphens (-).
+     *   The name can contain letters, digits, underscores (_), and hyphens (-).
      *   The name must be unique.
      *
+     * This parameter is required.
      * @example Query of All Alibaba Cloud Resources
      *
      * @var string

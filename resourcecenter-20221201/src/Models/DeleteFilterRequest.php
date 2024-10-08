@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteFilterRequest extends Model
 {
     /**
+     * @description The name of the filter.
+     *
+     * This parameter is required.
      * @example ECS
      *
      * @var string

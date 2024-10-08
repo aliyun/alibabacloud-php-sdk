@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AssociateDefaultFilterResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 54673B22-2001-556A-B394-B8697AA9670B
      *
      * @var string

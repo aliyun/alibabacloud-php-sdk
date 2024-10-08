@@ -31,7 +31,7 @@ class UpdateSavedQueryRequest extends Model
      * @description The name of the template.
      *
      *   The name must be 1 to 64 characters in length.
-     *   The name can contain letters, digits, underscores (\_), and hyphens (-).
+     *   The name can contain letters, digits, underscores (_), and hyphens (-).
      *   The name must be unique.
      *
      * @example Query of All Alibaba Cloud Resources
@@ -41,8 +41,9 @@ class UpdateSavedQueryRequest extends Model
     public $name;
 
     /**
-     * @description The ID of the template.
+     * @description The template ID.
      *
+     * This parameter is required.
      * @example sq-GeAck****
      *
      * @var string

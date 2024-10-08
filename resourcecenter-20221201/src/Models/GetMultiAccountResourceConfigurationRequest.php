@@ -11,6 +11,7 @@ class GetMultiAccountResourceConfigurationRequest extends Model
     /**
      * @description The ID of the management account or member of the resource directory.
      *
+     * This parameter is required.
      * @example 1619302****
      *
      * @var string
@@ -20,6 +21,7 @@ class GetMultiAccountResourceConfigurationRequest extends Model
     /**
      * @description The ID of the resource.
      *
+     * This parameter is required.
      * @example m-eb3hji****
      *
      * @var string
@@ -29,6 +31,7 @@ class GetMultiAccountResourceConfigurationRequest extends Model
     /**
      * @description The region ID of the resource.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -38,6 +41,7 @@ class GetMultiAccountResourceConfigurationRequest extends Model
     /**
      * @description The type of the resource.
      *
+     * This parameter is required.
      * @example ACS::VPC::RouteTable
      *
      * @var string

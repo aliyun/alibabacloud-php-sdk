@@ -102,10 +102,12 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param AssociateDefaultFilterRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Sets a default filter.
+     *  *
+     * @param AssociateDefaultFilterRequest $request AssociateDefaultFilterRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssociateDefaultFilterResponse
+     * @return AssociateDefaultFilterResponse AssociateDefaultFilterResponse
      */
     public function associateDefaultFilterWithOptions($request, $runtime)
     {
@@ -133,9 +135,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param AssociateDefaultFilterRequest $request
+     * @summary Sets a default filter.
+     *  *
+     * @param AssociateDefaultFilterRequest $request AssociateDefaultFilterRequest
      *
-     * @return AssociateDefaultFilterResponse
+     * @return AssociateDefaultFilterResponse AssociateDefaultFilterResponse
      */
     public function associateDefaultFilter($request)
     {
@@ -145,10 +149,12 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param CreateFilterRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Creates a filter.
+     *  *
+     * @param CreateFilterRequest $request CreateFilterRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFilterResponse
+     * @return CreateFilterResponse CreateFilterResponse
      */
     public function createFilterWithOptions($request, $runtime)
     {
@@ -179,9 +185,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param CreateFilterRequest $request
+     * @summary Creates a filter.
+     *  *
+     * @param CreateFilterRequest $request CreateFilterRequest
      *
-     * @return CreateFilterResponse
+     * @return CreateFilterResponse CreateFilterResponse
      */
     public function createFilter($request)
     {
@@ -191,10 +199,12 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param CreateSavedQueryRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Creates a custom query template.
+     *  *
+     * @param CreateSavedQueryRequest $request CreateSavedQueryRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSavedQueryResponse
+     * @return CreateSavedQueryResponse CreateSavedQueryResponse
      */
     public function createSavedQueryWithOptions($request, $runtime)
     {
@@ -228,9 +238,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param CreateSavedQueryRequest $request
+     * @summary Creates a custom query template.
+     *  *
+     * @param CreateSavedQueryRequest $request CreateSavedQueryRequest
      *
-     * @return CreateSavedQueryResponse
+     * @return CreateSavedQueryResponse CreateSavedQueryResponse
      */
     public function createSavedQuery($request)
     {
@@ -240,10 +252,12 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param DeleteFilterRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Deletes a filter.
+     *  *
+     * @param DeleteFilterRequest $request DeleteFilterRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFilterResponse
+     * @return DeleteFilterResponse DeleteFilterResponse
      */
     public function deleteFilterWithOptions($request, $runtime)
     {
@@ -271,9 +285,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param DeleteFilterRequest $request
+     * @summary Deletes a filter.
+     *  *
+     * @param DeleteFilterRequest $request DeleteFilterRequest
      *
-     * @return DeleteFilterResponse
+     * @return DeleteFilterResponse DeleteFilterResponse
      */
     public function deleteFilter($request)
     {
@@ -283,10 +299,12 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param DeleteSavedQueryRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Deletes a custom query template.
+     *  *
+     * @param DeleteSavedQueryRequest $request DeleteSavedQueryRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSavedQueryResponse
+     * @return DeleteSavedQueryResponse DeleteSavedQueryResponse
      */
     public function deleteSavedQueryWithOptions($request, $runtime)
     {
@@ -314,9 +332,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param DeleteSavedQueryRequest $request
+     * @summary Deletes a custom query template.
+     *  *
+     * @param DeleteSavedQueryRequest $request DeleteSavedQueryRequest
      *
-     * @return DeleteSavedQueryResponse
+     * @return DeleteSavedQueryResponse DeleteSavedQueryResponse
      */
     public function deleteSavedQuery($request)
     {
@@ -326,9 +346,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Disables the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableMultiAccountResourceCenterResponse
+     * @return DisableMultiAccountResourceCenterResponse DisableMultiAccountResourceCenterResponse
      */
     public function disableMultiAccountResourceCenterWithOptions($runtime)
     {
@@ -349,7 +371,9 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @return DisableMultiAccountResourceCenterResponse
+     * @summary Disables the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
+     *  *
+     * @return DisableMultiAccountResourceCenterResponse DisableMultiAccountResourceCenterResponse
      */
     public function disableMultiAccountResourceCenter()
     {
@@ -359,9 +383,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Deactivates the Resource Center service.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableResourceCenterResponse
+     * @return DisableResourceCenterResponse DisableResourceCenterResponse
      */
     public function disableResourceCenterWithOptions($runtime)
     {
@@ -382,7 +408,9 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @return DisableResourceCenterResponse
+     * @summary Deactivates the Resource Center service.
+     *  *
+     * @return DisableResourceCenterResponse DisableResourceCenterResponse
      */
     public function disableResourceCenter()
     {
@@ -392,9 +420,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Cancels the default filter.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisassociateDefaultFilterResponse
+     * @return DisassociateDefaultFilterResponse DisassociateDefaultFilterResponse
      */
     public function disassociateDefaultFilterWithOptions($runtime)
     {
@@ -415,7 +445,9 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @return DisassociateDefaultFilterResponse
+     * @summary Cancels the default filter.
+     *  *
+     * @return DisassociateDefaultFilterResponse DisassociateDefaultFilterResponse
      */
     public function disassociateDefaultFilter()
     {
@@ -425,8 +457,10 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * If you have created a resource directory for your enterprise, you can enable the cross-account resource search feature by using the management account of the resource directory or a delegated administrator account of Resource Center to view the resources of members in the resource directory. For more information about a resource directory, see [Resource Directory overview](~~200506~~).
-     *   *
+     * @summary Enables the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
+     *  *
+     * @description If you have created a resource directory for your enterprise, you can enable the cross-account resource search feature by using the management account of the resource directory or a delegated administrator account of Resource Center to view the resources of members in the resource directory. For more information about a resource directory, see [Resource Directory overview](https://help.aliyun.com/document_detail/200506.html).
+     *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
      * @return EnableMultiAccountResourceCenterResponse EnableMultiAccountResourceCenterResponse
@@ -450,8 +484,10 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * If you have created a resource directory for your enterprise, you can enable the cross-account resource search feature by using the management account of the resource directory or a delegated administrator account of Resource Center to view the resources of members in the resource directory. For more information about a resource directory, see [Resource Directory overview](~~200506~~).
-     *   *
+     * @summary Enables the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
+     *  *
+     * @description If you have created a resource directory for your enterprise, you can enable the cross-account resource search feature by using the management account of the resource directory or a delegated administrator account of Resource Center to view the resources of members in the resource directory. For more information about a resource directory, see [Resource Directory overview](https://help.aliyun.com/document_detail/200506.html).
+     *  *
      * @return EnableMultiAccountResourceCenterResponse EnableMultiAccountResourceCenterResponse
      */
     public function enableMultiAccountResourceCenter()
@@ -462,9 +498,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Activates the Resource Center service.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableResourceCenterResponse
+     * @return EnableResourceCenterResponse EnableResourceCenterResponse
      */
     public function enableResourceCenterWithOptions($runtime)
     {
@@ -485,7 +523,9 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @return EnableResourceCenterResponse
+     * @summary Activates the Resource Center service.
+     *  *
+     * @return EnableResourceCenterResponse EnableResourceCenterResponse
      */
     public function enableResourceCenter()
     {
@@ -495,10 +535,12 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param ExecuteMultiAccountSQLQueryRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Executes an SQL statement to query resources across accounts.
+     *  *
+     * @param ExecuteMultiAccountSQLQueryRequest $request ExecuteMultiAccountSQLQueryRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExecuteMultiAccountSQLQueryResponse
+     * @return ExecuteMultiAccountSQLQueryResponse ExecuteMultiAccountSQLQueryResponse
      */
     public function executeMultiAccountSQLQueryWithOptions($request, $runtime)
     {
@@ -529,9 +571,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param ExecuteMultiAccountSQLQueryRequest $request
+     * @summary Executes an SQL statement to query resources across accounts.
+     *  *
+     * @param ExecuteMultiAccountSQLQueryRequest $request ExecuteMultiAccountSQLQueryRequest
      *
-     * @return ExecuteMultiAccountSQLQueryResponse
+     * @return ExecuteMultiAccountSQLQueryResponse ExecuteMultiAccountSQLQueryResponse
      */
     public function executeMultiAccountSQLQuery($request)
     {
@@ -541,10 +585,12 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param ExecuteSQLQueryRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Executes an SQL statement to query the resources that can be accessed within the current account.
+     *  *
+     * @param ExecuteSQLQueryRequest $request ExecuteSQLQueryRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExecuteSQLQueryResponse
+     * @return ExecuteSQLQueryResponse ExecuteSQLQueryResponse
      */
     public function executeSQLQueryWithOptions($request, $runtime)
     {
@@ -575,9 +621,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param ExecuteSQLQueryRequest $request
+     * @summary Executes an SQL statement to query the resources that can be accessed within the current account.
+     *  *
+     * @param ExecuteSQLQueryRequest $request ExecuteSQLQueryRequest
      *
-     * @return ExecuteSQLQueryResponse
+     * @return ExecuteSQLQueryResponse ExecuteSQLQueryResponse
      */
     public function executeSQLQuery($request)
     {
@@ -587,10 +635,12 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param GetExampleQueryRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the information about a sample query template.
+     *  *
+     * @param GetExampleQueryRequest $request GetExampleQueryRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetExampleQueryResponse
+     * @return GetExampleQueryResponse GetExampleQueryResponse
      */
     public function getExampleQueryWithOptions($request, $runtime)
     {
@@ -618,9 +668,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param GetExampleQueryRequest $request
+     * @summary Queries the information about a sample query template.
+     *  *
+     * @param GetExampleQueryRequest $request GetExampleQueryRequest
      *
-     * @return GetExampleQueryResponse
+     * @return GetExampleQueryResponse GetExampleQueryResponse
      */
     public function getExampleQuery($request)
     {
@@ -630,9 +682,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the status of the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMultiAccountResourceCenterServiceStatusResponse
+     * @return GetMultiAccountResourceCenterServiceStatusResponse GetMultiAccountResourceCenterServiceStatusResponse
      */
     public function getMultiAccountResourceCenterServiceStatusWithOptions($runtime)
     {
@@ -653,7 +707,9 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @return GetMultiAccountResourceCenterServiceStatusResponse
+     * @summary Queries the status of the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
+     *  *
+     * @return GetMultiAccountResourceCenterServiceStatusResponse GetMultiAccountResourceCenterServiceStatusResponse
      */
     public function getMultiAccountResourceCenterServiceStatus()
     {
@@ -663,10 +719,12 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param GetMultiAccountResourceConfigurationRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @summary Queries the configurations of a resource within the management account or a member of a resource directory.
+     *  *
+     * @param GetMultiAccountResourceConfigurationRequest $request GetMultiAccountResourceConfigurationRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMultiAccountResourceConfigurationResponse
+     * @return GetMultiAccountResourceConfigurationResponse GetMultiAccountResourceConfigurationResponse
      */
     public function getMultiAccountResourceConfigurationWithOptions($request, $runtime)
     {
@@ -703,9 +761,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param GetMultiAccountResourceConfigurationRequest $request
+     * @summary Queries the configurations of a resource within the management account or a member of a resource directory.
+     *  *
+     * @param GetMultiAccountResourceConfigurationRequest $request GetMultiAccountResourceConfigurationRequest
      *
-     * @return GetMultiAccountResourceConfigurationResponse
+     * @return GetMultiAccountResourceConfigurationResponse GetMultiAccountResourceConfigurationResponse
      */
     public function getMultiAccountResourceConfiguration($request)
     {
@@ -715,9 +775,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the status of the Resource Center service.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetResourceCenterServiceStatusResponse
+     * @return GetResourceCenterServiceStatusResponse GetResourceCenterServiceStatusResponse
      */
     public function getResourceCenterServiceStatusWithOptions($runtime)
     {
@@ -738,7 +800,9 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @return GetResourceCenterServiceStatusResponse
+     * @summary Queries the status of the Resource Center service.
+     *  *
+     * @return GetResourceCenterServiceStatusResponse GetResourceCenterServiceStatusResponse
      */
     public function getResourceCenterServiceStatus()
     {
@@ -748,10 +812,12 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param GetResourceConfigurationRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the configurations of a resource within the current account.
+     *  *
+     * @param GetResourceConfigurationRequest $request GetResourceConfigurationRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetResourceConfigurationResponse
+     * @return GetResourceConfigurationResponse GetResourceConfigurationResponse
      */
     public function getResourceConfigurationWithOptions($request, $runtime)
     {
@@ -785,9 +851,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param GetResourceConfigurationRequest $request
+     * @summary Queries the configurations of a resource within the current account.
+     *  *
+     * @param GetResourceConfigurationRequest $request GetResourceConfigurationRequest
      *
-     * @return GetResourceConfigurationResponse
+     * @return GetResourceConfigurationResponse GetResourceConfigurationResponse
      */
     public function getResourceConfiguration($request)
     {
@@ -797,10 +865,12 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param GetResourceCountsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the numbers of resources on which the current account has access permissions.
+     *  *
+     * @param GetResourceCountsRequest $request GetResourceCountsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetResourceCountsResponse
+     * @return GetResourceCountsResponse GetResourceCountsResponse
      */
     public function getResourceCountsWithOptions($request, $runtime)
     {
@@ -831,9 +901,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param GetResourceCountsRequest $request
+     * @summary Queries the numbers of resources on which the current account has access permissions.
+     *  *
+     * @param GetResourceCountsRequest $request GetResourceCountsRequest
      *
-     * @return GetResourceCountsResponse
+     * @return GetResourceCountsResponse GetResourceCountsResponse
      */
     public function getResourceCounts($request)
     {
@@ -843,10 +915,12 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param GetSavedQueryRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the information about a custom query template.
+     *  *
+     * @param GetSavedQueryRequest $request GetSavedQueryRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSavedQueryResponse
+     * @return GetSavedQueryResponse GetSavedQueryResponse
      */
     public function getSavedQueryWithOptions($request, $runtime)
     {
@@ -874,9 +948,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param GetSavedQueryRequest $request
+     * @summary Queries the information about a custom query template.
+     *  *
+     * @param GetSavedQueryRequest $request GetSavedQueryRequest
      *
-     * @return GetSavedQueryResponse
+     * @return GetSavedQueryResponse GetSavedQueryResponse
      */
     public function getSavedQuery($request)
     {
@@ -886,10 +962,12 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param ListExampleQueriesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries all sample query templates.
+     *  *
+     * @param ListExampleQueriesRequest $request ListExampleQueriesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListExampleQueriesResponse
+     * @return ListExampleQueriesResponse ListExampleQueriesResponse
      */
     public function listExampleQueriesWithOptions($request, $runtime)
     {
@@ -920,9 +998,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param ListExampleQueriesRequest $request
+     * @summary Queries all sample query templates.
+     *  *
+     * @param ListExampleQueriesRequest $request ListExampleQueriesRequest
      *
-     * @return ListExampleQueriesResponse
+     * @return ListExampleQueriesResponse ListExampleQueriesResponse
      */
     public function listExampleQueries($request)
     {
@@ -932,9 +1012,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries a list of filters.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFiltersResponse
+     * @return ListFiltersResponse ListFiltersResponse
      */
     public function listFiltersWithOptions($runtime)
     {
@@ -955,7 +1037,9 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @return ListFiltersResponse
+     * @summary Queries a list of filters.
+     *  *
+     * @return ListFiltersResponse ListFiltersResponse
      */
     public function listFilters()
     {
@@ -965,10 +1049,12 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param ListMultiAccountResourceGroupsRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries the resource groups within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
+     *  *
+     * @param ListMultiAccountResourceGroupsRequest $request ListMultiAccountResourceGroupsRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMultiAccountResourceGroupsResponse
+     * @return ListMultiAccountResourceGroupsResponse ListMultiAccountResourceGroupsResponse
      */
     public function listMultiAccountResourceGroupsWithOptions($request, $runtime)
     {
@@ -1005,9 +1091,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param ListMultiAccountResourceGroupsRequest $request
+     * @summary Queries the resource groups within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
+     *  *
+     * @param ListMultiAccountResourceGroupsRequest $request ListMultiAccountResourceGroupsRequest
      *
-     * @return ListMultiAccountResourceGroupsResponse
+     * @return ListMultiAccountResourceGroupsResponse ListMultiAccountResourceGroupsResponse
      */
     public function listMultiAccountResourceGroups($request)
     {
@@ -1017,10 +1105,12 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param ListMultiAccountTagKeysRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the tag keys of resources within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
+     *  *
+     * @param ListMultiAccountTagKeysRequest $request ListMultiAccountTagKeysRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMultiAccountTagKeysResponse
+     * @return ListMultiAccountTagKeysResponse ListMultiAccountTagKeysResponse
      */
     public function listMultiAccountTagKeysWithOptions($request, $runtime)
     {
@@ -1060,9 +1150,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param ListMultiAccountTagKeysRequest $request
+     * @summary Queries the tag keys of resources within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
+     *  *
+     * @param ListMultiAccountTagKeysRequest $request ListMultiAccountTagKeysRequest
      *
-     * @return ListMultiAccountTagKeysResponse
+     * @return ListMultiAccountTagKeysResponse ListMultiAccountTagKeysResponse
      */
     public function listMultiAccountTagKeys($request)
     {
@@ -1072,10 +1164,12 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param ListMultiAccountTagValuesRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the tag values of resources within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
+     *  *
+     * @param ListMultiAccountTagValuesRequest $request ListMultiAccountTagValuesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMultiAccountTagValuesResponse
+     * @return ListMultiAccountTagValuesResponse ListMultiAccountTagValuesResponse
      */
     public function listMultiAccountTagValuesWithOptions($request, $runtime)
     {
@@ -1118,9 +1212,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param ListMultiAccountTagValuesRequest $request
+     * @summary Queries the tag values of resources within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
+     *  *
+     * @param ListMultiAccountTagValuesRequest $request ListMultiAccountTagValuesRequest
      *
-     * @return ListMultiAccountTagValuesResponse
+     * @return ListMultiAccountTagValuesResponse ListMultiAccountTagValuesResponse
      */
     public function listMultiAccountTagValues($request)
     {
@@ -1130,10 +1226,12 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param ListResourceTypesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the resource types supported by Resource Center.
+     *  *
+     * @param ListResourceTypesRequest $request ListResourceTypesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListResourceTypesResponse
+     * @return ListResourceTypesResponse ListResourceTypesResponse
      */
     public function listResourceTypesWithOptions($request, $runtime)
     {
@@ -1167,9 +1265,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param ListResourceTypesRequest $request
+     * @summary Queries the resource types supported by Resource Center.
+     *  *
+     * @param ListResourceTypesRequest $request ListResourceTypesRequest
      *
-     * @return ListResourceTypesResponse
+     * @return ListResourceTypesResponse ListResourceTypesResponse
      */
     public function listResourceTypes($request)
     {
@@ -1179,10 +1279,12 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param ListSavedQueriesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries all custom query templates.
+     *  *
+     * @param ListSavedQueriesRequest $request ListSavedQueriesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSavedQueriesResponse
+     * @return ListSavedQueriesResponse ListSavedQueriesResponse
      */
     public function listSavedQueriesWithOptions($request, $runtime)
     {
@@ -1213,9 +1315,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param ListSavedQueriesRequest $request
+     * @summary Queries all custom query templates.
+     *  *
+     * @param ListSavedQueriesRequest $request ListSavedQueriesRequest
      *
-     * @return ListSavedQueriesResponse
+     * @return ListSavedQueriesResponse ListSavedQueriesResponse
      */
     public function listSavedQueries($request)
     {
@@ -1225,10 +1329,12 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param ListTagKeysRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Queries the tag keys of resources within the current account.
+     *  *
+     * @param ListTagKeysRequest $request ListTagKeysRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagKeysResponse
+     * @return ListTagKeysResponse ListTagKeysResponse
      */
     public function listTagKeysWithOptions($request, $runtime)
     {
@@ -1265,9 +1371,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param ListTagKeysRequest $request
+     * @summary Queries the tag keys of resources within the current account.
+     *  *
+     * @param ListTagKeysRequest $request ListTagKeysRequest
      *
-     * @return ListTagKeysResponse
+     * @return ListTagKeysResponse ListTagKeysResponse
      */
     public function listTagKeys($request)
     {
@@ -1277,10 +1385,12 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param ListTagValuesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the tag values of resources within the current account.
+     *  *
+     * @param ListTagValuesRequest $request ListTagValuesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagValuesResponse
+     * @return ListTagValuesResponse ListTagValuesResponse
      */
     public function listTagValuesWithOptions($request, $runtime)
     {
@@ -1320,9 +1430,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param ListTagValuesRequest $request
+     * @summary Queries the tag values of resources within the current account.
+     *  *
+     * @param ListTagValuesRequest $request ListTagValuesRequest
      *
-     * @return ListTagValuesResponse
+     * @return ListTagValuesResponse ListTagValuesResponse
      */
     public function listTagValues($request)
     {
@@ -1332,13 +1444,15 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](~~477798~~).
-     *   * *   Before you use a RAM user or a RAM role to call the operation, you must make sure that the RAM user or RAM role is granted the required permissions. For more information, see [Grant a RAM user the permissions to use Resource Center](~~600556~~).
-     *   * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
-     *   * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
-     *   * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
-     *   * *   You can visit [Sample Code Center](https://api.alibabacloud.com/api-tools/demo/ResourceCenter) to view more sample queries.
-     *   *
+     * @summary Searches for resources within the management account or members of a resource directory.
+     *  *
+     * @description *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
+     * *   Before you use a RAM user or a RAM role to call the operation, you must make sure that the RAM user or RAM role is granted the required permissions. For more information, see [Grant a RAM user the permissions to use Resource Center](https://help.aliyun.com/document_detail/600556.html).
+     * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
+     * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
+     * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
+     * *   You can visit [Sample Code Center](https://api.alibabacloud.com/api-tools/demo/ResourceCenter) to view more sample queries.
+     *  *
      * @param SearchMultiAccountResourcesRequest $request SearchMultiAccountResourcesRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -1382,13 +1496,15 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](~~477798~~).
-     *   * *   Before you use a RAM user or a RAM role to call the operation, you must make sure that the RAM user or RAM role is granted the required permissions. For more information, see [Grant a RAM user the permissions to use Resource Center](~~600556~~).
-     *   * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
-     *   * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
-     *   * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
-     *   * *   You can visit [Sample Code Center](https://api.alibabacloud.com/api-tools/demo/ResourceCenter) to view more sample queries.
-     *   *
+     * @summary Searches for resources within the management account or members of a resource directory.
+     *  *
+     * @description *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
+     * *   Before you use a RAM user or a RAM role to call the operation, you must make sure that the RAM user or RAM role is granted the required permissions. For more information, see [Grant a RAM user the permissions to use Resource Center](https://help.aliyun.com/document_detail/600556.html).
+     * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
+     * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
+     * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
+     * *   You can visit [Sample Code Center](https://api.alibabacloud.com/api-tools/demo/ResourceCenter) to view more sample queries.
+     *  *
      * @param SearchMultiAccountResourcesRequest $request SearchMultiAccountResourcesRequest
      *
      * @return SearchMultiAccountResourcesResponse SearchMultiAccountResourcesResponse
@@ -1401,12 +1517,14 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](~~477798~~).
-     *   * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
-     *   * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
-     *   * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
-     *   * *   You can visit [Sample Code Center](https://api.aliyun.com/api-tools/demo/ResourceCenter) to view more sample queries.
-     *   *
+     * @summary Search for resources that you can access within the current account.
+     *  *
+     * @description *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
+     * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
+     * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
+     * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
+     * *   You can visit [Sample Code Center](https://api.aliyun.com/api-tools/demo/ResourceCenter) to view more sample queries.
+     *  *
      * @param SearchResourcesRequest $request SearchResourcesRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -1450,12 +1568,14 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](~~477798~~).
-     *   * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
-     *   * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
-     *   * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
-     *   * *   You can visit [Sample Code Center](https://api.aliyun.com/api-tools/demo/ResourceCenter) to view more sample queries.
-     *   *
+     * @summary Search for resources that you can access within the current account.
+     *  *
+     * @description *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
+     * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
+     * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
+     * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
+     * *   You can visit [Sample Code Center](https://api.aliyun.com/api-tools/demo/ResourceCenter) to view more sample queries.
+     *  *
      * @param SearchResourcesRequest $request SearchResourcesRequest
      *
      * @return SearchResourcesResponse SearchResourcesResponse
@@ -1468,10 +1588,12 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param UpdateFilterRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Updates a filter.
+     *  *
+     * @param UpdateFilterRequest $request UpdateFilterRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateFilterResponse
+     * @return UpdateFilterResponse UpdateFilterResponse
      */
     public function updateFilterWithOptions($request, $runtime)
     {
@@ -1502,9 +1624,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param UpdateFilterRequest $request
+     * @summary Updates a filter.
+     *  *
+     * @param UpdateFilterRequest $request UpdateFilterRequest
      *
-     * @return UpdateFilterResponse
+     * @return UpdateFilterResponse UpdateFilterResponse
      */
     public function updateFilter($request)
     {
@@ -1514,10 +1638,12 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param UpdateSavedQueryRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Updates a custom query template.
+     *  *
+     * @param UpdateSavedQueryRequest $request UpdateSavedQueryRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSavedQueryResponse
+     * @return UpdateSavedQueryResponse UpdateSavedQueryResponse
      */
     public function updateSavedQueryWithOptions($request, $runtime)
     {
@@ -1554,9 +1680,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param UpdateSavedQueryRequest $request
+     * @summary Updates a custom query template.
+     *  *
+     * @param UpdateSavedQueryRequest $request UpdateSavedQueryRequest
      *
-     * @return UpdateSavedQueryResponse
+     * @return UpdateSavedQueryResponse UpdateSavedQueryResponse
      */
     public function updateSavedQuery($request)
     {

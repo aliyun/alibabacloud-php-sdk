@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AssociateDefaultFilterRequest extends Model
 {
     /**
+     * @description The name of the filter.
+     *
+     * This parameter is required.
      * @var string
      */
     public $filterName;

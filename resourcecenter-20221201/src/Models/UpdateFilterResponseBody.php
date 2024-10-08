@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateFilterResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 3C5CDBF6-4DB7-53E9-ADDC-5919E3FACF6F
      *
      * @var string

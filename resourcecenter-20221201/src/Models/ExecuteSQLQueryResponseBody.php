@@ -17,6 +17,16 @@ class ExecuteSQLQueryResponseBody extends Model
     public $columns;
 
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @description The request ID.
      *
      * @example D696E6EF-3A6D-5770-801E-4982081FE4D0
@@ -32,9 +42,11 @@ class ExecuteSQLQueryResponseBody extends Model
      */
     public $rows;
     protected $_name = [
-        'columns'   => 'Columns',
-        'requestId' => 'RequestId',
-        'rows'      => 'Rows',
+        'columns'    => 'Columns',
+        'maxResults' => 'MaxResults',
+        'nextToken'  => 'NextToken',
+        'requestId'  => 'RequestId',
+        'rows'       => 'Rows',
     ];
 
     public function validate()
@@ -52,6 +64,12 @@ class ExecuteSQLQueryResponseBody extends Model
                     $res['Columns'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -79,6 +97,12 @@ class ExecuteSQLQueryResponseBody extends Model
                     $model->columns[$n++] = null !== $item ? columns::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

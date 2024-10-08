@@ -30,7 +30,7 @@ class ListResourceTypesRequest extends Model
     /**
      * @description The resource type.
      *
-     * For more information about the resource types that are supported by Resource Center, see [Services that work with Resource Center](~~477798~~).
+     * For more information about the resource types that are supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
      * @example ACS::ACK::Cluster
      *
      * @var string

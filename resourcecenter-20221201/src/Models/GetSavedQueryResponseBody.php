@@ -19,7 +19,7 @@ class GetSavedQueryResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the custom query template.
+     * @description The information about the template.
      *
      * @var savedQuery
      */
