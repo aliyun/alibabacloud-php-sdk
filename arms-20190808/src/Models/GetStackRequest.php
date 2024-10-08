@@ -47,6 +47,11 @@ class GetStackRequest extends Model
     public $rpcID;
 
     /**
+     * @var string
+     */
+    public $spanID;
+
+    /**
      * @description The start time of the call method.
      *
      * @example 1653555396
@@ -69,6 +74,7 @@ class GetStackRequest extends Model
         'pid'       => 'Pid',
         'regionId'  => 'RegionId',
         'rpcID'     => 'RpcID',
+        'spanID'    => 'SpanID',
         'startTime' => 'StartTime',
         'traceID'   => 'TraceID',
     ];
@@ -91,6 +97,9 @@ class GetStackRequest extends Model
         }
         if (null !== $this->rpcID) {
             $res['RpcID'] = $this->rpcID;
+        }
+        if (null !== $this->spanID) {
+            $res['SpanID'] = $this->spanID;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -121,6 +130,9 @@ class GetStackRequest extends Model
         }
         if (isset($map['RpcID'])) {
             $model->rpcID = $map['RpcID'];
+        }
+        if (isset($map['SpanID'])) {
+            $model->spanID = $map['SpanID'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

@@ -29,7 +29,7 @@ class traceInfos extends Model
     /**
      * @description The IP address of the host where the application resides.
      *
-     * @example ``172.20.**.**``
+     * @example 172.20.\*\*.**
      *
      * @var string
      */
@@ -43,6 +43,11 @@ class traceInfos extends Model
      * @var string
      */
     public $serviceName;
+
+    /**
+     * @var string
+     */
+    public $spanID;
 
     /**
      * @description The timestamp.
@@ -66,6 +71,7 @@ class traceInfos extends Model
         'operationName' => 'OperationName',
         'serviceIp'     => 'ServiceIp',
         'serviceName'   => 'ServiceName',
+        'spanID'        => 'SpanID',
         'timestamp'     => 'Timestamp',
         'traceID'       => 'TraceID',
     ];
@@ -88,6 +94,9 @@ class traceInfos extends Model
         }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
+        }
+        if (null !== $this->spanID) {
+            $res['SpanID'] = $this->spanID;
         }
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
@@ -118,6 +127,9 @@ class traceInfos extends Model
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+        if (isset($map['SpanID'])) {
+            $model->spanID = $map['SpanID'];
         }
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];

@@ -19,6 +19,11 @@ class stackInfo extends Model
     public $api;
 
     /**
+     * @var string
+     */
+    public $callCount;
+
+    /**
      * @description The duration. Unit: milliseconds.
      *
      * @example 32
@@ -80,6 +85,7 @@ class stackInfo extends Model
     public $startTime;
     protected $_name = [
         'api'         => 'Api',
+        'callCount'   => 'CallCount',
         'duration'    => 'Duration',
         'exception'   => 'Exception',
         'extInfo'     => 'ExtInfo',
@@ -98,6 +104,9 @@ class stackInfo extends Model
         $res = [];
         if (null !== $this->api) {
             $res['Api'] = $this->api;
+        }
+        if (null !== $this->callCount) {
+            $res['CallCount'] = $this->callCount;
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
@@ -134,6 +143,9 @@ class stackInfo extends Model
         $model = new self();
         if (isset($map['Api'])) {
             $model->api = $map['Api'];
+        }
+        if (isset($map['CallCount'])) {
+            $model->callCount = $map['CallCount'];
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
