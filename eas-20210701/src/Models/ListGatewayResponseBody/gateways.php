@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class gateways extends Model
 {
     /**
+     * @description The time when the private gateway was created. The time is displayed in UTC.
+     *
      * @example 2020-05-19T14:19:42Z
      *
      * @var string
@@ -16,6 +18,8 @@ class gateways extends Model
     public $createTime;
 
     /**
+     * @description The private gateway ID.
+     *
      * @example gw-1uhcqmsc7x22******
      *
      * @var string
@@ -23,6 +27,8 @@ class gateways extends Model
     public $gatewayId;
 
     /**
+     * @description The private gateway alias.
+     *
      * @example mygateway1
      *
      * @var string
@@ -30,6 +36,8 @@ class gateways extends Model
     public $gatewayName;
 
     /**
+     * @description The type of instances used for the private gateway.
+     *
      * @example 2c4g
      *
      * @var string
@@ -37,6 +45,8 @@ class gateways extends Model
     public $instanceType;
 
     /**
+     * @description The public endpoint.
+     *
      * @example gw-1uhcqmsc7x22******-1801786532******.cn-wulanchabu.pai-eas.aliyuncs.com
      *
      * @var string
@@ -44,6 +54,8 @@ class gateways extends Model
     public $internetDomain;
 
     /**
+     * @description Indicates whether Internet access is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -51,6 +63,8 @@ class gateways extends Model
     public $internetEnabled;
 
     /**
+     * @description The internal endpoint.
+     *
      * @example gw-1uhcqmsc7x22******-1801786532******-vpc.cn-wulanchabu.pai-eas.aliyuncs.com
      *
      * @var string
@@ -58,6 +72,8 @@ class gateways extends Model
     public $intranetDomain;
 
     /**
+     * @description Indicates whether it is the default private gateway.
+     *
      * @example true
      *
      * @var bool
@@ -65,6 +81,8 @@ class gateways extends Model
     public $isDefault;
 
     /**
+     * @description The number of nodes in the private gateway.
+     *
      * @example 2
      *
      * @var int
@@ -72,6 +90,18 @@ class gateways extends Model
     public $replicas;
 
     /**
+     * @description The state of the private gateway.
+     *
+     * Valid values:
+     *
+     *   Creating
+     *   Stopped
+     *   Failed
+     *   Running
+     *   Deleted
+     *   Deleting
+     *   Waiting
+     *
      * @example Running
      *
      * @var string
@@ -79,6 +109,8 @@ class gateways extends Model
     public $status;
 
     /**
+     * @description The time when the private gateway was updated. The time is displayed in UTC.
+     *
      * @example 2021-02-24T11:52:17Z
      *
      * @var string

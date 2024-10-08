@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CloneServiceShrinkRequest extends Model
 {
     /**
+     * @description The label of the service to be cloned.
+     *
      * @var string
      */
     public $labelsShrink;

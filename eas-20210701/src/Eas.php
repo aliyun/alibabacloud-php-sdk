@@ -304,7 +304,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 创建网关访问权限ACL Policy
+     * @summary Creates an access control list (ACL) for a private gateway. The IP CIDR blocks added to the ACL can access the private gateway.
      *  *
      * @param string                 $ClusterId
      * @param string                 $GatewayId
@@ -349,7 +349,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 创建网关访问权限ACL Policy
+     * @summary Creates an access control list (ACL) for a private gateway. The IP CIDR blocks added to the ACL can access the private gateway.
      *  *
      * @param string                 $ClusterId
      * @param string                 $GatewayId
@@ -1056,7 +1056,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 移除网关acl policy entry
+     * @summary Deletes an access control list (ACL) for a private gateway. The IP CIDR block that is deleted from the ACL cannot access the private gateway.
      *  *
      * @param string                 $ClusterId
      * @param string                 $GatewayId
@@ -1101,7 +1101,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 移除网关acl policy entry
+     * @summary Deletes an access control list (ACL) for a private gateway. The IP CIDR block that is deleted from the ACL cannot access the private gateway.
      *  *
      * @param string                 $ClusterId
      * @param string                 $GatewayId
@@ -2627,7 +2627,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 查询网关所有ACL Policy
+     * @summary Queries access control lists (ACLs) created for a private gateway.
      *  *
      * @param string               $ClusterId
      * @param string               $GatewayId
@@ -2664,7 +2664,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 查询网关所有ACL Policy
+     * @summary Queries access control lists (ACLs) created for a private gateway.
      *  *
      * @param string               $ClusterId
      * @param string               $GatewayId
@@ -2740,7 +2740,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 列举gateway
+     * @summary Queries a list of private gateways.
      *  *
      * @param ListGatewayRequest $request ListGatewayRequest
      * @param string[]           $headers map
@@ -2784,7 +2784,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 列举gateway
+     * @summary Queries a list of private gateways.
      *  *
      * @param ListGatewayRequest $request ListGatewayRequest
      *
@@ -3413,6 +3413,9 @@ class Eas extends OpenApiClient
         if (!Utils::isUnset($request->resourceName)) {
             $query['ResourceName'] = $request->resourceName;
         }
+        if (!Utils::isUnset($request->role)) {
+            $query['Role'] = $request->role;
+        }
         if (!Utils::isUnset($request->serviceName)) {
             $query['ServiceName'] = $request->serviceName;
         }
@@ -3466,7 +3469,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 获取租户配置列表
+     * @summary Queries a list of tenant plug-ins.
      *  *
      * @param string[]       $headers map
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -3494,7 +3497,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 获取租户配置列表
+     * @summary Queries a list of tenant plug-ins.
      *  *
      * @return ListTenantAddonsResponse ListTenantAddonsResponse
      */
@@ -3507,7 +3510,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 重置租户配置
+     * @summary Updates the information about a tenant plug-in.
      *  *
      * @param string         $ClusterId
      * @param string         $TenantAddonName
@@ -3537,7 +3540,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 重置租户配置
+     * @summary Updates the information about a tenant plug-in.
      *  *
      * @param string $ClusterId
      * @param string $TenantAddonName

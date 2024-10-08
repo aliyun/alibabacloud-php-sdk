@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class addons extends Model
 {
     /**
+     * @description The attributes of the plug-in.
+     *
      * @var string[]
      */
     public $attributes;
 
     /**
+     * @description The name of the plug-in.
+     *
      * @example prometheus_discovery
      *
      * @var string

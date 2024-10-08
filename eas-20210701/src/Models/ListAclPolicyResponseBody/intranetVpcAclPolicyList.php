@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class intranetVpcAclPolicyList extends Model
 {
     /**
+     * @description The whitelisted IP CIDR blocks in the VPC that can access the private gateway over the internal network.
+     *
      * @var aclPolicyList[]
      */
     public $aclPolicyList;
 
     /**
+     * @description The VPC ID. For more information about how to obtain the VPC ID, see DescribeVpcs.
+     *
      * @example vpc-uf66uio7md****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListGatewayRequest extends Model
 {
     /**
+     * @description The private gateway ID. To obtain the private gateway ID, see the private_gateway_id parameter in the response parameters of the ListResources operation.
+     *
      * @example gw-1uhcqmsc7x22******
      *
      * @var string
@@ -16,6 +18,8 @@ class ListGatewayRequest extends Model
     public $gatewayId;
 
     /**
+     * @description The private gateway alias.
+     *
      * @example mygateway1
      *
      * @var string
@@ -23,6 +27,8 @@ class ListGatewayRequest extends Model
     public $gatewayName;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class ListGatewayRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 100.
+     *
      * @example 100
      *
      * @var int

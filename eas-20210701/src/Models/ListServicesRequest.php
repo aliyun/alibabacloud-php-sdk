@@ -100,6 +100,11 @@ class ListServicesRequest extends Model
     public $resourceName;
 
     /**
+     * @var string
+     */
+    public $role;
+
+    /**
      * @description The service name.
      *
      * @example echo_test
@@ -258,6 +263,7 @@ class ListServicesRequest extends Model
         'parentServiceUid' => 'ParentServiceUid',
         'quotaId'          => 'QuotaId',
         'resourceName'     => 'ResourceName',
+        'role'             => 'Role',
         'serviceName'      => 'ServiceName',
         'serviceStatus'    => 'ServiceStatus',
         'serviceType'      => 'ServiceType',
@@ -302,6 +308,9 @@ class ListServicesRequest extends Model
         }
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
         }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
@@ -362,6 +371,9 @@ class ListServicesRequest extends Model
         }
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];

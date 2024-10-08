@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class aclPolicyList extends Model
 {
     /**
+     * @description The comment on the IP CIDR block in the VPC that can access the private gateway over the internal network.
+     *
+     * @example Test Entry
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The IP CIDR block in the VPC that can access the private gateway over the internal network.
+     *
+     * @example 192.168.XX.XX/24
+     *
      * @var string
      */
     public $entry;

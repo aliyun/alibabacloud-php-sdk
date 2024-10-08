@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListTenantAddonsResponseBody extends Model
 {
     /**
+     * @description The information about the plug-in.
+     *
      * @var addons[]
      */
     public $addons;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string

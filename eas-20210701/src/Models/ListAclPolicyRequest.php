@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAclPolicyRequest extends Model
 {
     /**
+     * @description The ID of the virtual private cloud (VPC). For more information about how to obtain the VPC ID, see DescribeVpcs.
+     *
      * @example vpc-uf66uio7md****
      *
      * @var string

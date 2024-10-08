@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class internetAclPolicyList extends Model
 {
     /**
+     * @description The whitelisted IP CIDR blocks in the VPC that can access the private gateway over the Internet.
+     *
      * @var aclPolicyList[]
      */
     public $aclPolicyList;
