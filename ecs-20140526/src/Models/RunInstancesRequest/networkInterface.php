@@ -149,7 +149,7 @@ class networkInterface extends Model
      *
      *   The first IP address and last three IP addresses of each vSwitch CIDR block are reserved. You cannot specify the IP addresses. For example, if a vSwitch CIDR block is 192.168.1.0/24, the following IP addresses are reserved: 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
      *
-     * @example ``172.16.**.**``
+     * @example 172.16.\*\*.**
      *
      * @var string
      */

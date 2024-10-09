@@ -62,7 +62,7 @@ class AssignPrivateIpAddressesRequest extends Model
      *   When the ENI is in the InUse (`InUse`) state, the valid values of N are subject to the instance type. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
      *
      * To assign secondary private IP addresses to the ENI, you must specify `PrivateIpAddress.N` or `SecondaryPrivateIpAddressCount` but not both.
-     * @example ``10.1.**.**``
+     * @example 10.1.\*\*.**
      *
      * @var string[]
      */

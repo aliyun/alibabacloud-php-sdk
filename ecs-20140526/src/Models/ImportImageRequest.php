@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ImportImageRequest\diskDeviceMapping;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ImportImageRequest\features;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ImportImageRequest\tag;
 use AlibabaCloud\Tea\Model;
 
@@ -62,6 +63,16 @@ class ImportImageRequest extends Model
      * @var diskDeviceMapping[]
      */
     public $diskDeviceMapping;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
+     * @var features
+     */
+    public $features;
 
     /**
      * @description The image name. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `acs:` or `aliyun`. The name cannot contain `http://` or `https://`. The name can contain letters, digits, periods (.), colons (:), underscores (_), and hyphens (-).
@@ -201,6 +212,8 @@ class ImportImageRequest extends Model
         'description'          => 'Description',
         'detectionStrategy'    => 'DetectionStrategy',
         'diskDeviceMapping'    => 'DiskDeviceMapping',
+        'dryRun'               => 'DryRun',
+        'features'             => 'Features',
         'imageName'            => 'ImageName',
         'licenseType'          => 'LicenseType',
         'OSType'               => 'OSType',
@@ -242,6 +255,12 @@ class ImportImageRequest extends Model
                     $res['DiskDeviceMapping'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->features) {
+            $res['Features'] = null !== $this->features ? $this->features->toMap() : null;
         }
         if (null !== $this->imageName) {
             $res['ImageName'] = $this->imageName;
@@ -317,6 +336,12 @@ class ImportImageRequest extends Model
                     $model->diskDeviceMapping[$n++] = null !== $item ? diskDeviceMapping::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['Features'])) {
+            $model->features = features::fromMap($map['Features']);
         }
         if (isset($map['ImageName'])) {
             $model->imageName = $map['ImageName'];

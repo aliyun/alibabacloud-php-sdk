@@ -228,7 +228,6 @@ class DescribeImagesRequest extends Model
     /**
      * @description Specifies whether the subscription image has expired.
      *
-     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
      * @example false
      *
      * @var bool

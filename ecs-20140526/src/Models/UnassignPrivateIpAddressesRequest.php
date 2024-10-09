@@ -38,7 +38,7 @@ class UnassignPrivateIpAddressesRequest extends Model
     /**
      * @description The secondary private IP addresses to unassign.
      *
-     * @example ``192.168.**.**``
+     * @example 192.168.\*\*.**
      *
      * @var string[]
      */

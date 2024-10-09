@@ -320,7 +320,7 @@ class CreateLaunchTemplateRequest extends Model
      * @description The private IP address to assign to the instance.
      *
      * To assign a private IP address to an instance that resides in a VPC, make sure that the IP address is an idle IP address within the CIDR block of the vSwitch specified by the `VSwitchId` parameter.
-     * @example ``10.1.**.**``
+     * @example 10.1.\*\*.**
      *
      * @var string
      */

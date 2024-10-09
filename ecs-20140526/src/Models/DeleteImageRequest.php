@@ -12,7 +12,7 @@ class DeleteImageRequest extends Model
      * @description Specifies whether to forcefully delete the custom image. Valid values:
      *
      *   true: forcefully deletes the custom image, regardless of whether the image is being used by other instances.
-     *   false: verifies that the image is not being used by other instances and then deletes the image.
+     *   false: verifies that the custom image is not being used by other instances and then deletes the image.
      *
      * Default value: false.
      * @example false
