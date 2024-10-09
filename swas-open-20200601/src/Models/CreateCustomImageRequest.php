@@ -67,6 +67,10 @@ class CreateCustomImageRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-aek2bti7cf7****
+     *
      * @var string
      */
     public $resourceGroupId;

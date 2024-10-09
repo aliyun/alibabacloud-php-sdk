@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The key of tag N that you want to add to the simple application server. Valid values of N: 1 to 20.
+     * @description The key of tag N that you want to add to a resource.
      *
-     * You cannot specify an empty string as a tag key. A tag key can be up to 64 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+     * You cannot specify an empty string as a tag key. The tag key can be up to 64 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
      * @example TestKey
      *
      * @var string
@@ -19,9 +19,9 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The value of tag N that you want to add to the simple application server. Valid values of N: 1 to 20.
+     * @description The value of tag N that you want to add to a resource.
      *
-     * You can specify an empty string as a tag value. A tag value can be up to 64 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+     * You can specify an empty string as a tag value. The tag value can be up to 64 characters in length and cannot contain http:// or https://.
      * @example TestValue
      *
      * @var string

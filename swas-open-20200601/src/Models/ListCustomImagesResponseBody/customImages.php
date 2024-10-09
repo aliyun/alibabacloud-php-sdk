@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class customImages extends Model
 {
     /**
+     * @description The Information about instances created using the image.
+     *
      * @var string[]
      */
     public $createInstances;
@@ -69,6 +71,8 @@ class customImages extends Model
     public $inShare;
 
     /**
+     * @description Whether the custom image is cross-account shared.
+     *
      * @example False
      *
      * @var bool
@@ -103,6 +107,17 @@ class customImages extends Model
     public $name;
 
     /**
+     * @description The type of the operating system.
+     *
+     * Valid values:
+     *
+     *   Linux
+     *
+     * <!-- -->
+     *
+     *   Windows
+     *
+     * <!-- -->
      * @example Linux
      *
      * @var string
@@ -119,6 +134,16 @@ class customImages extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $requiredDataDiskSize;
+
+    /**
+     * @var int
+     */
+    public $requiredSystemDiskSize;
+
+    /**
      * @description The ID of the resource group.
      *
      * @example rg-acfm2h2lvp3ublq
@@ -126,6 +151,16 @@ class customImages extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $sourceImageName;
+
+    /**
+     * @var string
+     */
+    public $sourceImageVersion;
 
     /**
      * @description The status of the custom image.
@@ -162,31 +197,37 @@ class customImages extends Model
     public $tags;
 
     /**
+     * @description The Primary Alibaba Cloud account ID of the image owner.
+     *
      * @example 180185828710****
      *
      * @var int
      */
     public $userId;
     protected $_name = [
-        'createInstances'    => 'CreateInstances',
-        'creationTime'       => 'CreationTime',
-        'dataSnapshotId'     => 'DataSnapshotId',
-        'dataSnapshotName'   => 'DataSnapshotName',
-        'description'        => 'Description',
-        'imageId'            => 'ImageId',
-        'inShare'            => 'InShare',
-        'inShareUser'        => 'InShareUser',
-        'instanceId'         => 'InstanceId',
-        'instanceName'       => 'InstanceName',
-        'name'               => 'Name',
-        'osType'             => 'OsType',
-        'regionId'           => 'RegionId',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'status'             => 'Status',
-        'systemSnapshotId'   => 'SystemSnapshotId',
-        'systemSnapshotName' => 'SystemSnapshotName',
-        'tags'               => 'Tags',
-        'userId'             => 'UserId',
+        'createInstances'        => 'CreateInstances',
+        'creationTime'           => 'CreationTime',
+        'dataSnapshotId'         => 'DataSnapshotId',
+        'dataSnapshotName'       => 'DataSnapshotName',
+        'description'            => 'Description',
+        'imageId'                => 'ImageId',
+        'inShare'                => 'InShare',
+        'inShareUser'            => 'InShareUser',
+        'instanceId'             => 'InstanceId',
+        'instanceName'           => 'InstanceName',
+        'name'                   => 'Name',
+        'osType'                 => 'OsType',
+        'regionId'               => 'RegionId',
+        'requiredDataDiskSize'   => 'RequiredDataDiskSize',
+        'requiredSystemDiskSize' => 'RequiredSystemDiskSize',
+        'resourceGroupId'        => 'ResourceGroupId',
+        'sourceImageName'        => 'SourceImageName',
+        'sourceImageVersion'     => 'SourceImageVersion',
+        'status'                 => 'Status',
+        'systemSnapshotId'       => 'SystemSnapshotId',
+        'systemSnapshotName'     => 'SystemSnapshotName',
+        'tags'                   => 'Tags',
+        'userId'                 => 'UserId',
     ];
 
     public function validate()
@@ -235,8 +276,20 @@ class customImages extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->requiredDataDiskSize) {
+            $res['RequiredDataDiskSize'] = $this->requiredDataDiskSize;
+        }
+        if (null !== $this->requiredSystemDiskSize) {
+            $res['RequiredSystemDiskSize'] = $this->requiredSystemDiskSize;
+        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->sourceImageName) {
+            $res['SourceImageName'] = $this->sourceImageName;
+        }
+        if (null !== $this->sourceImageVersion) {
+            $res['SourceImageVersion'] = $this->sourceImageVersion;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -312,8 +365,20 @@ class customImages extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['RequiredDataDiskSize'])) {
+            $model->requiredDataDiskSize = $map['RequiredDataDiskSize'];
+        }
+        if (isset($map['RequiredSystemDiskSize'])) {
+            $model->requiredSystemDiskSize = $map['RequiredSystemDiskSize'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SourceImageName'])) {
+            $model->sourceImageName = $map['SourceImageName'];
+        }
+        if (isset($map['SourceImageVersion'])) {
+            $model->sourceImageVersion = $map['SourceImageVersion'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

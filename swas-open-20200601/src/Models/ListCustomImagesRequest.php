@@ -46,6 +46,8 @@ class ListCustomImagesRequest extends Model
     public $imageNames;
 
     /**
+     * @description The ID of the Simple Application Server instance that the image originates from.
+     *
      * @example ace0706b2ac4454d984295a94213****
      *
      * @var string
@@ -93,6 +95,9 @@ class ListCustomImagesRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description Whether to query shared images. Value range:
+     *
+     * If not filled, all images are returned by default.
      * @example False
      *
      * @var bool

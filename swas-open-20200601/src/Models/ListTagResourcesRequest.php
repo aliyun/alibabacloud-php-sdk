@@ -38,7 +38,7 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The resource IDs. You can specify up to 50 resource IDs.
+     * @description The ID of the resource. You can specify up to 50 resource IDs.
      *
      * @var string[]
      */
@@ -62,7 +62,7 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tags. You can specify up to 20 tags.
+     * @description The list of tags. You can specify up to 20 tags.
      *
      * @var tag[]
      */

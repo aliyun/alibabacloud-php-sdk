@@ -4365,7 +4365,7 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary 云产品查标签接口
+     * @summary Queries the tags that are added to simple resources, such as instances, snapshots, disks, images, commands, and firewall rules.
      *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -4413,7 +4413,7 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary 云产品查标签接口
+     * @summary Queries the tags that are added to simple resources, such as instances, snapshots, disks, images, commands, and firewall rules.
      *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
@@ -5981,7 +5981,7 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary 打标签接口
+     * @summary Adds tags to simple application servers, snapshots, custom images, commands, firewall rules, and disks to facilitate the viewing and management of the preceding resources.
      *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -6026,7 +6026,7 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary 打标签接口
+     * @summary Adds tags to simple application servers, snapshots, custom images, commands, firewall rules, and disks to facilitate the viewing and management of the preceding resources.
      *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      *

@@ -31,6 +31,9 @@ class LoginInstanceRequest extends Model
     public $password;
 
     /**
+     * @description Remote login instance port number:
+     *
+     * > If you need to connect to the server using a custom port, you must first modify the server\\"s default remote port. For more information, see [Set a custom port to connect to a simple application server](https://help.aliyun.com/document_detail/2807402.html).
      * @example 3389
      *
      * @var int

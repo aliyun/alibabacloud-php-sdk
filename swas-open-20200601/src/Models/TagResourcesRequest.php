@@ -54,7 +54,7 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tags. You can specify up to 20 tags.
+     * @description The list of tags. You can specify up to 20 tags.
      *
      * This parameter is required.
      * @var tag[]
