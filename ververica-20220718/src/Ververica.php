@@ -3132,6 +3132,9 @@ class Ververica extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['pageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->sortName)) {
+            $query['sortName'] = $request->sortName;
+        }
         if (!Utils::isUnset($request->status)) {
             $query['status'] = $request->status;
         }

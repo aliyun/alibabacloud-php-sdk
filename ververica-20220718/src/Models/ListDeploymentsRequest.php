@@ -86,6 +86,11 @@ class ListDeploymentsRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $sortName;
+
+    /**
      * @description The latest status of the deployment.
      *
      * Valid values:
@@ -110,6 +115,7 @@ class ListDeploymentsRequest extends Model
         'name'            => 'name',
         'pageIndex'       => 'pageIndex',
         'pageSize'        => 'pageSize',
+        'sortName'        => 'sortName',
         'status'          => 'status',
     ];
 
@@ -143,6 +149,9 @@ class ListDeploymentsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+        if (null !== $this->sortName) {
+            $res['sortName'] = $this->sortName;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -182,6 +191,9 @@ class ListDeploymentsRequest extends Model
         }
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+        if (isset($map['sortName'])) {
+            $model->sortName = $map['sortName'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];
