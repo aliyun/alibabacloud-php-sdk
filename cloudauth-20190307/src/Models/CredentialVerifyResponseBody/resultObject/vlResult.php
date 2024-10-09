@@ -14,7 +14,7 @@ class vlResult extends Model
     public $success;
 
     /**
-     * @var mixed[]
+     * @var string
      */
     public $vlContent;
     protected $_name = [
