@@ -70,8 +70,12 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DeleteUserRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DeleteUserResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DeleteUserTagMetaRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DeleteUserTagMetaResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetMailTaskStatusRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetMailTaskStatusResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetUserGroupInfoRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetUserGroupInfoResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetWorksEmbedListRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetWorksEmbedListResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListApiDatasourceRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListApiDatasourceResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListByUserGroupIdRequest;
@@ -101,6 +105,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceRolesRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceRolesResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceRoleUsersRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceRoleUsersResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ManualRunMailTaskRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ManualRunMailTaskResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyApiDatasourceParametersRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyApiDatasourceParametersResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyCopilotEmbedConfigRequest;
@@ -1956,6 +1962,56 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 组织内查看邮件任务运行状态
+     *  *
+     * @param GetMailTaskStatusRequest $request GetMailTaskStatusRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetMailTaskStatusResponse GetMailTaskStatusResponse
+     */
+    public function getMailTaskStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mailId)) {
+            $query['MailId'] = $request->mailId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMailTaskStatus',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMailTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 组织内查看邮件任务运行状态
+     *  *
+     * @param GetMailTaskStatusRequest $request GetMailTaskStatusRequest
+     *
+     * @return GetMailTaskStatusResponse GetMailTaskStatusResponse
+     */
+    public function getMailTaskStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMailTaskStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Test description
      *  *
      * @param GetUserGroupInfoRequest $request GetUserGroupInfoRequest
@@ -2000,6 +2056,65 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getUserGroupInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询已嵌入报表列表
+     *  *
+     * @param GetWorksEmbedListRequest $request GetWorksEmbedListRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetWorksEmbedListResponse GetWorksEmbedListResponse
+     */
+    public function getWorksEmbedListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->worksType)) {
+            $query['WorksType'] = $request->worksType;
+        }
+        if (!Utils::isUnset($request->wsId)) {
+            $query['WsId'] = $request->wsId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWorksEmbedList',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetWorksEmbedListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询已嵌入报表列表
+     *  *
+     * @param GetWorksEmbedListRequest $request GetWorksEmbedListRequest
+     *
+     * @return GetWorksEmbedListResponse GetWorksEmbedListResponse
+     */
+    public function getWorksEmbedList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWorksEmbedListWithOptions($request, $runtime);
     }
 
     /**
@@ -2771,6 +2886,53 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listWorkspaceRolesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 手动执行邮件任务
+     *  *
+     * @param ManualRunMailTaskRequest $request ManualRunMailTaskRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ManualRunMailTaskResponse ManualRunMailTaskResponse
+     */
+    public function manualRunMailTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mailId)) {
+            $query['MailId'] = $request->mailId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ManualRunMailTask',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ManualRunMailTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 手动执行邮件任务
+     *  *
+     * @param ManualRunMailTaskRequest $request ManualRunMailTaskRequest
+     *
+     * @return ManualRunMailTaskResponse ManualRunMailTaskResponse
+     */
+    public function manualRunMailTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->manualRunMailTaskWithOptions($request, $runtime);
     }
 
     /**
