@@ -134,10 +134,14 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebInstanceLogsRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebInstanceLogsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DisableApplicationScalingRuleRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DisableApplicationScalingRuleResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DowngradeApplicationApmServiceRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DowngradeApplicationApmServiceResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\EnableApplicationScalingRuleRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\EnableApplicationScalingRuleResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ExecJobRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ExecJobResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\GetApplicationRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\GetApplicationResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\GetArmsTopNMetricRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\GetArmsTopNMetricResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\GetAvailabilityMetricRequest;
@@ -251,6 +255,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateWebApplicationTrafficConfigReque
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateWebApplicationTrafficConfigResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateWebCustomDomainRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateWebCustomDomainResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpgradeApplicationApmServiceRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpgradeApplicationApmServiceResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -4267,6 +4273,52 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * @param DowngradeApplicationApmServiceRequest $request DowngradeApplicationApmServiceRequest
+     * @param string[]                              $headers map
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DowngradeApplicationApmServiceResponse DowngradeApplicationApmServiceResponse
+     */
+    public function downgradeApplicationApmServiceWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DowngradeApplicationApmService',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/app/applicationApmService',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DowngradeApplicationApmServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DowngradeApplicationApmServiceRequest $request DowngradeApplicationApmServiceRequest
+     *
+     * @return DowngradeApplicationApmServiceResponse DowngradeApplicationApmServiceResponse
+     */
+    public function downgradeApplicationApmService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->downgradeApplicationApmServiceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary Enables an auto scaling policy for an application.
      *  *
      * @param EnableApplicationScalingRuleRequest $request EnableApplicationScalingRuleRequest
@@ -4390,6 +4442,62 @@ class Sae extends OpenApiClient
         $headers = [];
 
         return $this->execJobWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询应用基本信息
+     *  *
+     * @param GetApplicationRequest $request GetApplicationRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetApplicationResponse GetApplicationResponse
+     */
+    public function getApplicationWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetApplication',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/app/getApplication',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询应用基本信息
+     *  *
+     * @param GetApplicationRequest $request GetApplicationRequest
+     *
+     * @return GetApplicationResponse GetApplicationResponse
+     */
+    public function getApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7802,5 +7910,51 @@ class Sae extends OpenApiClient
         $headers = [];
 
         return $this->updateWebCustomDomainWithOptions($DomainName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpgradeApplicationApmServiceRequest $request UpgradeApplicationApmServiceRequest
+     * @param string[]                            $headers map
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpgradeApplicationApmServiceResponse UpgradeApplicationApmServiceResponse
+     */
+    public function upgradeApplicationApmServiceWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeApplicationApmService',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/app/applicationApmService',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpgradeApplicationApmServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpgradeApplicationApmServiceRequest $request UpgradeApplicationApmServiceRequest
+     *
+     * @return UpgradeApplicationApmServiceResponse UpgradeApplicationApmServiceResponse
+     */
+    public function upgradeApplicationApmService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->upgradeApplicationApmServiceWithOptions($request, $headers, $runtime);
     }
 }

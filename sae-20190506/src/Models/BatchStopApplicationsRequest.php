@@ -11,7 +11,7 @@ class BatchStopApplicationsRequest extends Model
     /**
      * @description The ID of the request.
      *
-     * @example ebf491f0-c1a5-45e2-b2c4-710dbe2a****，ebf491f0-c1a5-45e2-b2c4-71025e2a****
+     * @example ebf491f0-c1a5-45e2-b2c4-710dbe2a****
      *
      * @var string
      */
