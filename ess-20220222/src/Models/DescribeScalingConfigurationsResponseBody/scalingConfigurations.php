@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseB
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\instancePatternInfos;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\networkInterfaces;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\schedulerOptions;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\securityOptions;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\spotPriceLimits;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\tags;
 use AlibabaCloud\Tea\Model;
@@ -448,6 +449,11 @@ class scalingConfigurations extends Model
     public $securityGroupIds;
 
     /**
+     * @var securityOptions
+     */
+    public $securityOptions;
+
+    /**
      * @description The protection period of the preemptible instances. Unit: hours.
      *
      * @example 1
@@ -723,6 +729,7 @@ class scalingConfigurations extends Model
         'securityEnhancementStrategy'      => 'SecurityEnhancementStrategy',
         'securityGroupId'                  => 'SecurityGroupId',
         'securityGroupIds'                 => 'SecurityGroupIds',
+        'securityOptions'                  => 'SecurityOptions',
         'spotDuration'                     => 'SpotDuration',
         'spotInterruptionBehavior'         => 'SpotInterruptionBehavior',
         'spotPriceLimits'                  => 'SpotPriceLimits',
@@ -916,6 +923,9 @@ class scalingConfigurations extends Model
         }
         if (null !== $this->securityGroupIds) {
             $res['SecurityGroupIds'] = $this->securityGroupIds;
+        }
+        if (null !== $this->securityOptions) {
+            $res['SecurityOptions'] = null !== $this->securityOptions ? $this->securityOptions->toMap() : null;
         }
         if (null !== $this->spotDuration) {
             $res['SpotDuration'] = $this->spotDuration;
@@ -1175,6 +1185,9 @@ class scalingConfigurations extends Model
             if (!empty($map['SecurityGroupIds'])) {
                 $model->securityGroupIds = $map['SecurityGroupIds'];
             }
+        }
+        if (isset($map['SecurityOptions'])) {
+            $model->securityOptions = securityOptions::fromMap($map['SecurityOptions']);
         }
         if (isset($map['SpotDuration'])) {
             $model->spotDuration = $map['SpotDuration'];

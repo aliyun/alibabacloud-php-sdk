@@ -1787,6 +1787,9 @@ class Ess extends OpenApiClient
         if (!Utils::isUnset($request->securityGroupIds)) {
             $query['SecurityGroupIds'] = $request->securityGroupIds;
         }
+        if (!Utils::isUnset($request->securityOptions)) {
+            $query['SecurityOptions'] = $request->securityOptions;
+        }
         if (!Utils::isUnset($request->spotDuration)) {
             $query['SpotDuration'] = $request->spotDuration;
         }
@@ -6201,6 +6204,9 @@ class Ess extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityGroupIds)) {
             $query['SecurityGroupIds'] = $request->securityGroupIds;
+        }
+        if (!Utils::isUnset($request->securityOptions)) {
+            $query['SecurityOptions'] = $request->securityOptions;
         }
         if (!Utils::isUnset($request->spotDuration)) {
             $query['SpotDuration'] = $request->spotDuration;

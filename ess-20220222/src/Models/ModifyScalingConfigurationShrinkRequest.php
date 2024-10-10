@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingConfigurationShrinkReques
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingConfigurationShrinkRequest\instanceTypeOverrides;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingConfigurationShrinkRequest\networkInterfaces;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingConfigurationShrinkRequest\privatePoolOptions;
+use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingConfigurationShrinkRequest\securityOptions;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingConfigurationShrinkRequest\spotPriceLimits;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingConfigurationShrinkRequest\systemDisk;
 use AlibabaCloud\Tea\Model;
@@ -410,6 +411,11 @@ class ModifyScalingConfigurationShrinkRequest extends Model
     public $securityGroupIds;
 
     /**
+     * @var securityOptions
+     */
+    public $securityOptions;
+
+    /**
      * @description The protection period of preemptible instances. Unit: hours. Valid values:
      *
      *   1: After a preemptible instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, Alibaba Cloud compares the bidding price with the market price and checks the resource inventory to determine whether to release the instance.
@@ -563,6 +569,7 @@ class ModifyScalingConfigurationShrinkRequest extends Model
         'schedulerOptionsShrink'    => 'SchedulerOptions',
         'securityGroupId'           => 'SecurityGroupId',
         'securityGroupIds'          => 'SecurityGroupIds',
+        'securityOptions'           => 'SecurityOptions',
         'spotDuration'              => 'SpotDuration',
         'spotInterruptionBehavior'  => 'SpotInterruptionBehavior',
         'spotPriceLimits'           => 'SpotPriceLimits',
@@ -741,6 +748,9 @@ class ModifyScalingConfigurationShrinkRequest extends Model
         }
         if (null !== $this->securityGroupIds) {
             $res['SecurityGroupIds'] = $this->securityGroupIds;
+        }
+        if (null !== $this->securityOptions) {
+            $res['SecurityOptions'] = null !== $this->securityOptions ? $this->securityOptions->toMap() : null;
         }
         if (null !== $this->spotDuration) {
             $res['SpotDuration'] = $this->spotDuration;
@@ -955,6 +965,9 @@ class ModifyScalingConfigurationShrinkRequest extends Model
             if (!empty($map['SecurityGroupIds'])) {
                 $model->securityGroupIds = $map['SecurityGroupIds'];
             }
+        }
+        if (isset($map['SecurityOptions'])) {
+            $model->securityOptions = securityOptions::fromMap($map['SecurityOptions']);
         }
         if (isset($map['SpotDuration'])) {
             $model->spotDuration = $map['SpotDuration'];

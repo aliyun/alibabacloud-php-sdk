@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationRequest\inst
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationRequest\instanceTypeOverrides;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationRequest\networkInterfaces;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationRequest\privatePoolOptions;
+use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationRequest\securityOptions;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationRequest\spotPriceLimits;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationRequest\systemDisk;
 use AlibabaCloud\Tea\Model;
@@ -435,6 +436,11 @@ class CreateScalingConfigurationRequest extends Model
     public $securityGroupIds;
 
     /**
+     * @var securityOptions
+     */
+    public $securityOptions;
+
+    /**
      * @description The retention period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6.
      *
      *   The following retention periods are available in invitational preview: 2, 3, 4, 5, and 6 hours. If you want to set this parameter to one of these values, submit a ticket.
@@ -593,6 +599,7 @@ class CreateScalingConfigurationRequest extends Model
         'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
         'securityGroupId'             => 'SecurityGroupId',
         'securityGroupIds'            => 'SecurityGroupIds',
+        'securityOptions'             => 'SecurityOptions',
         'spotDuration'                => 'SpotDuration',
         'spotInterruptionBehavior'    => 'SpotInterruptionBehavior',
         'spotPriceLimits'             => 'SpotPriceLimits',
@@ -780,6 +787,9 @@ class CreateScalingConfigurationRequest extends Model
         }
         if (null !== $this->securityGroupIds) {
             $res['SecurityGroupIds'] = $this->securityGroupIds;
+        }
+        if (null !== $this->securityOptions) {
+            $res['SecurityOptions'] = null !== $this->securityOptions ? $this->securityOptions->toMap() : null;
         }
         if (null !== $this->spotDuration) {
             $res['SpotDuration'] = $this->spotDuration;
@@ -1003,6 +1013,9 @@ class CreateScalingConfigurationRequest extends Model
             if (!empty($map['SecurityGroupIds'])) {
                 $model->securityGroupIds = $map['SecurityGroupIds'];
             }
+        }
+        if (isset($map['SecurityOptions'])) {
+            $model->securityOptions = securityOptions::fromMap($map['SecurityOptions']);
         }
         if (isset($map['SpotDuration'])) {
             $model->spotDuration = $map['SpotDuration'];
