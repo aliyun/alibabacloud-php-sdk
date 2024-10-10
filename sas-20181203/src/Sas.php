@@ -34265,6 +34265,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
+        if (!Utils::isUnset($request->operationTypes)) {
+            $query['OperationTypes'] = $request->operationTypes;
+        }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
@@ -46097,6 +46100,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->operationTaskInstances)) {
             $query['OperationTaskInstances'] = $request->operationTaskInstances;
+        }
+        if (!Utils::isUnset($request->relationKey)) {
+            $query['RelationKey'] = $request->relationKey;
         }
         if (!Utils::isUnset($request->repairTempParam)) {
             $query['RepairTempParam'] = $request->repairTempParam;

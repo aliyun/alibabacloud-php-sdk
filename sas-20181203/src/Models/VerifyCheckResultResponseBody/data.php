@@ -19,8 +19,14 @@ class data extends Model
      * @var string
      */
     public $operateCode;
+
+    /**
+     * @var int
+     */
+    public $throttlingTimeSecond;
     protected $_name = [
-        'operateCode' => 'OperateCode',
+        'operateCode'          => 'OperateCode',
+        'throttlingTimeSecond' => 'ThrottlingTimeSecond',
     ];
 
     public function validate()
@@ -32,6 +38,9 @@ class data extends Model
         $res = [];
         if (null !== $this->operateCode) {
             $res['OperateCode'] = $this->operateCode;
+        }
+        if (null !== $this->throttlingTimeSecond) {
+            $res['ThrottlingTimeSecond'] = $this->throttlingTimeSecond;
         }
 
         return $res;
@@ -47,6 +56,9 @@ class data extends Model
         $model = new self();
         if (isset($map['OperateCode'])) {
             $model->operateCode = $map['OperateCode'];
+        }
+        if (isset($map['ThrottlingTimeSecond'])) {
+            $model->throttlingTimeSecond = $map['ThrottlingTimeSecond'];
         }
 
         return $model;

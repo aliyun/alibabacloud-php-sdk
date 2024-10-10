@@ -138,6 +138,11 @@ class checks extends Model
     public $lastCheckTime;
 
     /**
+     * @var string
+     */
+    public $operationType;
+
+    /**
      * @description The risk level of the check item. Valid values:
      *
      *   **HIGH**
@@ -220,6 +225,7 @@ class checks extends Model
         'instanceSubType' => 'InstanceSubType',
         'instanceType'    => 'InstanceType',
         'lastCheckTime'   => 'LastCheckTime',
+        'operationType'   => 'OperationType',
         'riskLevel'       => 'RiskLevel',
         'status'          => 'Status',
         'statusMessage'   => 'StatusMessage',
@@ -271,6 +277,9 @@ class checks extends Model
         }
         if (null !== $this->lastCheckTime) {
             $res['LastCheckTime'] = $this->lastCheckTime;
+        }
+        if (null !== $this->operationType) {
+            $res['OperationType'] = $this->operationType;
         }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
@@ -340,6 +349,9 @@ class checks extends Model
         }
         if (isset($map['LastCheckTime'])) {
             $model->lastCheckTime = $map['LastCheckTime'];
+        }
+        if (isset($map['OperationType'])) {
+            $model->operationType = $map['OperationType'];
         }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];

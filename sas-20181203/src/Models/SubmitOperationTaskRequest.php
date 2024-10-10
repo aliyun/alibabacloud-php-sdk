@@ -32,6 +32,11 @@ class SubmitOperationTaskRequest extends Model
     public $operationTaskInstances;
 
     /**
+     * @var string
+     */
+    public $relationKey;
+
+    /**
      * @var repairTempParam[]
      */
     public $repairTempParam;
@@ -48,6 +53,7 @@ class SubmitOperationTaskRequest extends Model
         'checkId'                => 'CheckId',
         'dimensionType'          => 'DimensionType',
         'operationTaskInstances' => 'OperationTaskInstances',
+        'relationKey'            => 'RelationKey',
         'repairTempParam'        => 'RepairTempParam',
         'type'                   => 'Type',
     ];
@@ -73,6 +79,9 @@ class SubmitOperationTaskRequest extends Model
                     $res['OperationTaskInstances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->relationKey) {
+            $res['RelationKey'] = $this->relationKey;
         }
         if (null !== $this->repairTempParam) {
             $res['RepairTempParam'] = [];
@@ -112,6 +121,9 @@ class SubmitOperationTaskRequest extends Model
                     $model->operationTaskInstances[$n++] = null !== $item ? operationTaskInstances::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RelationKey'])) {
+            $model->relationKey = $map['RelationKey'];
         }
         if (isset($map['RepairTempParam'])) {
             if (!empty($map['RepairTempParam'])) {
