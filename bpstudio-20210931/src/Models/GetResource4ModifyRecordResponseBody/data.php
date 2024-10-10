@@ -16,6 +16,11 @@ class data extends Model
     public $attribute;
 
     /**
+     * @var string
+     */
+    public $error;
+
+    /**
      * @example 1726645341000
      *
      * @var string
@@ -44,6 +49,7 @@ class data extends Model
     public $type;
     protected $_name = [
         'attribute'  => 'Attribute',
+        'error'      => 'Error',
         'modifyTime' => 'ModifyTime',
         'resourceId' => 'ResourceId',
         'status'     => 'Status',
@@ -59,6 +65,9 @@ class data extends Model
         $res = [];
         if (null !== $this->attribute) {
             $res['Attribute'] = $this->attribute;
+        }
+        if (null !== $this->error) {
+            $res['Error'] = $this->error;
         }
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
@@ -86,6 +95,9 @@ class data extends Model
         $model = new self();
         if (isset($map['Attribute'])) {
             $model->attribute = $map['Attribute'];
+        }
+        if (isset($map['Error'])) {
+            $model->error = $map['Error'];
         }
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
