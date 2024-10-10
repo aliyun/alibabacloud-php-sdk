@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageComponentsResponseBody\imageComponent;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageComponentsResponseBody\imageComponent\imageComponentSet\parameters;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageComponentsResponseBody\imageComponent\imageComponentSet\tags;
 use AlibabaCloud\Tea\Model;
 
@@ -17,6 +18,11 @@ class imageComponentSet extends Model
      * @var string
      */
     public $componentType;
+
+    /**
+     * @var string
+     */
+    public $componentVersion;
 
     /**
      * @description The content of the image component.
@@ -76,6 +82,11 @@ class imageComponentSet extends Model
     public $owner;
 
     /**
+     * @var parameters
+     */
+    public $parameters;
+
+    /**
      * @description The ID of the resource group to which the image component belongs.
      *
      * @example rg-bp67acfmxazb4p****
@@ -101,12 +112,14 @@ class imageComponentSet extends Model
     public $tags;
     protected $_name = [
         'componentType'    => 'ComponentType',
+        'componentVersion' => 'ComponentVersion',
         'content'          => 'Content',
         'creationTime'     => 'CreationTime',
         'description'      => 'Description',
         'imageComponentId' => 'ImageComponentId',
         'name'             => 'Name',
         'owner'            => 'Owner',
+        'parameters'       => 'Parameters',
         'resourceGroupId'  => 'ResourceGroupId',
         'systemType'       => 'SystemType',
         'tags'             => 'Tags',
@@ -121,6 +134,9 @@ class imageComponentSet extends Model
         $res = [];
         if (null !== $this->componentType) {
             $res['ComponentType'] = $this->componentType;
+        }
+        if (null !== $this->componentVersion) {
+            $res['ComponentVersion'] = $this->componentVersion;
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
@@ -139,6 +155,9 @@ class imageComponentSet extends Model
         }
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
+        }
+        if (null !== $this->parameters) {
+            $res['Parameters'] = null !== $this->parameters ? $this->parameters->toMap() : null;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -164,6 +183,9 @@ class imageComponentSet extends Model
         if (isset($map['ComponentType'])) {
             $model->componentType = $map['ComponentType'];
         }
+        if (isset($map['ComponentVersion'])) {
+            $model->componentVersion = $map['ComponentVersion'];
+        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
@@ -181,6 +203,9 @@ class imageComponentSet extends Model
         }
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
+        }
+        if (isset($map['Parameters'])) {
+            $model->parameters = parameters::fromMap($map['Parameters']);
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

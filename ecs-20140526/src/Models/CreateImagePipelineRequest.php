@@ -85,6 +85,11 @@ class CreateImagePipelineRequest extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $imageFamily;
+
+    /**
      * @description The prefix of the image name. The prefix must be 2 to 64 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * The system generates the final complete image name that consists of the specified prefix and the ID of the build task (`ExecutionId`) in the format of `{ImageName}_{ExecutionId}`.
@@ -145,6 +150,11 @@ class CreateImagePipelineRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $repairMode;
+
+    /**
      * @description The ID of the resource group.
      *
      * @example rg-bp67acfmxazb4p****
@@ -181,6 +191,11 @@ class CreateImagePipelineRequest extends Model
     public $tag;
 
     /**
+     * @var string
+     */
+    public $testContent;
+
+    /**
      * @description The IDs of regions to which you want to distribute the image that is created based on the image template. You can specify up to 20 region IDs.
      *
      * If you do not specify this parameter, the image is created only in the current region.
@@ -207,6 +222,7 @@ class CreateImagePipelineRequest extends Model
         'clientToken'             => 'ClientToken',
         'deleteInstanceOnFailure' => 'DeleteInstanceOnFailure',
         'description'             => 'Description',
+        'imageFamily'             => 'ImageFamily',
         'imageName'               => 'ImageName',
         'instanceType'            => 'InstanceType',
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
@@ -214,11 +230,13 @@ class CreateImagePipelineRequest extends Model
         'ownerAccount'            => 'OwnerAccount',
         'ownerId'                 => 'OwnerId',
         'regionId'                => 'RegionId',
+        'repairMode'              => 'RepairMode',
         'resourceGroupId'         => 'ResourceGroupId',
         'resourceOwnerAccount'    => 'ResourceOwnerAccount',
         'resourceOwnerId'         => 'ResourceOwnerId',
         'systemDiskSize'          => 'SystemDiskSize',
         'tag'                     => 'Tag',
+        'testContent'             => 'TestContent',
         'toRegionId'              => 'ToRegionId',
         'vSwitchId'               => 'VSwitchId',
     ];
@@ -251,6 +269,9 @@ class CreateImagePipelineRequest extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->imageFamily) {
+            $res['ImageFamily'] = $this->imageFamily;
+        }
         if (null !== $this->imageName) {
             $res['ImageName'] = $this->imageName;
         }
@@ -272,6 +293,9 @@ class CreateImagePipelineRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->repairMode) {
+            $res['RepairMode'] = $this->repairMode;
+        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -292,6 +316,9 @@ class CreateImagePipelineRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->testContent) {
+            $res['TestContent'] = $this->testContent;
         }
         if (null !== $this->toRegionId) {
             $res['ToRegionId'] = $this->toRegionId;
@@ -334,6 +361,9 @@ class CreateImagePipelineRequest extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['ImageFamily'])) {
+            $model->imageFamily = $map['ImageFamily'];
+        }
         if (isset($map['ImageName'])) {
             $model->imageName = $map['ImageName'];
         }
@@ -355,6 +385,9 @@ class CreateImagePipelineRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['RepairMode'])) {
+            $model->repairMode = $map['RepairMode'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
@@ -375,6 +408,9 @@ class CreateImagePipelineRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TestContent'])) {
+            $model->testContent = $map['TestContent'];
         }
         if (isset($map['ToRegionId'])) {
             if (!empty($map['ToRegionId'])) {

@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageComponentsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $componentType;
+
+    /**
+     * @var string
+     */
+    public $componentVersion;
+
+    /**
      * @description The IDs of image components. Valid values of N: 1 to 20.
      *
      * @example ic-bp67acfmxazb4p****
@@ -99,12 +109,19 @@ class DescribeImageComponentsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var string
+     */
+    public $systemType;
+
+    /**
      * @description The tags of the image component.
      *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
+        'componentType'        => 'ComponentType',
+        'componentVersion'     => 'ComponentVersion',
         'imageComponentId'     => 'ImageComponentId',
         'maxResults'           => 'MaxResults',
         'name'                 => 'Name',
@@ -116,6 +133,7 @@ class DescribeImageComponentsRequest extends Model
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'systemType'           => 'SystemType',
         'tag'                  => 'Tag',
     ];
 
@@ -126,6 +144,12 @@ class DescribeImageComponentsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->componentType) {
+            $res['ComponentType'] = $this->componentType;
+        }
+        if (null !== $this->componentVersion) {
+            $res['ComponentVersion'] = $this->componentVersion;
+        }
         if (null !== $this->imageComponentId) {
             $res['ImageComponentId'] = $this->imageComponentId;
         }
@@ -159,6 +183,9 @@ class DescribeImageComponentsRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->systemType) {
+            $res['SystemType'] = $this->systemType;
+        }
         if (null !== $this->tag) {
             $res['Tag'] = [];
             if (null !== $this->tag && \is_array($this->tag)) {
@@ -180,6 +207,12 @@ class DescribeImageComponentsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ComponentType'])) {
+            $model->componentType = $map['ComponentType'];
+        }
+        if (isset($map['ComponentVersion'])) {
+            $model->componentVersion = $map['ComponentVersion'];
+        }
         if (isset($map['ImageComponentId'])) {
             if (!empty($map['ImageComponentId'])) {
                 $model->imageComponentId = $map['ImageComponentId'];
@@ -214,6 +247,9 @@ class DescribeImageComponentsRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SystemType'])) {
+            $model->systemType = $map['SystemType'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

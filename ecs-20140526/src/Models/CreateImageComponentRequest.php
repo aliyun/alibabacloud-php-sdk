@@ -29,6 +29,11 @@ class CreateImageComponentRequest extends Model
     public $componentType;
 
     /**
+     * @var string
+     */
+    public $componentVersion;
+
+    /**
      * @description The content of the image component. The content consists of up to 127 commands.
      *
      * @example RUN yum update -y
@@ -114,6 +119,7 @@ class CreateImageComponentRequest extends Model
     protected $_name = [
         'clientToken'          => 'ClientToken',
         'componentType'        => 'ComponentType',
+        'componentVersion'     => 'ComponentVersion',
         'content'              => 'Content',
         'description'          => 'Description',
         'name'                 => 'Name',
@@ -139,6 +145,9 @@ class CreateImageComponentRequest extends Model
         }
         if (null !== $this->componentType) {
             $res['ComponentType'] = $this->componentType;
+        }
+        if (null !== $this->componentVersion) {
+            $res['ComponentVersion'] = $this->componentVersion;
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
@@ -196,6 +205,9 @@ class CreateImageComponentRequest extends Model
         }
         if (isset($map['ComponentType'])) {
             $model->componentType = $map['ComponentType'];
+        }
+        if (isset($map['ComponentVersion'])) {
+            $model->componentVersion = $map['ComponentVersion'];
         }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];

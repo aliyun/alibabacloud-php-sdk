@@ -4991,6 +4991,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->componentType)) {
             $query['ComponentType'] = $request->componentType;
         }
+        if (!Utils::isUnset($request->componentVersion)) {
+            $query['ComponentVersion'] = $request->componentVersion;
+        }
         if (!Utils::isUnset($request->content)) {
             $query['Content'] = $request->content;
         }
@@ -5112,6 +5115,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->imageFamily)) {
+            $query['ImageFamily'] = $request->imageFamily;
+        }
         if (!Utils::isUnset($request->imageName)) {
             $query['ImageName'] = $request->imageName;
         }
@@ -5136,6 +5142,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->repairMode)) {
+            $query['RepairMode'] = $request->repairMode;
+        }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
         }
@@ -5153,6 +5162,9 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->testContent)) {
+            $query['TestContent'] = $request->testContent;
         }
         if (!Utils::isUnset($request->toRegionId)) {
             $query['ToRegionId'] = $request->toRegionId;
@@ -13502,6 +13514,12 @@ class Ecs extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->componentType)) {
+            $query['ComponentType'] = $request->componentType;
+        }
+        if (!Utils::isUnset($request->componentVersion)) {
+            $query['ComponentVersion'] = $request->componentVersion;
+        }
         if (!Utils::isUnset($request->imageComponentId)) {
             $query['ImageComponentId'] = $request->imageComponentId;
         }
@@ -13540,6 +13558,9 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->systemType)) {
+            $query['SystemType'] = $request->systemType;
         }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;

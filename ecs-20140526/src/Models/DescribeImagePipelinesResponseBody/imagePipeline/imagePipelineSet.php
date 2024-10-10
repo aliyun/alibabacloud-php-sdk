@@ -79,6 +79,11 @@ class imagePipelineSet extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $imageFamily;
+
+    /**
      * @description The name prefix of the image to be created based on the image template.
      *
      * @example testImageName
@@ -124,6 +129,11 @@ class imagePipelineSet extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $repairMode;
+
+    /**
      * @description The ID of the resource group.
      *
      * @example rg-bp67acfmxazb4p****
@@ -149,6 +159,11 @@ class imagePipelineSet extends Model
     public $tags;
 
     /**
+     * @var string
+     */
+    public $testContent;
+
+    /**
      * @description The IDs of regions to which to distribute the image that will be created based on the image template.
      *
      * @var toRegionIds
@@ -171,14 +186,17 @@ class imagePipelineSet extends Model
         'creationTime'            => 'CreationTime',
         'deleteInstanceOnFailure' => 'DeleteInstanceOnFailure',
         'description'             => 'Description',
+        'imageFamily'             => 'ImageFamily',
         'imageName'               => 'ImageName',
         'imagePipelineId'         => 'ImagePipelineId',
         'instanceType'            => 'InstanceType',
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
         'name'                    => 'Name',
+        'repairMode'              => 'RepairMode',
         'resourceGroupId'         => 'ResourceGroupId',
         'systemDiskSize'          => 'SystemDiskSize',
         'tags'                    => 'Tags',
+        'testContent'             => 'TestContent',
         'toRegionIds'             => 'ToRegionIds',
         'vSwitchId'               => 'VSwitchId',
     ];
@@ -211,6 +229,9 @@ class imagePipelineSet extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->imageFamily) {
+            $res['ImageFamily'] = $this->imageFamily;
+        }
         if (null !== $this->imageName) {
             $res['ImageName'] = $this->imageName;
         }
@@ -226,6 +247,9 @@ class imagePipelineSet extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->repairMode) {
+            $res['RepairMode'] = $this->repairMode;
+        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -234,6 +258,9 @@ class imagePipelineSet extends Model
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
+        if (null !== $this->testContent) {
+            $res['TestContent'] = $this->testContent;
         }
         if (null !== $this->toRegionIds) {
             $res['ToRegionIds'] = null !== $this->toRegionIds ? $this->toRegionIds->toMap() : null;
@@ -274,6 +301,9 @@ class imagePipelineSet extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['ImageFamily'])) {
+            $model->imageFamily = $map['ImageFamily'];
+        }
         if (isset($map['ImageName'])) {
             $model->imageName = $map['ImageName'];
         }
@@ -289,6 +319,9 @@ class imagePipelineSet extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['RepairMode'])) {
+            $model->repairMode = $map['RepairMode'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
@@ -297,6 +330,9 @@ class imagePipelineSet extends Model
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
+        }
+        if (isset($map['TestContent'])) {
+            $model->testContent = $map['TestContent'];
         }
         if (isset($map['ToRegionIds'])) {
             $model->toRegionIds = toRegionIds::fromMap($map['ToRegionIds']);
