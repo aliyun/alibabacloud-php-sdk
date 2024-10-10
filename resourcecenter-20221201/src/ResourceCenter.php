@@ -549,6 +549,12 @@ class ResourceCenter extends OpenApiClient
         if (!Utils::isUnset($request->expression)) {
             $query['Expression'] = $request->expression;
         }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
         if (!Utils::isUnset($request->scope)) {
             $query['Scope'] = $request->scope;
         }
@@ -598,6 +604,12 @@ class ResourceCenter extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->expression)) {
             $query['Expression'] = $request->expression;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->scope)) {
             $query['Scope'] = $request->scope;

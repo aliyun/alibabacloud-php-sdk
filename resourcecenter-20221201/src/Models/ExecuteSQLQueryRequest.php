@@ -19,6 +19,16 @@ class ExecuteSQLQueryRequest extends Model
     public $expression;
 
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @description The search scope.
      *
      * For information about how to obtain the ID of a resource group, see [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html).
@@ -29,6 +39,8 @@ class ExecuteSQLQueryRequest extends Model
     public $scope;
     protected $_name = [
         'expression' => 'Expression',
+        'maxResults' => 'MaxResults',
+        'nextToken'  => 'NextToken',
         'scope'      => 'Scope',
     ];
 
@@ -41,6 +53,12 @@ class ExecuteSQLQueryRequest extends Model
         $res = [];
         if (null !== $this->expression) {
             $res['Expression'] = $this->expression;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
@@ -59,6 +77,12 @@ class ExecuteSQLQueryRequest extends Model
         $model = new self();
         if (isset($map['Expression'])) {
             $model->expression = $map['Expression'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
