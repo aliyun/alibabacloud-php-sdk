@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210903\Models;
 
+use AlibabaCloud\SDK\Appstreamcenter\V20210903\Models\GetConnectionTicketResponseBody\bindQueueInfo;
 use AlibabaCloud\SDK\Appstreamcenter\V20210903\Models\GetConnectionTicketResponseBody\policy;
 use AlibabaCloud\Tea\Model;
 
@@ -27,6 +28,11 @@ class GetConnectionTicketResponseBody extends Model
      * @var string
      */
     public $appInstancePersistentId;
+
+    /**
+     * @var bindQueueInfo
+     */
+    public $bindQueueInfo;
 
     /**
      * @example InternalError.TicketGenInternalError
@@ -113,6 +119,7 @@ class GetConnectionTicketResponseBody extends Model
         'appInstanceGroupId'      => 'AppInstanceGroupId',
         'appInstanceId'           => 'AppInstanceId',
         'appInstancePersistentId' => 'AppInstancePersistentId',
+        'bindQueueInfo'           => 'BindQueueInfo',
         'code'                    => 'Code',
         'loginToken'              => 'LoginToken',
         'message'                 => 'Message',
@@ -142,6 +149,9 @@ class GetConnectionTicketResponseBody extends Model
         }
         if (null !== $this->appInstancePersistentId) {
             $res['AppInstancePersistentId'] = $this->appInstancePersistentId;
+        }
+        if (null !== $this->bindQueueInfo) {
+            $res['BindQueueInfo'] = null !== $this->bindQueueInfo ? $this->bindQueueInfo->toMap() : null;
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
@@ -199,6 +209,9 @@ class GetConnectionTicketResponseBody extends Model
         }
         if (isset($map['AppInstancePersistentId'])) {
             $model->appInstancePersistentId = $map['AppInstancePersistentId'];
+        }
+        if (isset($map['BindQueueInfo'])) {
+            $model->bindQueueInfo = bindQueueInfo::fromMap($map['BindQueueInfo']);
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
