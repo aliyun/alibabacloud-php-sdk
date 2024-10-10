@@ -885,11 +885,23 @@ class Push extends OpenApiClient
         if (!Utils::isUnset($request->harmonyActionType)) {
             $query['HarmonyActionType'] = $request->harmonyActionType;
         }
+        if (!Utils::isUnset($request->harmonyBadgeAddNum)) {
+            $query['HarmonyBadgeAddNum'] = $request->harmonyBadgeAddNum;
+        }
+        if (!Utils::isUnset($request->harmonyBadgeSetNum)) {
+            $query['HarmonyBadgeSetNum'] = $request->harmonyBadgeSetNum;
+        }
         if (!Utils::isUnset($request->harmonyCategory)) {
             $query['HarmonyCategory'] = $request->harmonyCategory;
         }
         if (!Utils::isUnset($request->harmonyExtParameters)) {
             $query['HarmonyExtParameters'] = $request->harmonyExtParameters;
+        }
+        if (!Utils::isUnset($request->harmonyExtensionExtraData)) {
+            $query['HarmonyExtensionExtraData'] = $request->harmonyExtensionExtraData;
+        }
+        if (!Utils::isUnset($request->harmonyExtensionPush)) {
+            $query['HarmonyExtensionPush'] = $request->harmonyExtensionPush;
         }
         if (!Utils::isUnset($request->harmonyImageUrl)) {
             $query['HarmonyImageUrl'] = $request->harmonyImageUrl;

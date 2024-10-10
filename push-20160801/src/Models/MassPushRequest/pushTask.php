@@ -322,6 +322,16 @@ class pushTask extends Model
     public $harmonyActionType;
 
     /**
+     * @var int
+     */
+    public $harmonyBadgeAddNum;
+
+    /**
+     * @var int
+     */
+    public $harmonyBadgeSetNum;
+
+    /**
      * @var string
      */
     public $harmonyCategory;
@@ -330,6 +340,16 @@ class pushTask extends Model
      * @var string
      */
     public $harmonyExtParameters;
+
+    /**
+     * @var string
+     */
+    public $harmonyExtensionExtraData;
+
+    /**
+     * @var bool
+     */
+    public $harmonyExtensionPush;
 
     /**
      * @var string
@@ -614,8 +634,12 @@ class pushTask extends Model
         'expireTime'                       => 'ExpireTime',
         'harmonyAction'                    => 'HarmonyAction',
         'harmonyActionType'                => 'HarmonyActionType',
+        'harmonyBadgeAddNum'               => 'HarmonyBadgeAddNum',
+        'harmonyBadgeSetNum'               => 'HarmonyBadgeSetNum',
         'harmonyCategory'                  => 'HarmonyCategory',
         'harmonyExtParameters'             => 'HarmonyExtParameters',
+        'harmonyExtensionExtraData'        => 'HarmonyExtensionExtraData',
+        'harmonyExtensionPush'             => 'HarmonyExtensionPush',
         'harmonyImageUrl'                  => 'HarmonyImageUrl',
         'harmonyInboxContent'              => 'HarmonyInboxContent',
         'harmonyNotificationSlotType'      => 'HarmonyNotificationSlotType',
@@ -802,11 +826,23 @@ class pushTask extends Model
         if (null !== $this->harmonyActionType) {
             $res['HarmonyActionType'] = $this->harmonyActionType;
         }
+        if (null !== $this->harmonyBadgeAddNum) {
+            $res['HarmonyBadgeAddNum'] = $this->harmonyBadgeAddNum;
+        }
+        if (null !== $this->harmonyBadgeSetNum) {
+            $res['HarmonyBadgeSetNum'] = $this->harmonyBadgeSetNum;
+        }
         if (null !== $this->harmonyCategory) {
             $res['HarmonyCategory'] = $this->harmonyCategory;
         }
         if (null !== $this->harmonyExtParameters) {
             $res['HarmonyExtParameters'] = $this->harmonyExtParameters;
+        }
+        if (null !== $this->harmonyExtensionExtraData) {
+            $res['HarmonyExtensionExtraData'] = $this->harmonyExtensionExtraData;
+        }
+        if (null !== $this->harmonyExtensionPush) {
+            $res['HarmonyExtensionPush'] = $this->harmonyExtensionPush;
         }
         if (null !== $this->harmonyImageUrl) {
             $res['HarmonyImageUrl'] = $this->harmonyImageUrl;
@@ -1069,11 +1105,23 @@ class pushTask extends Model
         if (isset($map['HarmonyActionType'])) {
             $model->harmonyActionType = $map['HarmonyActionType'];
         }
+        if (isset($map['HarmonyBadgeAddNum'])) {
+            $model->harmonyBadgeAddNum = $map['HarmonyBadgeAddNum'];
+        }
+        if (isset($map['HarmonyBadgeSetNum'])) {
+            $model->harmonyBadgeSetNum = $map['HarmonyBadgeSetNum'];
+        }
         if (isset($map['HarmonyCategory'])) {
             $model->harmonyCategory = $map['HarmonyCategory'];
         }
         if (isset($map['HarmonyExtParameters'])) {
             $model->harmonyExtParameters = $map['HarmonyExtParameters'];
+        }
+        if (isset($map['HarmonyExtensionExtraData'])) {
+            $model->harmonyExtensionExtraData = $map['HarmonyExtensionExtraData'];
+        }
+        if (isset($map['HarmonyExtensionPush'])) {
+            $model->harmonyExtensionPush = $map['HarmonyExtensionPush'];
         }
         if (isset($map['HarmonyImageUrl'])) {
             $model->harmonyImageUrl = $map['HarmonyImageUrl'];
