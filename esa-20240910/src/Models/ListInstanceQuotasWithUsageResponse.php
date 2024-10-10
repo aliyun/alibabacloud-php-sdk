@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AddUserBusinessFormResponse extends Model
+class ListInstanceQuotasWithUsageResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class AddUserBusinessFormResponse extends Model
     public $statusCode;
 
     /**
-     * @var AddUserBusinessFormResponseBody
+     * @var ListInstanceQuotasWithUsageResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class AddUserBusinessFormResponse extends Model
     /**
      * @param array $map
      *
-     * @return AddUserBusinessFormResponse
+     * @return ListInstanceQuotasWithUsageResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class AddUserBusinessFormResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = AddUserBusinessFormResponseBody::fromMap($map['body']);
+            $model->body = ListInstanceQuotasWithUsageResponseBody::fromMap($map['body']);
         }
 
         return $model;

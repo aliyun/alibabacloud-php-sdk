@@ -8,11 +8,6 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ActivateClientCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ActivateClientCertificateResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\AddUserBusinessFormRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\AddUserBusinessFormResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\AdvancePurgeObjectCacheRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\AdvancePurgeObjectCacheResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\AdvancePurgeObjectCacheShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchCreateRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchCreateRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchCreateRecordsShrinkRequest;
@@ -136,6 +131,7 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\EnableCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\EnableCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ExportRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ExportRecordsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetCacheReserveSpecificationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvNamespaceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvNamespaceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetListRequest;
@@ -177,12 +173,21 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafRulesetRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafRulesetResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheReserveInstancesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheReserveInstancesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppRecordsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerRecordsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeRoutinePlansResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeRoutineRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeRoutineRecordsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListInstanceQuotasRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListInstanceQuotasResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListInstanceQuotasWithUsageRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListInstanceQuotasWithUsageResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListKvsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListKvsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListListsRequest;
@@ -211,6 +216,11 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListUploadTasksRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUploadTasksResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserDeliveryTasksRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserDeliveryTasksResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserRatePlanInstancesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserRatePlanInstancesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafManagedRulesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafManagedRulesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafManagedRulesShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafPhasesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafPhasesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafRulesetsRequest;
@@ -236,8 +246,6 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\PreloadCachesShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PurgeCachesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PurgeCachesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PurgeCachesShrinkRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\PutKvAccountRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\PutKvAccountResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PutKvRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PutKvResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PutKvWithHighCapacityAdvanceRequest;
@@ -399,144 +407,6 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->activateClientCertificateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 新增用户商机单
-     *  *
-     * @param AddUserBusinessFormRequest $request AddUserBusinessFormRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
-     *
-     * @return AddUserBusinessFormResponse AddUserBusinessFormResponse
-     */
-    public function addUserBusinessFormWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->company)) {
-            $query['Company'] = $request->company;
-        }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
-        }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $query['PhoneNumber'] = $request->phoneNumber;
-        }
-        if (!Utils::isUnset($request->position)) {
-            $query['Position'] = $request->position;
-        }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
-        }
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
-        }
-        if (!Utils::isUnset($request->website)) {
-            $query['Website'] = $request->website;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'AddUserBusinessForm',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return AddUserBusinessFormResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 新增用户商机单
-     *  *
-     * @param AddUserBusinessFormRequest $request AddUserBusinessFormRequest
-     *
-     * @return AddUserBusinessFormResponse AddUserBusinessFormResponse
-     */
-    public function addUserBusinessForm($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addUserBusinessFormWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 缓存对象缓存
-     *  *
-     * @param AdvancePurgeObjectCacheRequest $tmpReq  AdvancePurgeObjectCacheRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
-     *
-     * @return AdvancePurgeObjectCacheResponse AdvancePurgeObjectCacheResponse
-     */
-    public function advancePurgeObjectCacheWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new AdvancePurgeObjectCacheShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->content)) {
-            $request->contentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->area)) {
-            $query['Area'] = $request->area;
-        }
-        if (!Utils::isUnset($request->contentShrink)) {
-            $query['Content'] = $request->contentShrink;
-        }
-        if (!Utils::isUnset($request->force)) {
-            $query['Force'] = $request->force;
-        }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
-        }
-        if (!Utils::isUnset($request->stations)) {
-            $query['Stations'] = $request->stations;
-        }
-        if (!Utils::isUnset($request->timeRangeBegin)) {
-            $query['TimeRangeBegin'] = $request->timeRangeBegin;
-        }
-        if (!Utils::isUnset($request->timeRangeEnd)) {
-            $query['TimeRangeEnd'] = $request->timeRangeEnd;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'AdvancePurgeObjectCache',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return AdvancePurgeObjectCacheResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 缓存对象缓存
-     *  *
-     * @param AdvancePurgeObjectCacheRequest $request AdvancePurgeObjectCacheRequest
-     *
-     * @return AdvancePurgeObjectCacheResponse AdvancePurgeObjectCacheResponse
-     */
-    public function advancePurgeObjectCache($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->advancePurgeObjectCacheWithOptions($request, $runtime);
     }
 
     /**
@@ -3717,6 +3587,43 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary 查询缓存保持实例规格
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetCacheReserveSpecificationResponse GetCacheReserveSpecificationResponse
+     */
+    public function getCacheReserveSpecificationWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetCacheReserveSpecification',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCacheReserveSpecificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询缓存保持实例规格
+     *  *
+     * @return GetCacheReserveSpecificationResponse GetCacheReserveSpecificationResponse
+     */
+    public function getCacheReserveSpecification()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCacheReserveSpecificationWithOptions($runtime);
+    }
+
+    /**
      * @summary 查询Namespace信息
      *  *
      * @param GetKvNamespaceRequest $request GetKvNamespaceRequest
@@ -4672,6 +4579,50 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary 查询缓存保持实例列表
+     *  *
+     * @param ListCacheReserveInstancesRequest $request ListCacheReserveInstancesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListCacheReserveInstancesResponse ListCacheReserveInstancesResponse
+     */
+    public function listCacheReserveInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCacheReserveInstances',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCacheReserveInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询缓存保持实例列表
+     *  *
+     * @param ListCacheReserveInstancesRequest $request ListCacheReserveInstancesRequest
+     *
+     * @return ListCacheReserveInstancesResponse ListCacheReserveInstancesResponse
+     */
+    public function listCacheReserveInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCacheReserveInstancesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 获取一个边缘容器应用的全部域名记录
      *  *
      * @param ListEdgeContainerAppRecordsRequest $request ListEdgeContainerAppRecordsRequest
@@ -4713,6 +4664,68 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listEdgeContainerAppRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取用户全部边缘容器应用
+     *  *
+     * @param ListEdgeContainerAppsRequest $request ListEdgeContainerAppsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListEdgeContainerAppsResponse ListEdgeContainerAppsResponse
+     */
+    public function listEdgeContainerAppsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderKey)) {
+            $query['OrderKey'] = $request->orderKey;
+        }
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->searchType)) {
+            $query['SearchType'] = $request->searchType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEdgeContainerApps',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEdgeContainerAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取用户全部边缘容器应用
+     *  *
+     * @param ListEdgeContainerAppsRequest $request ListEdgeContainerAppsRequest
+     *
+     * @return ListEdgeContainerAppsResponse ListEdgeContainerAppsResponse
+     */
+    public function listEdgeContainerApps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEdgeContainerAppsWithOptions($request, $runtime);
     }
 
     /**
@@ -4760,6 +4773,43 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary 查询用户可购买的边缘函数的套餐
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListEdgeRoutinePlansResponse ListEdgeRoutinePlansResponse
+     */
+    public function listEdgeRoutinePlansWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListEdgeRoutinePlans',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEdgeRoutinePlansResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询用户可购买的边缘函数的套餐
+     *  *
+     * @return ListEdgeRoutinePlansResponse ListEdgeRoutinePlansResponse
+     */
+    public function listEdgeRoutinePlans()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEdgeRoutinePlansWithOptions($runtime);
+    }
+
+    /**
      * @summary 查询站点的边缘路由记录
      *  *
      * @param ListEdgeRoutineRecordsRequest $request ListEdgeRoutineRecordsRequest
@@ -4801,6 +4851,94 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listEdgeRoutineRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询实例或者站点的quota值
+     *  *
+     * @param ListInstanceQuotasRequest $request ListInstanceQuotasRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListInstanceQuotasResponse ListInstanceQuotasResponse
+     */
+    public function listInstanceQuotasWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInstanceQuotas',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListInstanceQuotasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询实例或者站点的quota值
+     *  *
+     * @param ListInstanceQuotasRequest $request ListInstanceQuotasRequest
+     *
+     * @return ListInstanceQuotasResponse ListInstanceQuotasResponse
+     */
+    public function listInstanceQuotas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstanceQuotasWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询功能quota和用量
+     *  *
+     * @param ListInstanceQuotasWithUsageRequest $request ListInstanceQuotasWithUsageRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListInstanceQuotasWithUsageResponse ListInstanceQuotasWithUsageResponse
+     */
+    public function listInstanceQuotasWithUsageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInstanceQuotasWithUsage',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListInstanceQuotasWithUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询功能quota和用量
+     *  *
+     * @param ListInstanceQuotasWithUsageRequest $request ListInstanceQuotasWithUsageRequest
+     *
+     * @return ListInstanceQuotasWithUsageResponse ListInstanceQuotasWithUsageResponse
+     */
+    public function listInstanceQuotasWithUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstanceQuotasWithUsageWithOptions($request, $runtime);
     }
 
     /**
@@ -5431,6 +5569,120 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary 查询该用户下可用的已购套餐实例
+     *  *
+     * @param ListUserRatePlanInstancesRequest $request ListUserRatePlanInstancesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListUserRatePlanInstancesResponse ListUserRatePlanInstancesResponse
+     */
+    public function listUserRatePlanInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUserRatePlanInstances',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListUserRatePlanInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询该用户下可用的已购套餐实例
+     *  *
+     * @param ListUserRatePlanInstancesRequest $request ListUserRatePlanInstancesRequest
+     *
+     * @return ListUserRatePlanInstancesResponse ListUserRatePlanInstancesResponse
+     */
+    public function listUserRatePlanInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUserRatePlanInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 列举WAF托管规则
+     *  *
+     * @param ListWafManagedRulesRequest $tmpReq  ListWafManagedRulesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListWafManagedRulesResponse ListWafManagedRulesResponse
+     */
+    public function listWafManagedRulesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListWafManagedRulesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->queryArgs)) {
+            $request->queryArgsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->queryArgs, 'QueryArgs', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->attackType)) {
+            $query['AttackType'] = $request->attackType;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryArgsShrink)) {
+            $query['QueryArgs'] = $request->queryArgsShrink;
+        }
+        if (!Utils::isUnset($request->siteId)) {
+            $query['SiteId'] = $request->siteId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWafManagedRules',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWafManagedRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 列举WAF托管规则
+     *  *
+     * @param ListWafManagedRulesRequest $request ListWafManagedRulesRequest
+     *
+     * @return ListWafManagedRulesResponse ListWafManagedRulesResponse
+     */
+    public function listWafManagedRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWafManagedRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 列举WAF阶段
      *  *
      * @param ListWafPhasesRequest $request ListWafPhasesRequest
@@ -6038,56 +6290,6 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->putKvWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 设置账户
-     *  *
-     * @param PutKvAccountRequest $request PutKvAccountRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
-     *
-     * @return PutKvAccountResponse PutKvAccountResponse
-     */
-    public function putKvAccountWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->accountType)) {
-            $body['AccountType'] = $request->accountType;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'PutKvAccount',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return PutKvAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 设置账户
-     *  *
-     * @param PutKvAccountRequest $request PutKvAccountRequest
-     *
-     * @return PutKvAccountResponse PutKvAccountResponse
-     */
-    public function putKvAccount($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->putKvAccountWithOptions($request, $runtime);
     }
 
     /**

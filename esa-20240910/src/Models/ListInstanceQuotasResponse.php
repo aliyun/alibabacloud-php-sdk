@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class PutKvAccountResponse extends Model
+class ListInstanceQuotasResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class PutKvAccountResponse extends Model
     public $statusCode;
 
     /**
-     * @var PutKvAccountResponseBody
+     * @var ListInstanceQuotasResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class PutKvAccountResponse extends Model
     /**
      * @param array $map
      *
-     * @return PutKvAccountResponse
+     * @return ListInstanceQuotasResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class PutKvAccountResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = PutKvAccountResponseBody::fromMap($map['body']);
+            $model->body = ListInstanceQuotasResponseBody::fromMap($map['body']);
         }
 
         return $model;

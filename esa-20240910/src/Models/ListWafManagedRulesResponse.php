@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AdvancePurgeObjectCacheResponse extends Model
+class ListWafManagedRulesResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class AdvancePurgeObjectCacheResponse extends Model
     public $statusCode;
 
     /**
-     * @var AdvancePurgeObjectCacheResponseBody
+     * @var ListWafManagedRulesResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class AdvancePurgeObjectCacheResponse extends Model
     /**
      * @param array $map
      *
-     * @return AdvancePurgeObjectCacheResponse
+     * @return ListWafManagedRulesResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class AdvancePurgeObjectCacheResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = AdvancePurgeObjectCacheResponseBody::fromMap($map['body']);
+            $model->body = ListWafManagedRulesResponseBody::fromMap($map['body']);
         }
 
         return $model;
