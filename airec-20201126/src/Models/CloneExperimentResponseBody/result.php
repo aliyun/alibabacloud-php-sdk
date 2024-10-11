@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The algorithm configurations.
+     *
      * @var algorithms[]
      */
     public $algorithms;
 
     /**
+     * @description N/A
+     *
      * @example true
      *
      * @var bool
@@ -22,11 +26,15 @@ class result extends Model
     public $base;
 
     /**
+     * @description The buckets.
+     *
      * @var string[]
      */
     public $buckets;
 
     /**
+     * @description The remarks.
+     *
      * @example xxx
      *
      * @var string
@@ -34,6 +42,8 @@ class result extends Model
     public $description;
 
     /**
+     * @description The experiment ID.
+     *
      * @example 12345
      *
      * @var string
@@ -41,6 +51,8 @@ class result extends Model
     public $experimentId;
 
     /**
+     * @description The experiment name.
+     *
      * @example xxx
      *
      * @var string
@@ -48,6 +60,8 @@ class result extends Model
     public $name;
 
     /**
+     * @description The time when the experiment was unpublished.
+     *
      * @example 2020-11-11T09:47:43.000Z
      *
      * @var string
@@ -55,6 +69,8 @@ class result extends Model
     public $offlineTime;
 
     /**
+     * @description The time when the experiment was published.
+     *
      * @example 2020-11-11T09:47:43.000Z
      *
      * @var string
@@ -62,6 +78,8 @@ class result extends Model
     public $onlineTime;
 
     /**
+     * @description The experiment state.
+     *
      * @example Init
      *
      * @var string

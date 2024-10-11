@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class algorithms extends Model
 {
     /**
+     * @description The algorithm category. Valid values: RECALL and RANK.
+     *
      * @example RECALL
      *
      * @var string
@@ -17,11 +19,15 @@ class algorithms extends Model
     public $category;
 
     /**
+     * @description The child configuration items.
+     *
      * @var config[]
      */
     public $config;
 
     /**
+     * @description The default value of the algorithm configuration item.
+     *
      * @example i2i;u2x2i;new;hot;embedding;embedding
      *
      * @var string
@@ -29,6 +35,8 @@ class algorithms extends Model
     public $defaultValue;
 
     /**
+     * @description The custom value of the algorithm configuration item.
+     *
      * @example 300
      *
      * @var string
@@ -36,6 +44,8 @@ class algorithms extends Model
     public $experimentValue;
 
     /**
+     * @description Indicates whether child configuration items exist. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool
@@ -43,6 +53,8 @@ class algorithms extends Model
     public $hasConfig;
 
     /**
+     * @description The algorithm key. Valid values: I2I: the I2I filtering algorithm. u2X2I: the U2X2I filtering algorithm. hot: the filtering algorithm for popular items. new: the filtering algorithm for new items. embedding: the vector filtering algorithm. mtorder: the priority of the filtering algorithm. rankservice: the ranking service.
+     *
      * @example I2I
      *
      * @var string
@@ -50,6 +62,8 @@ class algorithms extends Model
     public $key;
 
     /**
+     * @description The algorithm name. (Note: If you use the default algorithm, the console obtains the algorithm name from Medusa. If you customize an algorithm for the experiment, the algorithm name is directly returned.)
+     *
      * @example name
      *
      * @var string
@@ -57,6 +71,8 @@ class algorithms extends Model
     public $name;
 
     /**
+     * @description The algorithm type. Valid values: SYSTEM and CUSTOM.
+     *
      * @example SYSTEM
      *
      * @var string

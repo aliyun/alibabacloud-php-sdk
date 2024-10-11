@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class subProgressInfos extends Model
 {
     /**
+     * @description The detailed description of subtasks.
+     *
      * @example data import progress info
      *
      * @var string
@@ -16,6 +18,8 @@ class subProgressInfos extends Model
     public $detail;
 
     /**
+     * @description The number of completed subtasks.
+     *
      * @example 11
      *
      * @var int
@@ -23,6 +27,8 @@ class subProgressInfos extends Model
     public $finishedNum;
 
     /**
+     * @description The progress of subtasks.
+     *
      * @example 100
      *
      * @var int
@@ -30,6 +36,8 @@ class subProgressInfos extends Model
     public $progress;
 
     /**
+     * @description The total number of subtasks.
+     *
      * @example 11
      *
      * @var int
@@ -37,6 +45,8 @@ class subProgressInfos extends Model
     public $totalNum;
 
     /**
+     * @description The type of subtasks.
+     *
      * @example DATA_PROCESS
      *
      * @var string

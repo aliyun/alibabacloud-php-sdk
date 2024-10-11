@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CloneExperimentRequest extends Model
 {
     /**
+     * @description true: verifies experiment information. false (default): creates an experiment.
+     *
      * @example false
      *
      * @var bool

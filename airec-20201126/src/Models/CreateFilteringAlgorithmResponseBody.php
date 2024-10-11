@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateFilteringAlgorithmResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The type of the data source.
      *
      * @example 829F38F6-E2D6-4109-90A6-888160BD16C2
      *
@@ -19,7 +19,7 @@ class CreateFilteringAlgorithmResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the filtering table.
+     * @description Specifies whether to perform a dry run. Valid values: true: performs a dry run. false: performs a dry run and sends the request.
      *
      * @var result
      */

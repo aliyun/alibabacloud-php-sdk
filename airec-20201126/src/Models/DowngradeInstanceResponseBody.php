@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DowngradeInstanceResponseBody extends Model
 {
     /**
-     * @description The error code.
+     * @description The ID of the instance.
      *
      * @example InternalServerError
      *
@@ -19,7 +19,7 @@ class DowngradeInstanceResponseBody extends Model
     public $code;
 
     /**
-     * @description The error message.
+     * @description The ID of the instance.
      *
      * @example An internal server error occurred
      *
@@ -28,7 +28,7 @@ class DowngradeInstanceResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The returned results.
      *
      * @example 8F81A922-6C81-46D6-B78C-CC35E16B1691
      *
@@ -37,7 +37,7 @@ class DowngradeInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The returned results.
+     * @description Decreases the quotas of a specified instance.
      *
      * @var result
      */

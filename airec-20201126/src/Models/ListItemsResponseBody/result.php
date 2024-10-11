@@ -16,8 +16,6 @@ class result extends Model
     public $detail;
 
     /**
-     * @description total
-     *
      * @var total
      */
     public $total;

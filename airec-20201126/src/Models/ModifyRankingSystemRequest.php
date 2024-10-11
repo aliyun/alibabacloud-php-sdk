@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyRankingSystemRequest extends Model
 {
     /**
+     * @description The configurations that you want to modify.
+     *
      * @example {}
      *
      * @var mixed[]

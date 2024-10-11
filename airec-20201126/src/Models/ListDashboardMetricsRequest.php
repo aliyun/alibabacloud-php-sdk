@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListDashboardMetricsRequest extends Model
 {
     /**
-     * @description The end time. The value is a timestamp in seconds.
+     * @description The statistical results.
      *
+     * This parameter is required.
      * @example 1586673466
      *
      * @var int
@@ -23,10 +24,9 @@ class ListDashboardMetricsRequest extends Model
     public $metricQuery;
 
     /**
-     * @description The type of the metric. Valid values:
+     * @description The statistical results.
      *
-     * USER_ACTION_UV_RATIO: the traffic consumed per person
-     * @example USERACTIONPV_COUNT
+     * @example The details about the metric.
      *
      * @var string
      */
@@ -38,8 +38,9 @@ class ListDashboardMetricsRequest extends Model
     public $metricView;
 
     /**
-     * @description The start time. The value is a timestamp in seconds.
+     * @description USERACTIONPV_COUNT
      *
+     * This parameter is required.
      * @example 1586673466
      *
      * @var int

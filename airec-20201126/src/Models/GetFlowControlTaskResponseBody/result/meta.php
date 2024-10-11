@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class meta extends Model
 {
     /**
+     * @description The task description.
+     *
      * @example xx
      *
      * @var string
@@ -18,6 +20,8 @@ class meta extends Model
     public $description;
 
     /**
+     * @description The end time. The value is a timestamp in seconds.
+     *
      * @example 1656518399
      *
      * @var int
@@ -25,6 +29,8 @@ class meta extends Model
     public $endTime;
 
     /**
+     * @description The metadata type.
+     *
      * @example FlowControlTask
      *
      * @var string
@@ -32,6 +38,8 @@ class meta extends Model
     public $metaType;
 
     /**
+     * @description The scene IDs.
+     *
      * @example 1,2,3
      *
      * @var string
@@ -39,11 +47,15 @@ class meta extends Model
     public $sceneIds;
 
     /**
+     * @description The parameters specified for the item selection rule.
+     *
      * @var selectionParams[]
      */
     public $selectionParams;
 
     /**
+     * @description The start time. The value is a timestamp in seconds.
+     *
      * @example 1640739600
      *
      * @var int
@@ -51,11 +63,15 @@ class meta extends Model
     public $startTime;
 
     /**
+     * @description The exposure settings.
+     *
      * @var target
      */
     public $target;
 
     /**
+     * @description The task name.
+     *
      * @var string
      */
     public $taskName;

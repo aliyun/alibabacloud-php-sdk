@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSyncReportOutliersRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1586673466
      *
      * @var int
@@ -16,22 +18,22 @@ class DescribeSyncReportOutliersRequest extends Model
     public $endTime;
 
     /**
-     * @example xxx
+     * @description This parameter is required.
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description error|info|warn
-     *
-     * @example info
+     * @description This parameter is required.
      *
      * @var string
      */
     public $levelType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1586673466
      *
      * @var int
@@ -39,9 +41,7 @@ class DescribeSyncReportOutliersRequest extends Model
     public $startTime;
 
     /**
-     * @description item|hehavoir|user
-     *
-     * @example behavior
+     * @description This parameter is required.
      *
      * @var string
      */

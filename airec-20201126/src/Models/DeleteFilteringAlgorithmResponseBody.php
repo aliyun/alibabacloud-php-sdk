@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteFilteringAlgorithmResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 936BE457-5D14-4DBD-85AE-176F7BA8D96D
      *
      * @var string
@@ -17,6 +19,8 @@ class DeleteFilteringAlgorithmResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned result.
+     *
      * @var result
      */
     public $result;

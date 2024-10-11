@@ -23,8 +23,6 @@ class ListRankingModelsRequest extends Model
     public $rankingModelId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $size;

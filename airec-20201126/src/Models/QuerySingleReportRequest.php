@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class QuerySingleReportRequest extends Model
 {
     /**
+     * @description The type of the single table report. This parameter is required.
+     *
+     * This parameter is required.
      * @example typeItemTagScene
      *
      * @var string

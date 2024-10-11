@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @example 2020-04-23T06:08:48.000Z
-     *
      * @var string
      */
     public $gmtCreate;
 
     /**
-     * @example 2020-04-23T06:08:48.000Z
-     *
      * @var string
      */
     public $gmtModified;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $sceneId;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $status;

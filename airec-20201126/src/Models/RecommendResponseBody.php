@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class RecommendResponseBody extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description This parameter may be used in the debugging process. You can ignore this parameter.
      *
      * @example 200
      *
@@ -19,7 +19,7 @@ class RecommendResponseBody extends Model
     public $code;
 
     /**
-     * @description The status of the execution.
+     * @description Queries the recommendation results of a specified instance.
      *
      * @example "i2i_common_common;NotFound;1673254401;similar product/content of clicked ones;2023-01-09 16:53:21"
      *
@@ -28,7 +28,7 @@ class RecommendResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The weight of the specified process.
      *
      * @example 04707E49-642A-4649-827A-F8EEB07D4C27
      *
@@ -37,7 +37,7 @@ class RecommendResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The returned results.
+     * @description The unique ID of the user.
      *
      * @var result[]
      */

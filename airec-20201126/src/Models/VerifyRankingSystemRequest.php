@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class VerifyRankingSystemRequest extends Model
 {
     /**
+     * @example {
+     * }
      * @var mixed[]
      */
     public $body;

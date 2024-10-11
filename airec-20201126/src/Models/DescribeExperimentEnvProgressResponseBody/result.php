@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $progress;
 
     /**
-     * @example Running
-     *
      * @var string
      */
     public $status;

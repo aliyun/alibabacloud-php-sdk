@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteFlowControlTaskResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 6E427B10-30FC-1873-922F-FC176D3398D4
      *
@@ -18,7 +18,7 @@ class DeleteFlowControlTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @description delete task status(true/false)
+     * @description Indicates whether the task was deleted. Valid values: true and false.
      *
      * @example true
      *

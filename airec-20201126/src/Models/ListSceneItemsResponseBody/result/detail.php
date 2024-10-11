@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class detail extends Model
 {
     /**
-     * @example zhangsan
-     *
      * @var string
      */
     public $author;
 
     /**
-     * @example 123
-     *
      * @var string
      */
     public $brandId;
 
     /**
-     * @example 12_34
-     *
      * @var string
      */
     public $categoryPath;
@@ -35,61 +29,41 @@ class detail extends Model
     public $channel;
 
     /**
-     * @example 300
-     *
      * @var string
      */
     public $duration;
 
     /**
-     * @example 1612687809
-     *
      * @var string
      */
     public $expireTime;
 
     /**
-     * @description item_id
-     *
-     * @example 123
-     *
      * @var string
      */
     public $itemId;
 
     /**
-     * @description item_type
-     *
-     * @example video
-     *
      * @var string
      */
     public $itemType;
 
     /**
-     * @example 1612687809
-     *
      * @var string
      */
     public $pubTime;
 
     /**
-     * @example 123
-     *
      * @var string
      */
     public $shopId;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example title
-     *
      * @var string
      */
     public $title;

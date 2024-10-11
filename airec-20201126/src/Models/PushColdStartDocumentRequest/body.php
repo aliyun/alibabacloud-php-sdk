@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @example add
+     *
      * @var string
      */
     public $cmd;
 
     /**
+     * @example userId
+     *
      * @var mixed
      */
     public $fields;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class threshold extends Model
 {
     /**
-     * @description The fluctuation threshold for the loss of the index data.
+     * @description The time when the filtering table was modified.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class threshold extends Model
     public $indexLossThreshold;
 
     /**
-     * @description The fluctuation threshold for the size of the index.
+     * @description The fluctuation threshold for the size of the source table.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class threshold extends Model
     public $indexSizeThreshold;
 
     /**
-     * @description The fluctuation threshold for the data entries in the source table.
+     * @description The category of the filtering table.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class threshold extends Model
     public $sourceDataRecordThreshold;
 
     /**
-     * @description The fluctuation threshold for the size of the source table.
+     * @description The fluctuation threshold for the loss of the index data.
      *
      * @example 1
      *

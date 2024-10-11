@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class PushColdStartDocumentResponseBody extends Model
 {
     /**
+     * @example 7585C2B2-0D61-4C96-AC5D-B960BFEDD4A3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $result;

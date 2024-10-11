@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The name of the step. Example: DATA_IMPORT. The value indicates that data is being imported.
+     *
      * @example DATA_IMPORT
      *
      * @var string
@@ -17,11 +19,15 @@ class result extends Model
     public $name;
 
     /**
+     * @description The information about the progress of subtasks.
+     *
      * @var subProgressInfos[]
      */
     public $subProgressInfos;
 
     /**
+     * @description The overall progress of the current task.
+     *
      * @example 100
      *
      * @var int

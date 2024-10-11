@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class threshold extends Model
 {
     /**
-     * @description xxx
+     * @description The fluctuation threshold for the loss of the index data.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class threshold extends Model
     public $indexLossThreshold;
 
     /**
-     * @description xxx
+     * @description The fluctuation threshold for the size of the index.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class threshold extends Model
     public $indexSizeThreshold;
 
     /**
-     * @description xxx
+     * @description The fluctuation threshold for the data entries in the source table.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class threshold extends Model
     public $sourceDataRecordThreshold;
 
     /**
-     * @description xxx
+     * @description The fluctuation threshold for the size of the source table.
      *
      * @example 1
      *

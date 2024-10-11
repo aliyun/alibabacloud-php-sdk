@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateFilteringAlgorithmRequest extends Model
 {
     /**
-     * @description Specifies whether to perform a dry run. Valid values: true: performs a dry run. false: performs a dry run and sends the request.
+     * @description xxx
      *
      * @example true
      *

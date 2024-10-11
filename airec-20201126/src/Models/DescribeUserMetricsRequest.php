@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserMetricsRequest extends Model
 {
     /**
+     * @description The end time. The value is a timestamp in seconds.
+     *
+     * This parameter is required.
      * @example 1567155600
      *
      * @var int
@@ -16,6 +19,9 @@ class DescribeUserMetricsRequest extends Model
     public $endTime;
 
     /**
+     * @description The type of the user metric that you want to query. Valid values: pvCtr and uvCtr.
+     *
+     * This parameter is required.
      * @example pvCtr
      *
      * @var string
@@ -23,6 +29,9 @@ class DescribeUserMetricsRequest extends Model
     public $metricType;
 
     /**
+     * @description The start time. The value is a timestamp in seconds.
+     *
+     * This parameter is required.
      * @example 1567152000
      *
      * @var int

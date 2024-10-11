@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @example 2020-11-11T09:47:43.000Z
-     *
      * @var string
      */
     public $gmtCreate;
@@ -23,8 +21,6 @@ class result extends Model
     public $gmtModified;
 
     /**
-     * @example xxx
-     *
      * @var mixed[]
      */
     public $meta;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The metric data.
+     * @description __null__
      *
      * @example xxx
      *
@@ -18,7 +18,7 @@ class result extends Model
     public $metricData;
 
     /**
-     * @description The type of the metric.
+     * @description The error message.
      *
      * @example xxx
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDashboardDetailsFlowsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1588521600
      *
      * @var int
@@ -23,6 +25,8 @@ class ListDashboardDetailsFlowsRequest extends Model
     public $experimentIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example USERACTIONUV_COUNT
      *
      * @var string
@@ -30,6 +34,8 @@ class ListDashboardDetailsFlowsRequest extends Model
     public $metricType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -37,6 +43,8 @@ class ListDashboardDetailsFlowsRequest extends Model
     public $sceneIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1588521600
      *
      * @var int
@@ -44,7 +52,7 @@ class ListDashboardDetailsFlowsRequest extends Model
     public $startTime;
 
     /**
-     * @description traceId
+     * @description This parameter is required.
      *
      * @example Alibaba
      *

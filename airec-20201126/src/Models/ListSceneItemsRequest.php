@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ListSceneItemsRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $operationRuleId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @example PREVIEW_ITEM
-     *
      * @var string
      */
     public $previewType;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $queryCount;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $selectionRuleId;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $size;

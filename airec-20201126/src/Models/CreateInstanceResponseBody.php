@@ -28,7 +28,7 @@ class CreateInstanceResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 8F81A922-6C81-46D6-B78C-CC35E16B1691
      *

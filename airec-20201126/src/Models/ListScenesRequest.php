@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListScenesRequest extends Model
 {
     /**
+     * @description Specifies whether the item can be recommended.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListScenesRequest extends Model
     public $page;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,8 @@ class ListScenesRequest extends Model
     public $sceneId;
 
     /**
+     * @description The ID of the scene.
+     *
      * @example 10
      *
      * @var int
@@ -30,8 +36,6 @@ class ListScenesRequest extends Model
     public $size;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $status;

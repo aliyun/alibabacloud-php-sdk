@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The current QPS.
+     *
      * @example 8
      *
      * @var int
@@ -16,6 +18,9 @@ class result extends Model
     public $currentQps;
 
     /**
+     * @description The number of documents in the item table. Valid values:
+     *
+     * 1000000 to 10000000.
      * @example 1000000
      *
      * @var int
@@ -23,6 +28,8 @@ class result extends Model
     public $itemCount;
 
     /**
+     * @description The number of items that are used in the item table.
+     *
      * @example 100
      *
      * @var int
@@ -30,6 +37,9 @@ class result extends Model
     public $itemCountUsed;
 
     /**
+     * @description The queries per second (QPS). Valid values:
+     *
+     * 10 to 500.
      * @example 10
      *
      * @var int
@@ -37,6 +47,9 @@ class result extends Model
     public $qps;
 
     /**
+     * @description The number of documents in the user table. Valid values:
+     *
+     * 1000000 to 10000000.
      * @example 1000000
      *
      * @var int
@@ -44,6 +57,8 @@ class result extends Model
     public $userCount;
 
     /**
+     * @description The number of users that are used in the user table.
+     *
      * @example 100
      *
      * @var int

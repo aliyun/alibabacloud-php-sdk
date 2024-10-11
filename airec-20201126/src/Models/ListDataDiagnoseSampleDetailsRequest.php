@@ -9,26 +9,44 @@ use AlibabaCloud\Tea\Model;
 class ListDataDiagnoseSampleDetailsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 1682179200
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1665158400
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1665936000000
+     *
      * @var int
      */
     public $taskCreateTime;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example cycle
+     *
      * @var string
      */
     public $taskSource;

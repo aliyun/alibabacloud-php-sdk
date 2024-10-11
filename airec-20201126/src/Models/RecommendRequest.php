@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RecommendRequest extends Model
 {
     /**
-     * @description The string for filtering during recommendation.
+     * @description The status of the execution.
      *
      * @example eyJqb2luIjoiYW5kIiwiZmlsdGVycyI6W3siY29uZCI6ImNvbnRhaW4iLCJmaWVsZCI6InRhZ3MiLCJ2YWx1ZSI6IuWPjOS6uiJ9XX0.
      *
@@ -18,7 +18,7 @@ class RecommendRequest extends Model
     public $filter;
 
     /**
-     * @description The ID of the device.
+     * @description The ID of the scene in which the item is to be recommended.
      *
      * @example 06e1565409c9fc4887036b974421****
      *
@@ -27,7 +27,7 @@ class RecommendRequest extends Model
     public $imei;
 
     /**
-     * @description The last logon IP address of the user.
+     * @description The HTTP status code.
      *
      * @example 192.168.1.1
      *
@@ -36,7 +36,7 @@ class RecommendRequest extends Model
     public $ip;
 
     /**
-     * @description The items used for related recommendations in specified scenes.
+     * @description The information about event tracking. The value of this parameter varies based on different items and needs to be uploaded together with the corresponding behavior data.
      *
      * @example 1001
      *
@@ -45,7 +45,7 @@ class RecommendRequest extends Model
     public $items;
 
     /**
-     * @description Specifies whether to perform personalized ranking based on the user IDs in the filtering and ranking phases.
+     * @description N/A
      *
      * @example true
      *
@@ -54,7 +54,7 @@ class RecommendRequest extends Model
     public $rankOpen;
 
     /**
-     * @description The type of the recommendation service.
+     * @description The type of the recommended item.
      *
      * @example gul
      *
@@ -63,8 +63,9 @@ class RecommendRequest extends Model
     public $recType;
 
     /**
-     * @description The number of result entries to return. Valid values: 0 to 50.
+     * @description The returned results.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -72,7 +73,7 @@ class RecommendRequest extends Model
     public $returnCount;
 
     /**
-     * @description The ID of the scene in which the item is to be recommended.
+     * @description The number of result entries to return. Valid values: 0 to 50.
      *
      * @example test
      *
@@ -81,7 +82,7 @@ class RecommendRequest extends Model
     public $sceneId;
 
     /**
-     * @description N/A
+     * @description The position at which the recommended item is displayed. The position number starts from 0. The return results are ranked by position. You can ignore this parameter.
      *
      * @example 1
      *
@@ -99,7 +100,7 @@ class RecommendRequest extends Model
     public $strategy;
 
     /**
-     * @description The unique ID of the user.
+     * @description The items used for related recommendations in specified scenes.
      *
      * @example 123
      *
@@ -108,7 +109,7 @@ class RecommendRequest extends Model
     public $userId;
 
     /**
-     * @description N/A
+     * @description The ID of the request.
      *
      * @example 1
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class extInfo extends Model
 {
     /**
-     * @description The delimiter that is used to separate items.
+     * @description The description of the filtering table.
      *
      * @example ,
      *
@@ -18,7 +18,7 @@ class extInfo extends Model
     public $itemSeparator;
 
     /**
-     * @description The delimiter that is used to separate keys and values.
+     * @description The fluctuation threshold for the size of the index.
      *
      * @example :
      *

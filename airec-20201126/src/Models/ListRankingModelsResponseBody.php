@@ -17,8 +17,6 @@ class ListRankingModelsResponseBody extends Model
     public $code;
 
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $message;

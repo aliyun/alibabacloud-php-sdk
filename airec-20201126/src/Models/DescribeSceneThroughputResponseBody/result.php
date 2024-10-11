@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The number of page views.
-     *
-     * @example 123213
-     *
      * @var int
      */
     public $pvCount;

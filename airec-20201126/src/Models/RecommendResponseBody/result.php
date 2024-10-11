@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The weight of the specified process.
+     * @description The ID of the device.
      *
      * @example 0
      *
@@ -18,7 +18,7 @@ class result extends Model
     public $flowWeight;
 
     /**
-     * @description The ID of the recommended item.
+     * @description The returned results.
      *
      * @example 123
      *
@@ -27,7 +27,7 @@ class result extends Model
     public $itemId;
 
     /**
-     * @description The type of the recommended item.
+     * @description The ID of the recommended item.
      *
      * @example item
      *
@@ -36,7 +36,7 @@ class result extends Model
     public $itemType;
 
     /**
-     * @description This parameter may be used in the debugging process. You can ignore this parameter.
+     * @description N/A
      *
      * @example xxx
      *
@@ -45,7 +45,7 @@ class result extends Model
     public $matchInfo;
 
     /**
-     * @description The status of the execution.
+     * @description The event tracking ID. This parameter is uploaded together with user behaviors on the recommended item. In this case, the value of this parameter is ali.
      *
      * @example Successful
      *
@@ -54,7 +54,7 @@ class result extends Model
     public $message;
 
     /**
-     * @description The position at which the recommended item is displayed. The position number starts from 0. The return results are ranked by position. You can ignore this parameter.
+     * @description The string for filtering during recommendation.
      *
      * @example 1
      *
@@ -63,7 +63,7 @@ class result extends Model
     public $position;
 
     /**
-     * @description The event tracking ID. This parameter is uploaded together with user behaviors on the recommended item. In this case, the value of this parameter is ali.
+     * @description The status of the execution.
      *
      * @example ali
      *
@@ -72,7 +72,7 @@ class result extends Model
     public $traceId;
 
     /**
-     * @description The information about event tracking. The value of this parameter varies based on different items and needs to be uploaded together with the corresponding behavior data.
+     * @description Specifies whether to perform personalized ranking based on the user IDs in the filtering and ranking phases.
      *
      * @example "1007.62381.131491.100200300000000:bcb946ed-3f09-4e9b-bf4a-c19862f42231:792783::0:s101:::15:content___130788_stall:item:i2i_common_common:0.0205279946753756:null:null:1673258031504::context__recall_index=156,context__hour=17,context__trigger_num=2::C7EF99C9-6C55-5D45-A8D5-0754082E9DCF:hot_common,i2i_common_common,i2i_swing_common,hot_full:::::"
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The ID of the filtering table.
+     * @description The fluctuation threshold for the size of the source table.
      *
      * @example abc
      *
@@ -19,7 +19,7 @@ class result extends Model
     public $algorithmId;
 
     /**
-     * @description The time when the filtering table was created.
+     * @description The category of the filtering table.
      *
      * @example 2018-12-07T02:24:26.000Z
      *
@@ -28,7 +28,7 @@ class result extends Model
     public $gmtCreate;
 
     /**
-     * @description The time when the filtering table was modified.
+     * @description The name of the project.
      *
      * @example 2018-12-07T02:24:26.000Z
      *
@@ -37,16 +37,16 @@ class result extends Model
     public $gmtModified;
 
     /**
-     * @description The metadata of the filtering table.
+     * @description The time when the filtering table was modified.
      *
      * @var meta
      */
     public $meta;
 
     /**
-     * @description The status of the filtering table.
+     * @description N/A
      *
-     * @example Init
+     * @example The threshold for the loss of the index data.
      *
      * @var string
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class selectionParams extends Model
 {
     /**
+     * @description The type of the filtering condition for the item selection rule.
+     *
      * @example invalidItem
      *
      * @var string
@@ -16,6 +18,8 @@ class selectionParams extends Model
     public $selectType;
 
     /**
+     * @description The number of filtering conditions for the item selection rule.
+     *
      * @example 20
      *
      * @var string
@@ -23,6 +27,8 @@ class selectionParams extends Model
     public $selectValue;
 
     /**
+     * @description The operation on the filtering condition for the item selection rule.
+     *
      * @example OPERATOR_HIGHER
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListMixCategoriesResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var string
@@ -17,6 +19,8 @@ class ListMixCategoriesResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message.
+     *
      * @example Success
      *
      * @var string
@@ -24,6 +28,8 @@ class ListMixCategoriesResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example ED093A1D-1C56-57A2-B078-3C518F632F03
      *
      * @var string
@@ -31,6 +37,8 @@ class ListMixCategoriesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned result.
+     *
      * @var result[]
      */
     public $result;

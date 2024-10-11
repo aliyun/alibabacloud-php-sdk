@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ValidateInstanceResponseBody extends Model
 {
     /**
-     * @example InternalServerError
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example An internal server error occurred
-     *
      * @var string
      */
     public $message;

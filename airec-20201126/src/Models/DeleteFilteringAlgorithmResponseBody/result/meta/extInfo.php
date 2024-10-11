@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class extInfo extends Model
 {
     /**
-     * @description xxx
+     * @description The delimiter that is used to separate items.
      *
-     * @example xxx
+     * @example ;
      *
      * @var string
      */
     public $itemSeparator;
 
     /**
-     * @description xxx
+     * @description The delimiter that is used to separate keys and values.
      *
-     * @example xxx
+     * @example ;
      *
      * @var string
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyFeatureTableResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description Modifies a feature table.
      *
      * @example 8B90B646-1678-41A3-B23F-EAC6587B0E48
      *

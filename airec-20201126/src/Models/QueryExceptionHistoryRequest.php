@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryExceptionHistoryRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1586673466
      *
      * @var int
@@ -16,6 +18,8 @@ class QueryExceptionHistoryRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1586673466
      *
      * @var int
@@ -23,7 +27,7 @@ class QueryExceptionHistoryRequest extends Model
     public $startTime;
 
     /**
-     * @example behavior
+     * @description This parameter is required.
      *
      * @var string
      */

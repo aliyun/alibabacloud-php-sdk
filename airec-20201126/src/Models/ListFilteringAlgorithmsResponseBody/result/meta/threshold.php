@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class threshold extends Model
 {
     /**
-     * @description xxx
-     *
      * @example 1
      *
      * @var int
@@ -18,8 +16,6 @@ class threshold extends Model
     public $indexLossThreshold;
 
     /**
-     * @description xxx
-     *
      * @example 1
      *
      * @var int
@@ -27,8 +23,6 @@ class threshold extends Model
     public $indexSizeThreshold;
 
     /**
-     * @description xxx
-     *
      * @example 1
      *
      * @var int
@@ -36,8 +30,6 @@ class threshold extends Model
     public $sourceDataRecordThreshold;
 
     /**
-     * @description xxx
-     *
      * @example 1
      *
      * @var int

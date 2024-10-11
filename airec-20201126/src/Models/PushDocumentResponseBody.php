@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class PushDocumentResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 829F38F6-E2D6-4109-90A6-888160BD16C2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description true/false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $result;

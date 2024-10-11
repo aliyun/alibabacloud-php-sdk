@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDashboardDetailsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1588521600
      *
      * @var int
@@ -23,11 +25,15 @@ class ListDashboardDetailsRequest extends Model
     public $experimentIds;
 
     /**
+     * @example hot,emb,u2x2i,hilp,new,
+     *
      * @var string
      */
     public $matchTypes;
 
     /**
+     * @description This parameter is required.
+     *
      * @example xxx
      *
      * @var string
@@ -35,6 +41,8 @@ class ListDashboardDetailsRequest extends Model
     public $metricType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -42,6 +50,8 @@ class ListDashboardDetailsRequest extends Model
     public $sceneIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1588521600
      *
      * @var int
@@ -49,7 +59,7 @@ class ListDashboardDetailsRequest extends Model
     public $startTime;
 
     /**
-     * @description trace_Id
+     * @description This parameter is required.
      *
      * @example Alibaba
      *

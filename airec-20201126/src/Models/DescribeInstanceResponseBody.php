@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example InternalServerError
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeInstanceResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message.
+     *
      * @example An internal server error occurred
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeInstanceResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 8F81A922-6C81-46D6-B78C-CC35E16B1691
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned results.
+     *
      * @var result
      */
     public $result;

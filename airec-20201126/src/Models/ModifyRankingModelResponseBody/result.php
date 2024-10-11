@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The time when the ranking model was created.
+     * @description The error message.
      *
      * @example 2020-11-11T09:47:43.000Z
      *
@@ -18,7 +18,7 @@ class result extends Model
     public $gmtCreate;
 
     /**
-     * @description The time when the ranking model was modified.
+     * @description The ID of the request.
      *
      * @example 2020-11-11T09:47:43.000Z
      *
@@ -27,7 +27,7 @@ class result extends Model
     public $gmtModified;
 
     /**
-     * @description The data source of the filtering table. Only MaxCompute tables are supported.
+     * @description __null__
      *
      * @example {}
      *
@@ -36,7 +36,7 @@ class result extends Model
     public $meta;
 
     /**
-     * @description The ID of the ranking model.
+     * @description The error code.
      *
      * @example test1234
      *

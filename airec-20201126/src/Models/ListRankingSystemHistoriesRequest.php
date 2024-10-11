@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListRankingSystemHistoriesRequest extends Model
 {
     /**
-     * @description The type of the operation. Valid values: CONF_CHANGE: configuration changes. DEPLOY_CHANGE: changes in deployment methods.
+     * @description The number of the page to return.
      *
      * @example CONF_CHANGE
      *
@@ -18,7 +18,7 @@ class ListRankingSystemHistoriesRequest extends Model
     public $operateType;
 
     /**
-     * @description The number of the page to return.
+     * @description The number of entries to return on each page.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class ListRankingSystemHistoriesRequest extends Model
     public $page;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The schema of the response parameters.
      *
      * @example 10
      *

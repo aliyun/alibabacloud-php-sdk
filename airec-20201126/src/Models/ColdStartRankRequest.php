@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ColdStartRankRequest extends Model
 {
     /**
+     * @example eg: k1:v1|k2:v2|k3:v1,v2,v3
+     *
      * @var string
      */
     public $features;
 
     /**
+     * @example abfsc
+     *
      * @var string
      */
     public $imei;
 
     /**
+     * @example 16240:video
+     *
      * @var string
      */
     public $items;
 
     /**
+     * @example sceneId
+     *
      * @var string
      */
     public $sceneId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $userId;

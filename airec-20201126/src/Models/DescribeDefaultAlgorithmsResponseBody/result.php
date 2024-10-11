@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The algorithm category. Valid values: RECALL and RANK.
+     *
      * @example RECALL
      *
      * @var string
@@ -17,11 +19,15 @@ class result extends Model
     public $category;
 
     /**
+     * @description The information about the child configuration item.
+     *
      * @var config[]
      */
     public $config;
 
     /**
+     * @description The default value of the algorithm. If you set key to i2i, hot, or new, the value of this parameter is true or false. If you set key to mtorder, the value of this parameter is a list of filtering algorithms ranked by priority.
+     *
      * @example true
      *
      * @var string
@@ -29,6 +35,8 @@ class result extends Model
     public $defaultValue;
 
     /**
+     * @description The custom value of the algorithm.
+     *
      * @example 300
      *
      * @var string
@@ -36,6 +44,8 @@ class result extends Model
     public $experimentValue;
 
     /**
+     * @description Indicates whether child configuration items exist. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool
@@ -43,6 +53,8 @@ class result extends Model
     public $hasConfig;
 
     /**
+     * @description The algorithm key. Valid values: i2i: the I2I filtering algorithm. u2x2i: the U2X2I filtering algorithm. hot: the filtering algorithm for popular items. new: the filtering algorithm for new items. embedding: the vector filtering algorithm. mtorder: the priority of the filtering algorithm. rankservice: the ranking service.
+     *
      * @example I2I
      *
      * @var string
@@ -50,6 +62,8 @@ class result extends Model
     public $key;
 
     /**
+     * @description The algorithm name. (Note: If you use the default algorithm, the console obtains the algorithm name from Medusa. If you customize an algorithm for the experiment, the algorithm name is directly returned.)
+     *
      * @example xxx
      *
      * @var string
@@ -57,6 +71,8 @@ class result extends Model
     public $name;
 
     /**
+     * @description The algorithm type. Valid values: SYSTEM and CUSTOM.
+     *
      * @example SYSTEM
      *
      * @var string

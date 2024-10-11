@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeFilteringAlgorithmResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The metadata of the filtering table.
      *
      * @example 7585C2B2-0D61-4C96-AC5D-B960BFEDD4A3
      *
@@ -19,7 +19,7 @@ class DescribeFilteringAlgorithmResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the filtering table.
+     * @description The ID of the request.
      *
      * @var result
      */

@@ -25,8 +25,6 @@ class meta extends Model
     public $category;
 
     /**
-     * @description xxx
-     *
      * @example 123
      *
      * @var string
@@ -34,17 +32,13 @@ class meta extends Model
     public $clusterId;
 
     /**
-     * @description xxx
-     *
-     * @example xxx
+     * @example 0 0/12 0 * *
      *
      * @var string
      */
     public $cron;
 
     /**
-     * @description xxx
-     *
      * @example true
      *
      * @var bool
@@ -52,39 +46,33 @@ class meta extends Model
     public $cronEnabled;
 
     /**
-     * @example xxx
+     * @example test
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description xxx
-     *
      * @var extInfo
      */
     public $extInfo;
 
     /**
-     * @description xxx
-     *
-     * @example xxx
+     * @example ODPS
      *
      * @var string
      */
     public $metaType;
 
     /**
-     * @description xxx
-     *
-     * @example xxx
+     * @example airec123
      *
      * @var string
      */
     public $projectName;
 
     /**
-     * @example xxx
+     * @example item
      *
      * @var string
      */
@@ -98,8 +86,6 @@ class meta extends Model
     public $taskId;
 
     /**
-     * @description xxx
-     *
      * @var threshold
      */
     public $threshold;

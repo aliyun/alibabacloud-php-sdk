@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteRankingModelTemplateResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @example 829F38F6-E2D6-4109-90A6-888160BD16C2
      *
      * @var string

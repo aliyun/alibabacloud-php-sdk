@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteExperimentResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
      * @example 829F38F6-E2D6-4109-90A6-888160BD16C2
      *
      * @var string
@@ -18,8 +16,6 @@ class DeleteExperimentResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the test was deleted. Valid values: true or false.
-     *
      * @example true
      *
      * @var bool

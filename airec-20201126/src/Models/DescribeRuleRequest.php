@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeRuleRequest extends Model
 {
     /**
+     * @description The returned result.
+     *
+     * This parameter is required.
      * @example selection
      *
      * @var string
@@ -16,6 +19,9 @@ class DescribeRuleRequest extends Model
     public $ruleType;
 
     /**
+     * @description The type of the rule.
+     *
+     * This parameter is required.
      * @example xxx
      *
      * @var string

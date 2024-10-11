@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFlowControlTaskRequest extends Model
 {
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request.
+     *
      * @example true
      *
      * @var bool

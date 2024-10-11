@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class meta extends Model
 {
     /**
-     * @description The name of the filtering algorithm.
+     * @description The time when the filtering table was created.
      *
      * @example test
      *
@@ -20,7 +20,7 @@ class meta extends Model
     public $algorithmName;
 
     /**
-     * @description The category of the filtering table.
+     * @description Indicates whether the scheduled task is enabled.
      *
      * @example 1_2
      *
@@ -29,7 +29,7 @@ class meta extends Model
     public $category;
 
     /**
-     * @description The ID of the cluster.
+     * @description N/A
      *
      * @example 244
      *
@@ -38,7 +38,7 @@ class meta extends Model
     public $clusterId;
 
     /**
-     * @description The CRON expression of the scheduled task.
+     * @description The information about the filtering table.
      *
      * @example * * 24 7 0
      *
@@ -47,7 +47,7 @@ class meta extends Model
     public $cron;
 
     /**
-     * @description Indicates whether the scheduled task is enabled.
+     * @description The ID of the filtering table.
      *
      * @example Y
      *
@@ -56,7 +56,7 @@ class meta extends Model
     public $cronEnabled;
 
     /**
-     * @description The description of the filtering table.
+     * @description The time when the filtering table was modified.
      *
      * @example test
      *
@@ -65,14 +65,14 @@ class meta extends Model
     public $description;
 
     /**
-     * @description The additional information.
+     * @description The ID of the task.
      *
      * @var extInfo
      */
     public $extInfo;
 
     /**
-     * @description The type of the metadata.
+     * @description The information about the filtering table.
      *
      * @example metaType
      *
@@ -81,7 +81,7 @@ class meta extends Model
     public $metaType;
 
     /**
-     * @description The name of the project.
+     * @description The status of the filtering table.
      *
      * @example test
      *
@@ -90,7 +90,7 @@ class meta extends Model
     public $projectName;
 
     /**
-     * @description The name of the filtering table.
+     * @description The ID of the specified filtering table.
      *
      * @example test_table
      *
@@ -99,7 +99,7 @@ class meta extends Model
     public $tableName;
 
     /**
-     * @description The ID of the task.
+     * @description The CRON expression of the scheduled task.
      *
      * @example taskId
      *
@@ -108,14 +108,14 @@ class meta extends Model
     public $taskId;
 
     /**
-     * @description The threshold.
+     * @description The ID of the filtering table.
      *
      * @var threshold
      */
     public $threshold;
 
     /**
-     * @description The type of the data source.
+     * @description The metadata of the filtering table.
      *
      * @example ODPS
      *

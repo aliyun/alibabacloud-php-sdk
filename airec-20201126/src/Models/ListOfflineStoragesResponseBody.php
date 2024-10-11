@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListOfflineStoragesResponseBody extends Model
 {
     /**
+     * @description Id of the request
+     *
      * @example 6839AE7C-A984-48C1-AC17-331BAC6D97BC
      *
      * @var int[]

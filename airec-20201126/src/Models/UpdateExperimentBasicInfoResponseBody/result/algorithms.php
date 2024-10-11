@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class algorithms extends Model
 {
     /**
+     * @description The category of the algorithm.
+     *
      * @example 2
      *
      * @var string
@@ -17,11 +19,15 @@ class algorithms extends Model
     public $category;
 
     /**
+     * @description The information about the child configuration item.
+     *
      * @var config[]
      */
     public $config;
 
     /**
+     * @description The default value of the algorithm.
+     *
      * @example 400
      *
      * @var string
@@ -29,6 +35,8 @@ class algorithms extends Model
     public $defaultValue;
 
     /**
+     * @description The custom value of the algorithm.
+     *
      * @example 400
      *
      * @var string
@@ -36,6 +44,8 @@ class algorithms extends Model
     public $experimentValue;
 
     /**
+     * @description Indicates whether child configuration items exist. Valid values: true and false.
+     *
      * @example false
      *
      * @var bool
@@ -43,7 +53,7 @@ class algorithms extends Model
     public $hasConfig;
 
     /**
-     * @description key
+     * @description The key of the algorithm.
      *
      * @example I2I
      *
@@ -52,6 +62,8 @@ class algorithms extends Model
     public $key;
 
     /**
+     * @description The name of the experiment.
+     *
      * @example test
      *
      * @var string
@@ -59,6 +71,8 @@ class algorithms extends Model
     public $name;
 
     /**
+     * @description The type of the algorithm.
+     *
      * @example SYSTEM
      *
      * @var string

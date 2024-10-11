@@ -9,18 +9,14 @@ use AlibabaCloud\Tea\Model;
 class extInfo extends Model
 {
     /**
-     * @description xxx
-     *
-     * @example xxx
+     * @example ,
      *
      * @var string
      */
     public $itemSeparator;
 
     /**
-     * @description xxx
-     *
-     * @example xxx
+     * @example :
      *
      * @var string
      */

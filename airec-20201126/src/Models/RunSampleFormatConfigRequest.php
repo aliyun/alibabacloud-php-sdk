@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RunSampleFormatConfigRequest extends Model
 {
     /**
+     * @description The mode of the formatting. Default value: Latest. This value indicates that the latest formatting configurations are used.
+     *
      * @example latest
      *
      * @var string

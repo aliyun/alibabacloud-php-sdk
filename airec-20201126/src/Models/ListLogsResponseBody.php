@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListLogsResponseBody extends Model
 {
     /**
-     * @example InternalServerError
-     *
      * @var string
      */
     public $code;
@@ -22,8 +20,6 @@ class ListLogsResponseBody extends Model
     public $headers;
 
     /**
-     * @example An internal server error occurred
-     *
      * @var string
      */
     public $message;

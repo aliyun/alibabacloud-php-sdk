@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class detail extends Model
 {
     /**
-     * @description The end time. The value is a timestamp in seconds.
+     * @description The error message.
      *
      * @example 1586673466
      *
@@ -18,7 +18,7 @@ class detail extends Model
     public $endTime;
 
     /**
-     * @description The start time. The value is a timestamp in seconds.
+     * @description The ID of the request.
      *
      * @example 1586673466
      *
@@ -27,7 +27,7 @@ class detail extends Model
     public $startTime;
 
     /**
-     * @description The specific value of the metric.
+     * @description The error code.
      *
      * @example 13
      *

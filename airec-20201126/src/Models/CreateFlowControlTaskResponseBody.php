@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFlowControlTaskResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var string
@@ -17,6 +19,8 @@ class CreateFlowControlTaskResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message.
+     *
      * @example An internal server error occurred
      *
      * @var string
@@ -24,6 +28,8 @@ class CreateFlowControlTaskResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example EDF43C1F-99E4-431F-A7C0-8B260A5A792E
      *
      * @var string
@@ -31,6 +37,8 @@ class CreateFlowControlTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned result.
+     *
      * @var result
      */
     public $result;

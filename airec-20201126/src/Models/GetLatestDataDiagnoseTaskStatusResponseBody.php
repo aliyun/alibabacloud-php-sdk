@@ -16,6 +16,8 @@ class GetLatestDataDiagnoseTaskStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @example RUNNING
+     *
      * @var mixed[]
      */
     public $result;

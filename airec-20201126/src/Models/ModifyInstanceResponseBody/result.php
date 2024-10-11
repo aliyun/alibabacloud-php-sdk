@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The billing method. Valid values: PrePaid and PostPaid. Only the PrePaid billing method is supported.
+     *
      * @example PrePaid
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $chargeType;
 
     /**
+     * @description The commodity code of the recommended item.
+     *
      * @example airecpre
      *
      * @var string
@@ -23,6 +27,8 @@ class result extends Model
     public $commodityCode;
 
     /**
+     * @description The version of the dataset that provides online services.
+     *
      * @example 20181206170353
      *
      * @var string
@@ -30,6 +36,8 @@ class result extends Model
     public $dataSetVersion;
 
     /**
+     * @description The time when the instance expires. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format.The time is displayed in UTC.
+     *
      * @example 2019-01-06T16:00:00.000Z
      *
      * @var string
@@ -37,6 +45,8 @@ class result extends Model
     public $expiredTime;
 
     /**
+     * @description The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2018-12-06T06:14:01.000Z
      *
      * @var string
@@ -44,6 +54,8 @@ class result extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the instance was last modified. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2018-12-06T11:17:49.000Z
      *
      * @var string
@@ -51,6 +63,8 @@ class result extends Model
     public $gmtModified;
 
     /**
+     * @description The type of the industry. Valid values: content, item, news, video, and sns.
+     *
      * @example news
      *
      * @var string
@@ -58,6 +72,8 @@ class result extends Model
     public $industry;
 
     /**
+     * @description The instance ID.
+     *
      * @example airec-cn-o400whm78004
      *
      * @var string
@@ -65,6 +81,8 @@ class result extends Model
     public $instanceId;
 
     /**
+     * @description The lock mode of the instance. Valid values: Unlock, ManualLock, and LockByExpiration.
+     *
      * @example Unlock
      *
      * @var string
@@ -72,11 +90,17 @@ class result extends Model
     public $lockMode;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example Test instance
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The region where the instance resides.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -84,6 +108,8 @@ class result extends Model
     public $regionId;
 
     /**
+     * @description The state of the instance. Valid values: Initializing, Ready, and Running.
+     *
      * @example Running
      *
      * @var string
@@ -91,6 +117,8 @@ class result extends Model
     public $status;
 
     /**
+     * @description The type of the instance. Only the Standard edition is supported.
+     *
      * @example Standard
      *
      * @var string

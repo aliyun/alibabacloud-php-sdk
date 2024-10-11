@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteSceneResponseBody extends Model
 {
     /**
-     * @example InternalServerError
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example An internal server error occurred
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example 8F81A922-6C81-46D6-B78C-CC35E16B1691
-     *
      * @var string
      */
     public $requestId;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class PushInterventionResponseBody extends Model
 {
     /**
-     * @description code
-     *
      * @example 1
      *
      * @var string
@@ -32,8 +30,6 @@ class PushInterventionResponseBody extends Model
     public $requestId;
 
     /**
-     * @description result true/false
-     *
      * @example true
      *
      * @var bool

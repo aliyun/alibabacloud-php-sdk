@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class total extends Model
 {
     /**
-     * @example 1000
-     *
      * @var int
      */
     public $instanceRecommendItem;
 
     /**
-     * @example 1000
-     *
      * @var int
      */
     public $sceneRecommendItem;
 
     /**
-     * @example 1000
-     *
      * @var int
      */
     public $sceneWeightItem;
 
     /**
-     * @example 1000
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @example 1000
-     *
      * @var int
      */
     public $weightItem;

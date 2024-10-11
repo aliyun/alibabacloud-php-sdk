@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The ID of the specified filtering table.
+     *
      * @example 123
      *
      * @var string
@@ -17,6 +19,8 @@ class result extends Model
     public $algorithmId;
 
     /**
+     * @description The time when the filtering table was created.
+     *
      * @example 2018-12-07T02:24:26.000Z
      *
      * @var string
@@ -24,6 +28,8 @@ class result extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the filtering table was modified.
+     *
      * @example 2018-12-07T02:24:26.000Z
      *
      * @var string
@@ -31,14 +37,16 @@ class result extends Model
     public $gmtModified;
 
     /**
+     * @description The metadata of the filtering table.
+     *
      * @var meta
      */
     public $meta;
 
     /**
-     * @description xxx
+     * @description The state of the filtering table. Valid values: Draft, Running, Offline, and Deleted.
      *
-     * @example xxx
+     * @example Running
      *
      * @var string
      */

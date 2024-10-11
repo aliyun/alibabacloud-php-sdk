@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description appkey
-     *
      * @example 5ddcf39f57729e708b00000e
      *
      * @var string
@@ -25,8 +23,6 @@ class result extends Model
     public $name;
 
     /**
-     * @description Android/ios
-     *
      * @example ios
      *
      * @var string

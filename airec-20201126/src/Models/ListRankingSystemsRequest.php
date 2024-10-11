@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListRankingSystemsRequest extends Model
 {
     /**
-     * @description The state of the deployment. Valid values: NOT_DEPLOYED: The ranking service is not deployed. DEPLOY_SUCCESS: The ranking service is deployed.
+     * @description The name of the ranking service.
      *
      * @example NOT_DEPLOYED
      *
@@ -18,7 +18,7 @@ class ListRankingSystemsRequest extends Model
     public $deployStatus;
 
     /**
-     * @description The name of the ranking service.
+     * @description The ID of the instance.
      *
      * @example service-a
      *
@@ -27,7 +27,7 @@ class ListRankingSystemsRequest extends Model
     public $name;
 
     /**
-     * @description The number of the page to return.
+     * @description The state of the deployment. Valid values: NOT_DEPLOYED: The ranking service is not deployed. DEPLOY_SUCCESS: The ranking service is deployed.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class ListRankingSystemsRequest extends Model
     public $page;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of the page to return.
      *
      * @example 10
      *

@@ -30,7 +30,7 @@ class ListFilteringAlgorithmsRequest extends Model
     public $size;
 
     /**
-     * @example xxx
+     * @example Running
      *
      * @var string
      */

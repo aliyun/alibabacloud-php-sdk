@@ -23,8 +23,6 @@ class metricData extends Model
     public $sceneId;
 
     /**
-     * @description trace_id
-     *
      * @example Alibaba
      *
      * @var string

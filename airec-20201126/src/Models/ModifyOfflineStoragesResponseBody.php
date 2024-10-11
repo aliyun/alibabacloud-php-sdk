@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyOfflineStoragesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 7F176EE8-51DA-4B4D-8FFE-04448CD7A171
      *
      * @var int[]
@@ -16,6 +18,8 @@ class ModifyOfflineStoragesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned result.
+     *
      * @example true
      *
      * @var bool

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @example test
-     *
      * @var string
      */
     public $sceneId;

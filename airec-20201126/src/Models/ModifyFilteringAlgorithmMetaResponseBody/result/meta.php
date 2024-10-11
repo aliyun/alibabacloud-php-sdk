@@ -39,8 +39,6 @@ class meta extends Model
     public $cron;
 
     /**
-     * @example Y
-     *
      * @var bool
      */
     public $cronEnabled;
@@ -79,8 +77,6 @@ class meta extends Model
     public $tableName;
 
     /**
-     * @description taskId
-     *
      * @example taskId
      *
      * @var string

@@ -9,92 +9,66 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @example PrePaid
-     *
      * @var string
      */
     public $chargeType;
 
     /**
-     * @example airecpre
-     *
      * @var string
      */
     public $commodityCode;
 
     /**
-     * @example 20181206170353
-     *
      * @var string
      */
     public $dataSetVersion;
 
     /**
-     * @example 2019-01-06T16:00:00.000Z
-     *
      * @var string
      */
     public $expiredTime;
 
     /**
-     * @example 2018-12-06T06:14:01.000Z
-     *
      * @var string
      */
     public $gmtCreate;
 
     /**
-     * @example 2018-12-06T11:17:49.000Z
-     *
      * @var string
      */
     public $gmtModified;
 
     /**
-     * @example news
-     *
      * @var string
      */
     public $industry;
 
     /**
-     * @example airec-cn-o400whm78004
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example Unlock
-     *
      * @var string
      */
     public $lockMode;
 
     /**
-     * @example airec-cn-o400whm78004
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example Running
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example Standard
-     *
      * @var string
      */
     public $type;

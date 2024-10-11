@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @description The default value of the algorithm configuration item.
+     *
      * @example true
      *
      * @var string
@@ -16,6 +18,8 @@ class config extends Model
     public $defaultValue;
 
     /**
+     * @description The custom value of the algorithm configuration item.
+     *
      * @example 400
      *
      * @var string
@@ -23,7 +27,7 @@ class config extends Model
     public $experimentValue;
 
     /**
-     * @description Key
+     * @description The key of the algorithm configuration item.
      *
      * @example I2I
      *
@@ -32,6 +36,10 @@ class config extends Model
     public $key;
 
     /**
+     * @description The name of the algorithm configuration item.
+     *
+     * @example I2I filtering algorithm
+     *
      * @var string
      */
     public $name;

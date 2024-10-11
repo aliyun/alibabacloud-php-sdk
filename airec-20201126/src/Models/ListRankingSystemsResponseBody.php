@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListRankingSystemsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The schema of the response parameters.
      *
      * @example 829F38F6-E2D6-4109-90A6-888160BD16C2
      *
@@ -18,7 +18,7 @@ class ListRankingSystemsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The returned result.
+     * @description The ID of the request.
      *
      * @var RankingSystem[]
      */

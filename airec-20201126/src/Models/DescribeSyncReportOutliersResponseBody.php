@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeSyncReportOutliersResponseBody extends Model
 {
     /**
-     * @example InternalServerError
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example An internal server error occurred
-     *
      * @var string
      */
     public $message;
@@ -30,8 +26,6 @@ class DescribeSyncReportOutliersResponseBody extends Model
     public $requestId;
 
     /**
-     * @example xxx
-     *
      * @var mixed[]
      */
     public $result;

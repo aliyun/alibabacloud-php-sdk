@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeployRankingSystemRequest extends Model
 {
     /**
-     * @description The configuration that you want to modify.
+     * @description The schema of the response parameters.
      *
      * @example "meta": {
      * }

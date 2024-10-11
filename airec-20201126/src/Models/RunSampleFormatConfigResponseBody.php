@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RunSampleFormatConfigResponseBody extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example airec-test
      *
      * @var string
@@ -16,6 +18,8 @@ class RunSampleFormatConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the sample formatting configurations are triggered.
+     *
      * @example true
      *
      * @var bool

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListRuleTasksResponseBody extends Model
 {
     /**
-     * @description The error code.
+     * @description Queries the status of a rule-specific task.
      *
      * @example InternalServerError
      *
@@ -19,7 +19,7 @@ class ListRuleTasksResponseBody extends Model
     public $code;
 
     /**
-     * @description The error message.
+     * @description The ID of the scene.
      *
      * @example An internal server error occurred
      *
@@ -28,7 +28,7 @@ class ListRuleTasksResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the instance.
      *
      * @example 8F81A922-6C81-46D6-B78C-CC35E16B1691
      *
@@ -37,7 +37,7 @@ class ListRuleTasksResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The returned results.
+     * @description The error message.
      *
      * @var result
      */

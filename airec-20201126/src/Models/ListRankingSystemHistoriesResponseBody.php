@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListRankingSystemHistoriesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The returned result.
      *
      * @example 829F38F6-E2D6-4109-90A6-888160BD16C2
      *
@@ -18,7 +18,7 @@ class ListRankingSystemHistoriesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The returned result.
+     * @description The response body.
      *
      * @var RankingSystemHistory[]
      */

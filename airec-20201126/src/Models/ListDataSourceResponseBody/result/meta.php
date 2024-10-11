@@ -37,8 +37,6 @@ class meta extends Model
     public $path;
 
     /**
-     * @description ODPS project name。
-     *
      * @example openrec_gray
      *
      * @var string
@@ -46,8 +44,6 @@ class meta extends Model
     public $projectName;
 
     /**
-     * @description ODPS table name。
-     *
      * @example test_maxcompute
      *
      * @var string

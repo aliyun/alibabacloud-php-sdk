@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The console URL.
+     *
      * @example xxx
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $consoleUrl;
 
     /**
+     * @description The endpoint.
+     *
      * @example 47.109.94.218
      *
      * @var string
@@ -23,6 +27,8 @@ class result extends Model
     public $endpoint;
 
     /**
+     * @description The region name.
+     *
      * @example xxx
      *
      * @var string
@@ -30,6 +36,8 @@ class result extends Model
     public $localName;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -37,6 +45,8 @@ class result extends Model
     public $regionId;
 
     /**
+     * @description The instance state. Valid values: NotOpen, Processing, and Running.
+     *
      * @example Running
      *
      * @var string

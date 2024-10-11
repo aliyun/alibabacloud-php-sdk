@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateRankingModelResponseBody extends Model
 {
     /**
-     * @example 1
+     * @example 200
      *
      * @var string
      */
@@ -31,8 +31,6 @@ class CreateRankingModelResponseBody extends Model
     public $requestId;
 
     /**
-     * @description result info
-     *
      * @var result
      */
     public $result;

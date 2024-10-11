@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class target extends Model
 {
     /**
+     * @description EXPOSE_PERCENT: daily exposure percentage. EXPOSE_COUNT: total number of exposures.
+     *
      * @example EXPOSE_PERCENT
      *
      * @var string
@@ -16,6 +18,8 @@ class target extends Model
     public $type;
 
     /**
+     * @description The exposure value.
+     *
      * @example 20
      *
      * @var int

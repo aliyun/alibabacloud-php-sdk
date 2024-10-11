@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateSceneRequest extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $dryRun;

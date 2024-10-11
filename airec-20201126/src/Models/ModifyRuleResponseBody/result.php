@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The time when the rule was created.
+     *
      * @example 2020-04-27T06:38:28.000Z
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the rule was last modified.
+     *
      * @example 2020-04-27T06:38:28.000Z
      *
      * @var string
@@ -23,6 +27,8 @@ class result extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example 98493A14-D619-4E88-9F8D-108939817F9F
      *
      * @var string
@@ -30,6 +36,8 @@ class result extends Model
     public $ruleId;
 
     /**
+     * @description The specific information about the rule.
+     *
      * @example xxx
      *
      * @var mixed[]
@@ -37,6 +45,8 @@ class result extends Model
     public $ruleMeta;
 
     /**
+     * @description Indicates whether the rule is enabled. Valid values: true and false.
+     *
      * @example true
      *
      * @var string

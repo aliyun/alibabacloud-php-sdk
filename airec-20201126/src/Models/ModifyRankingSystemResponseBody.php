@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyRankingSystemResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 829F38F6-E2D6-4109-90A6-888160BD16C2
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyRankingSystemResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ranking service that was modified.
+     *
      * @var RankingSystem
      */
     public $result;

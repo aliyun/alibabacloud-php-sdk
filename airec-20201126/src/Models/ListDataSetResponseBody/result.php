@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The time when the data source was created.
+     *
      * @example 1544112000000
      *
      * @var int
@@ -16,6 +18,8 @@ class result extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the data source was last modified.
+     *
      * @example 1544112000000
      *
      * @var int
@@ -23,6 +27,8 @@ class result extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example airec-cn-o400whm78004
      *
      * @var string
@@ -30,6 +36,8 @@ class result extends Model
     public $instanceId;
 
     /**
+     * @description The state for the dataset of the current version. Example: Importing. The value indicates that the dataset of the current version is being imported.
+     *
      * @example Importing
      *
      * @var string
@@ -37,6 +45,8 @@ class result extends Model
     public $state;
 
     /**
+     * @description The version number of the dataset.
+     *
      * @example 20181023214546
      *
      * @var string

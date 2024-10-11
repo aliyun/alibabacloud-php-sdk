@@ -23,6 +23,8 @@ class QueryDataMessageRequest extends Model
     public $cmdType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1586673466
      *
      * @var int
@@ -49,9 +51,6 @@ class QueryDataMessageRequest extends Model
     public $itemType;
 
     /**
-     * @description CONSOLE
-     *
-     * FEEDER
      * @example CONSOLE
      *
      * @var string
@@ -80,6 +79,8 @@ class QueryDataMessageRequest extends Model
     public $size;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1586673466
      *
      * @var int
@@ -87,8 +88,6 @@ class QueryDataMessageRequest extends Model
     public $startTime;
 
     /**
-     * @description trace_id
-     *
      * @example Alibaba
      *
      * @var string

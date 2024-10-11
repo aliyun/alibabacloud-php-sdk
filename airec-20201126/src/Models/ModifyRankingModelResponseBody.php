@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyRankingModelResponseBody extends Model
 {
     /**
-     * @description The error code.
-     *
      * @example 1
      *
      * @var string
@@ -19,8 +17,6 @@ class ModifyRankingModelResponseBody extends Model
     public $code;
 
     /**
-     * @description The error message.
-     *
      * @example An internal server error occurred
      *
      * @var string
@@ -28,8 +24,6 @@ class ModifyRankingModelResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 829F38F6-E2D6-4109-90A6-888160BD16C2
      *
      * @var string
@@ -37,7 +31,7 @@ class ModifyRankingModelResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The returned results.
+     * @description The data source of the filtering table. Only MaxCompute tables are supported.
      *
      * @var result
      */

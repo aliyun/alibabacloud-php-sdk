@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The content type.
+     *
      * @var int[]
      */
     public $categories;

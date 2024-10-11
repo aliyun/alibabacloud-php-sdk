@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteExtraDataSourceResponseBody extends Model
 {
     /**
+     * @description 请求ID。
+     *
      * @example 8B90B646-1678-41A3-B23F-EAC6587B0E48
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteExtraDataSourceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description 返回参数。
+     *
      * @var ExtraDataSource
      */
     public $result;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListRankingModelVersionsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 829F38F6-E2D6-4109-90A6-888160BD16C2
      *
@@ -18,7 +18,7 @@ class ListRankingModelVersionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The returned key-value pairs.
+     * @description The returned result.
      *
      * @var RankingModelVersion[]
      */

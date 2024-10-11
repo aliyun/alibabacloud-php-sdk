@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The new quota must be less than the selected quota.
      *
+     * The limits on the number of users: 1,000,000 to 10,000,000. The limits on the number of items: 1,000,000 to 10,000,000. The limits on the queries per second (QPS) of recommendation requests: 10 to 500.
      * @example airec-cn-o400whm78004
      *
      * @var string

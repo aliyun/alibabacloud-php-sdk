@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataPoints extends Model
 {
     /**
+     * @description The end time. The value is a timestamp in seconds.
+     *
      * @example 1567152000
      *
      * @var int
@@ -16,6 +18,8 @@ class dataPoints extends Model
     public $endTime;
 
     /**
+     * @description The start time. The value is a timestamp in seconds.
+     *
      * @example 1567152000
      *
      * @var int
@@ -23,6 +27,8 @@ class dataPoints extends Model
     public $startTime;
 
     /**
+     * @description The value of the corresponding metric.
+     *
      * @example 84.6
      *
      * @var float

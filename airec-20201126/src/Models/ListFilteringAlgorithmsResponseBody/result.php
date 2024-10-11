@@ -36,7 +36,7 @@ class result extends Model
     public $meta;
 
     /**
-     * @example xxx
+     * @example Running
      *
      * @var string
      */

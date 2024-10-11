@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CreateSampleFormatConfigResponseBody extends Model
 {
     /**
-     * @example EDF43C1F-99E4-431F-A7C0-8B260A5A792E
+     * @example 8B90B646-1678-41A3-B23F-EAC6587B0E48
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example xxx
+     * @example result
      *
      * @var mixed[]
      */

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListDashboardMetricsResponseBody extends Model
 {
     /**
-     * @description The error code.
+     * @description __null__
      *
      * @example InternalServerError
      *
@@ -19,8 +19,6 @@ class ListDashboardMetricsResponseBody extends Model
     public $code;
 
     /**
-     * @description The error message.
-     *
      * @example An internal server error occurred
      *
      * @var string
@@ -28,8 +26,6 @@ class ListDashboardMetricsResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 8F81A922-6C81-46D6-B78C-CC35E16B1691
      *
      * @var string
@@ -37,7 +33,7 @@ class ListDashboardMetricsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The statistical results.
+     * @description The specific value of the metric.
      *
      * @var result[]
      */

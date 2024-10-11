@@ -23,6 +23,8 @@ class ListRulesRequest extends Model
     public $page;
 
     /**
+     * @description This parameter is required.
+     *
      * @example selection
      *
      * @var string
@@ -30,6 +32,8 @@ class ListRulesRequest extends Model
     public $ruleType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string

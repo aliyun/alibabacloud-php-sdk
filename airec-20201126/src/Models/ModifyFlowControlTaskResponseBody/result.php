@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The ID of the task.
+     *
      * @example 1661506482
      *
      * @var string
@@ -17,6 +19,8 @@ class result extends Model
     public $taskId;
 
     /**
+     * @description The time when the task was created.
+     *
      * @example 2018-12-07T02:24:26.000Z
      *
      * @var string
@@ -24,6 +28,8 @@ class result extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the task was modified.
+     *
      * @example 2020-11-11T09:47:43.000Z
      *
      * @var string
@@ -31,13 +37,15 @@ class result extends Model
     public $gmtModified;
 
     /**
-     * @description meta
+     * @description The metadata.
      *
      * @var meta
      */
     public $meta;
 
     /**
+     * @description The state of the task.
+     *
      * @example DRAFT
      *
      * @var string

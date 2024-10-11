@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListRuleTasksRequest extends Model
 {
     /**
-     * @description The ID of the scene.
+     * @description The completion rate of the task.
      *
+     * This parameter is required.
      * @example testid
      *
      * @var string

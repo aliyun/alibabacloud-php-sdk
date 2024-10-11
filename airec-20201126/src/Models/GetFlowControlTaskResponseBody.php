@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetFlowControlTaskResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 829F38F6-E2D6-4109-90A6-888160BD16C2
      *
      * @var string
@@ -17,6 +19,8 @@ class GetFlowControlTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned result.
+     *
      * @var result[]
      */
     public $result;

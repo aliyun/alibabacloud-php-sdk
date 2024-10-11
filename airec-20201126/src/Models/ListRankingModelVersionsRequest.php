@@ -27,7 +27,7 @@ class ListRankingModelVersionsRequest extends Model
     public $size;
 
     /**
-     * @description The state of the version.
+     * @description The state of the version. Valid values: DRAFT: The version is in the draft state. EFFECTIVE: The version is effective. PUBLISHING: The version is being published. INEFFECTIVE: The version has expired. FAILED: The version has not taken effect.
      *
      * @example TRAINING
      *
@@ -36,8 +36,9 @@ class ListRankingModelVersionsRequest extends Model
     public $status;
 
     /**
-     * @description The ID of the model.
+     * @description The ranking model ID.
      *
+     * This parameter is required.
      * @example a-a-a
      *
      * @var string

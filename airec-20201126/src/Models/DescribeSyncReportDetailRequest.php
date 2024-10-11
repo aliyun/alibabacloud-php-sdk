@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSyncReportDetailRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1586673466
      *
      * @var int
@@ -16,7 +18,7 @@ class DescribeSyncReportDetailRequest extends Model
     public $endTime;
 
     /**
-     * @description error/warn/info
+     * @description This parameter is required.
      *
      * @example error
      *
@@ -25,6 +27,8 @@ class DescribeSyncReportDetailRequest extends Model
     public $levelType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1586673466
      *
      * @var int
@@ -32,7 +36,7 @@ class DescribeSyncReportDetailRequest extends Model
     public $startTime;
 
     /**
-     * @description behavior/item/user
+     * @description This parameter is required.
      *
      * @example behavior
      *

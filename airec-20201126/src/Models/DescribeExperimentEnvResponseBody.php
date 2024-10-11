@@ -17,8 +17,6 @@ class DescribeExperimentEnvResponseBody extends Model
     public $requestId;
 
     /**
-     * @description result
-     *
      * @var result
      */
     public $result;

@@ -11,8 +11,6 @@ use AlibabaCloud\Tea\Model;
 class ListUserClustersResponseBody extends Model
 {
     /**
-     * @description headers info
-     *
      * @var headers
      */
     public $headers;

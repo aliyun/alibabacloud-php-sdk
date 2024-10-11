@@ -10,16 +10,16 @@ use AlibabaCloud\Tea\Model;
 class meta extends Model
 {
     /**
-     * @description The name of the filtering algorithm.
+     * @description The name of the filtering table.
      *
-     * @example xxx
+     * @example algorithmTest
      *
      * @var string
      */
     public $algorithmName;
 
     /**
-     * @description The category of the filtering table.
+     * @description The response body.
      *
      * @example 1_2
      *
@@ -28,16 +28,16 @@ class meta extends Model
     public $category;
 
     /**
-     * @description The CRON expression of the scheduled task. Example: 0 0/12 0 \* \*, which indicates that the task is scheduled at 00:00 and 12:00 every day.
+     * @description The fluctuation threshold for the size of the index.
      *
-     * @example 0 0/12 0 * *"
+     * @example 0 0/12 0 * *
      *
      * @var string
      */
     public $cron;
 
     /**
-     * @description Indicates whether the scheduled task is enabled.
+     * @description The time when the filtering table was last modified. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed UTC.
      *
      * @example true
      *
@@ -55,7 +55,7 @@ class meta extends Model
     public $description;
 
     /**
-     * @description The additional information.
+     * @description The name of the MaxCompute project.
      *
      * @example {}
      *
@@ -64,7 +64,7 @@ class meta extends Model
     public $extInfo;
 
     /**
-     * @description The time when the filtering table was created. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in Coordinated Universal Time (UTC).
+     * @description The information about the filtering table.
      *
      * @example 2018-12-07T02:24:26.000Z
      *
@@ -73,7 +73,7 @@ class meta extends Model
     public $gmtCreate;
 
     /**
-     * @description The time when the filtering table was last modified. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed UTC.
+     * @description Indicates whether the scheduled task is enabled.
      *
      * @example 2018-12-07T02:24:26.000Z
      *
@@ -82,16 +82,16 @@ class meta extends Model
     public $gmtModified;
 
     /**
-     * @description The name of the MaxCompute project.
+     * @description The ID of the filtering table.
      *
-     * @example xxx
+     * @example testname
      *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description The state of the filtering table.
+     * @description The CRON expression of the scheduled task. Example: 0 0/12 0 \\* \\*, which indicates that the task is scheduled at 00:00 and 12:00 every day.
      *
      * @example Running
      *
@@ -100,7 +100,7 @@ class meta extends Model
     public $status;
 
     /**
-     * @description The name of the filtering table.
+     * @description The metadata of the filtering table.
      *
      * @example table_test
      *
@@ -109,14 +109,14 @@ class meta extends Model
     public $tableName;
 
     /**
-     * @description The threshold.
+     * @description 0 0/12 0 * *"
      *
      * @var threshold
      */
     public $threshold;
 
     /**
-     * @description The type of the data source.
+     * @description The ID of the request.
      *
      * @example ODPS
      *

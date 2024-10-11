@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomAnalysisTaskResponseBody extends Model
 {
     /**
-     * @example xxx
+     * @example 200
      *
      * @var string
      */
     public $code;
 
     /**
-     * @example xxx
+     * @example success
      *
      * @var string
      */
     public $message;
 
     /**
-     * @example xxx
+     * @example 16B78383-2803-4964-9605-37B30C073B0E
      *
      * @var string
      */

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The time when the data source was created. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2018-12-07T02:24:26.000Z
      *
      * @var string
@@ -17,6 +19,8 @@ class result extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the data source was last modified. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2018-12-07T02:24:26.000Z
      *
      * @var string
@@ -24,11 +28,15 @@ class result extends Model
     public $gmtModified;
 
     /**
+     * @description The parameters of the data source.
+     *
      * @var meta
      */
     public $meta;
 
     /**
+     * @description The name of the table.
+     *
      * @example behavior
      *
      * @var string

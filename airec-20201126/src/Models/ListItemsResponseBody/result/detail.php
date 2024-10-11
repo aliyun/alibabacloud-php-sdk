@@ -51,8 +51,6 @@ class detail extends Model
     public $expireTime;
 
     /**
-     * @description itemId
-     *
      * @example 123
      *
      * @var string
@@ -60,8 +58,6 @@ class detail extends Model
     public $itemId;
 
     /**
-     * @description itemType
-     *
      * @example item
      *
      * @var string

@@ -14,6 +14,8 @@ class QueryRawDataRequest extends Model
     public $imei;
 
     /**
+     * @description The item ID. This parameter is required when the table parameter is set to item.
+     *
      * @example 112
      *
      * @var string
@@ -21,6 +23,8 @@ class QueryRawDataRequest extends Model
     public $itemId;
 
     /**
+     * @description The type of the item. This parameter is required when the table parameter is set to item.
+     *
      * @example video
      *
      * @var string
@@ -28,6 +32,8 @@ class QueryRawDataRequest extends Model
     public $itemType;
 
     /**
+     * @description The user ID. This parameter is required when the table parameter is set to user.
+     *
      * @example 111
      *
      * @var string
@@ -35,6 +41,8 @@ class QueryRawDataRequest extends Model
     public $userId;
 
     /**
+     * @description The type of the user. This parameter is required when the table parameter is set to user.
+     *
      * @example app
      *
      * @var string

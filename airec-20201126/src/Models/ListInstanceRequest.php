@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceRequest extends Model
 {
     /**
+     * @description The state of the instance. Valid values: Running, Ready, Initializing, and Starting.
+     *
      * @example 1608533404
      *
      * @var string
@@ -16,18 +18,26 @@ class ListInstanceRequest extends Model
     public $expiredTime;
 
     /**
-     * @example airec-cn-xxxxxx
+     * @description The name of the instance. Fuzzy match is supported.
+     *
+     * @example Test instance
      *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
+     * @example The number of entries to return on each page. Valid values: 1 to 50. Default value: 10.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description GET /openapi/instances?name=test&instanceId=abc&page=1&size=10
+     *
      * @example 1
      *
      * @var int
@@ -35,15 +45,11 @@ class ListInstanceRequest extends Model
     public $page;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $size;
 
     /**
-     * @example Running
-     *
      * @var string
      */
     public $status;

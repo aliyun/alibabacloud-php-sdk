@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDataDiagnoseReportsRequest extends Model
 {
     /**
+     * @example 1566489600
+     *
      * @var int
      */
     public $taskCreateTime;

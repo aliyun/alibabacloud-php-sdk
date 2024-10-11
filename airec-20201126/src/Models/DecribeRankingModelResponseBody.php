@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DecribeRankingModelResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var string
@@ -17,6 +19,8 @@ class DecribeRankingModelResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message.
+     *
      * @example xxx
      *
      * @var string
@@ -24,6 +28,8 @@ class DecribeRankingModelResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 829F38F6-E2D6-4109-90A6-888160BD16C2
      *
      * @var string
@@ -31,6 +37,8 @@ class DecribeRankingModelResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned results.
+     *
      * @var result
      */
     public $result;

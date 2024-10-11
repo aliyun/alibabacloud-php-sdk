@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyRankingModelTemplateResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 829F38F6-E2D6-4109-90A6-888160BD16C2
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyRankingModelTemplateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the ranking model.
+     *
      * @var RankingModelTemplate
      */
     public $result;

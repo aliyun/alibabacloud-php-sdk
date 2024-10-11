@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The ID of the filtering table.
+     * @description The additional information.
      *
      * @example abc
      *
@@ -19,7 +19,7 @@ class result extends Model
     public $algorithmId;
 
     /**
-     * @description The time when the filtering table was created.
+     * @description The time when the filtering table was created. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in Coordinated Universal Time (UTC).
      *
      * @example 2018-12-07T02:24:26.000Z
      *
@@ -28,7 +28,7 @@ class result extends Model
     public $gmtCreate;
 
     /**
-     * @description The time when the filtering table was modified.
+     * @description The fluctuation threshold for the data entries in the source table.
      *
      * @example 2018-12-07T02:24:26.000Z
      *
@@ -37,14 +37,14 @@ class result extends Model
     public $gmtModified;
 
     /**
-     * @description The metadata of the filtering table.
+     * @description The threshold.
      *
      * @var meta
      */
     public $meta;
 
     /**
-     * @description The state of the filtering table.
+     * @description The name of the filtering algorithm.
      *
      * @example Running
      *

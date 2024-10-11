@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomAnalysisTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ITEM_CUSTOM
      *
      * @var string

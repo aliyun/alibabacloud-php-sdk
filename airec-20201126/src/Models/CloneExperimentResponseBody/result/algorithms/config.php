@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @description The default value of the algorithm.
+     *
      * @example 400
      *
      * @var string
@@ -16,6 +18,8 @@ class config extends Model
     public $defaultValue;
 
     /**
+     * @description The custom value of the algorithm.
+     *
      * @example swing;commoni2i;pcategory;scategory
      *
      * @var string
@@ -23,6 +27,8 @@ class config extends Model
     public $experimentValue;
 
     /**
+     * @description The algorithm key.
+     *
      * @example I2I-truncedquantity
      *
      * @var string
@@ -30,6 +36,8 @@ class config extends Model
     public $key;
 
     /**
+     * @description The algorithm name. (Note: If you use the default algorithm, the console obtains the algorithm name from Medusa. If you customize an algorithm for the experiment, the algorithm name is directly returned.)
+     *
      * @var string
      */
     public $name;

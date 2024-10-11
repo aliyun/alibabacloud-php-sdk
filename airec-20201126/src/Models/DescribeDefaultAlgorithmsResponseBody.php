@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDefaultAlgorithmsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example F60021C4-57AF-5F46-9B3E-FCEF1C7A1459
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeDefaultAlgorithmsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned result.
+     *
      * @var result[]
      */
     public $result;

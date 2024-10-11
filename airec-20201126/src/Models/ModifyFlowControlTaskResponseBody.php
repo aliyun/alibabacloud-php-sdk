@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyFlowControlTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the request. The value is unique for each request. This facilitates troubleshooting.
+     *
      * @example 8F81A922-6C81-46D6-B78C-CC35E16B1691
      *
      * @var string
@@ -17,6 +19,8 @@ class ModifyFlowControlTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned result.
+     *
      * @var result
      */
     public $result;

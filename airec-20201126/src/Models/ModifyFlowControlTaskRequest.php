@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyFlowControlTaskRequest extends Model
 {
     /**
+     * @description The name of the task.
+     *
      * @example testname
      *
      * @var string
@@ -18,11 +20,17 @@ class ModifyFlowControlTaskRequest extends Model
     public $taskName;
 
     /**
+     * @description The description of the task.
+     *
+     * @example Description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The end time. The value is a timestamp in seconds.
+     *
      * @example 1639519200
      *
      * @var int
@@ -30,6 +38,8 @@ class ModifyFlowControlTaskRequest extends Model
     public $endTime;
 
     /**
+     * @description The type of the metadata.
+     *
      * @example FlowControlTask
      *
      * @var string
@@ -37,6 +47,8 @@ class ModifyFlowControlTaskRequest extends Model
     public $metaType;
 
     /**
+     * @description The ID of the scene.
+     *
      * @example all,sy101
      *
      * @var string
@@ -44,11 +56,15 @@ class ModifyFlowControlTaskRequest extends Model
     public $sceneIds;
 
     /**
+     * @description The parameters specified for the item selection rule.
+     *
      * @var selectionParams[]
      */
     public $selectionParams;
 
     /**
+     * @description The start time. The value is a timestamp in seconds.
+     *
      * @example 1638460800
      *
      * @var int
@@ -56,6 +72,8 @@ class ModifyFlowControlTaskRequest extends Model
     public $startTime;
 
     /**
+     * @description The settings for item exposure.
+     *
      * @var target
      */
     public $target;

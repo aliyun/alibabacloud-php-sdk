@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The returned metrics.
+     *
      * @var dataPoints[]
      */
     public $dataPoints;
 
     /**
+     * @description The scene ID.
+     *
      * @example all
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The completion rate of the task.
+     * @description The ID of the instance.
      *
      * @example 50
      *
@@ -18,7 +18,7 @@ class result extends Model
     public $finishRate;
 
     /**
-     * @description The time when the task was complete.
+     * @description The ID of the request.
      *
      * @example 1588240081
      *

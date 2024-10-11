@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListLogsRequest extends Model
 {
     /**
-     * @example 1586673466
+     * @description This parameter is required.
      *
      * @var int
      */
@@ -23,20 +23,18 @@ class ListLogsRequest extends Model
     public $page;
 
     /**
-     * @example requestId:xxxx;requestUri:xxx;
-     *
      * @var string
      */
     public $queryParams;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $size;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1586673466
      *
      * @var int

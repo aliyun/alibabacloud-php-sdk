@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CloneSampleResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 8B90B646-1678-41A3-B23F-EAC6587B0E48
      *
@@ -18,6 +18,8 @@ class CloneSampleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned result.
+     *
      * @var Sample
      */
     public $result;

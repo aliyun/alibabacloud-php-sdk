@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The details about the metric.
+     * @description The end time. The value is a timestamp in seconds.
      *
      * @var detail[]
      */
     public $detail;
 
     /**
-     * @description The statistical results.
+     * @description The start time. The value is a timestamp in seconds.
      *
      * @example xxx
      *

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class PublishRuleRequest extends Model
 {
     /**
-     * @description selection
-     * opertaion
+     * @description The type of the rule. Example: selection and operation.
+     *
+     * This parameter is required.
      * @example selection
      *
      * @var string
@@ -18,6 +19,9 @@ class PublishRuleRequest extends Model
     public $ruleType;
 
     /**
+     * @description The scene ID.
+     *
+     * This parameter is required.
      * @example test
      *
      * @var string

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class meta extends Model
 {
     /**
+     * @description The name of the filtering algorithm.
+     *
      * @example user
      *
      * @var string
@@ -18,6 +20,8 @@ class meta extends Model
     public $algorithmName;
 
     /**
+     * @description The category of the filtering algorithm.
+     *
      * @example i2i
      *
      * @var string
@@ -25,22 +29,26 @@ class meta extends Model
     public $category;
 
     /**
-     * @description id
+     * @description The ID of the cluster.
      *
-     * @example xxx
+     * @example 1001
      *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @example xxx
+     * @description The CRON expression of the scheduled task. Example: 0 0/12 0 \\* \\*. The value indicates that the task is scheduled at 00:00 and 12:00 every day.
+     *
+     * @example 0 0/12 0 * *
      *
      * @var string
      */
     public $cron;
 
     /**
+     * @description N/A
+     *
      * @example true
      *
      * @var bool
@@ -48,58 +56,68 @@ class meta extends Model
     public $cronEnabled;
 
     /**
-     * @example xxx
+     * @description The description of the filtering table.
+     *
+     * @example Training task
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description xxx
+     * @description The additional information.
      *
      * @var extInfo
      */
     public $extInfo;
 
     /**
-     * @example xxx
+     * @description The type of the metadata.
+     *
+     * @example odps
      *
      * @var string
      */
     public $metaType;
 
     /**
-     * @example xxx
+     * @description The name of the project.
+     *
+     * @example name01
      *
      * @var string
      */
     public $projectName;
 
     /**
-     * @example xxx
+     * @description The name of the table.
+     *
+     * @example table01
      *
      * @var string
      */
     public $tableName;
 
     /**
-     * @example xxx
+     * @description The ID of the task.
+     *
+     * @example test01
      *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description xxx
+     * @description The threshold.
      *
      * @var threshold
      */
     public $threshold;
 
     /**
-     * @description xxx
+     * @description The type of the data source. Only MaxCompute is supported.
      *
-     * @example xxx
+     * @example ODPS
      *
      * @var string
      */

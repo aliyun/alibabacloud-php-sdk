@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The time when the ranking model was created.
+     *
      * @example 2018-12-07T02:24:26.000Z
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the ranking model was last modified.
+     *
      * @example 2020-04-27T06:38:28.000Z
      *
      * @var string
@@ -23,13 +27,15 @@ class result extends Model
     public $gmtModified;
 
     /**
-     * @description meta
+     * @description The metadata.
      *
      * @var mixed[]
      */
     public $meta;
 
     /**
+     * @description The ID of the ranking model.
+     *
      * @example ranktest
      *
      * @var string

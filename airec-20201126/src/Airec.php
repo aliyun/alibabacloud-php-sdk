@@ -253,12 +253,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Uses a dataset of a specified version of a specified instance to provide online services.
+     *  *
      * @param string         $instanceId
      * @param string         $versionId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return AttachDatasetResponse
+     * @return AttachDatasetResponse AttachDatasetResponse
      */
     public function attachDatasetWithOptions($instanceId, $versionId, $headers, $runtime)
     {
@@ -281,10 +283,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Uses a dataset of a specified version of a specified instance to provide online services.
+     *  *
      * @param string $instanceId
      * @param string $versionId
      *
-     * @return AttachDatasetResponse
+     * @return AttachDatasetResponse AttachDatasetResponse
      */
     public function attachDataset($instanceId, $versionId)
     {
@@ -298,10 +302,10 @@ class Airec extends OpenApiClient
      * @param string         $instanceId
      * @param string         $algorithmId
      * @param string         $versionId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return AttachIndexVersionResponse
+     * @return AttachIndexVersionResponse AttachIndexVersionResponse
      */
     public function attachIndexVersionWithOptions($instanceId, $algorithmId, $versionId, $headers, $runtime)
     {
@@ -328,7 +332,7 @@ class Airec extends OpenApiClient
      * @param string $algorithmId
      * @param string $versionId
      *
-     * @return AttachIndexVersionResponse
+     * @return AttachIndexVersionResponse AttachIndexVersionResponse
      */
     public function attachIndexVersion($instanceId, $algorithmId, $versionId)
     {
@@ -339,12 +343,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Checks the network connectivity of a ranking model.
+     *  *
      * @param string         $instanceId
      * @param string         $rankingModelId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return CheckRankingModelReachableResponse
+     * @return CheckRankingModelReachableResponse CheckRankingModelReachableResponse
      */
     public function checkRankingModelReachableWithOptions($instanceId, $rankingModelId, $headers, $runtime)
     {
@@ -367,10 +373,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Checks the network connectivity of a ranking model.
+     *  *
      * @param string $instanceId
      * @param string $rankingModelId
      *
-     * @return CheckRankingModelReachableResponse
+     * @return CheckRankingModelReachableResponse CheckRankingModelReachableResponse
      */
     public function checkRankingModelReachable($instanceId, $rankingModelId)
     {
@@ -381,14 +389,16 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Clones an experiment.
+     *  *
      * @param string                 $instanceId
      * @param string                 $sceneId
      * @param string                 $experimentId
-     * @param CloneExperimentRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param CloneExperimentRequest $request      CloneExperimentRequest
+     * @param string[]               $headers      map
+     * @param RuntimeOptions         $runtime      runtime options for this request RuntimeOptions
      *
-     * @return CloneExperimentResponse
+     * @return CloneExperimentResponse CloneExperimentResponse
      */
     public function cloneExperimentWithOptions($instanceId, $sceneId, $experimentId, $request, $headers, $runtime)
     {
@@ -417,12 +427,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Clones an experiment.
+     *  *
      * @param string                 $instanceId
      * @param string                 $sceneId
      * @param string                 $experimentId
-     * @param CloneExperimentRequest $request
+     * @param CloneExperimentRequest $request      CloneExperimentRequest
      *
-     * @return CloneExperimentResponse
+     * @return CloneExperimentResponse CloneExperimentResponse
      */
     public function cloneExperiment($instanceId, $sceneId, $experimentId, $request)
     {
@@ -433,12 +445,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Clones a sample.
+     *  *
      * @param string         $instanceId
      * @param string         $sampleId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CloneSampleResponse
+     * @return CloneSampleResponse CloneSampleResponse
      */
     public function cloneSampleWithOptions($instanceId, $sampleId, $headers, $runtime)
     {
@@ -461,10 +475,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Clones a sample.
+     *  *
      * @param string $instanceId
      * @param string $sampleId
      *
-     * @return CloneSampleResponse
+     * @return CloneSampleResponse CloneSampleResponse
      */
     public function cloneSample($instanceId, $sampleId)
     {
@@ -475,12 +491,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 该接口用于获取指定冷启动实例的排序结果。
+     *  *
      * @param string               $instanceId
-     * @param ColdStartRankRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param ColdStartRankRequest $request    ColdStartRankRequest
+     * @param string[]             $headers    map
+     * @param RuntimeOptions       $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ColdStartRankResponse
+     * @return ColdStartRankResponse ColdStartRankResponse
      */
     public function coldStartRankWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -521,10 +539,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 该接口用于获取指定冷启动实例的排序结果。
+     *  *
      * @param string               $instanceId
-     * @param ColdStartRankRequest $request
+     * @param ColdStartRankRequest $request    ColdStartRankRequest
      *
-     * @return ColdStartRankResponse
+     * @return ColdStartRankResponse ColdStartRankResponse
      */
     public function coldStartRank($instanceId, $request)
     {
@@ -535,12 +555,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 创建自定义分析任务
+     *  *
      * @param string                          $instanceId
-     * @param CreateCustomAnalysisTaskRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param CreateCustomAnalysisTaskRequest $request    CreateCustomAnalysisTaskRequest
+     * @param string[]                        $headers    map
+     * @param RuntimeOptions                  $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateCustomAnalysisTaskResponse
+     * @return CreateCustomAnalysisTaskResponse CreateCustomAnalysisTaskResponse
      */
     public function createCustomAnalysisTaskWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -569,10 +591,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 创建自定义分析任务
+     *  *
      * @param string                          $instanceId
-     * @param CreateCustomAnalysisTaskRequest $request
+     * @param CreateCustomAnalysisTaskRequest $request    CreateCustomAnalysisTaskRequest
      *
-     * @return CreateCustomAnalysisTaskResponse
+     * @return CreateCustomAnalysisTaskResponse CreateCustomAnalysisTaskResponse
      */
     public function createCustomAnalysisTask($instanceId, $request)
     {
@@ -583,11 +607,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 创建自定义样本
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateCustomSampleResponse
+     * @return CreateCustomSampleResponse CreateCustomSampleResponse
      */
     public function createCustomSampleWithOptions($instanceId, $headers, $runtime)
     {
@@ -610,9 +636,11 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 创建自定义样本
+     *  *
      * @param string $instanceId
      *
-     * @return CreateCustomSampleResponse
+     * @return CreateCustomSampleResponse CreateCustomSampleResponse
      */
     public function createCustomSample($instanceId)
     {
@@ -623,11 +651,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 创建数据诊断任务
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateDataDiagnoseTaskResponse
+     * @return CreateDataDiagnoseTaskResponse CreateDataDiagnoseTaskResponse
      */
     public function createDataDiagnoseTaskWithOptions($instanceId, $headers, $runtime)
     {
@@ -650,9 +680,11 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 创建数据诊断任务
+     *  *
      * @param string $instanceId
      *
-     * @return CreateDataDiagnoseTaskResponse
+     * @return CreateDataDiagnoseTaskResponse CreateDataDiagnoseTaskResponse
      */
     public function createDataDiagnoseTask($instanceId)
     {
@@ -663,11 +695,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Creates a data source.
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateExtraDataSourceResponse
+     * @return CreateExtraDataSourceResponse CreateExtraDataSourceResponse
      */
     public function createExtraDataSourceWithOptions($instanceId, $headers, $runtime)
     {
@@ -690,9 +724,11 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Creates a data source.
+     *  *
      * @param string $instanceId
      *
-     * @return CreateExtraDataSourceResponse
+     * @return CreateExtraDataSourceResponse CreateExtraDataSourceResponse
      */
     public function createExtraDataSource($instanceId)
     {
@@ -703,12 +739,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The time when the filtering table was created.
+     *  *
      * @param string                          $instanceId
-     * @param CreateFilteringAlgorithmRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param CreateFilteringAlgorithmRequest $request    CreateFilteringAlgorithmRequest
+     * @param string[]                        $headers    map
+     * @param RuntimeOptions                  $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateFilteringAlgorithmResponse
+     * @return CreateFilteringAlgorithmResponse CreateFilteringAlgorithmResponse
      */
     public function createFilteringAlgorithmWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -737,10 +775,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The time when the filtering table was created.
+     *  *
      * @param string                          $instanceId
-     * @param CreateFilteringAlgorithmRequest $request
+     * @param CreateFilteringAlgorithmRequest $request    CreateFilteringAlgorithmRequest
      *
-     * @return CreateFilteringAlgorithmResponse
+     * @return CreateFilteringAlgorithmResponse CreateFilteringAlgorithmResponse
      */
     public function createFilteringAlgorithm($instanceId, $request)
     {
@@ -751,12 +791,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Creates a throttling task.
+     *  *
      * @param string                       $instanceId
-     * @param CreateFlowControlTaskRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param CreateFlowControlTaskRequest $request    CreateFlowControlTaskRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateFlowControlTaskResponse
+     * @return CreateFlowControlTaskResponse CreateFlowControlTaskResponse
      */
     public function createFlowControlTaskWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -785,10 +827,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Creates a throttling task.
+     *  *
      * @param string                       $instanceId
-     * @param CreateFlowControlTaskRequest $request
+     * @param CreateFlowControlTaskRequest $request    CreateFlowControlTaskRequest
      *
-     * @return CreateFlowControlTaskResponse
+     * @return CreateFlowControlTaskResponse CreateFlowControlTaskResponse
      */
     public function createFlowControlTask($instanceId, $request)
     {
@@ -799,10 +843,12 @@ class Airec extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary Creates an Artificial Intelligence Recommendation (AIRec) instance.
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstanceWithOptions($headers, $runtime)
     {
@@ -825,7 +871,9 @@ class Airec extends OpenApiClient
     }
 
     /**
-     * @return CreateInstanceResponse
+     * @summary Creates an Artificial Intelligence Recommendation (AIRec) instance.
+     *  *
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstance()
     {
@@ -837,11 +885,11 @@ class Airec extends OpenApiClient
 
     /**
      * @param string                    $instanceId
-     * @param CreateRankingModelRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param CreateRankingModelRequest $request    CreateRankingModelRequest
+     * @param string[]                  $headers    map
+     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateRankingModelResponse
+     * @return CreateRankingModelResponse CreateRankingModelResponse
      */
     public function createRankingModelWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -871,9 +919,9 @@ class Airec extends OpenApiClient
 
     /**
      * @param string                    $instanceId
-     * @param CreateRankingModelRequest $request
+     * @param CreateRankingModelRequest $request    CreateRankingModelRequest
      *
-     * @return CreateRankingModelResponse
+     * @return CreateRankingModelResponse CreateRankingModelResponse
      */
     public function createRankingModel($instanceId, $request)
     {
@@ -884,11 +932,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 创建排序模型模板配置
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateRankingModelTemplateResponse
+     * @return CreateRankingModelTemplateResponse CreateRankingModelTemplateResponse
      */
     public function createRankingModelTemplateWithOptions($instanceId, $headers, $runtime)
     {
@@ -911,9 +961,11 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 创建排序模型模板配置
+     *  *
      * @param string $instanceId
      *
-     * @return CreateRankingModelTemplateResponse
+     * @return CreateRankingModelTemplateResponse CreateRankingModelTemplateResponse
      */
     public function createRankingModelTemplate($instanceId)
     {
@@ -924,11 +976,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 创建排序服务
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateRankingSystemResponse
+     * @return CreateRankingSystemResponse CreateRankingSystemResponse
      */
     public function createRankingSystemWithOptions($instanceId, $headers, $runtime)
     {
@@ -951,9 +1005,11 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 创建排序服务
+     *  *
      * @param string $instanceId
      *
-     * @return CreateRankingSystemResponse
+     * @return CreateRankingSystemResponse CreateRankingSystemResponse
      */
     public function createRankingSystem($instanceId)
     {
@@ -964,11 +1020,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Creates a rule.
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateRuleResponse
+     * @return CreateRuleResponse CreateRuleResponse
      */
     public function createRuleWithOptions($instanceId, $headers, $runtime)
     {
@@ -991,9 +1049,11 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Creates a rule.
+     *  *
      * @param string $instanceId
      *
-     * @return CreateRuleResponse
+     * @return CreateRuleResponse CreateRuleResponse
      */
     public function createRule($instanceId)
     {
@@ -1004,13 +1064,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 创建样本格式化配置
+     *  *
      * @param string                          $instanceId
      * @param string                          $sampleId
-     * @param CreateSampleFormatConfigRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param CreateSampleFormatConfigRequest $request    CreateSampleFormatConfigRequest
+     * @param string[]                        $headers    map
+     * @param RuntimeOptions                  $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateSampleFormatConfigResponse
+     * @return CreateSampleFormatConfigResponse CreateSampleFormatConfigResponse
      */
     public function createSampleFormatConfigWithOptions($instanceId, $sampleId, $request, $headers, $runtime)
     {
@@ -1039,11 +1101,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 创建样本格式化配置
+     *  *
      * @param string                          $instanceId
      * @param string                          $sampleId
-     * @param CreateSampleFormatConfigRequest $request
+     * @param CreateSampleFormatConfigRequest $request    CreateSampleFormatConfigRequest
      *
-     * @return CreateSampleFormatConfigResponse
+     * @return CreateSampleFormatConfigResponse CreateSampleFormatConfigResponse
      */
     public function createSampleFormatConfig($instanceId, $sampleId, $request)
     {
@@ -1054,12 +1118,16 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Verifies the information that you specified for creating a scene.
+     *  *
+     * @description We recommend that you do not call an API operation to manage scenes. We recommend that you go to the Scenario Building page in the Artificial Intelligence Recommendation (AIRec) console to manage scenes.
+     *  *
      * @param string             $instanceId
-     * @param CreateSceneRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param CreateSceneRequest $request    CreateSceneRequest
+     * @param string[]           $headers    map
+     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateSceneResponse
+     * @return CreateSceneResponse CreateSceneResponse
      */
     public function createSceneWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -1088,10 +1156,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Verifies the information that you specified for creating a scene.
+     *  *
+     * @description We recommend that you do not call an API operation to manage scenes. We recommend that you go to the Scenario Building page in the Artificial Intelligence Recommendation (AIRec) console to manage scenes.
+     *  *
      * @param string             $instanceId
-     * @param CreateSceneRequest $request
+     * @param CreateSceneRequest $request    CreateSceneRequest
      *
-     * @return CreateSceneResponse
+     * @return CreateSceneResponse CreateSceneResponse
      */
     public function createScene($instanceId, $request)
     {
@@ -1102,11 +1174,13 @@ class Airec extends OpenApiClient
     }
 
     /**
-     * @param CreateUmengTokenRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 创建友盟授权token
+     *  *
+     * @param CreateUmengTokenRequest $request CreateUmengTokenRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUmengTokenResponse
+     * @return CreateUmengTokenResponse CreateUmengTokenResponse
      */
     public function createUmengTokenWithOptions($request, $headers, $runtime)
     {
@@ -1135,9 +1209,11 @@ class Airec extends OpenApiClient
     }
 
     /**
-     * @param CreateUmengTokenRequest $request
+     * @summary 创建友盟授权token
+     *  *
+     * @param CreateUmengTokenRequest $request CreateUmengTokenRequest
      *
-     * @return CreateUmengTokenResponse
+     * @return CreateUmengTokenResponse CreateUmengTokenResponse
      */
     public function createUmengToken($request)
     {
@@ -1148,12 +1224,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information of a ranking model.
+     *  *
      * @param string         $instanceId
      * @param string         $rankingModelId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return DecribeRankingModelResponse
+     * @return DecribeRankingModelResponse DecribeRankingModelResponse
      */
     public function decribeRankingModelWithOptions($instanceId, $rankingModelId, $headers, $runtime)
     {
@@ -1176,10 +1254,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information of a ranking model.
+     *  *
      * @param string $instanceId
      * @param string $rankingModelId
      *
-     * @return DecribeRankingModelResponse
+     * @return DecribeRankingModelResponse DecribeRankingModelResponse
      */
     public function decribeRankingModel($instanceId, $rankingModelId)
     {
@@ -1190,12 +1270,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a dataset of a specified version for an instance.
+     *  *
      * @param string         $instanceId
      * @param string         $versionId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteDataSetResponse
+     * @return DeleteDataSetResponse DeleteDataSetResponse
      */
     public function deleteDataSetWithOptions($instanceId, $versionId, $headers, $runtime)
     {
@@ -1218,10 +1300,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a dataset of a specified version for an instance.
+     *  *
      * @param string $instanceId
      * @param string $versionId
      *
-     * @return DeleteDataSetResponse
+     * @return DeleteDataSetResponse DeleteDataSetResponse
      */
     public function deleteDataSet($instanceId, $versionId)
     {
@@ -1232,13 +1316,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The ID of the test.
+     *  *
      * @param string         $instanceId
      * @param string         $sceneId
      * @param string         $experimentId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeleteExperimentResponse
+     * @return DeleteExperimentResponse DeleteExperimentResponse
      */
     public function deleteExperimentWithOptions($instanceId, $sceneId, $experimentId, $headers, $runtime)
     {
@@ -1261,11 +1347,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The ID of the test.
+     *  *
      * @param string $instanceId
      * @param string $sceneId
      * @param string $experimentId
      *
-     * @return DeleteExperimentResponse
+     * @return DeleteExperimentResponse DeleteExperimentResponse
      */
     public function deleteExperiment($instanceId, $sceneId, $experimentId)
     {
@@ -1276,13 +1364,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 删除特征、样本等表扩展数据源
+     *  *
      * @param string         $instanceId
      * @param string         $type
      * @param string         $dataSourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeleteExtraDataSourceResponse
+     * @return DeleteExtraDataSourceResponse DeleteExtraDataSourceResponse
      */
     public function deleteExtraDataSourceWithOptions($instanceId, $type, $dataSourceId, $headers, $runtime)
     {
@@ -1305,11 +1395,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 删除特征、样本等表扩展数据源
+     *  *
      * @param string $instanceId
      * @param string $type
      * @param string $dataSourceId
      *
-     * @return DeleteExtraDataSourceResponse
+     * @return DeleteExtraDataSourceResponse DeleteExtraDataSourceResponse
      */
     public function deleteExtraDataSource($instanceId, $type, $dataSourceId)
     {
@@ -1320,12 +1412,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Deletes the configurations of a specified filtering table and the information about the related index table.
+     *  *
      * @param string         $instanceId
      * @param string         $algorithmId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DeleteFilteringAlgorithmResponse
+     * @return DeleteFilteringAlgorithmResponse DeleteFilteringAlgorithmResponse
      */
     public function deleteFilteringAlgorithmWithOptions($instanceId, $algorithmId, $headers, $runtime)
     {
@@ -1348,10 +1442,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Deletes the configurations of a specified filtering table and the information about the related index table.
+     *  *
      * @param string $instanceId
      * @param string $algorithmId
      *
-     * @return DeleteFilteringAlgorithmResponse
+     * @return DeleteFilteringAlgorithmResponse DeleteFilteringAlgorithmResponse
      */
     public function deleteFilteringAlgorithm($instanceId, $algorithmId)
     {
@@ -1362,12 +1458,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a throttling task.
+     *  *
      * @param string         $instanceId
      * @param string         $taskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteFlowControlTaskResponse
+     * @return DeleteFlowControlTaskResponse DeleteFlowControlTaskResponse
      */
     public function deleteFlowControlTaskWithOptions($instanceId, $taskId, $headers, $runtime)
     {
@@ -1390,10 +1488,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a throttling task.
+     *  *
      * @param string $instanceId
      * @param string $taskId
      *
-     * @return DeleteFlowControlTaskResponse
+     * @return DeleteFlowControlTaskResponse DeleteFlowControlTaskResponse
      */
     public function deleteFlowControlTask($instanceId, $taskId)
     {
@@ -1406,10 +1506,10 @@ class Airec extends OpenApiClient
     /**
      * @param string         $instanceId
      * @param string         $rankingModelId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return DeleteRankingModelResponse
+     * @return DeleteRankingModelResponse DeleteRankingModelResponse
      */
     public function deleteRankingModelWithOptions($instanceId, $rankingModelId, $headers, $runtime)
     {
@@ -1435,7 +1535,7 @@ class Airec extends OpenApiClient
      * @param string $instanceId
      * @param string $rankingModelId
      *
-     * @return DeleteRankingModelResponse
+     * @return DeleteRankingModelResponse DeleteRankingModelResponse
      */
     public function deleteRankingModel($instanceId, $rankingModelId)
     {
@@ -1446,12 +1546,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 删除排序模型模板
+     *  *
      * @param string         $instanceId
      * @param string         $templateId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteRankingModelTemplateResponse
+     * @return DeleteRankingModelTemplateResponse DeleteRankingModelTemplateResponse
      */
     public function deleteRankingModelTemplateWithOptions($instanceId, $templateId, $headers, $runtime)
     {
@@ -1474,10 +1576,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 删除排序模型模板
+     *  *
      * @param string $instanceId
      * @param string $templateId
      *
-     * @return DeleteRankingModelTemplateResponse
+     * @return DeleteRankingModelTemplateResponse DeleteRankingModelTemplateResponse
      */
     public function deleteRankingModelTemplate($instanceId, $templateId)
     {
@@ -1488,12 +1592,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 删除排序模型版本
+     *  *
      * @param string         $instanceId
      * @param string         $versionId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteRankingModelVersionResponse
+     * @return DeleteRankingModelVersionResponse DeleteRankingModelVersionResponse
      */
     public function deleteRankingModelVersionWithOptions($instanceId, $versionId, $headers, $runtime)
     {
@@ -1516,10 +1622,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 删除排序模型版本
+     *  *
      * @param string $instanceId
      * @param string $versionId
      *
-     * @return DeleteRankingModelVersionResponse
+     * @return DeleteRankingModelVersionResponse DeleteRankingModelVersionResponse
      */
     public function deleteRankingModelVersion($instanceId, $versionId)
     {
@@ -1530,12 +1638,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 删除某个排序服务
+     *  *
      * @param string         $instanceId
      * @param string         $name
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteRankingSystemResponse
+     * @return DeleteRankingSystemResponse DeleteRankingSystemResponse
      */
     public function deleteRankingSystemWithOptions($instanceId, $name, $headers, $runtime)
     {
@@ -1558,10 +1668,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 删除某个排序服务
+     *  *
      * @param string $instanceId
      * @param string $name
      *
-     * @return DeleteRankingSystemResponse
+     * @return DeleteRankingSystemResponse DeleteRankingSystemResponse
      */
     public function deleteRankingSystem($instanceId, $name)
     {
@@ -1572,12 +1684,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 删除样本
+     *  *
      * @param string         $instanceId
      * @param string         $sampleId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteSampleResponse
+     * @return DeleteSampleResponse DeleteSampleResponse
      */
     public function deleteSampleWithOptions($instanceId, $sampleId, $headers, $runtime)
     {
@@ -1600,10 +1714,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 删除样本
+     *  *
      * @param string $instanceId
      * @param string $sampleId
      *
-     * @return DeleteSampleResponse
+     * @return DeleteSampleResponse DeleteSampleResponse
      */
     public function deleteSample($instanceId, $sampleId)
     {
@@ -1614,12 +1730,16 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a scene.
+     *  *
+     * @description We recommend that you do not call an API operation to manage scenes. We recommend that you go to the Scenario Building page in the Artificial Intelligence Recommendation (AIRec) console to manage scenes.
+     *  *
      * @param string         $instanceId
      * @param string         $sceneId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteSceneResponse
+     * @return DeleteSceneResponse DeleteSceneResponse
      */
     public function deleteSceneWithOptions($instanceId, $sceneId, $headers, $runtime)
     {
@@ -1642,10 +1762,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a scene.
+     *  *
+     * @description We recommend that you do not call an API operation to manage scenes. We recommend that you go to the Scenario Building page in the Artificial Intelligence Recommendation (AIRec) console to manage scenes.
+     *  *
      * @param string $instanceId
      * @param string $sceneId
      *
-     * @return DeleteSceneResponse
+     * @return DeleteSceneResponse DeleteSceneResponse
      */
     public function deleteScene($instanceId, $sceneId)
     {
@@ -1656,13 +1780,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The ID of the instance.
+     *  *
      * @param string                     $instanceId
      * @param string                     $name
-     * @param DeployRankingSystemRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param DeployRankingSystemRequest $request    DeployRankingSystemRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeployRankingSystemResponse
+     * @return DeployRankingSystemResponse DeployRankingSystemResponse
      */
     public function deployRankingSystemWithOptions($instanceId, $name, $request, $headers, $runtime)
     {
@@ -1691,11 +1817,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The ID of the instance.
+     *  *
      * @param string                     $instanceId
      * @param string                     $name
-     * @param DeployRankingSystemRequest $request
+     * @param DeployRankingSystemRequest $request    DeployRankingSystemRequest
      *
-     * @return DeployRankingSystemResponse
+     * @return DeployRankingSystemResponse DeployRankingSystemResponse
      */
     public function deployRankingSystem($instanceId, $name, $request)
     {
@@ -1708,10 +1836,10 @@ class Airec extends OpenApiClient
     /**
      * @param string         $instanceId
      * @param string         $sceneId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeBaseExperimentResponse
+     * @return DescribeBaseExperimentResponse DescribeBaseExperimentResponse
      */
     public function describeBaseExperimentWithOptions($instanceId, $sceneId, $headers, $runtime)
     {
@@ -1737,7 +1865,7 @@ class Airec extends OpenApiClient
      * @param string $instanceId
      * @param string $sceneId
      *
-     * @return DescribeBaseExperimentResponse
+     * @return DescribeBaseExperimentResponse DescribeBaseExperimentResponse
      */
     public function describeBaseExperiment($instanceId, $sceneId)
     {
@@ -1748,8 +1876,8 @@ class Airec extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @summary 查询自定义分析任务
+     *  *
      * @param string                            $instanceId
      * @param string                            $taskId
      * @param DescribeCustomAnalysisTaskRequest $request    DescribeCustomAnalysisTaskRequest
@@ -1785,8 +1913,8 @@ class Airec extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @summary 查询自定义分析任务
+     *  *
      * @param string                            $instanceId
      * @param string                            $taskId
      * @param DescribeCustomAnalysisTaskRequest $request    DescribeCustomAnalysisTaskRequest
@@ -1804,10 +1932,10 @@ class Airec extends OpenApiClient
     /**
      * @param string         $instanceId
      * @param string         $versionId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeDataSetMessageResponse
+     * @return DescribeDataSetMessageResponse DescribeDataSetMessageResponse
      */
     public function describeDataSetMessageWithOptions($instanceId, $versionId, $headers, $runtime)
     {
@@ -1833,7 +1961,7 @@ class Airec extends OpenApiClient
      * @param string $instanceId
      * @param string $versionId
      *
-     * @return DescribeDataSetMessageResponse
+     * @return DescribeDataSetMessageResponse DescribeDataSetMessageResponse
      */
     public function describeDataSetMessage($instanceId, $versionId)
     {
@@ -1844,12 +1972,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information of default algorithms.
+     *  *
      * @param string         $instanceId
      * @param string         $sceneId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeDefaultAlgorithmsResponse
+     * @return DescribeDefaultAlgorithmsResponse DescribeDefaultAlgorithmsResponse
      */
     public function describeDefaultAlgorithmsWithOptions($instanceId, $sceneId, $headers, $runtime)
     {
@@ -1872,10 +2002,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information of default algorithms.
+     *  *
      * @param string $instanceId
      * @param string $sceneId
      *
-     * @return DescribeDefaultAlgorithmsResponse
+     * @return DescribeDefaultAlgorithmsResponse DescribeDefaultAlgorithmsResponse
      */
     public function describeDefaultAlgorithms($instanceId, $sceneId)
     {
@@ -1886,13 +2018,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details about an experiment.
+     *  *
      * @param string         $instanceId
      * @param string         $sceneId
      * @param string         $experimentId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DescribeExperimentResponse
+     * @return DescribeExperimentResponse DescribeExperimentResponse
      */
     public function describeExperimentWithOptions($instanceId, $sceneId, $experimentId, $headers, $runtime)
     {
@@ -1915,11 +2049,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details about an experiment.
+     *  *
      * @param string $instanceId
      * @param string $sceneId
      * @param string $experimentId
      *
-     * @return DescribeExperimentResponse
+     * @return DescribeExperimentResponse DescribeExperimentResponse
      */
     public function describeExperiment($instanceId, $sceneId, $experimentId)
     {
@@ -1932,10 +2068,10 @@ class Airec extends OpenApiClient
     /**
      * @param string         $instanceId
      * @param string         $sceneId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeExperimentEnvResponse
+     * @return DescribeExperimentEnvResponse DescribeExperimentEnvResponse
      */
     public function describeExperimentEnvWithOptions($instanceId, $sceneId, $headers, $runtime)
     {
@@ -1961,7 +2097,7 @@ class Airec extends OpenApiClient
      * @param string $instanceId
      * @param string $sceneId
      *
-     * @return DescribeExperimentEnvResponse
+     * @return DescribeExperimentEnvResponse DescribeExperimentEnvResponse
      */
     public function describeExperimentEnv($instanceId, $sceneId)
     {
@@ -1974,10 +2110,10 @@ class Airec extends OpenApiClient
     /**
      * @param string         $instanceId
      * @param string         $sceneId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeExperimentEnvProgressResponse
+     * @return DescribeExperimentEnvProgressResponse DescribeExperimentEnvProgressResponse
      */
     public function describeExperimentEnvProgressWithOptions($instanceId, $sceneId, $headers, $runtime)
     {
@@ -2003,7 +2139,7 @@ class Airec extends OpenApiClient
      * @param string $instanceId
      * @param string $sceneId
      *
-     * @return DescribeExperimentEnvProgressResponse
+     * @return DescribeExperimentEnvProgressResponse DescribeExperimentEnvProgressResponse
      */
     public function describeExperimentEnvProgress($instanceId, $sceneId)
     {
@@ -2014,12 +2150,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The fluctuation threshold for the data entries in the source table.
+     *  *
      * @param string         $instanceId
      * @param string         $algorithmId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DescribeFilteringAlgorithmResponse
+     * @return DescribeFilteringAlgorithmResponse DescribeFilteringAlgorithmResponse
      */
     public function describeFilteringAlgorithmWithOptions($instanceId, $algorithmId, $headers, $runtime)
     {
@@ -2042,10 +2180,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The fluctuation threshold for the data entries in the source table.
+     *  *
      * @param string $instanceId
      * @param string $algorithmId
      *
-     * @return DescribeFilteringAlgorithmResponse
+     * @return DescribeFilteringAlgorithmResponse DescribeFilteringAlgorithmResponse
      */
     public function describeFilteringAlgorithm($instanceId, $algorithmId)
     {
@@ -2056,11 +2196,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details about an instance based on the instance ID.
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceResponse
+     * @return DescribeInstanceResponse DescribeInstanceResponse
      */
     public function describeInstanceWithOptions($instanceId, $headers, $runtime)
     {
@@ -2083,9 +2225,11 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details about an instance based on the instance ID.
+     *  *
      * @param string $instanceId
      *
-     * @return DescribeInstanceResponse
+     * @return DescribeInstanceResponse DescribeInstanceResponse
      */
     public function describeInstance($instanceId)
     {
@@ -2098,10 +2242,10 @@ class Airec extends OpenApiClient
     /**
      * @param string         $instanceId
      * @param string         $algorithmId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DescribeLatestTaskResponse
+     * @return DescribeLatestTaskResponse DescribeLatestTaskResponse
      */
     public function describeLatestTaskWithOptions($instanceId, $algorithmId, $headers, $runtime)
     {
@@ -2127,7 +2271,7 @@ class Airec extends OpenApiClient
      * @param string $instanceId
      * @param string $algorithmId
      *
-     * @return DescribeLatestTaskResponse
+     * @return DescribeLatestTaskResponse DescribeLatestTaskResponse
      */
     public function describeLatestTask($instanceId, $algorithmId)
     {
@@ -2138,11 +2282,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries the quotas of an instance based on a specified instance ID.
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeQuotaResponse
+     * @return DescribeQuotaResponse DescribeQuotaResponse
      */
     public function describeQuotaWithOptions($instanceId, $headers, $runtime)
     {
@@ -2165,9 +2311,11 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries the quotas of an instance based on a specified instance ID.
+     *  *
      * @param string $instanceId
      *
-     * @return DescribeQuotaResponse
+     * @return DescribeQuotaResponse DescribeQuotaResponse
      */
     public function describeQuota($instanceId)
     {
@@ -2178,11 +2326,13 @@ class Airec extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary Queries available Alibaba Cloud regions.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $headers, $runtime)
     {
@@ -2211,9 +2361,11 @@ class Airec extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @summary Queries available Alibaba Cloud regions.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -2224,13 +2376,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The ID of the instance.
+     *  *
      * @param string              $instanceId
      * @param string              $ruleId
-     * @param DescribeRuleRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param DescribeRuleRequest $request    DescribeRuleRequest
+     * @param string[]            $headers    map
+     * @param RuntimeOptions      $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeRuleResponse
+     * @return DescribeRuleResponse DescribeRuleResponse
      */
     public function describeRuleWithOptions($instanceId, $ruleId, $request, $headers, $runtime)
     {
@@ -2262,11 +2416,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The ID of the instance.
+     *  *
      * @param string              $instanceId
      * @param string              $ruleId
-     * @param DescribeRuleRequest $request
+     * @param DescribeRuleRequest $request    DescribeRuleRequest
      *
-     * @return DescribeRuleResponse
+     * @return DescribeRuleResponse DescribeRuleResponse
      */
     public function describeRule($instanceId, $ruleId, $request)
     {
@@ -2277,12 +2433,16 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details about a specified scene.
+     *  *
+     * @description We recommend that you do not call an API operation to manage scenes. We recommend that you go to the Scenario Building page in the Artificial Intelligence Recommendation (AIRec) console to manage scenes.
+     *  *
      * @param string         $instanceId
      * @param string         $sceneId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeSceneResponse
+     * @return DescribeSceneResponse DescribeSceneResponse
      */
     public function describeSceneWithOptions($instanceId, $sceneId, $headers, $runtime)
     {
@@ -2305,10 +2465,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details about a specified scene.
+     *  *
+     * @description We recommend that you do not call an API operation to manage scenes. We recommend that you go to the Scenario Building page in the Artificial Intelligence Recommendation (AIRec) console to manage scenes.
+     *  *
      * @param string $instanceId
      * @param string $sceneId
      *
-     * @return DescribeSceneResponse
+     * @return DescribeSceneResponse DescribeSceneResponse
      */
     public function describeScene($instanceId, $sceneId)
     {
@@ -2321,10 +2485,10 @@ class Airec extends OpenApiClient
     /**
      * @param string         $instanceId
      * @param string         $sceneId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeSceneBucketResponse
+     * @return DescribeSceneBucketResponse DescribeSceneBucketResponse
      */
     public function describeSceneBucketWithOptions($instanceId, $sceneId, $headers, $runtime)
     {
@@ -2350,7 +2514,7 @@ class Airec extends OpenApiClient
      * @param string $instanceId
      * @param string $sceneId
      *
-     * @return DescribeSceneBucketResponse
+     * @return DescribeSceneBucketResponse DescribeSceneBucketResponse
      */
     public function describeSceneBucket($instanceId, $sceneId)
     {
@@ -2361,8 +2525,10 @@ class Airec extends OpenApiClient
     }
 
     /**
-     * We recommend that you do not call an API operation to manage scenes. We recommend that you go to the Scenario Building page in the AIRec console to manage scenes. For more information, see [Create a recommendation scene by configuring product selection rules](https://help.aliyun.com/document_detail/171790.html?spm=a2c4g.11186623.6.677.1f6a3483tNyo2M).
-     *   *
+     * @summary The error message.
+     *  *
+     * @description __null__
+     *  *
      * @param string         $instanceId
      * @param string         $sceneId
      * @param string[]       $headers    map
@@ -2391,8 +2557,10 @@ class Airec extends OpenApiClient
     }
 
     /**
-     * We recommend that you do not call an API operation to manage scenes. We recommend that you go to the Scenario Building page in the AIRec console to manage scenes. For more information, see [Create a recommendation scene by configuring product selection rules](https://help.aliyun.com/document_detail/171790.html?spm=a2c4g.11186623.6.677.1f6a3483tNyo2M).
-     *   *
+     * @summary The error message.
+     *  *
+     * @description __null__
+     *  *
      * @param string $instanceId
      * @param string $sceneId
      *
@@ -2408,11 +2576,11 @@ class Airec extends OpenApiClient
 
     /**
      * @param string                          $instanceId
-     * @param DescribeSyncReportDetailRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeSyncReportDetailRequest $request    DescribeSyncReportDetailRequest
+     * @param string[]                        $headers    map
+     * @param RuntimeOptions                  $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeSyncReportDetailResponse
+     * @return DescribeSyncReportDetailResponse DescribeSyncReportDetailResponse
      */
     public function describeSyncReportDetailWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -2451,9 +2619,9 @@ class Airec extends OpenApiClient
 
     /**
      * @param string                          $instanceId
-     * @param DescribeSyncReportDetailRequest $request
+     * @param DescribeSyncReportDetailRequest $request    DescribeSyncReportDetailRequest
      *
-     * @return DescribeSyncReportDetailResponse
+     * @return DescribeSyncReportDetailResponse DescribeSyncReportDetailResponse
      */
     public function describeSyncReportDetail($instanceId, $request)
     {
@@ -2465,11 +2633,11 @@ class Airec extends OpenApiClient
 
     /**
      * @param string                            $instanceId
-     * @param DescribeSyncReportOutliersRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeSyncReportOutliersRequest $request    DescribeSyncReportOutliersRequest
+     * @param string[]                          $headers    map
+     * @param RuntimeOptions                    $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeSyncReportOutliersResponse
+     * @return DescribeSyncReportOutliersResponse DescribeSyncReportOutliersResponse
      */
     public function describeSyncReportOutliersWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -2511,9 +2679,9 @@ class Airec extends OpenApiClient
 
     /**
      * @param string                            $instanceId
-     * @param DescribeSyncReportOutliersRequest $request
+     * @param DescribeSyncReportOutliersRequest $request    DescribeSyncReportOutliersRequest
      *
-     * @return DescribeSyncReportOutliersResponse
+     * @return DescribeSyncReportOutliersResponse DescribeSyncReportOutliersResponse
      */
     public function describeSyncReportOutliers($instanceId, $request)
     {
@@ -2524,12 +2692,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries user metrics related to the conversion rate.
+     *  *
      * @param string                     $instanceId
-     * @param DescribeUserMetricsRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param DescribeUserMetricsRequest $request    DescribeUserMetricsRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserMetricsResponse
+     * @return DescribeUserMetricsResponse DescribeUserMetricsResponse
      */
     public function describeUserMetricsWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -2564,10 +2734,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries user metrics related to the conversion rate.
+     *  *
      * @param string                     $instanceId
-     * @param DescribeUserMetricsRequest $request
+     * @param DescribeUserMetricsRequest $request    DescribeUserMetricsRequest
      *
-     * @return DescribeUserMetricsResponse
+     * @return DescribeUserMetricsResponse DescribeUserMetricsResponse
      */
     public function describeUserMetrics($instanceId, $request)
     {
@@ -2578,9 +2750,10 @@ class Airec extends OpenApiClient
     }
 
     /**
-     * The new quota must be less than the selected quota.
-     *   * The limits on the number of users: 1,000,000 to 10,000,000. The limits on the number of items: 1,000,000 to 10,000,000. The limits on the queries per second (QPS) of recommendation requests: 10 to 500.
-     *   *
+     * @summary The ID of the instance.
+     *  *
+     * @description The returned results.
+     *  *
      * @param string         $instanceId
      * @param string[]       $headers    map
      * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
@@ -2608,9 +2781,10 @@ class Airec extends OpenApiClient
     }
 
     /**
-     * The new quota must be less than the selected quota.
-     *   * The limits on the number of users: 1,000,000 to 10,000,000. The limits on the number of items: 1,000,000 to 10,000,000. The limits on the queries per second (QPS) of recommendation requests: 10 to 500.
-     *   *
+     * @summary The ID of the instance.
+     *  *
+     * @description The returned results.
+     *  *
      * @param string $instanceId
      *
      * @return DowngradeInstanceResponse DowngradeInstanceResponse
@@ -2626,10 +2800,10 @@ class Airec extends OpenApiClient
     /**
      * @param string         $instanceId
      * @param string         $sceneId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return EnableExperimentResponse
+     * @return EnableExperimentResponse EnableExperimentResponse
      */
     public function enableExperimentWithOptions($instanceId, $sceneId, $headers, $runtime)
     {
@@ -2655,7 +2829,7 @@ class Airec extends OpenApiClient
      * @param string $instanceId
      * @param string $sceneId
      *
-     * @return EnableExperimentResponse
+     * @return EnableExperimentResponse EnableExperimentResponse
      */
     public function enableExperiment($instanceId, $sceneId)
     {
@@ -2666,12 +2840,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 生成样本，只针对复制创建的样本
+     *  *
      * @param string         $instanceId
      * @param string         $sampleId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GenerateSampleResponse
+     * @return GenerateSampleResponse GenerateSampleResponse
      */
     public function generateSampleWithOptions($instanceId, $sampleId, $headers, $runtime)
     {
@@ -2694,10 +2870,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 生成样本，只针对复制创建的样本
+     *  *
      * @param string $instanceId
      * @param string $sampleId
      *
-     * @return GenerateSampleResponse
+     * @return GenerateSampleResponse GenerateSampleResponse
      */
     public function generateSample($instanceId, $sampleId)
     {
@@ -2708,13 +2886,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of other data sources.
+     *  *
      * @param string         $instanceId
      * @param string         $type
      * @param string         $dataSourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetExtraDataSourceResponse
+     * @return GetExtraDataSourceResponse GetExtraDataSourceResponse
      */
     public function getExtraDataSourceWithOptions($instanceId, $type, $dataSourceId, $headers, $runtime)
     {
@@ -2737,11 +2917,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of other data sources.
+     *  *
      * @param string $instanceId
      * @param string $type
      * @param string $dataSourceId
      *
-     * @return GetExtraDataSourceResponse
+     * @return GetExtraDataSourceResponse GetExtraDataSourceResponse
      */
     public function getExtraDataSource($instanceId, $type, $dataSourceId)
     {
@@ -2752,12 +2934,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Obtains the details of a throttling task.
+     *  *
      * @param string         $instanceId
      * @param string         $taskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetFlowControlTaskResponse
+     * @return GetFlowControlTaskResponse GetFlowControlTaskResponse
      */
     public function getFlowControlTaskWithOptions($instanceId, $taskId, $headers, $runtime)
     {
@@ -2780,10 +2964,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Obtains the details of a throttling task.
+     *  *
      * @param string $instanceId
      * @param string $taskId
      *
-     * @return GetFlowControlTaskResponse
+     * @return GetFlowControlTaskResponse GetFlowControlTaskResponse
      */
     public function getFlowControlTask($instanceId, $taskId)
     {
@@ -2794,11 +2980,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 获取最新诊断任务状态
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetLatestDataDiagnoseTaskStatusResponse
+     * @return GetLatestDataDiagnoseTaskStatusResponse GetLatestDataDiagnoseTaskStatusResponse
      */
     public function getLatestDataDiagnoseTaskStatusWithOptions($instanceId, $headers, $runtime)
     {
@@ -2821,9 +3009,11 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 获取最新诊断任务状态
+     *  *
      * @param string $instanceId
      *
-     * @return GetLatestDataDiagnoseTaskStatusResponse
+     * @return GetLatestDataDiagnoseTaskStatusResponse GetLatestDataDiagnoseTaskStatusResponse
      */
     public function getLatestDataDiagnoseTaskStatus($instanceId)
     {
@@ -2834,12 +3024,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 查看排序模型模板配置详情
+     *  *
      * @param string         $instanceId
      * @param string         $templateId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetRankingModelTemplateResponse
+     * @return GetRankingModelTemplateResponse GetRankingModelTemplateResponse
      */
     public function getRankingModelTemplateWithOptions($instanceId, $templateId, $headers, $runtime)
     {
@@ -2862,10 +3054,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 查看排序模型模板配置详情
+     *  *
      * @param string $instanceId
      * @param string $templateId
      *
-     * @return GetRankingModelTemplateResponse
+     * @return GetRankingModelTemplateResponse GetRankingModelTemplateResponse
      */
     public function getRankingModelTemplate($instanceId, $templateId)
     {
@@ -2876,12 +3070,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 查看排序模型版本详情，包括评估结果和训练结果
+     *  *
      * @param string         $instanceId
      * @param string         $versionId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetRankingModelVersionResponse
+     * @return GetRankingModelVersionResponse GetRankingModelVersionResponse
      */
     public function getRankingModelVersionWithOptions($instanceId, $versionId, $headers, $runtime)
     {
@@ -2904,10 +3100,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 查看排序模型版本详情，包括评估结果和训练结果
+     *  *
      * @param string $instanceId
      * @param string $versionId
      *
-     * @return GetRankingModelVersionResponse
+     * @return GetRankingModelVersionResponse GetRankingModelVersionResponse
      */
     public function getRankingModelVersion($instanceId, $versionId)
     {
@@ -2918,8 +3116,8 @@ class Airec extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @summary 获取某个排序服务详情
+     *  *
      * @param string         $instanceId
      * @param string         $name
      * @param string[]       $headers    map
@@ -2948,8 +3146,8 @@ class Airec extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @summary 获取某个排序服务详情
+     *  *
      * @param string $instanceId
      * @param string $name
      *
@@ -2964,13 +3162,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 查询某个服务操作记录
+     *  *
      * @param string         $instanceId
      * @param string         $name
      * @param string         $operateId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetRankingSystemHistoryResponse
+     * @return GetRankingSystemHistoryResponse GetRankingSystemHistoryResponse
      */
     public function getRankingSystemHistoryWithOptions($instanceId, $name, $operateId, $headers, $runtime)
     {
@@ -2993,11 +3193,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 查询某个服务操作记录
+     *  *
      * @param string $instanceId
      * @param string $name
      * @param string $operateId
      *
-     * @return GetRankingSystemHistoryResponse
+     * @return GetRankingSystemHistoryResponse GetRankingSystemHistoryResponse
      */
     public function getRankingSystemHistory($instanceId, $name, $operateId)
     {
@@ -3008,13 +3210,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 获取样本详情
+     *  *
      * @param string           $instanceId
      * @param string           $sampleId
-     * @param GetSampleRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param GetSampleRequest $request    GetSampleRequest
+     * @param string[]         $headers    map
+     * @param RuntimeOptions   $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetSampleResponse
+     * @return GetSampleResponse GetSampleResponse
      */
     public function getSampleWithOptions($instanceId, $sampleId, $request, $headers, $runtime)
     {
@@ -3043,11 +3247,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 获取样本详情
+     *  *
      * @param string           $instanceId
      * @param string           $sampleId
-     * @param GetSampleRequest $request
+     * @param GetSampleRequest $request    GetSampleRequest
      *
-     * @return GetSampleResponse
+     * @return GetSampleResponse GetSampleResponse
      */
     public function getSample($instanceId, $sampleId, $request)
     {
@@ -3058,12 +3264,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 初始化计算资源
+     *  *
      * @param string                       $instanceId
-     * @param InitComputingResourceRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param InitComputingResourceRequest $request    InitComputingResourceRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
      *
-     * @return InitComputingResourceResponse
+     * @return InitComputingResourceResponse InitComputingResourceResponse
      */
     public function initComputingResourceWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -3095,10 +3303,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 初始化计算资源
+     *  *
      * @param string                       $instanceId
-     * @param InitComputingResourceRequest $request
+     * @param InitComputingResourceRequest $request    InitComputingResourceRequest
      *
-     * @return InitComputingResourceResponse
+     * @return InitComputingResourceResponse InitComputingResourceResponse
      */
     public function initComputingResource($instanceId, $request)
     {
@@ -3110,11 +3320,11 @@ class Airec extends OpenApiClient
 
     /**
      * @param string                      $instanceId
-     * @param ListDashboardDetailsRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param ListDashboardDetailsRequest $request    ListDashboardDetailsRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListDashboardDetailsResponse
+     * @return ListDashboardDetailsResponse ListDashboardDetailsResponse
      */
     public function listDashboardDetailsWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -3162,9 +3372,9 @@ class Airec extends OpenApiClient
 
     /**
      * @param string                      $instanceId
-     * @param ListDashboardDetailsRequest $request
+     * @param ListDashboardDetailsRequest $request    ListDashboardDetailsRequest
      *
-     * @return ListDashboardDetailsResponse
+     * @return ListDashboardDetailsResponse ListDashboardDetailsResponse
      */
     public function listDashboardDetails($instanceId, $request)
     {
@@ -3176,11 +3386,11 @@ class Airec extends OpenApiClient
 
     /**
      * @param string                           $instanceId
-     * @param ListDashboardDetailsFlowsRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param ListDashboardDetailsFlowsRequest $request    ListDashboardDetailsFlowsRequest
+     * @param string[]                         $headers    map
+     * @param RuntimeOptions                   $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListDashboardDetailsFlowsResponse
+     * @return ListDashboardDetailsFlowsResponse ListDashboardDetailsFlowsResponse
      */
     public function listDashboardDetailsFlowsWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -3225,9 +3435,9 @@ class Airec extends OpenApiClient
 
     /**
      * @param string                           $instanceId
-     * @param ListDashboardDetailsFlowsRequest $request
+     * @param ListDashboardDetailsFlowsRequest $request    ListDashboardDetailsFlowsRequest
      *
-     * @return ListDashboardDetailsFlowsResponse
+     * @return ListDashboardDetailsFlowsResponse ListDashboardDetailsFlowsResponse
      */
     public function listDashboardDetailsFlows($instanceId, $request)
     {
@@ -3238,12 +3448,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The end time. The value is a timestamp in seconds.
+     *  *
      * @param string                      $instanceId
-     * @param ListDashboardMetricsRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param ListDashboardMetricsRequest $request    ListDashboardMetricsRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListDashboardMetricsResponse
+     * @return ListDashboardMetricsResponse ListDashboardMetricsResponse
      */
     public function listDashboardMetricsWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -3284,10 +3496,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The end time. The value is a timestamp in seconds.
+     *  *
      * @param string                      $instanceId
-     * @param ListDashboardMetricsRequest $request
+     * @param ListDashboardMetricsRequest $request    ListDashboardMetricsRequest
      *
-     * @return ListDashboardMetricsResponse
+     * @return ListDashboardMetricsResponse ListDashboardMetricsResponse
      */
     public function listDashboardMetrics($instanceId, $request)
     {
@@ -3298,12 +3512,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The end time. The value is a timestamp in seconds.
+     *  *
      * @param string                           $instanceId
-     * @param ListDashboardMetricsFlowsRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param ListDashboardMetricsFlowsRequest $request    ListDashboardMetricsFlowsRequest
+     * @param string[]                         $headers    map
+     * @param RuntimeOptions                   $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListDashboardMetricsFlowsResponse
+     * @return ListDashboardMetricsFlowsResponse ListDashboardMetricsFlowsResponse
      */
     public function listDashboardMetricsFlowsWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -3338,10 +3554,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The end time. The value is a timestamp in seconds.
+     *  *
      * @param string                           $instanceId
-     * @param ListDashboardMetricsFlowsRequest $request
+     * @param ListDashboardMetricsFlowsRequest $request    ListDashboardMetricsFlowsRequest
      *
-     * @return ListDashboardMetricsFlowsResponse
+     * @return ListDashboardMetricsFlowsResponse ListDashboardMetricsFlowsResponse
      */
     public function listDashboardMetricsFlows($instanceId, $request)
     {
@@ -3352,12 +3570,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 获取数据诊断报告 (包括用户手动触发的诊断、每天产出的周期报告、数据启动时诊断的报告)
+     *  *
      * @param string                         $instanceId
-     * @param ListDataDiagnoseReportsRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param ListDataDiagnoseReportsRequest $request    ListDataDiagnoseReportsRequest
+     * @param string[]                       $headers    map
+     * @param RuntimeOptions                 $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListDataDiagnoseReportsResponse
+     * @return ListDataDiagnoseReportsResponse ListDataDiagnoseReportsResponse
      */
     public function listDataDiagnoseReportsWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -3386,10 +3606,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 获取数据诊断报告 (包括用户手动触发的诊断、每天产出的周期报告、数据启动时诊断的报告)
+     *  *
      * @param string                         $instanceId
-     * @param ListDataDiagnoseReportsRequest $request
+     * @param ListDataDiagnoseReportsRequest $request    ListDataDiagnoseReportsRequest
      *
-     * @return ListDataDiagnoseReportsResponse
+     * @return ListDataDiagnoseReportsResponse ListDataDiagnoseReportsResponse
      */
     public function listDataDiagnoseReports($instanceId, $request)
     {
@@ -3400,12 +3622,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 获取数据诊断项抽样明细
+     *  *
      * @param string                               $instanceId
-     * @param ListDataDiagnoseSampleDetailsRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
+     * @param ListDataDiagnoseSampleDetailsRequest $request    ListDataDiagnoseSampleDetailsRequest
+     * @param string[]                             $headers    map
+     * @param RuntimeOptions                       $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListDataDiagnoseSampleDetailsResponse
+     * @return ListDataDiagnoseSampleDetailsResponse ListDataDiagnoseSampleDetailsResponse
      */
     public function listDataDiagnoseSampleDetailsWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -3446,10 +3670,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 获取数据诊断项抽样明细
+     *  *
      * @param string                               $instanceId
-     * @param ListDataDiagnoseSampleDetailsRequest $request
+     * @param ListDataDiagnoseSampleDetailsRequest $request    ListDataDiagnoseSampleDetailsRequest
      *
-     * @return ListDataDiagnoseSampleDetailsResponse
+     * @return ListDataDiagnoseSampleDetailsResponse ListDataDiagnoseSampleDetailsResponse
      */
     public function listDataDiagnoseSampleDetails($instanceId, $request)
     {
@@ -3460,11 +3686,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries datasets of a specified instance.
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListDataSetResponse
+     * @return ListDataSetResponse ListDataSetResponse
      */
     public function listDataSetWithOptions($instanceId, $headers, $runtime)
     {
@@ -3487,9 +3715,11 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries datasets of a specified instance.
+     *  *
      * @param string $instanceId
      *
-     * @return ListDataSetResponse
+     * @return ListDataSetResponse ListDataSetResponse
      */
     public function listDataSet($instanceId)
     {
@@ -3501,10 +3731,10 @@ class Airec extends OpenApiClient
 
     /**
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListDataSourceResponse
+     * @return ListDataSourceResponse ListDataSourceResponse
      */
     public function listDataSourceWithOptions($instanceId, $headers, $runtime)
     {
@@ -3529,7 +3759,7 @@ class Airec extends OpenApiClient
     /**
      * @param string $instanceId
      *
-     * @return ListDataSourceResponse
+     * @return ListDataSourceResponse ListDataSourceResponse
      */
     public function listDataSource($instanceId)
     {
@@ -3542,10 +3772,10 @@ class Airec extends OpenApiClient
     /**
      * @param string         $instanceId
      * @param string         $sceneId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListExperimentsResponse
+     * @return ListExperimentsResponse ListExperimentsResponse
      */
     public function listExperimentsWithOptions($instanceId, $sceneId, $headers, $runtime)
     {
@@ -3571,7 +3801,7 @@ class Airec extends OpenApiClient
      * @param string $instanceId
      * @param string $sceneId
      *
-     * @return ListExperimentsResponse
+     * @return ListExperimentsResponse ListExperimentsResponse
      */
     public function listExperiments($instanceId, $sceneId)
     {
@@ -3582,12 +3812,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征、样本等表扩展数据源列表
+     *  *
      * @param string                      $instanceId
-     * @param ListExtraDataSourcesRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param ListExtraDataSourcesRequest $request    ListExtraDataSourcesRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListExtraDataSourcesResponse
+     * @return ListExtraDataSourcesResponse ListExtraDataSourcesResponse
      */
     public function listExtraDataSourcesWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -3616,10 +3848,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征、样本等表扩展数据源列表
+     *  *
      * @param string                      $instanceId
-     * @param ListExtraDataSourcesRequest $request
+     * @param ListExtraDataSourcesRequest $request    ListExtraDataSourcesRequest
      *
-     * @return ListExtraDataSourcesResponse
+     * @return ListExtraDataSourcesResponse ListExtraDataSourcesResponse
      */
     public function listExtraDataSources($instanceId, $request)
     {
@@ -3630,12 +3864,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征表列表
+     *  *
      * @param string                   $instanceId
-     * @param ListFeatureTablesRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param ListFeatureTablesRequest $request    ListFeatureTablesRequest
+     * @param string[]                 $headers    map
+     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListFeatureTablesResponse
+     * @return ListFeatureTablesResponse ListFeatureTablesResponse
      */
     public function listFeatureTablesWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -3670,10 +3906,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 获取特征表列表
+     *  *
      * @param string                   $instanceId
-     * @param ListFeatureTablesRequest $request
+     * @param ListFeatureTablesRequest $request    ListFeatureTablesRequest
      *
-     * @return ListFeatureTablesResponse
+     * @return ListFeatureTablesResponse ListFeatureTablesResponse
      */
     public function listFeatureTables($instanceId, $request)
     {
@@ -3685,11 +3923,11 @@ class Airec extends OpenApiClient
 
     /**
      * @param string                         $instanceId
-     * @param ListFilteringAlgorithmsRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param ListFilteringAlgorithmsRequest $request    ListFilteringAlgorithmsRequest
+     * @param string[]                       $headers    map
+     * @param RuntimeOptions                 $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListFilteringAlgorithmsResponse
+     * @return ListFilteringAlgorithmsResponse ListFilteringAlgorithmsResponse
      */
     public function listFilteringAlgorithmsWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -3728,9 +3966,9 @@ class Airec extends OpenApiClient
 
     /**
      * @param string                         $instanceId
-     * @param ListFilteringAlgorithmsRequest $request
+     * @param ListFilteringAlgorithmsRequest $request    ListFilteringAlgorithmsRequest
      *
-     * @return ListFilteringAlgorithmsResponse
+     * @return ListFilteringAlgorithmsResponse ListFilteringAlgorithmsResponse
      */
     public function listFilteringAlgorithms($instanceId, $request)
     {
@@ -3741,12 +3979,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 查询流控任务列表
+     *  *
      * @param string                     $instanceId
-     * @param ListFlowControlTaskRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param ListFlowControlTaskRequest $request    ListFlowControlTaskRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListFlowControlTaskResponse
+     * @return ListFlowControlTaskResponse ListFlowControlTaskResponse
      */
     public function listFlowControlTaskWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -3784,10 +4024,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 查询流控任务列表
+     *  *
      * @param string                     $instanceId
-     * @param ListFlowControlTaskRequest $request
+     * @param ListFlowControlTaskRequest $request    ListFlowControlTaskRequest
      *
-     * @return ListFlowControlTaskResponse
+     * @return ListFlowControlTaskResponse ListFlowControlTaskResponse
      */
     public function listFlowControlTask($instanceId, $request)
     {
@@ -3798,13 +4040,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 查询失效物品 id_type
+     *  *
      * @param string                                 $instanceId
      * @param string                                 $taskId
-     * @param ListFlowControlTaskInvalidItemsRequest $request
-     * @param string[]                               $headers
-     * @param RuntimeOptions                         $runtime
+     * @param ListFlowControlTaskInvalidItemsRequest $request    ListFlowControlTaskInvalidItemsRequest
+     * @param string[]                               $headers    map
+     * @param RuntimeOptions                         $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListFlowControlTaskInvalidItemsResponse
+     * @return ListFlowControlTaskInvalidItemsResponse ListFlowControlTaskInvalidItemsResponse
      */
     public function listFlowControlTaskInvalidItemsWithOptions($instanceId, $taskId, $request, $headers, $runtime)
     {
@@ -3829,11 +4073,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 查询失效物品 id_type
+     *  *
      * @param string                                 $instanceId
      * @param string                                 $taskId
-     * @param ListFlowControlTaskInvalidItemsRequest $request
+     * @param ListFlowControlTaskInvalidItemsRequest $request    ListFlowControlTaskInvalidItemsRequest
      *
-     * @return ListFlowControlTaskInvalidItemsResponse
+     * @return ListFlowControlTaskInvalidItemsResponse ListFlowControlTaskInvalidItemsResponse
      */
     public function listFlowControlTaskInvalidItems($instanceId, $taskId, $request)
     {
@@ -3844,13 +4090,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 流量调控曝光排名物品/失效物品查询
+     *  *
      * @param string                                $instanceId
      * @param string                                $taskId
-     * @param ListFlowControlTaskItemReportsRequest $request
-     * @param string[]                              $headers
-     * @param RuntimeOptions                        $runtime
+     * @param ListFlowControlTaskItemReportsRequest $request    ListFlowControlTaskItemReportsRequest
+     * @param string[]                              $headers    map
+     * @param RuntimeOptions                        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListFlowControlTaskItemReportsResponse
+     * @return ListFlowControlTaskItemReportsResponse ListFlowControlTaskItemReportsResponse
      */
     public function listFlowControlTaskItemReportsWithOptions($instanceId, $taskId, $request, $headers, $runtime)
     {
@@ -3885,11 +4133,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 流量调控曝光排名物品/失效物品查询
+     *  *
      * @param string                                $instanceId
      * @param string                                $taskId
-     * @param ListFlowControlTaskItemReportsRequest $request
+     * @param ListFlowControlTaskItemReportsRequest $request    ListFlowControlTaskItemReportsRequest
      *
-     * @return ListFlowControlTaskItemReportsResponse
+     * @return ListFlowControlTaskItemReportsResponse ListFlowControlTaskItemReportsResponse
      */
     public function listFlowControlTaskItemReports($instanceId, $taskId, $request)
     {
@@ -3900,13 +4150,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 流量调控预览
+     *  *
      * @param string                          $instanceId
      * @param string                          $taskId
-     * @param ListFlowControlTaskItemsRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param ListFlowControlTaskItemsRequest $request    ListFlowControlTaskItemsRequest
+     * @param string[]                        $headers    map
+     * @param RuntimeOptions                  $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListFlowControlTaskItemsResponse
+     * @return ListFlowControlTaskItemsResponse ListFlowControlTaskItemsResponse
      */
     public function listFlowControlTaskItemsWithOptions($instanceId, $taskId, $request, $headers, $runtime)
     {
@@ -3938,11 +4190,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 流量调控预览
+     *  *
      * @param string                          $instanceId
      * @param string                          $taskId
-     * @param ListFlowControlTaskItemsRequest $request
+     * @param ListFlowControlTaskItemsRequest $request    ListFlowControlTaskItemsRequest
      *
-     * @return ListFlowControlTaskItemsResponse
+     * @return ListFlowControlTaskItemsResponse ListFlowControlTaskItemsResponse
      */
     public function listFlowControlTaskItems($instanceId, $taskId, $request)
     {
@@ -3953,12 +4207,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries reference data for throttling.
+     *  *
      * @param string         $instanceId
      * @param string         $taskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListFlowControlTaskReferenceResponse
+     * @return ListFlowControlTaskReferenceResponse ListFlowControlTaskReferenceResponse
      */
     public function listFlowControlTaskReferenceWithOptions($instanceId, $taskId, $headers, $runtime)
     {
@@ -3981,10 +4237,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries reference data for throttling.
+     *  *
      * @param string $instanceId
      * @param string $taskId
      *
-     * @return ListFlowControlTaskReferenceResponse
+     * @return ListFlowControlTaskReferenceResponse ListFlowControlTaskReferenceResponse
      */
     public function listFlowControlTaskReference($instanceId, $taskId)
     {
@@ -3995,13 +4253,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 流量调控任务曝光分析
+     *  *
      * @param string                            $instanceId
      * @param string                            $taskId
-     * @param ListFlowControlTaskReportsRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param ListFlowControlTaskReportsRequest $request    ListFlowControlTaskReportsRequest
+     * @param string[]                          $headers    map
+     * @param RuntimeOptions                    $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListFlowControlTaskReportsResponse
+     * @return ListFlowControlTaskReportsResponse ListFlowControlTaskReportsResponse
      */
     public function listFlowControlTaskReportsWithOptions($instanceId, $taskId, $request, $headers, $runtime)
     {
@@ -4033,11 +4293,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 流量调控任务曝光分析
+     *  *
      * @param string                            $instanceId
      * @param string                            $taskId
-     * @param ListFlowControlTaskReportsRequest $request
+     * @param ListFlowControlTaskReportsRequest $request    ListFlowControlTaskReportsRequest
      *
-     * @return ListFlowControlTaskReportsResponse
+     * @return ListFlowControlTaskReportsResponse ListFlowControlTaskReportsResponse
      */
     public function listFlowControlTaskReports($instanceId, $taskId, $request)
     {
@@ -4050,10 +4312,10 @@ class Airec extends OpenApiClient
     /**
      * @param string         $instanceId
      * @param string         $algorithmId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ListIndexVersionsResponse
+     * @return ListIndexVersionsResponse ListIndexVersionsResponse
      */
     public function listIndexVersionsWithOptions($instanceId, $algorithmId, $headers, $runtime)
     {
@@ -4079,7 +4341,7 @@ class Airec extends OpenApiClient
      * @param string $instanceId
      * @param string $algorithmId
      *
-     * @return ListIndexVersionsResponse
+     * @return ListIndexVersionsResponse ListIndexVersionsResponse
      */
     public function listIndexVersions($instanceId, $algorithmId)
     {
@@ -4090,11 +4352,15 @@ class Airec extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary Queries the information of instances.
+     *  *
+     * @description You can call this API operation to query the list of instances. The returned instances are ranked in descending order based on the values of GmtCreate. You can specify multiple request parameters. These request parameters can be used to filter query results. The request parameters that you specify have logical AND relations. Only the specified parameters can be used to filter query results.
+     *  *
+     * @param ListInstanceRequest $request ListInstanceRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceResponse
+     * @return ListInstanceResponse ListInstanceResponse
      */
     public function listInstanceWithOptions($request, $headers, $runtime)
     {
@@ -4138,9 +4404,13 @@ class Airec extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceRequest $request
+     * @summary Queries the information of instances.
+     *  *
+     * @description You can call this API operation to query the list of instances. The returned instances are ranked in descending order based on the values of GmtCreate. You can specify multiple request parameters. These request parameters can be used to filter query results. The request parameters that you specify have logical AND relations. Only the specified parameters can be used to filter query results.
+     *  *
+     * @param ListInstanceRequest $request ListInstanceRequest
      *
-     * @return ListInstanceResponse
+     * @return ListInstanceResponse ListInstanceResponse
      */
     public function listInstance($request)
     {
@@ -4151,11 +4421,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries all asynchronous tasks of a specified instance by using the instance ID.
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceTaskResponse
+     * @return ListInstanceTaskResponse ListInstanceTaskResponse
      */
     public function listInstanceTaskWithOptions($instanceId, $headers, $runtime)
     {
@@ -4178,9 +4450,11 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries all asynchronous tasks of a specified instance by using the instance ID.
+     *  *
      * @param string $instanceId
      *
-     * @return ListInstanceTaskResponse
+     * @return ListInstanceTaskResponse ListInstanceTaskResponse
      */
     public function listInstanceTask($instanceId)
     {
@@ -4192,11 +4466,11 @@ class Airec extends OpenApiClient
 
     /**
      * @param string           $instanceId
-     * @param ListItemsRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param ListItemsRequest $request    ListItemsRequest
+     * @param string[]         $headers    map
+     * @param RuntimeOptions   $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListItemsResponse
+     * @return ListItemsResponse ListItemsResponse
      */
     public function listItemsWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -4235,9 +4509,9 @@ class Airec extends OpenApiClient
 
     /**
      * @param string           $instanceId
-     * @param ListItemsRequest $request
+     * @param ListItemsRequest $request    ListItemsRequest
      *
-     * @return ListItemsResponse
+     * @return ListItemsResponse ListItemsResponse
      */
     public function listItems($instanceId, $request)
     {
@@ -4249,11 +4523,11 @@ class Airec extends OpenApiClient
 
     /**
      * @param string          $instanceId
-     * @param ListLogsRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @param ListLogsRequest $request    ListLogsRequest
+     * @param string[]        $headers    map
+     * @param RuntimeOptions  $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListLogsResponse
+     * @return ListLogsResponse ListLogsResponse
      */
     public function listLogsWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -4295,9 +4569,9 @@ class Airec extends OpenApiClient
 
     /**
      * @param string          $instanceId
-     * @param ListLogsRequest $request
+     * @param ListLogsRequest $request    ListLogsRequest
      *
-     * @return ListLogsResponse
+     * @return ListLogsResponse ListLogsResponse
      */
     public function listLogs($instanceId, $request)
     {
@@ -4308,10 +4582,12 @@ class Airec extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary Queries the content types supported in the diversity rule configurations of an instance.
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMixCategoriesResponse
+     * @return ListMixCategoriesResponse ListMixCategoriesResponse
      */
     public function listMixCategoriesWithOptions($headers, $runtime)
     {
@@ -4334,7 +4610,9 @@ class Airec extends OpenApiClient
     }
 
     /**
-     * @return ListMixCategoriesResponse
+     * @summary Queries the content types supported in the diversity rule configurations of an instance.
+     *  *
+     * @return ListMixCategoriesResponse ListMixCategoriesResponse
      */
     public function listMixCategories()
     {
@@ -4345,11 +4623,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 获取离线存储列表
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListOfflineStoragesResponse
+     * @return ListOfflineStoragesResponse ListOfflineStoragesResponse
      */
     public function listOfflineStoragesWithOptions($instanceId, $headers, $runtime)
     {
@@ -4372,9 +4652,11 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 获取离线存储列表
+     *  *
      * @param string $instanceId
      *
-     * @return ListOfflineStoragesResponse
+     * @return ListOfflineStoragesResponse ListOfflineStoragesResponse
      */
     public function listOfflineStorages($instanceId)
     {
@@ -4385,12 +4667,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries the templates of a ranking model. The returned templates are sorted in reverse chronological order based on the time when the templates were created.
+     *  *
      * @param string                           $instanceId
-     * @param ListRankingModelTemplatesRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param ListRankingModelTemplatesRequest $request    ListRankingModelTemplatesRequest
+     * @param string[]                         $headers    map
+     * @param RuntimeOptions                   $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListRankingModelTemplatesResponse
+     * @return ListRankingModelTemplatesResponse ListRankingModelTemplatesResponse
      */
     public function listRankingModelTemplatesWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -4422,10 +4706,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries the templates of a ranking model. The returned templates are sorted in reverse chronological order based on the time when the templates were created.
+     *  *
      * @param string                           $instanceId
-     * @param ListRankingModelTemplatesRequest $request
+     * @param ListRankingModelTemplatesRequest $request    ListRankingModelTemplatesRequest
      *
-     * @return ListRankingModelTemplatesResponse
+     * @return ListRankingModelTemplatesResponse ListRankingModelTemplatesResponse
      */
     public function listRankingModelTemplates($instanceId, $request)
     {
@@ -4436,12 +4722,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of versions for a ranking model.
+     *  *
      * @param string                          $instanceId
-     * @param ListRankingModelVersionsRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param ListRankingModelVersionsRequest $request    ListRankingModelVersionsRequest
+     * @param string[]                        $headers    map
+     * @param RuntimeOptions                  $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListRankingModelVersionsResponse
+     * @return ListRankingModelVersionsResponse ListRankingModelVersionsResponse
      */
     public function listRankingModelVersionsWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -4479,10 +4767,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of versions for a ranking model.
+     *  *
      * @param string                          $instanceId
-     * @param ListRankingModelVersionsRequest $request
+     * @param ListRankingModelVersionsRequest $request    ListRankingModelVersionsRequest
      *
-     * @return ListRankingModelVersionsResponse
+     * @return ListRankingModelVersionsResponse ListRankingModelVersionsResponse
      */
     public function listRankingModelVersions($instanceId, $request)
     {
@@ -4494,11 +4784,11 @@ class Airec extends OpenApiClient
 
     /**
      * @param string                   $instanceId
-     * @param ListRankingModelsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param ListRankingModelsRequest $request    ListRankingModelsRequest
+     * @param string[]                 $headers    map
+     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListRankingModelsResponse
+     * @return ListRankingModelsResponse ListRankingModelsResponse
      */
     public function listRankingModelsWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -4534,9 +4824,9 @@ class Airec extends OpenApiClient
 
     /**
      * @param string                   $instanceId
-     * @param ListRankingModelsRequest $request
+     * @param ListRankingModelsRequest $request    ListRankingModelsRequest
      *
-     * @return ListRankingModelsResponse
+     * @return ListRankingModelsResponse ListRankingModelsResponse
      */
     public function listRankingModels($instanceId, $request)
     {
@@ -4547,13 +4837,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The ID of the instance.
+     *  *
      * @param string                            $instanceId
      * @param string                            $name
-     * @param ListRankingSystemHistoriesRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param ListRankingSystemHistoriesRequest $request    ListRankingSystemHistoriesRequest
+     * @param string[]                          $headers    map
+     * @param RuntimeOptions                    $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListRankingSystemHistoriesResponse
+     * @return ListRankingSystemHistoriesResponse ListRankingSystemHistoriesResponse
      */
     public function listRankingSystemHistoriesWithOptions($instanceId, $name, $request, $headers, $runtime)
     {
@@ -4588,11 +4880,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The ID of the instance.
+     *  *
      * @param string                            $instanceId
      * @param string                            $name
-     * @param ListRankingSystemHistoriesRequest $request
+     * @param ListRankingSystemHistoriesRequest $request    ListRankingSystemHistoriesRequest
      *
-     * @return ListRankingSystemHistoriesResponse
+     * @return ListRankingSystemHistoriesResponse ListRankingSystemHistoriesResponse
      */
     public function listRankingSystemHistories($instanceId, $name, $request)
     {
@@ -4603,12 +4897,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 获取排序服务列表
+     *  *
      * @param string                    $instanceId
-     * @param ListRankingSystemsRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param ListRankingSystemsRequest $request    ListRankingSystemsRequest
+     * @param string[]                  $headers    map
+     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListRankingSystemsResponse
+     * @return ListRankingSystemsResponse ListRankingSystemsResponse
      */
     public function listRankingSystemsWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -4646,10 +4942,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 获取排序服务列表
+     *  *
      * @param string                    $instanceId
-     * @param ListRankingSystemsRequest $request
+     * @param ListRankingSystemsRequest $request    ListRankingSystemsRequest
      *
-     * @return ListRankingSystemsResponse
+     * @return ListRankingSystemsResponse ListRankingSystemsResponse
      */
     public function listRankingSystems($instanceId, $request)
     {
@@ -4660,11 +4958,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries item selection rules of an instance.
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListRuleConditionsResponse
+     * @return ListRuleConditionsResponse ListRuleConditionsResponse
      */
     public function listRuleConditionsWithOptions($instanceId, $headers, $runtime)
     {
@@ -4687,9 +4987,11 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries item selection rules of an instance.
+     *  *
      * @param string $instanceId
      *
-     * @return ListRuleConditionsResponse
+     * @return ListRuleConditionsResponse ListRuleConditionsResponse
      */
     public function listRuleConditions($instanceId)
     {
@@ -4700,12 +5002,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The returned results.
+     *  *
      * @param string               $instanceId
-     * @param ListRuleTasksRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param ListRuleTasksRequest $request    ListRuleTasksRequest
+     * @param string[]             $headers    map
+     * @param RuntimeOptions       $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListRuleTasksResponse
+     * @return ListRuleTasksResponse ListRuleTasksResponse
      */
     public function listRuleTasksWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -4734,10 +5038,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The returned results.
+     *  *
      * @param string               $instanceId
-     * @param ListRuleTasksRequest $request
+     * @param ListRuleTasksRequest $request    ListRuleTasksRequest
      *
-     * @return ListRuleTasksResponse
+     * @return ListRuleTasksResponse ListRuleTasksResponse
      */
     public function listRuleTasks($instanceId, $request)
     {
@@ -4749,11 +5055,11 @@ class Airec extends OpenApiClient
 
     /**
      * @param string           $instanceId
-     * @param ListRulesRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param ListRulesRequest $request    ListRulesRequest
+     * @param string[]         $headers    map
+     * @param RuntimeOptions   $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListRulesResponse
+     * @return ListRulesResponse ListRulesResponse
      */
     public function listRulesWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -4801,9 +5107,9 @@ class Airec extends OpenApiClient
 
     /**
      * @param string           $instanceId
-     * @param ListRulesRequest $request
+     * @param ListRulesRequest $request    ListRulesRequest
      *
-     * @return ListRulesResponse
+     * @return ListRulesResponse ListRulesResponse
      */
     public function listRules($instanceId, $request)
     {
@@ -4814,12 +5120,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 获取样本格式化配置列表
+     *  *
      * @param string         $instanceId
      * @param string         $sampleId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListSampleFormatConfigsResponse
+     * @return ListSampleFormatConfigsResponse ListSampleFormatConfigsResponse
      */
     public function listSampleFormatConfigsWithOptions($instanceId, $sampleId, $headers, $runtime)
     {
@@ -4842,10 +5150,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 获取样本格式化配置列表
+     *  *
      * @param string $instanceId
      * @param string $sampleId
      *
-     * @return ListSampleFormatConfigsResponse
+     * @return ListSampleFormatConfigsResponse ListSampleFormatConfigsResponse
      */
     public function listSampleFormatConfigs($instanceId, $sampleId)
     {
@@ -4856,12 +5166,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 获取样本列表
+     *  *
      * @param string             $instanceId
-     * @param ListSamplesRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param ListSamplesRequest $request    ListSamplesRequest
+     * @param string[]           $headers    map
+     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListSamplesResponse
+     * @return ListSamplesResponse ListSamplesResponse
      */
     public function listSamplesWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -4896,10 +5208,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 获取样本列表
+     *  *
      * @param string             $instanceId
-     * @param ListSamplesRequest $request
+     * @param ListSamplesRequest $request    ListSamplesRequest
      *
-     * @return ListSamplesResponse
+     * @return ListSamplesResponse ListSamplesResponse
      */
     public function listSamples($instanceId, $request)
     {
@@ -4910,13 +5224,17 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries preview results.
+     *  *
+     * @description We recommend that you do not call an API operation to manage scenes. We recommend that you go to the Scenario Building page in the Artificial Intelligence Recommendation (AIRec) console to manage scenes.
+     *  *
      * @param string                $instanceId
      * @param string                $sceneId
-     * @param ListSceneItemsRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param ListSceneItemsRequest $request    ListSceneItemsRequest
+     * @param string[]              $headers    map
+     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListSceneItemsResponse
+     * @return ListSceneItemsResponse ListSceneItemsResponse
      */
     public function listSceneItemsWithOptions($instanceId, $sceneId, $request, $headers, $runtime)
     {
@@ -4960,11 +5278,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries preview results.
+     *  *
+     * @description We recommend that you do not call an API operation to manage scenes. We recommend that you go to the Scenario Building page in the Artificial Intelligence Recommendation (AIRec) console to manage scenes.
+     *  *
      * @param string                $instanceId
      * @param string                $sceneId
-     * @param ListSceneItemsRequest $request
+     * @param ListSceneItemsRequest $request    ListSceneItemsRequest
      *
-     * @return ListSceneItemsResponse
+     * @return ListSceneItemsResponse ListSceneItemsResponse
      */
     public function listSceneItems($instanceId, $sceneId, $request)
     {
@@ -4976,10 +5298,10 @@ class Airec extends OpenApiClient
 
     /**
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListSceneParametersResponse
+     * @return ListSceneParametersResponse ListSceneParametersResponse
      */
     public function listSceneParametersWithOptions($instanceId, $headers, $runtime)
     {
@@ -5004,7 +5326,7 @@ class Airec extends OpenApiClient
     /**
      * @param string $instanceId
      *
-     * @return ListSceneParametersResponse
+     * @return ListSceneParametersResponse ListSceneParametersResponse
      */
     public function listSceneParameters($instanceId)
     {
@@ -5015,12 +5337,16 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries scenes of a specified instance.
+     *  *
+     * @description We recommend that you do not call an API operation to manage scenes. Go to the Scenario Building page in the AIRec console to manage scenes.
+     *  *
      * @param string            $instanceId
-     * @param ListScenesRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param ListScenesRequest $request    ListScenesRequest
+     * @param string[]          $headers    map
+     * @param RuntimeOptions    $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListScenesResponse
+     * @return ListScenesResponse ListScenesResponse
      */
     public function listScenesWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -5058,10 +5384,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries scenes of a specified instance.
+     *  *
+     * @description We recommend that you do not call an API operation to manage scenes. Go to the Scenario Building page in the AIRec console to manage scenes.
+     *  *
      * @param string            $instanceId
-     * @param ListScenesRequest $request
+     * @param ListScenesRequest $request    ListScenesRequest
      *
-     * @return ListScenesResponse
+     * @return ListScenesResponse ListScenesResponse
      */
     public function listScenes($instanceId, $request)
     {
@@ -5072,10 +5402,10 @@ class Airec extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUmengAppkeysResponse
+     * @return ListUmengAppkeysResponse ListUmengAppkeysResponse
      */
     public function listUmengAppkeysWithOptions($headers, $runtime)
     {
@@ -5098,7 +5428,7 @@ class Airec extends OpenApiClient
     }
 
     /**
-     * @return ListUmengAppkeysResponse
+     * @return ListUmengAppkeysResponse ListUmengAppkeysResponse
      */
     public function listUmengAppkeys()
     {
@@ -5110,10 +5440,10 @@ class Airec extends OpenApiClient
 
     /**
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListUserClustersResponse
+     * @return ListUserClustersResponse ListUserClustersResponse
      */
     public function listUserClustersWithOptions($instanceId, $headers, $runtime)
     {
@@ -5138,7 +5468,7 @@ class Airec extends OpenApiClient
     /**
      * @param string $instanceId
      *
-     * @return ListUserClustersResponse
+     * @return ListUserClustersResponse ListUserClustersResponse
      */
     public function listUserClusters($instanceId)
     {
@@ -5149,12 +5479,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the information of a single data source in a table of a specified instance.
+     *  *
      * @param string         $instanceId
      * @param string         $tableName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ModifyDataSourceResponse
+     * @return ModifyDataSourceResponse ModifyDataSourceResponse
      */
     public function modifyDataSourceWithOptions($instanceId, $tableName, $headers, $runtime)
     {
@@ -5177,10 +5509,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the information of a single data source in a table of a specified instance.
+     *  *
      * @param string $instanceId
      * @param string $tableName
      *
-     * @return ModifyDataSourceResponse
+     * @return ModifyDataSourceResponse ModifyDataSourceResponse
      */
     public function modifyDataSource($instanceId, $tableName)
     {
@@ -5191,13 +5525,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 修改特征表，只支表级别持特征列表的全量修改
+     *  *
      * @param string         $instanceId
      * @param string         $type
      * @param string         $featureTableId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ModifyFeatureTableResponse
+     * @return ModifyFeatureTableResponse ModifyFeatureTableResponse
      */
     public function modifyFeatureTableWithOptions($instanceId, $type, $featureTableId, $headers, $runtime)
     {
@@ -5220,11 +5556,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 修改特征表，只支表级别持特征列表的全量修改
+     *  *
      * @param string $instanceId
      * @param string $type
      * @param string $featureTableId
      *
-     * @return ModifyFeatureTableResponse
+     * @return ModifyFeatureTableResponse ModifyFeatureTableResponse
      */
     public function modifyFeatureTable($instanceId, $type, $featureTableId)
     {
@@ -5235,12 +5573,16 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The name of the project.
+     *  *
+     * @description The name of the filtering algorithm.
+     *  *
      * @param string         $instanceId
      * @param string         $algorithmId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ModifyFilteringAlgorithmMetaResponse
+     * @return ModifyFilteringAlgorithmMetaResponse ModifyFilteringAlgorithmMetaResponse
      */
     public function modifyFilteringAlgorithmMetaWithOptions($instanceId, $algorithmId, $headers, $runtime)
     {
@@ -5263,10 +5605,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The name of the project.
+     *  *
+     * @description The name of the filtering algorithm.
+     *  *
      * @param string $instanceId
      * @param string $algorithmId
      *
-     * @return ModifyFilteringAlgorithmMetaResponse
+     * @return ModifyFilteringAlgorithmMetaResponse ModifyFilteringAlgorithmMetaResponse
      */
     public function modifyFilteringAlgorithmMeta($instanceId, $algorithmId)
     {
@@ -5277,13 +5623,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a throttling task.
+     *  *
      * @param string                       $instanceId
      * @param string                       $taskId
-     * @param ModifyFlowControlTaskRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param ModifyFlowControlTaskRequest $request    ModifyFlowControlTaskRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ModifyFlowControlTaskResponse
+     * @return ModifyFlowControlTaskResponse ModifyFlowControlTaskResponse
      */
     public function modifyFlowControlTaskWithOptions($instanceId, $taskId, $request, $headers, $runtime)
     {
@@ -5333,11 +5681,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a throttling task.
+     *  *
      * @param string                       $instanceId
      * @param string                       $taskId
-     * @param ModifyFlowControlTaskRequest $request
+     * @param ModifyFlowControlTaskRequest $request    ModifyFlowControlTaskRequest
      *
-     * @return ModifyFlowControlTaskResponse
+     * @return ModifyFlowControlTaskResponse ModifyFlowControlTaskResponse
      */
     public function modifyFlowControlTask($instanceId, $taskId, $request)
     {
@@ -5348,11 +5698,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the configurations of a specified instance.
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceResponse
+     * @return ModifyInstanceResponse ModifyInstanceResponse
      */
     public function modifyInstanceWithOptions($instanceId, $headers, $runtime)
     {
@@ -5375,9 +5727,11 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the configurations of a specified instance.
+     *  *
      * @param string $instanceId
      *
-     * @return ModifyInstanceResponse
+     * @return ModifyInstanceResponse ModifyInstanceResponse
      */
     public function modifyInstance($instanceId)
     {
@@ -5389,10 +5743,10 @@ class Airec extends OpenApiClient
 
     /**
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ModifyItemsResponse
+     * @return ModifyItemsResponse ModifyItemsResponse
      */
     public function modifyItemsWithOptions($instanceId, $headers, $runtime)
     {
@@ -5417,7 +5771,7 @@ class Airec extends OpenApiClient
     /**
      * @param string $instanceId
      *
-     * @return ModifyItemsResponse
+     * @return ModifyItemsResponse ModifyItemsResponse
      */
     public function modifyItems($instanceId)
     {
@@ -5428,11 +5782,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the offline storage configurations of an instance. You need to modify three tables at the same time.
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ModifyOfflineStoragesResponse
+     * @return ModifyOfflineStoragesResponse ModifyOfflineStoragesResponse
      */
     public function modifyOfflineStoragesWithOptions($instanceId, $headers, $runtime)
     {
@@ -5455,9 +5811,11 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the offline storage configurations of an instance. You need to modify three tables at the same time.
+     *  *
      * @param string $instanceId
      *
-     * @return ModifyOfflineStoragesResponse
+     * @return ModifyOfflineStoragesResponse ModifyOfflineStoragesResponse
      */
     public function modifyOfflineStorages($instanceId)
     {
@@ -5468,12 +5826,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The ID of the ranking model.
+     *  *
      * @param string         $instanceId
      * @param string         $rankingModelId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ModifyRankingModelResponse
+     * @return ModifyRankingModelResponse ModifyRankingModelResponse
      */
     public function modifyRankingModelWithOptions($instanceId, $rankingModelId, $headers, $runtime)
     {
@@ -5496,10 +5856,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The ID of the ranking model.
+     *  *
      * @param string $instanceId
      * @param string $rankingModelId
      *
-     * @return ModifyRankingModelResponse
+     * @return ModifyRankingModelResponse ModifyRankingModelResponse
      */
     public function modifyRankingModel($instanceId, $rankingModelId)
     {
@@ -5510,13 +5872,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a ranking model.
+     *  *
      * @param string                            $instanceId
      * @param string                            $templateId
-     * @param ModifyRankingModelTemplateRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param ModifyRankingModelTemplateRequest $request    ModifyRankingModelTemplateRequest
+     * @param string[]                          $headers    map
+     * @param RuntimeOptions                    $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ModifyRankingModelTemplateResponse
+     * @return ModifyRankingModelTemplateResponse ModifyRankingModelTemplateResponse
      */
     public function modifyRankingModelTemplateWithOptions($instanceId, $templateId, $request, $headers, $runtime)
     {
@@ -5545,11 +5909,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a ranking model.
+     *  *
      * @param string                            $instanceId
      * @param string                            $templateId
-     * @param ModifyRankingModelTemplateRequest $request
+     * @param ModifyRankingModelTemplateRequest $request    ModifyRankingModelTemplateRequest
      *
-     * @return ModifyRankingModelTemplateResponse
+     * @return ModifyRankingModelTemplateResponse ModifyRankingModelTemplateResponse
      */
     public function modifyRankingModelTemplate($instanceId, $templateId, $request)
     {
@@ -5560,13 +5926,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a ranking service.
+     *  *
      * @param string                     $instanceId
      * @param string                     $name
-     * @param ModifyRankingSystemRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param ModifyRankingSystemRequest $request    ModifyRankingSystemRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ModifyRankingSystemResponse
+     * @return ModifyRankingSystemResponse ModifyRankingSystemResponse
      */
     public function modifyRankingSystemWithOptions($instanceId, $name, $request, $headers, $runtime)
     {
@@ -5595,11 +5963,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a ranking service.
+     *  *
      * @param string                     $instanceId
      * @param string                     $name
-     * @param ModifyRankingSystemRequest $request
+     * @param ModifyRankingSystemRequest $request    ModifyRankingSystemRequest
      *
-     * @return ModifyRankingSystemResponse
+     * @return ModifyRankingSystemResponse ModifyRankingSystemResponse
      */
     public function modifyRankingSystem($instanceId, $name, $request)
     {
@@ -5610,12 +5980,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a rule.
+     *  *
      * @param string         $instanceId
      * @param string         $ruleId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ModifyRuleResponse
+     * @return ModifyRuleResponse ModifyRuleResponse
      */
     public function modifyRuleWithOptions($instanceId, $ruleId, $headers, $runtime)
     {
@@ -5638,10 +6010,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a rule.
+     *  *
      * @param string $instanceId
      * @param string $ruleId
      *
-     * @return ModifyRuleResponse
+     * @return ModifyRuleResponse ModifyRuleResponse
      */
     public function modifyRule($instanceId, $ruleId)
     {
@@ -5652,13 +6026,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 修改样本配置
+     *  *
      * @param string              $instanceId
      * @param string              $sampleId
-     * @param ModifySampleRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param ModifySampleRequest $request    ModifySampleRequest
+     * @param string[]            $headers    map
+     * @param RuntimeOptions      $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ModifySampleResponse
+     * @return ModifySampleResponse ModifySampleResponse
      */
     public function modifySampleWithOptions($instanceId, $sampleId, $request, $headers, $runtime)
     {
@@ -5687,11 +6063,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 修改样本配置
+     *  *
      * @param string              $instanceId
      * @param string              $sampleId
-     * @param ModifySampleRequest $request
+     * @param ModifySampleRequest $request    ModifySampleRequest
      *
-     * @return ModifySampleResponse
+     * @return ModifySampleResponse ModifySampleResponse
      */
     public function modifySample($instanceId, $sampleId, $request)
     {
@@ -5702,12 +6080,16 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the information about a scene.
+     *  *
+     * @description We recommend that you do not call an API operation to manage scenes. We recommend that you go to the Scenario Building page in the Artificial Intelligence Recommendation (AIRec) console to manage scenes.
+     *  *
      * @param string         $instanceId
      * @param string         $sceneId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ModifySceneResponse
+     * @return ModifySceneResponse ModifySceneResponse
      */
     public function modifySceneWithOptions($instanceId, $sceneId, $headers, $runtime)
     {
@@ -5730,10 +6112,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the information about a scene.
+     *  *
+     * @description We recommend that you do not call an API operation to manage scenes. We recommend that you go to the Scenario Building page in the Artificial Intelligence Recommendation (AIRec) console to manage scenes.
+     *  *
      * @param string $instanceId
      * @param string $sceneId
      *
-     * @return ModifySceneResponse
+     * @return ModifySceneResponse ModifySceneResponse
      */
     public function modifyScene($instanceId, $sceneId)
     {
@@ -5746,10 +6132,10 @@ class Airec extends OpenApiClient
     /**
      * @param string         $instanceId
      * @param string         $algorithmId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return OfflineFilteringAlgorithmResponse
+     * @return OfflineFilteringAlgorithmResponse OfflineFilteringAlgorithmResponse
      */
     public function offlineFilteringAlgorithmWithOptions($instanceId, $algorithmId, $headers, $runtime)
     {
@@ -5775,7 +6161,7 @@ class Airec extends OpenApiClient
      * @param string $instanceId
      * @param string $algorithmId
      *
-     * @return OfflineFilteringAlgorithmResponse
+     * @return OfflineFilteringAlgorithmResponse OfflineFilteringAlgorithmResponse
      */
     public function offlineFilteringAlgorithm($instanceId, $algorithmId)
     {
@@ -5786,12 +6172,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 发布流调任务接口
+     *  *
      * @param string         $instanceId
      * @param string         $taskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return PublishFlowControlTaskResponse
+     * @return PublishFlowControlTaskResponse PublishFlowControlTaskResponse
      */
     public function publishFlowControlTaskWithOptions($instanceId, $taskId, $headers, $runtime)
     {
@@ -5814,10 +6202,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 发布流调任务接口
+     *  *
      * @param string $instanceId
      * @param string $taskId
      *
-     * @return PublishFlowControlTaskResponse
+     * @return PublishFlowControlTaskResponse PublishFlowControlTaskResponse
      */
     public function publishFlowControlTask($instanceId, $taskId)
     {
@@ -5828,13 +6218,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Publishes a rule.
+     *  *
      * @param string             $ruleId
      * @param string             $instanceId
-     * @param PublishRuleRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param PublishRuleRequest $request    PublishRuleRequest
+     * @param string[]           $headers    map
+     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
      *
-     * @return PublishRuleResponse
+     * @return PublishRuleResponse PublishRuleResponse
      */
     public function publishRuleWithOptions($ruleId, $instanceId, $request, $headers, $runtime)
     {
@@ -5866,11 +6258,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Publishes a rule.
+     *  *
      * @param string             $ruleId
      * @param string             $instanceId
-     * @param PublishRuleRequest $request
+     * @param PublishRuleRequest $request    PublishRuleRequest
      *
-     * @return PublishRuleResponse
+     * @return PublishRuleResponse PublishRuleResponse
      */
     public function publishRule($ruleId, $instanceId, $request)
     {
@@ -5881,13 +6275,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 该接口用于向指定冷启动实例指定表推送文档
+     *  *
      * @param string                       $instanceId
      * @param string                       $tableName
-     * @param PushColdStartDocumentRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param PushColdStartDocumentRequest $request    PushColdStartDocumentRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
      *
-     * @return PushColdStartDocumentResponse
+     * @return PushColdStartDocumentResponse PushColdStartDocumentResponse
      */
     public function pushColdStartDocumentWithOptions($instanceId, $tableName, $request, $headers, $runtime)
     {
@@ -5912,11 +6308,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 该接口用于向指定冷启动实例指定表推送文档
+     *  *
      * @param string                       $instanceId
      * @param string                       $tableName
-     * @param PushColdStartDocumentRequest $request
+     * @param PushColdStartDocumentRequest $request    PushColdStartDocumentRequest
      *
-     * @return PushColdStartDocumentResponse
+     * @return PushColdStartDocumentResponse PushColdStartDocumentResponse
      */
     public function pushColdStartDocument($instanceId, $tableName, $request)
     {
@@ -5929,10 +6327,10 @@ class Airec extends OpenApiClient
     /**
      * @param string         $instanceId
      * @param string         $tableName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return PushDocumentResponse
+     * @return PushDocumentResponse PushDocumentResponse
      */
     public function pushDocumentWithOptions($instanceId, $tableName, $headers, $runtime)
     {
@@ -5958,7 +6356,7 @@ class Airec extends OpenApiClient
      * @param string $instanceId
      * @param string $tableName
      *
-     * @return PushDocumentResponse
+     * @return PushDocumentResponse PushDocumentResponse
      */
     public function pushDocument($instanceId, $tableName)
     {
@@ -5970,10 +6368,10 @@ class Airec extends OpenApiClient
 
     /**
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return PushInterventionResponse
+     * @return PushInterventionResponse PushInterventionResponse
      */
     public function pushInterventionWithOptions($instanceId, $headers, $runtime)
     {
@@ -5998,7 +6396,7 @@ class Airec extends OpenApiClient
     /**
      * @param string $instanceId
      *
-     * @return PushInterventionResponse
+     * @return PushInterventionResponse PushInterventionResponse
      */
     public function pushIntervention($instanceId)
     {
@@ -6011,11 +6409,11 @@ class Airec extends OpenApiClient
     /**
      * @param string                  $instanceId
      * @param string                  $table
-     * @param QueryDataMessageRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param QueryDataMessageRequest $request    QueryDataMessageRequest
+     * @param string[]                $headers    map
+     * @param RuntimeOptions          $runtime    runtime options for this request RuntimeOptions
      *
-     * @return QueryDataMessageResponse
+     * @return QueryDataMessageResponse QueryDataMessageResponse
      */
     public function queryDataMessageWithOptions($instanceId, $table, $request, $headers, $runtime)
     {
@@ -6085,9 +6483,9 @@ class Airec extends OpenApiClient
     /**
      * @param string                  $instanceId
      * @param string                  $table
-     * @param QueryDataMessageRequest $request
+     * @param QueryDataMessageRequest $request    QueryDataMessageRequest
      *
-     * @return QueryDataMessageResponse
+     * @return QueryDataMessageResponse QueryDataMessageResponse
      */
     public function queryDataMessage($instanceId, $table, $request)
     {
@@ -6098,13 +6496,17 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries statistics on update messages in a data table of an instance.
+     *  *
+     * @description You can call this API operation to query statistics on update messages in a specified data table of a specified instance.
+     *  *
      * @param string                            $instanceId
      * @param string                            $table
-     * @param QueryDataMessageStatisticsRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param QueryDataMessageStatisticsRequest $request    QueryDataMessageStatisticsRequest
+     * @param string[]                          $headers    map
+     * @param RuntimeOptions                    $runtime    runtime options for this request RuntimeOptions
      *
-     * @return QueryDataMessageStatisticsResponse
+     * @return QueryDataMessageStatisticsResponse QueryDataMessageStatisticsResponse
      */
     public function queryDataMessageStatisticsWithOptions($instanceId, $table, $request, $headers, $runtime)
     {
@@ -6166,11 +6568,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries statistics on update messages in a data table of an instance.
+     *  *
+     * @description You can call this API operation to query statistics on update messages in a specified data table of a specified instance.
+     *  *
      * @param string                            $instanceId
      * @param string                            $table
-     * @param QueryDataMessageStatisticsRequest $request
+     * @param QueryDataMessageStatisticsRequest $request    QueryDataMessageStatisticsRequest
      *
-     * @return QueryDataMessageStatisticsResponse
+     * @return QueryDataMessageStatisticsResponse QueryDataMessageStatisticsResponse
      */
     public function queryDataMessageStatistics($instanceId, $table, $request)
     {
@@ -6182,11 +6588,11 @@ class Airec extends OpenApiClient
 
     /**
      * @param string                       $instanceId
-     * @param QueryExceptionHistoryRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param QueryExceptionHistoryRequest $request    QueryExceptionHistoryRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
      *
-     * @return QueryExceptionHistoryResponse
+     * @return QueryExceptionHistoryResponse QueryExceptionHistoryResponse
      */
     public function queryExceptionHistoryWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -6222,9 +6628,9 @@ class Airec extends OpenApiClient
 
     /**
      * @param string                       $instanceId
-     * @param QueryExceptionHistoryRequest $request
+     * @param QueryExceptionHistoryRequest $request    QueryExceptionHistoryRequest
      *
-     * @return QueryExceptionHistoryResponse
+     * @return QueryExceptionHistoryResponse QueryExceptionHistoryResponse
      */
     public function queryExceptionHistory($instanceId, $request)
     {
@@ -6235,13 +6641,17 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries raw data in a specific data table of an instance by using the primary key.
+     *  *
+     * @description You can call this operation to query raw data in a specific data table of an instance by using the primary key. The returned results need to be confirmed by customers.
+     *  *
      * @param string              $instanceId
      * @param string              $table
-     * @param QueryRawDataRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param QueryRawDataRequest $request    QueryRawDataRequest
+     * @param string[]            $headers    map
+     * @param RuntimeOptions      $runtime    runtime options for this request RuntimeOptions
      *
-     * @return QueryRawDataResponse
+     * @return QueryRawDataResponse QueryRawDataResponse
      */
     public function queryRawDataWithOptions($instanceId, $table, $request, $headers, $runtime)
     {
@@ -6282,11 +6692,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries raw data in a specific data table of an instance by using the primary key.
+     *  *
+     * @description You can call this operation to query raw data in a specific data table of an instance by using the primary key. The returned results need to be confirmed by customers.
+     *  *
      * @param string              $instanceId
      * @param string              $table
-     * @param QueryRawDataRequest $request
+     * @param QueryRawDataRequest $request    QueryRawDataRequest
      *
-     * @return QueryRawDataResponse
+     * @return QueryRawDataResponse QueryRawDataResponse
      */
     public function queryRawData($instanceId, $table, $request)
     {
@@ -6298,10 +6712,10 @@ class Airec extends OpenApiClient
 
     /**
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return QuerySingleAggregationReportResponse
+     * @return QuerySingleAggregationReportResponse QuerySingleAggregationReportResponse
      */
     public function querySingleAggregationReportWithOptions($instanceId, $headers, $runtime)
     {
@@ -6326,7 +6740,7 @@ class Airec extends OpenApiClient
     /**
      * @param string $instanceId
      *
-     * @return QuerySingleAggregationReportResponse
+     * @return QuerySingleAggregationReportResponse QuerySingleAggregationReportResponse
      */
     public function querySingleAggregationReport($instanceId)
     {
@@ -6337,12 +6751,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries a single table report. More report types may be supported.
+     *  *
      * @param string                   $instanceId
-     * @param QuerySingleReportRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param QuerySingleReportRequest $request    QuerySingleReportRequest
+     * @param string[]                 $headers    map
+     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
      *
-     * @return QuerySingleReportResponse
+     * @return QuerySingleReportResponse QuerySingleReportResponse
      */
     public function querySingleReportWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -6371,10 +6787,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries a single table report. More report types may be supported.
+     *  *
      * @param string                   $instanceId
-     * @param QuerySingleReportRequest $request
+     * @param QuerySingleReportRequest $request    QuerySingleReportRequest
      *
-     * @return QuerySingleReportResponse
+     * @return QuerySingleReportResponse QuerySingleReportResponse
      */
     public function querySingleReport($instanceId, $request)
     {
@@ -6385,12 +6803,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries the data overview.
+     *  *
      * @param string                            $instanceId
-     * @param QuerySyncReportAggregationRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param QuerySyncReportAggregationRequest $request    QuerySyncReportAggregationRequest
+     * @param string[]                          $headers    map
+     * @param RuntimeOptions                    $runtime    runtime options for this request RuntimeOptions
      *
-     * @return QuerySyncReportAggregationResponse
+     * @return QuerySyncReportAggregationResponse QuerySyncReportAggregationResponse
      */
     public function querySyncReportAggregationWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -6422,10 +6842,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Queries the data overview.
+     *  *
      * @param string                            $instanceId
-     * @param QuerySyncReportAggregationRequest $request
+     * @param QuerySyncReportAggregationRequest $request    QuerySyncReportAggregationRequest
      *
-     * @return QuerySyncReportAggregationResponse
+     * @return QuerySyncReportAggregationResponse QuerySyncReportAggregationResponse
      */
     public function querySyncReportAggregation($instanceId, $request)
     {
@@ -6436,12 +6858,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Rebuilds an index.
+     *  *
      * @param string         $instanceId
      * @param string         $algorithmId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return RebuildIndexResponse
+     * @return RebuildIndexResponse RebuildIndexResponse
      */
     public function rebuildIndexWithOptions($instanceId, $algorithmId, $headers, $runtime)
     {
@@ -6464,10 +6888,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Rebuilds an index.
+     *  *
      * @param string $instanceId
      * @param string $algorithmId
      *
-     * @return RebuildIndexResponse
+     * @return RebuildIndexResponse RebuildIndexResponse
      */
     public function rebuildIndex($instanceId, $algorithmId)
     {
@@ -6478,12 +6904,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The type of the recommendation service.
+     *  *
      * @param string           $instanceId
-     * @param RecommendRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param RecommendRequest $request    RecommendRequest
+     * @param string[]         $headers    map
+     * @param RuntimeOptions   $runtime    runtime options for this request RuntimeOptions
      *
-     * @return RecommendResponse
+     * @return RecommendResponse RecommendResponse
      */
     public function recommendWithOptions($instanceId, $request, $headers, $runtime)
     {
@@ -6545,10 +6973,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary The type of the recommendation service.
+     *  *
      * @param string           $instanceId
-     * @param RecommendRequest $request
+     * @param RecommendRequest $request    RecommendRequest
      *
-     * @return RecommendResponse
+     * @return RecommendResponse RecommendResponse
      */
     public function recommend($instanceId, $request)
     {
@@ -6559,13 +6989,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Refreshes a feature table based on the source table in MaxCompute. The refresh policy is subject to data in the source table.
+     *  *
      * @param string         $instanceId
      * @param string         $type
      * @param string         $featureTableId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return RefreshFeatureTableResponse
+     * @return RefreshFeatureTableResponse RefreshFeatureTableResponse
      */
     public function refreshFeatureTableWithOptions($instanceId, $type, $featureTableId, $headers, $runtime)
     {
@@ -6588,11 +7020,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Refreshes a feature table based on the source table in MaxCompute. The refresh policy is subject to data in the source table.
+     *  *
      * @param string $instanceId
      * @param string $type
      * @param string $featureTableId
      *
-     * @return RefreshFeatureTableResponse
+     * @return RefreshFeatureTableResponse RefreshFeatureTableResponse
      */
     public function refreshFeatureTable($instanceId, $type, $featureTableId)
     {
@@ -6603,13 +7037,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 回滚某个排序服务
+     *  *
      * @param string                       $instanceId
      * @param string                       $name
-     * @param RollbackRankingSystemRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param RollbackRankingSystemRequest $request    RollbackRankingSystemRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
      *
-     * @return RollbackRankingSystemResponse
+     * @return RollbackRankingSystemResponse RollbackRankingSystemResponse
      */
     public function rollbackRankingSystemWithOptions($instanceId, $name, $request, $headers, $runtime)
     {
@@ -6638,11 +7074,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 回滚某个排序服务
+     *  *
      * @param string                       $instanceId
      * @param string                       $name
-     * @param RollbackRankingSystemRequest $request
+     * @param RollbackRankingSystemRequest $request    RollbackRankingSystemRequest
      *
-     * @return RollbackRankingSystemResponse
+     * @return RollbackRankingSystemResponse RollbackRankingSystemResponse
      */
     public function rollbackRankingSystem($instanceId, $name, $request)
     {
@@ -6653,11 +7091,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Runs an instance to start a full data import task.
+     *  *
+     * @description You can call this API operation to run an instance to start a full data import task. After you call this API operation, the system creates a dataset. Then, the system imports all data from your data sources into the dataset for data training.
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return RunInstanceResponse
+     * @return RunInstanceResponse RunInstanceResponse
      */
     public function runInstanceWithOptions($instanceId, $headers, $runtime)
     {
@@ -6680,9 +7122,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Runs an instance to start a full data import task.
+     *  *
+     * @description You can call this API operation to run an instance to start a full data import task. After you call this API operation, the system creates a dataset. Then, the system imports all data from your data sources into the dataset for data training.
+     *  *
      * @param string $instanceId
      *
-     * @return RunInstanceResponse
+     * @return RunInstanceResponse RunInstanceResponse
      */
     public function runInstance($instanceId)
     {
@@ -6693,12 +7139,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 启动模型训练
+     *  *
      * @param string         $instanceId
      * @param string         $templateId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return RunRankingModelTemplateResponse
+     * @return RunRankingModelTemplateResponse RunRankingModelTemplateResponse
      */
     public function runRankingModelTemplateWithOptions($instanceId, $templateId, $headers, $runtime)
     {
@@ -6721,10 +7169,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 启动模型训练
+     *  *
      * @param string $instanceId
      * @param string $templateId
      *
-     * @return RunRankingModelTemplateResponse
+     * @return RunRankingModelTemplateResponse RunRankingModelTemplateResponse
      */
     public function runRankingModelTemplate($instanceId, $templateId)
     {
@@ -6735,13 +7185,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Triggers sample formatting configurations.
+     *  *
      * @param string                       $instanceId
      * @param string                       $sampleId
-     * @param RunSampleFormatConfigRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param RunSampleFormatConfigRequest $request    RunSampleFormatConfigRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
      *
-     * @return RunSampleFormatConfigResponse
+     * @return RunSampleFormatConfigResponse RunSampleFormatConfigResponse
      */
     public function runSampleFormatConfigWithOptions($instanceId, $sampleId, $request, $headers, $runtime)
     {
@@ -6770,11 +7222,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Triggers sample formatting configurations.
+     *  *
      * @param string                       $instanceId
      * @param string                       $sampleId
-     * @param RunSampleFormatConfigRequest $request
+     * @param RunSampleFormatConfigRequest $request    RunSampleFormatConfigRequest
      *
-     * @return RunSampleFormatConfigResponse
+     * @return RunSampleFormatConfigResponse RunSampleFormatConfigResponse
      */
     public function runSampleFormatConfig($instanceId, $sampleId, $request)
     {
@@ -6787,10 +7241,10 @@ class Airec extends OpenApiClient
     /**
      * @param string         $instanceId
      * @param string         $versionId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return StopDataSetResponse
+     * @return StopDataSetResponse StopDataSetResponse
      */
     public function stopDataSetWithOptions($instanceId, $versionId, $headers, $runtime)
     {
@@ -6816,7 +7270,7 @@ class Airec extends OpenApiClient
      * @param string $instanceId
      * @param string $versionId
      *
-     * @return StopDataSetResponse
+     * @return StopDataSetResponse StopDataSetResponse
      */
     public function stopDataSet($instanceId, $versionId)
     {
@@ -6827,12 +7281,14 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 停止流调任务接口
+     *  *
      * @param string         $instanceId
      * @param string         $taskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return StopFlowControlTaskResponse
+     * @return StopFlowControlTaskResponse StopFlowControlTaskResponse
      */
     public function stopFlowControlTaskWithOptions($instanceId, $taskId, $headers, $runtime)
     {
@@ -6855,10 +7311,12 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 停止流调任务接口
+     *  *
      * @param string $instanceId
      * @param string $taskId
      *
-     * @return StopFlowControlTaskResponse
+     * @return StopFlowControlTaskResponse StopFlowControlTaskResponse
      */
     public function stopFlowControlTask($instanceId, $taskId)
     {
@@ -6871,10 +7329,10 @@ class Airec extends OpenApiClient
     /**
      * @param string         $instanceId
      * @param string         $algorithmId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UnLockIndexVersionResponse
+     * @return UnLockIndexVersionResponse UnLockIndexVersionResponse
      */
     public function unLockIndexVersionWithOptions($instanceId, $algorithmId, $headers, $runtime)
     {
@@ -6900,7 +7358,7 @@ class Airec extends OpenApiClient
      * @param string $instanceId
      * @param string $algorithmId
      *
-     * @return UnLockIndexVersionResponse
+     * @return UnLockIndexVersionResponse UnLockIndexVersionResponse
      */
     public function unLockIndexVersion($instanceId, $algorithmId)
     {
@@ -6911,13 +7369,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Updates the basic information about an experiment.
+     *  *
      * @param string         $instanceId
      * @param string         $sceneId
      * @param string         $experimentId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return UpdateExperimentBasicInfoResponse
+     * @return UpdateExperimentBasicInfoResponse UpdateExperimentBasicInfoResponse
      */
     public function updateExperimentBasicInfoWithOptions($instanceId, $sceneId, $experimentId, $headers, $runtime)
     {
@@ -6940,11 +7400,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Updates the basic information about an experiment.
+     *  *
      * @param string $instanceId
      * @param string $sceneId
      * @param string $experimentId
      *
-     * @return UpdateExperimentBasicInfoResponse
+     * @return UpdateExperimentBasicInfoResponse UpdateExperimentBasicInfoResponse
      */
     public function updateExperimentBasicInfo($instanceId, $sceneId, $experimentId)
     {
@@ -6958,10 +7420,10 @@ class Airec extends OpenApiClient
      * @param string         $instanceId
      * @param string         $sceneId
      * @param string         $experimentId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return UpdateExperimentConfigResponse
+     * @return UpdateExperimentConfigResponse UpdateExperimentConfigResponse
      */
     public function updateExperimentConfigWithOptions($instanceId, $sceneId, $experimentId, $headers, $runtime)
     {
@@ -6988,7 +7450,7 @@ class Airec extends OpenApiClient
      * @param string $sceneId
      * @param string $experimentId
      *
-     * @return UpdateExperimentConfigResponse
+     * @return UpdateExperimentConfigResponse UpdateExperimentConfigResponse
      */
     public function updateExperimentConfig($instanceId, $sceneId, $experimentId)
     {
@@ -6999,13 +7461,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Updates the state of an experiment.
+     *  *
      * @param string         $instanceId
      * @param string         $sceneId
      * @param string         $experimentId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return UpdateExperimentStatusResponse
+     * @return UpdateExperimentStatusResponse UpdateExperimentStatusResponse
      */
     public function updateExperimentStatusWithOptions($instanceId, $sceneId, $experimentId, $headers, $runtime)
     {
@@ -7028,11 +7492,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary Updates the state of an experiment.
+     *  *
      * @param string $instanceId
      * @param string $sceneId
      * @param string $experimentId
      *
-     * @return UpdateExperimentStatusResponse
+     * @return UpdateExperimentStatusResponse UpdateExperimentStatusResponse
      */
     public function updateExperimentStatus($instanceId, $sceneId, $experimentId)
     {
@@ -7043,9 +7509,11 @@ class Airec extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the quotas of a specified instance.
-     *   * The limits on the number of users: 1,000,000 to 10,000,000. The limits on the number of items: 1,000,000 to 10,000,000. The limits on the queries per second (QPS) for recommendation requests: 10 to 500.
-     *   *
+     * @summary Modifies the quotas of a specified instance.
+     *  *
+     * @description You can call this operation to modify the quotas of a specified instance.
+     * The limits on the number of users: 1,000,000 to 10,000,000. The limits on the number of items: 1,000,000 to 10,000,000. The limits on the queries per second (QPS) for recommendation requests: 10 to 500.
+     *  *
      * @param string         $instanceId
      * @param string[]       $headers    map
      * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
@@ -7073,9 +7541,11 @@ class Airec extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the quotas of a specified instance.
-     *   * The limits on the number of users: 1,000,000 to 10,000,000. The limits on the number of items: 1,000,000 to 10,000,000. The limits on the queries per second (QPS) for recommendation requests: 10 to 500.
-     *   *
+     * @summary Modifies the quotas of a specified instance.
+     *  *
+     * @description You can call this operation to modify the quotas of a specified instance.
+     * The limits on the number of users: 1,000,000 to 10,000,000. The limits on the number of items: 1,000,000 to 10,000,000. The limits on the queries per second (QPS) for recommendation requests: 10 to 500.
+     *  *
      * @param string $instanceId
      *
      * @return UpgradeInstanceResponse UpgradeInstanceResponse
@@ -7090,10 +7560,10 @@ class Airec extends OpenApiClient
 
     /**
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ValidateInstanceResponse
+     * @return ValidateInstanceResponse ValidateInstanceResponse
      */
     public function validateInstanceWithOptions($instanceId, $headers, $runtime)
     {
@@ -7118,7 +7588,7 @@ class Airec extends OpenApiClient
     /**
      * @param string $instanceId
      *
-     * @return ValidateInstanceResponse
+     * @return ValidateInstanceResponse ValidateInstanceResponse
      */
     public function validateInstance($instanceId)
     {
@@ -7129,13 +7599,15 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 调试排序服务
+     *  *
      * @param string                     $instanceId
      * @param string                     $name
-     * @param VerifyRankingSystemRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param VerifyRankingSystemRequest $request    VerifyRankingSystemRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
      *
-     * @return VerifyRankingSystemResponse
+     * @return VerifyRankingSystemResponse VerifyRankingSystemResponse
      */
     public function verifyRankingSystemWithOptions($instanceId, $name, $request, $headers, $runtime)
     {
@@ -7164,11 +7636,13 @@ class Airec extends OpenApiClient
     }
 
     /**
+     * @summary 调试排序服务
+     *  *
      * @param string                     $instanceId
      * @param string                     $name
-     * @param VerifyRankingSystemRequest $request
+     * @param VerifyRankingSystemRequest $request    VerifyRankingSystemRequest
      *
-     * @return VerifyRankingSystemResponse
+     * @return VerifyRankingSystemResponse VerifyRankingSystemResponse
      */
     public function verifyRankingSystem($instanceId, $name, $request)
     {

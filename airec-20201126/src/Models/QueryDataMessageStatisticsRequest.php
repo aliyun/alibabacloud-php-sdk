@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDataMessageStatisticsRequest extends Model
 {
     /**
+     * @description The type of behaviors. Valid values: expose, click, like, comment, collect, stay, cart, buy, and evaluate.
+     *
      * @example expose
      *
      * @var string
@@ -16,6 +18,8 @@ class QueryDataMessageStatisticsRequest extends Model
     public $bhvType;
 
     /**
+     * @description The type of the operation. Valid values: update, delete, and add.
+     *
      * @example update
      *
      * @var string
@@ -23,6 +27,9 @@ class QueryDataMessageStatisticsRequest extends Model
     public $cmdType;
 
     /**
+     * @description The end time. The value is a timestamp in seconds.
+     *
+     * This parameter is required.
      * @example 1586673466
      *
      * @var int
@@ -35,6 +42,8 @@ class QueryDataMessageStatisticsRequest extends Model
     public $imei;
 
     /**
+     * @description The ID of the item. This parameter is required when the value of table is set to item.
+     *
      * @example 111
      *
      * @var string
@@ -42,6 +51,8 @@ class QueryDataMessageStatisticsRequest extends Model
     public $itemId;
 
     /**
+     * @description The type of the item. This parameter is required when the value of table is set to item.
+     *
      * @example video
      *
      * @var string
@@ -49,9 +60,9 @@ class QueryDataMessageStatisticsRequest extends Model
     public $itemType;
 
     /**
-     * @description CONSOLE
+     * @description The source of the operation. Valid values:
      *
-     * FEEDER
+     * CONSOLE and FEEDER.
      * @example FEEDER
      *
      * @var string
@@ -59,6 +70,8 @@ class QueryDataMessageStatisticsRequest extends Model
     public $messageSource;
 
     /**
+     * @description The scene ID.
+     *
      * @example test
      *
      * @var string
@@ -66,6 +79,9 @@ class QueryDataMessageStatisticsRequest extends Model
     public $sceneId;
 
     /**
+     * @description The start time. The value is a timestamp in seconds.
+     *
+     * This parameter is required.
      * @example 1586673466
      *
      * @var int
@@ -73,7 +89,7 @@ class QueryDataMessageStatisticsRequest extends Model
     public $startTime;
 
     /**
-     * @description trace_id
+     * @description The event tracking ID.
      *
      * @example Alibaba
      *
@@ -82,6 +98,8 @@ class QueryDataMessageStatisticsRequest extends Model
     public $traceId;
 
     /**
+     * @description The ID of the user. This parameter is required when the value of table is set to user.
+     *
      * @example 222
      *
      * @var string
@@ -89,6 +107,8 @@ class QueryDataMessageStatisticsRequest extends Model
     public $userId;
 
     /**
+     * @description The type of the user. This parameter is required when the value of table is set to user.
+     *
      * @example app
      *
      * @var string

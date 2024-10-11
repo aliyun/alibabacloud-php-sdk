@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class meta extends Model
 {
     /**
+     * @description The AccessKey ID of the Alibaba Cloud account.
+     *
      * @example xxx
      *
      * @var string
@@ -16,6 +18,8 @@ class meta extends Model
     public $accessKeyId;
 
     /**
+     * @description The name of the Object Storage Service (OSS) bucket.
+     *
      * @example airec
      *
      * @var string
@@ -23,6 +27,8 @@ class meta extends Model
     public $bucketName;
 
     /**
+     * @description The partition in the MaxCompute table.
+     *
      * @example ds=20181122
      *
      * @var string
@@ -30,6 +36,8 @@ class meta extends Model
     public $partition;
 
     /**
+     * @description The path of the OSS data source.
+     *
      * @example oss://xxx.xxx
      *
      * @var string
@@ -37,7 +45,7 @@ class meta extends Model
     public $path;
 
     /**
-     * @description ODPS project name。
+     * @description The name of the MaxCompute project.
      *
      * @example openrec_gray
      *
@@ -46,7 +54,7 @@ class meta extends Model
     public $projectName;
 
     /**
-     * @description ODPS table name。
+     * @description The name of the MaxCompute table.
      *
      * @example test_maxcompute
      *
@@ -55,6 +63,8 @@ class meta extends Model
     public $tableName;
 
     /**
+     * @description The timestamp. The value must be accurate to the millisecond.
+     *
      * @example 1544112000000
      *
      * @var int
@@ -62,6 +72,8 @@ class meta extends Model
     public $timestamp;
 
     /**
+     * @description The type of the data source. Only MaxCompute is supported.
+     *
      * @example ODPS
      *
      * @var string

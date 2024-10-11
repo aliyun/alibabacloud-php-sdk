@@ -16,8 +16,6 @@ class EnableExperimentResponseBody extends Model
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $result;

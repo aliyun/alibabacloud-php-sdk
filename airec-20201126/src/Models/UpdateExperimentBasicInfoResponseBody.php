@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateExperimentBasicInfoResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example E3D6FE3B-B7C2-43DA-9A13-5EA837ACED9B
      *
      * @var string
@@ -17,6 +19,8 @@ class UpdateExperimentBasicInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the experiment.
+     *
      * @var result
      */
     public $result;

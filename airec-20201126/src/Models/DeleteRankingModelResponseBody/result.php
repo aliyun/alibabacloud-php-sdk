@@ -9,15 +9,13 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @example xxx
+     * @description meta
      *
      * @var mixed[]
      */
     public $meta;
 
     /**
-     * @example 123
-     *
      * @var string
      */
     public $rankingModelId;

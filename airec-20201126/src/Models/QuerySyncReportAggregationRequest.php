@@ -11,6 +11,7 @@ class QuerySyncReportAggregationRequest extends Model
     /**
      * @description The end time. The value is a timestamp in seconds.
      *
+     * This parameter is required.
      * @example 1586673466
      *
      * @var int
@@ -20,6 +21,7 @@ class QuerySyncReportAggregationRequest extends Model
     /**
      * @description The start time. The value is a timestamp in seconds.
      *
+     * This parameter is required.
      * @example 1586673466
      *
      * @var int
