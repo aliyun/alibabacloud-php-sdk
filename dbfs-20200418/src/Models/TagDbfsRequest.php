@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TagDbfsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example dbfs-nUy1tb********BQ4X8Gpw
      *
      * @var string
@@ -16,6 +18,8 @@ class TagDbfsRequest extends Model
     public $dbfsId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +27,8 @@ class TagDbfsRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example [{"TagKey":"k1","TagValue":"v1"},{"TagKey":"k2","TagValue":"v2"}]
      *
      * @var string

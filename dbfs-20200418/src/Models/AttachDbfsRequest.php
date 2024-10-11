@@ -23,6 +23,8 @@ class AttachDbfsRequest extends Model
     public $attachPoint;
 
     /**
+     * @description This parameter is required.
+     *
      * @example i-bp1ecr********5go2go
      *
      * @var string
@@ -30,6 +32,8 @@ class AttachDbfsRequest extends Model
     public $ECSInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dbfs-v0WvA********tVEVcgJLg
      *
      * @var string
@@ -37,6 +41,8 @@ class AttachDbfsRequest extends Model
     public $fsId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

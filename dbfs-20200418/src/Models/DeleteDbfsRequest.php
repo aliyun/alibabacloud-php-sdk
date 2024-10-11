@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteDbfsRequest extends Model
 {
     /**
+     * @description 是否强制删除数据库文件系统。
+     * 默认值：false。
+     * @example false
+     *
      * @var bool
      */
     public $force;
 
     /**
+     * @description This parameter is required.
+     *
      * @example d-bp131n0q38u3a4zi*****
      *
      * @var string
@@ -21,6 +27,8 @@ class DeleteDbfsRequest extends Model
     public $fsId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

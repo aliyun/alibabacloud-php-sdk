@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDbfsSpecificationsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example enterprise
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDbfsSpecificationsRequest extends Model
     public $category;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ecs.g7se
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeDbfsSpecificationsRequest extends Model
     public $ecsInstanceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class snapshotInfo extends Model
 {
     /**
+     * @example sl-9zskwvgoqqqvzxa*******
+     *
      * @var string
      */
     public $linkId;
 
     /**
+     * @example sp-ehuhzlfetb2jiwz*******
+     *
      * @var string
      */
     public $policyId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $snapshotCount;
 
     /**
+     * @example 50331648
+     *
      * @var int
      */
     public $totalSize;

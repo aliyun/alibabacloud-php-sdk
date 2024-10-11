@@ -23,11 +23,15 @@ class ListSnapshotLinksRequest extends Model
     public $filterValue;
 
     /**
+     * @example ["dbfs-kwziq4dpsle********","dbfs-vuaqvfcjqsg********"]
+     *
      * @var string
      */
     public $fsIds;
 
     /**
+     * @example ["sl-bp1grgphbcc9brb5****","sl-bp1c4izumvq0i5bs****","sl-bp1akk7isz866dds****"]
+     *
      * @var string
      */
     public $linkIds;
@@ -47,6 +51,8 @@ class ListSnapshotLinksRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

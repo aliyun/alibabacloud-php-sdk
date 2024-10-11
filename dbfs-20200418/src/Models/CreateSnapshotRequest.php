@@ -23,6 +23,8 @@ class CreateSnapshotRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example d-bp131n0q38u3a4zi*****
      *
      * @var string
@@ -30,6 +32,8 @@ class CreateSnapshotRequest extends Model
     public $fsId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

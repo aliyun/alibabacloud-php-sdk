@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ApplyAutoSnapshotPolicyShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $dbfsIdsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sp-z5siir3iq3m**********
      *
      * @var string
@@ -21,6 +25,8 @@ class ApplyAutoSnapshotPolicyShrinkRequest extends Model
     public $policyId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

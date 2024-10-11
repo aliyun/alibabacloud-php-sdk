@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAutoSnapshotPolicyRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example policyTest
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $policyName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,11 +27,15 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $repeatWeekdays;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 30
      *
      * @var int
@@ -35,6 +43,8 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $retentionDays;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $timePoints;

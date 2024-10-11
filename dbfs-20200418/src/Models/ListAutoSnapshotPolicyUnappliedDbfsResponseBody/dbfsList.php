@@ -37,6 +37,8 @@ class dbfsList extends Model
     public $sizeG;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $snapshotCount;
@@ -49,6 +51,8 @@ class dbfsList extends Model
     public $status;
 
     /**
+     * @example 50331648
+     *
      * @var int
      */
     public $totalSize;

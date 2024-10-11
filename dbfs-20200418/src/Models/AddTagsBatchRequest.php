@@ -16,6 +16,8 @@ class AddTagsBatchRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ["dbfs-nUy1tb********BQ4X8Gpw","dbfs-v0WvA********tVEVcgJLg"]
      *
      * @var string
@@ -23,6 +25,8 @@ class AddTagsBatchRequest extends Model
     public $dbfsList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +34,8 @@ class AddTagsBatchRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example [{"TagKey":"k1","TagValue":"v1"},{"TagKey":"k2","TagValue":"v2"}]
      *
      * @var string

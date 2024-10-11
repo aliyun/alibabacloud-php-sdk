@@ -13,6 +13,11 @@ use AlibabaCloud\Tea\Model;
 class DBFSInfo extends Model
 {
     /**
+     * @var string
+     */
+    public $advancedFeatures;
+
+    /**
      * @example 1
      *
      * @var int
@@ -156,6 +161,11 @@ class DBFSInfo extends Model
     public $sizeG;
 
     /**
+     * @var string
+     */
+    public $snapshotId;
+
+    /**
      * @var snapshotInfo
      */
     public $snapshotInfo;
@@ -186,6 +196,7 @@ class DBFSInfo extends Model
      */
     public $zoneId;
     protected $_name = [
+        'advancedFeatures' => 'AdvancedFeatures',
         'attachNodeNumber' => 'AttachNodeNumber',
         'category'         => 'Category',
         'createdTime'      => 'CreatedTime',
@@ -207,6 +218,7 @@ class DBFSInfo extends Model
         'raidStrip'        => 'RaidStrip',
         'regionId'         => 'RegionId',
         'sizeG'            => 'SizeG',
+        'snapshotId'       => 'SnapshotId',
         'snapshotInfo'     => 'SnapshotInfo',
         'status'           => 'Status',
         'tags'             => 'Tags',
@@ -221,6 +233,9 @@ class DBFSInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->advancedFeatures) {
+            $res['AdvancedFeatures'] = $this->advancedFeatures;
+        }
         if (null !== $this->attachNodeNumber) {
             $res['AttachNodeNumber'] = $this->attachNodeNumber;
         }
@@ -296,6 +311,9 @@ class DBFSInfo extends Model
         if (null !== $this->sizeG) {
             $res['SizeG'] = $this->sizeG;
         }
+        if (null !== $this->snapshotId) {
+            $res['SnapshotId'] = $this->snapshotId;
+        }
         if (null !== $this->snapshotInfo) {
             $res['SnapshotInfo'] = null !== $this->snapshotInfo ? $this->snapshotInfo->toMap() : null;
         }
@@ -329,6 +347,9 @@ class DBFSInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdvancedFeatures'])) {
+            $model->advancedFeatures = $map['AdvancedFeatures'];
+        }
         if (isset($map['AttachNodeNumber'])) {
             $model->attachNodeNumber = $map['AttachNodeNumber'];
         }
@@ -403,6 +424,9 @@ class DBFSInfo extends Model
         }
         if (isset($map['SizeG'])) {
             $model->sizeG = $map['SizeG'];
+        }
+        if (isset($map['SnapshotId'])) {
+            $model->snapshotId = $map['SnapshotId'];
         }
         if (isset($map['SnapshotInfo'])) {
             $model->snapshotInfo = snapshotInfo::fromMap($map['SnapshotInfo']);

@@ -70,8 +70,6 @@ class snapshotPolicies extends Model
     public $retentionDays;
 
     /**
-     * @example Normal
-     *
      * @var string
      */
     public $status;

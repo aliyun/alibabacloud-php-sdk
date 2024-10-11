@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DetachDbfsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example i-bp67acfmxazb4ph***
      *
      * @var string
@@ -16,6 +18,8 @@ class DetachDbfsRequest extends Model
     public $ECSInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example d-bp131n0q38u3a4zi*****
      *
      * @var string
@@ -23,6 +27,8 @@ class DetachDbfsRequest extends Model
     public $fsId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

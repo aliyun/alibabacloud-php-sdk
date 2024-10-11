@@ -16,6 +16,8 @@ class DeleteSnapshotRequest extends Model
     public $force;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +25,8 @@ class DeleteSnapshotRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $snapshotId;

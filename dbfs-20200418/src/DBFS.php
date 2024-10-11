@@ -159,10 +159,10 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param AddTagsBatchRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param AddTagsBatchRequest $request AddTagsBatchRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddTagsBatchResponse
+     * @return AddTagsBatchResponse AddTagsBatchResponse
      */
     public function addTagsBatchWithOptions($request, $runtime)
     {
@@ -199,9 +199,9 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param AddTagsBatchRequest $request
+     * @param AddTagsBatchRequest $request AddTagsBatchRequest
      *
-     * @return AddTagsBatchResponse
+     * @return AddTagsBatchResponse AddTagsBatchResponse
      */
     public function addTagsBatch($request)
     {
@@ -211,10 +211,12 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ApplyAutoSnapshotPolicyRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
+     * @summary 设置自动快照策略
+     *  *
+     * @param ApplyAutoSnapshotPolicyRequest $tmpReq  ApplyAutoSnapshotPolicyRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApplyAutoSnapshotPolicyResponse
+     * @return ApplyAutoSnapshotPolicyResponse ApplyAutoSnapshotPolicyResponse
      */
     public function applyAutoSnapshotPolicyWithOptions($tmpReq, $runtime)
     {
@@ -253,9 +255,11 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ApplyAutoSnapshotPolicyRequest $request
+     * @summary 设置自动快照策略
+     *  *
+     * @param ApplyAutoSnapshotPolicyRequest $request ApplyAutoSnapshotPolicyRequest
      *
-     * @return ApplyAutoSnapshotPolicyResponse
+     * @return ApplyAutoSnapshotPolicyResponse ApplyAutoSnapshotPolicyResponse
      */
     public function applyAutoSnapshotPolicy($request)
     {
@@ -265,10 +269,10 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param AttachDbfsRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param AttachDbfsRequest $request AttachDbfsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachDbfsResponse
+     * @return AttachDbfsResponse AttachDbfsResponse
      */
     public function attachDbfsWithOptions($request, $runtime)
     {
@@ -311,9 +315,9 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param AttachDbfsRequest $request
+     * @param AttachDbfsRequest $request AttachDbfsRequest
      *
-     * @return AttachDbfsResponse
+     * @return AttachDbfsResponse AttachDbfsResponse
      */
     public function attachDbfs($request)
     {
@@ -323,10 +327,12 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param CancelAutoSnapshotPolicyRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
+     * @summary 取消自动快照策略
+     *  *
+     * @param CancelAutoSnapshotPolicyRequest $tmpReq  CancelAutoSnapshotPolicyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelAutoSnapshotPolicyResponse
+     * @return CancelAutoSnapshotPolicyResponse CancelAutoSnapshotPolicyResponse
      */
     public function cancelAutoSnapshotPolicyWithOptions($tmpReq, $runtime)
     {
@@ -365,9 +371,11 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param CancelAutoSnapshotPolicyRequest $request
+     * @summary 取消自动快照策略
+     *  *
+     * @param CancelAutoSnapshotPolicyRequest $request CancelAutoSnapshotPolicyRequest
      *
-     * @return CancelAutoSnapshotPolicyResponse
+     * @return CancelAutoSnapshotPolicyResponse CancelAutoSnapshotPolicyResponse
      */
     public function cancelAutoSnapshotPolicy($request)
     {
@@ -377,10 +385,12 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param CreateAutoSnapshotPolicyRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
+     * @summary 创建自动快照策略
+     *  *
+     * @param CreateAutoSnapshotPolicyRequest $tmpReq  CreateAutoSnapshotPolicyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAutoSnapshotPolicyResponse
+     * @return CreateAutoSnapshotPolicyResponse CreateAutoSnapshotPolicyResponse
      */
     public function createAutoSnapshotPolicyWithOptions($tmpReq, $runtime)
     {
@@ -428,9 +438,11 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param CreateAutoSnapshotPolicyRequest $request
+     * @summary 创建自动快照策略
+     *  *
+     * @param CreateAutoSnapshotPolicyRequest $request CreateAutoSnapshotPolicyRequest
      *
-     * @return CreateAutoSnapshotPolicyResponse
+     * @return CreateAutoSnapshotPolicyResponse CreateAutoSnapshotPolicyResponse
      */
     public function createAutoSnapshotPolicy($request)
     {
@@ -440,10 +452,10 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param CreateDbfsRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param CreateDbfsRequest $request CreateDbfsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDbfsResponse
+     * @return CreateDbfsResponse CreateDbfsResponse
      */
     public function createDbfsWithOptions($request, $runtime)
     {
@@ -516,9 +528,9 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param CreateDbfsRequest $request
+     * @param CreateDbfsRequest $request CreateDbfsRequest
      *
-     * @return CreateDbfsResponse
+     * @return CreateDbfsResponse CreateDbfsResponse
      */
     public function createDbfs($request)
     {
@@ -528,10 +540,10 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceLinkedRoleRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateServiceLinkedRoleResponse
+     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
      */
     public function createServiceLinkedRoleWithOptions($request, $runtime)
     {
@@ -562,9 +574,9 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceLinkedRoleRequest $request
+     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
      *
-     * @return CreateServiceLinkedRoleResponse
+     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
      */
     public function createServiceLinkedRole($request)
     {
@@ -574,10 +586,10 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param CreateSnapshotRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param CreateSnapshotRequest $request CreateSnapshotRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSnapshotResponse
+     * @return CreateSnapshotResponse CreateSnapshotResponse
      */
     public function createSnapshotWithOptions($request, $runtime)
     {
@@ -620,9 +632,9 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param CreateSnapshotRequest $request
+     * @param CreateSnapshotRequest $request CreateSnapshotRequest
      *
-     * @return CreateSnapshotResponse
+     * @return CreateSnapshotResponse CreateSnapshotResponse
      */
     public function createSnapshot($request)
     {
@@ -632,10 +644,12 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param DeleteAutoSnapshotPolicyRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 删除自动快照策略
+     *  *
+     * @param DeleteAutoSnapshotPolicyRequest $request DeleteAutoSnapshotPolicyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAutoSnapshotPolicyResponse
+     * @return DeleteAutoSnapshotPolicyResponse DeleteAutoSnapshotPolicyResponse
      */
     public function deleteAutoSnapshotPolicyWithOptions($request, $runtime)
     {
@@ -666,9 +680,11 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param DeleteAutoSnapshotPolicyRequest $request
+     * @summary 删除自动快照策略
+     *  *
+     * @param DeleteAutoSnapshotPolicyRequest $request DeleteAutoSnapshotPolicyRequest
      *
-     * @return DeleteAutoSnapshotPolicyResponse
+     * @return DeleteAutoSnapshotPolicyResponse DeleteAutoSnapshotPolicyResponse
      */
     public function deleteAutoSnapshotPolicy($request)
     {
@@ -678,10 +694,10 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param DeleteDbfsRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param DeleteDbfsRequest $request DeleteDbfsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDbfsResponse
+     * @return DeleteDbfsResponse DeleteDbfsResponse
      */
     public function deleteDbfsWithOptions($request, $runtime)
     {
@@ -715,9 +731,9 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param DeleteDbfsRequest $request
+     * @param DeleteDbfsRequest $request DeleteDbfsRequest
      *
-     * @return DeleteDbfsResponse
+     * @return DeleteDbfsResponse DeleteDbfsResponse
      */
     public function deleteDbfs($request)
     {
@@ -727,10 +743,10 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param DeleteSnapshotRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param DeleteSnapshotRequest $request DeleteSnapshotRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSnapshotResponse
+     * @return DeleteSnapshotResponse DeleteSnapshotResponse
      */
     public function deleteSnapshotWithOptions($request, $runtime)
     {
@@ -764,9 +780,9 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param DeleteSnapshotRequest $request
+     * @param DeleteSnapshotRequest $request DeleteSnapshotRequest
      *
-     * @return DeleteSnapshotResponse
+     * @return DeleteSnapshotResponse DeleteSnapshotResponse
      */
     public function deleteSnapshot($request)
     {
@@ -776,10 +792,10 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param DeleteTagsBatchRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DeleteTagsBatchRequest $request DeleteTagsBatchRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTagsBatchResponse
+     * @return DeleteTagsBatchResponse DeleteTagsBatchResponse
      */
     public function deleteTagsBatchWithOptions($request, $runtime)
     {
@@ -813,9 +829,9 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param DeleteTagsBatchRequest $request
+     * @param DeleteTagsBatchRequest $request DeleteTagsBatchRequest
      *
-     * @return DeleteTagsBatchResponse
+     * @return DeleteTagsBatchResponse DeleteTagsBatchResponse
      */
     public function deleteTagsBatch($request)
     {
@@ -825,10 +841,12 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param DescribeDbfsSpecificationsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 查询DBFS支持的ECS实例类型，根据ECS实例规格返回ECS可挂载的最大DBFS数量
+     *  *
+     * @param DescribeDbfsSpecificationsRequest $request DescribeDbfsSpecificationsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDbfsSpecificationsResponse
+     * @return DescribeDbfsSpecificationsResponse DescribeDbfsSpecificationsResponse
      */
     public function describeDbfsSpecificationsWithOptions($request, $runtime)
     {
@@ -862,9 +880,11 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param DescribeDbfsSpecificationsRequest $request
+     * @summary 查询DBFS支持的ECS实例类型，根据ECS实例规格返回ECS可挂载的最大DBFS数量
+     *  *
+     * @param DescribeDbfsSpecificationsRequest $request DescribeDbfsSpecificationsRequest
      *
-     * @return DescribeDbfsSpecificationsResponse
+     * @return DescribeDbfsSpecificationsResponse DescribeDbfsSpecificationsResponse
      */
     public function describeDbfsSpecifications($request)
     {
@@ -874,10 +894,12 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceTypesRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 查询DBFS实例规格
+     *  *
+     * @param DescribeInstanceTypesRequest $request DescribeInstanceTypesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceTypesResponse
+     * @return DescribeInstanceTypesResponse DescribeInstanceTypesResponse
      */
     public function describeInstanceTypesWithOptions($request, $runtime)
     {
@@ -905,9 +927,11 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceTypesRequest $request
+     * @summary 查询DBFS实例规格
+     *  *
+     * @param DescribeInstanceTypesRequest $request DescribeInstanceTypesRequest
      *
-     * @return DescribeInstanceTypesResponse
+     * @return DescribeInstanceTypesResponse DescribeInstanceTypesResponse
      */
     public function describeInstanceTypes($request)
     {
@@ -917,10 +941,10 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param DetachDbfsRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param DetachDbfsRequest $request DetachDbfsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachDbfsResponse
+     * @return DetachDbfsResponse DetachDbfsResponse
      */
     public function detachDbfsWithOptions($request, $runtime)
     {
@@ -954,9 +978,9 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param DetachDbfsRequest $request
+     * @param DetachDbfsRequest $request DetachDbfsRequest
      *
-     * @return DetachDbfsResponse
+     * @return DetachDbfsResponse DetachDbfsResponse
      */
     public function detachDbfs($request)
     {
@@ -966,10 +990,12 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param GetAutoSnapshotPolicyRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 查询某条自动快照策略
+     *  *
+     * @param GetAutoSnapshotPolicyRequest $request GetAutoSnapshotPolicyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAutoSnapshotPolicyResponse
+     * @return GetAutoSnapshotPolicyResponse GetAutoSnapshotPolicyResponse
      */
     public function getAutoSnapshotPolicyWithOptions($request, $runtime)
     {
@@ -1000,9 +1026,11 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param GetAutoSnapshotPolicyRequest $request
+     * @summary 查询某条自动快照策略
+     *  *
+     * @param GetAutoSnapshotPolicyRequest $request GetAutoSnapshotPolicyRequest
      *
-     * @return GetAutoSnapshotPolicyResponse
+     * @return GetAutoSnapshotPolicyResponse GetAutoSnapshotPolicyResponse
      */
     public function getAutoSnapshotPolicy($request)
     {
@@ -1012,10 +1040,10 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param GetDbfsRequest $request
-     * @param RuntimeOptions $runtime
+     * @param GetDbfsRequest $request GetDbfsRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDbfsResponse
+     * @return GetDbfsResponse GetDbfsResponse
      */
     public function getDbfsWithOptions($request, $runtime)
     {
@@ -1046,9 +1074,9 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param GetDbfsRequest $request
+     * @param GetDbfsRequest $request GetDbfsRequest
      *
-     * @return GetDbfsResponse
+     * @return GetDbfsResponse GetDbfsResponse
      */
     public function getDbfs($request)
     {
@@ -1058,10 +1086,10 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param GetServiceLinkedRoleRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param GetServiceLinkedRoleRequest $request GetServiceLinkedRoleRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetServiceLinkedRoleResponse
+     * @return GetServiceLinkedRoleResponse GetServiceLinkedRoleResponse
      */
     public function getServiceLinkedRoleWithOptions($request, $runtime)
     {
@@ -1089,9 +1117,9 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param GetServiceLinkedRoleRequest $request
+     * @param GetServiceLinkedRoleRequest $request GetServiceLinkedRoleRequest
      *
-     * @return GetServiceLinkedRoleResponse
+     * @return GetServiceLinkedRoleResponse GetServiceLinkedRoleResponse
      */
     public function getServiceLinkedRole($request)
     {
@@ -1101,10 +1129,12 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param GetSnapshotLinkRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 获取快照链
+     *  *
+     * @param GetSnapshotLinkRequest $request GetSnapshotLinkRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSnapshotLinkResponse
+     * @return GetSnapshotLinkResponse GetSnapshotLinkResponse
      */
     public function getSnapshotLinkWithOptions($request, $runtime)
     {
@@ -1129,9 +1159,11 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param GetSnapshotLinkRequest $request
+     * @summary 获取快照链
+     *  *
+     * @param GetSnapshotLinkRequest $request GetSnapshotLinkRequest
      *
-     * @return GetSnapshotLinkResponse
+     * @return GetSnapshotLinkResponse GetSnapshotLinkResponse
      */
     public function getSnapshotLink($request)
     {
@@ -1141,10 +1173,12 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ListAutoSnapshotPoliciesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 列出自动快照策略
+     *  *
+     * @param ListAutoSnapshotPoliciesRequest $request ListAutoSnapshotPoliciesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAutoSnapshotPoliciesResponse
+     * @return ListAutoSnapshotPoliciesResponse ListAutoSnapshotPoliciesResponse
      */
     public function listAutoSnapshotPoliciesWithOptions($request, $runtime)
     {
@@ -1184,9 +1218,11 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ListAutoSnapshotPoliciesRequest $request
+     * @summary 列出自动快照策略
+     *  *
+     * @param ListAutoSnapshotPoliciesRequest $request ListAutoSnapshotPoliciesRequest
      *
-     * @return ListAutoSnapshotPoliciesResponse
+     * @return ListAutoSnapshotPoliciesResponse ListAutoSnapshotPoliciesResponse
      */
     public function listAutoSnapshotPolicies($request)
     {
@@ -1196,10 +1232,12 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ListAutoSnapshotPolicyAppliedDbfsRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary 列出已设置自动快照策略的DBFS
+     *  *
+     * @param ListAutoSnapshotPolicyAppliedDbfsRequest $request ListAutoSnapshotPolicyAppliedDbfsRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAutoSnapshotPolicyAppliedDbfsResponse
+     * @return ListAutoSnapshotPolicyAppliedDbfsResponse ListAutoSnapshotPolicyAppliedDbfsResponse
      */
     public function listAutoSnapshotPolicyAppliedDbfsWithOptions($request, $runtime)
     {
@@ -1242,9 +1280,11 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ListAutoSnapshotPolicyAppliedDbfsRequest $request
+     * @summary 列出已设置自动快照策略的DBFS
+     *  *
+     * @param ListAutoSnapshotPolicyAppliedDbfsRequest $request ListAutoSnapshotPolicyAppliedDbfsRequest
      *
-     * @return ListAutoSnapshotPolicyAppliedDbfsResponse
+     * @return ListAutoSnapshotPolicyAppliedDbfsResponse ListAutoSnapshotPolicyAppliedDbfsResponse
      */
     public function listAutoSnapshotPolicyAppliedDbfs($request)
     {
@@ -1254,10 +1294,12 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ListAutoSnapshotPolicyUnappliedDbfsRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary 列出未设置自动快照策略的DBFS
+     *  *
+     * @param ListAutoSnapshotPolicyUnappliedDbfsRequest $request ListAutoSnapshotPolicyUnappliedDbfsRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAutoSnapshotPolicyUnappliedDbfsResponse
+     * @return ListAutoSnapshotPolicyUnappliedDbfsResponse ListAutoSnapshotPolicyUnappliedDbfsResponse
      */
     public function listAutoSnapshotPolicyUnappliedDbfsWithOptions($request, $runtime)
     {
@@ -1297,9 +1339,11 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ListAutoSnapshotPolicyUnappliedDbfsRequest $request
+     * @summary 列出未设置自动快照策略的DBFS
+     *  *
+     * @param ListAutoSnapshotPolicyUnappliedDbfsRequest $request ListAutoSnapshotPolicyUnappliedDbfsRequest
      *
-     * @return ListAutoSnapshotPolicyUnappliedDbfsResponse
+     * @return ListAutoSnapshotPolicyUnappliedDbfsResponse ListAutoSnapshotPolicyUnappliedDbfsResponse
      */
     public function listAutoSnapshotPolicyUnappliedDbfs($request)
     {
@@ -1309,10 +1353,10 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ListDbfsRequest $request
-     * @param RuntimeOptions  $runtime
+     * @param ListDbfsRequest $request ListDbfsRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDbfsResponse
+     * @return ListDbfsResponse ListDbfsResponse
      */
     public function listDbfsWithOptions($request, $runtime)
     {
@@ -1361,9 +1405,9 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ListDbfsRequest $request
+     * @param ListDbfsRequest $request ListDbfsRequest
      *
-     * @return ListDbfsResponse
+     * @return ListDbfsResponse ListDbfsResponse
      */
     public function listDbfs($request)
     {
@@ -1373,10 +1417,10 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ListDbfsAttachableEcsInstancesRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @param ListDbfsAttachableEcsInstancesRequest $request ListDbfsAttachableEcsInstancesRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDbfsAttachableEcsInstancesResponse
+     * @return ListDbfsAttachableEcsInstancesResponse ListDbfsAttachableEcsInstancesResponse
      */
     public function listDbfsAttachableEcsInstancesWithOptions($request, $runtime)
     {
@@ -1416,9 +1460,9 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ListDbfsAttachableEcsInstancesRequest $request
+     * @param ListDbfsAttachableEcsInstancesRequest $request ListDbfsAttachableEcsInstancesRequest
      *
-     * @return ListDbfsAttachableEcsInstancesResponse
+     * @return ListDbfsAttachableEcsInstancesResponse ListDbfsAttachableEcsInstancesResponse
      */
     public function listDbfsAttachableEcsInstances($request)
     {
@@ -1428,10 +1472,12 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ListDbfsAttachedEcsInstancesRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 查询数据库文件系统被挂载的ECS实例列表
+     *  *
+     * @param ListDbfsAttachedEcsInstancesRequest $request ListDbfsAttachedEcsInstancesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDbfsAttachedEcsInstancesResponse
+     * @return ListDbfsAttachedEcsInstancesResponse ListDbfsAttachedEcsInstancesResponse
      */
     public function listDbfsAttachedEcsInstancesWithOptions($request, $runtime)
     {
@@ -1462,9 +1508,11 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ListDbfsAttachedEcsInstancesRequest $request
+     * @summary 查询数据库文件系统被挂载的ECS实例列表
+     *  *
+     * @param ListDbfsAttachedEcsInstancesRequest $request ListDbfsAttachedEcsInstancesRequest
      *
-     * @return ListDbfsAttachedEcsInstancesResponse
+     * @return ListDbfsAttachedEcsInstancesResponse ListDbfsAttachedEcsInstancesResponse
      */
     public function listDbfsAttachedEcsInstances($request)
     {
@@ -1474,10 +1522,10 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ListSnapshotRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param ListSnapshotRequest $request ListSnapshotRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSnapshotResponse
+     * @return ListSnapshotResponse ListSnapshotResponse
      */
     public function listSnapshotWithOptions($request, $runtime)
     {
@@ -1538,9 +1586,9 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ListSnapshotRequest $request
+     * @param ListSnapshotRequest $request ListSnapshotRequest
      *
-     * @return ListSnapshotResponse
+     * @return ListSnapshotResponse ListSnapshotResponse
      */
     public function listSnapshot($request)
     {
@@ -1550,10 +1598,12 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ListSnapshotLinksRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 列出快照链
+     *  *
+     * @param ListSnapshotLinksRequest $request ListSnapshotLinksRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSnapshotLinksResponse
+     * @return ListSnapshotLinksResponse ListSnapshotLinksResponse
      */
     public function listSnapshotLinksWithOptions($request, $runtime)
     {
@@ -1599,9 +1649,11 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ListSnapshotLinksRequest $request
+     * @summary 列出快照链
+     *  *
+     * @param ListSnapshotLinksRequest $request ListSnapshotLinksRequest
      *
-     * @return ListSnapshotLinksResponse
+     * @return ListSnapshotLinksResponse ListSnapshotLinksResponse
      */
     public function listSnapshotLinks($request)
     {
@@ -1611,10 +1663,10 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ListTagKeysRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param ListTagKeysRequest $request ListTagKeysRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagKeysResponse
+     * @return ListTagKeysResponse ListTagKeysResponse
      */
     public function listTagKeysWithOptions($request, $runtime)
     {
@@ -1642,9 +1694,9 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ListTagKeysRequest $request
+     * @param ListTagKeysRequest $request ListTagKeysRequest
      *
-     * @return ListTagKeysResponse
+     * @return ListTagKeysResponse ListTagKeysResponse
      */
     public function listTagKeys($request)
     {
@@ -1654,10 +1706,10 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ListTagValuesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param ListTagValuesRequest $request ListTagValuesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagValuesResponse
+     * @return ListTagValuesResponse ListTagValuesResponse
      */
     public function listTagValuesWithOptions($request, $runtime)
     {
@@ -1688,9 +1740,9 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ListTagValuesRequest $request
+     * @param ListTagValuesRequest $request ListTagValuesRequest
      *
-     * @return ListTagValuesResponse
+     * @return ListTagValuesResponse ListTagValuesResponse
      */
     public function listTagValues($request)
     {
@@ -1700,10 +1752,12 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ModifyAutoSnapshotPolicyRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
+     * @summary 修改自动快照策略
+     *  *
+     * @param ModifyAutoSnapshotPolicyRequest $tmpReq  ModifyAutoSnapshotPolicyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAutoSnapshotPolicyResponse
+     * @return ModifyAutoSnapshotPolicyResponse ModifyAutoSnapshotPolicyResponse
      */
     public function modifyAutoSnapshotPolicyWithOptions($tmpReq, $runtime)
     {
@@ -1754,9 +1808,11 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ModifyAutoSnapshotPolicyRequest $request
+     * @summary 修改自动快照策略
+     *  *
+     * @param ModifyAutoSnapshotPolicyRequest $request ModifyAutoSnapshotPolicyRequest
      *
-     * @return ModifyAutoSnapshotPolicyResponse
+     * @return ModifyAutoSnapshotPolicyResponse ModifyAutoSnapshotPolicyResponse
      */
     public function modifyAutoSnapshotPolicy($request)
     {
@@ -1766,10 +1822,12 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ModifySnapshotAttributeRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 修改快照属性
+     *  *
+     * @param ModifySnapshotAttributeRequest $request ModifySnapshotAttributeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySnapshotAttributeResponse
+     * @return ModifySnapshotAttributeResponse ModifySnapshotAttributeResponse
      */
     public function modifySnapshotAttributeWithOptions($request, $runtime)
     {
@@ -1806,9 +1864,11 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ModifySnapshotAttributeRequest $request
+     * @summary 修改快照属性
+     *  *
+     * @param ModifySnapshotAttributeRequest $request ModifySnapshotAttributeRequest
      *
-     * @return ModifySnapshotAttributeResponse
+     * @return ModifySnapshotAttributeResponse ModifySnapshotAttributeResponse
      */
     public function modifySnapshotAttribute($request)
     {
@@ -1818,10 +1878,10 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param RenameDbfsRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param RenameDbfsRequest $request RenameDbfsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenameDbfsResponse
+     * @return RenameDbfsResponse RenameDbfsResponse
      */
     public function renameDbfsWithOptions($request, $runtime)
     {
@@ -1855,9 +1915,9 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param RenameDbfsRequest $request
+     * @param RenameDbfsRequest $request RenameDbfsRequest
      *
-     * @return RenameDbfsResponse
+     * @return RenameDbfsResponse RenameDbfsResponse
      */
     public function renameDbfs($request)
     {
@@ -1867,10 +1927,10 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ResizeDbfsRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param ResizeDbfsRequest $request ResizeDbfsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResizeDbfsResponse
+     * @return ResizeDbfsResponse ResizeDbfsResponse
      */
     public function resizeDbfsWithOptions($request, $runtime)
     {
@@ -1904,9 +1964,9 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ResizeDbfsRequest $request
+     * @param ResizeDbfsRequest $request ResizeDbfsRequest
      *
-     * @return ResizeDbfsResponse
+     * @return ResizeDbfsResponse ResizeDbfsResponse
      */
     public function resizeDbfs($request)
     {
@@ -1916,10 +1976,10 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param TagDbfsRequest $request
-     * @param RuntimeOptions $runtime
+     * @param TagDbfsRequest $request TagDbfsRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagDbfsResponse
+     * @return TagDbfsResponse TagDbfsResponse
      */
     public function tagDbfsWithOptions($request, $runtime)
     {
@@ -1953,9 +2013,9 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param TagDbfsRequest $request
+     * @param TagDbfsRequest $request TagDbfsRequest
      *
-     * @return TagDbfsResponse
+     * @return TagDbfsResponse TagDbfsResponse
      */
     public function tagDbfs($request)
     {
@@ -1965,10 +2025,12 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param UpdateDbfsRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary 修改DBFS实例，包括使用场景、实例规格等。
+     *  *
+     * @param UpdateDbfsRequest $request UpdateDbfsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDbfsResponse
+     * @return UpdateDbfsResponse UpdateDbfsResponse
      */
     public function updateDbfsWithOptions($request, $runtime)
     {
@@ -2008,9 +2070,11 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param UpdateDbfsRequest $request
+     * @summary 修改DBFS实例，包括使用场景、实例规格等。
+     *  *
+     * @param UpdateDbfsRequest $request UpdateDbfsRequest
      *
-     * @return UpdateDbfsResponse
+     * @return UpdateDbfsResponse UpdateDbfsResponse
      */
     public function updateDbfs($request)
     {

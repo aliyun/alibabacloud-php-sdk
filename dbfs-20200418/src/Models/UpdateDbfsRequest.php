@@ -16,6 +16,8 @@ class UpdateDbfsRequest extends Model
     public $advancedFeatures;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dbfs-GOrr********Yd0VLOyBpg
      *
      * @var string
@@ -30,6 +32,8 @@ class UpdateDbfsRequest extends Model
     public $instanceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyAutoSnapshotPolicyShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example sp-z5siir3iq3m**********
      *
      * @var string
@@ -23,6 +25,8 @@ class ModifyAutoSnapshotPolicyShrinkRequest extends Model
     public $policyName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

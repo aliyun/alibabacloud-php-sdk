@@ -16,6 +16,8 @@ class GetSnapshotLinkRequest extends Model
     public $linkId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ecsLabelInfo extends Model
 {
     /**
+     * @example m-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $imageId;

@@ -16,6 +16,8 @@ class CreateDbfsRequest extends Model
     public $advancedFeatures;
 
     /**
+     * @description This parameter is required.
+     *
      * @example standard
      *
      * @var string
@@ -51,6 +53,8 @@ class CreateDbfsRequest extends Model
     public $encryption;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testdbfs-001
      *
      * @var string
@@ -79,13 +83,13 @@ class CreateDbfsRequest extends Model
     public $performanceLevel;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $raidStripeUnitNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -93,6 +97,8 @@ class CreateDbfsRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 200
      *
      * @var int
@@ -114,6 +120,8 @@ class CreateDbfsRequest extends Model
     public $usedScene;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou-i
      *
      * @var string

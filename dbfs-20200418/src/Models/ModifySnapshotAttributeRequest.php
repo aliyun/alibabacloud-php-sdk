@@ -16,6 +16,8 @@ class ModifySnapshotAttributeRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +25,8 @@ class ModifySnapshotAttributeRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example s-y2vZ3********vvMilZ2hQ
      *
      * @var string

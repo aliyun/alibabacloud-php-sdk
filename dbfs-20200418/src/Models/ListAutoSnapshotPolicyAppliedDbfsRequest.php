@@ -37,6 +37,8 @@ class ListAutoSnapshotPolicyAppliedDbfsRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sp-z5siir3iq3m**********
      *
      * @var string
@@ -44,6 +46,8 @@ class ListAutoSnapshotPolicyAppliedDbfsRequest extends Model
     public $policyId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
