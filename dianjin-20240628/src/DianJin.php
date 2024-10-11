@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\DianJin\V20240628;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateDocsSummaryTaskRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateDocsSummaryTaskResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateFinReportSummaryTaskRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateFinReportSummaryTaskResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateLibraryRequest;
@@ -14,6 +16,8 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\CreatePdfTranslateTaskRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreatePdfTranslateTaskResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreatePredefinedDocumentRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreatePredefinedDocumentResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateQualityCheckTaskRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateQualityCheckTaskResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\DeleteDocumentRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\DeleteDocumentResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\DeleteLibraryRequest;
@@ -37,6 +41,8 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\GetLibraryRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetLibraryResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetParseResultRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetParseResultResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetQualityCheckTaskResultRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetQualityCheckTaskResultResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetSummaryTaskResultRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetSummaryTaskResultResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetTaskResultRequest;
@@ -109,6 +115,67 @@ class DianJin extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 创建财报总结任务
+     *  *
+     * @param string                       $workspaceId
+     * @param CreateDocsSummaryTaskRequest $request     CreateDocsSummaryTaskRequest
+     * @param string[]                     $headers     map
+     * @param RuntimeOptions               $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return CreateDocsSummaryTaskResponse CreateDocsSummaryTaskResponse
+     */
+    public function createDocsSummaryTaskWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->docInfos)) {
+            $body['docInfos'] = $request->docInfos;
+        }
+        if (!Utils::isUnset($request->enableTable)) {
+            $body['enableTable'] = $request->enableTable;
+        }
+        if (!Utils::isUnset($request->instruction)) {
+            $body['instruction'] = $request->instruction;
+        }
+        if (!Utils::isUnset($request->modelId)) {
+            $body['modelId'] = $request->modelId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDocsSummaryTask',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/api/task/summary/docs',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDocsSummaryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建财报总结任务
+     *  *
+     * @param string                       $workspaceId
+     * @param CreateDocsSummaryTaskRequest $request     CreateDocsSummaryTaskRequest
+     *
+     * @return CreateDocsSummaryTaskResponse CreateDocsSummaryTaskResponse
+     */
+    public function createDocsSummaryTask($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createDocsSummaryTaskWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -365,6 +432,73 @@ class DianJin extends OpenApiClient
         $headers = [];
 
         return $this->createPredefinedDocumentWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建财报总结的任务
+     *  *
+     * @param string                        $workspaceId
+     * @param CreateQualityCheckTaskRequest $request     CreateQualityCheckTaskRequest
+     * @param string[]                      $headers     map
+     * @param RuntimeOptions                $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return CreateQualityCheckTaskResponse CreateQualityCheckTaskResponse
+     */
+    public function createQualityCheckTaskWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->conversationList)) {
+            $body['conversationList'] = $request->conversationList;
+        }
+        if (!Utils::isUnset($request->gmtService)) {
+            $body['gmtService'] = $request->gmtService;
+        }
+        if (!Utils::isUnset($request->metaData)) {
+            $body['metaData'] = $request->metaData;
+        }
+        if (!Utils::isUnset($request->qualityGroup)) {
+            $body['qualityGroup'] = $request->qualityGroup;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $body['requestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateQualityCheckTask',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/api/qualitycheck/task/submit',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateQualityCheckTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建财报总结的任务
+     *  *
+     * @param string                        $workspaceId
+     * @param CreateQualityCheckTaskRequest $request     CreateQualityCheckTaskRequest
+     *
+     * @return CreateQualityCheckTaskResponse CreateQualityCheckTaskResponse
+     */
+    public function createQualityCheckTask($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createQualityCheckTaskWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1050,6 +1184,58 @@ class DianJin extends OpenApiClient
         $headers = [];
 
         return $this->getParseResultWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取异步任务的结果
+     *  *
+     * @param string                           $workspaceId
+     * @param GetQualityCheckTaskResultRequest $request     GetQualityCheckTaskResultRequest
+     * @param string[]                         $headers     map
+     * @param RuntimeOptions                   $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return GetQualityCheckTaskResultResponse GetQualityCheckTaskResultResponse
+     */
+    public function getQualityCheckTaskResultWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $query['taskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetQualityCheckTaskResult',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/api/qualitycheck/task/query',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetQualityCheckTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取异步任务的结果
+     *  *
+     * @param string                           $workspaceId
+     * @param GetQualityCheckTaskResultRequest $request     GetQualityCheckTaskResultRequest
+     *
+     * @return GetQualityCheckTaskResultResponse GetQualityCheckTaskResultResponse
+     */
+    public function getQualityCheckTaskResult($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getQualityCheckTaskResultWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
