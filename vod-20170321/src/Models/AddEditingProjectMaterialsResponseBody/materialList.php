@@ -20,6 +20,8 @@ class materialList extends Model
     /**
      * @description The category name of the material.
      *
+     * @example cate1
+     *
      * @var string
      */
     public $cateName;
@@ -41,7 +43,7 @@ class materialList extends Model
     public $createTime;
 
     /**
-     * @description The user ID.
+     * @description The ID of the user.
      *
      * @example 1234751840694470
      *
@@ -51,6 +53,8 @@ class materialList extends Model
 
     /**
      * @description The description of the material.
+     *
+     * @example test material
      *
      * @var string
      */

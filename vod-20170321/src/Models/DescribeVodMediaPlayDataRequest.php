@@ -103,7 +103,6 @@ class DescribeVodMediaPlayDataRequest extends Model
      *   **ap-southeast-1**: Singapore
      *   **ap-southeast-5**: Indonesia (Jakarta)
      *   **eu-central-1**: Germany (Frankfurt)
-     *   **ap-south-1**: India (Mumbai) (disabled)
      *
      * @example cn-beijing
      *

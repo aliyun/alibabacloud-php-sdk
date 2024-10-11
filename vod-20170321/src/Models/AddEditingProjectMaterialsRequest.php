@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddEditingProjectMaterialsRequest extends Model
 {
     /**
-     * @description The ID of the material. Separate multiple material IDs with commas (,). You can specify up to 10 IDs.
+     * @description Separate multiple material IDs with commas (,). You can specify up to 10 IDs.
      *
      * This parameter is required.
      * @example d3251979f9fd41f2acb29ccda5a6f772

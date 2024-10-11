@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListAppInfoRequest extends Model
 {
     /**
-     * @description The number of the page to return. By default, pages start from page 1.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class ListAppInfoRequest extends Model
     public $pageNo;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10**. Maximum value: **100**.
+     * @description The number of entries per page. Default value: **10**. Maximum value: **100**.
      *
      * @example 10
      *
@@ -27,12 +27,16 @@ class ListAppInfoRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-aekzko7fsuj****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The status of the application. After an application is created, it enters the **Normal** state. Valid values:
+     * @description The status of the application. You can specify the status of the applications that you want to query. After an application is created, it enters the **Normal** state. Valid values:
      *
      *   **Normal**
      *   **Disable**

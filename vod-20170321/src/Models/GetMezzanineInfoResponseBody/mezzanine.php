@@ -94,6 +94,10 @@ class mezzanine extends Model
     public $outputType;
 
     /**
+     * @description The preprocess status od the media.
+     *
+     * @example UnPreprocess
+     *
      * @var string
      */
     public $preprocessStatus;

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetDefaultAITemplateRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the AI template.
      *
+     * This parameter is required.
      * @example 1706a0063dd733f6a823ef32e0a5****
      *
      * @var string

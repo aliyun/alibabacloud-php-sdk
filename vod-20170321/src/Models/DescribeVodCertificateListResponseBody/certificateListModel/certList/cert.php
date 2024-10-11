@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class cert extends Model
 {
     /**
+     * @description The algorithm.
+     *
+     * @example RSA
+     *
      * @var string
      */
     public $algorithm;
@@ -23,6 +27,10 @@ class cert extends Model
     public $certId;
 
     /**
+     * @description The ID of the certificate.
+     *
+     * @example 14173772-cn-hangzhou
+     *
      * @var string
      */
     public $certIdentifier;
@@ -46,16 +54,28 @@ class cert extends Model
     public $common;
 
     /**
+     * @description The time when the certificate was created.
+     *
+     * @example 1725206400000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description DomainMatchCert.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $domainMatchCert;
 
     /**
+     * @description The time when the certificate expired.
+     *
+     * @example 1759507200000
+     *
      * @var int
      */
     public $endTime;
@@ -70,6 +90,10 @@ class cert extends Model
     public $fingerprint;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cert-cn-cd806ae0fdfbfa60
+     *
      * @var string
      */
     public $instanceId;
@@ -93,6 +117,10 @@ class cert extends Model
     public $lastTime;
 
     /**
+     * @description The signAlgorithm.
+     *
+     * @example sha256withrsa
+     *
      * @var string
      */
     public $signAlgorithm;

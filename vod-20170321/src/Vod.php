@@ -34,6 +34,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\BatchStopVodDomainRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\BatchStopVodDomainResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\CancelUrlUploadJobsRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\CancelUrlUploadJobsResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\ChangeResourceGroupRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\CreateAppInfoRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\CreateAppInfoResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\CreateAuditRequest;
@@ -1334,6 +1336,62 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelUrlUploadJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 资源转组
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     */
+    public function changeResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceRegionId)) {
+            $query['ResourceRegionId'] = $request->resourceRegionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeResourceGroup',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 资源转组
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     *
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     */
+    public function changeResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeResourceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -3750,15 +3808,16 @@ class Vod extends OpenApiClient
     /**
      * @summary Queries the number of queries per second (QPS) for one or more accelerated domain names. Data is collected every 5 minutes. You can query data collected in the last 90 days.
      *  *
-     * @description * You can call this operation up to 100 times per second per account.
+     * @description * This operation is available only in the China (Shanghai) region.
+     * * You can call this operation up to 100 times per second per account.
      * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
-     * The time granularity varies with the time range specified by the Interval parameter. The following table describes the time period within which historical data is available and the data delay.
+     * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
      * |Time granularity|Maximum time range per query|Historical data available|Data delay|
      * |---|---|---|---|
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|3 to 4 hours|
-     * |1 day|366 days|366 days|4 hours in most cases, not more than 24 hours|
+     * |1 day|366 days|366 days|4 to 24 hours|
      * ---
      *  *
      * @param DescribeVodDomainQpsDataRequest $request DescribeVodDomainQpsDataRequest
@@ -3812,15 +3871,16 @@ class Vod extends OpenApiClient
     /**
      * @summary Queries the number of queries per second (QPS) for one or more accelerated domain names. Data is collected every 5 minutes. You can query data collected in the last 90 days.
      *  *
-     * @description * You can call this operation up to 100 times per second per account.
+     * @description * This operation is available only in the China (Shanghai) region.
+     * * You can call this operation up to 100 times per second per account.
      * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
-     * The time granularity varies with the time range specified by the Interval parameter. The following table describes the time period within which historical data is available and the data delay.
+     * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
      * |Time granularity|Maximum time range per query|Historical data available|Data delay|
      * |---|---|---|---|
      * |5 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|3 to 4 hours|
-     * |1 day|366 days|366 days|4 hours in most cases, not more than 24 hours|
+     * |1 day|366 days|366 days|4 to 24 hours|
      * ---
      *  *
      * @param DescribeVodDomainQpsDataRequest $request DescribeVodDomainQpsDataRequest
@@ -7829,7 +7889,10 @@ class Vod extends OpenApiClient
     /**
      * @summary Queries the applications that you are authorized to manage based on query conditions.
      *  *
-     * @description Supports filtering queries by application status.
+     * @description ### [](#)Usage notes
+     * You can query applications based on states.
+     * ### [](#qps-)QPS limit
+     * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations](https://help.aliyun.com/document_detail/342790.html).
      *  *
      * @param ListAppInfoRequest $request ListAppInfoRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -7873,7 +7936,10 @@ class Vod extends OpenApiClient
     /**
      * @summary Queries the applications that you are authorized to manage based on query conditions.
      *  *
-     * @description Supports filtering queries by application status.
+     * @description ### [](#)Usage notes
+     * You can query applications based on states.
+     * ### [](#qps-)QPS limit
+     * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations](https://help.aliyun.com/document_detail/342790.html).
      *  *
      * @param ListAppInfoRequest $request ListAppInfoRequest
      *

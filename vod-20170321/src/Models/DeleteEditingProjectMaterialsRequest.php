@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteEditingProjectMaterialsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The material ID. Separate multiple material IDs with commas (,).
      *
+     * This parameter is required.
      * @example 9e3101bf24bf41c*****123318788ca
      *
      * @var string
@@ -18,8 +19,13 @@ class DeleteEditingProjectMaterialsRequest extends Model
     public $materialIds;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the material. Valid values:
      *
+     *   **video**
+     *   **audio**
+     *   **image**
+     *
+     * This parameter is required.
      * @example video
      *
      * @var string
@@ -37,8 +43,9 @@ class DeleteEditingProjectMaterialsRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the online editing project.
      *
+     * This parameter is required.
      * @example 198236101*****1093374
      *
      * @var string

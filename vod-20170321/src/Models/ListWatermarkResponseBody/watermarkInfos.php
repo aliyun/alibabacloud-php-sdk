@@ -51,6 +51,8 @@ class watermarkInfos extends Model
     /**
      * @description The name of the watermark template.
      *
+     * @example testName
+     *
      * @var string
      */
     public $name;
@@ -69,6 +71,8 @@ class watermarkInfos extends Model
 
     /**
      * @description The configuration information of the watermark such as the display position and special effects. The value is a JSON string. The configuration parameters for image and text watermarks are different. For more information about the parameter structure, see [WatermarkConfig](~~98618#section-h01-44s-2lr~~).
+     *
+     * @example {"FontColor": "Blue","FontSize": 80,"Content": "test watermark"}
      *
      * @var string
      */

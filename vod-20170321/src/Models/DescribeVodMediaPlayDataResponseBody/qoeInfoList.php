@@ -74,6 +74,8 @@ class qoeInfoList extends Model
     /**
      * @description The name of the audio or video file.
      *
+     * @example title
+     *
      * @var string
      */
     public $videoTitle;

@@ -42,7 +42,7 @@ class SetMessageCallbackRequest extends Model
      * @description The callback method. Valid values:
      *
      *   **HTTP**
-     *   **MNS**
+     *   **Simple Message Queue(formerly MNS)**
      *
      * @example HTTP
      *
@@ -69,7 +69,7 @@ class SetMessageCallbackRequest extends Model
     public $eventTypeList;
 
     /**
-     * @description The public endpoint of Message Service (MNS). This parameter only takes effect when the CallbackType parameter is set to **MNS**. To obtain the public endpoint, log on to the [MNS console](https://account.aliyun.com/login/login.html) and click **Get Endpoint** in the upper-right corner of the Topics page. For more information, see [Endpoint](https://help.aliyun.com/document_detail/27480.html).
+     * @description The public endpoint of Message Service (MNS). This parameter only takes effect when the CallbackType parameter is set to **Simple Message Queue(formerly MNS)**. To obtain the public endpoint, log on to the [Simple Message Queue(formerly MNS) console](https://account.aliyun.com/login/login.html) and click **Get Endpoint** in the upper-right corner of the Topics page. For more information, see [Endpoint](https://help.aliyun.com/document_detail/27480.html).
      *
      * @example http://****.mns.cn-shanghai.aliyuncs.com/
      *
@@ -78,7 +78,7 @@ class SetMessageCallbackRequest extends Model
     public $mnsEndpoint;
 
     /**
-     * @description The name of the MNS queue. You can obtain the name of the MNS queue on the **Queues** page in the [MNS console](https://account.aliyun.com/login/login.html). This parameter is required when you set CallbackType to **MNS**.
+     * @description The name of the Simple Message Queue(formerly MNS). You can obtain the name of the Simple Message Queue(formerly MNS) on the **Queues** page in the [Simple Message Queue(formerly MNS) console](https://account.aliyun.com/login/login.html). This parameter is required when you set CallbackType to **Simple Message Queue(formerly MNS)**.
      *
      * @example quene_name
      *

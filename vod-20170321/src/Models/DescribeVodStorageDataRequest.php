@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodStorageDataRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     *   Default value: **app-1000000**.
+     *
      * @example app-1000000
      *
      * @var string

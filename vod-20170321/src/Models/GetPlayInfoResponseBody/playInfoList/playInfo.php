@@ -77,6 +77,11 @@ class playInfo extends Model
     public $encrypt;
 
     /**
+     * @var string
+     */
+    public $encryptMode;
+
+    /**
      * @description The encryption type of the media stream. Valid values:
      *
      *   **AliyunVoDEncryption**: Alibaba Cloud proprietary cryptography
@@ -257,6 +262,7 @@ class playInfo extends Model
         'definition'       => 'Definition',
         'duration'         => 'Duration',
         'encrypt'          => 'Encrypt',
+        'encryptMode'      => 'EncryptMode',
         'encryptType'      => 'EncryptType',
         'format'           => 'Format',
         'fps'              => 'Fps',
@@ -300,6 +306,9 @@ class playInfo extends Model
         }
         if (null !== $this->encrypt) {
             $res['Encrypt'] = $this->encrypt;
+        }
+        if (null !== $this->encryptMode) {
+            $res['EncryptMode'] = $this->encryptMode;
         }
         if (null !== $this->encryptType) {
             $res['EncryptType'] = $this->encryptType;
@@ -381,6 +390,9 @@ class playInfo extends Model
         }
         if (isset($map['Encrypt'])) {
             $model->encrypt = $map['Encrypt'];
+        }
+        if (isset($map['EncryptMode'])) {
+            $model->encryptMode = $map['EncryptMode'];
         }
         if (isset($map['EncryptType'])) {
             $model->encryptType = $map['EncryptType'];

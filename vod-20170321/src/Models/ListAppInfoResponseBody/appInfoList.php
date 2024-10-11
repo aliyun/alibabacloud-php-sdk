@@ -54,11 +54,19 @@ class appInfoList extends Model
     public $modificationTime;
 
     /**
+     * @description 地域。
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-aekzko7fsuj****
+     *
      * @var string
      */
     public $resourceGroupId;

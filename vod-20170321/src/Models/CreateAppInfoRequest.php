@@ -34,6 +34,10 @@ class CreateAppInfoRequest extends Model
     public $description;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-aekzko7fsuj****
+     *
      * @var string
      */
     public $resourceGroupId;

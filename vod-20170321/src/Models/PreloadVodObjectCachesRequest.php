@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class PreloadVodObjectCachesRequest extends Model
 {
     /**
+     * @description The acceleration region in which you want to prefetch content. If you do not specify a region, the value overseas is used.
+     *
+     *   **domestic**: Chinese mainland
+     *   **overseas**: outside the Chinese mainland
+     *
+     * @example domestic
+     *
      * @var string
      */
     public $area;
 
     /**
+     * @description Specifies whether to prefetch content to POPs. Valid values:
+     *
+     *   **true**: prefetches content to nodes that include L2 DCDN nodes.
+     *   **false**: prefetches content to L2 POPs or L3 POPs.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $l2Preload;
@@ -39,6 +53,10 @@ class PreloadVodObjectCachesRequest extends Model
     public $securityToken;
 
     /**
+     * @description The custom header for prefetch in the JSON format.
+     *
+     * @example {
+     * }
      * @var string
      */
     public $withHeader;

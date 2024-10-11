@@ -6,28 +6,18 @@ namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SetDefaultAITemplateResponseBody extends Model
+class ChangeResourceGroupResponseBody extends Model
 {
     /**
-     * @description The request ID.
+     * @description Id of the request
      *
-     * @example 8E70E3F8-E2EE-47BC-4677-379D6F28****
+     * @example 25818875-5F78-4A*****F6-D7393642CA58
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @description The ID of the AI template.
-     *
-     * @example 1706a0063dd733f6a823ef32e0a5****
-     *
-     * @var string
-     */
-    public $templateId;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'templateId' => 'TemplateId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -40,9 +30,6 @@ class SetDefaultAITemplateResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
-        }
 
         return $res;
     }
@@ -50,16 +37,13 @@ class SetDefaultAITemplateResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return SetDefaultAITemplateResponseBody
+     * @return ChangeResourceGroupResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
         }
 
         return $model;

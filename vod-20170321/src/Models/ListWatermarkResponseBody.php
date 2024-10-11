@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListWatermarkResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 25818875-5F78-4A*****F6-D7393642CA58
      *
      * @var string

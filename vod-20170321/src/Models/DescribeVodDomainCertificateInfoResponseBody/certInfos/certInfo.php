@@ -27,6 +27,10 @@ class certInfo extends Model
     public $certExpireTime;
 
     /**
+     * @description The ID of the certificate.
+     *
+     * @example 13227737-cn-hangzhou
+     *
      * @var string
      */
     public $certId;
@@ -59,11 +63,19 @@ class certInfo extends Model
     public $certOrg;
 
     /**
+     * @description The region where the certificate is used.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $certRegion;
 
     /**
+     * @description The time when the certificate became effective.
+     *
+     * @example 2023-04-26T20:23:38Z
+     *
      * @var string
      */
     public $certStartTime;
@@ -82,11 +94,24 @@ class certInfo extends Model
     public $certType;
 
     /**
+     * @description The time at which the certificate was updated.
+     *
+     * @example 2023-04-26T20:23:38Z
+     *
      * @var string
      */
     public $certUpdateTime;
 
     /**
+     * @description The CNAME status of the domain name.
+     *
+     *   **ok**: The domain name points to the CNAME assigned by Alibaba Cloud CDN.
+     *   **cname_error**: An error occurred and the domain name cannot point to the CNAME.
+     *   **op_domain_cname_error** : An error occurred to the CNAME of the top-level domain. The domain name cannot point to the CNAME.
+     *   **unsupport_wildcard**: The wildcard domain name is not supported.
+     *
+     * @example ok
+     *
      * @var string
      */
     public $domainCnameStatus;
@@ -101,6 +126,10 @@ class certInfo extends Model
     public $domainName;
 
     /**
+     * @description The public key of the certificate.
+     *
+     * @example ****
+     *
      * @var string
      */
     public $serverCertificate;

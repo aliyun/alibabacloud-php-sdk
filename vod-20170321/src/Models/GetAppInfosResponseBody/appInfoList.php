@@ -54,6 +54,10 @@ class appInfoList extends Model
     public $modificationTime;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-aekzko7fsuj****
+     *
      * @var string
      */
     public $resourceGroupId;
