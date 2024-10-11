@@ -23,6 +23,11 @@ class ListCallDetailRecordsV2Request extends Model
     public $agentId;
 
     /**
+     * @var bool
+     */
+    public $analyticsReportReady;
+
+    /**
      * @example 021****4972
      *
      * @var string
@@ -190,6 +195,7 @@ class ListCallDetailRecordsV2Request extends Model
     protected $_name = [
         'accessChannelTypeList'       => 'AccessChannelTypeList',
         'agentId'                     => 'AgentId',
+        'analyticsReportReady'        => 'AnalyticsReportReady',
         'broker'                      => 'Broker',
         'calledNumber'                => 'CalledNumber',
         'callingNumber'               => 'CallingNumber',
@@ -228,6 +234,9 @@ class ListCallDetailRecordsV2Request extends Model
         }
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
+        }
+        if (null !== $this->analyticsReportReady) {
+            $res['AnalyticsReportReady'] = $this->analyticsReportReady;
         }
         if (null !== $this->broker) {
             $res['Broker'] = $this->broker;
@@ -318,6 +327,9 @@ class ListCallDetailRecordsV2Request extends Model
         }
         if (isset($map['AgentId'])) {
             $model->agentId = $map['AgentId'];
+        }
+        if (isset($map['AnalyticsReportReady'])) {
+            $model->analyticsReportReady = $map['AnalyticsReportReady'];
         }
         if (isset($map['Broker'])) {
             $model->broker = $map['Broker'];

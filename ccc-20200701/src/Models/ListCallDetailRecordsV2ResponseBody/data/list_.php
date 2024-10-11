@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListCallDetailRecordsV2ResponseBody\data;
 
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallDetailRecordsV2ResponseBody\data\list_\analyticsReport;
 use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
@@ -50,6 +51,16 @@ class list_ extends Model
      * @var string
      */
     public $agentNames;
+
+    /**
+     * @var analyticsReport
+     */
+    public $analyticsReport;
+
+    /**
+     * @var bool
+     */
+    public $analyticsReportReady;
 
     /**
      * @example 053xxxx3127
@@ -366,6 +377,8 @@ class list_ extends Model
         'additionalBroker'               => 'AdditionalBroker',
         'agentIds'                       => 'AgentIds',
         'agentNames'                     => 'AgentNames',
+        'analyticsReport'                => 'AnalyticsReport',
+        'analyticsReportReady'           => 'AnalyticsReportReady',
         'broker'                         => 'Broker',
         'callDuration'                   => 'CallDuration',
         'callIds'                        => 'CallIds',
@@ -441,6 +454,12 @@ class list_ extends Model
         }
         if (null !== $this->agentNames) {
             $res['AgentNames'] = $this->agentNames;
+        }
+        if (null !== $this->analyticsReport) {
+            $res['AnalyticsReport'] = null !== $this->analyticsReport ? $this->analyticsReport->toMap() : null;
+        }
+        if (null !== $this->analyticsReportReady) {
+            $res['AnalyticsReportReady'] = $this->analyticsReportReady;
         }
         if (null !== $this->broker) {
             $res['Broker'] = $this->broker;
@@ -612,6 +631,12 @@ class list_ extends Model
         }
         if (isset($map['AgentNames'])) {
             $model->agentNames = $map['AgentNames'];
+        }
+        if (isset($map['AnalyticsReport'])) {
+            $model->analyticsReport = analyticsReport::fromMap($map['AnalyticsReport']);
+        }
+        if (isset($map['AnalyticsReportReady'])) {
+            $model->analyticsReportReady = $map['AnalyticsReportReady'];
         }
         if (isset($map['Broker'])) {
             $model->broker = $map['Broker'];

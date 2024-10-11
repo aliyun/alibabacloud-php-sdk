@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\GetCallDetailRecordResponseBody;
 
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCallDetailRecordResponseBody\data\agentEvents;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetCallDetailRecordResponseBody\data\analyticsReport;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCallDetailRecordResponseBody\data\customerEvents;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCallDetailRecordResponseBody\data\ivrEvents;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCallDetailRecordResponseBody\data\queueEvents;
@@ -30,6 +31,16 @@ class data extends Model
      * @var string
      */
     public $agentNames;
+
+    /**
+     * @var analyticsReport
+     */
+    public $analyticsReport;
+
+    /**
+     * @var bool
+     */
+    public $analyticsReportReady;
 
     /**
      * @example 50
@@ -188,6 +199,8 @@ class data extends Model
         'agentEvents'               => 'AgentEvents',
         'agentIds'                  => 'AgentIds',
         'agentNames'                => 'AgentNames',
+        'analyticsReport'           => 'AnalyticsReport',
+        'analyticsReportReady'      => 'AnalyticsReportReady',
         'callDuration'              => 'CallDuration',
         'calledNumber'              => 'CalledNumber',
         'calleeLocation'            => 'CalleeLocation',
@@ -235,6 +248,12 @@ class data extends Model
         }
         if (null !== $this->agentNames) {
             $res['AgentNames'] = $this->agentNames;
+        }
+        if (null !== $this->analyticsReport) {
+            $res['AnalyticsReport'] = null !== $this->analyticsReport ? $this->analyticsReport->toMap() : null;
+        }
+        if (null !== $this->analyticsReportReady) {
+            $res['AnalyticsReportReady'] = $this->analyticsReportReady;
         }
         if (null !== $this->callDuration) {
             $res['CallDuration'] = $this->callDuration;
@@ -352,6 +371,12 @@ class data extends Model
         }
         if (isset($map['AgentNames'])) {
             $model->agentNames = $map['AgentNames'];
+        }
+        if (isset($map['AnalyticsReport'])) {
+            $model->analyticsReport = analyticsReport::fromMap($map['AnalyticsReport']);
+        }
+        if (isset($map['AnalyticsReportReady'])) {
+            $model->analyticsReportReady = $map['AnalyticsReportReady'];
         }
         if (isset($map['CallDuration'])) {
             $model->callDuration = $map['CallDuration'];

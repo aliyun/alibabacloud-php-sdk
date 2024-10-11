@@ -6533,6 +6533,9 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->agentId)) {
             $query['AgentId'] = $request->agentId;
         }
+        if (!Utils::isUnset($request->analyticsReportReady)) {
+            $query['AnalyticsReportReady'] = $request->analyticsReportReady;
+        }
         if (!Utils::isUnset($request->broker)) {
             $query['Broker'] = $request->broker;
         }
