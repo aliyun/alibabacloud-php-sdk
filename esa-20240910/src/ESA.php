@@ -83,6 +83,10 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateWaitingRoomRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateWaitingRoomShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCustomScenePolicyResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteKvNamespaceRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteKvNamespaceResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteKvRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteKvResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteListRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteListResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeletePageRequest;
@@ -118,6 +122,7 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeHttpDDoSAttackIntelligentProte
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeHttpDDoSAttackProtectionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeHttpDDoSAttackProtectionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeIPRangeListResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeKvAccountStatusResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribePreloadTasksRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribePreloadTasksResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribePurgeTasksRequest;
@@ -132,8 +137,11 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\EnableCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ExportRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ExportRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCacheReserveSpecificationResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvAccountResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvNamespaceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvNamespaceResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetListRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetListResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetPageRequest;
@@ -2410,6 +2418,97 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary 删除Namespace的Key-Value对
+     *  *
+     * @param DeleteKvRequest $request DeleteKvRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteKvResponse DeleteKvResponse
+     */
+    public function deleteKvWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteKv',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteKvResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除Namespace的Key-Value对
+     *  *
+     * @param DeleteKvRequest $request DeleteKvRequest
+     *
+     * @return DeleteKvResponse DeleteKvResponse
+     */
+    public function deleteKv($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteKvWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除Namespace
+     *  *
+     * @param DeleteKvNamespaceRequest $request DeleteKvNamespaceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteKvNamespaceResponse DeleteKvNamespaceResponse
+     */
+    public function deleteKvNamespaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteKvNamespace',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteKvNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除Namespace
+     *  *
+     * @param DeleteKvNamespaceRequest $request DeleteKvNamespaceRequest
+     *
+     * @return DeleteKvNamespaceResponse DeleteKvNamespaceResponse
+     */
+    public function deleteKvNamespace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteKvNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 删除自定义列表
      *  *
      * @param DeleteListRequest $request DeleteListRequest
@@ -3301,6 +3400,43 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary 查询账户的KV状态信
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeKvAccountStatusResponse DescribeKvAccountStatusResponse
+     */
+    public function describeKvAccountStatusWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeKvAccountStatus',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeKvAccountStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询账户的KV状态信
+     *  *
+     * @return DescribeKvAccountStatusResponse DescribeKvAccountStatusResponse
+     */
+    public function describeKvAccountStatus()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeKvAccountStatusWithOptions($runtime);
+    }
+
+    /**
      * @summary 预热任务查询接口
      *  *
      * @param DescribePreloadTasksRequest $request DescribePreloadTasksRequest
@@ -3621,6 +3757,87 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCacheReserveSpecificationWithOptions($runtime);
+    }
+
+    /**
+     * @summary 查询Key-Value对的某个Key值
+     *  *
+     * @param GetKvRequest   $request GetKvRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetKvResponse GetKvResponse
+     */
+    public function getKvWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetKv',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetKvResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询Key-Value对的某个Key值
+     *  *
+     * @param GetKvRequest $request GetKvRequest
+     *
+     * @return GetKvResponse GetKvResponse
+     */
+    public function getKv($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getKvWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 列出账号下的NS
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetKvAccountResponse GetKvAccountResponse
+     */
+    public function getKvAccountWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetKvAccount',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetKvAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 列出账号下的NS
+     *  *
+     * @return GetKvAccountResponse GetKvAccountResponse
+     */
+    public function getKvAccount()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getKvAccountWithOptions($runtime);
     }
 
     /**
