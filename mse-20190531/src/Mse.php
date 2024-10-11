@@ -235,6 +235,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ImportServicesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ImportServicesShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ImportZookeeperDataRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ImportZookeeperDataResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\InitializeServiceLinkRoleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\InitializeServiceLinkRoleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListAnsInstancesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListAnsInstancesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListAnsServiceClustersRequest;
@@ -7585,6 +7587,59 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->importZookeeperDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 用户授权mseSLR
+     *  *
+     * @param InitializeServiceLinkRoleRequest $request InitializeServiceLinkRoleRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return InitializeServiceLinkRoleResponse InitializeServiceLinkRoleResponse
+     */
+    public function initializeServiceLinkRoleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->roleName)) {
+            $query['RoleName'] = $request->roleName;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InitializeServiceLinkRole',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InitializeServiceLinkRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 用户授权mseSLR
+     *  *
+     * @param InitializeServiceLinkRoleRequest $request InitializeServiceLinkRoleRequest
+     *
+     * @return InitializeServiceLinkRoleResponse InitializeServiceLinkRoleResponse
+     */
+    public function initializeServiceLinkRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->initializeServiceLinkRoleWithOptions($request, $runtime);
     }
 
     /**
