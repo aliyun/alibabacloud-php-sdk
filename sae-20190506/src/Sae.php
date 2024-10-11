@@ -664,6 +664,9 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->edasContainerVersion)) {
             $query['EdasContainerVersion'] = $request->edasContainerVersion;
         }
+        if (!Utils::isUnset($request->enableCpuBurst)) {
+            $query['EnableCpuBurst'] = $request->enableCpuBurst;
+        }
         if (!Utils::isUnset($request->enableEbpf)) {
             $query['EnableEbpf'] = $request->enableEbpf;
         }
@@ -2249,6 +2252,9 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->enableAhas)) {
             $query['EnableAhas'] = $request->enableAhas;
+        }
+        if (!Utils::isUnset($request->enableCpuBurst)) {
+            $query['EnableCpuBurst'] = $request->enableCpuBurst;
         }
         if (!Utils::isUnset($request->enableGreyTagRoute)) {
             $query['EnableGreyTagRoute'] = $request->enableGreyTagRoute;

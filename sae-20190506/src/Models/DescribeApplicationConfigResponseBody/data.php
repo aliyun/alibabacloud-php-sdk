@@ -170,6 +170,11 @@ class data extends Model
     public $enableAhas;
 
     /**
+     * @var string
+     */
+    public $enableCpuBurst;
+
+    /**
      * @description Indicates whether canary release rules are enabled. Canary release rules apply only to applications in Spring Cloud and Dubbo frameworks. Valid values:
      *
      *   **true**: The canary release rules are enabled.
@@ -761,6 +766,7 @@ class data extends Model
         'dotnet'                        => 'Dotnet',
         'edasContainerVersion'          => 'EdasContainerVersion',
         'enableAhas'                    => 'EnableAhas',
+        'enableCpuBurst'                => 'EnableCpuBurst',
         'enableGreyTagRoute'            => 'EnableGreyTagRoute',
         'enableIdle'                    => 'EnableIdle',
         'enableNewArms'                 => 'EnableNewArms',
@@ -877,6 +883,9 @@ class data extends Model
         }
         if (null !== $this->enableAhas) {
             $res['EnableAhas'] = $this->enableAhas;
+        }
+        if (null !== $this->enableCpuBurst) {
+            $res['EnableCpuBurst'] = $this->enableCpuBurst;
         }
         if (null !== $this->enableGreyTagRoute) {
             $res['EnableGreyTagRoute'] = $this->enableGreyTagRoute;
@@ -1123,6 +1132,9 @@ class data extends Model
         }
         if (isset($map['EnableAhas'])) {
             $model->enableAhas = $map['EnableAhas'];
+        }
+        if (isset($map['EnableCpuBurst'])) {
+            $model->enableCpuBurst = $map['EnableCpuBurst'];
         }
         if (isset($map['EnableGreyTagRoute'])) {
             $model->enableGreyTagRoute = $map['EnableGreyTagRoute'];

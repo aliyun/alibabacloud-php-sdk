@@ -142,6 +142,11 @@ class CreateApplicationRequest extends Model
     public $edasContainerVersion;
 
     /**
+     * @var bool
+     */
+    public $enableCpuBurst;
+
+    /**
      * @var string
      */
     public $enableEbpf;
@@ -544,6 +549,7 @@ class CreateApplicationRequest extends Model
         'deploy'                        => 'Deploy',
         'dotnet'                        => 'Dotnet',
         'edasContainerVersion'          => 'EdasContainerVersion',
+        'enableCpuBurst'                => 'EnableCpuBurst',
         'enableEbpf'                    => 'EnableEbpf',
         'enableNewArms'                 => 'EnableNewArms',
         'envs'                          => 'Envs',
@@ -647,6 +653,9 @@ class CreateApplicationRequest extends Model
         }
         if (null !== $this->edasContainerVersion) {
             $res['EdasContainerVersion'] = $this->edasContainerVersion;
+        }
+        if (null !== $this->enableCpuBurst) {
+            $res['EnableCpuBurst'] = $this->enableCpuBurst;
         }
         if (null !== $this->enableEbpf) {
             $res['EnableEbpf'] = $this->enableEbpf;
@@ -848,6 +857,9 @@ class CreateApplicationRequest extends Model
         }
         if (isset($map['EdasContainerVersion'])) {
             $model->edasContainerVersion = $map['EdasContainerVersion'];
+        }
+        if (isset($map['EnableCpuBurst'])) {
+            $model->enableCpuBurst = $map['EnableCpuBurst'];
         }
         if (isset($map['EnableEbpf'])) {
             $model->enableEbpf = $map['EnableEbpf'];
