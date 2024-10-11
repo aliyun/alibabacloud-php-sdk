@@ -366,7 +366,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary 创建链接地址
+     * @summary 申请外网地址
      *  *
      * @param CreateEndpointRequest $request CreateEndpointRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -408,7 +408,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary 创建链接地址
+     * @summary 申请外网地址
      *  *
      * @param CreateEndpointRequest $request CreateEndpointRequest
      *
