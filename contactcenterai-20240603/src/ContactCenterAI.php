@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateConversationAnalysisTaskRequest;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateConversationAnalysisTaskResponse;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\GetTaskResultRequest;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\GetTaskResultResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionMessageRequest;
@@ -224,6 +226,84 @@ class ContactCenterAI extends OpenApiClient
         $headers = [];
 
         return $this->createConversationAnalysisTaskWithOptions($workspaceId, $appId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建语音文件调用llm任务
+     *  *
+     * @param string            $workspaceId
+     * @param string            $appId
+     * @param CreateTaskRequest $request     CreateTaskRequest
+     * @param string[]          $headers     map
+     * @param RuntimeOptions    $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return CreateTaskResponse CreateTaskResponse
+     */
+    public function createTaskWithOptions($workspaceId, $appId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dialogue)) {
+            $body['dialogue'] = $request->dialogue;
+        }
+        if (!Utils::isUnset($request->examples)) {
+            $body['examples'] = $request->examples;
+        }
+        if (!Utils::isUnset($request->fields)) {
+            $body['fields'] = $request->fields;
+        }
+        if (!Utils::isUnset($request->modelCode)) {
+            $body['modelCode'] = $request->modelCode;
+        }
+        if (!Utils::isUnset($request->resultTypes)) {
+            $body['resultTypes'] = $request->resultTypes;
+        }
+        if (!Utils::isUnset($request->serviceInspection)) {
+            $body['serviceInspection'] = $request->serviceInspection;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $body['taskType'] = $request->taskType;
+        }
+        if (!Utils::isUnset($request->templateIds)) {
+            $body['templateIds'] = $request->templateIds;
+        }
+        if (!Utils::isUnset($request->transcription)) {
+            $body['transcription'] = $request->transcription;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTask',
+            'version'     => '2024-06-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/ccai/app/' . OpenApiUtilClient::getEncodeParam($appId) . '/createTask',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建语音文件调用llm任务
+     *  *
+     * @param string            $workspaceId
+     * @param string            $appId
+     * @param CreateTaskRequest $request     CreateTaskRequest
+     *
+     * @return CreateTaskResponse CreateTaskResponse
+     */
+    public function createTask($workspaceId, $appId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTaskWithOptions($workspaceId, $appId, $request, $headers, $runtime);
     }
 
     /**
