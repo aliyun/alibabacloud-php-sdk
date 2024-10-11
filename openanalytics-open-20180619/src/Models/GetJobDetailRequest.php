@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetJobDetailRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example j202010271622hangzhouf742a4330000923
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example MyCluster
+     *
      * @var string
      */
     public $vcName;

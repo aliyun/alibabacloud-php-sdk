@@ -9,17 +9,25 @@ use AlibabaCloud\Tea\Model;
 class SubmitSparkJobRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $vcName;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example {     "name": "SparkPi",     "file": "local:///tmp/spark-examples.jar",     "className": "org.apache.spark.examples.SparkPi",     "args": [         "100"     ],     "conf": {         "spark.driver.resourceSpec": "medium",         "spark.executor.instances": 5,         "spark.executor.resourceSpec": "medium"     } }
+     *
      * @var string
      */
     public $configJson;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example MyCluster
+     *
+     * @var string
+     */
+    public $vcName;
     protected $_name = [
-        'vcName'     => 'VcName',
         'configJson' => 'ConfigJson',
+        'vcName'     => 'VcName',
     ];
 
     public function validate()
@@ -29,11 +37,11 @@ class SubmitSparkJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vcName) {
-            $res['VcName'] = $this->vcName;
-        }
         if (null !== $this->configJson) {
             $res['ConfigJson'] = $this->configJson;
+        }
+        if (null !== $this->vcName) {
+            $res['VcName'] = $this->vcName;
         }
 
         return $res;
@@ -47,11 +55,11 @@ class SubmitSparkJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VcName'])) {
-            $model->vcName = $map['VcName'];
-        }
         if (isset($map['ConfigJson'])) {
             $model->configJson = $map['ConfigJson'];
+        }
+        if (isset($map['VcName'])) {
+            $model->vcName = $map['VcName'];
         }
 
         return $model;

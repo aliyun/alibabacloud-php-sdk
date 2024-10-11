@@ -9,17 +9,21 @@ use AlibabaCloud\Tea\Model;
 class SubmitSparkJobResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @example j202011032013hangzhouf742a4330003679
+     *
      * @var string
      */
     public $jobId;
+
+    /**
+     * @example C039FD4D-2F3C-4556-AF09-864D3A6485B2
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'jobId'     => 'JobId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +33,11 @@ class SubmitSparkJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +51,11 @@ class SubmitSparkJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

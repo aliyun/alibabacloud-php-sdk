@@ -15,16 +15,22 @@ class dataResult extends Model
     public $jobList;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @example 4998
+     *
      * @var string
      */
     public $totalCount;

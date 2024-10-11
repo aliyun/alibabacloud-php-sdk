@@ -9,17 +9,25 @@ use AlibabaCloud\Tea\Model;
 class KillSparkJobRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $vcName;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example j202011031935hangzhouf742a4330003667
+     *
      * @var string
      */
     public $jobId;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example MyCluster
+     *
+     * @var string
+     */
+    public $vcName;
     protected $_name = [
-        'vcName' => 'VcName',
         'jobId'  => 'JobId',
+        'vcName' => 'VcName',
     ];
 
     public function validate()
@@ -29,11 +37,11 @@ class KillSparkJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vcName) {
-            $res['VcName'] = $this->vcName;
-        }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->vcName) {
+            $res['VcName'] = $this->vcName;
         }
 
         return $res;
@@ -47,11 +55,11 @@ class KillSparkJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VcName'])) {
-            $model->vcName = $map['VcName'];
-        }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+        if (isset($map['VcName'])) {
+            $model->vcName = $map['VcName'];
         }
 
         return $model;

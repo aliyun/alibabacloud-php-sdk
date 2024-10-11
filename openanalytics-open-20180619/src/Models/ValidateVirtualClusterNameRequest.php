@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ValidateVirtualClusterNameRequest extends Model
 {
     /**
+     * @example abc123
+     *
      * @var string
      */
     public $vcName;

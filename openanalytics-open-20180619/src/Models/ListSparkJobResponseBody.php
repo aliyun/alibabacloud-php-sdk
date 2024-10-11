@@ -15,6 +15,8 @@ class ListSparkJobResponseBody extends Model
     public $dataResult;
 
     /**
+     * @example E18B0634-F003-486A-90B9-4AA6932DA3AA
+     *
      * @var string
      */
     public $requestId;

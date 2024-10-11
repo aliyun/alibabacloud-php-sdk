@@ -15,6 +15,8 @@ class GetJobDetailResponseBody extends Model
     public $jobDetail;
 
     /**
+     * @example 5F10AB6E-8984-4E32-B821-4E1512711B8C
+     *
      * @var string
      */
     public $requestId;
