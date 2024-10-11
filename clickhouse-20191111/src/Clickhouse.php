@@ -674,6 +674,8 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * @summary 创建账号及权限
+     *  *
      * @param CreateAccountAndAuthorityRequest $request CreateAccountAndAuthorityRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -747,6 +749,8 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * @summary 创建账号及权限
+     *  *
      * @param CreateAccountAndAuthorityRequest $request CreateAccountAndAuthorityRequest
      *
      * @return CreateAccountAndAuthorityResponse CreateAccountAndAuthorityResponse
@@ -1912,6 +1916,8 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * @summary 查看备份集
+     *  *
      * @param DescribeBackupsRequest $request DescribeBackupsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -1970,6 +1976,8 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * @summary 查看备份集
+     *  *
      * @param DescribeBackupsRequest $request DescribeBackupsRequest
      *
      * @return DescribeBackupsResponse DescribeBackupsResponse
@@ -3547,6 +3555,9 @@ class Clickhouse extends OpenApiClient
         }
         if (!Utils::isUnset($request->dbNodeStorageType)) {
             $query['DbNodeStorageType'] = $request->dbNodeStorageType;
+        }
+        if (!Utils::isUnset($request->disableWriteWindows)) {
+            $query['DisableWriteWindows'] = $request->disableWriteWindows;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;

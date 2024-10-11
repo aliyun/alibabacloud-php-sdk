@@ -1,3 +1,9 @@
+2024-10-11 Version: 4.0.7
+- Update API DescribeDBClusters: update response param.
+- Update API ModifyDBCluster: add param DisableWriteWindows.
+- Update API ModifyDBCluster: update param ResourceOwnerId.
+
+
 2024-08-12 Version: 4.0.6
 - Update API DescribeDBClusters: update response param.
 - Update API DescribeTransferHistory: update response param.

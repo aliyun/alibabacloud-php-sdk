@@ -76,6 +76,11 @@ class ModifyDBClusterRequest extends Model
     /**
      * @var string
      */
+    public $disableWriteWindows;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -108,6 +113,7 @@ class ModifyDBClusterRequest extends Model
         'DBNodeGroupCount'     => 'DBNodeGroupCount',
         'DBNodeStorage'        => 'DBNodeStorage',
         'dbNodeStorageType'    => 'DbNodeStorageType',
+        'disableWriteWindows'  => 'DisableWriteWindows',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -136,6 +142,9 @@ class ModifyDBClusterRequest extends Model
         }
         if (null !== $this->dbNodeStorageType) {
             $res['DbNodeStorageType'] = $this->dbNodeStorageType;
+        }
+        if (null !== $this->disableWriteWindows) {
+            $res['DisableWriteWindows'] = $this->disableWriteWindows;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -178,6 +187,9 @@ class ModifyDBClusterRequest extends Model
         }
         if (isset($map['DbNodeStorageType'])) {
             $model->dbNodeStorageType = $map['DbNodeStorageType'];
+        }
+        if (isset($map['DisableWriteWindows'])) {
+            $model->disableWriteWindows = $map['DisableWriteWindows'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

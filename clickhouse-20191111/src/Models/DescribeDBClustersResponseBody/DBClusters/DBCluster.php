@@ -280,6 +280,11 @@ class DBCluster extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $scaleOutDisableWriteWindows;
+
+    /**
      * @description The status of a data migration task.
      *
      * @var scaleOutStatus
@@ -343,38 +348,39 @@ class DBCluster extends Model
      */
     public $zoneId;
     protected $_name = [
-        'aliUid'               => 'AliUid',
-        'bid'                  => 'Bid',
-        'category'             => 'Category',
-        'commodityCode'        => 'CommodityCode',
-        'connectionString'     => 'ConnectionString',
-        'controlVersion'       => 'ControlVersion',
-        'createTime'           => 'CreateTime',
-        'DBClusterDescription' => 'DBClusterDescription',
-        'DBClusterId'          => 'DBClusterId',
-        'DBClusterNetworkType' => 'DBClusterNetworkType',
-        'DBClusterStatus'      => 'DBClusterStatus',
-        'DBNodeClass'          => 'DBNodeClass',
-        'DBNodeCount'          => 'DBNodeCount',
-        'DBNodeStorage'        => 'DBNodeStorage',
-        'dbVersion'            => 'DbVersion',
-        'expireTime'           => 'ExpireTime',
-        'extStorageSize'       => 'ExtStorageSize',
-        'extStorageType'       => 'ExtStorageType',
-        'isExpired'            => 'IsExpired',
-        'lockMode'             => 'LockMode',
-        'lockReason'           => 'LockReason',
-        'payType'              => 'PayType',
-        'port'                 => 'Port',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'scaleOutStatus'       => 'ScaleOutStatus',
-        'storageType'          => 'StorageType',
-        'tags'                 => 'Tags',
-        'vSwitchId'            => 'VSwitchId',
-        'vpcCloudInstanceId'   => 'VpcCloudInstanceId',
-        'vpcId'                => 'VpcId',
-        'zoneId'               => 'ZoneId',
+        'aliUid'                      => 'AliUid',
+        'bid'                         => 'Bid',
+        'category'                    => 'Category',
+        'commodityCode'               => 'CommodityCode',
+        'connectionString'            => 'ConnectionString',
+        'controlVersion'              => 'ControlVersion',
+        'createTime'                  => 'CreateTime',
+        'DBClusterDescription'        => 'DBClusterDescription',
+        'DBClusterId'                 => 'DBClusterId',
+        'DBClusterNetworkType'        => 'DBClusterNetworkType',
+        'DBClusterStatus'             => 'DBClusterStatus',
+        'DBNodeClass'                 => 'DBNodeClass',
+        'DBNodeCount'                 => 'DBNodeCount',
+        'DBNodeStorage'               => 'DBNodeStorage',
+        'dbVersion'                   => 'DbVersion',
+        'expireTime'                  => 'ExpireTime',
+        'extStorageSize'              => 'ExtStorageSize',
+        'extStorageType'              => 'ExtStorageType',
+        'isExpired'                   => 'IsExpired',
+        'lockMode'                    => 'LockMode',
+        'lockReason'                  => 'LockReason',
+        'payType'                     => 'PayType',
+        'port'                        => 'Port',
+        'regionId'                    => 'RegionId',
+        'resourceGroupId'             => 'ResourceGroupId',
+        'scaleOutDisableWriteWindows' => 'ScaleOutDisableWriteWindows',
+        'scaleOutStatus'              => 'ScaleOutStatus',
+        'storageType'                 => 'StorageType',
+        'tags'                        => 'Tags',
+        'vSwitchId'                   => 'VSwitchId',
+        'vpcCloudInstanceId'          => 'VpcCloudInstanceId',
+        'vpcId'                       => 'VpcId',
+        'zoneId'                      => 'ZoneId',
     ];
 
     public function validate()
@@ -458,6 +464,9 @@ class DBCluster extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->scaleOutDisableWriteWindows) {
+            $res['ScaleOutDisableWriteWindows'] = $this->scaleOutDisableWriteWindows;
         }
         if (null !== $this->scaleOutStatus) {
             $res['ScaleOutStatus'] = null !== $this->scaleOutStatus ? $this->scaleOutStatus->toMap() : null;
@@ -566,6 +575,9 @@ class DBCluster extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ScaleOutDisableWriteWindows'])) {
+            $model->scaleOutDisableWriteWindows = $map['ScaleOutDisableWriteWindows'];
         }
         if (isset($map['ScaleOutStatus'])) {
             $model->scaleOutStatus = scaleOutStatus::fromMap($map['ScaleOutStatus']);
