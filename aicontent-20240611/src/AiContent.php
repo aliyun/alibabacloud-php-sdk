@@ -7,6 +7,13 @@ namespace AlibabaCloud\SDK\AiContent\V20240611;
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\PersonalizedTextToImageAddInferenceJobRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\PersonalizedTextToImageAddInferenceJobResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\PersonalizedTextToImageQueryImageAssetRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\PersonalizedTextToImageQueryImageAssetResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\Personalizedtxt2imgAddInferenceJobRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\Personalizedtxt2imgAddInferenceJobResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\Personalizedtxt2imgAddModelTrainJobRequest;
@@ -96,6 +103,215 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->aliyunConsoleOpenApiQueryAliyunConsoleServcieListWithOptions($headers, $runtime);
+    }
+
+    /**
+     * @summary 阿里云控制台/列出阿里云控制台上可使用的服务列表
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse
+     */
+    public function aliyunConsoleOpenApiQueryAliyunConsoleServiceListWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'AliyunConsoleOpenApiQueryAliyunConsoleServiceList',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/aliyunconsole/queryAliyunConsoleServiceList',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 阿里云控制台/列出阿里云控制台上可使用的服务列表
+     *  *
+     * @return AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse
+     */
+    public function aliyunConsoleOpenApiQueryAliyunConsoleServiceList()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->aliyunConsoleOpenApiQueryAliyunConsoleServiceListWithOptions($headers, $runtime);
+    }
+
+    /**
+     * @summary 个性化文生图/基于一个预训练模型创建图片推理任务
+     *  *
+     * @param PersonalizedTextToImageAddInferenceJobRequest $request PersonalizedTextToImageAddInferenceJobRequest
+     * @param string[]                                      $headers map
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return PersonalizedTextToImageAddInferenceJobResponse PersonalizedTextToImageAddInferenceJobResponse
+     */
+    public function personalizedTextToImageAddInferenceJobWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageNumber)) {
+            $body['imageNumber'] = $request->imageNumber;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['imageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->prompt)) {
+            $body['prompt'] = $request->prompt;
+        }
+        if (!Utils::isUnset($request->seed)) {
+            $body['seed'] = $request->seed;
+        }
+        if (!Utils::isUnset($request->strength)) {
+            $body['strength'] = $request->strength;
+        }
+        if (!Utils::isUnset($request->trainSteps)) {
+            $body['trainSteps'] = $request->trainSteps;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PersonalizedTextToImageAddInferenceJob',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/personalizedtxt2img/addPreModelInferenceJob',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return PersonalizedTextToImageAddInferenceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 个性化文生图/基于一个预训练模型创建图片推理任务
+     *  *
+     * @param PersonalizedTextToImageAddInferenceJobRequest $request PersonalizedTextToImageAddInferenceJobRequest
+     *
+     * @return PersonalizedTextToImageAddInferenceJobResponse PersonalizedTextToImageAddInferenceJobResponse
+     */
+    public function personalizedTextToImageAddInferenceJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->personalizedTextToImageAddInferenceJobWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 个性化文生图/通过唯一的图片编号获取图片内容
+     *  *
+     * @param PersonalizedTextToImageQueryImageAssetRequest $request PersonalizedTextToImageQueryImageAssetRequest
+     * @param string[]                                      $headers map
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return PersonalizedTextToImageQueryImageAssetResponse PersonalizedTextToImageQueryImageAssetResponse
+     */
+    public function personalizedTextToImageQueryImageAssetWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->encodeFormat)) {
+            $query['encodeFormat'] = $request->encodeFormat;
+        }
+        if (!Utils::isUnset($request->imageId)) {
+            $query['imageId'] = $request->imageId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PersonalizedTextToImageQueryImageAsset',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/personalizedtxt2img/queryImageAssetFromImageId',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'any',
+        ]);
+
+        return PersonalizedTextToImageQueryImageAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 个性化文生图/通过唯一的图片编号获取图片内容
+     *  *
+     * @param PersonalizedTextToImageQueryImageAssetRequest $request PersonalizedTextToImageQueryImageAssetRequest
+     *
+     * @return PersonalizedTextToImageQueryImageAssetResponse PersonalizedTextToImageQueryImageAssetResponse
+     */
+    public function personalizedTextToImageQueryImageAsset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->personalizedTextToImageQueryImageAssetWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 个性化文生图/查询预制模型推理任务的状态
+     *  *
+     * @param PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest $request PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest
+     * @param string[]                                                    $headers map
+     * @param RuntimeOptions                                              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse
+     */
+    public function personalizedTextToImageQueryPreModelInferenceJobInfoWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->inferenceJobId)) {
+            $query['inferenceJobId'] = $request->inferenceJobId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PersonalizedTextToImageQueryPreModelInferenceJobInfo',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/personalizedtxt2img/queryPreModelInferenceJobInfo',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 个性化文生图/查询预制模型推理任务的状态
+     *  *
+     * @param PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest $request PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest
+     *
+     * @return PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse
+     */
+    public function personalizedTextToImageQueryPreModelInferenceJobInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->personalizedTextToImageQueryPreModelInferenceJobInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
