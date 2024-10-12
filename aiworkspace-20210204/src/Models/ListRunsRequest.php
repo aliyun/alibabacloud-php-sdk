@@ -6,27 +6,38 @@ namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListImagesRequest extends Model
+class ListRunsRequest extends Model
 {
     /**
+     * @example exp-1zpfthdx******
+     *
      * @var string
      */
-    public $accessibility;
+    public $experimentId;
 
     /**
+     * @example 2021-01-30T12:51:33.028Z
+     *
      * @var string
      */
-    public $imageUri;
+    public $gmtCreateTime;
 
     /**
-     * @example system.framework=XGBoost 1.6.0,system.official=true
+     * @example is_evaluation:true
      *
      * @var string
      */
     public $labels;
 
     /**
-     * @example tensorflow_2.9
+     * @example 10
+     *
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @example myName
      *
      * @var string
      */
@@ -40,6 +51,13 @@ class ListImagesRequest extends Model
     public $order;
 
     /**
+     * @example GmtCreateTime DESC,Name ASC
+     *
+     * @var string
+     */
+    public $orderBy;
+
+    /**
      * @example 1
      *
      * @var int
@@ -47,23 +65,18 @@ class ListImagesRequest extends Model
     public $pageNumber;
 
     /**
-     * @example 20
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 155**********904
+     * @example 0
      *
-     * @var string
+     * @var int
      */
-    public $parentUserId;
-
-    /**
-     * @var string
-     */
-    public $query;
+    public $pageToken;
 
     /**
      * @example GmtCreateTime
@@ -73,11 +86,18 @@ class ListImagesRequest extends Model
     public $sortBy;
 
     /**
-     * @example 155**********904
+     * @example job-rbvg5wzlj****
      *
      * @var string
      */
-    public $userId;
+    public $sourceId;
+
+    /**
+     * @example TrainingService
+     *
+     * @var string
+     */
+    public $sourceType;
 
     /**
      * @example true
@@ -87,23 +107,25 @@ class ListImagesRequest extends Model
     public $verbose;
 
     /**
-     * @example 20******55
+     * @example 22840
      *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'accessibility' => 'Accessibility',
-        'imageUri'      => 'ImageUri',
+        'experimentId'  => 'ExperimentId',
+        'gmtCreateTime' => 'GmtCreateTime',
         'labels'        => 'Labels',
+        'maxResults'    => 'MaxResults',
         'name'          => 'Name',
         'order'         => 'Order',
+        'orderBy'       => 'OrderBy',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
-        'parentUserId'  => 'ParentUserId',
-        'query'         => 'Query',
+        'pageToken'     => 'PageToken',
         'sortBy'        => 'SortBy',
-        'userId'        => 'UserId',
+        'sourceId'      => 'SourceId',
+        'sourceType'    => 'SourceType',
         'verbose'       => 'Verbose',
         'workspaceId'   => 'WorkspaceId',
     ];
@@ -115,14 +137,17 @@ class ListImagesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accessibility) {
-            $res['Accessibility'] = $this->accessibility;
+        if (null !== $this->experimentId) {
+            $res['ExperimentId'] = $this->experimentId;
         }
-        if (null !== $this->imageUri) {
-            $res['ImageUri'] = $this->imageUri;
+        if (null !== $this->gmtCreateTime) {
+            $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -130,23 +155,26 @@ class ListImagesRequest extends Model
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
+        if (null !== $this->orderBy) {
+            $res['OrderBy'] = $this->orderBy;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->parentUserId) {
-            $res['ParentUserId'] = $this->parentUserId;
-        }
-        if (null !== $this->query) {
-            $res['Query'] = $this->query;
+        if (null !== $this->pageToken) {
+            $res['PageToken'] = $this->pageToken;
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->sourceId) {
+            $res['SourceId'] = $this->sourceId;
+        }
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
         }
         if (null !== $this->verbose) {
             $res['Verbose'] = $this->verbose;
@@ -161,19 +189,22 @@ class ListImagesRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListImagesRequest
+     * @return ListRunsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Accessibility'])) {
-            $model->accessibility = $map['Accessibility'];
+        if (isset($map['ExperimentId'])) {
+            $model->experimentId = $map['ExperimentId'];
         }
-        if (isset($map['ImageUri'])) {
-            $model->imageUri = $map['ImageUri'];
+        if (isset($map['GmtCreateTime'])) {
+            $model->gmtCreateTime = $map['GmtCreateTime'];
         }
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -181,23 +212,26 @@ class ListImagesRequest extends Model
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }
+        if (isset($map['OrderBy'])) {
+            $model->orderBy = $map['OrderBy'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['ParentUserId'])) {
-            $model->parentUserId = $map['ParentUserId'];
-        }
-        if (isset($map['Query'])) {
-            $model->query = $map['Query'];
+        if (isset($map['PageToken'])) {
+            $model->pageToken = $map['PageToken'];
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['SourceId'])) {
+            $model->sourceId = $map['SourceId'];
+        }
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
         }
         if (isset($map['Verbose'])) {
             $model->verbose = $map['Verbose'];

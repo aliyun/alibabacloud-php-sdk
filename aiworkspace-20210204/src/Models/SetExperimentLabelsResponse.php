@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetServiceTemplateResponse extends Model
+class SetExperimentLabelsResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class GetServiceTemplateResponse extends Model
     public $statusCode;
 
     /**
-     * @var GetServiceTemplateResponseBody
+     * @var SetExperimentLabelsResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class GetServiceTemplateResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetServiceTemplateResponse
+     * @return SetExperimentLabelsResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class GetServiceTemplateResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = GetServiceTemplateResponseBody::fromMap($map['body']);
+            $model->body = SetExperimentLabelsResponseBody::fromMap($map['body']);
         }
 
         return $model;

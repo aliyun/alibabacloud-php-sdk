@@ -6,17 +6,12 @@ namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class Experiment extends Model
+class Run extends Model
 {
     /**
      * @var string
      */
     public $accessibility;
-
-    /**
-     * @var string
-     */
-    public $artifactUri;
 
     /**
      * @var string
@@ -34,14 +29,14 @@ class Experiment extends Model
     public $gmtModifiedTime;
 
     /**
-     * @var ExperimentLabel[]
+     * @var RunLabel[]
      */
     public $labels;
 
     /**
-     * @var Run
+     * @var RunMetric[]
      */
-    public $latestRun;
+    public $metrics;
 
     /**
      * @var string
@@ -54,6 +49,11 @@ class Experiment extends Model
     public $ownerId;
 
     /**
+     * @var RunParam[]
+     */
+    public $params;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -61,7 +61,17 @@ class Experiment extends Model
     /**
      * @var string
      */
-    public $tensorboardLogUri;
+    public $runId;
+
+    /**
+     * @var string
+     */
+    public $sourceId;
+
+    /**
+     * @var string
+     */
+    public $sourceType;
 
     /**
      * @var string
@@ -73,19 +83,21 @@ class Experiment extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'accessibility'     => 'Accessibility',
-        'artifactUri'       => 'ArtifactUri',
-        'experimentId'      => 'ExperimentId',
-        'gmtCreateTime'     => 'GmtCreateTime',
-        'gmtModifiedTime'   => 'GmtModifiedTime',
-        'labels'            => 'Labels',
-        'latestRun'         => 'LatestRun',
-        'name'              => 'Name',
-        'ownerId'           => 'OwnerId',
-        'requestId'         => 'RequestId',
-        'tensorboardLogUri' => 'TensorboardLogUri',
-        'userId'            => 'UserId',
-        'workspaceId'       => 'WorkspaceId',
+        'accessibility'   => 'Accessibility',
+        'experimentId'    => 'ExperimentId',
+        'gmtCreateTime'   => 'GmtCreateTime',
+        'gmtModifiedTime' => 'GmtModifiedTime',
+        'labels'          => 'Labels',
+        'metrics'         => 'Metrics',
+        'name'            => 'Name',
+        'ownerId'         => 'OwnerId',
+        'params'          => 'Params',
+        'requestId'       => 'RequestId',
+        'runId'           => 'RunId',
+        'sourceId'        => 'SourceId',
+        'sourceType'      => 'SourceType',
+        'userId'          => 'UserId',
+        'workspaceId'     => 'WorkspaceId',
     ];
 
     public function validate()
@@ -97,9 +109,6 @@ class Experiment extends Model
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
-        }
-        if (null !== $this->artifactUri) {
-            $res['ArtifactUri'] = $this->artifactUri;
         }
         if (null !== $this->experimentId) {
             $res['ExperimentId'] = $this->experimentId;
@@ -119,8 +128,14 @@ class Experiment extends Model
                 }
             }
         }
-        if (null !== $this->latestRun) {
-            $res['LatestRun'] = null !== $this->latestRun ? $this->latestRun->toMap() : null;
+        if (null !== $this->metrics) {
+            $res['Metrics'] = [];
+            if (null !== $this->metrics && \is_array($this->metrics)) {
+                $n = 0;
+                foreach ($this->metrics as $item) {
+                    $res['Metrics'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -128,11 +143,26 @@ class Experiment extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->params) {
+            $res['Params'] = [];
+            if (null !== $this->params && \is_array($this->params)) {
+                $n = 0;
+                foreach ($this->params as $item) {
+                    $res['Params'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->tensorboardLogUri) {
-            $res['TensorboardLogUri'] = $this->tensorboardLogUri;
+        if (null !== $this->runId) {
+            $res['RunId'] = $this->runId;
+        }
+        if (null !== $this->sourceId) {
+            $res['SourceId'] = $this->sourceId;
+        }
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -147,16 +177,13 @@ class Experiment extends Model
     /**
      * @param array $map
      *
-     * @return Experiment
+     * @return Run
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
-        }
-        if (isset($map['ArtifactUri'])) {
-            $model->artifactUri = $map['ArtifactUri'];
         }
         if (isset($map['ExperimentId'])) {
             $model->experimentId = $map['ExperimentId'];
@@ -172,12 +199,18 @@ class Experiment extends Model
                 $model->labels = [];
                 $n             = 0;
                 foreach ($map['Labels'] as $item) {
-                    $model->labels[$n++] = null !== $item ? ExperimentLabel::fromMap($item) : $item;
+                    $model->labels[$n++] = null !== $item ? RunLabel::fromMap($item) : $item;
                 }
             }
         }
-        if (isset($map['LatestRun'])) {
-            $model->latestRun = Run::fromMap($map['LatestRun']);
+        if (isset($map['Metrics'])) {
+            if (!empty($map['Metrics'])) {
+                $model->metrics = [];
+                $n              = 0;
+                foreach ($map['Metrics'] as $item) {
+                    $model->metrics[$n++] = null !== $item ? RunMetric::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -185,11 +218,26 @@ class Experiment extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['Params'])) {
+            if (!empty($map['Params'])) {
+                $model->params = [];
+                $n             = 0;
+                foreach ($map['Params'] as $item) {
+                    $model->params[$n++] = null !== $item ? RunParam::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['TensorboardLogUri'])) {
-            $model->tensorboardLogUri = $map['TensorboardLogUri'];
+        if (isset($map['RunId'])) {
+            $model->runId = $map['RunId'];
+        }
+        if (isset($map['SourceId'])) {
+            $model->sourceId = $map['SourceId'];
+        }
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

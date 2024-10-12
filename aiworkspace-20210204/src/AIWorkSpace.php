@@ -17,6 +17,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateDatasetLabelsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateDatasetLabelsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateDatasetRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateDatasetResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateExperimentRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateExperimentResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateMemberRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateMemberResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateModelLabelsRequest;
@@ -29,6 +31,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateModelVersionRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateModelVersionResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateProductOrdersRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateProductOrdersResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateRunRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateRunResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceResourceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceResourceResponse;
@@ -37,6 +41,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteCodeSourceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetLabelsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetLabelsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteExperimentLabelResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteExperimentResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteMembersRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteMembersResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteModelLabelsRequest;
@@ -45,6 +51,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteModelResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteModelVersionLabelsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteModelVersionLabelsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteModelVersionResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteRunLabelResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteRunResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteWorkspaceResourceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteWorkspaceResourceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteWorkspaceResponse;
@@ -52,6 +60,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetCodeSourceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDefaultWorkspaceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDefaultWorkspaceResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetExperimentRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetExperimentResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetImageRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetImageResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetMemberRequest;
@@ -60,13 +70,17 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetModelResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetModelVersionResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetPermissionRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetPermissionResponse;
-use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetServiceTemplateResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetRunRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetRunResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetWorkspaceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetWorkspaceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListCodeSourcesRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListCodeSourcesResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListDatasetsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListDatasetsResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListExperimentRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListExperimentResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListExperimentShrinkRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListImageLabelsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListImageLabelsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListImagesRequest;
@@ -84,26 +98,36 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListQuotasRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListQuotasResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListResourcesRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListResourcesResponse;
-use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListServiceTemplatesRequest;
-use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListServiceTemplatesResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListRunMetricsRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListRunMetricsResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListRunsRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListRunsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListWorkspacesResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListWorkspaceUsersRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListWorkspaceUsersResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\LogRunMetricsRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\LogRunMetricsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\PublishCodeSourceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\PublishDatasetResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\PublishImageResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\RemoveImageLabelsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\RemoveImageResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\RemoveMemberRoleResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\SetExperimentLabelsRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\SetExperimentLabelsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateDatasetRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateDatasetResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateDefaultWorkspaceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateDefaultWorkspaceResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateExperimentRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateExperimentResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateModelRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateModelResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateModelVersionRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateModelVersionResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateRunRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateRunResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateWorkspaceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateWorkspaceResourceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateWorkspaceResourceResponse;
@@ -537,6 +561,68 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 创建实验
+     *  *
+     * @param CreateExperimentRequest $request CreateExperimentRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateExperimentResponse CreateExperimentResponse
+     */
+    public function createExperimentWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accessibility)) {
+            $body['Accessibility'] = $request->accessibility;
+        }
+        if (!Utils::isUnset($request->artifactUri)) {
+            $body['ArtifactUri'] = $request->artifactUri;
+        }
+        if (!Utils::isUnset($request->labels)) {
+            $body['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateExperiment',
+            'version'     => '2021-02-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/experiments',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建实验
+     *  *
+     * @param CreateExperimentRequest $request CreateExperimentRequest
+     *
+     * @return CreateExperimentResponse CreateExperimentResponse
+     */
+    public function createExperiment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createExperimentWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 创建成员
      *  *
      * @param string              $WorkspaceId
@@ -928,6 +1014,71 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 创建一次运行
+     *  *
+     * @param CreateRunRequest $request CreateRunRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateRunResponse CreateRunResponse
+     */
+    public function createRunWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->experimentId)) {
+            $body['ExperimentId'] = $request->experimentId;
+        }
+        if (!Utils::isUnset($request->labels)) {
+            $body['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->params)) {
+            $body['Params'] = $request->params;
+        }
+        if (!Utils::isUnset($request->sourceId)) {
+            $body['SourceId'] = $request->sourceId;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $body['SourceType'] = $request->sourceType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRun',
+            'version'     => '2021-02-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/runs',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建一次运行
+     *  *
+     * @param CreateRunRequest $request CreateRunRequest
+     *
+     * @return CreateRunResponse CreateRunResponse
+     */
+    public function createRun($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createRunWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 创建工作空间
      *  *
      * @param CreateWorkspaceRequest $request CreateWorkspaceRequest
@@ -1182,6 +1333,96 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除实验
+     *  *
+     * @param string         $ExperimentId
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     *
+     * @return DeleteExperimentResponse DeleteExperimentResponse
+     */
+    public function deleteExperimentWithOptions($ExperimentId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteExperiment',
+            'version'     => '2021-02-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/experiments/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除实验
+     *  *
+     * @param string $ExperimentId
+     *
+     * @return DeleteExperimentResponse DeleteExperimentResponse
+     */
+    public function deleteExperiment($ExperimentId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteExperimentWithOptions($ExperimentId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除实验标签
+     *  *
+     * @param string         $ExperimentId
+     * @param string         $Key
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     *
+     * @return DeleteExperimentLabelResponse DeleteExperimentLabelResponse
+     */
+    public function deleteExperimentLabelWithOptions($ExperimentId, $Key, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteExperimentLabel',
+            'version'     => '2021-02-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/experiments/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '/labels/' . OpenApiUtilClient::getEncodeParam($Key) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteExperimentLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除实验标签
+     *  *
+     * @param string $ExperimentId
+     * @param string $Key
+     *
+     * @return DeleteExperimentLabelResponse DeleteExperimentLabelResponse
+     */
+    public function deleteExperimentLabel($ExperimentId, $Key)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteExperimentLabelWithOptions($ExperimentId, $Key, $headers, $runtime);
+    }
+
+    /**
      * @summary 删除工作空间成员
      *  *
      * @param string               $WorkspaceId
@@ -1427,6 +1668,96 @@ class AIWorkSpace extends OpenApiClient
         $headers = [];
 
         return $this->deleteModelVersionLabelsWithOptions($ModelId, $VersionName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除Run
+     *  *
+     * @param string         $RunId
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteRunResponse DeleteRunResponse
+     */
+    public function deleteRunWithOptions($RunId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRun',
+            'version'     => '2021-02-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/runs/' . OpenApiUtilClient::getEncodeParam($RunId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除Run
+     *  *
+     * @param string $RunId
+     *
+     * @return DeleteRunResponse DeleteRunResponse
+     */
+    public function deleteRun($RunId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteRunWithOptions($RunId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除Run标签
+     *  *
+     * @param string         $RunId
+     * @param string         $Key
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteRunLabelResponse DeleteRunLabelResponse
+     */
+    public function deleteRunLabelWithOptions($RunId, $Key, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRunLabel',
+            'version'     => '2021-02-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/runs/' . OpenApiUtilClient::getEncodeParam($RunId) . '/labels/' . OpenApiUtilClient::getEncodeParam($Key) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRunLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除Run标签
+     *  *
+     * @param string $RunId
+     * @param string $Key
+     *
+     * @return DeleteRunLabelResponse DeleteRunLabelResponse
+     */
+    public function deleteRunLabel($RunId, $Key)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteRunLabelWithOptions($RunId, $Key, $headers, $runtime);
     }
 
     /**
@@ -1676,6 +2007,58 @@ class AIWorkSpace extends OpenApiClient
         $headers = [];
 
         return $this->getDefaultWorkspaceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取实验
+     *  *
+     * @param string               $ExperimentId
+     * @param GetExperimentRequest $request      GetExperimentRequest
+     * @param string[]             $headers      map
+     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
+     *
+     * @return GetExperimentResponse GetExperimentResponse
+     */
+    public function getExperimentWithOptions($ExperimentId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->verbose)) {
+            $query['Verbose'] = $request->verbose;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetExperiment',
+            'version'     => '2021-02-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/experiments/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取实验
+     *  *
+     * @param string               $ExperimentId
+     * @param GetExperimentRequest $request      GetExperimentRequest
+     *
+     * @return GetExperimentResponse GetExperimentResponse
+     */
+    public function getExperiment($ExperimentId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getExperimentWithOptions($ExperimentId, $request, $headers, $runtime);
     }
 
     /**
@@ -1939,24 +2322,31 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @summary 获取服务模版
+     * @summary 获取Run详情
      *  *
-     * @param string         $ServiceTemplateId
-     * @param string[]       $headers           map
-     * @param RuntimeOptions $runtime           runtime options for this request RuntimeOptions
+     * @param string         $RunId
+     * @param GetRunRequest  $request GetRunRequest
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetServiceTemplateResponse GetServiceTemplateResponse
+     * @return GetRunResponse GetRunResponse
      */
-    public function getServiceTemplateWithOptions($ServiceTemplateId, $headers, $runtime)
+    public function getRunWithOptions($RunId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->verbose)) {
+            $query['Verbose'] = $request->verbose;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetServiceTemplate',
+            'action'      => 'GetRun',
             'version'     => '2021-02-04',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/servicetemplates/' . OpenApiUtilClient::getEncodeParam($ServiceTemplateId) . '',
+            'pathname'    => '/api/v1/runs/' . OpenApiUtilClient::getEncodeParam($RunId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1964,22 +2354,23 @@ class AIWorkSpace extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetServiceTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRunResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取服务模版
+     * @summary 获取Run详情
      *  *
-     * @param string $ServiceTemplateId
+     * @param string        $RunId
+     * @param GetRunRequest $request GetRunRequest
      *
-     * @return GetServiceTemplateResponse GetServiceTemplateResponse
+     * @return GetRunResponse GetRunResponse
      */
-    public function getServiceTemplate($ServiceTemplateId)
+    public function getRun($RunId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getServiceTemplateWithOptions($ServiceTemplateId, $headers, $runtime);
+        return $this->getRunWithOptions($RunId, $request, $headers, $runtime);
     }
 
     /**
@@ -2183,6 +2574,94 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 获取实验列表
+     *  *
+     * @param ListExperimentRequest $tmpReq  ListExperimentRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListExperimentResponse ListExperimentResponse
+     */
+    public function listExperimentWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListExperimentShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->options)) {
+            $request->optionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->options, 'Options', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->labels)) {
+            $query['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->optionsShrink)) {
+            $query['Options'] = $request->optionsShrink;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->pageToken)) {
+            $query['PageToken'] = $request->pageToken;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->verbose)) {
+            $query['Verbose'] = $request->verbose;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListExperiment',
+            'version'     => '2021-02-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/experiments',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取实验列表
+     *  *
+     * @param ListExperimentRequest $request ListExperimentRequest
+     *
+     * @return ListExperimentResponse ListExperimentResponse
+     */
+    public function listExperiment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listExperimentWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 列举标签
      *  *
      * @param ListImageLabelsRequest $request ListImageLabelsRequest
@@ -2259,6 +2738,9 @@ class AIWorkSpace extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->accessibility)) {
             $query['Accessibility'] = $request->accessibility;
+        }
+        if (!Utils::isUnset($request->imageUri)) {
+            $query['ImageUri'] = $request->imageUri;
         }
         if (!Utils::isUnset($request->labels)) {
             $query['Labels'] = $request->labels;
@@ -2793,51 +3275,37 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * @summary 获取服务模版列表
+     * @summary 获取Run的指标记录列表
      *  *
-     * @param ListServiceTemplatesRequest $request ListServiceTemplatesRequest
-     * @param string[]                    $headers map
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param string                $RunId
+     * @param ListRunMetricsRequest $request ListRunMetricsRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListServiceTemplatesResponse ListServiceTemplatesResponse
+     * @return ListRunMetricsResponse ListRunMetricsResponse
      */
-    public function listServiceTemplatesWithOptions($request, $headers, $runtime)
+    public function listRunMetricsWithOptions($RunId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->label)) {
-            $query['Label'] = $request->label;
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->provider)) {
-            $query['Provider'] = $request->provider;
-        }
-        if (!Utils::isUnset($request->query)) {
-            $query['Query'] = $request->query;
-        }
-        if (!Utils::isUnset($request->serviceTemplateName)) {
-            $query['ServiceTemplateName'] = $request->serviceTemplateName;
-        }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+        if (!Utils::isUnset($request->pageToken)) {
+            $query['PageToken'] = $request->pageToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServiceTemplates',
+            'action'      => 'ListRunMetrics',
             'version'     => '2021-02-04',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/servicetemplates',
+            'pathname'    => '/api/v1/runs/' . OpenApiUtilClient::getEncodeParam($RunId) . '/metrics',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2845,22 +3313,115 @@ class AIWorkSpace extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListServiceTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRunMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取服务模版列表
+     * @summary 获取Run的指标记录列表
      *  *
-     * @param ListServiceTemplatesRequest $request ListServiceTemplatesRequest
+     * @param string                $RunId
+     * @param ListRunMetricsRequest $request ListRunMetricsRequest
      *
-     * @return ListServiceTemplatesResponse ListServiceTemplatesResponse
+     * @return ListRunMetricsResponse ListRunMetricsResponse
      */
-    public function listServiceTemplates($request)
+    public function listRunMetrics($RunId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listServiceTemplatesWithOptions($request, $headers, $runtime);
+        return $this->listRunMetricsWithOptions($RunId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取Run列表
+     *  *
+     * @param ListRunsRequest $request ListRunsRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListRunsResponse ListRunsResponse
+     */
+    public function listRunsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->experimentId)) {
+            $query['ExperimentId'] = $request->experimentId;
+        }
+        if (!Utils::isUnset($request->gmtCreateTime)) {
+            $query['GmtCreateTime'] = $request->gmtCreateTime;
+        }
+        if (!Utils::isUnset($request->labels)) {
+            $query['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->pageToken)) {
+            $query['PageToken'] = $request->pageToken;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->sourceId)) {
+            $query['SourceId'] = $request->sourceId;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->verbose)) {
+            $query['Verbose'] = $request->verbose;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRuns',
+            'version'     => '2021-02-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/runs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRunsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取Run列表
+     *  *
+     * @param ListRunsRequest $request ListRunsRequest
+     *
+     * @return ListRunsResponse ListRunsResponse
+     */
+    public function listRuns($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listRunsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2993,6 +3554,58 @@ class AIWorkSpace extends OpenApiClient
         $headers = [];
 
         return $this->listWorkspacesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 批量记录Run的指标
+     *  *
+     * @param string               $RunId
+     * @param LogRunMetricsRequest $request LogRunMetricsRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return LogRunMetricsResponse LogRunMetricsResponse
+     */
+    public function logRunMetricsWithOptions($RunId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->metrics)) {
+            $body['Metrics'] = $request->metrics;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'LogRunMetrics',
+            'version'     => '2021-02-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/runs/' . OpenApiUtilClient::getEncodeParam($RunId) . '/metrics/action/log',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return LogRunMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量记录Run的指标
+     *  *
+     * @param string               $RunId
+     * @param LogRunMetricsRequest $request LogRunMetricsRequest
+     *
+     * @return LogRunMetricsResponse LogRunMetricsResponse
+     */
+    public function logRunMetrics($RunId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->logRunMetricsWithOptions($RunId, $request, $headers, $runtime);
     }
 
     /**
@@ -3266,6 +3879,58 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 更新实验标签
+     *  *
+     * @param string                     $ExperimentId
+     * @param SetExperimentLabelsRequest $request      SetExperimentLabelsRequest
+     * @param string[]                   $headers      map
+     * @param RuntimeOptions             $runtime      runtime options for this request RuntimeOptions
+     *
+     * @return SetExperimentLabelsResponse SetExperimentLabelsResponse
+     */
+    public function setExperimentLabelsWithOptions($ExperimentId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->labels)) {
+            $body['Labels'] = $request->labels;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SetExperimentLabels',
+            'version'     => '2021-02-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/experiments/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '/labels',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetExperimentLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新实验标签
+     *  *
+     * @param string                     $ExperimentId
+     * @param SetExperimentLabelsRequest $request      SetExperimentLabelsRequest
+     *
+     * @return SetExperimentLabelsResponse SetExperimentLabelsResponse
+     */
+    public function setExperimentLabels($ExperimentId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->setExperimentLabelsWithOptions($ExperimentId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 更新数据集
      *  *
      * @param string               $DatasetId
@@ -3371,6 +4036,61 @@ class AIWorkSpace extends OpenApiClient
         $headers = [];
 
         return $this->updateDefaultWorkspaceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新实验
+     *  *
+     * @param string                  $ExperimentId
+     * @param UpdateExperimentRequest $request      UpdateExperimentRequest
+     * @param string[]                $headers      map
+     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
+     *
+     * @return UpdateExperimentResponse UpdateExperimentResponse
+     */
+    public function updateExperimentWithOptions($ExperimentId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accessibility)) {
+            $body['Accessibility'] = $request->accessibility;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateExperiment',
+            'version'     => '2021-02-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/experiments/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新实验
+     *  *
+     * @param string                  $ExperimentId
+     * @param UpdateExperimentRequest $request      UpdateExperimentRequest
+     *
+     * @return UpdateExperimentResponse UpdateExperimentResponse
+     */
+    public function updateExperiment($ExperimentId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateExperimentWithOptions($ExperimentId, $request, $headers, $runtime);
     }
 
     /**
@@ -3534,6 +4254,64 @@ class AIWorkSpace extends OpenApiClient
         $headers = [];
 
         return $this->updateModelVersionWithOptions($ModelId, $VersionName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新Run
+     *  *
+     * @param string           $RunId
+     * @param UpdateRunRequest $request UpdateRunRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateRunResponse UpdateRunResponse
+     */
+    public function updateRunWithOptions($RunId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->labels)) {
+            $body['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->params)) {
+            $body['Params'] = $request->params;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRun',
+            'version'     => '2021-02-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/runs/' . OpenApiUtilClient::getEncodeParam($RunId) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新Run
+     *  *
+     * @param string           $RunId
+     * @param UpdateRunRequest $request UpdateRunRequest
+     *
+     * @return UpdateRunResponse UpdateRunResponse
+     */
+    public function updateRun($RunId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateRunWithOptions($RunId, $request, $headers, $runtime);
     }
 
     /**
