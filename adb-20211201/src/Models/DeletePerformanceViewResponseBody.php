@@ -23,6 +23,8 @@ class DeletePerformanceViewResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
+     * @description The delete status.
+     *
      * @example SUCCESS
      *
      * @var bool
@@ -30,6 +32,8 @@ class DeletePerformanceViewResponseBody extends Model
     public $deleteStatus;
 
     /**
+     * @description The request ID.
+     *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
      *
      * @var string

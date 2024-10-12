@@ -72,7 +72,7 @@ class ModifyBackupPolicyRequest extends Model
      *   **Saturday**
      *   **Sunday**
      *
-     * This parameter is required.
+     * >  To ensure data security, we recommend that you specify at least two values.
      * @example Monday,Wednesday,Friday,Sunday
      *
      * @var string

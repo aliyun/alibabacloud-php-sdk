@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreatePerformanceViewRequest extends Model
 {
     /**
+     * @description The type of the view.
+     *
      * @example Basic
      *
      * @var string
@@ -77,7 +79,10 @@ class CreatePerformanceViewRequest extends Model
     public $viewDetail;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the view.
+     *
+     * This parameter is required.
+     * @example viewname
      *
      * @var string
      */

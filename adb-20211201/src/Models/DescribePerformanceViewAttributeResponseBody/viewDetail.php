@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class viewDetail extends Model
 {
     /**
+     * @description The metric category.
+     *
      * @var categories[]
      */
     public $categories;
 
     /**
+     * @description Specifies whether to enable the filter interaction feature. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -22,6 +29,8 @@ class viewDetail extends Model
     public $chartLinked;
 
     /**
+     * @description The number of charts to display in each row.
+     *
      * @example 2
      *
      * @var int

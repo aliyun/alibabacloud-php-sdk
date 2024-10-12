@@ -27,6 +27,8 @@ class acuUsageDetail extends Model
     public $reservedAcuNumber;
 
     /**
+     * @description The number of spot ACUs.
+     *
      * @example 16ACU
      *
      * @var float
@@ -34,6 +36,8 @@ class acuUsageDetail extends Model
     public $spotAcuNumber;
 
     /**
+     * @description The percent of spot ACUs.
+     *
      * @example 0.9
      *
      * @var float

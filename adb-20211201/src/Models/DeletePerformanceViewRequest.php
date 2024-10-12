@@ -49,7 +49,10 @@ class DeletePerformanceViewRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the view.
+     *
+     * This parameter is required.
+     * @example view_dwd_plan_double_term
      *
      * @var string
      */

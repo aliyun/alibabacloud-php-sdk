@@ -20,6 +20,11 @@ class CreateDBClusterRequest extends Model
     public $backupSetId;
 
     /**
+     * @description The region ID of the source cluster.
+     *
+     * >  This parameter must be specified for cloning clusters across regions.
+     * @example cn-beijing
+     *
      * @var string
      */
     public $cloneSourceRegionId;

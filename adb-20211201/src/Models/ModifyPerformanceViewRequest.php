@@ -61,6 +61,8 @@ class ModifyPerformanceViewRequest extends Model
      * @description The name of the monitoring view.
      *
      * This parameter is required.
+     * @example Basic
+     *
      * @var string
      */
     public $viewName;

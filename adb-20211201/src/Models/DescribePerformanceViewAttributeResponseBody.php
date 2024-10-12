@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribePerformanceViewAttributeResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * >  This parameter is returned only if Resource Access Management (RAM) permission verification failed.
      * @example {
      * "PolicyType": "AccountLevelIdentityBasedPolicy",
      * "AuthPrincipalOwnerId": "1*****************7",
@@ -21,6 +24,8 @@ class DescribePerformanceViewAttributeResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
+     * @description The type of the view.
+     *
      * @example Basic
      *
      * @var string
@@ -28,6 +33,9 @@ class DescribePerformanceViewAttributeResponseBody extends Model
     public $createFromViewType;
 
     /**
+     * @description The cluster ID.
+     *
+     * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
      * @example amv-bp198m028ih55xxxx
      *
      * @var string
@@ -35,6 +43,11 @@ class DescribePerformanceViewAttributeResponseBody extends Model
     public $DBClusterId;
 
     /**
+     * @description Specifies whether to populate the names of the metrics in the original monitoring view when you view the monitoring view. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -42,6 +55,8 @@ class DescribePerformanceViewAttributeResponseBody extends Model
     public $fillOriginViewKeys;
 
     /**
+     * @description The request ID.
+     *
      * @example E031AABF-BD56-5966-A063-4283EF18DB45
      *
      * @var string
@@ -49,11 +64,17 @@ class DescribePerformanceViewAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the monitoring view.
+     *
      * @var viewDetail
      */
     public $viewDetail;
 
     /**
+     * @description The name of the view.
+     *
+     * @example Basic
+     *
      * @var string
      */
     public $viewName;

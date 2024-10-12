@@ -19,7 +19,7 @@ class DescribeApsActionLogsRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description The end time of the logs to be queried. Specify the time in the ISO 8601 standard in the **yyyy-MM-ddTHH:mm:ssZ** format. The time must be in UTC.
+     * @description The end time of the logs to be queried. Specify the time in the ISO 8601 standard in the **yyyy-MM-ddTHH:mmZ** format. The time must be in UTC.
      *
      * This parameter is required.
      * @example 2023-02-11T09:30:00Z
@@ -104,7 +104,7 @@ class DescribeApsActionLogsRequest extends Model
     public $stage;
 
     /**
-     * @description The start time of the logs to be queried. Specify the time in the ISO 8601 standard in the **yyyy-MM-ddTHH:mm:ssZ** format. The time must be in UTC.
+     * @description The start time of the logs to be queried. Specify the time in the ISO 8601 standard in the **yyyy-MM-ddTHH:mmZ** format. The time must be in UTC.
      *
      * This parameter is required.
      * @example 2023-02-11T08:30:00Z

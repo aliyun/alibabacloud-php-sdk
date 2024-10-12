@@ -11,12 +11,16 @@ class detectionItems extends Model
     /**
      * @description The detection result.
      *
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
      * @description The name of the detection item.
+     *
+     * @example test
      *
      * @var string
      */

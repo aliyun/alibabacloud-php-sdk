@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreatePerformanceViewResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * >  This parameter is returned only if Resource Access Management (RAM) permission verification failed.
      * @example {
      * "PolicyType": "AccountLevelIdentityBasedPolicy",
      * "AuthPrincipalOwnerId": "1*****************7",
@@ -32,6 +35,8 @@ class CreatePerformanceViewResponseBody extends Model
     public $createStatus;
 
     /**
+     * @description The request ID.
+     *
      * @example E031AABF-BD56-5966-A063-4283EF18DB45
      *
      * @var string

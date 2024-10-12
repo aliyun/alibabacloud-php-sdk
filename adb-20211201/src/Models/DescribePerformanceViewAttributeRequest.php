@@ -49,7 +49,10 @@ class DescribePerformanceViewAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the view.
+     *
+     * This parameter is required.
+     * @example Basic
      *
      * @var string
      */

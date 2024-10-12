@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class views extends Model
 {
     /**
+     * @description The time when created.
+     *
      * @example 2024-06-18T07:06:53.000+00:00
      *
      * @var string
@@ -16,6 +18,8 @@ class views extends Model
     public $createTime;
 
     /**
+     * @description The time when updated.
+     *
      * @example 2024-06-18T07:07:32.000+00:00
      *
      * @var string
@@ -23,6 +27,10 @@ class views extends Model
     public $updateTime;
 
     /**
+     * @description The name of the view.
+     *
+     * @example Basic
+     *
      * @var string
      */
     public $viewName;
