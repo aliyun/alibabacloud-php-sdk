@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Governance\V20210120\Models\GetEnrolledAccountResponseBody;
 
 use AlibabaCloud\SDK\Governance\V20210120\Models\GetEnrolledAccountResponseBody\inputs\baselineItems;
+use AlibabaCloud\SDK\Governance\V20210120\Models\GetEnrolledAccountResponseBody\inputs\tag;
 use AlibabaCloud\Tea\Model;
 
 class inputs extends Model
@@ -60,6 +61,11 @@ class inputs extends Model
      * @var int
      */
     public $payerAccountUid;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'accountNamePrefix' => 'AccountNamePrefix',
         'accountUid'        => 'AccountUid',
@@ -67,6 +73,7 @@ class inputs extends Model
         'displayName'       => 'DisplayName',
         'folderId'          => 'FolderId',
         'payerAccountUid'   => 'PayerAccountUid',
+        'tag'               => 'Tag',
     ];
 
     public function validate()
@@ -99,6 +106,15 @@ class inputs extends Model
         }
         if (null !== $this->payerAccountUid) {
             $res['PayerAccountUid'] = $this->payerAccountUid;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -135,6 +151,15 @@ class inputs extends Model
         }
         if (isset($map['PayerAccountUid'])) {
             $model->payerAccountUid = $map['PayerAccountUid'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -4,11 +4,10 @@
 
 namespace AlibabaCloud\SDK\Governance\V20210120\Models;
 
-use AlibabaCloud\SDK\Governance\V20210120\Models\EnrollAccountRequest\baselineItems;
-use AlibabaCloud\SDK\Governance\V20210120\Models\EnrollAccountRequest\tag;
+use AlibabaCloud\SDK\Governance\V20210120\Models\EnrollAccountShrinkRequest\baselineItems;
 use AlibabaCloud\Tea\Model;
 
-class EnrollAccountRequest extends Model
+class EnrollAccountShrinkRequest extends Model
 {
     /**
      * @description The prefix for the account name of the member.
@@ -111,9 +110,9 @@ class EnrollAccountRequest extends Model
     public $resellAccountType;
 
     /**
-     * @var tag[]
+     * @var string
      */
-    public $tag;
+    public $tagShrink;
     protected $_name = [
         'accountNamePrefix' => 'AccountNamePrefix',
         'accountUid'        => 'AccountUid',
@@ -124,7 +123,7 @@ class EnrollAccountRequest extends Model
         'payerAccountUid'   => 'PayerAccountUid',
         'regionId'          => 'RegionId',
         'resellAccountType' => 'ResellAccountType',
-        'tag'               => 'Tag',
+        'tagShrink'         => 'Tag',
     ];
 
     public function validate()
@@ -167,14 +166,8 @@ class EnrollAccountRequest extends Model
         if (null !== $this->resellAccountType) {
             $res['ResellAccountType'] = $this->resellAccountType;
         }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->tagShrink) {
+            $res['Tag'] = $this->tagShrink;
         }
 
         return $res;
@@ -183,7 +176,7 @@ class EnrollAccountRequest extends Model
     /**
      * @param array $map
      *
-     * @return EnrollAccountRequest
+     * @return EnrollAccountShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -222,13 +215,7 @@ class EnrollAccountRequest extends Model
             $model->resellAccountType = $map['ResellAccountType'];
         }
         if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
-            }
+            $model->tagShrink = $map['Tag'];
         }
 
         return $model;
