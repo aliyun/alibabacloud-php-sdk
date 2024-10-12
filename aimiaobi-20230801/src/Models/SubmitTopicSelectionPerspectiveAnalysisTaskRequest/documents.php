@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitTopicSelectionPerspectiveAnalysisTaskRequest;
 
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitTopicSelectionPerspectiveAnalysisTaskRequest\documents\comments;
 use AlibabaCloud\Tea\Model;
 
 class documents extends Model
@@ -14,6 +15,11 @@ class documents extends Model
      * @var string
      */
     public $author;
+
+    /**
+     * @var comments[]
+     */
+    public $comments;
 
     /**
      * @description This parameter is required.
@@ -59,13 +65,14 @@ class documents extends Model
      */
     public $url;
     protected $_name = [
-        'author'  => 'Author',
-        'content' => 'Content',
-        'pubTime' => 'PubTime',
-        'source'  => 'Source',
-        'summary' => 'Summary',
-        'title'   => 'Title',
-        'url'     => 'Url',
+        'author'   => 'Author',
+        'comments' => 'Comments',
+        'content'  => 'Content',
+        'pubTime'  => 'PubTime',
+        'source'   => 'Source',
+        'summary'  => 'Summary',
+        'title'    => 'Title',
+        'url'      => 'Url',
     ];
 
     public function validate()
@@ -77,6 +84,15 @@ class documents extends Model
         $res = [];
         if (null !== $this->author) {
             $res['Author'] = $this->author;
+        }
+        if (null !== $this->comments) {
+            $res['Comments'] = [];
+            if (null !== $this->comments && \is_array($this->comments)) {
+                $n = 0;
+                foreach ($this->comments as $item) {
+                    $res['Comments'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
@@ -110,6 +126,15 @@ class documents extends Model
         $model = new self();
         if (isset($map['Author'])) {
             $model->author = $map['Author'];
+        }
+        if (isset($map['Comments'])) {
+            if (!empty($map['Comments'])) {
+                $model->comments = [];
+                $n               = 0;
+                foreach ($map['Comments'] as $item) {
+                    $model->comments[$n++] = null !== $item ? comments::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
