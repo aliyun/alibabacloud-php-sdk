@@ -183,6 +183,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafRulesetRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafRulesetResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheReserveInstancesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheReserveInstancesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListClientCertificatesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListClientCertificatesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppsRequest;
@@ -4837,6 +4839,50 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCacheReserveInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询站点下客户端证书列表
+     *  *
+     * @param ListClientCertificatesRequest $request ListClientCertificatesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListClientCertificatesResponse ListClientCertificatesResponse
+     */
+    public function listClientCertificatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClientCertificates',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListClientCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询站点下客户端证书列表
+     *  *
+     * @param ListClientCertificatesRequest $request ListClientCertificatesRequest
+     *
+     * @return ListClientCertificatesResponse ListClientCertificatesResponse
+     */
+    public function listClientCertificates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listClientCertificatesWithOptions($request, $runtime);
     }
 
     /**
