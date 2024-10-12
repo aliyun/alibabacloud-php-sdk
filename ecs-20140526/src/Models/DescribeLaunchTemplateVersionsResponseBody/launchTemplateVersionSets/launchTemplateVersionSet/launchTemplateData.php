@@ -119,6 +119,21 @@ class launchTemplateData extends Model
     public $hostName;
 
     /**
+     * @var string
+     */
+    public $httpEndpoint;
+
+    /**
+     * @var int
+     */
+    public $httpPutResponseHopLimit;
+
+    /**
+     * @var string
+     */
+    public $httpTokens;
+
+    /**
      * @description The ID of the image.
      *
      * @example m-bp67acfmxazb4p****
@@ -275,7 +290,7 @@ class launchTemplateData extends Model
     /**
      * @description The private IP address to assign to the instance.
      *
-     * @example 10.1.\*\*.**
+     * @example ``10.1.**.**``
      *
      * @var string
      */
@@ -415,6 +430,9 @@ class launchTemplateData extends Model
         'description'                 => 'Description',
         'enableVmOsConfig'            => 'EnableVmOsConfig',
         'hostName'                    => 'HostName',
+        'httpEndpoint'                => 'HttpEndpoint',
+        'httpPutResponseHopLimit'     => 'HttpPutResponseHopLimit',
+        'httpTokens'                  => 'HttpTokens',
         'imageId'                     => 'ImageId',
         'imageOwnerAlias'             => 'ImageOwnerAlias',
         'instanceChargeType'          => 'InstanceChargeType',
@@ -486,6 +504,15 @@ class launchTemplateData extends Model
         }
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
+        }
+        if (null !== $this->httpEndpoint) {
+            $res['HttpEndpoint'] = $this->httpEndpoint;
+        }
+        if (null !== $this->httpPutResponseHopLimit) {
+            $res['HttpPutResponseHopLimit'] = $this->httpPutResponseHopLimit;
+        }
+        if (null !== $this->httpTokens) {
+            $res['HttpTokens'] = $this->httpTokens;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -621,6 +648,15 @@ class launchTemplateData extends Model
         }
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];
+        }
+        if (isset($map['HttpEndpoint'])) {
+            $model->httpEndpoint = $map['HttpEndpoint'];
+        }
+        if (isset($map['HttpPutResponseHopLimit'])) {
+            $model->httpPutResponseHopLimit = $map['HttpPutResponseHopLimit'];
+        }
+        if (isset($map['HttpTokens'])) {
+            $model->httpTokens = $map['HttpTokens'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];

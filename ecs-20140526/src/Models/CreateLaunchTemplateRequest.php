@@ -128,6 +128,21 @@ class CreateLaunchTemplateRequest extends Model
     public $hostName;
 
     /**
+     * @var string
+     */
+    public $httpEndpoint;
+
+    /**
+     * @var int
+     */
+    public $httpPutResponseHopLimit;
+
+    /**
+     * @var string
+     */
+    public $httpTokens;
+
+    /**
      * @description The ID of the image to use to create the instance. You can call the [DescribeImages](https://help.aliyun.com/document_detail/25534.html) operation to query available images.
      *
      * @example win2008r2_64_ent_sp1_en-us_40G_alibase_20170915.vhd
@@ -320,7 +335,7 @@ class CreateLaunchTemplateRequest extends Model
      * @description The private IP address to assign to the instance.
      *
      * To assign a private IP address to an instance that resides in a VPC, make sure that the IP address is an idle IP address within the CIDR block of the vSwitch specified by the `VSwitchId` parameter.
-     * @example 10.1.\*\*.**
+     * @example ``10.1.**.**``
      *
      * @var string
      */
@@ -514,6 +529,9 @@ class CreateLaunchTemplateRequest extends Model
         'description'                 => 'Description',
         'enableVmOsConfig'            => 'EnableVmOsConfig',
         'hostName'                    => 'HostName',
+        'httpEndpoint'                => 'HttpEndpoint',
+        'httpPutResponseHopLimit'     => 'HttpPutResponseHopLimit',
+        'httpTokens'                  => 'HttpTokens',
         'imageId'                     => 'ImageId',
         'imageOwnerAlias'             => 'ImageOwnerAlias',
         'instanceChargeType'          => 'InstanceChargeType',
@@ -600,6 +618,15 @@ class CreateLaunchTemplateRequest extends Model
         }
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
+        }
+        if (null !== $this->httpEndpoint) {
+            $res['HttpEndpoint'] = $this->httpEndpoint;
+        }
+        if (null !== $this->httpPutResponseHopLimit) {
+            $res['HttpPutResponseHopLimit'] = $this->httpPutResponseHopLimit;
+        }
+        if (null !== $this->httpTokens) {
+            $res['HttpTokens'] = $this->httpTokens;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -786,6 +813,15 @@ class CreateLaunchTemplateRequest extends Model
         }
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];
+        }
+        if (isset($map['HttpEndpoint'])) {
+            $model->httpEndpoint = $map['HttpEndpoint'];
+        }
+        if (isset($map['HttpPutResponseHopLimit'])) {
+            $model->httpPutResponseHopLimit = $map['HttpPutResponseHopLimit'];
+        }
+        if (isset($map['HttpTokens'])) {
+            $model->httpTokens = $map['HttpTokens'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];

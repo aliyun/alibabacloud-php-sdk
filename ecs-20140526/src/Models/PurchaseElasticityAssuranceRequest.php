@@ -22,6 +22,16 @@ class PurchaseElasticityAssuranceRequest extends Model
     public $clientToken;
 
     /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @example 1
      *
      * @var int
@@ -45,18 +55,32 @@ class PurchaseElasticityAssuranceRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @example 2024-06-18T00:00Z
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'privatePoolOptions' => 'PrivatePoolOptions',
-        'clientToken'        => 'ClientToken',
-        'period'             => 'Period',
-        'periodUnit'         => 'PeriodUnit',
-        'regionId'           => 'RegionId',
-        'startTime'          => 'StartTime',
+        'privatePoolOptions'   => 'PrivatePoolOptions',
+        'clientToken'          => 'ClientToken',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
+        'period'               => 'Period',
+        'periodUnit'           => 'PeriodUnit',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'startTime'            => 'StartTime',
     ];
 
     public function validate()
@@ -72,6 +96,12 @@ class PurchaseElasticityAssuranceRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
@@ -80,6 +110,12 @@ class PurchaseElasticityAssuranceRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -102,6 +138,12 @@ class PurchaseElasticityAssuranceRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
@@ -110,6 +152,12 @@ class PurchaseElasticityAssuranceRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

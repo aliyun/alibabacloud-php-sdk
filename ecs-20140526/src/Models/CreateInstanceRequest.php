@@ -253,7 +253,7 @@ class CreateInstanceRequest extends Model
     /**
      * @description The internal IP address to assign to the instance.
      *
-     * @example 192.168.\*\*.**
+     * @example ``192.168.**.**``
      *
      * @var string
      */

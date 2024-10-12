@@ -5639,6 +5639,15 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->hostName)) {
             $query['HostName'] = $request->hostName;
         }
+        if (!Utils::isUnset($request->httpEndpoint)) {
+            $query['HttpEndpoint'] = $request->httpEndpoint;
+        }
+        if (!Utils::isUnset($request->httpPutResponseHopLimit)) {
+            $query['HttpPutResponseHopLimit'] = $request->httpPutResponseHopLimit;
+        }
+        if (!Utils::isUnset($request->httpTokens)) {
+            $query['HttpTokens'] = $request->httpTokens;
+        }
         if (!Utils::isUnset($request->imageId)) {
             $query['ImageId'] = $request->imageId;
         }
@@ -5845,6 +5854,15 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->hostName)) {
             $query['HostName'] = $request->hostName;
+        }
+        if (!Utils::isUnset($request->httpEndpoint)) {
+            $query['HttpEndpoint'] = $request->httpEndpoint;
+        }
+        if (!Utils::isUnset($request->httpPutResponseHopLimit)) {
+            $query['HttpPutResponseHopLimit'] = $request->httpPutResponseHopLimit;
+        }
+        if (!Utils::isUnset($request->httpTokens)) {
+            $query['HttpTokens'] = $request->httpTokens;
         }
         if (!Utils::isUnset($request->imageId)) {
             $query['ImageId'] = $request->imageId;
@@ -27990,6 +28008,12 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         if (!Utils::isUnset($request->period)) {
             $query['Period'] = $request->period;
         }
@@ -27998,6 +28022,12 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;

@@ -30,7 +30,7 @@ class DescribeManagedInstancesRequest extends Model
     /**
      * @description The internal or public IP address of the managed instance.
      *
-     * @example 192.168.\*\*.**
+     * @example ``192.168.**.**``
      *
      * @var string
      */

@@ -32,7 +32,7 @@ class ModifyInstanceVpcAttributeRequest extends Model
      * @description The new private IP address of the instance.
      *
      * By default, if this parameter is not specified, a private IP address is randomly assigned from the CIDR block of the specified vSwitch.
-     * @example 172.17.\*\*.**
+     * @example ``172.17.**.**``
      *
      * @var string
      */

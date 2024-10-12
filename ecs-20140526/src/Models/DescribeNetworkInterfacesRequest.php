@@ -106,7 +106,7 @@ class DescribeNetworkInterfacesRequest extends Model
     /**
      * @description The primary private IPv4 address of the ENI.
      *
-     * @example 192.168.\*\*.**
+     * @example ``192.168.**.**``
      *
      * @var string
      */
@@ -115,7 +115,7 @@ class DescribeNetworkInterfacesRequest extends Model
     /**
      * @description An array that consists of the secondary private IPv4 addresses of the ENI. You can specify multiple secondary private IPv4 addresses. Valid values of N: 1 to 100.
      *
-     * @example 192.168.\*\*.**
+     * @example ``192.168.**.**``
      *
      * @var string[]
      */
