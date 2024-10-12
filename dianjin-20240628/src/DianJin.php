@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\DianJin\V20240628;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateAnnualDocSummaryTaskRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateAnnualDocSummaryTaskResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateDocsSummaryTaskRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateDocsSummaryTaskResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateFinReportSummaryTaskRequest;
@@ -115,6 +117,70 @@ class DianJin extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 创建按年文档总结任务
+     *  *
+     * @param string                            $workspaceId
+     * @param CreateAnnualDocSummaryTaskRequest $request     CreateAnnualDocSummaryTaskRequest
+     * @param string[]                          $headers     map
+     * @param RuntimeOptions                    $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return CreateAnnualDocSummaryTaskResponse CreateAnnualDocSummaryTaskResponse
+     */
+    public function createAnnualDocSummaryTaskWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->anaYears)) {
+            $body['anaYears'] = $request->anaYears;
+        }
+        if (!Utils::isUnset($request->docInfos)) {
+            $body['docInfos'] = $request->docInfos;
+        }
+        if (!Utils::isUnset($request->enableTable)) {
+            $body['enableTable'] = $request->enableTable;
+        }
+        if (!Utils::isUnset($request->instruction)) {
+            $body['instruction'] = $request->instruction;
+        }
+        if (!Utils::isUnset($request->modelId)) {
+            $body['modelId'] = $request->modelId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAnnualDocSummaryTask',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/api/task/summary/doc/annual',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAnnualDocSummaryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建按年文档总结任务
+     *  *
+     * @param string                            $workspaceId
+     * @param CreateAnnualDocSummaryTaskRequest $request     CreateAnnualDocSummaryTaskRequest
+     *
+     * @return CreateAnnualDocSummaryTaskResponse CreateAnnualDocSummaryTaskResponse
+     */
+    public function createAnnualDocSummaryTask($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAnnualDocSummaryTaskWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
