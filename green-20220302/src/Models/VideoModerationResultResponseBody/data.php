@@ -18,7 +18,7 @@ class data extends Model
     public $audioResult;
 
     /**
-     * @description The ID of the moderated object.
+     * @description The value of dataId that is specified in the API request. If this parameter is not specified in the API request, the dataId field is not available in the response.
      *
      * @example product_content-2055763
      *
@@ -43,6 +43,10 @@ class data extends Model
     public $liveId;
 
     /**
+     * @description Risk Level.
+     *
+     * @example high
+     *
      * @var string
      */
     public $riskLevel;

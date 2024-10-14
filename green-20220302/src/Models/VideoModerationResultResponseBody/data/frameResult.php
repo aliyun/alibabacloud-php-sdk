@@ -34,6 +34,10 @@ class frameResult extends Model
     public $frames;
 
     /**
+     * @description Risk Level.
+     *
+     * @example high
+     *
      * @var string
      */
     public $riskLevel;

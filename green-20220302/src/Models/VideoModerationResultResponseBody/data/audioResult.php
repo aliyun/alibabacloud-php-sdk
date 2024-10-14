@@ -18,6 +18,10 @@ class audioResult extends Model
     public $audioSummarys;
 
     /**
+     * @description Risk Level.
+     *
+     * @example high
+     *
      * @var string
      */
     public $riskLevel;

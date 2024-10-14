@@ -26,12 +26,16 @@ class frames extends Model
     public $results;
 
     /**
+     * @description Risk Level.
+     *
+     * @example high
+     *
      * @var string
      */
     public $riskLevel;
 
     /**
-     * @description The temporary URL of a captured frame. This URL is valid for 30 minutes.
+     * @description The temporary URL of a captured frame.
      *
      * @example http://xxxx.abc.jpg
      *

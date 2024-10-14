@@ -45,6 +45,10 @@ class sliceDetails extends Model
     public $labels;
 
     /**
+     * @description Risk Level.
+     *
+     * @example high
+     *
      * @var string
      */
     public $riskLevel;
@@ -68,7 +72,7 @@ class sliceDetails extends Model
     public $riskWords;
 
     /**
-     * @description Risk score, default range 0-99.
+     * @description The risk score. Default range: 0 to 99.
      *
      * @example 5
      *
@@ -104,7 +108,7 @@ class sliceDetails extends Model
     public $text;
 
     /**
-     * @description If the moderation object is a voice stream, this parameter indicates the temporary access URL of the voice stream to which the text entry corresponds. The validity period of the URL is 30 minutes. You must prepare another URL to store the audio stream at the earliest opportunity.
+     * @description If the moderation object is a voice stream, this parameter indicates the temporary access URL of the voice stream to which the text entry corresponds. The validity period of the URL is 30 minutes. You must prepare another URL to store the voice stream at the earliest opportunity.
      *
      * @example http://xxxx.abc.img
      *

@@ -18,6 +18,10 @@ class result extends Model
     public $confidence;
 
     /**
+     * @description The description of the result.
+     *
+     * @example no risk
+     *
      * @var string
      */
     public $description;

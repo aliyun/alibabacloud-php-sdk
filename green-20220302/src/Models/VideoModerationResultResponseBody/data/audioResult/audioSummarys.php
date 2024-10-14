@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class audioSummarys extends Model
 {
     /**
-     * @description Voice label.
+     * @description The voice label.
      *
      * @example profanity
      *

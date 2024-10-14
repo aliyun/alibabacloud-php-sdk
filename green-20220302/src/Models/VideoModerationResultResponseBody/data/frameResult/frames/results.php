@@ -12,14 +12,14 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
-     * @description If a custom image library is hit, information about the hit custom image library is returned.
+     * @description If a custom image library is hit, information about the custom image library is returned.
      *
      * @var customImage[]
      */
     public $customImage;
 
     /**
-     * @description If the video contains a specific person, the recognized person code is returned.
+     * @description If the video contains a specific figure, the code of the identified figure is returned.
      *
      * @var publicFigure[]
      */
@@ -42,7 +42,7 @@ class results extends Model
     public $service;
 
     /**
-     * @description Returns the text information in the hit image.
+     * @description The information about the text hit in the image is returned.
      *
      * @var mixed[]
      */

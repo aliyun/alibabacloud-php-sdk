@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class publicFigure extends Model
 {
     /**
-     * @description Identified person coding information.
+     * @description The information about the code of the identified figure.
      *
      * @example xxx001
      *

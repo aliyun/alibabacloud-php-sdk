@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class frameSummarys extends Model
 {
     /**
+     * @description The description of the result.
+     *
+     * @example no risk
+     *
      * @var string
      */
     public $description;

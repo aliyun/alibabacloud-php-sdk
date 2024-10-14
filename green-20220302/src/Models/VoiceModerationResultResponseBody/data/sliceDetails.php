@@ -54,6 +54,11 @@ class sliceDetails extends Model
     public $originAlgoResult;
 
     /**
+     * @var string
+     */
+    public $riskLevel;
+
+    /**
      * @description The risk details that are hit.
      *
      * @example sexuality_Suggestive
@@ -121,6 +126,7 @@ class sliceDetails extends Model
         'extend'           => 'Extend',
         'labels'           => 'Labels',
         'originAlgoResult' => 'OriginAlgoResult',
+        'riskLevel'        => 'RiskLevel',
         'riskTips'         => 'RiskTips',
         'riskWords'        => 'RiskWords',
         'score'            => 'Score',
@@ -151,6 +157,9 @@ class sliceDetails extends Model
         }
         if (null !== $this->originAlgoResult) {
             $res['OriginAlgoResult'] = $this->originAlgoResult;
+        }
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
         if (null !== $this->riskTips) {
             $res['RiskTips'] = $this->riskTips;
@@ -199,6 +208,9 @@ class sliceDetails extends Model
         }
         if (isset($map['OriginAlgoResult'])) {
             $model->originAlgoResult = $map['OriginAlgoResult'];
+        }
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
         if (isset($map['RiskTips'])) {
             $model->riskTips = $map['RiskTips'];

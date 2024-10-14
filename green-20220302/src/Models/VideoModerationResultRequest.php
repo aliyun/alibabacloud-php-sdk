@@ -11,6 +11,13 @@ class VideoModerationResultRequest extends Model
     /**
      * @description The type of the moderation service.
      *
+     * Valid values:
+     *
+     *   liveStreamDetection: live stream moderation
+     *   videoDetection: video file moderation
+     *   liveStreamDetection_cb: live stream moderation_For regions outside the Chinese mainland
+     *   videoDetection_cb: video file moderation_For regions outside the Chinese mainland.
+     *
      * @example videoDetection
      *
      * @var string
@@ -18,7 +25,7 @@ class VideoModerationResultRequest extends Model
     public $service;
 
     /**
-     * @description The parameters required by the moderation service. The value is a JSON string.
+     * @description The parameters required by the moderation service. The ID of the task that you want to query. You can specify one task ID at a time.
      *
      * @example {\\"taskId\\":\\"au_f_8PoWiZKoLbczp5HRn69VdT-1y8@U5\\"}
      *

@@ -28,6 +28,11 @@ class data extends Model
     public $liveId;
 
     /**
+     * @var string
+     */
+    public $riskLevel;
+
+    /**
      * @description The details about the audio segments.
      *
      * @var sliceDetails[]
@@ -54,6 +59,7 @@ class data extends Model
     protected $_name = [
         'dataId'       => 'DataId',
         'liveId'       => 'LiveId',
+        'riskLevel'    => 'RiskLevel',
         'sliceDetails' => 'SliceDetails',
         'taskId'       => 'TaskId',
         'url'          => 'Url',
@@ -71,6 +77,9 @@ class data extends Model
         }
         if (null !== $this->liveId) {
             $res['LiveId'] = $this->liveId;
+        }
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
         if (null !== $this->sliceDetails) {
             $res['SliceDetails'] = [];
@@ -104,6 +113,9 @@ class data extends Model
         }
         if (isset($map['LiveId'])) {
             $model->liveId = $map['LiveId'];
+        }
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
         if (isset($map['SliceDetails'])) {
             if (!empty($map['SliceDetails'])) {
