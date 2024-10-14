@@ -25,6 +25,7 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceEventsRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceEventsResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceMetricsRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceMetricsResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceShutdownTimerResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceSnapshotResponse;
@@ -644,16 +645,23 @@ class Paidsw extends OpenApiClient
     /**
      * @summary 获取实例详情
      *  *
-     * @param string         $InstanceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string             $InstanceId
+     * @param GetInstanceRequest $request    GetInstanceRequest
+     * @param string[]           $headers    map
+     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
      *
      * @return GetInstanceResponse GetInstanceResponse
      */
-    public function getInstanceWithOptions($InstanceId, $headers, $runtime)
+    public function getInstanceWithOptions($InstanceId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetInstance',
@@ -673,16 +681,17 @@ class Paidsw extends OpenApiClient
     /**
      * @summary 获取实例详情
      *  *
-     * @param string $InstanceId
+     * @param string             $InstanceId
+     * @param GetInstanceRequest $request    GetInstanceRequest
      *
      * @return GetInstanceResponse GetInstanceResponse
      */
-    public function getInstance($InstanceId)
+    public function getInstance($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getInstanceWithOptions($InstanceId, $headers, $runtime);
+        return $this->getInstanceWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -705,6 +714,9 @@ class Paidsw extends OpenApiClient
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -912,6 +924,9 @@ class Paidsw extends OpenApiClient
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,

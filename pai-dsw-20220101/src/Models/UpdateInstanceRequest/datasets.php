@@ -23,6 +23,8 @@ class datasets extends Model
     public $mountPath;
 
     /**
+     * @deprecated
+     *
      * @var string
      */
     public $optionType;

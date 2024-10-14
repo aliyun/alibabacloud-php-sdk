@@ -28,10 +28,16 @@ class GetInstanceEventsRequest extends Model
      * @var string
      */
     public $startTime;
+
+    /**
+     * @var string
+     */
+    public $token;
     protected $_name = [
         'endTime'      => 'EndTime',
         'maxEventsNum' => 'MaxEventsNum',
         'startTime'    => 'StartTime',
+        'token'        => 'Token',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class GetInstanceEventsRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->token) {
+            $res['Token'] = $this->token;
         }
 
         return $res;
@@ -70,6 +79,9 @@ class GetInstanceEventsRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Token'])) {
+            $model->token = $map['Token'];
         }
 
         return $model;

@@ -42,12 +42,18 @@ class GetLifecycleRequest extends Model
      * @var string
      */
     public $startTime;
+
+    /**
+     * @var string
+     */
+    public $token;
     protected $_name = [
         'endTime'       => 'EndTime',
         'limit'         => 'Limit',
         'order'         => 'Order',
         'sessionNumber' => 'SessionNumber',
         'startTime'     => 'StartTime',
+        'token'         => 'Token',
     ];
 
     public function validate()
@@ -71,6 +77,9 @@ class GetLifecycleRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->token) {
+            $res['Token'] = $this->token;
         }
 
         return $res;
@@ -98,6 +107,9 @@ class GetLifecycleRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Token'])) {
+            $model->token = $map['Token'];
         }
 
         return $model;
