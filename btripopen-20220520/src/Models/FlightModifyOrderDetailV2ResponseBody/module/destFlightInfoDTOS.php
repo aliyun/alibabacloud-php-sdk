@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightModifyOrderDetailV2ResponseBody\module;
 
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightModifyOrderDetailV2ResponseBody\module\destFlightInfoDTOS\flightChange;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightModifyOrderDetailV2ResponseBody\module\destFlightInfoDTOS\segmentPosition;
 use AlibabaCloud\Tea\Model;
 
@@ -145,6 +146,11 @@ class destFlightInfoDTOS extends Model
     public $depTime;
 
     /**
+     * @var flightChange
+     */
+    public $flightChange;
+
+    /**
      * @example MU5193
      *
      * @var string
@@ -211,6 +217,7 @@ class destFlightInfoDTOS extends Model
         'depCityName'           => 'dep_city_name',
         'depTerminal'           => 'dep_terminal',
         'depTime'               => 'dep_time',
+        'flightChange'          => 'flight_change',
         'flightNo'              => 'flight_no',
         'flightType'            => 'flight_type',
         'mealDesc'              => 'meal_desc',
@@ -296,6 +303,9 @@ class destFlightInfoDTOS extends Model
         }
         if (null !== $this->depTime) {
             $res['dep_time'] = $this->depTime;
+        }
+        if (null !== $this->flightChange) {
+            $res['flight_change'] = null !== $this->flightChange ? $this->flightChange->toMap() : null;
         }
         if (null !== $this->flightNo) {
             $res['flight_no'] = $this->flightNo;
@@ -401,6 +411,9 @@ class destFlightInfoDTOS extends Model
         }
         if (isset($map['dep_time'])) {
             $model->depTime = $map['dep_time'];
+        }
+        if (isset($map['flight_change'])) {
+            $model->flightChange = flightChange::fromMap($map['flight_change']);
         }
         if (isset($map['flight_no'])) {
             $model->flightNo = $map['flight_no'];

@@ -15,6 +15,11 @@ class subItems extends Model
     public $shoppingItemMap;
 
     /**
+     * @var string
+     */
+    public $tag;
+
+    /**
      * @example 07df0bd9-f803-4a50-8449-f4bd675d9939
      *
      * @var string
@@ -22,6 +27,7 @@ class subItems extends Model
     public $uniqKey;
     protected $_name = [
         'shoppingItemMap' => 'shopping_item_map',
+        'tag'             => 'tag',
         'uniqKey'         => 'uniq_key',
     ];
 
@@ -40,6 +46,9 @@ class subItems extends Model
                 }
             }
         }
+        if (null !== $this->tag) {
+            $res['tag'] = $this->tag;
+        }
         if (null !== $this->uniqKey) {
             $res['uniq_key'] = $this->uniqKey;
         }
@@ -57,6 +66,9 @@ class subItems extends Model
         $model = new self();
         if (isset($map['shopping_item_map'])) {
             $model->shoppingItemMap = $map['shopping_item_map'];
+        }
+        if (isset($map['tag'])) {
+            $model->tag = $map['tag'];
         }
         if (isset($map['uniq_key'])) {
             $model->uniqKey = $map['uniq_key'];

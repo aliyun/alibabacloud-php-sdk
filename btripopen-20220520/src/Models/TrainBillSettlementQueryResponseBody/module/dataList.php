@@ -115,6 +115,11 @@ class dataList extends Model
     public $businessTripResult;
 
     /**
+     * @var float
+     */
+    public $cabinMaxPrice;
+
+    /**
      * @example 1
      *
      * @var string
@@ -241,6 +246,11 @@ class dataList extends Model
     public $isTransferOrder;
 
     /**
+     * @var string
+     */
+    public $maxCabin;
+
+    /**
      * @example 23432692343243432
      *
      * @var string
@@ -331,6 +341,16 @@ class dataList extends Model
      * @var string
      */
     public $runTime;
+
+    /**
+     * @var string
+     */
+    public $sceneId;
+
+    /**
+     * @var string
+     */
+    public $sceneName;
 
     /**
      * @example 004F
@@ -491,6 +511,7 @@ class dataList extends Model
         'bookerJobNo'            => 'booker_job_no',
         'bookerName'             => 'booker_name',
         'businessTripResult'     => 'business_trip_result',
+        'cabinMaxPrice'          => 'cabin_max_price',
         'capitalDirection'       => 'capital_direction',
         'cascadeDepartment'      => 'cascade_department',
         'changeAffiliateNo'      => 'change_affiliate_no',
@@ -513,6 +534,7 @@ class dataList extends Model
         'index'                  => 'index',
         'invoiceTitle'           => 'invoice_title',
         'isTransferOrder'        => 'is_transfer_order',
+        'maxCabin'               => 'max_cabin',
         'orderId'                => 'order_id',
         'orderPrice'             => 'order_price',
         'overApplyId'            => 'over_apply_id',
@@ -529,6 +551,8 @@ class dataList extends Model
         'remark'                 => 'remark',
         'reserveMode'            => 'reserve_mode',
         'runTime'                => 'run_time',
+        'sceneId'                => 'scene_id',
+        'sceneName'              => 'scene_name',
         'seatNo'                 => 'seat_no',
         'seatType'               => 'seat_type',
         'serviceFee'             => 'service_fee',
@@ -615,6 +639,9 @@ class dataList extends Model
         if (null !== $this->businessTripResult) {
             $res['business_trip_result'] = $this->businessTripResult;
         }
+        if (null !== $this->cabinMaxPrice) {
+            $res['cabin_max_price'] = $this->cabinMaxPrice;
+        }
         if (null !== $this->capitalDirection) {
             $res['capital_direction'] = $this->capitalDirection;
         }
@@ -681,6 +708,9 @@ class dataList extends Model
         if (null !== $this->isTransferOrder) {
             $res['is_transfer_order'] = $this->isTransferOrder;
         }
+        if (null !== $this->maxCabin) {
+            $res['max_cabin'] = $this->maxCabin;
+        }
         if (null !== $this->orderId) {
             $res['order_id'] = $this->orderId;
         }
@@ -728,6 +758,12 @@ class dataList extends Model
         }
         if (null !== $this->runTime) {
             $res['run_time'] = $this->runTime;
+        }
+        if (null !== $this->sceneId) {
+            $res['scene_id'] = $this->sceneId;
+        }
+        if (null !== $this->sceneName) {
+            $res['scene_name'] = $this->sceneName;
         }
         if (null !== $this->seatNo) {
             $res['seat_no'] = $this->seatNo;
@@ -864,6 +900,9 @@ class dataList extends Model
         if (isset($map['business_trip_result'])) {
             $model->businessTripResult = $map['business_trip_result'];
         }
+        if (isset($map['cabin_max_price'])) {
+            $model->cabinMaxPrice = $map['cabin_max_price'];
+        }
         if (isset($map['capital_direction'])) {
             $model->capitalDirection = $map['capital_direction'];
         }
@@ -930,6 +969,9 @@ class dataList extends Model
         if (isset($map['is_transfer_order'])) {
             $model->isTransferOrder = $map['is_transfer_order'];
         }
+        if (isset($map['max_cabin'])) {
+            $model->maxCabin = $map['max_cabin'];
+        }
         if (isset($map['order_id'])) {
             $model->orderId = $map['order_id'];
         }
@@ -977,6 +1019,12 @@ class dataList extends Model
         }
         if (isset($map['run_time'])) {
             $model->runTime = $map['run_time'];
+        }
+        if (isset($map['scene_id'])) {
+            $model->sceneId = $map['scene_id'];
+        }
+        if (isset($map['scene_name'])) {
+            $model->sceneName = $map['scene_name'];
         }
         if (isset($map['seat_no'])) {
             $model->seatNo = $map['seat_no'];

@@ -69,6 +69,11 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $billingEntity;
+
+    /**
+     * @var string
+     */
     public $bookReason;
 
     /**
@@ -107,6 +112,16 @@ class dataList extends Model
      * @var string
      */
     public $businessTripResult;
+
+    /**
+     * @var string
+     */
+    public $cancelOrModifyReason;
+
+    /**
+     * @var string
+     */
+    public $cancelOrModifyScene;
 
     /**
      * @example 1
@@ -302,6 +317,11 @@ class dataList extends Model
     public $orderType;
 
     /**
+     * @var string
+     */
+    public $originalReserveRule;
+
+    /**
      * @example 4234324
      *
      * @var string
@@ -391,6 +411,16 @@ class dataList extends Model
      * @var string
      */
     public $roomType;
+
+    /**
+     * @var string
+     */
+    public $sceneId;
+
+    /**
+     * @var string
+     */
+    public $sceneName;
 
     /**
      * @example 0
@@ -499,6 +529,7 @@ class dataList extends Model
         'applyId'                => 'apply_id',
         'averageNights'          => 'average_nights',
         'billRecordTime'         => 'bill_record_time',
+        'billingEntity'          => 'billing_entity',
         'bookReason'             => 'book_reason',
         'bookTime'               => 'book_time',
         'bookerId'               => 'booker_id',
@@ -507,6 +538,8 @@ class dataList extends Model
         'brandGroup'             => 'brand_group',
         'brandName'              => 'brand_name',
         'businessTripResult'     => 'business_trip_result',
+        'cancelOrModifyReason'   => 'cancel_or_modify_reason',
+        'cancelOrModifyScene'    => 'cancel_or_modify_scene',
         'capitalDirection'       => 'capital_direction',
         'cascadeDepartment'      => 'cascade_department',
         'checkInDate'            => 'check_in_date',
@@ -540,6 +573,7 @@ class dataList extends Model
         'orderId'                => 'order_id',
         'orderPrice'             => 'order_price',
         'orderType'              => 'order_type',
+        'originalReserveRule'    => 'original_reserve_rule',
         'overApplyId'            => 'over_apply_id',
         'paymentDepartmentId'    => 'payment_department_id',
         'paymentDepartmentName'  => 'payment_department_name',
@@ -555,6 +589,8 @@ class dataList extends Model
         'roomNumber'             => 'room_number',
         'roomPrice'              => 'room_price',
         'roomType'               => 'room_type',
+        'sceneId'                => 'scene_id',
+        'sceneName'              => 'scene_name',
         'serviceFee'             => 'service_fee',
         'settlementFee'          => 'settlement_fee',
         'settlementGrantFee'     => 'settlement_grant_fee',
@@ -609,6 +645,9 @@ class dataList extends Model
         if (null !== $this->billRecordTime) {
             $res['bill_record_time'] = $this->billRecordTime;
         }
+        if (null !== $this->billingEntity) {
+            $res['billing_entity'] = $this->billingEntity;
+        }
         if (null !== $this->bookReason) {
             $res['book_reason'] = $this->bookReason;
         }
@@ -632,6 +671,12 @@ class dataList extends Model
         }
         if (null !== $this->businessTripResult) {
             $res['business_trip_result'] = $this->businessTripResult;
+        }
+        if (null !== $this->cancelOrModifyReason) {
+            $res['cancel_or_modify_reason'] = $this->cancelOrModifyReason;
+        }
+        if (null !== $this->cancelOrModifyScene) {
+            $res['cancel_or_modify_scene'] = $this->cancelOrModifyScene;
         }
         if (null !== $this->capitalDirection) {
             $res['capital_direction'] = $this->capitalDirection;
@@ -732,6 +777,9 @@ class dataList extends Model
         if (null !== $this->orderType) {
             $res['order_type'] = $this->orderType;
         }
+        if (null !== $this->originalReserveRule) {
+            $res['original_reserve_rule'] = $this->originalReserveRule;
+        }
         if (null !== $this->overApplyId) {
             $res['over_apply_id'] = $this->overApplyId;
         }
@@ -776,6 +824,12 @@ class dataList extends Model
         }
         if (null !== $this->roomType) {
             $res['room_type'] = $this->roomType;
+        }
+        if (null !== $this->sceneId) {
+            $res['scene_id'] = $this->sceneId;
+        }
+        if (null !== $this->sceneName) {
+            $res['scene_name'] = $this->sceneName;
         }
         if (null !== $this->serviceFee) {
             $res['service_fee'] = $this->serviceFee;
@@ -864,6 +918,9 @@ class dataList extends Model
         if (isset($map['bill_record_time'])) {
             $model->billRecordTime = $map['bill_record_time'];
         }
+        if (isset($map['billing_entity'])) {
+            $model->billingEntity = $map['billing_entity'];
+        }
         if (isset($map['book_reason'])) {
             $model->bookReason = $map['book_reason'];
         }
@@ -887,6 +944,12 @@ class dataList extends Model
         }
         if (isset($map['business_trip_result'])) {
             $model->businessTripResult = $map['business_trip_result'];
+        }
+        if (isset($map['cancel_or_modify_reason'])) {
+            $model->cancelOrModifyReason = $map['cancel_or_modify_reason'];
+        }
+        if (isset($map['cancel_or_modify_scene'])) {
+            $model->cancelOrModifyScene = $map['cancel_or_modify_scene'];
         }
         if (isset($map['capital_direction'])) {
             $model->capitalDirection = $map['capital_direction'];
@@ -987,6 +1050,9 @@ class dataList extends Model
         if (isset($map['order_type'])) {
             $model->orderType = $map['order_type'];
         }
+        if (isset($map['original_reserve_rule'])) {
+            $model->originalReserveRule = $map['original_reserve_rule'];
+        }
         if (isset($map['over_apply_id'])) {
             $model->overApplyId = $map['over_apply_id'];
         }
@@ -1031,6 +1097,12 @@ class dataList extends Model
         }
         if (isset($map['room_type'])) {
             $model->roomType = $map['room_type'];
+        }
+        if (isset($map['scene_id'])) {
+            $model->sceneId = $map['scene_id'];
+        }
+        if (isset($map['scene_name'])) {
+            $model->sceneName = $map['scene_name'];
         }
         if (isset($map['service_fee'])) {
             $model->serviceFee = $map['service_fee'];

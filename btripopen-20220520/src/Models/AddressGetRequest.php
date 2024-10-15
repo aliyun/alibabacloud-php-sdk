@@ -55,6 +55,11 @@ class AddressGetRequest extends Model
     public $itineraryId;
 
     /**
+     * @var int
+     */
+    public $middlePage;
+
+    /**
      * @var string
      */
     public $orderId;
@@ -75,6 +80,11 @@ class AddressGetRequest extends Model
      * @var string
      */
     public $taobaoCallbackUrl;
+
+    /**
+     * @var string
+     */
+    public $thirdpartApplyId;
 
     /**
      * @var string
@@ -108,10 +118,12 @@ class AddressGetRequest extends Model
         'depCityName'       => 'dep_city_name',
         'depDate'           => 'dep_date',
         'itineraryId'       => 'itinerary_id',
+        'middlePage'        => 'middle_page',
         'orderId'           => 'order_Id',
         'phone'             => 'phone',
         'subCorpId'         => 'sub_corp_id',
         'taobaoCallbackUrl' => 'taobao_callback_url',
+        'thirdpartApplyId'  => 'thirdpart_apply_id',
         'travelerId'        => 'traveler_id',
         'type'              => 'type',
         'useBookingProxy'   => 'use_booking_proxy',
@@ -149,6 +161,9 @@ class AddressGetRequest extends Model
         if (null !== $this->itineraryId) {
             $res['itinerary_id'] = $this->itineraryId;
         }
+        if (null !== $this->middlePage) {
+            $res['middle_page'] = $this->middlePage;
+        }
         if (null !== $this->orderId) {
             $res['order_Id'] = $this->orderId;
         }
@@ -160,6 +175,9 @@ class AddressGetRequest extends Model
         }
         if (null !== $this->taobaoCallbackUrl) {
             $res['taobao_callback_url'] = $this->taobaoCallbackUrl;
+        }
+        if (null !== $this->thirdpartApplyId) {
+            $res['thirdpart_apply_id'] = $this->thirdpartApplyId;
         }
         if (null !== $this->travelerId) {
             $res['traveler_id'] = $this->travelerId;
@@ -209,6 +227,9 @@ class AddressGetRequest extends Model
         if (isset($map['itinerary_id'])) {
             $model->itineraryId = $map['itinerary_id'];
         }
+        if (isset($map['middle_page'])) {
+            $model->middlePage = $map['middle_page'];
+        }
         if (isset($map['order_Id'])) {
             $model->orderId = $map['order_Id'];
         }
@@ -220,6 +241,9 @@ class AddressGetRequest extends Model
         }
         if (isset($map['taobao_callback_url'])) {
             $model->taobaoCallbackUrl = $map['taobao_callback_url'];
+        }
+        if (isset($map['thirdpart_apply_id'])) {
+            $model->thirdpartApplyId = $map['thirdpart_apply_id'];
         }
         if (isset($map['traveler_id'])) {
             $model->travelerId = $map['traveler_id'];

@@ -319,6 +319,11 @@ class dataList extends Model
     public $orderType;
 
     /**
+     * @var string
+     */
+    public $originalReserveRule;
+
+    /**
      * @example 534545345
      *
      * @var string
@@ -590,6 +595,7 @@ class dataList extends Model
         'orderPrice'             => 'order_price',
         'orderStatusDesc'        => 'order_status_desc',
         'orderType'              => 'order_type',
+        'originalReserveRule'    => 'original_reserve_rule',
         'overApplyId'            => 'over_apply_id',
         'paymentDepartmentId'    => 'payment_department_id',
         'paymentDepartmentName'  => 'payment_department_name',
@@ -782,6 +788,9 @@ class dataList extends Model
         }
         if (null !== $this->orderType) {
             $res['order_type'] = $this->orderType;
+        }
+        if (null !== $this->originalReserveRule) {
+            $res['original_reserve_rule'] = $this->originalReserveRule;
         }
         if (null !== $this->overApplyId) {
             $res['over_apply_id'] = $this->overApplyId;
@@ -1046,6 +1055,9 @@ class dataList extends Model
         }
         if (isset($map['order_type'])) {
             $model->orderType = $map['order_type'];
+        }
+        if (isset($map['original_reserve_rule'])) {
+            $model->originalReserveRule = $map['original_reserve_rule'];
         }
         if (isset($map['over_apply_id'])) {
             $model->overApplyId = $map['over_apply_id'];

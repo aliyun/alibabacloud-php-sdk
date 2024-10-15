@@ -459,6 +459,16 @@ class dataList extends Model
     public $projectName;
 
     /**
+     * @var string
+     */
+    public $refundAffiliateNo;
+
+    /**
+     * @var string
+     */
+    public $refundApplyId;
+
+    /**
      * @example 23.9
      *
      * @var float
@@ -486,6 +496,16 @@ class dataList extends Model
      * @var string
      */
     public $repeatRefund;
+
+    /**
+     * @var string
+     */
+    public $sceneId;
+
+    /**
+     * @var string
+     */
+    public $sceneName;
 
     /**
      * @example 410
@@ -677,11 +697,15 @@ class dataList extends Model
         'primaryId'              => 'primary_id',
         'projectCode'            => 'project_code',
         'projectName'            => 'project_name',
+        'refundAffiliateNo'      => 'refund_affiliate_no',
+        'refundApplyId'          => 'refund_apply_id',
         'refundFee'              => 'refund_fee',
         'refundResult'           => 'refund_result',
         'refundUpgradeCost'      => 'refund_upgrade_cost',
         'remark'                 => 'remark',
         'repeatRefund'           => 'repeat_refund',
+        'sceneId'                => 'scene_id',
+        'sceneName'              => 'scene_name',
         'sealPrice'              => 'seal_price',
         'serviceFee'             => 'service_fee',
         'settlementFee'          => 'settlement_fee',
@@ -931,6 +955,12 @@ class dataList extends Model
         if (null !== $this->projectName) {
             $res['project_name'] = $this->projectName;
         }
+        if (null !== $this->refundAffiliateNo) {
+            $res['refund_affiliate_no'] = $this->refundAffiliateNo;
+        }
+        if (null !== $this->refundApplyId) {
+            $res['refund_apply_id'] = $this->refundApplyId;
+        }
         if (null !== $this->refundFee) {
             $res['refund_fee'] = $this->refundFee;
         }
@@ -945,6 +975,12 @@ class dataList extends Model
         }
         if (null !== $this->repeatRefund) {
             $res['repeat_refund'] = $this->repeatRefund;
+        }
+        if (null !== $this->sceneId) {
+            $res['scene_id'] = $this->sceneId;
+        }
+        if (null !== $this->sceneName) {
+            $res['scene_name'] = $this->sceneName;
         }
         if (null !== $this->sealPrice) {
             $res['seal_price'] = $this->sealPrice;
@@ -1234,6 +1270,12 @@ class dataList extends Model
         if (isset($map['project_name'])) {
             $model->projectName = $map['project_name'];
         }
+        if (isset($map['refund_affiliate_no'])) {
+            $model->refundAffiliateNo = $map['refund_affiliate_no'];
+        }
+        if (isset($map['refund_apply_id'])) {
+            $model->refundApplyId = $map['refund_apply_id'];
+        }
         if (isset($map['refund_fee'])) {
             $model->refundFee = $map['refund_fee'];
         }
@@ -1248,6 +1290,12 @@ class dataList extends Model
         }
         if (isset($map['repeat_refund'])) {
             $model->repeatRefund = $map['repeat_refund'];
+        }
+        if (isset($map['scene_id'])) {
+            $model->sceneId = $map['scene_id'];
+        }
+        if (isset($map['scene_name'])) {
+            $model->sceneName = $map['scene_name'];
         }
         if (isset($map['seal_price'])) {
             $model->sealPrice = $map['seal_price'];

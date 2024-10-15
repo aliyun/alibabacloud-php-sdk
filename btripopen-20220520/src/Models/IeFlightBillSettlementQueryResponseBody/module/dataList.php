@@ -318,6 +318,11 @@ class dataList extends Model
     public $index;
 
     /**
+     * @var string
+     */
+    public $insOrderId;
+
+    /**
      * @example 23.9
      *
      * @var float
@@ -330,6 +335,11 @@ class dataList extends Model
      * @var string
      */
     public $insuranceNumber;
+
+    /**
+     * @var string
+     */
+    public $insuranceProductName;
 
     /**
      * @var string
@@ -581,6 +591,11 @@ class dataList extends Model
      * @var int
      */
     public $voucherType;
+
+    /**
+     * @var string
+     */
+    public $voyageName;
     protected $_name = [
         'advanceDay'             => 'advance_day',
         'airlineCorpCode'        => 'airline_corp_code',
@@ -633,8 +648,10 @@ class dataList extends Model
         'feeType'                => 'fee_type',
         'flightNo'               => 'flight_no',
         'index'                  => 'index',
+        'insOrderId'             => 'ins_order_id',
         'insuranceFee'           => 'insurance_fee',
         'insuranceNumber'        => 'insurance_number',
+        'insuranceProductName'   => 'insurance_product_name',
         'invoiceTitle'           => 'invoice_title',
         'mostDifferenceDeptTime' => 'most_difference_dept_time',
         'mostDifferenceDiscount' => 'most_difference_discount',
@@ -674,6 +691,7 @@ class dataList extends Model
         'travelerJobNo'          => 'traveler_job_no',
         'travelerName'           => 'traveler_name',
         'voucherType'            => 'voucher_type',
+        'voyageName'             => 'voyage_name',
     ];
 
     public function validate()
@@ -836,11 +854,17 @@ class dataList extends Model
         if (null !== $this->index) {
             $res['index'] = $this->index;
         }
+        if (null !== $this->insOrderId) {
+            $res['ins_order_id'] = $this->insOrderId;
+        }
         if (null !== $this->insuranceFee) {
             $res['insurance_fee'] = $this->insuranceFee;
         }
         if (null !== $this->insuranceNumber) {
             $res['insurance_number'] = $this->insuranceNumber;
+        }
+        if (null !== $this->insuranceProductName) {
+            $res['insurance_product_name'] = $this->insuranceProductName;
         }
         if (null !== $this->invoiceTitle) {
             $res['invoice_title'] = $this->invoiceTitle;
@@ -958,6 +982,9 @@ class dataList extends Model
         }
         if (null !== $this->voucherType) {
             $res['voucher_type'] = $this->voucherType;
+        }
+        if (null !== $this->voyageName) {
+            $res['voyage_name'] = $this->voyageName;
         }
 
         return $res;
@@ -1124,11 +1151,17 @@ class dataList extends Model
         if (isset($map['index'])) {
             $model->index = $map['index'];
         }
+        if (isset($map['ins_order_id'])) {
+            $model->insOrderId = $map['ins_order_id'];
+        }
         if (isset($map['insurance_fee'])) {
             $model->insuranceFee = $map['insurance_fee'];
         }
         if (isset($map['insurance_number'])) {
             $model->insuranceNumber = $map['insurance_number'];
+        }
+        if (isset($map['insurance_product_name'])) {
+            $model->insuranceProductName = $map['insurance_product_name'];
         }
         if (isset($map['invoice_title'])) {
             $model->invoiceTitle = $map['invoice_title'];
@@ -1246,6 +1279,9 @@ class dataList extends Model
         }
         if (isset($map['voucher_type'])) {
             $model->voucherType = $map['voucher_type'];
+        }
+        if (isset($map['voyage_name'])) {
+            $model->voyageName = $map['voyage_name'];
         }
 
         return $model;

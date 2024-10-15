@@ -83,6 +83,11 @@ class items extends Model
     public $invoiceTitle;
 
     /**
+     * @var int
+     */
+    public $invoiceType;
+
+    /**
      * @description 填开单位
      *
      * @var string
@@ -104,6 +109,11 @@ class items extends Model
      * @var string
      */
     public $itineraryNum;
+
+    /**
+     * @var string
+     */
+    public $ofdOssUrl;
 
     /**
      * @example 4801105714092
@@ -135,6 +145,16 @@ class items extends Model
      * @var string
      */
     public $promptMessage;
+
+    /**
+     * @var string
+     */
+    public $purchaserName;
+
+    /**
+     * @var int
+     */
+    public $purchaserType;
 
     /**
      * @example 108.17
@@ -191,14 +211,18 @@ class items extends Model
         'id'             => 'id',
         'insurance'      => 'insurance',
         'invoiceTitle'   => 'invoice_title',
+        'invoiceType'    => 'invoice_type',
         'issueCompany'   => 'issue_company',
         'issueDate'      => 'issue_date',
         'itineraryNum'   => 'itinerary_num',
+        'ofdOssUrl'      => 'ofd_oss_url',
         'orderId'        => 'order_id',
         'ossUrl'         => 'oss_url',
         'passengerName'  => 'passenger_name',
         'project'        => 'project',
         'promptMessage'  => 'prompt_message',
+        'purchaserName'  => 'purchaser_name',
+        'purchaserType'  => 'purchaser_type',
         'taxAmount'      => 'tax_amount',
         'taxRate'        => 'tax_rate',
         'ticketNo'       => 'ticket_no',
@@ -253,6 +277,9 @@ class items extends Model
         if (null !== $this->invoiceTitle) {
             $res['invoice_title'] = $this->invoiceTitle;
         }
+        if (null !== $this->invoiceType) {
+            $res['invoice_type'] = $this->invoiceType;
+        }
         if (null !== $this->issueCompany) {
             $res['issue_company'] = $this->issueCompany;
         }
@@ -261,6 +288,9 @@ class items extends Model
         }
         if (null !== $this->itineraryNum) {
             $res['itinerary_num'] = $this->itineraryNum;
+        }
+        if (null !== $this->ofdOssUrl) {
+            $res['ofd_oss_url'] = $this->ofdOssUrl;
         }
         if (null !== $this->orderId) {
             $res['order_id'] = $this->orderId;
@@ -276,6 +306,12 @@ class items extends Model
         }
         if (null !== $this->promptMessage) {
             $res['prompt_message'] = $this->promptMessage;
+        }
+        if (null !== $this->purchaserName) {
+            $res['purchaser_name'] = $this->purchaserName;
+        }
+        if (null !== $this->purchaserType) {
+            $res['purchaser_type'] = $this->purchaserType;
         }
         if (null !== $this->taxAmount) {
             $res['tax_amount'] = $this->taxAmount;
@@ -346,6 +382,9 @@ class items extends Model
         if (isset($map['invoice_title'])) {
             $model->invoiceTitle = $map['invoice_title'];
         }
+        if (isset($map['invoice_type'])) {
+            $model->invoiceType = $map['invoice_type'];
+        }
         if (isset($map['issue_company'])) {
             $model->issueCompany = $map['issue_company'];
         }
@@ -354,6 +393,9 @@ class items extends Model
         }
         if (isset($map['itinerary_num'])) {
             $model->itineraryNum = $map['itinerary_num'];
+        }
+        if (isset($map['ofd_oss_url'])) {
+            $model->ofdOssUrl = $map['ofd_oss_url'];
         }
         if (isset($map['order_id'])) {
             $model->orderId = $map['order_id'];
@@ -369,6 +411,12 @@ class items extends Model
         }
         if (isset($map['prompt_message'])) {
             $model->promptMessage = $map['prompt_message'];
+        }
+        if (isset($map['purchaser_name'])) {
+            $model->purchaserName = $map['purchaser_name'];
+        }
+        if (isset($map['purchaser_type'])) {
+            $model->purchaserType = $map['purchaser_type'];
         }
         if (isset($map['tax_amount'])) {
             $model->taxAmount = $map['tax_amount'];

@@ -86,6 +86,11 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $billingEntity;
+
+    /**
+     * @var string
+     */
     public $bookModel;
 
     /**
@@ -337,6 +342,16 @@ class dataList extends Model
     public $remark;
 
     /**
+     * @var string
+     */
+    public $sceneId;
+
+    /**
+     * @var string
+     */
+    public $sceneName;
+
+    /**
      * @example 12.7
      *
      * @var float
@@ -466,6 +481,7 @@ class dataList extends Model
         'arrLocation'            => 'arr_location',
         'arrTime'                => 'arr_time',
         'billRecordTime'         => 'bill_record_time',
+        'billingEntity'          => 'billing_entity',
         'bookModel'              => 'book_model',
         'bookTime'               => 'book_time',
         'bookerId'               => 'booker_id',
@@ -509,6 +525,8 @@ class dataList extends Model
         'realFromAddr'           => 'real_from_addr',
         'realToAddr'             => 'real_to_addr',
         'remark'                 => 'remark',
+        'sceneId'                => 'scene_id',
+        'sceneName'              => 'scene_name',
         'serviceFee'             => 'service_fee',
         'settlementFee'          => 'settlement_fee',
         'settlementGrantFee'     => 'settlement_grant_fee',
@@ -575,6 +593,9 @@ class dataList extends Model
         }
         if (null !== $this->billRecordTime) {
             $res['bill_record_time'] = $this->billRecordTime;
+        }
+        if (null !== $this->billingEntity) {
+            $res['billing_entity'] = $this->billingEntity;
         }
         if (null !== $this->bookModel) {
             $res['book_model'] = $this->bookModel;
@@ -705,6 +726,12 @@ class dataList extends Model
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
         }
+        if (null !== $this->sceneId) {
+            $res['scene_id'] = $this->sceneId;
+        }
+        if (null !== $this->sceneName) {
+            $res['scene_name'] = $this->sceneName;
+        }
         if (null !== $this->serviceFee) {
             $res['service_fee'] = $this->serviceFee;
         }
@@ -812,6 +839,9 @@ class dataList extends Model
         }
         if (isset($map['bill_record_time'])) {
             $model->billRecordTime = $map['bill_record_time'];
+        }
+        if (isset($map['billing_entity'])) {
+            $model->billingEntity = $map['billing_entity'];
         }
         if (isset($map['book_model'])) {
             $model->bookModel = $map['book_model'];
@@ -941,6 +971,12 @@ class dataList extends Model
         }
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];
+        }
+        if (isset($map['scene_id'])) {
+            $model->sceneId = $map['scene_id'];
+        }
+        if (isset($map['scene_name'])) {
+            $model->sceneName = $map['scene_name'];
         }
         if (isset($map['service_fee'])) {
             $model->serviceFee = $map['service_fee'];

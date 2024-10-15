@@ -105,6 +105,12 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CooperatorFlightBillSettlementQu
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CooperatorHotelBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CooperatorHotelBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CooperatorHotelBillSettlementQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CooperatorHotelEventPushHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CooperatorHotelEventPushRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CooperatorHotelEventPushResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CooperatorSyncPayStatusHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CooperatorSyncPayStatusRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CooperatorSyncPayStatusResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CorpAuthLinkInfoQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CorpTokenHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CorpTokenRequest;
@@ -1082,6 +1088,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->itineraryId)) {
             $query['itinerary_id'] = $request->itineraryId;
         }
+        if (!Utils::isUnset($request->middlePage)) {
+            $query['middle_page'] = $request->middlePage;
+        }
         if (!Utils::isUnset($request->orderId)) {
             $query['order_Id'] = $request->orderId;
         }
@@ -1093,6 +1102,9 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->taobaoCallbackUrl)) {
             $query['taobao_callback_url'] = $request->taobaoCallbackUrl;
+        }
+        if (!Utils::isUnset($request->thirdpartApplyId)) {
+            $query['thirdpart_apply_id'] = $request->thirdpartApplyId;
         }
         if (!Utils::isUnset($request->travelerId)) {
             $query['traveler_id'] = $request->travelerId;
@@ -3129,6 +3141,150 @@ class BtripOpen extends OpenApiClient
         $headers = new CooperatorHotelBillSettlementQueryHeaders([]);
 
         return $this->cooperatorHotelBillSettlementQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 酒店订单事件推送
+     *  *
+     * @param CooperatorHotelEventPushRequest $request CooperatorHotelEventPushRequest
+     * @param CooperatorHotelEventPushHeaders $headers CooperatorHotelEventPushHeaders
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CooperatorHotelEventPushResponse CooperatorHotelEventPushResponse
+     */
+    public function cooperatorHotelEventPushWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->changeOrderStatus)) {
+            $body['change_order_status'] = $request->changeOrderStatus;
+        }
+        if (!Utils::isUnset($request->changeOrderStatusDesc)) {
+            $body['change_order_status_desc'] = $request->changeOrderStatusDesc;
+        }
+        if (!Utils::isUnset($request->cooperatorOrderId)) {
+            $body['cooperator_order_id'] = $request->cooperatorOrderId;
+        }
+        if (!Utils::isUnset($request->event)) {
+            $body['event'] = $request->event;
+        }
+        if (!Utils::isUnset($request->eventDesc)) {
+            $body['event_desc'] = $request->eventDesc;
+        }
+        if (!Utils::isUnset($request->eventTime)) {
+            $body['event_time'] = $request->eventTime;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $body['order_id'] = $request->orderId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CooperatorHotelEventPush',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/coop-hotel/v1/orders/events',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CooperatorHotelEventPushResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 酒店订单事件推送
+     *  *
+     * @param CooperatorHotelEventPushRequest $request CooperatorHotelEventPushRequest
+     *
+     * @return CooperatorHotelEventPushResponse CooperatorHotelEventPushResponse
+     */
+    public function cooperatorHotelEventPush($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CooperatorHotelEventPushHeaders([]);
+
+        return $this->cooperatorHotelEventPushWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 个人支付结果推送
+     *  *
+     * @param CooperatorSyncPayStatusRequest $request CooperatorSyncPayStatusRequest
+     * @param CooperatorSyncPayStatusHeaders $headers CooperatorSyncPayStatusHeaders
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CooperatorSyncPayStatusResponse CooperatorSyncPayStatusResponse
+     */
+    public function cooperatorSyncPayStatusWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->cooperatorOrderId)) {
+            $body['cooperator_order_id'] = $request->cooperatorOrderId;
+        }
+        if (!Utils::isUnset($request->cooperatorPayNo)) {
+            $body['cooperator_pay_no'] = $request->cooperatorPayNo;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $body['order_id'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->payStatus)) {
+            $body['pay_status'] = $request->payStatus;
+        }
+        if (!Utils::isUnset($request->payTime)) {
+            $body['pay_time'] = $request->payTime;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CooperatorSyncPayStatus',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/coop-pay/v1/cashiers/status',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CooperatorSyncPayStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 个人支付结果推送
+     *  *
+     * @param CooperatorSyncPayStatusRequest $request CooperatorSyncPayStatusRequest
+     *
+     * @return CooperatorSyncPayStatusResponse CooperatorSyncPayStatusResponse
+     */
+    public function cooperatorSyncPayStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CooperatorSyncPayStatusHeaders([]);
+
+        return $this->cooperatorSyncPayStatusWithOptions($request, $headers, $runtime);
     }
 
     /**

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightModifyOrderDetailV2ResponseBody;
 
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightModifyOrderDetailV2ResponseBody\module\attributes;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightModifyOrderDetailV2ResponseBody\module\contactInfoDTO;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightModifyOrderDetailV2ResponseBody\module\destFlightInfoDTOS;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightModifyOrderDetailV2ResponseBody\module\travelerInfoDTOS;
@@ -17,6 +18,11 @@ class module extends Model
      * @var string
      */
     public $applyTime;
+
+    /**
+     * @var attributes
+     */
+    public $attributes;
 
     /**
      * @example 17635462345@163.com
@@ -133,6 +139,7 @@ class module extends Model
     public $travelerInfoDTOS;
     protected $_name = [
         'applyTime'            => 'apply_time',
+        'attributes'           => 'attributes',
         'bookUserEmail'        => 'book_user_email',
         'bookUserName'         => 'book_user_name',
         'bookuserPhone'        => 'bookuser_phone',
@@ -162,6 +169,9 @@ class module extends Model
         $res = [];
         if (null !== $this->applyTime) {
             $res['apply_time'] = $this->applyTime;
+        }
+        if (null !== $this->attributes) {
+            $res['attributes'] = null !== $this->attributes ? $this->attributes->toMap() : null;
         }
         if (null !== $this->bookUserEmail) {
             $res['book_user_email'] = $this->bookUserEmail;
@@ -243,6 +253,9 @@ class module extends Model
         $model = new self();
         if (isset($map['apply_time'])) {
             $model->applyTime = $map['apply_time'];
+        }
+        if (isset($map['attributes'])) {
+            $model->attributes = attributes::fromMap($map['attributes']);
         }
         if (isset($map['book_user_email'])) {
             $model->bookUserEmail = $map['book_user_email'];

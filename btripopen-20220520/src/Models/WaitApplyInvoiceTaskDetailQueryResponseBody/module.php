@@ -134,6 +134,11 @@ class module extends Model
     public $trainInvoiceFee;
 
     /**
+     * @var string
+     */
+    public $vasMallSpecialInvoiceFee;
+
+    /**
      * @example 100
      *
      * @var string
@@ -166,6 +171,7 @@ class module extends Model
         'telephone'                          => 'telephone',
         'trainAccelerationPackageInvoiceFee' => 'train_acceleration_package_invoice_fee',
         'trainInvoiceFee'                    => 'train_invoice_fee',
+        'vasMallSpecialInvoiceFee'           => 'vas_mall_special_invoice_fee',
         'vehicleInvoiceFee'                  => 'vehicle_invoice_fee',
         'vehicleNormalInvoiceFee'            => 'vehicle_normal_invoice_fee',
     ];
@@ -239,6 +245,9 @@ class module extends Model
         }
         if (null !== $this->trainInvoiceFee) {
             $res['train_invoice_fee'] = $this->trainInvoiceFee;
+        }
+        if (null !== $this->vasMallSpecialInvoiceFee) {
+            $res['vas_mall_special_invoice_fee'] = $this->vasMallSpecialInvoiceFee;
         }
         if (null !== $this->vehicleInvoiceFee) {
             $res['vehicle_invoice_fee'] = $this->vehicleInvoiceFee;
@@ -320,6 +329,9 @@ class module extends Model
         }
         if (isset($map['train_invoice_fee'])) {
             $model->trainInvoiceFee = $map['train_invoice_fee'];
+        }
+        if (isset($map['vas_mall_special_invoice_fee'])) {
+            $model->vasMallSpecialInvoiceFee = $map['vas_mall_special_invoice_fee'];
         }
         if (isset($map['vehicle_invoice_fee'])) {
             $model->vehicleInvoiceFee = $map['vehicle_invoice_fee'];
