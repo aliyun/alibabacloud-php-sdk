@@ -116,6 +116,11 @@ class rates extends Model
     public $instantConfirm;
 
     /**
+     * @var string
+     */
+    public $inventoryDesc;
+
+    /**
      * @example 100
      *
      * @var string
@@ -303,6 +308,7 @@ class rates extends Model
         'endTimeDaily'                   => 'end_time_daily',
         'hotelDetailRatePriceDTO'        => 'hotel_detail_rate_price_d_t_o',
         'instantConfirm'                 => 'instant_confirm',
+        'inventoryDesc'                  => 'inventory_desc',
         'inventoryPrice'                 => 'inventory_price',
         'isBusinessPay4Goods'            => 'is_business_pay4_goods',
         'isGuarantee'                    => 'is_guarantee',
@@ -399,6 +405,9 @@ class rates extends Model
         }
         if (null !== $this->instantConfirm) {
             $res['instant_confirm'] = $this->instantConfirm;
+        }
+        if (null !== $this->inventoryDesc) {
+            $res['inventory_desc'] = $this->inventoryDesc;
         }
         if (null !== $this->inventoryPrice) {
             $res['inventory_price'] = $this->inventoryPrice;
@@ -549,6 +558,9 @@ class rates extends Model
         }
         if (isset($map['instant_confirm'])) {
             $model->instantConfirm = $map['instant_confirm'];
+        }
+        if (isset($map['inventory_desc'])) {
+            $model->inventoryDesc = $map['inventory_desc'];
         }
         if (isset($map['inventory_price'])) {
             $model->inventoryPrice = $map['inventory_price'];
