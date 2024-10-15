@@ -11,6 +11,7 @@ class QueryRobotTaskDetailRequest extends Model
     /**
      * @description The unique ID of the robocall task. You can call the [CreateRobotTask](~~CreateRobotTask~~) operation to obtain the task ID.
      *
+     * This parameter is required.
      * @example 1045001
      *
      * @var int

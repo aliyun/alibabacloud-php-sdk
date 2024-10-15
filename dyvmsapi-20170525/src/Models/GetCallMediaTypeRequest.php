@@ -16,6 +16,8 @@ class GetCallMediaTypeRequest extends Model
     public $callId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1580000****
      *
      * @var string

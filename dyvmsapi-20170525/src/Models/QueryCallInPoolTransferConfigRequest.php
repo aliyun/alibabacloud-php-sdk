@@ -16,6 +16,7 @@ class QueryCallInPoolTransferConfigRequest extends Model
     /**
      * @description The China 400 number used to transfer the call.
      *
+     * This parameter is required.
      * @example 400****
      *
      * @var string

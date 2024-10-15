@@ -66,6 +66,7 @@ class ListCallTaskDetailRequest extends Model
     /**
      * @description The task ID.
      *
+     * This parameter is required.
      * @example 150001****
      *
      * @var int

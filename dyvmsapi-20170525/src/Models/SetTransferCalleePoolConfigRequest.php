@@ -15,6 +15,7 @@ class SetTransferCalleePoolConfigRequest extends Model
      *   **roundRobin**
      *   **random**
      *
+     * This parameter is required.
      * @example roundRobin
      *
      * @var string
@@ -24,6 +25,7 @@ class SetTransferCalleePoolConfigRequest extends Model
     /**
      * @description The information about the phone numbers for transferring the call.
      *
+     * This parameter is required.
      * @var details[]
      */
     public $details;
@@ -36,6 +38,7 @@ class SetTransferCalleePoolConfigRequest extends Model
     /**
      * @description The phone number used for transferring the call.
      *
+     * This parameter is required.
      * @example 400****
      *
      * @var string
@@ -43,8 +46,9 @@ class SetTransferCalleePoolConfigRequest extends Model
     public $phoneNumber;
 
     /**
-     * @description The qualification ID. You can call the [GetHotlineQualificationByOrder](~~393548~~) operation to obtain the qualification ID.
+     * @description The qualification ID. You can call the [GetHotlineQualificationByOrder](https://help.aliyun.com/document_detail/393548.html) operation to obtain the qualification ID.
      *
+     * This parameter is required.
      * @example 190***
      *
      * @var string

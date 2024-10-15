@@ -11,6 +11,7 @@ class details extends Model
     /**
      * @description The called number.
      *
+     * This parameter is required.
      * @example 151****0000
      *
      * @var string

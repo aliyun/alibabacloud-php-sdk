@@ -11,7 +11,9 @@ class GetHotlineQualificationByOrderRequest extends Model
     /**
      * @description The ticket ID.
      *
-     * You can log on to the [Voice Messaging Service console](https://dyvms.console.aliyun.com/overview/home), choose **Qualification\&Communication Script Management** > **Qualification Management**, and then click the **400 Qualifications** tab to view the ticket ID.
+     * You can log on to the [Voice Messaging Service console](https://dyvms.console.aliyun.com/overview/home), choose **Qualification\\&Communication Script Management** > **Qualification Management**, and then click the **400 Qualifications** tab to view the ticket ID.
+     *
+     * This parameter is required.
      * @example 22456****
      *
      * @var string

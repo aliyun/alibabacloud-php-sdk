@@ -11,7 +11,7 @@ class SingleCallByVoiceResponseBody extends Model
     /**
      * @description The unique receipt ID for the call.
      *
-     * You can call the [QueryCallDetailByCallId](~~393529~~) operation to query the details of the call.
+     * You can call the [QueryCallDetailByCallId](https://help.aliyun.com/document_detail/393529.html) operation to query the details of the call.
      * @example 116004767703^102806****
      *
      * @var string
@@ -22,7 +22,7 @@ class SingleCallByVoiceResponseBody extends Model
      * @description The response code.
      *
      *   The value OK indicates that the request was successful.****
-     *   For more information about other response codes, see [API error codes](~~112502~~).
+     *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/112502.html).
      *
      * @example OK
      *

@@ -154,9 +154,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 200 times per second per account.
-     *   *
+     * @summary Adds the association relationship between a virtual number and real numbers in batches.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 200 times per second per account.
+     *  *
      * @param AddVirtualNumberRelationRequest $request AddVirtualNumberRelationRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -209,9 +211,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 200 times per second per account.
-     *   *
+     * @summary Adds the association relationship between a virtual number and real numbers in batches.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 200 times per second per account.
+     *  *
      * @param AddVirtualNumberRelationRequest $request AddVirtualNumberRelationRequest
      *
      * @return AddVirtualNumberRelationResponse AddVirtualNumberRelationResponse
@@ -224,14 +228,16 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * *   In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
-     *   * *   The BatchRobotSmartCall operation is used to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console.
-     *   * ## Prerequisites
-     *   * *   You have passed the real-name verification for an enterprise user and passed the enterprise qualification review.
-     *   * *   You have purchased numbers in the [Voice Messaging Service console](https://dyvms.console.aliyun.com/dyvms.htm#/number/normal).
-     *   * *   You have added communication scripts on the [Communication script management](https://dyvms.console.aliyun.com/dyvms.htm#/smart-call/saas/robot/list) page, and the communication scripts have been approved.
-     *   * > Before you call this operation, make sure that you are familiar with the [billing](https://www.aliyun.com/price/product#/vms/detail) of Voice Messaging Service (VMS).
-     *   *
+     * @summary Initiates an outbound robocall task.
+     *  *
+     * @description *   In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
+     * *   The BatchRobotSmartCall operation is used to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console.
+     * ## Prerequisites
+     * *   You have passed the real-name verification for an enterprise user and passed the enterprise qualification review.
+     * *   You have purchased numbers in the [Voice Messaging Service console](https://dyvms.console.aliyun.com/dyvms.htm#/number/normal).
+     * *   You have added communication scripts on the [Communication script management](https://dyvms.console.aliyun.com/dyvms.htm#/smart-call/saas/robot/list) page, and the communication scripts have been approved.
+     * > Before you call this operation, make sure that you are familiar with the [billing](https://www.aliyun.com/price/product#/vms/detail) of Voice Messaging Service (VMS).
+     *  *
      * @param BatchRobotSmartCallRequest $request BatchRobotSmartCallRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -302,14 +308,16 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * *   In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
-     *   * *   The BatchRobotSmartCall operation is used to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console.
-     *   * ## Prerequisites
-     *   * *   You have passed the real-name verification for an enterprise user and passed the enterprise qualification review.
-     *   * *   You have purchased numbers in the [Voice Messaging Service console](https://dyvms.console.aliyun.com/dyvms.htm#/number/normal).
-     *   * *   You have added communication scripts on the [Communication script management](https://dyvms.console.aliyun.com/dyvms.htm#/smart-call/saas/robot/list) page, and the communication scripts have been approved.
-     *   * > Before you call this operation, make sure that you are familiar with the [billing](https://www.aliyun.com/price/product#/vms/detail) of Voice Messaging Service (VMS).
-     *   *
+     * @summary Initiates an outbound robocall task.
+     *  *
+     * @description *   In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
+     * *   The BatchRobotSmartCall operation is used to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console.
+     * ## Prerequisites
+     * *   You have passed the real-name verification for an enterprise user and passed the enterprise qualification review.
+     * *   You have purchased numbers in the [Voice Messaging Service console](https://dyvms.console.aliyun.com/dyvms.htm#/number/normal).
+     * *   You have added communication scripts on the [Communication script management](https://dyvms.console.aliyun.com/dyvms.htm#/smart-call/saas/robot/list) page, and the communication scripts have been approved.
+     * > Before you call this operation, make sure that you are familiar with the [billing](https://www.aliyun.com/price/product#/vms/detail) of Voice Messaging Service (VMS).
+     *  *
      * @param BatchRobotSmartCallRequest $request BatchRobotSmartCallRequest
      *
      * @return BatchRobotSmartCallResponse BatchRobotSmartCallResponse
@@ -322,9 +330,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Cancels a robocall task that has not been started.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param CancelOrderRobotTaskRequest $request CancelOrderRobotTaskRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -365,9 +375,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Cancels a robocall task that has not been started.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param CancelOrderRobotTaskRequest $request CancelOrderRobotTaskRequest
      *
      * @return CancelOrderRobotTaskResponse CancelOrderRobotTaskResponse
@@ -380,10 +392,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * Only a task in progress can be terminated by calling the CancelRobotTask operation, and the task cannot be resumed after it is terminated.
-     *   * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Terminates a robocall task.
+     *  *
+     * @description Only a task in progress can be terminated by calling the CancelRobotTask operation, and the task cannot be resumed after it is terminated.
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param CancelRobotTaskRequest $request CancelRobotTaskRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -424,10 +438,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * Only a task in progress can be terminated by calling the CancelRobotTask operation, and the task cannot be resumed after it is terminated.
-     *   * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Terminates a robocall task.
+     *  *
+     * @description Only a task in progress can be terminated by calling the CancelRobotTask operation, and the task cannot be resumed after it is terminated.
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param CancelRobotTaskRequest $request CancelRobotTaskRequest
      *
      * @return CancelRobotTaskResponse CancelRobotTaskResponse
@@ -440,10 +456,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param ChangeMediaTypeRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary ChangeMediaType
+     *  *
+     * @param ChangeMediaTypeRequest $request ChangeMediaTypeRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeMediaTypeResponse
+     * @return ChangeMediaTypeResponse ChangeMediaTypeResponse
      */
     public function changeMediaTypeWithOptions($request, $runtime)
     {
@@ -489,9 +507,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param ChangeMediaTypeRequest $request
+     * @summary ChangeMediaType
+     *  *
+     * @param ChangeMediaTypeRequest $request ChangeMediaTypeRequest
      *
-     * @return ChangeMediaTypeResponse
+     * @return ChangeMediaTypeResponse ChangeMediaTypeResponse
      */
     public function changeMediaType($request)
     {
@@ -501,10 +521,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * You can create up to 1,000 voice notifications for each task.
-     *   * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Creates a task for sending voice notifications or voice verification codes.
+     *  *
+     * @description You can create up to 1,000 voice notifications for each task.
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param CreateCallTaskRequest $request CreateCallTaskRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -575,10 +597,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * You can create up to 1,000 voice notifications for each task.
-     *   * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Creates a task for sending voice notifications or voice verification codes.
+     *  *
+     * @description You can create up to 1,000 voice notifications for each task.
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param CreateCallTaskRequest $request CreateCallTaskRequest
      *
      * @return CreateCallTaskResponse CreateCallTaskResponse
@@ -591,10 +615,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * You can call this operation to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console. In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
-     *   * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Initiates an outbound robocall task.
+     *  *
+     * @description You can call this operation to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console. In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param CreateRobotTaskRequest $request CreateRobotTaskRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -662,10 +688,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * You can call this operation to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console. In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
-     *   * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Initiates an outbound robocall task.
+     *  *
+     * @description You can call this operation to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console. In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param CreateRobotTaskRequest $request CreateRobotTaskRequest
      *
      * @return CreateRobotTaskResponse CreateRobotTaskResponse
@@ -678,10 +706,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param DegradeVideoFileRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary DegradeVideoFile
+     *  *
+     * @param DegradeVideoFileRequest $request DegradeVideoFileRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DegradeVideoFileResponse
+     * @return DegradeVideoFileResponse DegradeVideoFileResponse
      */
     public function degradeVideoFileWithOptions($request, $runtime)
     {
@@ -727,9 +757,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param DegradeVideoFileRequest $request
+     * @summary DegradeVideoFile
+     *  *
+     * @param DegradeVideoFileRequest $request DegradeVideoFileRequest
      *
-     * @return DegradeVideoFileResponse
+     * @return DegradeVideoFileResponse DegradeVideoFileResponse
      */
     public function degradeVideoFile($request)
     {
@@ -739,10 +771,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * You can call this operation to delete only tasks that are not started, that are completed, and that are terminated.
-     *   * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Deletes a robocall task.
+     *  *
+     * @description You can call this operation to delete only tasks that are not started, that are completed, and that are terminated.
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param DeleteRobotTaskRequest $request DeleteRobotTaskRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -783,10 +817,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * You can call this operation to delete only tasks that are not started, that are completed, and that are terminated.
-     *   * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Deletes a robocall task.
+     *  *
+     * @description You can call this operation to delete only tasks that are not started, that are completed, and that are terminated.
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param DeleteRobotTaskRequest $request DeleteRobotTaskRequest
      *
      * @return DeleteRobotTaskResponse DeleteRobotTaskResponse
@@ -799,9 +835,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Executes a call task.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param ExecuteCallTaskRequest $request ExecuteCallTaskRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -848,9 +886,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Executes a call task.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param ExecuteCallTaskRequest $request ExecuteCallTaskRequest
      *
      * @return ExecuteCallTaskResponse ExecuteCallTaskResponse
@@ -863,10 +903,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param GetCallMediaTypeRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary GetCallMediaType
+     *  *
+     * @param GetCallMediaTypeRequest $request GetCallMediaTypeRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCallMediaTypeResponse
+     * @return GetCallMediaTypeResponse GetCallMediaTypeResponse
      */
     public function getCallMediaTypeWithOptions($request, $runtime)
     {
@@ -906,9 +948,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param GetCallMediaTypeRequest $request
+     * @summary GetCallMediaType
+     *  *
+     * @param GetCallMediaTypeRequest $request GetCallMediaTypeRequest
      *
-     * @return GetCallMediaTypeResponse
+     * @return GetCallMediaTypeResponse GetCallMediaTypeResponse
      */
     public function getCallMediaType($request)
     {
@@ -918,10 +962,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param GetCallProgressRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary GetCallProgress
+     *  *
+     * @param GetCallProgressRequest $request GetCallProgressRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCallProgressResponse
+     * @return GetCallProgressResponse GetCallProgressResponse
      */
     public function getCallProgressWithOptions($request, $runtime)
     {
@@ -961,9 +1007,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param GetCallProgressRequest $request
+     * @summary GetCallProgress
+     *  *
+     * @param GetCallProgressRequest $request GetCallProgressRequest
      *
-     * @return GetCallProgressResponse
+     * @return GetCallProgressResponse GetCallProgressResponse
      */
     public function getCallProgress($request)
     {
@@ -973,9 +1021,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Obtains the qualification ID based on the ID of a qualification application ticket.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param GetHotlineQualificationByOrderRequest $request GetHotlineQualificationByOrderRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -1016,9 +1066,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Obtains the qualification ID based on the ID of a qualification application ticket.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param GetHotlineQualificationByOrderRequest $request GetHotlineQualificationByOrderRequest
      *
      * @return GetHotlineQualificationByOrderResponse GetHotlineQualificationByOrderResponse
@@ -1031,10 +1083,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param GetTemporaryFileUrlRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary GetTemporaryFileUrl
+     *  *
+     * @param GetTemporaryFileUrlRequest $request GetTemporaryFileUrlRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTemporaryFileUrlResponse
+     * @return GetTemporaryFileUrlResponse GetTemporaryFileUrlResponse
      */
     public function getTemporaryFileUrlWithOptions($request, $runtime)
     {
@@ -1071,9 +1125,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param GetTemporaryFileUrlRequest $request
+     * @summary GetTemporaryFileUrl
+     *  *
+     * @param GetTemporaryFileUrlRequest $request GetTemporaryFileUrlRequest
      *
-     * @return GetTemporaryFileUrlResponse
+     * @return GetTemporaryFileUrlResponse GetTemporaryFileUrlResponse
      */
     public function getTemporaryFileUrl($request)
     {
@@ -1083,9 +1139,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to five times per second per account.
-     *   *
+     * @summary Obtains the token for authentication.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to five times per second per account.
+     *  *
      * @param GetTokenRequest $request GetTokenRequest
      * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
@@ -1126,9 +1184,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to five times per second per account.
-     *   *
+     * @summary Obtains the token for authentication.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to five times per second per account.
+     *  *
      * @param GetTokenRequest $request GetTokenRequest
      *
      * @return GetTokenResponse GetTokenResponse
@@ -1141,10 +1201,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param GetVideoFieldUrlRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary GetVideoFieldUrl
+     *  *
+     * @param GetVideoFieldUrlRequest $request GetVideoFieldUrlRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetVideoFieldUrlResponse
+     * @return GetVideoFieldUrlResponse GetVideoFieldUrlResponse
      */
     public function getVideoFieldUrlWithOptions($request, $runtime)
     {
@@ -1181,9 +1243,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param GetVideoFieldUrlRequest $request
+     * @summary GetVideoFieldUrl
+     *  *
+     * @param GetVideoFieldUrlRequest $request GetVideoFieldUrlRequest
      *
-     * @return GetVideoFieldUrlResponse
+     * @return GetVideoFieldUrlResponse GetVideoFieldUrlResponse
      */
     public function getVideoFieldUrl($request)
     {
@@ -1193,12 +1257,14 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * *   Your enterprise qualification is approved. For more information, see [Submit enterprise qualifications](~~149795~~).
-     *   * *   Voice numbers are purchased. For more information, see [Purchase numbers](~~149794~~).
-     *   * *   When the subscriber answers the call, the subscriber hears a voice that instructs the subscriber to press a key as needed. If the [message receipt](~~112503~~) feature is enabled, the Voice Messaging Service (VMS) platform returns the information about the key pressed by the subscriber to the business system. The key information includes the order confirmation, questionnaire survey, and satisfaction survey completed by the subscriber.
-     *   * ## QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Initiates an interactive voice response (IVR) call to a specified number.
+     *  *
+     * @description *   Your enterprise qualification is approved. For more information, see [Submit enterprise qualifications](https://help.aliyun.com/document_detail/149795.html).
+     * *   Voice numbers are purchased. For more information, see [Purchase numbers](https://help.aliyun.com/document_detail/149794.html).
+     * *   When the subscriber answers the call, the subscriber hears a voice that instructs the subscriber to press a key as needed. If the [message receipt](https://help.aliyun.com/document_detail/112503.html) feature is enabled, the Voice Messaging Service (VMS) platform returns the information about the key pressed by the subscriber to the business system. The key information includes the order confirmation, questionnaire survey, and satisfaction survey completed by the subscriber.
+     * ## QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param IvrCallRequest $request IvrCallRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -1266,12 +1332,14 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * *   Your enterprise qualification is approved. For more information, see [Submit enterprise qualifications](~~149795~~).
-     *   * *   Voice numbers are purchased. For more information, see [Purchase numbers](~~149794~~).
-     *   * *   When the subscriber answers the call, the subscriber hears a voice that instructs the subscriber to press a key as needed. If the [message receipt](~~112503~~) feature is enabled, the Voice Messaging Service (VMS) platform returns the information about the key pressed by the subscriber to the business system. The key information includes the order confirmation, questionnaire survey, and satisfaction survey completed by the subscriber.
-     *   * ## QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Initiates an interactive voice response (IVR) call to a specified number.
+     *  *
+     * @description *   Your enterprise qualification is approved. For more information, see [Submit enterprise qualifications](https://help.aliyun.com/document_detail/149795.html).
+     * *   Voice numbers are purchased. For more information, see [Purchase numbers](https://help.aliyun.com/document_detail/149794.html).
+     * *   When the subscriber answers the call, the subscriber hears a voice that instructs the subscriber to press a key as needed. If the [message receipt](https://help.aliyun.com/document_detail/112503.html) feature is enabled, the Voice Messaging Service (VMS) platform returns the information about the key pressed by the subscriber to the business system. The key information includes the order confirmation, questionnaire survey, and satisfaction survey completed by the subscriber.
+     * ## QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param IvrCallRequest $request IvrCallRequest
      *
      * @return IvrCallResponse IvrCallResponse
@@ -1284,9 +1352,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries task information.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param ListCallTaskRequest $request ListCallTaskRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -1345,9 +1415,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries task information.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param ListCallTaskRequest $request ListCallTaskRequest
      *
      * @return ListCallTaskResponse ListCallTaskResponse
@@ -1360,9 +1432,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries the information about a task based on the task ID.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param ListCallTaskDetailRequest $request ListCallTaskDetailRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -1415,9 +1489,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries the information about a task based on the task ID.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param ListCallTaskDetailRequest $request ListCallTaskDetailRequest
      *
      * @return ListCallTaskDetailResponse ListCallTaskDetailResponse
@@ -1430,9 +1506,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries a list of registered phone numbers that are used to transfer calls.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param ListHotlineTransferNumberRequest $request ListHotlineTransferNumberRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -1482,9 +1560,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries a list of registered phone numbers that are used to transfer calls.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param ListHotlineTransferNumberRequest $request ListHotlineTransferNumberRequest
      *
      * @return ListHotlineTransferNumberResponse ListHotlineTransferNumberResponse
@@ -1497,9 +1577,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries the registration information about a China 400 number.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param ListHotlineTransferRegisterFileRequest $request ListHotlineTransferRegisterFileRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -1549,9 +1631,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries the registration information about a China 400 number.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param ListHotlineTransferRegisterFileRequest $request ListHotlineTransferRegisterFileRequest
      *
      * @return ListHotlineTransferRegisterFileResponse ListHotlineTransferRegisterFileResponse
@@ -1564,10 +1648,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param PauseVideoFileRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary PauseVideoFile
+     *  *
+     * @param PauseVideoFileRequest $request PauseVideoFileRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return PauseVideoFileResponse
+     * @return PauseVideoFileResponse PauseVideoFileResponse
      */
     public function pauseVideoFileWithOptions($request, $runtime)
     {
@@ -1607,9 +1693,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param PauseVideoFileRequest $request
+     * @summary PauseVideoFile
+     *  *
+     * @param PauseVideoFileRequest $request PauseVideoFileRequest
      *
-     * @return PauseVideoFileResponse
+     * @return PauseVideoFileResponse PauseVideoFileResponse
      */
     public function pauseVideoFile($request)
     {
@@ -1619,10 +1707,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param PlayVideoFileRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary PlayVideoFile
+     *  *
+     * @param PlayVideoFileRequest $request PlayVideoFileRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return PlayVideoFileResponse
+     * @return PlayVideoFileResponse PlayVideoFileResponse
      */
     public function playVideoFileWithOptions($request, $runtime)
     {
@@ -1633,6 +1723,9 @@ class Dyvmsapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->calledNumber)) {
             $query['CalledNumber'] = $request->calledNumber;
+        }
+        if (!Utils::isUnset($request->onlyPhone)) {
+            $query['OnlyPhone'] = $request->onlyPhone;
         }
         if (!Utils::isUnset($request->outId)) {
             $query['OutId'] = $request->outId;
@@ -1668,9 +1761,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param PlayVideoFileRequest $request
+     * @summary PlayVideoFile
+     *  *
+     * @param PlayVideoFileRequest $request PlayVideoFileRequest
      *
-     * @return PlayVideoFileResponse
+     * @return PlayVideoFileResponse PlayVideoFileResponse
      */
     public function playVideoFile($request)
     {
@@ -1680,10 +1775,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * QueryCallDetailByCallId is a common query operation. You can call this operation to query the details of a voice notification, voice verification code, interactive voice response (IVR), intelligent inbound voice call, intelligent outbound voice call, or intelligent robocall.
-     *   * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries the details of a call.
+     *  *
+     * @description QueryCallDetailByCallId is a common query operation. You can call this operation to query the details of a voice notification, voice verification code, interactive voice response (IVR), intelligent inbound voice call, intelligent outbound voice call, or intelligent robocall.
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param QueryCallDetailByCallIdRequest $request QueryCallDetailByCallIdRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -1730,10 +1827,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * QueryCallDetailByCallId is a common query operation. You can call this operation to query the details of a voice notification, voice verification code, interactive voice response (IVR), intelligent inbound voice call, intelligent outbound voice call, or intelligent robocall.
-     *   * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries the details of a call.
+     *  *
+     * @description QueryCallDetailByCallId is a common query operation. You can call this operation to query the details of a voice notification, voice verification code, interactive voice response (IVR), intelligent inbound voice call, intelligent outbound voice call, or intelligent robocall.
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param QueryCallDetailByCallIdRequest $request QueryCallDetailByCallIdRequest
      *
      * @return QueryCallDetailByCallIdResponse QueryCallDetailByCallIdResponse
@@ -1746,10 +1845,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryCallDetailByTaskIdRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the call details of an outbound robocall task.
+     *  *
+     * @param QueryCallDetailByTaskIdRequest $request QueryCallDetailByTaskIdRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryCallDetailByTaskIdResponse
+     * @return QueryCallDetailByTaskIdResponse QueryCallDetailByTaskIdResponse
      */
     public function queryCallDetailByTaskIdWithOptions($request, $runtime)
     {
@@ -1792,9 +1893,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryCallDetailByTaskIdRequest $request
+     * @summary Queries the call details of an outbound robocall task.
+     *  *
+     * @param QueryCallDetailByTaskIdRequest $request QueryCallDetailByTaskIdRequest
      *
-     * @return QueryCallDetailByTaskIdResponse
+     * @return QueryCallDetailByTaskIdResponse QueryCallDetailByTaskIdResponse
      */
     public function queryCallDetailByTaskId($request)
     {
@@ -1804,9 +1907,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries the configuration of the phone number used to transfer a call.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param QueryCallInPoolTransferConfigRequest $request QueryCallInPoolTransferConfigRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -1847,9 +1952,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries the configuration of the phone number used to transfer a call.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param QueryCallInPoolTransferConfigRequest $request QueryCallInPoolTransferConfigRequest
      *
      * @return QueryCallInPoolTransferConfigResponse QueryCallInPoolTransferConfigResponse
@@ -1862,9 +1969,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries call transfer records.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param QueryCallInTransferRecordRequest $request QueryCallInTransferRecordRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -1917,9 +2026,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries call transfer records.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param QueryCallInTransferRecordRequest $request QueryCallInTransferRecordRequest
      *
      * @return QueryCallInTransferRecordResponse QueryCallInTransferRecordResponse
@@ -1932,10 +2043,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryRobotInfoListRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries a list of robots.
+     *  *
+     * @param QueryRobotInfoListRequest $request QueryRobotInfoListRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryRobotInfoListResponse
+     * @return QueryRobotInfoListResponse QueryRobotInfoListResponse
      */
     public function queryRobotInfoListWithOptions($request, $runtime)
     {
@@ -1972,9 +2085,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryRobotInfoListRequest $request
+     * @summary Queries a list of robots.
+     *  *
+     * @param QueryRobotInfoListRequest $request QueryRobotInfoListRequest
      *
-     * @return QueryRobotInfoListResponse
+     * @return QueryRobotInfoListResponse QueryRobotInfoListResponse
      */
     public function queryRobotInfoList($request)
     {
@@ -1984,9 +2099,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries the call details of a called number in a robocall task.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param QueryRobotTaskCallDetailRequest $request QueryRobotTaskCallDetailRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -2033,9 +2150,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries the call details of a called number in a robocall task.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param QueryRobotTaskCallDetailRequest $request QueryRobotTaskCallDetailRequest
      *
      * @return QueryRobotTaskCallDetailResponse QueryRobotTaskCallDetailResponse
@@ -2048,9 +2167,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries the information about a robocall task.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param QueryRobotTaskCallListRequest $request QueryRobotTaskCallListRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -2118,9 +2239,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries the information about a robocall task.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param QueryRobotTaskCallListRequest $request QueryRobotTaskCallListRequest
      *
      * @return QueryRobotTaskCallListResponse QueryRobotTaskCallListResponse
@@ -2133,9 +2256,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries the details of a robocall task.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param QueryRobotTaskDetailRequest $request QueryRobotTaskDetailRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -2176,9 +2301,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries the details of a robocall task.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param QueryRobotTaskDetailRequest $request QueryRobotTaskDetailRequest
      *
      * @return QueryRobotTaskDetailResponse QueryRobotTaskDetailResponse
@@ -2191,9 +2318,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries the information about all robocall tasks.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param QueryRobotTaskListRequest $request QueryRobotTaskListRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -2246,9 +2375,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries the information about all robocall tasks.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param QueryRobotTaskListRequest $request QueryRobotTaskListRequest
      *
      * @return QueryRobotTaskListResponse QueryRobotTaskListResponse
@@ -2261,9 +2392,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries a list of robot communication scripts.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param QueryRobotv2AllListRequest $request QueryRobotv2AllListRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -2301,9 +2434,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries a list of robot communication scripts.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param QueryRobotv2AllListRequest $request QueryRobotv2AllListRequest
      *
      * @return QueryRobotv2AllListResponse QueryRobotv2AllListResponse
@@ -2316,10 +2451,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryVideoPlayProgressRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary QueryVideoPlayProgress
+     *  *
+     * @param QueryVideoPlayProgressRequest $request QueryVideoPlayProgressRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryVideoPlayProgressResponse
+     * @return QueryVideoPlayProgressResponse QueryVideoPlayProgressResponse
      */
     public function queryVideoPlayProgressWithOptions($request, $runtime)
     {
@@ -2359,9 +2496,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryVideoPlayProgressRequest $request
+     * @summary QueryVideoPlayProgress
+     *  *
+     * @param QueryVideoPlayProgressRequest $request QueryVideoPlayProgressRequest
      *
-     * @return QueryVideoPlayProgressResponse
+     * @return QueryVideoPlayProgressResponse QueryVideoPlayProgressResponse
      */
     public function queryVideoPlayProgress($request)
     {
@@ -2371,9 +2510,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries a list of virtual numbers.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param QueryVirtualNumberRequest $request QueryVirtualNumberRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -2423,9 +2564,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Queries a list of virtual numbers.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param QueryVirtualNumberRequest $request QueryVirtualNumberRequest
      *
      * @return QueryVirtualNumberResponse QueryVirtualNumberResponse
@@ -2438,9 +2581,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 200 times per second per account.
-     *   *
+     * @summary Queries a list of associations between virtual numbers and real numbers.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 200 times per second per account.
+     *  *
      * @param QueryVirtualNumberRelationRequest $request QueryVirtualNumberRelationRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -2505,9 +2650,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 200 times per second per account.
-     *   *
+     * @summary Queries a list of associations between virtual numbers and real numbers.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 200 times per second per account.
+     *  *
      * @param QueryVirtualNumberRelationRequest $request QueryVirtualNumberRelationRequest
      *
      * @return QueryVirtualNumberRelationResponse QueryVirtualNumberRelationResponse
@@ -2520,10 +2667,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryVoiceFileAuditInfoRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the review state of a voice file.
+     *  *
+     * @param QueryVoiceFileAuditInfoRequest $request QueryVoiceFileAuditInfoRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryVoiceFileAuditInfoResponse
+     * @return QueryVoiceFileAuditInfoResponse QueryVoiceFileAuditInfoResponse
      */
     public function queryVoiceFileAuditInfoWithOptions($request, $runtime)
     {
@@ -2563,9 +2712,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryVoiceFileAuditInfoRequest $request
+     * @summary Queries the review state of a voice file.
+     *  *
+     * @param QueryVoiceFileAuditInfoRequest $request QueryVoiceFileAuditInfoRequest
      *
-     * @return QueryVoiceFileAuditInfoResponse
+     * @return QueryVoiceFileAuditInfoResponse QueryVoiceFileAuditInfoResponse
      */
     public function queryVoiceFileAuditInfo($request)
     {
@@ -2575,10 +2726,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param RecoverCallInConfigRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Resumes the inbound call that is transferred by using a China 400 number.
+     *  *
+     * @param RecoverCallInConfigRequest $request RecoverCallInConfigRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecoverCallInConfigResponse
+     * @return RecoverCallInConfigResponse RecoverCallInConfigResponse
      */
     public function recoverCallInConfigWithOptions($request, $runtime)
     {
@@ -2615,9 +2768,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param RecoverCallInConfigRequest $request
+     * @summary Resumes the inbound call that is transferred by using a China 400 number.
+     *  *
+     * @param RecoverCallInConfigRequest $request RecoverCallInConfigRequest
      *
-     * @return RecoverCallInConfigResponse
+     * @return RecoverCallInConfigResponse RecoverCallInConfigResponse
      */
     public function recoverCallInConfig($request)
     {
@@ -2627,10 +2782,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param ResumeVideoFileRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary ResumeVideoFile
+     *  *
+     * @param ResumeVideoFileRequest $request ResumeVideoFileRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResumeVideoFileResponse
+     * @return ResumeVideoFileResponse ResumeVideoFileResponse
      */
     public function resumeVideoFileWithOptions($request, $runtime)
     {
@@ -2670,9 +2827,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param ResumeVideoFileRequest $request
+     * @summary ResumeVideoFile
+     *  *
+     * @param ResumeVideoFileRequest $request ResumeVideoFileRequest
      *
-     * @return ResumeVideoFileResponse
+     * @return ResumeVideoFileResponse ResumeVideoFileResponse
      */
     public function resumeVideoFile($request)
     {
@@ -2682,10 +2841,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param SeekVideoFileRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary SeekVideoFile
+     *  *
+     * @param SeekVideoFileRequest $request SeekVideoFileRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return SeekVideoFileResponse
+     * @return SeekVideoFileResponse SeekVideoFileResponse
      */
     public function seekVideoFileWithOptions($request, $runtime)
     {
@@ -2728,9 +2889,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param SeekVideoFileRequest $request
+     * @summary SeekVideoFile
+     *  *
+     * @param SeekVideoFileRequest $request SeekVideoFileRequest
      *
-     * @return SeekVideoFileResponse
+     * @return SeekVideoFileResponse SeekVideoFileResponse
      */
     public function seekVideoFile($request)
     {
@@ -2740,9 +2903,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Sends an SMS verification code.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param SendVerificationRequest $request SendVerificationRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -2789,9 +2954,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Sends an SMS verification code.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param SendVerificationRequest $request SendVerificationRequest
      *
      * @return SendVerificationResponse SendVerificationResponse
@@ -2804,9 +2971,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Sets the phone numbers for transferring a call.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param SetTransferCalleePoolConfigRequest $request SetTransferCalleePoolConfigRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -2856,9 +3025,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Sets the phone numbers for transferring a call.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param SetTransferCalleePoolConfigRequest $request SetTransferCalleePoolConfigRequest
      *
      * @return SetTransferCalleePoolConfigResponse SetTransferCalleePoolConfigResponse
@@ -2871,11 +3042,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * *   Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
-     *   * *   For more information about voice plans or voice service billing, see [Pricing of VMS on China site (aliyun.com)](~~150083~~).
-     *   * ### QPS limits
-     *   * You can call this operation up to 1,000 times per second per account.
-     *   *
+     * @summary Sends a voice verification code or a voice notification with variables to a specified phone number.
+     *  *
+     * @description *   Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
+     * *   For more information about voice plans or voice service billing, see [Pricing of VMS on China site (aliyun.com)](https://help.aliyun.com/document_detail/150083.html).
+     * ### QPS limits
+     * You can call this operation up to 1,000 times per second per account.
+     *  *
      * @param SingleCallByTtsRequest $request SingleCallByTtsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -2937,11 +3110,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * *   Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
-     *   * *   For more information about voice plans or voice service billing, see [Pricing of VMS on China site (aliyun.com)](~~150083~~).
-     *   * ### QPS limits
-     *   * You can call this operation up to 1,000 times per second per account.
-     *   *
+     * @summary Sends a voice verification code or a voice notification with variables to a specified phone number.
+     *  *
+     * @description *   Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
+     * *   For more information about voice plans or voice service billing, see [Pricing of VMS on China site (aliyun.com)](https://help.aliyun.com/document_detail/150083.html).
+     * ### QPS limits
+     * You can call this operation up to 1,000 times per second per account.
+     *  *
      * @param SingleCallByTtsRequest $request SingleCallByTtsRequest
      *
      * @return SingleCallByTtsResponse SingleCallByTtsResponse
@@ -2954,10 +3129,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param SingleCallByVideoRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 语音视频单呼接口
+     *  *
+     * @param SingleCallByVideoRequest $request SingleCallByVideoRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SingleCallByVideoResponse
+     * @return SingleCallByVideoResponse SingleCallByVideoResponse
      */
     public function singleCallByVideoWithOptions($request, $runtime)
     {
@@ -3015,9 +3192,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param SingleCallByVideoRequest $request
+     * @summary 语音视频单呼接口
+     *  *
+     * @param SingleCallByVideoRequest $request SingleCallByVideoRequest
      *
-     * @return SingleCallByVideoResponse
+     * @return SingleCallByVideoResponse SingleCallByVideoResponse
      */
     public function singleCallByVideo($request)
     {
@@ -3027,11 +3206,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * > Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
-     *   * You can call the [SingleCallByTts](~~393519~~) operation to send voice notifications with variables.
-     *   * ### QPS limits
-     *   * You can call this operation up to 1,200 times per second per account.
-     *   *
+     * @summary Sends a voice notification to a phone number by using a voice notification file.
+     *  *
+     * @description > Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
+     * You can call the [SingleCallByTts](https://help.aliyun.com/document_detail/393519.html) operation to send voice notifications with variables.
+     * ### QPS limits
+     * You can call this operation up to 1,200 times per second per account.
+     *  *
      * @param SingleCallByVoiceRequest $request SingleCallByVoiceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -3090,11 +3271,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * > Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
-     *   * You can call the [SingleCallByTts](~~393519~~) operation to send voice notifications with variables.
-     *   * ### QPS limits
-     *   * You can call this operation up to 1,200 times per second per account.
-     *   *
+     * @summary Sends a voice notification to a phone number by using a voice notification file.
+     *  *
+     * @description > Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
+     * You can call the [SingleCallByTts](https://help.aliyun.com/document_detail/393519.html) operation to send voice notifications with variables.
+     * ### QPS limits
+     * You can call this operation up to 1,200 times per second per account.
+     *  *
      * @param SingleCallByVoiceRequest $request SingleCallByVoiceRequest
      *
      * @return SingleCallByVoiceResponse SingleCallByVoiceResponse
@@ -3107,10 +3290,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param SkipVideoFileRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary SkipVideoFile
+     *  *
+     * @param SkipVideoFileRequest $request SkipVideoFileRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return SkipVideoFileResponse
+     * @return SkipVideoFileResponse SkipVideoFileResponse
      */
     public function skipVideoFileWithOptions($request, $runtime)
     {
@@ -3156,9 +3341,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param SkipVideoFileRequest $request
+     * @summary SkipVideoFile
+     *  *
+     * @param SkipVideoFileRequest $request SkipVideoFileRequest
      *
-     * @return SkipVideoFileResponse
+     * @return SkipVideoFileResponse SkipVideoFileResponse
      */
     public function skipVideoFile($request)
     {
@@ -3168,11 +3355,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * *   The SmartCall operation must be used together with the [intelligent outbound HTTP operation](~~112703~~). After the call initiated by the Voice Messaging Service (VMS) platform is connected, the VMS platform sends the text converted from speech back to the business side, and the business side then returns the follow-up action to the VMS platform.
-     *   * *   The SmartCall operation does not support the following characters: `@ = : "" $ { } ^ * ￥`.
-     *   * ### QPS limits
-     *   * You can call this operation up to 1,000 times per second per account.
-     *   *
+     * @summary Initiates an intelligent voice call.
+     *  *
+     * @description *   The SmartCall operation must be used together with the [intelligent outbound HTTP operation](https://help.aliyun.com/document_detail/112703.html). After the call initiated by the Voice Messaging Service (VMS) platform is connected, the VMS platform sends the text converted from speech back to the business side, and the business side then returns the follow-up action to the VMS platform.
+     * *   The SmartCall operation does not support the following characters: `@ = : "" $ { } ^ * ￥`.
+     * ### QPS limits
+     * You can call this operation up to 1,000 times per second per account.
+     *  *
      * @param SmartCallRequest $request SmartCallRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -3291,11 +3480,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * *   The SmartCall operation must be used together with the [intelligent outbound HTTP operation](~~112703~~). After the call initiated by the Voice Messaging Service (VMS) platform is connected, the VMS platform sends the text converted from speech back to the business side, and the business side then returns the follow-up action to the VMS platform.
-     *   * *   The SmartCall operation does not support the following characters: `@ = : "" $ { } ^ * ￥`.
-     *   * ### QPS limits
-     *   * You can call this operation up to 1,000 times per second per account.
-     *   *
+     * @summary Initiates an intelligent voice call.
+     *  *
+     * @description *   The SmartCall operation must be used together with the [intelligent outbound HTTP operation](https://help.aliyun.com/document_detail/112703.html). After the call initiated by the Voice Messaging Service (VMS) platform is connected, the VMS platform sends the text converted from speech back to the business side, and the business side then returns the follow-up action to the VMS platform.
+     * *   The SmartCall operation does not support the following characters: `@ = : "" $ { } ^ * ￥`.
+     * ### QPS limits
+     * You can call this operation up to 1,000 times per second per account.
+     *  *
      * @param SmartCallRequest $request SmartCallRequest
      *
      * @return SmartCallResponse SmartCallResponse
@@ -3308,11 +3499,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * You can call this operation to initiate a specified action on the called number of an outbound robocall when the call is transferred to an agent of the call center.
-     *   * > You can only initiate the action of bridging a called number and an agent of the call center.
-     *   * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Initiates an action in an outbound robocall. This operation is applicable only when the robocall is transferred to an agent or an agent is listening in on the conversation between the robot and the user.
+     *  *
+     * @description You can call this operation to initiate a specified action on the called number of an outbound robocall when the call is transferred to an agent of the call center.
+     * > You can only initiate the action of bridging a called number and an agent of the call center.
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param SmartCallOperateRequest $request SmartCallOperateRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -3359,11 +3552,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * You can call this operation to initiate a specified action on the called number of an outbound robocall when the call is transferred to an agent of the call center.
-     *   * > You can only initiate the action of bridging a called number and an agent of the call center.
-     *   * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Initiates an action in an outbound robocall. This operation is applicable only when the robocall is transferred to an agent or an agent is listening in on the conversation between the robot and the user.
+     *  *
+     * @description You can call this operation to initiate a specified action on the called number of an outbound robocall when the call is transferred to an agent of the call center.
+     * > You can only initiate the action of bridging a called number and an agent of the call center.
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param SmartCallOperateRequest $request SmartCallOperateRequest
      *
      * @return SmartCallOperateResponse SmartCallOperateResponse
@@ -3376,9 +3571,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Starts a robocall task immediately or at a scheduled time.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param StartRobotTaskRequest $request StartRobotTaskRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -3422,9 +3619,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Starts a robocall task immediately or at a scheduled time.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param StartRobotTaskRequest $request StartRobotTaskRequest
      *
      * @return StartRobotTaskResponse StartRobotTaskResponse
@@ -3437,10 +3636,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param StopCallInConfigRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Stops the inbound call that is transferred from a China 400 number.
+     *  *
+     * @param StopCallInConfigRequest $request StopCallInConfigRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopCallInConfigResponse
+     * @return StopCallInConfigResponse StopCallInConfigResponse
      */
     public function stopCallInConfigWithOptions($request, $runtime)
     {
@@ -3477,9 +3678,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param StopCallInConfigRequest $request
+     * @summary Stops the inbound call that is transferred from a China 400 number.
+     *  *
+     * @param StopCallInConfigRequest $request StopCallInConfigRequest
      *
-     * @return StopCallInConfigResponse
+     * @return StopCallInConfigResponse StopCallInConfigResponse
      */
     public function stopCallInConfig($request)
     {
@@ -3489,10 +3692,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * After you stop a robocall task, you can call the [StartRobotTask](~~StartRobotTask~~) operation to start it again.
-     *   * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Stops a robocall task that is in progress.
+     *  *
+     * @description After you stop a robocall task, you can call the [StartRobotTask](~~StartRobotTask~~) operation to start it again.
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param StopRobotTaskRequest $request StopRobotTaskRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -3533,10 +3738,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * After you stop a robocall task, you can call the [StartRobotTask](~~StartRobotTask~~) operation to start it again.
-     *   * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Stops a robocall task that is in progress.
+     *  *
+     * @description After you stop a robocall task, you can call the [StartRobotTask](~~StartRobotTask~~) operation to start it again.
+     * ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param StopRobotTaskRequest $request StopRobotTaskRequest
      *
      * @return StopRobotTaskResponse StopRobotTaskResponse
@@ -3549,9 +3756,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Submits a China 400 number for registration.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param SubmitHotlineTransferRegisterRequest $request SubmitHotlineTransferRegisterRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -3619,9 +3828,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Submits a China 400 number for registration.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param SubmitHotlineTransferRegisterRequest $request SubmitHotlineTransferRegisterRequest
      *
      * @return SubmitHotlineTransferRegisterResponse SubmitHotlineTransferRegisterResponse
@@ -3634,10 +3845,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param UpgradeVideoFileRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary UpgradeVideoFile
+     *  *
+     * @param UpgradeVideoFileRequest $request UpgradeVideoFileRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeVideoFileResponse
+     * @return UpgradeVideoFileResponse UpgradeVideoFileResponse
      */
     public function upgradeVideoFileWithOptions($request, $runtime)
     {
@@ -3683,9 +3896,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param UpgradeVideoFileRequest $request
+     * @summary UpgradeVideoFile
+     *  *
+     * @param UpgradeVideoFileRequest $request UpgradeVideoFileRequest
      *
-     * @return UpgradeVideoFileResponse
+     * @return UpgradeVideoFileResponse UpgradeVideoFileResponse
      */
     public function upgradeVideoFile($request)
     {
@@ -3695,9 +3910,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Uploads the called numbers of a robocall task.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param UploadRobotTaskCalledFileRequest $request UploadRobotTaskCalledFileRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -3747,9 +3964,11 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ### QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   *
+     * @summary Uploads the called numbers of a robocall task.
+     *  *
+     * @description ### QPS limits
+     * You can call this operation up to 100 times per second per account.
+     *  *
      * @param UploadRobotTaskCalledFileRequest $request UploadRobotTaskCalledFileRequest
      *
      * @return UploadRobotTaskCalledFileResponse UploadRobotTaskCalledFileResponse

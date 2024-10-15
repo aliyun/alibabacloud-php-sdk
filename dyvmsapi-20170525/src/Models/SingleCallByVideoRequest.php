@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SingleCallByVideoRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1590****000
      *
      * @var string
@@ -59,11 +61,15 @@ class SingleCallByVideoRequest extends Model
     public $speed;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $videoCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2d4c-4e78-8d2a-afbb06cf****.wav
      *
      * @var string

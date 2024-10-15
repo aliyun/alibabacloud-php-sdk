@@ -16,6 +16,8 @@ class QueryVideoPlayProgressRequest extends Model
     public $callId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 159****0000
      *
      * @var string

@@ -35,7 +35,7 @@ class IvrCallRequest extends Model
     /**
      * @description The called number.
      *
-     * Only phone numbers in the Chinese mainland are supported. Each request supports only one called number.
+     * This parameter is required.
      * @example 1590****000
      *
      * @var string
@@ -46,6 +46,8 @@ class IvrCallRequest extends Model
      * @description The calling number.
      *
      * The value must be a number you purchased. Each request supports only one calling number. In most cases, a calling number is configured with the maximum number of concurrent requests. New requests fail if the maximum number of concurrent requests is reached. You can log on to the [Voice Messaging Service console](https://dyvms.console.aliyun.com/overview/home) and choose **Real Number Service > Real Number Management** to view the number you purchased.
+     *
+     * This parameter is required.
      * @example 0571****5678
      *
      * @var string
@@ -99,6 +101,7 @@ class IvrCallRequest extends Model
      *   If you use a voice notification file, this parameter specifies the voice ID. You can log on to the [Voice Messaging Service console](https://dyvms.console.aliyun.com/overview/home), choose **Voice Messages** > Voice Notifications, and then click the **Voice Notification Files** tab to view the voice ID.
      *   If you use a text-to-speech (TTS) template, this parameter specifies the template ID. You can log on to the [Voice Messaging Service console](https://dyvms.console.aliyun.com/overview/home), choose **Voice Messages** > **Voice Notifications**, and then click the **TTS Template** tab to view the template ID.
      *
+     * This parameter is required.
      * @example TTS_1234****
      *
      * @var string

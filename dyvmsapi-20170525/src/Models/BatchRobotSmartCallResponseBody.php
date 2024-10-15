@@ -12,7 +12,7 @@ class BatchRobotSmartCallResponseBody extends Model
      * @description The response code.
      *
      *   The value OK indicates that the request was successful.
-     *   For more information about other response codes, see [API error codes](~~112502~~).
+     *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/112502.html).
      *
      * @example OK
      *
@@ -39,7 +39,7 @@ class BatchRobotSmartCallResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The unique ID of the robocall task. You can call the [QueryCallDetailByTaskId](~~393537~~) operation to query the details of the task based on the task ID.
+     * @description The unique ID of the robocall task. You can call the [QueryCallDetailByTaskId](https://help.aliyun.com/document_detail/393537.html) operation to query the details of the task based on the task ID.
      *
      * @example 4001112222
      *

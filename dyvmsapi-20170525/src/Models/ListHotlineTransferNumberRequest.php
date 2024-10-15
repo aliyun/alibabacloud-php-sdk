@@ -11,6 +11,7 @@ class ListHotlineTransferNumberRequest extends Model
     /**
      * @description The China 400 number.
      *
+     * This parameter is required.
      * @example 400****
      *
      * @var string
@@ -41,8 +42,9 @@ class ListHotlineTransferNumberRequest extends Model
     public $pageSize;
 
     /**
-     * @description The qualification ID. You can call the [GetHotlineQualificationByOrder](~~393548~~) operation to obtain the qualification ID.
+     * @description The qualification ID. You can call the [GetHotlineQualificationByOrder](https://help.aliyun.com/document_detail/393548.html) operation to obtain the qualification ID.
      *
+     * This parameter is required.
      * @example 100***
      *
      * @var string

@@ -24,6 +24,8 @@ class GetTemporaryFileUrlRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 45a04670582571eebf9e4531948c****
      *
      * @var string

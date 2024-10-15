@@ -11,7 +11,7 @@ class UploadRobotTaskCalledFileRequest extends Model
     /**
      * @description The called numbers. Separate multiple called numbers with commas (,).
      *
-     * > After you create a robocall task, you must upload called numbers in batches. You can upload up to 300,000 called numbers for each task.
+     * This parameter is required.
      * @example 1370****000,1370****111
      *
      * @var string
@@ -21,6 +21,7 @@ class UploadRobotTaskCalledFileRequest extends Model
     /**
      * @description The unique ID of the robocall task. You can call the [CreateRobotTask](~~CreateRobotTask~~) operation to obtain the ID of the robocall task.
      *
+     * This parameter is required.
      * @example 1045****
      *
      * @var int

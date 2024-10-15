@@ -31,8 +31,8 @@ class SmartCallRequest extends Model
     /**
      * @description The ASR base model. Valid values:
      *
-     *   **customer_service\_8k** (default): Chinese Mandarin.
-     *   **dialect_customer_service\_8k**: a heavy accent.
+     *   **customer_service_8k** (default): Chinese Mandarin.
+     *   **dialect_customer_service_8k**: a heavy accent.
      *
      * > You must specify the ASR model when you call the SmartCall operation. We recommend that you specify either of the AsrModelId and AsrBaseId parameters.
      *
@@ -40,7 +40,7 @@ class SmartCallRequest extends Model
      *
      *   If you specify only the AsrBaseId parameter, the ASR base model is used.
      *
-     *   If you specify neither of the two parameters, the default ASR base model is used, that is, the default value customer_service\_8k is used for the AsrBaseId parameter.
+     *   If you specify neither of the two parameters, the default ASR base model is used, that is, the default value customer_service_8k is used for the AsrBaseId parameter.
      *
      *   If you specify both parameters, make sure that their values do not conflict with each other.
      *
@@ -61,7 +61,7 @@ class SmartCallRequest extends Model
      *
      *   If you specify only the AsrBaseId parameter, the specified ASR base model is used.
      *
-     *   If you specify neither of the two parameters, the default value customer_service\_8k is used for the AsrBaseId parameter. This means that the default Mandarin ASR base model is used.
+     *   If you specify neither of the two parameters, the default value customer_service_8k is used for the AsrBaseId parameter. This means that the default Mandarin ASR base model is used.
      *
      *   If you specify both parameters, make sure that their values do not conflict with each other.
      *
@@ -102,6 +102,7 @@ class SmartCallRequest extends Model
     /**
      * @description The called number. Only phone numbers in the Chinese mainland are supported.
      *
+     * This parameter is required.
      * @example 1590****0000
      *
      * @var string
@@ -112,6 +113,8 @@ class SmartCallRequest extends Model
      * @description The number displayed to the called party. The value must be the number you purchased.
      *
      * You can log on to the [Voice Messaging Service console](https://dyvms.console.aliyun.com/overview/home) and choose **Voice Numbers** > **Real Number Management** to view the number you purchased.
+     *
+     * This parameter is required.
      * @example 0571****5678
      *
      * @var string
@@ -301,6 +304,7 @@ class SmartCallRequest extends Model
      *   If you use a voice file uploaded from the Voice Messaging Service console as the recording file, set the value of **VoiceCode** to the voice ID of the file. You can log on to the [Voice Messaging Service console](https://dyvms.console.aliyun.com/overview/home), choose **Voice File Management**, click the **Intelligent Speech Interaction Recording File** tab, and then click **Details** in the Actions column to view the voice ID.
      *   If you use a TTS template that contains variables as the recording file, set the value of **VoiceCode** to a variable name such as $name$, and also set a value for the variable in the **VoiceCodeParam** parameter.
      *
+     * This parameter is required.
      * @example 2d4c-4e78-8d2a-afbb06cf****.wav,$name$
      *
      * @var string

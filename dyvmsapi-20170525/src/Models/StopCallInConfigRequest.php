@@ -11,6 +11,7 @@ class StopCallInConfigRequest extends Model
     /**
      * @description The China 400 number from which the inbound call to be stopped is transferred.
      *
+     * This parameter is required.
      * @example 400***
      *
      * @var string

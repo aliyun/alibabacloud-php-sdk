@@ -12,7 +12,7 @@ class QueryCallDetailByCallIdResponseBody extends Model
      * @description The response code.
      *
      *   The value OK indicates that the request was successful.
-     *   For more information about other response codes, see [API error codes](~~112502~~).
+     *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/112502.html).
      *
      * @example OK
      *
@@ -29,7 +29,7 @@ class QueryCallDetailByCallIdResponseBody extends Model
      *   **duration**: the call duration. Unit: seconds. The value **0** indicates that the user was not connected.
      *   **callerShowNumber**: the calling number displayed to the called party.
      *   **gmtCreate**: the time when the call request was received.
-     *   **state**: the call state. The call state is returned by the Internet service provider (ISP) in real time. For more information about call states, see [ISP-returned error codes](~~55085~~).
+     *   **state**: the call state. The call state is returned by the Internet service provider (ISP) in real time. For more information about call states, see [ISP-returned error codes](https://help.aliyun.com/document_detail/55085.html).
      *   **endDate**: the time when the call was ended.
      *   **calleeShowNumber**: the number displayed to the called party.
      *   **callee**: the called number.

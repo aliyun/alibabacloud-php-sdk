@@ -16,6 +16,8 @@ class UpgradeVideoFileRequest extends Model
     public $callId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1590****000
      *
      * @var string

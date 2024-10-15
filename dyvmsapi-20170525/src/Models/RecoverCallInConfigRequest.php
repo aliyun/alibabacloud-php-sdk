@@ -11,6 +11,7 @@ class RecoverCallInConfigRequest extends Model
     /**
      * @description The China 400 number that is used to transfer the inbound call.
      *
+     * This parameter is required.
      * @example 400***
      *
      * @var string

@@ -12,6 +12,8 @@ class CreateRobotTaskRequest extends Model
      * @description The calling number.
      *
      * You must use the phone numbers that you have purchased and separate multiple numbers with commas (,). You can log on to the [Voice Messaging Service console](https://dyvms.console.aliyun.com/overview/home) and choose **Real Number Service** > **Real Number Management** to view the numbers you purchased.
+     *
+     * This parameter is required.
      * @example 0571****5678
      *
      * @var string
@@ -31,6 +33,8 @@ class CreateRobotTaskRequest extends Model
      * @description The ID of the robot or communication script that is used to initiate the call.
      *
      * You can log on to the [Voice Messaging Service console](https://dyvms.console.aliyun.com/overview/home) and choose **Intelligent Voice Robot** > **Communication Script Management** to view the communication script ID.
+     *
+     * This parameter is required.
      * @example 1000023****
      *
      * @var int
@@ -57,6 +61,8 @@ class CreateRobotTaskRequest extends Model
      *   **true**
      *
      * > If you set this parameter to **true**, the reason why a call is not answered is recorded.
+     *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -119,6 +125,7 @@ class CreateRobotTaskRequest extends Model
      *   **1**: enables auto-redial.
      *   **0**: disables auto-redial.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -128,6 +135,7 @@ class CreateRobotTaskRequest extends Model
     /**
      * @description The task name. The task name can be up to 30 characters in length.
      *
+     * This parameter is required.
      * @example Test Template
      *
      * @var string

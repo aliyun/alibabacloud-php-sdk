@@ -12,7 +12,7 @@ class CreateRobotTaskResponseBody extends Model
      * @description The response code.
      *
      *   The value OK indicates that the request was successful.
-     *   For more information about other response codes, see [API error codes](~~112502~~).
+     *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/112502.html).
      *
      * @example OK
      *
@@ -23,7 +23,7 @@ class CreateRobotTaskResponseBody extends Model
     /**
      * @description The unique ID of the robocall task.
      *
-     * You can call the [QueryRobotTaskDetail](~~393538~~) operation to query the details of the task based on the task ID.
+     * You can call the [QueryRobotTaskDetail](https://help.aliyun.com/document_detail/393538.html) operation to query the details of the task based on the task ID.
      * @example 400111****
      *
      * @var string

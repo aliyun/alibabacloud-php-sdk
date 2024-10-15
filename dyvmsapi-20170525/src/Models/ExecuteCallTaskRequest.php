@@ -40,6 +40,7 @@ class ExecuteCallTaskRequest extends Model
      *   **STOP**
      *   **CANCEL**
      *
+     * This parameter is required.
      * @example RUNNING
      *
      * @var string
@@ -49,6 +50,7 @@ class ExecuteCallTaskRequest extends Model
     /**
      * @description The task ID. You can call the [CreateCallTask](~~CreateCallTask~~) operation to obtain the task ID.
      *
+     * This parameter is required.
      * @example 2256****
      *
      * @var int

@@ -11,7 +11,7 @@ class BatchRobotSmartCallRequest extends Model
     /**
      * @description The called number. Only mobile phone numbers in the Chinese mainland are supported.
      *
-     * You can set up to 1,000 called numbers and separate the numbers with commas (,).
+     * This parameter is required.
      * @example 1390000****
      *
      * @var string
@@ -21,7 +21,7 @@ class BatchRobotSmartCallRequest extends Model
     /**
      * @description The number displayed to called parties, which must be a number you purchased. You can view the numbers you purchased in the [Voice Messaging Service console](https://dyvms.console.aliyun.com/dyvms.htm#/number/normal).
      *
-     * You can set up to 100 numbers and separate the numbers with commas (,).
+     * This parameter is required.
      * @example 222
      *
      * @var string
@@ -42,6 +42,8 @@ class BatchRobotSmartCallRequest extends Model
      * @description The ID of the robot or communication script that is used to initiate a call.
      *
      * You can obtain the **communication script ID** from the [Communication script management](https://dyvms.console.aliyun.com/dyvms.htm#/smart-call/saas/robot/list) page.
+     *
+     * This parameter is required.
      * @example 1234567
      *
      * @var string
@@ -104,6 +106,7 @@ class BatchRobotSmartCallRequest extends Model
     /**
      * @description The task name. The task name can be up to 30 characters in length.
      *
+     * This parameter is required.
      * @example Batch Tasks
      *
      * @var string

@@ -52,7 +52,7 @@ class QueryVirtualNumberRelationRequest extends Model
     /**
      * @description The qualification ID.
      *
-     * You can log on to the [Voice Messaging Service console](https://dyvms.console.aliyun.com/overview/home), choose **Qualifications\&Communication Scripts > Qualification Management**, and then click **Details** in the Actions column to view the qualification ID.
+     * You can log on to the [Voice Messaging Service console](https://dyvms.console.aliyun.com/overview/home), choose **Qualifications\\&Communication Scripts > Qualification Management**, and then click **Details** in the Actions column to view the qualification ID.
      * @example 1000000542****
      *
      * @var int
@@ -101,7 +101,7 @@ class QueryVirtualNumberRelationRequest extends Model
     /**
      * @description The number type. Valid values:
      *
-     *   **1**: the number provided by a virtual network operator, in the 05710000\*\*\*\* format.
+     *   **1**: the number provided by a virtual network operator, in the 05710000\\*\\*\\*\\* format.
      *   **2**: the number provided by an Internet service provider (ISP).
      *   **3**: a 5-digit phone number that starts with 95.
      *

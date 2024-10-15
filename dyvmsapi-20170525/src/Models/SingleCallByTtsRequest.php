@@ -13,17 +13,18 @@ class SingleCallByTtsRequest extends Model
      *
      *   Number format in the Chinese mainland:
      *
-     *   Mobile phone number, for example, 159\*\*\*\*0000.
-     *   Landline number, for example, 0571\*\*\*\*5678.
+     *   Mobile phone number, for example, 159\\*\\*\\*\\*0000.
+     *   Landline number, for example, 0571\\*\\*\\*\\*5678.
      *
-     *   Number format outside the Chinese mainland: country code + phone number, for example, 85200\*\*\*\*00.
+     *   Number format outside the Chinese mainland: country code + phone number, for example, 85200\\*\\*\\*\\*00.
      *
      * >
      *
-     *   Each request supports only one called number. For more information, see [How to use voice notifications in the Chinese mainland](~~150016~~) or [How to use voice verification codes in regions outside the Chinese mainland](~~270044~~).
+     *   Each request supports only one called number. For more information, see [How to use voice notifications in the Chinese mainland](https://help.aliyun.com/document_detail/150016.html) or [How to use voice verification codes in regions outside the Chinese mainland](https://help.aliyun.com/document_detail/270044.html).
      *
      *   Voice verification codes are sent to a called number at the following frequency: one time per minute, five times per hour, and 20 times per 24 hours.
      *
+     * This parameter is required.
      * @example 1590****000
      *
      * @var string
@@ -33,7 +34,7 @@ class SingleCallByTtsRequest extends Model
     /**
      * @description The number displayed to the called party.
      *
-     *   You do not need to specify this parameter if you use the text-to-speech (TTS) notification template or voice verification code template for outbound calls in the common mode. For more information, see [FAQ about the common outbound call mode](~~172104~~).
+     *   You do not need to specify this parameter if you use the text-to-speech (TTS) notification template or voice verification code template for outbound calls in the common mode. For more information, see [FAQ about the common outbound call mode](https://help.aliyun.com/document_detail/172104.html).
      *   If you use the TTS notification template or voice verification code template for outbound calls in the dedicated mode, you must specify a number you purchased and only one number can be specified. You can log on to the [Voice Messaging Service console](https://dyvms.console.aliyun.com/overview/home) and choose **Voice Numbers** > **Real Number Management** to view the number you purchased.
      *
      * @example 0571****5678
@@ -90,7 +91,7 @@ class SingleCallByTtsRequest extends Model
      *
      * You can log on to the [Voice Messaging Service console](https://dyvms.console.aliyun.com/overview/home), and choose **Voice Messages** > **Voice Verification Codes** or choose **Voice Messages** > **Voice Notifications** to view the **template ID**.
      *
-     * > The account to which the TTS template belongs must be the same as the account that is used to call the SingleCallByTts operation.
+     * This parameter is required.
      * @example TTS_100****
      *
      * @var string

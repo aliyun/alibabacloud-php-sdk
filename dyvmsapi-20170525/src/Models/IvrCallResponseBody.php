@@ -11,7 +11,7 @@ class IvrCallResponseBody extends Model
     /**
      * @description The unique receipt ID of the call.
      *
-     * You can call the [QueryCallDetailByCallId](~~393529~~) operation to query the details of the call based on the receipt ID.
+     * You can call the [QueryCallDetailByCallId](https://help.aliyun.com/document_detail/393529.html) operation to query the details of the call based on the receipt ID.
      * @example 116012354148^10281378****
      *
      * @var string
@@ -22,7 +22,7 @@ class IvrCallResponseBody extends Model
      * @description The response code.
      *
      *   The value OK indicates that the request was successful.
-     *   For more information about other response codes, see [API error codes](~~112502~~).
+     *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/112502.html).
      *
      * @example OK
      *

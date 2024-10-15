@@ -15,6 +15,7 @@ class SubmitHotlineTransferRegisterRequest extends Model
      *   **true**: The commitment is authentic.
      *   **false**: The commitment is not authentic.
      *
+     * This parameter is required.
      * @example true
      *
      * @var string
@@ -24,6 +25,7 @@ class SubmitHotlineTransferRegisterRequest extends Model
     /**
      * @description The China 400 number.
      *
+     * This parameter is required.
      * @example 400****
      *
      * @var string
@@ -33,6 +35,7 @@ class SubmitHotlineTransferRegisterRequest extends Model
     /**
      * @description The ID card number of the handler.
      *
+     * This parameter is required.
      * @example 5****************9
      *
      * @var string
@@ -42,6 +45,7 @@ class SubmitHotlineTransferRegisterRequest extends Model
     /**
      * @description The email address of the handler.
      *
+     * This parameter is required.
      * @example username@example.com
      *
      * @var string
@@ -60,6 +64,7 @@ class SubmitHotlineTransferRegisterRequest extends Model
     /**
      * @description The mobile phone number of the handler.
      *
+     * This parameter is required.
      * @example 158****7230
      *
      * @var string
@@ -69,6 +74,7 @@ class SubmitHotlineTransferRegisterRequest extends Model
     /**
      * @description The verification code that is received by the mobile phone of the handler.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var string
@@ -78,6 +84,7 @@ class SubmitHotlineTransferRegisterRequest extends Model
     /**
      * @description The name of the handler.
      *
+     * This parameter is required.
      * @example A***
      *
      * @var string
@@ -90,8 +97,9 @@ class SubmitHotlineTransferRegisterRequest extends Model
     public $ownerId;
 
     /**
-     * @description The qualification ID. You can call the [GetHotlineQualificationByOrder](~~393548~~) operation to obtain the qualification ID.
+     * @description The qualification ID. You can call the [GetHotlineQualificationByOrder](https://help.aliyun.com/document_detail/393548.html) operation to obtain the qualification ID.
      *
+     * This parameter is required.
      * @example 10000004933****
      *
      * @var string
@@ -111,6 +119,7 @@ class SubmitHotlineTransferRegisterRequest extends Model
     /**
      * @description The registration information about the China 400 number.
      *
+     * This parameter is required.
      * @var transferPhoneNumberInfos[]
      */
     public $transferPhoneNumberInfos;

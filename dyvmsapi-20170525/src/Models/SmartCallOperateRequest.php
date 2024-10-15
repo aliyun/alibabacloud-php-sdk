@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SmartCallOperateRequest extends Model
 {
     /**
-     * @description The unique receipt ID of the call. You can call the [SmartCall](~~393526~~) operation to obtain the receipt ID.
+     * @description The unique receipt ID of the call. You can call the [SmartCall](https://help.aliyun.com/document_detail/393526.html) operation to obtain the receipt ID.
      *
+     * This parameter is required.
      * @example 116012854210^1028142****
      *
      * @var string
@@ -21,6 +22,8 @@ class SmartCallOperateRequest extends Model
      * @description The action that is initiated to the called number of an outbound robocall.
      *
      * > Only the value **parallelBridge** is supported. This value indicates that a bridge action is initiated between a called number and an agent of the call center.
+     *
+     * This parameter is required.
      * @example parallelBridge
      *
      * @var string

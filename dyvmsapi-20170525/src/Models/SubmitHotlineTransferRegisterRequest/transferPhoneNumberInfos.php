@@ -11,6 +11,7 @@ class transferPhoneNumberInfos extends Model
     /**
      * @description The ID card number of the number owner.
      *
+     * This parameter is required.
      * @example 500***
      *
      * @var string
@@ -20,6 +21,7 @@ class transferPhoneNumberInfos extends Model
     /**
      * @description The China 400 number that you want to submit for registration.
      *
+     * This parameter is required.
      * @example 1580000****
      *
      * @var string
@@ -29,6 +31,7 @@ class transferPhoneNumberInfos extends Model
     /**
      * @description The real name or company name of the number owner.
      *
+     * This parameter is required.
      * @example A***
      *
      * @var string

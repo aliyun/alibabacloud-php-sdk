@@ -114,8 +114,9 @@ class QueryRobotTaskCallListRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The unique ID of the robocall task. You can call the [CreateRobotTask](~~393531~~) operation to obtain the task ID.
+     * @description The unique ID of the robocall task. You can call the [CreateRobotTask](https://help.aliyun.com/document_detail/393531.html) operation to obtain the task ID.
      *
+     * This parameter is required.
      * @example 1045001****
      *
      * @var string

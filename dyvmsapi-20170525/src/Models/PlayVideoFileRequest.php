@@ -23,6 +23,13 @@ class PlayVideoFileRequest extends Model
     public $calledNumber;
 
     /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $onlyPhone;
+
+    /**
      * @example 342268*****
      *
      * @var string
@@ -45,6 +52,8 @@ class PlayVideoFileRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 示例值示例值示例值
      *
      * @var string
@@ -53,6 +62,7 @@ class PlayVideoFileRequest extends Model
     protected $_name = [
         'callId'               => 'CallId',
         'calledNumber'         => 'CalledNumber',
+        'onlyPhone'            => 'OnlyPhone',
         'outId'                => 'OutId',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -72,6 +82,9 @@ class PlayVideoFileRequest extends Model
         }
         if (null !== $this->calledNumber) {
             $res['CalledNumber'] = $this->calledNumber;
+        }
+        if (null !== $this->onlyPhone) {
+            $res['OnlyPhone'] = $this->onlyPhone;
         }
         if (null !== $this->outId) {
             $res['OutId'] = $this->outId;
@@ -105,6 +118,9 @@ class PlayVideoFileRequest extends Model
         }
         if (isset($map['CalledNumber'])) {
             $model->calledNumber = $map['CalledNumber'];
+        }
+        if (isset($map['OnlyPhone'])) {
+            $model->onlyPhone = $map['OnlyPhone'];
         }
         if (isset($map['OutId'])) {
             $model->outId = $map['OutId'];

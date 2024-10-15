@@ -11,6 +11,7 @@ class SendVerificationRequest extends Model
     /**
      * @description The business type. Set the value to **CONTACT**.
      *
+     * This parameter is required.
      * @example CONTACT
      *
      * @var string
@@ -35,6 +36,7 @@ class SendVerificationRequest extends Model
     /**
      * @description The mobile phone number that receives the SMS verification code.
      *
+     * This parameter is required.
      * @example 150****0000
      *
      * @var string
@@ -44,6 +46,7 @@ class SendVerificationRequest extends Model
     /**
      * @description The mode of sending the SMS verification code. Set the value to **SMS**.
      *
+     * This parameter is required.
      * @example SMS
      *
      * @var string

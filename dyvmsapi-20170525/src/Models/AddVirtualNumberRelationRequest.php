@@ -20,6 +20,7 @@ class AddVirtualNumberRelationRequest extends Model
     /**
      * @description The real numbers. Separate multiple real numbers with commas (,).
      *
+     * This parameter is required.
      * @example 1321111****,1322222****
      *
      * @var string
@@ -34,6 +35,7 @@ class AddVirtualNumberRelationRequest extends Model
     /**
      * @description The virtual number.
      *
+     * This parameter is required.
      * @example 05516214****
      *
      * @var string
@@ -65,6 +67,7 @@ class AddVirtualNumberRelationRequest extends Model
      *   **0**: number location first.
      *   **1**: random.
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int

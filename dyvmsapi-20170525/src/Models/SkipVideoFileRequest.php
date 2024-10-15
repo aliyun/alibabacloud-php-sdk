@@ -16,6 +16,8 @@ class SkipVideoFileRequest extends Model
     public $callId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1590****000
      *
      * @var string
@@ -45,6 +47,8 @@ class SkipVideoFileRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 04:02:01
      *
      * @var int

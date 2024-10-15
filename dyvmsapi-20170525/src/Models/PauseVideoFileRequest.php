@@ -16,6 +16,8 @@ class PauseVideoFileRequest extends Model
     public $callId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 示例值示例值
      *
      * @var string
