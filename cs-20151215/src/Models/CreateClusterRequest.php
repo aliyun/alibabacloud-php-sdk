@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\operationPolicy;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\workerDataDisks;
 use AlibabaCloud\Tea\Model;
 
@@ -415,6 +416,11 @@ class CreateClusterRequest extends Model
     public $loginPassword;
 
     /**
+     * @var MaintenanceWindow
+     */
+    public $maintenanceWindow;
+
+    /**
      * @description Specifies whether to enable auto-renewal for master nodes. This parameter takes effect only when `master_instance_charge_type` is set to `PrePaid`. Valid values:
      *
      *   `true`: enables auto-renewal.
@@ -612,6 +618,11 @@ class CreateClusterRequest extends Model
      * @var int
      */
     public $numOfNodes;
+
+    /**
+     * @var operationPolicy
+     */
+    public $operationPolicy;
 
     /**
      * @description The type of OS. Valid values:
@@ -1102,6 +1113,7 @@ class CreateClusterRequest extends Model
         'loadBalancerSpec'                 => 'load_balancer_spec',
         'loggingType'                      => 'logging_type',
         'loginPassword'                    => 'login_password',
+        'maintenanceWindow'                => 'maintenance_window',
         'masterAutoRenew'                  => 'master_auto_renew',
         'masterAutoRenewPeriod'            => 'master_auto_renew_period',
         'masterCount'                      => 'master_count',
@@ -1121,6 +1133,7 @@ class CreateClusterRequest extends Model
         'nodePortRange'                    => 'node_port_range',
         'nodepools'                        => 'nodepools',
         'numOfNodes'                       => 'num_of_nodes',
+        'operationPolicy'                  => 'operation_policy',
         'osType'                           => 'os_type',
         'period'                           => 'period',
         'periodUnit'                       => 'period_unit',
@@ -1282,6 +1295,9 @@ class CreateClusterRequest extends Model
         if (null !== $this->loginPassword) {
             $res['login_password'] = $this->loginPassword;
         }
+        if (null !== $this->maintenanceWindow) {
+            $res['maintenance_window'] = null !== $this->maintenanceWindow ? $this->maintenanceWindow->toMap() : null;
+        }
         if (null !== $this->masterAutoRenew) {
             $res['master_auto_renew'] = $this->masterAutoRenew;
         }
@@ -1344,6 +1360,9 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->numOfNodes) {
             $res['num_of_nodes'] = $this->numOfNodes;
+        }
+        if (null !== $this->operationPolicy) {
+            $res['operation_policy'] = null !== $this->operationPolicy ? $this->operationPolicy->toMap() : null;
         }
         if (null !== $this->osType) {
             $res['os_type'] = $this->osType;
@@ -1615,6 +1634,9 @@ class CreateClusterRequest extends Model
         if (isset($map['login_password'])) {
             $model->loginPassword = $map['login_password'];
         }
+        if (isset($map['maintenance_window'])) {
+            $model->maintenanceWindow = MaintenanceWindow::fromMap($map['maintenance_window']);
+        }
         if (isset($map['master_auto_renew'])) {
             $model->masterAutoRenew = $map['master_auto_renew'];
         }
@@ -1681,6 +1703,9 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['num_of_nodes'])) {
             $model->numOfNodes = $map['num_of_nodes'];
+        }
+        if (isset($map['operation_policy'])) {
+            $model->operationPolicy = operationPolicy::fromMap($map['operation_policy']);
         }
         if (isset($map['os_type'])) {
             $model->osType = $map['os_type'];

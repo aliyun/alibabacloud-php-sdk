@@ -1159,6 +1159,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->loginPassword)) {
             $body['login_password'] = $request->loginPassword;
         }
+        if (!Utils::isUnset($request->maintenanceWindow)) {
+            $body['maintenance_window'] = $request->maintenanceWindow;
+        }
         if (!Utils::isUnset($request->masterAutoRenew)) {
             $body['master_auto_renew'] = $request->masterAutoRenew;
         }
@@ -1215,6 +1218,9 @@ class CS extends OpenApiClient
         }
         if (!Utils::isUnset($request->numOfNodes)) {
             $body['num_of_nodes'] = $request->numOfNodes;
+        }
+        if (!Utils::isUnset($request->operationPolicy)) {
+            $body['operation_policy'] = $request->operationPolicy;
         }
         if (!Utils::isUnset($request->osType)) {
             $body['os_type'] = $request->osType;

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterDetailResponseBody\operationPolicy;
 use AlibabaCloud\Tea\Model;
 
 class DescribeClusterDetailResponseBody extends Model
@@ -143,6 +144,11 @@ class DescribeClusterDetailResponseBody extends Model
      * @var string
      */
     public $nextVersion;
+
+    /**
+     * @var operationPolicy
+     */
+    public $operationPolicy;
 
     /**
      * @description The ROS parameters of the cluster.
@@ -309,6 +315,7 @@ class DescribeClusterDetailResponseBody extends Model
         'name'                   => 'name',
         'networkMode'            => 'network_mode',
         'nextVersion'            => 'next_version',
+        'operationPolicy'        => 'operation_policy',
         'parameters'             => 'parameters',
         'privateZone'            => 'private_zone',
         'profile'                => 'profile',
@@ -377,6 +384,9 @@ class DescribeClusterDetailResponseBody extends Model
         }
         if (null !== $this->nextVersion) {
             $res['next_version'] = $this->nextVersion;
+        }
+        if (null !== $this->operationPolicy) {
+            $res['operation_policy'] = null !== $this->operationPolicy ? $this->operationPolicy->toMap() : null;
         }
         if (null !== $this->parameters) {
             $res['parameters'] = $this->parameters;
@@ -485,6 +495,9 @@ class DescribeClusterDetailResponseBody extends Model
         }
         if (isset($map['next_version'])) {
             $model->nextVersion = $map['next_version'];
+        }
+        if (isset($map['operation_policy'])) {
+            $model->operationPolicy = operationPolicy::fromMap($map['operation_policy']);
         }
         if (isset($map['parameters'])) {
             $model->parameters = $map['parameters'];

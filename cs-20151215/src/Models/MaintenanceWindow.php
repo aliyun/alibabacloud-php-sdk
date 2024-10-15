@@ -23,7 +23,7 @@ class MaintenanceWindow extends Model
     public $enable;
 
     /**
-     * @example 03:00:00Z
+     * @example 2020-10-15T12:31:00.000+08:00
      *
      * @var string
      */

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersV1ResponseBody;
 
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersV1ResponseBody\clusters\operationPolicy;
 use AlibabaCloud\SDK\CS\V20151215\Models\MaintenanceWindow;
 use AlibabaCloud\SDK\CS\V20151215\Models\Tag;
 use AlibabaCloud\Tea\Model;
@@ -158,6 +159,11 @@ class clusters extends Model
      * @var string
      */
     public $nextVersion;
+
+    /**
+     * @var operationPolicy
+     */
+    public $operationPolicy;
 
     /**
      * @description Indicates whether Alibaba Cloud DNS PrivateZone is enabled. Valid values:
@@ -322,6 +328,7 @@ class clusters extends Model
         'name'                   => 'name',
         'networkMode'            => 'network_mode',
         'nextVersion'            => 'next_version',
+        'operationPolicy'        => 'operation_policy',
         'privateZone'            => 'private_zone',
         'profile'                => 'profile',
         'regionId'               => 'region_id',
@@ -389,6 +396,9 @@ class clusters extends Model
         }
         if (null !== $this->nextVersion) {
             $res['next_version'] = $this->nextVersion;
+        }
+        if (null !== $this->operationPolicy) {
+            $res['operation_policy'] = null !== $this->operationPolicy ? $this->operationPolicy->toMap() : null;
         }
         if (null !== $this->privateZone) {
             $res['private_zone'] = $this->privateZone;
@@ -494,6 +504,9 @@ class clusters extends Model
         }
         if (isset($map['next_version'])) {
             $model->nextVersion = $map['next_version'];
+        }
+        if (isset($map['operation_policy'])) {
+            $model->operationPolicy = operationPolicy::fromMap($map['operation_policy']);
         }
         if (isset($map['private_zone'])) {
             $model->privateZone = $map['private_zone'];
