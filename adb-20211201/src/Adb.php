@@ -886,6 +886,9 @@ class Adb extends OpenApiClient
             $request->rulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->autoStopInterval)) {
+            $query['AutoStopInterval'] = $request->autoStopInterval;
+        }
         if (!Utils::isUnset($request->clusterMode)) {
             $query['ClusterMode'] = $request->clusterMode;
         }
@@ -7583,6 +7586,9 @@ class Adb extends OpenApiClient
             $request->rulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->autoStopInterval)) {
+            $query['AutoStopInterval'] = $request->autoStopInterval;
+        }
         if (!Utils::isUnset($request->clusterMode)) {
             $query['ClusterMode'] = $request->clusterMode;
         }
@@ -7630,6 +7636,9 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->specName)) {
             $query['SpecName'] = $request->specName;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
         if (!Utils::isUnset($request->targetResourceGroupName)) {
             $query['TargetResourceGroupName'] = $request->targetResourceGroupName;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateDBResourceGroupShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $autoStopInterval;
+
+    /**
      * @description A reserved parameter.
      *
      * @example N/A
@@ -164,6 +169,7 @@ class CreateDBResourceGroupShrinkRequest extends Model
      */
     public $targetResourceGroupName;
     protected $_name = [
+        'autoStopInterval'        => 'AutoStopInterval',
         'clusterMode'             => 'ClusterMode',
         'clusterSizeResource'     => 'ClusterSizeResource',
         'DBClusterId'             => 'DBClusterId',
@@ -191,6 +197,9 @@ class CreateDBResourceGroupShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoStopInterval) {
+            $res['AutoStopInterval'] = $this->autoStopInterval;
+        }
         if (null !== $this->clusterMode) {
             $res['ClusterMode'] = $this->clusterMode;
         }
@@ -257,6 +266,9 @@ class CreateDBResourceGroupShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoStopInterval'])) {
+            $model->autoStopInterval = $map['AutoStopInterval'];
+        }
         if (isset($map['ClusterMode'])) {
             $model->clusterMode = $map['ClusterMode'];
         }

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBResourceGroupRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $autoStopInterval;
+
+    /**
      * @description A reserved parameter.
      *
      * @example N/A
@@ -154,8 +159,14 @@ class ModifyDBResourceGroupRequest extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $targetResourceGroupName;
     protected $_name = [
+        'autoStopInterval'        => 'AutoStopInterval',
         'clusterMode'             => 'ClusterMode',
         'clusterSizeResource'     => 'ClusterSizeResource',
         'DBClusterId'             => 'DBClusterId',
@@ -172,6 +183,7 @@ class ModifyDBResourceGroupRequest extends Model
         'regionId'                => 'RegionId',
         'rules'                   => 'Rules',
         'specName'                => 'SpecName',
+        'status'                  => 'Status',
         'targetResourceGroupName' => 'TargetResourceGroupName',
     ];
 
@@ -182,6 +194,9 @@ class ModifyDBResourceGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoStopInterval) {
+            $res['AutoStopInterval'] = $this->autoStopInterval;
+        }
         if (null !== $this->clusterMode) {
             $res['ClusterMode'] = $this->clusterMode;
         }
@@ -236,6 +251,9 @@ class ModifyDBResourceGroupRequest extends Model
         if (null !== $this->specName) {
             $res['SpecName'] = $this->specName;
         }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->targetResourceGroupName) {
             $res['TargetResourceGroupName'] = $this->targetResourceGroupName;
         }
@@ -251,6 +269,9 @@ class ModifyDBResourceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoStopInterval'])) {
+            $model->autoStopInterval = $map['AutoStopInterval'];
+        }
         if (isset($map['ClusterMode'])) {
             $model->clusterMode = $map['ClusterMode'];
         }
@@ -304,6 +325,9 @@ class ModifyDBResourceGroupRequest extends Model
         }
         if (isset($map['SpecName'])) {
             $model->specName = $map['SpecName'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['TargetResourceGroupName'])) {
             $model->targetResourceGroupName = $map['TargetResourceGroupName'];
