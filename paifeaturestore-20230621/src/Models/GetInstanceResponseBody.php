@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetInstanceResponseBody\featureDBInstanceInfo;
 use AlibabaCloud\Tea\Model;
 
 class GetInstanceResponseBody extends Model
 {
+    /**
+     * @var featureDBInstanceInfo
+     */
+    public $featureDBInstanceInfo;
+
     /**
      * @example 2023-07-04T11:26:09.036+08:00
      *
@@ -64,14 +70,15 @@ class GetInstanceResponseBody extends Model
      */
     public $type;
     protected $_name = [
-        'gmtCreateTime'   => 'GmtCreateTime',
-        'gmtModifiedTime' => 'GmtModifiedTime',
-        'message'         => 'Message',
-        'progress'        => 'Progress',
-        'regionId'        => 'RegionId',
-        'requestId'       => 'RequestId',
-        'status'          => 'Status',
-        'type'            => 'Type',
+        'featureDBInstanceInfo' => 'FeatureDBInstanceInfo',
+        'gmtCreateTime'         => 'GmtCreateTime',
+        'gmtModifiedTime'       => 'GmtModifiedTime',
+        'message'               => 'Message',
+        'progress'              => 'Progress',
+        'regionId'              => 'RegionId',
+        'requestId'             => 'RequestId',
+        'status'                => 'Status',
+        'type'                  => 'Type',
     ];
 
     public function validate()
@@ -81,6 +88,9 @@ class GetInstanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->featureDBInstanceInfo) {
+            $res['FeatureDBInstanceInfo'] = null !== $this->featureDBInstanceInfo ? $this->featureDBInstanceInfo->toMap() : null;
+        }
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
@@ -117,6 +127,9 @@ class GetInstanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FeatureDBInstanceInfo'])) {
+            $model->featureDBInstanceInfo = featureDBInstanceInfo::fromMap($map['FeatureDBInstanceInfo']);
+        }
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }

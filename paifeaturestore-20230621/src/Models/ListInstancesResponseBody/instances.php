@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListInstancesResponseBody;
 
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListInstancesResponseBody\instances\featureDBInstanceInfo;
 use AlibabaCloud\Tea\Model;
 
 class instances extends Model
 {
+    /**
+     * @var featureDBInstanceInfo
+     */
+    public $featureDBInstanceInfo;
+
     /**
      * @example 2023-07-04T11:26:09.036+08:00
      *
@@ -50,12 +56,13 @@ class instances extends Model
      */
     public $type;
     protected $_name = [
-        'gmtCreateTime'   => 'GmtCreateTime',
-        'gmtModifiedTime' => 'GmtModifiedTime',
-        'instanceId'      => 'InstanceId',
-        'regionId'        => 'RegionId',
-        'status'          => 'Status',
-        'type'            => 'Type',
+        'featureDBInstanceInfo' => 'FeatureDBInstanceInfo',
+        'gmtCreateTime'         => 'GmtCreateTime',
+        'gmtModifiedTime'       => 'GmtModifiedTime',
+        'instanceId'            => 'InstanceId',
+        'regionId'              => 'RegionId',
+        'status'                => 'Status',
+        'type'                  => 'Type',
     ];
 
     public function validate()
@@ -65,6 +72,9 @@ class instances extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->featureDBInstanceInfo) {
+            $res['FeatureDBInstanceInfo'] = null !== $this->featureDBInstanceInfo ? $this->featureDBInstanceInfo->toMap() : null;
+        }
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
@@ -95,6 +105,9 @@ class instances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FeatureDBInstanceInfo'])) {
+            $model->featureDBInstanceInfo = featureDBInstanceInfo::fromMap($map['FeatureDBInstanceInfo']);
+        }
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }
