@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The unique ID of the lease. You need to specify this parameter when you call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation.
+     *
      * @example 1e6a159107384782be5e45ac4759b247.1719325231035
      *
      * @var string
@@ -17,11 +19,18 @@ class data extends Model
     public $fileUploadLeaseId;
 
     /**
+     * @description The HTTP request parameters used to upload the document.
+     *
      * @var param
      */
     public $param;
 
     /**
+     * @description The upload method of the document. Valid values:
+     *
+     *   OSS.PreSignedURL
+     *   HTTP
+     *
      * @example HTTP
      *
      * @var string

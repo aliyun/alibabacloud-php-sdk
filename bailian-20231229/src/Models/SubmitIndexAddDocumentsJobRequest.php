@@ -9,18 +9,23 @@ use AlibabaCloud\Tea\Model;
 class SubmitIndexAddDocumentsJobRequest extends Model
 {
     /**
+     * @description The list of primary key IDs of the category.
+     *
      * @var string[]
      */
     public $categoryIds;
 
     /**
+     * @description The list of the primary key IDs of the documents.
+     *
      * @var string[]
      */
     public $documentIds;
 
     /**
-     * @description This parameter is required.
+     * @description The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
      *
+     * This parameter is required.
      * @example 79c0aly8zw
      *
      * @var string
@@ -28,8 +33,12 @@ class SubmitIndexAddDocumentsJobRequest extends Model
     public $indexId;
 
     /**
-     * @description This parameter is required.
+     * @description The data type of [Data Management](https://bailian.console.aliyun.com/#/data-center). For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
      *
+     *   DATA_CENTER_CATEGORY: The category type. Import all documents from one or more categories in Data Center.
+     *   DATA_CENTER_FILE: The document type. Import one or more documents from Data Center.
+     *
+     * This parameter is required.
      * @example DATA_CENTER_FILE
      *
      * @var string

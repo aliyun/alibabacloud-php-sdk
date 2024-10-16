@@ -9,11 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateIndexShrinkRequest extends Model
 {
     /**
+     * @description The list of primary key IDs of the categories to be imported into the knowledge base.
+     *
      * @var string
      */
     public $categoryIdsShrink;
 
     /**
+     * @description The estimated length of chunks. The maximum number of characters for a chunk. Texts exceeding this limit are splited. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values: [1-2048].
+     *
+     * >  If you specify the `ChunkSize` parameter, you must also specify the `OverlapSize` and `Separator` parameters. If you do not specify these three parameters, the system uses the intelligent splitting method by default.
      * @example 128
      *
      * @var int
@@ -26,21 +31,32 @@ class CreateIndexShrinkRequest extends Model
     public $columnsShrink;
 
     /**
+     * @description >  This parameter is not available. Do not specify this parameter.
+     *
      * @var string
      */
     public $dataSourceShrink;
 
     /**
+     * @description The description of the knowledge base. The description must be 0 to 1,000 characters in length. This parameter is empty by default.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The list of primary key IDs of the documents to be imported into the knowledge base.
+     *
      * @var string
      */
     public $documentIdsShrink;
 
     /**
+     * @description The name of the embedding model. The embedding model converts the original input prompt and knowledge text into numerical vectors for similarity comparison. The default and only model available is DashScope text-embedding-v2. It supports multiple languages including Chinese and English and normalizes the vector results. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid value:
+     *
+     *   text-embedding-v2
+     *
+     * The default value is null, which means using the text-embedding-v2 model.
      * @example text-embedding-v2
      *
      * @var string
@@ -48,13 +64,17 @@ class CreateIndexShrinkRequest extends Model
     public $embeddingModelName;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the knowledge base. The name must be 1 to 20 characters in length and can contain characters classified as letter in Unicode, including English letters, Chinese characters, digits, among others. The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
      *
+     * This parameter is required.
      * @var string
      */
     public $name;
 
     /**
+     * @description The overlap length. The number of overlapping characters between two consecutive chunks. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values: 0 to 1024.
+     *
+     * The default value is empty, which means using the intelligent splitting method.
      * @example 16
      *
      * @var int
@@ -62,6 +82,9 @@ class CreateIndexShrinkRequest extends Model
     public $overlapSize;
 
     /**
+     * @description Similarity Threshold. The lowest similarity score of chunks that can be returned. This parameter is used to filter text chunks returned by the rank model. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values: [0.01-1.00].
+     *
+     * Default value: 0.20.
      * @example 0.20
      *
      * @var float
@@ -69,6 +92,12 @@ class CreateIndexShrinkRequest extends Model
     public $rerankMinScore;
 
     /**
+     * @description The name of the rank model. The rank model is a scoring system outside the knowledge base. It calculates the similarity score of each text chunk in the input question and knowledge base and ranks them in descending order. Then, the model returns the top K chunks with the highest scores. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+     *
+     *   gte-rerank-hybrid
+     *   gte-rerank
+     *
+     * >  If you need only semantic ranking, we recommend that you use gte-rerank. If you need both semantic ranking and text matching features to ensure relevance, we recommend that you use gte-rerank-hybrid.
      * @example gte-rerank-hybrid
      *
      * @var string
@@ -76,6 +105,21 @@ class CreateIndexShrinkRequest extends Model
     public $rerankModelName;
 
     /**
+     * @description The clause identifier. The document is split into chunks based on this identifier. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). You can specify multiple identifiers and do not need to add any other characters to separate them. For example: !,\\\\\\n. Valid values:
+     *
+     *   \\n: line break
+     *   ，: Chinese comma
+     *   ,: English comma
+     *   。 : Chinese full stop
+     *   .: English full stop
+     *   ！ : Chinese exclamation point
+     *   ! : English exclamation point
+     *   ；: Chinese semicolon
+     *   ;: English semicolon
+     *   ？ : Chinese question mark
+     *   ?: English question mark
+     *
+     * The default value is empty, which means using the intelligent splitting method.
      * @example ,
      *
      * @var string
@@ -83,6 +127,8 @@ class CreateIndexShrinkRequest extends Model
     public $separator;
 
     /**
+     * @description The ID of the vector storage instance. This parameter is available only when SinkType is set to ADB. You can view the ID on the [Instances](https://gpdbnext.console.aliyun.com/gpdb/list) page of AnalyticDB for PostgreSQL.
+     *
      * @example gp-bp321093j84
      *
      * @var string
@@ -90,6 +136,8 @@ class CreateIndexShrinkRequest extends Model
     public $sinkInstanceId;
 
     /**
+     * @description The region of the vector storage instance. This parameter is available only when SinkType is set to ADB. You can call the [DescribeRegions](https://help.aliyun.com/zh/analyticdb-for-postgresql/developer-reference/api-gpdb-2016-05-03-describeregions) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -97,8 +145,12 @@ class CreateIndexShrinkRequest extends Model
     public $sinkRegion;
 
     /**
-     * @description This parameter is required.
+     * @description The vector storage type of the knowledge base. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
      *
+     *   DEFAULT: The built-in vector database.
+     *   ADB: AnalyticDB for PostgreSQL database. If you need advanced features, such as managing, auditing, and monitoring, we recommend that you specify ADB.
+     *
+     * This parameter is required.
      * @example DEFAULT
      *
      * @var string
@@ -106,8 +158,12 @@ class CreateIndexShrinkRequest extends Model
     public $sinkType;
 
     /**
-     * @description This parameter is required.
+     * @description The data type of [Data Management](https://bailian.console.aliyun.com/#/data-center). For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
      *
+     *   DATA_CENTER_CATEGORY: The category type. Import all documents from one or more categories in Data Center.
+     *   DATA_CENTER_FILE: The document type. Import one or more documents from Data Center.
+     *
+     * This parameter is required.
      * @example DATA_CENTER_FILE
      *
      * @var string
@@ -115,8 +171,11 @@ class CreateIndexShrinkRequest extends Model
     public $sourceType;
 
     /**
-     * @description This parameter is required.
+     * @description The data type of the knowledge base. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid value:
      *
+     *   unstructured
+     *
+     * This parameter is required.
      * @example structured
      *
      * @var string

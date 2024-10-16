@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteIndexResponseBody extends Model
 {
     /**
+     * @description HTTP status code
+     *
      * @example Index.InvalidParameter
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteIndexResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message.
+     *
      * @example Required parameter(%s) missing or invalid, please check the request parameters.
      *
      * @var string
@@ -23,7 +27,7 @@ class DeleteIndexResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 17204B98-xxxx-4F9A-8464-2446A84821CA
      *
@@ -32,6 +36,8 @@ class DeleteIndexResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status code.
+     *
      * @example 200
      *
      * @var string
@@ -39,6 +45,11 @@ class DeleteIndexResponseBody extends Model
     public $status;
 
     /**
+     * @description Indications whether the API call is successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

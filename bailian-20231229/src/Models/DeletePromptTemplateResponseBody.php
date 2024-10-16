@@ -2,22 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Bailian\V20231229\Models\SubmitIndexAddDocumentsJobResponseBody;
+namespace AlibabaCloud\SDK\Bailian\V20231229\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class data extends Model
+class DeletePromptTemplateResponseBody extends Model
 {
     /**
-     * @description The primary key ID of the task, `JobId`.
-     *
-     * @example 42687eb254a34802bed398357f5498ae
+     * @example FE9B6CBF-47E6-5D76-9C5D-B814DD5ABxxx
      *
      * @var string
      */
-    public $id;
+    public $requestId;
     protected $_name = [
-        'id' => 'Id',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
@@ -27,8 +25,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
 
         return $res;
@@ -37,13 +35,13 @@ class data extends Model
     /**
      * @param array $map
      *
-     * @return data
+     * @return DeletePromptTemplateResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
 
         return $model;

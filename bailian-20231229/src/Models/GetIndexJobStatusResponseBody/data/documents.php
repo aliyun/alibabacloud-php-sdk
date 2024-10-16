@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class documents extends Model
 {
     /**
+     * @description HTTP status code
+     *
      * @example Index.Document.ChunkError
      *
      * @var string
@@ -16,6 +18,8 @@ class documents extends Model
     public $code;
 
     /**
+     * @description The primary key ID of the document.
+     *
      * @example file_9a65732555b54d5ea10796ca5742ba22_XXXXXXXX
      *
      * @var string
@@ -23,11 +27,15 @@ class documents extends Model
     public $docId;
 
     /**
+     * @description The name of the document.
+     *
      * @var string
      */
     public $docName;
 
     /**
+     * @description The error message.
+     *
      * @example document parse error
      *
      * @var string
@@ -35,6 +43,13 @@ class documents extends Model
     public $message;
 
     /**
+     * @description The import status of the document. Valid values:
+     *
+     *   INSERT_ERROR
+     *   RUNNING
+     *   DELETED
+     *   FINISH
+     *
      * @example RUNNING
      *
      * @var string

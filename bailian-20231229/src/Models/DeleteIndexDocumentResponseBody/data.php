@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The list of primary key IDs of documents that are deleted.
+     *
      * @var string[]
      */
     public $deletedDocument;

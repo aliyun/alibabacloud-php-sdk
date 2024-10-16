@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
+     * @description The metadata map of the chunk.
+     *
      * @var mixed
      */
     public $metadata;
 
     /**
+     * @description The similarity score of the chunk.
+     *
      * @example 0.3
      *
      * @var float
@@ -21,6 +25,8 @@ class nodes extends Model
     public $score;
 
     /**
+     * @description The text of the chunk.
+     *
      * @var string
      */
     public $text;

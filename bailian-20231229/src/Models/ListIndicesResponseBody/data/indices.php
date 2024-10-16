@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class indices extends Model
 {
     /**
+     * @description The estimated length of chunks. Valid values: [1-2048].
+     *
      * @example 5
      *
      * @var int
@@ -16,6 +18,8 @@ class indices extends Model
     public $chunkSize;
 
     /**
+     * @description The description of the knowledge base.
+     *
      * @example If each RAM user belongs to a RAM group, the configuration is considered compliant.
      *
      * @var string
@@ -23,11 +27,17 @@ class indices extends Model
     public $description;
 
     /**
+     * @description The list of the primary key IDs of the documents.
+     *
      * @var string[]
      */
     public $documentIds;
 
     /**
+     * @description The name of the embedding model. Valid values:
+     *
+     *   text-embedding-v2
+     *
      * @example conv-rewrite-qwen-1.8b
      *
      * @var string
@@ -35,6 +45,8 @@ class indices extends Model
     public $embeddingModelName;
 
     /**
+     * @description The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+     *
      * @example 259899
      *
      * @var string
@@ -42,6 +54,8 @@ class indices extends Model
     public $id;
 
     /**
+     * @description The name of the knowledge base.
+     *
      * @example temp_mUB4j
      *
      * @var string
@@ -49,6 +63,8 @@ class indices extends Model
     public $name;
 
     /**
+     * @description The overlap length. Valid values: [0-1024].
+     *
      * @example 10
      *
      * @var int
@@ -56,6 +72,8 @@ class indices extends Model
     public $overlapSize;
 
     /**
+     * @description Similarity Threshold Valid values: [0.01-1.00].
+     *
      * @example 0.01
      *
      * @var string
@@ -63,6 +81,11 @@ class indices extends Model
     public $rerankMinScore;
 
     /**
+     * @description The name of the rank model. Valid values:
+     *
+     *   gte-rerank-hybrid
+     *   gte-rerank
+     *
      * @example gte-rerank-hybrid
      *
      * @var string
@@ -70,6 +93,20 @@ class indices extends Model
     public $rerankModelName;
 
     /**
+     * @description The clause identifier. Separate multiple clause identifiers with |. Valid values:
+     *
+     *   \\n: line break
+     *   ，: Chinese comma
+     *   ,: English comma
+     *   。 : Chinese full stop
+     *   .: English full stop
+     *   ！ : Chinese exclamation point
+     *   ! : English exclamation point
+     *   ；: Chinese semicolon
+     *   ;: English semicolon
+     *   ？ : Chinese question mark
+     *   ?: English question mark
+     *
      * @example \\n
      *
      * @var string
@@ -77,6 +114,8 @@ class indices extends Model
     public $separator;
 
     /**
+     * @description The ID of the vector storage instance.
+     *
      * @example gp-bp1gq62t1788yw2ol
      *
      * @var string
@@ -84,6 +123,8 @@ class indices extends Model
     public $sinkInstanceId;
 
     /**
+     * @description The region of the vector storage instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -91,6 +132,12 @@ class indices extends Model
     public $sinkRegion;
 
     /**
+     * @description The vector storage type of the knowledge base. Valid values:
+     *
+     *   ES: Built-in vector database.
+     *   BUILT_IN: Built-in vector database.
+     *   ADB: AnalyticDB for PostgreSQL database.
+     *
      * @example es
      *
      * @var string
@@ -98,6 +145,15 @@ class indices extends Model
     public $sinkType;
 
     /**
+     * @description The data type of [Data Management](https://bailian.console.aliyun.com/#/data-center). For unstructured knowledge base, possible values:
+     *
+     *   DATA_CENTER_CATEGORY: The category type.
+     *   DATA_CENTER_FILE: The document type.
+     *
+     * For structured knowledge base, possible values:
+     *
+     *   DATA_CENTER_STRUCTURED_TABLE: The data table type.
+     *
      * @example DATA_CENTER_FILE
      *
      * @var string
@@ -105,6 +161,10 @@ class indices extends Model
     public $sourceType;
 
     /**
+     * @description The vector storage type of the knowledge base. Valid values:
+     *
+     *   UNSTRUCTURED
+     *
      * @example structured
      *
      * @var string

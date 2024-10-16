@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListIndexDocumentsRequest extends Model
 {
     /**
+     * @description The names of the queried documents. The default value is null, which means the names are not used to filter the results.
+     *
      * @var string
      */
     public $documentName;
 
     /**
+     * @description The import status of the documents to be queried. Valid values:
+     *
+     *   INSERT_ERROR
+     *   RUNNING
+     *   DELETED
+     *   FINISH
+     *
+     * The default value is null, which means the import status is not used to filter the results.
      * @example FINISH
      *
      * @var string
@@ -21,8 +31,9 @@ class ListIndexDocumentsRequest extends Model
     public $documentStatus;
 
     /**
-     * @description This parameter is required.
+     * @description The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
      *
+     * This parameter is required.
      * @example 79c0aly8zw
      *
      * @var string
@@ -30,6 +41,8 @@ class ListIndexDocumentsRequest extends Model
     public $indexId;
 
     /**
+     * @description The page numbers of the pages to return. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +50,8 @@ class ListIndexDocumentsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of documents displayed on each page. No maximum value. Default value: 10.
+     *
      * @example 10
      *
      * @var int

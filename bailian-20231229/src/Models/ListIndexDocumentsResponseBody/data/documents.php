@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class documents extends Model
 {
     /**
+     * @description The error status code of document import.
+     *
      * @example 110002
      *
      * @var string
@@ -16,6 +18,8 @@ class documents extends Model
     public $code;
 
     /**
+     * @description The format of the document. Valid values: pdf, docx, doc, txt, md, pptx, ppt, and EXCEL.
+     *
      * @example pdf
      *
      * @var string
@@ -23,6 +27,8 @@ class documents extends Model
     public $documentType;
 
     /**
+     * @description The primary key ID of the document.
+     *
      * @example doc_c134aa2073204a5d936d870bf960f56a10024701
      *
      * @var string
@@ -30,6 +36,8 @@ class documents extends Model
     public $id;
 
     /**
+     * @description The error message of document import.
+     *
      * @example check fileUrlKey[file_path] / fileNameKey[null] / fileExtensionKey[file_extension] is invalid
      *
      * @var string
@@ -37,11 +45,15 @@ class documents extends Model
     public $message;
 
     /**
+     * @description The name of the document.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The size of the document. Unit: bytes.
+     *
      * @example 996764
      *
      * @var int
@@ -49,6 +61,9 @@ class documents extends Model
     public $size;
 
     /**
+     * @description For unstructured knowledge base, this parameter is the category ID, which is the `CategoryId` returned by the [AddCategory](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addcategory) interface. To view the category ID, you can click the ID icon next to the category name on the Unstructured Data tab of the [Data Management](https://bailian.console.aliyun.com/#/data-center) page.
+     *
+     * For structured knowledge base, this parameter is the data table ID. To view the table ID, you can click the ID icon next to the table name on the Structured Data tab of the [Data Management](https://bailian.console.aliyun.com/#/data-center) page.
      * @example cate_21a407a3372c4ba7aedc649709143f0c10021401
      *
      * @var string
@@ -56,6 +71,13 @@ class documents extends Model
     public $sourceId;
 
     /**
+     * @description The import status of the document. Valid values:
+     *
+     *   INSERT_ERROR
+     *   RUNNING
+     *   DELETED
+     *   FINISH
+     *
      * @example RUNNING
      *
      * @var string

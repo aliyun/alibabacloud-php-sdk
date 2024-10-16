@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The list of imported documents.
+     *
      * @var documents[]
      */
     public $documents;
 
     /**
+     * @description The ID of the job.
+     *
      * @example 66122af12a4e45ddae6bd6c845556647
      *
      * @var string
@@ -22,6 +26,13 @@ class data extends Model
     public $jobId;
 
     /**
+     * @description The status of the knowledge base job. Valid values:
+     *
+     *   COMPLETED
+     *   FAILED
+     *   RUNNING
+     *   PENDING
+     *
      * @example PENDING
      *
      * @var string

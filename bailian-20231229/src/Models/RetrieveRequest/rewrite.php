@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class rewrite extends Model
 {
     /**
+     * @description Conversation rewriting model name. The query rewriting model automatically adjusts the original prompt based on the context to improve retrieval performance. Valid value:
+     *
+     *   conv-rewrite-qwen-1.8b
+     *
+     * By default, this parameter is left empty, which means conv-rewrite-qwen-1.8b is used.
+     * @example conv-rewrite-qwen-1.8b
+     *
      * @var string
      */
     public $modelName;

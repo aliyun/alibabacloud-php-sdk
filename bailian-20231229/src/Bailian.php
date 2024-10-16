@@ -23,6 +23,8 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateMemoryNodeRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateMemoryNodeResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateMemoryRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateMemoryResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\CreatePromptTemplateRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\CreatePromptTemplateResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteAgentResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteCategoryResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteFileResponse;
@@ -33,11 +35,13 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteMemoryNodeResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteMemoryResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\DeletePromptTemplateResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DescribeFileResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetMemoryNodeResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetMemoryResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\GetPromptTemplateResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetPublishedAgentResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListCategoryRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListCategoryResponse;
@@ -53,6 +57,8 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\ListMemoriesRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListMemoriesResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListMemoryNodesRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListMemoryNodesResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ListPromptTemplatesRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ListPromptTemplatesResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListPublishedAgentRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListPublishedAgentResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\RetrieveRequest;
@@ -70,6 +76,8 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateMemoryNodeRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateMemoryNodeResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateMemoryRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateMemoryResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdatePromptTemplateRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdatePromptTemplateResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -164,7 +172,13 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 将临时上传的文档导入百炼数据中心，导入成功之后会自动触发文档解析。
+     * @summary Imports an unstructured document stored in the temporary storage space to Data Management.
+     *  *
+     * @description *   Before you call this operation, make sure that you have obtained the lease and uploaded the document to the temporary storage space by using the [ApplyFileUploadLease](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. For more information, see [Upload files by calling API](https://help.aliyun.com/zh/model-studio/developer-reference/upload-files-by-calling-api).
+     * >  After you call this operation, the used lease ID expires immediately. Do not use the same lease ID to submit new requests.
+     * *   You must call this operation within 12 hours after you call the [ApplyFileUploadLease](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. Otherwise, the lease expires and the request fails.
+     * *   After you call this operation, the system parses and imports your document. The process takes some time.
+     * *   This interface is not idempotent.
      *  *
      * @param string         $WorkspaceId
      * @param AddFileRequest $tmpReq      AddFileRequest
@@ -214,7 +228,13 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 将临时上传的文档导入百炼数据中心，导入成功之后会自动触发文档解析。
+     * @summary Imports an unstructured document stored in the temporary storage space to Data Management.
+     *  *
+     * @description *   Before you call this operation, make sure that you have obtained the lease and uploaded the document to the temporary storage space by using the [ApplyFileUploadLease](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. For more information, see [Upload files by calling API](https://help.aliyun.com/zh/model-studio/developer-reference/upload-files-by-calling-api).
+     * >  After you call this operation, the used lease ID expires immediately. Do not use the same lease ID to submit new requests.
+     * *   You must call this operation within 12 hours after you call the [ApplyFileUploadLease](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. Otherwise, the lease expires and the request fails.
+     * *   After you call this operation, the system parses and imports your document. The process takes some time.
+     * *   This interface is not idempotent.
      *  *
      * @param string         $WorkspaceId
      * @param AddFileRequest $request     AddFileRequest
@@ -230,7 +250,12 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 请求文档上传租约，进行文档上传。
+     * @summary Applies for a document upload lease to upload a document.
+     *  *
+     * @description *   This operation returns an HTTP URL that can be used to upload an unstructured document (the lease) and parameters required for the upload. Structured documents are not supported.
+     * *   The HTTP URL returned by this operation is valid only for minutes. Upload the document before the URL expires.
+     * *   After you apply for a lease and upload a document, the document is stored in a temporary storage space for 12 hours. Call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) interface in time to import the document to the [Data Management](https://bailian.console.aliyun.com/#/data-center) page.
+     * *   This interface is not idempotent.
      *  *
      * @param string                      $CategoryId
      * @param string                      $WorkspaceId
@@ -273,7 +298,12 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 请求文档上传租约，进行文档上传。
+     * @summary Applies for a document upload lease to upload a document.
+     *  *
+     * @description *   This operation returns an HTTP URL that can be used to upload an unstructured document (the lease) and parameters required for the upload. Structured documents are not supported.
+     * *   The HTTP URL returned by this operation is valid only for minutes. Upload the document before the URL expires.
+     * *   After you apply for a lease and upload a document, the document is stored in a temporary storage space for 12 hours. Call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) interface in time to import the document to the [Data Management](https://bailian.console.aliyun.com/#/data-center) page.
+     * *   This interface is not idempotent.
      *  *
      * @param string                      $CategoryId
      * @param string                      $WorkspaceId
@@ -356,7 +386,11 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 创建并运行pipeline
+     * @summary Creates an unstructured knowledge base and imports one or more parsed documents into the knowledge base. You cannot create a structured knowledge base by calling an API operation. Use the console instead.
+     *  *
+     * @description 1.  You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. To upload documents, call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation.
+     * 2.  This operation only initializes a knowledge base creation job. You must also call the [SubmitIndexJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to complete the job.
+     * 3.  This interface is not idempotent.
      *  *
      * @param string             $WorkspaceId
      * @param CreateIndexRequest $tmpReq      CreateIndexRequest
@@ -454,7 +488,11 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 创建并运行pipeline
+     * @summary Creates an unstructured knowledge base and imports one or more parsed documents into the knowledge base. You cannot create a structured knowledge base by calling an API operation. Use the console instead.
+     *  *
+     * @description 1.  You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. To upload documents, call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation.
+     * 2.  This operation only initializes a knowledge base creation job. You must also call the [SubmitIndexJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to complete the job.
+     * 3.  This interface is not idempotent.
      *  *
      * @param string             $WorkspaceId
      * @param CreateIndexRequest $request     CreateIndexRequest
@@ -573,6 +611,61 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->createMemoryNodeWithOptions($workspaceId, $memoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建Prompt模板
+     *  *
+     * @param string                      $workspaceId
+     * @param CreatePromptTemplateRequest $request     CreatePromptTemplateRequest
+     * @param string[]                    $headers     map
+     * @param RuntimeOptions              $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return CreatePromptTemplateResponse CreatePromptTemplateResponse
+     */
+    public function createPromptTemplateWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->content)) {
+            $query['content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePromptTemplate',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/promptTemplates',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建Prompt模板
+     *  *
+     * @param string                      $workspaceId
+     * @param CreatePromptTemplateRequest $request     CreatePromptTemplateRequest
+     *
+     * @return CreatePromptTemplateResponse CreatePromptTemplateResponse
+     */
+    public function createPromptTemplate($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createPromptTemplateWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -710,7 +803,13 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 删除Index
+     * @summary Deletes a specified knowledge base permanently.
+     *  *
+     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * *   If a knowledge base is being called by an application, disassociate the knowledge base before you can delete it. To disassociate the knowledge base, you must use the console. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base).
+     * *   After you delete a knowledge base, it cannot be recovered. We recommend that you proceed with caution.
+     * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
+     * *   This interface is idempotent.
      *  *
      * @param string             $WorkspaceId
      * @param DeleteIndexRequest $request     DeleteIndexRequest
@@ -746,7 +845,13 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 删除Index
+     * @summary Deletes a specified knowledge base permanently.
+     *  *
+     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * *   If a knowledge base is being called by an application, disassociate the knowledge base before you can delete it. To disassociate the knowledge base, you must use the console. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base).
+     * *   After you delete a knowledge base, it cannot be recovered. We recommend that you proceed with caution.
+     * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
+     * *   This interface is idempotent.
      *  *
      * @param string             $WorkspaceId
      * @param DeleteIndexRequest $request     DeleteIndexRequest
@@ -762,7 +867,13 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 删除index doc
+     * @summary Deletes one or more documents from a specified unstructured knowledge base permanently.
+     *  *
+     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * *   Only documents with the INSERT_ERROR and FINISH states can be deleted. To query the status of documents in a specified knowledge base, call the [ListIndexDocuments](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-listindexdocuments) operation.
+     * *   After you delete a document, it cannot be recovered and the [Retrieve](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-retrieve) operation cannot query information about the document. We recommend that you proceed with caution.
+     * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
+     * *   This interface is idempotent.
      *  *
      * @param string                     $WorkspaceId
      * @param DeleteIndexDocumentRequest $tmpReq      DeleteIndexDocumentRequest
@@ -806,7 +917,13 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 删除index doc
+     * @summary Deletes one or more documents from a specified unstructured knowledge base permanently.
+     *  *
+     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * *   Only documents with the INSERT_ERROR and FINISH states can be deleted. To query the status of documents in a specified knowledge base, call the [ListIndexDocuments](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-listindexdocuments) operation.
+     * *   After you delete a document, it cannot be recovered and the [Retrieve](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-retrieve) operation cannot query information about the document. We recommend that you proceed with caution.
+     * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
+     * *   This interface is idempotent.
      *  *
      * @param string                     $WorkspaceId
      * @param DeleteIndexDocumentRequest $request     DeleteIndexDocumentRequest
@@ -916,7 +1033,59 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 获取文档基本信息，包括文档名称、类型、状态等。
+     * @summary 基于模板Id删除Prompt模板。
+     *  *
+     * @param string         $workspaceId
+     * @param string         $promptTemplateId
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     *
+     * @return DeletePromptTemplateResponse DeletePromptTemplateResponse
+     */
+    public function deletePromptTemplateWithOptions($workspaceId, $promptTemplateId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePromptTemplate',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/promptTemplates/' . OpenApiUtilClient::getEncodeParam($promptTemplateId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeletePromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 基于模板Id删除Prompt模板。
+     *  *
+     * @param string $workspaceId
+     * @param string $promptTemplateId
+     *
+     * @return DeletePromptTemplateResponse DeletePromptTemplateResponse
+     */
+    public function deletePromptTemplate($workspaceId, $promptTemplateId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deletePromptTemplateWithOptions($workspaceId, $promptTemplateId, $headers, $runtime);
+    }
+
+    /**
+     * @summary Queries the details of an unstructured document.
+     *  *
+     * @description Before you call this API, make sure that your document is uploaded to the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page of Alibaba Cloud Model Studio.
+     * *   If you upload the document by calling an API, make sure that you have called the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation to obtain `FileId`.
+     * *   You can also call this operation to query unstructured documents that you upload on the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page.
+     * *   This operation is idempotent.
+     * **Throttling:** Make sure that the interval between the two queries is at least 15 seconds. Otherwise, you may trigger system throttling. If throttling is triggered, try again later.
      *  *
      * @param string         $WorkspaceId
      * @param string         $FileId
@@ -946,7 +1115,13 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 获取文档基本信息，包括文档名称、类型、状态等。
+     * @summary Queries the details of an unstructured document.
+     *  *
+     * @description Before you call this API, make sure that your document is uploaded to the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page of Alibaba Cloud Model Studio.
+     * *   If you upload the document by calling an API, make sure that you have called the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation to obtain `FileId`.
+     * *   You can also call this operation to query unstructured documents that you upload on the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page.
+     * *   This operation is idempotent.
+     * **Throttling:** Make sure that the interval between the two queries is at least 15 seconds. Otherwise, you may trigger system throttling. If throttling is triggered, try again later.
      *  *
      * @param string $WorkspaceId
      * @param string $FileId
@@ -962,7 +1137,11 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 获取Index运行状态
+     * @summary Queries the current status of a specified knowledge base creation or add document job.
+     *  *
+     * @description 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.
+     * 2.  We recommend that you call this operation at intervals of more than 5 seconds.
+     * 3.  This interface is idempotent.
      *  *
      * @param string                   $WorkspaceId
      * @param GetIndexJobStatusRequest $request     GetIndexJobStatusRequest
@@ -1007,7 +1186,11 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 获取Index运行状态
+     * @summary Queries the current status of a specified knowledge base creation or add document job.
+     *  *
+     * @description 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.
+     * 2.  We recommend that you call this operation at intervals of more than 5 seconds.
+     * 3.  This interface is idempotent.
      *  *
      * @param string                   $WorkspaceId
      * @param GetIndexJobStatusRequest $request     GetIndexJobStatusRequest
@@ -1114,6 +1297,52 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->getMemoryNodeWithOptions($workspaceId, $memoryId, $memoryNodeId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 基于模板Id获取Prompt模板。
+     *  *
+     * @param string         $workspaceId
+     * @param string         $promptTemplateId
+     * @param string[]       $headers          map
+     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     *
+     * @return GetPromptTemplateResponse GetPromptTemplateResponse
+     */
+    public function getPromptTemplateWithOptions($workspaceId, $promptTemplateId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetPromptTemplate',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/promptTemplates/' . OpenApiUtilClient::getEncodeParam($promptTemplateId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 基于模板Id获取Prompt模板。
+     *  *
+     * @param string $workspaceId
+     * @param string $promptTemplateId
+     *
+     * @return GetPromptTemplateResponse GetPromptTemplateResponse
+     */
+    public function getPromptTemplate($workspaceId, $promptTemplateId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getPromptTemplateWithOptions($workspaceId, $promptTemplateId, $headers, $runtime);
     }
 
     /**
@@ -1224,7 +1453,10 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Chunk
+     * @summary For unstructured knowledge base, obtains the details of all chunks of a specified document; for structured knowledge base, obtains the details of all chunks.
+     *  *
+     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * *   This interface is idempotent.
      *  *
      * @param string            $WorkspaceId
      * @param ListChunksRequest $request     ListChunksRequest
@@ -1272,7 +1504,10 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Chunk
+     * @summary For unstructured knowledge base, obtains the details of all chunks of a specified document; for structured knowledge base, obtains the details of all chunks.
+     *  *
+     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * *   This interface is idempotent.
      *  *
      * @param string            $WorkspaceId
      * @param ListChunksRequest $request     ListChunksRequest
@@ -1303,6 +1538,9 @@ class Bailian extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->categoryId)) {
             $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
         }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
@@ -1346,7 +1584,10 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 查询Index文件
+     * @summary Queries the details of one or more documents in a specified knowledge base.
+     *  *
+     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * *   This interface is idempotent.
      *  *
      * @param string                    $WorkspaceId
      * @param ListIndexDocumentsRequest $request     ListIndexDocumentsRequest
@@ -1394,7 +1635,10 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 查询Index文件
+     * @summary Queries the details of one or more documents in a specified knowledge base.
+     *  *
+     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * *   This interface is idempotent.
      *  *
      * @param string                    $WorkspaceId
      * @param ListIndexDocumentsRequest $request     ListIndexDocumentsRequest
@@ -1410,7 +1654,9 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 查询pipeline
+     * @summary Lists knowledge bases in a specified workspace.
+     *  *
+     * @description This interface is idempotent.
      *  *
      * @param string             $WorkspaceId
      * @param ListIndicesRequest $request     ListIndicesRequest
@@ -1452,7 +1698,9 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 查询pipeline
+     * @summary Lists knowledge bases in a specified workspace.
+     *  *
+     * @description This interface is idempotent.
      *  *
      * @param string             $WorkspaceId
      * @param ListIndicesRequest $request     ListIndicesRequest
@@ -1580,6 +1828,67 @@ class Bailian extends OpenApiClient
     }
 
     /**
+     * @summary 获取Prompt模板列表。
+     *  *
+     * @param string                     $workspaceId
+     * @param ListPromptTemplatesRequest $request     ListPromptTemplatesRequest
+     * @param string[]                   $headers     map
+     * @param RuntimeOptions             $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return ListPromptTemplatesResponse ListPromptTemplatesResponse
+     */
+    public function listPromptTemplatesWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPromptTemplates',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/promptTemplates',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPromptTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取Prompt模板列表。
+     *  *
+     * @param string                     $workspaceId
+     * @param ListPromptTemplatesRequest $request     ListPromptTemplatesRequest
+     *
+     * @return ListPromptTemplatesResponse ListPromptTemplatesResponse
+     */
+    public function listPromptTemplates($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPromptTemplatesWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 查询已发布的智能体应用列表
      *  *
      * @param string                    $workspaceId
@@ -1635,7 +1944,11 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 召回测试
+     * @summary Queries information from a specified knowledge base.
+     *  *
+     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * *   The response time may be long because this operation involves complex retrieval and matching. We recommend that you set appropriate timeout and retry policy for requests.
+     * *   This interface is idempotent.
      *  *
      * @param string          $WorkspaceId
      * @param RetrieveRequest $tmpReq      RetrieveRequest
@@ -1721,7 +2034,11 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 召回测试
+     * @summary Queries information from a specified knowledge base.
+     *  *
+     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * *   The response time may be long because this operation involves complex retrieval and matching. We recommend that you set appropriate timeout and retry policy for requests.
+     * *   This interface is idempotent.
      *  *
      * @param string          $WorkspaceId
      * @param RetrieveRequest $request     RetrieveRequest
@@ -1737,7 +2054,12 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 知识索引
+     * @summary Adds parsed documents to an unstructured knowledge base.
+     *  *
+     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * *   Before you call this operation, call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation to upload the documents to Model Studio.
+     * *   After you call this operation, you can call the [GetIndexJobStatus](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation to query the status of the job. More than 20 calls to the GetIndexJobStatus operation per minute may trigger throttling.
+     * *   Execution takes a period of time after this operation is called. Do not make new request before the request is returned. This interface is not idempotent.
      *  *
      * @param string                            $WorkspaceId
      * @param SubmitIndexAddDocumentsJobRequest $tmpReq      SubmitIndexAddDocumentsJobRequest
@@ -1790,7 +2112,12 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 知识索引
+     * @summary Adds parsed documents to an unstructured knowledge base.
+     *  *
+     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * *   Before you call this operation, call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation to upload the documents to Model Studio.
+     * *   After you call this operation, you can call the [GetIndexJobStatus](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation to query the status of the job. More than 20 calls to the GetIndexJobStatus operation per minute may trigger throttling.
+     * *   Execution takes a period of time after this operation is called. Do not make new request before the request is returned. This interface is not idempotent.
      *  *
      * @param string                            $WorkspaceId
      * @param SubmitIndexAddDocumentsJobRequest $request     SubmitIndexAddDocumentsJobRequest
@@ -1806,7 +2133,12 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 提交索引任务
+     * @summary Submits a specified CreateIndex job to complete knowledge base creation.
+     *  *
+     * @description 1.  Before you call this operation, you must call the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation and obtain the `IndexId`.
+     * 2.  Execution takes a period of time after this operation is called. Do not make new request before the request is returned.
+     * 3.  If you want to query the execution status of the job after you call this operation, call the [GetIndexJobStatus](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation.
+     * 4.  This interface is not idempotent.
      *  *
      * @param string                $WorkspaceId
      * @param SubmitIndexJobRequest $request     SubmitIndexJobRequest
@@ -1842,7 +2174,12 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 提交索引任务
+     * @summary Submits a specified CreateIndex job to complete knowledge base creation.
+     *  *
+     * @description 1.  Before you call this operation, you must call the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation and obtain the `IndexId`.
+     * 2.  Execution takes a period of time after this operation is called. Do not make new request before the request is returned.
+     * 3.  If you want to query the execution status of the job after you call this operation, call the [GetIndexJobStatus](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation.
+     * 4.  This interface is not idempotent.
      *  *
      * @param string                $WorkspaceId
      * @param SubmitIndexJobRequest $request     SubmitIndexJobRequest
@@ -2033,5 +2370,62 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->updateMemoryNodeWithOptions($workspaceId, $memoryId, $memoryNodeId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 基于模板Id增量更新Prompt模板。
+     *  *
+     * @param string                      $workspaceId
+     * @param string                      $promptTemplateId
+     * @param UpdatePromptTemplateRequest $request          UpdatePromptTemplateRequest
+     * @param string[]                    $headers          map
+     * @param RuntimeOptions              $runtime          runtime options for this request RuntimeOptions
+     *
+     * @return UpdatePromptTemplateResponse UpdatePromptTemplateResponse
+     */
+    public function updatePromptTemplateWithOptions($workspaceId, $promptTemplateId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->content)) {
+            $query['content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePromptTemplate',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/promptTemplates/' . OpenApiUtilClient::getEncodeParam($promptTemplateId) . '',
+            'method'      => 'PATCH',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdatePromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 基于模板Id增量更新Prompt模板。
+     *  *
+     * @param string                      $workspaceId
+     * @param string                      $promptTemplateId
+     * @param UpdatePromptTemplateRequest $request          UpdatePromptTemplateRequest
+     *
+     * @return UpdatePromptTemplateResponse UpdatePromptTemplateResponse
+     */
+    public function updatePromptTemplate($workspaceId, $promptTemplateId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updatePromptTemplateWithOptions($workspaceId, $promptTemplateId, $request, $headers, $runtime);
     }
 }

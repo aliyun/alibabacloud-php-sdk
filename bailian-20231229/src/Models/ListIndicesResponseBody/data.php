@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The list of knowledge bases.
+     *
      * @var indices[]
      */
     public $indices;
 
     /**
+     * @description The specified page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class data extends Model
     public $pageNumber;
 
     /**
+     * @description The specified number of documents on each page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description The total number of knowledge bases returned.
+     *
      * @example 48
      *
      * @var int

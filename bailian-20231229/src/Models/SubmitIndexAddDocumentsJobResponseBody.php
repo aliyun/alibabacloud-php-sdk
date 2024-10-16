@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitIndexAddDocumentsJobResponseBody extends Model
 {
     /**
+     * @description HTTP status code
+     *
      * @example Index.InvalidParameter
      *
      * @var string
@@ -17,11 +19,15 @@ class SubmitIndexAddDocumentsJobResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message.
+     *
      * @example Required parameter(%s) missing or invalid, please check the request parameters.
      *
      * @var string
@@ -29,7 +35,7 @@ class SubmitIndexAddDocumentsJobResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 778C0B3B-03C1-5FC1-A947-36EDD13606AB
      *
@@ -38,6 +44,8 @@ class SubmitIndexAddDocumentsJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -45,6 +53,11 @@ class SubmitIndexAddDocumentsJobResponseBody extends Model
     public $status;
 
     /**
+     * @description Indications whether the API call is successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

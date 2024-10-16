@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RetrieveShrinkRequest extends Model
 {
     /**
+     * @description Vector retrieval top K. After generating vectors based on input text, the top K chunks in the knowledge base that are most similar to the vector representation of the input text are retrieved. Valid values: 0 to 100. The sum of the `DenseSimilarityTopK` and `SparseSimilarityTopK` parameters must be less than or equal to 200.
+     *
+     * Default value: 100.
      * @example 100
      *
      * @var int
@@ -16,6 +19,12 @@ class RetrieveShrinkRequest extends Model
     public $denseSimilarityTopK;
 
     /**
+     * @description Specifies whether to enable reranking. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: true.
      * @example true
      *
      * @var bool
@@ -23,6 +32,12 @@ class RetrieveShrinkRequest extends Model
     public $enableReranking;
 
     /**
+     * @description Specifies whether to enable multi-round conversation rewriting. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -35,8 +50,9 @@ class RetrieveShrinkRequest extends Model
     public $imagesShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
      *
+     * This parameter is required.
      * @example 5pwe0m2g6t
      *
      * @var string
@@ -44,16 +60,23 @@ class RetrieveShrinkRequest extends Model
     public $indexId;
 
     /**
+     * @description The input query prompt. The length and characters of the query are not limited.
+     *
      * @var string
      */
     public $query;
 
     /**
+     * @description Ranking configurations.
+     *
      * @var string
      */
     public $rerankShrink;
 
     /**
+     * @description Similarity Threshold The lowest similarity score of chunks that can be returned. This parameter is used to filter text chunks returned by the rank model. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values: [0.01-1.00]. The priority of this parameter is greater than the similarity threshold configured for the knowledge base.
+     *
+     * By default, this parameter is left empty. In this case, the similarity threshold of the knowledge base is used.
      * @example 0.20
      *
      * @var float
@@ -61,6 +84,8 @@ class RetrieveShrinkRequest extends Model
     public $rerankMinScore;
 
     /**
+     * @description The top N return data after reranking. Valid values: 1 to 20. Default value: 5.
+     *
      * @example 5
      *
      * @var int
@@ -68,11 +93,19 @@ class RetrieveShrinkRequest extends Model
     public $rerankTopN;
 
     /**
+     * @description Conversation rewriting configurations.
+     *
      * @var string
      */
     public $rewriteShrink;
 
     /**
+     * @description Specifies whether to save the retrieve test history. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -80,11 +113,16 @@ class RetrieveShrinkRequest extends Model
     public $saveRetrieverHistory;
 
     /**
+     * @description Specifies complex filter conditions. For more information about the syntax of SearchFilters, see the SearchFilter syntax section of this topic.
+     *
      * @var string
      */
     public $searchFiltersShrink;
 
     /**
+     * @description The top K of keyword retrieval. Chunks that exactly match the keywords of the input text are retrieved from the knowledge base. This filters out irrelevant chunks and boosts accuracy. Valid values: 0 to 100. The sum of the `DenseSimilarityTopK` and `SparseSimilarityTopK` parameters must be less than or equal to 200.
+     *
+     * Default value: 100.
      * @example 100
      *
      * @var int

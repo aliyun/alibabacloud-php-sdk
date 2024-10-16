@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the category to which the document belongs.
+     *
      * @example cate_cdd11b1b79a74e8bbd675c356a91ee3XXXXXXXX
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $categoryId;
 
     /**
+     * @description The timestamp when the document was uploaded to Model Studio. Format: yyyy-MM-dd HH:mm:ss. Time zone: UTC + 8.
+     *
      * @example 2024-05-26 12:45:43
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $createTime;
 
     /**
+     * @description The primary key ID of the document.
+     *
      * @example file_9a65732555b54d5ea10796ca5742ba22_XXXXXXXX
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $fileId;
 
     /**
+     * @description The name of the document.
+     *
      * @example test.pdf
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $fileName;
 
     /**
+     * @description The file type of the document. The value is an extension. Valid values: pdf, docx, doc, txt, md, pptx, and ppt.
+     *
      * @example pdf
      *
      * @var string
@@ -44,6 +54,10 @@ class data extends Model
     public $fileType;
 
     /**
+     * @description The parser that is used to parse the document. Valid value:
+     *
+     *   DASHSCOPE_DOCMIND: The default document parser.
+     *
      * @example DASHSCOPE_DOCMIND
      *
      * @var string
@@ -51,6 +65,8 @@ class data extends Model
     public $parser;
 
     /**
+     * @description The size of the document. Unit: bytes.
+     *
      * @example 1234
      *
      * @var int
@@ -58,6 +74,13 @@ class data extends Model
     public $sizeInBytes;
 
     /**
+     * @description The status of the document. Valid values:
+     *
+     *   INIT: pending parsing.
+     *   PARSING
+     *   PARSE_SUCCESS
+     *   PARSE_FAILED
+     *
      * @example PARSE_SUCCESS
      *
      * @var string
@@ -65,6 +88,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description The tags that are associated with the document. A document can be associated with multiple tags.
+     *
      * @var string[]
      */
     public $tags;

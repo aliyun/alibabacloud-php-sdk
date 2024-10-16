@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListIndexDocumentsResponseBody extends Model
 {
     /**
+     * @description HTTP status code
+     *
      * @example InvalidParameter
      *
      * @var string
@@ -17,11 +19,15 @@ class ListIndexDocumentsResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message.
+     *
      * @example Required parameter(%s) missing or invalid, please check the request parameters.
      *
      * @var string
@@ -29,7 +35,7 @@ class ListIndexDocumentsResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 35A267BF-xxxx-54DB-8394-AA3B0742D833
      *
@@ -38,6 +44,8 @@ class ListIndexDocumentsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status code.
+     *
      * @example 200
      *
      * @var string
@@ -45,6 +53,11 @@ class ListIndexDocumentsResponseBody extends Model
     public $status;
 
     /**
+     * @description Indications whether the API call is successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

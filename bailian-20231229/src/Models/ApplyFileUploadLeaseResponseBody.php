@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ApplyFileUploadLeaseResponseBody extends Model
 {
     /**
+     * @description The status code.
+     *
      * @example DataCenter.FileTooLarge
      *
      * @var string
@@ -17,11 +19,15 @@ class ApplyFileUploadLeaseResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data fields.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message.
+     *
      * @example User not authorized to operate on the specified resource
      *
      * @var string
@@ -29,6 +35,8 @@ class ApplyFileUploadLeaseResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 778C0B3B-xxxx-5FC1-A947-36EDD13606AB
      *
      * @var string
@@ -36,6 +44,8 @@ class ApplyFileUploadLeaseResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var string
@@ -43,6 +53,11 @@ class ApplyFileUploadLeaseResponseBody extends Model
     public $status;
 
     /**
+     * @description Indications whether the call is successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

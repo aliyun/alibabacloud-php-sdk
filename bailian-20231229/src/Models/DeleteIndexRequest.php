@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteIndexRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
      *
+     * This parameter is required.
      * @example f89ie0fj5a
      *
      * @var string

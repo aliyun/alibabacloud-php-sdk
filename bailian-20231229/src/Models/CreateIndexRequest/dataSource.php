@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class dataSource extends Model
 {
     /**
+     * @description >  This parameter is not available. Do not specify this parameter.
+     *
      * @var string
      */
     public $credentialId;
 
     /**
+     * @description >  This parameter is not available. Do not specify this parameter.
+     *
      * @var string
      */
     public $credentialKey;
 
     /**
+     * @description >  This parameter is not available. Do not specify this parameter.
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @description >  This parameter is not available. Do not specify this parameter.
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @description >  This parameter is not available. Do not specify this parameter.
+     *
      * @var bool
      */
     public $isPrivateLink;
 
     /**
+     * @description >  This parameter is not available. Do not specify this parameter.
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description >  This parameter is not available. Do not specify this parameter.
+     *
      * @var string
      */
     public $subPath;
 
     /**
+     * @description >  This parameter is not available. Do not specify this parameter.
+     *
      * @var string
      */
     public $subType;
 
     /**
+     * @description >  This parameter is not available. Do not specify this parameter.
+     *
      * @var string
      */
     public $table;
 
     /**
+     * @description >  This parameter is not available. Do not specify this parameter.
+     *
      * @var string
      */
     public $type;

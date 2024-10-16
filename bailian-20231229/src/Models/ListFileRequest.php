@@ -18,6 +18,11 @@ class ListFileRequest extends Model
     public $categoryId;
 
     /**
+     * @var string
+     */
+    public $fileName;
+
+    /**
      * @example 20
      *
      * @var int
@@ -32,6 +37,7 @@ class ListFileRequest extends Model
     public $nextToken;
     protected $_name = [
         'categoryId' => 'CategoryId',
+        'fileName'   => 'FileName',
         'maxResults' => 'MaxResults',
         'nextToken'  => 'NextToken',
     ];
@@ -45,6 +51,9 @@ class ListFileRequest extends Model
         $res = [];
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
+        }
+        if (null !== $this->fileName) {
+            $res['FileName'] = $this->fileName;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -66,6 +75,9 @@ class ListFileRequest extends Model
         $model = new self();
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
+        }
+        if (isset($map['FileName'])) {
+            $model->fileName = $map['FileName'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

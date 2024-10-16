@@ -9,15 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ApplyFileUploadLeaseRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the uploaded document, including the extension. Supported formats: pdf, doc, docx, md, txt, ppt, and pptx. The document name must be 4 to 128 characters in length.
      *
+     * This parameter is required.
      * @var string
      */
     public $fileName;
 
     /**
-     * @description This parameter is required.
+     * @description The MD5 value of the uploaded document. This parameter is verified by the server (not in the current version).
      *
+     * This parameter is required.
      * @example 19657c391f6c70bcea63c154d8606bb3
      *
      * @var string
@@ -25,8 +27,9 @@ class ApplyFileUploadLeaseRequest extends Model
     public $md5;
 
     /**
-     * @description This parameter is required.
+     * @description The size of the uploaded document, in bytes. This parameter is verified by the server (not in the current version). Valid values: 1 to 100000000.
      *
+     * This parameter is required.
      * @example 1000
      *
      * @var string

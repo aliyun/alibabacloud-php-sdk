@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The primary key ID of the job, which is the `JobId` parameter of the [GetIndexJobStatus](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation.
+     *
      * @example eFDr2fGRzP9gdDZWAdo3YQ==
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $id;
 
     /**
+     * @description The primary key ID of the knowledge base.
+     *
      * @example khdyak1uuj
      *
      * @var string

@@ -9,15 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteIndexDocumentRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The list of the primary key IDs of the documents.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $documentIds;
 
     /**
-     * @description This parameter is required.
+     * @description The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
      *
+     * This parameter is required.
      * @example 79c0aly8zw
      *
      * @var string

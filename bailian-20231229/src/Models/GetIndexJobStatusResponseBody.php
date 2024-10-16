@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetIndexJobStatusResponseBody extends Model
 {
     /**
+     * @description HTTP status code
+     *
      * @example Index.Forbidden
      *
      * @var string
@@ -17,11 +19,15 @@ class GetIndexJobStatusResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message.
+     *
      * @example User not authorized to operate on the specified resource.
      *
      * @var string
@@ -29,6 +35,8 @@ class GetIndexJobStatusResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 17204B98-xxxx-4F9A-8464-2446A84821CA
      *
      * @var string
@@ -36,6 +44,8 @@ class GetIndexJobStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -43,6 +53,11 @@ class GetIndexJobStatusResponseBody extends Model
     public $status;
 
     /**
+     * @description Indications whether the API call is successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The list of chunks.
+     *
      * @var nodes[]
      */
     public $nodes;
 
     /**
+     * @description The total number of chunks returned.
+     *
      * @example 16
      *
      * @var int

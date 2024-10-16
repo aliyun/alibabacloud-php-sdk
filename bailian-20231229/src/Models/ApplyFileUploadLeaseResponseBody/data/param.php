@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class param extends Model
 {
     /**
+     * @description The key-value pair to be placed in the Header. Both the key and the value are strings.
+     *
      * @example "X-bailian-extra": "MTAwNTQyNjQ5NTE2OTE3OA==",
      * "Content-Type": "application/pdf"
      * @var mixed
@@ -16,6 +18,11 @@ class param extends Model
     public $headers;
 
     /**
+     * @description The HTTP call method. Valid values:
+     *
+     *   PUT
+     *   POST
+     *
      * @example PUT
      *
      * @var string
@@ -23,6 +30,8 @@ class param extends Model
     public $method;
 
     /**
+     * @description The upload URL of the document.
+     *
      * @example https://bailian-datahub-data-origin-prod.oss-cn-hangzhou.aliyuncs.com/1005426495169178/10024405/68abd1dea7b6404d8f7d7b9f7fbd332d.1716698936847.pdf?Expires=1716699536&OSSAccessKeyId=TestID&Signature=HfwPUZo4pR6DatSDym0zFKVh9Wg%3D
      *
      * @var string
