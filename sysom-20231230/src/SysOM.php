@@ -10,8 +10,12 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\AuthDiagnosisRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\AuthDiagnosisResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GenerateCopilotResponseRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GenerateCopilotResponseResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAbnormalEventsCountRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAbnormalEventsCountResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetDiagnosisResultRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetDiagnosisResultResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetHealthPercentageRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetHealthPercentageResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InvokeDiagnosisRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InvokeDiagnosisResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -160,6 +164,71 @@ class SysOM extends OpenApiClient
     }
 
     /**
+     * @summary 获取节点/Pod不同等级异常事件的数量
+     *  *
+     * @param GetAbnormalEventsCountRequest $request GetAbnormalEventsCountRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAbnormalEventsCountResponse GetAbnormalEventsCountResponse
+     */
+    public function getAbnormalEventsCountWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cluster)) {
+            $query['cluster'] = $request->cluster;
+        }
+        if (!Utils::isUnset($request->end)) {
+            $query['end'] = $request->end;
+        }
+        if (!Utils::isUnset($request->instance)) {
+            $query['instance'] = $request->instance;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->pod)) {
+            $query['pod'] = $request->pod;
+        }
+        if (!Utils::isUnset($request->start)) {
+            $query['start'] = $request->start;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAbnormalEventsCount',
+            'version'     => '2023-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/openapi/cluster_health/range/abnormaly_events_count',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAbnormalEventsCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取节点/Pod不同等级异常事件的数量
+     *  *
+     * @param GetAbnormalEventsCountRequest $request GetAbnormalEventsCountRequest
+     *
+     * @return GetAbnormalEventsCountResponse GetAbnormalEventsCountResponse
+     */
+    public function getAbnormalEventsCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAbnormalEventsCountWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取诊断结果
      *  *
      * @param GetDiagnosisResultRequest $request GetDiagnosisResultRequest
@@ -207,6 +276,65 @@ class SysOM extends OpenApiClient
         $headers = [];
 
         return $this->getDiagnosisResultWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取一段时间的节点/pod健康度比例
+     *  *
+     * @param GetHealthPercentageRequest $request GetHealthPercentageRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetHealthPercentageResponse GetHealthPercentageResponse
+     */
+    public function getHealthPercentageWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cluster)) {
+            $query['cluster'] = $request->cluster;
+        }
+        if (!Utils::isUnset($request->end)) {
+            $query['end'] = $request->end;
+        }
+        if (!Utils::isUnset($request->instance)) {
+            $query['instance'] = $request->instance;
+        }
+        if (!Utils::isUnset($request->start)) {
+            $query['start'] = $request->start;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetHealthPercentage',
+            'version'     => '2023-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/openapi/cluster_health/range/health_percentage',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetHealthPercentageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取一段时间的节点/pod健康度比例
+     *  *
+     * @param GetHealthPercentageRequest $request GetHealthPercentageRequest
+     *
+     * @return GetHealthPercentageResponse GetHealthPercentageResponse
+     */
+    public function getHealthPercentage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getHealthPercentageWithOptions($request, $headers, $runtime);
     }
 
     /**
