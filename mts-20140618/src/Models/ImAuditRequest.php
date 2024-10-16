@@ -32,6 +32,8 @@ class ImAuditRequest extends Model
      *   The image size cannot exceed 20 MB, the height or width of the image cannot exceed 30,000 pixels, and the image cannot exceed 0.25 billion pixels.
      *   We recommend that you upload images of at least 256 × 256 pixels to ensure required moderation result.
      *
+     * @example ["http://``127.66.**.**``/image.jpeg","http://``127.66.**.**``/photo.jpeg"]
+     *
      * @var string
      */
     public $images;

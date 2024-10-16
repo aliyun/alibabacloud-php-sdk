@@ -42,10 +42,11 @@ class AddMediaRequest extends Model
     public $description;
 
     /**
-     * @description The path of the input file. You can query the path of the input file in the MPS or OSS console. For more information, see the **Triggering and matching rules for a workflow** section of this topic.
+     * @description The URL of the input file. You can obtain the URL in the MPS or OSS console. For more information, see the **Triggering and matching rule for a workflow** section of this topic.
      *
-     *   The value can be up to 3,200 bytes in length.
-     *   The URL complies with RFC 2396 and is encoded in UTF-8, with reserved characters being percent-encoded. For more information, see [URL encoding](https://help.aliyun.com/document_detail/423796.html).
+     *   Only OSS HTTP URLs are supported. Alibaba Cloud CDN URLs and HTTPS URLs are not supported.
+     *   The value can be up to 3,200 bytes in size.
+     *   The URL complies with RFC 2396 and is encoded in UTF-8. For more information, see [URL encoding](https://help.aliyun.com/document_detail/423796.html).
      *
      * This parameter is required.
      * @example http://bucket.oss-cn-hangzhou.aliyuncs.com/A/B/C/test.mp4

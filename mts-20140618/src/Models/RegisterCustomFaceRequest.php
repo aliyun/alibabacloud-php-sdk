@@ -51,6 +51,11 @@ class RegisterCustomFaceRequest extends Model
     /**
      * @var string
      */
+    public $personName;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -63,6 +68,7 @@ class RegisterCustomFaceRequest extends Model
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'personId'             => 'PersonId',
+        'personName'           => 'PersonName',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
     ];
@@ -88,6 +94,9 @@ class RegisterCustomFaceRequest extends Model
         }
         if (null !== $this->personId) {
             $res['PersonId'] = $this->personId;
+        }
+        if (null !== $this->personName) {
+            $res['PersonName'] = $this->personName;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -121,6 +130,9 @@ class RegisterCustomFaceRequest extends Model
         }
         if (isset($map['PersonId'])) {
             $model->personId = $map['PersonId'];
+        }
+        if (isset($map['PersonName'])) {
+            $model->personName = $map['PersonName'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

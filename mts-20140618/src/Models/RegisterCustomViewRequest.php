@@ -38,6 +38,8 @@ class RegisterCustomViewRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example http://``127.66.**.**``/image.jpeg
+     *
      * @var string
      */
     public $imageUrl;

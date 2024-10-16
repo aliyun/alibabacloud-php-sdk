@@ -17,6 +17,11 @@ class QuerySmarttagJobResponseBody extends Model
     public $jobStatus;
 
     /**
+     * @var string
+     */
+    public $message;
+
+    /**
      * @example 7B117AF5-2A16-412C-B127-FA6175ED1AD0
      *
      * @var string
@@ -36,6 +41,7 @@ class QuerySmarttagJobResponseBody extends Model
     public $userData;
     protected $_name = [
         'jobStatus' => 'JobStatus',
+        'message'   => 'Message',
         'requestId' => 'RequestId',
         'results'   => 'Results',
         'userData'  => 'UserData',
@@ -50,6 +56,9 @@ class QuerySmarttagJobResponseBody extends Model
         $res = [];
         if (null !== $this->jobStatus) {
             $res['JobStatus'] = $this->jobStatus;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -74,6 +83,9 @@ class QuerySmarttagJobResponseBody extends Model
         $model = new self();
         if (isset($map['JobStatus'])) {
             $model->jobStatus = $map['JobStatus'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

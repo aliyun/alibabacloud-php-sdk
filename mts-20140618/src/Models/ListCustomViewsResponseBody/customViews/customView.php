@@ -16,6 +16,8 @@ class customView extends Model
     public $customViewId;
 
     /**
+     * @example http://``127.66.**.**``/photo.jpeg
+     *
      * @var string
      */
     public $imageUrl;

@@ -74,7 +74,7 @@ class SubmitJobsRequest extends Model
      * @description The ID of the MPS queue. For more information, see [Terms](https://help.aliyun.com/document_detail/31827.html).
      *
      *   To obtain the ID of an MPS queue, you can log on to the [MPS console](https://mps.console.aliyun.com/overview) and choose **Global Settings** > **MPS Queue and Callback** in the left-side navigation pane.
-     *   If you want to receive asynchronous message notifications, associate an MNS queue or topic with the MPS queue. For more information, see [Receive notifications](https://www.alibabacloud.com/help/zh/apsaravideo-for-media-processing/latest/receive-message-notifications).
+     *   If you want to receive asynchronous message notifications, associate an MNS queue or topic with the MPS queue. For more information, see [Receive notifications](https://help.aliyun.com/document_detail/42618.html).
      *
      * This parameter is required.
      * @example dd3dae411e704030b921e52698e5****

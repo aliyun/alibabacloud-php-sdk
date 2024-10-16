@@ -36,7 +36,7 @@ class format extends Model
     public $formatLongName;
 
     /**
-     * @description The short name of the container format. For more information about the parameters, see [Parameter details](https://www.alibabacloud.com/help/zh/apsaravideo-for-media-processing/latest/parameter-details-a).
+     * @description The short name of the container format. For more information about the parameters, see [Parameter details](https://help.aliyun.com/document_detail/29253.html).
      *
      * @example mov
      *
