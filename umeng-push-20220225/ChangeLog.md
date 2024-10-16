@@ -1,3 +1,6 @@
+2024-10-16 Version: 1.0.9
+- Generated php 2022-02-25 for umeng-push.
+
 2024-10-16 Version: 1.0.8
 - Generated php 2022-02-25 for umeng-push.
 

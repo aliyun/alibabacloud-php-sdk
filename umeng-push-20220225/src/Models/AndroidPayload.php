@@ -22,10 +22,16 @@ class AndroidPayload extends Model
      * @var mixed[]
      */
     public $extra;
+
+    /**
+     * @var Message2ThirdChannel
+     */
+    public $message2ThirdChannel;
     protected $_name = [
-        'body'        => 'body',
-        'displayType' => 'displayType',
-        'extra'       => 'extra',
+        'body'                 => 'body',
+        'displayType'          => 'displayType',
+        'extra'                => 'extra',
+        'message2ThirdChannel' => 'message2ThirdChannel',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class AndroidPayload extends Model
         }
         if (null !== $this->extra) {
             $res['extra'] = $this->extra;
+        }
+        if (null !== $this->message2ThirdChannel) {
+            $res['message2ThirdChannel'] = null !== $this->message2ThirdChannel ? $this->message2ThirdChannel->toMap() : null;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class AndroidPayload extends Model
         }
         if (isset($map['extra'])) {
             $model->extra = $map['extra'];
+        }
+        if (isset($map['message2ThirdChannel'])) {
+            $model->message2ThirdChannel = Message2ThirdChannel::fromMap($map['message2ThirdChannel']);
         }
 
         return $model;
