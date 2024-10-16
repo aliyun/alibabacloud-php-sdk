@@ -36,6 +36,21 @@ class DescribeRiskEventPayloadResponseBody extends Model
     public $dstVpcId;
 
     /**
+     * @var int
+     */
+    public $hitContentType;
+
+    /**
+     * @var int
+     */
+    public $hitTo;
+
+    /**
+     * @var string
+     */
+    public $parsedContent;
+
+    /**
      * @description The attack payload of the intrusion event.
      *
      * @example 302902010004067075626c6963a01c0204036a5f43020100020100300e300c06082b060102010101000500
@@ -119,18 +134,21 @@ class DescribeRiskEventPayloadResponseBody extends Model
      */
     public $XForwardFor;
     protected $_name = [
-        'dstIP'       => 'DstIP',
-        'dstPort'     => 'DstPort',
-        'dstVpcId'    => 'DstVpcId',
-        'payload'     => 'Payload',
-        'payloadLen'  => 'PayloadLen',
-        'proto'       => 'Proto',
-        'realIp'      => 'RealIp',
-        'requestId'   => 'RequestId',
-        'srcIP'       => 'SrcIP',
-        'srcPort'     => 'SrcPort',
-        'srcVpcId'    => 'SrcVpcId',
-        'XForwardFor' => 'XForwardFor',
+        'dstIP'          => 'DstIP',
+        'dstPort'        => 'DstPort',
+        'dstVpcId'       => 'DstVpcId',
+        'hitContentType' => 'HitContentType',
+        'hitTo'          => 'HitTo',
+        'parsedContent'  => 'ParsedContent',
+        'payload'        => 'Payload',
+        'payloadLen'     => 'PayloadLen',
+        'proto'          => 'Proto',
+        'realIp'         => 'RealIp',
+        'requestId'      => 'RequestId',
+        'srcIP'          => 'SrcIP',
+        'srcPort'        => 'SrcPort',
+        'srcVpcId'       => 'SrcVpcId',
+        'XForwardFor'    => 'XForwardFor',
     ];
 
     public function validate()
@@ -148,6 +166,15 @@ class DescribeRiskEventPayloadResponseBody extends Model
         }
         if (null !== $this->dstVpcId) {
             $res['DstVpcId'] = $this->dstVpcId;
+        }
+        if (null !== $this->hitContentType) {
+            $res['HitContentType'] = $this->hitContentType;
+        }
+        if (null !== $this->hitTo) {
+            $res['HitTo'] = $this->hitTo;
+        }
+        if (null !== $this->parsedContent) {
+            $res['ParsedContent'] = $this->parsedContent;
         }
         if (null !== $this->payload) {
             $res['Payload'] = $this->payload;
@@ -196,6 +223,15 @@ class DescribeRiskEventPayloadResponseBody extends Model
         }
         if (isset($map['DstVpcId'])) {
             $model->dstVpcId = $map['DstVpcId'];
+        }
+        if (isset($map['HitContentType'])) {
+            $model->hitContentType = $map['HitContentType'];
+        }
+        if (isset($map['HitTo'])) {
+            $model->hitTo = $map['HitTo'];
+        }
+        if (isset($map['ParsedContent'])) {
+            $model->parsedContent = $map['ParsedContent'];
         }
         if (isset($map['Payload'])) {
             $model->payload = $map['Payload'];
