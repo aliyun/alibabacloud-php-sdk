@@ -13,26 +13,8 @@ class QueryResult extends Model
      * @var data[]
      */
     public $data;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @var bool
-     */
-    public $success;
     protected $_name = [
-        'data'         => 'data',
-        'errorCode'    => 'errorCode',
-        'errorMessage' => 'errorMessage',
-        'success'      => 'success',
+        'data' => 'data',
     ];
 
     public function validate()
@@ -50,15 +32,6 @@ class QueryResult extends Model
                     $res['data'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->errorCode) {
-            $res['errorCode'] = $this->errorCode;
-        }
-        if (null !== $this->errorMessage) {
-            $res['errorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->success) {
-            $res['success'] = $this->success;
         }
 
         return $res;
@@ -80,15 +53,6 @@ class QueryResult extends Model
                     $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['errorCode'])) {
-            $model->errorCode = $map['errorCode'];
-        }
-        if (isset($map['errorMessage'])) {
-            $model->errorMessage = $map['errorMessage'];
-        }
-        if (isset($map['success'])) {
-            $model->success = $map['success'];
         }
 
         return $model;

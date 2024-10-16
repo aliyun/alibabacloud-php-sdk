@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\IQS\V20240712;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\IQS\V20240712\Models\CommonQueryBySceneRequest;
+use AlibabaCloud\SDK\IQS\V20240712\Models\CommonQueryBySceneResponse;
 use AlibabaCloud\SDK\IQS\V20240712\Models\QueryAttractionsRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\QueryAttractionsResponse;
 use AlibabaCloud\SDK\IQS\V20240712\Models\QueryHotelsRequest;
@@ -49,6 +51,52 @@ class IQS extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 自然语言通用查询
+     *  *
+     * @param CommonQueryBySceneRequest $request CommonQueryBySceneRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CommonQueryBySceneResponse CommonQueryBySceneResponse
+     */
+    public function commonQueryBySceneWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'CommonQueryByScene',
+            'version'     => '2024-07-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/amap-function-call-agent/iqs-agent-service/v2/nl/common',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CommonQueryBySceneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 自然语言通用查询
+     *  *
+     * @param CommonQueryBySceneRequest $request CommonQueryBySceneRequest
+     *
+     * @return CommonQueryBySceneResponse CommonQueryBySceneResponse
+     */
+    public function commonQueryByScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->commonQueryBySceneWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -98,7 +146,7 @@ class IQS extends OpenApiClient
     }
 
     /**
-     * @summary 餐厅查询
+     * @summary 酒店查询
      *  *
      * @param QueryHotelsRequest $request QueryHotelsRequest
      * @param string[]           $headers map
@@ -129,7 +177,7 @@ class IQS extends OpenApiClient
     }
 
     /**
-     * @summary 餐厅查询
+     * @summary 酒店查询
      *  *
      * @param QueryHotelsRequest $request QueryHotelsRequest
      *
