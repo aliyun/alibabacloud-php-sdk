@@ -142,6 +142,8 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListSolutionRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListSolutionResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListTongyiChatHistorysRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListTongyiChatHistorysResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListTongyiConversationLogsRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListTongyiConversationLogsResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListUserSayRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListUserSayResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\NluRequest;
@@ -879,6 +881,9 @@ class Chatbot extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new CreateDocShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->docMetadata)) {
+            $request->docMetadataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->docMetadata, 'DocMetadata', 'json');
+        }
         if (!Utils::isUnset($tmpReq->tagIds)) {
             $request->tagIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagIds, 'TagIds', 'json');
         }
@@ -894,6 +899,9 @@ class Chatbot extends OpenApiClient
         }
         if (!Utils::isUnset($request->content)) {
             $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->docMetadataShrink)) {
+            $query['DocMetadata'] = $request->docMetadataShrink;
         }
         if (!Utils::isUnset($request->endDate)) {
             $query['EndDate'] = $request->endDate;
@@ -3796,6 +3804,59 @@ class Chatbot extends OpenApiClient
     }
 
     /**
+     * @summary 查询通义晓蜜的单个会话对话记录
+     *  *
+     * @param ListTongyiConversationLogsRequest $request ListTongyiConversationLogsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTongyiConversationLogsResponse ListTongyiConversationLogsResponse
+     */
+    public function listTongyiConversationLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->robotInstanceId)) {
+            $query['RobotInstanceId'] = $request->robotInstanceId;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $query['SessionId'] = $request->sessionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTongyiConversationLogs',
+            'version'     => '2022-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTongyiConversationLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询通义晓蜜的单个会话对话记录
+     *  *
+     * @param ListTongyiConversationLogsRequest $request ListTongyiConversationLogsRequest
+     *
+     * @return ListTongyiConversationLogsResponse ListTongyiConversationLogsResponse
+     */
+    public function listTongyiConversationLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTongyiConversationLogsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 话术-列表
      *  *
      * @param ListUserSayRequest $request ListUserSayRequest
@@ -4472,6 +4533,9 @@ class Chatbot extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new UpdateDocShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->docMetadata)) {
+            $request->docMetadataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->docMetadata, 'DocMetadata', 'json');
+        }
         if (!Utils::isUnset($tmpReq->tagIds)) {
             $request->tagIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagIds, 'TagIds', 'json');
         }
@@ -4487,6 +4551,9 @@ class Chatbot extends OpenApiClient
         }
         if (!Utils::isUnset($request->content)) {
             $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->docMetadataShrink)) {
+            $query['DocMetadata'] = $request->docMetadataShrink;
         }
         if (!Utils::isUnset($request->docName)) {
             $query['DocName'] = $request->docName;

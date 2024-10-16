@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateDocRequest\docMetadata;
 use AlibabaCloud\Tea\Model;
 
 class UpdateDocRequest extends Model
@@ -33,6 +34,11 @@ class UpdateDocRequest extends Model
      * @var string
      */
     public $content;
+
+    /**
+     * @var docMetadata[]
+     */
+    public $docMetadata;
 
     /**
      * @var string
@@ -83,6 +89,7 @@ class UpdateDocRequest extends Model
         'categoryId'  => 'CategoryId',
         'config'      => 'Config',
         'content'     => 'Content',
+        'docMetadata' => 'DocMetadata',
         'docName'     => 'DocName',
         'endDate'     => 'EndDate',
         'knowledgeId' => 'KnowledgeId',
@@ -110,6 +117,15 @@ class UpdateDocRequest extends Model
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->docMetadata) {
+            $res['DocMetadata'] = [];
+            if (null !== $this->docMetadata && \is_array($this->docMetadata)) {
+                $n = 0;
+                foreach ($this->docMetadata as $item) {
+                    $res['DocMetadata'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->docName) {
             $res['DocName'] = $this->docName;
@@ -155,6 +171,15 @@ class UpdateDocRequest extends Model
         }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['DocMetadata'])) {
+            if (!empty($map['DocMetadata'])) {
+                $model->docMetadata = [];
+                $n                  = 0;
+                foreach ($map['DocMetadata'] as $item) {
+                    $model->docMetadata[$n++] = null !== $item ? docMetadata::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['DocName'])) {
             $model->docName = $map['DocName'];

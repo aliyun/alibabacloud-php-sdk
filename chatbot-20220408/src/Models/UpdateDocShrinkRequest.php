@@ -37,6 +37,11 @@ class UpdateDocShrinkRequest extends Model
     /**
      * @var string
      */
+    public $docMetadataShrink;
+
+    /**
+     * @var string
+     */
     public $docName;
 
     /**
@@ -79,17 +84,18 @@ class UpdateDocShrinkRequest extends Model
      */
     public $title;
     protected $_name = [
-        'agentKey'     => 'AgentKey',
-        'categoryId'   => 'CategoryId',
-        'config'       => 'Config',
-        'content'      => 'Content',
-        'docName'      => 'DocName',
-        'endDate'      => 'EndDate',
-        'knowledgeId'  => 'KnowledgeId',
-        'meta'         => 'Meta',
-        'startDate'    => 'StartDate',
-        'tagIdsShrink' => 'TagIds',
-        'title'        => 'Title',
+        'agentKey'          => 'AgentKey',
+        'categoryId'        => 'CategoryId',
+        'config'            => 'Config',
+        'content'           => 'Content',
+        'docMetadataShrink' => 'DocMetadata',
+        'docName'           => 'DocName',
+        'endDate'           => 'EndDate',
+        'knowledgeId'       => 'KnowledgeId',
+        'meta'              => 'Meta',
+        'startDate'         => 'StartDate',
+        'tagIdsShrink'      => 'TagIds',
+        'title'             => 'Title',
     ];
 
     public function validate()
@@ -110,6 +116,9 @@ class UpdateDocShrinkRequest extends Model
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->docMetadataShrink) {
+            $res['DocMetadata'] = $this->docMetadataShrink;
         }
         if (null !== $this->docName) {
             $res['DocName'] = $this->docName;
@@ -155,6 +164,9 @@ class UpdateDocShrinkRequest extends Model
         }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['DocMetadata'])) {
+            $model->docMetadataShrink = $map['DocMetadata'];
         }
         if (isset($map['DocName'])) {
             $model->docName = $map['DocName'];

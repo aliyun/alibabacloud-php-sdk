@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateDocRequest\docMetadata;
 use AlibabaCloud\Tea\Model;
 
 class CreateDocRequest extends Model
@@ -35,6 +36,11 @@ class CreateDocRequest extends Model
      * @var string
      */
     public $content;
+
+    /**
+     * @var docMetadata[]
+     */
+    public $docMetadata;
 
     /**
      * @example 2032-05-25T16:28:36Z
@@ -76,16 +82,17 @@ class CreateDocRequest extends Model
      */
     public $url;
     protected $_name = [
-        'agentKey'   => 'AgentKey',
-        'categoryId' => 'CategoryId',
-        'config'     => 'Config',
-        'content'    => 'Content',
-        'endDate'    => 'EndDate',
-        'meta'       => 'Meta',
-        'startDate'  => 'StartDate',
-        'tagIds'     => 'TagIds',
-        'title'      => 'Title',
-        'url'        => 'Url',
+        'agentKey'    => 'AgentKey',
+        'categoryId'  => 'CategoryId',
+        'config'      => 'Config',
+        'content'     => 'Content',
+        'docMetadata' => 'DocMetadata',
+        'endDate'     => 'EndDate',
+        'meta'        => 'Meta',
+        'startDate'   => 'StartDate',
+        'tagIds'      => 'TagIds',
+        'title'       => 'Title',
+        'url'         => 'Url',
     ];
 
     public function validate()
@@ -106,6 +113,15 @@ class CreateDocRequest extends Model
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->docMetadata) {
+            $res['DocMetadata'] = [];
+            if (null !== $this->docMetadata && \is_array($this->docMetadata)) {
+                $n = 0;
+                foreach ($this->docMetadata as $item) {
+                    $res['DocMetadata'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
@@ -148,6 +164,15 @@ class CreateDocRequest extends Model
         }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['DocMetadata'])) {
+            if (!empty($map['DocMetadata'])) {
+                $model->docMetadata = [];
+                $n                  = 0;
+                foreach ($map['DocMetadata'] as $item) {
+                    $model->docMetadata[$n++] = null !== $item ? docMetadata::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];

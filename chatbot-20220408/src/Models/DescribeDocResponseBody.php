@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribeDocResponseBody\docInfo;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribeDocResponseBody\docMetadata;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribeDocResponseBody\docTags;
 use AlibabaCloud\Tea\Model;
 
@@ -54,6 +55,11 @@ class DescribeDocResponseBody extends Model
      * @var docInfo
      */
     public $docInfo;
+
+    /**
+     * @var docMetadata[]
+     */
+    public $docMetadata;
 
     /**
      * @var string
@@ -171,6 +177,7 @@ class DescribeDocResponseBody extends Model
         'createUserId'    => 'CreateUserId',
         'createUserName'  => 'CreateUserName',
         'docInfo'         => 'DocInfo',
+        'docMetadata'     => 'DocMetadata',
         'docName'         => 'DocName',
         'docTags'         => 'DocTags',
         'effectStatus'    => 'EffectStatus',
@@ -217,6 +224,15 @@ class DescribeDocResponseBody extends Model
         }
         if (null !== $this->docInfo) {
             $res['DocInfo'] = null !== $this->docInfo ? $this->docInfo->toMap() : null;
+        }
+        if (null !== $this->docMetadata) {
+            $res['DocMetadata'] = [];
+            if (null !== $this->docMetadata && \is_array($this->docMetadata)) {
+                $n = 0;
+                foreach ($this->docMetadata as $item) {
+                    $res['DocMetadata'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->docName) {
             $res['DocName'] = $this->docName;
@@ -307,6 +323,15 @@ class DescribeDocResponseBody extends Model
         }
         if (isset($map['DocInfo'])) {
             $model->docInfo = docInfo::fromMap($map['DocInfo']);
+        }
+        if (isset($map['DocMetadata'])) {
+            if (!empty($map['DocMetadata'])) {
+                $model->docMetadata = [];
+                $n                  = 0;
+                foreach ($map['DocMetadata'] as $item) {
+                    $model->docMetadata[$n++] = null !== $item ? docMetadata::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['DocName'])) {
             $model->docName = $map['DocName'];
