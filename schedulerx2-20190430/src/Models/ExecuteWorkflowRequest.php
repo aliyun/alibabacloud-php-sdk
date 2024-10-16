@@ -47,7 +47,10 @@ class ExecuteWorkflowRequest extends Model
     public $namespaceSource;
 
     /**
-     * @description This parameter is required.
+     * @description The region information.
+     *
+     * This parameter is required.
+     * @example cn-hangzhou
      *
      * @var string
      */

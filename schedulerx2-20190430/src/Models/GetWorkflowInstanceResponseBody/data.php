@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The directed acyclic graph (DAG) of the workflow instance, including job instances and dependencies.
+     * @description The directed acyclic graph (DAG) of the workflow instance, including nodes and dependencies.
      *
      * @var wfInstanceDag
      */

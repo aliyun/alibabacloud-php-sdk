@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateAppGroupRequest extends Model
 {
     /**
+     * @description The application version. 1: Basic version, 2: Professional version.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,8 @@ class UpdateAppGroupRequest extends Model
     public $appVersion;
 
     /**
+     * @description The description of the application.
+     *
      * @example Test
      *
      * @var string
@@ -23,8 +27,9 @@ class UpdateAppGroupRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the application. You can obtain the application ID on the **Application Management** page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -32,6 +37,8 @@ class UpdateAppGroupRequest extends Model
     public $groupId;
 
     /**
+     * @description The maximum number of concurrent instances. Default value: 1. A value of 1 specifies that if the last triggered instance is running, the next instance is not triggered even if the scheduled point in time for running the next instance is reached.
+     *
      * @example 1
      *
      * @var int
@@ -39,8 +46,9 @@ class UpdateAppGroupRequest extends Model
     public $maxConcurrency;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the namespace. You can obtain the ID of the namespace on the Namespace page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -48,8 +56,9 @@ class UpdateAppGroupRequest extends Model
     public $namespace;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

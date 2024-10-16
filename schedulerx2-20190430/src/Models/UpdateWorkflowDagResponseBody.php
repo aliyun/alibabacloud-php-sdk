@@ -20,8 +20,6 @@ class UpdateWorkflowDagResponseBody extends Model
     /**
      * @description The returned error message.
      *
-     * @example workflowId=xxxx is not existed
-     *
      * @var string
      */
     public $message;

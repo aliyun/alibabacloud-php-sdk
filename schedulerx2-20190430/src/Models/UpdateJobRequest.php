@@ -92,11 +92,11 @@ class UpdateJobRequest extends Model
     /**
      * @description The execution mode of the job. Valid values:
      *
-     *   **Stand-alone operation**
-     *   **Broadcast run**
-     *   **Visual MapReduce**
-     *   **MapReduce**
-     *   **Shard run**
+     *   **Stand-alone operation**: standalone
+     *   **Broadcast run**: broadcatst
+     *   **Visual MapReduce**: parallel
+     *   **MapReduce**: batch
+     *   **Shard run**: shard
      *
      * @example standalone
      *
@@ -286,6 +286,10 @@ class UpdateJobRequest extends Model
     public $taskMaxAttempt;
 
     /**
+     * @description Custom task template for the k8s task type.
+     *
+     * @example apiVersion: v1
+     * restartPolicy: Never
      * @var string
      */
     public $template;
@@ -361,6 +365,8 @@ class UpdateJobRequest extends Model
     public $timezone;
 
     /**
+     * @description If you set JobType to k8s, this parameter is required. xxljob task: {"resource":"job"} shell task: {"image":"busybox","resource":"shell"}
+     *
      * @example {"resource":"shell","fileFormat":"unix","templateType":"customTemplate"}
      *
      * @var string

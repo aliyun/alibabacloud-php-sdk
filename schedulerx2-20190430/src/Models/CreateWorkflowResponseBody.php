@@ -46,9 +46,7 @@ class CreateWorkflowResponseBody extends Model
     /**
      * @description Indicates whether the workflow was created. Valid values:
      *
-     *   true
-     *   false
-     *
+     * - false
      * @example true
      *
      * @var bool

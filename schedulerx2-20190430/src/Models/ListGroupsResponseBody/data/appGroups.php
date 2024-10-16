@@ -36,6 +36,8 @@ class appGroups extends Model
     public $appName;
 
     /**
+     * @description The application version. 1: Basic version, 2: Professional version.
+     *
      * @example 2
      *
      * @var int

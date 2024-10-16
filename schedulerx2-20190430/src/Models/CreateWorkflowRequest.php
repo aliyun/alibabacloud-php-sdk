@@ -78,9 +78,7 @@ class CreateWorkflowRequest extends Model
     /**
      * @description The time expression. You can set the time expression based on the selected method that is used to specify time.
      *
-     *   If you set the TimeType parameter to cron, you need to enter a standard cron expression. Online verification is supported.
-     *   If you set the TimeType parameter to api, no time expression is required.
-     *
+     * - If you set the TimeType parameter to api, no time expression is required.
      * @example 0 0/10 * * * ?
      *
      * @var string
@@ -89,9 +87,6 @@ class CreateWorkflowRequest extends Model
 
     /**
      * @description The method that is used to specify the time. Valid values:
-     *
-     *   1: cron
-     *   100: api
      *
      * This parameter is required.
      * @example 1

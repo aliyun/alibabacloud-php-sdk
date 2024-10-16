@@ -54,11 +54,19 @@ class jobInstanceDetail extends Model
     public $jobId;
 
     /**
+     * @description The job name.
+     *
+     * @example ManualJob
+     *
      * @var string
      */
     public $jobName;
 
     /**
+     * @description The parameters of the job instance.
+     *
+     * @example {\\"alertId\\":11111}
+     *
      * @var string
      */
     public $parameters;
@@ -131,6 +139,10 @@ class jobInstanceDetail extends Model
     public $timeType;
 
     /**
+     * @description The trace ID, which can be used to query trace details.
+     *
+     * @example 210e845016596663430048015d0a2c
+     *
      * @var string
      */
     public $traceId;

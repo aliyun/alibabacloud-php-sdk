@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListNamespacesRequest extends Model
 {
     /**
+     * @description The namespace ID.
+     *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListNamespacesRequest extends Model
     public $namespace;
 
     /**
+     * @description The name of the namespace.
+     *
      * @example schedulerx-dev
      *
      * @var string

@@ -54,7 +54,6 @@ class jobConfigInfo extends Model
      *   **Broadcast run**
      *   **Visual MapReduce**
      *   **MapReduce**
-     *   ****
      *   **Shard run**
      *
      * @example standalone

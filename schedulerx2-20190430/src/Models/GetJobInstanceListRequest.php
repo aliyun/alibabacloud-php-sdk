@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetJobInstanceListRequest extends Model
 {
     /**
-     * @description The end of the time range to query. Specify the time as a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The end of the time range to query. Specify a UNIX timestamp.
      *
      * @example 1684202400000
      *
@@ -56,6 +56,8 @@ class GetJobInstanceListRequest extends Model
     public $namespaceSource;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -63,6 +65,8 @@ class GetJobInstanceListRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries per page. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -80,7 +84,7 @@ class GetJobInstanceListRequest extends Model
     public $regionId;
 
     /**
-     * @description The beginning of the time range to query. Specify the time as a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The beginning of the time range to query. Specify a UNIX timestamp.
      *
      * @example 1684116000000
      *
@@ -89,9 +93,9 @@ class GetJobInstanceListRequest extends Model
     public $startTimestamp;
 
     /**
-     * @description The state of the job instance. Valid values:
+     * @description The status of the job instance. Valid values:
      *
-     * 1: The job instance is waiting for execution. 3: The job instance is running. 4: The job instance is successful. 5: The job instance fails. 9: The job instance is rejected. Enumeration class: com.alibaba.schedulerx.common.domain.InstanceStatus
+     * 1: The job instance is pending. 3: The job instance is running. 4: The job instance is run. 5: The job instance fails. 9: The request for running the job instance is rejected. To specify this parameter, you must declare the following enumeration class: com.alibaba.schedulerx.common.domain.InstanceStatus.
      * @example 5
      *
      * @var int

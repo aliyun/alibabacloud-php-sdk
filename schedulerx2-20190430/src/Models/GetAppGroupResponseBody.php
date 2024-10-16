@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetAppGroupResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class GetAppGroupResponseBody extends Model
     public $code;
 
     /**
+     * @description The information about the application group.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The additional information that is returned.
+     *
      * @example app is not existed, groupId=xxxx, namesapce=xxxx
      *
      * @var string
@@ -29,6 +35,8 @@ class GetAppGroupResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 39090022-1F3B-4797-8518-6B61095F1AF0
      *
      * @var string
@@ -36,6 +44,10 @@ class GetAppGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * - **true**: The request was successful.
+     * - **false**: The request failed.
      * @example true
      *
      * @var bool

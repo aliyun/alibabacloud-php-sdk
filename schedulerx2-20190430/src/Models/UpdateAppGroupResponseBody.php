@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateAppGroupResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class UpdateAppGroupResponseBody extends Model
     public $code;
 
     /**
+     * @description The additional information that is returned.
+     *
      * @example app is not existed, groupId=xxxx, namesapce=xxxx
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateAppGroupResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4F68ABED-AC31-4412-9297-D9A8F0401108
      *
      * @var string
@@ -30,6 +36,9 @@ class UpdateAppGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * - false: The request failed.
      * @example true
      *
      * @var bool

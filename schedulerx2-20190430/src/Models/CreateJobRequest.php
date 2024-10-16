@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateJobRequest extends Model
 {
     /**
-     * @description The interval of retries after a job failure. Default value: 30. Unit: seconds.
+     * @description The time interval between retry attempts in case of a job failure. Unit: seconds. Default value: 30.
      *
      * @example 30
      *
@@ -38,7 +38,7 @@ class CreateJobRequest extends Model
     public $className;
 
     /**
-     * @description The number of threads that are triggered by a single worker at a time. Default value: 5. This parameter is an advanced configuration item of the MapReduce job.
+     * @description The number of threads that a single worker triggers simultaneously. You can specify this parameter for MapReduce jobs. Default value: 5.
      *
      * @example 5
      *
@@ -81,7 +81,7 @@ class CreateJobRequest extends Model
     public $description;
 
     /**
-     * @description The number of task distribution threads. Default value: 5. This parameter is an advanced configuration item of the MapReduce job.
+     * @description The number of task distribution threads. This parameter is an advanced configuration item of the MapReduce job. Default value: 5.
      *
      * @example 5
      *
@@ -106,10 +106,10 @@ class CreateJobRequest extends Model
     public $executeMode;
 
     /**
-     * @description Specifies whether to turn on Failure alarm. If the switch is turned on, an alert will be generated upon a failure. Valid values:
+     * @description Specifies whether to trigger an alert when a job fails. Valid values:
      *
-     *   **true**
-     *   **false**
+     *   **true**: triggers an alert when a job fails.
+     *   **false**: does not trigger an alert when a job fails.
      *
      * @example false
      *
@@ -118,7 +118,7 @@ class CreateJobRequest extends Model
     public $failEnable;
 
     /**
-     * @description The number of consecutive failures. An alert will be received if the number of consecutive failures reaches the value of this parameter.
+     * @description The maximum number of consecutive failures before an alert is triggered. An alert will be triggered if the number of consecutive failures reaches the value of this parameter.
      *
      * @example 2
      *
@@ -157,7 +157,7 @@ class CreateJobRequest extends Model
     public $jobType;
 
     /**
-     * @description The maximum number of retries after a job failure. Specify this parameter based on your business requirements. Default value: 0.
+     * @description The maximum number of retry attempts in case of a job failure. Specify this parameter based on your business requirements. Default value: 0.
      *
      * @example 0
      *
@@ -166,7 +166,7 @@ class CreateJobRequest extends Model
     public $maxAttempt;
 
     /**
-     * @description The maximum number of concurrent instances. Default value: 1. The default value indicates that only one instance is allowed to run at a time. When an instance is running, another instance is not triggered even if the scheduled time for running the instance is reached.
+     * @description The maximum number of concurrent instances. By default, only one instance can run at a time. When an instance is running, the next instance is not triggered even if the scheduled start time arrives.
      *
      * @example 1
      *
@@ -175,10 +175,10 @@ class CreateJobRequest extends Model
     public $maxConcurrency;
 
     /**
-     * @description Specifies whether to turn on No machine alarm available. If the switch is turned on, an alert will be generated when no machine is available for running the job. Valid values:
+     * @description Specifies whether to generate an alert if no machines are available to run the job. Valid values:
      *
-     *   **true**
-     *   **false**
+     *   **true**: generates an alert if no machines are available to run the job.
+     *   **false**: does not generate an alert if no machines are available to run the job.
      *
      * @example false
      *
@@ -207,7 +207,7 @@ class CreateJobRequest extends Model
     public $namespace;
 
     /**
-     * @description The namespace source. This parameter is required only for a special third party.
+     * @description The source of the namespace. You must specify this parameter only if the namespace is provided by a third party.
      *
      * @example schedulerx
      *
@@ -216,7 +216,7 @@ class CreateJobRequest extends Model
     public $namespaceSource;
 
     /**
-     * @description The number of tasks that can be pulled at a time. Default value: 100. This parameter is an advanced configuration item of the MapReduce job.
+     * @description The number of entries per page. You can specify this parameter for MapReduce jobs. Default value: 100.
      *
      * @example 100
      *
@@ -234,7 +234,7 @@ class CreateJobRequest extends Model
     public $parameters;
 
     /**
-     * @description The maximum number of tasks that can be queued. Default value: 10000. This parameter is an advanced configuration item of the MapReduce job.
+     * @description The maximum capacity of the task queue. You can specify this parameter for MapReduce jobs. Default value: 10000.
      *
      * @example 10000
      *
@@ -253,7 +253,7 @@ class CreateJobRequest extends Model
     public $regionId;
 
     /**
-     * @description The method that is used to send alerts. Only Short Message Service (SMS) is supported. Default value: sms.
+     * @description The method that is used to send alerts. Set the value to sms. Default value: sms.
      *
      * @example sms
      *
@@ -271,7 +271,7 @@ class CreateJobRequest extends Model
     public $status;
 
     /**
-     * @description Specifies whether to turn on Successful notice. If the switch is turned on, a notice will be sent when a job succeeds.
+     * @description Specifies whether to send notifications for successfully running the job.
      *
      * @example false
      *
@@ -280,7 +280,7 @@ class CreateJobRequest extends Model
     public $successNoticeEnable;
 
     /**
-     * @description The interval of retries after a task failure. Default value: 0. This parameter is an advanced configuration item of the MapReduce job.
+     * @description The time interval between retry attempts in case of a job failure. This parameter is an advanced configuration item of the MapReduce job. Default value: 0.
      *
      * @example 0
      *
@@ -289,7 +289,7 @@ class CreateJobRequest extends Model
     public $taskAttemptInterval;
 
     /**
-     * @description The number of retries after a task failure. Default value: 0. This parameter is an advanced configuration item of the MapReduce job.
+     * @description The maximum number of retry attempts in case of a job failure. This parameter is an advanced configuration item of the MapReduce job. Default value: 0.
      *
      * @example 0
      *
@@ -329,7 +329,7 @@ class CreateJobRequest extends Model
     public $timeType;
 
     /**
-     * @description The timeout threshold. Default value: 7200. Unit: seconds.
+     * @description The timeout threshold. Unit: seconds. Default value: 7200.
      *
      * @example 7200
      *
@@ -338,10 +338,10 @@ class CreateJobRequest extends Model
     public $timeout;
 
     /**
-     * @description Specifies whether to turn on Timeout alarm. If the switch is turned on, an alert will be generated upon a timeout. Valid values:
+     * @description Specifies whether to enable the timeout alert feature. If the feature is enabled, an alert will be triggered upon a timeout. Valid values:
      *
-     *   **true**
-     *   **false**
+     *   **true**: enables the timeout alert feature.
+     *   **false**: disables the timeout alert feature.
      *
      * @example false
      *
@@ -350,10 +350,10 @@ class CreateJobRequest extends Model
     public $timeoutEnable;
 
     /**
-     * @description Specifies whether to turn on Timeout termination. If the switch is turned on, the job will be terminated upon a timeout. Valid values:
+     * @description Specifies whether to enable the timeout termination feature. If the feature is enabled, a job will automatically be terminated if it times out. Valid values:
      *
-     *   **true**
-     *   **false**
+     *   **true**: enables the timeout termination feature.
+     *   **false**: disables the timeout termination feature.
      *
      * @example false
      *
@@ -371,7 +371,7 @@ class CreateJobRequest extends Model
     public $timezone;
 
     /**
-     * @description If you set JobType to k8s, this parameter is required. xxljob task: {"resource":"job"} shell task: {"image":"busybox","resource":"shell"}
+     * @description The extended attributes. If you set JobType to k8s, this parameter is required. For a job whose resource type is Job-YAML, set this parameter to {"resource":"job"}. For a job whose resource type is Shell-Script, set this parameter to {"image":"busybox","resource":"shell"}.
      *
      * @example {"resource":"job"}
      *

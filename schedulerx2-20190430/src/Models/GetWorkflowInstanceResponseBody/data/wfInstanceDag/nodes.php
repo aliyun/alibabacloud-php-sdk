@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
-     * @description The number of retries when the job instance failed.
+     * @description The number of retries when the job failed.
      *
      * @example 0
      *
@@ -18,7 +18,7 @@ class nodes extends Model
     public $attempt;
 
     /**
-     * @description The data timestamp of the job instance.
+     * @description The data timestamp of the job.
      *
      * @example 2023-01-03 18:00:00
      *
@@ -27,7 +27,7 @@ class nodes extends Model
     public $dataTime;
 
     /**
-     * @description The time when the job instance stopped running.
+     * @description The time when the job stopped running.
      *
      * @example 2023-01-03 18:00:21
      *
@@ -45,7 +45,7 @@ class nodes extends Model
     public $jobId;
 
     /**
-     * @description The job instance ID.
+     * @description The ID of the job instance.
      *
      * @example 24058796
      *
@@ -54,12 +54,16 @@ class nodes extends Model
     public $jobInstanceId;
 
     /**
+     * @description The job name.
+     *
+     * @example TestJob
+     *
      * @var string
      */
     public $jobName;
 
     /**
-     * @description The state of the job instance.
+     * @description The execution result of the job.
      *
      * @example code=200
      *
@@ -68,7 +72,7 @@ class nodes extends Model
     public $result;
 
     /**
-     * @description The time when the job instance was scheduled to run.
+     * @description The time when the job was scheduled.
      *
      * @example 2023-01-03 18:00:03
      *
@@ -77,7 +81,7 @@ class nodes extends Model
     public $scheduleTime;
 
     /**
-     * @description The time when the job instance started to run.
+     * @description The time when the job started to run.
      *
      * @example 2023-01-03 18:00:03
      *
@@ -86,12 +90,16 @@ class nodes extends Model
     public $startTime;
 
     /**
+     * @description The state of the job instance. Valid values: 1: The job instance is waiting for execution. 3: The job instance is running. 4: The job instance is run. 5: The job instance failed to run. 9: The job instance is rejected. Enumeration class: com.alibaba.schedulerx.common.domain.InstanceStatus.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $status;
 
     /**
-     * @description The server on which the job instance was run.
+     * @description The worker on which the job instance run.
      *
      * @example 10.163.0.101:34027
      *

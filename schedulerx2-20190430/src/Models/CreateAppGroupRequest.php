@@ -28,9 +28,11 @@ class CreateAppGroupRequest extends Model
     public $appName;
 
     /**
-     * @description 应用类型。
+     * @description The type of application. Valid values:
      *
-     * - 2、k8s应用。
+     *   `TRACE`: Application Monitoring
+     *   `EBPF`: Application Monitoring eBPF Edition
+     *
      * @example 1
      *
      * @var int
@@ -38,6 +40,8 @@ class CreateAppGroupRequest extends Model
     public $appType;
 
     /**
+     * @description The application version. 1: Basic version, 2: Professional version.
+     *
      * @example 2
      *
      * @var int
@@ -54,9 +58,11 @@ class CreateAppGroupRequest extends Model
     public $description;
 
     /**
-     * @description 是否开启日志。
+     * @description Specifies whether to enable logging. Valid values:
      *
-     * - false：关闭
+     *   `true`: enabled
+     *   `false`: disabled
+     *
      * @example true
      *
      * @var bool
@@ -94,7 +100,7 @@ class CreateAppGroupRequest extends Model
     /**
      * @description The configuration of alert contacts. The value is a JSON string.
      *
-     * @example [{"userName":"Tom","userPhone":"89756\\*\\*\\*\\*\\*\\*"},{"userName":"Bob","ding":"http://www.example.com"}]
+     * @example [{"userName":"Tom","userPhone":"89756******"},{"userName":"Bob","ding":"http://www.example.com"}]
      *
      * @var string
      */

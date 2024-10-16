@@ -1392,7 +1392,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @summary The configuration of the alert. The value is a JSON string. For more information, see **the additional information about response parameters below this table**.
+     * @summary The configuration of the alert. The value is a JSON string. For more information, see \\*\\*the additional information about response parameters below this table\\*\\*.
      *  *
      * @param GetAppGroupRequest $request GetAppGroupRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -1431,7 +1431,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @summary The configuration of the alert. The value is a JSON string. For more information, see **the additional information about response parameters below this table**.
+     * @summary The configuration of the alert. The value is a JSON string. For more information, see \\*\\*the additional information about response parameters below this table\\*\\*.
      *  *
      * @param GetAppGroupRequest $request GetAppGroupRequest
      *

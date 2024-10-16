@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The AppKey of the application.
+     *
      * @example QI4lWMZ+xk1rNB67jFUhaw==
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $appKey;
 
     /**
+     * @description The name of the application.
+     *
      * @example DocTest
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $appName;
 
     /**
+     * @description The application version. 1: Basic version, 2: Professional version.
+     *
      * @example 2
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $appVersion;
 
     /**
+     * @description The number of jobs that are configured for the application group.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +45,8 @@ class data extends Model
     public $curJobs;
 
     /**
+     * @description The description of the application.
+     *
      * @example Test
      *
      * @var string
@@ -44,6 +54,8 @@ class data extends Model
     public $description;
 
     /**
+     * @description The ID of the application.
+     *
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -51,6 +63,8 @@ class data extends Model
     public $groupId;
 
     /**
+     * @description The maximum number of jobs that can be configured for the application group.
+     *
      * @example 1000
      *
      * @var int
@@ -58,6 +72,8 @@ class data extends Model
     public $maxJobs;
 
     /**
+     * @description The configuration of the alert. The value is a JSON string. For more information, see **the additional information about response parameters below this table.**
+     *
      * @example {"sendChannel":"sms,mail,ding"}
      *
      * @var string

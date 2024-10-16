@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetAppGroupRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the application. You can obtain the application ID on the **Application Management** page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -18,8 +19,9 @@ class GetAppGroupRequest extends Model
     public $groupId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the namespace. You can obtain the ID of the namespace on the **Namespace** page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -27,6 +29,8 @@ class GetAppGroupRequest extends Model
     public $namespace;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string
