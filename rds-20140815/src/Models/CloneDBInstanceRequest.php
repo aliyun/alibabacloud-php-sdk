@@ -106,6 +106,16 @@ class CloneDBInstanceRequest extends Model
     public $DBInstanceClass;
 
     /**
+     * @description The instance name. The value must be 2 to 255 characters in length The value can contain letters, digits, underscores (_), and hyphens (-), and must start with a letter.
+     *
+     * >  The value cannot start with http:// or https://.
+     * @example testInstance
+     *
+     * @var string
+     */
+    public $DBInstanceDescription;
+
+    /**
      * @description The instance ID.
      *
      * This parameter is required.
@@ -351,6 +361,7 @@ class CloneDBInstanceRequest extends Model
         'category'              => 'Category',
         'clientToken'           => 'ClientToken',
         'DBInstanceClass'       => 'DBInstanceClass',
+        'DBInstanceDescription' => 'DBInstanceDescription',
         'DBInstanceId'          => 'DBInstanceId',
         'DBInstanceStorage'     => 'DBInstanceStorage',
         'DBInstanceStorageType' => 'DBInstanceStorageType',
@@ -406,6 +417,9 @@ class CloneDBInstanceRequest extends Model
         }
         if (null !== $this->DBInstanceClass) {
             $res['DBInstanceClass'] = $this->DBInstanceClass;
+        }
+        if (null !== $this->DBInstanceDescription) {
+            $res['DBInstanceDescription'] = $this->DBInstanceDescription;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
@@ -511,6 +525,9 @@ class CloneDBInstanceRequest extends Model
         }
         if (isset($map['DBInstanceClass'])) {
             $model->DBInstanceClass = $map['DBInstanceClass'];
+        }
+        if (isset($map['DBInstanceDescription'])) {
+            $model->DBInstanceDescription = $map['DBInstanceDescription'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];

@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ResizeRCInstanceDiskRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the automatic payment feature for the instance. Valid values:
+     *
+     *   **true** (default): enables the feature. Make sure that your account balance is sufficient.
+     *   **false**: disables the feature. An unpaid order is generated.
+     *
+     * >  If your account balance is insufficient, you can set AutoPay to false. In this case, an unpaid order is generated. You can complete the payment in the Expenses and Costs console.
      * @example false
      *
      * @var bool
@@ -16,6 +22,11 @@ class ResizeRCInstanceDiskRequest extends Model
     public $autoPay;
 
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     *
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and insufficient inventory errors.
+     *   **false**: performs a dry run and performs the actual request. If the request passes the dry run, the instance is created.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +34,8 @@ class ResizeRCInstanceDiskRequest extends Model
     public $dryRun;
 
     /**
+     * @description The instance ID.
+     *
      * @example rm-uf62br2491p5l****
      *
      * @var string
@@ -30,6 +43,8 @@ class ResizeRCInstanceDiskRequest extends Model
     public $instanceId;
 
     /**
+     * @description The new disk size. Unit: GiB.
+     *
      * @example 100
      *
      * @var int
@@ -37,6 +52,8 @@ class ResizeRCInstanceDiskRequest extends Model
     public $newSize;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +61,11 @@ class ResizeRCInstanceDiskRequest extends Model
     public $regionId;
 
     /**
+     * @description The method that you want to use to resize the disk. Valid values:
+     *
+     *   **offline** (default): resizes disks offline. After you resize a disk offline, you must restart the instance for the resizing operation to take effect.
+     *   **online**: resizes disks online. After you resize a disk online, the resizing operation takes effect immediately and you do not need to restart the instance.
+     *
      * @example online
      *
      * @var string

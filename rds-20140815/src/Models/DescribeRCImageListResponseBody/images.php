@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class images extends Model
 {
     /**
+     * @description The image architecture. Valid values:
+     *
+     *   x86_64
+     *   arm64
+     *
      * @example x86_64
      *
      * @var string
@@ -16,6 +21,8 @@ class images extends Model
     public $architecture;
 
     /**
+     * @description The time when the image was created.
+     *
      * @example 2024-04-25T02:17:40Z
      *
      * @var string
@@ -23,6 +30,8 @@ class images extends Model
     public $creationTime;
 
     /**
+     * @description The description of the image.
+     *
      * @example test
      *
      * @var string
@@ -30,6 +39,8 @@ class images extends Model
     public $description;
 
     /**
+     * @description The image ID.
+     *
      * @example m-2oqiu973jwcxe****
      *
      * @var string
@@ -37,6 +48,8 @@ class images extends Model
     public $imageId;
 
     /**
+     * @description The image name.
+     *
      * @example Created_from_i-2zeh17y17sz677x****
      *
      * @var string
@@ -44,6 +57,8 @@ class images extends Model
     public $imageName;
 
     /**
+     * @description The image version.
+     *
      * @example 2
      *
      * @var string
@@ -51,6 +66,11 @@ class images extends Model
     public $imageVersion;
 
     /**
+     * @description Indicates whether the image is a public image. Public images include public images provided by Alibaba Cloud and custom images published as community images.
+     *
+     *   **true**: The image is a public image.
+     *   **false**: The image is not a public image.
+     *
      * @example false
      *
      * @var bool
@@ -58,11 +78,15 @@ class images extends Model
     public $isPublic;
 
     /**
+     * @description The display name of the operating system in Chinese.
+     *
      * @var string
      */
     public $OSName;
 
     /**
+     * @description The display name of the operating system in English.
+     *
      * @example Alibaba Cloud Linux  2.1903 LTS 64 bit Quick Boot
      *
      * @var string
@@ -70,6 +94,11 @@ class images extends Model
     public $OSNameEn;
 
     /**
+     * @description The type of the operating system. Valid values:
+     *
+     *   **windows**
+     *   **linux**
+     *
      * @example linux
      *
      * @var string
@@ -77,6 +106,8 @@ class images extends Model
     public $OSType;
 
     /**
+     * @description The image size. Unit: GiB.
+     *
      * @example 40
      *
      * @var int
@@ -84,6 +115,13 @@ class images extends Model
     public $size;
 
     /**
+     * @description The image status. Valid values:
+     *
+     *   **Unavailable**
+     *   **Available**
+     *   **Creating**
+     *   **CreateFailed**
+     *
      * @example Available
      *
      * @var string
@@ -91,6 +129,11 @@ class images extends Model
     public $status;
 
     /**
+     * @description Indicates whether the image is used by the RDS Custom instance. Valid values:
+     *
+     *   **instance**: The image is used to create one or more RDS Custom instances.
+     *   **none**: The image is not used to create RDS Custom instances.
+     *
      * @example instance
      *
      * @var string

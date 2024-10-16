@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRCMetricListResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeRCMetricListResponseBody extends Model
     public $code;
 
     /**
+     * @description The monitoring data.
+     *
      * @example [{\\"timestamp\\":1722909960000,\\"instanceId\\":\\"rc-dh2jf9n6j4s14926****\\",\\"userId\\":\\"1695619988087373\\",\\"Minimum\\":0.097,\\"Maximum\\":0.097,\\"Average\\":0.097},{\\"timestamp\\":1722910020000,\\"instanceId\\":\\"rc-dh2jf9n6j4s14926****\\",\\"userId\\":\\"1695619988087373\\",\\"Minimum\\":0.093,\\"Maximum\\":0.093,\\"Average\\":0.093}]
      *
      * @var string
@@ -23,6 +27,9 @@ class DescribeRCMetricListResponseBody extends Model
     public $datapoints;
 
     /**
+     * @description The message that is returned for the request.
+     *
+     * >  If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
      * @example successful
      *
      * @var string
@@ -30,6 +37,8 @@ class DescribeRCMetricListResponseBody extends Model
     public $message;
 
     /**
+     * @description The pagination token.
+     *
      * @example 6178f1825f9fb76ce0b5e8707e68181f
      *
      * @var string
@@ -37,6 +46,8 @@ class DescribeRCMetricListResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The statistical period of the monitoring data.
+     *
      * @example 60
      *
      * @var string
@@ -44,6 +55,8 @@ class DescribeRCMetricListResponseBody extends Model
     public $period;
 
     /**
+     * @description The request ID.
+     *
      * @example EA2D4F34-01A7-46EB-A339-D80882135206
      *
      * @var string
@@ -51,6 +64,11 @@ class DescribeRCMetricListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

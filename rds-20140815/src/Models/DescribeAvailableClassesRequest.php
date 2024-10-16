@@ -67,11 +67,11 @@ class DescribeAvailableClassesRequest extends Model
      *
      *   **local_ssd**: local SSD. This is the recommended storage type.
      *   **cloud_ssd**: standard SSD.
-     *   **cloud_essd**: enhanced SSDs (ESSDs) of performance level 1 (PL1)
-     *   **cloud_essd2**: ESSDs of PL2
-     *   **cloud_essd3**: ESSD of PL3
+     *   **cloud_essd**: performance level 1 (PL1) Enterprise SSD (ESSD)
+     *   **cloud_essd2**: PL2 ESSD
+     *   **cloud_essd3**: PL3 ESSD
      *
-     * > Serverless instances support only ESSDs of PL 1. For a serverless instance, you must set this parameter to **cloud_essd**.
+     * >  Serverless instances use only PL1 ESSDs. If you want to create a serverless instance, you must set this parameter to **cloud_essd**.
      *
      * This parameter is required.
      * @example local_ssd
@@ -133,7 +133,7 @@ class DescribeAvailableClassesRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The type of the order. Set the value to **BUY**
+     * @description The type of order. Set the value to **BUY**
      *
      * @example BUY
      *

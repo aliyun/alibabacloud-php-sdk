@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRCDeploymentSetsRequest extends Model
 {
     /**
+     * @description The IDs of the deployment sets. The value can be a JSON array that consists of deployment set IDs in the format of `["ds-xxxxxxxxx", "ds-yyyyyyyyy", ... "ds-zzzzzzzzz"]`. You can specify up to 100 deployment set IDs in each request. Separate the deployment set IDs with commas (,).
+     *
      * @example ["ds-2zeeuw16zo2gr9e6****"]
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeRCDeploymentSetsRequest extends Model
     public $deploymentSetIds;
 
     /**
+     * @description The deployment set name. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain digits, letters, colons (:), underscores (_), and hyphens (-).
+     *
      * @example deployment_test
      *
      * @var string
@@ -23,6 +27,9 @@ class DescribeRCDeploymentSetsRequest extends Model
     public $deploymentSetName;
 
     /**
+     * @description The page number.
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -30,6 +37,9 @@ class DescribeRCDeploymentSetsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -37,8 +47,9 @@ class DescribeRCDeploymentSetsRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -46,6 +57,12 @@ class DescribeRCDeploymentSetsRequest extends Model
     public $regionId;
 
     /**
+     * @description The deployment strategy. Valid values:
+     *
+     *   **Availability**: high availability strategy
+     *   **AvailabilityGroup**: high availability group strategy
+     *
+     * Default value: Availability.
      * @example Availability
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteRCDeploymentSetRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The deployment set ID.
      *
+     * This parameter is required.
      * @example ds-uf6c8qerk019bj1l****
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteRCDeploymentSetRequest extends Model
     public $deploymentSetId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

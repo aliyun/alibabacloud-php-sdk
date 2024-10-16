@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResizeRCInstanceDiskResponseBody extends Model
 {
     /**
+     * @description The order ID.
+     *
      * @example 230546833080102
      *
      * @var int
@@ -16,6 +18,8 @@ class ResizeRCInstanceDiskResponseBody extends Model
     public $orderId;
 
     /**
+     * @description The request ID.
+     *
      * @example 1E43AAE0-BEE8-43DA-860D-EAF2AA0724DC
      *
      * @var string

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyEndpointResponseBody\DBProxyNodes;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyEndpointResponseBody\endpointConnectItems;
 use AlibabaCloud\Tea\Model;
 
@@ -73,6 +74,11 @@ class DescribeDBProxyEndpointResponseBody extends Model
     public $DBProxyFeatures;
 
     /**
+     * @var DBProxyNodes
+     */
+    public $DBProxyNodes;
+
+    /**
      * @description The description of the proxy terminal.
      *
      * @example proxyterminal-test
@@ -92,6 +98,16 @@ class DescribeDBProxyEndpointResponseBody extends Model
      * @var string
      */
     public $dbProxyEndpointReadWriteMode;
+
+    /**
+     * @var string
+     */
+    public $dbProxyEndpointVswitchId;
+
+    /**
+     * @var string
+     */
+    public $dbProxyEndpointZoneId;
 
     /**
      * @description An array that consists of the information about the proxy endpoint.
@@ -151,8 +167,11 @@ class DescribeDBProxyEndpointResponseBody extends Model
         'DBProxyEndpointId'                => 'DBProxyEndpointId',
         'DBProxyEngineType'                => 'DBProxyEngineType',
         'DBProxyFeatures'                  => 'DBProxyFeatures',
+        'DBProxyNodes'                     => 'DBProxyNodes',
         'dbProxyEndpointAliases'           => 'DbProxyEndpointAliases',
         'dbProxyEndpointReadWriteMode'     => 'DbProxyEndpointReadWriteMode',
+        'dbProxyEndpointVswitchId'         => 'DbProxyEndpointVswitchId',
+        'dbProxyEndpointZoneId'            => 'DbProxyEndpointZoneId',
         'endpointConnectItems'             => 'EndpointConnectItems',
         'readOnlyInstanceDistributionType' => 'ReadOnlyInstanceDistributionType',
         'readOnlyInstanceMaxDelayTime'     => 'ReadOnlyInstanceMaxDelayTime',
@@ -185,11 +204,20 @@ class DescribeDBProxyEndpointResponseBody extends Model
         if (null !== $this->DBProxyFeatures) {
             $res['DBProxyFeatures'] = $this->DBProxyFeatures;
         }
+        if (null !== $this->DBProxyNodes) {
+            $res['DBProxyNodes'] = null !== $this->DBProxyNodes ? $this->DBProxyNodes->toMap() : null;
+        }
         if (null !== $this->dbProxyEndpointAliases) {
             $res['DbProxyEndpointAliases'] = $this->dbProxyEndpointAliases;
         }
         if (null !== $this->dbProxyEndpointReadWriteMode) {
             $res['DbProxyEndpointReadWriteMode'] = $this->dbProxyEndpointReadWriteMode;
+        }
+        if (null !== $this->dbProxyEndpointVswitchId) {
+            $res['DbProxyEndpointVswitchId'] = $this->dbProxyEndpointVswitchId;
+        }
+        if (null !== $this->dbProxyEndpointZoneId) {
+            $res['DbProxyEndpointZoneId'] = $this->dbProxyEndpointZoneId;
         }
         if (null !== $this->endpointConnectItems) {
             $res['EndpointConnectItems'] = null !== $this->endpointConnectItems ? $this->endpointConnectItems->toMap() : null;
@@ -236,11 +264,20 @@ class DescribeDBProxyEndpointResponseBody extends Model
         if (isset($map['DBProxyFeatures'])) {
             $model->DBProxyFeatures = $map['DBProxyFeatures'];
         }
+        if (isset($map['DBProxyNodes'])) {
+            $model->DBProxyNodes = DBProxyNodes::fromMap($map['DBProxyNodes']);
+        }
         if (isset($map['DbProxyEndpointAliases'])) {
             $model->dbProxyEndpointAliases = $map['DbProxyEndpointAliases'];
         }
         if (isset($map['DbProxyEndpointReadWriteMode'])) {
             $model->dbProxyEndpointReadWriteMode = $map['DbProxyEndpointReadWriteMode'];
+        }
+        if (isset($map['DbProxyEndpointVswitchId'])) {
+            $model->dbProxyEndpointVswitchId = $map['DbProxyEndpointVswitchId'];
+        }
+        if (isset($map['DbProxyEndpointZoneId'])) {
+            $model->dbProxyEndpointZoneId = $map['DbProxyEndpointZoneId'];
         }
         if (isset($map['EndpointConnectItems'])) {
             $model->endpointConnectItems = endpointConnectItems::fromMap($map['EndpointConnectItems']);

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class capacity extends Model
 {
     /**
+     * @description The number of RDS Custom instances that reside in the zone and can be added to the deployment set.
+     *
      * @example 18
      *
      * @var int
@@ -16,6 +18,8 @@ class capacity extends Model
     public $availableAmount;
 
     /**
+     * @description The number of RDS Custom instances that reside in the zone in the deployment set.
+     *
      * @example 2
      *
      * @var int
@@ -23,6 +27,8 @@ class capacity extends Model
     public $usedAmount;
 
     /**
+     * @description The zone ID. Only the IDs of the zones to which the existing RDS Custom instances in the deployment set belong are returned.
+     *
      * @example cn-hangzhou-j
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeRCImageListResponseBody extends Model
 {
     /**
+     * @description The information about the images.
+     *
      * @var images[]
      */
     public $images;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeRCImageListResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 5
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeRCImageListResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeRCImageListResponseBody extends Model
     public $regionId;
 
     /**
+     * @description The request ID.
+     *
      * @example 2553A660-E4EB-4AF4-A402-8AFF70A49143
      *
      * @var string
@@ -43,6 +53,8 @@ class DescribeRCImageListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of images.
+     *
      * @example 2
      *
      * @var int

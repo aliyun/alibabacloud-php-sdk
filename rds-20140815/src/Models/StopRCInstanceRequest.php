@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class StopRCInstanceRequest extends Model
 {
     /**
+     * @description Specifies whether to forcefully stop the instance. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
      * @example false
      *
      * @var bool
@@ -16,8 +21,9 @@ class StopRCInstanceRequest extends Model
     public $forceStop;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example rc-m5sc1271fv344a1r****
      *
      * @var string
@@ -25,6 +31,8 @@ class StopRCInstanceRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

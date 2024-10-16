@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class SyncRCKeyPairResponseBody extends Model
 {
     /**
+     * @description The details of the result.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 60478CCB-95EA-5D06-8A51-CAC83A316E9A
      *
      * @var string

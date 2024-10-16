@@ -9,8 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RunRCInstancesShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The number of RDS Custom instances that you want to create. The parameter is available if you want to create multiple RDS Custom instances at a time.
      *
+     * Valid values: **1** to **10**. Default value: **1**.
+     *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -18,6 +21,12 @@ class RunRCInstancesShrinkRequest extends Model
     public $amount;
 
     /**
+     * @description Specifies whether to enable the automatic payment feature. Valid values:
+     *
+     *   **true** (default): enables the feature. Make sure that your account balance is sufficient.
+     *   **false**: disables the feature. An unpaid order is generated.
+     *
+     * >  If your account balance is insufficient, you can set the AutoPay parameter to false. In this case, an unpaid order is generated. You can complete the payment in the Expenses and Costs console.
      * @example false
      *
      * @var bool
@@ -25,6 +34,11 @@ class RunRCInstancesShrinkRequest extends Model
     public $autoPay;
 
     /**
+     * @description Specifies whether to enable auto-renewal for the instance. Valid values:
+     *
+     *   **true** (default)
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -32,6 +46,8 @@ class RunRCInstancesShrinkRequest extends Model
     public $autoRenew;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example ETnLKlblzczshOTUbOCz****
      *
      * @var string
@@ -39,11 +55,15 @@ class RunRCInstancesShrinkRequest extends Model
     public $clientToken;
 
     /**
+     * @description The information about the data disks.
+     *
      * @var string
      */
     public $dataDiskShrink;
 
     /**
+     * @description The deployment set ID.
+     *
      * @example ds-uf6670sipmph5j5b6ke4
      *
      * @var string
@@ -51,6 +71,8 @@ class RunRCInstancesShrinkRequest extends Model
     public $deploymentSetId;
 
     /**
+     * @description The instance description. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
+     *
      * @example Instance_Description
      *
      * @var string
@@ -58,6 +80,11 @@ class RunRCInstancesShrinkRequest extends Model
     public $description;
 
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     *
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and insufficient inventory errors.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, the instance is directly created.
+     *
      * @example false
      *
      * @var bool
@@ -65,6 +92,8 @@ class RunRCInstancesShrinkRequest extends Model
     public $dryRun;
 
     /**
+     * @description The ID of the image used by the instance.
+     *
      * @example image-dsvjzw2ii8n4fvr6de
      *
      * @var string
@@ -72,6 +101,8 @@ class RunRCInstancesShrinkRequest extends Model
     public $imageId;
 
     /**
+     * @description The billing method of the instance. Set the value to **Prepaid**, which indicates the subscription billing method.
+     *
      * @example Prepaid
      *
      * @var string
@@ -79,6 +110,8 @@ class RunRCInstancesShrinkRequest extends Model
     public $instanceChargeType;
 
     /**
+     * @description The instance name.
+     *
      * @example ceshi
      *
      * @var string
@@ -86,8 +119,9 @@ class RunRCInstancesShrinkRequest extends Model
     public $instanceName;
 
     /**
-     * @description This parameter is required.
+     * @description The instance type. For more information about the instance types that are supported by RDS Custom instances, see [Instance types for RDS Custom instances](https://help.aliyun.com/document_detail/2844823.html).
      *
+     * This parameter is required.
      * @example mysql.i8.large.2cm
      *
      * @var string
@@ -95,6 +129,8 @@ class RunRCInstancesShrinkRequest extends Model
     public $instanceType;
 
     /**
+     * @description The reserved parameter. This parameter is not supported.
+     *
      * @example null
      *
      * @var string
@@ -102,6 +138,8 @@ class RunRCInstancesShrinkRequest extends Model
     public $internetChargeType;
 
     /**
+     * @description The reserved parameter. This parameter is not supported.
+     *
      * @example null
      *
      * @var int
@@ -109,6 +147,8 @@ class RunRCInstancesShrinkRequest extends Model
     public $internetMaxBandwidthOut;
 
     /**
+     * @description The reserved parameter. This parameter is not supported.
+     *
      * @example null
      *
      * @var string
@@ -116,6 +156,8 @@ class RunRCInstancesShrinkRequest extends Model
     public $ioOptimized;
 
     /**
+     * @description The name of the AccessKey pair. You can specify only one name.
+     *
      * @example dell5502
      *
      * @var string
@@ -123,6 +165,8 @@ class RunRCInstancesShrinkRequest extends Model
     public $keyPairName;
 
     /**
+     * @description The password of the account that is used to log on to the instance.
+     *
      * @example 2F9e9@a69c!e18b569c8
      *
      * @var string
@@ -130,6 +174,8 @@ class RunRCInstancesShrinkRequest extends Model
     public $password;
 
     /**
+     * @description The subscription duration of the instance. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -137,6 +183,11 @@ class RunRCInstancesShrinkRequest extends Model
     public $period;
 
     /**
+     * @description The unit of the subscription duration. Valid values:
+     *
+     *   **Year**
+     *   **Month** (default)
+     *
      * @example Year
      *
      * @var string
@@ -144,8 +195,9 @@ class RunRCInstancesShrinkRequest extends Model
     public $periodUnit;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -153,6 +205,8 @@ class RunRCInstancesShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description The reserved parameter. This parameter is not supported.
+     *
      * @example null
      *
      * @var string
@@ -160,6 +214,9 @@ class RunRCInstancesShrinkRequest extends Model
     public $securityEnhancementStrategy;
 
     /**
+     * @description The ID of the security group to which you want to add the new instance. Instances in the same security group can communicate with each other. The maximum number of instances allowed in a security group varies based on the type of the security group. For more information, see the "Security group limits" section in [Limits](https://help.aliyun.com/document_detail/25412.html).
+     *
+     * >  The network type of the instance is determined by the security group specified by the SecurityGroupId parameter. For example, if the network type of the specified security group is VPC, the instance is a VPC-type instance. In this case, you must specify the VSwitchId parameter.
      * @example sg-uf6av412xaxixuezol6w
      *
      * @var string
@@ -167,13 +224,16 @@ class RunRCInstancesShrinkRequest extends Model
     public $securityGroupId;
 
     /**
+     * @description The specification of the system disk.
+     *
      * @var string
      */
     public $systemDiskShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The vSwitch ID of the instance. You must specify this parameter when you create an instance of the virtual private cloud (VPC) type. The specified vSwitch and security group must belong to the same VPC.
      *
+     * This parameter is required.
      * @example vsw-2vcd61ngm890sk****
      *
      * @var string
@@ -181,6 +241,9 @@ class RunRCInstancesShrinkRequest extends Model
     public $vSwitchId;
 
     /**
+     * @description The zone ID of the instance. You can call the DescribeZones operation to query the zone IDs.
+     *
+     * >  If you specify the VSwitchId parameter, the zone specified by the ZoneId parameter must be the same as the zone in which the specified vSwitch resides. You can leave the ZoneId parameter empty. In this case, the system uses the zone in which the specified vSwitch resides.
      * @example cn-beijing-f
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteRCInstancesRequest extends Model
 {
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     *
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and insufficient inventory errors.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, the instance is created.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,11 @@ class DeleteRCInstancesRequest extends Model
     public $dryRun;
 
     /**
+     * @description Specifies whether to forcefully release a running instance. Valid values:
+     *
+     *   **Yes**
+     *   **No** (default)
+     *
      * @example Yes
      *
      * @var bool
@@ -23,13 +33,16 @@ class DeleteRCInstancesRequest extends Model
     public $force;
 
     /**
-     * @description This parameter is required.
+     * @description The details of the instance.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $instanceId;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +50,11 @@ class DeleteRCInstancesRequest extends Model
     public $regionId;
 
     /**
+     * @description Specifies whether to release an expired subscription instance. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyRCInstanceResponseBody extends Model
 {
     /**
+     * @description The order ID.
+     *
      * @example 100789370230206
      *
      * @var int
@@ -16,6 +18,8 @@ class ModifyRCInstanceResponseBody extends Model
     public $orderId;
 
     /**
+     * @description The request ID.
+     *
      * @example 6EF82B07-28D2-48D1-B5D6-7E78FED277C7
      *
      * @var string

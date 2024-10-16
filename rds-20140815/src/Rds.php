@@ -517,10 +517,12 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBProxyEndpointRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBProxyEndpointResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBProxyInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBProxyInstanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBProxyInstanceShrinkRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDbProxyInstanceSslRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDbProxyInstanceSslResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBProxyRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBProxyResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBProxyShrinkRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDTCSecurityIpHostsForSQLServerRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDTCSecurityIpHostsForSQLServerResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyEventInfoRequest;
@@ -1784,6 +1786,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->DBInstanceClass)) {
             $query['DBInstanceClass'] = $request->DBInstanceClass;
         }
+        if (!Utils::isUnset($request->DBInstanceDescription)) {
+            $query['DBInstanceDescription'] = $request->DBInstanceDescription;
+        }
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
         }
@@ -2310,13 +2315,13 @@ class Rds extends OpenApiClient
      * *   PostgreSQL
      * *   SQL Server
      * *   MariaDB
-     * ### [](#)Usage notes
-     * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also use an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function of DBS](https://help.aliyun.com/document_detail/2402073.html).
-     * ### [](#)Precautions
+     * ### [](#)Feature description
+     * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also call an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function](https://help.aliyun.com/document_detail/2402073.html).
+     * ### [](#)Prerequisites
      * Before you call this operation, make sure that the following requirements are met:
      * *   The instance is in the Running state.
      * *   The instance does not have ongoing backup tasks.
-     * *   The number of backup files that are created per day for an instance cannot exceed 20.
+     * *   The number of backup sets that can be created for an instance per day cannot exceed 20.
      * ### [](#)References
      * *   [Use the data backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/378074.html)
      * *   [Use the data backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
@@ -2376,13 +2381,13 @@ class Rds extends OpenApiClient
      * *   PostgreSQL
      * *   SQL Server
      * *   MariaDB
-     * ### [](#)Usage notes
-     * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also use an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function of DBS](https://help.aliyun.com/document_detail/2402073.html).
-     * ### [](#)Precautions
+     * ### [](#)Feature description
+     * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also call an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function](https://help.aliyun.com/document_detail/2402073.html).
+     * ### [](#)Prerequisites
      * Before you call this operation, make sure that the following requirements are met:
      * *   The instance is in the Running state.
      * *   The instance does not have ongoing backup tasks.
-     * *   The number of backup files that are created per day for an instance cannot exceed 20.
+     * *   The number of backup sets that can be created for an instance per day cannot exceed 20.
      * ### [](#)References
      * *   [Use the data backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/378074.html)
      * *   [Use the data backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
@@ -4412,7 +4417,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 创建RDS CUSTOM部署集
+     * @summary Creates a deployment set for an RDS Custom instance in a region. Before you call this operation, you must specify parameters such as OnUnableToRedeployFailedInstance, DeploymentSetName, and Strategy.
      *  *
      * @param CreateRCDeploymentSetRequest $request CreateRCDeploymentSetRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -4463,7 +4468,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 创建RDS CUSTOM部署集
+     * @summary Creates a deployment set for an RDS Custom instance in a region. Before you call this operation, you must specify parameters such as OnUnableToRedeployFailedInstance, DeploymentSetName, and Strategy.
      *  *
      * @param CreateRCDeploymentSetRequest $request CreateRCDeploymentSetRequest
      *
@@ -6181,7 +6186,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 删除RDS CUSTOM部署集
+     * @summary Deletes a deployment set for an RDS Custom instance. Before you call this operation, you must specify parameters such as RegionId and DeploymentSetId.
      *  *
      * @param DeleteRCDeploymentSetRequest $request DeleteRCDeploymentSetRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -6217,7 +6222,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 删除RDS CUSTOM部署集
+     * @summary Deletes a deployment set for an RDS Custom instance. Before you call this operation, you must specify parameters such as RegionId and DeploymentSetId.
      *  *
      * @param DeleteRCDeploymentSetRequest $request DeleteRCDeploymentSetRequest
      *
@@ -6284,7 +6289,9 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 批量删除RDS用户专属主机实例
+     * @summary Releases a subscription RDS Custom instance.
+     *  *
+     * @description After an instance is released, all physical resources used by the instance are recycled. Relevant data is erased and cannot be restored.
      *  *
      * @param DeleteRCInstancesRequest $tmpReq  DeleteRCInstancesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -6334,7 +6341,9 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 批量删除RDS用户专属主机实例
+     * @summary Releases a subscription RDS Custom instance.
+     *  *
+     * @description After an instance is released, all physical resources used by the instance are recycled. Relevant data is erased and cannot be restored.
      *  *
      * @param DeleteRCInstancesRequest $request DeleteRCInstancesRequest
      *
@@ -14298,7 +14307,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 描述RDS CUSTOM部署集
+     * @summary Queries the details of one or more deployment sets for RDS Custom instances. Before you call this operation, you must specify parameters such as DeploymentSetIds, Strategy, and DeploymentSetName.
      *  *
      * @param DescribeRCDeploymentSetsRequest $request DescribeRCDeploymentSetsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -14328,7 +14337,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 描述RDS CUSTOM部署集
+     * @summary Queries the details of one or more deployment sets for RDS Custom instances. Before you call this operation, you must specify parameters such as DeploymentSetIds, Strategy, and DeploymentSetName.
      *  *
      * @param DescribeRCDeploymentSetsRequest $request DescribeRCDeploymentSetsRequest
      *
@@ -14342,7 +14351,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 查询镜像资源
+     * @summary Queries custom images that can be used to create an RDS Custom instance. Before you call this operation, you must specify parameters such as RegionId.
      *  *
      * @param DescribeRCImageListRequest $request DescribeRCImageListRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -14372,7 +14381,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 查询镜像资源
+     * @summary Queries custom images that can be used to create an RDS Custom instance. Before you call this operation, you must specify parameters such as RegionId.
      *  *
      * @param DescribeRCImageListRequest $request DescribeRCImageListRequest
      *
@@ -14386,7 +14395,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 查询RDS用户专属主机实例
+     * @summary Queries the details of an RDS Custom instance.
      *  *
      * @param DescribeRCInstanceAttributeRequest $request DescribeRCInstanceAttributeRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -14416,7 +14425,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 查询RDS用户专属主机实例
+     * @summary Queries the details of an RDS Custom instance.
      *  *
      * @param DescribeRCInstanceAttributeRequest $request DescribeRCInstanceAttributeRequest
      *
@@ -14430,7 +14439,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 查询RC实例列表
+     * @summary Queries the details of an RDS Custom instance.
      *  *
      * @param DescribeRCInstancesRequest $request DescribeRCInstancesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -14475,7 +14484,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 查询RC实例列表
+     * @summary Queries the details of an RDS Custom instance.
      *  *
      * @param DescribeRCInstancesRequest $request DescribeRCInstancesRequest
      *
@@ -14489,7 +14498,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 查询指定云产品的指定监控项的监控数据
+     * @summary Queries the monitoring data of a metric for an RDS Custom instance.
      *  *
      * @param DescribeRCMetricListRequest $request DescribeRCMetricListRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -14519,7 +14528,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 查询指定云产品的指定监控项的监控数据
+     * @summary Queries the monitoring data of a metric for an RDS Custom instance.
      *  *
      * @param DescribeRCMetricListRequest $request DescribeRCMetricListRequest
      *
@@ -17275,6 +17284,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
         }
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
+        }
         if (!Utils::isUnset($request->orderType)) {
             $query['OrderType'] = $request->orderType;
         }
@@ -18226,10 +18238,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary Configures or modifies the password policy for an account of an ApsaraDB RDS for SQL Server instance.
+     * @summary Modifies the password policy for an account of an ApsaraDB RDS for SQL Server instance.
      *  *
-     * @description ### [](#)Supported database engine
-     * SQL Server
+     * @description ### [](#)Supported database engines
+     * SQL Server (This parameter is unavailable for ApsaraDB RDS for SQL Server instances that belong to the shared instance family and run SQL Server 2008 R2.)
      * ### [](#)References
      * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
      * [Create a custom password policy for an account of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95640.html)
@@ -18286,10 +18298,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary Configures or modifies the password policy for an account of an ApsaraDB RDS for SQL Server instance.
+     * @summary Modifies the password policy for an account of an ApsaraDB RDS for SQL Server instance.
      *  *
-     * @description ### [](#)Supported database engine
-     * SQL Server
+     * @description ### [](#)Supported database engines
+     * SQL Server (This parameter is unavailable for ApsaraDB RDS for SQL Server instances that belong to the shared instance family and run SQL Server 2008 R2.)
      * ### [](#)References
      * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
      * [Create a custom password policy for an account of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95640.html)
@@ -20638,14 +20650,19 @@ class Rds extends OpenApiClient
      * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/197456.html)
      * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418272.html)
      *  *
-     * @param ModifyDBProxyRequest $request ModifyDBProxyRequest
+     * @param ModifyDBProxyRequest $tmpReq  ModifyDBProxyRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
      * @return ModifyDBProxyResponse ModifyDBProxyResponse
      */
-    public function modifyDBProxyWithOptions($request, $runtime)
+    public function modifyDBProxyWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ModifyDBProxyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->DBProxyNodes)) {
+            $request->DBProxyNodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->DBProxyNodes, 'DBProxyNodes', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->configDBProxyService)) {
             $query['ConfigDBProxyService'] = $request->configDBProxyService;
@@ -20664,6 +20681,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->DBProxyInstanceType)) {
             $query['DBProxyInstanceType'] = $request->DBProxyInstanceType;
+        }
+        if (!Utils::isUnset($request->DBProxyNodesShrink)) {
+            $query['DBProxyNodes'] = $request->DBProxyNodesShrink;
         }
         if (!Utils::isUnset($request->instanceNetworkType)) {
             $query['InstanceNetworkType'] = $request->instanceNetworkType;
@@ -20780,6 +20800,12 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->dbEndpointType)) {
             $query['DbEndpointType'] = $request->dbEndpointType;
         }
+        if (!Utils::isUnset($request->effectiveSpecificTime)) {
+            $query['EffectiveSpecificTime'] = $request->effectiveSpecificTime;
+        }
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
+        }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
@@ -20800,6 +20826,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -20939,14 +20968,22 @@ class Rds extends OpenApiClient
      * *   PostgreSQL
      * >  Starting October 17, 2023, ApsaraDB RDS for MySQL instances that run RDS Cluster Edition offer one free-of-charge dedicated database proxy for each unit in phases. For more information, see [[Special offers/Price changes\\] One dedicated proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
      *  *
-     * @param ModifyDBProxyInstanceRequest $request ModifyDBProxyInstanceRequest
+     * @param ModifyDBProxyInstanceRequest $tmpReq  ModifyDBProxyInstanceRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
      * @return ModifyDBProxyInstanceResponse ModifyDBProxyInstanceResponse
      */
-    public function modifyDBProxyInstanceWithOptions($request, $runtime)
+    public function modifyDBProxyInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ModifyDBProxyInstanceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->DBProxyNodes)) {
+            $request->DBProxyNodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->DBProxyNodes, 'DBProxyNodes', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->migrateAZ)) {
+            $request->migrateAZShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->migrateAZ, 'MigrateAZ', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
@@ -20963,11 +21000,17 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->DBProxyInstanceType)) {
             $query['DBProxyInstanceType'] = $request->DBProxyInstanceType;
         }
+        if (!Utils::isUnset($request->DBProxyNodesShrink)) {
+            $query['DBProxyNodes'] = $request->DBProxyNodesShrink;
+        }
         if (!Utils::isUnset($request->effectiveSpecificTime)) {
             $query['EffectiveSpecificTime'] = $request->effectiveSpecificTime;
         }
         if (!Utils::isUnset($request->effectiveTime)) {
             $query['EffectiveTime'] = $request->effectiveTime;
+        }
+        if (!Utils::isUnset($request->migrateAZShrink)) {
+            $query['MigrateAZ'] = $request->migrateAZShrink;
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
@@ -22118,7 +22161,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary ModifyRCInstance
+     * @summary Upgrades or downgrades the instance type of a subscription RDS Custom instance. The new instance type takes effect for the remaining lifecycle of the instance.
+     *  *
+     * @description Before you call this operation, make sure that you are familiar with the billing methods, pricing, and refund rules of RDS Custom.
+     * Before you call this operation, take note of the following items:
+     * *   You cannot change the instance type of an expired instance. You can renew the instance and try again.
+     * *   When you downgrade the instance type of an instance, take note of the following items:
+     *     *   The instance must be in the Stopped state.
+     *     *   The price difference is refunded to the payment account you used. Vouchers that have been redeemed are not refundable.
+     * *   The operation is asynchronous. Wait 5 to 10 seconds for the instance type change to complete. Then, restart the instance by calling the RebootInstance operation or by using the console for the instance type change to take effect. If you restart only the operating system of the instance, the instance type change does not take effect. If the instance is in the Stopped state, you need only to start the instance. You do not need to restart the instance after it enters the Running state.
      *  *
      * @param ModifyRCInstanceRequest $request ModifyRCInstanceRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -22166,7 +22217,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary ModifyRCInstance
+     * @summary Upgrades or downgrades the instance type of a subscription RDS Custom instance. The new instance type takes effect for the remaining lifecycle of the instance.
+     *  *
+     * @description Before you call this operation, make sure that you are familiar with the billing methods, pricing, and refund rules of RDS Custom.
+     * Before you call this operation, take note of the following items:
+     * *   You cannot change the instance type of an expired instance. You can renew the instance and try again.
+     * *   When you downgrade the instance type of an instance, take note of the following items:
+     *     *   The instance must be in the Stopped state.
+     *     *   The price difference is refunded to the payment account you used. Vouchers that have been redeemed are not refundable.
+     * *   The operation is asynchronous. Wait 5 to 10 seconds for the instance type change to complete. Then, restart the instance by calling the RebootInstance operation or by using the console for the instance type change to take effect. If you restart only the operating system of the instance, the instance type change does not take effect. If the instance is in the Stopped state, you need only to start the instance. You do not need to restart the instance after it enters the Running state.
      *  *
      * @param ModifyRCInstanceRequest $request ModifyRCInstanceRequest
      *
@@ -23293,7 +23352,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 重启RDS用户专属主机实例
+     * @summary Restarts an RDS Custom instance that is in the Running state.
      *  *
      * @param RebootRCInstanceRequest $request RebootRCInstanceRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -23335,7 +23394,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 重启RDS用户专属主机实例
+     * @summary Restarts an RDS Custom instance that is in the Running state.
      *  *
      * @param RebootRCInstanceRequest $request RebootRCInstanceRequest
      *
@@ -24261,7 +24320,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary ResizeRCInstanceDisk
+     * @summary Expand the storage capacity of an RDS Custom instance.
      *  *
      * @param ResizeRCInstanceDiskRequest $request ResizeRCInstanceDiskRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -24309,7 +24368,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary ResizeRCInstanceDisk
+     * @summary Expand the storage capacity of an RDS Custom instance.
      *  *
      * @param ResizeRCInstanceDiskRequest $request ResizeRCInstanceDiskRequest
      *
@@ -24763,7 +24822,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 创建RDS用户专属主机实例
+     * @summary Creates one or more subscription RDS Custom instances. Before you call this operation, you must specify parameters such as ImageId, InstanceType, VSwitchId, and SecurityGroupId.
+     *  *
+     * @description *   Before you create RDS Custom instances, you must submit a ticket to add your Alibaba Cloud account to a whitelist.
+     * *   You can create only subscription RDS Custom instances.
+     * *   Subscription RDS Custom instances are supported in the China (Shanghai), China (Shenzhen), China (Beijing), and China (Hangzhou) regions.
      *  *
      * @param RunRCInstancesRequest $tmpReq  RunRCInstancesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -24876,7 +24939,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 创建RDS用户专属主机实例
+     * @summary Creates one or more subscription RDS Custom instances. Before you call this operation, you must specify parameters such as ImageId, InstanceType, VSwitchId, and SecurityGroupId.
+     *  *
+     * @description *   Before you create RDS Custom instances, you must submit a ticket to add your Alibaba Cloud account to a whitelist.
+     * *   You can create only subscription RDS Custom instances.
+     * *   Subscription RDS Custom instances are supported in the China (Shanghai), China (Shenzhen), China (Beijing), and China (Hangzhou) regions.
      *  *
      * @param RunRCInstancesRequest $request RunRCInstancesRequest
      *
@@ -25005,7 +25072,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 启动RDS用户专属主机实例
+     * @summary Starts RDS Custom instances that are in the Stopped state. After the operation is successfully called, the instances enter the Starting state.
      *  *
      * @param StartRCInstanceRequest $request StartRCInstanceRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -25041,7 +25108,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 启动RDS用户专属主机实例
+     * @summary Starts RDS Custom instances that are in the Stopped state. After the operation is successfully called, the instances enter the Starting state.
      *  *
      * @param StartRCInstanceRequest $request StartRCInstanceRequest
      *
@@ -25134,7 +25201,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 停止RDS用户专属主机实例
+     * @summary Stops an RDS Custom instance that is in the Running state. After the operation is successfully called, the status of the RDS Custom instance changes from Stopping to Stopped.
      *  *
      * @param StopRCInstanceRequest $request StopRCInstanceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -25173,7 +25240,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 停止RDS用户专属主机实例
+     * @summary Stops an RDS Custom instance that is in the Running state. After the operation is successfully called, the status of the RDS Custom instance changes from Stopping to Stopped.
      *  *
      * @param StopRCInstanceRequest $request StopRCInstanceRequest
      *
@@ -25451,7 +25518,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 同步密钥对
+     * @summary Synchronizes a custom key pair to an RDS Custom instance. If you change the key pair that you created for your RDS Custom instance and you want the change to immediately take effect on the RDS Custom instance, you can call this operation to synchronize the new key pair to the RDS Custom instance. For example, you delete a key pair that has the same name as another key pair and recreate the key pair.
      *  *
      * @param SyncRCKeyPairRequest $request SyncRCKeyPairRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -25467,6 +25534,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->syncMode)) {
+            $query['SyncMode'] = $request->syncMode;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -25487,7 +25557,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 同步密钥对
+     * @summary Synchronizes a custom key pair to an RDS Custom instance. If you change the key pair that you created for your RDS Custom instance and you want the change to immediately take effect on the RDS Custom instance, you can call this operation to synchronize the new key pair to the RDS Custom instance. For example, you delete a key pair that has the same name as another key pair and recreate the key pair.
      *  *
      * @param SyncRCKeyPairRequest $request SyncRCKeyPairRequest
      *

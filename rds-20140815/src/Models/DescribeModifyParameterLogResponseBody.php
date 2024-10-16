@@ -37,7 +37,7 @@ class DescribeModifyParameterLogResponseBody extends Model
     public $engineVersion;
 
     /**
-     * @description An array that consists of parameter modification log entries.
+     * @description The log entries.
      *
      * @var items
      */

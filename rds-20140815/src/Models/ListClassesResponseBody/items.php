@@ -104,6 +104,38 @@ class items extends Model
      * @var string
      */
     public $referencePrice;
+
+    /**
+     * @description The RDS edition of the instance. Valid values:
+     *
+     *   Regular instance
+     *
+     *   **Basic**: RDS Basic Edition
+     *   **HighAvailability**: RDS High-availability Edition
+     *   **cluster**: RDS Cluster Edition for ApsaraDB RDS for MySQL or PostgreSQL
+     *   **AlwaysOn**: RDS Cluster Edition for ApsaraDB RDS for SQL Server
+     *   **Finance**: RDS Basic Edition for serverless instances
+     *
+     *   Serverless instance
+     *
+     *   **serverless_basic**: RDS Basic Edition for serverless instances. This edition is available only for instances that run MySQL and PostgreSQL.
+     *   **serverless_standard**: RDS High-availability Edition for serverless instances. This edition is available only for instances that run MySQL and PostgreSQL.
+     *   **serverless_ha**: RDS High-availability Edition for serverless instances. This edition is available only for instances that run SQL Server.
+     *
+     * @example Basic
+     *
+     * @var string
+     */
+    public $category;
+
+    /**
+     * @description The storage type of the instance.
+     *
+     * @example cloud_essd
+     *
+     * @var string
+     */
+    public $storageType;
     protected $_name = [
         'classCode'          => 'ClassCode',
         'classGroup'         => 'ClassGroup',
@@ -115,6 +147,8 @@ class items extends Model
         'maxIOPS'            => 'MaxIOPS',
         'memoryClass'        => 'MemoryClass',
         'referencePrice'     => 'ReferencePrice',
+        'category'           => 'category',
+        'storageType'        => 'storageType',
     ];
 
     public function validate()
@@ -153,6 +187,12 @@ class items extends Model
         }
         if (null !== $this->referencePrice) {
             $res['ReferencePrice'] = $this->referencePrice;
+        }
+        if (null !== $this->category) {
+            $res['category'] = $this->category;
+        }
+        if (null !== $this->storageType) {
+            $res['storageType'] = $this->storageType;
         }
 
         return $res;
@@ -195,6 +235,12 @@ class items extends Model
         }
         if (isset($map['ReferencePrice'])) {
             $model->referencePrice = $map['ReferencePrice'];
+        }
+        if (isset($map['category'])) {
+            $model->category = $map['category'];
+        }
+        if (isset($map['storageType'])) {
+            $model->storageType = $map['storageType'];
         }
 
         return $model;

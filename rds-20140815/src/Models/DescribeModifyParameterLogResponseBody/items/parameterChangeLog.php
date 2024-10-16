@@ -45,7 +45,7 @@ class parameterChangeLog extends Model
     public $parameterName;
 
     /**
-     * @description The status of the new value specified for the parameter. Valid values:
+     * @description The status. Valid values:
      *
      *   **Applied:** The new value has taken effect.
      *   **Syncing:** The new value is being applied and has not taken effect.

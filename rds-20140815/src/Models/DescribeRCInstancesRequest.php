@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRCInstancesRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example rm-2ze704f*****
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeRCInstancesRequest extends Model
     public $instanceId;
 
     /**
+     * @description The page number.
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -23,6 +28,9 @@ class DescribeRCInstancesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -30,6 +38,8 @@ class DescribeRCInstancesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +47,8 @@ class DescribeRCInstancesRequest extends Model
     public $regionId;
 
     /**
+     * @description The virtual private cloud (VPC) ID.
+     *
      * @example vpc-uf6f7l4fg90****
      *
      * @var string

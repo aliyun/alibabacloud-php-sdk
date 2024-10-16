@@ -17,6 +17,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeRCInstanceAttributeResponseBody extends Model
 {
     /**
+     * @description The ID of the cluster to which the instance belongs.
+     *
+     * >  This parameter will be deprecated. We recommend that you use other parameters to ensure compatibility.
      * @example None
      *
      * @var string
@@ -24,6 +27,8 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $clusterId;
 
     /**
+     * @description The number of CPU cores.
+     *
      * @example 4
      *
      * @var int
@@ -31,6 +36,8 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $cpu;
 
     /**
+     * @description The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC.
+     *
      * @example 2024-04-22T06:52:23Z
      *
      * @var string
@@ -38,6 +45,8 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $creationTime;
 
     /**
+     * @description The performance mode of the burstable instance.
+     *
      * @example None
      *
      * @var string
@@ -45,16 +54,22 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $creditSpecification;
 
     /**
+     * @description The details of the data disk.
+     *
      * @var dataDisks
      */
     public $dataDisks;
 
     /**
+     * @description The attributes of the dedicated hosts.
+     *
      * @var dedicatedHostAttribute
      */
     public $dedicatedHostAttribute;
 
     /**
+     * @description The ID of the deployment set.
+     *
      * @example ds-uf6c8qerk019bj1l****
      *
      * @var string
@@ -62,6 +77,8 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $deploymentSetId;
 
     /**
+     * @description The instance description.
+     *
      * @example test
      *
      * @var string
@@ -69,6 +86,8 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $description;
 
     /**
+     * @description The reserved parameter.
+     *
      * @example None
      *
      * @var string
@@ -76,6 +95,8 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $diskType;
 
     /**
+     * @description The Elastic Compute Service (ECS) instance family.
+     *
      * @example ecs.g6.2xlarge
      *
      * @var string
@@ -83,11 +104,18 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $ecsInstanceType;
 
     /**
+     * @description The elastic IP address (EIP) associated with the instance.
+     *
      * @var eipAddress
      */
     public $eipAddress;
 
     /**
+     * @description Indicates whether the Jumbo Frame feature is enabled for the instance. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -95,6 +123,8 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $enableJumboFrame;
 
     /**
+     * @description The expiration time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC.
+     *
      * @example 2024-08-10T00:00:00Z
      *
      * @var string
@@ -102,6 +132,8 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $expiredTime;
 
     /**
+     * @description The instance hostname.
+     *
      * @example iZ2zej1n3cin51rlmby****
      *
      * @var string
@@ -109,6 +141,11 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $hostName;
 
     /**
+     * @description The storage type of the host. Valid values:
+     *
+     *   **dhg_cloud_ssd**: ESSD
+     *   **dhg_local_ssd**: local SSD
+     *
      * @example dhg_cloud_ssd
      *
      * @var string
@@ -116,6 +153,8 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $hostType;
 
     /**
+     * @description The image ID of the instance.
+     *
      * @example m-2oqiu973jwcxe****
      *
      * @var string
@@ -123,11 +162,15 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $imageId;
 
     /**
+     * @description The private IP addresses of the instance in the classic network.
+     *
      * @var innerIpAddress
      */
     public $innerIpAddress;
 
     /**
+     * @description The instance ID.
+     *
      * @example rc-dh2jf9n6j4s14926****
      *
      * @var string
@@ -135,6 +178,8 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $instanceId;
 
     /**
+     * @description The instance name.
+     *
      * @example test
      *
      * @var string
@@ -142,6 +187,11 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $instanceName;
 
     /**
+     * @description The network type. Valid values:
+     *
+     *   **classic**
+     *   **vpc**
+     *
      * @example vpc
      *
      * @var string
@@ -149,6 +199,8 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $instanceNetworkType;
 
     /**
+     * @description The instance type of the instance.
+     *
      * @example mysql.x4.xlarge.6cm
      *
      * @var string
@@ -156,6 +208,12 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $instanceType;
 
     /**
+     * @description The billing method for network usage. Valid values:
+     *
+     *   **PayByBandwidth**: pay-by-bandwidth
+     *   **PayByTraffic**: pay-by-data-transfer
+     *
+     * >  If the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios in which demands exceed resource supplies, the maximum bandwidths may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
      * @example PayByTraffic
      *
      * @var string
@@ -163,6 +221,8 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $internetChargeType;
 
     /**
+     * @description The maximum inbound bandwidth from the Internet. Unit: Mbit/s.
+     *
      * @example 1
      *
      * @var int
@@ -170,6 +230,8 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $internetMaxBandwidthIn;
 
     /**
+     * @description The maximum outbound bandwidth to the Internet. Unit: Mbit/s.
+     *
      * @example 5
      *
      * @var int
@@ -177,6 +239,11 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $internetMaxBandwidthOut;
 
     /**
+     * @description Indicates whether the instance is I/O optimized.
+     *
+     *   **optimized**: The instance is I/O optimized.
+     *   **none**: The instance is not I/O optimized.
+     *
      * @example optimized
      *
      * @var string
@@ -184,6 +251,8 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $ioOptimized;
 
     /**
+     * @description The name of the key pair.
+     *
      * @example test_01
      *
      * @var string
@@ -191,6 +260,8 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $keyPairName;
 
     /**
+     * @description The memory capacity of the instance. Unit: MiB.
+     *
      * @example 8192
      *
      * @var int
@@ -198,16 +269,22 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $memory;
 
     /**
+     * @description The reasons why the instance is locked.
+     *
      * @var operationLocks
      */
     public $operationLocks;
 
     /**
+     * @description The public IP address of the instance.
+     *
      * @var publicIpAddress
      */
     public $publicIpAddress;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -215,6 +292,8 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $regionId;
 
     /**
+     * @description The request ID.
+     *
      * @example EA2D4F34-01A7-46EB-A339-D80882135206
      *
      * @var string
@@ -222,11 +301,15 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The security groups.
+     *
      * @var securityGroupIds
      */
     public $securityGroupIds;
 
     /**
+     * @description The serial number of the instance.
+     *
      * @example b076f6ff-46d1-4234-a608-4e951ed6****
      *
      * @var string
@@ -234,6 +317,14 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $serialNumber;
 
     /**
+     * @description The instance status. Valid values:
+     *
+     *   **Pending**
+     *   **Running**
+     *   **Starting**
+     *   **Stopping**
+     *   **Stopped**
+     *
      * @example Running
      *
      * @var string
@@ -241,6 +332,12 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $status;
 
     /**
+     * @description Indicates whether the billing of the instance continues after the instance is stopped. Valid values:
+     *
+     *   **KeepCharging**: The billing of the instance continues after the instance is stopped, and resources are retained for the instance.
+     *   **StopCharging**: The billing of the instance stops after the instance is stopped. After the instance is stopped, resources such as CPU cores, memory resources, and public IP address are released. The instance may be unable to restart if some required resources are out of stock in the current region.
+     *   **Not-applicable**: The No Fees for Stopped Instances feature is not supported for the instance.
+     *
      * @example Not-applicable
      *
      * @var string
@@ -248,6 +345,9 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $stoppedMode;
 
     /**
+     * @description The virtual LAN (VLAN) ID of the instance.
+     *
+     * >  This parameter will be deprecated. We recommend that you use other parameters to ensure compatibility.
      * @example None
      *
      * @var string
@@ -255,11 +355,15 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $vlanId;
 
     /**
+     * @description The virtual private cloud (VPC) attributes of the instance.
+     *
      * @var vpcAttributes
      */
     public $vpcAttributes;
 
     /**
+     * @description The zone ID.
+     *
      * @example cn-hangzhou-b
      *
      * @var string

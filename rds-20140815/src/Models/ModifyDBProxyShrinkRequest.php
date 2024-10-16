@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBProxyRequest\DBProxyNodes;
 use AlibabaCloud\Tea\Model;
 
-class ModifyDBProxyRequest extends Model
+class ModifyDBProxyShrinkRequest extends Model
 {
     /**
      * @description Specifies whether to enable or disable the database proxy feature. Valid values:
@@ -61,9 +60,9 @@ class ModifyDBProxyRequest extends Model
     public $DBProxyInstanceType;
 
     /**
-     * @var DBProxyNodes[]
+     * @var string
      */
-    public $DBProxyNodes;
+    public $DBProxyNodesShrink;
 
     /**
      * @description The network type of the instance. Set the value to **VPC**.
@@ -144,7 +143,7 @@ class ModifyDBProxyRequest extends Model
         'DBProxyEngineType'          => 'DBProxyEngineType',
         'DBProxyInstanceNum'         => 'DBProxyInstanceNum',
         'DBProxyInstanceType'        => 'DBProxyInstanceType',
-        'DBProxyNodes'               => 'DBProxyNodes',
+        'DBProxyNodesShrink'         => 'DBProxyNodes',
         'instanceNetworkType'        => 'InstanceNetworkType',
         'ownerId'                    => 'OwnerId',
         'persistentConnectionStatus' => 'PersistentConnectionStatus',
@@ -178,14 +177,8 @@ class ModifyDBProxyRequest extends Model
         if (null !== $this->DBProxyInstanceType) {
             $res['DBProxyInstanceType'] = $this->DBProxyInstanceType;
         }
-        if (null !== $this->DBProxyNodes) {
-            $res['DBProxyNodes'] = [];
-            if (null !== $this->DBProxyNodes && \is_array($this->DBProxyNodes)) {
-                $n = 0;
-                foreach ($this->DBProxyNodes as $item) {
-                    $res['DBProxyNodes'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->DBProxyNodesShrink) {
+            $res['DBProxyNodes'] = $this->DBProxyNodesShrink;
         }
         if (null !== $this->instanceNetworkType) {
             $res['InstanceNetworkType'] = $this->instanceNetworkType;
@@ -221,7 +214,7 @@ class ModifyDBProxyRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyDBProxyRequest
+     * @return ModifyDBProxyShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -242,13 +235,7 @@ class ModifyDBProxyRequest extends Model
             $model->DBProxyInstanceType = $map['DBProxyInstanceType'];
         }
         if (isset($map['DBProxyNodes'])) {
-            if (!empty($map['DBProxyNodes'])) {
-                $model->DBProxyNodes = [];
-                $n                   = 0;
-                foreach ($map['DBProxyNodes'] as $item) {
-                    $model->DBProxyNodes[$n++] = null !== $item ? DBProxyNodes::fromMap($item) : $item;
-                }
-            }
+            $model->DBProxyNodesShrink = $map['DBProxyNodes'];
         }
         if (isset($map['InstanceNetworkType'])) {
             $model->instanceNetworkType = $map['InstanceNetworkType'];

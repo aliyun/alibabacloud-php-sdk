@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeRCInstanceAttributeRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example rc-dh2jf9n6j4s14926****
      *
      * @var string
@@ -18,6 +19,8 @@ class DescribeRCInstanceAttributeRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -558,6 +558,11 @@ class DBInstanceAttribute extends Model
     public $maxIOPS;
 
     /**
+     * @var bool
+     */
+    public $multipleTempUpgrade;
+
+    /**
      * @description Indicates whether PgBouncer is enabled.
      *
      * >  This parameter is returned only for RDS instances that run PostgreSQL. If PgBouncer is enabled, the return value is **true**.
@@ -843,6 +848,7 @@ class DBInstanceAttribute extends Model
         'maxConnections'                 => 'MaxConnections',
         'maxIOMBPS'                      => 'MaxIOMBPS',
         'maxIOPS'                        => 'MaxIOPS',
+        'multipleTempUpgrade'            => 'MultipleTempUpgrade',
         'PGBouncerEnabled'               => 'PGBouncerEnabled',
         'payType'                        => 'PayType',
         'port'                           => 'Port',
@@ -1037,6 +1043,9 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->maxIOPS) {
             $res['MaxIOPS'] = $this->maxIOPS;
+        }
+        if (null !== $this->multipleTempUpgrade) {
+            $res['MultipleTempUpgrade'] = $this->multipleTempUpgrade;
         }
         if (null !== $this->PGBouncerEnabled) {
             $res['PGBouncerEnabled'] = $this->PGBouncerEnabled;
@@ -1283,6 +1292,9 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['MaxIOPS'])) {
             $model->maxIOPS = $map['MaxIOPS'];
+        }
+        if (isset($map['MultipleTempUpgrade'])) {
+            $model->multipleTempUpgrade = $map['MultipleTempUpgrade'];
         }
         if (isset($map['PGBouncerEnabled'])) {
             $model->PGBouncerEnabled = $map['PGBouncerEnabled'];

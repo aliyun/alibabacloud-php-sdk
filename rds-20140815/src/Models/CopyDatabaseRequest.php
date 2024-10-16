@@ -18,7 +18,7 @@ class CopyDatabaseRequest extends Model
     public $DBInstanceName;
 
     /**
-     * @description Destination database name.
+     * @description The destination database name.
      *
      * @example db2***
      *
@@ -32,7 +32,7 @@ class CopyDatabaseRequest extends Model
     public $ownerId;
 
     /**
-     * @description Reserve account.
+     * @description The reserved account.
      *
      * @example 1
      *
@@ -60,7 +60,7 @@ class CopyDatabaseRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Source database name.
+     * @description The source database name.
      *
      * @example db1***
      *

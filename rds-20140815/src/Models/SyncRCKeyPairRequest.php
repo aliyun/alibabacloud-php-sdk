@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SyncRCKeyPairRequest extends Model
 {
     /**
+     * @description The name of the key pair.
+     *
      * @example customer_keypairs
      *
      * @var string
@@ -16,14 +18,22 @@ class SyncRCKeyPairRequest extends Model
     public $keyPairName;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var bool
+     */
+    public $syncMode;
     protected $_name = [
         'keyPairName' => 'KeyPairName',
         'regionId'    => 'RegionId',
+        'syncMode'    => 'SyncMode',
     ];
 
     public function validate()
@@ -38,6 +48,9 @@ class SyncRCKeyPairRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->syncMode) {
+            $res['SyncMode'] = $this->syncMode;
         }
 
         return $res;
@@ -56,6 +69,9 @@ class SyncRCKeyPairRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SyncMode'])) {
+            $model->syncMode = $map['SyncMode'];
         }
 
         return $model;

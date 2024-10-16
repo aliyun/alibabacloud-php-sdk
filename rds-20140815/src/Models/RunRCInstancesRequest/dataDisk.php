@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataDisk extends Model
 {
     /**
+     * @description The type of the data disk. Set the value to **cloud_essd**, which indicates Enterprise SSDs (ESSDs).
+     *
      * @example local_ssd
      *
      * @var string
@@ -16,6 +18,8 @@ class dataDisk extends Model
     public $category;
 
     /**
+     * @description The reserved parameter. This parameter is not supported.
+     *
      * @example null
      *
      * @var bool
@@ -23,6 +27,11 @@ class dataDisk extends Model
     public $deleteWithInstance;
 
     /**
+     * @description Specifies whether to encrypt the cloud disk. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
      * @example false
      *
      * @var string
@@ -30,6 +39,8 @@ class dataDisk extends Model
     public $encrypted;
 
     /**
+     * @description The reserved parameter. This parameter is not supported.
+     *
      * @example null
      *
      * @var string
@@ -37,6 +48,8 @@ class dataDisk extends Model
     public $performanceLevel;
 
     /**
+     * @description The size of the data disk. Unit: GiB.
+     *
      * @example 10
      *
      * @var int

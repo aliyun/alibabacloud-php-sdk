@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class deploymentSet extends Model
 {
     /**
+     * @description The details of the capacities of the deployment set. This parameter is valid only when the deployment set contains existing RDS Custom instances. The value contains the details of the capacities of the deployment set in different zones.
+     *
      * @var capacities
      */
     public $capacities;
 
     /**
+     * @description The time when the deployment set was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2024-06-19T07:15:44Z
      *
      * @var string
@@ -23,6 +27,8 @@ class deploymentSet extends Model
     public $createTime;
 
     /**
+     * @description The deployment set description.
+     *
      * @example test
      *
      * @var string
@@ -30,6 +36,8 @@ class deploymentSet extends Model
     public $deploymentSetDescription;
 
     /**
+     * @description The deployment set ID.
+     *
      * @example ds-ob5n4rbgy****
      *
      * @var string
@@ -37,6 +45,8 @@ class deploymentSet extends Model
     public $deploymentSetId;
 
     /**
+     * @description The deployment set name.
+     *
      * @example deployment_test
      *
      * @var string
@@ -44,6 +54,8 @@ class deploymentSet extends Model
     public $deploymentSetName;
 
     /**
+     * @description The deployment strategy. The return value of this parameter is the value of the `Strategy` request parameter.
+     *
      * @example Availability
      *
      * @var string
@@ -51,6 +63,8 @@ class deploymentSet extends Model
     public $deploymentStrategy;
 
     /**
+     * @description The deployment domain.
+     *
      * @example default
      *
      * @var string
@@ -58,6 +72,8 @@ class deploymentSet extends Model
     public $domain;
 
     /**
+     * @description The deployment granularity.
+     *
      * @example None
      *
      * @var string
@@ -65,6 +81,9 @@ class deploymentSet extends Model
     public $granularity;
 
     /**
+     * @description The number of groups in the deployment set.
+     *
+     * >  This parameter is valid only when the Strategy request parameter is set to AvailabilityGroup.
      * @example 3
      *
      * @var int
@@ -72,6 +91,8 @@ class deploymentSet extends Model
     public $groupCount;
 
     /**
+     * @description The number of RDS Custom instances in the deployment set.
+     *
      * @example 1
      *
      * @var int
@@ -79,11 +100,15 @@ class deploymentSet extends Model
     public $instanceAmount;
 
     /**
+     * @description The ID of the RDS Custom instance in the deployment set.
+     *
      * @var instanceIds
      */
     public $instanceIds;
 
     /**
+     * @description The deployment strategy.
+     *
      * @example LooseDispersion
      *
      * @var string

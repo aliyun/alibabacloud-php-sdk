@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRCDeploymentSetRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example ETnLKlblzczshOTUbOCz****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateRCDeploymentSetRequest extends Model
     public $clientToken;
 
     /**
+     * @description The deployment set name. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (.), underscores (_), and hyphens (-).
+     *
      * @example deployment_test
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateRCDeploymentSetRequest extends Model
     public $deploymentSetName;
 
     /**
+     * @description The description of the deployment set. The value must be 2 to 256 characters in length and cannot start with http:// or https://.
+     *
      * @example test
      *
      * @var string
@@ -30,6 +36,9 @@ class CreateRCDeploymentSetRequest extends Model
     public $description;
 
     /**
+     * @description The number of groups in the deployment set. Valid values: 1 to 7.
+     *
+     * >  This parameter takes effect only when `Strategy is set to AvailabilityGroup`.
      * @example 3
      *
      * @var int
@@ -37,6 +46,12 @@ class CreateRCDeploymentSetRequest extends Model
     public $groupCount;
 
     /**
+     * @description The emergency solution to use in the scenario in which instances in the deployment set cannot be evenly distributed to different zones due to resource insufficiency after the instances failover. Valid values:
+     *
+     *   **CancelMembershipAndStart**: removes the instances from the deployment set and restarts the instances immediately after the failover is complete.
+     *   **KeepStopped**: does not remove the instances from the deployment set and keeps the instances in the Stopped state.
+     *
+     * Default value: CancelMembershipAndStart.
      * @example CancelMembershipAndStart
      *
      * @var string
@@ -44,8 +59,9 @@ class CreateRCDeploymentSetRequest extends Model
     public $onUnableToRedeployFailedInstance;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -53,6 +69,13 @@ class CreateRCDeploymentSetRequest extends Model
     public $regionId;
 
     /**
+     * @description The deployment strategy. Valid values:
+     *
+     *   **Availability**: high-availability strategy
+     *   **AvailabilityGroup**: high-availability group strategy
+     *   **LowLatency**: low latency strategy
+     *
+     * Default value: Availability.
      * @example Availability
      *
      * @var string

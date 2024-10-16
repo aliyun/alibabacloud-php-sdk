@@ -43,6 +43,20 @@ class ListClassesRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The database engine of the instance. Valid values:
+     *
+     *   **MySQL**
+     *   **SQLServer**
+     *   **PostgreSQL**
+     *   **MariaDB**
+     *
+     * @example MySQL
+     *
+     * @var string
+     */
+    public $engine;
+
+    /**
      * @description The type of order that you want to query. Valid values:
      *
      *   **BUY**: specifies the query orders that are used to purchase instances.
@@ -85,6 +99,7 @@ class ListClassesRequest extends Model
         'clientToken'          => 'ClientToken',
         'commodityCode'        => 'CommodityCode',
         'DBInstanceId'         => 'DBInstanceId',
+        'engine'               => 'Engine',
         'orderType'            => 'OrderType',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -107,6 +122,9 @@ class ListClassesRequest extends Model
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
         }
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
@@ -143,6 +161,9 @@ class ListClassesRequest extends Model
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
         }
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];

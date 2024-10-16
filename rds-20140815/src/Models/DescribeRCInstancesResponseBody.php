@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRCInstancesResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeRCInstancesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,11 +28,15 @@ class DescribeRCInstancesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The details of the instance.
+     *
      * @var RCInstances[]
      */
     public $RCInstances;
 
     /**
+     * @description The request ID.
+     *
      * @example E9DD55F4-1A5F-48CA-BA57-DFB3CA8C4C34
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeRCInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int

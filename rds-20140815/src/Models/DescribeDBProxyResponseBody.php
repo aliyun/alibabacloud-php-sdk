@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody\DBProxyAVZones;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody\DBProxyConnectStringItems;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody\dbProxyEndpointItems;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody\DBProxyNodes;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDBProxyResponseBody extends Model
@@ -108,6 +109,16 @@ class DescribeDBProxyResponseBody extends Model
     public $DBProxyInstanceType;
 
     /**
+     * @var string
+     */
+    public $DBProxyKindCode;
+
+    /**
+     * @var DBProxyNodes
+     */
+    public $DBProxyNodes;
+
+    /**
      * @description Connection Persistence State.
      *
      * - Unsupported: The instance does not support connection persistence
@@ -164,6 +175,8 @@ class DescribeDBProxyResponseBody extends Model
         'DBProxyInstanceSize'                => 'DBProxyInstanceSize',
         'DBProxyInstanceStatus'              => 'DBProxyInstanceStatus',
         'DBProxyInstanceType'                => 'DBProxyInstanceType',
+        'DBProxyKindCode'                    => 'DBProxyKindCode',
+        'DBProxyNodes'                       => 'DBProxyNodes',
         'DBProxyPersistentConnectionStatus'  => 'DBProxyPersistentConnectionStatus',
         'DBProxyServiceStatus'               => 'DBProxyServiceStatus',
         'dbProxyEndpointItems'               => 'DbProxyEndpointItems',
@@ -207,6 +220,12 @@ class DescribeDBProxyResponseBody extends Model
         }
         if (null !== $this->DBProxyInstanceType) {
             $res['DBProxyInstanceType'] = $this->DBProxyInstanceType;
+        }
+        if (null !== $this->DBProxyKindCode) {
+            $res['DBProxyKindCode'] = $this->DBProxyKindCode;
+        }
+        if (null !== $this->DBProxyNodes) {
+            $res['DBProxyNodes'] = null !== $this->DBProxyNodes ? $this->DBProxyNodes->toMap() : null;
         }
         if (null !== $this->DBProxyPersistentConnectionStatus) {
             $res['DBProxyPersistentConnectionStatus'] = $this->DBProxyPersistentConnectionStatus;
@@ -264,6 +283,12 @@ class DescribeDBProxyResponseBody extends Model
         }
         if (isset($map['DBProxyInstanceType'])) {
             $model->DBProxyInstanceType = $map['DBProxyInstanceType'];
+        }
+        if (isset($map['DBProxyKindCode'])) {
+            $model->DBProxyKindCode = $map['DBProxyKindCode'];
+        }
+        if (isset($map['DBProxyNodes'])) {
+            $model->DBProxyNodes = DBProxyNodes::fromMap($map['DBProxyNodes']);
         }
         if (isset($map['DBProxyPersistentConnectionStatus'])) {
             $model->DBProxyPersistentConnectionStatus = $map['DBProxyPersistentConnectionStatus'];

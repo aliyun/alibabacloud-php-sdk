@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the synchronization succeeded. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

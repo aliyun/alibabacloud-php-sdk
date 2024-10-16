@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRCDeploymentSetResponseBody extends Model
 {
     /**
+     * @description The deployment set ID.
+     *
      * @example ds-uf6c8qerk019bj1l****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateRCDeploymentSetResponseBody extends Model
     public $deploymentSetId;
 
     /**
+     * @description The request ID.
+     *
      * @example 8B993DA9-5272-5414-94E3-4CA8BA0146C2
      *
      * @var string

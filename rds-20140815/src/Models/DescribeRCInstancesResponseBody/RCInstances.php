@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RCInstances extends Model
 {
     /**
+     * @description The cluster name.
+     *
      * @example testrdscustom
      *
      * @var string
@@ -16,6 +18,8 @@ class RCInstances extends Model
     public $clusterName;
 
     /**
+     * @description The database type.
+     *
      * @example rds_custom
      *
      * @var string
@@ -23,6 +27,8 @@ class RCInstances extends Model
     public $dbType;
 
     /**
+     * @description The instance description.
+     *
      * @example test
      *
      * @var string
@@ -30,6 +36,8 @@ class RCInstances extends Model
     public $description;
 
     /**
+     * @description The time when the task was created. The time is displayed in GMT.
+     *
      * @example 2023-03-22 07:56:53.0
      *
      * @var string
@@ -37,6 +45,8 @@ class RCInstances extends Model
     public $gmtCreated;
 
     /**
+     * @description The host IP address.
+     *
      * @example 172.30.XXX.XXX
      *
      * @var string
@@ -44,6 +54,8 @@ class RCInstances extends Model
     public $hostIp;
 
     /**
+     * @description The host name.
+     *
      * @example i-2zeaiz4g9u23f40m****
      *
      * @var string
@@ -51,6 +63,8 @@ class RCInstances extends Model
     public $hostName;
 
     /**
+     * @description The instance ID.
+     *
      * @example rm-2ze704f*****
      *
      * @var string
@@ -58,6 +72,8 @@ class RCInstances extends Model
     public $instanceId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +81,15 @@ class RCInstances extends Model
     public $regionId;
 
     /**
+     * @description The instance status. Valid values:
+     *
+     *   **Pending**
+     *   **Running**
+     *   **Starting**
+     *   **Stopping**
+     *   **Stopped**
+     *
+     * >  If the value returned for the DescribeRCInstances operation is different from the value that is returned for the **DescribeRCInstanceAttribute** operation, the value returned for the **DescribeRCInstanceAttribute** operation shall prevail.
      * @example Running
      *
      * @var string
@@ -72,6 +97,8 @@ class RCInstances extends Model
     public $status;
 
     /**
+     * @description The VPC ID.
+     *
      * @example vpc-uf6f7l4fg90****
      *
      * @var string

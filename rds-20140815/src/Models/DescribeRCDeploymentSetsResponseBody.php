@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeRCDeploymentSetsResponseBody extends Model
 {
     /**
+     * @description The details of the deployment set.
+     *
      * @var deploymentSets
      */
     public $deploymentSets;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeRCDeploymentSetsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeRCDeploymentSetsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeRCDeploymentSetsResponseBody extends Model
     public $regionId;
 
     /**
+     * @description The request ID.
+     *
      * @example 39265F46-EC77-4036-8AC4-F035F32F6BE2
      *
      * @var string
@@ -43,6 +53,8 @@ class DescribeRCDeploymentSetsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int

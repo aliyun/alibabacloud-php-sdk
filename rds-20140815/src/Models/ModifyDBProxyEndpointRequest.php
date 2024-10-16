@@ -105,6 +105,16 @@ class ModifyDBProxyEndpointRequest extends Model
     public $dbEndpointType;
 
     /**
+     * @var string
+     */
+    public $effectiveSpecificTime;
+
+    /**
+     * @var string
+     */
+    public $effectiveTime;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -168,6 +178,13 @@ class ModifyDBProxyEndpointRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @example vsw-uf6adz52c2p****
+     *
+     * @var string
+     */
+    public $vSwitchId;
     protected $_name = [
         'configDBProxyFeatures'            => 'ConfigDBProxyFeatures',
         'DBInstanceId'                     => 'DBInstanceId',
@@ -177,6 +194,8 @@ class ModifyDBProxyEndpointRequest extends Model
         'dbEndpointOperator'               => 'DbEndpointOperator',
         'dbEndpointReadWriteMode'          => 'DbEndpointReadWriteMode',
         'dbEndpointType'                   => 'DbEndpointType',
+        'effectiveSpecificTime'            => 'EffectiveSpecificTime',
+        'effectiveTime'                    => 'EffectiveTime',
         'ownerId'                          => 'OwnerId',
         'readOnlyInstanceDistributionType' => 'ReadOnlyInstanceDistributionType',
         'readOnlyInstanceMaxDelayTime'     => 'ReadOnlyInstanceMaxDelayTime',
@@ -184,6 +203,7 @@ class ModifyDBProxyEndpointRequest extends Model
         'regionId'                         => 'RegionId',
         'resourceOwnerAccount'             => 'ResourceOwnerAccount',
         'resourceOwnerId'                  => 'ResourceOwnerId',
+        'vSwitchId'                        => 'VSwitchId',
     ];
 
     public function validate()
@@ -217,6 +237,12 @@ class ModifyDBProxyEndpointRequest extends Model
         if (null !== $this->dbEndpointType) {
             $res['DbEndpointType'] = $this->dbEndpointType;
         }
+        if (null !== $this->effectiveSpecificTime) {
+            $res['EffectiveSpecificTime'] = $this->effectiveSpecificTime;
+        }
+        if (null !== $this->effectiveTime) {
+            $res['EffectiveTime'] = $this->effectiveTime;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -237,6 +263,9 @@ class ModifyDBProxyEndpointRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
 
         return $res;
@@ -274,6 +303,12 @@ class ModifyDBProxyEndpointRequest extends Model
         if (isset($map['DbEndpointType'])) {
             $model->dbEndpointType = $map['DbEndpointType'];
         }
+        if (isset($map['EffectiveSpecificTime'])) {
+            $model->effectiveSpecificTime = $map['EffectiveSpecificTime'];
+        }
+        if (isset($map['EffectiveTime'])) {
+            $model->effectiveTime = $map['EffectiveTime'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -294,6 +329,9 @@ class ModifyDBProxyEndpointRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
 
         return $model;

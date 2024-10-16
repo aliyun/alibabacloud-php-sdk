@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class RunRCInstancesResponseBody extends Model
 {
     /**
+     * @description The instance IDs (InstanceIdSet).
+     *
      * @var instanceIdSets
      */
     public $instanceIdSets;
 
     /**
+     * @description The order ID.
+     *
      * @example 237850846720798
      *
      * @var string
@@ -22,6 +26,8 @@ class RunRCInstancesResponseBody extends Model
     public $orderId;
 
     /**
+     * @description The request ID.
+     *
      * @example 535BD857-E88F-5B4F-A18C-FAF59A74741F
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataDisk extends Model
 {
     /**
+     * @description The category of the data disk.
+     *
      * @example cloud_essd
      *
      * @var string
@@ -16,6 +18,11 @@ class dataDisk extends Model
     public $category;
 
     /**
+     * @description Indicates whether the data disk is released when the instance is released. Valid values:
+     *
+     *   **true**: The data disk is released when the instance is released.
+     *   **false**: The data disk is reserved when the instance is released.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,11 @@ class dataDisk extends Model
     public $deleteWithInstance;
 
     /**
+     * @description Indicates whether the data disk is encrypted. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var string
@@ -30,6 +42,8 @@ class dataDisk extends Model
     public $encrypted;
 
     /**
+     * @description The performance level of data disk. This parameter is available when the data disk is an Enterprise SSD (ESSD).
+     *
      * @example PL1
      *
      * @var string
@@ -37,6 +51,8 @@ class dataDisk extends Model
     public $performanceLevel;
 
     /**
+     * @description The size of the data disk. Unit: GiB.
+     *
      * @example 40
      *
      * @var int

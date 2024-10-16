@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class systemDisk extends Model
 {
     /**
+     * @description The type of the system disk. Set the value to **cloud_essd**, which indicates ESSDs.
+     *
      * @example cloud_essd
      *
      * @var string
@@ -16,6 +18,8 @@ class systemDisk extends Model
     public $category;
 
     /**
+     * @description The size of the system disk. Unit: GiB. Only performance level 1 (PL1) ESSDs are supported. Valid values: 20 to 2048.
+     *
      * @example 20
      *
      * @var string

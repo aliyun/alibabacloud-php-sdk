@@ -4,11 +4,9 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBProxyInstanceRequest\DBProxyNodes;
-use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBProxyInstanceRequest\migrateAZ;
 use AlibabaCloud\Tea\Model;
 
-class ModifyDBProxyInstanceRequest extends Model
+class ModifyDBProxyInstanceShrinkRequest extends Model
 {
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
@@ -53,9 +51,9 @@ class ModifyDBProxyInstanceRequest extends Model
     public $DBProxyInstanceType;
 
     /**
-     * @var DBProxyNodes[]
+     * @var string
      */
-    public $DBProxyNodes;
+    public $DBProxyNodesShrink;
 
     /**
      * @description The point in time that you want to specify. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
@@ -82,9 +80,9 @@ class ModifyDBProxyInstanceRequest extends Model
     public $effectiveTime;
 
     /**
-     * @var migrateAZ[]
+     * @var string
      */
-    public $migrateAZ;
+    public $migrateAZShrink;
 
     /**
      * @var int
@@ -124,10 +122,10 @@ class ModifyDBProxyInstanceRequest extends Model
         'DBProxyEngineType'     => 'DBProxyEngineType',
         'DBProxyInstanceNum'    => 'DBProxyInstanceNum',
         'DBProxyInstanceType'   => 'DBProxyInstanceType',
-        'DBProxyNodes'          => 'DBProxyNodes',
+        'DBProxyNodesShrink'    => 'DBProxyNodes',
         'effectiveSpecificTime' => 'EffectiveSpecificTime',
         'effectiveTime'         => 'EffectiveTime',
-        'migrateAZ'             => 'MigrateAZ',
+        'migrateAZShrink'       => 'MigrateAZ',
         'ownerId'               => 'OwnerId',
         'regionId'              => 'RegionId',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
@@ -154,14 +152,8 @@ class ModifyDBProxyInstanceRequest extends Model
         if (null !== $this->DBProxyInstanceType) {
             $res['DBProxyInstanceType'] = $this->DBProxyInstanceType;
         }
-        if (null !== $this->DBProxyNodes) {
-            $res['DBProxyNodes'] = [];
-            if (null !== $this->DBProxyNodes && \is_array($this->DBProxyNodes)) {
-                $n = 0;
-                foreach ($this->DBProxyNodes as $item) {
-                    $res['DBProxyNodes'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->DBProxyNodesShrink) {
+            $res['DBProxyNodes'] = $this->DBProxyNodesShrink;
         }
         if (null !== $this->effectiveSpecificTime) {
             $res['EffectiveSpecificTime'] = $this->effectiveSpecificTime;
@@ -169,14 +161,8 @@ class ModifyDBProxyInstanceRequest extends Model
         if (null !== $this->effectiveTime) {
             $res['EffectiveTime'] = $this->effectiveTime;
         }
-        if (null !== $this->migrateAZ) {
-            $res['MigrateAZ'] = [];
-            if (null !== $this->migrateAZ && \is_array($this->migrateAZ)) {
-                $n = 0;
-                foreach ($this->migrateAZ as $item) {
-                    $res['MigrateAZ'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->migrateAZShrink) {
+            $res['MigrateAZ'] = $this->migrateAZShrink;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -200,7 +186,7 @@ class ModifyDBProxyInstanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyDBProxyInstanceRequest
+     * @return ModifyDBProxyInstanceShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -218,13 +204,7 @@ class ModifyDBProxyInstanceRequest extends Model
             $model->DBProxyInstanceType = $map['DBProxyInstanceType'];
         }
         if (isset($map['DBProxyNodes'])) {
-            if (!empty($map['DBProxyNodes'])) {
-                $model->DBProxyNodes = [];
-                $n                   = 0;
-                foreach ($map['DBProxyNodes'] as $item) {
-                    $model->DBProxyNodes[$n++] = null !== $item ? DBProxyNodes::fromMap($item) : $item;
-                }
-            }
+            $model->DBProxyNodesShrink = $map['DBProxyNodes'];
         }
         if (isset($map['EffectiveSpecificTime'])) {
             $model->effectiveSpecificTime = $map['EffectiveSpecificTime'];
@@ -233,13 +213,7 @@ class ModifyDBProxyInstanceRequest extends Model
             $model->effectiveTime = $map['EffectiveTime'];
         }
         if (isset($map['MigrateAZ'])) {
-            if (!empty($map['MigrateAZ'])) {
-                $model->migrateAZ = [];
-                $n                = 0;
-                foreach ($map['MigrateAZ'] as $item) {
-                    $model->migrateAZ[$n++] = null !== $item ? migrateAZ::fromMap($item) : $item;
-                }
-            }
+            $model->migrateAZShrink = $map['MigrateAZ'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
