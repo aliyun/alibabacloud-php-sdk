@@ -2027,6 +2027,9 @@ class Ess extends OpenApiClient
         if (!Utils::isUnset($request->spotInstanceRemedy)) {
             $query['SpotInstanceRemedy'] = $request->spotInstanceRemedy;
         }
+        if (!Utils::isUnset($request->stopInstanceTimeout)) {
+            $query['StopInstanceTimeout'] = $request->stopInstanceTimeout;
+        }
         if (!Utils::isUnset($request->syncAlarmRuleToCms)) {
             $query['SyncAlarmRuleToCms'] = $request->syncAlarmRuleToCms;
         }
@@ -6406,6 +6409,9 @@ class Ess extends OpenApiClient
         if (!Utils::isUnset($request->spotInstanceRemedy)) {
             $query['SpotInstanceRemedy'] = $request->spotInstanceRemedy;
         }
+        if (!Utils::isUnset($request->stopInstanceTimeout)) {
+            $query['StopInstanceTimeout'] = $request->stopInstanceTimeout;
+        }
         if (!Utils::isUnset($request->vSwitchIds)) {
             $query['VSwitchIds'] = $request->vSwitchIds;
         }
@@ -6887,6 +6893,9 @@ class Ess extends OpenApiClient
         }
         if (!Utils::isUnset($request->scalingGroupId)) {
             $query['ScalingGroupId'] = $request->scalingGroupId;
+        }
+        if (!Utils::isUnset($request->stopInstanceTimeout)) {
+            $query['StopInstanceTimeout'] = $request->stopInstanceTimeout;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

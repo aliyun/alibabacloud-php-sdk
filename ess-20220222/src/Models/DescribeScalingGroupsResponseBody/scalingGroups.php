@@ -509,6 +509,11 @@ class scalingGroups extends Model
     public $standbyCapacity;
 
     /**
+     * @var int
+     */
+    public $stopInstanceTimeout;
+
+    /**
      * @description The number of instances that was stopped in Economical Mode in the scaling group.
      *
      * @example 1
@@ -650,6 +655,7 @@ class scalingGroups extends Model
         'spotInstancePools'                   => 'SpotInstancePools',
         'spotInstanceRemedy'                  => 'SpotInstanceRemedy',
         'standbyCapacity'                     => 'StandbyCapacity',
+        'stopInstanceTimeout'                 => 'StopInstanceTimeout',
         'stoppedCapacity'                     => 'StoppedCapacity',
         'suspendedProcesses'                  => 'SuspendedProcesses',
         'systemSuspended'                     => 'SystemSuspended',
@@ -851,6 +857,9 @@ class scalingGroups extends Model
         }
         if (null !== $this->standbyCapacity) {
             $res['StandbyCapacity'] = $this->standbyCapacity;
+        }
+        if (null !== $this->stopInstanceTimeout) {
+            $res['StopInstanceTimeout'] = $this->stopInstanceTimeout;
         }
         if (null !== $this->stoppedCapacity) {
             $res['StoppedCapacity'] = $this->stoppedCapacity;
@@ -1096,6 +1105,9 @@ class scalingGroups extends Model
         }
         if (isset($map['StandbyCapacity'])) {
             $model->standbyCapacity = $map['StandbyCapacity'];
+        }
+        if (isset($map['StopInstanceTimeout'])) {
+            $model->stopInstanceTimeout = $map['StopInstanceTimeout'];
         }
         if (isset($map['StoppedCapacity'])) {
             $model->stoppedCapacity = $map['StoppedCapacity'];

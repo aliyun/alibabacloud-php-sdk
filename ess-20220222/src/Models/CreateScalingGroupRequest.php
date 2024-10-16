@@ -444,6 +444,11 @@ class CreateScalingGroupRequest extends Model
     public $spotInstanceRemedy;
 
     /**
+     * @var int
+     */
+    public $stopInstanceTimeout;
+
+    /**
      * @description > This parameter is unavailable.
      *
      * @example false
@@ -530,6 +535,7 @@ class CreateScalingGroupRequest extends Model
         'spotAllocationStrategy'              => 'SpotAllocationStrategy',
         'spotInstancePools'                   => 'SpotInstancePools',
         'spotInstanceRemedy'                  => 'SpotInstanceRemedy',
+        'stopInstanceTimeout'                 => 'StopInstanceTimeout',
         'syncAlarmRuleToCms'                  => 'SyncAlarmRuleToCms',
         'tags'                                => 'Tags',
         'VServerGroups'                       => 'VServerGroups',
@@ -699,6 +705,9 @@ class CreateScalingGroupRequest extends Model
         }
         if (null !== $this->spotInstanceRemedy) {
             $res['SpotInstanceRemedy'] = $this->spotInstanceRemedy;
+        }
+        if (null !== $this->stopInstanceTimeout) {
+            $res['StopInstanceTimeout'] = $this->stopInstanceTimeout;
         }
         if (null !== $this->syncAlarmRuleToCms) {
             $res['SyncAlarmRuleToCms'] = $this->syncAlarmRuleToCms;
@@ -898,6 +907,9 @@ class CreateScalingGroupRequest extends Model
         }
         if (isset($map['SpotInstanceRemedy'])) {
             $model->spotInstanceRemedy = $map['SpotInstanceRemedy'];
+        }
+        if (isset($map['StopInstanceTimeout'])) {
+            $model->stopInstanceTimeout = $map['StopInstanceTimeout'];
         }
         if (isset($map['SyncAlarmRuleToCms'])) {
             $model->syncAlarmRuleToCms = $map['SyncAlarmRuleToCms'];

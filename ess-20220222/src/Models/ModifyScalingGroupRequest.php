@@ -338,6 +338,11 @@ class ModifyScalingGroupRequest extends Model
     public $spotInstanceRemedy;
 
     /**
+     * @var int
+     */
+    public $stopInstanceTimeout;
+
+    /**
      * @description The IDs of vSwitches.
      *
      * The vSwitches can reside in different zones. The vSwitches are sorted in ascending order. The first vSwitch specified by using the VSwitchIds parameter has the highest priority. If Auto Scaling fails to create ECS instances in the zone where the vSwitch that has the highest priority resides, Auto Scaling creates ECS instances in the zone where the vSwitch that has the next highest priority resides.
@@ -376,6 +381,7 @@ class ModifyScalingGroupRequest extends Model
         'spotAllocationStrategy'              => 'SpotAllocationStrategy',
         'spotInstancePools'                   => 'SpotInstancePools',
         'spotInstanceRemedy'                  => 'SpotInstanceRemedy',
+        'stopInstanceTimeout'                 => 'StopInstanceTimeout',
         'vSwitchIds'                          => 'VSwitchIds',
     ];
 
@@ -484,6 +490,9 @@ class ModifyScalingGroupRequest extends Model
         }
         if (null !== $this->spotInstanceRemedy) {
             $res['SpotInstanceRemedy'] = $this->spotInstanceRemedy;
+        }
+        if (null !== $this->stopInstanceTimeout) {
+            $res['StopInstanceTimeout'] = $this->stopInstanceTimeout;
         }
         if (null !== $this->vSwitchIds) {
             $res['VSwitchIds'] = $this->vSwitchIds;
@@ -602,6 +611,9 @@ class ModifyScalingGroupRequest extends Model
         }
         if (isset($map['SpotInstanceRemedy'])) {
             $model->spotInstanceRemedy = $map['SpotInstanceRemedy'];
+        }
+        if (isset($map['StopInstanceTimeout'])) {
+            $model->stopInstanceTimeout = $map['StopInstanceTimeout'];
         }
         if (isset($map['VSwitchIds'])) {
             if (!empty($map['VSwitchIds'])) {

@@ -114,6 +114,11 @@ class RemoveInstancesRequest extends Model
      * @var string
      */
     public $scalingGroupId;
+
+    /**
+     * @var int
+     */
+    public $stopInstanceTimeout;
     protected $_name = [
         'clientToken'             => 'ClientToken',
         'decreaseDesiredCapacity' => 'DecreaseDesiredCapacity',
@@ -126,6 +131,7 @@ class RemoveInstancesRequest extends Model
         'resourceOwnerAccount'    => 'ResourceOwnerAccount',
         'resourceOwnerId'         => 'ResourceOwnerId',
         'scalingGroupId'          => 'ScalingGroupId',
+        'stopInstanceTimeout'     => 'StopInstanceTimeout',
     ];
 
     public function validate()
@@ -167,6 +173,9 @@ class RemoveInstancesRequest extends Model
         }
         if (null !== $this->scalingGroupId) {
             $res['ScalingGroupId'] = $this->scalingGroupId;
+        }
+        if (null !== $this->stopInstanceTimeout) {
+            $res['StopInstanceTimeout'] = $this->stopInstanceTimeout;
         }
 
         return $res;
@@ -214,6 +223,9 @@ class RemoveInstancesRequest extends Model
         }
         if (isset($map['ScalingGroupId'])) {
             $model->scalingGroupId = $map['ScalingGroupId'];
+        }
+        if (isset($map['StopInstanceTimeout'])) {
+            $model->stopInstanceTimeout = $map['StopInstanceTimeout'];
         }
 
         return $model;
