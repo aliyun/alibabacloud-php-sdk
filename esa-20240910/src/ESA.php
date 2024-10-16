@@ -43,6 +43,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CheckSiteProjectNameRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CheckSiteProjectNameResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CheckUserProjectNameRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CheckUserProjectNameResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CommitRoutineStagingCodeRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CommitRoutineStagingCodeResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateKvNamespaceRequest;
@@ -55,6 +57,12 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreatePageResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRecordRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRecordResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRecordShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRelatedRecordRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRelatedRecordResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRelatedRouteRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRelatedRouteResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateScheduledPreloadExecutionsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateScheduledPreloadExecutionsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateScheduledPreloadExecutionsShrinkRequest;
@@ -93,6 +101,14 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeletePageRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeletePageResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRecordRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRecordResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineCodeVersionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineCodeVersionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineRelatedRecordRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineRelatedRecordResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineRelatedRouteRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineRelatedRouteResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteScheduledPreloadExecutionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteScheduledPreloadExecutionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteScheduledPreloadJobRequest;
@@ -137,6 +153,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\EnableCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ExportRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ExportRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCacheReserveSpecificationResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetErServiceRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetErServiceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvAccountResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvNamespaceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvNamespaceResponse;
@@ -152,6 +170,12 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetRealtimeDeliveryFieldRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRealtimeDeliveryFieldResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRecordRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRecordResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineStagingCodeUploadInfoRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineStagingCodeUploadInfoResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineStagingEnvIpResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineUserInfoResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetScheduledPreloadJobRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetScheduledPreloadJobResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteCurrentNSRequest;
@@ -211,6 +235,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListPagesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListPagesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRecordsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineCanaryAreasResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineOptionalSpecsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListScheduledPreloadExecutionsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListScheduledPreloadExecutionsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListScheduledPreloadJobsRequest;
@@ -253,6 +279,9 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListWaitingRoomsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PreloadCachesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PreloadCachesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PreloadCachesShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\PublishRoutineCodeVersionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\PublishRoutineCodeVersionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\PublishRoutineCodeVersionShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PurgeCachesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PurgeCachesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PurgeCachesShrinkRequest;
@@ -1303,6 +1332,56 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary 提交Routine测试版本代码
+     *  *
+     * @param CommitRoutineStagingCodeRequest $request CommitRoutineStagingCodeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CommitRoutineStagingCodeResponse CommitRoutineStagingCodeResponse
+     */
+    public function commitRoutineStagingCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->codeDescription)) {
+            $body['CodeDescription'] = $request->codeDescription;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CommitRoutineStagingCode',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CommitRoutineStagingCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提交Routine测试版本代码
+     *  *
+     * @param CommitRoutineStagingCodeRequest $request CommitRoutineStagingCodeRequest
+     *
+     * @return CommitRoutineStagingCodeResponse CommitRoutineStagingCodeResponse
+     */
+    public function commitRoutineStagingCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->commitRoutineStagingCodeWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 创建定制场景策略
      *  *
      * @param CreateCustomScenePolicyRequest $request CreateCustomScenePolicyRequest
@@ -1611,6 +1690,165 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建routine
+     *  *
+     * @param CreateRoutineRequest $request CreateRoutineRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateRoutineResponse CreateRoutineResponse
+     */
+    public function createRoutineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->specName)) {
+            $body['SpecName'] = $request->specName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRoutine',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRoutineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建routine
+     *  *
+     * @param CreateRoutineRequest $request CreateRoutineRequest
+     *
+     * @return CreateRoutineResponse CreateRoutineResponse
+     */
+    public function createRoutine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRoutineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 添加Routine关联域名
+     *  *
+     * @param CreateRoutineRelatedRecordRequest $request CreateRoutineRelatedRecordRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateRoutineRelatedRecordResponse CreateRoutineRelatedRecordResponse
+     */
+    public function createRoutineRelatedRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->recordName)) {
+            $body['RecordName'] = $request->recordName;
+        }
+        if (!Utils::isUnset($request->siteId)) {
+            $body['SiteId'] = $request->siteId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRoutineRelatedRecord',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRoutineRelatedRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 添加Routine关联域名
+     *  *
+     * @param CreateRoutineRelatedRecordRequest $request CreateRoutineRelatedRecordRequest
+     *
+     * @return CreateRoutineRelatedRecordResponse CreateRoutineRelatedRecordResponse
+     */
+    public function createRoutineRelatedRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRoutineRelatedRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 添加Routine关联路由
+     *  *
+     * @param CreateRoutineRelatedRouteRequest $request CreateRoutineRelatedRouteRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateRoutineRelatedRouteResponse CreateRoutineRelatedRouteResponse
+     */
+    public function createRoutineRelatedRouteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->route)) {
+            $body['Route'] = $request->route;
+        }
+        if (!Utils::isUnset($request->siteId)) {
+            $body['SiteId'] = $request->siteId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRoutineRelatedRoute',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRoutineRelatedRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 添加Routine关联路由
+     *  *
+     * @param CreateRoutineRelatedRouteRequest $request CreateRoutineRelatedRouteRequest
+     *
+     * @return CreateRoutineRelatedRouteResponse CreateRoutineRelatedRouteResponse
+     */
+    public function createRoutineRelatedRoute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRoutineRelatedRouteWithOptions($request, $runtime);
     }
 
     /**
@@ -2649,6 +2887,217 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除Routine
+     *  *
+     * @param DeleteRoutineRequest $request DeleteRoutineRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteRoutineResponse DeleteRoutineResponse
+     */
+    public function deleteRoutineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRoutine',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRoutineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除Routine
+     *  *
+     * @param DeleteRoutineRequest $request DeleteRoutineRequest
+     *
+     * @return DeleteRoutineResponse DeleteRoutineResponse
+     */
+    public function deleteRoutine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRoutineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除Routine某版本代码
+     *  *
+     * @param DeleteRoutineCodeVersionRequest $request DeleteRoutineCodeVersionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteRoutineCodeVersionResponse DeleteRoutineCodeVersionResponse
+     */
+    public function deleteRoutineCodeVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->codeVersion)) {
+            $body['CodeVersion'] = $request->codeVersion;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRoutineCodeVersion',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRoutineCodeVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除Routine某版本代码
+     *  *
+     * @param DeleteRoutineCodeVersionRequest $request DeleteRoutineCodeVersionRequest
+     *
+     * @return DeleteRoutineCodeVersionResponse DeleteRoutineCodeVersionResponse
+     */
+    public function deleteRoutineCodeVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRoutineCodeVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除Routine关联域名
+     *  *
+     * @param DeleteRoutineRelatedRecordRequest $request DeleteRoutineRelatedRecordRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteRoutineRelatedRecordResponse DeleteRoutineRelatedRecordResponse
+     */
+    public function deleteRoutineRelatedRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->siteId)) {
+            $query['SiteId'] = $request->siteId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->recordId)) {
+            $body['RecordId'] = $request->recordId;
+        }
+        if (!Utils::isUnset($request->recordName)) {
+            $body['RecordName'] = $request->recordName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRoutineRelatedRecord',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRoutineRelatedRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除Routine关联域名
+     *  *
+     * @param DeleteRoutineRelatedRecordRequest $request DeleteRoutineRelatedRecordRequest
+     *
+     * @return DeleteRoutineRelatedRecordResponse DeleteRoutineRelatedRecordResponse
+     */
+    public function deleteRoutineRelatedRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRoutineRelatedRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除Routine关联路由
+     *  *
+     * @param DeleteRoutineRelatedRouteRequest $request DeleteRoutineRelatedRouteRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteRoutineRelatedRouteResponse DeleteRoutineRelatedRouteResponse
+     */
+    public function deleteRoutineRelatedRouteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->route)) {
+            $body['Route'] = $request->route;
+        }
+        if (!Utils::isUnset($request->routeId)) {
+            $body['RouteId'] = $request->routeId;
+        }
+        if (!Utils::isUnset($request->siteId)) {
+            $body['SiteId'] = $request->siteId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRoutineRelatedRoute',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRoutineRelatedRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除Routine关联路由
+     *  *
+     * @param DeleteRoutineRelatedRouteRequest $request DeleteRoutineRelatedRouteRequest
+     *
+     * @return DeleteRoutineRelatedRouteResponse DeleteRoutineRelatedRouteResponse
+     */
+    public function deleteRoutineRelatedRoute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRoutineRelatedRouteWithOptions($request, $runtime);
     }
 
     /**
@@ -3762,6 +4211,50 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary GetErService
+     *  *
+     * @param GetErServiceRequest $request GetErServiceRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetErServiceResponse GetErServiceResponse
+     */
+    public function getErServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetErService',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetErServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary GetErService
+     *  *
+     * @param GetErServiceRequest $request GetErServiceRequest
+     *
+     * @return GetErServiceResponse GetErServiceResponse
+     */
+    public function getErService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getErServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 查询Key-Value对的某个Key值
      *  *
      * @param GetKvRequest   $request GetKvRequest
@@ -4110,6 +4603,177 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询Routine配置信息
+     *  *
+     * @param GetRoutineRequest $request GetRoutineRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetRoutineResponse GetRoutineResponse
+     */
+    public function getRoutineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRoutine',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRoutineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询Routine配置信息
+     *  *
+     * @param GetRoutineRequest $request GetRoutineRequest
+     *
+     * @return GetRoutineResponse GetRoutineResponse
+     */
+    public function getRoutine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRoutineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 上传Routine的测试版本代码, 返回上传代码到OSS的参数
+     *  *
+     * @param GetRoutineStagingCodeUploadInfoRequest $request GetRoutineStagingCodeUploadInfoRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetRoutineStagingCodeUploadInfoResponse GetRoutineStagingCodeUploadInfoResponse
+     */
+    public function getRoutineStagingCodeUploadInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->codeDescription)) {
+            $body['CodeDescription'] = $request->codeDescription;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRoutineStagingCodeUploadInfo',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRoutineStagingCodeUploadInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 上传Routine的测试版本代码, 返回上传代码到OSS的参数
+     *  *
+     * @param GetRoutineStagingCodeUploadInfoRequest $request GetRoutineStagingCodeUploadInfoRequest
+     *
+     * @return GetRoutineStagingCodeUploadInfoResponse GetRoutineStagingCodeUploadInfoResponse
+     */
+    public function getRoutineStagingCodeUploadInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRoutineStagingCodeUploadInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询边缘函数测试环境IP
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetRoutineStagingEnvIpResponse GetRoutineStagingEnvIpResponse
+     */
+    public function getRoutineStagingEnvIpWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetRoutineStagingEnvIp',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRoutineStagingEnvIpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询边缘函数测试环境IP
+     *  *
+     * @return GetRoutineStagingEnvIpResponse GetRoutineStagingEnvIpResponse
+     */
+    public function getRoutineStagingEnvIp()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRoutineStagingEnvIpWithOptions($runtime);
+    }
+
+    /**
+     * @summary 查询用户的Routine列表
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetRoutineUserInfoResponse GetRoutineUserInfoResponse
+     */
+    public function getRoutineUserInfoWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetRoutineUserInfo',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRoutineUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询用户的Routine列表
+     *  *
+     * @return GetRoutineUserInfoResponse GetRoutineUserInfoResponse
+     */
+    public function getRoutineUserInfo()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRoutineUserInfoWithOptions($runtime);
     }
 
     /**
@@ -5495,6 +6159,80 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary 查询Routine灰度环境列表
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListRoutineCanaryAreasResponse ListRoutineCanaryAreasResponse
+     */
+    public function listRoutineCanaryAreasWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListRoutineCanaryAreas',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRoutineCanaryAreasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询Routine灰度环境列表
+     *  *
+     * @return ListRoutineCanaryAreasResponse ListRoutineCanaryAreasResponse
+     */
+    public function listRoutineCanaryAreas()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRoutineCanaryAreasWithOptions($runtime);
+    }
+
+    /**
+     * @summary 查询Routine可选择规格列表
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListRoutineOptionalSpecsResponse ListRoutineOptionalSpecsResponse
+     */
+    public function listRoutineOptionalSpecsWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListRoutineOptionalSpecs',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRoutineOptionalSpecsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询Routine可选择规格列表
+     *  *
+     * @return ListRoutineOptionalSpecsResponse ListRoutineOptionalSpecsResponse
+     */
+    public function listRoutineOptionalSpecs()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRoutineOptionalSpecsWithOptions($runtime);
+    }
+
+    /**
      * @summary 列出指定任务下的执行计划
      *  *
      * @param ListScheduledPreloadExecutionsRequest $request ListScheduledPreloadExecutionsRequest
@@ -6425,6 +7163,70 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->preloadCachesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 发布Routine某版本代码
+     *  *
+     * @param PublishRoutineCodeVersionRequest $tmpReq  PublishRoutineCodeVersionRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return PublishRoutineCodeVersionResponse PublishRoutineCodeVersionResponse
+     */
+    public function publishRoutineCodeVersionWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new PublishRoutineCodeVersionShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->canaryAreaList)) {
+            $request->canaryAreaListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->canaryAreaList, 'CanaryAreaList', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->canaryAreaListShrink)) {
+            $body['CanaryAreaList'] = $request->canaryAreaListShrink;
+        }
+        if (!Utils::isUnset($request->canaryCodeVersion)) {
+            $body['CanaryCodeVersion'] = $request->canaryCodeVersion;
+        }
+        if (!Utils::isUnset($request->codeVersion)) {
+            $body['CodeVersion'] = $request->codeVersion;
+        }
+        if (!Utils::isUnset($request->env)) {
+            $body['Env'] = $request->env;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PublishRoutineCodeVersion',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PublishRoutineCodeVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 发布Routine某版本代码
+     *  *
+     * @param PublishRoutineCodeVersionRequest $request PublishRoutineCodeVersionRequest
+     *
+     * @return PublishRoutineCodeVersionResponse PublishRoutineCodeVersionResponse
+     */
+    public function publishRoutineCodeVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishRoutineCodeVersionWithOptions($request, $runtime);
     }
 
     /**
