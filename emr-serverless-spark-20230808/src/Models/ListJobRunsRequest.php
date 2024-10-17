@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class ListJobRunsRequest extends Model
 {
     /**
-     * @description The ID of the user who creates a Spark job.
+     * @description The ID of the user who created the job.
      *
      * @example 1509789347011222
      *

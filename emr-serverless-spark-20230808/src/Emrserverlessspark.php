@@ -31,6 +31,10 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspacesResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartJobRunRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartJobRunResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartSessionClusterRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartSessionClusterResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopSessionClusterRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopSessionClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\TerminateSqlStatementRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\TerminateSqlStatementResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -852,6 +856,126 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->startJobRunWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 启动session集群
+     *  *
+     * @param string                     $workspaceId
+     * @param StartSessionClusterRequest $request     StartSessionClusterRequest
+     * @param string[]                   $headers     map
+     * @param RuntimeOptions             $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return StartSessionClusterResponse StartSessionClusterResponse
+     */
+    public function startSessionClusterWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['regionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->queueName)) {
+            $body['queueName'] = $request->queueName;
+        }
+        if (!Utils::isUnset($request->sessionClusterId)) {
+            $body['sessionClusterId'] = $request->sessionClusterId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StartSessionCluster',
+            'version'     => '2023-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/workspaces/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/sessionClusters/action/startSessionCluster',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 启动session集群
+     *  *
+     * @param string                     $workspaceId
+     * @param StartSessionClusterRequest $request     StartSessionClusterRequest
+     *
+     * @return StartSessionClusterResponse StartSessionClusterResponse
+     */
+    public function startSessionCluster($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startSessionClusterWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 启动session集群
+     *  *
+     * @param string                    $workspaceId
+     * @param StopSessionClusterRequest $request     StopSessionClusterRequest
+     * @param string[]                  $headers     map
+     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return StopSessionClusterResponse StopSessionClusterResponse
+     */
+    public function stopSessionClusterWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['regionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->queueName)) {
+            $body['queueName'] = $request->queueName;
+        }
+        if (!Utils::isUnset($request->sessionClusterId)) {
+            $body['sessionClusterId'] = $request->sessionClusterId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StopSessionCluster',
+            'version'     => '2023-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/workspaces/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/sessionClusters/action/stopSessionCluster',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 启动session集群
+     *  *
+     * @param string                    $workspaceId
+     * @param StopSessionClusterRequest $request     StopSessionClusterRequest
+     *
+     * @return StopSessionClusterResponse StopSessionClusterResponse
+     */
+    public function stopSessionCluster($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopSessionClusterWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**

@@ -55,6 +55,10 @@ class ListReleaseVersionsRequest extends Model
     public $releaseVersionStatus;
 
     /**
+     * @description The workspace ID.
+     *
+     * @example w-d2d82aa09155****
+     *
      * @var string
      */
     public $workspaceId;
