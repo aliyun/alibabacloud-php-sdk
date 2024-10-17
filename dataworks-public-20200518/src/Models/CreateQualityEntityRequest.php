@@ -11,6 +11,10 @@ class CreateQualityEntityRequest extends Model
     /**
      * @description This parameter is deprecated.
      *
+     * The value 0 indicates that the partition filter expression is at the SQL level, and the system checks data quality after each SQL statement is executed.
+     *
+     * 0
+     * 1
      *
      * @example 0
      *

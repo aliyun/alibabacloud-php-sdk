@@ -183,6 +183,11 @@ class nodes extends Model
     public $repeatInterval;
 
     /**
+     * @var int
+     */
+    public $repeatMode;
+
+    /**
      * @description The name of the node.
      *
      * @example true
@@ -236,6 +241,7 @@ class nodes extends Model
         'projectId'          => 'ProjectId',
         'relatedFlowId'      => 'RelatedFlowId',
         'repeatInterval'     => 'RepeatInterval',
+        'repeatMode'         => 'RepeatMode',
         'repeatability'      => 'Repeatability',
         'resGroupIdentifier' => 'ResGroupIdentifier',
         'resGroupName'       => 'ResGroupName',
@@ -314,6 +320,9 @@ class nodes extends Model
         }
         if (null !== $this->repeatInterval) {
             $res['RepeatInterval'] = $this->repeatInterval;
+        }
+        if (null !== $this->repeatMode) {
+            $res['RepeatMode'] = $this->repeatMode;
         }
         if (null !== $this->repeatability) {
             $res['Repeatability'] = $this->repeatability;
@@ -404,6 +413,9 @@ class nodes extends Model
         }
         if (isset($map['RepeatInterval'])) {
             $model->repeatInterval = $map['RepeatInterval'];
+        }
+        if (isset($map['RepeatMode'])) {
+            $model->repeatMode = $map['RepeatMode'];
         }
         if (isset($map['Repeatability'])) {
             $model->repeatability = $map['Repeatability'];
