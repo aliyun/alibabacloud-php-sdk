@@ -84,7 +84,7 @@ class ModifyAccessRuleRequest extends Model
      * @description The IP address or CIDR block of the authorized object.
      *
      * You must set this parameter to an IP address or CIDR block.
-     * @example 192.0.\*\*.**
+     * @example ``192.0.**.**``
      *
      * @var string
      */

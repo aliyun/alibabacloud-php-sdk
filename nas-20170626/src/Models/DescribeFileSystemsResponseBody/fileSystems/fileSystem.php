@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSy
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\packages;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\supportedFeatures;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\tags;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\vswIds;
 use AlibabaCloud\Tea\Model;
 
 class fileSystem extends Model
@@ -22,6 +23,11 @@ class fileSystem extends Model
      * @var string
      */
     public $accessPointCount;
+
+    /**
+     * @var string
+     */
+    public $autoSnapshotPolicyId;
 
     /**
      * @description The bandwidth of the file system.
@@ -199,6 +205,11 @@ class fileSystem extends Model
     public $protocolType;
 
     /**
+     * @var string
+     */
+    public $quorumVswId;
+
+    /**
      * @description The region ID.
      *
      * @example cn-hangzhou
@@ -261,6 +272,16 @@ class fileSystem extends Model
     public $version;
 
     /**
+     * @var string
+     */
+    public $vpcId;
+
+    /**
+     * @var vswIds
+     */
+    public $vswIds;
+
+    /**
      * @description The ID of the zone where the file system resides.
      *
      * @example cn-hangzhou-b
@@ -269,33 +290,37 @@ class fileSystem extends Model
      */
     public $zoneId;
     protected $_name = [
-        'accessPointCount'   => 'AccessPointCount',
-        'bandwidth'          => 'Bandwidth',
-        'capacity'           => 'Capacity',
-        'chargeType'         => 'ChargeType',
-        'createTime'         => 'CreateTime',
-        'description'        => 'Description',
-        'encryptType'        => 'EncryptType',
-        'expiredTime'        => 'ExpiredTime',
-        'fileSystemId'       => 'FileSystemId',
-        'fileSystemType'     => 'FileSystemType',
-        'KMSKeyId'           => 'KMSKeyId',
-        'ldap'               => 'Ldap',
-        'meteredArchiveSize' => 'MeteredArchiveSize',
-        'meteredIASize'      => 'MeteredIASize',
-        'meteredSize'        => 'MeteredSize',
-        'mountTargets'       => 'MountTargets',
-        'options'            => 'Options',
-        'packages'           => 'Packages',
-        'protocolType'       => 'ProtocolType',
-        'regionId'           => 'RegionId',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'status'             => 'Status',
-        'storageType'        => 'StorageType',
-        'supportedFeatures'  => 'SupportedFeatures',
-        'tags'               => 'Tags',
-        'version'            => 'Version',
-        'zoneId'             => 'ZoneId',
+        'accessPointCount'     => 'AccessPointCount',
+        'autoSnapshotPolicyId' => 'AutoSnapshotPolicyId',
+        'bandwidth'            => 'Bandwidth',
+        'capacity'             => 'Capacity',
+        'chargeType'           => 'ChargeType',
+        'createTime'           => 'CreateTime',
+        'description'          => 'Description',
+        'encryptType'          => 'EncryptType',
+        'expiredTime'          => 'ExpiredTime',
+        'fileSystemId'         => 'FileSystemId',
+        'fileSystemType'       => 'FileSystemType',
+        'KMSKeyId'             => 'KMSKeyId',
+        'ldap'                 => 'Ldap',
+        'meteredArchiveSize'   => 'MeteredArchiveSize',
+        'meteredIASize'        => 'MeteredIASize',
+        'meteredSize'          => 'MeteredSize',
+        'mountTargets'         => 'MountTargets',
+        'options'              => 'Options',
+        'packages'             => 'Packages',
+        'protocolType'         => 'ProtocolType',
+        'quorumVswId'          => 'QuorumVswId',
+        'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'status'               => 'Status',
+        'storageType'          => 'StorageType',
+        'supportedFeatures'    => 'SupportedFeatures',
+        'tags'                 => 'Tags',
+        'version'              => 'Version',
+        'vpcId'                => 'VpcId',
+        'vswIds'               => 'VswIds',
+        'zoneId'               => 'ZoneId',
     ];
 
     public function validate()
@@ -307,6 +332,9 @@ class fileSystem extends Model
         $res = [];
         if (null !== $this->accessPointCount) {
             $res['AccessPointCount'] = $this->accessPointCount;
+        }
+        if (null !== $this->autoSnapshotPolicyId) {
+            $res['AutoSnapshotPolicyId'] = $this->autoSnapshotPolicyId;
         }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
@@ -362,6 +390,9 @@ class fileSystem extends Model
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
         }
+        if (null !== $this->quorumVswId) {
+            $res['QuorumVswId'] = $this->quorumVswId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -383,6 +414,12 @@ class fileSystem extends Model
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->vswIds) {
+            $res['VswIds'] = null !== $this->vswIds ? $this->vswIds->toMap() : null;
+        }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -400,6 +437,9 @@ class fileSystem extends Model
         $model = new self();
         if (isset($map['AccessPointCount'])) {
             $model->accessPointCount = $map['AccessPointCount'];
+        }
+        if (isset($map['AutoSnapshotPolicyId'])) {
+            $model->autoSnapshotPolicyId = $map['AutoSnapshotPolicyId'];
         }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
@@ -455,6 +495,9 @@ class fileSystem extends Model
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];
         }
+        if (isset($map['QuorumVswId'])) {
+            $model->quorumVswId = $map['QuorumVswId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -475,6 +518,12 @@ class fileSystem extends Model
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['VswIds'])) {
+            $model->vswIds = vswIds::fromMap($map['VswIds']);
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];

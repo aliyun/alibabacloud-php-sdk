@@ -21,6 +21,8 @@ class jobs extends Model
      * @description The error code returned.
      *
      * A valid value is returned only if you set the Status parameter to Fail or PartialSuccess.
+     * @example InvalidFileId.NotFound
+     *
      * @var string
      */
     public $errorCode;
@@ -29,6 +31,8 @@ class jobs extends Model
      * @description The error message.
      *
      * A valid value is returned only if you set the Status parameter to Fail or PartialSuccess.
+     * @example The Target File or Directory does not exist.
+     *
      * @var string
      */
     public $errorMessage;
@@ -80,7 +84,7 @@ class jobs extends Model
      *   Fail: The job failed.
      *   Cancelled: The job is canceled.
      *
-     * @example Running
+     * @example Fail
      *
      * @var string
      */

@@ -5355,6 +5355,8 @@ class NAS extends OpenApiClient
     /**
      * @summary Queries the recycle bin configurations of a General-purpose NAS file system.
      *  *
+     * @description Only General-purpose Apsara File Storage NAS (NAS) file systems support this operation.
+     *  *
      * @param GetRecycleBinAttributeRequest $request GetRecycleBinAttributeRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -5384,6 +5386,8 @@ class NAS extends OpenApiClient
 
     /**
      * @summary Queries the recycle bin configurations of a General-purpose NAS file system.
+     *  *
+     * @description Only General-purpose Apsara File Storage NAS (NAS) file systems support this operation.
      *  *
      * @param GetRecycleBinAttributeRequest $request GetRecycleBinAttributeRequest
      *

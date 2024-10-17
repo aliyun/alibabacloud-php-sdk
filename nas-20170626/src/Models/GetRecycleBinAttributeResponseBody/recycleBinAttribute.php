@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class recycleBinAttribute extends Model
 {
     /**
+     * @description The size of the archived data that is dumped to the recycle bin. Unit: bytes.
+     *
+     * @example 1611661312
+     *
      * @var int
      */
     public $archiveSize;
@@ -33,7 +37,7 @@ class recycleBinAttribute extends Model
     public $reservedDays;
 
     /**
-     * @description The size of the cold data that is dumped to the recycle bin. Unit: bytes.
+     * @description The size of the Infrequent Access (IA) data that is dumped to the recycle bin. Unit: bytes.
      *
      * @example 100
      *
