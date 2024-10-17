@@ -18,8 +18,8 @@ class SearchMediaRequest extends Model
     public $entityId;
 
     /**
-     * @description The filter conditions. For more information about the parameter syntax, see [Media asset search protocols](https://help.aliyun.com/document_detail/2584256.html).
-     *
+     * @description The filter conditions. For more information about the parameter syntax
+     * <props="china">, see [Media asset search protocols](https://help.aliyun.com/document_detail/2584256.html).
      * @var string
      */
     public $match;

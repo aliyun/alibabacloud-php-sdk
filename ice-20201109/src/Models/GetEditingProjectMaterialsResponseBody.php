@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class GetEditingProjectMaterialsResponseBody extends Model
 {
     /**
+     * @description The materials associated with the live stream.
+     *
      * @var liveMaterials[]
      */
     public $liveMaterials;
 
     /**
+     * @description The media assets that meet the specified conditions.
+     *
      * @var mediaInfos[]
      */
     public $mediaInfos;
 
     /**
+     * @description The project ID.
+     *
      * @example *****67ae06542b9b93e0d1c387*****
      *
      * @var string
@@ -28,6 +34,8 @@ class GetEditingProjectMaterialsResponseBody extends Model
     public $projectId;
 
     /**
+     * @description The materials associated with the editing project. A live stream editing project will be associated with a regular editing project after the live streaming ends.
+     *
      * @example *****9b145c5cafc2e057304fcd*****
      *
      * @var string[]
@@ -35,6 +43,8 @@ class GetEditingProjectMaterialsResponseBody extends Model
     public $projectMaterials;
 
     /**
+     * @description The request ID.
+     *
      * @example ******89-C21D-4B78-AE24-3788B8******
      *
      * @var string

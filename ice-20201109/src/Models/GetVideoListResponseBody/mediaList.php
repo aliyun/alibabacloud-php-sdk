@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class mediaList extends Model
 {
     /**
+     * @description The ID of the application. Default value: app-1000000.
+     *
      * @example app-1000000
      *
      * @var string
@@ -16,6 +18,8 @@ class mediaList extends Model
     public $appId;
 
     /**
+     * @description The ID of the category.
+     *
      * @example 3679
      *
      * @var int
@@ -23,11 +27,15 @@ class mediaList extends Model
     public $cateId;
 
     /**
+     * @description The name of the category.
+     *
      * @var string
      */
     public $cateName;
 
     /**
+     * @description The URL of the thumbnail.
+     *
      * @example http://example.aliyundoc.com/snapshot/****.jpg?auth_key=1498476426-0-0-f00b9455c49a423ce69cf4e27333****
      *
      * @var string
@@ -35,6 +43,8 @@ class mediaList extends Model
     public $coverUrl;
 
     /**
+     * @description The time when the audio or video file was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2017-11-14T09:15:50Z
      *
      * @var string
@@ -42,11 +52,15 @@ class mediaList extends Model
     public $creationTime;
 
     /**
+     * @description The description of the audio or video file.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The duration. Unit: seconds.
+     *
      * @example 135.6
      *
      * @var float
@@ -54,6 +68,8 @@ class mediaList extends Model
     public $duration;
 
     /**
+     * @description The ID of the audio or video file.
+     *
      * @example 1c6ce34007d571ed94667630a6bc****
      *
      * @var string
@@ -61,6 +77,8 @@ class mediaList extends Model
     public $mediaId;
 
     /**
+     * @description The time when the audio or video file was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2017-11-14T09:16:50Z
      *
      * @var string
@@ -68,6 +86,8 @@ class mediaList extends Model
     public $modificationTime;
 
     /**
+     * @description The size of the source file. Unit: bytes.
+     *
      * @example 10897890
      *
      * @var int
@@ -75,11 +95,29 @@ class mediaList extends Model
     public $size;
 
     /**
+     * @description The array of video snapshot URLs.
+     *
      * @var string[]
      */
     public $snapshots;
 
     /**
+     * @description The status of the video.
+     *
+     * Valid values:
+     *
+     *   PrepareFail: The file is abnormal.
+     *   UploadFail: The video failed to be uploaded.
+     *   UploadSucc: The video is uploaded.
+     *   Transcoding: The video is being transcoded.
+     *   TranscodeFail: The video failed to be transcoded.
+     *   ProduceFail: The video failed to be produced.
+     *   Normal: The video is normal.
+     *   Uploading: The video is being uploaded.
+     *   Preparing: The file is being generated.
+     *   Blocked: The video is blocked.
+     *   checking: The video is being reviewed.
+     *
      * @example Normal
      *
      * @var string
@@ -87,6 +125,8 @@ class mediaList extends Model
     public $status;
 
     /**
+     * @description The storage address.
+     *
      * @example out-****.oss-cn-shanghai.aliyuncs.com
      *
      * @var string
@@ -94,11 +134,15 @@ class mediaList extends Model
     public $storageLocation;
 
     /**
+     * @description The tags of the audio or video file.
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The title of the audio or video file.
+     *
      * @var string
      */
     public $title;

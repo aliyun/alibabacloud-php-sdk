@@ -9,16 +9,23 @@ use AlibabaCloud\Tea\Model;
 class SubmitVideoTranslationJobRequest extends Model
 {
     /**
+     * @description *   The client token.
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description *   The job description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description *   The configuration parameters of the video translation job.
+     *   The value must be in the JSON format.
+     *
      * @example {"SourceLanguage":"zh","TargetLanguage":"en","DetextArea":"Auto"}
      *
      * @var string
@@ -26,6 +33,10 @@ class SubmitVideoTranslationJobRequest extends Model
     public $editingConfig;
 
     /**
+     * @description *   The input parameters of the video translation job.
+     *   A video translation job takes a video or subtitle file as the input.
+     *   The value must be in the JSON format.
+     *
      * @example {"Type":"Video","Media":"https://your-bucket.oss-cn-shanghai.aliyuncs.com/xxx.mp4"}
      *
      * @var string
@@ -33,6 +44,9 @@ class SubmitVideoTranslationJobRequest extends Model
     public $inputConfig;
 
     /**
+     * @description *   The output parameters of the video translation job.
+     *   A video translation job can generate a video or subtitle file as the output.
+     *
      * @example {"MediaURL": "https://your-bucket.oss-cn-shanghai.aliyuncs.com/your-object.mp4"}
      *
      * @var string
@@ -40,11 +54,15 @@ class SubmitVideoTranslationJobRequest extends Model
     public $outputConfig;
 
     /**
+     * @description *   The job title.
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description *   The user data.
+     *
      * @var string
      */
     public $userData;

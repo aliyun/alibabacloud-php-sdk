@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListEditingProjectsRequest extends Model
 {
     /**
+     * @description The method for creating the online editing project. Valid values:
+     *
+     * \\- WebSDK
      * @example OpenAPI
      *
      * @var string
@@ -16,6 +19,8 @@ class ListEditingProjectsRequest extends Model
     public $createSource;
 
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2022-02-02T23:59:59Z
      *
      * @var string
@@ -23,6 +28,8 @@ class ListEditingProjectsRequest extends Model
     public $endTime;
 
     /**
+     * @description The search keyword. You can search by job ID.
+     *
      * @example ******6f36bc45d09a9d5cde49******
      *
      * @var string
@@ -30,6 +37,9 @@ class ListEditingProjectsRequest extends Model
     public $keyword;
 
     /**
+     * @description The number of entries per page. A maximum of 100 entries can be returned on each page.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var string
@@ -37,6 +47,8 @@ class ListEditingProjectsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example 8EqYpQbZ6Eh7+Zz8DxVYoQ==
      *
      * @var string
@@ -44,6 +56,11 @@ class ListEditingProjectsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The type of the editing project. Valid values:
+     *
+     *   EditingProject: a regular editing project.
+     *   LiveEditingProject: a live stream editing project.
+     *
      * @example EditingProject
      *
      * @var string
@@ -51,6 +68,11 @@ class ListEditingProjectsRequest extends Model
     public $projectType;
 
     /**
+     * @description The order of sorting of the results. Valid values:
+     *
+     *   CreationTime:Desc (default): sorts the results in reverse chronological order.
+     *   CreationTime:Asc: sorts the results in chronological order.
+     *
      * @example CreationTime:Desc
      *
      * @var string
@@ -58,6 +80,8 @@ class ListEditingProjectsRequest extends Model
     public $sortBy;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2017-12-21T08:00:01Z
      *
      * @var string
@@ -65,6 +89,8 @@ class ListEditingProjectsRequest extends Model
     public $startTime;
 
     /**
+     * @description The status of the online editing project. By default, online editing projects in all states are queried.
+     *
      * @example Produced
      *
      * @var string
@@ -72,6 +98,14 @@ class ListEditingProjectsRequest extends Model
     public $status;
 
     /**
+     * @description The template type. This parameter is required if you create a template-based online editing project. Default value: Timeline.
+     *
+     * Valid values:
+     *
+     *   Timeline: a regular template.
+     *   VETemplate: an advanced template.
+     *   None: general editing.
+     *
      * @example None
      *
      * @var string

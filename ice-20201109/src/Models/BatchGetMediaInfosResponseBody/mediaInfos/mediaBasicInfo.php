@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class mediaBasicInfo extends Model
 {
     /**
+     * @description The business type of the media asset.
+     *
      * @example general
      *
      * @var string
@@ -16,11 +18,15 @@ class mediaBasicInfo extends Model
     public $businessType;
 
     /**
+     * @description The category of the media asset.
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The thumbnail URL of the media asset.
+     *
      * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
      *
      * @var string
@@ -28,6 +34,8 @@ class mediaBasicInfo extends Model
     public $coverURL;
 
     /**
+     * @description The time when the media asset was created.
+     *
      * @example 2020-12-26T04:11:10Z
      *
      * @var string
@@ -35,6 +43,8 @@ class mediaBasicInfo extends Model
     public $createTime;
 
     /**
+     * @description The time when the media asset was deleted.
+     *
      * @example 2020-12-26T04:11:10Z
      *
      * @var string
@@ -42,11 +52,15 @@ class mediaBasicInfo extends Model
     public $deletedTime;
 
     /**
+     * @description The description of the media asset.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The URL of the media asset in another service.
+     *
      * @example https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
      *
      * @var string
@@ -63,11 +77,16 @@ class mediaBasicInfo extends Model
     public $mediaId;
 
     /**
+     * @description The tags of the media asset.
+     *
      * @var string
      */
     public $mediaTags;
 
     /**
+     * @description The type of the media asset. Valid values:
+     *
+     * \\- text
      * @example video
      *
      * @var string
@@ -75,6 +94,8 @@ class mediaBasicInfo extends Model
     public $mediaType;
 
     /**
+     * @description The time when the media asset was last modified.
+     *
      * @example 2020-12-26T04:11:12Z
      *
      * @var string
@@ -82,6 +103,8 @@ class mediaBasicInfo extends Model
     public $modifiedTime;
 
     /**
+     * @description The snapshots of the media asset.
+     *
      * @example [{"bucket":"example-bucket","count":"3","iceJobId":"******f48f0e4154976b2b8c45******","location":"oss-cn-beijing","snapshotRegular":"example.jpg","templateId":"******e6a6440b29eb60bd7c******"}]
      *
      * @var string
@@ -89,6 +112,9 @@ class mediaBasicInfo extends Model
     public $snapshots;
 
     /**
+     * @description The source of the media asset. Valid values:
+     *
+     * \\- vod
      * @example oss
      *
      * @var string
@@ -96,6 +122,8 @@ class mediaBasicInfo extends Model
     public $source;
 
     /**
+     * @description The sprite.
+     *
      * @example [{"bucket":"example-bucket","count":"32","iceJobId":"******83ec44d58b2069def2e******","location":"oss-cn-shanghai","snapshotRegular":"example/example-{Count}.jpg","spriteRegular":"example/example-{TileCount}.jpg","templateId":"******e438b14ff39293eaec25******","tileCount":"1"}]
      *
      * @var string
@@ -103,6 +131,8 @@ class mediaBasicInfo extends Model
     public $spriteImages;
 
     /**
+     * @description The status of the media asset.
+     *
      * @example Normal
      *
      * @var string
@@ -110,11 +140,15 @@ class mediaBasicInfo extends Model
     public $status;
 
     /**
+     * @description The title of the media asset.
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The transcoding status of the media asset.
+     *
      * @example Init
      *
      * @var string
@@ -122,6 +156,8 @@ class mediaBasicInfo extends Model
     public $transcodeStatus;
 
     /**
+     * @description The user data.
+     *
      * @example userDataTest
      *
      * @var string

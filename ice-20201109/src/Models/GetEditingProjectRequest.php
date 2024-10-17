@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetEditingProjectRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the online editing project.
      *
+     * This parameter is required.
      * @example ****fb2101bf24b2754cb318787dc****
      *
      * @var string
@@ -18,6 +19,11 @@ class GetEditingProjectRequest extends Model
     public $projectId;
 
     /**
+     * @description The ID of the request source. Valid values:
+     *
+     * \\- WebSDK: If you specify this value, the project timeline is automatically converted into the frontend style, and the materials in the timeline are associated with the project to enable preview by using frontend web SDKs.
+     * @example WebSDK
+     *
      * @var string
      */
     public $requestSource;

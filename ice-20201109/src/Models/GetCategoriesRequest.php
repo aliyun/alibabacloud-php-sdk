@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class GetCategoriesRequest extends Model
 {
     /**
+     * @description The category ID. You can use one of the following methods to obtain the ID:
+     *
+     *   Log on to the [Intelligent Media Services (IMS) console](https://ims.console.aliyun.com) and choose **Media Asset Management** > **Category Management** to view the category ID.
+     *   View the value of CateId returned by the AddCategory operation that you called to create a category.
+     *   View the value of CateId returned by the GetCategories operation that you called to query a category.
+     *
      * @example 33
      *
      * @var int
@@ -16,6 +22,8 @@ class GetCategoriesRequest extends Model
     public $cateId;
 
     /**
+     * @description The page number. Default value: 1
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +31,8 @@ class GetCategoriesRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Valid values: 10 to 100.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +40,9 @@ class GetCategoriesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The sorting rule of results. Valid values:
+     *
+     * \\- CreationTime:Asc: The results are sorted in chronological order based on the creation time.
      * @example CreationTime:Desc
      *
      * @var string
@@ -37,6 +50,8 @@ class GetCategoriesRequest extends Model
     public $sortBy;
 
     /**
+     * @description The type of the category. Valid values: default and material. A value of default indicates audio, video, and image files. This is the default value. A value of material indicates short video materials.
+     *
      * @example default
      *
      * @var string

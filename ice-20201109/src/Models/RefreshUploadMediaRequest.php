@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RefreshUploadMediaRequest extends Model
 {
     /**
+     * @description The ID of the media asset.
+     *
      * @example 411bed50018971edb60b0764a0ec6***
      *
      * @var string

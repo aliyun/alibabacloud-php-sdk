@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeletePlayInfoResponseBody extends Model
 {
     /**
+     * @description The URLs of the media streams that cannot be deleted. Generally, media streams cannot be deleted if you do not have the required permissions.
+     *
      * @var string[]
      */
     public $forbiddenList;
 
     /**
+     * @description The URLs of ignored media streams. An error occurred while obtaining such media assets because the IDs or URLs of the media assets do not exist.
+     *
      * @var string[]
      */
     public $ignoredList;
 
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string

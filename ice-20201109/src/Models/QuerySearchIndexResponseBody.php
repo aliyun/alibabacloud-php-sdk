@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class QuerySearchIndexResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The state of the index. Valid values:
+     *
+     *   active: the index is enabled.
+     *   Deactive: the index is not enabled.
+     *
+     * @example Active
+     *
      * @var string
      */
     public $indexStatus;
 
     /**
+     * @description The category of the index. Valid values:
+     *
+     *   mm: large visual model.
+     *   face: face recognition.
+     *   aiLabel: smart tagging.
+     *
      * @example mm
      *
      * @var string
@@ -26,12 +43,16 @@ class QuerySearchIndexResponseBody extends Model
     public $indexType;
 
     /**
+     * @description The total number of media assets.
+     *
+     * @example 12
+     *
      * @var string
      */
     public $mediaTotal;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 4E84BE44-58A7-****-****-FBEBEA16EF94
      *
@@ -40,6 +61,8 @@ class QuerySearchIndexResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The name of the search library.
+     *
      * @example test1
      *
      * @var string
@@ -47,6 +70,13 @@ class QuerySearchIndexResponseBody extends Model
     public $searchLibName;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

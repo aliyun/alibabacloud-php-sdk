@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class URLUploadInfoList extends Model
 {
     /**
+     * @description The time when the upload job was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2021-11-26 21:47:37
      *
      * @var string
@@ -16,6 +18,8 @@ class URLUploadInfoList extends Model
     public $completeTime;
 
     /**
+     * @description The time when the upload job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2021-11-07T10:03:37Z
      *
      * @var string
@@ -23,6 +27,8 @@ class URLUploadInfoList extends Model
     public $creationTime;
 
     /**
+     * @description The error code returned if the upload job failed.
+     *
      * @example 200
      *
      * @var string
@@ -30,6 +36,8 @@ class URLUploadInfoList extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the upload job failed.
+     *
      * @example Success
      *
      * @var string
@@ -37,6 +45,8 @@ class URLUploadInfoList extends Model
     public $errorMessage;
 
     /**
+     * @description The file size. Unit: bytes.
+     *
      * @example 64610
      *
      * @var string
@@ -44,6 +54,8 @@ class URLUploadInfoList extends Model
     public $fileSize;
 
     /**
+     * @description The ID of the upload job.
+     *
      * @example 3829500c0fef429fa4ec1680b122d***
      *
      * @var string
@@ -51,6 +63,8 @@ class URLUploadInfoList extends Model
     public $jobId;
 
     /**
+     * @description The ID of the uploaded media file.
+     *
      * @example 5014ca70f08171ecbf940764a0fd6***
      *
      * @var string
@@ -58,6 +72,8 @@ class URLUploadInfoList extends Model
     public $mediaId;
 
     /**
+     * @description The status of the upload job. For more information about the valid values of the parameter, see the "Status: the status of a URL-based upload job" section of the [Basic data types](https://help.aliyun.com/document_detail/52839.html) topic.
+     *
      * @example Normal
      *
      * @var string
@@ -65,6 +81,9 @@ class URLUploadInfoList extends Model
     public $status;
 
     /**
+     * @description The upload URL of the source file.
+     *
+     * >  A maximum of 100 URLs can be returned.
      * @example http://****.mp4
      *
      * @var string
@@ -72,6 +91,8 @@ class URLUploadInfoList extends Model
     public $uploadURL;
 
     /**
+     * @description The user data. The value is a JSON string.
+     *
      * @example {"MessageCallback":"{"CallbackURL":"http://example.aliyundoc.com"}", "Extend":"{"localId":"***", "test":"www"}"}
      *
      * @var string

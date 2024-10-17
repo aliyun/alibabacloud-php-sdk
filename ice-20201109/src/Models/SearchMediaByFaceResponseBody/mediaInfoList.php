@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class mediaInfoList extends Model
 {
     /**
+     * @description The ID of the media asset.
+     *
      * @example 3b187b3620c8490886cfc2a9578c****
      *
      * @var string

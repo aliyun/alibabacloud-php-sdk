@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitMediaAiAnalysisJobResponseBody extends Model
 {
     /**
+     * @description The ID of the media asset.
+     *
      * @example ******b48fb04483915d4f2cd8******
      *
      * @var string
@@ -16,7 +18,7 @@ class SubmitMediaAiAnalysisJobResponseBody extends Model
     public $mediaId;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example ****63E8B7C7-4812-46AD-0FA56029AC86****
      *

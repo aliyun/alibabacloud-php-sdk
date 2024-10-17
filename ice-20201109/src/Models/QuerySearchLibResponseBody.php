@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class QuerySearchLibResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
@@ -23,6 +27,8 @@ class QuerySearchLibResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The name of the search library.
+     *
      * @example test1
      *
      * @var string
@@ -30,6 +36,14 @@ class QuerySearchLibResponseBody extends Model
     public $searchLibName;
 
     /**
+     * @description The status of the search library.
+     *
+     * Valid values:
+     *
+     *   normal
+     *   deleting
+     *   deleteFail
+     *
      * @example normal
      *
      * @var string
@@ -37,6 +51,13 @@ class QuerySearchLibResponseBody extends Model
     public $status;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

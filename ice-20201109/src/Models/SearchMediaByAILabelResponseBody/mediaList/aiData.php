@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class aiData extends Model
 {
     /**
+     * @description The tags of the AI job.
+     *
      * @var aiLabelInfo[]
      */
     public $aiLabelInfo;
 
     /**
+     * @description The information about audio files.
+     *
      * @var asrInfo[]
      */
     public $asrInfo;
 
     /**
+     * @description The information about subtitle files.
+     *
      * @var ocrInfo[]
      */
     public $ocrInfo;

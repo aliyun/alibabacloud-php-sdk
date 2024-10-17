@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateSearchLibResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example ******3B-0E1A-586A-AC29-742247******
      *
@@ -23,6 +27,8 @@ class CreateSearchLibResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The name of the search library.
+     *
      * @example test1
      *
      * @var string
@@ -30,6 +36,13 @@ class CreateSearchLibResponseBody extends Model
     public $searchLibName;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

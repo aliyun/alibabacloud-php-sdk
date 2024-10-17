@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class clipInfo extends Model
 {
     /**
+     * @description The start time of the clip.
+     *
      * @example 2
      *
      * @var float
@@ -16,6 +18,8 @@ class clipInfo extends Model
     public $from;
 
     /**
+     * @description The score.
+     *
      * @example 1.2
      *
      * @var float
@@ -23,6 +27,8 @@ class clipInfo extends Model
     public $score;
 
     /**
+     * @description The end time of the clip.
+     *
      * @example 4
      *
      * @var float

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class AddCategoryResponseBody extends Model
 {
     /**
+     * @description The information about the category.
+     *
      * @var category
      */
     public $category;
 
     /**
+     * @description The request ID.
+     *
      * @example ****63E8B7C7-4812-46AD-0FA56029AC86****
      *
      * @var string

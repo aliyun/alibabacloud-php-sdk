@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class audioStreamInfoList extends Model
 {
     /**
+     * @description The bitrate.
+     *
      * @example 127.794
      *
      * @var string
@@ -16,6 +18,8 @@ class audioStreamInfoList extends Model
     public $bitrate;
 
     /**
+     * @description The output layout of sound channels.
+     *
      * @example stereo
      *
      * @var string
@@ -23,6 +27,8 @@ class audioStreamInfoList extends Model
     public $channelLayout;
 
     /**
+     * @description The number of sound channels.
+     *
      * @example 2
      *
      * @var string
@@ -30,6 +36,8 @@ class audioStreamInfoList extends Model
     public $channels;
 
     /**
+     * @description The full name of the codec.
+     *
      * @example AAC (Advanced Audio Coding)
      *
      * @var string
@@ -37,6 +45,8 @@ class audioStreamInfoList extends Model
     public $codecLongName;
 
     /**
+     * @description The short name of the codec.
+     *
      * @example aac
      *
      * @var string
@@ -44,6 +54,8 @@ class audioStreamInfoList extends Model
     public $codecName;
 
     /**
+     * @description The tag of the codec.
+     *
      * @example 0x6134706d
      *
      * @var string
@@ -51,6 +63,8 @@ class audioStreamInfoList extends Model
     public $codecTag;
 
     /**
+     * @description The tag string of the codec.
+     *
      * @example mp4a
      *
      * @var string
@@ -58,6 +72,8 @@ class audioStreamInfoList extends Model
     public $codecTagString;
 
     /**
+     * @description The time base of the codec.
+     *
      * @example 1/24000
      *
      * @var string
@@ -65,6 +81,8 @@ class audioStreamInfoList extends Model
     public $codecTimeBase;
 
     /**
+     * @description The duration.
+     *
      * @example 16.200998
      *
      * @var string
@@ -72,6 +90,8 @@ class audioStreamInfoList extends Model
     public $duration;
 
     /**
+     * @description The audio frame rate.
+     *
      * @example 8
      *
      * @var string
@@ -79,6 +99,8 @@ class audioStreamInfoList extends Model
     public $fps;
 
     /**
+     * @description The sequence number of the audio track.
+     *
      * @example 1
      *
      * @var string
@@ -86,6 +108,8 @@ class audioStreamInfoList extends Model
     public $index;
 
     /**
+     * @description The language.
+     *
      * @example und
      *
      * @var string
@@ -93,6 +117,8 @@ class audioStreamInfoList extends Model
     public $lang;
 
     /**
+     * @description The number of frames.
+     *
      * @example 10
      *
      * @var string
@@ -100,6 +126,8 @@ class audioStreamInfoList extends Model
     public $numFrames;
 
     /**
+     * @description The codec profile.
+     *
      * @example High
      *
      * @var string
@@ -107,6 +135,8 @@ class audioStreamInfoList extends Model
     public $profile;
 
     /**
+     * @description The sampling format.
+     *
      * @example fltp
      *
      * @var string
@@ -114,6 +144,8 @@ class audioStreamInfoList extends Model
     public $sampleFmt;
 
     /**
+     * @description The sampling rate.
+     *
      * @example 44100
      *
      * @var string
@@ -121,6 +153,8 @@ class audioStreamInfoList extends Model
     public $sampleRate;
 
     /**
+     * @description The start time.
+     *
      * @example 0.000000
      *
      * @var string
@@ -128,6 +162,8 @@ class audioStreamInfoList extends Model
     public $startTime;
 
     /**
+     * @description The time base.
+     *
      * @example 1/44100
      *
      * @var string

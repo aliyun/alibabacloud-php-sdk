@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteMediaFromSearchLibRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the media asset.
      *
+     * This parameter is required.
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -18,6 +19,8 @@ class DeleteMediaFromSearchLibRequest extends Model
     public $mediaId;
 
     /**
+     * @description The message body.
+     *
      * @example {}
      *
      * @var string
@@ -25,6 +28,8 @@ class DeleteMediaFromSearchLibRequest extends Model
     public $msgBody;
 
     /**
+     * @description The name of the search library. Default value: ims-default-search-lib.
+     *
      * @example test1
      *
      * @var string

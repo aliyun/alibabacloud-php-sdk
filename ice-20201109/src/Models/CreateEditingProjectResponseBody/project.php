@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class project extends Model
 {
     /**
+     * @description The business configuration of the project. This parameter can be ignored for general editing projects.
+     *
      * @example { "OutputMediaConfig" :    { "StorageLocation": "test-bucket.oss-cn-shanghai.aliyuncs.com", "Path": "test-path"   }, "OutputMediaTarget": "oss-object", "ReservationTime": "2021-06-21T08:05:00Z" }
      *
      * @var string
@@ -16,6 +18,14 @@ class project extends Model
     public $businessConfig;
 
     /**
+     * @description The business status of the project. This parameter can be ignored for general editing projects. Valid values:
+     *
+     *   Reserving
+     *   ReservationCanceled
+     *   BroadCasting
+     *   LoadingFailed
+     *   LiveFinished
+     *
      * @example Reserving
      *
      * @var string
@@ -23,11 +33,15 @@ class project extends Model
     public $businessStatus;
 
     /**
+     * @description The template material parameters.
+     *
      * @var string
      */
     public $clipsParam;
 
     /**
+     * @description The thumbnail URL of the online editing project.
+     *
      * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
      *
      * @var string
@@ -35,6 +49,9 @@ class project extends Model
     public $coverURL;
 
     /**
+     * @description The method for creating the online editing project. Valid values:
+     *
+     * \\- LiveEditingConsole
      * @example WebSDK
      *
      * @var string
@@ -42,6 +59,8 @@ class project extends Model
     public $createSource;
 
     /**
+     * @description The time when the online editing project was created.
+     *
      * @example 2021-01-08T16:52:07Z
      *
      * @var string
@@ -49,6 +68,8 @@ class project extends Model
     public $createTime;
 
     /**
+     * @description The description of the online editing project.
+     *
      * @example example_description
      *
      * @var string
@@ -56,6 +77,8 @@ class project extends Model
     public $description;
 
     /**
+     * @description The duration of the online editing project.
+     *
      * @example 3.4200000
      *
      * @var float
@@ -63,6 +86,9 @@ class project extends Model
     public $duration;
 
     /**
+     * @description The method for editing the online editing project. Valid values:
+     *
+     * \\- LiveEditingConsole
      * @example WebSDK
      *
      * @var string
@@ -70,6 +96,8 @@ class project extends Model
     public $modifiedSource;
 
     /**
+     * @description The time when the online editing project was last edited.
+     *
      * @example 2021-01-08T16:52:07Z
      *
      * @var string
@@ -77,6 +105,8 @@ class project extends Model
     public $modifiedTime;
 
     /**
+     * @description The ID of the online editing project.
+     *
      * @example ****01bf24bf41c78b2754cb3187****
      *
      * @var string
@@ -84,6 +114,9 @@ class project extends Model
     public $projectId;
 
     /**
+     * @description The type of the editing project. Default value: EditingProject. Valid values:
+     *
+     * \\- LiveEditingProject: a live stream editing project.
      * @example LiveEditingProject
      *
      * @var string
@@ -91,6 +124,9 @@ class project extends Model
     public $projectType;
 
     /**
+     * @description The status of the online editing project.
+     *
+     * \\- 7: Deleted
      * @example 2
      *
      * @var int
@@ -98,6 +134,8 @@ class project extends Model
     public $status;
 
     /**
+     * @description The status of the online editing project. For more information, see the status list.
+     *
      * @example Editing
      *
      * @var string
@@ -105,6 +143,8 @@ class project extends Model
     public $statusName;
 
     /**
+     * @description The template ID.
+     *
      * @example ****96e8864746a0b6f3****
      *
      * @var string
@@ -112,6 +152,9 @@ class project extends Model
     public $templateId;
 
     /**
+     * @description The template type of the online editing project. Valid values:
+     *
+     * \\- VETemplate
      * @example Timeline
      *
      * @var string
@@ -119,6 +162,8 @@ class project extends Model
     public $templateType;
 
     /**
+     * @description The timeline of the online editing project, in the JSON format. For more information about objects in a timeline, see [Timeline configurations](https://help.aliyun.com/document_detail/198823.htm?spm=a2c4g.11186623.2.9.90dc653dF67srN#topic-2024662). If you leave this parameter empty, an empty timeline is created and the duration of the online editing project is zero.
+     *
      * @example {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****4d7cf14dc7b83b0e801c****"},{"MediaId":"****4d7cf14dc7b83b0e801c****"}]}]}
      *
      * @var string
@@ -126,6 +171,8 @@ class project extends Model
     public $timeline;
 
     /**
+     * @description The title of the online editing project.
+     *
      * @example example_title
      *
      * @var string

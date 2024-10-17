@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class aiRoughData extends Model
 {
     /**
-     * @description The category of the AI job.
+     * @description TV Series
      *
      * @example TV series
      *

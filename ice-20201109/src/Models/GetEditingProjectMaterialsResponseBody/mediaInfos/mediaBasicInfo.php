@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class mediaBasicInfo extends Model
 {
     /**
+     * @description The business type of the media asset.
+     *
      * @example general
      *
      * @var string
@@ -16,6 +18,8 @@ class mediaBasicInfo extends Model
     public $businessType;
 
     /**
+     * @description The category of the media asset.
+     *
      * @example video
      *
      * @var string
@@ -23,6 +27,8 @@ class mediaBasicInfo extends Model
     public $category;
 
     /**
+     * @description The thumbnail URL of the media asset.
+     *
      * @example http://sample-bucket.oss-cn-shanghai.aliyuncs.com/sample-corver.jpg?Expires=1628670610&OSSAccessKeyId=AK&Signature=signature
      *
      * @var string
@@ -30,6 +36,8 @@ class mediaBasicInfo extends Model
     public $coverURL;
 
     /**
+     * @description The time when the media asset was created.
+     *
      * @example 2020-12-26T04:11:08Z
      *
      * @var string
@@ -37,6 +45,8 @@ class mediaBasicInfo extends Model
     public $createTime;
 
     /**
+     * @description The time when the media asset was deleted.
+     *
      * @example 2020-12-26T04:11:08Z
      *
      * @var string
@@ -44,6 +54,8 @@ class mediaBasicInfo extends Model
     public $deletedTime;
 
     /**
+     * @description The description of the media asset.
+     *
      * @example sample_description
      *
      * @var string
@@ -51,6 +63,8 @@ class mediaBasicInfo extends Model
     public $description;
 
     /**
+     * @description The URL of the media asset in another service.
+     *
      * @example http://bucket.oss-cn-shanghai.aliyuncs.com/file.mp4
      *
      * @var string
@@ -58,7 +72,7 @@ class mediaBasicInfo extends Model
     public $inputURL;
 
     /**
-     * @description MediaId
+     * @description The ID of the media asset.
      *
      * @example *****64623a94eca8516569c8f*****
      *
@@ -67,11 +81,15 @@ class mediaBasicInfo extends Model
     public $mediaId;
 
     /**
+     * @description The tags of the media asset.
+     *
      * @var string
      */
     public $mediaTags;
 
     /**
+     * @description The type of the media asset.
+     *
      * @example video
      *
      * @var string
@@ -79,6 +97,8 @@ class mediaBasicInfo extends Model
     public $mediaType;
 
     /**
+     * @description The time when the media asset was last modified.
+     *
      * @example 2020-12-26T04:11:08Z
      *
      * @var string
@@ -86,6 +106,8 @@ class mediaBasicInfo extends Model
     public $modifiedTime;
 
     /**
+     * @description The snapshots of the media asset.
+     *
      * @example null
      *
      * @var string
@@ -93,6 +115,8 @@ class mediaBasicInfo extends Model
     public $snapshots;
 
     /**
+     * @description The source of the media asset.
+     *
      * @example oss
      *
      * @var string
@@ -100,6 +124,8 @@ class mediaBasicInfo extends Model
     public $source;
 
     /**
+     * @description The sprite of the media asset
+     *
      * @example null
      *
      * @var string
@@ -107,6 +133,8 @@ class mediaBasicInfo extends Model
     public $spriteImages;
 
     /**
+     * @description The status of the media asset.
+     *
      * @example Normal
      *
      * @var string
@@ -114,6 +142,8 @@ class mediaBasicInfo extends Model
     public $status;
 
     /**
+     * @description The title of the media asset.
+     *
      * @example file.mp4
      *
      * @var string
@@ -121,6 +151,15 @@ class mediaBasicInfo extends Model
     public $title;
 
     /**
+     * @description The transcoding status of the media asset.
+     *
+     * Valid values:
+     *
+     *   TranscodeSuccess: transcoding completed.
+     *   TranscodeFailed: transcoding failed.
+     *   Init: initializing.
+     *   Transcoding: transcoding in progress.
+     *
      * @example Init
      *
      * @var string
@@ -128,6 +167,8 @@ class mediaBasicInfo extends Model
     public $transcodeStatus;
 
     /**
+     * @description The user data.
+     *
      * @example userData
      *
      * @var string

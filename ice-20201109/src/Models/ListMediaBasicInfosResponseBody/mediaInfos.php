@@ -25,6 +25,8 @@ class mediaInfos extends Model
     public $mediaBasicInfo;
 
     /**
+     * @description The ID of the media asset.
+     *
      * @example ****019b82e24b37a1c2958dec38****
      *
      * @var string

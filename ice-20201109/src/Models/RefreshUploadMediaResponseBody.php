@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RefreshUploadMediaResponseBody extends Model
 {
     /**
+     * @description The ID of the media asset.
+     *
      * @example c2e77390f75271ec802f0674a2ce6***
      *
      * @var string
@@ -16,6 +18,8 @@ class RefreshUploadMediaResponseBody extends Model
     public $mediaId;
 
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string
@@ -23,6 +27,9 @@ class RefreshUploadMediaResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The upload URL.
+     *
+     * >  The returned upload URL is a Base64-encoded URL. You must decode the Base64-encoded upload URL before you use an SDK or call an API operation to upload media files. You need to parse UploadAddress only if you use Object Storage Service (OSS) SDK or call an OSS API operation to upload media files.
      * @example eyJFbmRwb2ludCI6Imh0dHBzOi8vb3NzLWNuLXNoYW5naGFpLmFsaXl1bmNzLmNvbSIsIkJ1Y2tldCI6InN6aGQtdmlkZW8iLCJGaWxlTmFtZSI6InZvZC0yOTYzMWEvc3YvNTBmYTJlODQtMTgxMjdhZGRiMTcvNTBmYTJlODQtMTgxMjdhZGRiM***
      *
      * @var string
@@ -30,6 +37,9 @@ class RefreshUploadMediaResponseBody extends Model
     public $uploadAddress;
 
     /**
+     * @description The upload credential.
+     *
+     * >  The returned upload credential is a Base64-encoded value. You must decode the Base64-encoded upload credential before you use an SDK or call an API operation to upload media files. You need to parse UploadAuth only if you use OSS SDK or call an OSS API operation to upload media files.
      * @example eyJBY2Nlc3NLZXlJZCI6IkxUQUk0Rm53bTk1dHdxQjMxR3IzSE5hRCIsIkFjY2Vzc0tleVNlY3JldCI6Ik9lWllKR0dTMTlkNkZaM1E3UVpJQmdmSVdnM3BPaiIsIkV4cGlyYXRpb24iOiI***
      *
      * @var string

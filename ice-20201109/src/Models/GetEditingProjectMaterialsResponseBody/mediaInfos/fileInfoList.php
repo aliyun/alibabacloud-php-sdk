@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class fileInfoList extends Model
 {
     /**
+     * @description The basic information of the file, such as the duration and size.
+     *
      * @var fileBasicInfo
      */
     public $fileBasicInfo;

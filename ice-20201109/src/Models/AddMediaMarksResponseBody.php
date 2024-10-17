@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddMediaMarksResponseBody extends Model
 {
     /**
+     * @description The ID of the media asset.
+     *
      * @example 53afdf003a******6a16b5feac6402
      *
      * @var string
@@ -16,6 +18,8 @@ class AddMediaMarksResponseBody extends Model
     public $mediaId;
 
     /**
+     * @description The IDs of the marks that are added.
+     *
      * @example mark-f82d*****4994b0915948ef7e16,mark-3d56d*****4c8fa9ae2a1f9e5d2d60
      *
      * @var string
@@ -23,6 +27,8 @@ class AddMediaMarksResponseBody extends Model
     public $mediaMarkIds;
 
     /**
+     * @description The request ID.
+     *
      * @example 771A1414-27BF-53E6-AB73-EFCB*****ACF
      *
      * @var string

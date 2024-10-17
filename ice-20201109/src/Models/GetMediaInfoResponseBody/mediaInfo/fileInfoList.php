@@ -13,21 +13,29 @@ use AlibabaCloud\Tea\Model;
 class fileInfoList extends Model
 {
     /**
+     * @description The information about the audio tracks. A media asset may have multiple audio tracks.
+     *
      * @var audioStreamInfoList[]
      */
     public $audioStreamInfoList;
 
     /**
+     * @description The basic information about the file, including the duration and size.
+     *
      * @var fileBasicInfo
      */
     public $fileBasicInfo;
 
     /**
+     * @description The information about the subtitle tracks. A media asset may have multiple subtitle tracks.
+     *
      * @var subtitleStreamInfoList[]
      */
     public $subtitleStreamInfoList;
 
     /**
+     * @description The information about the video tracks. A media asset may have multiple video tracks.
+     *
      * @var videoStreamInfoList[]
      */
     public $videoStreamInfoList;

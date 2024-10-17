@@ -10,18 +10,31 @@ use AlibabaCloud\Tea\Model;
 class SubmitVideoTranslationJobResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example ******3B-0E1A-586A-AC29-742247******
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

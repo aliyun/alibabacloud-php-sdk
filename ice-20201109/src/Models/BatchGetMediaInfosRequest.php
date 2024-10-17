@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class BatchGetMediaInfosRequest extends Model
 {
     /**
+     * @description The additional information that you want to query about the media assets. By default, only BasicInfo is returned. The following additional information can be queried:
+     *
+     * \\- DynamicMetaData
      * @example FileInfo,DynamicMetaData
      *
      * @var string
@@ -16,6 +19,8 @@ class BatchGetMediaInfosRequest extends Model
     public $additionType;
 
     /**
+     * @description The IDs of the media assets that you want to query. Separate the IDs with commas (,).
+     *
      * @example ******b48fb04483915d4f2cd8******,******c48fb37407365d4f2cd8******
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RegisterMediaInfoResponseBody extends Model
 {
     /**
+     * @description The ID of the media asset in IMS.
+     *
      * @example ******b48fb04483915d4f2cd8******
      *
      * @var string
@@ -16,6 +18,8 @@ class RegisterMediaInfoResponseBody extends Model
     public $mediaId;
 
     /**
+     * @description The request ID.
+     *
      * @example ******5A-CAAC-4850-A3AF-B74606******
      *
      * @var string

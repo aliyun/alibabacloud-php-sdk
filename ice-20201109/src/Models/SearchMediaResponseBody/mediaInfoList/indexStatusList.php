@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class indexStatusList extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $indexStatus;
 
     /**
+     * @example mm
+     *
      * @var string
      */
     public $indexType;

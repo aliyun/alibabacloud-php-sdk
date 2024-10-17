@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMediaMarksRequest extends Model
 {
     /**
+     * @description The ID of the media asset.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetMediaMarksRequest extends Model
     public $mediaId;
 
     /**
+     * @description The mark ID. You can specify multiple mark IDs separated with commas (,).
+     *
      * @example mark-f82d*****4994b0915948ef7e16,mark-3d56d*****4c8fa9ae2a1f9e5d2d60
      *
      * @var string

@@ -10,11 +10,23 @@ use AlibabaCloud\Tea\Model;
 class aiRoughData extends Model
 {
     /**
+     * @description The AI category. Valid values:
+     *
+     *   Life
+     *   Good-looking
+     *   Cute pets
+     *   News
+     *   Ads
+     *   Environmental resources
+     *   Automobile
+     *
      * @var string
      */
     public $aiCategory;
 
     /**
+     * @description The ID of the AI task.
+     *
      * @example ****483915d4f2cd8ac20b48fb04****
      *
      * @var string
@@ -22,6 +34,8 @@ class aiRoughData extends Model
     public $aiJobId;
 
     /**
+     * @description The analysis result.
+     *
      * @example https://sample-bucket.cn-shanghai.aliyuncs.com/result.json
      *
      * @var string
@@ -29,6 +43,10 @@ class aiRoughData extends Model
     public $result;
 
     /**
+     * @description The storage type. This parameter indicates the library in which the analysis data is stored. Valid values:
+     *
+     *   TEXT: the text library.
+     *
      * @example TEXT
      *
      * @var string
@@ -36,11 +54,25 @@ class aiRoughData extends Model
     public $saveType;
 
     /**
+     * @description The information about the tagging job.
+     *
      * @var standardSmartTagJob
      */
     public $standardSmartTagJob;
 
     /**
+     * @description The analysis status. Valid values:
+     *
+     *   Analyzing
+     *   AnalyzeSuccess
+     *   AnalyzeFailed
+     *   Saving
+     *   SaveSuccess
+     *   SaveFailed
+     *   Deleting
+     *   DeleteSuccess
+     *   DeleteFailed
+     *
      * @example Analyzing
      *
      * @var string

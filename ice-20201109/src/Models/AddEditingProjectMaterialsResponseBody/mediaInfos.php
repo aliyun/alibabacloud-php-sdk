@@ -18,11 +18,15 @@ class mediaInfos extends Model
     public $fileInfoList;
 
     /**
+     * @description The basic information of the media assets.
+     *
      * @var mediaBasicInfo
      */
     public $mediaBasicInfo;
 
     /**
+     * @description The ID of the media asset.
+     *
      * @example *****5cb2e35433198daae94a72*****
      *
      * @var string

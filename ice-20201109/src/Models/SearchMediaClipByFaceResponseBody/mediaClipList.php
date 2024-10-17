@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class mediaClipList extends Model
 {
     /**
+     * @description The type of the character. Valid values: celebrity sensitive politician custom unknown
+     *
      * @example celebrity
      *
      * @var string
@@ -17,6 +19,8 @@ class mediaClipList extends Model
     public $category;
 
     /**
+     * @description The ID of the entity, which is the same as the entity ID returned in tag analysis.
+     *
      * @example 1031025****
      *
      * @var string
@@ -24,16 +28,22 @@ class mediaClipList extends Model
     public $entityId;
 
     /**
+     * @description The name of the entity.
+     *
      * @var string
      */
     public $labelName;
 
     /**
+     * @description The information about clips related to the face.
+     *
      * @var occurrencesInfos[]
      */
     public $occurrencesInfos;
 
     /**
+     * @description The score of the clip. The value is of the Float type. The value is in the range of [0,1].
+     *
      * @example 0.99041677
      *
      * @var float

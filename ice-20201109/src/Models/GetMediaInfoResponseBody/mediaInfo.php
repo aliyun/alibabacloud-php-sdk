@@ -12,23 +12,29 @@ use AlibabaCloud\Tea\Model;
 class mediaInfo extends Model
 {
     /**
+     * @description The original AI analysis data.
+     *
      * @var aiRoughData
      */
     public $aiRoughData;
 
     /**
+     * @description The file information.
+     *
      * @var fileInfoList[]
      */
     public $fileInfoList;
 
     /**
-     * @description BasicInfo
+     * @description The basic information about the media asset.
      *
      * @var mediaBasicInfo
      */
     public $mediaBasicInfo;
 
     /**
+     * @description The ID of the media asset.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string

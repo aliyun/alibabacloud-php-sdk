@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitMediaAiAnalysisJobRequest extends Model
 {
     /**
+     * @description The analysis parameters.
+     *
      * @example {"nlpParams":{"sourceLanguage":"cn","diarizationEnabled":true,"speakerCount":0,"summarizationEnabled":false,"translationEnabled":false}}
      *
      * @var string
@@ -16,6 +18,8 @@ class SubmitMediaAiAnalysisJobRequest extends Model
     public $analysisParams;
 
     /**
+     * @description The media asset that you want to analyze. You can specify an Object Storage Service (OSS) URL, a media asset ID, or an external URL.
+     *
      * @example {"MediaType":"video","Media":"https://xxx.com/your_movie.mp4"}
      *
      * @var string

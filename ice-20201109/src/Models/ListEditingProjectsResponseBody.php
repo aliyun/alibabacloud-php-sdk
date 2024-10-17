@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListEditingProjectsResponseBody extends Model
 {
     /**
+     * @description The maximum number of entries returned.
+     *
      * @example 10
      *
      * @var int
@@ -17,8 +19,9 @@ class ListEditingProjectsResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description This parameter is required.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
      *
+     * This parameter is required.
      * @example Nzv3rcKla9wHUGua9YXHNA==
      *
      * @var string
@@ -26,12 +29,14 @@ class ListEditingProjectsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The queried online editing projects.
+     *
      * @var projectList[]
      */
     public $projectList;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example *****ACB-44F2-5F2D-88D7-1283E70*****
      *

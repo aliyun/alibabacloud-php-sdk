@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class InsertMediaToSearchLibResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the media asset.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -21,7 +27,7 @@ class InsertMediaToSearchLibResponseBody extends Model
     public $mediaId;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example *****ACB-44F2-5F2D-88D7-1283E70*****
      *
@@ -30,6 +36,13 @@ class InsertMediaToSearchLibResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

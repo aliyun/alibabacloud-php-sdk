@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetVideoListResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -17,12 +19,14 @@ class GetVideoListResponseBody extends Model
     public $code;
 
     /**
+     * @description The information about the audio and video files.
+     *
      * @var mediaList[]
      */
     public $mediaList;
 
     /**
-     * @description Id of the request。
+     * @description The ID of the request.
      *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
@@ -31,6 +35,11 @@ class GetVideoListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var string
@@ -38,6 +47,8 @@ class GetVideoListResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of audio and video files that meet the conditions.
+     *
      * @example 163
      *
      * @var int

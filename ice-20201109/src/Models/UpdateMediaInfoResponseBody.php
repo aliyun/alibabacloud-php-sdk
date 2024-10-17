@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateMediaInfoResponseBody extends Model
 {
     /**
+     * @description The ID of the media asset in IMS.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateMediaInfoResponseBody extends Model
     public $mediaId;
 
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string

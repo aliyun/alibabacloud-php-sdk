@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListMediaBasicInfosRequest extends Model
 {
     /**
+     * @description The business type of the media asset. Valid values:
+     *
+     * \\- general
      * @example opening
      *
      * @var string
@@ -16,6 +19,9 @@ class ListMediaBasicInfosRequest extends Model
     public $businessType;
 
     /**
+     * @description The end time of utcCreated.
+     *
+     * \\- Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. For example, 2017-01-11T12:00:00Z indicates 20:00:00 on January 11, 2017 (UTC +8).
      * @example 2020-12-20T13:00:00Z
      *
      * @var string
@@ -23,6 +29,8 @@ class ListMediaBasicInfosRequest extends Model
     public $endTime;
 
     /**
+     * @description Specifies whether to return the basic information of the source file.
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +38,9 @@ class ListMediaBasicInfosRequest extends Model
     public $includeFileBasicInfo;
 
     /**
+     * @description The maximum number of entries to return.
+     *
+     * Maximum value: 100. Default value: 10.
      * @example 5
      *
      * @var int
@@ -37,6 +48,8 @@ class ListMediaBasicInfosRequest extends Model
     public $maxResults;
 
     /**
+     * @description The ID of the media asset.
+     *
      * @example ****019b82e24b37a1c2958dec38****
      *
      * @var string
@@ -44,6 +57,9 @@ class ListMediaBasicInfosRequest extends Model
     public $mediaId;
 
     /**
+     * @description The type of the media asset. Valid values:
+     *
+     * \\- text
      * @example video
      *
      * @var string
@@ -51,6 +67,8 @@ class ListMediaBasicInfosRequest extends Model
     public $mediaType;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
      * @example pSa1SQ0wCe5pzVrQ6mWZEw==
      *
      * @var string
@@ -58,6 +76,9 @@ class ListMediaBasicInfosRequest extends Model
     public $nextToken;
 
     /**
+     * @description The order of sorting by utcCreated. Default value: desc. Valid values:
+     *
+     * \\- asc
      * @example desc
      *
      * @var string
@@ -65,6 +86,9 @@ class ListMediaBasicInfosRequest extends Model
     public $sortBy;
 
     /**
+     * @description The source of the media asset. Valid values:
+     *
+     * \\- general: other sources. This is the default value.
      * @example oss
      *
      * @var string
@@ -72,6 +96,9 @@ class ListMediaBasicInfosRequest extends Model
     public $source;
 
     /**
+     * @description The start time of utcCreated.
+     *
+     * \\- Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. For example, 2017-01-11T12:00:00Z indicates 20:00:00 on January 11, 2017 (UTC +8).
      * @example 2020-12-20T12:00:00Z
      *
      * @var string
@@ -79,6 +106,9 @@ class ListMediaBasicInfosRequest extends Model
     public $startTime;
 
     /**
+     * @description The status of the media asset. Valid values:
+     *
+     * \\- Normal: The source file is ready.
      * @example Normal
      *
      * @var string

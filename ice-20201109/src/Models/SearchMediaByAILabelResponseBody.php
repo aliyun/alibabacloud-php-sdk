@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SearchMediaByAILabelResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class SearchMediaByAILabelResponseBody extends Model
     public $code;
 
     /**
+     * @description The media assets that contain the specified content.
+     *
      * @var mediaList[]
      */
     public $mediaList;
 
     /**
+     * @description The ID of the request.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string
@@ -29,6 +35,8 @@ class SearchMediaByAILabelResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var string
@@ -36,6 +44,8 @@ class SearchMediaByAILabelResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of audio and video files that meet the conditions.
+     *
      * @example 30
      *
      * @var int

@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class GetCategoriesResponseBody extends Model
 {
     /**
+     * @description The information about the category.
+     *
      * @var category
      */
     public $category;
 
     /**
+     * @description The request ID.
+     *
      * @example ******3B-0E1A-586A-AC29-742247******
      *
      * @var string
@@ -23,11 +27,15 @@ class GetCategoriesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The subcategories in the category.
+     *
      * @var subCategories
      */
     public $subCategories;
 
     /**
+     * @description The total number of subcategories.
+     *
      * @example 100
      *
      * @var int

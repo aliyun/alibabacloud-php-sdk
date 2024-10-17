@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteEditingProjectsRequest extends Model
 {
     /**
+     * @description The ID of the online editing project. You can specify multiple IDs separated with commas (,).
+     *
      * @example ****fb2101bf24bf41cb318787dc****,****87dcfb2101bf24bf41cb3187****
      *
      * @var string

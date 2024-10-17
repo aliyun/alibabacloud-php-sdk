@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class mediaList extends Model
 {
     /**
+     * @description The information about the clip.
+     *
      * @var clipInfo[]
      */
     public $clipInfo;
 
     /**
+     * @description The ID of the media asset.
+     *
      * @example a18936e0e28771edb59ae6f6f47a****
      *
      * @var string

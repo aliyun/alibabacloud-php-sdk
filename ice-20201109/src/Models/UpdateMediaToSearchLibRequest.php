@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateMediaToSearchLibRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the media asset.
      *
+     * This parameter is required.
      * @example ****019b82e24b37a1c2958dec38****
      *
      * @var string
@@ -18,8 +19,9 @@ class UpdateMediaToSearchLibRequest extends Model
     public $mediaId;
 
     /**
-     * @description This parameter is required.
+     * @description The message body.
      *
+     * This parameter is required.
      * @example {}
      *
      * @var string
@@ -27,6 +29,8 @@ class UpdateMediaToSearchLibRequest extends Model
     public $msgBody;
 
     /**
+     * @description The name of the search library. Default value: ims-default-search-lib.
+     *
      * @example test1
      *
      * @var string

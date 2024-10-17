@@ -554,7 +554,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建媒资分类
+     * @summary Creates a category.
+     *  *
+     * @description You can create at most three levels of categories. Each category level can contain a maximum of 100 subcategories.
      *  *
      * @param AddCategoryRequest $request AddCategoryRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -593,7 +595,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建媒资分类
+     * @summary Creates a category.
+     *  *
+     * @description You can create at most three levels of categories. Each category level can contain a maximum of 100 subcategories.
      *  *
      * @param AddCategoryRequest $request AddCategoryRequest
      *
@@ -607,7 +611,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 剪辑工程增加素材
+     * @summary Adds one or more materials to an online editing project.
      *  *
      * @param AddEditingProjectMaterialsRequest $request AddEditingProjectMaterialsRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -643,7 +647,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 剪辑工程增加素材
+     * @summary Adds one or more materials to an online editing project.
      *  *
      * @param AddEditingProjectMaterialsRequest $request AddEditingProjectMaterialsRequest
      *
@@ -704,7 +708,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 为媒资增加标注信息
+     * @summary Adds marks for a media asset.
      *  *
      * @param AddMediaMarksRequest $request AddMediaMarksRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -740,7 +744,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 为媒资增加标注信息
+     * @summary Adds marks for a media asset.
      *  *
      * @param AddMediaMarksRequest $request AddMediaMarksRequest
      *
@@ -824,7 +828,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新搜索索引
+     * @summary Modifies search index information including index status and configurations.
      *  *
      * @param AlterSearchIndexRequest $request AlterSearchIndexRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -866,7 +870,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新搜索索引
+     * @summary Modifies search index information including index status and configurations.
      *  *
      * @param AlterSearchIndexRequest $request AlterSearchIndexRequest
      *
@@ -880,7 +884,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 批量获取媒资信息
+     * @summary Queries the information about multiple media assets at a time based on media asset IDs.
      *  *
      * @param BatchGetMediaInfosRequest $request BatchGetMediaInfosRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -916,7 +920,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 批量获取媒资信息
+     * @summary Queries the information about multiple media assets at a time based on media asset IDs.
      *  *
      * @param BatchGetMediaInfosRequest $request BatchGetMediaInfosRequest
      *
@@ -1328,7 +1332,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建云剪辑工程
+     * @summary Creates an online editing project. You can specify configurations such as the title, description, timeline, and thumbnail for the project.
      *  *
      * @param CreateEditingProjectRequest $request CreateEditingProjectRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -1390,7 +1394,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建云剪辑工程
+     * @summary Creates an online editing project. You can specify configurations such as the title, description, timeline, and thumbnail for the project.
      *  *
      * @param CreateEditingProjectRequest $request CreateEditingProjectRequest
      *
@@ -1628,6 +1632,8 @@ class ICE extends OpenApiClient
     /**
      * @summary 创建搜索索引
      *  *
+     * @description The large visual model feature is still in the public preview phase. You can use this feature for free for 1,000 hours of videos.
+     *  *
      * @param CreateSearchIndexRequest $request CreateSearchIndexRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -1670,6 +1676,8 @@ class ICE extends OpenApiClient
     /**
      * @summary 创建搜索索引
      *  *
+     * @description The large visual model feature is still in the public preview phase. You can use this feature for free for 1,000 hours of videos.
+     *  *
      * @param CreateSearchIndexRequest $request CreateSearchIndexRequest
      *
      * @return CreateSearchIndexResponse CreateSearchIndexResponse
@@ -1682,7 +1690,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建库
+     * @summary Creates a search library to store media assets.
      *  *
      * @param CreateSearchLibRequest $request CreateSearchLibRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -1715,7 +1723,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建库
+     * @summary Creates a search library to store media assets.
      *  *
      * @param CreateSearchLibRequest $request CreateSearchLibRequest
      *
@@ -1729,7 +1737,15 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 本地媒资上传
+     * @summary Obtains the upload URL and credential of a media asset and creates information about the media asset.
+     *  *
+     * @description *   You can call this operation to obtain the upload URLs and credentials of audio and video files. You can also call this operation to obtain the upload URLs and credentials of images and auxiliary media assets.
+     * *   Obtaining an upload URL and credential is essential for Intelligent Media Services (IMS) and is required in each upload operation.
+     * *   If the video upload credential expires, you can call the RefreshUploadMedia operation to obtain a new upload credential. The default validity period of a video upload credential is 3,000 seconds.
+     * *   After you upload a media asset, you can configure a callback to receive upload event notifications or call the GetMediaInfo operation to determine whether the media asset is uploaded based on the returned status.
+     * *   The MediaId parameter returned by this operation can be used for media asset lifecycle management or media processing.
+     * *   You can call this operation to upload media assets only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media asset to your own OSS bucket, you can upload the file to your OSS bucket by using [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the file in the OSS bucket with the media asset library.
+     * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
      *  *
      * @param CreateUploadMediaRequest $request CreateUploadMediaRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -1780,7 +1796,15 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 本地媒资上传
+     * @summary Obtains the upload URL and credential of a media asset and creates information about the media asset.
+     *  *
+     * @description *   You can call this operation to obtain the upload URLs and credentials of audio and video files. You can also call this operation to obtain the upload URLs and credentials of images and auxiliary media assets.
+     * *   Obtaining an upload URL and credential is essential for Intelligent Media Services (IMS) and is required in each upload operation.
+     * *   If the video upload credential expires, you can call the RefreshUploadMedia operation to obtain a new upload credential. The default validity period of a video upload credential is 3,000 seconds.
+     * *   After you upload a media asset, you can configure a callback to receive upload event notifications or call the GetMediaInfo operation to determine whether the media asset is uploaded based on the returned status.
+     * *   The MediaId parameter returned by this operation can be used for media asset lifecycle management or media processing.
+     * *   You can call this operation to upload media assets only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media asset to your own OSS bucket, you can upload the file to your OSS bucket by using [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the file in the OSS bucket with the media asset library.
+     * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
      *  *
      * @param CreateUploadMediaRequest $request CreateUploadMediaRequest
      *
@@ -1794,7 +1818,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 本地上传媒体流
+     * @summary Obtains the upload URL and credential of a media stream.
+     *  *
+     * @description *   You can call this operation to upload only a local media stream. After the media stream is uploaded, it is associated with the specified media asset ID.
+     * *   You can call this operation to upload media streams only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media stream to your own OSS bucket, you can upload the file to your OSS bucket by using [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaStream](https://help.aliyun.com/document_detail/440765.html) operation to associate the media stream with the specified media asset ID.
+     * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
      *  *
      * @param CreateUploadStreamRequest $request CreateUploadStreamRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -1839,7 +1867,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 本地上传媒体流
+     * @summary Obtains the upload URL and credential of a media stream.
+     *  *
+     * @description *   You can call this operation to upload only a local media stream. After the media stream is uploaded, it is associated with the specified media asset ID.
+     * *   You can call this operation to upload media streams only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media stream to your own OSS bucket, you can upload the file to your OSS bucket by using [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaStream](https://help.aliyun.com/document_detail/440765.html) operation to associate the media stream with the specified media asset ID.
+     * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
      *  *
      * @param CreateUploadStreamRequest $request CreateUploadStreamRequest
      *
@@ -1947,7 +1979,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除媒资分类
+     * @summary Deletes a media asset category.
+     *  *
+     * @description This operation also deletes the subcategories, including the level-2 and level-3 categories, of the category.
      *  *
      * @param DeleteCategoryRequest $request DeleteCategoryRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -1980,7 +2014,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除媒资分类
+     * @summary Deletes a media asset category.
+     *  *
+     * @description This operation also deletes the subcategories, including the level-2 and level-3 categories, of the category.
      *  *
      * @param DeleteCategoryRequest $request DeleteCategoryRequest
      *
@@ -2209,7 +2245,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除剪辑工程关联素材
+     * @summary Deletes one or more materials from an online editing project.
      *  *
      * @param DeleteEditingProjectMaterialsRequest $request DeleteEditingProjectMaterialsRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -2248,7 +2284,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除剪辑工程关联素材
+     * @summary Deletes one or more materials from an online editing project.
      *  *
      * @param DeleteEditingProjectMaterialsRequest $request DeleteEditingProjectMaterialsRequest
      *
@@ -2262,7 +2298,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除云剪辑工程
+     * @summary Deletes one or more online editing project.
      *  *
      * @param DeleteEditingProjectsRequest $request DeleteEditingProjectsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -2295,7 +2331,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除云剪辑工程
+     * @summary Deletes one or more online editing project.
      *  *
      * @param DeleteEditingProjectsRequest $request DeleteEditingProjectsRequest
      *
@@ -2605,7 +2641,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除媒资从搜索
+     * @summary Deletes a specific media asset from a search library.
      *  *
      * @param DeleteMediaFromSearchLibRequest $request DeleteMediaFromSearchLibRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -2644,7 +2680,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除媒资从搜索
+     * @summary Deletes a specific media asset from a search library.
      *  *
      * @param DeleteMediaFromSearchLibRequest $request DeleteMediaFromSearchLibRequest
      *
@@ -2658,7 +2694,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除媒资信息
+     * @summary Deletes multiple media assets at a time. You can delete at most 20 media assets at a time. If MediaIds is specified, it is preferentially used. If MediaIds is empty, InputURLs must be specified.
      *  *
      * @param DeleteMediaInfosRequest $request DeleteMediaInfosRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -2697,7 +2733,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除媒资信息
+     * @summary Deletes multiple media assets at a time. You can delete at most 20 media assets at a time. If MediaIds is specified, it is preferentially used. If MediaIds is empty, InputURLs must be specified.
      *  *
      * @param DeleteMediaInfosRequest $request DeleteMediaInfosRequest
      *
@@ -2711,7 +2747,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除媒资标注信息
+     * @summary Deletes the marks of a media asset.
      *  *
      * @param DeleteMediaMarksRequest $request DeleteMediaMarksRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -2747,7 +2783,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除媒资标注信息
+     * @summary Deletes the marks of a media asset.
      *  *
      * @param DeleteMediaMarksRequest $request DeleteMediaMarksRequest
      *
@@ -2808,7 +2844,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除播放信息
+     * @summary Deletes media streams such as video streams and audio streams.
+     *  *
+     * @description You can call this operation to delete multiple media streams at a time.
      *  *
      * @param DeletePlayInfoRequest $request DeletePlayInfoRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -2847,7 +2885,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除播放信息
+     * @summary Deletes media streams such as video streams and audio streams.
+     *  *
+     * @description You can call this operation to delete multiple media streams at a time.
      *  *
      * @param DeletePlayInfoRequest $request DeletePlayInfoRequest
      *
@@ -3474,7 +3514,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除搜索索引
+     * @summary Deletes a search index. After you delete a search index, the existing index data is cleared and index-based analysis, storage, and query are not supported for subsequent media assets.
      *  *
      * @param DropSearchIndexRequest $request DropSearchIndexRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -3510,7 +3550,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除搜索索引
+     * @summary Deletes a search index. After you delete a search index, the existing index data is cleared and index-based analysis, storage, and query are not supported for subsequent media assets.
      *  *
      * @param DropSearchIndexRequest $request DropSearchIndexRequest
      *
@@ -3524,7 +3564,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除库
+     * @summary Deletes a search library and all media assets in the library.
      *  *
      * @param DropSearchLibRequest $request DropSearchLibRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -3557,7 +3597,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除库
+     * @summary Deletes a search library and all media assets in the library.
      *  *
      * @param DropSearchLibRequest $request DropSearchLibRequest
      *
@@ -3810,7 +3850,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询媒资分类
+     * @summary Queries the information about a category and its subcategories.
+     *  *
+     * @description You can call this operation to query the information about a category and its subcategories based on the category ID and category type.
      *  *
      * @param GetCategoriesRequest $request GetCategoriesRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -3855,7 +3897,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询媒资分类
+     * @summary Queries the information about a category and its subcategories.
+     *  *
+     * @description You can call this operation to query the information about a category and its subcategories based on the category ID and category type.
      *  *
      * @param GetCategoriesRequest $request GetCategoriesRequest
      *
@@ -4184,7 +4228,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取单个云剪辑工程
+     * @summary Queries the information about an online editing project.
      *  *
      * @param GetEditingProjectRequest $request GetEditingProjectRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -4220,7 +4264,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取单个云剪辑工程
+     * @summary Queries the information about an online editing project.
      *  *
      * @param GetEditingProjectRequest $request GetEditingProjectRequest
      *
@@ -4234,7 +4278,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取剪辑工程关联素材
+     * @summary Queries all materials associated with an online editing project.
      *  *
      * @param GetEditingProjectMaterialsRequest $request GetEditingProjectMaterialsRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -4267,7 +4311,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取剪辑工程关联素材
+     * @summary Queries all materials associated with an online editing project.
      *  *
      * @param GetEditingProjectMaterialsRequest $request GetEditingProjectMaterialsRequest
      *
@@ -4318,7 +4362,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取直播剪辑m3u8索引文件
+     * @summary Queries the index file of a live stream. The index file is used to preview an editing project in the console.
      *  *
      * @param GetLiveEditingIndexFileRequest $request GetLiveEditingIndexFileRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -4360,7 +4404,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取直播剪辑m3u8索引文件
+     * @summary Queries the index file of a live stream. The index file is used to preview an editing project in the console.
      *  *
      * @param GetLiveEditingIndexFileRequest $request GetLiveEditingIndexFileRequest
      *
@@ -4691,7 +4735,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取媒资内容信息
+     * @summary Queries information about a media asset based on the ID of the media asset in Intelligent Media Services (IMS) or the input URL of the media asset.
+     *  *
+     * @description If the MediaId parameter is specified, the MediaId parameter is preferentially used for the query. If the MediaId parameter is left empty, the InputURL parameter must be specified.
      *  *
      * @param GetMediaInfoRequest $request GetMediaInfoRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -4733,7 +4779,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取媒资内容信息
+     * @summary Queries information about a media asset based on the ID of the media asset in Intelligent Media Services (IMS) or the input URL of the media asset.
+     *  *
+     * @description If the MediaId parameter is specified, the MediaId parameter is preferentially used for the query. If the MediaId parameter is left empty, the InputURL parameter must be specified.
      *  *
      * @param GetMediaInfoRequest $request GetMediaInfoRequest
      *
@@ -4790,7 +4838,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取媒资标注信息
+     * @summary Queries the information about marks based on mark IDs.
      *  *
      * @param GetMediaMarksRequest $request GetMediaMarksRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -4826,7 +4874,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取媒资标注信息
+     * @summary Queries the information about marks based on mark IDs.
      *  *
      * @param GetMediaMarksRequest $request GetMediaMarksRequest
      *
@@ -4978,7 +5026,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取播放信息
+     * @summary Queries the playback URL of a video or audio file based on its ID.
+     *  *
+     * @description You use the ID of a video or audio file to query the playback URL of the file. Then, you can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
      *  *
      * @param GetPlayInfoRequest $request GetPlayInfoRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -5014,7 +5064,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取播放信息
+     * @summary Queries the playback URL of a video or audio file based on its ID.
+     *  *
+     * @description You use the ID of a video or audio file to query the playback URL of the file. Then, you can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
      *  *
      * @param GetPlayInfoRequest $request GetPlayInfoRequest
      *
@@ -5515,7 +5567,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取URL上传信息
+     * @summary Queries the information about URL-based upload jobs.
+     *  *
+     * @description You can call this operation to query the information, including the upload status, user data, creation time, and completion time, about URL-based upload jobs based on the returned job IDs or the URLs used during the upload.
+     * If an upload job fails, you can view the error code and error message. If an upload job is successful, you can obtain the video ID.
      *  *
      * @param GetUrlUploadInfosRequest $request GetUrlUploadInfosRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -5551,7 +5606,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取URL上传信息
+     * @summary Queries the information about URL-based upload jobs.
+     *  *
+     * @description You can call this operation to query the information, including the upload status, user data, creation time, and completion time, about URL-based upload jobs based on the returned job IDs or the URLs used during the upload.
+     * If an upload job fails, you can view the error code and error message. If an upload job is successful, you can obtain the video ID.
      *  *
      * @param GetUrlUploadInfosRequest $request GetUrlUploadInfosRequest
      *
@@ -5565,7 +5623,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取媒资新增列表
+     * @summary Queries information about video and audio files.
+     *  *
+     * @description You can call this operation to query information about up to the first 5,000 audio and video files based on the filter condition, such as the status or category ID of the file. We recommend that you set the StartTime and EndTime parameters to narrow down the time range and perform multiple queries to obtain data.
      *  *
      * @param GetVideoListRequest $request GetVideoListRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -5616,7 +5676,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取媒资新增列表
+     * @summary Queries information about video and audio files.
+     *  *
+     * @description You can call this operation to query information about up to the first 5,000 audio and video files based on the filter condition, such as the status or category ID of the file. We recommend that you set the StartTime and EndTime parameters to narrow down the time range and perform multiple queries to obtain data.
      *  *
      * @param GetVideoListRequest $request GetVideoListRequest
      *
@@ -5677,7 +5739,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 插入媒资到搜索
+     * @summary Adds a media asset in a search library. Before you call this operation, you must create a search library.
      *  *
      * @param InsertMediaToSearchLibRequest $request InsertMediaToSearchLibRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -5722,7 +5784,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 插入媒资到搜索
+     * @summary Adds a media asset in a search library. Before you call this operation, you must create a search library.
      *  *
      * @param InsertMediaToSearchLibRequest $request InsertMediaToSearchLibRequest
      *
@@ -5795,7 +5857,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 列出公共素材库所有标签
+     * @summary Queries a list of tags of media assets in the public media library.
      *  *
      * @param ListAllPublicMediaTagsRequest $request ListAllPublicMediaTagsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -5831,7 +5893,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 列出公共素材库所有标签
+     * @summary Queries a list of tags of media assets in the public media library.
      *  *
      * @param ListAllPublicMediaTagsRequest $request ListAllPublicMediaTagsRequest
      *
@@ -6379,7 +6441,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取云剪辑工程列表
+     * @summary Queries a list of projects that meet the specified conditions. You can filter projects by project creation time.
      *  *
      * @param ListEditingProjectsRequest $request ListEditingProjectsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -6439,7 +6501,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取云剪辑工程列表
+     * @summary Queries a list of projects that meet the specified conditions. You can filter projects by project creation time.
      *  *
      * @param ListEditingProjectsRequest $request ListEditingProjectsRequest
      *
@@ -6847,7 +6909,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 列出符合条件的媒资基础信息
+     * @summary Queries the basic information of all media assets that meet the specified conditions.
+     *  *
+     * @description If includeFileBasicInfo is set to true, the basic information, such as the duration and file size, of the source file is also returned. At most the first 100 entries that meet the specified conditions are returned. All media assets must exactly match all non-empty fields. The fields that support exact match include MediaType, Source, BusinessType, Category, and Status. If all information cannot be returned at a time, you can use NextToken to initiate a request to retrieve a new page of results.
      *  *
      * @param ListMediaBasicInfosRequest $request ListMediaBasicInfosRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -6910,7 +6974,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 列出符合条件的媒资基础信息
+     * @summary Queries the basic information of all media assets that meet the specified conditions.
+     *  *
+     * @description If includeFileBasicInfo is set to true, the basic information, such as the duration and file size, of the source file is also returned. At most the first 100 entries that meet the specified conditions are returned. All media assets must exactly match all non-empty fields. The fields that support exact match include MediaType, Source, BusinessType, Category, and Status. If all information cannot be returned at a time, you can use NextToken to initiate a request to retrieve a new page of results.
      *  *
      * @param ListMediaBasicInfosRequest $request ListMediaBasicInfosRequest
      *
@@ -6985,7 +7051,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取媒资的标注信息
+     * @summary Queries a list of marks of a media asset.
      *  *
      * @param ListMediaMarksRequest $request ListMediaMarksRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -7021,7 +7087,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取媒资的标注信息
+     * @summary Queries a list of marks of a media asset.
      *  *
      * @param ListMediaMarksRequest $request ListMediaMarksRequest
      *
@@ -7221,7 +7287,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 列出公共素材库素材的基础信息
+     * @summary Queries a list of media assets in the public media library that meet the specified conditions. A maximum of 100 media assets can be returned.
      *  *
      * @param ListPublicMediaBasicInfosRequest $request ListPublicMediaBasicInfosRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -7272,7 +7338,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 列出公共素材库素材的基础信息
+     * @summary Queries a list of media assets in the public media library that meet the specified conditions. A maximum of 100 media assets can be returned.
      *  *
      * @param ListPublicMediaBasicInfosRequest $request ListPublicMediaBasicInfosRequest
      *
@@ -7969,7 +8035,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询索引任务
+     * @summary Queries the indexing jobs enabled for a media asset.
      *  *
      * @param QueryMediaIndexJobRequest $request QueryMediaIndexJobRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -8005,7 +8071,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询索引任务
+     * @summary Queries the indexing jobs enabled for a media asset.
      *  *
      * @param QueryMediaIndexJobRequest $request QueryMediaIndexJobRequest
      *
@@ -8019,7 +8085,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询搜索索引
+     * @summary Queries the details of a search index.
      *  *
      * @param QuerySearchIndexRequest $request QuerySearchIndexRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -8055,7 +8121,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询搜索索引
+     * @summary Queries the details of a search index.
      *  *
      * @param QuerySearchIndexRequest $request QuerySearchIndexRequest
      *
@@ -8069,7 +8135,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询库
+     * @summary Queries the information about a search library.
      *  *
      * @param QuerySearchLibRequest $request QuerySearchLibRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -8102,7 +8168,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询库
+     * @summary Queries the information about a search library.
      *  *
      * @param QuerySearchLibRequest $request QuerySearchLibRequest
      *
@@ -8162,7 +8228,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 刷新媒资上传凭证
+     * @summary Obtain a new upload credential for a media asset after its upload credential expires.
+     *  *
+     * @description You can also call this operation to overwrite media files. After you obtain the upload URL of a media file, you can upload the media file again without changing the audio or video ID.
      *  *
      * @param RefreshUploadMediaRequest $request RefreshUploadMediaRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -8195,7 +8263,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 刷新媒资上传凭证
+     * @summary Obtain a new upload credential for a media asset after its upload credential expires.
+     *  *
+     * @description You can also call this operation to overwrite media files. After you obtain the upload URL of a media file, you can upload the media file again without changing the audio or video ID.
      *  *
      * @param RefreshUploadMediaRequest $request RefreshUploadMediaRequest
      *
@@ -8209,7 +8279,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 注册内容库资源
+     * @summary Registers a media asset with Intelligent Media Services (IMS). IMS assigns an ID to the media asset. This operation asynchronously accesses the media asset service in which the media asset is stored to obtain the file information of the media asset based on the input URL. You can also specify basic information, such as the title, tags, and description, for the media asset. This operation returns the ID of the media asset. You can call the GetMediaInfo operation based on the ID to query the details of the media asset. You can set InputURL only to the URL of an Object Storage Service (OSS) file or an ApsaraVideo VOD media asset.
+     *  *
+     * @description Registering a media asset is an asynchronous job that takes 2 to 3 seconds. When the operation returns the ID of the media asset, the registration may have not be completed. If you call the GetMediaInfo operation at this time, you may fail to obtain the information about the media asset.
      *  *
      * @param RegisterMediaInfoRequest $request RegisterMediaInfoRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -8284,7 +8356,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 注册内容库资源
+     * @summary Registers a media asset with Intelligent Media Services (IMS). IMS assigns an ID to the media asset. This operation asynchronously accesses the media asset service in which the media asset is stored to obtain the file information of the media asset based on the input URL. You can also specify basic information, such as the title, tags, and description, for the media asset. This operation returns the ID of the media asset. You can call the GetMediaInfo operation based on the ID to query the details of the media asset. You can set InputURL only to the URL of an Object Storage Service (OSS) file or an ApsaraVideo VOD media asset.
+     *  *
+     * @description Registering a media asset is an asynchronous job that takes 2 to 3 seconds. When the operation returns the ID of the media asset, the registration may have not be completed. If you call the GetMediaInfo operation at this time, you may fail to obtain the information about the media asset.
      *  *
      * @param RegisterMediaInfoRequest $request RegisterMediaInfoRequest
      *
@@ -8298,7 +8372,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 注册媒体流
+     * @summary Registers a media stream.
+     *  *
+     * @description You can call this operation to register a media stream file in an Object Storage Service (OSS) bucket with Intelligent Media Services (IMS) and associate the media stream with the specified media asset ID.
      *  *
      * @param RegisterMediaStreamRequest $request RegisterMediaStreamRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -8337,7 +8413,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 注册媒体流
+     * @summary Registers a media stream.
+     *  *
+     * @description You can call this operation to register a media stream file in an Object Storage Service (OSS) bucket with Intelligent Media Services (IMS) and associate the media stream with the specified media asset ID.
      *  *
      * @param RegisterMediaStreamRequest $request RegisterMediaStreamRequest
      *
@@ -8544,7 +8622,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 智能标签搜索
+     * @summary Queries media assets based on character names, subtitles, or AI categories.
+     *  *
+     * @description You can call this operation to query media assets or media asset clips based on character names, subtitles, or AI categories.
      *  *
      * @param SearchMediaByAILabelRequest $request SearchMediaByAILabelRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -8555,6 +8635,9 @@ class ICE extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->matchingMode)) {
+            $query['MatchingMode'] = $request->matchingMode;
+        }
         if (!Utils::isUnset($request->mediaId)) {
             $query['MediaId'] = $request->mediaId;
         }
@@ -8601,7 +8684,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 智能标签搜索
+     * @summary Queries media assets based on character names, subtitles, or AI categories.
+     *  *
+     * @description You can call this operation to query media assets or media asset clips based on character names, subtitles, or AI categories.
      *  *
      * @param SearchMediaByAILabelRequest $request SearchMediaByAILabelRequest
      *
@@ -8615,7 +8700,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 人脸搜粗搜接口，输入一张人脸图片，搜索该人物所在媒资的相关信息
+     * @summary Queries the information about media assets that are related to a specific face.
+     *  *
+     * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
      *  *
      * @param SearchMediaByFaceRequest $request SearchMediaByFaceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -8666,7 +8753,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 人脸搜粗搜接口，输入一张人脸图片，搜索该人物所在媒资的相关信息
+     * @summary Queries the information about media assets that are related to a specific face.
+     *  *
+     * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
      *  *
      * @param SearchMediaByFaceRequest $request SearchMediaByFaceRequest
      *
@@ -8680,7 +8769,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 混合搜索
+     * @summary Queries media assets by using the hybrid search feature. This operation allows you to search for media assets by using natural language based on intelligent tag text search and the search capabilities of large language models (LLMs). This implements multimodal retrieval.
      *  *
      * @param SearchMediaByHybridRequest $request SearchMediaByHybridRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -8728,7 +8817,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 混合搜索
+     * @summary Queries media assets by using the hybrid search feature. This operation allows you to search for media assets by using natural language based on intelligent tag text search and the search capabilities of large language models (LLMs). This implements multimodal retrieval.
      *  *
      * @param SearchMediaByHybridRequest $request SearchMediaByHybridRequest
      *
@@ -8742,7 +8831,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 多模态搜索
+     * @summary Queries media assets by using the large visual model. You can use natural language for the query.
+     *  *
+     * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
      *  *
      * @param SearchMediaByMultimodalRequest $request SearchMediaByMultimodalRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -8787,7 +8878,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 多模态搜索
+     * @summary Queries media assets by using the large visual model. You can use natural language for the query.
+     *  *
+     * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
      *  *
      * @param SearchMediaByMultimodalRequest $request SearchMediaByMultimodalRequest
      *
@@ -8801,7 +8894,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 人脸搜精搜接口，基于粗搜结果返回该人物所在媒资的相关人物片段信息
+     * @summary Queries the information about media asset clips that are related to a specific face based on the response to the SearchMediaByFace operation.
+     *  *
+     * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
      *  *
      * @param SearchMediaClipByFaceRequest $request SearchMediaClipByFaceRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -8849,7 +8944,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 人脸搜精搜接口，基于粗搜结果返回该人物所在媒资的相关人物片段信息
+     * @summary Queries the information about media asset clips that are related to a specific face based on the response to the SearchMediaByFace operation.
+     *  *
+     * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
      *  *
      * @param SearchMediaClipByFaceRequest $request SearchMediaClipByFaceRequest
      *
@@ -10575,7 +10672,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交媒资结构化分析任务
+     * @summary Submits a structural analysis job for a media asset. For example, you can submit a job to analyze the speaker, translate the video, and obtain the paragraph summary.
      *  *
      * @param SubmitMediaAiAnalysisJobRequest $request SubmitMediaAiAnalysisJobRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -10611,7 +10708,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交媒资结构化分析任务
+     * @summary Submits a structural analysis job for a media asset. For example, you can submit a job to analyze the speaker, translate the video, and obtain the paragraph summary.
      *  *
      * @param SubmitMediaAiAnalysisJobRequest $request SubmitMediaAiAnalysisJobRequest
      *
@@ -11374,7 +11471,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交视频翻译任务
+     * @summary Submits a video translation job. You can call this operation to translate the subtitle that appears in a video into the specified language. In the future, this operation will support voice translation and lip synchronization for spoken content.
+     *  *
+     * @description After you call this operation to submit a video translation job, the system returns a job ID. You can call the GetSmartHandleJob operation based on the job ID to obtain the status and result information of the job.
      *  *
      * @param SubmitVideoTranslationJobRequest $request SubmitVideoTranslationJobRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -11425,7 +11524,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交视频翻译任务
+     * @summary Submits a video translation job. You can call this operation to translate the subtitle that appears in a video into the specified language. In the future, this operation will support voice translation and lip synchronization for spoken content.
+     *  *
+     * @description After you call this operation to submit a video translation job, the system returns a job ID. You can call the GetSmartHandleJob operation based on the job ID to obtain the status and result information of the job.
      *  *
      * @param SubmitVideoTranslationJobRequest $request SubmitVideoTranslationJobRequest
      *
@@ -11562,7 +11663,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新媒资分类
+     * @summary Updates a category.
+     *  *
+     * @description After you create a media asset category, you can call this operation to find the category based on the category ID and change the name of the category.
      *  *
      * @param UpdateCategoryRequest $request UpdateCategoryRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -11598,7 +11701,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新媒资分类
+     * @summary Updates a category.
+     *  *
+     * @description After you create a media asset category, you can call this operation to find the category based on the category ID and change the name of the category.
      *  *
      * @param UpdateCategoryRequest $request UpdateCategoryRequest
      *
@@ -11715,7 +11820,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 修改云剪辑工程
+     * @summary Modifies an online editing project. You can call this operation to modify the configurations such as the title, timeline, and thumbnail of an online editing project.
      *  *
      * @param UpdateEditingProjectRequest $request UpdateEditingProjectRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -11771,7 +11876,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 修改云剪辑工程
+     * @summary Modifies an online editing project. You can call this operation to modify the configurations such as the title, timeline, and thumbnail of an online editing project.
      *  *
      * @param UpdateEditingProjectRequest $request UpdateEditingProjectRequest
      *
@@ -12030,7 +12135,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary UpdateMediaInfo
+     * @summary Updates information about a media asset based on the ID of the media asset in Intelligent Media Services (IMS) or the input URL of the media asset.
+     *  *
+     * @description If the MediaId parameter is specified, the MediaId parameter is preferentially used for the query. If the MediaId parameter is left empty, the InputURL parameter must be specified. The request ID and media asset ID are returned. You cannot modify the input URL of a media asset by specifying the ID of the media asset.
      *  *
      * @param UpdateMediaInfoRequest $request UpdateMediaInfoRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -12096,7 +12203,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary UpdateMediaInfo
+     * @summary Updates information about a media asset based on the ID of the media asset in Intelligent Media Services (IMS) or the input URL of the media asset.
+     *  *
+     * @description If the MediaId parameter is specified, the MediaId parameter is preferentially used for the query. If the MediaId parameter is left empty, the InputURL parameter must be specified. The request ID and media asset ID are returned. You cannot modify the input URL of a media asset by specifying the ID of the media asset.
      *  *
      * @param UpdateMediaInfoRequest $request UpdateMediaInfoRequest
      *
@@ -12110,7 +12219,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 为媒资修改标注信息
+     * @summary Modifies the marks of a media asset.
      *  *
      * @param UpdateMediaMarksRequest $request UpdateMediaMarksRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -12146,7 +12255,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 为媒资修改标注信息
+     * @summary Modifies the marks of a media asset.
      *  *
      * @param UpdateMediaMarksRequest $request UpdateMediaMarksRequest
      *
@@ -12160,7 +12269,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新媒资到搜索
+     * @summary Updates the media asset information in a search library.
      *  *
      * @param UpdateMediaToSearchLibRequest $request UpdateMediaToSearchLibRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -12199,7 +12308,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新媒资到搜索
+     * @summary Updates the media asset information in a search library.
      *  *
      * @param UpdateMediaToSearchLibRequest $request UpdateMediaToSearchLibRequest
      *
@@ -12394,7 +12503,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary URL拉取上传
+     * @summary Uploads an audio or video file based on the URL of the source file. You can upload multiple media files at a time.
+     *  *
+     * @description *   If a callback is configured, you will receive an UploadByURLComplete event notification after the file is uploaded. You can query the upload status by calling the GetURLUploadInfos operation.
+     * *   After a request is submitted, the upload job is queued as an asynchronous job in the cloud. You can query the status of the upload job based on information such as the URL and media asset ID that are returned in the event notification.
+     * *   You can call this operation to upload media files that are not stored on a local server or device and must be uploaded by using URLs that are accessible over the Internet.
+     * *   You can call this operation to upload media files only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media file to an OSS bucket, pull the file to a local directory, use [OSS SDK](https://help.aliyun.com/document_detail/32006.html) to upload the file to an OSS bucket, and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the file in the OSS bucket with the media asset library.
+     * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
+     * *   You can call this operation to upload only audio and video files.
      *  *
      * @param UploadMediaByURLRequest $request UploadMediaByURLRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -12445,7 +12561,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary URL拉取上传
+     * @summary Uploads an audio or video file based on the URL of the source file. You can upload multiple media files at a time.
+     *  *
+     * @description *   If a callback is configured, you will receive an UploadByURLComplete event notification after the file is uploaded. You can query the upload status by calling the GetURLUploadInfos operation.
+     * *   After a request is submitted, the upload job is queued as an asynchronous job in the cloud. You can query the status of the upload job based on information such as the URL and media asset ID that are returned in the event notification.
+     * *   You can call this operation to upload media files that are not stored on a local server or device and must be uploaded by using URLs that are accessible over the Internet.
+     * *   You can call this operation to upload media files only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media file to an OSS bucket, pull the file to a local directory, use [OSS SDK](https://help.aliyun.com/document_detail/32006.html) to upload the file to an OSS bucket, and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the file in the OSS bucket with the media asset library.
+     * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
+     * *   You can call this operation to upload only audio and video files.
      *  *
      * @param UploadMediaByURLRequest $request UploadMediaByURLRequest
      *
@@ -12459,7 +12582,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary URL拉取上传媒体流
+     * @summary Uploads a media stream file based on the URL of the source file.
+     *  *
+     * @description *   You can call this operation to pull a media stream file based on a URL and upload the file. After the media stream file is uploaded, the media stream is associated with the specified media asset ID.
+     * *   You can call this operation to upload media stream files only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media stream file to an OSS bucket, pull the file to a local directory, use [OSS SDK](https://help.aliyun.com/document_detail/32006.html) to upload the file to an OSS bucket, and then call the [RegisterMediaStream](https://help.aliyun.com/document_detail/440765.html) operation to associate the media stream with the specified media asset ID.
+     * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
      *  *
      * @param UploadStreamByURLRequest $request UploadStreamByURLRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -12507,7 +12634,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary URL拉取上传媒体流
+     * @summary Uploads a media stream file based on the URL of the source file.
+     *  *
+     * @description *   You can call this operation to pull a media stream file based on a URL and upload the file. After the media stream file is uploaded, the media stream is associated with the specified media asset ID.
+     * *   You can call this operation to upload media stream files only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media stream file to an OSS bucket, pull the file to a local directory, use [OSS SDK](https://help.aliyun.com/document_detail/32006.html) to upload the file to an OSS bucket, and then call the [RegisterMediaStream](https://help.aliyun.com/document_detail/440765.html) operation to associate the media stream with the specified media asset ID.
+     * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
      *  *
      * @param UploadStreamByURLRequest $request UploadStreamByURLRequest
      *

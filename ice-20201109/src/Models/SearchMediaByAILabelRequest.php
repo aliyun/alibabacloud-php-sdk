@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class SearchMediaByAILabelRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $matchingMode;
+
+    /**
+     * @description The ID of the media asset. This parameter is required if you want to query media asset clips.
+     *
      * @example ****c469e944b5a856828dc2****
      *
      * @var string
@@ -16,6 +23,12 @@ class SearchMediaByAILabelRequest extends Model
     public $mediaId;
 
     /**
+     * @description The type of the media assets. Valid values:
+     *
+     *   image
+     *   video
+     *   audio
+     *
      * @example video
      *
      * @var string
@@ -23,6 +36,13 @@ class SearchMediaByAILabelRequest extends Model
     public $mediaType;
 
     /**
+     * @description The type of query. Valid values:
+     *
+     *   PersonName: queries media assets based on character names.
+     *   Ocr: queries media assets based on subtitles.
+     *   AiCategory: queries media assets based on AI categories.
+     *   FullSearch (default): queries all media assets.
+     *
      * @example Ocr
      *
      * @var string
@@ -30,6 +50,8 @@ class SearchMediaByAILabelRequest extends Model
     public $multimodalSearchType;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +59,8 @@ class SearchMediaByAILabelRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 50.
+     *
      * @example 20
      *
      * @var int
@@ -44,11 +68,20 @@ class SearchMediaByAILabelRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the search library.
+     *
+     * @example test-1
+     *
      * @var string
      */
     public $searchLibName;
 
     /**
+     * @description The sorting method of the results. Valid values:
+     *
+     *   CreationTime:Desc (default): sorts results in reverse chronological order.
+     *   CreationTime:Asc: sorts results in chronological order.
+     *
      * @example CreationTime:Desc
      *
      * @var string
@@ -56,6 +89,11 @@ class SearchMediaByAILabelRequest extends Model
     public $sortBy;
 
     /**
+     * @description Specifies whether to query media asset clips. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -63,10 +101,13 @@ class SearchMediaByAILabelRequest extends Model
     public $specificSearch;
 
     /**
+     * @description The content that you want to query.
+     *
      * @var string
      */
     public $text;
     protected $_name = [
+        'matchingMode'         => 'MatchingMode',
         'mediaId'              => 'MediaId',
         'mediaType'            => 'MediaType',
         'multimodalSearchType' => 'MultimodalSearchType',
@@ -85,6 +126,9 @@ class SearchMediaByAILabelRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->matchingMode) {
+            $res['MatchingMode'] = $this->matchingMode;
+        }
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
@@ -124,6 +168,9 @@ class SearchMediaByAILabelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MatchingMode'])) {
+            $model->matchingMode = $map['MatchingMode'];
+        }
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }

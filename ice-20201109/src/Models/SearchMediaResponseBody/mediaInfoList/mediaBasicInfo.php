@@ -167,7 +167,7 @@ class mediaBasicInfo extends Model
     public $spriteImages;
 
     /**
-     * @description The state of the resource.
+     * @description The state of the media asset.
      *
      * @example Normal
      *

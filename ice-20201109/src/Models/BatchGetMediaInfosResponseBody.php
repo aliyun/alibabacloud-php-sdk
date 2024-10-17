@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class BatchGetMediaInfosResponseBody extends Model
 {
     /**
+     * @description The queried media assets.
+     *
      * @var mediaInfos[]
      */
     public $mediaInfos;
 
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class projectList extends Model
 {
     /**
+     * @description The business configuration of the project. This parameter can be ignored for general editing projects.
+     *
      * @example {}
      *
      * @var string
@@ -16,6 +18,8 @@ class projectList extends Model
     public $businessConfig;
 
     /**
+     * @description The business status of the project. This parameter can be ignored for general editing projects.
+     *
      * @example {}
      *
      * @var string
@@ -23,6 +27,8 @@ class projectList extends Model
     public $businessStatus;
 
     /**
+     * @description The thumbnail URL of the online editing project.
+     *
      * @example https://xxx.com/cover/xxx.jpg
      *
      * @var string
@@ -30,6 +36,9 @@ class projectList extends Model
     public $coverURL;
 
     /**
+     * @description The method for editing the online editing project. Valid values:
+     *
+     * \\- WebSDK
      * @example OpenAPI
      *
      * @var string
@@ -37,6 +46,8 @@ class projectList extends Model
     public $createSource;
 
     /**
+     * @description The time when the online editing project was created.
+     *
      * @example 2017-01-11T12:00:00Z
      *
      * @var string
@@ -44,11 +55,15 @@ class projectList extends Model
     public $createTime;
 
     /**
+     * @description The description of the online editing project.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The error code returned if the production of the online editing project failed.
+     *
      * @example InvalidParameter
      *
      * @var string
@@ -56,6 +71,8 @@ class projectList extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the production of the online editing project failed.
+     *
      * @example The specified parameter \\"LiveStreamConfig\\" is not valid. specified parameter example is not valid.
      *
      * @var string
@@ -63,6 +80,8 @@ class projectList extends Model
     public $errorMessage;
 
     /**
+     * @description The method for modifying the online editing project last time.
+     *
      * @example OpenAPI
      *
      * @var string
@@ -70,6 +89,8 @@ class projectList extends Model
     public $modifiedSource;
 
     /**
+     * @description The time when the online editing project was last modified.
+     *
      * @example 2017-01-11T12:00:00Z
      *
      * @var string
@@ -77,6 +98,8 @@ class projectList extends Model
     public $modifiedTime;
 
     /**
+     * @description The ID of the online editing project.
+     *
      * @example ****fddd7748b58bf1d47e95****
      *
      * @var string
@@ -84,6 +107,11 @@ class projectList extends Model
     public $projectId;
 
     /**
+     * @description The type of the editing project. Valid values:
+     *
+     *   EditingProject: a regular editing project.
+     *   LiveEditingProject: a live stream editing project.
+     *
      * @example EditingProject
      *
      * @var string
@@ -91,6 +119,9 @@ class projectList extends Model
     public $projectType;
 
     /**
+     * @description The status of the online editing project. Valid values:
+     *
+     * \\- ProduceFailed
      * @example Produced
      *
      * @var string
@@ -98,6 +129,11 @@ class projectList extends Model
     public $status;
 
     /**
+     * @description The template type. Valid values:
+     *
+     *   Timeline: a regular template.
+     *   VETemplate: an advanced template.
+     *
      * @example Timeline
      *
      * @var string
@@ -105,6 +141,8 @@ class projectList extends Model
     public $templateType;
 
     /**
+     * @description The title of the online editing project.
+     *
      * @var string
      */
     public $title;

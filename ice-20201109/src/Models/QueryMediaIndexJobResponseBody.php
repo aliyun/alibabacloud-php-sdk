@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryMediaIndexJobResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class QueryMediaIndexJobResponseBody extends Model
     public $code;
 
     /**
+     * @description The indexing jobs enabled for the media asset.
+     *
      * @var indexJobInfoList[]
      */
     public $indexJobInfoList;
 
     /**
+     * @description The request ID.
+     *
      * @example 4E84BE44-58A7-****-****-FBEBEA16EF94
      *
      * @var string
@@ -29,6 +35,11 @@ class QueryMediaIndexJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSearchIndexResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -21,6 +23,8 @@ class CreateSearchIndexResponseBody extends Model
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;

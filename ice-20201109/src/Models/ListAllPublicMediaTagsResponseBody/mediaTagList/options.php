@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class options extends Model
 {
     /**
+     * @description The option name in Chinese.
+     *
      * @var string
      */
     public $optionChineseName;
 
     /**
+     * @description The option name in English.
+     *
      * @example Angry
      *
      * @var string
@@ -21,6 +25,8 @@ class options extends Model
     public $optionEnglishName;
 
     /**
+     * @description The option ID.
+     *
      * @example Angry
      *
      * @var string

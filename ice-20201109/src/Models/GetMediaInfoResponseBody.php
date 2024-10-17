@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetMediaInfoResponseBody extends Model
 {
     /**
+     * @description The information about the media asset.
+     *
      * @var mediaInfo
      */
     public $mediaInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 2FDE2411-DB8D-4A9A-875B-275798F14A5E
      *
      * @var string

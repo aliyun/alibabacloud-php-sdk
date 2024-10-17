@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SearchMediaByMultimodalResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class SearchMediaByMultimodalResponseBody extends Model
     public $code;
 
     /**
+     * @description The media assets that contain the specified content.
+     *
      * @var mediaList[]
      */
     public $mediaList;
 
     /**
+     * @description The ID of the request.
+     *
      * @example ****63E8B7C7-4812-46AD-0FA56029AC86****
      *
      * @var string
@@ -29,6 +35,8 @@ class SearchMediaByMultimodalResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values: true false
+     *
      * @example true
      *
      * @var string
@@ -36,6 +44,8 @@ class SearchMediaByMultimodalResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of data records that meet the specified filter condition.
+     *
      * @example 20
      *
      * @var int

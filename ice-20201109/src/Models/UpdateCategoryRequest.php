@@ -9,8 +9,13 @@ use AlibabaCloud\Tea\Model;
 class UpdateCategoryRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The category ID. You can use one of the following methods to obtain the ID:
      *
+     *   Log on to the [Intelligent Media Services (IMS) console](https://ims.console.aliyun.com) and choose **Media Asset Management** > **Category Management** to view the category ID.
+     *   View the value of CateId returned by the AddCategory operation that you called to create a category.
+     *   View the value of CateId returned by the GetCategories operation that you called to query a category.
+     *
+     * This parameter is required.
      * @example 43
      *
      * @var int
@@ -18,8 +23,9 @@ class UpdateCategoryRequest extends Model
     public $cateId;
 
     /**
-     * @description This parameter is required.
+     * @description The category name.
      *
+     * This parameter is required.
      * @var string
      */
     public $cateName;

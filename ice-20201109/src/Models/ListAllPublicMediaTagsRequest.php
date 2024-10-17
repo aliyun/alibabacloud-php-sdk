@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAllPublicMediaTagsRequest extends Model
 {
     /**
+     * @description The business type of the media asset.
+     *
      * @example "sticker"
      *
      * @var string
@@ -16,6 +18,9 @@ class ListAllPublicMediaTagsRequest extends Model
     public $businessType;
 
     /**
+     * @description The entity ID, which is used to distinguish between media assets of different types in the public domain.
+     *
+     * Set this parameter to Copyright_Music, which indicates music in the public domain.
      * @example Copyright_Music
      *
      * @var string

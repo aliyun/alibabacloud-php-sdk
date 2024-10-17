@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DropSearchLibRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the search library.
      *
+     * This parameter is required.
      * @example test1
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UploadMediaByURLResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example ****83B7-7F87-4792-BFE9-63CD2137****
      *
      * @var string
@@ -17,6 +19,8 @@ class UploadMediaByURLResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about upload jobs.
+     *
      * @var uploadJobs[]
      */
     public $uploadJobs;

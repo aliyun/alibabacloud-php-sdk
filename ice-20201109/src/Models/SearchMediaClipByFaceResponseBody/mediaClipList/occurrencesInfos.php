@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class occurrencesInfos extends Model
 {
     /**
+     * @description The end time of the clip. Unit: seconds. The value is of the Float type.
+     *
      * @example 69.06635
      *
      * @var float
@@ -17,6 +19,8 @@ class occurrencesInfos extends Model
     public $endTime;
 
     /**
+     * @description The start time of the clip. Unit: seconds. The value is of the Float type.
+     *
      * @example 61.066353
      *
      * @var float
@@ -24,6 +28,8 @@ class occurrencesInfos extends Model
     public $startTime;
 
     /**
+     * @description The information about the face in the clip.
+     *
      * @var trackData[]
      */
     public $trackData;

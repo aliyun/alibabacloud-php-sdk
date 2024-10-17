@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class GetPlayInfoResponseBody extends Model
 {
     /**
+     * @description The information about the media asset.
+     *
      * @var mediaBase
      */
     public $mediaBase;
 
     /**
+     * @description The information about the audio or video stream.
+     *
      * @var playInfoList[]
      */
     public $playInfoList;
 
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string

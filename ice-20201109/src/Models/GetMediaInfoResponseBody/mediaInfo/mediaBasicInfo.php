@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class mediaBasicInfo extends Model
 {
     /**
+     * @description The service to which the media asset belongs.
+     *
      * @example ICE
      *
      * @var string
@@ -16,6 +18,8 @@ class mediaBasicInfo extends Model
     public $biz;
 
     /**
+     * @description The business type.
+     *
      * @example general
      *
      * @var string
@@ -23,6 +27,8 @@ class mediaBasicInfo extends Model
     public $businessType;
 
     /**
+     * @description The category ID.
+     *
      * @example 3048
      *
      * @var int
@@ -30,6 +36,8 @@ class mediaBasicInfo extends Model
     public $cateId;
 
     /**
+     * @description The category name.
+     *
      * @example cateName
      *
      * @var string
@@ -37,11 +45,15 @@ class mediaBasicInfo extends Model
     public $cateName;
 
     /**
+     * @description The category.
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The URL of the thumbnail.
+     *
      * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
      *
      * @var string
@@ -49,6 +61,8 @@ class mediaBasicInfo extends Model
     public $coverURL;
 
     /**
+     * @description The time when the media asset was created.
+     *
      * @example 2020-12-26T04:11:08Z
      *
      * @var string
@@ -56,6 +70,8 @@ class mediaBasicInfo extends Model
     public $createTime;
 
     /**
+     * @description The time when the media asset was deleted.
+     *
      * @example 2020-12-26T04:11:15Z
      *
      * @var string
@@ -63,11 +79,15 @@ class mediaBasicInfo extends Model
     public $deletedTime;
 
     /**
+     * @description The content description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The input URL of the media asset in another service.
+     *
      * @example https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
      *
      * @var string
@@ -75,7 +95,7 @@ class mediaBasicInfo extends Model
     public $inputURL;
 
     /**
-     * @description MediaId
+     * @description The ID of the media asset.
      *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
@@ -84,11 +104,15 @@ class mediaBasicInfo extends Model
     public $mediaId;
 
     /**
+     * @description The tags.
+     *
      * @var string
      */
     public $mediaTags;
 
     /**
+     * @description The type of the media asset.
+     *
      * @example video
      *
      * @var string
@@ -96,6 +120,8 @@ class mediaBasicInfo extends Model
     public $mediaType;
 
     /**
+     * @description The time when the media asset was last modified.
+     *
      * @example 2020-12-26T04:11:10Z
      *
      * @var string
@@ -103,6 +129,8 @@ class mediaBasicInfo extends Model
     public $modifiedTime;
 
     /**
+     * @description The custom ID. The ID can be 6 to 64 characters in length and can contain only letters, digits, hyphens (-), and underscores (_). The ID is unique among users.
+     *
      * @example 123-1234
      *
      * @var string
@@ -110,11 +138,17 @@ class mediaBasicInfo extends Model
     public $referenceId;
 
     /**
+     * @description The snapshots.
+     *
+     * @example [
+     * ]
      * @var string
      */
     public $snapshots;
 
     /**
+     * @description The source.
+     *
      * @example oss
      *
      * @var string
@@ -122,6 +156,8 @@ class mediaBasicInfo extends Model
     public $source;
 
     /**
+     * @description The sprite.
+     *
      * @example [{"bucket":"example-bucket","count":"32","iceJobId":"******83ec44d58b2069def2e******","location":"oss-cn-shanghai","snapshotRegular":"example/example-{Count}.jpg","spriteRegular":"example/example-{TileCount}.jpg","templateId":"******e438b14ff39293eaec25******","tileCount":"1"}]
      *
      * @var string
@@ -129,6 +165,8 @@ class mediaBasicInfo extends Model
     public $spriteImages;
 
     /**
+     * @description The resource status.
+     *
      * @example Normal
      *
      * @var string
@@ -136,11 +174,15 @@ class mediaBasicInfo extends Model
     public $status;
 
     /**
+     * @description The title.
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The upload source of the media asset.
+     *
      * @example general
      *
      * @var string
@@ -148,6 +190,8 @@ class mediaBasicInfo extends Model
     public $uploadSource;
 
     /**
+     * @description The user data.
+     *
      * @example userDataTest
      *
      * @var string

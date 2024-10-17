@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AddMediaMarksRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the media asset.
      *
+     * This parameter is required.
      * @example 53afdf003a2171ed9c6a16b5feac6402
      *
      * @var string
@@ -18,8 +19,9 @@ class AddMediaMarksRequest extends Model
     public $mediaId;
 
     /**
-     * @description This parameter is required.
+     * @description The mark information. The value must be a JSONArray.
      *
+     * This parameter is required.
      * @var string
      */
     public $mediaMarks;

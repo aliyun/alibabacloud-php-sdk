@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetVideoListRequest extends Model
 {
     /**
+     * @description The ID of the category.
+     *
      * @example 781111
      *
      * @var int
@@ -16,6 +18,8 @@ class GetVideoListRequest extends Model
     public $cateId;
 
     /**
+     * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2017-01-11T12:59:00Z
      *
      * @var string
@@ -23,6 +27,8 @@ class GetVideoListRequest extends Model
     public $endTime;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class GetVideoListRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 50.
+     *
      * @example 20
      *
      * @var int
@@ -37,6 +45,11 @@ class GetVideoListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The sorting method of the results. Valid values:
+     *
+     *   CreationTime:Desc (default): sorts results in reverse chronological order.
+     *   CreationTime:Asc: sorts results in chronological order.
+     *
      * @example CreationTime:Asc
      *
      * @var string
@@ -44,6 +57,8 @@ class GetVideoListRequest extends Model
     public $sortBy;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2017-01-11T12:00:00Z
      *
      * @var string
@@ -51,6 +66,22 @@ class GetVideoListRequest extends Model
     public $startTime;
 
     /**
+     * @description The status of the video. You can specify multiple video statuses and separate them with commas (,).
+     *
+     * Valid values:
+     *
+     *   PrepareFail: The file is abnormal.
+     *   UploadFail: The video failed to be uploaded.
+     *   UploadSucc: The video is uploaded.
+     *   Transcoding: The video is being transcoded.
+     *   TranscodeFail: The video failed to be transcoded.
+     *   ProduceFail: The video failed to be produced.
+     *   Normal: The video is normal.
+     *   Uploading: The video is being uploaded.
+     *   Preparing: The file is being generated.
+     *   Blocked: The video is blocked.
+     *   checking: The video is being reviewed.
+     *
      * @example Uploading,Normal
      *
      * @var string

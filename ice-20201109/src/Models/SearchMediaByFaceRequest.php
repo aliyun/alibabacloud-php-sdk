@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SearchMediaByFaceRequest extends Model
 {
     /**
+     * @description The ID of the entity.
+     *
      * @example 2d3bf1e35a1e42b5ab338d701efa****
      *
      * @var string
@@ -16,8 +18,9 @@ class SearchMediaByFaceRequest extends Model
     public $entityId;
 
     /**
-     * @description This parameter is required.
+     * @description The token that is used to identify the query. You can use this parameter in the SearchMediaClipByFace operation to specify the same query conditions.
      *
+     * This parameter is required.
      * @example zxtest-huangxuan-2023-3-7-V1
      *
      * @var string
@@ -25,11 +28,20 @@ class SearchMediaByFaceRequest extends Model
     public $faceSearchToken;
 
     /**
+     * @description The type of the media asset. Valid values:
+     *
+     *   image
+     *   video
+     *
+     * @example video
+     *
      * @var string
      */
     public $mediaType;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +49,8 @@ class SearchMediaByFaceRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 50.
+     *
      * @example 10
      *
      * @var int
@@ -44,8 +58,9 @@ class SearchMediaByFaceRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The URL of the face image.
      *
+     * This parameter is required.
      * @example https://****.oss-cn-shanghai.aliyuncs.com/input/huangxuan****.jpg
      *
      * @var string
@@ -53,6 +68,10 @@ class SearchMediaByFaceRequest extends Model
     public $personImageUrl;
 
     /**
+     * @description The name of the search library.
+     *
+     * @example test1
+     *
      * @var string
      */
     public $searchLibName;

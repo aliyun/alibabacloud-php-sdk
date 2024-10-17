@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateMediaInfoRequest extends Model
 {
     /**
+     * @description Specifies whether to append tags. Default value: false. Valid values:
+     *
+     *   true: updates the MediaTags parameter by appending new tags.
+     *   false: updates the MediaTags parameter by overwriting existing tags with new tags.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,14 @@ class UpdateMediaInfoRequest extends Model
     public $appendTags;
 
     /**
+     * @description The business type. Valid values:
+     *
+     *   subtitles
+     *   watermark
+     *   opening
+     *   ending
+     *   general
+     *
      * @example video
      *
      * @var string
@@ -23,6 +36,8 @@ class UpdateMediaInfoRequest extends Model
     public $businessType;
 
     /**
+     * @description The category ID.
+     *
      * @example 3048
      *
      * @var int
@@ -30,6 +45,11 @@ class UpdateMediaInfoRequest extends Model
     public $cateId;
 
     /**
+     * @description The category.
+     *
+     *   The value can be up to 64 bytes in length.
+     *   The value must be encoded in UTF-8.
+     *
      * @example defaultCategory
      *
      * @var string
@@ -37,6 +57,11 @@ class UpdateMediaInfoRequest extends Model
     public $category;
 
     /**
+     * @description The URL of the thumbnail.
+     *
+     *   The value can be up to 128 bytes in length.
+     *   The value must be encoded in UTF-8.
+     *
      * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png
      *
      * @var string
@@ -44,6 +69,11 @@ class UpdateMediaInfoRequest extends Model
     public $coverURL;
 
     /**
+     * @description The content description.
+     *
+     *   The value can be up to 1,024 bytes in length.
+     *   The value must be encoded in UTF-8.
+     *
      * @example defaultDescription
      *
      * @var string
@@ -51,6 +81,9 @@ class UpdateMediaInfoRequest extends Model
     public $description;
 
     /**
+     * @description The input URL of the media asset in another service. The URL must be bound to the ID of the media asset in IMS. The URL cannot be modified once registered.
+     *
+     * 2\\. oss://example-bucket/example.mp4. This format indicates that the region in which the OSS bucket of the media asset resides is the same as the region in which OSS is activated.
      * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
      *
      * @var string
@@ -58,6 +91,8 @@ class UpdateMediaInfoRequest extends Model
     public $inputURL;
 
     /**
+     * @description The ID of the media asset. If this parameter is left empty, you must specify the input URL of the media asset, which has been registered in the IMS content library.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -65,6 +100,13 @@ class UpdateMediaInfoRequest extends Model
     public $mediaId;
 
     /**
+     * @description The tags.
+     *
+     *   Up to 16 tags are supported.
+     *   Separate multiple tags with commas (,).
+     *   Each tag can be up to 32 bytes in length.
+     *   The value must be encoded in UTF-8.
+     *
      * @example updateTags1,updateTags2
      *
      * @var string
@@ -72,6 +114,8 @@ class UpdateMediaInfoRequest extends Model
     public $mediaTags;
 
     /**
+     * @description The custom ID. The ID can be 6 to 64 characters in length and can contain only letters, digits, hyphens (-), and underscores (_). Make sure that the ID is unique among users.
+     *
      * @example 123-123
      *
      * @var string
@@ -79,6 +123,11 @@ class UpdateMediaInfoRequest extends Model
     public $referenceId;
 
     /**
+     * @description The title.
+     *
+     *   The value can be up to 128 bytes in length.
+     *   The value must be encoded in UTF-8.
+     *
      * @example defaultTitle
      *
      * @var string
@@ -86,6 +135,8 @@ class UpdateMediaInfoRequest extends Model
     public $title;
 
     /**
+     * @description The user data. It can be up to 1,024 bytes in size.
+     *
      * @example userData
      *
      * @var string

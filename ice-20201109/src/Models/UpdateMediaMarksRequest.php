@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateMediaMarksRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the media asset.
      *
+     * This parameter is required.
      * @example 53afdf003a******6a16b5feac6402
      *
      * @var string
@@ -18,8 +19,9 @@ class UpdateMediaMarksRequest extends Model
     public $mediaId;
 
     /**
-     * @description This parameter is required.
+     * @description The marks of the media asset.
      *
+     * This parameter is required.
      * @var string
      */
     public $mediaMarks;

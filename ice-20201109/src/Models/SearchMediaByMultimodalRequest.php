@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class SearchMediaByMultimodalRequest extends Model
 {
     /**
+     * @description The type of the media assets.
+     *
+     * Valid values:
+     *
+     *   image
+     *   video (default)
+     *
      * @example video
      *
      * @var string
@@ -16,6 +23,8 @@ class SearchMediaByMultimodalRequest extends Model
     public $mediaType;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +32,8 @@ class SearchMediaByMultimodalRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 50.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +41,8 @@ class SearchMediaByMultimodalRequest extends Model
     public $pageSize;
 
     /**
+     * @description The search library.
+     *
      * @example test-1
      *
      * @var string
@@ -37,6 +50,8 @@ class SearchMediaByMultimodalRequest extends Model
     public $searchLibName;
 
     /**
+     * @description The content that you want to query. You can describe the content in natural language.
+     *
      * @var string
      */
     public $text;

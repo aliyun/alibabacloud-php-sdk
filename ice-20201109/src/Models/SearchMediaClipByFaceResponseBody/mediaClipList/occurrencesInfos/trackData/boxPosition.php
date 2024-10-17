@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class boxPosition extends Model
 {
     /**
+     * @description The height of the rectangle frame. Unit: pixels.
+     *
      * @example 168
      *
      * @var int
@@ -16,6 +18,8 @@ class boxPosition extends Model
     public $h;
 
     /**
+     * @description The width of the rectangle frame. Unit: pixels.
+     *
      * @example 128
      *
      * @var int
@@ -23,6 +27,8 @@ class boxPosition extends Model
     public $w;
 
     /**
+     * @description The x-axis coordinate of the upper-left corner. Unit: pixels.
+     *
      * @example 517
      *
      * @var int
@@ -30,6 +36,8 @@ class boxPosition extends Model
     public $x;
 
     /**
+     * @description The y-axis coordinate of the upper-left corner. Unit: pixels.
+     *
      * @example 409
      *
      * @var int

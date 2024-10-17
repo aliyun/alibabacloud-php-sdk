@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateMediaToSearchLibResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the media asset.
+     *
      * @example ******b48fb04483915d4f2cd8******
      *
      * @var string
@@ -21,6 +27,8 @@ class UpdateMediaToSearchLibResponseBody extends Model
     public $mediaId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4E84BE44-58A7-****-****-FBEBEA16EF94
      *
      * @var string
@@ -28,6 +36,13 @@ class UpdateMediaToSearchLibResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

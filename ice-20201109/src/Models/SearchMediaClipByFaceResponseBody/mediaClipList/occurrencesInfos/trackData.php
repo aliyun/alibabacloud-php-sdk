@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class trackData extends Model
 {
     /**
+     * @description The coordinates of the face.
+     *
      * @var boxPosition
      */
     public $boxPosition;
 
     /**
+     * @description The timestamp when the face appears in the clip. Unit: seconds. The value is of the Float type.
+     *
      * @example 62.03302
      *
      * @var float

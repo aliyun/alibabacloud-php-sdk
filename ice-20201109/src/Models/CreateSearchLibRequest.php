@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateSearchLibRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the search library. The name can contain letters and digits and must start with a letter.
      *
+     * This parameter is required.
      * @example test1
      *
      * @var string

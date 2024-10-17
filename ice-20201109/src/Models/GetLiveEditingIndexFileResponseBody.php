@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetLiveEditingIndexFileResponseBody extends Model
 {
     /**
+     * @description The URL of the index file.
+     *
      * @var string
      */
     public $indexFile;
 
     /**
+     * @description The request ID.
+     *
      * @example 4E84BE44-58A7-****-****-FBEBEA16EF94
      *
      * @var string

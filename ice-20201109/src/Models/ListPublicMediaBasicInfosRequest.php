@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListPublicMediaBasicInfosRequest extends Model
 {
     /**
+     * @description The business type of the media asset. Valid values:
+     *
+     *   sticker
+     *   bgm
+     *   bgi
+     *
+     * @example sticker
+     *
      * @var string
      */
     public $businessType;
 
     /**
+     * @description Specifies whether to return the basic information of the media asset.
+     *
      * @example true
      *
      * @var bool
@@ -21,6 +31,9 @@ class ListPublicMediaBasicInfosRequest extends Model
     public $includeFileBasicInfo;
 
     /**
+     * @description The maximum number of entries to return.
+     *
+     * Maximum value: 100. Default value: 10.
      * @example 5
      *
      * @var int
@@ -28,6 +41,34 @@ class ListPublicMediaBasicInfosRequest extends Model
     public $maxResults;
 
     /**
+     * @description The media tag. All media assets that contain the specified media tag are returned. Valid values:
+     *
+     *   Sticker tags:
+     *
+     *   sticker-atmosphere
+     *   sticker-bubble
+     *   sticker-cute
+     *   sticker-daily
+     *   sticker-expression
+     *   sticker-gif
+     *
+     *   Background music (BGM) tags:
+     *
+     *   bgm-romantic
+     *   bgm-cuisine
+     *   bgm-chinese-style
+     *   bgm-upbeat
+     *   bgm-dynamic
+     *   bgm-relaxing
+     *   bgm-quirky
+     *   bgm-beauty
+     *
+     *   Background image (BGI) tags:
+     *
+     *   bgi-grad
+     *   bgi-solid
+     *   bgi-pic
+     *
      * @example ticker-atmosphere
      *
      * @var string
@@ -35,6 +76,8 @@ class ListPublicMediaBasicInfosRequest extends Model
     public $mediaTagId;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
      * @example pSa1SQ0wCe5pzVrQ6mWZEw==
      *
      * @var string
@@ -42,6 +85,8 @@ class ListPublicMediaBasicInfosRequest extends Model
     public $nextToken;
 
     /**
+     * @description The page number. Default value: 1
+     *
      * @example 1
      *
      * @var int
@@ -49,6 +94,8 @@ class ListPublicMediaBasicInfosRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int

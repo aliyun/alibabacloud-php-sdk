@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class videoStreamInfoList extends Model
 {
     /**
+     * @description The average video frame rate.
+     *
      * @example 24.0
      *
      * @var string
@@ -16,6 +18,8 @@ class videoStreamInfoList extends Model
     public $avgFPS;
 
     /**
+     * @description The bitrate.
+     *
      * @example 1001.594
      *
      * @var string
@@ -23,6 +27,8 @@ class videoStreamInfoList extends Model
     public $bitrate;
 
     /**
+     * @description The full name of the codec.
+     *
      * @example H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
      *
      * @var string
@@ -30,6 +36,8 @@ class videoStreamInfoList extends Model
     public $codecLongName;
 
     /**
+     * @description The short name of the codec.
+     *
      * @example h264
      *
      * @var string
@@ -37,6 +45,8 @@ class videoStreamInfoList extends Model
     public $codecName;
 
     /**
+     * @description The tag of the codec.
+     *
      * @example 0x0000
      *
      * @var string
@@ -44,6 +54,8 @@ class videoStreamInfoList extends Model
     public $codecTag;
 
     /**
+     * @description The tag string of the codec.
+     *
      * @example [0][0][0][0]
      *
      * @var string
@@ -51,6 +63,8 @@ class videoStreamInfoList extends Model
     public $codecTagString;
 
     /**
+     * @description The time base of the codec.
+     *
      * @example 1/48
      *
      * @var string
@@ -58,6 +72,8 @@ class videoStreamInfoList extends Model
     public $codecTimeBase;
 
     /**
+     * @description The display aspect ratio (DAR).
+     *
      * @example 0:1
      *
      * @var string
@@ -65,6 +81,8 @@ class videoStreamInfoList extends Model
     public $dar;
 
     /**
+     * @description The duration.
+     *
      * @example 216.206706
      *
      * @var string
@@ -72,6 +90,8 @@ class videoStreamInfoList extends Model
     public $duration;
 
     /**
+     * @description The video frame rate.
+     *
      * @example 24.0
      *
      * @var string
@@ -79,6 +99,8 @@ class videoStreamInfoList extends Model
     public $fps;
 
     /**
+     * @description Indicates whether the video track contains bidirectional frames (B-frames).
+     *
      * @example 2
      *
      * @var string
@@ -86,6 +108,8 @@ class videoStreamInfoList extends Model
     public $hasBFrames;
 
     /**
+     * @description The height.
+     *
      * @example 540
      *
      * @var string
@@ -93,6 +117,8 @@ class videoStreamInfoList extends Model
     public $height;
 
     /**
+     * @description The sequence number of the video track.
+     *
      * @example 0
      *
      * @var string
@@ -100,6 +126,8 @@ class videoStreamInfoList extends Model
     public $index;
 
     /**
+     * @description The language.
+     *
      * @example und
      *
      * @var string
@@ -107,6 +135,8 @@ class videoStreamInfoList extends Model
     public $lang;
 
     /**
+     * @description The codec level.
+     *
      * @example 30
      *
      * @var string
@@ -114,6 +144,8 @@ class videoStreamInfoList extends Model
     public $level;
 
     /**
+     * @description The total number of frames.
+     *
      * @example 5184
      *
      * @var string
@@ -121,6 +153,8 @@ class videoStreamInfoList extends Model
     public $nbFrames;
 
     /**
+     * @description The number of frames.
+     *
      * @example 5184
      *
      * @var string
@@ -128,6 +162,8 @@ class videoStreamInfoList extends Model
     public $numFrames;
 
     /**
+     * @description The pixel format.
+     *
      * @example yuv420p
      *
      * @var string
@@ -135,6 +171,8 @@ class videoStreamInfoList extends Model
     public $pixFmt;
 
     /**
+     * @description The codec profile.
+     *
      * @example High
      *
      * @var string
@@ -142,6 +180,8 @@ class videoStreamInfoList extends Model
     public $profile;
 
     /**
+     * @description The rotation angle.
+     *
      * @example 0
      *
      * @var string
@@ -149,6 +189,8 @@ class videoStreamInfoList extends Model
     public $rotate;
 
     /**
+     * @description The sample aspect ratio (SAR).
+     *
      * @example 0:1
      *
      * @var string
@@ -156,6 +198,8 @@ class videoStreamInfoList extends Model
     public $sar;
 
     /**
+     * @description The start time.
+     *
      * @example 0.081706
      *
      * @var string
@@ -163,6 +207,8 @@ class videoStreamInfoList extends Model
     public $startTime;
 
     /**
+     * @description The time base.
+     *
      * @example 1/12288
      *
      * @var string
@@ -170,6 +216,8 @@ class videoStreamInfoList extends Model
     public $timebase;
 
     /**
+     * @description The width.
+     *
      * @example 960
      *
      * @var string

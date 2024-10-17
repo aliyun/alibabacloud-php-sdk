@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class category extends Model
 {
     /**
+     * @description The category ID.
+     *
      * @example 129
      *
      * @var int
@@ -16,11 +18,18 @@ class category extends Model
     public $cateId;
 
     /**
+     * @description The category name.
+     *
+     *   The value can be up to 64 bytes in length.
+     *   The value is encoded in UTF-8.
+     *
      * @var string
      */
     public $cateName;
 
     /**
+     * @description The level of the category. A value of **0** indicates a level-1 category, a value of **1** indicates a level-2 category, and a value of **2** indicates a level-3 category.
+     *
      * @example 1
      *
      * @var int
@@ -28,6 +37,8 @@ class category extends Model
     public $level;
 
     /**
+     * @description The ID of the parent category.
+     *
      * @example 46
      *
      * @var int
@@ -35,6 +46,8 @@ class category extends Model
     public $parentId;
 
     /**
+     * @description The total number of subcategories.
+     *
      * @example 100
      *
      * @var int
@@ -42,6 +55,11 @@ class category extends Model
     public $subTotal;
 
     /**
+     * @description The type of the category. Valid values:
+     *
+     *   **default**: audio, video, and image files. This is the default value.
+     *   **material**: short video materials.
+     *
      * @example default
      *
      * @var string

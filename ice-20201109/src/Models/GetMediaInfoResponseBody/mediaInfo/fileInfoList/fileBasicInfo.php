@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class fileBasicInfo extends Model
 {
     /**
+     * @description The bitrate.
+     *
      * @example 1132.68
      *
      * @var string
@@ -16,6 +18,8 @@ class fileBasicInfo extends Model
     public $bitrate;
 
     /**
+     * @description The time when the file was created.
+     *
      * @example 2020-12-26T04:11:08Z
      *
      * @var string
@@ -23,6 +27,8 @@ class fileBasicInfo extends Model
     public $createTime;
 
     /**
+     * @description The duration.
+     *
      * @example 216.206667
      *
      * @var string
@@ -30,6 +36,8 @@ class fileBasicInfo extends Model
     public $duration;
 
     /**
+     * @description The file name.
+     *
      * @example example.mp4
      *
      * @var string
@@ -37,6 +45,8 @@ class fileBasicInfo extends Model
     public $fileName;
 
     /**
+     * @description The file size. Unit: bytes.
+     *
      * @example 30611502
      *
      * @var string
@@ -44,6 +54,8 @@ class fileBasicInfo extends Model
     public $fileSize;
 
     /**
+     * @description The file status.
+     *
      * @example Normal
      *
      * @var string
@@ -51,6 +63,8 @@ class fileBasicInfo extends Model
     public $fileStatus;
 
     /**
+     * @description The file type.
+     *
      * @example source_file
      *
      * @var string
@@ -58,6 +72,8 @@ class fileBasicInfo extends Model
     public $fileType;
 
     /**
+     * @description The OSS URL of the file.
+     *
      * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
      *
      * @var string
@@ -65,6 +81,8 @@ class fileBasicInfo extends Model
     public $fileUrl;
 
     /**
+     * @description The container format.
+     *
      * @example mov,mp4,m4a,3gp,3g2,mj2
      *
      * @var string
@@ -72,6 +90,8 @@ class fileBasicInfo extends Model
     public $formatName;
 
     /**
+     * @description The height.
+     *
      * @example 540
      *
      * @var string
@@ -79,6 +99,8 @@ class fileBasicInfo extends Model
     public $height;
 
     /**
+     * @description The time when the file was last modified.
+     *
      * @example 2020-12-26T04:11:10Z
      *
      * @var string
@@ -86,6 +108,8 @@ class fileBasicInfo extends Model
     public $modifiedTime;
 
     /**
+     * @description The region in which the file is stored.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -93,6 +117,8 @@ class fileBasicInfo extends Model
     public $region;
 
     /**
+     * @description The width.
+     *
      * @example 960
      *
      * @var string

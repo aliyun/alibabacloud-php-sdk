@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListMediaMarksResponseBody extends Model
 {
     /**
+     * @description The ID of the media asset.
+     *
      * @example ******b48fb04483915d4f2cd8******
      *
      * @var string
@@ -16,11 +18,15 @@ class ListMediaMarksResponseBody extends Model
     public $mediaId;
 
     /**
+     * @description The marks of the media asset, in the JSONArray format.
+     *
      * @var string
      */
     public $mediaMarks;
 
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string

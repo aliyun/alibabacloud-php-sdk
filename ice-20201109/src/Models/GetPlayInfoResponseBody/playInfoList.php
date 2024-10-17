@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class playInfoList extends Model
 {
     /**
+     * @description The color depth.
+     *
      * @example 8
      *
      * @var int
@@ -16,6 +18,8 @@ class playInfoList extends Model
     public $bitDepth;
 
     /**
+     * @description The bitrate of the media stream. Unit: Kbit/s.
+     *
      * @example 20
      *
      * @var string
@@ -23,6 +27,8 @@ class playInfoList extends Model
     public $bitrate;
 
     /**
+     * @description The time when the media stream was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2022-05-10T02:28:49Z
      *
      * @var string
@@ -30,6 +36,19 @@ class playInfoList extends Model
     public $creationTime;
 
     /**
+     * @description The quality of the media stream. Valid values:
+     *
+     *   **FD**: low definition
+     *   **LD**: standard definition
+     *   **SD**: high definition
+     *   **HD**: ultra-high definition
+     *   **OD**: original definition
+     *   **2K**
+     *   **4K**
+     *   **SQ**: standard sound quality
+     *   **HQ**: high sound quality
+     *   **AUTO**: adaptive bitrate
+     *
      * @example HD
      *
      * @var string
@@ -37,6 +56,8 @@ class playInfoList extends Model
     public $definition;
 
     /**
+     * @description The duration of the media stream. Unit: seconds.
+     *
      * @example 9.0464
      *
      * @var string
@@ -44,6 +65,11 @@ class playInfoList extends Model
     public $duration;
 
     /**
+     * @description Indicates whether the media stream is encrypted. Valid values:
+     *
+     *   **0**: The media stream is not encrypted.
+     *   **1**: The media stream is encrypted.
+     *
      * @example 0
      *
      * @var int
@@ -51,6 +77,12 @@ class playInfoList extends Model
     public $encrypt;
 
     /**
+     * @description The encryption type of the media stream. Valid values:
+     *
+     *   **AliyunVoDEncryption**: Alibaba Cloud proprietary cryptography
+     *   **HLSEncryption**: HTTP Live Streaming (HLS) encryption
+     *
+     * >  If the encryption type is AliyunVoDEncryption, only ApsaraVideo Player SDK can be used to play videos.
      * @example AliyunVoDEncryption
      *
      * @var string
@@ -58,6 +90,8 @@ class playInfoList extends Model
     public $encryptType;
 
     /**
+     * @description The OSS URL of the file.
+     *
      * @example http://outin-***.oss-cn-shanghai.aliyuncs.com/sv/43a68ee9-181809b6aba/43a68ee9-181809b6aba.mpeg
      *
      * @var string
@@ -65,6 +99,11 @@ class playInfoList extends Model
     public $fileURL;
 
     /**
+     * @description The format of the media stream.
+     *
+     *   If the media asset is a video file, the valid values are **mp4** and **m3u8**.
+     *   If the media asset is an audio-only file, the value is **mp3**.
+     *
      * @example mp4
      *
      * @var string
@@ -72,6 +111,8 @@ class playInfoList extends Model
     public $format;
 
     /**
+     * @description The frame rate of the media stream. Unit: frames per second (FPS).
+     *
      * @example 25
      *
      * @var string
@@ -79,6 +120,15 @@ class playInfoList extends Model
     public $fps;
 
     /**
+     * @description The high dynamic range (HDR) type of the media stream. Valid values:
+     *
+     *   HDR
+     *   HDR10
+     *   HLG
+     *   DolbyVision
+     *   HDRVivid
+     *   SDR+
+     *
      * @example HDR
      *
      * @var string
@@ -86,6 +136,8 @@ class playInfoList extends Model
     public $HDRType;
 
     /**
+     * @description The height of the media stream. Unit: pixels.
+     *
      * @example 1080
      *
      * @var int
@@ -93,6 +145,8 @@ class playInfoList extends Model
     public $height;
 
     /**
+     * @description The task ID.
+     *
      * @example 36c9d38e70bf43ed9f7f8f48d6356***
      *
      * @var string
@@ -100,6 +154,8 @@ class playInfoList extends Model
     public $jobId;
 
     /**
+     * @description The time when the media stream was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2022-05-13T11:39:41.714+08:00
      *
      * @var string
@@ -107,6 +163,13 @@ class playInfoList extends Model
     public $modificationTime;
 
     /**
+     * @description The type of Narrowband HD™ transcoding. Valid values:
+     *
+     *   **0**: standard transcoding
+     *   **1.0**: Narrowband HD™ 1.0 transcoding
+     *   **2.0**: Narrowband HD™ 2.0 transcoding
+     *
+     * This parameter is returned only when a definition that is available in the built-in Narrowband HD™ 1.0 transcoding template is specified. For more information, see the [Definition parameter in TranscodeTemplate](https://help.aliyun.com/document_detail/52839.html) table.
      * @example 0
      *
      * @var string
@@ -114,6 +177,8 @@ class playInfoList extends Model
     public $narrowBandType;
 
     /**
+     * @description The playback URL of the media stream.
+     *
      * @example https://***.aliyuncdn.com/sv/756bee1-17f980f0945/756bee1-17f980f0945.mp4
      *
      * @var string
@@ -121,6 +186,8 @@ class playInfoList extends Model
     public $playURL;
 
     /**
+     * @description The size of the media stream. Unit: bytes.
+     *
      * @example 418112
      *
      * @var int
@@ -128,6 +195,11 @@ class playInfoList extends Model
     public $size;
 
     /**
+     * @description The status of the media stream. Valid values:
+     *
+     *   **Normal**
+     *   **Invisible**
+     *
      * @example Normal
      *
      * @var string
@@ -135,6 +207,8 @@ class playInfoList extends Model
     public $status;
 
     /**
+     * @description The tags of the media stream, which are used to identify the transcoding type.
+     *
      * @example "{\\"ims.audioServiceType\\": \\"AudioEnhancement\\"}"
      *
      * @var string
@@ -142,6 +216,8 @@ class playInfoList extends Model
     public $streamTags;
 
     /**
+     * @description The type of the media stream. If the media stream is a video stream, the value is **video**. If the media stream is an audio-only stream, the value is **audio**.
+     *
      * @example video
      *
      * @var string
@@ -149,6 +225,15 @@ class playInfoList extends Model
     public $streamType;
 
     /**
+     * @description The type of the transcoding template. Valid values:
+     *
+     *   Normal: standard transcoding
+     *   AudioTranscode: audio transcoding
+     *   Remux: container format conversion
+     *   NarrowBandV1: Narrowband HD™ 1.0
+     *   NarrowBandV2: Narrowband HD™ 2.0
+     *   UHD: audio and video enhancement (ultra-high definition)
+     *
      * @example Normal
      *
      * @var string
@@ -156,6 +241,8 @@ class playInfoList extends Model
     public $transTemplateType;
 
     /**
+     * @description The ID of the watermark that is associated with the media stream.
+     *
      * @example 5bed88672b1e2520ead228935ed51***
      *
      * @var string
@@ -163,6 +250,8 @@ class playInfoList extends Model
     public $watermarkId;
 
     /**
+     * @description The width of the media stream. Unit: pixels.
+     *
      * @example 1024
      *
      * @var int

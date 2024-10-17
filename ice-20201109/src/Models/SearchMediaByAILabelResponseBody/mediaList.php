@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class mediaList extends Model
 {
     /**
+     * @description The details of the AI job.
+     *
      * @var aiData
      */
     public $aiData;
 
     /**
+     * @description The ID of the application. Default value: app-1000000.
+     *
      * @example app-1000000
      *
      * @var string
@@ -22,6 +26,8 @@ class mediaList extends Model
     public $appId;
 
     /**
+     * @description The URL of the thumbnail.
+     *
      * @example http://example.aliyundoc.com/snapshot/****.jpg?auth_key=1498476426-0-0-f00b9455c49a423ce69cf4e27333****
      *
      * @var string
@@ -29,6 +35,8 @@ class mediaList extends Model
     public $coverUrl;
 
     /**
+     * @description The time when the media asset was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2017-11-14T09:15:50Z
      *
      * @var string
@@ -36,11 +44,15 @@ class mediaList extends Model
     public $creationTime;
 
     /**
+     * @description The description of the media asset.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The duration. Unit: seconds.
+     *
      * @example 12.2
      *
      * @var float
@@ -48,6 +60,8 @@ class mediaList extends Model
     public $duration;
 
     /**
+     * @description The ID of the media asset.
+     *
      * @example 1c6ce34007d571ed94667630a6bc****
      *
      * @var string
@@ -55,6 +69,8 @@ class mediaList extends Model
     public $mediaId;
 
     /**
+     * @description The time when the media asset was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2017-11-14T09:15:50Z
      *
      * @var string
@@ -62,6 +78,8 @@ class mediaList extends Model
     public $modificationTime;
 
     /**
+     * @description The size of the source file. Unit: bytes.
+     *
      * @example 10897890
      *
      * @var int
@@ -69,11 +87,30 @@ class mediaList extends Model
     public $size;
 
     /**
+     * @description The array of video snapshot URLs.
+     *
      * @var string[]
      */
     public $snapshots;
 
     /**
+     * @description The status of the video.
+     *
+     * Valid values:
+     *
+     *   PrepareFail
+     *   UploadFail
+     *   Init
+     *   UploadSucc
+     *   Transcoding
+     *   TranscodeFail
+     *   Deleted
+     *   Normal
+     *   Uploading
+     *   Preparing
+     *   Blocked
+     *   Checking
+     *
      * @example Normal
      *
      * @var string
@@ -81,6 +118,8 @@ class mediaList extends Model
     public $status;
 
     /**
+     * @description The storage address.
+     *
      * @example out-****.oss-cn-shanghai.aliyuncs.com
      *
      * @var string
@@ -88,11 +127,15 @@ class mediaList extends Model
     public $storageLocation;
 
     /**
+     * @description The tags of the media asset.
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The title of the media asset.
+     *
      * @var string
      */
     public $title;

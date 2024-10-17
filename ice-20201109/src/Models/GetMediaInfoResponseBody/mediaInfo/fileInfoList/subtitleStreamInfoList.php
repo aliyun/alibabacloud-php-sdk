@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class subtitleStreamInfoList extends Model
 {
     /**
+     * @description The full name of the codec.
+     *
      * @example SubRip Text
      *
      * @var string
@@ -16,6 +18,8 @@ class subtitleStreamInfoList extends Model
     public $codecLongName;
 
     /**
+     * @description The short name of the codec.
+     *
      * @example srt
      *
      * @var string
@@ -23,6 +27,8 @@ class subtitleStreamInfoList extends Model
     public $codecName;
 
     /**
+     * @description The tag of the codec.
+     *
      * @example unicode
      *
      * @var string
@@ -30,6 +36,8 @@ class subtitleStreamInfoList extends Model
     public $codecTag;
 
     /**
+     * @description The tag string of the codec.
+     *
      * @example unicode
      *
      * @var string
@@ -37,6 +45,8 @@ class subtitleStreamInfoList extends Model
     public $codecTagString;
 
     /**
+     * @description The time base of the codec.
+     *
      * @example 29.97
      *
      * @var string
@@ -44,6 +54,8 @@ class subtitleStreamInfoList extends Model
     public $codecTimeBase;
 
     /**
+     * @description The duration.
+     *
      * @example 1
      *
      * @var string
@@ -51,6 +63,8 @@ class subtitleStreamInfoList extends Model
     public $duration;
 
     /**
+     * @description The sequence number of the subtitle track.
+     *
      * @example 1
      *
      * @var string
@@ -58,6 +72,8 @@ class subtitleStreamInfoList extends Model
     public $index;
 
     /**
+     * @description The language.
+     *
      * @example und
      *
      * @var string
@@ -65,6 +81,8 @@ class subtitleStreamInfoList extends Model
     public $lang;
 
     /**
+     * @description The start time.
+     *
      * @example 0
      *
      * @var string
@@ -72,6 +90,8 @@ class subtitleStreamInfoList extends Model
     public $startTime;
 
     /**
+     * @description The time base.
+     *
      * @example 30
      *
      * @var string

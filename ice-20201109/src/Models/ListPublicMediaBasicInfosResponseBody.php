@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListPublicMediaBasicInfosResponseBody extends Model
 {
     /**
+     * @description The maximum number of entries returned.
+     *
      * @example 2
      *
      * @var int
@@ -17,11 +19,15 @@ class ListPublicMediaBasicInfosResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The media assets that meet the specified conditions.
+     *
      * @var mediaInfos[]
      */
     public $mediaInfos;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+     *
      * @example 8EqYpQbZ6Eh7+Zz8DxVYoQ==
      *
      * @var string
@@ -29,6 +35,8 @@ class ListPublicMediaBasicInfosResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example ******B7-7F87-4792-BFE9-63CD21******
      *
      * @var string
@@ -36,6 +44,8 @@ class ListPublicMediaBasicInfosResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of media assets that meet the specified conditions.
+     *
      * @example 2
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetLiveEditingIndexFileRequest extends Model
 {
     /**
+     * @description The application name of the live stream.
+     *
      * @example testrecord
      *
      * @var string
@@ -16,6 +18,8 @@ class GetLiveEditingIndexFileRequest extends Model
     public $appName;
 
     /**
+     * @description The domain name of the live stream.
+     *
      * @example test.alivecdn.com
      *
      * @var string
@@ -23,6 +27,8 @@ class GetLiveEditingIndexFileRequest extends Model
     public $domainName;
 
     /**
+     * @description The ID of the live stream editing project.
+     *
      * @example *****cb6307a4edea614d8b3f3c*****
      *
      * @var string
@@ -30,6 +36,8 @@ class GetLiveEditingIndexFileRequest extends Model
     public $projectId;
 
     /**
+     * @description The name of the live stream.
+     *
      * @example teststream
      *
      * @var string

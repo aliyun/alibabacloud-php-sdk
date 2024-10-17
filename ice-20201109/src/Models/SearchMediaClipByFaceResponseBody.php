@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SearchMediaClipByFaceResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class SearchMediaClipByFaceResponseBody extends Model
     public $code;
 
     /**
+     * @description The media asset clips that meet the requirements.
+     *
      * @var mediaClipList[]
      */
     public $mediaClipList;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E44FFACD-9E90-555A-A09A-6FD3B7335E39
      *
      * @var string
@@ -29,6 +35,8 @@ class SearchMediaClipByFaceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values: true and false.
+     *
      * @example true
      *
      * @var string
@@ -36,6 +44,8 @@ class SearchMediaClipByFaceResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of media asset clips that meet the conditions.
+     *
      * @example 5
      *
      * @var int

@@ -10,21 +10,39 @@ use AlibabaCloud\Tea\Model;
 class standardSmartTagJob extends Model
 {
     /**
+     * @description The ID of the AI task.
+     *
+     * @example ****483915d4f2cd8ac20b48fb04****
+     *
      * @var string
      */
     public $aiJobId;
 
     /**
+     * @description The URL of the tagging result.
+     *
+     * @example http://xx.oss-cn-shanghai.aliyuncs.com/result2.txt
+     *
      * @var string
      */
     public $resultUrl;
 
     /**
+     * @description The recognized tags.
+     *
      * @var results[]
      */
     public $results;
 
     /**
+     * @description The analysis status. Valid values:
+     *
+     *   Analyzing
+     *   AnalyzeSuccess
+     *   AnalyzeFailed
+     *
+     * @example Analyzing
+     *
      * @var string
      */
     public $status;

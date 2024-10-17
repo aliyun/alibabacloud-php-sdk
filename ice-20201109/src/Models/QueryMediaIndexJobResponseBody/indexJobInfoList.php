@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class indexJobInfoList extends Model
 {
     /**
+     * @description The end time of the indexing job.
+     *
      * @example 2023-11-21 11:33:51
      *
      * @var string
@@ -16,6 +18,8 @@ class indexJobInfoList extends Model
     public $gmtFinish;
 
     /**
+     * @description The time when the index job was submitted.
+     *
      * @example 2023-11-21 11:33:50
      *
      * @var string
@@ -23,6 +27,12 @@ class indexJobInfoList extends Model
     public $gmtSubmit;
 
     /**
+     * @description The index type. Valid values:
+     *
+     *   mm: large visual model.
+     *   face: face recognition.
+     *   aiLabel: smart tagging.
+     *
      * @example mm
      *
      * @var string
@@ -30,6 +40,12 @@ class indexJobInfoList extends Model
     public $indexType;
 
     /**
+     * @description The job status. Valid values:
+     *
+     *   Running
+     *   Success
+     *   Fail
+     *
      * @example Success
      *
      * @var string

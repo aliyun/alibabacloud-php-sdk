@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class QueryMediaIndexJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the media asset.
      *
+     * This parameter is required.
      * @example c2e77390f75271ec802f0674a2ce6***
      *
      * @var string
@@ -18,6 +19,8 @@ class QueryMediaIndexJobRequest extends Model
     public $mediaId;
 
     /**
+     * @description The name of the search library. Default value: ims-default-search-lib.
+     *
      * @example test1
      *
      * @var string

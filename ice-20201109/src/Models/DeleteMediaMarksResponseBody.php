@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteMediaMarksResponseBody extends Model
 {
     /**
+     * @description The ID of the media asset.
+     *
      * @example ****019b82e24b37a1c2958dec38****
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteMediaMarksResponseBody extends Model
     public $mediaId;
 
     /**
+     * @description The IDs of the deleted marks separated with commas (,).
+     *
      * @example mark-f82d*****4994b0915948ef7e16,mark-3d56d*****4c8fa9ae2a1f9e5d2d60
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteMediaMarksResponseBody extends Model
     public $mediaMarkIds;
 
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string

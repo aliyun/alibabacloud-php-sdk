@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class asrInfo extends Model
 {
     /**
+     * @description The ID of the clip.
+     *
      * @example 5FE19530C7A422197535FE74F5DB****
      *
      * @var string
@@ -16,11 +18,15 @@ class asrInfo extends Model
     public $clipId;
 
     /**
+     * @description The content of the audio.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The start time of the clip.
+     *
      * @example 1.4
      *
      * @var float
@@ -28,6 +34,8 @@ class asrInfo extends Model
     public $from;
 
     /**
+     * @description The timestamp of the clip.
+     *
      * @example 1.4
      *
      * @var float
@@ -35,6 +43,8 @@ class asrInfo extends Model
     public $timestamp;
 
     /**
+     * @description The end time of the clip.
+     *
      * @example 2.5
      *
      * @var float

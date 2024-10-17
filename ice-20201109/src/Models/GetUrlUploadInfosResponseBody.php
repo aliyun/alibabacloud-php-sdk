@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetUrlUploadInfosResponseBody extends Model
 {
     /**
+     * @description The job IDs or upload URLs that do not exist.
+     *
      * @var string[]
      */
     public $nonExists;
 
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string
@@ -22,6 +26,8 @@ class GetUrlUploadInfosResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The details about URL-based upload jobs.
+     *
      * @var URLUploadInfoList[]
      */
     public $URLUploadInfoList;

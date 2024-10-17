@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DropSearchLibResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example ****63E8B7C7-4812-46AD-0FA56029AC86****
      *
@@ -23,6 +27,13 @@ class DropSearchLibResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

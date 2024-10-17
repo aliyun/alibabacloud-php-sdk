@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AlterSearchIndexRequest extends Model
 {
     /**
+     * @description The configurations of the index.
+     *
+     * >  You must specify either IndexStatus or IndexConfig.
      * @example {}
      *
      * @var string
@@ -16,13 +19,26 @@ class AlterSearchIndexRequest extends Model
     public $indexConfig;
 
     /**
+     * @description The state of the index. Valid values:
+     *
+     *   active (default): the index is enabled.
+     *   Deactive: the index is not enabled.
+     *
+     * >  You must specify either IndexStatus or IndexConfig.
+     * @example Active
+     *
      * @var string
      */
     public $indexStatus;
 
     /**
-     * @description This parameter is required.
+     * @description The category of the index. Valid values:
      *
+     *   mm: large visual model.
+     *   face: face recognition.
+     *   aiLabel: smart tagging.
+     *
+     * This parameter is required.
      * @example mm
      *
      * @var string
@@ -30,6 +46,11 @@ class AlterSearchIndexRequest extends Model
     public $indexType;
 
     /**
+     * @description The name of the search library.
+     *
+     *   If you leave this parameter empty, the search index is created in the default search library of Intelligent Media Service (IMS). Default value: ims-default-search-lib.
+     *   To query information about an existing search library, call the [QuerySearchLib](https://help.aliyun.com/document_detail/2584455.html) API operation.
+     *
      * @example test1
      *
      * @var string

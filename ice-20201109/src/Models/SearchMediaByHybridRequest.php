@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SearchMediaByHybridRequest extends Model
 {
     /**
+     * @description The ID of the media asset. The details of the media asset are returned.
+     *
      * @example ****c469e944b5a856828dc2****
      *
      * @var string

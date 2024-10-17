@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class fileBasicInfo extends Model
 {
     /**
+     * @description The bitrate.
+     *
      * @example 1132.68
      *
      * @var string
@@ -16,6 +18,8 @@ class fileBasicInfo extends Model
     public $bitrate;
 
     /**
+     * @description The duration.
+     *
      * @example 200
      *
      * @var string
@@ -23,6 +27,8 @@ class fileBasicInfo extends Model
     public $duration;
 
     /**
+     * @description The file name.
+     *
      * @example example
      *
      * @var string
@@ -30,6 +36,8 @@ class fileBasicInfo extends Model
     public $fileName;
 
     /**
+     * @description The file size. Unit: bytes.
+     *
      * @example 30611502
      *
      * @var string
@@ -37,6 +45,8 @@ class fileBasicInfo extends Model
     public $fileSize;
 
     /**
+     * @description The file status.
+     *
      * @example Normal
      *
      * @var string
@@ -44,6 +54,8 @@ class fileBasicInfo extends Model
     public $fileStatus;
 
     /**
+     * @description The file type.
+     *
      * @example source_file
      *
      * @var string
@@ -51,6 +63,8 @@ class fileBasicInfo extends Model
     public $fileType;
 
     /**
+     * @description The Object Storage Service (OSS) URL of the file.
+     *
      * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
      *
      * @var string
@@ -58,6 +72,8 @@ class fileBasicInfo extends Model
     public $fileUrl;
 
     /**
+     * @description The container format.
+     *
      * @example mov,mp4,m4a,3gp,3g2,mj2
      *
      * @var string
@@ -65,6 +81,8 @@ class fileBasicInfo extends Model
     public $formatName;
 
     /**
+     * @description The height.
+     *
      * @example 1080
      *
      * @var string
@@ -72,6 +90,8 @@ class fileBasicInfo extends Model
     public $height;
 
     /**
+     * @description The region in which the file resides.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -79,6 +99,8 @@ class fileBasicInfo extends Model
     public $region;
 
     /**
+     * @description The width.
+     *
      * @example 1920
      *
      * @var string

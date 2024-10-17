@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the video translation job.
+     *
+     * @example ****d718e2ff4f018ccf419a7b71****
+     *
      * @var string
      */
     public $jobId;

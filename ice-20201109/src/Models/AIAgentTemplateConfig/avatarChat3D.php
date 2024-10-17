@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class avatarChat3D extends Model
 {
     /**
+     * @var int
+     */
+    public $asrMaxSilence;
+
+    /**
      * @var string
      */
     public $avatarId;
@@ -38,6 +43,7 @@ class avatarChat3D extends Model
      */
     public $volume;
     protected $_name = [
+        'asrMaxSilence'        => 'AsrMaxSilence',
         'avatarId'             => 'AvatarId',
         'enableVoiceInterrupt' => 'EnableVoiceInterrupt',
         'gracefulShutdown'     => 'GracefulShutdown',
@@ -53,6 +59,9 @@ class avatarChat3D extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->asrMaxSilence) {
+            $res['AsrMaxSilence'] = $this->asrMaxSilence;
+        }
         if (null !== $this->avatarId) {
             $res['AvatarId'] = $this->avatarId;
         }
@@ -83,6 +92,9 @@ class avatarChat3D extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AsrMaxSilence'])) {
+            $model->asrMaxSilence = $map['AsrMaxSilence'];
+        }
         if (isset($map['AvatarId'])) {
             $model->avatarId = $map['AvatarId'];
         }

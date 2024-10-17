@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class liveMaterials extends Model
 {
     /**
+     * @description The application name of the live stream.
+     *
      * @example testrecord
      *
      * @var string
@@ -16,6 +18,8 @@ class liveMaterials extends Model
     public $appName;
 
     /**
+     * @description The domain name of the live stream.
+     *
      * @example test.alivecdn.com
      *
      * @var string
@@ -23,6 +27,8 @@ class liveMaterials extends Model
     public $domainName;
 
     /**
+     * @description The URL of the live stream.
+     *
      * @example rtmp://test.alivecdn.com/testrecord/teststream
      *
      * @var string
@@ -30,6 +36,8 @@ class liveMaterials extends Model
     public $liveUrl;
 
     /**
+     * @description The name of the live stream.
+     *
      * @example teststream
      *
      * @var string
