@@ -24,6 +24,21 @@ class ossObjectDetail extends Model
     public $categoryName;
 
     /**
+     * @var string
+     */
+    public $fileCategoryName;
+
+    /**
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $modelTagIds;
+
+    /**
      * @example obj_id
      *
      * @var string
@@ -31,11 +46,21 @@ class ossObjectDetail extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $objectAcl;
+
+    /**
      * @example cn-zhangjiakou
      *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $riskLevelId;
 
     /**
      * @example S1
@@ -48,13 +73,24 @@ class ossObjectDetail extends Model
      * @var ruleList[]
      */
     public $ruleList;
+
+    /**
+     * @var int
+     */
+    public $size;
     protected $_name = [
-        'bucketName'    => 'BucketName',
-        'categoryName'  => 'CategoryName',
-        'name'          => 'Name',
-        'regionId'      => 'RegionId',
-        'riskLevelName' => 'RiskLevelName',
-        'ruleList'      => 'RuleList',
+        'bucketName'       => 'BucketName',
+        'categoryName'     => 'CategoryName',
+        'fileCategoryName' => 'FileCategoryName',
+        'id'               => 'Id',
+        'modelTagIds'      => 'ModelTagIds',
+        'name'             => 'Name',
+        'objectAcl'        => 'ObjectAcl',
+        'regionId'         => 'RegionId',
+        'riskLevelId'      => 'RiskLevelId',
+        'riskLevelName'    => 'RiskLevelName',
+        'ruleList'         => 'RuleList',
+        'size'             => 'Size',
     ];
 
     public function validate()
@@ -70,11 +106,26 @@ class ossObjectDetail extends Model
         if (null !== $this->categoryName) {
             $res['CategoryName'] = $this->categoryName;
         }
+        if (null !== $this->fileCategoryName) {
+            $res['FileCategoryName'] = $this->fileCategoryName;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->modelTagIds) {
+            $res['ModelTagIds'] = $this->modelTagIds;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->objectAcl) {
+            $res['ObjectAcl'] = $this->objectAcl;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->riskLevelId) {
+            $res['RiskLevelId'] = $this->riskLevelId;
         }
         if (null !== $this->riskLevelName) {
             $res['RiskLevelName'] = $this->riskLevelName;
@@ -87,6 +138,9 @@ class ossObjectDetail extends Model
                     $res['RuleList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
         }
 
         return $res;
@@ -106,11 +160,26 @@ class ossObjectDetail extends Model
         if (isset($map['CategoryName'])) {
             $model->categoryName = $map['CategoryName'];
         }
+        if (isset($map['FileCategoryName'])) {
+            $model->fileCategoryName = $map['FileCategoryName'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['ModelTagIds'])) {
+            $model->modelTagIds = $map['ModelTagIds'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['ObjectAcl'])) {
+            $model->objectAcl = $map['ObjectAcl'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RiskLevelId'])) {
+            $model->riskLevelId = $map['RiskLevelId'];
         }
         if (isset($map['RiskLevelName'])) {
             $model->riskLevelName = $map['RiskLevelName'];
@@ -123,6 +192,9 @@ class ossObjectDetail extends Model
                     $model->ruleList[$n++] = null !== $item ? ruleList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
         }
 
         return $model;

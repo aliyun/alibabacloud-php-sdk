@@ -56,6 +56,8 @@ use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventsRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventsResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventTypesRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventTypesResponse;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeIdentifyTaskStatusRequest;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeIdentifyTaskStatusResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeInstanceSourcesRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeInstanceSourcesResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeInstancesRequest;
@@ -1965,6 +1967,50 @@ class Sddp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeEventsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询识别任务状态
+     *  *
+     * @param DescribeIdentifyTaskStatusRequest $request DescribeIdentifyTaskStatusRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeIdentifyTaskStatusResponse DescribeIdentifyTaskStatusResponse
+     */
+    public function describeIdentifyTaskStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIdentifyTaskStatus',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeIdentifyTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询识别任务状态
+     *  *
+     * @param DescribeIdentifyTaskStatusRequest $request DescribeIdentifyTaskStatusRequest
+     *
+     * @return DescribeIdentifyTaskStatusResponse DescribeIdentifyTaskStatusResponse
+     */
+    public function describeIdentifyTaskStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeIdentifyTaskStatusWithOptions($request, $runtime);
     }
 
     /**

@@ -67,6 +67,11 @@ class items extends Model
     public $lastFinishTime;
 
     /**
+     * @var string
+     */
+    public $memberAliUid;
+
+    /**
      * @description A list of tags.
      *
      * @var modelTags[]
@@ -214,6 +219,7 @@ class items extends Model
         'instanceDescription' => 'InstanceDescription',
         'labelsec'            => 'Labelsec',
         'lastFinishTime'      => 'LastFinishTime',
+        'memberAliUid'        => 'MemberAliUid',
         'modelTags'           => 'ModelTags',
         'name'                => 'Name',
         'odpsRiskLevelName'   => 'OdpsRiskLevelName',
@@ -254,6 +260,9 @@ class items extends Model
         }
         if (null !== $this->lastFinishTime) {
             $res['LastFinishTime'] = $this->lastFinishTime;
+        }
+        if (null !== $this->memberAliUid) {
+            $res['MemberAliUid'] = $this->memberAliUid;
         }
         if (null !== $this->modelTags) {
             $res['ModelTags'] = [];
@@ -332,6 +341,9 @@ class items extends Model
         }
         if (isset($map['LastFinishTime'])) {
             $model->lastFinishTime = $map['LastFinishTime'];
+        }
+        if (isset($map['MemberAliUid'])) {
+            $model->memberAliUid = $map['MemberAliUid'];
         }
         if (isset($map['ModelTags'])) {
             if (!empty($map['ModelTags'])) {
