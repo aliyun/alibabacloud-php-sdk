@@ -42,6 +42,8 @@ use AlibabaCloud\SDK\Domain\V20180208\Models\QueryBrokerDemandRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryBrokerDemandResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryDomainTransferStatusRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryDomainTransferStatusResponse;
+use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExchangeRateRequest;
+use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExchangeRateResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryPurchasedDomainsRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryPurchasedDomainsResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\RecordDemandRequest;
@@ -990,6 +992,56 @@ class Domain extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryDomainTransferStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询汇率
+     *  *
+     * @param QueryExchangeRateRequest $request QueryExchangeRateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryExchangeRateResponse QueryExchangeRateResponse
+     */
+    public function queryExchangeRateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fromCurrency)) {
+            $query['FromCurrency'] = $request->fromCurrency;
+        }
+        if (!Utils::isUnset($request->toCurrency)) {
+            $query['ToCurrency'] = $request->toCurrency;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryExchangeRate',
+            'version'     => '2018-02-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryExchangeRateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询汇率
+     *  *
+     * @param QueryExchangeRateRequest $request QueryExchangeRateRequest
+     *
+     * @return QueryExchangeRateResponse QueryExchangeRateResponse
+     */
+    public function queryExchangeRate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryExchangeRateWithOptions($request, $runtime);
     }
 
     /**
