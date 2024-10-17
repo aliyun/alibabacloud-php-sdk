@@ -123,7 +123,7 @@ class data extends Model
     public $enableAuthToken;
 
     /**
-     * @description 扩展信息（仅控制台请求才返回）
+     * @description The extra information.
      *
      * @var string[]
      */
@@ -286,7 +286,7 @@ class data extends Model
     public $subClustersJson;
 
     /**
-     * @description Supported authentication types.
+     * @description The supported authentication types.
      *
      * @var string[]
      */
