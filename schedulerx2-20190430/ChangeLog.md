@@ -1,3 +1,9 @@
+2024-10-17 Version: 2.0.2
+- Update API GetAppGroup: update response param.
+- Update API GrantPermission: update response param.
+- Update API ListNamespaces: update response param.
+
+
 2024-10-16 Version: 2.0.1
 - Update API GrantPermission: update response param.
 
