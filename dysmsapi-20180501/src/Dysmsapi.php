@@ -69,11 +69,11 @@ class Dysmsapi extends OpenApiClient
      * @summary Sends a message to multiple recipients in countries or regions outside the Chinese mainland.
      *  *
      * @description *   You cannot call the BatchSendMessageToGlobe operation to send messages to the Chinese mainland.
-     * *   You can call the BatchSendMessageToGlobe operation to send notifications and promotional messages to a limited number of mobile phone numbers at a time. To send messages to a large number of mobile phone numbers at a time, use the mass messaging feature of the SMS console.
-     * *   For time-sensitive related messages, we recommend that you use the [SendMessageToGlobe](https://www.alibabacloud.com/help/zh/sms/developer-reference/api-dysmsapi-2018-05-01-batchsendmessagetoglobe) operation to ensure that messages are delivered on time.
+     * *   You can call the BatchSendMessageToGlobe operation to send notifications and promotional messages to a limited number of mobile phone numbers at a time. To send messages to a large number of mobile phone numbers at a time, use the mass messaging feature in the SMS console.
+     * *   For time-sensitive related messages, we recommend that you use the [SendMessageToGlobe](https://www.alibabacloud.com/help/en/sms/developer-reference/api-dysmsapi-2018-05-01-batchsendmessagetoglobe) operation to ensure that messages are delivered on time.
      * *   In each request, you can send messages to up to 1,000 mobile phone numbers.
-     * ### [](#qps)QPS limits
-     * You can call this operation only once per second. If the number of calls per second exceeds this limit, throttling will be triggered. This can potentially impact your business operations. Therefore, we recommend that you take note of this limit when making calls to this operation.
+     * ### [](#qps-)QPS limit
+     * You can call this operation only once per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *  *
      * @param BatchSendMessageToGlobeRequest $request BatchSendMessageToGlobeRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -84,6 +84,9 @@ class Dysmsapi extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
         if (!Utils::isUnset($request->from)) {
             $query['From'] = $request->from;
         }
@@ -124,11 +127,11 @@ class Dysmsapi extends OpenApiClient
      * @summary Sends a message to multiple recipients in countries or regions outside the Chinese mainland.
      *  *
      * @description *   You cannot call the BatchSendMessageToGlobe operation to send messages to the Chinese mainland.
-     * *   You can call the BatchSendMessageToGlobe operation to send notifications and promotional messages to a limited number of mobile phone numbers at a time. To send messages to a large number of mobile phone numbers at a time, use the mass messaging feature of the SMS console.
-     * *   For time-sensitive related messages, we recommend that you use the [SendMessageToGlobe](https://www.alibabacloud.com/help/zh/sms/developer-reference/api-dysmsapi-2018-05-01-batchsendmessagetoglobe) operation to ensure that messages are delivered on time.
+     * *   You can call the BatchSendMessageToGlobe operation to send notifications and promotional messages to a limited number of mobile phone numbers at a time. To send messages to a large number of mobile phone numbers at a time, use the mass messaging feature in the SMS console.
+     * *   For time-sensitive related messages, we recommend that you use the [SendMessageToGlobe](https://www.alibabacloud.com/help/en/sms/developer-reference/api-dysmsapi-2018-05-01-batchsendmessagetoglobe) operation to ensure that messages are delivered on time.
      * *   In each request, you can send messages to up to 1,000 mobile phone numbers.
-     * ### [](#qps)QPS limits
-     * You can call this operation only once per second. If the number of calls per second exceeds this limit, throttling will be triggered. This can potentially impact your business operations. Therefore, we recommend that you take note of this limit when making calls to this operation.
+     * ### [](#qps-)QPS limit
+     * You can call this operation only once per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *  *
      * @param BatchSendMessageToGlobeRequest $request BatchSendMessageToGlobeRequest
      *

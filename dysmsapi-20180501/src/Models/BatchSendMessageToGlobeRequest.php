@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class BatchSendMessageToGlobeRequest extends Model
 {
     /**
+     * @example sms-djnfjn344
+     *
+     * @var string
+     */
+    public $channelId;
+
+    /**
      * @description The mobile phone number of the sender. You can also specify a sender ID. The sender ID can contain both letters and digits. If it does, the ID must be between 1 to 11 characters in length. If the sender ID contains only digits, it must be 1 to 15 characters in length.
      *
      * @example Alicloud321
@@ -67,6 +74,7 @@ class BatchSendMessageToGlobeRequest extends Model
      */
     public $validityPeriod;
     protected $_name = [
+        'channelId'      => 'ChannelId',
         'from'           => 'From',
         'message'        => 'Message',
         'taskId'         => 'TaskId',
@@ -82,6 +90,9 @@ class BatchSendMessageToGlobeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->channelId) {
+            $res['ChannelId'] = $this->channelId;
+        }
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
@@ -112,6 +123,9 @@ class BatchSendMessageToGlobeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChannelId'])) {
+            $model->channelId = $map['ChannelId'];
+        }
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }

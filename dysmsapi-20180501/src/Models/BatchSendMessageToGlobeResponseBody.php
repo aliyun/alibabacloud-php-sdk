@@ -45,7 +45,7 @@ class BatchSendMessageToGlobeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status code. If OK is returned, the request is successful. For more information, see [Error codes](https://www.alibabacloud.com/help/zh/short-message-service/latest/error-codes).
+     * @description The status code. If OK is returned, the request is successful. For more information, see [Error codes](https://www.alibabacloud.com/help/en/short-message-service/latest/error-codes).
      *
      * @example OK
      *
