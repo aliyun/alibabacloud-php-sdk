@@ -393,6 +393,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\OfflineTaskFlowRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\OfflineTaskFlowResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PauseDataCorrectSQLJobRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PauseDataCorrectSQLJobResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PauseDataExportJobRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PauseDataExportJobResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PreviewWorkflowRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PreviewWorkflowResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PublishAndDeployTaskFlowRequest;
@@ -407,10 +409,14 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RegisterInstanceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RegisterInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RegisterUserRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RegisterUserResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RemoveDataExportJobRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RemoveDataExportJobResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ReRunTaskFlowInstanceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ReRunTaskFlowInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RestartDataCorrectSQLJobRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RestartDataCorrectSQLJobResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RestartDataExportJobRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RestartDataExportJobResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ResumeTaskFlowInstanceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ResumeTaskFlowInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RetryDataCorrectPreCheckRequest;
@@ -436,6 +442,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SubmitOrderApprovalRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SubmitOrderApprovalResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SubmitStructSyncOrderApprovalRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SubmitStructSyncOrderApprovalResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SuspendDataExportJobRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SuspendDataExportJobResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SuspendTaskFlowInstanceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SuspendTaskFlowInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SyncDatabaseMetaRequest;
@@ -11080,6 +11088,59 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @summary 终止数据导出任务
+     *  *
+     * @param PauseDataExportJobRequest $request PauseDataExportJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return PauseDataExportJobResponse PauseDataExportJobResponse
+     */
+    public function pauseDataExportJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PauseDataExportJob',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PauseDataExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 终止数据导出任务
+     *  *
+     * @param PauseDataExportJobRequest $request PauseDataExportJobRequest
+     *
+     * @return PauseDataExportJobResponse PauseDataExportJobResponse
+     */
+    public function pauseDataExportJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pauseDataExportJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 创建工单审批流
      *  *
      * @param PreviewWorkflowRequest $request PreviewWorkflowRequest
@@ -11587,6 +11648,59 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @summary 删除数据导出任务
+     *  *
+     * @param RemoveDataExportJobRequest $request RemoveDataExportJobRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RemoveDataExportJobResponse RemoveDataExportJobResponse
+     */
+    public function removeDataExportJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveDataExportJob',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveDataExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除数据导出任务
+     *  *
+     * @param RemoveDataExportJobRequest $request RemoveDataExportJobRequest
+     *
+     * @return RemoveDataExportJobResponse RemoveDataExportJobResponse
+     */
+    public function removeDataExportJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeDataExportJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Reruns a failed SQL task for data change.
      *  *
      * @param RestartDataCorrectSQLJobRequest $request RestartDataCorrectSQLJobRequest
@@ -11640,6 +11754,59 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->restartDataCorrectSQLJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 重启数据导出任务
+     *  *
+     * @param RestartDataExportJobRequest $request RestartDataExportJobRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RestartDataExportJobResponse RestartDataExportJobResponse
+     */
+    public function restartDataExportJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RestartDataExportJob',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RestartDataExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 重启数据导出任务
+     *  *
+     * @param RestartDataExportJobRequest $request RestartDataExportJobRequest
+     *
+     * @return RestartDataExportJobResponse RestartDataExportJobResponse
+     */
+    public function restartDataExportJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartDataExportJobWithOptions($request, $runtime);
     }
 
     /**
@@ -11810,7 +11977,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Revokes a permission on a resource from a user.
+     * @summary Revokes the permissions on instances, databases, and tables from a user.
      *  *
      * @param RevokeUserPermissionRequest $request RevokeUserPermissionRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -11870,7 +12037,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Revokes a permission on a resource from a user.
+     * @summary Revokes the permissions on instances, databases, and tables from a user.
      *  *
      * @param RevokeUserPermissionRequest $request RevokeUserPermissionRequest
      *
@@ -12365,6 +12532,59 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitStructSyncOrderApprovalWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 中断数据导出任务
+     *  *
+     * @param SuspendDataExportJobRequest $request SuspendDataExportJobRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SuspendDataExportJobResponse SuspendDataExportJobResponse
+     */
+    public function suspendDataExportJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SuspendDataExportJob',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SuspendDataExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 中断数据导出任务
+     *  *
+     * @param SuspendDataExportJobRequest $request SuspendDataExportJobRequest
+     *
+     * @return SuspendDataExportJobResponse SuspendDataExportJobResponse
+     */
+    public function suspendDataExportJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->suspendDataExportJobWithOptions($request, $runtime);
     }
 
     /**

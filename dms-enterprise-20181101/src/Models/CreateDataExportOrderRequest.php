@@ -46,6 +46,10 @@ class CreateDataExportOrderRequest extends Model
     public $pluginParam;
 
     /**
+     * @description The UID of the Alibaba Cloud account that actually calls the API.
+     *
+     * @example 21400447956867****
+     *
      * @var string
      */
     public $realLoginUserUid;

@@ -4,21 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectOrderDetailResponseBody\dataCorrectOrderDetail;
 use AlibabaCloud\Tea\Model;
 
-class GetDataCorrectOrderDetailResponseBody extends Model
+class RestartDataExportJobResponseBody extends Model
 {
     /**
-     * @description The information about the data change ticket.
-     *
-     * @var dataCorrectOrderDetail
-     */
-    public $dataCorrectOrderDetail;
-
-    /**
-     * @description The error code returned if the request fails.
-     *
      * @example UnknownError
      *
      * @var string
@@ -26,8 +16,6 @@ class GetDataCorrectOrderDetailResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request fails.
-     *
      * @example UnknownError
      *
      * @var string
@@ -35,31 +23,23 @@ class GetDataCorrectOrderDetailResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 427688B8-ADFB-4C4E-9D45-EF5C1FD6E23D
+     * @example 7FAD400F-7A5C-4193-8F9A-39D86C4F0231
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the operation was successful. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
      * @example true
      *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'dataCorrectOrderDetail' => 'DataCorrectOrderDetail',
-        'errorCode'              => 'ErrorCode',
-        'errorMessage'           => 'ErrorMessage',
-        'requestId'              => 'RequestId',
-        'success'                => 'Success',
+        'errorCode'    => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
+        'requestId'    => 'RequestId',
+        'success'      => 'Success',
     ];
 
     public function validate()
@@ -69,9 +49,6 @@ class GetDataCorrectOrderDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dataCorrectOrderDetail) {
-            $res['DataCorrectOrderDetail'] = null !== $this->dataCorrectOrderDetail ? $this->dataCorrectOrderDetail->toMap() : null;
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
@@ -91,14 +68,11 @@ class GetDataCorrectOrderDetailResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetDataCorrectOrderDetailResponseBody
+     * @return RestartDataExportJobResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DataCorrectOrderDetail'])) {
-            $model->dataCorrectOrderDetail = dataCorrectOrderDetail::fromMap($map['DataCorrectOrderDetail']);
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }

@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class cronExtConfig extends Model
 {
     /**
+     * @description The number of times defragmentation is performed. This parameter is valid only if the value of OptimizeTableAfterEveryClearTimes is greater than 0.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $currentClearTaskCount;
 
     /**
+     * @description Indicates whether the Periodically Optimize Table feature is enabled. Valid values:
+     *
+     *   **0** (default): The feature is disabled.
+     *   **A value greater than 0**: The feature is enabled. The value indicates the number of cleanups after which the system performs defragmentation.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $optimizeTableAfterEveryClearTimes;

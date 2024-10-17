@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class page extends Model
 {
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class page extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * @example 20
      *

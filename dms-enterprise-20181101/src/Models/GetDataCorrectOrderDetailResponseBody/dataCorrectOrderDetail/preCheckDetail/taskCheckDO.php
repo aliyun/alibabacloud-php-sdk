@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class taskCheckDO extends Model
 {
     /**
-     * @description The status of the precheck. Valid values:
+     * @description The state of the precheck. Valid values:
      *
      *   **WAITING**: The ticket is pending precheck.
      *   **RUNNING**: The ticket is being prechecked.
@@ -37,7 +37,7 @@ class taskCheckDO extends Model
     public $checkStep;
 
     /**
-     * @description The message that indicates a check step.
+     * @description The message that appears when a check step is executed.
      *
      * @example tip messsage
      *

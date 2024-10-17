@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RevokeUserPermissionRequest extends Model
 {
     /**
-     * @description The ID of the database. The database can be a physical database or a logical database.
+     * @description The database ID. The database can be a physical database or a logical database.
      *
      *   To query the ID of a physical database, call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation.
      *   To query the ID of a logical database, call the [ListLogicDatabases](https://help.aliyun.com/document_detail/141874.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation.
@@ -21,13 +21,13 @@ class RevokeUserPermissionRequest extends Model
     public $dbId;
 
     /**
-     * @description The object type on which the permission you want to revoke from the user. Valid values:
+     * @description The type of the object on which you want to revoke permissions from a user. Valid values:
      *
-     *   **INSTANCE**: database instances
-     *   **DATABASE**: physical databases
-     *   **LOGIC_DATABASE**: logical databases
-     *   **TABLE**: physical tables
-     *   **LOGIC_TABLE**: logical tables
+     *   **INSTANCE**: instances.
+     *   **DATABASE**: physical databases.
+     *   **LOGIC_DATABASE**: logical databases.
+     *   **TABLE**: physical tables.
+     *   **LOGIC_TABLE**: logical tables.
      *
      * This parameter is required.
      * @example DATABASE
@@ -37,7 +37,7 @@ class RevokeUserPermissionRequest extends Model
     public $dsType;
 
     /**
-     * @description The ID of the database instance. You must specify this parameter when you revoke a permission from the database instance. You can call the [ListInstances](https://help.aliyun.com/document_detail/141936.html) or [GetInstance](https://help.aliyun.com/document_detail/141567.html) operation to query the database instance ID.
+     * @description The database instance ID. You must specify this parameter if you revoke a permission from the database instance. You can call the [ListInstances](https://help.aliyun.com/document_detail/141936.html) or [GetInstance](https://help.aliyun.com/document_detail/141567.html) operation to query the ID of the database instance.
      *
      * @example 174****
      *
@@ -48,11 +48,15 @@ class RevokeUserPermissionRequest extends Model
     /**
      * @description Specifies whether the database is a logical database. Valid values:
      *
-     * **true**: The database is a logical database.
-     * **false**: The database is a physical database.
+     *   **true**: The database is a logical database.
+     *   **false**: The database is a physical database.
      *
-     * > * If the database is a logical database, set this parameter to **true**.
-     * > * If the database is a physical database, set this parameter to **false**.
+     * >
+     *
+     *   If the database is a logical database, set this parameter to **true**.
+     *
+     *   If the database is a physical database, set this parameter to **false**.
+     *
      * @example false
      *
      * @var bool
@@ -60,11 +64,13 @@ class RevokeUserPermissionRequest extends Model
     public $logic;
 
     /**
-     * @description The type of the permission. Valid values:
+     * @description The type of the permissions. Valid values:
      *
-     *   **QUERY**: the data query permission
-     *   **EXPORT**: the data export permission
-     *   **CORRECT**: the data change permission
+     *   **QUERY**: query permissions.
+     *   **EXPORT**: export permissions.
+     *   **CORRECT**: change permissions.
+     *   **LOGIN**: logon permissions.
+     *   **PERF**: query permissions on the performance details of an instance.
      *
      * This parameter is required.
      * @example CORRECT
@@ -74,7 +80,7 @@ class RevokeUserPermissionRequest extends Model
     public $permTypes;
 
     /**
-     * @description The ID of the table. You must specify this parameter when you revoke a permission from the table. You can call the [ListTables](https://help.aliyun.com/document_detail/141878.html) operation to query the table ID.
+     * @description The table ID. You must specify this parameter if you revoke a permission from the table. You can call the [ListTables](https://help.aliyun.com/document_detail/141878.html) operation to query the table ID.
      *
      * @example 13****
      *
@@ -92,7 +98,7 @@ class RevokeUserPermissionRequest extends Model
     public $tableName;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to query the tenant ID.
+     * @description The tenant ID. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to query the tenant ID.
      *
      * @example 3***
      *
@@ -101,7 +107,7 @@ class RevokeUserPermissionRequest extends Model
     public $tid;
 
     /**
-     * @description The ID of the permission. You can call the [ListUserPermission](https://help.aliyun.com/document_detail/146957.html) operation to query the permission ID.
+     * @description The permission ID. You can call the [ListUserPermission](https://help.aliyun.com/document_detail/146957.html) operation to query the permission ID.
      *
      * This parameter is required.
      * @example 774****
@@ -111,7 +117,7 @@ class RevokeUserPermissionRequest extends Model
     public $userAccessId;
 
     /**
-     * @description The ID of the user. You can call the [ListUsers](https://help.aliyun.com/document_detail/141938.html) or [GetUser](https://help.aliyun.com/document_detail/147098.html) operation to query the user ID.
+     * @description The user ID. You can call the [ListUsers](https://help.aliyun.com/document_detail/141938.html) or [GetUser](https://help.aliyun.com/document_detail/147098.html) operation to query the ID of the user.
      *
      * This parameter is required.
      * @example 51****

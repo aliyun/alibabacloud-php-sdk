@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class keyInfo extends Model
 {
     /**
+     * @var int
+     */
+    public $jobId;
+
+    /**
      * @description The state of the data export ticket. Valid values:
      *
      *   **PRE_CHECKING**: The ticket was being prechecked.
@@ -37,6 +42,7 @@ class keyInfo extends Model
      */
     public $preCheckId;
     protected $_name = [
+        'jobId'      => 'JobId',
         'jobStatus'  => 'JobStatus',
         'preCheckId' => 'PreCheckId',
     ];
@@ -48,6 +54,9 @@ class keyInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
         if (null !== $this->jobStatus) {
             $res['JobStatus'] = $this->jobStatus;
         }
@@ -66,6 +75,9 @@ class keyInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
         if (isset($map['JobStatus'])) {
             $model->jobStatus = $map['JobStatus'];
         }

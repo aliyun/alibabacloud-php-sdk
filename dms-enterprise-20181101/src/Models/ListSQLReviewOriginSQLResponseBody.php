@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListSQLReviewOriginSQLResponseBody extends Model
 {
     /**
-     * @description The error code returned.
+     * @description The error code that is returned.
      *
      * @example UnknownError
      *
@@ -19,7 +19,7 @@ class ListSQLReviewOriginSQLResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message that is returned if the request failed.
      *
      * @example UnknownError
      *
@@ -35,7 +35,7 @@ class ListSQLReviewOriginSQLResponseBody extends Model
     public $originSQLList;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
      *
@@ -44,7 +44,10 @@ class ListSQLReviewOriginSQLResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the request was successful. Valid values: Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *
@@ -53,7 +56,7 @@ class ListSQLReviewOriginSQLResponseBody extends Model
     public $success;
 
     /**
-     * @description The total number of the SQL statements.
+     * @description The number of SQL statements in the file.
      *
      * @example 10
      *

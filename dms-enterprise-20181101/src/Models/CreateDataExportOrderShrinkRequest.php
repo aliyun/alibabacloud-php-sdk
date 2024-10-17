@@ -45,6 +45,10 @@ class CreateDataExportOrderShrinkRequest extends Model
     public $pluginParamShrink;
 
     /**
+     * @description The UID of the Alibaba Cloud account that actually calls the API.
+     *
+     * @example 21400447956867****
+     *
      * @var string
      */
     public $realLoginUserUid;

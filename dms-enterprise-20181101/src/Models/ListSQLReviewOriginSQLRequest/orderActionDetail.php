@@ -12,12 +12,12 @@ class orderActionDetail extends Model
     /**
      * @description The review status of the SQL statement. Valid values:
      *
-     *   **new**: The SQL statement is pending for analysis.
-     *   **unknown**: The SQL statement failed to be parsed.
-     *   **check_not_pass**: The SQL statement failed the review.
+     *   **new**: The SQL statement was waiting to be reviewed.
+     *   **unknown**: The SQL statement cannot be parsed.
+     *   **check_not_pass**: The SQL statement failed to pass the review.
      *   **check_pass**: The SQL statement passed the review.
-     *   **force_pass**: The SQL statement passed the review by manual effort.
-     *   **force_not_pass**: The SQL statement failed the review by manual effort.
+     *   **force_pass**: The SQL statement passed the manual review.
+     *   **force_not_pass**: The SQL statement failed to pass the manual review.
      *
      * @example check_not_pass
      *
@@ -26,7 +26,7 @@ class orderActionDetail extends Model
     public $checkStatusResult;
 
     /**
-     * @description The ID of the file.
+     * @description The ID of the file that contains the SQL statements to be reviewed.
      *
      * @example 123345
      *
@@ -35,7 +35,7 @@ class orderActionDetail extends Model
     public $fileId;
 
     /**
-     * @description The paging settings.
+     * @description The pagination information.
      *
      * @var page
      */
@@ -44,12 +44,12 @@ class orderActionDetail extends Model
     /**
      * @description The optimization suggestion for the SQL statement. Valid values:
      *
-     *   **MUST_IMPROVE**: The SQL statement must be improved.
+     *   **MUST_IMPROVE**: The SQL statement must be optimized.
      *   **POTENTIAL_ISSUE**: The SQL statement contains potential issues.
-     *   **SUGGEST_IMPROVE**: We recommend that you improve the SQL statement.
+     *   **SUGGEST_IMPROVE**: We recommend that you optimize the SQL statement.
      *   **USE_DMS_TOOLKIT**: We recommend that you change schemas without locking tables.
      *   **USE_DMS_DML_UNLOCK**: We recommend that you change data without locking tables.
-     *   **TABLE_INDEX_SUGGEST**: We recommend that you use SQL statements that use indexes.
+     *   **TABLE_INDEX_SUGGEST**: We recommend that you optimize indexes for the SQL statement.
      *
      * @example MUST_IMPROVE
      *

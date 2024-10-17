@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class database extends Model
 {
     /**
-     * @description The ID of the database.
+     * @description The database ID.
      *
      * @example 1860****
      *
@@ -29,7 +29,15 @@ class database extends Model
     /**
      * @description The type of the environment to which the database belongs. Valid values:
      *
-     * - stag: STAG environment
+     *   product: production environment.
+     *   dev: development environment.
+     *   pre: pre-release environment.
+     *   test: test environment.
+     *   sit: system integration testing (SIT) environment
+     *   uat: user acceptance testing (UAT) environment.
+     *   pet: stress testing environment.
+     *   stag: staging environment.
+     *
      * @example product
      *
      * @var string
@@ -39,8 +47,9 @@ class database extends Model
     /**
      * @description Indicates whether the database is a logical database. Valid values:
      *
-     * - **true**: The database is a logical database.
-     * - **false**: The database is a physical database.
+     *   **true.**: The database is a logical database.
+     *   **false**: The database is a physical database.
+     *
      * @example false
      *
      * @var bool

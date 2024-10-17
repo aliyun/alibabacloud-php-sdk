@@ -18,7 +18,7 @@ class ApproveOrderRequest extends Model
     public $approvalNodeId;
 
     /**
-     * @description If ApprovalType is set to ADD_APPROVAL_NODE, you need to specify this parameter. The position of the new approval node. Valid values:
+     * @description The position of the new approval node. You must specify this parameter if ApprovalType is set to ADD_APPROVAL_NODE. Valid values:
      *
      *   **PRE_ADD_APPROVAL_NODE**: before the current approval node.
      *   **POST_ADD_APPROVAL_NODE**: after the current approval node.
@@ -64,6 +64,11 @@ class ApproveOrderRequest extends Model
     public $newApprover;
 
     /**
+     * @description >  You can specify this parameter if ApprovalType is set to TRANSFER. You need to only specify one of NewApproverList and NewApprover.
+     *
+     * The IDs of the users to whom the ticket is transferred. Separate multiple IDs with commas (,).
+     * @example 154***,155***,156***
+     *
      * @var string
      */
     public $newApproverList;
@@ -78,6 +83,10 @@ class ApproveOrderRequest extends Model
     public $oldApprover;
 
     /**
+     * @description The UID of the Alibaba Cloud account that actually calls the API.
+     *
+     * @example 21400447956867****
+     *
      * @var string
      */
     public $realLoginUserUid;
