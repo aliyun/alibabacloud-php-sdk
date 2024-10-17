@@ -1071,7 +1071,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @summary {"appId":"395b60e4-0550-458d-9c54-a265d036\\*\\*\\*\\*","containerPort":8080}
+     * @summary Creates a routing rule.
      *  *
      * @param CreateIngressRequest $request CreateIngressRequest
      * @param string[]             $headers map
@@ -1144,7 +1144,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @summary {"appId":"395b60e4-0550-458d-9c54-a265d036\\*\\*\\*\\*","containerPort":8080}
+     * @summary Creates a routing rule.
      *  *
      * @param CreateIngressRequest $request CreateIngressRequest
      *
@@ -7255,6 +7255,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * @summary Updates the configurations of a routing rule.
+     *  *
      * @param UpdateIngressRequest $request UpdateIngressRequest
      * @param string[]             $headers map
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -7323,6 +7325,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * @summary Updates the configurations of a routing rule.
+     *  *
      * @param UpdateIngressRequest $request UpdateIngressRequest
      *
      * @return UpdateIngressResponse UpdateIngressResponse

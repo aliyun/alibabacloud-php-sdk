@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the routing rule.
+     *
      * @example 87
      *
      * @var int

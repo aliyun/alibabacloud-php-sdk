@@ -1,3 +1,7 @@
+2024-10-17 Version: 1.23.2
+- Update API DescribeConfigurationPrice: update response param.
+
+
 2024-10-11 Version: 1.23.1
 - Update API CreateApplication: add param EnableCpuBurst.
 - Update API DeployApplication: add param EnableCpuBurst.

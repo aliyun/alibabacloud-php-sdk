@@ -16,6 +16,11 @@ class bagUsage extends Model
     public $cpu;
 
     /**
+     * @var float
+     */
+    public $cu;
+
+    /**
      * @example 989802.563546
      *
      * @var float
@@ -23,6 +28,7 @@ class bagUsage extends Model
     public $mem;
     protected $_name = [
         'cpu' => 'Cpu',
+        'cu'  => 'Cu',
         'mem' => 'Mem',
     ];
 
@@ -35,6 +41,9 @@ class bagUsage extends Model
         $res = [];
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
+        }
+        if (null !== $this->cu) {
+            $res['Cu'] = $this->cu;
         }
         if (null !== $this->mem) {
             $res['Mem'] = $this->mem;
@@ -53,6 +62,9 @@ class bagUsage extends Model
         $model = new self();
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
+        }
+        if (isset($map['Cu'])) {
+            $model->cu = $map['Cu'];
         }
         if (isset($map['Mem'])) {
             $model->mem = $map['Mem'];

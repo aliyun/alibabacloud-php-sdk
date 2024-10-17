@@ -22,10 +22,16 @@ class ImageConfig extends Model
      * @var string
      */
     public $instanceID;
+
+    /**
+     * @var RegistryConfig
+     */
+    public $registryConfig;
     protected $_name = [
         'accelerationType' => 'accelerationType',
         'image'            => 'image',
         'instanceID'       => 'instanceID',
+        'registryConfig'   => 'registryConfig',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class ImageConfig extends Model
         }
         if (null !== $this->instanceID) {
             $res['instanceID'] = $this->instanceID;
+        }
+        if (null !== $this->registryConfig) {
+            $res['registryConfig'] = null !== $this->registryConfig ? $this->registryConfig->toMap() : null;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class ImageConfig extends Model
         }
         if (isset($map['instanceID'])) {
             $model->instanceID = $map['instanceID'];
+        }
+        if (isset($map['registryConfig'])) {
+            $model->registryConfig = RegistryConfig::fromMap($map['registryConfig']);
         }
 
         return $model;

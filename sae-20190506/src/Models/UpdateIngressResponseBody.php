@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class UpdateIngressResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. Valid values:
+     *
+     *   **2xx**: The request was successful.
+     *   **3xx**: The request was redirected.
+     *   **4xx**: The request failed.
+     *   **5xx**: A server error occurred.
+     *
      * @example 200
      *
      * @var string
@@ -17,16 +24,28 @@ class UpdateIngressResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned result.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error code.
+     *
+     *   If the request was successful, **ErrorCode** is not returned.
+     *   If the request failed, **ErrorCode** is returned. For more information, see the **Error codes** section of this topic.
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The returned information.
+     *
+     *   If the request was successful, **success** is returned.
+     *   If the request failed, an error code is returned.
+     *
      * @example success
      *
      * @var string
@@ -34,6 +53,8 @@ class UpdateIngressResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
      *
      * @var string
@@ -41,6 +62,11 @@ class UpdateIngressResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the configurations of the routing rule were updated. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -48,6 +74,8 @@ class UpdateIngressResponseBody extends Model
     public $success;
 
     /**
+     * @description The trace ID.
+     *
      * @example 0a98a02315955564772843261e****
      *
      * @var string

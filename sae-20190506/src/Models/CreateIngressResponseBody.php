@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class CreateIngressResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. Valid values:
+     *
+     *   **2xx**: The call was successful.
+     *   **3xx**: The call was redirected.
+     *   **4xx**: The call failed.
+     *   **5xx**: A server error occurred.
+     *
      * @example 200
      *
      * @var string
@@ -17,16 +24,30 @@ class CreateIngressResponseBody extends Model
     public $code;
 
     /**
+     * @description The response.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error code returned. Take note of the following rules:
+     *
+     *   The **ErrorCode** parameter is not returned if the request succeeds.
+     *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+     *
+     * @example success
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The additional information that is returned. Valid values:
+     *
+     *   success: If the call is successful, **success** is returned.
+     *   An error code: If the call fails, an error code is returned.
+     *
      * @example success
      *
      * @var string
@@ -34,6 +55,8 @@ class CreateIngressResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
      *
      * @var string
@@ -41,6 +64,11 @@ class CreateIngressResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the Secret is successfully deleted. Valid values:
+     *
+     *   **true**: The instance was deleted.
+     *   **false**: The instance failed to be deleted.
+     *
      * @example true
      *
      * @var bool
@@ -48,6 +76,8 @@ class CreateIngressResponseBody extends Model
     public $success;
 
     /**
+     * @description The ID of the trace. It is used to query the details of a request.
+     *
      * @example 0a98a02315955564772843261e****
      *
      * @var string
