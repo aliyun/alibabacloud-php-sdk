@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListResourceHealthInspectionsResponse extends Model
+class GetClusterCloneMetaResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ListResourceHealthInspectionsResponse extends Model
     public $statusCode;
 
     /**
-     * @var ListResourceHealthInspectionsResponseBody
+     * @var GetClusterCloneMetaResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class ListResourceHealthInspectionsResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListResourceHealthInspectionsResponse
+     * @return GetClusterCloneMetaResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class ListResourceHealthInspectionsResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ListResourceHealthInspectionsResponseBody::fromMap($map['body']);
+            $model->body = GetClusterCloneMetaResponseBody::fromMap($map['body']);
         }
 
         return $model;

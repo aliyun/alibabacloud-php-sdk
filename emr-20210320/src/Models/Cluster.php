@@ -63,6 +63,11 @@ class Cluster extends Model
     public $deployMode;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @description EMR默认角色。
      *
      * @example AliyunEMRDefaultRole
@@ -175,6 +180,7 @@ class Cluster extends Model
         'clusterType'        => 'ClusterType',
         'createTime'         => 'CreateTime',
         'deployMode'         => 'DeployMode',
+        'description'        => 'Description',
         'emrDefaultRole'     => 'EmrDefaultRole',
         'endTime'            => 'EndTime',
         'expireTime'         => 'ExpireTime',
@@ -214,6 +220,9 @@ class Cluster extends Model
         }
         if (null !== $this->deployMode) {
             $res['DeployMode'] = $this->deployMode;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->emrDefaultRole) {
             $res['EmrDefaultRole'] = $this->emrDefaultRole;
@@ -289,6 +298,9 @@ class Cluster extends Model
         }
         if (isset($map['DeployMode'])) {
             $model->deployMode = $map['DeployMode'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['EmrDefaultRole'])) {
             $model->emrDefaultRole = $map['EmrDefaultRole'];

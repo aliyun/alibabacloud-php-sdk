@@ -6,17 +6,17 @@ namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateClusterRequest extends Model
+class RunClusterRequest extends Model
 {
     /**
-     * @description The application configurations. You can specify a maximum of 1,000 items.
+     * @description 应用配置。数组元素个数N的取值范围：1~1000。
      *
      * @var ApplicationConfig[]
      */
     public $applicationConfigs;
 
     /**
-     * @description The applications. You can specify a maximum of 100 items.
+     * @description 应用列表。数组元素个数N的取值范围：1~100。
      *
      * This parameter is required.
      * @var Application[]
@@ -24,14 +24,14 @@ class CreateClusterRequest extends Model
     public $applications;
 
     /**
-     * @description The bootstrap actions. You can specify a maximum of 10 items.
+     * @description 引导脚本。数组元素个数N的取值范围：1~10。
      *
      * @var Script[]
      */
     public $bootstrapScripts;
 
     /**
-     * @description The idempotent client token. If you call the same ClientToken multiple times, the returned results are the same. Only one cluster can be created with the same ClientToken.
+     * @description 幂等客户端TOKEN。同一个ClientToken多次调用的返回结果一致，同一个ClientToken最多只创建一个集群。
      *
      * @example A7D960FA-6DBA-5E07-8746-A63E3E4D****
      *
@@ -40,7 +40,7 @@ class CreateClusterRequest extends Model
     public $clientToken;
 
     /**
-     * @description The name of the cluster. The name must be 1 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+     * @description 集群名称。长度为1~128个字符，必须以大小字母或中文开头，不能以http://和https://开头。可以包含中文、英文、数字、半角冒号（:）、下划线（_）、半角句号（.）或者短划线（-）
      *
      * This parameter is required.
      * @example emrtest
@@ -50,15 +50,7 @@ class CreateClusterRequest extends Model
     public $clusterName;
 
     /**
-     * @description The type of the cluster. Valid values:
-     *
-     *   DATALAKE: data lake
-     *   OLAP: online analytical processing (OLAP)
-     *   DATAFLOW: Dataflow
-     *   DATASERVING: DataServing
-     *   CUSTOM: a custom hybrid cluster.
-     *   HADOOP: the old data lake. We recommend that you use the new data lake.
-     *
+     * @description 创建的EMR集群类型。取值范围：
      * This parameter is required.
      * @example DATALAKE
      *
@@ -67,11 +59,8 @@ class CreateClusterRequest extends Model
     public $clusterType;
 
     /**
-     * @description The deployment mode of master nodes in the cluster. Valid values:
-     *
-     *   NORMAL: regular mode. This is the default value. A cluster that contains only one master node is created.
-     *   HA: high availability (HA) mode. A cluster that contains three master nodes is created.
-     *
+     * @description 集群中的应用部署模式。取值范围：
+     * 默认值：NORMAL。
      * @example HA
      *
      * @var string
@@ -79,35 +68,27 @@ class CreateClusterRequest extends Model
     public $deployMode;
 
     /**
+     * @example Emr cluster for ETL
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The attributes of all ECS instances.
-     *
-     * This parameter is required.
      * @var NodeAttributes
      */
     public $nodeAttributes;
 
     /**
-     * @description The node groups. You can specify a maximum of 100 items.
-     *
+     * @description 节点组。数组元素个数N的取值范围：1~100。
      * This parameter is required.
-     * @example NORMAL
-     *
      * @var NodeGroupConfig[]
      */
     public $nodeGroups;
 
     /**
-     * @description The billing cycle of the instance. Valid values:
-     *
-     *   PayAsYouGo: pay-as-you-go
-     *   Subscription: subscription
-     *
-     * Default value: PayAsYouGo.
+     * @description 集群的付费类型。取值范围：
+     * 默认值：PayAsYouGo。
      * @example PayAsYouGo
      *
      * @var string
@@ -115,7 +96,7 @@ class CreateClusterRequest extends Model
     public $paymentType;
 
     /**
-     * @description The region ID.
+     * @description 区域ID。
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -125,17 +106,17 @@ class CreateClusterRequest extends Model
     public $regionId;
 
     /**
-     * @description The version of EMR. You can view the EMR release version on the EMR cluster purchase page.
+     * @description EMR发行版。
      *
      * This parameter is required.
-     * @example EMR-5.8.0
+     * @example EMR-5.16.0
      *
      * @var string
      */
     public $releaseVersion;
 
     /**
-     * @description The ID of the resource group to which to assign the ENI.
+     * @description 集群所在的企业资源组ID。
      *
      * @example rg-acfmzabjyop****
      *
@@ -144,11 +125,8 @@ class CreateClusterRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The security mode of the cluster. Valid values:
-     *
-     *   NORMAL: disables Kerberos authentication for the cluster. This is the default value.
-     *   KERBEROS: enables Kerberos authentication for the cluster.
-     *
+     * @description Kerberos安全模式。取值范围：
+     * 默认值：NORMAL
      * @example NORMAL
      *
      * @var string
@@ -156,16 +134,12 @@ class CreateClusterRequest extends Model
     public $securityMode;
 
     /**
-     * @description The subscription configurations. This parameter is required only if you set the PaymentType parameter to Subscription.
-     *
      * @var SubscriptionConfig
      */
     public $subscriptionConfig;
 
     /**
-     * @description The tags. You can specify a maximum of 20 items.
-     *
-     * @example A7D960FA-6DBA-5E07-8746-A63E3E4D****
+     * @description 标签。数组元数个数N的取值范围：0~20。
      *
      * @var Tag[]
      */
@@ -285,7 +259,7 @@ class CreateClusterRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateClusterRequest
+     * @return RunClusterRequest
      */
     public static function fromMap($map = [])
     {

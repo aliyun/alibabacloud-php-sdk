@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateApiTemplateRequest extends Model
 {
     /**
-     * @description 接口名。
+     * @description The name of the API operation. You can create only a cluster API operation template. Set the value to CreateCluster.
      *
      * This parameter is required.
      * @example CreateCluster
@@ -19,7 +19,7 @@ class CreateApiTemplateRequest extends Model
     public $apiName;
 
     /**
-     * @description 接口request内容。
+     * @description The content of the cluster API operation template. Set the value to JSON strings of the request parameters of the [CreateCluster](https://help.aliyun.com/zh/emr/emr-on-ecs/developer-reference/api-emr-2021-03-20-createcluster) API operation for creating a cluster.
      *
      * This parameter is required.
      * @example content

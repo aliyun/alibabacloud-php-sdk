@@ -54,6 +54,11 @@ class ClusterSummary extends Model
     public $createTime;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @description EMR服务角色。
      *
      * @var string
@@ -133,6 +138,7 @@ class ClusterSummary extends Model
         'clusterState'      => 'ClusterState',
         'clusterType'       => 'ClusterType',
         'createTime'        => 'CreateTime',
+        'description'       => 'Description',
         'emrDefaultRole'    => 'EmrDefaultRole',
         'endTime'           => 'EndTime',
         'expireTime'        => 'ExpireTime',
@@ -165,6 +171,9 @@ class ClusterSummary extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->emrDefaultRole) {
             $res['EmrDefaultRole'] = $this->emrDefaultRole;
@@ -225,6 +234,9 @@ class ClusterSummary extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['EmrDefaultRole'])) {
             $model->emrDefaultRole = $map['EmrDefaultRole'];

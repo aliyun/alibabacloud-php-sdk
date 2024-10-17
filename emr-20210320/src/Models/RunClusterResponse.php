@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListInspectionHistoryResponse extends Model
+class RunClusterResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ListInspectionHistoryResponse extends Model
     public $statusCode;
 
     /**
-     * @var ListInspectionHistoryResponseBody
+     * @var RunClusterResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class ListInspectionHistoryResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListInspectionHistoryResponse
+     * @return RunClusterResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class ListInspectionHistoryResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ListInspectionHistoryResponseBody::fromMap($map['body']);
+            $model->body = RunClusterResponseBody::fromMap($map['body']);
         }
 
         return $model;

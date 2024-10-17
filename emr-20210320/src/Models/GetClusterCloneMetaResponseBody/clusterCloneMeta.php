@@ -2,47 +2,53 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Emr\V20210320\Models;
+namespace AlibabaCloud\SDK\Emr\V20210320\Models\GetClusterCloneMetaResponseBody;
 
+use AlibabaCloud\SDK\Emr\V20210320\Models\Application;
+use AlibabaCloud\SDK\Emr\V20210320\Models\ApplicationConfig;
+use AlibabaCloud\SDK\Emr\V20210320\Models\GetClusterCloneMetaResponseBody\clusterCloneMeta\scalingPolicies;
+use AlibabaCloud\SDK\Emr\V20210320\Models\NodeAttributes;
+use AlibabaCloud\SDK\Emr\V20210320\Models\NodeGroup;
+use AlibabaCloud\SDK\Emr\V20210320\Models\Script;
+use AlibabaCloud\SDK\Emr\V20210320\Models\SubscriptionConfig;
+use AlibabaCloud\SDK\Emr\V20210320\Models\Tag;
 use AlibabaCloud\Tea\Model;
 
-class CreateClusterRequest extends Model
+class clusterCloneMeta extends Model
 {
     /**
-     * @description The application configurations. You can specify a maximum of 1,000 items.
+     * @description The modified configuration items.
      *
      * @var ApplicationConfig[]
      */
     public $applicationConfigs;
 
     /**
-     * @description The applications. You can specify a maximum of 100 items.
+     * @description The services deployed in the cluster.
      *
-     * This parameter is required.
      * @var Application[]
      */
     public $applications;
 
     /**
-     * @description The bootstrap actions. You can specify a maximum of 10 items.
+     * @description The bootstrap actions. Number of elements in the array: 1 to 10.
      *
      * @var Script[]
      */
     public $bootstrapScripts;
 
     /**
-     * @description The idempotent client token. If you call the same ClientToken multiple times, the returned results are the same. Only one cluster can be created with the same ClientToken.
+     * @description The cluster ID.
      *
-     * @example A7D960FA-6DBA-5E07-8746-A63E3E4D****
+     * @example c-b933c5aac7f7****
      *
      * @var string
      */
-    public $clientToken;
+    public $clusterId;
 
     /**
-     * @description The name of the cluster. The name must be 1 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+     * @description The name of the cluster.
      *
-     * This parameter is required.
      * @example emrtest
      *
      * @var string
@@ -50,16 +56,33 @@ class CreateClusterRequest extends Model
     public $clusterName;
 
     /**
-     * @description The type of the cluster. Valid values:
+     * @description The status of the cluster. Valid values:
      *
-     *   DATALAKE: data lake
-     *   OLAP: online analytical processing (OLAP)
-     *   DATAFLOW: Dataflow
-     *   DATASERVING: DataServing
-     *   CUSTOM: a custom hybrid cluster.
-     *   HADOOP: the old data lake. We recommend that you use the new data lake.
+     *   STARTING
+     *   START_FAILED
+     *   BOOTSTRAPPING
+     *   RUNNING
+     *   TERMINATING
+     *   TERMINATED
+     *   TERMINATED_WITH_ERRORS
+     *   TERMINATE_FAILED
      *
-     * This parameter is required.
+     * @example RUNNING
+     *
+     * @var string
+     */
+    public $clusterState;
+
+    /**
+     * @description The cluster type. Valid values:
+     *
+     *   DATALAKE
+     *   OLAP
+     *   DATAFLOW
+     *   DATASERVING
+     *   CUSTOM
+     *   HADOOP
+     *
      * @example DATALAKE
      *
      * @var string
@@ -69,8 +92,8 @@ class CreateClusterRequest extends Model
     /**
      * @description The deployment mode of master nodes in the cluster. Valid values:
      *
-     *   NORMAL: regular mode. This is the default value. A cluster that contains only one master node is created.
-     *   HA: high availability (HA) mode. A cluster that contains three master nodes is created.
+     *   NORMAL: regular mode.
+     *   HA: high availability mode.
      *
      * @example HA
      *
@@ -79,35 +102,44 @@ class CreateClusterRequest extends Model
     public $deployMode;
 
     /**
+     * @description The EMR service role.
+     *
+     * @example AliyunEMRDefaultRole
+     *
      * @var string
      */
-    public $description;
+    public $emrDefaultRole;
 
     /**
-     * @description The attributes of all ECS instances.
+     * @description Indicates whether the service configurations of a Hadoop cluster that you made during cluster creation can be cloned. Valid values:
      *
-     * This parameter is required.
+     *   False
+     *   True
+     *
+     * @var bool
+     */
+    public $existCloneConfig;
+
+    /**
+     * @description The attributes of the node.
+     *
      * @var NodeAttributes
      */
     public $nodeAttributes;
 
     /**
-     * @description The node groups. You can specify a maximum of 100 items.
+     * @description The node groups. Number of elements in the array: 1 to 100.
      *
-     * This parameter is required.
-     * @example NORMAL
-     *
-     * @var NodeGroupConfig[]
+     * @var NodeGroup[]
      */
     public $nodeGroups;
 
     /**
-     * @description The billing cycle of the instance. Valid values:
+     * @description The billing method of the cluster. Valid values:
      *
-     *   PayAsYouGo: pay-as-you-go
-     *   Subscription: subscription
+     *   PayAsYouGo
+     *   Subscription
      *
-     * Default value: PayAsYouGo.
      * @example PayAsYouGo
      *
      * @var string
@@ -117,7 +149,6 @@ class CreateClusterRequest extends Model
     /**
      * @description The region ID.
      *
-     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -125,17 +156,16 @@ class CreateClusterRequest extends Model
     public $regionId;
 
     /**
-     * @description The version of EMR. You can view the EMR release version on the EMR cluster purchase page.
+     * @description The EMR version.
      *
-     * This parameter is required.
-     * @example EMR-5.8.0
+     * @example EMR-5.6.0
      *
      * @var string
      */
     public $releaseVersion;
 
     /**
-     * @description The ID of the resource group to which to assign the ENI.
+     * @description The resource group ID.
      *
      * @example rg-acfmzabjyop****
      *
@@ -144,10 +174,17 @@ class CreateClusterRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The auto scaling policies of each node group in the cluster.
+     *
+     * @var scalingPolicies[]
+     */
+    public $scalingPolicies;
+
+    /**
      * @description The security mode of the cluster. Valid values:
      *
-     *   NORMAL: disables Kerberos authentication for the cluster. This is the default value.
-     *   KERBEROS: enables Kerberos authentication for the cluster.
+     *   NORMAL: regular mode. Kerberos is not enabled.
+     *   KERBEROS: Kerberos mode. Kerberos is enabled.
      *
      * @example NORMAL
      *
@@ -156,16 +193,14 @@ class CreateClusterRequest extends Model
     public $securityMode;
 
     /**
-     * @description The subscription configurations. This parameter is required only if you set the PaymentType parameter to Subscription.
+     * @description The subscription configurations.
      *
      * @var SubscriptionConfig
      */
     public $subscriptionConfig;
 
     /**
-     * @description The tags. You can specify a maximum of 20 items.
-     *
-     * @example A7D960FA-6DBA-5E07-8746-A63E3E4D****
+     * @description The list of tags.
      *
      * @var Tag[]
      */
@@ -174,17 +209,20 @@ class CreateClusterRequest extends Model
         'applicationConfigs' => 'ApplicationConfigs',
         'applications'       => 'Applications',
         'bootstrapScripts'   => 'BootstrapScripts',
-        'clientToken'        => 'ClientToken',
+        'clusterId'          => 'ClusterId',
         'clusterName'        => 'ClusterName',
+        'clusterState'       => 'ClusterState',
         'clusterType'        => 'ClusterType',
         'deployMode'         => 'DeployMode',
-        'description'        => 'Description',
+        'emrDefaultRole'     => 'EmrDefaultRole',
+        'existCloneConfig'   => 'ExistCloneConfig',
         'nodeAttributes'     => 'NodeAttributes',
         'nodeGroups'         => 'NodeGroups',
         'paymentType'        => 'PaymentType',
         'regionId'           => 'RegionId',
         'releaseVersion'     => 'ReleaseVersion',
         'resourceGroupId'    => 'ResourceGroupId',
+        'scalingPolicies'    => 'ScalingPolicies',
         'securityMode'       => 'SecurityMode',
         'subscriptionConfig' => 'SubscriptionConfig',
         'tags'               => 'Tags',
@@ -224,11 +262,14 @@ class CreateClusterRequest extends Model
                 }
             }
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
+        }
+        if (null !== $this->clusterState) {
+            $res['ClusterState'] = $this->clusterState;
         }
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
@@ -236,8 +277,11 @@ class CreateClusterRequest extends Model
         if (null !== $this->deployMode) {
             $res['DeployMode'] = $this->deployMode;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->emrDefaultRole) {
+            $res['EmrDefaultRole'] = $this->emrDefaultRole;
+        }
+        if (null !== $this->existCloneConfig) {
+            $res['ExistCloneConfig'] = $this->existCloneConfig;
         }
         if (null !== $this->nodeAttributes) {
             $res['NodeAttributes'] = null !== $this->nodeAttributes ? $this->nodeAttributes->toMap() : null;
@@ -263,6 +307,15 @@ class CreateClusterRequest extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+        if (null !== $this->scalingPolicies) {
+            $res['ScalingPolicies'] = [];
+            if (null !== $this->scalingPolicies && \is_array($this->scalingPolicies)) {
+                $n = 0;
+                foreach ($this->scalingPolicies as $item) {
+                    $res['ScalingPolicies'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->securityMode) {
             $res['SecurityMode'] = $this->securityMode;
         }
@@ -285,7 +338,7 @@ class CreateClusterRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateClusterRequest
+     * @return clusterCloneMeta
      */
     public static function fromMap($map = [])
     {
@@ -317,11 +370,14 @@ class CreateClusterRequest extends Model
                 }
             }
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
+        }
+        if (isset($map['ClusterState'])) {
+            $model->clusterState = $map['ClusterState'];
         }
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
@@ -329,8 +385,11 @@ class CreateClusterRequest extends Model
         if (isset($map['DeployMode'])) {
             $model->deployMode = $map['DeployMode'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['EmrDefaultRole'])) {
+            $model->emrDefaultRole = $map['EmrDefaultRole'];
+        }
+        if (isset($map['ExistCloneConfig'])) {
+            $model->existCloneConfig = $map['ExistCloneConfig'];
         }
         if (isset($map['NodeAttributes'])) {
             $model->nodeAttributes = NodeAttributes::fromMap($map['NodeAttributes']);
@@ -340,7 +399,7 @@ class CreateClusterRequest extends Model
                 $model->nodeGroups = [];
                 $n                 = 0;
                 foreach ($map['NodeGroups'] as $item) {
-                    $model->nodeGroups[$n++] = null !== $item ? NodeGroupConfig::fromMap($item) : $item;
+                    $model->nodeGroups[$n++] = null !== $item ? NodeGroup::fromMap($item) : $item;
                 }
             }
         }
@@ -355,6 +414,15 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ScalingPolicies'])) {
+            if (!empty($map['ScalingPolicies'])) {
+                $model->scalingPolicies = [];
+                $n                      = 0;
+                foreach ($map['ScalingPolicies'] as $item) {
+                    $model->scalingPolicies[$n++] = null !== $item ? scalingPolicies::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['SecurityMode'])) {
             $model->securityMode = $map['SecurityMode'];

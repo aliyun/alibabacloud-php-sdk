@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class IncreaseNodesRequest extends Model
 {
     /**
-     * @description The configurations of the applications. Valid values of N: 1 to 1000.
+     * @description The application configurations. You can specify a maximum of 1,000 items.
      *
      * @example Month
      *
@@ -31,6 +31,13 @@ class IncreaseNodesRequest extends Model
     public $autoPayOrder;
 
     /**
+     * @description Specifies whether to enable auto-renewal for nodes. Valid values:
+     *
+     *   true
+     *   false (default value)
+     *
+     * @example false
+     *
      * @var bool
      */
     public $autoRenew;

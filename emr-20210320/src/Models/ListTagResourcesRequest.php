@@ -18,7 +18,7 @@ class ListTagResourcesRequest extends Model
     public $maxResults;
 
     /**
-     * @description Marks the current position to start reading. If this field is empty, the data is read from the beginning.
+     * @description The pagination token that is used in the request to retrieve a new page of results. If NextToken is empty, the query starts from the beginning.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
      *

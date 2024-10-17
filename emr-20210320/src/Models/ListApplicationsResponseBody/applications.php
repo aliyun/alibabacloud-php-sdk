@@ -18,8 +18,12 @@ class applications extends Model
     public $applicationName;
 
     /**
-     * @description The status of the application operation.
+     * @description The status of the applications. Valid values:
      *
+     *   STOPPED: At least one application is in the Stopped state.
+     *   RUNNING: All applications are in the Running state.
+     *
+     * This parameter is returned only for DataLake, OLAP, Dataflow, DataServing, and custom clusters. For other types of clusters, no value is returned for this parameter.
      * @example RUNNING
      *
      * @var string

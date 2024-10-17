@@ -44,15 +44,6 @@ class ListComponentsRequest extends Model
     public $componentStates;
 
     /**
-     * @description 是否包含过期配置。
-     *
-     * @example true
-     *
-     * @var bool
-     */
-    public $includeExpiredConfig;
-
-    /**
      * @description 一次获取的最大记录数。取值范围：1~100。
      *
      * @example 20
@@ -80,14 +71,13 @@ class ListComponentsRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'applicationNames'     => 'ApplicationNames',
-        'clusterId'            => 'ClusterId',
-        'componentNames'       => 'ComponentNames',
-        'componentStates'      => 'ComponentStates',
-        'includeExpiredConfig' => 'IncludeExpiredConfig',
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
-        'regionId'             => 'RegionId',
+        'applicationNames' => 'ApplicationNames',
+        'clusterId'        => 'ClusterId',
+        'componentNames'   => 'ComponentNames',
+        'componentStates'  => 'ComponentStates',
+        'maxResults'       => 'MaxResults',
+        'nextToken'        => 'NextToken',
+        'regionId'         => 'RegionId',
     ];
 
     public function validate()
@@ -108,9 +98,6 @@ class ListComponentsRequest extends Model
         }
         if (null !== $this->componentStates) {
             $res['ComponentStates'] = $this->componentStates;
-        }
-        if (null !== $this->includeExpiredConfig) {
-            $res['IncludeExpiredConfig'] = $this->includeExpiredConfig;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -150,9 +137,6 @@ class ListComponentsRequest extends Model
             if (!empty($map['ComponentStates'])) {
                 $model->componentStates = $map['ComponentStates'];
             }
-        }
-        if (isset($map['IncludeExpiredConfig'])) {
-            $model->includeExpiredConfig = $map['IncludeExpiredConfig'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

@@ -89,7 +89,7 @@ class UpdateApplicationConfigsRequest extends Model
     public $nodeId;
 
     /**
-     * @description Specifies whether to refresh the configurations.
+     * @description Specifies whether to refresh the configurations. Default value: True.
      *
      * @example true
      *

@@ -2,25 +2,29 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Emr\V20210320\Models;
+namespace AlibabaCloud\SDK\Emr\V20210320\Models\GetClusterCloneMetaResponseBody\clusterCloneMeta\scalingPolicies;
 
+use AlibabaCloud\SDK\Emr\V20210320\Models\MetricsTrigger;
+use AlibabaCloud\SDK\Emr\V20210320\Models\TimeTrigger;
 use AlibabaCloud\Tea\Model;
 
-class ScalingRule extends Model
+class scalingRules extends Model
 {
     /**
-     * @description 伸缩活动类型。取值范围：
-     * This parameter is required.
-     * @example SCALE_IN
+     * @description The scaling type. This parameter is required. Valid values:
+     *
+     *   SCALE_OUT
+     *   SCALE_IN
+     *
+     * @example SCALE_OUT
      *
      * @var string
      */
     public $activityType;
 
     /**
-     * @description 调整值。需要为正数，代表需要扩容或者缩容的实例数量。
+     * @description The adjustment value of the auto scaling rule. This parameter is required. The parameter value must be a positive integer, which indicates the number of instances to be added or removed.
      *
-     * This parameter is required.
      * @example 100
      *
      * @var int
@@ -28,52 +32,46 @@ class ScalingRule extends Model
     public $adjustmentValue;
 
     /**
-     * @description 按照负载伸缩描述。
-     * <p>
+     * @description The description of load-based scaling.
+     *
      * @var MetricsTrigger
      */
     public $metricsTrigger;
 
     /**
-     * @example 1
+     * @description The name of the auto scaling rule.
      *
-     * @var int
-     */
-    public $minAdjustmentValue;
-
-    /**
-     * @description 规则名称。
-     *
-     * This parameter is required.
-     * @example scale-out-memory
+     * @example scaling-out-memory
      *
      * @var string
      */
     public $ruleName;
 
     /**
-     * @description 按照时间伸缩描述。
-     * <p>
+     * @description The description of time-based scaling.
+     *
      * @var TimeTrigger
      */
     public $timeTrigger;
 
     /**
-     * @description 伸缩规则类型。 取值范围：
-     * This parameter is required.
+     * @description The trigger mode of the auto scaling rule. This parameter is required. Valid values:
+     *
+     *   TIME_TRIGGER: time-based scaling.
+     *   METRICS_TRIGGER: load-based scaling.
+     *
      * @example TIME_TRIGGER
      *
      * @var string
      */
     public $triggerType;
     protected $_name = [
-        'activityType'       => 'ActivityType',
-        'adjustmentValue'    => 'AdjustmentValue',
-        'metricsTrigger'     => 'MetricsTrigger',
-        'minAdjustmentValue' => 'MinAdjustmentValue',
-        'ruleName'           => 'RuleName',
-        'timeTrigger'        => 'TimeTrigger',
-        'triggerType'        => 'TriggerType',
+        'activityType'    => 'ActivityType',
+        'adjustmentValue' => 'AdjustmentValue',
+        'metricsTrigger'  => 'MetricsTrigger',
+        'ruleName'        => 'RuleName',
+        'timeTrigger'     => 'TimeTrigger',
+        'triggerType'     => 'TriggerType',
     ];
 
     public function validate()
@@ -92,9 +90,6 @@ class ScalingRule extends Model
         if (null !== $this->metricsTrigger) {
             $res['MetricsTrigger'] = null !== $this->metricsTrigger ? $this->metricsTrigger->toMap() : null;
         }
-        if (null !== $this->minAdjustmentValue) {
-            $res['MinAdjustmentValue'] = $this->minAdjustmentValue;
-        }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
@@ -111,7 +106,7 @@ class ScalingRule extends Model
     /**
      * @param array $map
      *
-     * @return ScalingRule
+     * @return scalingRules
      */
     public static function fromMap($map = [])
     {
@@ -124,9 +119,6 @@ class ScalingRule extends Model
         }
         if (isset($map['MetricsTrigger'])) {
             $model->metricsTrigger = MetricsTrigger::fromMap($map['MetricsTrigger']);
-        }
-        if (isset($map['MinAdjustmentValue'])) {
-            $model->minAdjustmentValue = $map['MinAdjustmentValue'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];

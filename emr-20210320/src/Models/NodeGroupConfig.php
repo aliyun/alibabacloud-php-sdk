@@ -18,6 +18,11 @@ class NodeGroupConfig extends Model
     public $additionalSecurityGroupIds;
 
     /**
+     * @var AutoScalingPolicy
+     */
+    public $autoScalingPolicy;
+
+    /**
      * @var string[]
      */
     public $componentTags;
@@ -166,6 +171,7 @@ class NodeGroupConfig extends Model
     public $withPublicIp;
     protected $_name = [
         'additionalSecurityGroupIds' => 'AdditionalSecurityGroupIds',
+        'autoScalingPolicy'          => 'AutoScalingPolicy',
         'componentTags'              => 'ComponentTags',
         'costOptimizedConfig'        => 'CostOptimizedConfig',
         'dataDisks'                  => 'DataDisks',
@@ -195,6 +201,9 @@ class NodeGroupConfig extends Model
         $res = [];
         if (null !== $this->additionalSecurityGroupIds) {
             $res['AdditionalSecurityGroupIds'] = $this->additionalSecurityGroupIds;
+        }
+        if (null !== $this->autoScalingPolicy) {
+            $res['AutoScalingPolicy'] = null !== $this->autoScalingPolicy ? $this->autoScalingPolicy->toMap() : null;
         }
         if (null !== $this->componentTags) {
             $res['ComponentTags'] = $this->componentTags;
@@ -278,6 +287,9 @@ class NodeGroupConfig extends Model
             if (!empty($map['AdditionalSecurityGroupIds'])) {
                 $model->additionalSecurityGroupIds = $map['AdditionalSecurityGroupIds'];
             }
+        }
+        if (isset($map['AutoScalingPolicy'])) {
+            $model->autoScalingPolicy = AutoScalingPolicy::fromMap($map['AutoScalingPolicy']);
         }
         if (isset($map['ComponentTags'])) {
             if (!empty($map['ComponentTags'])) {

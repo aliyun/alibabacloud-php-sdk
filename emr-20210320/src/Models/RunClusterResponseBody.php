@@ -6,27 +6,20 @@ namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetOperationRequest extends Model
+class RunClusterResponseBody extends Model
 {
     /**
-     * @description The ID of the cluster that you want to query.
+     * @description 集群ID。
      *
-     * This parameter is required.
-     * @example c-b933c5aac8fe****
+     * @example c-b933c5aac7f7***
      *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The operation ID.
+     * @description 操作ID。
      *
-     * References:
-     *
-     *   [CreateCluster](https://help.aliyun.com/document_detail/454393.html)
-     *   [IncreaseNodes](https://help.aliyun.com/document_detail/454397.html)
-     *
-     * This parameter is required.
      * @example op-13c37a77c505****
      *
      * @var string
@@ -34,18 +27,17 @@ class GetOperationRequest extends Model
     public $operationId;
 
     /**
-     * @description The district ID.
+     * @description 请求ID。
      *
-     * This parameter is required.
-     * @example cn-hangzhou
+     * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
      *
      * @var string
      */
-    public $regionId;
+    public $requestId;
     protected $_name = [
         'clusterId'   => 'ClusterId',
         'operationId' => 'OperationId',
-        'regionId'    => 'RegionId',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -61,8 +53,8 @@ class GetOperationRequest extends Model
         if (null !== $this->operationId) {
             $res['OperationId'] = $this->operationId;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -71,7 +63,7 @@ class GetOperationRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetOperationRequest
+     * @return RunClusterResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -82,8 +74,8 @@ class GetOperationRequest extends Model
         if (isset($map['OperationId'])) {
             $model->operationId = $map['OperationId'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

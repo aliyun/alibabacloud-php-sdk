@@ -6,10 +6,10 @@ namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetClusterRequest extends Model
+class GetClusterCloneMetaRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * This parameter is required.
      * @example c-b933c5aac8fe****
@@ -52,7 +52,7 @@ class GetClusterRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetClusterRequest
+     * @return GetClusterCloneMetaRequest
      */
     public static function fromMap($map = [])
     {

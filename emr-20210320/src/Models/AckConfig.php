@@ -4,6 +4,9 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
+use AlibabaCloud\SDK\Emr\V20210320\Models\AckConfig\pvcs;
+use AlibabaCloud\SDK\Emr\V20210320\Models\AckConfig\volumeMounts;
+use AlibabaCloud\SDK\Emr\V20210320\Models\AckConfig\volumes;
 use AlibabaCloud\Tea\Model;
 
 class AckConfig extends Model
@@ -62,11 +65,36 @@ class AckConfig extends Model
     public $namespace;
 
     /**
+     * @var string
+     */
+    public $nodeAffinity;
+
+    /**
      * @description ack的节点标签限制
      *
      * @var Tag[]
      */
     public $nodeSelectors;
+
+    /**
+     * @var string
+     */
+    public $podAffinity;
+
+    /**
+     * @var string
+     */
+    public $podAntiAffinity;
+
+    /**
+     * @var string[]
+     */
+    public $preStartCommand;
+
+    /**
+     * @var pvcs[]
+     */
+    public $pvcs;
 
     /**
      * @description Pod的CPU请求值
@@ -88,6 +116,16 @@ class AckConfig extends Model
      * @var Toleration[]
      */
     public $tolerations;
+
+    /**
+     * @var volumeMounts[]
+     */
+    public $volumeMounts;
+
+    /**
+     * @var volumes[]
+     */
+    public $volumes;
     protected $_name = [
         'ackInstanceId'        => 'AckInstanceId',
         'customAnnotations'    => 'CustomAnnotations',
@@ -98,10 +136,17 @@ class AckConfig extends Model
         'limitMemory'          => 'LimitMemory',
         'mountHostCgroup'      => 'MountHostCgroup',
         'namespace'            => 'Namespace',
+        'nodeAffinity'         => 'NodeAffinity',
         'nodeSelectors'        => 'NodeSelectors',
+        'podAffinity'          => 'PodAffinity',
+        'podAntiAffinity'      => 'PodAntiAffinity',
+        'preStartCommand'      => 'PreStartCommand',
+        'pvcs'                 => 'Pvcs',
         'requestCpu'           => 'RequestCpu',
         'requestMemory'        => 'RequestMemory',
         'tolerations'          => 'Tolerations',
+        'volumeMounts'         => 'VolumeMounts',
+        'volumes'              => 'Volumes',
     ];
 
     public function validate()
@@ -150,12 +195,33 @@ class AckConfig extends Model
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+        if (null !== $this->nodeAffinity) {
+            $res['NodeAffinity'] = $this->nodeAffinity;
+        }
         if (null !== $this->nodeSelectors) {
             $res['NodeSelectors'] = [];
             if (null !== $this->nodeSelectors && \is_array($this->nodeSelectors)) {
                 $n = 0;
                 foreach ($this->nodeSelectors as $item) {
                     $res['NodeSelectors'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->podAffinity) {
+            $res['PodAffinity'] = $this->podAffinity;
+        }
+        if (null !== $this->podAntiAffinity) {
+            $res['PodAntiAffinity'] = $this->podAntiAffinity;
+        }
+        if (null !== $this->preStartCommand) {
+            $res['PreStartCommand'] = $this->preStartCommand;
+        }
+        if (null !== $this->pvcs) {
+            $res['Pvcs'] = [];
+            if (null !== $this->pvcs && \is_array($this->pvcs)) {
+                $n = 0;
+                foreach ($this->pvcs as $item) {
+                    $res['Pvcs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -171,6 +237,24 @@ class AckConfig extends Model
                 $n = 0;
                 foreach ($this->tolerations as $item) {
                     $res['Tolerations'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->volumeMounts) {
+            $res['VolumeMounts'] = [];
+            if (null !== $this->volumeMounts && \is_array($this->volumeMounts)) {
+                $n = 0;
+                foreach ($this->volumeMounts as $item) {
+                    $res['VolumeMounts'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->volumes) {
+            $res['Volumes'] = [];
+            if (null !== $this->volumes && \is_array($this->volumes)) {
+                $n = 0;
+                foreach ($this->volumes as $item) {
+                    $res['Volumes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -225,12 +309,35 @@ class AckConfig extends Model
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+        if (isset($map['NodeAffinity'])) {
+            $model->nodeAffinity = $map['NodeAffinity'];
+        }
         if (isset($map['NodeSelectors'])) {
             if (!empty($map['NodeSelectors'])) {
                 $model->nodeSelectors = [];
                 $n                    = 0;
                 foreach ($map['NodeSelectors'] as $item) {
                     $model->nodeSelectors[$n++] = null !== $item ? Tag::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['PodAffinity'])) {
+            $model->podAffinity = $map['PodAffinity'];
+        }
+        if (isset($map['PodAntiAffinity'])) {
+            $model->podAntiAffinity = $map['PodAntiAffinity'];
+        }
+        if (isset($map['PreStartCommand'])) {
+            if (!empty($map['PreStartCommand'])) {
+                $model->preStartCommand = $map['PreStartCommand'];
+            }
+        }
+        if (isset($map['Pvcs'])) {
+            if (!empty($map['Pvcs'])) {
+                $model->pvcs = [];
+                $n           = 0;
+                foreach ($map['Pvcs'] as $item) {
+                    $model->pvcs[$n++] = null !== $item ? pvcs::fromMap($item) : $item;
                 }
             }
         }
@@ -246,6 +353,24 @@ class AckConfig extends Model
                 $n                  = 0;
                 foreach ($map['Tolerations'] as $item) {
                     $model->tolerations[$n++] = null !== $item ? Toleration::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['VolumeMounts'])) {
+            if (!empty($map['VolumeMounts'])) {
+                $model->volumeMounts = [];
+                $n                   = 0;
+                foreach ($map['VolumeMounts'] as $item) {
+                    $model->volumeMounts[$n++] = null !== $item ? volumeMounts::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Volumes'])) {
+            if (!empty($map['Volumes'])) {
+                $model->volumes = [];
+                $n              = 0;
+                foreach ($map['Volumes'] as $item) {
+                    $model->volumes[$n++] = null !== $item ? volumes::fromMap($item) : $item;
                 }
             }
         }

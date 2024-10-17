@@ -2,13 +2,13 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Emr\V20210320\Models\GetAutoScalingPolicyResponseBody;
+namespace AlibabaCloud\SDK\Emr\V20210320\Models\GetClusterCloneMetaResponseBody\clusterCloneMeta;
 
-use AlibabaCloud\SDK\Emr\V20210320\Models\GetAutoScalingPolicyResponseBody\scalingPolicy\constraints;
-use AlibabaCloud\SDK\Emr\V20210320\Models\GetAutoScalingPolicyResponseBody\scalingPolicy\scalingRules;
+use AlibabaCloud\SDK\Emr\V20210320\Models\GetClusterCloneMetaResponseBody\clusterCloneMeta\scalingPolicies\constraints;
+use AlibabaCloud\SDK\Emr\V20210320\Models\GetClusterCloneMetaResponseBody\clusterCloneMeta\scalingPolicies\scalingRules;
 use AlibabaCloud\Tea\Model;
 
-class scalingPolicy extends Model
+class scalingPolicies extends Model
 {
     /**
      * @description The cluster ID.
@@ -27,7 +27,7 @@ class scalingPolicy extends Model
     public $constraints;
 
     /**
-     * @description The ID of the node group.
+     * @description The node group ID.
      *
      * @example ng-869471354ecd****
      *
@@ -36,7 +36,7 @@ class scalingPolicy extends Model
     public $nodeGroupId;
 
     /**
-     * @description The ID of the scaling policy.
+     * @description The ID of the auto scaling policy.
      *
      * @example asp-asduwe23znl***
      *
@@ -45,7 +45,7 @@ class scalingPolicy extends Model
     public $scalingPolicyId;
 
     /**
-     * @description The auto scaling rules.
+     * @description The list of auto scaling rules.
      *
      * @var scalingRules[]
      */
@@ -93,7 +93,7 @@ class scalingPolicy extends Model
     /**
      * @param array $map
      *
-     * @return scalingPolicy
+     * @return scalingPolicies
      */
     public static function fromMap($map = [])
     {
