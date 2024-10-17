@@ -45,6 +45,11 @@ class policyGroupModel extends Model
     public $localDrive;
 
     /**
+     * @var string
+     */
+    public $lockResolution;
+
+    /**
      * @var netRedirectPolicy
      */
     public $netRedirectPolicy;
@@ -80,6 +85,7 @@ class policyGroupModel extends Model
         'gmtCreate'               => 'GmtCreate',
         'html5FileTransfer'       => 'Html5FileTransfer',
         'localDrive'              => 'LocalDrive',
+        'lockResolution'          => 'LockResolution',
         'netRedirectPolicy'       => 'NetRedirectPolicy',
         'policyGroupId'           => 'PolicyGroupId',
         'policyGroupName'         => 'PolicyGroupName',
@@ -108,6 +114,9 @@ class policyGroupModel extends Model
         }
         if (null !== $this->localDrive) {
             $res['LocalDrive'] = $this->localDrive;
+        }
+        if (null !== $this->lockResolution) {
+            $res['LockResolution'] = $this->lockResolution;
         }
         if (null !== $this->netRedirectPolicy) {
             $res['NetRedirectPolicy'] = null !== $this->netRedirectPolicy ? $this->netRedirectPolicy->toMap() : null;
@@ -150,6 +159,9 @@ class policyGroupModel extends Model
         }
         if (isset($map['LocalDrive'])) {
             $model->localDrive = $map['LocalDrive'];
+        }
+        if (isset($map['LockResolution'])) {
+            $model->lockResolution = $map['LockResolution'];
         }
         if (isset($map['NetRedirectPolicy'])) {
             $model->netRedirectPolicy = netRedirectPolicy::fromMap($map['NetRedirectPolicy']);

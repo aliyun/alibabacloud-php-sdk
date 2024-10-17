@@ -73,6 +73,11 @@ class data extends Model
     public $instanceGroupList;
 
     /**
+     * @var string
+     */
+    public $packageName;
+
+    /**
      * @example NORMAL
      *
      * @var string
@@ -89,6 +94,7 @@ class data extends Model
         'iconUrl'            => 'IconUrl',
         'installationStatus' => 'InstallationStatus',
         'instanceGroupList'  => 'InstanceGroupList',
+        'packageName'        => 'PackageName',
         'status'             => 'Status',
     ];
 
@@ -128,6 +134,9 @@ class data extends Model
         }
         if (null !== $this->instanceGroupList) {
             $res['InstanceGroupList'] = $this->instanceGroupList;
+        }
+        if (null !== $this->packageName) {
+            $res['PackageName'] = $this->packageName;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -175,6 +184,9 @@ class data extends Model
             if (!empty($map['InstanceGroupList'])) {
                 $model->instanceGroupList = $map['InstanceGroupList'];
             }
+        }
+        if (isset($map['PackageName'])) {
+            $model->packageName = $map['PackageName'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\FetchFileResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
 class FetchFileResponseBody extends Model
@@ -11,7 +12,7 @@ class FetchFileResponseBody extends Model
     /**
      * @example 425F351C-3F8E-5218-A520-B6311D0D****
      *
-     * @var string
+     * @var data[]
      */
     public $data;
 
@@ -34,7 +35,13 @@ class FetchFileResponseBody extends Model
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -52,7 +59,13 @@ class FetchFileResponseBody extends Model
     {
         $model = new self();
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

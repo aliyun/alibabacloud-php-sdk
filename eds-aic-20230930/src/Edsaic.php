@@ -252,6 +252,8 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * @summary 数据备份
+     *  *
      * @param BackupFileRequest $request BackupFileRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -298,6 +300,8 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * @summary 数据备份
+     *  *
      * @param BackupFileRequest $request BackupFileRequest
      *
      * @return BackupFileResponse BackupFileResponse
@@ -323,6 +327,9 @@ class Edsaic extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->acpSpecId)) {
             $query['AcpSpecId'] = $request->acpSpecId;
+        }
+        if (!Utils::isUnset($request->amount)) {
+            $query['Amount'] = $request->amount;
         }
         if (!Utils::isUnset($request->bizRegionId)) {
             $query['BizRegionId'] = $request->bizRegionId;
@@ -652,6 +659,9 @@ class Edsaic extends OpenApiClient
         }
         if (!Utils::isUnset($request->localDrive)) {
             $body['LocalDrive'] = $request->localDrive;
+        }
+        if (!Utils::isUnset($request->lockResolution)) {
+            $body['LockResolution'] = $request->lockResolution;
         }
         if (!Utils::isUnset($request->netRedirectPolicyShrink)) {
             $body['NetRedirectPolicy'] = $request->netRedirectPolicyShrink;
@@ -1025,11 +1035,17 @@ class Edsaic extends OpenApiClient
         if (!Utils::isUnset($request->androidInstanceName)) {
             $query['AndroidInstanceName'] = $request->androidInstanceName;
         }
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
+        }
         if (!Utils::isUnset($request->instanceGroupId)) {
             $query['InstanceGroupId'] = $request->instanceGroupId;
         }
         if (!Utils::isUnset($request->instanceGroupIds)) {
             $query['InstanceGroupIds'] = $request->instanceGroupIds;
+        }
+        if (!Utils::isUnset($request->instanceGroupName)) {
+            $query['InstanceGroupName'] = $request->instanceGroupName;
         }
         if (!Utils::isUnset($request->keyPairId)) {
             $query['KeyPairId'] = $request->keyPairId;
@@ -1429,6 +1445,9 @@ class Edsaic extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->bizRegionId)) {
+            $query['BizRegionId'] = $request->bizRegionId;
+        }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
         }
@@ -2189,6 +2208,9 @@ class Edsaic extends OpenApiClient
         if (!Utils::isUnset($request->localDrive)) {
             $body['LocalDrive'] = $request->localDrive;
         }
+        if (!Utils::isUnset($request->lockResolution)) {
+            $body['LockResolution'] = $request->lockResolution;
+        }
         if (!Utils::isUnset($request->netRedirectPolicyShrink)) {
             $body['NetRedirectPolicy'] = $request->netRedirectPolicyShrink;
         }
@@ -2287,7 +2309,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 文件恢复
+     * @summary 数据恢复
      *  *
      * @param RecoveryFileRequest $request RecoveryFileRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -2332,7 +2354,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 文件恢复
+     * @summary 数据恢复
      *  *
      * @param RecoveryFileRequest $request RecoveryFileRequest
      *

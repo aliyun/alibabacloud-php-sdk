@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeSpecRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $bizRegionId;
+
+    /**
      * @example 20
      *
      * @var int
@@ -41,11 +46,12 @@ class DescribeSpecRequest extends Model
      */
     public $specType;
     protected $_name = [
-        'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'specIds'    => 'SpecIds',
-        'specStatus' => 'SpecStatus',
-        'specType'   => 'SpecType',
+        'bizRegionId' => 'BizRegionId',
+        'maxResults'  => 'MaxResults',
+        'nextToken'   => 'NextToken',
+        'specIds'     => 'SpecIds',
+        'specStatus'  => 'SpecStatus',
+        'specType'    => 'SpecType',
     ];
 
     public function validate()
@@ -55,6 +61,9 @@ class DescribeSpecRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizRegionId) {
+            $res['BizRegionId'] = $this->bizRegionId;
+        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
@@ -82,6 +91,9 @@ class DescribeSpecRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizRegionId'])) {
+            $model->bizRegionId = $map['BizRegionId'];
+        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }

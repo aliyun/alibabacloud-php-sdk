@@ -21,6 +21,11 @@ class DescribeAndroidInstancesRequest extends Model
     public $androidInstanceName;
 
     /**
+     * @var string
+     */
+    public $chargeType;
+
+    /**
      * @example ag-25nt4kk9whjh****
      *
      * @var string
@@ -31,6 +36,11 @@ class DescribeAndroidInstancesRequest extends Model
      * @var string[]
      */
     public $instanceGroupIds;
+
+    /**
+     * @var string
+     */
+    public $instanceGroupName;
 
     /**
      * @example kp-5hh431emkpuoi****
@@ -69,8 +79,10 @@ class DescribeAndroidInstancesRequest extends Model
     protected $_name = [
         'androidInstanceIds'  => 'AndroidInstanceIds',
         'androidInstanceName' => 'AndroidInstanceName',
+        'chargeType'          => 'ChargeType',
         'instanceGroupId'     => 'InstanceGroupId',
         'instanceGroupIds'    => 'InstanceGroupIds',
+        'instanceGroupName'   => 'InstanceGroupName',
         'keyPairId'           => 'KeyPairId',
         'maxResults'          => 'MaxResults',
         'nextToken'           => 'NextToken',
@@ -91,11 +103,17 @@ class DescribeAndroidInstancesRequest extends Model
         if (null !== $this->androidInstanceName) {
             $res['AndroidInstanceName'] = $this->androidInstanceName;
         }
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
+        }
         if (null !== $this->instanceGroupId) {
             $res['InstanceGroupId'] = $this->instanceGroupId;
         }
         if (null !== $this->instanceGroupIds) {
             $res['InstanceGroupIds'] = $this->instanceGroupIds;
+        }
+        if (null !== $this->instanceGroupName) {
+            $res['InstanceGroupName'] = $this->instanceGroupName;
         }
         if (null !== $this->keyPairId) {
             $res['KeyPairId'] = $this->keyPairId;
@@ -132,6 +150,9 @@ class DescribeAndroidInstancesRequest extends Model
         if (isset($map['AndroidInstanceName'])) {
             $model->androidInstanceName = $map['AndroidInstanceName'];
         }
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
+        }
         if (isset($map['InstanceGroupId'])) {
             $model->instanceGroupId = $map['InstanceGroupId'];
         }
@@ -139,6 +160,9 @@ class DescribeAndroidInstancesRequest extends Model
             if (!empty($map['InstanceGroupIds'])) {
                 $model->instanceGroupIds = $map['InstanceGroupIds'];
             }
+        }
+        if (isset($map['InstanceGroupName'])) {
+            $model->instanceGroupName = $map['InstanceGroupName'];
         }
         if (isset($map['KeyPairId'])) {
             $model->keyPairId = $map['KeyPairId'];

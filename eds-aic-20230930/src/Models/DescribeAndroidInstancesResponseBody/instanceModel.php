@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody;
 
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody\instanceModel\disks;
 use AlibabaCloud\Tea\Model;
 
 class instanceModel extends Model
@@ -14,6 +15,11 @@ class instanceModel extends Model
      * @var string
      */
     public $androidInstanceGroupId;
+
+    /**
+     * @var string
+     */
+    public $androidInstanceGroupName;
 
     /**
      * @example acp-8at8h6ejkadjh****
@@ -65,6 +71,21 @@ class instanceModel extends Model
     public $bindUserId;
 
     /**
+     * @var string
+     */
+    public $chargeType;
+
+    /**
+     * @var string
+     */
+    public $cpu;
+
+    /**
+     * @var disks[]
+     */
+    public $disks;
+
+    /**
      * @example FilePathNotFound
      *
      * @var string
@@ -79,11 +100,21 @@ class instanceModel extends Model
     public $gmtCreate;
 
     /**
+     * @var string
+     */
+    public $gmtExpired;
+
+    /**
      * @example 2023-05-06 10:42:10
      *
      * @var string
      */
     public $gmtModified;
+
+    /**
+     * @var string
+     */
+    public $instanceType;
 
     /**
      * @example kp-5hh431emkpucs****
@@ -93,6 +124,11 @@ class instanceModel extends Model
     public $keyPairId;
 
     /**
+     * @var int
+     */
+    public $memory;
+
+    /**
      * @example 192.168.22.48
      *
      * @var string
@@ -100,11 +136,21 @@ class instanceModel extends Model
     public $networkInterfaceIp;
 
     /**
+     * @var string
+     */
+    public $officeSiteId;
+
+    /**
      * @example p-0btrd5zj8epo****
      *
      * @var string
      */
     public $persistentAppInstanceId;
+
+    /**
+     * @var string
+     */
+    public $policyGroupId;
 
     /**
      * @example 100
@@ -125,23 +171,32 @@ class instanceModel extends Model
      */
     public $renderingType;
     protected $_name = [
-        'androidInstanceGroupId'  => 'AndroidInstanceGroupId',
-        'androidInstanceId'       => 'AndroidInstanceId',
-        'androidInstanceName'     => 'AndroidInstanceName',
-        'androidInstanceStatus'   => 'AndroidInstanceStatus',
-        'appInstanceGroupId'      => 'AppInstanceGroupId',
-        'appInstanceId'           => 'AppInstanceId',
-        'authorizedUserId'        => 'AuthorizedUserId',
-        'bindUserId'              => 'BindUserId',
-        'errorCode'               => 'ErrorCode',
-        'gmtCreate'               => 'GmtCreate',
-        'gmtModified'             => 'GmtModified',
-        'keyPairId'               => 'KeyPairId',
-        'networkInterfaceIp'      => 'NetworkInterfaceIp',
-        'persistentAppInstanceId' => 'PersistentAppInstanceId',
-        'rate'                    => 'Rate',
-        'regionId'                => 'RegionId',
-        'renderingType'           => 'RenderingType',
+        'androidInstanceGroupId'   => 'AndroidInstanceGroupId',
+        'androidInstanceGroupName' => 'AndroidInstanceGroupName',
+        'androidInstanceId'        => 'AndroidInstanceId',
+        'androidInstanceName'      => 'AndroidInstanceName',
+        'androidInstanceStatus'    => 'AndroidInstanceStatus',
+        'appInstanceGroupId'       => 'AppInstanceGroupId',
+        'appInstanceId'            => 'AppInstanceId',
+        'authorizedUserId'         => 'AuthorizedUserId',
+        'bindUserId'               => 'BindUserId',
+        'chargeType'               => 'ChargeType',
+        'cpu'                      => 'Cpu',
+        'disks'                    => 'Disks',
+        'errorCode'                => 'ErrorCode',
+        'gmtCreate'                => 'GmtCreate',
+        'gmtExpired'               => 'GmtExpired',
+        'gmtModified'              => 'GmtModified',
+        'instanceType'             => 'InstanceType',
+        'keyPairId'                => 'KeyPairId',
+        'memory'                   => 'Memory',
+        'networkInterfaceIp'       => 'NetworkInterfaceIp',
+        'officeSiteId'             => 'OfficeSiteId',
+        'persistentAppInstanceId'  => 'PersistentAppInstanceId',
+        'policyGroupId'            => 'PolicyGroupId',
+        'rate'                     => 'Rate',
+        'regionId'                 => 'RegionId',
+        'renderingType'            => 'RenderingType',
     ];
 
     public function validate()
@@ -153,6 +208,9 @@ class instanceModel extends Model
         $res = [];
         if (null !== $this->androidInstanceGroupId) {
             $res['AndroidInstanceGroupId'] = $this->androidInstanceGroupId;
+        }
+        if (null !== $this->androidInstanceGroupName) {
+            $res['AndroidInstanceGroupName'] = $this->androidInstanceGroupName;
         }
         if (null !== $this->androidInstanceId) {
             $res['AndroidInstanceId'] = $this->androidInstanceId;
@@ -175,23 +233,53 @@ class instanceModel extends Model
         if (null !== $this->bindUserId) {
             $res['BindUserId'] = $this->bindUserId;
         }
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->cpu) {
+            $res['Cpu'] = $this->cpu;
+        }
+        if (null !== $this->disks) {
+            $res['Disks'] = [];
+            if (null !== $this->disks && \is_array($this->disks)) {
+                $n = 0;
+                foreach ($this->disks as $item) {
+                    $res['Disks'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
+        if (null !== $this->gmtExpired) {
+            $res['GmtExpired'] = $this->gmtExpired;
+        }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
         if (null !== $this->keyPairId) {
             $res['KeyPairId'] = $this->keyPairId;
         }
+        if (null !== $this->memory) {
+            $res['Memory'] = $this->memory;
+        }
         if (null !== $this->networkInterfaceIp) {
             $res['NetworkInterfaceIp'] = $this->networkInterfaceIp;
         }
+        if (null !== $this->officeSiteId) {
+            $res['OfficeSiteId'] = $this->officeSiteId;
+        }
         if (null !== $this->persistentAppInstanceId) {
             $res['PersistentAppInstanceId'] = $this->persistentAppInstanceId;
+        }
+        if (null !== $this->policyGroupId) {
+            $res['PolicyGroupId'] = $this->policyGroupId;
         }
         if (null !== $this->rate) {
             $res['Rate'] = $this->rate;
@@ -217,6 +305,9 @@ class instanceModel extends Model
         if (isset($map['AndroidInstanceGroupId'])) {
             $model->androidInstanceGroupId = $map['AndroidInstanceGroupId'];
         }
+        if (isset($map['AndroidInstanceGroupName'])) {
+            $model->androidInstanceGroupName = $map['AndroidInstanceGroupName'];
+        }
         if (isset($map['AndroidInstanceId'])) {
             $model->androidInstanceId = $map['AndroidInstanceId'];
         }
@@ -238,23 +329,53 @@ class instanceModel extends Model
         if (isset($map['BindUserId'])) {
             $model->bindUserId = $map['BindUserId'];
         }
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['Cpu'])) {
+            $model->cpu = $map['Cpu'];
+        }
+        if (isset($map['Disks'])) {
+            if (!empty($map['Disks'])) {
+                $model->disks = [];
+                $n            = 0;
+                foreach ($map['Disks'] as $item) {
+                    $model->disks[$n++] = null !== $item ? disks::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
+        if (isset($map['GmtExpired'])) {
+            $model->gmtExpired = $map['GmtExpired'];
+        }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
         if (isset($map['KeyPairId'])) {
             $model->keyPairId = $map['KeyPairId'];
         }
+        if (isset($map['Memory'])) {
+            $model->memory = $map['Memory'];
+        }
         if (isset($map['NetworkInterfaceIp'])) {
             $model->networkInterfaceIp = $map['NetworkInterfaceIp'];
         }
+        if (isset($map['OfficeSiteId'])) {
+            $model->officeSiteId = $map['OfficeSiteId'];
+        }
         if (isset($map['PersistentAppInstanceId'])) {
             $model->persistentAppInstanceId = $map['PersistentAppInstanceId'];
+        }
+        if (isset($map['PolicyGroupId'])) {
+            $model->policyGroupId = $map['PolicyGroupId'];
         }
         if (isset($map['Rate'])) {
             $model->rate = $map['Rate'];

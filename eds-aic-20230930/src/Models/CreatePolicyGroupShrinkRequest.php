@@ -39,6 +39,11 @@ class CreatePolicyGroupShrinkRequest extends Model
     /**
      * @var string
      */
+    public $lockResolution;
+
+    /**
+     * @var string
+     */
     public $netRedirectPolicyShrink;
 
     /**
@@ -64,6 +69,7 @@ class CreatePolicyGroupShrinkRequest extends Model
         'clipboard'               => 'Clipboard',
         'html5FileTransfer'       => 'Html5FileTransfer',
         'localDrive'              => 'LocalDrive',
+        'lockResolution'          => 'LockResolution',
         'netRedirectPolicyShrink' => 'NetRedirectPolicy',
         'policyGroupName'         => 'PolicyGroupName',
         'resolutionHeight'        => 'ResolutionHeight',
@@ -88,6 +94,9 @@ class CreatePolicyGroupShrinkRequest extends Model
         }
         if (null !== $this->localDrive) {
             $res['LocalDrive'] = $this->localDrive;
+        }
+        if (null !== $this->lockResolution) {
+            $res['LockResolution'] = $this->lockResolution;
         }
         if (null !== $this->netRedirectPolicyShrink) {
             $res['NetRedirectPolicy'] = $this->netRedirectPolicyShrink;
@@ -124,6 +133,9 @@ class CreatePolicyGroupShrinkRequest extends Model
         }
         if (isset($map['LocalDrive'])) {
             $model->localDrive = $map['LocalDrive'];
+        }
+        if (isset($map['LockResolution'])) {
+            $model->lockResolution = $map['LockResolution'];
         }
         if (isset($map['NetRedirectPolicy'])) {
             $model->netRedirectPolicyShrink = $map['NetRedirectPolicy'];

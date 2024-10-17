@@ -4,14 +4,20 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\RecoveryFileResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
 class RecoveryFileResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $count;
+
+    /**
      * @example 6AD56E39-430B-5401-AB4A-7B086454****
      *
-     * @var string
+     * @var data[]
      */
     public $data;
 
@@ -22,6 +28,7 @@ class RecoveryFileResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'count'     => 'Count',
         'data'      => 'Data',
         'requestId' => 'RequestId',
     ];
@@ -33,8 +40,17 @@ class RecoveryFileResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -51,8 +67,17 @@ class RecoveryFileResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

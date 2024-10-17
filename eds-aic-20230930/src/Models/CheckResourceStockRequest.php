@@ -16,6 +16,11 @@ class CheckResourceStockRequest extends Model
     public $acpSpecId;
 
     /**
+     * @var int
+     */
+    public $amount;
+
+    /**
      * @description This parameter is required.
      *
      * @example cn-hangzhou
@@ -37,6 +42,7 @@ class CheckResourceStockRequest extends Model
     public $zoneId;
     protected $_name = [
         'acpSpecId'       => 'AcpSpecId',
+        'amount'          => 'Amount',
         'bizRegionId'     => 'BizRegionId',
         'gpuAcceleration' => 'GpuAcceleration',
         'zoneId'          => 'ZoneId',
@@ -51,6 +57,9 @@ class CheckResourceStockRequest extends Model
         $res = [];
         if (null !== $this->acpSpecId) {
             $res['AcpSpecId'] = $this->acpSpecId;
+        }
+        if (null !== $this->amount) {
+            $res['Amount'] = $this->amount;
         }
         if (null !== $this->bizRegionId) {
             $res['BizRegionId'] = $this->bizRegionId;
@@ -75,6 +84,9 @@ class CheckResourceStockRequest extends Model
         $model = new self();
         if (isset($map['AcpSpecId'])) {
             $model->acpSpecId = $map['AcpSpecId'];
+        }
+        if (isset($map['Amount'])) {
+            $model->amount = $map['Amount'];
         }
         if (isset($map['BizRegionId'])) {
             $model->bizRegionId = $map['BizRegionId'];
