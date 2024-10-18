@@ -35,6 +35,7 @@ class DeleteVerifySchemeRequest extends Model
     /**
      * @description The service code.
      *
+     * This parameter is required.
      * @example FC10000014164****
      *
      * @var string

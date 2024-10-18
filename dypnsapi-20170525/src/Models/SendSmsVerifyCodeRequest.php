@@ -81,6 +81,7 @@ class SendSmsVerifyCodeRequest extends Model
     /**
      * @description The phone number.
      *
+     * This parameter is required.
      * @example 86130****0000
      *
      * @var string
@@ -121,6 +122,7 @@ class SendSmsVerifyCodeRequest extends Model
     /**
      * @description The signature.
      *
+     * This parameter is required.
      * @example Aliyun Test
      *
      * @var string
@@ -142,7 +144,7 @@ class SendSmsVerifyCodeRequest extends Model
      *
      * Log on to the [SMS console](https://dysms.console.aliyun.com/dysms.htm?spm=5176.12818093.categories-n-products.ddysms.3b2816d0xml2NA#/overview). In the left-side navigation pane, click **Go China** or **Go Globe**. You can view the text message template code in the **Template Code** column on the **Message Templates** tab.
      *
-     * >  The text message templates must be created on the Go Globe page and approved.
+     * This parameter is required.
      * @example azsq_*****
      *
      * @var string
@@ -156,8 +158,9 @@ class SendSmsVerifyCodeRequest extends Model
      *
      *   If line breaks are required in JSON-formatted data, they must meet the relevant requirements that are specified in the standard JSON protocol.
      *
-     *   For more information about template variables, see [SMS template specifications](~~108253~~).
+     *   For more information about template variables, see [SMS template specifications](https://help.aliyun.com/document_detail/108253.html).
      *
+     * This parameter is required.
      * @example {"code":"##code##"}
      *
      * @var string

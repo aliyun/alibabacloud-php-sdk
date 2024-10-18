@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class JyCreateVerifySchemeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appName;
@@ -40,6 +42,8 @@ class JyCreateVerifySchemeRequest extends Model
     public $cuApiCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $osType;
@@ -70,6 +74,8 @@ class JyCreateVerifySchemeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $schemeName;

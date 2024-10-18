@@ -11,6 +11,7 @@ class VerifyMobileRequest extends Model
     /**
      * @description The token obtained by the SDK for your app.
      *
+     * This parameter is required.
      * @example Dfafdafad542****
      *
      * @var string
@@ -34,6 +35,7 @@ class VerifyMobileRequest extends Model
     /**
      * @description The phone number.
      *
+     * This parameter is required.
      * @example 13800****00
      *
      * @var string

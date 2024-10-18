@@ -25,6 +25,7 @@ class GetAuthorizationUrlRequest extends Model
     /**
      * @description The phone number.
      *
+     * This parameter is required.
      * @example 1390000****
      *
      * @var string
@@ -44,6 +45,7 @@ class GetAuthorizationUrlRequest extends Model
     /**
      * @description The ID of the authorization scenario. You can view the ID of the authorization scenario on the **Authorization Scenario Management** page in the **Phone Number Verification Service console**.
      *
+     * This parameter is required.
      * @example 234****
      *
      * @var int

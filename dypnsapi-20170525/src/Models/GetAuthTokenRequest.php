@@ -11,6 +11,7 @@ class GetAuthTokenRequest extends Model
     /**
      * @description The requested domain name.
      *
+     * This parameter is required.
      * @example https://www.aliyundoc.com
      *
      * @var string
@@ -40,6 +41,7 @@ class GetAuthTokenRequest extends Model
     /**
      * @description The URL of the requested web page.
      *
+     * This parameter is required.
      * @example https://www.aliyundoc.com/
      *
      * @var string

@@ -35,6 +35,7 @@ class DescribeVerifySchemeRequest extends Model
     /**
      * @description The service code.
      *
+     * This parameter is required.
      * @example FC10000010643****
      *
      * @var string

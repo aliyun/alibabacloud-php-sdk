@@ -1,3 +1,9 @@
+2024-10-18 Version: 1.1.3
+- Update API CreateVerifyScheme: add param HmAppIdentifier.
+- Update API CreateVerifyScheme: add param HmPackageName.
+- Update API CreateVerifyScheme: add param HmSignName.
+
+
 2024-01-04 Version: 1.1.2
 - Generated php 2017-05-25 for Dypnsapi.
 

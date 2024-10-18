@@ -26,6 +26,7 @@ class VerifyWithFusionAuthTokenRequest extends Model
     /**
      * @description The unified verification token that is returned by the client SDKs.
      *
+     * This parameter is required.
      * @example LD108enNdlsl*******sFLKCks1==
      *
      * @var string

@@ -16,6 +16,7 @@ class QueryGateVerifyStatisticPublicRequest extends Model
      *   **3**: SMS verification
      *   **4**: facial recognition
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -25,6 +26,7 @@ class QueryGateVerifyStatisticPublicRequest extends Model
     /**
      * @description The end date. Specify this parameter in the YYYYMMDD format. Example: 20220106.
      *
+     * This parameter is required.
      * @example 20220106
      *
      * @var string
@@ -65,6 +67,7 @@ class QueryGateVerifyStatisticPublicRequest extends Model
     /**
      * @description The start date. Specify this parameter in the YYYYMMDD format. Example: 20220101.
      *
+     * This parameter is required.
      * @example 20220101
      *
      * @var string

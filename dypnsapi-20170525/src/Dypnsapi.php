@@ -89,10 +89,12 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @param CheckSmsVerifyCodeRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Verifies SMS verification codes.
+     *  *
+     * @param CheckSmsVerifyCodeRequest $request CheckSmsVerifyCodeRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckSmsVerifyCodeResponse
+     * @return CheckSmsVerifyCodeResponse CheckSmsVerifyCodeResponse
      */
     public function checkSmsVerifyCodeWithOptions($request, $runtime)
     {
@@ -144,9 +146,11 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @param CheckSmsVerifyCodeRequest $request
+     * @summary Verifies SMS verification codes.
+     *  *
+     * @param CheckSmsVerifyCodeRequest $request CheckSmsVerifyCodeRequest
      *
-     * @return CheckSmsVerifyCodeResponse
+     * @return CheckSmsVerifyCodeResponse CheckSmsVerifyCodeResponse
      */
     public function checkSmsVerifyCode($request)
     {
@@ -156,10 +160,12 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @param CreateSchemeConfigRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Creates a code for a converged communication authentication service.
+     *  *
+     * @param CreateSchemeConfigRequest $request CreateSchemeConfigRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSchemeConfigResponse
+     * @return CreateSchemeConfigResponse CreateSchemeConfigResponse
      */
     public function createSchemeConfigWithOptions($request, $runtime)
     {
@@ -217,9 +223,11 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @param CreateSchemeConfigRequest $request
+     * @summary Creates a code for a converged communication authentication service.
+     *  *
+     * @param CreateSchemeConfigRequest $request CreateSchemeConfigRequest
      *
-     * @return CreateSchemeConfigResponse
+     * @return CreateSchemeConfigResponse CreateSchemeConfigResponse
      */
     public function createSchemeConfig($request)
     {
@@ -229,9 +237,11 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#qps)QPS limits
-     *   * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Creates a verification service.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param CreateVerifySchemeRequest $request CreateVerifySchemeRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -261,6 +271,15 @@ class Dypnsapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->email)) {
             $query['Email'] = $request->email;
+        }
+        if (!Utils::isUnset($request->hmAppIdentifier)) {
+            $query['HmAppIdentifier'] = $request->hmAppIdentifier;
+        }
+        if (!Utils::isUnset($request->hmPackageName)) {
+            $query['HmPackageName'] = $request->hmPackageName;
+        }
+        if (!Utils::isUnset($request->hmSignName)) {
+            $query['HmSignName'] = $request->hmSignName;
         }
         if (!Utils::isUnset($request->ipWhiteList)) {
             $query['IpWhiteList'] = $request->ipWhiteList;
@@ -317,9 +336,11 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#qps)QPS limits
-     *   * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Creates a verification service.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param CreateVerifySchemeRequest $request CreateVerifySchemeRequest
      *
      * @return CreateVerifySchemeResponse CreateVerifySchemeResponse
@@ -332,9 +353,11 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#qps)QPS limits
-     *   * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Deletes a verification service.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeleteVerifySchemeRequest $request DeleteVerifySchemeRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -378,9 +401,11 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#qps)QPS limits
-     *   * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Deletes a verification service.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeleteVerifySchemeRequest $request DeleteVerifySchemeRequest
      *
      * @return DeleteVerifySchemeResponse DeleteVerifySchemeResponse
@@ -393,9 +418,11 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#qps)QPS limits
-     *   * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the details of a verification service.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeVerifySchemeRequest $request DescribeVerifySchemeRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -439,9 +466,11 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#qps)QPS limits
-     *   * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the details of a verification service.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeVerifySchemeRequest $request DescribeVerifySchemeRequest
      *
      * @return DescribeVerifySchemeResponse DescribeVerifySchemeResponse
@@ -454,11 +483,13 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#)Preparations
-     *   * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the phone number verification feature for HTML5 pages](~~169786~~).
-     *   * ### [](#qps)QPS limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Obtains the authorization token used for the authentication of the phone number verification for HTML5 pages. You can obtain AccessToken and JwtToken after a successful call.
+     *  *
+     * @description ### [](#)Preparations
+     * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the phone number verification feature for HTML5 pages](https://help.aliyun.com/document_detail/169786.html).
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param GetAuthTokenRequest $request GetAuthTokenRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -505,11 +536,13 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#)Preparations
-     *   * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the phone number verification feature for HTML5 pages](~~169786~~).
-     *   * ### [](#qps)QPS limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Obtains the authorization token used for the authentication of the phone number verification for HTML5 pages. You can obtain AccessToken and JwtToken after a successful call.
+     *  *
+     * @description ### [](#)Preparations
+     * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the phone number verification feature for HTML5 pages](https://help.aliyun.com/document_detail/169786.html).
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param GetAuthTokenRequest $request GetAuthTokenRequest
      *
      * @return GetAuthTokenResponse GetAuthTokenResponse
@@ -522,11 +555,13 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#)Preparations
-     *   * You must register an Alibaba Cloud account and obtain an Alibaba Cloud AccessKey pair. For more information, see [Process of communication authorization](~~196922~~).
-     *   * ### [](#qps)QPS limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Obtains the URL for the Alipay account authorization.
+     *  *
+     * @description ### [](#)Preparations
+     * You must register an Alibaba Cloud account and obtain an Alibaba Cloud AccessKey pair. For more information, see [Process of communication authorization](https://help.aliyun.com/document_detail/196922.html).
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param GetAuthorizationUrlRequest $request GetAuthorizationUrlRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -573,11 +608,13 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#)Preparations
-     *   * You must register an Alibaba Cloud account and obtain an Alibaba Cloud AccessKey pair. For more information, see [Process of communication authorization](~~196922~~).
-     *   * ### [](#qps)QPS limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Obtains the URL for the Alipay account authorization.
+     *  *
+     * @description ### [](#)Preparations
+     * You must register an Alibaba Cloud account and obtain an Alibaba Cloud AccessKey pair. For more information, see [Process of communication authorization](https://help.aliyun.com/document_detail/196922.html).
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param GetAuthorizationUrlRequest $request GetAuthorizationUrlRequest
      *
      * @return GetAuthorizationUrlResponse GetAuthorizationUrlResponse
@@ -590,10 +627,12 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @param GetFusionAuthTokenRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Obtains the verification results by using the token that is obtained from the client SDKs.
+     *  *
+     * @param GetFusionAuthTokenRequest $request GetFusionAuthTokenRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFusionAuthTokenResponse
+     * @return GetFusionAuthTokenResponse GetFusionAuthTokenResponse
      */
     public function getFusionAuthTokenWithOptions($request, $runtime)
     {
@@ -645,9 +684,11 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @param GetFusionAuthTokenRequest $request
+     * @summary Obtains the verification results by using the token that is obtained from the client SDKs.
+     *  *
+     * @param GetFusionAuthTokenRequest $request GetFusionAuthTokenRequest
      *
-     * @return GetFusionAuthTokenResponse
+     * @return GetFusionAuthTokenResponse GetFusionAuthTokenResponse
      */
     public function getFusionAuthToken($request)
     {
@@ -657,12 +698,14 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#)Preparations
-     *   * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](~~84541~~).
-     *   * >  This operation is applicable only to one-click logon or registration. You can call this operation only after you confirm the authorization on the authorization page provided by the SDK for one-click logon. You are prohibited from simulating or bypassing the authorization process. Alibaba Cloud reserves the right to terminate our services and take legal actions against such violations.
-     *   * ### [](#qps)QPS limits
-     *   * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Obtains a phone number for one-click logon.
+     *  *
+     * @description ### [](#)Preparations
+     * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/84541.html).
+     * >  This operation is applicable only to one-click logon or registration. You can call this operation only after you confirm the authorization on the authorization page provided by the SDK for one-click logon. You are prohibited from simulating or bypassing the authorization process. Alibaba Cloud reserves the right to terminate our services and take legal actions against such violations.
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param GetMobileRequest $request GetMobileRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -706,12 +749,14 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#)Preparations
-     *   * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](~~84541~~).
-     *   * >  This operation is applicable only to one-click logon or registration. You can call this operation only after you confirm the authorization on the authorization page provided by the SDK for one-click logon. You are prohibited from simulating or bypassing the authorization process. Alibaba Cloud reserves the right to terminate our services and take legal actions against such violations.
-     *   * ### [](#qps)QPS limits
-     *   * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Obtains a phone number for one-click logon.
+     *  *
+     * @description ### [](#)Preparations
+     * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/84541.html).
+     * >  This operation is applicable only to one-click logon or registration. You can call this operation only after you confirm the authorization on the authorization page provided by the SDK for one-click logon. You are prohibited from simulating or bypassing the authorization process. Alibaba Cloud reserves the right to terminate our services and take legal actions against such violations.
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param GetMobileRequest $request GetMobileRequest
      *
      * @return GetMobileResponse GetMobileResponse
@@ -724,12 +769,14 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#)Preparations
-     *   * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](~~84541~~).
-     *   * >  This operation is applicable only to one-click logon or registration in HTML5 pages. You can call this operation only after you confirm the authorization on the authorization page provided by the JavaScript SDK. You are prohibited from simulating or bypassing the authorization process. Alibaba Cloud reserves the right to terminate our services and take legal actions against such violations.
-     *   * ### [](#qps)QPS limits
-     *   * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Obtains a phone number for one-click logon. This operation is exclusive to HTML5 pages.
+     *  *
+     * @description ### [](#)Preparations
+     * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/84541.html).
+     * >  This operation is applicable only to one-click logon or registration in HTML5 pages. You can call this operation only after you confirm the authorization on the authorization page provided by the JavaScript SDK. You are prohibited from simulating or bypassing the authorization process. Alibaba Cloud reserves the right to terminate our services and take legal actions against such violations.
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param GetPhoneWithTokenRequest $request GetPhoneWithTokenRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -770,12 +817,14 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#)Preparations
-     *   * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](~~84541~~).
-     *   * >  This operation is applicable only to one-click logon or registration in HTML5 pages. You can call this operation only after you confirm the authorization on the authorization page provided by the JavaScript SDK. You are prohibited from simulating or bypassing the authorization process. Alibaba Cloud reserves the right to terminate our services and take legal actions against such violations.
-     *   * ### [](#qps)QPS limits
-     *   * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Obtains a phone number for one-click logon. This operation is exclusive to HTML5 pages.
+     *  *
+     * @description ### [](#)Preparations
+     * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/84541.html).
+     * >  This operation is applicable only to one-click logon or registration in HTML5 pages. You can call this operation only after you confirm the authorization on the authorization page provided by the JavaScript SDK. You are prohibited from simulating or bypassing the authorization process. Alibaba Cloud reserves the right to terminate our services and take legal actions against such violations.
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param GetPhoneWithTokenRequest $request GetPhoneWithTokenRequest
      *
      * @return GetPhoneWithTokenResponse GetPhoneWithTokenResponse
@@ -788,11 +837,13 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#)Preparations
-     *   * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the SMS verification feature](~~313209~~).
-     *   * ### [](#qps)QPS limits
-     *   * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Obtains the authorization token for an SMS verification code.
+     *  *
+     * @description ### [](#)Preparations
+     * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the SMS verification feature](https://help.aliyun.com/document_detail/313209.html).
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param GetSmsAuthTokensRequest $request GetSmsAuthTokensRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -854,11 +905,13 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#)Preparations
-     *   * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the SMS verification feature](~~313209~~).
-     *   * ### [](#qps)QPS limits
-     *   * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Obtains the authorization token for an SMS verification code.
+     *  *
+     * @description ### [](#)Preparations
+     * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the SMS verification feature](https://help.aliyun.com/document_detail/313209.html).
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param GetSmsAuthTokensRequest $request GetSmsAuthTokensRequest
      *
      * @return GetSmsAuthTokensResponse GetSmsAuthTokensResponse
@@ -871,8 +924,10 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @deprecated : JyCreateVerifyScheme is deprecated, please use Dypnsapi::2017-05-25::CreateVerifyScheme instead.
-     *   *
+     * @deprecated openAPI JyCreateVerifyScheme is deprecated, please use Dypnsapi::2017-05-25::CreateVerifyScheme instead
+     *  *
+     * @summary 创建方案号（为极意临时定制）
+     *  *
      * Deprecated
      *
      * @param JyCreateVerifySchemeRequest $request JyCreateVerifySchemeRequest
@@ -939,8 +994,10 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @deprecated : JyCreateVerifyScheme is deprecated, please use Dypnsapi::2017-05-25::CreateVerifyScheme instead.
-     *   *
+     * @deprecated openAPI JyCreateVerifyScheme is deprecated, please use Dypnsapi::2017-05-25::CreateVerifyScheme instead
+     *  *
+     * @summary 创建方案号（为极意临时定制）
+     *  *
      * Deprecated
      *
      * @param JyCreateVerifySchemeRequest $request JyCreateVerifySchemeRequest
@@ -955,8 +1012,10 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @deprecated : JyQueryAppInfoBySceneCode is deprecated, please use Dypnsapi::2017-05-25::QueryAppInfoBySceneCode instead.
-     *   *
+     * @deprecated openAPI JyQueryAppInfoBySceneCode is deprecated, please use Dypnsapi::2017-05-25::QueryAppInfoBySceneCode instead
+     *  *
+     * @summary 根据方案号查询运营商APP信（为极意临时定制）
+     *  *
      * Deprecated
      *
      * @param JyQueryAppInfoBySceneCodeRequest $request JyQueryAppInfoBySceneCodeRequest
@@ -999,8 +1058,10 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @deprecated : JyQueryAppInfoBySceneCode is deprecated, please use Dypnsapi::2017-05-25::QueryAppInfoBySceneCode instead.
-     *   *
+     * @deprecated openAPI JyQueryAppInfoBySceneCode is deprecated, please use Dypnsapi::2017-05-25::QueryAppInfoBySceneCode instead
+     *  *
+     * @summary 根据方案号查询运营商APP信（为极意临时定制）
+     *  *
      * Deprecated
      *
      * @param JyQueryAppInfoBySceneCodeRequest $request JyQueryAppInfoBySceneCodeRequest
@@ -1015,9 +1076,11 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#qps)QPS limits
-     *   * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the fees generated by a verification service.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param QueryGateVerifyBillingPublicRequest $request QueryGateVerifyBillingPublicRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -1058,9 +1121,11 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#qps)QPS limits
-     *   * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the fees generated by a verification service.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param QueryGateVerifyBillingPublicRequest $request QueryGateVerifyBillingPublicRequest
      *
      * @return QueryGateVerifyBillingPublicResponse QueryGateVerifyBillingPublicResponse
@@ -1073,9 +1138,11 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#qps)QPS limits
-     *   * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the calls of Phone Number Verification Service.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param QueryGateVerifyStatisticPublicRequest $request QueryGateVerifyStatisticPublicRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -1125,9 +1192,11 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#qps)QPS limits
-     *   * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the calls of Phone Number Verification Service.
+     *  *
+     * @description ### [](#qps)QPS limits
+     * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param QueryGateVerifyStatisticPublicRequest $request QueryGateVerifyStatisticPublicRequest
      *
      * @return QueryGateVerifyStatisticPublicResponse QueryGateVerifyStatisticPublicResponse
@@ -1140,8 +1209,10 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI QuerySendDetails is deprecated
+     *  *
+     * @summary Queries the delivery status of the SMS verification code. You can query only the delivery status of the SMS verification code that is sent by calling corresponding API operations.
+     *  *
      * Deprecated
      *
      * @param QuerySendDetailsRequest $request QuerySendDetailsRequest
@@ -1196,8 +1267,10 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI QuerySendDetails is deprecated
+     *  *
+     * @summary Queries the delivery status of the SMS verification code. You can query only the delivery status of the SMS verification code that is sent by calling corresponding API operations.
+     *  *
      * Deprecated
      *
      * @param QuerySendDetailsRequest $request QuerySendDetailsRequest
@@ -1212,10 +1285,12 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @param SendSmsVerifyCodeRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Sends SMS verification codes.
+     *  *
+     * @param SendSmsVerifyCodeRequest $request SendSmsVerifyCodeRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendSmsVerifyCodeResponse
+     * @return SendSmsVerifyCodeResponse SendSmsVerifyCodeResponse
      */
     public function sendSmsVerifyCodeWithOptions($request, $runtime)
     {
@@ -1291,9 +1366,11 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @param SendSmsVerifyCodeRequest $request
+     * @summary Sends SMS verification codes.
+     *  *
+     * @param SendSmsVerifyCodeRequest $request SendSmsVerifyCodeRequest
      *
-     * @return SendSmsVerifyCodeResponse
+     * @return SendSmsVerifyCodeResponse SendSmsVerifyCodeResponse
      */
     public function sendSmsVerifyCode($request)
     {
@@ -1303,12 +1380,14 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#)Preparations
-     *   * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](~~84541~~).
-     *   * >  This operation is applicable to only the verification of thephone number that you use. To obtain a phone number for one-click logon, call [GetMobile](~~189865~~).
-     *   * ### [](#qps)QPS limits
-     *   * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Verifies the phone number that you use.
+     *  *
+     * @description ### [](#)Preparations
+     * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/84541.html).
+     * >  This operation is applicable to only the verification of thephone number that you use. To obtain a phone number for one-click logon, call [GetMobile](https://help.aliyun.com/document_detail/189865.html).
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param VerifyMobileRequest $request VerifyMobileRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -1355,12 +1434,14 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#)Preparations
-     *   * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](~~84541~~).
-     *   * >  This operation is applicable to only the verification of thephone number that you use. To obtain a phone number for one-click logon, call [GetMobile](~~189865~~).
-     *   * ### [](#qps)QPS limits
-     *   * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Verifies the phone number that you use.
+     *  *
+     * @description ### [](#)Preparations
+     * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/84541.html).
+     * >  This operation is applicable to only the verification of thephone number that you use. To obtain a phone number for one-click logon, call [GetMobile](https://help.aliyun.com/document_detail/189865.html).
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param VerifyMobileRequest $request VerifyMobileRequest
      *
      * @return VerifyMobileResponse VerifyMobileResponse
@@ -1373,11 +1454,13 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#)Preparations
-     *   * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the phone number verification feature for HTML5 pages](~~169786~~).
-     *   * ### [](#qps)QPS limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Verifies the phone number used in HTML5 pages.
+     *  *
+     * @description ### [](#)Preparations
+     * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the phone number verification feature for HTML5 pages](https://help.aliyun.com/document_detail/169786.html).
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param VerifyPhoneWithTokenRequest $request VerifyPhoneWithTokenRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -1421,11 +1504,13 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#)Preparations
-     *   * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the phone number verification feature for HTML5 pages](~~169786~~).
-     *   * ### [](#qps)QPS limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Verifies the phone number used in HTML5 pages.
+     *  *
+     * @description ### [](#)Preparations
+     * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the phone number verification feature for HTML5 pages](https://help.aliyun.com/document_detail/169786.html).
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param VerifyPhoneWithTokenRequest $request VerifyPhoneWithTokenRequest
      *
      * @return VerifyPhoneWithTokenResponse VerifyPhoneWithTokenResponse
@@ -1438,11 +1523,13 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#)Preparations
-     *   * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the SMS verification feature](~~313209~~).
-     *   * ### [](#qps)QPS limits
-     *   * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Verifies SMS verification codes.
+     *  *
+     * @description ### [](#)Preparations
+     * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the SMS verification feature](https://help.aliyun.com/document_detail/313209.html).
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param VerifySmsCodeRequest $request VerifySmsCodeRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -1480,11 +1567,13 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * ### [](#)Preparations
-     *   * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the SMS verification feature](~~313209~~).
-     *   * ### [](#qps)QPS limits
-     *   * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Verifies SMS verification codes.
+     *  *
+     * @description ### [](#)Preparations
+     * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the SMS verification feature](https://help.aliyun.com/document_detail/313209.html).
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param VerifySmsCodeRequest $request VerifySmsCodeRequest
      *
      * @return VerifySmsCodeResponse VerifySmsCodeResponse
@@ -1497,10 +1586,12 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @param VerifyWithFusionAuthTokenRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Obtains the verification results by using the verification token that is obtained by using the authentication token.
+     *  *
+     * @param VerifyWithFusionAuthTokenRequest $request VerifyWithFusionAuthTokenRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifyWithFusionAuthTokenResponse
+     * @return VerifyWithFusionAuthTokenResponse VerifyWithFusionAuthTokenResponse
      */
     public function verifyWithFusionAuthTokenWithOptions($request, $runtime)
     {
@@ -1537,9 +1628,11 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @param VerifyWithFusionAuthTokenRequest $request
+     * @summary Obtains the verification results by using the verification token that is obtained by using the authentication token.
+     *  *
+     * @param VerifyWithFusionAuthTokenRequest $request VerifyWithFusionAuthTokenRequest
      *
-     * @return VerifyWithFusionAuthTokenResponse
+     * @return VerifyWithFusionAuthTokenResponse VerifyWithFusionAuthTokenResponse
      */
     public function verifyWithFusionAuthToken($request)
     {

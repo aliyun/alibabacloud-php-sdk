@@ -11,6 +11,7 @@ class GetMobileRequest extends Model
     /**
      * @description The logon token obtained by the SDK for your app.
      *
+     * This parameter is required.
      * @example Dfafdafad5422****
      *
      * @var string

@@ -46,6 +46,7 @@ class CheckSmsVerifyCodeRequest extends Model
     /**
      * @description The phone number.
      *
+     * This parameter is required.
      * @example 18653529399
      *
      * @var string
@@ -74,6 +75,7 @@ class CheckSmsVerifyCodeRequest extends Model
     /**
      * @description The verification code.
      *
+     * This parameter is required.
      * @example 1231
      *
      * @var string

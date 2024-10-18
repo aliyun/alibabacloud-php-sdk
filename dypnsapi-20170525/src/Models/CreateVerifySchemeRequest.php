@@ -11,6 +11,7 @@ class CreateVerifySchemeRequest extends Model
     /**
      * @description The app name.
      *
+     * This parameter is required.
      * @example Alibaba Cloud Communications
      *
      * @var string
@@ -30,7 +31,7 @@ class CreateVerifySchemeRequest extends Model
     public $authType;
 
     /**
-     * @description The bundle ID. This parameter is required when OsType is set to iOS. The bundle ID must be 1 to 128 characters in length and can contain digits, letters, hyphens (-), underscores (\_), and periods (.).
+     * @description The bundle ID. This parameter is required when OsType is set to iOS. The bundle ID must be 1 to 128 characters in length and can contain digits, letters, hyphens (-), underscores (_), and periods (.).
      *
      * @example example.aliyundoc.com
      *
@@ -75,6 +76,21 @@ class CreateVerifySchemeRequest extends Model
     public $email;
 
     /**
+     * @var string
+     */
+    public $hmAppIdentifier;
+
+    /**
+     * @var string
+     */
+    public $hmPackageName;
+
+    /**
+     * @var string
+     */
+    public $hmSignName;
+
+    /**
      * @description The IP address whitelist.
      *
      * @example 139.9.167.181
@@ -95,6 +111,7 @@ class CreateVerifySchemeRequest extends Model
     /**
      * @description The type of the operating system for the terminal. Valid values: iOS and Android.
      *
+     * This parameter is required.
      * @example iOS
      *
      * @var string
@@ -107,7 +124,7 @@ class CreateVerifySchemeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The package name. This parameter is required when OsType is set to Android. The name must be 1 to 128 characters in length and can contain digits, letters, hyphens (-), underscores (\_), and periods (.).
+     * @description The package name. This parameter is required when OsType is set to Android. The name must be 1 to 128 characters in length and can contain digits, letters, hyphens (-), underscores (_), and periods (.).
      *
      * @example com.aliyun
      *
@@ -146,6 +163,7 @@ class CreateVerifySchemeRequest extends Model
     /**
      * @description The service name.
      *
+     * This parameter is required.
      * @example Aliyun
      *
      * @var string
@@ -177,6 +195,9 @@ class CreateVerifySchemeRequest extends Model
         'ctApiCode'            => 'CtApiCode',
         'cuApiCode'            => 'CuApiCode',
         'email'                => 'Email',
+        'hmAppIdentifier'      => 'HmAppIdentifier',
+        'hmPackageName'        => 'HmPackageName',
+        'hmSignName'           => 'HmSignName',
         'ipWhiteList'          => 'IpWhiteList',
         'origin'               => 'Origin',
         'osType'               => 'OsType',
@@ -218,6 +239,15 @@ class CreateVerifySchemeRequest extends Model
         }
         if (null !== $this->email) {
             $res['Email'] = $this->email;
+        }
+        if (null !== $this->hmAppIdentifier) {
+            $res['HmAppIdentifier'] = $this->hmAppIdentifier;
+        }
+        if (null !== $this->hmPackageName) {
+            $res['HmPackageName'] = $this->hmPackageName;
+        }
+        if (null !== $this->hmSignName) {
+            $res['HmSignName'] = $this->hmSignName;
         }
         if (null !== $this->ipWhiteList) {
             $res['IpWhiteList'] = $this->ipWhiteList;
@@ -287,6 +317,15 @@ class CreateVerifySchemeRequest extends Model
         }
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
+        }
+        if (isset($map['HmAppIdentifier'])) {
+            $model->hmAppIdentifier = $map['HmAppIdentifier'];
+        }
+        if (isset($map['HmPackageName'])) {
+            $model->hmPackageName = $map['HmPackageName'];
+        }
+        if (isset($map['HmSignName'])) {
+            $model->hmSignName = $map['HmSignName'];
         }
         if (isset($map['IpWhiteList'])) {
             $model->ipWhiteList = $map['IpWhiteList'];

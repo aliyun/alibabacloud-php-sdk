@@ -17,6 +17,7 @@ class QueryGateVerifyBillingPublicRequest extends Model
      *   **3**: facial recognition
      *   **4**: SMS verification
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -26,6 +27,7 @@ class QueryGateVerifyBillingPublicRequest extends Model
     /**
      * @description The month in which the bill is generated. Specify this parameter in the YYYYMM format. Example: 202111.
      *
+     * This parameter is required.
      * @example 202111
      *
      * @var string

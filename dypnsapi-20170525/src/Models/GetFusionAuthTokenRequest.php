@@ -20,6 +20,7 @@ class GetFusionAuthTokenRequest extends Model
     /**
      * @description The validity period of the token. Unit: seconds. Valid values: 900 to 43200.
      *
+     * This parameter is required.
      * @example 900
      *
      * @var int
@@ -52,6 +53,7 @@ class GetFusionAuthTokenRequest extends Model
     /**
      * @description The platform type. Valid values: Android and iOS.
      *
+     * This parameter is required.
      * @example Android
      *
      * @var string
@@ -71,6 +73,7 @@ class GetFusionAuthTokenRequest extends Model
     /**
      * @description The service code.
      *
+     * This parameter is required.
      * @example FA1000*************201
      *
      * @var string

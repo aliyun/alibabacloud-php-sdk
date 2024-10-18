@@ -16,6 +16,7 @@ class VerifyPhoneWithTokenRequest extends Model
     /**
      * @description The phone number.
      *
+     * This parameter is required.
      * @example 1380000****
      *
      * @var string
@@ -35,6 +36,7 @@ class VerifyPhoneWithTokenRequest extends Model
     /**
      * @description The token for phone number verification that is obtained by the JavaScript SDK.
      *
+     * This parameter is required.
      * @example Dfafdafad542****
      *
      * @var string

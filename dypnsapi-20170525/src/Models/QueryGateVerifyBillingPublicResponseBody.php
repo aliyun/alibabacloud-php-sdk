@@ -13,7 +13,7 @@ class QueryGateVerifyBillingPublicResponseBody extends Model
      * @description The response code. Valid values:
      *
      *   If OK is returned, the request is successful.
-     *   For more information about other error codes, see [API response codes](~~85198~~).
+     *   For more information about other error codes, see [API response codes](https://help.aliyun.com/document_detail/85198.html).
      *
      * @example OK
      *

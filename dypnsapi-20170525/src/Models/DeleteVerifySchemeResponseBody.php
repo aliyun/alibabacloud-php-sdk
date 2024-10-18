@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteVerifySchemeResponseBody extends Model
 {
     /**
-     * @description The request is successful. For more information about other error codes, see [API response codes](~~85198~~).
+     * @description The request is successful. For more information about other error codes, see [API response codes](https://help.aliyun.com/document_detail/85198.html).
      *
      * @example OK
      *

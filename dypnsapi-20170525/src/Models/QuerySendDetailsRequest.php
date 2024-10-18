@@ -20,6 +20,7 @@ class QuerySendDetailsRequest extends Model
     /**
      * @description The number of the page on which you are reading the text message. Pages start from page 1. The value of this parameter cannot exceed the maximum page number.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -34,6 +35,7 @@ class QuerySendDetailsRequest extends Model
     /**
      * @description The number of entries per page.
      *
+     * This parameter is required.
      * @example 50
      *
      * @var int
@@ -43,6 +45,7 @@ class QuerySendDetailsRequest extends Model
     /**
      * @description The phone number.
      *
+     * This parameter is required.
      * @example 186****9399
      *
      * @var string
@@ -62,7 +65,7 @@ class QuerySendDetailsRequest extends Model
     /**
      * @description The date when the text message was sent. You can query text messages that were sent within the last 30 days.
      *
-     * Specify the date in the yyyyMMdd format. Example: 20181225.
+     * This parameter is required.
      * @example 20181225
      *
      * @var string

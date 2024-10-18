@@ -11,6 +11,7 @@ class VerifySmsCodeRequest extends Model
     /**
      * @description The phone number, which is used to receive SMS verification codes.
      *
+     * This parameter is required.
      * @example 1321111****
      *
      * @var string
@@ -20,6 +21,7 @@ class VerifySmsCodeRequest extends Model
     /**
      * @description The SMS verification code.
      *
+     * This parameter is required.
      * @example 12****
      *
      * @var string
@@ -27,8 +29,9 @@ class VerifySmsCodeRequest extends Model
     public $smsCode;
 
     /**
-     * @description The text message verification code. After you successfully call the corresponding API operation to send the SMS verification code, the end users receive the SMS verification code. SmsToken is returned by the SDK for SMS verification for you to verify the text message verification code. For an Android client, sendVerifyCode is called to send the verification code. For an iOS client, sendVerifyCodeWithTimeout is called to send the verification code. For more information, see [Overview](~~400434~~).
+     * @description The text message verification code. After you successfully call the corresponding API operation to send the SMS verification code, the end users receive the SMS verification code. SmsToken is returned by the SDK for SMS verification for you to verify the text message verification code. For an Android client, sendVerifyCode is called to send the verification code. For an iOS client, sendVerifyCodeWithTimeout is called to send the verification code. For more information, see [Overview](https://help.aliyun.com/document_detail/400434.html).
      *
+     * This parameter is required.
      * @example sddsbvdbvjd****
      *
      * @var string

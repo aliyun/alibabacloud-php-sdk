@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateSchemeConfigRequest extends Model
 {
     /**
-     * @description The package name. This parameter is required when Platform is set to Android. The name must be 1 to 128 characters in length and can contain digits, letters, hyphens (-), underscores (\_), and periods (.).
+     * @description The package name. This parameter is required when Platform is set to Android. The name must be 1 to 128 characters in length and can contain digits, letters, hyphens (-), underscores (_), and periods (.).
      *
      * @example com.aliyun.android
      *
@@ -54,7 +54,7 @@ class CreateSchemeConfigRequest extends Model
     public $h5Url;
 
     /**
-     * @description The bundle ID. This parameter is required when OsType is set to iOS. The bundle ID must be 1 to 128 characters in length and can contain digits, letters, hyphens (-), underscores (\_), and periods (.).
+     * @description The bundle ID. This parameter is required when OsType is set to iOS. The bundle ID must be 1 to 128 characters in length and can contain digits, letters, hyphens (-), underscores (_), and periods (.).
      *
      * @example com.aliyun.ios
      *
@@ -75,6 +75,7 @@ class CreateSchemeConfigRequest extends Model
      *   Android
      *   iOS
      *
+     * This parameter is required.
      * @example Android
      *
      * @var string
@@ -94,6 +95,7 @@ class CreateSchemeConfigRequest extends Model
     /**
      * @description The service name, which can be up to 10 characters in length and can contain letters.
      *
+     * This parameter is required.
      * @example Aliyun
      *
      * @var string

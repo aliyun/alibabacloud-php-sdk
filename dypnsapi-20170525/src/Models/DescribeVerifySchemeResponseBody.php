@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVerifySchemeResponseBody extends Model
 {
     /**
-     * @description The response code. OK indicates that the request is successful. For more information about other error codes, see [API response codes](~~85198~~).
+     * @description The response code. OK indicates that the request is successful. For more information about other error codes, see [API response codes](https://help.aliyun.com/document_detail/85198.html).
      *
      * @example OK
      *
