@@ -72,6 +72,8 @@ class CreateSiteDeliveryTaskShrinkRequest extends Model
     public $s3DeliveryShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12312312112***
      *
      * @var int

@@ -77,6 +77,8 @@ class CreateSiteDeliveryTaskRequest extends Model
     public $s3Delivery;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12312312112***
      *
      * @var int
