@@ -435,7 +435,6 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\ValidatePdnsUdpIpSegmentRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ValidatePdnsUdpIpSegmentResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
-use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -445,9 +444,6 @@ class Alidns extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_productId    = 'Alidns';
-        $gatewayClient       = new Client();
-        $this->_spi          = $gatewayClient;
         $this->_endpointRule = 'central';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('alidns', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -517,11 +513,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddCustomLineResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddCustomLineResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddCustomLineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -592,11 +585,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddDnsCacheDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDnsCacheDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDnsCacheDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -688,11 +678,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddDnsGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDnsGtmAccessStrategyResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDnsGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -774,11 +761,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddDnsGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDnsGtmAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDnsGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -847,11 +831,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddDnsGtmMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDnsGtmMonitorResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDnsGtmMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -911,11 +892,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -970,11 +948,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddDomainBackupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDomainBackupResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDomainBackupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1023,11 +998,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddDomainGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDomainGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDomainGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1097,11 +1069,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddDomainRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDomainRecordResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDomainRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1160,11 +1129,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddGtmAccessStrategyResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1244,11 +1210,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddGtmAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1315,11 +1278,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddGtmMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddGtmMonitorResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddGtmMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1374,11 +1334,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddGtmRecoveryPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1433,11 +1390,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return BindInstanceDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BindInstanceDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return BindInstanceDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1494,11 +1448,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ChangeDomainGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeDomainGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeDomainGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1561,11 +1512,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ChangeDomainOfDnsProductResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeDomainOfDnsProductResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeDomainOfDnsProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1623,11 +1571,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CopyGtmConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CopyGtmConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return CopyGtmConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1711,11 +1656,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateCloudGtmAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCloudGtmAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCloudGtmAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1779,11 +1721,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateCloudGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCloudGtmAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCloudGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1854,11 +1793,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateCloudGtmInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCloudGtmInstanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCloudGtmInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1937,11 +1873,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateCloudGtmMonitorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCloudGtmMonitorTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCloudGtmMonitorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1990,11 +1923,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreatePdnsAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePdnsAppKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePdnsAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2049,11 +1979,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreatePdnsUdpIpSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePdnsUdpIpSegmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePdnsUdpIpSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2105,11 +2032,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteCloudGtmAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCloudGtmAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCloudGtmAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2161,11 +2085,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteCloudGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCloudGtmAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCloudGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2220,11 +2141,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteCloudGtmInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCloudGtmInstanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCloudGtmInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2276,11 +2194,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteCloudGtmMonitorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCloudGtmMonitorTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCloudGtmMonitorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2329,11 +2244,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteCustomLinesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCustomLinesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCustomLinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2380,11 +2292,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteDnsCacheDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDnsCacheDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDnsCacheDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2429,11 +2338,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteDnsGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDnsGtmAccessStrategyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDnsGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2478,11 +2384,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteDnsGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDnsGtmAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDnsGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2529,11 +2432,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2584,11 +2484,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteDomainGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDomainGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDomainGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2642,11 +2539,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteDomainRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDomainRecordResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDomainRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2693,11 +2587,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteGtmAccessStrategyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2742,11 +2633,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteGtmAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2791,11 +2679,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteGtmRecoveryPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2851,11 +2736,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteSubDomainRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSubDomainRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSubDomainRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2907,11 +2789,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeBatchResultCountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBatchResultCountResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBatchResultCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2974,11 +2853,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeBatchResultDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBatchResultDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBatchResultDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3032,11 +2908,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeCloudGtmAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudGtmAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudGtmAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3088,11 +2961,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeCloudGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudGtmAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3144,11 +3014,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeCloudGtmAddressPoolReferenceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudGtmAddressPoolReferenceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudGtmAddressPoolReferenceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3200,11 +3067,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeCloudGtmAddressReferenceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudGtmAddressReferenceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudGtmAddressReferenceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3251,11 +3115,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeCloudGtmGlobalAlertResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudGtmGlobalAlertResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudGtmGlobalAlertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3306,11 +3167,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeCloudGtmInstanceConfigAlertResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudGtmInstanceConfigAlertResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudGtmInstanceConfigAlertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3363,11 +3221,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeCloudGtmInstanceConfigFullInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudGtmInstanceConfigFullInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudGtmInstanceConfigFullInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3416,11 +3271,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeCloudGtmMonitorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudGtmMonitorTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudGtmMonitorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3464,11 +3316,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeCloudGtmSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudGtmSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudGtmSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3502,11 +3351,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeCloudGtmSystemLinesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudGtmSystemLinesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudGtmSystemLinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3551,11 +3397,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeCustomLineResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCustomLineResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCustomLineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3610,11 +3453,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeCustomLinesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCustomLinesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCustomLinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3675,11 +3515,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDNSSLBSubDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDNSSLBSubDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDNSSLBSubDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3732,11 +3569,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDnsCacheDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsCacheDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsCacheDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3792,11 +3626,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDnsGtmAccessStrategiesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmAccessStrategiesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmAccessStrategiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3845,11 +3676,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDnsGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmAccessStrategyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3901,11 +3729,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDnsGtmAccessStrategyAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmAccessStrategyAvailableConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmAccessStrategyAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3957,11 +3782,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDnsGtmAddrAttributeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmAddrAttributeInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmAddrAttributeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4010,11 +3832,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDnsGtmAddressPoolAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmAddressPoolAvailableConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmAddressPoolAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4058,11 +3877,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDnsGtmAvailableAlertGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmAvailableAlertGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmAvailableAlertGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4109,11 +3925,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDnsGtmInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4162,11 +3975,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDnsGtmInstanceAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmInstanceAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmInstanceAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4221,11 +4031,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDnsGtmInstanceAddressPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmInstanceAddressPoolsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmInstanceAddressPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4274,11 +4081,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDnsGtmInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmInstanceStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4327,11 +4131,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDnsGtmInstanceSystemCnameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmInstanceSystemCnameResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmInstanceSystemCnameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4389,11 +4190,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDnsGtmInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4457,11 +4255,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDnsGtmLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4507,11 +4302,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDnsGtmMonitorAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmMonitorAvailableConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmMonitorAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4560,11 +4352,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDnsGtmMonitorConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmMonitorConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmMonitorConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4616,11 +4405,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDnsProductInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsProductInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsProductInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4689,11 +4475,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDnsProductInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsProductInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsProductInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4745,11 +4528,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDohAccountStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDohAccountStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDohAccountStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4800,11 +4580,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDohDomainStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDohDomainStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDohDomainStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4861,11 +4638,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDohDomainStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDohDomainStatisticsSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDohDomainStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4916,11 +4690,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDohSubDomainStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDohSubDomainStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDohSubDomainStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4980,11 +4751,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDohSubDomainStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDohSubDomainStatisticsSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDohSubDomainStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5034,11 +4802,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDohUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDohUserInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDohUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5087,11 +4852,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDomainDnssecInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainDnssecInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainDnssecInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5146,11 +4908,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDomainGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5204,11 +4963,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDomainInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5277,11 +5033,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDomainLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5332,11 +5085,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDomainNsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainNsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainNsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5393,11 +5143,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDomainRecordInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainRecordInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainRecordInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5493,11 +5240,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDomainRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5572,11 +5316,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDomainResolveStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainResolveStatisticsSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainResolveStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5636,11 +5377,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDomainStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5709,11 +5447,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDomainStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainStatisticsSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5785,11 +5520,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5849,11 +5581,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeGtmAccessStrategiesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmAccessStrategiesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmAccessStrategiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5902,11 +5631,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmAccessStrategyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5955,11 +5681,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeGtmAccessStrategyAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmAccessStrategyAvailableConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmAccessStrategyAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6003,11 +5726,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeGtmAvailableAlertGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmAvailableAlertGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmAvailableAlertGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6057,11 +5777,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeGtmInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6110,11 +5827,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeGtmInstanceAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmInstanceAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmInstanceAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6169,11 +5883,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeGtmInstanceAddressPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmInstanceAddressPoolsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmInstanceAddressPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6222,11 +5933,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeGtmInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmInstanceStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6273,11 +5981,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeGtmInstanceSystemCnameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmInstanceSystemCnameResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmInstanceSystemCnameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6336,11 +6041,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeGtmInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6404,11 +6106,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeGtmLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6454,11 +6153,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeGtmMonitorAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmMonitorAvailableConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmMonitorAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6507,11 +6203,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeGtmMonitorConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmMonitorConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmMonitorConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6560,11 +6253,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmRecoveryPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6610,11 +6300,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeGtmRecoveryPlanAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmRecoveryPlanAvailableConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmRecoveryPlanAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6669,11 +6356,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeGtmRecoveryPlansResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmRecoveryPlansResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmRecoveryPlansResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6728,11 +6412,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeInstanceDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6800,11 +6481,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeInternetDnsLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInternetDnsLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInternetDnsLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6869,11 +6547,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeIspFlushCacheInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeIspFlushCacheInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeIspFlushCacheInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6919,11 +6594,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeIspFlushCacheRemainQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeIspFlushCacheRemainQuotaResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeIspFlushCacheRemainQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6972,11 +6644,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeIspFlushCacheTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeIspFlushCacheTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeIspFlushCacheTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7043,11 +6712,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeIspFlushCacheTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeIspFlushCacheTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeIspFlushCacheTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7099,11 +6765,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePdnsAccountSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePdnsAccountSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePdnsAccountSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7155,11 +6818,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePdnsAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePdnsAppKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePdnsAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7205,11 +6865,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePdnsAppKeysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePdnsAppKeysResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePdnsAppKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7273,11 +6930,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePdnsOperateLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePdnsOperateLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePdnsOperateLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7321,6 +6975,9 @@ class Alidns extends OpenApiClient
         if (!Utils::isUnset($request->subDomain)) {
             $query['SubDomain'] = $request->subDomain;
         }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -7335,11 +6992,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePdnsRequestStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePdnsRequestStatisticResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePdnsRequestStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7406,11 +7060,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePdnsRequestStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePdnsRequestStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePdnsRequestStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7480,11 +7131,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePdnsThreatLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePdnsThreatLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePdnsThreatLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7539,11 +7187,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePdnsThreatStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePdnsThreatStatisticResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePdnsThreatStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7625,11 +7270,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePdnsThreatStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePdnsThreatStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePdnsThreatStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7681,11 +7323,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePdnsUdpIpSegmentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePdnsUdpIpSegmentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePdnsUdpIpSegmentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7731,11 +7370,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePdnsUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePdnsUserInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePdnsUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7802,11 +7438,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeRecordLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRecordLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRecordLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7882,11 +7515,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeRecordResolveStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRecordResolveStatisticsSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRecordResolveStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7949,11 +7579,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeRecordStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRecordStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRecordStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8028,11 +7655,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeRecordStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRecordStatisticsSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRecordStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8099,11 +7723,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeSubDomainRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSubDomainRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSubDomainRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8153,11 +7774,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeSupportLinesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSupportLinesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSupportLinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8210,11 +7828,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTagsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8278,11 +7893,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeTransferDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTransferDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTransferDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8331,11 +7943,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ExecuteGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteGtmRecoveryPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8387,11 +7996,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetMainDomainNameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMainDomainNameResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMainDomainNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8446,11 +8052,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTxtRecordForVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTxtRecordForVerifyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTxtRecordForVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8517,11 +8120,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListCloudGtmAddressPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCloudGtmAddressPoolsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCloudGtmAddressPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8597,11 +8197,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListCloudGtmAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCloudGtmAddressesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCloudGtmAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8666,11 +8263,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListCloudGtmAlertLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCloudGtmAlertLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCloudGtmAlertLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8712,11 +8306,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListCloudGtmAvailableAlertGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCloudGtmAvailableAlertGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCloudGtmAvailableAlertGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8784,11 +8375,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListCloudGtmInstanceConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCloudGtmInstanceConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCloudGtmInstanceConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8849,11 +8437,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListCloudGtmInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCloudGtmInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCloudGtmInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8899,11 +8484,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListCloudGtmMonitorNodesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCloudGtmMonitorNodesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCloudGtmMonitorNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8964,11 +8546,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListCloudGtmMonitorTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCloudGtmMonitorTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCloudGtmMonitorTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9031,11 +8610,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9095,11 +8671,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyHichinaDomainDNSResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyHichinaDomainDNSResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyHichinaDomainDNSResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9154,11 +8727,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return MoveDomainResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MoveDomainResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return MoveDomainResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9208,11 +8778,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return MoveGtmResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MoveGtmResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return MoveGtmResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9264,11 +8831,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return OperateBatchDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return OperateBatchDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return OperateBatchDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9319,11 +8883,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PausePdnsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PausePdnsServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return PausePdnsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9378,11 +8939,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PreviewGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PreviewGtmRecoveryPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return PreviewGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9431,11 +8989,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RemovePdnsAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemovePdnsAppKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemovePdnsAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9484,11 +9039,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RemovePdnsUdpIpSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemovePdnsUdpIpSegmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemovePdnsUdpIpSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9548,11 +9100,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ReplaceCloudGtmAddressPoolAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReplaceCloudGtmAddressPoolAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReplaceCloudGtmAddressPoolAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9615,11 +9164,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ReplaceCloudGtmInstanceConfigAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReplaceCloudGtmInstanceConfigAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReplaceCloudGtmInstanceConfigAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9668,11 +9214,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ResumePdnsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResumePdnsServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResumePdnsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9723,11 +9266,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RetrieveDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RetrieveDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return RetrieveDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9778,11 +9318,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RollbackGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RollbackGtmRecoveryPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return RollbackGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9855,11 +9392,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SearchCloudGtmAddressPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchCloudGtmAddressPoolsResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchCloudGtmAddressPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9944,11 +9478,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SearchCloudGtmAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchCloudGtmAddressesResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchCloudGtmAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10024,11 +9555,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SearchCloudGtmInstanceConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchCloudGtmInstanceConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchCloudGtmInstanceConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10089,11 +9617,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SearchCloudGtmInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchCloudGtmInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchCloudGtmInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10154,11 +9679,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SearchCloudGtmMonitorTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchCloudGtmMonitorTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchCloudGtmMonitorTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10222,11 +9744,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetDNSSLBStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetDNSSLBStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetDNSSLBStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10280,11 +9799,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetDnsGtmAccessModeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetDnsGtmAccessModeResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetDnsGtmAccessModeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10338,11 +9854,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetDnsGtmMonitorStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetDnsGtmMonitorStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetDnsGtmMonitorStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10394,11 +9907,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetDomainDnssecStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetDomainDnssecStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetDomainDnssecStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10453,11 +9963,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetDomainRecordStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetDomainRecordStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetDomainRecordStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10509,11 +10016,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetGtmAccessModeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetGtmAccessModeResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetGtmAccessModeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10563,11 +10067,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetGtmMonitorStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetGtmMonitorStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetGtmMonitorStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10620,11 +10121,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitIspFlushCacheTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitIspFlushCacheTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitIspFlushCacheTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10676,11 +10174,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SwitchDnsGtmInstanceStrategyModeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SwitchDnsGtmInstanceStrategyModeResponse::fromMap($this->execute($params, $req, $runtime));
+        return SwitchDnsGtmInstanceStrategyModeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10735,11 +10230,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10794,11 +10286,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return TransferDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TransferDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return TransferDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10853,11 +10342,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UnbindInstanceDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnbindInstanceDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnbindInstanceDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10918,11 +10404,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10974,11 +10457,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateAppKeyStateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAppKeyStateResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAppKeyStateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11050,11 +10530,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateCloudGtmAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11112,11 +10589,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateCloudGtmAddressEnableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmAddressEnableStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmAddressEnableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11177,11 +10651,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateCloudGtmAddressManualAvailableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmAddressManualAvailableStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmAddressManualAvailableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11239,11 +10710,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateCloudGtmAddressPoolBasicConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmAddressPoolBasicConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmAddressPoolBasicConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11301,11 +10769,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateCloudGtmAddressPoolEnableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmAddressPoolEnableStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmAddressPoolEnableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11366,11 +10831,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateCloudGtmAddressPoolLbStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmAddressPoolLbStrategyResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmAddressPoolLbStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11425,11 +10887,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateCloudGtmAddressPoolRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmAddressPoolRemarkResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmAddressPoolRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11484,11 +10943,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateCloudGtmAddressRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmAddressRemarkResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmAddressRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11549,11 +11005,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateCloudGtmGlobalAlertResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmGlobalAlertResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmGlobalAlertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11621,11 +11074,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateCloudGtmInstanceConfigAlertResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmInstanceConfigAlertResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmInstanceConfigAlertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11687,11 +11137,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateCloudGtmInstanceConfigBasicResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmInstanceConfigBasicResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmInstanceConfigBasicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11752,11 +11199,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateCloudGtmInstanceConfigEnableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmInstanceConfigEnableStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmInstanceConfigEnableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11820,11 +11264,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateCloudGtmInstanceConfigLbStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmInstanceConfigLbStrategyResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmInstanceConfigLbStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11882,11 +11323,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateCloudGtmInstanceConfigRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmInstanceConfigRemarkResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmInstanceConfigRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11939,11 +11377,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateCloudGtmInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmInstanceNameResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12019,11 +11454,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateCloudGtmMonitorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmMonitorTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmMonitorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12076,11 +11508,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateCloudGtmMonitorTemplateRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmMonitorTemplateRemarkResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmMonitorTemplateRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12136,11 +11565,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateCustomLineResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCustomLineResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCustomLineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12198,11 +11624,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateDNSSLBWeightResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDNSSLBWeightResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDNSSLBWeightResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12267,11 +11690,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateDnsCacheDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDnsCacheDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDnsCacheDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12319,11 +11739,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateDnsCacheDomainRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDnsCacheDomainRemarkResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDnsCacheDomainRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12415,11 +11832,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateDnsGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDnsGtmAccessStrategyResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDnsGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12477,11 +11891,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateDnsGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDnsGtmAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDnsGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12560,11 +11971,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateDnsGtmInstanceGlobalConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDnsGtmInstanceGlobalConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDnsGtmInstanceGlobalConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12631,11 +12039,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateDnsGtmMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDnsGtmMonitorResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDnsGtmMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12689,11 +12094,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateDomainGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDomainGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDomainGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12765,11 +12167,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateDomainRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDomainRecordResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDomainRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12824,11 +12223,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateDomainRecordRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDomainRecordRemarkResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDomainRecordRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12880,11 +12276,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateDomainRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDomainRemarkResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDomainRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12943,11 +12336,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateGtmAccessStrategyResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13004,11 +12394,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateGtmAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13076,11 +12463,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateGtmInstanceGlobalConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateGtmInstanceGlobalConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateGtmInstanceGlobalConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13147,11 +12531,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateGtmMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateGtmMonitorResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateGtmMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13209,11 +12590,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateGtmRecoveryPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13265,11 +12643,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateIspFlushCacheInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateIspFlushCacheInstanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateIspFlushCacheInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13330,11 +12705,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ValidateDnsGtmCnameRrCanUseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ValidateDnsGtmCnameRrCanUseResponse::fromMap($this->execute($params, $req, $runtime));
+        return ValidateDnsGtmCnameRrCanUseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13386,11 +12758,8 @@ class Alidns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ValidatePdnsUdpIpSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ValidatePdnsUdpIpSegmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return ValidatePdnsUdpIpSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

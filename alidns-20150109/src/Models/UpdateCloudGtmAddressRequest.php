@@ -22,7 +22,7 @@ class UpdateCloudGtmAddressRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description IP address or domain name.
+     * @description Modified IP address or domain name.
      *
      * @example 223.5.XX.XX
      *
@@ -81,7 +81,7 @@ class UpdateCloudGtmAddressRequest extends Model
     public $healthTasks;
 
     /**
-     * @description Address name.
+     * @description Modified address name.
      *
      * @example Address-1
      *

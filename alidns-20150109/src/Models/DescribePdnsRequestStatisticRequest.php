@@ -32,12 +32,18 @@ class DescribePdnsRequestStatisticRequest extends Model
      * @var string
      */
     public $subDomain;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'domainName' => 'DomainName',
         'endDate'    => 'EndDate',
         'lang'       => 'Lang',
         'startDate'  => 'StartDate',
         'subDomain'  => 'SubDomain',
+        'type'       => 'Type',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class DescribePdnsRequestStatisticRequest extends Model
         }
         if (null !== $this->subDomain) {
             $res['SubDomain'] = $this->subDomain;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class DescribePdnsRequestStatisticRequest extends Model
         }
         if (isset($map['SubDomain'])) {
             $model->subDomain = $map['SubDomain'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;
