@@ -30,6 +30,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\AddScenegroupMemberHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddScenegroupMemberRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddScenegroupMemberResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddScenegroupMemberShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddTicketMemoHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddTicketMemoRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddTicketMemoResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddTicketMemoShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddTicketMemoShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddWorkspaceDocMembersHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddWorkspaceDocMembersRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddWorkspaceDocMembersResponse;
@@ -45,6 +50,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\AddWorkspaceRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddWorkspaceResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddWorkspaceShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddWorkspaceShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AssignTicketHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AssignTicketRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AssignTicketResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AssignTicketShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AssignTicketShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchGetFormDataByIdListHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchGetFormDataByIdListRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchGetFormDataByIdListResponse;
@@ -294,6 +304,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\ExpandGroupCapacityRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ExpandGroupCapacityResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ExpandGroupCapacityShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ExpandGroupCapacityShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\FinishTicketHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\FinishTicketRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\FinishTicketResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\FinishTicketShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\FinishTicketShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetActivityListHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetActivityListRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetActivityListResponse;
@@ -356,6 +371,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFormListInAppHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFormListInAppRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFormListInAppResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFormListInAppShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetGroupLiveListHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetGroupLiveListRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetGroupLiveListResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetGroupLiveListShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetGroupLiveListShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetInnerGroupMembersHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetInnerGroupMembersRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetInnerGroupMembersResponse;
@@ -395,6 +415,26 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMineWorkspaceRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMineWorkspaceResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMineWorkspaceShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMineWorkspaceShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultiDimTableAllFieldsHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultiDimTableAllFieldsRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultiDimTableAllFieldsResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultiDimTableAllFieldsShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultiDimTableAllFieldsShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultiDimTableAllSheetsHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultiDimTableAllSheetsRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultiDimTableAllSheetsResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultiDimTableAllSheetsShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultiDimTableAllSheetsShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultiDimTableRecordHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultiDimTableRecordRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultiDimTableRecordResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultiDimTableRecordShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultiDimTableRecordShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultiDimTableSheetHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultiDimTableSheetRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultiDimTableSheetResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultiDimTableSheetShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultiDimTableSheetShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultipartFileUploadInfosHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultipartFileUploadInfosRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultipartFileUploadInfosResponse;
@@ -493,6 +533,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTicketHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTicketRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTicketResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTicketShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTicketShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTodoTaskHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTodoTaskRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTodoTaskResponse;
@@ -585,6 +630,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\ListFormRemarksRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListFormRemarksResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListFormRemarksShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListFormRemarksShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListMultiDimTableRecordsHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListMultiDimTableRecordsRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListMultiDimTableRecordsResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListMultiDimTableRecordsShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListMultiDimTableRecordsShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListNavigationByFormTypeHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListNavigationByFormTypeRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListNavigationByFormTypeResponse;
@@ -613,6 +663,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTemplateRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTemplateResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTemplateShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTemplateShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTicketOperateRecordHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTicketOperateRecordRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTicketOperateRecordResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTicketOperateRecordShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTicketOperateRecordShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListWorkspacesHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListWorkspacesResponse;
@@ -652,6 +707,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryDentryRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryDentryResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryDentryShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryDentryShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryGroupLiveInfoHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryGroupLiveInfoRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryGroupLiveInfoResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryGroupLiveInfoShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryGroupLiveInfoShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryLiveInfoHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryLiveInfoRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryLiveInfoResponse;
@@ -761,6 +821,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\RemoveMeetingRoomsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\RemoveMeetingRoomsResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\RemoveMeetingRoomsShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\RemoveMeetingRoomsShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\RespondEventHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\RespondEventRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\RespondEventResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\RespondEventShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\RespondEventShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SaveContentHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SaveContentRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SaveContentResponse;
@@ -875,6 +940,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\TerminateInstanceHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\TerminateInstanceRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\TerminateInstanceResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\TerminateInstanceShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\TransferTicketHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\TransferTicketRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\TransferTicketResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\TransferTicketShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\TransferTicketShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeCalendarHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeCalendarRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeCalendarResponse;
@@ -1369,6 +1439,85 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @summary 工单添加备注
+     *  *
+     * @param AddTicketMemoRequest $tmpReq    AddTicketMemoRequest
+     * @param AddTicketMemoHeaders $tmpHeader AddTicketMemoHeaders
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return AddTicketMemoResponse AddTicketMemoResponse
+     */
+    public function addTicketMemoWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AddTicketMemoShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new AddTicketMemoShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->ticketMemo)) {
+            $request->ticketMemoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ticketMemo, 'TicketMemo', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->openTeamId)) {
+            $body['OpenTeamId'] = $request->openTeamId;
+        }
+        if (!Utils::isUnset($request->openTicketId)) {
+            $body['OpenTicketId'] = $request->openTicketId;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->ticketMemoShrink)) {
+            $body['TicketMemo'] = $request->ticketMemoShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddTicketMemo',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/ticket/addTicketMemo',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddTicketMemoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 工单添加备注
+     *  *
+     * @param AddTicketMemoRequest $request AddTicketMemoRequest
+     *
+     * @return AddTicketMemoResponse AddTicketMemoResponse
+     */
+    public function addTicketMemo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new AddTicketMemoHeaders([]);
+
+        return $this->addTicketMemoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 新建知识库
      *  *
      * @param AddWorkspaceRequest $tmpReq    AddWorkspaceRequest
@@ -1597,6 +1746,97 @@ class Aliding extends OpenApiClient
         $headers = new AddWorkspaceMembersHeaders([]);
 
         return $this->addWorkspaceMembersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 指派工单
+     *  *
+     * @param AssignTicketRequest $tmpReq    AssignTicketRequest
+     * @param AssignTicketHeaders $tmpHeader AssignTicketHeaders
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return AssignTicketResponse AssignTicketResponse
+     */
+    public function assignTicketWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AssignTicketShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new AssignTicketShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->notify)) {
+            $request->notifyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notify, 'Notify', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->processorUserIds)) {
+            $request->processorUserIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->processorUserIds, 'ProcessorUserIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->ticketMemo)) {
+            $request->ticketMemoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ticketMemo, 'TicketMemo', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->notifyShrink)) {
+            $body['Notify'] = $request->notifyShrink;
+        }
+        if (!Utils::isUnset($request->openTeamId)) {
+            $body['OpenTeamId'] = $request->openTeamId;
+        }
+        if (!Utils::isUnset($request->openTicketId)) {
+            $body['OpenTicketId'] = $request->openTicketId;
+        }
+        if (!Utils::isUnset($request->processorUserIdsShrink)) {
+            $body['ProcessorUserIds'] = $request->processorUserIdsShrink;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->ticketMemoShrink)) {
+            $body['TicketMemo'] = $request->ticketMemoShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AssignTicket',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/ticket/assignTicket',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AssignTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 指派工单
+     *  *
+     * @param AssignTicketRequest $request AssignTicketRequest
+     *
+     * @return AssignTicketResponse AssignTicketResponse
+     */
+    public function assignTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new AssignTicketHeaders([]);
+
+        return $this->assignTicketWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5810,6 +6050,91 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @summary 完结工单
+     *  *
+     * @param FinishTicketRequest $tmpReq    FinishTicketRequest
+     * @param FinishTicketHeaders $tmpHeader FinishTicketHeaders
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return FinishTicketResponse FinishTicketResponse
+     */
+    public function finishTicketWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new FinishTicketShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new FinishTicketShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->notify)) {
+            $request->notifyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notify, 'Notify', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->ticketMemo)) {
+            $request->ticketMemoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ticketMemo, 'TicketMemo', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->notifyShrink)) {
+            $body['Notify'] = $request->notifyShrink;
+        }
+        if (!Utils::isUnset($request->openTeamId)) {
+            $body['OpenTeamId'] = $request->openTeamId;
+        }
+        if (!Utils::isUnset($request->openTicketId)) {
+            $body['OpenTicketId'] = $request->openTicketId;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->ticketMemoShrink)) {
+            $body['TicketMemo'] = $request->ticketMemoShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'FinishTicket',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/ticket/finishTicket',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return FinishTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 完结工单
+     *  *
+     * @param FinishTicketRequest $request FinishTicketRequest
+     *
+     * @return FinishTicketResponse FinishTicketResponse
+     */
+    public function finishTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new FinishTicketHeaders([]);
+
+        return $this->finishTicketWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取流程设计的节点信息
      *  *
      * @param GetActivityListRequest $request   GetActivityListRequest
@@ -6863,6 +7188,82 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @summary 查询群内直播信息(最早支持2024年01月数据)
+     *  *
+     * @param GetGroupLiveListRequest $tmpReq    GetGroupLiveListRequest
+     * @param GetGroupLiveListHeaders $tmpHeader GetGroupLiveListHeaders
+     * @param RuntimeOptions          $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetGroupLiveListResponse GetGroupLiveListResponse
+     */
+    public function getGroupLiveListWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetGroupLiveListShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetGroupLiveListShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->openConversationId)) {
+            $body['OpenConversationId'] = $request->openConversationId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGroupLiveList',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/ysp/getGroupLiveList',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetGroupLiveListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询群内直播信息(最早支持2024年01月数据)
+     *  *
+     * @param GetGroupLiveListRequest $request GetGroupLiveListRequest
+     *
+     * @return GetGroupLiveListResponse GetGroupLiveListResponse
+     */
+    public function getGroupLiveList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetGroupLiveListHeaders([]);
+
+        return $this->getGroupLiveListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 查询企业内部群成员
      *  *
      * @param GetInnerGroupMembersRequest $request   GetInnerGroupMembersRequest
@@ -7586,6 +7987,298 @@ class Aliding extends OpenApiClient
         $headers = new GetMineWorkspaceHeaders([]);
 
         return $this->getMineWorkspaceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取所有字段
+     *  *
+     * @param GetMultiDimTableAllFieldsRequest $tmpReq    GetMultiDimTableAllFieldsRequest
+     * @param GetMultiDimTableAllFieldsHeaders $tmpHeader GetMultiDimTableAllFieldsHeaders
+     * @param RuntimeOptions                   $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetMultiDimTableAllFieldsResponse GetMultiDimTableAllFieldsResponse
+     */
+    public function getMultiDimTableAllFieldsWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetMultiDimTableAllFieldsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetMultiDimTableAllFieldsShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->baseId)) {
+            $body['BaseId'] = $request->baseId;
+        }
+        if (!Utils::isUnset($request->sheetIdOrName)) {
+            $body['SheetIdOrName'] = $request->sheetIdOrName;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMultiDimTableAllFields',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/table/getMultiDimTableAllFields',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMultiDimTableAllFieldsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取所有字段
+     *  *
+     * @param GetMultiDimTableAllFieldsRequest $request GetMultiDimTableAllFieldsRequest
+     *
+     * @return GetMultiDimTableAllFieldsResponse GetMultiDimTableAllFieldsResponse
+     */
+    public function getMultiDimTableAllFields($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetMultiDimTableAllFieldsHeaders([]);
+
+        return $this->getMultiDimTableAllFieldsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取所有数据表
+     *  *
+     * @param GetMultiDimTableAllSheetsRequest $tmpReq    GetMultiDimTableAllSheetsRequest
+     * @param GetMultiDimTableAllSheetsHeaders $tmpHeader GetMultiDimTableAllSheetsHeaders
+     * @param RuntimeOptions                   $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetMultiDimTableAllSheetsResponse GetMultiDimTableAllSheetsResponse
+     */
+    public function getMultiDimTableAllSheetsWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetMultiDimTableAllSheetsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetMultiDimTableAllSheetsShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->baseId)) {
+            $body['BaseId'] = $request->baseId;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMultiDimTableAllSheets',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/table/getMultiDimTableAllSheets',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMultiDimTableAllSheetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取所有数据表
+     *  *
+     * @param GetMultiDimTableAllSheetsRequest $request GetMultiDimTableAllSheetsRequest
+     *
+     * @return GetMultiDimTableAllSheetsResponse GetMultiDimTableAllSheetsResponse
+     */
+    public function getMultiDimTableAllSheets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetMultiDimTableAllSheetsHeaders([]);
+
+        return $this->getMultiDimTableAllSheetsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取记录
+     *  *
+     * @param GetMultiDimTableRecordRequest $tmpReq    GetMultiDimTableRecordRequest
+     * @param GetMultiDimTableRecordHeaders $tmpHeader GetMultiDimTableRecordHeaders
+     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetMultiDimTableRecordResponse GetMultiDimTableRecordResponse
+     */
+    public function getMultiDimTableRecordWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetMultiDimTableRecordShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetMultiDimTableRecordShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->baseId)) {
+            $body['BaseId'] = $request->baseId;
+        }
+        if (!Utils::isUnset($request->recordId)) {
+            $body['RecordId'] = $request->recordId;
+        }
+        if (!Utils::isUnset($request->sheetIdOrName)) {
+            $body['SheetIdOrName'] = $request->sheetIdOrName;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMultiDimTableRecord',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/table/getMultiDimTableRecord',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMultiDimTableRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取记录
+     *  *
+     * @param GetMultiDimTableRecordRequest $request GetMultiDimTableRecordRequest
+     *
+     * @return GetMultiDimTableRecordResponse GetMultiDimTableRecordResponse
+     */
+    public function getMultiDimTableRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetMultiDimTableRecordHeaders([]);
+
+        return $this->getMultiDimTableRecordWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取数据表
+     *  *
+     * @param GetMultiDimTableSheetRequest $tmpReq    GetMultiDimTableSheetRequest
+     * @param GetMultiDimTableSheetHeaders $tmpHeader GetMultiDimTableSheetHeaders
+     * @param RuntimeOptions               $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetMultiDimTableSheetResponse GetMultiDimTableSheetResponse
+     */
+    public function getMultiDimTableSheetWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetMultiDimTableSheetShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetMultiDimTableSheetShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->baseId)) {
+            $body['BaseId'] = $request->baseId;
+        }
+        if (!Utils::isUnset($request->sheetIdOrName)) {
+            $body['SheetIdOrName'] = $request->sheetIdOrName;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMultiDimTableSheet',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/table/getMultiDimTableSheet',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMultiDimTableSheetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取数据表
+     *  *
+     * @param GetMultiDimTableSheetRequest $request GetMultiDimTableSheetRequest
+     *
+     * @return GetMultiDimTableSheetResponse GetMultiDimTableSheetResponse
+     */
+    public function getMultiDimTableSheet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetMultiDimTableSheetHeaders([]);
+
+        return $this->getMultiDimTableSheetWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -9186,6 +9879,79 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @summary 获取指定工单详情
+     *  *
+     * @param GetTicketRequest $tmpReq    GetTicketRequest
+     * @param GetTicketHeaders $tmpHeader GetTicketHeaders
+     * @param RuntimeOptions   $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetTicketResponse GetTicketResponse
+     */
+    public function getTicketWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetTicketShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetTicketShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->openTeamId)) {
+            $body['OpenTeamId'] = $request->openTeamId;
+        }
+        if (!Utils::isUnset($request->openTicketId)) {
+            $body['OpenTicketId'] = $request->openTicketId;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTicket',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/ticket/getTicket',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取指定工单详情
+     *  *
+     * @param GetTicketRequest $request GetTicketRequest
+     *
+     * @return GetTicketResponse GetTicketResponse
+     */
+    public function getTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetTicketHeaders([]);
+
+        return $this->getTicketWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取钉钉待办任务详情
      *  *
      * @param GetTodoTaskRequest $tmpReq    GetTodoTaskRequest
@@ -10651,6 +11417,91 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @summary 列出多行记录
+     *  *
+     * @param ListMultiDimTableRecordsRequest $tmpReq    ListMultiDimTableRecordsRequest
+     * @param ListMultiDimTableRecordsHeaders $tmpHeader ListMultiDimTableRecordsHeaders
+     * @param RuntimeOptions                  $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ListMultiDimTableRecordsResponse ListMultiDimTableRecordsResponse
+     */
+    public function listMultiDimTableRecordsWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListMultiDimTableRecordsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new ListMultiDimTableRecordsShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->filter)) {
+            $request->filterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->baseId)) {
+            $body['BaseId'] = $request->baseId;
+        }
+        if (!Utils::isUnset($request->filterShrink)) {
+            $body['Filter'] = $request->filterShrink;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->sheetIdOrName)) {
+            $body['SheetIdOrName'] = $request->sheetIdOrName;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMultiDimTableRecords',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/table/listMultiDimTableRecords',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMultiDimTableRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 列出多行记录
+     *  *
+     * @param ListMultiDimTableRecordsRequest $request ListMultiDimTableRecordsRequest
+     *
+     * @return ListMultiDimTableRecordsResponse ListMultiDimTableRecordsResponse
+     */
+    public function listMultiDimTableRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListMultiDimTableRecordsHeaders([]);
+
+        return $this->listMultiDimTableRecordsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取应用下的页面列表
      *  *
      * @param ListNavigationByFormTypeRequest $request   ListNavigationByFormTypeRequest
@@ -11118,6 +11969,79 @@ class Aliding extends OpenApiClient
         $headers = new ListTemplateHeaders([]);
 
         return $this->listTemplateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询工单操作记录
+     *  *
+     * @param ListTicketOperateRecordRequest $tmpReq    ListTicketOperateRecordRequest
+     * @param ListTicketOperateRecordHeaders $tmpHeader ListTicketOperateRecordHeaders
+     * @param RuntimeOptions                 $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ListTicketOperateRecordResponse ListTicketOperateRecordResponse
+     */
+    public function listTicketOperateRecordWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListTicketOperateRecordShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new ListTicketOperateRecordShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->openTeamId)) {
+            $body['OpenTeamId'] = $request->openTeamId;
+        }
+        if (!Utils::isUnset($request->openTicketId)) {
+            $body['OpenTicketId'] = $request->openTicketId;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTicketOperateRecord',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/ticket/listTicketOperateRecord',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTicketOperateRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询工单操作记录
+     *  *
+     * @param ListTicketOperateRecordRequest $request ListTicketOperateRecordRequest
+     *
+     * @return ListTicketOperateRecordResponse ListTicketOperateRecordResponse
+     */
+    public function listTicketOperateRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListTicketOperateRecordHeaders([]);
+
+        return $this->listTicketOperateRecordWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -11766,6 +12690,81 @@ class Aliding extends OpenApiClient
         $headers = new QueryDentryHeaders([]);
 
         return $this->queryDentryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询直播信息
+     *  *
+     * @param QueryGroupLiveInfoRequest $tmpReq    QueryGroupLiveInfoRequest
+     * @param QueryGroupLiveInfoHeaders $tmpHeader QueryGroupLiveInfoHeaders
+     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return QueryGroupLiveInfoResponse QueryGroupLiveInfoResponse
+     */
+    public function queryGroupLiveInfoWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryGroupLiveInfoShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new QueryGroupLiveInfoShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->anchorUnionId)) {
+            $query['AnchorUnionId'] = $request->anchorUnionId;
+        }
+        if (!Utils::isUnset($request->liveUuid)) {
+            $query['LiveUuid'] = $request->liveUuid;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryGroupLiveInfo',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/ysp/queryGroupLiveInfo',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryGroupLiveInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询直播信息
+     *  *
+     * @param QueryGroupLiveInfoRequest $request QueryGroupLiveInfoRequest
+     *
+     * @return QueryGroupLiveInfoResponse QueryGroupLiveInfoResponse
+     */
+    public function queryGroupLiveInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new QueryGroupLiveInfoHeaders([]);
+
+        return $this->queryGroupLiveInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -13391,6 +14390,82 @@ class Aliding extends OpenApiClient
         $headers = new RemoveMeetingRoomsHeaders([]);
 
         return $this->removeMeetingRoomsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 设置日程响应邀请状态
+     *  *
+     * @param RespondEventRequest $tmpReq    RespondEventRequest
+     * @param RespondEventHeaders $tmpHeader RespondEventHeaders
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return RespondEventResponse RespondEventResponse
+     */
+    public function respondEventWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RespondEventShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new RespondEventShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->calendarId)) {
+            $body['CalendarId'] = $request->calendarId;
+        }
+        if (!Utils::isUnset($request->eventId)) {
+            $body['EventId'] = $request->eventId;
+        }
+        if (!Utils::isUnset($request->responseStatus)) {
+            $body['ResponseStatus'] = $request->responseStatus;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RespondEvent',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/calendar/respondEvent',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RespondEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 设置日程响应邀请状态
+     *  *
+     * @param RespondEventRequest $request RespondEventRequest
+     *
+     * @return RespondEventResponse RespondEventResponse
+     */
+    public function respondEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new RespondEventHeaders([]);
+
+        return $this->respondEventWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -15383,6 +16458,97 @@ class Aliding extends OpenApiClient
         $headers = new TerminateInstanceHeaders([]);
 
         return $this->terminateInstanceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 转交工单
+     *  *
+     * @param TransferTicketRequest $tmpReq    TransferTicketRequest
+     * @param TransferTicketHeaders $tmpHeader TransferTicketHeaders
+     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return TransferTicketResponse TransferTicketResponse
+     */
+    public function transferTicketWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new TransferTicketShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new TransferTicketShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->notify)) {
+            $request->notifyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notify, 'Notify', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->processorUserIds)) {
+            $request->processorUserIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->processorUserIds, 'ProcessorUserIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->ticketMemo)) {
+            $request->ticketMemoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ticketMemo, 'TicketMemo', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->notifyShrink)) {
+            $body['Notify'] = $request->notifyShrink;
+        }
+        if (!Utils::isUnset($request->openTeamId)) {
+            $body['OpenTeamId'] = $request->openTeamId;
+        }
+        if (!Utils::isUnset($request->openTicketId)) {
+            $body['OpenTicketId'] = $request->openTicketId;
+        }
+        if (!Utils::isUnset($request->processorUserIdsShrink)) {
+            $body['ProcessorUserIds'] = $request->processorUserIdsShrink;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->ticketMemoShrink)) {
+            $body['TicketMemo'] = $request->ticketMemoShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TransferTicket',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/ticket/transferTicket',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TransferTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 转交工单
+     *  *
+     * @param TransferTicketRequest $request TransferTicketRequest
+     *
+     * @return TransferTicketResponse TransferTicketResponse
+     */
+    public function transferTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TransferTicketHeaders([]);
+
+        return $this->transferTicketWithOptions($request, $headers, $runtime);
     }
 
     /**
