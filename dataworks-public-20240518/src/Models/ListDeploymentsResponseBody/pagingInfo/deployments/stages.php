@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class stages extends Model
 {
     /**
-     * @description 阶段代号
+     * @description The code of the stage.
      *
      * @example DEV_CHECK
      *
@@ -18,35 +18,44 @@ class stages extends Model
     public $code;
 
     /**
-     * @description 阶段描述
+     * @description The description of the stage.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description 阶段详细信息
+     * @description The additional information about the stage.
      *
      * @var mixed[]
      */
     public $detail;
 
     /**
-     * @description 阶段信息
+     * @description The error message returned during the stage.
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description 阶段名称
+     * @description The name of the stage.
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 阶段状态
+     * @description The status of the stage.
+     *
+     * Valid values:
+     *
+     *   INIT
+     *   RUNNING
+     *   SUCCESS
+     *   FAIL
+     *   TERMINATION
+     *   CANCEL
      *
      * @example RUNNING
      *
@@ -55,7 +64,7 @@ class stages extends Model
     public $status;
 
     /**
-     * @description 步骤
+     * @description The step number of the stage.
      *
      * @example 1
      *
@@ -64,7 +73,15 @@ class stages extends Model
     public $step;
 
     /**
-     * @description 阶段类型
+     * @description The type of the stage. This parameter indicates the operation type in the stage.
+     *
+     * Valid values:
+     *
+     *   DEPLOY
+     *   CHECK
+     *   OFFLINE.
+     *   BUILD
+     *   DELETE
      *
      * @example CHECK
      *

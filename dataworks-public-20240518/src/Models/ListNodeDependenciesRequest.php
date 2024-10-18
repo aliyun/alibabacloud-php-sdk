@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListNodeDependenciesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the node.
      *
+     * This parameter is required.
      * @example 860438872620113XXXX
      *
      * @var string
@@ -18,6 +19,8 @@ class ListNodeDependenciesRequest extends Model
     public $id;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -25,6 +28,8 @@ class ListNodeDependenciesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -32,8 +37,9 @@ class ListNodeDependenciesRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
      *
+     * This parameter is required.
      * @example 10001
      *
      * @var string

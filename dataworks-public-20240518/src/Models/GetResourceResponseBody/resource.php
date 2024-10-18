@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
+     * @description The time when the file resource was created. This value is a UNIX timestamp.
+     *
      * @example 1700539206000
      *
      * @var int
@@ -16,6 +18,8 @@ class resource extends Model
     public $createTime;
 
     /**
+     * @description The ID of the file resource.
+     *
      * @example 860438872620113XXXX
      *
      * @var string
@@ -23,6 +27,8 @@ class resource extends Model
     public $id;
 
     /**
+     * @description The time when the file resource was last modified. This value is a UNIX timestamp.
+     *
      * @example 1700539206000
      *
      * @var int
@@ -30,11 +36,15 @@ class resource extends Model
     public $modifyTime;
 
     /**
+     * @description The name of the file resource.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The owner of the file resource.
+     *
      * @example 110755000425XXXX
      *
      * @var string
@@ -42,6 +52,8 @@ class resource extends Model
     public $owner;
 
     /**
+     * @description The ID of the workspace to which the file resource belongs.
+     *
      * @example 10000
      *
      * @var string
@@ -49,6 +61,8 @@ class resource extends Model
     public $projectId;
 
     /**
+     * @description The FlowSpec field information about the file resource. For more information, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow).
+     *
      * @var string
      */
     public $spec;

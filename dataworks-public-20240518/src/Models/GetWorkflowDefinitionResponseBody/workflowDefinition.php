@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class workflowDefinition extends Model
 {
     /**
+     * @description The time when the workflow was created. This value is a UNIX timestamp.
+     *
      * @example 1708481905000
      *
      * @var int
@@ -16,6 +18,8 @@ class workflowDefinition extends Model
     public $createTime;
 
     /**
+     * @description The ID of the workflow.
+     *
      * @example 463497880880954XXXX
      *
      * @var string
@@ -23,6 +27,8 @@ class workflowDefinition extends Model
     public $id;
 
     /**
+     * @description The time when the workflow was last modified. This value is a UNIX timestamp.
+     *
      * @example 1708481905000
      *
      * @var int
@@ -30,11 +36,15 @@ class workflowDefinition extends Model
     public $modifyTime;
 
     /**
+     * @description The name of the workflow.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The owner of the workflow.
+     *
      * @example 110755000425XXXX
      *
      * @var string
@@ -42,6 +52,8 @@ class workflowDefinition extends Model
     public $owner;
 
     /**
+     * @description The ID of the workspace to which the workflow belongs.
+     *
      * @example 307XXX
      *
      * @var string
@@ -49,6 +61,8 @@ class workflowDefinition extends Model
     public $projectId;
 
     /**
+     * @description The FlowSpec field information about the workflow. For more information, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow/).
+     *
      * @var string
      */
     public $spec;

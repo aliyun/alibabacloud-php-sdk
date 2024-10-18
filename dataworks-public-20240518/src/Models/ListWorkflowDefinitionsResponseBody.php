@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListWorkflowDefinitionsResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pagingInfo
      */
     public $pagingInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 8C3ED0C5-ABAB-55E1-854B-DAC02B11XXXX
      *
      * @var string

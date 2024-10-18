@@ -9,19 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateDeploymentRequest extends Model
 {
     /**
+     * @description The description of the process.
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @description This parameter is required.
+     * @description The IDs of entities to which you want to apply the process.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $objectIds;
 
     /**
-     * @description 项目Id
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
      *
      * This parameter is required.
      * @example 10000
@@ -31,8 +34,12 @@ class CreateDeploymentRequest extends Model
     public $projectId;
 
     /**
-     * @description This parameter is required.
+     * @description Specifies whether to deploy or undeploy the entity. Valid values:
      *
+     *   Online: deploys the entity.
+     *   Offline: undeploys the entity.
+     *
+     * This parameter is required.
      * @example Online
      *
      * @var string

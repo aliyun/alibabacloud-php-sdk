@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class pipeline extends Model
 {
     /**
-     * @description 发布包创建时间戳
+     * @description The time when the process was created. This value is a UNIX timestamp.
      *
      * @example 1724984066000
      *
@@ -19,7 +19,7 @@ class pipeline extends Model
     public $createTime;
 
     /**
-     * @description 创建人
+     * @description The creator of the process.
      *
      * @example 137946317766XXXX
      *
@@ -28,7 +28,7 @@ class pipeline extends Model
     public $creator;
 
     /**
-     * @description 发布流程Id
+     * @description The ID of the process.
      *
      * @example a7ef0634-20ec-4a7c-a214-54020f91XXXX
      *
@@ -37,12 +37,14 @@ class pipeline extends Model
     public $id;
 
     /**
+     * @description The error message returned when the process fails.
+     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 修改时间
+     * @description The time when the process was modified. This value is a UNIX timestamp.
      *
      * @example 1724984066000
      *
@@ -51,6 +53,8 @@ class pipeline extends Model
     public $modifyTime;
 
     /**
+     * @description The DataWorks workspace ID.
+     *
      * @example 56160
      *
      * @var string
@@ -58,14 +62,23 @@ class pipeline extends Model
     public $projectId;
 
     /**
-     * @description 步骤详情
+     * @description The information about stages in the process.
      *
      * @var stages[]
      */
     public $stages;
 
     /**
-     * @description 发布流程状态
+     * @description The status of the process.
+     *
+     * Valid values:
+     *
+     *   INIT
+     *   RUNNING
+     *   SUCCESS
+     *   FAIL
+     *   TERMINATION
+     *   CANCEL
      *
      * @example RUNNING
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dataSource extends Model
 {
     /**
-     * @description 数据源名称
+     * @description The name of the data source.
      *
      * @example odps_first
      *
@@ -18,7 +18,7 @@ class dataSource extends Model
     public $name;
 
     /**
-     * @description 数据源类型
+     * @description The type of the data source.
      *
      * @example odps
      *

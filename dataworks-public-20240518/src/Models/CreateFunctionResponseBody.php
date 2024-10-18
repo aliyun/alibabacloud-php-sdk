@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFunctionResponseBody extends Model
 {
     /**
+     * @description The ID of the UDF.
+     *
      * @example 580667964888595XXXX
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateFunctionResponseBody extends Model
     public $id;
 
     /**
+     * @description The request ID.
+     *
      * @example AE49C88D-5BEE-5ADD-8B8C-C4BBC0D7XXXX
      *
      * @var string

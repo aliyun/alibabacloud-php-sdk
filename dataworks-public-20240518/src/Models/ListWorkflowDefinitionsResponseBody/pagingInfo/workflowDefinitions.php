@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class workflowDefinitions extends Model
 {
     /**
-     * @description 工作流的创建时间
+     * @description The time when the workflow was created. This value is a UNIX timestamp.
      *
      * @example 1698057323000
      *
@@ -19,14 +19,14 @@ class workflowDefinitions extends Model
     public $createTime;
 
     /**
-     * @description 工作流的描述
+     * @description The description of the workflow.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description 工作流定义的唯一ID
+     * @description The ID of the workflow.
      *
      * @example 463497880880954XXXX
      *
@@ -35,7 +35,7 @@ class workflowDefinitions extends Model
     public $id;
 
     /**
-     * @description 工作流的最近修改时间
+     * @description The times when the workflow was last modified. This value is a UNIX timestamp.
      *
      * @example 1698057323000
      *
@@ -44,14 +44,14 @@ class workflowDefinitions extends Model
     public $modifyTime;
 
     /**
-     * @description 工作流的名称
+     * @description The name of the workflow.
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 工作流的责任人
+     * @description The owner.
      *
      * @example 110755000425XXXX
      *
@@ -60,7 +60,7 @@ class workflowDefinitions extends Model
     public $owner;
 
     /**
-     * @description 工作流定义的所属项目空间
+     * @description The ID of the DataWorks workspace to which the workflow belongs.
      *
      * This parameter is required.
      * @example 4710
@@ -70,14 +70,19 @@ class workflowDefinitions extends Model
     public $projectId;
 
     /**
-     * @description 工作流的脚本信息
+     * @description The script information.
      *
      * @var script
      */
     public $script;
 
     /**
-     * @description 工作流类型，可选值：CycleWorkflow、ManualWorkflow，分别表示周期工作流和手动工作流
+     * @description The type of the workflow.
+     *
+     * Valid values:
+     *
+     *   CycleWorkflow
+     *   ManualWorkflow
      *
      * @example CycleWorkflow
      *

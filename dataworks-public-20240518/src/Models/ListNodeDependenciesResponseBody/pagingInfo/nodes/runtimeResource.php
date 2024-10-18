@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class runtimeResource extends Model
 {
     /**
-     * @description 资源组id
+     * @description The resource group ID.
      *
      * @example S_res_group_XXXX_XXXX
      *

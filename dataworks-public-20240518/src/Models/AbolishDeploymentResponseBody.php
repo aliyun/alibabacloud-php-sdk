@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AbolishDeploymentResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 55D786C9-DD57-524D-884C-C5239278XXXX
      *
      * @var string
@@ -16,6 +18,11 @@ class AbolishDeploymentResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

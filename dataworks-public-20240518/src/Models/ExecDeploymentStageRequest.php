@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ExecDeploymentStageRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The code of the stage in the process. You can call the GetDeployment operation to query the code.
      *
+     * This parameter is required.
      * @example DEV_CHECK
      *
      * @var string
@@ -18,8 +19,9 @@ class ExecDeploymentStageRequest extends Model
     public $code;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the process.
      *
+     * This parameter is required.
      * @example a7ef0634-20ec-4a7c-a214-54020f91XXXX
      *
      * @var string
@@ -27,8 +29,9 @@ class ExecDeploymentStageRequest extends Model
     public $id;
 
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var string

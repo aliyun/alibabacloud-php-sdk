@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RenameWorkflowDefinitionResponseBody extends Model
 {
     /**
+     * @description The request ID. You can troubleshoot issues based on the ID.
+     *
      * @example 975BD43D-C421-595C-A29C-565A8AD5XXXX
      *
      * @var string
@@ -16,6 +18,11 @@ class RenameWorkflowDefinitionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

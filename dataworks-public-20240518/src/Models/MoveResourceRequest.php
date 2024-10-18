@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class MoveResourceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the file resource.
      *
+     * This parameter is required.
      * @example 652567824470354XXXX
      *
      * @var string
@@ -18,8 +19,9 @@ class MoveResourceRequest extends Model
     public $id;
 
     /**
-     * @description This parameter is required.
+     * @description The path to which you want to move the file resource. You do not need to specify a file resource name in the path.
      *
+     * This parameter is required.
      * @example root/demo
      *
      * @var string
@@ -27,8 +29,9 @@ class MoveResourceRequest extends Model
     public $path;
 
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var string

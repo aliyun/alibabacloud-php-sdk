@@ -12,21 +12,21 @@ use AlibabaCloud\Tea\Model;
 class inputs extends Model
 {
     /**
-     * @description 节点输出列表
+     * @description The node outputs.
      *
      * @var nodeOutputs[]
      */
     public $nodeOutputs;
 
     /**
-     * @description 表列表
+     * @description The tables.
      *
      * @var tables[]
      */
     public $tables;
 
     /**
-     * @description 变量列表
+     * @description The variables.
      *
      * @var variables[]
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateNodeResponseBody extends Model
 {
     /**
+     * @description The ID of the node.
+     *
      * @example 860438872620113XXXX
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateNodeResponseBody extends Model
     public $id;
 
     /**
+     * @description The request ID.
+     *
      * @example AFBB799F-8578-51C5-A766-E922EDB8XXXX
      *
      * @var string

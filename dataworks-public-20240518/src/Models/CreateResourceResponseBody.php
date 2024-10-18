@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceResponseBody extends Model
 {
     /**
+     * @description The ID of the file resource.
+     *
      * @example 631478864897630XXXX
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateResourceResponseBody extends Model
     public $id;
 
     /**
+     * @description The request ID.
+     *
      * @example A5B97987-66EA-5563-9599-A2752292XXXX
      *
      * @var string

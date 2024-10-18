@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class deployments extends Model
 {
     /**
-     * @description 发布包创建时间戳
+     * @description The time when the process was created. This value is a UNIX timestamp.
      *
      * @example 1702736654000
      *
@@ -19,7 +19,7 @@ class deployments extends Model
     public $createTime;
 
     /**
-     * @description 创建人
+     * @description The ID of the user who creates the process.
      *
      * @example 110755000425XXXX
      *
@@ -28,7 +28,7 @@ class deployments extends Model
     public $creator;
 
     /**
-     * @description 发布流程Id
+     * @description The process ID.
      *
      * @example ddf354a5-03df-48fc-94c1-cc973f79XXXX
      *
@@ -37,12 +37,14 @@ class deployments extends Model
     public $id;
 
     /**
+     * @description The error message returned if the process fails.
+     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 修改时间
+     * @description The time when the process was last modified. This value is a UNIX timestamp.
      *
      * @example 1702736654000
      *
@@ -51,7 +53,7 @@ class deployments extends Model
     public $modifyTime;
 
     /**
-     * @description 项目Id
+     * @description The DataWorks workspace ID.
      *
      * @example 44683
      *
@@ -60,14 +62,23 @@ class deployments extends Model
     public $projectId;
 
     /**
-     * @description 步骤详情
+     * @description The stages of the process.
      *
      * @var stages[]
      */
     public $stages;
 
     /**
-     * @description 发布流程状态
+     * @description The status of the process.
+     *
+     * Valid values:
+     *
+     *   INIT
+     *   RUNNING
+     *   FAIL
+     *   SUCCESS
+     *   TERMINATION
+     *   CANCEL
      *
      * @example RUNNING
      *

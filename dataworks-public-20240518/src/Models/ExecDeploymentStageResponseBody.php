@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExecDeploymentStageResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example AFBB799F-8578-51C5-A766-E922EDB8XXXX
      *
      * @var string
@@ -16,6 +18,16 @@ class ExecDeploymentStageResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *
+     *   false
+     *
+     **
+     *
+     **Note:** The value of this parameter indicates only whether the stage is triggered but does not indicate whether the execution of the stage is successful.
+     *
      * @example true
      *
      * @var bool

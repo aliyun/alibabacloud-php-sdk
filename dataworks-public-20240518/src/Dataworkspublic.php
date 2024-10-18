@@ -8,47 +8,137 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AbolishDeploymentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AbolishDeploymentResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AssociateProjectToResourceGroupRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AssociateProjectToResourceGroupResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CloneDataSourceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CloneDataSourceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataSourceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataSourceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataSourceSharedRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataSourceSharedRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDeploymentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDeploymentResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDeploymentShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIAlarmRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIAlarmRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIAlarmRuleShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIJobRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIJobResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIJobShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateFunctionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateFunctionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateNetworkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateNetworkResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateNodeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateNodeResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceGroupRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateRouteRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateRouteResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowDefinitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataSourceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataSourceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataSourceSharedRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataSourceSharedRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDIAlarmRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDIAlarmRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDIJobRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDIJobResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteFunctionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteFunctionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteNetworkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteNetworkResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteNodeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteNodeResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteProjectRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteProjectResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteResourceGroupRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteResourceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteResourceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteRouteRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteRouteResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteWorkflowDefinitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromResourceGroupRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromResourceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecDeploymentStageRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecDeploymentStageResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataSourceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDeploymentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDeploymentResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDIJobLogRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDIJobLogResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDIJobRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDIJobResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetFunctionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetFunctionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetJobStatusRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetJobStatusResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetNetworkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetNetworkResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetNodeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetNodeResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectRoleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectRoleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetResourceGroupRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetResourceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetResourceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetRouteRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetRouteResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetWorkflowDefinitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ImportWorkflowDefinitionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ImportWorkflowDefinitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourceSharedRulesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourceSharedRulesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourcesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourcesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourcesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDeploymentsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDeploymentsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIAlarmRulesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIAlarmRulesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIJobEventsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIJobEventsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIJobMetricsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIJobMetricsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIJobMetricsShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIJobRunDetailsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIJobRunDetailsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIJobsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIJobsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListFunctionsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListFunctionsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNetworksRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNetworksResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodeDependenciesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodeDependenciesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectRolesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectRolesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectRolesShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectsShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListResourceGroupsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListResourceGroupsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListResourceGroupsShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListResourcesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListResourcesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListRoutesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListRoutesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListWorkflowDefinitionsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListWorkflowDefinitionsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveFunctionRequest;
@@ -67,12 +157,31 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RenameResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RenameResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RenameWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RenameWorkflowDefinitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartDIJobRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartDIJobResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartDIJobShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopDIJobRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopDIJobResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataSourceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataSourceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIAlarmRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIAlarmRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIAlarmRuleShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIJobRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIJobResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIJobShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateFunctionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateFunctionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateNodeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateNodeResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateProjectRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateProjectResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateResourceGroupRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateResourceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateResourceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateRouteRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateRouteResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateWorkflowDefinitionResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -141,7 +250,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 终止发布流程
+     * @summary Terminates the process for deploying or undeploying an entity. The process is not deleted and can still be queried by calling query operations.
      *  *
      * @param AbolishDeploymentRequest $request AbolishDeploymentRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -177,7 +286,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 终止发布流程
+     * @summary Terminates the process for deploying or undeploying an entity. The process is not deleted and can still be queried by calling query operations.
      *  *
      * @param AbolishDeploymentRequest $request AbolishDeploymentRequest
      *
@@ -191,7 +300,343 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建发布流程
+     * @summary 关联资源组到某个工作空间。
+     *  *
+     * @param AssociateProjectToResourceGroupRequest $request AssociateProjectToResourceGroupRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AssociateProjectToResourceGroupResponse AssociateProjectToResourceGroupResponse
+     */
+    public function associateProjectToResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AssociateProjectToResourceGroup',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AssociateProjectToResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 关联资源组到某个工作空间。
+     *  *
+     * @param AssociateProjectToResourceGroupRequest $request AssociateProjectToResourceGroupRequest
+     *
+     * @return AssociateProjectToResourceGroupResponse AssociateProjectToResourceGroupResponse
+     */
+    public function associateProjectToResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->associateProjectToResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 验证用
+     *  *
+     * @param CloneDataSourceRequest $request CloneDataSourceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CloneDataSourceResponse CloneDataSourceResponse
+     */
+    public function cloneDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cloneDataSourceName)) {
+            $query['CloneDataSourceName'] = $request->cloneDataSourceName;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CloneDataSource',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CloneDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 验证用
+     *  *
+     * @param CloneDataSourceRequest $request CloneDataSourceRequest
+     *
+     * @return CloneDataSourceResponse CloneDataSourceResponse
+     */
+    public function cloneDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloneDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建数据集成报警规则
+     *  *
+     * @param CreateDIAlarmRuleRequest $tmpReq  CreateDIAlarmRuleRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDIAlarmRuleResponse CreateDIAlarmRuleResponse
+     */
+    public function createDIAlarmRuleWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDIAlarmRuleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->notificationSettings)) {
+            $request->notificationSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notificationSettings, 'NotificationSettings', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->triggerConditions)) {
+            $request->triggerConditionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->triggerConditions, 'TriggerConditions', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDIAlarmRule',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDIAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建数据集成报警规则
+     *  *
+     * @param CreateDIAlarmRuleRequest $request CreateDIAlarmRuleRequest
+     *
+     * @return CreateDIAlarmRuleResponse CreateDIAlarmRuleResponse
+     */
+    public function createDIAlarmRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDIAlarmRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建数据集成任务
+     *  *
+     * @param CreateDIJobRequest $tmpReq  CreateDIJobRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDIJobResponse CreateDIJobResponse
+     */
+    public function createDIJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDIJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->destinationDataSourceSettings)) {
+            $request->destinationDataSourceSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->destinationDataSourceSettings, 'DestinationDataSourceSettings', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->jobSettings)) {
+            $request->jobSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobSettings, 'JobSettings', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->resourceSettings)) {
+            $request->resourceSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceSettings, 'ResourceSettings', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sourceDataSourceSettings)) {
+            $request->sourceDataSourceSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceDataSourceSettings, 'SourceDataSourceSettings', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tableMappings)) {
+            $request->tableMappingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tableMappings, 'TableMappings', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->transformationRules)) {
+            $request->transformationRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->transformationRules, 'TransformationRules', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDIJob',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建数据集成任务
+     *  *
+     * @param CreateDIJobRequest $request CreateDIJobRequest
+     *
+     * @return CreateDIJobResponse CreateDIJobResponse
+     */
+    public function createDIJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDIJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 验证用
+     *  *
+     * @param CreateDataSourceRequest $request CreateDataSourceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDataSourceResponse CreateDataSourceResponse
+     */
+    public function createDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->connectionProperties)) {
+            $query['ConnectionProperties'] = $request->connectionProperties;
+        }
+        if (!Utils::isUnset($request->connectionPropertiesMode)) {
+            $query['ConnectionPropertiesMode'] = $request->connectionPropertiesMode;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDataSource',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 验证用
+     *  *
+     * @param CreateDataSourceRequest $request CreateDataSourceRequest
+     *
+     * @return CreateDataSourceResponse CreateDataSourceResponse
+     */
+    public function createDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 验证用
+     *  *
+     * @param CreateDataSourceSharedRuleRequest $request CreateDataSourceSharedRuleRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDataSourceSharedRuleResponse CreateDataSourceSharedRuleResponse
+     */
+    public function createDataSourceSharedRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $query['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->sharedUser)) {
+            $query['SharedUser'] = $request->sharedUser;
+        }
+        if (!Utils::isUnset($request->targetProjectId)) {
+            $query['TargetProjectId'] = $request->targetProjectId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDataSourceSharedRule',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDataSourceSharedRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 验证用
+     *  *
+     * @param CreateDataSourceSharedRuleRequest $request CreateDataSourceSharedRuleRequest
+     *
+     * @return CreateDataSourceSharedRuleResponse CreateDataSourceSharedRuleResponse
+     */
+    public function createDataSourceSharedRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataSourceSharedRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates a process for deploying or undeploying an entity in DataStudio.
+     *  *
+     * @description >  You cannot use this API operation to create a process for multiple entities at a time. If you specify multiple entities in a request, the system creates a process only for the first entity.
      *  *
      * @param CreateDeploymentRequest $tmpReq  CreateDeploymentRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -238,7 +683,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建发布流程
+     * @summary Creates a process for deploying or undeploying an entity in DataStudio.
+     *  *
+     * @description >  You cannot use this API operation to create a process for multiple entities at a time. If you specify multiple entities in a request, the system creates a process only for the first entity.
      *  *
      * @param CreateDeploymentRequest $request CreateDeploymentRequest
      *
@@ -252,7 +699,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建udf函数
+     * @summary Creates a user-defined function (UDF) in DataStudio. The information about the UDF is described by using FlowSpec.
+     *  *
+     * @description >  You cannot use this API operation to create multiple UDFs at a time. If you specify multiple UDFs by using FlowSpec, the system creates only the first specified UDF.
      *  *
      * @param CreateFunctionRequest $request CreateFunctionRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -288,7 +737,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建udf函数
+     * @summary Creates a user-defined function (UDF) in DataStudio. The information about the UDF is described by using FlowSpec.
+     *  *
+     * @description >  You cannot use this API operation to create multiple UDFs at a time. If you specify multiple UDFs by using FlowSpec, the system creates only the first specified UDF.
      *  *
      * @param CreateFunctionRequest $request CreateFunctionRequest
      *
@@ -302,7 +753,65 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建节点
+     * @summary 创建并绑定通用资源组网络资源。
+     *  *
+     * @param CreateNetworkRequest $request CreateNetworkRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateNetworkResponse CreateNetworkResponse
+     */
+    public function createNetworkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $body['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->vswitchId)) {
+            $body['VswitchId'] = $request->vswitchId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateNetwork',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建并绑定通用资源组网络资源。
+     *  *
+     * @param CreateNetworkRequest $request CreateNetworkRequest
+     *
+     * @return CreateNetworkResponse CreateNetworkResponse
+     */
+    public function createNetwork($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createNetworkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates a node in DataStudio. The information about the node is described by using FlowSpec.
+     *  *
+     * @description >  You cannot use this API operation to create multiple nodes at a time. If you specify multiple nodes by using FlowSpec, the system creates only the first specified node.
      *  *
      * @param CreateNodeRequest $request CreateNodeRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -344,7 +853,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建节点
+     * @summary Creates a node in DataStudio. The information about the node is described by using FlowSpec.
+     *  *
+     * @description >  You cannot use this API operation to create multiple nodes at a time. If you specify multiple nodes by using FlowSpec, the system creates only the first specified node.
      *  *
      * @param CreateNodeRequest $request CreateNodeRequest
      *
@@ -358,7 +869,82 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建资源文件
+     * @summary 创建工作空间
+     *  *
+     * @param CreateProjectRequest $tmpReq  CreateProjectRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateProjectResponse CreateProjectResponse
+     */
+    public function createProjectWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateProjectShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->aliyunResourceTags)) {
+            $request->aliyunResourceTagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aliyunResourceTags, 'AliyunResourceTags', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->aliyunResourceGroupId)) {
+            $body['AliyunResourceGroupId'] = $request->aliyunResourceGroupId;
+        }
+        if (!Utils::isUnset($request->aliyunResourceTagsShrink)) {
+            $body['AliyunResourceTags'] = $request->aliyunResourceTagsShrink;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->devEnvironmentEnabled)) {
+            $body['DevEnvironmentEnabled'] = $request->devEnvironmentEnabled;
+        }
+        if (!Utils::isUnset($request->devRoleDisabled)) {
+            $body['DevRoleDisabled'] = $request->devRoleDisabled;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $body['DisplayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->paiTaskEnabled)) {
+            $body['PaiTaskEnabled'] = $request->paiTaskEnabled;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateProject',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建工作空间
+     *  *
+     * @param CreateProjectRequest $request CreateProjectRequest
+     *
+     * @return CreateProjectResponse CreateProjectResponse
+     */
+    public function createProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates a file resource in DataStudio. The information about the file resource is described by using FlowSpec.
+     *  *
+     * @description >  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
      *  *
      * @param CreateResourceRequest $request CreateResourceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -394,7 +980,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建资源文件
+     * @summary Creates a file resource in DataStudio. The information about the file resource is described by using FlowSpec.
+     *  *
+     * @description >  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
      *  *
      * @param CreateResourceRequest $request CreateResourceRequest
      *
@@ -408,7 +996,133 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建工作流
+     * @summary 创建通用资源组。
+     *  *
+     * @param CreateResourceGroupRequest $request CreateResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateResourceGroupResponse CreateResourceGroupResponse
+     */
+    public function createResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->autoRenew)) {
+            $body['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->paymentDuration)) {
+            $body['PaymentDuration'] = $request->paymentDuration;
+        }
+        if (!Utils::isUnset($request->paymentDurationUnit)) {
+            $body['PaymentDurationUnit'] = $request->paymentDurationUnit;
+        }
+        if (!Utils::isUnset($request->paymentType)) {
+            $body['PaymentType'] = $request->paymentType;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $body['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->spec)) {
+            $body['Spec'] = $request->spec;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $body['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->vswitchId)) {
+            $body['VswitchId'] = $request->vswitchId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateResourceGroup',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建通用资源组。
+     *  *
+     * @param CreateResourceGroupRequest $request CreateResourceGroupRequest
+     *
+     * @return CreateResourceGroupResponse CreateResourceGroupResponse
+     */
+    public function createResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建网络资源的路由。
+     *  *
+     * @param CreateRouteRequest $request CreateRouteRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateRouteResponse CreateRouteResponse
+     */
+    public function createRouteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->destinationCidr)) {
+            $body['DestinationCidr'] = $request->destinationCidr;
+        }
+        if (!Utils::isUnset($request->networkId)) {
+            $body['NetworkId'] = $request->networkId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRoute',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建网络资源的路由。
+     *  *
+     * @param CreateRouteRequest $request CreateRouteRequest
+     *
+     * @return CreateRouteResponse CreateRouteResponse
+     */
+    public function createRoute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates a workflow in a directory of DataStudio.
+     *  *
+     * @description > You cannot use this API operation to create multiple workflows at a time. If you specify multiple workflows by using FlowSpec, the system creates only the first specified workflow. Other specified workflows and the nodes in the workflows are ignored. You can call the CreateNode operation to create a node.
      *  *
      * @param CreateWorkflowDefinitionRequest $request CreateWorkflowDefinitionRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -444,7 +1158,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建工作流
+     * @summary Creates a workflow in a directory of DataStudio.
+     *  *
+     * @description > You cannot use this API operation to create multiple workflows at a time. If you specify multiple workflows by using FlowSpec, the system creates only the first specified workflow. Other specified workflows and the nodes in the workflows are ignored. You can call the CreateNode operation to create a node.
      *  *
      * @param CreateWorkflowDefinitionRequest $request CreateWorkflowDefinitionRequest
      *
@@ -458,7 +1174,188 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除udf函数
+     * @summary Deletes an alert rule configured for a synchronization task.
+     *  *
+     * @param DeleteDIAlarmRuleRequest $request DeleteDIAlarmRuleRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDIAlarmRuleResponse DeleteDIAlarmRuleResponse
+     */
+    public function deleteDIAlarmRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDIAlarmRule',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDIAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes an alert rule configured for a synchronization task.
+     *  *
+     * @param DeleteDIAlarmRuleRequest $request DeleteDIAlarmRuleRequest
+     *
+     * @return DeleteDIAlarmRuleResponse DeleteDIAlarmRuleResponse
+     */
+    public function deleteDIAlarmRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDIAlarmRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除数据集成任务
+     *  *
+     * @param DeleteDIJobRequest $request DeleteDIJobRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDIJobResponse DeleteDIJobResponse
+     */
+    public function deleteDIJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDIJob',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除数据集成任务
+     *  *
+     * @param DeleteDIJobRequest $request DeleteDIJobRequest
+     *
+     * @return DeleteDIJobResponse DeleteDIJobResponse
+     */
+    public function deleteDIJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDIJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 验证用
+     *  *
+     * @param DeleteDataSourceRequest $request DeleteDataSourceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDataSourceResponse DeleteDataSourceResponse
+     */
+    public function deleteDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDataSource',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 验证用
+     *  *
+     * @param DeleteDataSourceRequest $request DeleteDataSourceRequest
+     *
+     * @return DeleteDataSourceResponse DeleteDataSourceResponse
+     */
+    public function deleteDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 验证用
+     *  *
+     * @param DeleteDataSourceSharedRuleRequest $request DeleteDataSourceSharedRuleRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDataSourceSharedRuleResponse DeleteDataSourceSharedRuleResponse
+     */
+    public function deleteDataSourceSharedRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDataSourceSharedRule',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDataSourceSharedRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 验证用
+     *  *
+     * @param DeleteDataSourceSharedRuleRequest $request DeleteDataSourceSharedRuleRequest
+     *
+     * @return DeleteDataSourceSharedRuleResponse DeleteDataSourceSharedRuleResponse
+     */
+    public function deleteDataSourceSharedRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataSourceSharedRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes a user-defined function (UDF) in DataStudio.
+     *  *
+     * @description >  A UDF that is deployed cannot be deleted. If you want to delete such a UDF, you must first undeploy the UDF.
      *  *
      * @param DeleteFunctionRequest $request DeleteFunctionRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -494,7 +1391,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除udf函数
+     * @summary Deletes a user-defined function (UDF) in DataStudio.
+     *  *
+     * @description >  A UDF that is deployed cannot be deleted. If you want to delete such a UDF, you must first undeploy the UDF.
      *  *
      * @param DeleteFunctionRequest $request DeleteFunctionRequest
      *
@@ -508,7 +1407,56 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除节点
+     * @summary 解绑并删除通用资源组网络资源。
+     *  *
+     * @param DeleteNetworkRequest $request DeleteNetworkRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteNetworkResponse DeleteNetworkResponse
+     */
+    public function deleteNetworkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteNetwork',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 解绑并删除通用资源组网络资源。
+     *  *
+     * @param DeleteNetworkRequest $request DeleteNetworkRequest
+     *
+     * @return DeleteNetworkResponse DeleteNetworkResponse
+     */
+    public function deleteNetwork($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNetworkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes a node from DataStudio.
+     *  *
+     * @description >  A node that is deployed cannot be deleted. If you want to delete such a node, you must first undeploy the node.
      *  *
      * @param DeleteNodeRequest $request DeleteNodeRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -544,7 +1492,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除节点
+     * @summary Deletes a node from DataStudio.
+     *  *
+     * @description >  A node that is deployed cannot be deleted. If you want to delete such a node, you must first undeploy the node.
      *  *
      * @param DeleteNodeRequest $request DeleteNodeRequest
      *
@@ -558,7 +1508,56 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除资源文件
+     * @summary 销毁工作空间
+     *  *
+     * @param DeleteProjectRequest $request DeleteProjectRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteProjectResponse DeleteProjectResponse
+     */
+    public function deleteProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteProject',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 销毁工作空间
+     *  *
+     * @param DeleteProjectRequest $request DeleteProjectRequest
+     *
+     * @return DeleteProjectResponse DeleteProjectResponse
+     */
+    public function deleteProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes a file resource from DataStudio.
+     *  *
+     * @description >  A file resource that is deployed cannot be deleted. If you want to delete such a file resource, you must first undeploy the file resource.
      *  *
      * @param DeleteResourceRequest $request DeleteResourceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -594,7 +1593,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除资源文件
+     * @summary Deletes a file resource from DataStudio.
+     *  *
+     * @description >  A file resource that is deployed cannot be deleted. If you want to delete such a file resource, you must first undeploy the file resource.
      *  *
      * @param DeleteResourceRequest $request DeleteResourceRequest
      *
@@ -608,7 +1609,103 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除工作流
+     * @summary 删除通用资源组。
+     *  *
+     * @param DeleteResourceGroupRequest $request DeleteResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteResourceGroupResponse DeleteResourceGroupResponse
+     */
+    public function deleteResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteResourceGroup',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除通用资源组。
+     *  *
+     * @param DeleteResourceGroupRequest $request DeleteResourceGroupRequest
+     *
+     * @return DeleteResourceGroupResponse DeleteResourceGroupResponse
+     */
+    public function deleteResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除网络资源的路由。
+     *  *
+     * @param DeleteRouteRequest $request DeleteRouteRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteRouteResponse DeleteRouteResponse
+     */
+    public function deleteRouteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRoute',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除网络资源的路由。
+     *  *
+     * @param DeleteRouteRequest $request DeleteRouteRequest
+     *
+     * @return DeleteRouteResponse DeleteRouteResponse
+     */
+    public function deleteRoute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes a workflow from DataStudio.
+     *  *
+     * @description >  A workflow that is deployed cannot be deleted. If you want to delete such a workflow, you must first undeploy the workflow.
      *  *
      * @param DeleteWorkflowDefinitionRequest $request DeleteWorkflowDefinitionRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -644,7 +1741,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除工作流
+     * @summary Deletes a workflow from DataStudio.
+     *  *
+     * @description >  A workflow that is deployed cannot be deleted. If you want to delete such a workflow, you must first undeploy the workflow.
      *  *
      * @param DeleteWorkflowDefinitionRequest $request DeleteWorkflowDefinitionRequest
      *
@@ -658,7 +1757,60 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 执行Deployment一个阶段
+     * @summary 将资源组和某个工作空间解除关联。
+     *  *
+     * @param DissociateProjectFromResourceGroupRequest $request DissociateProjectFromResourceGroupRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DissociateProjectFromResourceGroupResponse DissociateProjectFromResourceGroupResponse
+     */
+    public function dissociateProjectFromResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DissociateProjectFromResourceGroup',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DissociateProjectFromResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 将资源组和某个工作空间解除关联。
+     *  *
+     * @param DissociateProjectFromResourceGroupRequest $request DissociateProjectFromResourceGroupRequest
+     *
+     * @return DissociateProjectFromResourceGroupResponse DissociateProjectFromResourceGroupResponse
+     */
+    public function dissociateProjectFromResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dissociateProjectFromResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Executes a stage in a process.
+     *  *
+     * @description >  The stages in a process are sequential. For more information, see the GetDeployment operation. Skipping or repeating a stage is not allowed.
+     * >  The execution of a stage is asynchronous. The response of this operation indicates only whether a stage is triggered but does not indicate whether the execution of the stage is successful. You can call the GetDeployment operation to check whether the execution is successful.
      *  *
      * @param ExecDeploymentStageRequest $request ExecDeploymentStageRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -699,7 +1851,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 执行Deployment一个阶段
+     * @summary Executes a stage in a process.
+     *  *
+     * @description >  The stages in a process are sequential. For more information, see the GetDeployment operation. Skipping or repeating a stage is not allowed.
+     * >  The execution of a stage is asynchronous. The response of this operation indicates only whether a stage is triggered but does not indicate whether the execution of the stage is successful. You can call the GetDeployment operation to check whether the execution is successful.
      *  *
      * @param ExecDeploymentStageRequest $request ExecDeploymentStageRequest
      *
@@ -713,7 +1868,139 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取发布流程详情
+     * @summary 查看数据集成任务
+     *  *
+     * @param GetDIJobRequest $request GetDIJobRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDIJobResponse GetDIJobResponse
+     */
+    public function getDIJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDIJob',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看数据集成任务
+     *  *
+     * @param GetDIJobRequest $request GetDIJobRequest
+     *
+     * @return GetDIJobResponse GetDIJobResponse
+     */
+    public function getDIJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDIJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Obtains logs generated for a synchronization task.
+     *  *
+     * @param GetDIJobLogRequest $request GetDIJobLogRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDIJobLogResponse GetDIJobLogResponse
+     */
+    public function getDIJobLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDIJobLog',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDIJobLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Obtains logs generated for a synchronization task.
+     *  *
+     * @param GetDIJobLogRequest $request GetDIJobLogRequest
+     *
+     * @return GetDIJobLogResponse GetDIJobLogResponse
+     */
+    public function getDIJobLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDIJobLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 验证用
+     *  *
+     * @param GetDataSourceRequest $request GetDataSourceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDataSourceResponse GetDataSourceResponse
+     */
+    public function getDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataSource',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 验证用
+     *  *
+     * @param GetDataSourceRequest $request GetDataSourceRequest
+     *
+     * @return GetDataSourceResponse GetDataSourceResponse
+     */
+    public function getDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the information about a process for deploying or undeploying an entity.
      *  *
      * @param GetDeploymentRequest $request GetDeploymentRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -743,7 +2030,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取发布流程详情
+     * @summary Queries the information about a process for deploying or undeploying an entity.
      *  *
      * @param GetDeploymentRequest $request GetDeploymentRequest
      *
@@ -757,7 +2044,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取函数信息
+     * @summary Queries the information about a user-defined function (UDF) in DataStudio.
      *  *
      * @param GetFunctionRequest $request GetFunctionRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -787,7 +2074,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取函数信息
+     * @summary Queries the information about a user-defined function (UDF) in DataStudio.
      *  *
      * @param GetFunctionRequest $request GetFunctionRequest
      *
@@ -801,6 +2088,96 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary 返回异步任务的状态信息
+     *  *
+     * @param GetJobStatusRequest $request GetJobStatusRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetJobStatusResponse GetJobStatusResponse
+     */
+    public function getJobStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetJobStatus',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 返回异步任务的状态信息
+     *  *
+     * @param GetJobStatusRequest $request GetJobStatusRequest
+     *
+     * @return GetJobStatusResponse GetJobStatusResponse
+     */
+    public function getJobStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getJobStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取某个网络资源详细信息。
+     *  *
+     * @param GetNetworkRequest $request GetNetworkRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetNetworkResponse GetNetworkResponse
+     */
+    public function getNetworkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetNetwork',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取某个网络资源详细信息。
+     *  *
+     * @param GetNetworkRequest $request GetNetworkRequest
+     *
+     * @return GetNetworkResponse GetNetworkResponse
+     */
+    public function getNetwork($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNetworkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the information about a node in DataStudio.
+     *  *
      * @param GetNodeRequest $request GetNodeRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -829,6 +2206,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about a node in DataStudio.
+     *  *
      * @param GetNodeRequest $request GetNodeRequest
      *
      * @return GetNodeResponse GetNodeResponse
@@ -841,7 +2220,101 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取资源文件
+     * @summary 查询工作空间详情
+     *  *
+     * @param GetProjectRequest $request GetProjectRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetProjectResponse GetProjectResponse
+     */
+    public function getProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetProject',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询工作空间详情
+     *  *
+     * @param GetProjectRequest $request GetProjectRequest
+     *
+     * @return GetProjectResponse GetProjectResponse
+     */
+    public function getProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询工作空间角色详情
+     *  *
+     * @param GetProjectRoleRequest $request GetProjectRoleRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetProjectRoleResponse GetProjectRoleResponse
+     */
+    public function getProjectRoleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->code)) {
+            $query['Code'] = $request->code;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetProjectRole',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetProjectRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询工作空间角色详情
+     *  *
+     * @param GetProjectRoleRequest $request GetProjectRoleRequest
+     *
+     * @return GetProjectRoleResponse GetProjectRoleResponse
+     */
+    public function getProjectRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getProjectRoleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the information about a file resource.
      *  *
      * @param GetResourceRequest $request GetResourceRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -871,7 +2344,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取资源文件
+     * @summary Queries the information about a file resource.
      *  *
      * @param GetResourceRequest $request GetResourceRequest
      *
@@ -885,7 +2358,95 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取工作流详情
+     * @summary 根据id获取指定资源组。
+     *  *
+     * @param GetResourceGroupRequest $request GetResourceGroupRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetResourceGroupResponse GetResourceGroupResponse
+     */
+    public function getResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetResourceGroup',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据id获取指定资源组。
+     *  *
+     * @param GetResourceGroupRequest $request GetResourceGroupRequest
+     *
+     * @return GetResourceGroupResponse GetResourceGroupResponse
+     */
+    public function getResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 根据id获取指定路由。
+     *  *
+     * @param GetRouteRequest $request GetRouteRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetRouteResponse GetRouteResponse
+     */
+    public function getRouteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRoute',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据id获取指定路由。
+     *  *
+     * @param GetRouteRequest $request GetRouteRequest
+     *
+     * @return GetRouteResponse GetRouteResponse
+     */
+    public function getRoute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the infomation about a workflow.
      *  *
      * @param GetWorkflowDefinitionRequest $request GetWorkflowDefinitionRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -915,7 +2476,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取工作流详情
+     * @summary Queries the infomation about a workflow.
      *  *
      * @param GetWorkflowDefinitionRequest $request GetWorkflowDefinitionRequest
      *
@@ -929,7 +2490,375 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页获取发布流程
+     * @summary 调用此接口，可以将通过FlowSpec定义的工作流节点和其内部的子节点都导入到数据开发中
+     *  *
+     * @param ImportWorkflowDefinitionRequest $request ImportWorkflowDefinitionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ImportWorkflowDefinitionResponse ImportWorkflowDefinitionResponse
+     */
+    public function importWorkflowDefinitionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->spec)) {
+            $body['Spec'] = $request->spec;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportWorkflowDefinition',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImportWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 调用此接口，可以将通过FlowSpec定义的工作流节点和其内部的子节点都导入到数据开发中
+     *  *
+     * @param ImportWorkflowDefinitionRequest $request ImportWorkflowDefinitionRequest
+     *
+     * @return ImportWorkflowDefinitionResponse ImportWorkflowDefinitionResponse
+     */
+    public function importWorkflowDefinition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importWorkflowDefinitionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查看数据集成报警规则
+     *  *
+     * @param ListDIAlarmRulesRequest $request ListDIAlarmRulesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDIAlarmRulesResponse ListDIAlarmRulesResponse
+     */
+    public function listDIAlarmRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDIAlarmRules',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDIAlarmRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看数据集成报警规则
+     *  *
+     * @param ListDIAlarmRulesRequest $request ListDIAlarmRulesRequest
+     *
+     * @return ListDIAlarmRulesResponse ListDIAlarmRulesResponse
+     */
+    public function listDIAlarmRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDIAlarmRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取数据集成任务事件
+     *  *
+     * @param ListDIJobEventsRequest $request ListDIJobEventsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDIJobEventsResponse ListDIJobEventsResponse
+     */
+    public function listDIJobEventsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDIJobEvents',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDIJobEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取数据集成任务事件
+     *  *
+     * @param ListDIJobEventsRequest $request ListDIJobEventsRequest
+     *
+     * @return ListDIJobEventsResponse ListDIJobEventsResponse
+     */
+    public function listDIJobEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDIJobEventsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取数据集成任务指标
+     *  *
+     * @param ListDIJobMetricsRequest $tmpReq  ListDIJobMetricsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDIJobMetricsResponse ListDIJobMetricsResponse
+     */
+    public function listDIJobMetricsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListDIJobMetricsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->metricName)) {
+            $request->metricNameShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->metricName, 'MetricName', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDIJobMetrics',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDIJobMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取数据集成任务指标
+     *  *
+     * @param ListDIJobMetricsRequest $request ListDIJobMetricsRequest
+     *
+     * @return ListDIJobMetricsResponse ListDIJobMetricsResponse
+     */
+    public function listDIJobMetrics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDIJobMetricsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取数据集成运行信息
+     *  *
+     * @param ListDIJobRunDetailsRequest $request ListDIJobRunDetailsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDIJobRunDetailsResponse ListDIJobRunDetailsResponse
+     */
+    public function listDIJobRunDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDIJobRunDetails',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDIJobRunDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取数据集成运行信息
+     *  *
+     * @param ListDIJobRunDetailsRequest $request ListDIJobRunDetailsRequest
+     *
+     * @return ListDIJobRunDetailsResponse ListDIJobRunDetailsResponse
+     */
+    public function listDIJobRunDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDIJobRunDetailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries a list of synchronization tasks.
+     *  *
+     * @param ListDIJobsRequest $request ListDIJobsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDIJobsResponse ListDIJobsResponse
+     */
+    public function listDIJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDIJobs',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDIJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries a list of synchronization tasks.
+     *  *
+     * @param ListDIJobsRequest $request ListDIJobsRequest
+     *
+     * @return ListDIJobsResponse ListDIJobsResponse
+     */
+    public function listDIJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDIJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 验证用
+     *  *
+     * @param ListDataSourceSharedRulesRequest $request ListDataSourceSharedRulesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDataSourceSharedRulesResponse ListDataSourceSharedRulesResponse
+     */
+    public function listDataSourceSharedRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataSourceSharedRules',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataSourceSharedRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 验证用
+     *  *
+     * @param ListDataSourceSharedRulesRequest $request ListDataSourceSharedRulesRequest
+     *
+     * @return ListDataSourceSharedRulesResponse ListDataSourceSharedRulesResponse
+     */
+    public function listDataSourceSharedRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataSourceSharedRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 验证用
+     *  *
+     * @param ListDataSourcesRequest $tmpReq  ListDataSourcesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDataSourcesResponse ListDataSourcesResponse
+     */
+    public function listDataSourcesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListDataSourcesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->types)) {
+            $request->typesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->types, 'Types', 'simple');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataSources',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 验证用
+     *  *
+     * @param ListDataSourcesRequest $request ListDataSourcesRequest
+     *
+     * @return ListDataSourcesResponse ListDataSourcesResponse
+     */
+    public function listDataSources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataSourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries a list of processes that are used to deploy or undeploy entities in DataStudio. You can also specify filter conditions to query specific processes.
      *  *
      * @param ListDeploymentsRequest $request ListDeploymentsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -959,7 +2888,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页获取发布流程
+     * @summary Queries a list of processes that are used to deploy or undeploy entities in DataStudio. You can also specify filter conditions to query specific processes.
      *  *
      * @param ListDeploymentsRequest $request ListDeploymentsRequest
      *
@@ -973,7 +2902,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取udf函数列表
+     * @summary Queries a list of user-defined functions (UDFs) in DataStudio. You can also specify filter conditions to query specific UDFs.
      *  *
      * @param ListFunctionsRequest $request ListFunctionsRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -1003,7 +2932,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取udf函数列表
+     * @summary Queries a list of user-defined functions (UDFs) in DataStudio. You can also specify filter conditions to query specific UDFs.
      *  *
      * @param ListFunctionsRequest $request ListFunctionsRequest
      *
@@ -1017,7 +2946,51 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取节点依赖列表
+     * @summary 获取通用资源组网络资源列表。
+     *  *
+     * @param ListNetworksRequest $request ListNetworksRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListNetworksResponse ListNetworksResponse
+     */
+    public function listNetworksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListNetworks',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListNetworksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取通用资源组网络资源列表。
+     *  *
+     * @param ListNetworksRequest $request ListNetworksRequest
+     *
+     * @return ListNetworksResponse ListNetworksResponse
+     */
+    public function listNetworks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNetworksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries a list of descendant nodes of a node in DataStudio.
      *  *
      * @param ListNodeDependenciesRequest $request ListNodeDependenciesRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -1047,7 +3020,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取节点依赖列表
+     * @summary Queries a list of descendant nodes of a node in DataStudio.
      *  *
      * @param ListNodeDependenciesRequest $request ListNodeDependenciesRequest
      *
@@ -1061,7 +3034,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取节点列表
+     * @summary Queries a list of nodes in DataStudio. You can also specify filter conditions to query specific nodes.
      *  *
      * @param ListNodesRequest $request ListNodesRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -1091,7 +3064,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取节点列表
+     * @summary Queries a list of nodes in DataStudio. You can also specify filter conditions to query specific nodes.
      *  *
      * @param ListNodesRequest $request ListNodesRequest
      *
@@ -1105,7 +3078,214 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页获取资源文件
+     * @summary 分页查询工作空间角色详情
+     *  *
+     * @param ListProjectRolesRequest $tmpReq  ListProjectRolesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListProjectRolesResponse ListProjectRolesResponse
+     */
+    public function listProjectRolesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListProjectRolesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->codes)) {
+            $request->codesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->codes, 'Codes', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->names)) {
+            $request->namesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->names, 'Names', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->codesShrink)) {
+            $body['Codes'] = $request->codesShrink;
+        }
+        if (!Utils::isUnset($request->namesShrink)) {
+            $body['Names'] = $request->namesShrink;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListProjectRoles',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListProjectRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 分页查询工作空间角色详情
+     *  *
+     * @param ListProjectRolesRequest $request ListProjectRolesRequest
+     *
+     * @return ListProjectRolesResponse ListProjectRolesResponse
+     */
+    public function listProjectRoles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProjectRolesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 分页查询工作空间详情
+     *  *
+     * @param ListProjectsRequest $tmpReq  ListProjectsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListProjectsResponse ListProjectsResponse
+     */
+    public function listProjectsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListProjectsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->aliyunResourceTags)) {
+            $request->aliyunResourceTagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aliyunResourceTags, 'AliyunResourceTags', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->ids)) {
+            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->names)) {
+            $request->namesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->names, 'Names', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->aliyunResourceGroupId)) {
+            $body['AliyunResourceGroupId'] = $request->aliyunResourceGroupId;
+        }
+        if (!Utils::isUnset($request->aliyunResourceTagsShrink)) {
+            $body['AliyunResourceTags'] = $request->aliyunResourceTagsShrink;
+        }
+        if (!Utils::isUnset($request->devEnvironmentEnabled)) {
+            $body['DevEnvironmentEnabled'] = $request->devEnvironmentEnabled;
+        }
+        if (!Utils::isUnset($request->devRoleDisabled)) {
+            $body['DevRoleDisabled'] = $request->devRoleDisabled;
+        }
+        if (!Utils::isUnset($request->idsShrink)) {
+            $body['Ids'] = $request->idsShrink;
+        }
+        if (!Utils::isUnset($request->namesShrink)) {
+            $body['Names'] = $request->namesShrink;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->paiTaskEnabled)) {
+            $body['PaiTaskEnabled'] = $request->paiTaskEnabled;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListProjects',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 分页查询工作空间详情
+     *  *
+     * @param ListProjectsRequest $request ListProjectsRequest
+     *
+     * @return ListProjectsResponse ListProjectsResponse
+     */
+    public function listProjects($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取资源组列表。
+     *  *
+     * @param ListResourceGroupsRequest $tmpReq  ListResourceGroupsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListResourceGroupsResponse ListResourceGroupsResponse
+     */
+    public function listResourceGroupsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListResourceGroupsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resourceGroupTypes)) {
+            $request->resourceGroupTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceGroupTypes, 'ResourceGroupTypes', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->statuses)) {
+            $request->statusesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->statuses, 'Statuses', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListResourceGroups',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取资源组列表。
+     *  *
+     * @param ListResourceGroupsRequest $request ListResourceGroupsRequest
+     *
+     * @return ListResourceGroupsResponse ListResourceGroupsResponse
+     */
+    public function listResourceGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listResourceGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries a list of file resources in DataStudio. You can also specify filter conditions to query specific file resources.
      *  *
      * @param ListResourcesRequest $request ListResourcesRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -1135,7 +3315,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页获取资源文件
+     * @summary Queries a list of file resources in DataStudio. You can also specify filter conditions to query specific file resources.
      *  *
      * @param ListResourcesRequest $request ListResourcesRequest
      *
@@ -1149,7 +3329,51 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取workflowDefinition的列表
+     * @summary 获取网络资源的路由列表。
+     *  *
+     * @param ListRoutesRequest $request ListRoutesRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListRoutesResponse ListRoutesResponse
+     */
+    public function listRoutesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRoutes',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRoutesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取网络资源的路由列表。
+     *  *
+     * @param ListRoutesRequest $request ListRoutesRequest
+     *
+     * @return ListRoutesResponse ListRoutesResponse
+     */
+    public function listRoutes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRoutesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries a list of workflows in DataStudio. You can also specify filter conditions to query specific workflows.
      *  *
      * @param ListWorkflowDefinitionsRequest $request ListWorkflowDefinitionsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -1179,7 +3403,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取workflowDefinition的列表
+     * @summary Queries a list of workflows in DataStudio. You can also specify filter conditions to query specific workflows.
      *  *
      * @param ListWorkflowDefinitionsRequest $request ListWorkflowDefinitionsRequest
      *
@@ -1193,7 +3417,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 移动funciton的路径
+     * @summary Moves a user-defined function (UDF) to a path in DataStudio.
      *  *
      * @param MoveFunctionRequest $request MoveFunctionRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -1232,7 +3456,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 移动funciton的路径
+     * @summary Moves a user-defined function (UDF) to a path in DataStudio.
      *  *
      * @param MoveFunctionRequest $request MoveFunctionRequest
      *
@@ -1246,7 +3470,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 移动节点路径
+     * @summary Moves a node to a path in DataStudio.
      *  *
      * @param MoveNodeRequest $request MoveNodeRequest
      * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
@@ -1285,7 +3509,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 移动节点路径
+     * @summary Moves a node to a path in DataStudio.
      *  *
      * @param MoveNodeRequest $request MoveNodeRequest
      *
@@ -1299,7 +3523,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 移动资源文件路径
+     * @summary Moves a file resource to a path in DataStudio.
      *  *
      * @param MoveResourceRequest $request MoveResourceRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -1338,7 +3562,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 移动资源文件路径
+     * @summary Moves a file resource to a path in DataStudio.
      *  *
      * @param MoveResourceRequest $request MoveResourceRequest
      *
@@ -1352,7 +3576,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 移动工作流的路径
+     * @summary Moves a workflow to a path in DataStudio.
      *  *
      * @param MoveWorkflowDefinitionRequest $request MoveWorkflowDefinitionRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -1391,7 +3615,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 移动工作流的路径
+     * @summary Moves a workflow to a path in DataStudio.
      *  *
      * @param MoveWorkflowDefinitionRequest $request MoveWorkflowDefinitionRequest
      *
@@ -1405,7 +3629,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 对function重命名
+     * @summary Renames a user-defined function (UDF) in DataStudio.
      *  *
      * @param RenameFunctionRequest $request RenameFunctionRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -1444,7 +3668,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 对function重命名
+     * @summary Renames a user-defined function (UDF) in DataStudio.
      *  *
      * @param RenameFunctionRequest $request RenameFunctionRequest
      *
@@ -1458,7 +3682,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 重命名节点
+     * @summary Renames a node in DataStudio.
      *  *
      * @param RenameNodeRequest $request RenameNodeRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -1497,7 +3721,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 重命名节点
+     * @summary Renames a node in DataStudio.
      *  *
      * @param RenameNodeRequest $request RenameNodeRequest
      *
@@ -1511,7 +3735,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 对资源文件重命名
+     * @summary Renames a file resource in DataStudio.
      *  *
      * @param RenameResourceRequest $request RenameResourceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -1550,7 +3774,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 对资源文件重命名
+     * @summary Renames a file resource in DataStudio.
      *  *
      * @param RenameResourceRequest $request RenameResourceRequest
      *
@@ -1564,7 +3788,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 重命名工作流
+     * @summary Renames a workflow in DataStudio.
      *  *
      * @param RenameWorkflowDefinitionRequest $request RenameWorkflowDefinitionRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -1603,7 +3827,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 重命名工作流
+     * @summary Renames a workflow in DataStudio.
      *  *
      * @param RenameWorkflowDefinitionRequest $request RenameWorkflowDefinitionRequest
      *
@@ -1617,7 +3841,269 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新udf函数
+     * @summary 启动数据集成任务
+     *  *
+     * @param StartDIJobRequest $tmpReq  StartDIJobRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StartDIJobResponse StartDIJobResponse
+     */
+    public function startDIJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new StartDIJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->realtimeStartSettings)) {
+            $request->realtimeStartSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->realtimeStartSettings, 'RealtimeStartSettings', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartDIJob',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 启动数据集成任务
+     *  *
+     * @param StartDIJobRequest $request StartDIJobRequest
+     *
+     * @return StartDIJobResponse StartDIJobResponse
+     */
+    public function startDIJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startDIJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Stops a synchronization task.
+     *  *
+     * @param StopDIJobRequest $request StopDIJobRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StopDIJobResponse StopDIJobResponse
+     */
+    public function stopDIJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopDIJob',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Stops a synchronization task.
+     *  *
+     * @param StopDIJobRequest $request StopDIJobRequest
+     *
+     * @return StopDIJobResponse StopDIJobResponse
+     */
+    public function stopDIJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopDIJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新数据集成报警规则
+     *  *
+     * @param UpdateDIAlarmRuleRequest $tmpReq  UpdateDIAlarmRuleRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateDIAlarmRuleResponse UpdateDIAlarmRuleResponse
+     */
+    public function updateDIAlarmRuleWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateDIAlarmRuleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->notificationSettings)) {
+            $request->notificationSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notificationSettings, 'NotificationSettings', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->triggerConditions)) {
+            $request->triggerConditionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->triggerConditions, 'TriggerConditions', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDIAlarmRule',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDIAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新数据集成报警规则
+     *  *
+     * @param UpdateDIAlarmRuleRequest $request UpdateDIAlarmRuleRequest
+     *
+     * @return UpdateDIAlarmRuleResponse UpdateDIAlarmRuleResponse
+     */
+    public function updateDIAlarmRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDIAlarmRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新数据集成任务
+     *  *
+     * @param UpdateDIJobRequest $tmpReq  UpdateDIJobRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateDIJobResponse UpdateDIJobResponse
+     */
+    public function updateDIJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateDIJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->jobSettings)) {
+            $request->jobSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobSettings, 'JobSettings', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->resourceSettings)) {
+            $request->resourceSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceSettings, 'ResourceSettings', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tableMappings)) {
+            $request->tableMappingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tableMappings, 'TableMappings', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->transformationRules)) {
+            $request->transformationRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->transformationRules, 'TransformationRules', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDIJob',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新数据集成任务
+     *  *
+     * @param UpdateDIJobRequest $request UpdateDIJobRequest
+     *
+     * @return UpdateDIJobResponse UpdateDIJobResponse
+     */
+    public function updateDIJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDIJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 验证用
+     *  *
+     * @param UpdateDataSourceRequest $request UpdateDataSourceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateDataSourceResponse UpdateDataSourceResponse
+     */
+    public function updateDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->connectionProperties)) {
+            $query['ConnectionProperties'] = $request->connectionProperties;
+        }
+        if (!Utils::isUnset($request->connectionPropertiesMode)) {
+            $query['ConnectionPropertiesMode'] = $request->connectionPropertiesMode;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDataSource',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 验证用
+     *  *
+     * @param UpdateDataSourceRequest $request UpdateDataSourceRequest
+     *
+     * @return UpdateDataSourceResponse UpdateDataSourceResponse
+     */
+    public function updateDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Updates the basic information about a user-defined function (UDF) in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
      *  *
      * @param UpdateFunctionRequest $request UpdateFunctionRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -1656,7 +4142,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新udf函数
+     * @summary Updates the basic information about a user-defined function (UDF) in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
      *  *
      * @param UpdateFunctionRequest $request UpdateFunctionRequest
      *
@@ -1670,7 +4156,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新节点
+     * @summary Updates the basic information about a node in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
      *  *
      * @param UpdateNodeRequest $request UpdateNodeRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -1709,7 +4195,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新节点
+     * @summary Updates the basic information about a node in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
      *  *
      * @param UpdateNodeRequest $request UpdateNodeRequest
      *
@@ -1723,7 +4209,72 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新资源文件
+     * @summary 更新工作空间
+     *  *
+     * @param UpdateProjectRequest $request UpdateProjectRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateProjectResponse UpdateProjectResponse
+     */
+    public function updateProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->devEnvironmentEnabled)) {
+            $body['DevEnvironmentEnabled'] = $request->devEnvironmentEnabled;
+        }
+        if (!Utils::isUnset($request->devRoleDisabled)) {
+            $body['DevRoleDisabled'] = $request->devRoleDisabled;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $body['DisplayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->paiTaskEnabled)) {
+            $body['PaiTaskEnabled'] = $request->paiTaskEnabled;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateProject',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新工作空间
+     *  *
+     * @param UpdateProjectRequest $request UpdateProjectRequest
+     *
+     * @return UpdateProjectResponse UpdateProjectResponse
+     */
+    public function updateProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Updates the basic information about a file resource in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
      *  *
      * @param UpdateResourceRequest $request UpdateResourceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -1762,7 +4313,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新资源文件
+     * @summary Updates the basic information about a file resource in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
      *  *
      * @param UpdateResourceRequest $request UpdateResourceRequest
      *
@@ -1776,7 +4327,110 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新工作流
+     * @summary 更新通用资源组基本信息。
+     *  *
+     * @param UpdateResourceGroupRequest $request UpdateResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateResourceGroupResponse UpdateResourceGroupResponse
+     */
+    public function updateResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $body['Remark'] = $request->remark;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateResourceGroup',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新通用资源组基本信息。
+     *  *
+     * @param UpdateResourceGroupRequest $request UpdateResourceGroupRequest
+     *
+     * @return UpdateResourceGroupResponse UpdateResourceGroupResponse
+     */
+    public function updateResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新网络资源的路由。
+     *  *
+     * @param UpdateRouteRequest $request UpdateRouteRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateRouteResponse UpdateRouteResponse
+     */
+    public function updateRouteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->destinationCidr)) {
+            $body['DestinationCidr'] = $request->destinationCidr;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRoute',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新网络资源的路由。
+     *  *
+     * @param UpdateRouteRequest $request UpdateRouteRequest
+     *
+     * @return UpdateRouteResponse UpdateRouteResponse
+     */
+    public function updateRoute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Updates the basic information about a workflow in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
      *  *
      * @param UpdateWorkflowDefinitionRequest $request UpdateWorkflowDefinitionRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -1815,7 +4469,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新工作流
+     * @summary Updates the basic information about a workflow in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
      *  *
      * @param UpdateWorkflowDefinitionRequest $request UpdateWorkflowDefinitionRequest
      *

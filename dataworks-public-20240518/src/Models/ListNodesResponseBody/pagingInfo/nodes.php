@@ -17,7 +17,7 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
-     * @description 节点的创建时间
+     * @description The time when the node was created. This value is a UNIX timestamp.
      *
      * @example 1722910655000
      *
@@ -26,20 +26,22 @@ class nodes extends Model
     public $createTime;
 
     /**
-     * @description 数据源信息
+     * @description The information about the data source.
      *
      * @var dataSource
      */
     public $dataSource;
 
     /**
-     * @description 描述
+     * @description The description of the node.
      *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the node.
+     *
      * @example 860438872620113XXXX
      *
      * @var string
@@ -47,14 +49,14 @@ class nodes extends Model
     public $id;
 
     /**
-     * @description 节点输入
+     * @description The input of the node.
      *
      * @var inputs
      */
     public $inputs;
 
     /**
-     * @description 属性修改时间
+     * @description The time when the node was last modified. This value is a UNIX timestamp.
      *
      * @example 1722910655000
      *
@@ -63,7 +65,7 @@ class nodes extends Model
     public $modifyTime;
 
     /**
-     * @description 节点名
+     * @description The name of the node.
      *
      * @example test
      *
@@ -72,14 +74,14 @@ class nodes extends Model
     public $name;
 
     /**
-     * @description 节点输出
+     * @description The output of the node.
      *
      * @var outputs
      */
     public $outputs;
 
     /**
-     * @description 节点的责任人
+     * @description The owner of the node.
      *
      * @example 110755000425XXXX
      *
@@ -88,6 +90,8 @@ class nodes extends Model
     public $owner;
 
     /**
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+     *
      * @example 33233
      *
      * @var string
@@ -95,6 +99,14 @@ class nodes extends Model
     public $projectId;
 
     /**
+     * @description The scheduling type.
+     *
+     * Valid values:
+     *
+     *   Normal: The node is scheduled as expected.
+     *   Pause: The node is paused, and the running of its descendant nodes is blocked.
+     *   Skip: The node is dry run. The system does not actually run the node but directly prompts that the node is successfully run. The running duration of the node is 0 seconds. In addition, the node does not occupy resources or block the running of its descendant nodes.
+     *
      * @example Normal
      *
      * @var string
@@ -102,35 +114,35 @@ class nodes extends Model
     public $recurrence;
 
     /**
-     * @description 资源组信息
+     * @description The information about the resource group.
      *
      * @var runtimeResource
      */
     public $runtimeResource;
 
     /**
-     * @description 工作流的脚本信息
+     * @description The script information.
      *
      * @var script
      */
     public $script;
 
     /**
-     * @description 调度策略
+     * @description The scheduling policy.
      *
      * @var strategy
      */
     public $strategy;
 
     /**
-     * @description 标签信息
+     * @description The tags. This parameter is not in use.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description 调度任务Id
+     * @description The scheduling task ID.
      *
      * @example 88888888888
      *
@@ -139,7 +151,7 @@ class nodes extends Model
     public $taskId;
 
     /**
-     * @description 触发器信息
+     * @description The trigger.
      *
      * @var trigger
      */

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateFunctionRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the UDF.
      *
+     * This parameter is required.
      * @example 463497880880954XXXX
      *
      * @var string
@@ -18,8 +19,9 @@ class UpdateFunctionRequest extends Model
     public $id;
 
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var string
@@ -27,8 +29,9 @@ class UpdateFunctionRequest extends Model
     public $projectId;
 
     /**
-     * @description This parameter is required.
+     * @description The FlowSpec field information about the UDF. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
      *
+     * This parameter is required.
      * @var string
      */
     public $spec;

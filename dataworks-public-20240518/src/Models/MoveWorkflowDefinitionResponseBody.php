@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MoveWorkflowDefinitionResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 05ADAF4F-7709-5FB1-B606-3513483FXXXX
      *
      * @var string
@@ -16,6 +18,11 @@ class MoveWorkflowDefinitionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

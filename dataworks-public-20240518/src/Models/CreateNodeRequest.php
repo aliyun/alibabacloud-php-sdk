@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateNodeRequest extends Model
 {
     /**
+     * @description The container ID. If you want to create a node in a container, you must configure this parameter to specify the container. The container can be a workflow or a node in a container.
+     *
+     * >  If you configure this parameter, the path field defined in FlowSpec becomes invalid.
      * @example a7ef0634-20ec-4a7c-a214-54020f91XXXX
      *
      * @var string
@@ -16,8 +19,9 @@ class CreateNodeRequest extends Model
     public $containerId;
 
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
      *
+     * This parameter is required.
      * @example 123456
      *
      * @var string
@@ -25,8 +29,15 @@ class CreateNodeRequest extends Model
     public $projectId;
 
     /**
-     * @description This parameter is required.
+     * @description The scene of the node. This parameter determines the location (the DataStudio pane or the Manual pane) of the node. You can set this parameter to DATAWORKS_MANUAL_WORKFLOW only if the ContainerId parameter is configured and the container specified by ContainerId is a manually triggered workflow.
      *
+     * Valid values:
+     *
+     *   DATAWORKS_PROJECT
+     *   DATAWORKS_MANUAL_WORKFLOW
+     *   DATAWORKS_MANUAL_TASK
+     *
+     * This parameter is required.
      * @example DATAWORKS_PROJECT
      *
      * @var string
@@ -34,8 +45,9 @@ class CreateNodeRequest extends Model
     public $scene;
 
     /**
-     * @description This parameter is required.
+     * @description The FlowSpec field information about the node. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
      *
+     * This parameter is required.
      * @var string
      */
     public $spec;

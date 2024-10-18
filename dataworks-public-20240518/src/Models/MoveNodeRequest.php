@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class MoveNodeRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the node.
      *
+     * This parameter is required.
      * @example 652567824470354XXXX
      *
      * @var string
@@ -18,8 +19,9 @@ class MoveNodeRequest extends Model
     public $id;
 
     /**
-     * @description This parameter is required.
+     * @description The path to which you want to move the node. You do not need to specify a node name in the path.
      *
+     * This parameter is required.
      * @example root/demo
      *
      * @var string
@@ -27,8 +29,9 @@ class MoveNodeRequest extends Model
     public $path;
 
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var string

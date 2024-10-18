@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class function_ extends Model
 {
     /**
+     * @description The time when the UDF was created. This value is a UNIX timestamp.
+     *
      * @example 1724505917000
      *
      * @var int
@@ -16,6 +18,8 @@ class function_ extends Model
     public $createTime;
 
     /**
+     * @description The ID of the UDF.
+     *
      * @example 860438872620113XXXX
      *
      * @var string
@@ -23,6 +27,8 @@ class function_ extends Model
     public $id;
 
     /**
+     * @description The time when the UDF was last modified. This value is a UNIX timestamp.
+     *
      * @example 1724506661000
      *
      * @var int
@@ -30,11 +36,15 @@ class function_ extends Model
     public $modifyTime;
 
     /**
+     * @description The name of the UDF.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The owner of the UDF.
+     *
      * @example 110755000425XXXX
      *
      * @var string
@@ -42,6 +52,8 @@ class function_ extends Model
     public $owner;
 
     /**
+     * @description The ID of the DataWorks workspace to which the UDF belongs.
+     *
      * @example 10000
      *
      * @var string
@@ -49,6 +61,8 @@ class function_ extends Model
     public $projectId;
 
     /**
+     * @description The FlowSpec field information about the UDF. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
+     *
      * @var string
      */
     public $spec;

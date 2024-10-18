@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class strategy extends Model
 {
     /**
-     * @description 生成实例的模式
+     * @description The instance generation mode.
      *
      * @example T+1
      *
@@ -18,7 +18,7 @@ class strategy extends Model
     public $instanceMode;
 
     /**
-     * @description 重试时间间隔
+     * @description The rerun interval. Unit: milliseconds.
      *
      * @example 180000
      *
@@ -27,7 +27,7 @@ class strategy extends Model
     public $rerunInterval;
 
     /**
-     * @description 允许重跑的模式
+     * @description The rerun mode.
      *
      * @example Allowed
      *
@@ -36,7 +36,7 @@ class strategy extends Model
     public $rerunMode;
 
     /**
-     * @description 重试次数
+     * @description The number of reruns.
      *
      * @example 3
      *
@@ -45,7 +45,7 @@ class strategy extends Model
     public $rerunTimes;
 
     /**
-     * @description 超时时间
+     * @description The timeout period.
      *
      * @example 0
      *

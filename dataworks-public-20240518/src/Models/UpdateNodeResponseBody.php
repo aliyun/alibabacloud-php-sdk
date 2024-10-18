@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateNodeResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 99EBE7CF-69C0-5089-BE3E-79563C31XXXX
      *
      * @var string
@@ -16,6 +18,11 @@ class UpdateNodeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionsRequest extends Model
 {
     /**
+     * @description The ID of the owner of the UDF. This parameter specifies a filter condition.
+     *
      * @example 110755000425XXXX
      *
      * @var string
@@ -16,6 +18,8 @@ class ListFunctionsRequest extends Model
     public $owner;
 
     /**
+     * @description The page number. Default value: 1. Minimum value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListFunctionsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -30,8 +36,9 @@ class ListFunctionsRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
      *
+     * This parameter is required.
      * @example 12345
      *
      * @var string
@@ -39,6 +46,17 @@ class ListFunctionsRequest extends Model
     public $projectId;
 
     /**
+     * @description The UDF type. This parameter specifies a filter condition.
+     *
+     * Valid values:
+     *
+     *   MATH: mathematical operation function
+     *   AGGREGATE: aggregate function
+     *   STRING: string processing function
+     *   DATE: date function
+     *   ANALYTIC: window function
+     *   OTHER: others
+     *
      * @example MATH
      *
      * @var string

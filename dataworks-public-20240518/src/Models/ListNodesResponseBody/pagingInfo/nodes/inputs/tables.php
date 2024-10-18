@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tables extends Model
 {
     /**
-     * @description 表id
+     * @description The table ID.
      *
      * @example odps.autotest.test_output_table_1
      *

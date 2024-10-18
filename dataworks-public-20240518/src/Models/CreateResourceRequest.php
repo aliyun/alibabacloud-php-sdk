@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceRequest extends Model
 {
     /**
-     * @description 资源文件的项目id
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
      *
      * This parameter is required.
      * @example 123456
@@ -19,8 +19,9 @@ class CreateResourceRequest extends Model
     public $projectId;
 
     /**
-     * @description This parameter is required.
+     * @description The FlowSpec field information about the file resource. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
      *
+     * This parameter is required.
      * @var string
      */
     public $spec;

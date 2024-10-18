@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteNodeResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example A1E54497-5122-505E-91C6-BAC14980XXXX
      *
      * @var string
@@ -16,6 +18,9 @@ class DeleteNodeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * false
      * @example true
      *
      * @var bool

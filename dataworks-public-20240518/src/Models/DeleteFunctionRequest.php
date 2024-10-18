@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteFunctionRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the UDF.
      *
+     * This parameter is required.
      * @example 860438872620113XXXX
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteFunctionRequest extends Model
     public $id;
 
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID. You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var string

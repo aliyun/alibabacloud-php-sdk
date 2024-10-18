@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDeploymentsRequest extends Model
 {
     /**
+     * @description The ID of the user who creates the processes. This parameter specifies a filter condition.
+     *
      * @example 110755000425XXXX
      *
      * @var string
@@ -16,6 +18,8 @@ class ListDeploymentsRequest extends Model
     public $creator;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListDeploymentsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -30,8 +36,9 @@ class ListDeploymentsRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var string
@@ -39,6 +46,17 @@ class ListDeploymentsRequest extends Model
     public $projectId;
 
     /**
+     * @description The status of the processes. This parameter specifies a filter condition.
+     *
+     * Valid values:
+     *
+     *   INIT
+     *   RUNNING
+     *   SUCCESS
+     *   FAIL
+     *   TERMINATION
+     *   CANCEL
+     *
      * @example RUNNING
      *
      * @var string

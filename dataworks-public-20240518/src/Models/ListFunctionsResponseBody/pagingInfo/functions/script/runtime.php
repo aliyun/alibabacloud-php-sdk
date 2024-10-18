@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class runtime extends Model
 {
     /**
-     * @description 脚本所属类型
+     * @description The command.
      *
      * @example ODPS_FUNCTION
      *

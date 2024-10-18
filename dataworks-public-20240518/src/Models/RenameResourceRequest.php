@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RenameResourceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the file resource.
      *
+     * This parameter is required.
      * @example 543217824470354XXXX
      *
      * @var string
@@ -18,15 +19,17 @@ class RenameResourceRequest extends Model
     public $id;
 
     /**
-     * @description This parameter is required.
+     * @description The new name.
      *
+     * This parameter is required.
      * @var string
      */
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var string

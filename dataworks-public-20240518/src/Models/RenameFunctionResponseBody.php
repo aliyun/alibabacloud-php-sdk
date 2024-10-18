@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RenameFunctionResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 1ED4C97F-BA2A-57C5-BA7C-8853627EXXXX
      *
      * @var string
@@ -16,6 +18,11 @@ class RenameFunctionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class MoveWorkflowDefinitionRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the workflow.
      *
+     * This parameter is required.
      * @example 543217824470354XXXX
      *
      * @var string
@@ -18,8 +19,9 @@ class MoveWorkflowDefinitionRequest extends Model
     public $id;
 
     /**
-     * @description This parameter is required.
+     * @description The path to which you want to move the workflow. You do not need to specify a workflow name in the path.
      *
+     * This parameter is required.
      * @example root/demo
      *
      * @var string
@@ -27,8 +29,9 @@ class MoveWorkflowDefinitionRequest extends Model
     public $path;
 
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID. You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
      *
+     * This parameter is required.
      * @example 10001
      *
      * @var string

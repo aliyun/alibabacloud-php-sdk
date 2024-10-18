@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetFunctionResponseBody extends Model
 {
     /**
+     * @description The information about the UDF.
+     *
      * @var function_
      */
     public $function;
 
     /**
+     * @description The request ID.
+     *
      * @example 6CF95929-6D12-5A88-8CC3-4B2F4C2EXXXX
      *
      * @var string

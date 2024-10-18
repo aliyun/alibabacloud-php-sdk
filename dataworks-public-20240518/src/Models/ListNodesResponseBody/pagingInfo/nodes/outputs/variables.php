@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class variables extends Model
 {
     /**
-     * @description 制品类型
+     * @description The artifact type.
      *
      * @example Variable
      *
@@ -19,7 +19,7 @@ class variables extends Model
     public $artifactType;
 
     /**
-     * @description 变量id
+     * @description The variable ID.
      *
      * @example 623731286945488XXXX
      *
@@ -28,7 +28,7 @@ class variables extends Model
     public $id;
 
     /**
-     * @description 变量名
+     * @description The name of the variable.
      *
      * @example output
      *
@@ -37,14 +37,21 @@ class variables extends Model
     public $name;
 
     /**
-     * @description 变量所属节点
+     * @description The node to which the variable belongs.
      *
      * @var node
      */
     public $node;
 
     /**
-     * @description 范围
+     * @description The scope of the variable.
+     *
+     * Valid values:
+     *
+     *   NodeParameter
+     *   NodeContext
+     *   Workflow
+     *   Workspace
      *
      * @example NodeParameter
      *
@@ -53,7 +60,15 @@ class variables extends Model
     public $scope;
 
     /**
-     * @description 类型
+     * @description The type of the variable.
+     *
+     * Valid values:
+     *
+     *   NoKvVariableExpression
+     *   Constant
+     *   PassThrough
+     *   System
+     *   NodeOutput
      *
      * @example Constant
      *
@@ -62,7 +77,7 @@ class variables extends Model
     public $type;
 
     /**
-     * @description 变量值
+     * @description The value of the variable.
      *
      * @example 111
      *

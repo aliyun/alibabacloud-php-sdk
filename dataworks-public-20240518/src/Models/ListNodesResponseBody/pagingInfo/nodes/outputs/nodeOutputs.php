@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class nodeOutputs extends Model
 {
     /**
-     * @description 节点输出
+     * @description The node output.
      *
      * @example 860438872620113XXXX
      *

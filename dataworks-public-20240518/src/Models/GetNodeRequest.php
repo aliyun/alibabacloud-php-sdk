@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetNodeRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the node.
      *
+     * This parameter is required.
      * @example 860438872620113XXXX
      *
      * @var string
@@ -18,6 +19,9 @@ class GetNodeRequest extends Model
     public $id;
 
     /**
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the workspace ID.
+     *
+     * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
      * @example 10000
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MoveResourceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example F332BED4-DD73-5972-A9C2-642BA6CFXXXX
      *
      * @var string
@@ -16,6 +18,11 @@ class MoveResourceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

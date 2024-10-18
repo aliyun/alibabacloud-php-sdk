@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteWorkflowDefinitionResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example B17730C0-D959-548A-AE23-E754177CXXXX
      *
      * @var string
@@ -16,6 +18,11 @@ class DeleteWorkflowDefinitionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

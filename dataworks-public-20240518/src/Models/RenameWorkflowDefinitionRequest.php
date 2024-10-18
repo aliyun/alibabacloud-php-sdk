@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RenameWorkflowDefinitionRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The unique identifier of the workflow.
      *
+     * This parameter is required.
      * @example 463497880880954XXXX
      *
      * @var string
@@ -18,15 +19,17 @@ class RenameWorkflowDefinitionRequest extends Model
     public $id;
 
     /**
-     * @description This parameter is required.
+     * @description The new name.
      *
+     * This parameter is required.
      * @var string
      */
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the ID. You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var string

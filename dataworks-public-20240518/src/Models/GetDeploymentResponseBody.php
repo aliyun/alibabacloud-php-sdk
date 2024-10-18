@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetDeploymentResponseBody extends Model
 {
     /**
+     * @description The information about the process.
+     *
      * @var pipeline
      */
     public $pipeline;
 
     /**
+     * @description The request ID.
+     *
      * @example 08468352-032C-5262-AEDC-68C9FA05XXXX
      *
      * @var string

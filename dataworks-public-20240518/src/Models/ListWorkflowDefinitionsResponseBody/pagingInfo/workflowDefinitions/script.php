@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class script extends Model
 {
     /**
-     * @description 工作流脚本的id
+     * @description The script ID.
      *
      * @example 698002781368644XXXX
      *
@@ -19,14 +19,14 @@ class script extends Model
     public $id;
 
     /**
-     * @description 工作流的脚本路径
+     * @description The script path.
      *
      * @var string
      */
     public $path;
 
     /**
-     * @description 脚本的运行时信息
+     * @description The runtime.
      *
      * @var runtime
      */

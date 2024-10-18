@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class trigger extends Model
 {
     /**
-     * @description 触发器的cron表达式
+     * @description The CRON expression for scheduling.
      *
      * @example 00 00 00 * * ?
      *
@@ -18,7 +18,7 @@ class trigger extends Model
     public $cron;
 
     /**
-     * @description 结束时间，格式为yyyy-MM-dd HH:mm:ss
+     * @description The end time of the validity period of the scheduling. The time is in the yyyy-MM-dd HH:mm:ss format.
      *
      * @example 9999-01-01 00:00:00
      *
@@ -27,7 +27,7 @@ class trigger extends Model
     public $endTime;
 
     /**
-     * @description 触发器id
+     * @description The trigger ID.
      *
      * @example 543680677872062XXXX
      *
@@ -36,7 +36,7 @@ class trigger extends Model
     public $id;
 
     /**
-     * @description 开始时间，格式为yyyy-MM-dd HH:mm:ss
+     * @description The start time of the validity period of the scheduling. The time is in the yyyy-MM-dd HH:mm:ss format.
      *
      * @example 1970-01-01 00:00:00
      *
@@ -45,7 +45,7 @@ class trigger extends Model
     public $startTime;
 
     /**
-     * @description 时区
+     * @description The time zone.
      *
      * @example Asia/Shanghai
      *
@@ -54,7 +54,13 @@ class trigger extends Model
     public $timezone;
 
     /**
-     * @description 触发器类型
+     * @description The type of the trigger.
+     *
+     * Valid values:
+     *
+     *   Scheduler
+     *   Manual
+     *   Streaming
      *
      * @example Scheduler
      *

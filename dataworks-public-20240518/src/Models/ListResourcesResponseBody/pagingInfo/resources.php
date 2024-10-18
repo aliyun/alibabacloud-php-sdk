@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @description The time when the file resource was created. This value is a UNIX timestamp.
+     *
      * @example 1724505917000
      *
      * @var int
@@ -18,14 +20,14 @@ class resources extends Model
     public $createTime;
 
     /**
-     * @description 函数注册到的数据源信息
+     * @description The information about the data source.
      *
      * @var dataSource
      */
     public $dataSource;
 
     /**
-     * @description 代表资源组的资源属性字段
+     * @description The ID of the file resource.
      *
      * @example 631478864897630XXXX
      *
@@ -34,7 +36,7 @@ class resources extends Model
     public $id;
 
     /**
-     * @description 资源文件的最近修改时间
+     * @description The times when the file resource was last modified. This value is a UNIX timestamp.
      *
      * @example 1724505917000
      *
@@ -43,7 +45,7 @@ class resources extends Model
     public $modifyTime;
 
     /**
-     * @description 代表资源名称的资源属性字段
+     * @description The name of the file resource.
      *
      * @example math.py
      *
@@ -52,7 +54,7 @@ class resources extends Model
     public $name;
 
     /**
-     * @description 资源文件的责任人
+     * @description The owner of the file resource.
      *
      * @example 110755000425XXXX
      *
@@ -61,7 +63,7 @@ class resources extends Model
     public $owner;
 
     /**
-     * @description 资源文件的项目id
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
      *
      * @example 344247
      *
@@ -70,14 +72,14 @@ class resources extends Model
     public $projectId;
 
     /**
-     * @description 工作流的脚本信息
+     * @description The script information.
      *
      * @var script
      */
     public $script;
 
     /**
-     * @description 文件目标存储路径
+     * @description The storage path of the source of the file resource. If the value of the SourecType parameter is local, this parameter is empty.
      *
      * @example XXX/unknown/ide/1/XXX/20240820200851_963a9da676de44ef8d06a6576a8c4d6a.py
      *
@@ -86,7 +88,7 @@ class resources extends Model
     public $sourcePath;
 
     /**
-     * @description 文件资源来源存储类型
+     * @description The storage type of the source of the file resource.
      *
      * @example local
      *
@@ -95,7 +97,7 @@ class resources extends Model
     public $sourceType;
 
     /**
-     * @description 文件来源路径
+     * @description The storage path of the destination of the file resource.
      *
      * @example XXX/unknown/ide/1/XXX/20240820200851_963a9da676de44ef8d06a6576a8c4d6a.py
      *
@@ -104,7 +106,7 @@ class resources extends Model
     public $targetPath;
 
     /**
-     * @description 文件目标存储类型
+     * @description The storage type of the destination of the file resource.
      *
      * @example oss
      *
@@ -113,7 +115,14 @@ class resources extends Model
     public $targetType;
 
     /**
-     * @description 资源类型
+     * @description The type of the file resource.
+     *
+     * Valid values:
+     *
+     *   jar
+     *   python
+     *   file
+     *   archive
      *
      * @example jar
      *

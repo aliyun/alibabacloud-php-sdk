@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListNodesRequest extends Model
 {
     /**
+     * @description The container ID. This parameter specifies a filter condition.
+     *
      * @example 860438872620113XXXX
      *
      * @var string
@@ -16,6 +18,8 @@ class ListNodesRequest extends Model
     public $containerId;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListNodesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -30,8 +36,9 @@ class ListNodesRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
      *
+     * This parameter is required.
      * @example 12345
      *
      * @var string
@@ -39,6 +46,17 @@ class ListNodesRequest extends Model
     public $projectId;
 
     /**
+     * @var string
+     */
+    public $recurrence;
+
+    /**
+     * @description The rerun mode. Valid values:
+     *
+     *   Allowed: The nodes can be rerun regardless of whether they are successfully run or fail to run.
+     *   FailureAllowed: The nodes can be rerun only after they fail to run.
+     *   Denied: The nodes cannot be rerun regardless of whether they are successfully run or fail to run.
+     *
      * @example Allowed
      *
      * @var string
@@ -46,13 +64,14 @@ class ListNodesRequest extends Model
     public $rerunMode;
 
     /**
-     * @example Normal
+     * @description The scene of nodes. This parameter specifies a filter condition.
      *
-     * @var string
-     */
-    public $rerurrence;
-
-    /**
+     * Valid values:
+     *
+     *   DATAWORKS_PROJECT
+     *   MANUAL_WORKFLOW
+     *   MANUAL_NODE
+     *
      * @example DATAWORKS_PROJECT
      *
      * @var string
@@ -63,8 +82,8 @@ class ListNodesRequest extends Model
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
         'projectId'   => 'ProjectId',
+        'recurrence'  => 'Recurrence',
         'rerunMode'   => 'RerunMode',
-        'rerurrence'  => 'Rerurrence',
         'scene'       => 'Scene',
     ];
 
@@ -87,11 +106,11 @@ class ListNodesRequest extends Model
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+        if (null !== $this->recurrence) {
+            $res['Recurrence'] = $this->recurrence;
+        }
         if (null !== $this->rerunMode) {
             $res['RerunMode'] = $this->rerunMode;
-        }
-        if (null !== $this->rerurrence) {
-            $res['Rerurrence'] = $this->rerurrence;
         }
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
@@ -120,11 +139,11 @@ class ListNodesRequest extends Model
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+        if (isset($map['Recurrence'])) {
+            $model->recurrence = $map['Recurrence'];
+        }
         if (isset($map['RerunMode'])) {
             $model->rerunMode = $map['RerunMode'];
-        }
-        if (isset($map['Rerurrence'])) {
-            $model->rerurrence = $map['Rerurrence'];
         }
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class runtimeResource extends Model
 {
     /**
-     * @description 运行时资源组Id
+     * @description The ID of the resource group used when you run the UDF.
      *
      * @example S_resgrop_xxx
      *

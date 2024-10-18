@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AbolishDeploymentRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the process.
      *
+     * This parameter is required.
      * @example 1606087c-9ac4-43f0-83a8-0b5ced21XXXX
      *
      * @var string
@@ -18,8 +19,9 @@ class AbolishDeploymentRequest extends Model
     public $id;
 
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var string

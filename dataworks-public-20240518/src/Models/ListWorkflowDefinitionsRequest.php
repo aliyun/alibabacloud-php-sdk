@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListWorkflowDefinitionsRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account used by the workspace administrator. You can log on to the Alibaba Cloud Management Console and view the ID on the Security Settings page.
+     *
      * @example 110755000425XXXX
      *
      * @var string
@@ -16,6 +18,8 @@ class ListWorkflowDefinitionsRequest extends Model
     public $owner;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListWorkflowDefinitionsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -30,8 +36,9 @@ class ListWorkflowDefinitionsRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var string
@@ -39,6 +46,13 @@ class ListWorkflowDefinitionsRequest extends Model
     public $projectId;
 
     /**
+     * @description The workflow type. This parameter specifies a filter condition.
+     *
+     * Valid values:
+     *
+     *   CycleWorkflow
+     *   ManualWorkflow
+     *
      * @example CycleWorkflow
      *
      * @var string

@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class functions extends Model
 {
     /**
-     * @description ARM集群资源文件列表
+     * @description The file resources in an Advanced RISC Machines (ARM) cluster.
      *
      * @example xxx.jar,yyy.jar
      *
@@ -21,7 +21,7 @@ class functions extends Model
     public $armResource;
 
     /**
-     * @description 函数实现类名
+     * @description The fully qualified class name of the UDF.
      *
      * @example com.demo.Main
      *
@@ -30,7 +30,7 @@ class functions extends Model
     public $className;
 
     /**
-     * @description 命令描述
+     * @description The description of the command.
      *
      * @example testUdf(xx,yy)
      *
@@ -39,7 +39,7 @@ class functions extends Model
     public $commandDescription;
 
     /**
-     * @description 代表创建时间的资源属性字段
+     * @description The time when the UDF was created. This value is a UNIX timestamp.
      *
      * @example 1655953028000
      *
@@ -48,14 +48,14 @@ class functions extends Model
     public $createTime;
 
     /**
-     * @description 函数注册到的数据源信息
+     * @description The data source information about the UDF.
      *
      * @var dataSource
      */
     public $dataSource;
 
     /**
-     * @description 数据库名，可选
+     * @description The name of the database. This parameter is returned for E-MapReduce (EMR) functions.
      *
      * @example odps_first
      *
@@ -64,14 +64,14 @@ class functions extends Model
     public $databaseName;
 
     /**
-     * @description 对funciotn的描述
+     * @description The overall description of the UDF.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description 嵌套函数代码内容
+     * @description The code of the embedded UDF.
      *
      * @example print(\\"hello,world!\\")
      *
@@ -80,7 +80,15 @@ class functions extends Model
     public $embeddedCode;
 
     /**
-     * @description 嵌套代码类型
+     * @description The type of the nested code.
+     *
+     * Valid values:
+     *
+     *   Python2
+     *   Python3
+     *   Java8
+     *   Java11
+     *   Java17
      *
      * @example Python2
      *
@@ -89,7 +97,12 @@ class functions extends Model
     public $embeddedCodeType;
 
     /**
-     * @description 嵌套资源类型
+     * @description The type of the nested resource.
+     *
+     * Valid values:
+     *
+     *   File: general resources
+     *   Embedded: embedded resources
      *
      * @example File
      *
@@ -98,14 +111,14 @@ class functions extends Model
     public $embeddedResourceType;
 
     /**
-     * @description 示例说明
+     * @description The description of the example.
      *
      * @var string
      */
     public $exampleDescription;
 
     /**
-     * @description 函数的实现代码
+     * @description The files resources.
      *
      * @example xxx.jar,yyy.jar
      *
@@ -114,7 +127,7 @@ class functions extends Model
     public $fileResource;
 
     /**
-     * @description 代表资源一级ID的资源属性字段
+     * @description The ID of the UDF.
      *
      * @example 580667964888595XXXX
      *
@@ -123,7 +136,7 @@ class functions extends Model
     public $id;
 
     /**
-     * @description 修改时间
+     * @description The time when the UDF was last modified. This value is a UNIX timestamp.
      *
      * @example 1655953028000
      *
@@ -132,14 +145,14 @@ class functions extends Model
     public $modifyTime;
 
     /**
-     * @description 代表资源名称的资源属性字段
+     * @description The name of the UDF.
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 函数责任人
+     * @description The owner of the UDF.
      *
      * @example 110755000425XXXX
      *
@@ -148,14 +161,14 @@ class functions extends Model
     public $owner;
 
     /**
-     * @description 命令描述
+     * @description The description of the parameter.
      *
      * @var string
      */
     public $parameterDescription;
 
     /**
-     * @description 项目Id
+     * @description The ID of the workspace to which the UDF belongs.
      *
      * @example 307XXX
      *
@@ -164,28 +177,37 @@ class functions extends Model
     public $projectId;
 
     /**
-     * @description 返回值说明
+     * @description The description of the return value.
      *
      * @var string
      */
     public $returnValueDescription;
 
     /**
-     * @description 运行时资源组信息
+     * @description The information about the resource group used when you run the UDF.
      *
      * @var runtimeResource
      */
     public $runtimeResource;
 
     /**
-     * @description 工作流的脚本信息
+     * @description The script information about the UDF.
      *
      * @var script
      */
     public $script;
 
     /**
-     * @description 函数类型
+     * @description The UDF type.
+     *
+     * Valid values:
+     *
+     *   MATH: mathematical operation function
+     *   AGGREGATE: aggregate function
+     *   STRING: string processing function
+     *   DATE: date function
+     *   ANALYTIC: window function
+     *   OTHER: others
      *
      * @example MATH
      *
