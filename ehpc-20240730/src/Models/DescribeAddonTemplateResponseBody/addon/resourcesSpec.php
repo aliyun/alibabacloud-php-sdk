@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class resourcesSpec extends Model
 {
     /**
+     * @description The Elastic Compute Service (ECS) resource configurations of the addon.
+     *
      * @var AddonNodeTemplate[]
      */
     public $ecsResources;
 
     /**
+     * @description The Elastic IP Address (EIP) configurations of the service.
+     *
      * @var eipResource
      */
     public $eipResource;

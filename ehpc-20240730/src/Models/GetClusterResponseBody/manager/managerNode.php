@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class managerNode extends Model
 {
     /**
+     * @description The expiration time of the management node.
+     *
      * @example 2099-12-31T15:59Z
      *
      * @var string
@@ -16,6 +18,11 @@ class managerNode extends Model
     public $expiredTime;
 
     /**
+     * @description The instance billing method of the management node. Valid values:
+     *
+     *   PostPaid: pay-as-you-go
+     *   PrePaid: subscription
+     *
      * @example PostPaid
      *
      * @var string
@@ -23,6 +30,8 @@ class managerNode extends Model
     public $instanceChargeType;
 
     /**
+     * @description The instance ID of the management node.
+     *
      * @example i-bp1a170jgea1vl******
      *
      * @var string
@@ -30,6 +39,8 @@ class managerNode extends Model
     public $instanceId;
 
     /**
+     * @description The instance type of the management node.
+     *
      * @example ecs.g6.4xlarge
      *
      * @var string

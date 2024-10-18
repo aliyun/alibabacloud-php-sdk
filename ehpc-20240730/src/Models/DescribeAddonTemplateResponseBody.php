@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAddonTemplateResponseBody extends Model
 {
     /**
+     * @description The details of the addon template.
+     *
      * @var addon
      */
     public $addon;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeAddonTemplateResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeAddonTemplateResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE7****
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeAddonTemplateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

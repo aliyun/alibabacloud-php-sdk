@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class queues extends Model
 {
     /**
+     * @description The hardware configurations of the compute nodes that are added in auto scale-outs. Up to five nodes are displayed.
+     *
      * @var NodeTemplate[]
      */
     public $computeNodes;
 
     /**
+     * @description The time when the queue was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+     *
      * @example 2023-11-10T02:04:00Z
      *
      * @var string
@@ -23,6 +27,11 @@ class queues extends Model
     public $createTime;
 
     /**
+     * @description Indicates whether auto scale-in is enabled for the queue. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +39,11 @@ class queues extends Model
     public $enableScaleIn;
 
     /**
+     * @description Indicates whether auto scale-out is enabled for the queue. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +51,8 @@ class queues extends Model
     public $enableScaleOut;
 
     /**
+     * @description The maximum number of compute nodes that the queue can contain.
+     *
      * @example 100
      *
      * @var int
@@ -44,6 +60,8 @@ class queues extends Model
     public $maxCount;
 
     /**
+     * @description The minimum number of compute nodes that are added to the queue in each auto scale-out.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +69,8 @@ class queues extends Model
     public $maxCountPerCycle;
 
     /**
+     * @description The minimum number of compute nodes that the queue must contain.
+     *
      * @example 0
      *
      * @var int
@@ -58,11 +78,15 @@ class queues extends Model
     public $minCount;
 
     /**
+     * @description The statistics about the compute nodes in the queue.
+     *
      * @var nodes
      */
     public $nodes;
 
     /**
+     * @description The queue name.
+     *
      * @example comp
      *
      * @var string
@@ -70,6 +94,8 @@ class queues extends Model
     public $queueName;
 
     /**
+     * @description The total number of vCPUs that are used by all compute nodes in the queue.
+     *
      * @example 24
      *
      * @var int
@@ -77,6 +103,8 @@ class queues extends Model
     public $totalCores;
 
     /**
+     * @description The time when the queue was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+     *
      * @example 2024-04-25T02:02:32
      *
      * @var string
@@ -84,6 +112,8 @@ class queues extends Model
     public $updateTime;
 
     /**
+     * @description The vSwitches that can be used for added nodes during auto scale-outs. Up to three vSwitches are displayed.
+     *
      * @var string[]
      */
     public $vSwitchIds;

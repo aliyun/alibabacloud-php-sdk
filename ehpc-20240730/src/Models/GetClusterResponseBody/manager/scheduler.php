@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class scheduler extends Model
 {
     /**
+     * @description The scheduler state. Valid values:
+     *
+     *   uninit: The scheduler is being installed.
+     *   initing: The scheduler is being initialized.
+     *   running: The scheduler is running.
+     *   exception: The scheduler has run into an exception.
+     *   releasing: The scheduler is being released.
+     *   stopped: The scheduler is stopped.
+     *   pending: The scheduler is waiting to be configured.
+     *
      * @example running
      *
      * @var string
@@ -16,6 +26,14 @@ class scheduler extends Model
     public $status;
 
     /**
+     * @description The scheduler type. Valid values:
+     *
+     *   SLURM
+     *   PBS
+     *   OPENGRIDSCHEDULER
+     *   LSF_PLUGIN
+     *   PBS_PLUGIN
+     *
      * @example SLURM
      *
      * @var string
@@ -23,6 +41,8 @@ class scheduler extends Model
     public $type;
 
     /**
+     * @description The scheduler version.
+     *
      * @example 22.05.8
      *
      * @var string

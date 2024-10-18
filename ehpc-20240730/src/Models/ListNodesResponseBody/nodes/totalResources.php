@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class totalResources extends Model
 {
     /**
+     * @description The number of vCPUs.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class totalResources extends Model
     public $cpu;
 
     /**
+     * @description The number of GPUs.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +27,8 @@ class totalResources extends Model
     public $gpu;
 
     /**
+     * @description The amount of memory. Unit: GiB.
+     *
      * @example 1024
      *
      * @var int

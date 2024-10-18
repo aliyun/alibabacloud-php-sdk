@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateNodesResponseBody extends Model
 {
     /**
+     * @description The IDs of the compute nodes to be created.
+     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
+     * @description The request ID.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string
@@ -21,6 +25,11 @@ class CreateNodesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

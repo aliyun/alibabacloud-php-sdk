@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourcesSpec extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example i-bp1bg85d2q6laic8****
      *
      * @var string
@@ -16,6 +18,8 @@ class resourcesSpec extends Model
     public $ecsInstanceId;
 
     /**
+     * @description The Elastic IP Address (EIP) ID.
+     *
      * @example eip-bp1vi9124tbx1g3kr****
      *
      * @var string

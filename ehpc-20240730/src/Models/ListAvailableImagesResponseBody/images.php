@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class images extends Model
 {
     /**
+     * @description The OS architecture of the image. Valid values:
+     *
+     *   x86_64
+     *   arm64
+     *
      * @example x86_64
      *
      * @var string
@@ -16,6 +21,12 @@ class images extends Model
     public $architecture;
 
     /**
+     * @description The boot mode of the image. Valid values:
+     *
+     *   BIOS: Basic Input/Output System (BIOS)
+     *   UEFI: Unified Extensible Firmware Interface (UEFI)
+     *
+     * >  When you change the OS boot mode of an instance, you must make sure that the boot mode matches the boot mode of the associated image. Otherwise, the instance fails to be booted.
      * @example BIOS
      *
      * @var string
@@ -23,6 +34,8 @@ class images extends Model
     public $bootMode;
 
     /**
+     * @description The image description.
+     *
      * @example ExampleDescription
      *
      * @var string
@@ -30,6 +43,8 @@ class images extends Model
     public $description;
 
     /**
+     * @description The image ID.
+     *
      * @example centos_7_06_64_20G_alibase_2019071****
      *
      * @var string
@@ -37,6 +52,8 @@ class images extends Model
     public $imageId;
 
     /**
+     * @description The image name.
+     *
      * @example CHESS5V5.0.27
      *
      * @var string
@@ -44,6 +61,12 @@ class images extends Model
     public $imageName;
 
     /**
+     * @description The image source. Valid values:
+     *
+     *   system: system images
+     *   self: custom images
+     *   others: shared images
+     *
      * @example self
      *
      * @var string
@@ -51,11 +74,15 @@ class images extends Model
     public $imageOwnerAlias;
 
     /**
+     * @description The OS name in Chinese.
+     *
      * @var string
      */
     public $OSName;
 
     /**
+     * @description The OS name in English.
+     *
      * @example CentOS  7.9 64 bit
      *
      * @var string
@@ -63,6 +90,11 @@ class images extends Model
     public $OSNameEn;
 
     /**
+     * @description The OS. Valid values:
+     *
+     *   CentOS
+     *   windows
+     *
      * @example windows
      *
      * @var string
@@ -70,6 +102,8 @@ class images extends Model
     public $platform;
 
     /**
+     * @description The image size. Unit: GiB
+     *
      * @example 40
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
+     * @description The time when the node was created.
+     *
      * @example 2020-06-09T06:22:02.000Z
      *
      * @var string
@@ -17,6 +19,8 @@ class nodes extends Model
     public $addTime;
 
     /**
+     * @description The time when the node expires.
+     *
      * @example 2020-06-09T06:22:02.000Z
      *
      * @var string
@@ -24,6 +28,8 @@ class nodes extends Model
     public $expiredTime;
 
     /**
+     * @description The hostname of the node.
+     *
      * @example edas.cn-shanghai.aliyuncs.com
      *
      * @var string
@@ -31,6 +37,8 @@ class nodes extends Model
     public $hostname;
 
     /**
+     * @description Indicates whether hyper-threading is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -38,6 +46,8 @@ class nodes extends Model
     public $htEnabled;
 
     /**
+     * @description The instance ID of the node.
+     *
      * @example i-bp15707mys2rsy0j****
      *
      * @var string
@@ -45,6 +55,8 @@ class nodes extends Model
     public $id;
 
     /**
+     * @description The image ID of the node.
+     *
      * @example centos_7_06_64_20G_alibase_20190711.vhd
      *
      * @var string
@@ -52,6 +64,8 @@ class nodes extends Model
     public $imageId;
 
     /**
+     * @description The instance type of the node.
+     *
      * @example ecs.c5.large
      *
      * @var string
@@ -59,13 +73,20 @@ class nodes extends Model
     public $instanceType;
 
     /**
-     * @example 172.16.\*\*.**
+     * @description The VPC IP address of the node.
+     *
+     * @example ``172.16.**.**``
      *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @description Indicates whether deletion protection is enabled for the node. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -73,13 +94,17 @@ class nodes extends Model
     public $keepAlive;
 
     /**
-     * @example 172.16.\*\*.**
+     * @description The public IP address of the node.
+     *
+     * @example ``172.16.**.**``
      *
      * @var string
      */
     public $publicIpAddress;
 
     /**
+     * @description The name of the queue to which the node belongs.
+     *
      * @example autoque3
      *
      * @var string
@@ -87,6 +112,12 @@ class nodes extends Model
     public $queueName;
 
     /**
+     * @description The bidding policy of the node. Valid values:
+     *
+     *   NoSpot: The instances of the compute node are pay-as-you-go instances.
+     *   SpotWithPriceLimit: The instances are created as preemptible instances with a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The node is a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
+     *
      * @example NoSpot
      *
      * @var string
@@ -94,6 +125,8 @@ class nodes extends Model
     public $spotStrategy;
 
     /**
+     * @description The node state in the scheduler.
+     *
      * @example active
      *
      * @var string
@@ -101,6 +134,16 @@ class nodes extends Model
     public $stateInSched;
 
     /**
+     * @description The node state. Valid values:
+     *
+     *   uninit: The node is being installed.
+     *   initing: The node is being initialized.
+     *   running: The node is running.
+     *   releasing: The node is being released.
+     *   stopped: The node is stopped.
+     *   exception: The node has run into an exception.
+     *   untracking: The node is not added to the cluster.
+     *
      * @example running
      *
      * @var string
@@ -108,11 +151,15 @@ class nodes extends Model
     public $status;
 
     /**
+     * @description The hardware configurations of the node.
+     *
      * @var totalResources
      */
     public $totalResources;
 
     /**
+     * @description The vSwitch ID of the node.
+     *
      * @example vsw-bp1e47optm9g58zcu****
      *
      * @var string
@@ -120,6 +167,8 @@ class nodes extends Model
     public $vSwitchId;
 
     /**
+     * @description The VPC ID.
+     *
      * @example vpc-bp1gnu8br4ay7beb2w****
      *
      * @var string
@@ -127,6 +176,8 @@ class nodes extends Model
     public $vpcId;
 
     /**
+     * @description The zone ID of the node.
+     *
      * @example cn-hangzhou-b
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListCommonLogsResponseBody extends Model
 {
     /**
+     * @description The information about the returned logs.
+     *
      * @var logs[]
      */
     public $logs;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListCommonLogsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class ListCommonLogsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 464E9919-D04F-4D1D-B375-15989492****
      *
      * @var string
@@ -36,6 +44,8 @@ class ListCommonLogsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 15
      *
      * @var int
@@ -43,6 +53,8 @@ class ListCommonLogsResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 137***
      *
      * @var string

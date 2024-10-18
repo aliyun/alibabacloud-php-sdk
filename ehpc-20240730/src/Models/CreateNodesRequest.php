@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateNodesRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * You can call the [ListClusters](https://help.aliyun.com/document_detail/87116.html) operation to query the cluster ID.
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -16,11 +19,19 @@ class CreateNodesRequest extends Model
     public $clusterId;
 
     /**
+     * @description The hardware configurations of the compute nodes.
+     *
      * @var NodeTemplate
      */
     public $computeNode;
 
     /**
+     * @description The number of compute nodes that you want to add. Valid values: 1 to 99. The MinCount value must be smaller than the Count value.
+     *
+     *   If the number of available Elastic Compute Service (ECS) instances is smaller than the MinCount value, the nodes fail to be added.
+     *   If the number of available ECS instances is larger than the MinCount value but smaller than the Count value, nodes are added based on the MinCount value.
+     *   If the number of available ECS instances is larger than the Count value, nodes are added based on the Count value.
+     *
      * @example 10
      *
      * @var int
@@ -28,6 +39,11 @@ class CreateNodesRequest extends Model
     public $count;
 
     /**
+     * @description The type of the network between compute nodes. Valid values:
+     *
+     *   vpc
+     *   eRDMA
+     *
      * @example vpc
      *
      * @var string
@@ -35,6 +51,8 @@ class CreateNodesRequest extends Model
     public $HPCInterConnect;
 
     /**
+     * @description The hostname prefix of the added compute nodes.
+     *
      * @example compute
      *
      * @var string
@@ -42,6 +60,8 @@ class CreateNodesRequest extends Model
     public $hostnamePrefix;
 
     /**
+     * @description The hostname suffix of the added compute nodes.
+     *
      * @example demo
      *
      * @var string
@@ -49,6 +69,8 @@ class CreateNodesRequest extends Model
     public $hostnameSuffix;
 
     /**
+     * @description Specifies whether to enable deletion protection for the added compute nodes.
+     *
      * @example false
      *
      * @var string
@@ -56,6 +78,8 @@ class CreateNodesRequest extends Model
     public $keepAlive;
 
     /**
+     * @description The name of the queue for which you want to create compute nodes.
+     *
      * @example test1
      *
      * @var string
@@ -63,6 +87,8 @@ class CreateNodesRequest extends Model
     public $queueName;
 
     /**
+     * @description The Resource Access Management (RAM) role to be assumed by the added nodes.
+     *
      * @example AliyunServiceRoleForOOSBandwidthScheduler
      *
      * @var string
@@ -70,6 +96,8 @@ class CreateNodesRequest extends Model
     public $ramRole;
 
     /**
+     * @description The ID of the vSwitch to be used by the added nodes.
+     *
      * @example vsw-bp1lfcjbfb099rrjn****
      *
      * @var string

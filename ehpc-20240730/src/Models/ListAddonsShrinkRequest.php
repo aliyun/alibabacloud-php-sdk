@@ -9,13 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListAddonsShrinkRequest extends Model
 {
     /**
+     * @description The addon IDs.
+     *
      * @var string
      */
     public $addonIdsShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -23,6 +26,8 @@ class ListAddonsShrinkRequest extends Model
     public $clusterId;
 
     /**
+     * @description The page number of the page to return. Default value: 1
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +35,8 @@ class ListAddonsShrinkRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int

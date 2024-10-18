@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -18,6 +19,11 @@ class UpdateUserRequest extends Model
     public $clusterId;
 
     /**
+     * @description The user group attribute of the user that you want to update. Valid values:
+     *
+     *   users: ordinary permissions, which are suitable for ordinary users that need only to submit and debug jobs.
+     *   wheel: sudo permissions, which are suitable for administrators who need to manage clusters. In addition to submitting and debugging jobs, you can also run sudo commands to install software and restart nodes.
+     *
      * @example users
      *
      * @var string
@@ -25,6 +31,13 @@ class UpdateUserRequest extends Model
     public $group;
 
     /**
+     * @description The password attribute of the user that you want to update. The password must be 6 to 30 characters in length and must contain three of the following four character types:
+     *
+     *   Uppercase letters
+     *   Lowercase letters
+     *   Digits
+     *   Special characters ()~!@#$%^&\\*-_+=|{}[]:;\\"/<>,.?/
+     *
      * @example 123****
      *
      * @var string
@@ -32,8 +45,9 @@ class UpdateUserRequest extends Model
     public $password;
 
     /**
-     * @description This parameter is required.
+     * @description The username.
      *
+     * This parameter is required.
      * @example testuser
      *
      * @var string

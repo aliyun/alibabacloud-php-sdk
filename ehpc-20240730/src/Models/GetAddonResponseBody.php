@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetAddonResponseBody extends Model
 {
     /**
+     * @description The details about the addon.
+     *
      * @var addon
      */
     public $addon;
 
     /**
+     * @description The request ID.
+     *
      * @example BBC2F93D-003A-49C4-850C-B826EECF****
      *
      * @var string

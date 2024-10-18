@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListClustersShrinkRequest extends Model
 {
     /**
+     * @description The cluster IDs. You can specify up to 20 IDs.
+     *
      * @var string
      */
     public $clusterIdsShrink;
 
     /**
+     * @description The cluster names. You can specify up to 20 names.
+     *
      * @var string
      */
     public $clusterNamesShrink;
 
     /**
+     * @description The page number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -26,6 +32,8 @@ class ListClustersShrinkRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 10 to 100. Default value: 10
+     *
      * @example 10
      *
      * @var int

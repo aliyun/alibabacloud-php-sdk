@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetCommonLogDetailResponseBody extends Model
 {
     /**
+     * @description The action name.
+     *
      * @example CreateCluster
      *
      * @var string
@@ -17,6 +19,8 @@ class GetCommonLogDetailResponseBody extends Model
     public $action;
 
     /**
+     * @description The cluster ID.
+     *
      * @example ehpc-hz-abc***
      *
      * @var string
@@ -24,11 +28,15 @@ class GetCommonLogDetailResponseBody extends Model
     public $clusterId;
 
     /**
+     * @description The information about the logs.
+     *
      * @var logDetail[]
      */
     public $logDetail;
 
     /**
+     * @description The log type.
+     *
      * @example operation
      *
      * @var string
@@ -36,6 +44,8 @@ class GetCommonLogDetailResponseBody extends Model
     public $logType;
 
     /**
+     * @description The ID of the user who performed the action.
+     *
      * @example 239***
      *
      * @var string
@@ -43,6 +53,8 @@ class GetCommonLogDetailResponseBody extends Model
     public $operatorUid;
 
     /**
+     * @description The request ID.
+     *
      * @example 464E9919-D04F-4D1D-B375-15989492****
      *
      * @var string
@@ -50,6 +62,8 @@ class GetCommonLogDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 137***
      *
      * @var string

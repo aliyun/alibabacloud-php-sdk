@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListQueuesShrinkRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListQueuesShrinkRequest extends Model
     public $clusterId;
 
     /**
+     * @description The names of the queues that you want to query. You can specify up to eight names.
+     *
      * @var string
      */
     public $queueNamesShrink;

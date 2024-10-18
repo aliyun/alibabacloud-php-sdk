@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class addons extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The addon ID.
      *
+     * This parameter is required.
      * @example Login-1.0-W4g****
      *
      * @var string
@@ -18,11 +19,15 @@ class addons extends Model
     public $addonId;
 
     /**
+     * @description The addon description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The time when the addon was installed.
+     *
      * @example 2024-08-22 18:11:17
      *
      * @var string
@@ -30,13 +35,16 @@ class addons extends Model
     public $installTime;
 
     /**
+     * @description The addon label.
+     *
      * @var string
      */
     public $label;
 
     /**
-     * @description This parameter is required.
+     * @description The addon name.
      *
+     * This parameter is required.
      * @example Login
      *
      * @var string
@@ -44,6 +52,8 @@ class addons extends Model
     public $name;
 
     /**
+     * @description The addon state.
+     *
      * @example Running
      *
      * @var string
@@ -51,8 +61,9 @@ class addons extends Model
     public $status;
 
     /**
-     * @description This parameter is required.
+     * @description The addon version.
      *
+     * This parameter is required.
      * @example 1.0
      *
      * @var string

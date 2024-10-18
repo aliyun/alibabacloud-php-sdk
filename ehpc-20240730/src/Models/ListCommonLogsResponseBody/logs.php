@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class logs extends Model
 {
     /**
+     * @description The name of the action corresponding to the log.
+     *
      * @example CreaterCluster
      *
      * @var string
@@ -16,6 +18,8 @@ class logs extends Model
     public $action;
 
     /**
+     * @description The cluster ID.
+     *
      * @example ehpc-hz-9T3xPNezoS
      *
      * @var string
@@ -23,6 +27,8 @@ class logs extends Model
     public $clusterId;
 
     /**
+     * @description The log type.
+     *
      * @example Operation
      *
      * @var string
@@ -30,6 +36,8 @@ class logs extends Model
     public $logType;
 
     /**
+     * @description The message of the log.
+     *
      * @example ok
      *
      * @var string
@@ -37,6 +45,8 @@ class logs extends Model
     public $message;
 
     /**
+     * @description The ID of the user who performed the action.
+     *
      * @example 137***
      *
      * @var string
@@ -44,6 +54,8 @@ class logs extends Model
     public $operatorUid;
 
     /**
+     * @description The request ID associated with the action that generated the log.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE7****
      *
      * @var string
@@ -51,6 +63,12 @@ class logs extends Model
     public $requestId;
 
     /**
+     * @description The action state in the log. Valid values:
+     *
+     *   InProgress: The action is being performed.
+     *   Finished: The action is completed.
+     *   Failed: The action failed.
+     *
      * @example Finished
      *
      * @var string
@@ -58,6 +76,8 @@ class logs extends Model
     public $status;
 
     /**
+     * @description The involved resource.
+     *
      * @example i-abc***
      *
      * @var string
@@ -65,6 +85,8 @@ class logs extends Model
     public $target;
 
     /**
+     * @description The time when the log was generated.
+     *
      * @example 2024-08-22 14:21:54
      *
      * @var string

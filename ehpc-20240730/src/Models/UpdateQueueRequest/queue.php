@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class queue extends Model
 {
     /**
+     * @description The policy based on which instance types are selected for compute nodes during auto scale-outs. Valid values:
+     *
+     *   PriorityInstanceType
+     *
      * @example PriorityInstanceType
      *
      * @var string
@@ -17,11 +21,18 @@ class queue extends Model
     public $allocationStrategy;
 
     /**
+     * @description The hardware configurations of the compute nodes in the queue. Valid values of N: 1 to 10.
+     *
      * @var NodeTemplate[]
      */
     public $computeNodes;
 
     /**
+     * @description Specifies whether to enable auto scale-in for the queue. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -29,6 +40,11 @@ class queue extends Model
     public $enableScaleIn;
 
     /**
+     * @description Specifies whether to enable auto scale-out for the queue. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -36,6 +52,8 @@ class queue extends Model
     public $enableScaleOut;
 
     /**
+     * @description The hostname prefix of the compute nodes in the queue.
+     *
      * @example compute
      *
      * @var string
@@ -43,6 +61,8 @@ class queue extends Model
     public $hostnamePrefix;
 
     /**
+     * @description The hostname suffix of the compute nodes in the queue.
+     *
      * @example hpc
      *
      * @var string
@@ -50,6 +70,8 @@ class queue extends Model
     public $hostnameSuffix;
 
     /**
+     * @description The initial number of compute nodes in the queue.
+     *
      * @example 0
      *
      * @var int
@@ -57,6 +79,8 @@ class queue extends Model
     public $initialCount;
 
     /**
+     * @description The type of the network for interconnecting compute nodes in the queue.
+     *
      * @example erdma
      *
      * @var string
@@ -64,11 +88,15 @@ class queue extends Model
     public $interConnect;
 
     /**
+     * @description The nodes for which deletion protection is enabled in the queue.
+     *
      * @var string[]
      */
     public $keepAliveNodes;
 
     /**
+     * @description The maximum number of compute nodes that the queue can contain.
+     *
      * @example 1000
      *
      * @var int
@@ -76,6 +104,8 @@ class queue extends Model
     public $maxCount;
 
     /**
+     * @description The minimum number of compute nodes that are added to the queue during an automatic scale-out.
+     *
      * @example 99
      *
      * @var int
@@ -83,6 +113,8 @@ class queue extends Model
     public $maxCountPerCycle;
 
     /**
+     * @description The minimum number of compute nodes that the queue must contain.
+     *
      * @example 0
      *
      * @var int
@@ -90,8 +122,9 @@ class queue extends Model
     public $minCount;
 
     /**
-     * @description This parameter is required.
+     * @description The queue name.
      *
+     * This parameter is required.
      * @example comp
      *
      * @var string
@@ -99,6 +132,8 @@ class queue extends Model
     public $queueName;
 
     /**
+     * @description The Resource Access Management (RAM) role that is assumed by compute nodes in the queue.
+     *
      * @example AliyunECSInstanceForEHPCRole
      *
      * @var string
@@ -106,6 +141,8 @@ class queue extends Model
     public $ramRole;
 
     /**
+     * @description The vSwitches available for use by compute nodes in the queue.
+     *
      * @var string[]
      */
     public $vSwitchIds;

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateQueueShrinkRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * You can call the [ListClusters](https://help.aliyun.com/document_detail/87116.html) operation to query the cluster ID.
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -16,6 +19,8 @@ class UpdateQueueShrinkRequest extends Model
     public $clusterId;
 
     /**
+     * @description The information about the queue to be updated.
+     *
      * @var string
      */
     public $queueShrink;

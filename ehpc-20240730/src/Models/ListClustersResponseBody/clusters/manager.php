@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class manager extends Model
 {
     /**
+     * @description The configurations of the domain name resolution service.
+     *
      * @var DNS
      */
     public $DNS;
 
     /**
+     * @description The configurations of the directory service.
+     *
      * @var directoryService
      */
     public $directoryService;
 
     /**
+     * @description The configurations of the scheduler service.
+     *
      * @var scheduler
      */
     public $scheduler;

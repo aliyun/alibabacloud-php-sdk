@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
+     * @description The number of compute nodes that are not ready.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,8 @@ class nodes extends Model
     public $creatingCounts;
 
     /**
+     * @description The number of malfunctioning compute nodes.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +27,8 @@ class nodes extends Model
     public $exceptionCounts;
 
     /**
+     * @description The number of running compute nodes.
+     *
      * @example 1
      *
      * @var int

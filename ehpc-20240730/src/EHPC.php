@@ -12,6 +12,9 @@ use AlibabaCloud\SDK\EHPC\V20240730\Models\AttachSharedStoragesShrinkRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\CreateClusterRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\CreateClusterResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\CreateClusterShrinkRequest;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\CreateJobRequest;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\CreateJobResponse;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\CreateJobShrinkRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\CreateNodesRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\CreateNodesResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\CreateNodesShrinkRequest;
@@ -23,9 +26,6 @@ use AlibabaCloud\SDK\EHPC\V20240730\Models\CreateUsersResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\CreateUsersShrinkRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\DeleteClusterResponse;
-use AlibabaCloud\SDK\EHPC\V20240730\Models\DeleteJobsRequest;
-use AlibabaCloud\SDK\EHPC\V20240730\Models\DeleteJobsResponse;
-use AlibabaCloud\SDK\EHPC\V20240730\Models\DeleteJobsShrinkRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\DeleteNodesRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\DeleteNodesResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\DeleteNodesShrinkRequest;
@@ -46,6 +46,10 @@ use AlibabaCloud\SDK\EHPC\V20240730\Models\GetClusterRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\GetClusterResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\GetCommonLogDetailRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\GetCommonLogDetailResponse;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\GetJobLogRequest;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\GetJobLogResponse;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\GetJobRequest;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\GetJobResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\GetQueueRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\GetQueueResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\InstallAddonRequest;
@@ -71,6 +75,9 @@ use AlibabaCloud\SDK\EHPC\V20240730\Models\ListCommonLogsResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\ListCommonLogsShrinkRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\ListInstalledSoftwaresRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\ListInstalledSoftwaresResponse;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\ListJobsRequest;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\ListJobsResponse;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\ListJobsShrinkRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\ListNodesRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\ListNodesResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\ListNodesShrinkRequest;
@@ -83,6 +90,9 @@ use AlibabaCloud\SDK\EHPC\V20240730\Models\ListSoftwaresRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\ListSoftwaresResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\ListUsersRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\ListUsersResponse;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\StopJobsRequest;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\StopJobsResponse;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\StopJobsShrinkRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\UnInstallAddonRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\UnInstallAddonResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\UninstallSoftwaresRequest;
@@ -139,7 +149,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 挂载共享存储
+     * @summary Attaches shared storage to an Elastic High Performance Computing (E-HPC) cluster.
      *  *
      * @param AttachSharedStoragesRequest $tmpReq  AttachSharedStoragesRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -180,7 +190,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 挂载共享存储
+     * @summary Attaches shared storage to an Elastic High Performance Computing (E-HPC) cluster.
      *  *
      * @param AttachSharedStoragesRequest $request AttachSharedStoragesRequest
      *
@@ -327,7 +337,71 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 集群扩容节点
+     * @summary Creates a job for a cluster.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of E-HPC.
+     *  *
+     * @param CreateJobRequest $tmpReq  CreateJobRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateJobResponse CreateJobResponse
+     */
+    public function createJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->jobSpec)) {
+            $request->jobSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobSpec, 'JobSpec', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->jobName)) {
+            $query['JobName'] = $request->jobName;
+        }
+        if (!Utils::isUnset($request->jobSpecShrink)) {
+            $query['JobSpec'] = $request->jobSpecShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateJob',
+            'version'     => '2024-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Creates a job for a cluster.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of E-HPC.
+     *  *
+     * @param CreateJobRequest $request CreateJobRequest
+     *
+     * @return CreateJobResponse CreateJobResponse
+     */
+    public function createJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates compute nodes for an Elastic High Performance Computing (E-HPC) cluster.
+     *  *
+     * @description ## [](#)
      *  *
      * @param CreateNodesRequest $tmpReq  CreateNodesRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -392,7 +466,9 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 集群扩容节点
+     * @summary Creates compute nodes for an Elastic High Performance Computing (E-HPC) cluster.
+     *  *
+     * @description ## [](#)
      *  *
      * @param CreateNodesRequest $request CreateNodesRequest
      *
@@ -461,7 +537,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 创建集群用户
+     * @summary Adds users to an Elastic High Performance Computing (E-HPC) cluster.
      *  *
      * @param CreateUsersRequest $tmpReq  CreateUsersRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -502,7 +578,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 创建集群用户
+     * @summary Adds users to an Elastic High Performance Computing (E-HPC) cluster.
      *  *
      * @param CreateUsersRequest $request CreateUsersRequest
      *
@@ -560,58 +636,6 @@ class EHPC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteClusterWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 删除作业
-     *  *
-     * @param DeleteJobsRequest $tmpReq  DeleteJobsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DeleteJobsResponse DeleteJobsResponse
-     */
-    public function deleteJobsWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new DeleteJobsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->jobSpec)) {
-            $request->jobSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobSpec, 'JobSpec', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->jobSpecShrink)) {
-            $query['JobSpec'] = $request->jobSpecShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteJobs',
-            'version'     => '2024-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 删除作业
-     *  *
-     * @param DeleteJobsRequest $request DeleteJobsRequest
-     *
-     * @return DeleteJobsResponse DeleteJobsResponse
-     */
-    public function deleteJobs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteJobsWithOptions($request, $runtime);
     }
 
     /**
@@ -786,7 +810,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 查询Add-on服务组件模板详情。
+     * @summary Queries the details of an addon template.
      *  *
      * @param DescribeAddonTemplateRequest $request DescribeAddonTemplateRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -834,7 +858,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 查询Add-on服务组件模板详情。
+     * @summary Queries the details of an addon template.
      *  *
      * @param DescribeAddonTemplateRequest $request DescribeAddonTemplateRequest
      *
@@ -903,7 +927,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 查看已安装的Add-on服务组件详情。
+     * @summary Queries the details of an installed addon.
      *  *
      * @param GetAddonRequest $request GetAddonRequest
      * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
@@ -939,7 +963,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 查看已安装的Add-on服务组件详情。
+     * @summary Queries the details of an installed addon.
      *  *
      * @param GetAddonRequest $request GetAddonRequest
      *
@@ -953,7 +977,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 查询单个E-HPC集群的详情信息。
+     * @summary Queries information about an Elastic High Performance Computing (E-HPC) cluster.
      *  *
      * @param GetClusterRequest $request GetClusterRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -986,7 +1010,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 查询单个E-HPC集群的详情信息。
+     * @summary Queries information about an Elastic High Performance Computing (E-HPC) cluster.
      *  *
      * @param GetClusterRequest $request GetClusterRequest
      *
@@ -1000,7 +1024,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 查询集群通用日志详细信息
+     * @summary Query logs based on a request ID. Logs for specific actions can be queried thanks to an Action-Stage-Method three-layer log splitting structure.
      *  *
      * @param GetCommonLogDetailRequest $request GetCommonLogDetailRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -1042,7 +1066,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 查询集群通用日志详细信息
+     * @summary Query logs based on a request ID. Logs for specific actions can be queried thanks to an Action-Stage-Method three-layer log splitting structure.
      *  *
      * @param GetCommonLogDetailRequest $request GetCommonLogDetailRequest
      *
@@ -1056,7 +1080,122 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 查询集群的队列配置信息
+     * @summary 获取作业详情
+     *  *
+     * @param GetJobRequest  $request GetJobRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetJobResponse GetJobResponse
+     */
+    public function getJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetJob',
+            'version'     => '2024-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取作业详情
+     *  *
+     * @param GetJobRequest $request GetJobRequest
+     *
+     * @return GetJobResponse GetJobResponse
+     */
+    public function getJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the output logs of a job, including standard output logs and error output logs.
+     *  *
+     * @description ## [](#)Usage notes
+     * Currently, only Slurm and PBS Pro schedulers for Standard Edition clusters are supported.
+     *  *
+     * @param GetJobLogRequest $request GetJobLogRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetJobLogResponse GetJobLogResponse
+     */
+    public function getJobLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->logType)) {
+            $query['LogType'] = $request->logType;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $query['Offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['Size'] = $request->size;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetJobLog',
+            'version'     => '2024-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetJobLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the output logs of a job, including standard output logs and error output logs.
+     *  *
+     * @description ## [](#)Usage notes
+     * Currently, only Slurm and PBS Pro schedulers for Standard Edition clusters are supported.
+     *  *
+     * @param GetJobLogRequest $request GetJobLogRequest
+     *
+     * @return GetJobLogResponse GetJobLogResponse
+     */
+    public function getJobLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getJobLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the details of a queue in an Elastic High Performance Computing (E-HPC) cluster.
      *  *
      * @param GetQueueRequest $request GetQueueRequest
      * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
@@ -1092,7 +1231,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 查询集群的队列配置信息
+     * @summary Queries the details of a queue in an Elastic High Performance Computing (E-HPC) cluster.
      *  *
      * @param GetQueueRequest $request GetQueueRequest
      *
@@ -1214,7 +1353,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 支持的Add-on服务组件模板列表查询。
+     * @summary Queries supported addon templates.
      *  *
      * @param ListAddonTemplatesRequest $request ListAddonTemplatesRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -1259,7 +1398,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 支持的Add-on服务组件模板列表查询。
+     * @summary Queries supported addon templates.
      *  *
      * @param ListAddonTemplatesRequest $request ListAddonTemplatesRequest
      *
@@ -1273,7 +1412,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 查看已安装的Add-on服务组件列表。
+     * @summary Queries installed addons of an Elastic High Performance Computing (E-HPC) cluster.
      *  *
      * @param ListAddonsRequest $tmpReq  ListAddonsRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -1320,7 +1459,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 查看已安装的Add-on服务组件列表。
+     * @summary Queries installed addons of an Elastic High Performance Computing (E-HPC) cluster.
      *  *
      * @param ListAddonsRequest $request ListAddonsRequest
      *
@@ -1334,7 +1473,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 查询可用的共享存储
+     * @summary Queries the file systems that can be attached in a region.
      *  *
      * @param ListAvailableFileSystemsRequest $request ListAvailableFileSystemsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -1370,7 +1509,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 查询可用的共享存储
+     * @summary Queries the file systems that can be attached in a region.
      *  *
      * @param ListAvailableFileSystemsRequest $request ListAvailableFileSystemsRequest
      *
@@ -1384,7 +1523,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 获取可用镜像列表
+     * @summary Queries images that are available for Elastic High Performance Computing (E-HPC) clusters.
      *  *
      * @param ListAvailableImagesRequest $tmpReq  ListAvailableImagesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -1422,7 +1561,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 获取可用镜像列表
+     * @summary Queries images that are available for Elastic High Performance Computing (E-HPC) clusters.
      *  *
      * @param ListAvailableImagesRequest $request ListAvailableImagesRequest
      *
@@ -1436,7 +1575,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户账号中在每个地域拥有的所有集群的列表。
+     * @summary Queries all clusters of a user in each region.
      *  *
      * @param ListClustersRequest $tmpReq  ListClustersRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -1486,7 +1625,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户账号中在每个地域拥有的所有集群的列表。
+     * @summary Queries all clusters of a user in each region.
      *  *
      * @param ListClustersRequest $request ListClustersRequest
      *
@@ -1500,7 +1639,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 查询集群通用日志列表
+     * @summary Queries the logs of a cluster that are generated within a time range.
      *  *
      * @param ListCommonLogsRequest $tmpReq  ListCommonLogsRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -1571,7 +1710,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 查询集群通用日志列表
+     * @summary Queries the logs of a cluster that are generated within a time range.
      *  *
      * @param ListCommonLogsRequest $request ListCommonLogsRequest
      *
@@ -1629,7 +1768,68 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 查询节点列表
+     * @summary Queries the jobs in a cluster.
+     *  *
+     * @param ListJobsRequest $tmpReq  ListJobsRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListJobsResponse ListJobsResponse
+     */
+    public function listJobsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListJobsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->jobFilter)) {
+            $request->jobFilterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobFilter, 'JobFilter', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->jobFilterShrink)) {
+            $query['JobFilter'] = $request->jobFilterShrink;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListJobs',
+            'version'     => '2024-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the jobs in a cluster.
+     *  *
+     * @param ListJobsRequest $request ListJobsRequest
+     *
+     * @return ListJobsResponse ListJobsResponse
+     */
+    public function listJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the nodes of an Elastic High Performance Computing (E-HPC) cluster.
      *  *
      * @param ListNodesRequest $tmpReq  ListNodesRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -1700,7 +1900,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 查询节点列表
+     * @summary Queries the nodes of an Elastic High Performance Computing (E-HPC) cluster.
      *  *
      * @param ListNodesRequest $request ListNodesRequest
      *
@@ -1714,7 +1914,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 查询集群的队列信息。
+     * @summary Queries queues in an Elastic High Performance Computing (E-HPC) cluster.
      *  *
      * @param ListQueuesRequest $tmpReq  ListQueuesRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -1755,7 +1955,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 查询集群的队列信息。
+     * @summary Queries queues in an Elastic High Performance Computing (E-HPC) cluster.
      *  *
      * @param ListQueuesRequest $request ListQueuesRequest
      *
@@ -1910,6 +2110,61 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * @summary Stops uncompleted jobs in a batch in an Elastic High Performance Computing (E-HPC) cluster.
+     *  *
+     * @param StopJobsRequest $tmpReq  StopJobsRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StopJobsResponse StopJobsResponse
+     */
+    public function stopJobsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new StopJobsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->jobIds)) {
+            $request->jobIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobIds, 'JobIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->jobIdsShrink)) {
+            $query['JobIds'] = $request->jobIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopJobs',
+            'version'     => '2024-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Stops uncompleted jobs in a batch in an Elastic High Performance Computing (E-HPC) cluster.
+     *  *
+     * @param StopJobsRequest $request StopJobsRequest
+     *
+     * @return StopJobsResponse StopJobsResponse
+     */
+    public function stopJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopJobsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Uninstalls an addon.
      *  *
      * @param UnInstallAddonRequest $request UnInstallAddonRequest
@@ -2009,7 +2264,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 修改指定集群的基本信息。
+     * @summary Modifies the configurations of an Elastic High Performance Computing (E-HPC) cluster.
      *  *
      * @param UpdateClusterRequest $tmpReq  UpdateClusterRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -2080,7 +2335,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 修改指定集群的基本信息。
+     * @summary Modifies the configurations of an Elastic High Performance Computing (E-HPC) cluster.
      *  *
      * @param UpdateClusterRequest $request UpdateClusterRequest
      *
@@ -2155,7 +2410,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 更新集群的队列配置信息
+     * @summary Modifies the configurations of a queue in an Elastic High Performance Computing (E-HPC) cluster.
      *  *
      * @param UpdateQueueRequest $tmpReq  UpdateQueueRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -2196,7 +2451,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 更新集群的队列配置信息
+     * @summary Modifies the configurations of a queue in an Elastic High Performance Computing (E-HPC) cluster.
      *  *
      * @param UpdateQueueRequest $request UpdateQueueRequest
      *
@@ -2210,7 +2465,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 更新集群单个用户属性
+     * @summary Updates the information of a user in an Elastic High Performance Computing (E-HPC) cluster, including the user group and password.
      *  *
      * @param UpdateUserRequest $request UpdateUserRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -2252,7 +2507,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 更新集群单个用户属性
+     * @summary Updates the information of a user in an Elastic High Performance Computing (E-HPC) cluster, including the user group and password.
      *  *
      * @param UpdateUserRequest $request UpdateUserRequest
      *

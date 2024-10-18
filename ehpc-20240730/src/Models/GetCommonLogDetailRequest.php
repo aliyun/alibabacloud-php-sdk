@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetCommonLogDetailRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The start time of the time range within which the logs that you want to query were generated. The time is a timestamp. This value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1703821542
      *
      * @var int
@@ -18,6 +19,12 @@ class GetCommonLogDetailRequest extends Model
     public $from;
 
     /**
+     * @description Specifies whether to hide the process of each step. Valid values:
+     *
+     *   true: hides the process and returns only the result log of each step.
+     *   false: does not hide the process and displays the start and result logs of each step.
+     *
+     * Default value: true.
      * @example true
      *
      * @var bool
@@ -25,8 +32,9 @@ class GetCommonLogDetailRequest extends Model
     public $hiddenProcess;
 
     /**
-     * @description This parameter is required.
+     * @description The request ID.
      *
+     * This parameter is required.
      * @example 04F0F334-1335-436C-A1D7-6C044FE7****
      *
      * @var string
@@ -34,8 +42,9 @@ class GetCommonLogDetailRequest extends Model
     public $logRequestId;
 
     /**
-     * @description This parameter is required.
+     * @description The end time of the time range within which the logs that you want to query were generated. The time is a timestamp. This value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1703821666
      *
      * @var int

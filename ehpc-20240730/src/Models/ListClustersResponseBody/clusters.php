@@ -15,16 +15,25 @@ use AlibabaCloud\Tea\Model;
 class clusters extends Model
 {
     /**
+     * @description The information about installed software in the cluster.
+     *
      * @var additionalPackages[]
      */
     public $additionalPackages;
 
     /**
+     * @description The information about the addons in the cluster.
+     *
      * @var addons[]
      */
     public $addons;
 
     /**
+     * @description The cluster type. Valid values:
+     *
+     *   Standard
+     *   Serverless
+     *
      * @example Standard
      *
      * @var string
@@ -32,6 +41,8 @@ class clusters extends Model
     public $clusterCategory;
 
     /**
+     * @description The time when the cluster was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+     *
      * @example 2024-08-06T12:43:01.000Z
      *
      * @var string
@@ -39,16 +50,25 @@ class clusters extends Model
     public $clusterCreateTime;
 
     /**
+     * @description The logon credential type of the cluster. Valid values:
+     *
+     *   password: requires passwords for logons.
+     *   keypair: requires key pairs for logons.
+     *
      * @var string[]
      */
     public $clusterCredentials;
 
     /**
+     * @description The post-processing script used by the cluster.
+     *
      * @var clusterCustomConfiguration
      */
     public $clusterCustomConfiguration;
 
     /**
+     * @description The cluster description.
+     *
      * @example Demo
      *
      * @var string
@@ -56,6 +76,8 @@ class clusters extends Model
     public $clusterDescription;
 
     /**
+     * @description The cluster ID.
+     *
      * @example ehpc-hz-VMKe******
      *
      * @var string
@@ -63,6 +85,12 @@ class clusters extends Model
     public $clusterId;
 
     /**
+     * @description The deployment type of the cluster. Valid values:
+     *
+     *   Integrated: public cloud
+     *   Hybrid: hybrid cloud
+     *   Custom: a custom cluster
+     *
      * @example Integrated
      *
      * @var string
@@ -70,6 +98,8 @@ class clusters extends Model
     public $clusterMode;
 
     /**
+     * @description The time when the cluster was modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+     *
      * @example 2024-08-06T12:43:01.000Z
      *
      * @var string
@@ -77,6 +107,8 @@ class clusters extends Model
     public $clusterModifyTime;
 
     /**
+     * @description The cluster name.
+     *
      * @example slurm22.05.8-cluster-20240227
      *
      * @var string
@@ -84,6 +116,18 @@ class clusters extends Model
     public $clusterName;
 
     /**
+     * @description The cluster state. Valid values:
+     *
+     *   uninit: The cluster is being installed.
+     *   creating: The cluster is being created.
+     *   initing: The cluster is being initialized.
+     *   running: The cluster is running.
+     *   Releasing: The cluster is being released.
+     *   stopping: The cluster is being stopped.
+     *   stopped: The cluster is stopped.
+     *   exception: The cluster has run into an exception.
+     *   pending: The cluster is waiting to be configured.
+     *
      * @example running
      *
      * @var string
@@ -91,6 +135,8 @@ class clusters extends Model
     public $clusterStatus;
 
     /**
+     * @description The vCPU-hour usage of the cluster.
+     *
      * @example 1000
      *
      * @var float
@@ -98,6 +144,8 @@ class clusters extends Model
     public $clusterUsedCoreTime;
 
     /**
+     * @description The ID of the vSwitch used by the cluster.
+     *
      * @example vsw-f8za5p0mwzgdu3wgx****
      *
      * @var string
@@ -105,6 +153,8 @@ class clusters extends Model
     public $clusterVSwitchId;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) used by the cluster.
+     *
      * @example vpc-m5efjevmclc0xdmys****
      *
      * @var string
@@ -112,6 +162,11 @@ class clusters extends Model
     public $clusterVpcId;
 
     /**
+     * @description Indicates whether deletion protection is enabled for the cluster. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -119,6 +174,8 @@ class clusters extends Model
     public $deletionProtection;
 
     /**
+     * @description The Elastic High Performance Computing (E-HPC) version.
+     *
      * @example 2.0.0
      *
      * @var string
@@ -126,11 +183,15 @@ class clusters extends Model
     public $ehpcVersion;
 
     /**
+     * @description The configurations of the cluster management node.
+     *
      * @var manager
      */
     public $manager;
 
     /**
+     * @description The maximum total number of vCPUs used by the compute nodes that can be managed by the cluster.
+     *
      * @example 10000
      *
      * @var int
@@ -138,6 +199,8 @@ class clusters extends Model
     public $maxCoreCount;
 
     /**
+     * @description The maximum number of compute nodes that can be managed by the cluster.
+     *
      * @example 500
      *
      * @var int
@@ -145,11 +208,15 @@ class clusters extends Model
     public $maxCount;
 
     /**
+     * @description The node statistics of the cluster.
+     *
      * @var nodes
      */
     public $nodes;
 
     /**
+     * @description The resource group ID.
+     *
      * @example rg-acfmxazb4ph****
      *
      * @var string
@@ -157,6 +224,8 @@ class clusters extends Model
     public $resourceGroupId;
 
     /**
+     * @description The ID of the security group used by the cluster.
+     *
      * @example sg-bp13n61xsydodfyg****
      *
      * @var string
@@ -164,6 +233,8 @@ class clusters extends Model
     public $securityGroupId;
 
     /**
+     * @description The user attribute information of the cluster.
+     *
      * @var users
      */
     public $users;

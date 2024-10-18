@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class eipResource extends Model
 {
     /**
+     * @description Indicates whether the EIP is automatically created.
+     *
      * @example True
      *
      * @var bool
@@ -16,6 +18,8 @@ class eipResource extends Model
     public $autoCreate;
 
     /**
+     * @description The maximum bandwidth of the EIP. Unit: Mbit/s.
+     *
      * @example 100
      *
      * @var string
@@ -23,6 +27,8 @@ class eipResource extends Model
     public $bandwidth;
 
     /**
+     * @description The EIP ID.
+     *
      * @example eip-bp1jwtsuoiif2qf90****
      *
      * @var string
@@ -30,6 +36,12 @@ class eipResource extends Model
     public $eipInstanceId;
 
     /**
+     * @description The billing method of the EIP. Valid values:
+     *
+     *   PostPaid: pay-as-you-go.
+     *   PrePaid: subscription.
+     *
+     * Default value: PostPaid
      * @example PostPaid
      *
      * @var string
@@ -37,6 +49,12 @@ class eipResource extends Model
     public $instanceChargeType;
 
     /**
+     * @description The metering method of the EIP. Valid values:
+     *
+     *   PayByBandwidth: pay by bandwidth.
+     *   PayByTraffic: pay by data transfer.
+     *
+     * Valid values of N: 1 to 10.
      * @example PayByTraffic
      *
      * @var string

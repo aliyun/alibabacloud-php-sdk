@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AttachSharedStoragesShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -18,8 +19,9 @@ class AttachSharedStoragesShrinkRequest extends Model
     public $clusterId;
 
     /**
-     * @description This parameter is required.
+     * @description The information about the shared storage resources that you want to attach to the cluster.
      *
+     * This parameter is required.
      * @var string
      */
     public $sharedStoragesShrink;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListAvailableImagesResponseBody extends Model
 {
     /**
+     * @description The information about the images.
+     *
      * @var images[]
      */
     public $images;
@@ -33,6 +35,8 @@ class ListAvailableImagesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string
@@ -40,6 +44,11 @@ class ListAvailableImagesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

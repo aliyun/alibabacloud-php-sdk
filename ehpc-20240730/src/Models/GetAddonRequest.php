@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetAddonRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The addon ID.
      *
+     * This parameter is required.
      * @example Login-1.0-W4g****
      *
      * @var string
@@ -18,8 +19,9 @@ class GetAddonRequest extends Model
     public $addonId;
 
     /**
-     * @description This parameter is required.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example ehpc-hz-FYUr32****
      *
      * @var string

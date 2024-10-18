@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class clusterCustomConfiguration extends Model
 {
     /**
+     * @description The arguments that are used to run the script after the scrip is installed.
+     *
      * @example E-HPC cn-hangzhou
      *
      * @var string
@@ -16,6 +18,8 @@ class clusterCustomConfiguration extends Model
     public $args;
 
     /**
+     * @description The URL that is used to download the post-processing script.
+     *
      * @example http://*****
      *
      * @var string

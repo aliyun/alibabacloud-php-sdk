@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class logDetail extends Model
 {
     /**
+     * @description The stage name of the log.
+     *
      * @example ConfigNetwork
      *
      * @var string
@@ -17,6 +19,8 @@ class logDetail extends Model
     public $stageName;
 
     /**
+     * @description The information about the log stages.
+     *
      * @var stages[]
      */
     public $stages;

@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class ListAddonTemplatesRequest extends Model
 {
     /**
+     * @description The addon names.
+     *
      * @var string[]
      */
     public $addonNames;
 
     /**
+     * @description The cluster type. Valid values:
+     *
+     *   Standard
+     *   Serverless
+     *
      * @example Standard
      *
      * @var string
@@ -21,6 +28,8 @@ class ListAddonTemplatesRequest extends Model
     public $clusterCategory;
 
     /**
+     * @description The page number of the page to return. Pages start from page 1.
+     *
      * @example 1
      *
      * @var int
@@ -28,6 +37,8 @@ class ListAddonTemplatesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 20.
+     *
      * @example 10
      *
      * @var int
@@ -35,6 +46,8 @@ class ListAddonTemplatesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-shanghai
      *
      * @var string

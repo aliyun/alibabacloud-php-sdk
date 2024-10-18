@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateClusterShrinkRequest extends Model
 {
     /**
+     * @description The client version. By default, the latest version is used.
+     *
      * @example 2.1.0
      *
      * @var string
@@ -16,11 +18,15 @@ class UpdateClusterShrinkRequest extends Model
     public $clientVersion;
 
     /**
+     * @description The post-processing script of the cluster.
+     *
      * @var string
      */
     public $clusterCustomConfigurationShrink;
 
     /**
+     * @description The cluster description. The description must be 1 to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+     *
      * @example slurm22.05.8-serverless-cluster-20240805
      *
      * @var string
@@ -28,6 +34,9 @@ class UpdateClusterShrinkRequest extends Model
     public $clusterDescription;
 
     /**
+     * @description The cluster ID.
+     *
+     * You can call the [ListClusters](https://help.aliyun.com/document_detail/87116.html) operation to query the cluster ID.
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -35,6 +44,8 @@ class UpdateClusterShrinkRequest extends Model
     public $clusterId;
 
     /**
+     * @description The cluster name. The name must be 1 to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+     *
      * @example slurm22.05.8-serverless-cluster-20240805
      *
      * @var string
@@ -42,6 +53,12 @@ class UpdateClusterShrinkRequest extends Model
     public $clusterName;
 
     /**
+     * @description Specifies whether to enable deletion protection for the cluster. Deletion protection decides whether the cluster can be deleted in the console or by calling the DeleteCluster operation. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -49,6 +66,11 @@ class UpdateClusterShrinkRequest extends Model
     public $deletionProtection;
 
     /**
+     * @description Specifies whether to enable auto scale-in for the cluster. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -56,6 +78,11 @@ class UpdateClusterShrinkRequest extends Model
     public $enableScaleIn;
 
     /**
+     * @description Specifies whether to enable auto scale-out for the cluster. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -63,6 +90,8 @@ class UpdateClusterShrinkRequest extends Model
     public $enableScaleOut;
 
     /**
+     * @description The interval at which the cluster is automatically scaled out.
+     *
      * @example 2
      *
      * @var int
@@ -70,6 +99,8 @@ class UpdateClusterShrinkRequest extends Model
     public $growInterval;
 
     /**
+     * @description The idle duration of the compute nodes allowed by the cluster.
+     *
      * @example 4
      *
      * @var int
@@ -77,6 +108,8 @@ class UpdateClusterShrinkRequest extends Model
     public $idleInterval;
 
     /**
+     * @description The total maximum number of vCPUs for use by compute nodes in the cluster. Valid values: 0 to 100,000.
+     *
      * @example 10000
      *
      * @var int
@@ -84,6 +117,8 @@ class UpdateClusterShrinkRequest extends Model
     public $maxCoreCount;
 
     /**
+     * @description The maximum number of compute nodes that the cluster can manage. Valid values: 0 to 5,000.
+     *
      * @example 500
      *
      * @var int

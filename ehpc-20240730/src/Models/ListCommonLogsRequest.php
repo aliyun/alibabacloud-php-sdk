@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListCommonLogsRequest extends Model
 {
     /**
+     * @description The action types.
+     *
      * @var string[]
      */
     public $actionName;
 
     /**
+     * @description The action status. Logs associated with the specific action status are returned.
+     *
+     * Valid values:
+     *
+     *   Finished: The action is completed.
+     *   Failed: The action failed.
+     *   InProgress: The action is being performed.
+     *
      * @example Finished
      *
      * @var string
@@ -21,6 +31,8 @@ class ListCommonLogsRequest extends Model
     public $actionStatus;
 
     /**
+     * @description The cluster ID.
+     *
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -28,8 +40,9 @@ class ListCommonLogsRequest extends Model
     public $clusterId;
 
     /**
-     * @description This parameter is required.
+     * @description The start time of the time range. The time is a timestamp. This value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1703821542
      *
      * @var int
@@ -37,6 +50,9 @@ class ListCommonLogsRequest extends Model
     public $from;
 
     /**
+     * @description Specifies whether to display results in reverse order.
+     *
+     * Default value: true
      * @example true
      *
      * @var bool
@@ -44,6 +60,8 @@ class ListCommonLogsRequest extends Model
     public $isReverse;
 
     /**
+     * @description The request ID of the action. Logs associated with the specific request ID are returned.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE7****
      *
      * @var string
@@ -51,6 +69,8 @@ class ListCommonLogsRequest extends Model
     public $logRequestId;
 
     /**
+     * @description The log type. Logs of the specific type are returned.
+     *
      * @example Operation
      *
      * @var string
@@ -58,6 +78,8 @@ class ListCommonLogsRequest extends Model
     public $logType;
 
     /**
+     * @description The ID of the user who performed the action.
+     *
      * @example 137***
      *
      * @var string
@@ -65,6 +87,9 @@ class ListCommonLogsRequest extends Model
     public $operatorUid;
 
     /**
+     * @description The page number of the page to return.
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -72,6 +97,9 @@ class ListCommonLogsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100.
+     *
+     * Default value: 20.
      * @example 10
      *
      * @var int
@@ -79,6 +107,8 @@ class ListCommonLogsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the resource involved in the action. Logs associated with the specific resource are returned. This parameter is not recommended.
+     *
      * @example i-abc***
      *
      * @var string
@@ -86,8 +116,9 @@ class ListCommonLogsRequest extends Model
     public $resource;
 
     /**
-     * @description This parameter is required.
+     * @description The end time of the time range. The time is a timestamp. This value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1703821666
      *
      * @var int

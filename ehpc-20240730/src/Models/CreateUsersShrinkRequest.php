@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateUsersShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -18,6 +19,8 @@ class CreateUsersShrinkRequest extends Model
     public $clusterId;
 
     /**
+     * @description The users that you want to add.
+     *
      * @var string
      */
     public $userShrink;

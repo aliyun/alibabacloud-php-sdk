@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListNodesResponseBody extends Model
 {
     /**
+     * @description The information about the nodes.
+     *
      * @var nodes[]
      */
     public $nodes;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListNodesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 1
      *
      * @var int
@@ -29,6 +35,8 @@ class ListNodesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 89A1AC0F-4A6C-4F3D-98F9-BEF9A823****
      *
      * @var string
@@ -36,6 +44,8 @@ class ListNodesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

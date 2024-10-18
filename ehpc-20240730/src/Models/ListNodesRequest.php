@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListNodesRequest extends Model
 {
     /**
+     * @description The cluster ID. You can call the [ListClusters](https://help.aliyun.com/document_detail/87116.html) operation to query the cluster ID.
+     *
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -16,11 +18,15 @@ class ListNodesRequest extends Model
     public $clusterId;
 
     /**
+     * @description The hostnames of the compute nodes that you want to query.
+     *
      * @var string[]
      */
     public $hostnames;
 
     /**
+     * @description The page number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -28,6 +34,8 @@ class ListNodesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 1
      *
      * @var int
@@ -35,16 +43,22 @@ class ListNodesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The IP addresses of the compute nodes that you want to query.
+     *
      * @var string[]
      */
     public $privateIpAddress;
 
     /**
+     * @description The queues to which the nodes belong.
+     *
      * @var string[]
      */
     public $queueNames;
 
     /**
+     * @description Specifies whether the results are sorted in ascending or descending order. Valid values: forward (ascending) and backward (descending).
+     *
      * @example Forward
      *
      * @var string
@@ -52,6 +66,8 @@ class ListNodesRequest extends Model
     public $sequence;
 
     /**
+     * @description The sorting method of the node list. Valid values: addedtime: sorted by the time when the node was added. hostname: sorted by hostname. Default value: addedtime.
+     *
      * @example AddedTime
      *
      * @var string
@@ -59,6 +75,8 @@ class ListNodesRequest extends Model
     public $sortBy;
 
     /**
+     * @description The states of the compute nodes to be queried.
+     *
      * @var string[]
      */
     public $status;

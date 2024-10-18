@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeAddonTemplateRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The addon name.
      *
+     * This parameter is required.
      * @example Login
      *
      * @var string
@@ -18,8 +19,9 @@ class DescribeAddonTemplateRequest extends Model
     public $addonName;
 
     /**
-     * @description This parameter is required.
+     * @description The addon version.
      *
+     * This parameter is required.
      * @example 1.0
      *
      * @var string
@@ -27,6 +29,8 @@ class DescribeAddonTemplateRequest extends Model
     public $addonVersion;
 
     /**
+     * @description The page number of the page returned. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -34,6 +38,8 @@ class DescribeAddonTemplateRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -41,6 +47,8 @@ class DescribeAddonTemplateRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -48,6 +56,8 @@ class DescribeAddonTemplateRequest extends Model
     public $regionId;
 
     /**
+     * @description The zone ID.
+     *
      * @example cn-hangzhou-b
      *
      * @var string

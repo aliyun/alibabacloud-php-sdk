@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class addon extends Model
 {
     /**
+     * @description The addon description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The addon icon.
+     *
      * @example /assets/icons/your_icon.svg
      *
      * @var string
@@ -23,11 +27,15 @@ class addon extends Model
     public $icon;
 
     /**
+     * @description The addon label.
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The date when the addon template was last updated.
+     *
      * @example 2024-08-22 18:11:17
      *
      * @var string
@@ -35,8 +43,9 @@ class addon extends Model
     public $lastUpdate;
 
     /**
-     * @description This parameter is required.
+     * @description The addon name.
      *
+     * This parameter is required.
      * @example Login
      *
      * @var string
@@ -44,18 +53,23 @@ class addon extends Model
     public $name;
 
     /**
+     * @description The resource configurations of the addon.
+     *
      * @var resourcesSpec
      */
     public $resourcesSpec;
 
     /**
+     * @description The addon configurations.
+     *
      * @var servicesSpec[]
      */
     public $servicesSpec;
 
     /**
-     * @description This parameter is required.
+     * @description The addon version.
      *
+     * This parameter is required.
      * @example 1.0
      *
      * @var string

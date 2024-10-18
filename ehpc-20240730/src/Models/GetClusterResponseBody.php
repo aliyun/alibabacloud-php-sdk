@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class GetClusterResponseBody extends Model
 {
     /**
+     * @description The E-HPC Util version.
+     *
      * @example 2.0.31
      *
      * @var string
@@ -18,6 +20,11 @@ class GetClusterResponseBody extends Model
     public $clientVersion;
 
     /**
+     * @description The cluster type. Valid values:
+     *
+     *   Standard
+     *   Serverless
+     *
      * @example Standard
      *
      * @var string
@@ -25,6 +32,8 @@ class GetClusterResponseBody extends Model
     public $clusterCategory;
 
     /**
+     * @description The time when the cluster was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+     *
      * @example 2024-08-06T12:43:01.000Z
      *
      * @var string
@@ -32,11 +41,15 @@ class GetClusterResponseBody extends Model
     public $clusterCreateTime;
 
     /**
+     * @description The post-processing script of the cluster.
+     *
      * @var clusterCustomConfiguration
      */
     public $clusterCustomConfiguration;
 
     /**
+     * @description The cluster ID.
+     *
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -44,6 +57,12 @@ class GetClusterResponseBody extends Model
     public $clusterId;
 
     /**
+     * @description The deployment type of the cluster. Valid values:
+     *
+     *   Integrated: The cluster is deployed on a public cloud.
+     *   Hybrid: The cluster is deployed on a hybrid cloud.
+     *   Custom: The cluster is a custom cluster.
+     *
      * @example Integrated
      *
      * @var string
@@ -51,6 +70,8 @@ class GetClusterResponseBody extends Model
     public $clusterMode;
 
     /**
+     * @description The time when the cluster was last modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+     *
      * @example 2024-08-06T12:43:01.000Z
      *
      * @var string
@@ -58,6 +79,8 @@ class GetClusterResponseBody extends Model
     public $clusterModifyTime;
 
     /**
+     * @description The cluster name.
+     *
      * @example slurm22.05.8-cluster-20240614
      *
      * @var string
@@ -65,6 +88,18 @@ class GetClusterResponseBody extends Model
     public $clusterName;
 
     /**
+     * @description The cluster state. Valid values:
+     *
+     *   uninit: The cluster is being installed.
+     *   creating: The cluster is being created.
+     *   initing: The cluster is being initialized.
+     *   running: The cluster is running.
+     *   exception: The cluster has run into an exception.
+     *   raleasing: The cluster is being released.
+     *   stopping: The cluster is being stopped.
+     *   stopped: The cluster is stopped.
+     *   pending: The cluster is waiting to be configured.
+     *
      * @example running
      *
      * @var string
@@ -72,6 +107,8 @@ class GetClusterResponseBody extends Model
     public $clusterStatus;
 
     /**
+     * @description The ID of the vSwitch used by the cluster.
+     *
      * @example vsw-bp1p2uugqsjppno******
      *
      * @var string
@@ -79,6 +116,8 @@ class GetClusterResponseBody extends Model
     public $clusterVSwitchId;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) used by the cluster.
+     *
      * @example vpc-uf6u3lk1pjy28eg*****
      *
      * @var string
@@ -86,6 +125,11 @@ class GetClusterResponseBody extends Model
     public $clusterVpcId;
 
     /**
+     * @description Indicates whether deletion protection is enabled for the cluster. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var string
@@ -93,6 +137,8 @@ class GetClusterResponseBody extends Model
     public $deleteProtection;
 
     /**
+     * @description The E-HPC version.
+     *
      * @example 2.0.0
      *
      * @var string
@@ -100,6 +146,11 @@ class GetClusterResponseBody extends Model
     public $ehpcVersion;
 
     /**
+     * @description Indicates whether automatic scale-in is enabled for the cluster. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -107,6 +158,11 @@ class GetClusterResponseBody extends Model
     public $enableScaleIn;
 
     /**
+     * @description Indicates whether automatic scale-out is enabled for the cluster. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -114,6 +170,8 @@ class GetClusterResponseBody extends Model
     public $enableScaleOut;
 
     /**
+     * @description The interval at which the cluster is automatically scaled out.
+     *
      * @example 2
      *
      * @var int
@@ -121,6 +179,8 @@ class GetClusterResponseBody extends Model
     public $growInterval;
 
     /**
+     * @description The idle duration of the compute nodes allowed by the cluster.
+     *
      * @example 4
      *
      * @var int
@@ -128,11 +188,15 @@ class GetClusterResponseBody extends Model
     public $idleInterval;
 
     /**
+     * @description The configurations of the cluster management node.
+     *
      * @var manager
      */
     public $manager;
 
     /**
+     * @description The maximum total number of vCPUs that can be used by all compute nodes managed by the cluster.
+     *
      * @example 10000
      *
      * @var string
@@ -140,6 +204,8 @@ class GetClusterResponseBody extends Model
     public $maxCoreCount;
 
     /**
+     * @description The maximum number of compute nodes that the cluster can manage.
+     *
      * @example 100
      *
      * @var string
@@ -147,6 +213,8 @@ class GetClusterResponseBody extends Model
     public $maxCount;
 
     /**
+     * @description The request ID.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string
@@ -154,6 +222,8 @@ class GetClusterResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The resource group ID.
+     *
      * @example rg-acfmxazb4ph****
      *
      * @var string
@@ -161,6 +231,8 @@ class GetClusterResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @description The security group ID.
+     *
      * @example sg-f8z9vb2zaezpkr69a21k
      *
      * @var string

@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class stages extends Model
 {
     /**
+     * @description The log level.
+     *
+     * Valid values:
+     *
+     *   ERROR
+     *   INFO
+     *   WARN
+     *
      * @example INFO
      *
      * @var string
@@ -16,6 +24,8 @@ class stages extends Model
     public $logLevel;
 
     /**
+     * @description The output message of the log.
+     *
      * @example Successfully created security group sg-bcd***
      *
      * @var string
@@ -23,6 +33,8 @@ class stages extends Model
     public $message;
 
     /**
+     * @description The method involved in the log.
+     *
      * @example CreateSecurityGroup
      *
      * @var string
@@ -30,6 +42,8 @@ class stages extends Model
     public $method;
 
     /**
+     * @description The request ID associated with the log.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE7****
      *
      * @var string
@@ -37,6 +51,12 @@ class stages extends Model
     public $requestId;
 
     /**
+     * @description The action state involved in the log. Valid values:
+     *
+     *   InProgress: The action is being performed.
+     *   Finished: The action is completed.
+     *   Failed: The action failed.
+     *
      * @example Finished
      *
      * @var string
@@ -44,6 +64,8 @@ class stages extends Model
     public $status;
 
     /**
+     * @description The resource involved in the log.
+     *
      * @example sg-bcd***
      *
      * @var string
@@ -51,6 +73,8 @@ class stages extends Model
     public $target;
 
     /**
+     * @description The time when the log was generated.
+     *
      * @example 2024-08-22 14:21:54
      *
      * @var string

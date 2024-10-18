@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class networkACL extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The protocol type. Valid values:
      *
+     * This parameter is required.
      * @example TCP
      *
      * @var string
@@ -18,8 +19,9 @@ class networkACL extends Model
     public $ipProtocol;
 
     /**
-     * @description This parameter is required.
+     * @description The port number.
      *
+     * This parameter is required.
      * @example 3306
      *
      * @var float
@@ -27,8 +29,9 @@ class networkACL extends Model
     public $port;
 
     /**
-     * @description This parameter is required.
+     * @description The source CIDR block.
      *
+     * This parameter is required.
      * @example 172.16.0.0/12
      *
      * @var string

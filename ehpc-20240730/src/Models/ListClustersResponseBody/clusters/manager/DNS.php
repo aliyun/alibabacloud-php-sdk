@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DNS extends Model
 {
     /**
+     * @description The resolution type.
+     *
      * @example NIS
      *
      * @var string
@@ -16,6 +18,8 @@ class DNS extends Model
     public $type;
 
     /**
+     * @description The version of the domain name resolution service.
+     *
      * @example 2.31
      *
      * @var string

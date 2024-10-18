@@ -9,18 +9,23 @@ use AlibabaCloud\Tea\Model;
 class inputParams extends Model
 {
     /**
+     * @description The help information of the parameter.
+     *
      * @var string
      */
     public $helpText;
 
     /**
+     * @description The parameter label.
+     *
      * @var string
      */
     public $label;
 
     /**
-     * @description This parameter is required.
+     * @description The parameter name.
      *
+     * This parameter is required.
      * @example MYSQL_HOME
      *
      * @var string
@@ -28,8 +33,9 @@ class inputParams extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The parameter type.
      *
+     * This parameter is required.
      * @example String
      *
      * @var string
@@ -37,8 +43,9 @@ class inputParams extends Model
     public $type;
 
     /**
-     * @description This parameter is required.
+     * @description The parameter value.
      *
+     * This parameter is required.
      * @example usr/local/mysql
      *
      * @var string

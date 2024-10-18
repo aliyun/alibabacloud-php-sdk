@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListQueuesResponseBody extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * You can call the [ListClusters](https://help.aliyun.com/document_detail/87116.html) operation to query the cluster ID.
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -17,6 +20,8 @@ class ListQueuesResponseBody extends Model
     public $clusterId;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -24,6 +29,8 @@ class ListQueuesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -31,11 +38,15 @@ class ListQueuesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The information about the queues.
+     *
      * @var queues[]
      */
     public $queues;
 
     /**
+     * @description The request ID.
+     *
      * @example C6E5005C-00B0-4F27-98BB-95AB88016C22
      *
      * @var string
@@ -43,6 +54,8 @@ class ListQueuesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

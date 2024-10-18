@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class servicesSpec extends Model
 {
     /**
+     * @description The service access type.
+     *
      * @example URL
      *
      * @var string
@@ -16,6 +18,8 @@ class servicesSpec extends Model
     public $serviceAccessType;
 
     /**
+     * @description The service access URL.
+     *
      * @example https://47.96.xx.xx:12008
      *
      * @var string
@@ -23,8 +27,9 @@ class servicesSpec extends Model
     public $serviceAccessUrl;
 
     /**
-     * @description This parameter is required.
+     * @description The service name.
      *
+     * This parameter is required.
      * @example Web Portal
      *
      * @var string

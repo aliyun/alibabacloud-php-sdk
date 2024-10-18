@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class additionalPackages extends Model
 {
     /**
+     * @description The software name.
+     *
      * @example gromacs
      *
      * @var string
@@ -16,6 +18,8 @@ class additionalPackages extends Model
     public $name;
 
     /**
+     * @description The software version.
+     *
      * @example 2024.1
      *
      * @var string

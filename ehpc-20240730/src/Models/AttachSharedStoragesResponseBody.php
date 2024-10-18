@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AttachSharedStoragesResponseBody extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -16,6 +18,8 @@ class AttachSharedStoragesResponseBody extends Model
     public $clusterId;
 
     /**
+     * @description The request ID.
+     *
      * @example F9B7BEF8-E42E-5090-9880-55FB7872****
      *
      * @var string
@@ -23,6 +27,11 @@ class AttachSharedStoragesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @example true
      *
      * @var string

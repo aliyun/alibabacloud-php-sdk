@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class directoryService extends Model
 {
     /**
+     * @description The state of the domain account service. Valid values:
+     *
+     *   uninit: The service is being installed.
+     *   initing: The service is being initialized.
+     *   running: The service is running.
+     *   exception: The service has run into an exception.
+     *   releasing: The service is being released.
+     *   stopped: The service is stopped.
+     *   pending: The service is waiting to be configured.
+     *
      * @example running
      *
      * @var string
@@ -16,6 +26,8 @@ class directoryService extends Model
     public $status;
 
     /**
+     * @description The type of the domain account.
+     *
      * @example nis
      *
      * @var string
@@ -23,6 +35,8 @@ class directoryService extends Model
     public $type;
 
     /**
+     * @description The version of the domain account service.
+     *
      * @example 2.31
      *
      * @var string

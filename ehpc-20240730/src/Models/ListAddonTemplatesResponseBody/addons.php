@@ -9,18 +9,23 @@ use AlibabaCloud\Tea\Model;
 class addons extends Model
 {
     /**
+     * @description The addon description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The addon label
+     *
      * @var string
      */
     public $label;
 
     /**
-     * @description This parameter is required.
+     * @description The addon name.
      *
+     * This parameter is required.
      * @example Login
      *
      * @var string
@@ -28,8 +33,9 @@ class addons extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The addon version.
      *
+     * This parameter is required.
      * @example 1.0
      *
      * @var string

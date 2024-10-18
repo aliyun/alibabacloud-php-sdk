@@ -30,6 +30,13 @@ class dataDisks extends Model
     public $level;
 
     /**
+     * @example /data1
+     *
+     * @var string
+     */
+    public $mountDir;
+
+    /**
      * @example 40
      *
      * @var int
@@ -39,6 +46,7 @@ class dataDisks extends Model
         'category'           => 'Category',
         'deleteWithInstance' => 'DeleteWithInstance',
         'level'              => 'Level',
+        'mountDir'           => 'MountDir',
         'size'               => 'Size',
     ];
 
@@ -57,6 +65,9 @@ class dataDisks extends Model
         }
         if (null !== $this->level) {
             $res['Level'] = $this->level;
+        }
+        if (null !== $this->mountDir) {
+            $res['MountDir'] = $this->mountDir;
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
@@ -81,6 +92,9 @@ class dataDisks extends Model
         }
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
+        }
+        if (isset($map['MountDir'])) {
+            $model->mountDir = $map['MountDir'];
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];

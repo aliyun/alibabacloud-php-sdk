@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class fileSystemList extends Model
 {
     /**
+     * @description The time when the file system was created.
+     *
      * @example 2024-7-29 15:43:53
      *
      * @var string
@@ -17,6 +19,8 @@ class fileSystemList extends Model
     public $createTime;
 
     /**
+     * @description The ID of the file system.
+     *
      * @example 2fa0248***
      *
      * @var string
@@ -24,6 +28,11 @@ class fileSystemList extends Model
     public $fileSystemId;
 
     /**
+     * @description The type of the file system. Valid values:
+     *
+     *   standard: general-purpose network-attached storage (NAS) file system
+     *   extreme: extreme NAS file system
+     *
      * @example cpfs
      *
      * @var string
@@ -31,11 +40,19 @@ class fileSystemList extends Model
     public $fileSystemType;
 
     /**
+     * @description The mount targets of the file system.
+     *
      * @var mountTargetList[]
      */
     public $mountTargetList;
 
     /**
+     * @description The protocol type of the file system. Valid values:
+     *
+     *   nfs
+     *   smb
+     *   cpfs
+     *
      * @example cpfs
      *
      * @var string
@@ -43,6 +60,15 @@ class fileSystemList extends Model
     public $protocolType;
 
     /**
+     * @description The state of the file system. Valid values:
+     *
+     *   Pending: The file system is processing a task.
+     *   Running: The file system is available. You can perform subsequent operations, such as creating a mount target, only when the file system is in the Running state.
+     *   Stopped: The file system is unavailable.
+     *   Extending: The file system is being scaled out.
+     *   Stopping: The file system is being stopped.
+     *   Deleting: The file system is being deleted.
+     *
      * @example Running
      *
      * @var string
@@ -50,6 +76,11 @@ class fileSystemList extends Model
     public $status;
 
     /**
+     * @description The storage type of the file system.
+     *
+     *   Valid values if FileSystemType is set to standard: Capacity and Performance.
+     *   Valid values if FileSystemType is set to extreme: standard and advance.
+     *
      * @example Performance
      *
      * @var string
@@ -57,6 +88,8 @@ class fileSystemList extends Model
     public $storageType;
 
     /**
+     * @description The VPC ID.
+     *
      * @example vpc-bp132kgui8n0targb****
      *
      * @var string

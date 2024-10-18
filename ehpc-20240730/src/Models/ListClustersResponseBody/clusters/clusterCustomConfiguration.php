@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class clusterCustomConfiguration extends Model
 {
     /**
+     * @description The parameters of the post-processing script.
+     *
      * @example demo
      *
      * @var string
@@ -16,6 +18,8 @@ class clusterCustomConfiguration extends Model
     public $args;
 
     /**
+     * @description The link to the post-processing script.
+     *
      * @example https://xxxxx
      *
      * @var string

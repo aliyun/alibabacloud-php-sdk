@@ -11,8 +11,9 @@ use AlibabaCloud\Tea\Model;
 class addon extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The addon ID.
      *
+     * This parameter is required.
      * @example Login-1.0-W2g****
      *
      * @var string
@@ -20,11 +21,15 @@ class addon extends Model
     public $addonId;
 
     /**
+     * @description The addon description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The addon icon.
+     *
      * @example /assets/icons/your_icon.svg
      *
      * @var string
@@ -32,6 +37,8 @@ class addon extends Model
     public $icon;
 
     /**
+     * @description The time when the addon was installed.
+     *
      * @example 2024-08-22 18:11:17
      *
      * @var string
@@ -39,13 +46,16 @@ class addon extends Model
     public $installTime;
 
     /**
+     * @description The addon label.
+     *
      * @var string
      */
     public $label;
 
     /**
-     * @description This parameter is required.
+     * @description The addon name.
      *
+     * This parameter is required.
      * @example Login
      *
      * @var string
@@ -53,16 +63,22 @@ class addon extends Model
     public $name;
 
     /**
+     * @description The resource configurations of the addon.
+     *
      * @var resourcesSpec
      */
     public $resourcesSpec;
 
     /**
+     * @description The service configurations of the addon.
+     *
      * @var servicesSpec[]
      */
     public $servicesSpec;
 
     /**
+     * @description The addon status.
+     *
      * @example Running
      *
      * @var string
@@ -70,8 +86,9 @@ class addon extends Model
     public $status;
 
     /**
-     * @description This parameter is required.
+     * @description The addon version.
      *
+     * This parameter is required.
      * @example 1.0
      *
      * @var string

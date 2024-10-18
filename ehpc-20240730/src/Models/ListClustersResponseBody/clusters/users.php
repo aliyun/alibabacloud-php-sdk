@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class users extends Model
 {
     /**
+     * @description The number of ordinary users.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,8 @@ class users extends Model
     public $normalCounts;
 
     /**
+     * @description The number of administrators.
+     *
      * @example 2
      *
      * @var int
