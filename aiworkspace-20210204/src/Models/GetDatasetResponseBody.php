@@ -61,6 +61,11 @@ class GetDatasetResponseBody extends Model
     public $labels;
 
     /**
+     * @var DatasetVersion
+     */
+    public $latestVersion;
+
+    /**
      * @example myName
      *
      * @var string
@@ -106,6 +111,16 @@ class GetDatasetResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $sourceDatasetId;
+
+    /**
+     * @var string
+     */
+    public $sourceDatasetVersion;
+
+    /**
      * @example jdnhf***fnrimv
      *
      * @var string
@@ -118,6 +133,11 @@ class GetDatasetResponseBody extends Model
      * @var string
      */
     public $sourceType;
+
+    /**
+     * @var string
+     */
+    public $tagTemplateType;
 
     /**
      * @example nas://09f****f2.cn-hangzhou/
@@ -140,26 +160,30 @@ class GetDatasetResponseBody extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'accessibility'   => 'Accessibility',
-        'dataSourceType'  => 'DataSourceType',
-        'dataType'        => 'DataType',
-        'datasetId'       => 'DatasetId',
-        'description'     => 'Description',
-        'gmtCreateTime'   => 'GmtCreateTime',
-        'gmtModifiedTime' => 'GmtModifiedTime',
-        'labels'          => 'Labels',
-        'name'            => 'Name',
-        'options'         => 'Options',
-        'ownerId'         => 'OwnerId',
-        'property'        => 'Property',
-        'provider'        => 'Provider',
-        'providerType'    => 'ProviderType',
-        'requestId'       => 'RequestId',
-        'sourceId'        => 'SourceId',
-        'sourceType'      => 'SourceType',
-        'uri'             => 'Uri',
-        'userId'          => 'UserId',
-        'workspaceId'     => 'WorkspaceId',
+        'accessibility'        => 'Accessibility',
+        'dataSourceType'       => 'DataSourceType',
+        'dataType'             => 'DataType',
+        'datasetId'            => 'DatasetId',
+        'description'          => 'Description',
+        'gmtCreateTime'        => 'GmtCreateTime',
+        'gmtModifiedTime'      => 'GmtModifiedTime',
+        'labels'               => 'Labels',
+        'latestVersion'        => 'LatestVersion',
+        'name'                 => 'Name',
+        'options'              => 'Options',
+        'ownerId'              => 'OwnerId',
+        'property'             => 'Property',
+        'provider'             => 'Provider',
+        'providerType'         => 'ProviderType',
+        'requestId'            => 'RequestId',
+        'sourceDatasetId'      => 'SourceDatasetId',
+        'sourceDatasetVersion' => 'SourceDatasetVersion',
+        'sourceId'             => 'SourceId',
+        'sourceType'           => 'SourceType',
+        'tagTemplateType'      => 'TagTemplateType',
+        'uri'                  => 'Uri',
+        'userId'               => 'UserId',
+        'workspaceId'          => 'WorkspaceId',
     ];
 
     public function validate()
@@ -199,6 +223,9 @@ class GetDatasetResponseBody extends Model
                 }
             }
         }
+        if (null !== $this->latestVersion) {
+            $res['LatestVersion'] = null !== $this->latestVersion ? $this->latestVersion->toMap() : null;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -220,11 +247,20 @@ class GetDatasetResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->sourceDatasetId) {
+            $res['SourceDatasetId'] = $this->sourceDatasetId;
+        }
+        if (null !== $this->sourceDatasetVersion) {
+            $res['SourceDatasetVersion'] = $this->sourceDatasetVersion;
+        }
         if (null !== $this->sourceId) {
             $res['SourceId'] = $this->sourceId;
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
+        }
+        if (null !== $this->tagTemplateType) {
+            $res['TagTemplateType'] = $this->tagTemplateType;
         }
         if (null !== $this->uri) {
             $res['Uri'] = $this->uri;
@@ -277,6 +313,9 @@ class GetDatasetResponseBody extends Model
                 }
             }
         }
+        if (isset($map['LatestVersion'])) {
+            $model->latestVersion = DatasetVersion::fromMap($map['LatestVersion']);
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -298,11 +337,20 @@ class GetDatasetResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['SourceDatasetId'])) {
+            $model->sourceDatasetId = $map['SourceDatasetId'];
+        }
+        if (isset($map['SourceDatasetVersion'])) {
+            $model->sourceDatasetVersion = $map['SourceDatasetVersion'];
+        }
         if (isset($map['SourceId'])) {
             $model->sourceId = $map['SourceId'];
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
+        }
+        if (isset($map['TagTemplateType'])) {
+            $model->tagTemplateType = $map['TagTemplateType'];
         }
         if (isset($map['Uri'])) {
             $model->uri = $map['Uri'];

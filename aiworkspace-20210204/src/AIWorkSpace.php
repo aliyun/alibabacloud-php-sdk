@@ -432,6 +432,12 @@ class AIWorkSpace extends OpenApiClient
         if (!Utils::isUnset($request->accessibility)) {
             $body['Accessibility'] = $request->accessibility;
         }
+        if (!Utils::isUnset($request->dataCount)) {
+            $body['DataCount'] = $request->dataCount;
+        }
+        if (!Utils::isUnset($request->dataSize)) {
+            $body['DataSize'] = $request->dataSize;
+        }
         if (!Utils::isUnset($request->dataSourceType)) {
             $body['DataSourceType'] = $request->dataSourceType;
         }
@@ -459,6 +465,12 @@ class AIWorkSpace extends OpenApiClient
         if (!Utils::isUnset($request->providerType)) {
             $body['ProviderType'] = $request->providerType;
         }
+        if (!Utils::isUnset($request->sourceDatasetId)) {
+            $body['SourceDatasetId'] = $request->sourceDatasetId;
+        }
+        if (!Utils::isUnset($request->sourceDatasetVersion)) {
+            $body['SourceDatasetVersion'] = $request->sourceDatasetVersion;
+        }
         if (!Utils::isUnset($request->sourceId)) {
             $body['SourceId'] = $request->sourceId;
         }
@@ -470,6 +482,12 @@ class AIWorkSpace extends OpenApiClient
         }
         if (!Utils::isUnset($request->userId)) {
             $body['UserId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->versionDescription)) {
+            $body['VersionDescription'] = $request->versionDescription;
+        }
+        if (!Utils::isUnset($request->versionLabels)) {
+            $body['VersionLabels'] = $request->versionLabels;
         }
         if (!Utils::isUnset($request->workspaceId)) {
             $body['WorkspaceId'] = $request->workspaceId;
@@ -2529,6 +2547,9 @@ class AIWorkSpace extends OpenApiClient
         }
         if (!Utils::isUnset($request->provider)) {
             $query['Provider'] = $request->provider;
+        }
+        if (!Utils::isUnset($request->sourceDatasetId)) {
+            $query['SourceDatasetId'] = $request->sourceDatasetId;
         }
         if (!Utils::isUnset($request->sourceId)) {
             $query['SourceId'] = $request->sourceId;

@@ -16,6 +16,16 @@ class CreateDatasetRequest extends Model
     public $accessibility;
 
     /**
+     * @var int
+     */
+    public $dataCount;
+
+    /**
+     * @var int
+     */
+    public $dataSize;
+
+    /**
      * @description This parameter is required.
      *
      * @example NAS
@@ -79,6 +89,16 @@ class CreateDatasetRequest extends Model
     public $providerType;
 
     /**
+     * @var string
+     */
+    public $sourceDatasetId;
+
+    /**
+     * @var string
+     */
+    public $sourceDatasetVersion;
+
+    /**
      * @example jdnhf***fnrimv
      *
      * @var string
@@ -109,27 +129,43 @@ class CreateDatasetRequest extends Model
     public $userId;
 
     /**
+     * @var string
+     */
+    public $versionDescription;
+
+    /**
+     * @var Label[]
+     */
+    public $versionLabels;
+
+    /**
      * @example 478**
      *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'accessibility'  => 'Accessibility',
-        'dataSourceType' => 'DataSourceType',
-        'dataType'       => 'DataType',
-        'description'    => 'Description',
-        'labels'         => 'Labels',
-        'name'           => 'Name',
-        'options'        => 'Options',
-        'property'       => 'Property',
-        'provider'       => 'Provider',
-        'providerType'   => 'ProviderType',
-        'sourceId'       => 'SourceId',
-        'sourceType'     => 'SourceType',
-        'uri'            => 'Uri',
-        'userId'         => 'UserId',
-        'workspaceId'    => 'WorkspaceId',
+        'accessibility'        => 'Accessibility',
+        'dataCount'            => 'DataCount',
+        'dataSize'             => 'DataSize',
+        'dataSourceType'       => 'DataSourceType',
+        'dataType'             => 'DataType',
+        'description'          => 'Description',
+        'labels'               => 'Labels',
+        'name'                 => 'Name',
+        'options'              => 'Options',
+        'property'             => 'Property',
+        'provider'             => 'Provider',
+        'providerType'         => 'ProviderType',
+        'sourceDatasetId'      => 'SourceDatasetId',
+        'sourceDatasetVersion' => 'SourceDatasetVersion',
+        'sourceId'             => 'SourceId',
+        'sourceType'           => 'SourceType',
+        'uri'                  => 'Uri',
+        'userId'               => 'UserId',
+        'versionDescription'   => 'VersionDescription',
+        'versionLabels'        => 'VersionLabels',
+        'workspaceId'          => 'WorkspaceId',
     ];
 
     public function validate()
@@ -141,6 +177,12 @@ class CreateDatasetRequest extends Model
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
+        }
+        if (null !== $this->dataCount) {
+            $res['DataCount'] = $this->dataCount;
+        }
+        if (null !== $this->dataSize) {
+            $res['DataSize'] = $this->dataSize;
         }
         if (null !== $this->dataSourceType) {
             $res['DataSourceType'] = $this->dataSourceType;
@@ -175,6 +217,12 @@ class CreateDatasetRequest extends Model
         if (null !== $this->providerType) {
             $res['ProviderType'] = $this->providerType;
         }
+        if (null !== $this->sourceDatasetId) {
+            $res['SourceDatasetId'] = $this->sourceDatasetId;
+        }
+        if (null !== $this->sourceDatasetVersion) {
+            $res['SourceDatasetVersion'] = $this->sourceDatasetVersion;
+        }
         if (null !== $this->sourceId) {
             $res['SourceId'] = $this->sourceId;
         }
@@ -186,6 +234,18 @@ class CreateDatasetRequest extends Model
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->versionDescription) {
+            $res['VersionDescription'] = $this->versionDescription;
+        }
+        if (null !== $this->versionLabels) {
+            $res['VersionLabels'] = [];
+            if (null !== $this->versionLabels && \is_array($this->versionLabels)) {
+                $n = 0;
+                foreach ($this->versionLabels as $item) {
+                    $res['VersionLabels'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
@@ -204,6 +264,12 @@ class CreateDatasetRequest extends Model
         $model = new self();
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
+        }
+        if (isset($map['DataCount'])) {
+            $model->dataCount = $map['DataCount'];
+        }
+        if (isset($map['DataSize'])) {
+            $model->dataSize = $map['DataSize'];
         }
         if (isset($map['DataSourceType'])) {
             $model->dataSourceType = $map['DataSourceType'];
@@ -238,6 +304,12 @@ class CreateDatasetRequest extends Model
         if (isset($map['ProviderType'])) {
             $model->providerType = $map['ProviderType'];
         }
+        if (isset($map['SourceDatasetId'])) {
+            $model->sourceDatasetId = $map['SourceDatasetId'];
+        }
+        if (isset($map['SourceDatasetVersion'])) {
+            $model->sourceDatasetVersion = $map['SourceDatasetVersion'];
+        }
         if (isset($map['SourceId'])) {
             $model->sourceId = $map['SourceId'];
         }
@@ -249,6 +321,18 @@ class CreateDatasetRequest extends Model
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
+        }
+        if (isset($map['VersionDescription'])) {
+            $model->versionDescription = $map['VersionDescription'];
+        }
+        if (isset($map['VersionLabels'])) {
+            if (!empty($map['VersionLabels'])) {
+                $model->versionLabels = [];
+                $n                    = 0;
+                foreach ($map['VersionLabels'] as $item) {
+                    $model->versionLabels[$n++] = null !== $item ? Label::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
