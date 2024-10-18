@@ -1,3 +1,9 @@
+2024-10-18 Version: 1.1.0
+- Support API ExportOssCheckStat.
+- Support API GetOssCheckStat.
+- Update API GetBackupConfig: update response param.
+
+
 2024-08-19 Version: 1.0.0
 - Support API AddImageLib.
 - Support API AddKeywordLib.

@@ -30,6 +30,16 @@ class GetBackupConfigResponseBody extends Model
     public $enable;
 
     /**
+     * @var bool
+     */
+    public $enableBackup;
+
+    /**
+     * @var bool
+     */
+    public $enableBackupVoice;
+
+    /**
      * @example 300
      *
      * @var int
@@ -49,6 +59,11 @@ class GetBackupConfigResponseBody extends Model
      * @var string
      */
     public $path;
+
+    /**
+     * @var string
+     */
+    public $pathVoice;
 
     /**
      * @example cn-hangzhou
@@ -87,17 +102,20 @@ class GetBackupConfigResponseBody extends Model
      */
     public $uid;
     protected $_name = [
-        'backupMode'    => 'BackupMode',
-        'bucket'        => 'Bucket',
-        'enable'        => 'Enable',
-        'expireSeconds' => 'ExpireSeconds',
-        'gmtModified'   => 'GmtModified',
-        'path'          => 'Path',
-        'region'        => 'Region',
-        'requestId'     => 'RequestId',
-        'resourceType'  => 'ResourceType',
-        'serviceCode'   => 'ServiceCode',
-        'uid'           => 'Uid',
+        'backupMode'        => 'BackupMode',
+        'bucket'            => 'Bucket',
+        'enable'            => 'Enable',
+        'enableBackup'      => 'EnableBackup',
+        'enableBackupVoice' => 'EnableBackupVoice',
+        'expireSeconds'     => 'ExpireSeconds',
+        'gmtModified'       => 'GmtModified',
+        'path'              => 'Path',
+        'pathVoice'         => 'PathVoice',
+        'region'            => 'Region',
+        'requestId'         => 'RequestId',
+        'resourceType'      => 'ResourceType',
+        'serviceCode'       => 'ServiceCode',
+        'uid'               => 'Uid',
     ];
 
     public function validate()
@@ -116,6 +134,12 @@ class GetBackupConfigResponseBody extends Model
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
+        if (null !== $this->enableBackup) {
+            $res['EnableBackup'] = $this->enableBackup;
+        }
+        if (null !== $this->enableBackupVoice) {
+            $res['EnableBackupVoice'] = $this->enableBackupVoice;
+        }
         if (null !== $this->expireSeconds) {
             $res['ExpireSeconds'] = $this->expireSeconds;
         }
@@ -124,6 +148,9 @@ class GetBackupConfigResponseBody extends Model
         }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
+        }
+        if (null !== $this->pathVoice) {
+            $res['PathVoice'] = $this->pathVoice;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -161,6 +188,12 @@ class GetBackupConfigResponseBody extends Model
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
+        if (isset($map['EnableBackup'])) {
+            $model->enableBackup = $map['EnableBackup'];
+        }
+        if (isset($map['EnableBackupVoice'])) {
+            $model->enableBackupVoice = $map['EnableBackupVoice'];
+        }
         if (isset($map['ExpireSeconds'])) {
             $model->expireSeconds = $map['ExpireSeconds'];
         }
@@ -169,6 +202,9 @@ class GetBackupConfigResponseBody extends Model
         }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
+        }
+        if (isset($map['PathVoice'])) {
+            $model->pathVoice = $map['PathVoice'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];

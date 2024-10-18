@@ -34,6 +34,8 @@ use AlibabaCloud\SDK\Green\V20220926\Models\ExportCipStatsRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ExportCipStatsResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ExportKeywordRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ExportKeywordResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\ExportOssCheckStatRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\ExportOssCheckStatResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ExportResultRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ExportResultResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ExportResultShrinkRequest;
@@ -62,6 +64,8 @@ use AlibabaCloud\SDK\Green\V20220926\Models\GetJobNameListResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetJobNameListShrinkRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetKeywordImportResultRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetKeywordImportResultResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckStatRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckStatResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckStatusRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckStatusResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetScanNumRequest;
@@ -1061,6 +1065,67 @@ class Green extends OpenApiClient
     }
 
     /**
+     * @summary oss用量统计导出
+     *  *
+     * @param ExportOssCheckStatRequest $request ExportOssCheckStatRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExportOssCheckStatResponse ExportOssCheckStatResponse
+     */
+    public function exportOssCheckStatWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->byMonth)) {
+            $body['ByMonth'] = $request->byMonth;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $body['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->parentTaskId)) {
+            $body['ParentTaskId'] = $request->parentTaskId;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportOssCheckStat',
+            'version'     => '2022-09-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportOssCheckStatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary oss用量统计导出
+     *  *
+     * @param ExportOssCheckStatRequest $request ExportOssCheckStatRequest
+     *
+     * @return ExportOssCheckStatResponse ExportOssCheckStatResponse
+     */
+    public function exportOssCheckStat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportOssCheckStatWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 导出oss扫描结果
      *  *
      * @param ExportResultRequest $tmpReq  ExportResultRequest
@@ -1748,6 +1813,67 @@ class Green extends OpenApiClient
     }
 
     /**
+     * @summary oss用量统计
+     *  *
+     * @param GetOssCheckStatRequest $request GetOssCheckStatRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetOssCheckStatResponse GetOssCheckStatResponse
+     */
+    public function getOssCheckStatWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->byMonth)) {
+            $body['ByMonth'] = $request->byMonth;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $body['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->parentTaskId)) {
+            $body['ParentTaskId'] = $request->parentTaskId;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOssCheckStat',
+            'version'     => '2022-09-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOssCheckStatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary oss用量统计
+     *  *
+     * @param GetOssCheckStatRequest $request GetOssCheckStatRequest
+     *
+     * @return GetOssCheckStatResponse GetOssCheckStatResponse
+     */
+    public function getOssCheckStat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOssCheckStatWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 获取OSS检测用户状态
      *  *
      * @param GetOssCheckStatusRequest $request GetOssCheckStatusRequest
@@ -2305,6 +2431,8 @@ class Green extends OpenApiClient
     }
 
     /**
+     * @summary 获取用户购买状态
+     *  *
      * @param GetUserBuyStatusRequest $request GetUserBuyStatusRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -2336,6 +2464,8 @@ class Green extends OpenApiClient
     }
 
     /**
+     * @summary 获取用户购买状态
+     *  *
      * @param GetUserBuyStatusRequest $request GetUserBuyStatusRequest
      *
      * @return GetUserBuyStatusResponse GetUserBuyStatusResponse
