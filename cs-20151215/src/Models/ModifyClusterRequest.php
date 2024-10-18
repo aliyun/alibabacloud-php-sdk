@@ -145,6 +145,11 @@ class ModifyClusterRequest extends Model
      * @var systemEventsLogging
      */
     public $systemEventsLogging;
+
+    /**
+     * @var string[]
+     */
+    public $vswitchIds;
     protected $_name = [
         'accessControlList'          => 'access_control_list',
         'apiServerCustomCertSans'    => 'api_server_custom_cert_sans',
@@ -160,6 +165,7 @@ class ModifyClusterRequest extends Model
         'operationPolicy'            => 'operation_policy',
         'resourceGroupId'            => 'resource_group_id',
         'systemEventsLogging'        => 'system_events_logging',
+        'vswitchIds'                 => 'vswitch_ids',
     ];
 
     public function validate()
@@ -210,6 +216,9 @@ class ModifyClusterRequest extends Model
         }
         if (null !== $this->systemEventsLogging) {
             $res['system_events_logging'] = null !== $this->systemEventsLogging ? $this->systemEventsLogging->toMap() : null;
+        }
+        if (null !== $this->vswitchIds) {
+            $res['vswitch_ids'] = $this->vswitchIds;
         }
 
         return $res;
@@ -266,6 +275,11 @@ class ModifyClusterRequest extends Model
         }
         if (isset($map['system_events_logging'])) {
             $model->systemEventsLogging = systemEventsLogging::fromMap($map['system_events_logging']);
+        }
+        if (isset($map['vswitch_ids'])) {
+            if (!empty($map['vswitch_ids'])) {
+                $model->vswitchIds = $map['vswitch_ids'];
+            }
         }
 
         return $model;

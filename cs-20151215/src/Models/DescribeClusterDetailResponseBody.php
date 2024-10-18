@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterDetailResponseBody extends Model
 {
     /**
+     * @example cluster.local
+     *
+     * @var string
+     */
+    public $clusterDomain;
+
+    /**
      * @description The cluster ID.
      *
      * @example c82e6987e2961451182edacd74faf****
@@ -40,6 +47,13 @@ class DescribeClusterDetailResponseBody extends Model
      * @var string
      */
     public $clusterType;
+
+    /**
+     * @example 172.20.0.0/16
+     *
+     * @var string
+     */
+    public $containerCidr;
 
     /**
      * @description The time when the cluster was created.
@@ -97,6 +111,13 @@ class DescribeClusterDetailResponseBody extends Model
     public $initVersion;
 
     /**
+     * @example ipv4
+     *
+     * @var string
+     */
+    public $ipStack;
+
+    /**
      * @description The maintenance window of the cluster. This feature is available only in ACK Pro clusters.
      *
      * @var MaintenanceWindow
@@ -146,6 +167,13 @@ class DescribeClusterDetailResponseBody extends Model
     public $nextVersion;
 
     /**
+     * @example 26
+     *
+     * @var string
+     */
+    public $nodeCidrMask;
+
+    /**
      * @var operationPolicy
      */
     public $operationPolicy;
@@ -179,6 +207,13 @@ class DescribeClusterDetailResponseBody extends Model
     public $profile;
 
     /**
+     * @example ipvs
+     *
+     * @var string
+     */
+    public $proxyMode;
+
+    /**
      * @description The region ID of the cluster.
      *
      * @example cn-beijing
@@ -204,6 +239,15 @@ class DescribeClusterDetailResponseBody extends Model
      * @var string
      */
     public $securityGroupId;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example 172.21.0.0/20
+     *
+     * @var string
+     */
+    public $serviceCidr;
 
     /**
      * @description The number of nodes in the cluster. Master nodes and worker nodes are included.
@@ -246,6 +290,8 @@ class DescribeClusterDetailResponseBody extends Model
      * For more information, see [Plan CIDR blocks for an ACK cluster](https://help.aliyun.com/document_detail/186964.html).
      * @example 172.20.0.0/16
      *
+     * @deprecated
+     *
      * @var string
      */
     public $subnetCidr;
@@ -256,6 +302,13 @@ class DescribeClusterDetailResponseBody extends Model
      * @var Tag[]
      */
     public $tags;
+
+    /**
+     * @example Asia/Shanghai
+     *
+     * @var string
+     */
+    public $timezone;
 
     /**
      * @description The time when the cluster was updated.
@@ -280,9 +333,16 @@ class DescribeClusterDetailResponseBody extends Model
      *
      * @example vsw-2zete8s4qocqg0mf6****,vsw-2zete8s4qocqg0mf6****
      *
+     * @deprecated
+     *
      * @var string
      */
     public $vswitchId;
+
+    /**
+     * @var string[]
+     */
+    public $vswitchIds;
 
     /**
      * @description The name of the worker Resource Access Management (RAM) role. The RAM role is assigned to the worker nodes of the cluster to allow the worker nodes to manage Elastic Compute Service (ECS) instances.
@@ -300,35 +360,43 @@ class DescribeClusterDetailResponseBody extends Model
      */
     public $zoneId;
     protected $_name = [
+        'clusterDomain'          => 'cluster_domain',
         'clusterId'              => 'cluster_id',
         'clusterSpec'            => 'cluster_spec',
         'clusterType'            => 'cluster_type',
+        'containerCidr'          => 'container_cidr',
         'created'                => 'created',
         'currentVersion'         => 'current_version',
         'deletionProtection'     => 'deletion_protection',
         'dockerVersion'          => 'docker_version',
         'externalLoadbalancerId' => 'external_loadbalancer_id',
         'initVersion'            => 'init_version',
+        'ipStack'                => 'ip_stack',
         'maintenanceWindow'      => 'maintenance_window',
         'masterUrl'              => 'master_url',
         'metaData'               => 'meta_data',
         'name'                   => 'name',
         'networkMode'            => 'network_mode',
         'nextVersion'            => 'next_version',
+        'nodeCidrMask'           => 'node_cidr_mask',
         'operationPolicy'        => 'operation_policy',
         'parameters'             => 'parameters',
         'privateZone'            => 'private_zone',
         'profile'                => 'profile',
+        'proxyMode'              => 'proxy_mode',
         'regionId'               => 'region_id',
         'resourceGroupId'        => 'resource_group_id',
         'securityGroupId'        => 'security_group_id',
+        'serviceCidr'            => 'service_cidr',
         'size'                   => 'size',
         'state'                  => 'state',
         'subnetCidr'             => 'subnet_cidr',
         'tags'                   => 'tags',
+        'timezone'               => 'timezone',
         'updated'                => 'updated',
         'vpcId'                  => 'vpc_id',
         'vswitchId'              => 'vswitch_id',
+        'vswitchIds'             => 'vswitch_ids',
         'workerRamRoleName'      => 'worker_ram_role_name',
         'zoneId'                 => 'zone_id',
     ];
@@ -340,6 +408,9 @@ class DescribeClusterDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterDomain) {
+            $res['cluster_domain'] = $this->clusterDomain;
+        }
         if (null !== $this->clusterId) {
             $res['cluster_id'] = $this->clusterId;
         }
@@ -348,6 +419,9 @@ class DescribeClusterDetailResponseBody extends Model
         }
         if (null !== $this->clusterType) {
             $res['cluster_type'] = $this->clusterType;
+        }
+        if (null !== $this->containerCidr) {
+            $res['container_cidr'] = $this->containerCidr;
         }
         if (null !== $this->created) {
             $res['created'] = $this->created;
@@ -367,6 +441,9 @@ class DescribeClusterDetailResponseBody extends Model
         if (null !== $this->initVersion) {
             $res['init_version'] = $this->initVersion;
         }
+        if (null !== $this->ipStack) {
+            $res['ip_stack'] = $this->ipStack;
+        }
         if (null !== $this->maintenanceWindow) {
             $res['maintenance_window'] = null !== $this->maintenanceWindow ? $this->maintenanceWindow->toMap() : null;
         }
@@ -385,6 +462,9 @@ class DescribeClusterDetailResponseBody extends Model
         if (null !== $this->nextVersion) {
             $res['next_version'] = $this->nextVersion;
         }
+        if (null !== $this->nodeCidrMask) {
+            $res['node_cidr_mask'] = $this->nodeCidrMask;
+        }
         if (null !== $this->operationPolicy) {
             $res['operation_policy'] = null !== $this->operationPolicy ? $this->operationPolicy->toMap() : null;
         }
@@ -397,6 +477,9 @@ class DescribeClusterDetailResponseBody extends Model
         if (null !== $this->profile) {
             $res['profile'] = $this->profile;
         }
+        if (null !== $this->proxyMode) {
+            $res['proxy_mode'] = $this->proxyMode;
+        }
         if (null !== $this->regionId) {
             $res['region_id'] = $this->regionId;
         }
@@ -405,6 +488,9 @@ class DescribeClusterDetailResponseBody extends Model
         }
         if (null !== $this->securityGroupId) {
             $res['security_group_id'] = $this->securityGroupId;
+        }
+        if (null !== $this->serviceCidr) {
+            $res['service_cidr'] = $this->serviceCidr;
         }
         if (null !== $this->size) {
             $res['size'] = $this->size;
@@ -424,6 +510,9 @@ class DescribeClusterDetailResponseBody extends Model
                 }
             }
         }
+        if (null !== $this->timezone) {
+            $res['timezone'] = $this->timezone;
+        }
         if (null !== $this->updated) {
             $res['updated'] = $this->updated;
         }
@@ -432,6 +521,9 @@ class DescribeClusterDetailResponseBody extends Model
         }
         if (null !== $this->vswitchId) {
             $res['vswitch_id'] = $this->vswitchId;
+        }
+        if (null !== $this->vswitchIds) {
+            $res['vswitch_ids'] = $this->vswitchIds;
         }
         if (null !== $this->workerRamRoleName) {
             $res['worker_ram_role_name'] = $this->workerRamRoleName;
@@ -451,6 +543,9 @@ class DescribeClusterDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['cluster_domain'])) {
+            $model->clusterDomain = $map['cluster_domain'];
+        }
         if (isset($map['cluster_id'])) {
             $model->clusterId = $map['cluster_id'];
         }
@@ -459,6 +554,9 @@ class DescribeClusterDetailResponseBody extends Model
         }
         if (isset($map['cluster_type'])) {
             $model->clusterType = $map['cluster_type'];
+        }
+        if (isset($map['container_cidr'])) {
+            $model->containerCidr = $map['container_cidr'];
         }
         if (isset($map['created'])) {
             $model->created = $map['created'];
@@ -478,6 +576,9 @@ class DescribeClusterDetailResponseBody extends Model
         if (isset($map['init_version'])) {
             $model->initVersion = $map['init_version'];
         }
+        if (isset($map['ip_stack'])) {
+            $model->ipStack = $map['ip_stack'];
+        }
         if (isset($map['maintenance_window'])) {
             $model->maintenanceWindow = MaintenanceWindow::fromMap($map['maintenance_window']);
         }
@@ -496,6 +597,9 @@ class DescribeClusterDetailResponseBody extends Model
         if (isset($map['next_version'])) {
             $model->nextVersion = $map['next_version'];
         }
+        if (isset($map['node_cidr_mask'])) {
+            $model->nodeCidrMask = $map['node_cidr_mask'];
+        }
         if (isset($map['operation_policy'])) {
             $model->operationPolicy = operationPolicy::fromMap($map['operation_policy']);
         }
@@ -508,6 +612,9 @@ class DescribeClusterDetailResponseBody extends Model
         if (isset($map['profile'])) {
             $model->profile = $map['profile'];
         }
+        if (isset($map['proxy_mode'])) {
+            $model->proxyMode = $map['proxy_mode'];
+        }
         if (isset($map['region_id'])) {
             $model->regionId = $map['region_id'];
         }
@@ -516,6 +623,9 @@ class DescribeClusterDetailResponseBody extends Model
         }
         if (isset($map['security_group_id'])) {
             $model->securityGroupId = $map['security_group_id'];
+        }
+        if (isset($map['service_cidr'])) {
+            $model->serviceCidr = $map['service_cidr'];
         }
         if (isset($map['size'])) {
             $model->size = $map['size'];
@@ -535,6 +645,9 @@ class DescribeClusterDetailResponseBody extends Model
                 }
             }
         }
+        if (isset($map['timezone'])) {
+            $model->timezone = $map['timezone'];
+        }
         if (isset($map['updated'])) {
             $model->updated = $map['updated'];
         }
@@ -543,6 +656,11 @@ class DescribeClusterDetailResponseBody extends Model
         }
         if (isset($map['vswitch_id'])) {
             $model->vswitchId = $map['vswitch_id'];
+        }
+        if (isset($map['vswitch_ids'])) {
+            if (!empty($map['vswitch_ids'])) {
+                $model->vswitchIds = $map['vswitch_ids'];
+            }
         }
         if (isset($map['worker_ram_role_name'])) {
             $model->workerRamRoleName = $map['worker_ram_role_name'];

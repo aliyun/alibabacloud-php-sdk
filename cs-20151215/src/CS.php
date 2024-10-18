@@ -14,8 +14,6 @@ use AlibabaCloud\SDK\CS\V20151215\Models\CancelClusterUpgradeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelComponentUpgradeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelOperationPlanResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelTaskResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\CancelWorkflowRequest;
-use AlibabaCloud\SDK\CS\V20151215\Models\CancelWorkflowResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CheckControlPlaneLogEnableResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CheckServiceRoleRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CheckServiceRoleResponse;
@@ -62,7 +60,6 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DeleteTemplateResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteTriggerResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeployPolicyInstanceRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeployPolicyInstanceResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\DescirbeWorkflowResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonsRequest;
@@ -132,7 +129,6 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTriggerResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeUserClusterNamespacesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeUserPermissionResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeUserQuotaResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeWorkflowsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\EdgeClusterAddEdgeMachineRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\EdgeClusterAddEdgeMachineResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\FixNodePoolVulsRequest;
@@ -189,7 +185,6 @@ use AlibabaCloud\SDK\CS\V20151215\Models\RemoveClusterNodesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\RemoveNodePoolNodesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\RemoveNodePoolNodesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\RemoveNodePoolNodesShrinkRequest;
-use AlibabaCloud\SDK\CS\V20151215\Models\RemoveWorkflowResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\RepairClusterNodePoolRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\RepairClusterNodePoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ResumeComponentUpgradeResponse;
@@ -207,8 +202,6 @@ use AlibabaCloud\SDK\CS\V20151215\Models\ScaleOutClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScanClusterVulsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\StartAlertRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\StartAlertResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\StartWorkflowRequest;
-use AlibabaCloud\SDK\CS\V20151215\Models\StartWorkflowResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\StopAlertRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\StopAlertResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\SyncClusterNodePoolResponse;
@@ -654,66 +647,6 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->cancelTaskWithOptions($taskId, $headers, $runtime);
-    }
-
-    /**
-     * @deprecated OpenAPI CancelWorkflow is deprecated
-     *  *
-     * @summary You can call the CancelWorkflow operation to cancel an ongoing workflow.
-     *  *
-     * Deprecated
-     *
-     * @param string                $workflowName
-     * @param CancelWorkflowRequest $request      CancelWorkflowRequest
-     * @param string[]              $headers      map
-     * @param RuntimeOptions        $runtime      runtime options for this request RuntimeOptions
-     *
-     * @return CancelWorkflowResponse CancelWorkflowResponse
-     */
-    public function cancelWorkflowWithOptions($workflowName, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->action)) {
-            $body['action'] = $request->action;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CancelWorkflow',
-            'version'     => '2015-12-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gs/workflow/' . OpenApiUtilClient::getEncodeParam($workflowName) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return CancelWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated OpenAPI CancelWorkflow is deprecated
-     *  *
-     * @summary You can call the CancelWorkflow operation to cancel an ongoing workflow.
-     *  *
-     * Deprecated
-     *
-     * @param string                $workflowName
-     * @param CancelWorkflowRequest $request      CancelWorkflowRequest
-     *
-     * @return CancelWorkflowResponse CancelWorkflowResponse
-     */
-    public function cancelWorkflow($workflowName, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->cancelWorkflowWithOptions($workflowName, $request, $headers, $runtime);
     }
 
     /**
@@ -2361,58 +2294,6 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->deployPolicyInstanceWithOptions($clusterId, $policyName, $request, $headers, $runtime);
-    }
-
-    /**
-     * @deprecated OpenAPI DescirbeWorkflow is deprecated
-     *  *
-     * @summary You can call the DescirbeWorkflow operation to query detailed information about a workflow.
-     *  *
-     * Deprecated
-     *
-     * @param string         $workflowName
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
-     *
-     * @return DescirbeWorkflowResponse DescirbeWorkflowResponse
-     */
-    public function descirbeWorkflowWithOptions($workflowName, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'DescirbeWorkflow',
-            'version'     => '2015-12-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gs/workflow/' . OpenApiUtilClient::getEncodeParam($workflowName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescirbeWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated OpenAPI DescirbeWorkflow is deprecated
-     *  *
-     * @summary You can call the DescirbeWorkflow operation to query detailed information about a workflow.
-     *  *
-     * Deprecated
-     *
-     * @param string $workflowName
-     *
-     * @return DescirbeWorkflowResponse DescirbeWorkflowResponse
-     */
-    public function descirbeWorkflow($workflowName)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->descirbeWorkflowWithOptions($workflowName, $headers, $runtime);
     }
 
     /**
@@ -4753,55 +4634,6 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeWorkflows is deprecated
-     *  *
-     * @summary You can call the DescribeWorkflows operation to query all workflows.
-     *  *
-     * Deprecated
-     *
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DescribeWorkflowsResponse DescribeWorkflowsResponse
-     */
-    public function describeWorkflowsWithOptions($headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeWorkflows',
-            'version'     => '2015-12-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gs/workflows',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeWorkflowsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated OpenAPI DescribeWorkflows is deprecated
-     *  *
-     * @summary You can call the DescribeWorkflows operation to query all workflows.
-     *  *
-     * Deprecated
-     *
-     * @return DescribeWorkflowsResponse DescribeWorkflowsResponse
-     */
-    public function describeWorkflows()
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeWorkflowsWithOptions($headers, $runtime);
-    }
-
-    /**
      * @summary You can call the EdgeClusterAddEdgeMachine operation to add a cloud-native box to a Container Service for Kubernetes (ACK) Edge cluster.
      *  *
      * @param string                           $clusterid
@@ -5895,6 +5727,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->systemEventsLogging)) {
             $body['system_events_logging'] = $request->systemEventsLogging;
         }
+        if (!Utils::isUnset($request->vswitchIds)) {
+            $body['vswitch_ids'] = $request->vswitchIds;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
@@ -6663,58 +6498,6 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI RemoveWorkflow is deprecated
-     *  *
-     * @summary You can call the RemoveWorkflow operation to delete a workflow.
-     *  *
-     * Deprecated
-     *
-     * @param string         $workflowName
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
-     *
-     * @return RemoveWorkflowResponse RemoveWorkflowResponse
-     */
-    public function removeWorkflowWithOptions($workflowName, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'RemoveWorkflow',
-            'version'     => '2015-12-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gs/workflow/' . OpenApiUtilClient::getEncodeParam($workflowName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return RemoveWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated OpenAPI RemoveWorkflow is deprecated
-     *  *
-     * @summary You can call the RemoveWorkflow operation to delete a workflow.
-     *  *
-     * Deprecated
-     *
-     * @param string $workflowName
-     *
-     * @return RemoveWorkflowResponse RemoveWorkflowResponse
-     */
-    public function removeWorkflow($workflowName)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->removeWorkflowWithOptions($workflowName, $headers, $runtime);
-    }
-
-    /**
      * @summary Fixes issues on abnormal nodes in a node pool to ensure that the nodes can run as normal.
      *  *
      * @param string                       $clusterId
@@ -7405,118 +7188,6 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->startAlertWithOptions($ClusterId, $request, $headers, $runtime);
-    }
-
-    /**
-     * @deprecated OpenAPI StartWorkflow is deprecated
-     *  *
-     * @summary You can call the StartWorkflow operation to create a workflow.
-     *  *
-     * Deprecated
-     *
-     * @param StartWorkflowRequest $request StartWorkflowRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
-     *
-     * @return StartWorkflowResponse StartWorkflowResponse
-     */
-    public function startWorkflowWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->mappingBamOutFilename)) {
-            $body['mapping_bam_out_filename'] = $request->mappingBamOutFilename;
-        }
-        if (!Utils::isUnset($request->mappingBamOutPath)) {
-            $body['mapping_bam_out_path'] = $request->mappingBamOutPath;
-        }
-        if (!Utils::isUnset($request->mappingBucketName)) {
-            $body['mapping_bucket_name'] = $request->mappingBucketName;
-        }
-        if (!Utils::isUnset($request->mappingFastqFirstFilename)) {
-            $body['mapping_fastq_first_filename'] = $request->mappingFastqFirstFilename;
-        }
-        if (!Utils::isUnset($request->mappingFastqPath)) {
-            $body['mapping_fastq_path'] = $request->mappingFastqPath;
-        }
-        if (!Utils::isUnset($request->mappingFastqSecondFilename)) {
-            $body['mapping_fastq_second_filename'] = $request->mappingFastqSecondFilename;
-        }
-        if (!Utils::isUnset($request->mappingIsMarkDup)) {
-            $body['mapping_is_mark_dup'] = $request->mappingIsMarkDup;
-        }
-        if (!Utils::isUnset($request->mappingOssRegion)) {
-            $body['mapping_oss_region'] = $request->mappingOssRegion;
-        }
-        if (!Utils::isUnset($request->mappingReferencePath)) {
-            $body['mapping_reference_path'] = $request->mappingReferencePath;
-        }
-        if (!Utils::isUnset($request->service)) {
-            $body['service'] = $request->service;
-        }
-        if (!Utils::isUnset($request->wgsBucketName)) {
-            $body['wgs_bucket_name'] = $request->wgsBucketName;
-        }
-        if (!Utils::isUnset($request->wgsFastqFirstFilename)) {
-            $body['wgs_fastq_first_filename'] = $request->wgsFastqFirstFilename;
-        }
-        if (!Utils::isUnset($request->wgsFastqPath)) {
-            $body['wgs_fastq_path'] = $request->wgsFastqPath;
-        }
-        if (!Utils::isUnset($request->wgsFastqSecondFilename)) {
-            $body['wgs_fastq_second_filename'] = $request->wgsFastqSecondFilename;
-        }
-        if (!Utils::isUnset($request->wgsOssRegion)) {
-            $body['wgs_oss_region'] = $request->wgsOssRegion;
-        }
-        if (!Utils::isUnset($request->wgsReferencePath)) {
-            $body['wgs_reference_path'] = $request->wgsReferencePath;
-        }
-        if (!Utils::isUnset($request->wgsVcfOutFilename)) {
-            $body['wgs_vcf_out_filename'] = $request->wgsVcfOutFilename;
-        }
-        if (!Utils::isUnset($request->wgsVcfOutPath)) {
-            $body['wgs_vcf_out_path'] = $request->wgsVcfOutPath;
-        }
-        if (!Utils::isUnset($request->workflowType)) {
-            $body['workflow_type'] = $request->workflowType;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'StartWorkflow',
-            'version'     => '2015-12-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gs/workflow',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return StartWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated OpenAPI StartWorkflow is deprecated
-     *  *
-     * @summary You can call the StartWorkflow operation to create a workflow.
-     *  *
-     * Deprecated
-     *
-     * @param StartWorkflowRequest $request StartWorkflowRequest
-     *
-     * @return StartWorkflowResponse StartWorkflowResponse
-     */
-    public function startWorkflow($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->startWorkflowWithOptions($request, $headers, $runtime);
     }
 
     /**
