@@ -110,6 +110,8 @@ class authorizedApp extends Model
     public $stageName;
 
     /**
+     * @description The key of the tag.
+     *
      * @var tag
      */
     public $tag;

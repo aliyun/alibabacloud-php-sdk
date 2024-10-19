@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class ExportOASShrinkRequest extends Model
 {
     /**
+     * @description The APIs that you want to export.
+     *
      * @var string
      */
     public $apiIdListShrink;
 
     /**
+     * @description The exported format:
+     *
+     *   json
+     *   yaml
+     *
      * @example yaml
      *
      * @var string
@@ -21,6 +28,8 @@ class ExportOASShrinkRequest extends Model
     public $dataFormat;
 
     /**
+     * @description The API group ID.
+     *
      * @example 42925e7f5209438186d5560239af5xxx
      *
      * @var string
@@ -28,6 +37,11 @@ class ExportOASShrinkRequest extends Model
     public $groupId;
 
     /**
+     * @description The OAS version. Valid values:
+     *
+     *   **oas2**
+     *   **oas3**
+     *
      * @example oas2
      *
      * @var string
@@ -35,6 +49,8 @@ class ExportOASShrinkRequest extends Model
     public $oasVersion;
 
     /**
+     * @description The number of pages in which you want to export the APIs.
+     *
      * @example 1
      *
      * @var int
@@ -47,6 +63,12 @@ class ExportOASShrinkRequest extends Model
     public $securityToken;
 
     /**
+     * @description The environment to which the API is published. Valid values:
+     *
+     *   **RELEASE**: the production environment
+     *   **PRE**: the pre-release environment
+     *   **TEST**: the test environment
+     *
      * @example RELEASE
      *
      * @var string
@@ -54,6 +76,8 @@ class ExportOASShrinkRequest extends Model
     public $stageName;
 
     /**
+     * @description Specifies whether to export API Gateway extensions at the same time.
+     *
      * @example true
      *
      * @var bool

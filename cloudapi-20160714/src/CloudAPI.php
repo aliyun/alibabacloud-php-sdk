@@ -14,6 +14,9 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AddIpControlPolicyItemRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AddIpControlPolicyItemResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AddTrafficSpecialControlRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AddTrafficSpecialControlResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AssociateInstanceWithPrivateDNSRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AssociateInstanceWithPrivateDNSResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AssociateInstanceWithPrivateDNSShrinkRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AttachApiProductRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AttachApiProductResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AttachPluginRequest;
@@ -58,6 +61,9 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateMonitorGroupRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateMonitorGroupResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreatePluginRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreatePluginResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreatePrivateDNSRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreatePrivateDNSResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreatePrivateDNSShrinkRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateSignatureRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateSignatureResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateTrafficControlRequest;
@@ -104,6 +110,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteMonitorGroupRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteMonitorGroupResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeletePluginRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeletePluginResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeletePrivateDNSRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeletePrivateDNSResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteSignatureRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteSignatureResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteTrafficControlRequest;
@@ -290,6 +298,9 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DetachPluginRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DetachPluginResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DisableInstanceAccessControlRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DisableInstanceAccessControlResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DissociateInstanceWithPrivateDNSRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DissociateInstanceWithPrivateDNSResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DissociateInstanceWithPrivateDNSShrinkRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DryRunSwaggerRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DryRunSwaggerResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DryRunSwaggerShrinkRequest;
@@ -303,6 +314,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportOASResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportSwaggerRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportSwaggerResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportSwaggerShrinkRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ListPrivateDNSRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ListPrivateDNSResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiConfigurationRequest;
@@ -421,6 +434,9 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\UpdatePrivateDNSRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\UpdatePrivateDNSResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\UpdatePrivateDNSShrinkRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ValidateVpcConnectivityRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ValidateVpcConnectivityResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -774,6 +790,66 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addTrafficSpecialControlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 专享实例关联内网域名解析记录
+     *  *
+     * @param AssociateInstanceWithPrivateDNSRequest $tmpReq  AssociateInstanceWithPrivateDNSRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AssociateInstanceWithPrivateDNSResponse AssociateInstanceWithPrivateDNSResponse
+     */
+    public function associateInstanceWithPrivateDNSWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AssociateInstanceWithPrivateDNSShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->intranetDomains)) {
+            $request->intranetDomainsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->intranetDomains, 'IntranetDomains', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->intranetDomainsShrink)) {
+            $body['IntranetDomains'] = $request->intranetDomainsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AssociateInstanceWithPrivateDNS',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AssociateInstanceWithPrivateDNSResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 专享实例关联内网域名解析记录
+     *  *
+     * @param AssociateInstanceWithPrivateDNSRequest $request AssociateInstanceWithPrivateDNSRequest
+     *
+     * @return AssociateInstanceWithPrivateDNSResponse AssociateInstanceWithPrivateDNSResponse
+     */
+    public function associateInstanceWithPrivateDNS($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->associateInstanceWithPrivateDNSWithOptions($request, $runtime);
     }
 
     /**
@@ -2201,6 +2277,69 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 创建内网域名解析
+     *  *
+     * @param CreatePrivateDNSRequest $tmpReq  CreatePrivateDNSRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreatePrivateDNSResponse CreatePrivateDNSResponse
+     */
+    public function createPrivateDNSWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreatePrivateDNSShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->records)) {
+            $request->recordsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->records, 'Records', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->intranetDomain)) {
+            $query['IntranetDomain'] = $request->intranetDomain;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->recordsShrink)) {
+            $body['Records'] = $request->recordsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePrivateDNS',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePrivateDNSResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建内网域名解析
+     *  *
+     * @param CreatePrivateDNSRequest $request CreatePrivateDNSRequest
+     *
+     * @return CreatePrivateDNSResponse CreatePrivateDNSResponse
+     */
+    public function createPrivateDNS($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPrivateDNSWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates a backend signature key.
      *  *
      * @description *   This API is intended for API providers.
@@ -3484,6 +3623,62 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deletePluginWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除内网域名解析
+     *  *
+     * @param DeletePrivateDNSRequest $request DeletePrivateDNSRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeletePrivateDNSResponse DeletePrivateDNSResponse
+     */
+    public function deletePrivateDNSWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
+        if (!Utils::isUnset($request->intranetDomain)) {
+            $query['IntranetDomain'] = $request->intranetDomain;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePrivateDNS',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeletePrivateDNSResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除内网域名解析
+     *  *
+     * @param DeletePrivateDNSRequest $request DeletePrivateDNSRequest
+     *
+     * @return DeletePrivateDNSResponse DeletePrivateDNSResponse
+     */
+    public function deletePrivateDNS($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePrivateDNSWithOptions($request, $runtime);
     }
 
     /**
@@ -9105,6 +9300,66 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 专享实例解除的关联内网域名解析记录
+     *  *
+     * @param DissociateInstanceWithPrivateDNSRequest $tmpReq  DissociateInstanceWithPrivateDNSRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DissociateInstanceWithPrivateDNSResponse DissociateInstanceWithPrivateDNSResponse
+     */
+    public function dissociateInstanceWithPrivateDNSWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DissociateInstanceWithPrivateDNSShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->intranetDomains)) {
+            $request->intranetDomainsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->intranetDomains, 'IntranetDomains', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->intranetDomainsShrink)) {
+            $body['IntranetDomains'] = $request->intranetDomainsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DissociateInstanceWithPrivateDNS',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DissociateInstanceWithPrivateDNSResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 专享实例解除的关联内网域名解析记录
+     *  *
+     * @param DissociateInstanceWithPrivateDNSRequest $request DissociateInstanceWithPrivateDNSRequest
+     *
+     * @return DissociateInstanceWithPrivateDNSResponse DissociateInstanceWithPrivateDNSResponse
+     */
+    public function dissociateInstanceWithPrivateDNS($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dissociateInstanceWithPrivateDNSWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Checks the syntax before Swagger-compliant data is imported.
      *  *
      * @param DryRunSwaggerRequest $tmpReq  DryRunSwaggerRequest
@@ -9457,6 +9712,59 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->importSwaggerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询内网域名解析
+     *  *
+     * @param ListPrivateDNSRequest $request ListPrivateDNSRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListPrivateDNSResponse ListPrivateDNSResponse
+     */
+    public function listPrivateDNSWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->intranetDomain)) {
+            $query['IntranetDomain'] = $request->intranetDomain;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPrivateDNS',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPrivateDNSResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询内网域名解析
+     *  *
+     * @param ListPrivateDNSRequest $request ListPrivateDNSRequest
+     *
+     * @return ListPrivateDNSResponse ListPrivateDNSResponse
+     */
+    public function listPrivateDNS($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPrivateDNSWithOptions($request, $runtime);
     }
 
     /**
@@ -13248,6 +13556,69 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新内网域名解析
+     *  *
+     * @param UpdatePrivateDNSRequest $tmpReq  UpdatePrivateDNSRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdatePrivateDNSResponse UpdatePrivateDNSResponse
+     */
+    public function updatePrivateDNSWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdatePrivateDNSShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->records)) {
+            $request->recordsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->records, 'Records', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->intranetDomain)) {
+            $query['IntranetDomain'] = $request->intranetDomain;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->recordsShrink)) {
+            $body['Records'] = $request->recordsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePrivateDNS',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdatePrivateDNSResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新内网域名解析
+     *  *
+     * @param UpdatePrivateDNSRequest $request UpdatePrivateDNSRequest
+     *
+     * @return UpdatePrivateDNSResponse UpdatePrivateDNSResponse
+     */
+    public function updatePrivateDNS($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePrivateDNSWithOptions($request, $runtime);
     }
 
     /**

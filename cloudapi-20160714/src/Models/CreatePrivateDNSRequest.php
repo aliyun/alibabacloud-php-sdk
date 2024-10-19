@@ -1,0 +1,104 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
+
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreatePrivateDNSRequest\records;
+use AlibabaCloud\Tea\Model;
+
+class CreatePrivateDNSRequest extends Model
+{
+    /**
+     * @description This parameter is required.
+     *
+     * @example api.demo.com
+     *
+     * @var string
+     */
+    public $intranetDomain;
+
+    /**
+     * @var records[]
+     */
+    public $records;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example A
+     *
+     * @var string
+     */
+    public $type;
+    protected $_name = [
+        'intranetDomain' => 'IntranetDomain',
+        'records'        => 'Records',
+        'securityToken'  => 'SecurityToken',
+        'type'           => 'Type',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->intranetDomain) {
+            $res['IntranetDomain'] = $this->intranetDomain;
+        }
+        if (null !== $this->records) {
+            $res['Records'] = [];
+            if (null !== $this->records && \is_array($this->records)) {
+                $n = 0;
+                foreach ($this->records as $item) {
+                    $res['Records'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return CreatePrivateDNSRequest
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['IntranetDomain'])) {
+            $model->intranetDomain = $map['IntranetDomain'];
+        }
+        if (isset($map['Records'])) {
+            if (!empty($map['Records'])) {
+                $model->records = [];
+                $n              = 0;
+                foreach ($map['Records'] as $item) {
+                    $model->records[$n++] = null !== $item ? records::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+
+        return $model;
+    }
+}

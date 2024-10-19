@@ -19,6 +19,10 @@ class requestConfig extends Model
     public $bodyFormat;
 
     /**
+     * @description Whether to escape the Path parameter, if true, the [param] on the Path will be treated as a regular character.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $escapePathParam;
