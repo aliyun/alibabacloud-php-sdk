@@ -26,6 +26,8 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyShrinkRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeepfakeDetectRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeepfakeDetectResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteFaceVerifyResultRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteFaceVerifyResultResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeDeviceInfoRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeDeviceInfoResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeFaceVerifyRequest;
@@ -833,6 +835,56 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deepfakeDetectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 金融级服务敏感数据删除接口
+     *  *
+     * @param DeleteFaceVerifyResultRequest $request DeleteFaceVerifyResultRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteFaceVerifyResultResponse DeleteFaceVerifyResultResponse
+     */
+    public function deleteFaceVerifyResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certifyId)) {
+            $query['CertifyId'] = $request->certifyId;
+        }
+        if (!Utils::isUnset($request->deleteAfterQuery)) {
+            $query['DeleteAfterQuery'] = $request->deleteAfterQuery;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFaceVerifyResult',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteFaceVerifyResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 金融级服务敏感数据删除接口
+     *  *
+     * @param DeleteFaceVerifyResultRequest $request DeleteFaceVerifyResultRequest
+     *
+     * @return DeleteFaceVerifyResultResponse DeleteFaceVerifyResultResponse
+     */
+    public function deleteFaceVerifyResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFaceVerifyResultWithOptions($request, $runtime);
     }
 
     /**
