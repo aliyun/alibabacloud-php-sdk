@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models;
 
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\DeleteAppGroupResponseBody\accessDeniedDetail;
 use AlibabaCloud\Tea\Model;
 
 class DeleteAppGroupResponseBody extends Model
 {
+    /**
+     * @var accessDeniedDetail
+     */
+    public $accessDeniedDetail;
+
     /**
      * @example 200
      *
@@ -36,10 +42,11 @@ class DeleteAppGroupResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'code'               => 'Code',
+        'message'            => 'Message',
+        'requestId'          => 'RequestId',
+        'success'            => 'Success',
     ];
 
     public function validate()
@@ -49,6 +56,9 @@ class DeleteAppGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = null !== $this->accessDeniedDetail ? $this->accessDeniedDetail->toMap() : null;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -73,6 +83,9 @@ class DeleteAppGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = accessDeniedDetail::fromMap($map['AccessDeniedDetail']);
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }

@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models;
 
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ExecuteJobResponseBody\accessDeniedDetail;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ExecuteJobResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
 class ExecuteJobResponseBody extends Model
 {
+    /**
+     * @var accessDeniedDetail
+     */
+    public $accessDeniedDetail;
+
     /**
      * @description The HTTP status code.
      *
@@ -55,11 +61,12 @@ class ExecuteJobResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'code'               => 'Code',
+        'data'               => 'Data',
+        'message'            => 'Message',
+        'requestId'          => 'RequestId',
+        'success'            => 'Success',
     ];
 
     public function validate()
@@ -69,6 +76,9 @@ class ExecuteJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = null !== $this->accessDeniedDetail ? $this->accessDeniedDetail->toMap() : null;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -96,6 +106,9 @@ class ExecuteJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = accessDeniedDetail::fromMap($map['AccessDeniedDetail']);
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
