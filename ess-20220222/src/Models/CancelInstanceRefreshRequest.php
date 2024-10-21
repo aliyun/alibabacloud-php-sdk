@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CancelInstanceRefreshRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the instance refresh task.
      *
+     * This parameter is required.
      * @example ir-aca123sf****
      *
      * @var string
@@ -23,8 +24,9 @@ class CancelInstanceRefreshRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the scaling group.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -37,8 +39,9 @@ class CancelInstanceRefreshRequest extends Model
     public $resourceOwnerAccount;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the scaling group.
      *
+     * This parameter is required.
      * @example asg-bp1igpak5ft1flyp****
      *
      * @var string

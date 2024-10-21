@@ -97,20 +97,22 @@ class ModifyScalingRuleRequest extends Model
      *
      * Valid values if you create a target tracking scaling rule:
      *
+     *   CpuUtilizationAgent (recommended): the CPU utilization.
+     *   MemoryUtilization (recommended): the memory usage.
      *   CpuUtilization: the average CPU utilization.
-     *   IntranetTx: the outbound traffic over an internal network.
-     *   IntranetRx: the inbound traffic over an internal network.
-     *   VpcInternetTx: the outbound traffic from a virtual private cloud (VPC) to the Internet.
-     *   VpcInternetRx: the inbound traffic from the Internet to a VPC.
-     *   MemoryUtilization: the memory usage.
+     *   IntranetTx: the average outbound traffic over an internal network.
+     *   IntranetRx: the average inbound traffic over an internal network.
+     *   VpcInternetTx: the average outbound traffic from a virtual private cloud (VPC) to the Internet.
+     *   VpcInternetRx: the average inbound traffic from the Internet to a VPC.
      *   LoadBalancerRealServerAverageQps: the queries per second (QPS) per Application Load Balancer (ALB) server group.
      *
      * Valid values if you create a predictive scaling rule:
      *
      *   CpuUtilization: the average CPU utilization.
-     *   IntranetRx: the inbound traffic over an internal network.
-     *   IntranetTx: the outbound traffic over an internal network.
+     *   IntranetRx: the average inbound traffic over an internal network.
+     *   IntranetTx: the average outbound traffic over an internal network.
      *
+     * For more information, see [Event-triggered tasks of the system monitoring type](https://help.aliyun.com/document_detail/74854.html).
      * @example CpuUtilization
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class instanceRefreshTasks extends Model
 {
     /**
+     * @description The desired configurations of the instance refresh task.
+     *
      * @var desiredConfiguration
      */
     public $desiredConfiguration;
 
     /**
+     * @description The reason why the instance refresh task failed to be executed.
+     *
      * @example The task exceeded its maximum run time of one week. So the task failed.
      *
      * @var string
@@ -22,6 +26,8 @@ class instanceRefreshTasks extends Model
     public $detail;
 
     /**
+     * @description The end time of the instance refresh task.
+     *
      * @example 2024-08-22T02:09:00Z
      *
      * @var string
@@ -29,6 +35,8 @@ class instanceRefreshTasks extends Model
     public $endTime;
 
     /**
+     * @description The refreshed number of instances in the scaling group.
+     *
      * @example 10
      *
      * @var int
@@ -36,6 +44,8 @@ class instanceRefreshTasks extends Model
     public $finishedUpdateCapacity;
 
     /**
+     * @description The ID of the instance refresh task.
+     *
      * @example ir-1adfa123****
      *
      * @var string
@@ -43,6 +53,8 @@ class instanceRefreshTasks extends Model
     public $instanceRefreshTaskId;
 
     /**
+     * @description The ratio by which the number of instances in the scaling group can exceed the upper limit for the number of instances in the scaling group during instance refresh.
+     *
      * @example 120
      *
      * @var int
@@ -50,6 +62,8 @@ class instanceRefreshTasks extends Model
     public $maxHealthyPercentage;
 
     /**
+     * @description The ratio of the number of instances that provide services to the total number of instances in the scaling group during instance refresh.
+     *
      * @example 80
      *
      * @var int
@@ -57,6 +71,8 @@ class instanceRefreshTasks extends Model
     public $minHealthyPercentage;
 
     /**
+     * @description The region ID of the scaling group.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -64,6 +80,8 @@ class instanceRefreshTasks extends Model
     public $regionId;
 
     /**
+     * @description The ID of the scaling group.
+     *
      * @example asg-bp16pbfcr8j9*****
      *
      * @var string
@@ -71,6 +89,8 @@ class instanceRefreshTasks extends Model
     public $scalingGroupId;
 
     /**
+     * @description The start time of the instance refresh task.
+     *
      * @example 2024-08-22T01:09:00Z
      *
      * @var string
@@ -78,6 +98,19 @@ class instanceRefreshTasks extends Model
     public $startTime;
 
     /**
+     * @description The status of the instance refresh task. Valid values:
+     *
+     *   Pending: The instance refresh task is created and is waiting to be scheduled.
+     *   InProgress: The instance refresh task is being executed.
+     *   Paused: The instance refresh task is suspended.
+     *   Failed: The instance refresh task failed to be executed.
+     *   Successful: The instance refresh task is successful.
+     *   Cancelling: The instance refresh task is being canceled.
+     *   Cancelled: The instance refresh task is canceled.
+     *   RollbackInProgress: The instance refresh task is being rolled back.
+     *   RollbackSuccessful: The instance refresh task is rolled back.
+     *   RollbackFailed: The instance refresh task fails to be rolled back.
+     *
      * @example InProgress
      *
      * @var string
@@ -85,6 +118,8 @@ class instanceRefreshTasks extends Model
     public $status;
 
     /**
+     * @description The total number of instances whose configurations are refreshed.
+     *
      * @example 20
      *
      * @var int

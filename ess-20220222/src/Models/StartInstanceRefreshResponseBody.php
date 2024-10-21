@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartInstanceRefreshResponseBody extends Model
 {
     /**
+     * @description The ID of the instance refresh task.
+     *
      * @example ir-a12ds234fasd*****
      *
      * @var string
@@ -16,6 +18,8 @@ class StartInstanceRefreshResponseBody extends Model
     public $instanceRefreshTaskId;
 
     /**
+     * @description The request ID.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
      * @var string

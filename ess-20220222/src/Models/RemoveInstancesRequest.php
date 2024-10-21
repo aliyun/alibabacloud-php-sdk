@@ -116,6 +116,8 @@ class RemoveInstancesRequest extends Model
     public $scalingGroupId;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $stopInstanceTimeout;

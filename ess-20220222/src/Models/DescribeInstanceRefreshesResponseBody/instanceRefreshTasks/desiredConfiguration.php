@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class desiredConfiguration extends Model
 {
     /**
+     * @description The ID of the image file that provides the image resource for Auto Scaling to create instances.
+     *
      * @example m-uf6g5noisr****
      *
      * @var string
@@ -16,6 +18,8 @@ class desiredConfiguration extends Model
     public $imageId;
 
     /**
+     * @description The ID of the scaling configuration.
+     *
      * @example asc-wz91ibkhfor****
      *
      * @var string

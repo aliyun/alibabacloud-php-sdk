@@ -28,7 +28,7 @@ class DescribeScalingGroupDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the scaling groups.
+     * @description The scaling group.
      *
      * @var scalingGroup
      */

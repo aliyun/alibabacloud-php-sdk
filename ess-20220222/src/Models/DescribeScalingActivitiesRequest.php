@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeScalingActivitiesRequest extends Model
 {
     /**
+     * @example ir-a12ds234fasd*****
+     *
      * @var string
      */
     public $instanceRefreshTaskId;
@@ -24,7 +26,7 @@ class DescribeScalingActivitiesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Pages start from page 1.
+     * @description The page number. Pages start from page 1.
      *
      * Default value: 1.
      * @example 1
@@ -34,7 +36,7 @@ class DescribeScalingActivitiesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 50.
+     * @description The number of entries per page. Maximum value: 50.
      *
      * Default value: 10.
      * @example 10
@@ -66,7 +68,7 @@ class DescribeScalingActivitiesRequest extends Model
     /**
      * @description The IDs of the scaling activities that you want to query.
      *
-     * > When you call this operation, you must specify one of the `ScalingGroupId` and `ScalingActivityId.N` parameters. Otherwise, an error is reported.
+     * >  When you call this operation, you must specify one of the following parameters: `ScalingGroupId` and `ScalingActivityIds`. You cannot specify both of them at the same time. If you specify neither of them, an error is reported.
      * @var string[]
      */
     public $scalingActivityIds;
@@ -74,7 +76,7 @@ class DescribeScalingActivitiesRequest extends Model
     /**
      * @description The ID of the scaling group.
      *
-     * > When you call this operation, you must specify one of the `ScalingGroupId` and `ScalingActivityId.N` parameters. Otherwise, an error is reported.
+     * >  When you call this operation, you must specify one of the following parameters: `ScalingGroupId` and `ScalingActivityIds`. You cannot specify both of them at the same time. If you specify neither of them, an error is reported.
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string

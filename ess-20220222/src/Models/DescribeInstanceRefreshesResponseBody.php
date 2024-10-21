@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceRefreshesResponseBody extends Model
 {
     /**
+     * @description The instance refresh tasks.
+     *
      * @var instanceRefreshTasks[]
      */
     public $instanceRefreshTasks;
 
     /**
+     * @description The maximum number of entries per page.
+     *
      * @example 50
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeInstanceRefreshesResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+     *
      * @example caeba0bbb2be03f84eb48b699f****
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeInstanceRefreshesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeInstanceRefreshesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of instance refresh tasks.
+     *
      * @example 100
      *
      * @var int

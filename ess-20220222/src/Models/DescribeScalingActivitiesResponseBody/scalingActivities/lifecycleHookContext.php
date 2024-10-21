@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class lifecycleHookContext extends Model
 {
     /**
-     * @description Indicates whether all lifecycle hooks are disabled. Valid values:
+     * @description Indicates whether all lifecycle hooks are disabled when the scaling activity is triggered. Valid values:
      *
      *   true
      *   false

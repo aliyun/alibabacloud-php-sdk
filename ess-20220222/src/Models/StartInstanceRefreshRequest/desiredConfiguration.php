@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class desiredConfiguration extends Model
 {
     /**
+     * @description The image ID.
+     *
+     * >
+     *
+     *   After the instance refresh task is complete, the active scaling configuration uses the image specified by this parameter.
+     *
+     *   If the instance configuration source of the scaling group is a launch template, you cannot specify this parameter.
+     *
      * @example m-2ze8cqacj7opnf***
      *
      * @var string
@@ -16,6 +24,9 @@ class desiredConfiguration extends Model
     public $imageId;
 
     /**
+     * @description The ID of the scaling configuration.
+     *
+     * >  After the instance refresh task is complete, the scaling group uses the scaling configuration specified by this parameter.
      * @example asc-2zed7lqn4ts4****
      *
      * @var string

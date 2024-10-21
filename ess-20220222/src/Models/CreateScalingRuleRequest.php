@@ -55,7 +55,7 @@ class CreateScalingRuleRequest extends Model
     public $cooldown;
 
     /**
-     * @description Specifies whether to disable scale-in. This parameter is available only if you set the ScalingRuleType parameter to TargetTrackingScalingRule.
+     * @description Specifies whether to disable scale-in. This parameter is available only if you set ScalingRuleType to TargetTrackingScalingRule.
      *
      * Default value: false.
      * @example false
@@ -95,7 +95,7 @@ class CreateScalingRuleRequest extends Model
     public $initialMaxSize;
 
     /**
-     * @description The predefined metric of the scaling rule. If you set ScalingRuleType to TargetTrackingScalingRule or PredictiveScalingRule, you must specify this parameter.
+     * @description The predefined metric that you want to monitor. If you set ScalingRuleType to TargetTrackingScalingRule or PredictiveScalingRule, you must specify this parameter.
      *
      * Valid values if you set ScalingRuleType to TargetTrackingScalingRule:
      *
@@ -103,7 +103,7 @@ class CreateScalingRuleRequest extends Model
      *   MemoryUtilization (recommended): the memory usage.
      *   CpuUtilization: the average CPU utilization.
      *   IntranetTx: the outbound traffic over an internal network.
-     *   IntranetRx: the inbound traffic over an internal network.
+     *   IntranetRx: the average inbound traffic over an internal network.
      *   VpcInternetTx: the outbound traffic from a virtual private cloud (VPC) to the Internet.
      *   VpcInternetRx: the inbound traffic from the Internet to a VPC.
      *   LoadBalancerRealServerAverageQps:the queries per second (QPS) per Application Load Balancer (ALB) server group.
@@ -111,10 +111,10 @@ class CreateScalingRuleRequest extends Model
      * Valid values if you set ScalingRuleType to PredictiveScalingRule:
      *
      *   CpuUtilization: the average CPU utilization.
-     *   IntranetRx: the inbound traffic over an internal network.
-     *   IntranetTx: the outbound traffic over an internal network.
+     *   IntranetRx: the average inbound traffic over an internal network.
+     *   IntranetTx: the average outbound traffic over an internal network.
      *
-     * For more information, see [Event-triggered tasks of the system monitoring type](https://www.alibabacloud.com/help/zh/auto-scaling/user-guide/event-triggered-tasks-of-the-system-monitoring-type).
+     * For more information, see [Event-triggered tasks of the system monitoring type](https://help.aliyun.com/document_detail/74854.html).
      * @example CpuUtilization
      *
      * @var string
@@ -249,12 +249,12 @@ class CreateScalingRuleRequest extends Model
     /**
      * @description The type of the scaling rule. Valid values:
      *
-     *   SimpleScalingRule: a simple scaling rule. Once a simple scaling rule is executed, Auto Scaling adjusts the number of ECS instances or elastic container instances in the scaling group based on the values of AdjustmentType and AdjustmentValue.
-     *   TargetTrackingScalingRule: a target tracking scaling rule. Once a target tracking scaling rule is executed, Auto Scaling dynamically calculates the number of ECS instances or elastic container instances to scale based on the predefined metric (MetricName) and attempts to maintain the metric value close to the specified target value (TargetValue).
-     *   StepScalingRule: a step scaling rule. Once a step scaling rule is executed, Auto Scaling scales instances step by step based on the predefined thresholds and metric values.
-     *   PredictiveScalingRule: a predictive scaling rule. Once a predictive scaling rule is executed, Auto Scaling analyzes the historical monitoring data based on the machine learning technology and predicts the trends of metric data. Auto Scaling also creates scheduled tasks to enable dynamic adjustment of the boundary values for the scaling group.
+     *   SimpleScalingRule: a simple scaling rule. After you execute a simple scaling rule, Auto Scaling adjusts the number of ECS instances or elastic container instances in the scaling group based on the values of AdjustmentType and AdjustmentValue.
+     *   TargetTrackingScalingRule: a target tracking scaling rule. After you execute a target tracking scaling rule, Auto Scaling dynamically calculates the number of ECS instances or elastic container instances to scale based on the predefined metric (MetricName) and attempts to maintain the metric value close to the expected value (TargetValue).
+     *   StepScalingRule: a step scaling rule. After you execute a step scaling rule, Auto Scaling scales instances step by step based on the predefined thresholds and metric values.
+     *   PredictiveScalingRule: uses machine learning to analyze historical monitoring data of the scaling group and predicts the future values of metrics. In addition, Auto Scaling automatically creates scheduled tasks to specify the value range for the scaling group.
      *
-     * Default value: SimpleScalingRule.
+     * Default value: SimpleScalingRule
      * @example SimpleScalingRule
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class StartInstanceRefreshRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see "How to ensure idempotence".
+     *
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -17,11 +19,22 @@ class StartInstanceRefreshRequest extends Model
     public $clientToken;
 
     /**
+     * @description The desired configurations of the instance refresh task.
+     *
+     * >
+     *
+     *   When you call this operation, you must specify one of the following parameters: ScalingConfigurationId and ImageId.
+     *
+     *   Instances whose configurations match the desired configurations of the task are ignored during instance refresh.
+     *
      * @var desiredConfiguration
      */
     public $desiredConfiguration;
 
     /**
+     * @description The ratio of instances that can exceed the upper limit of the scaling group capacity to all instances in the scaling group during instance refresh. Valid values: 100 to 200. Default value: 120.
+     *
+     * >  If you set MinHealthyPercentage and MaxHealthyPercentage to 100, Auto Scaling refreshes the configurations of one instance each time the instance refresh task starts.
      * @example 100
      *
      * @var int
@@ -29,6 +42,8 @@ class StartInstanceRefreshRequest extends Model
     public $maxHealthyPercentage;
 
     /**
+     * @description The ratio of instances that are in the In Service state to all instances in the scaling group during instance refresh. Valid values: 0 to 100. Default value: 80.
+     *
      * @example 80
      *
      * @var int
@@ -41,8 +56,9 @@ class StartInstanceRefreshRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the scaling group.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -55,8 +71,9 @@ class StartInstanceRefreshRequest extends Model
     public $resourceOwnerAccount;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the scaling group.
      *
+     * This parameter is required.
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string

@@ -300,7 +300,7 @@ class ModifyScalingConfigurationRequest extends Model
     public $networkInterfaces;
 
     /**
-     * @description Specifies whether to overwrite existing data. Valid values:
+     * @description Specifies whether to override existing data. Valid values:
      *
      *   true
      *   false

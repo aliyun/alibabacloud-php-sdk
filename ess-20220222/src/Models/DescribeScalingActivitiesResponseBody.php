@@ -37,7 +37,7 @@ class DescribeScalingActivitiesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the scaling activities.
+     * @description The scaling activities.
      *
      * @var scalingActivities[]
      */

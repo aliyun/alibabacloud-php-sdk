@@ -19,7 +19,7 @@ class scalingActivities extends Model
     public $activityMetadata;
 
     /**
-     * @description The total number of instances that are manually added to the scaling group after the scaling activity was complete.
+     * @description The total number of instances that are manually added to the scaling group after the scaling activity is complete.
      *
      * @example 0
      *
@@ -123,6 +123,8 @@ class scalingActivities extends Model
     public $errorMessage;
 
     /**
+     * @example ir-asdf12adsxg*****
+     *
      * @var string
      */
     public $instanceRefreshTaskId;
@@ -162,9 +164,9 @@ class scalingActivities extends Model
     public $scalingGroupId;
 
     /**
-     * @description If you query a scale-out activity, the value of this parameter indicates the number of instances that are created or the number of instances that are started from the Economical Mode during the scale-out event.
+     * @description *   If you query a scale-out activity, the value of this parameter indicates the number of instances that are created or the number of instances that are started from Economical Mode.
+     *   If you query a scale-in activity, the value of this parameter indicates the number of instances that are deleted or the number of instances that are stopped in Economical Mode.
      *
-     * If you query a scale-in activity, the value of this parameter indicates the number of instances that are deleted or the number of instances that are stopped in the Economical Mode during the scale-in event.
      * @example 1
      *
      * @var int
@@ -246,11 +248,11 @@ class scalingActivities extends Model
     public $totalCapacity;
 
     /**
-     * @description The ID of the trigger source of the scaling activity.
+     * @description The ID of the trigger source of the scaling activity. Valid values:
      *
-     *   If TriggerSourceType is set to Cms, the ID of the trigger source is the ID of an event-triggered task.
-     *   If TriggerSourceType is set to Api, the ID of the trigger source is the ID of an Alibaba Cloud account or a RAM user.
-     *   If TriggerSourceType is set to Api, the ID of the trigger source is null.
+     *   If the scaling activity is triggered by an event-triggered task, the ID of the trigger source is the ID of the event-triggered task.
+     *   If the scaling activity is triggered by calling an API operation, the ID of the trigger source is the ID of the Alibaba Cloud account or Resource Access Management (RAM) user that you use to call the API operation.
+     *   If the scaling activity is triggered by Auto Scaling, the ID of the trigger source is null.
      *
      * @example 2346366580*****
      *
@@ -259,11 +261,11 @@ class scalingActivities extends Model
     public $triggerSourceId;
 
     /**
-     * @description The type of the trigger source of the scaling activity.
+     * @description The type of the trigger source of the scaling activity. Valid values:
      *
-     *   Cms: triggered by an event-triggered task
-     *   APIs: triggered by API calling
-     *   Ess: triggered by a system task
+     *   Cms: The scaling activity is triggered by an event-triggered task.
+     *   APIs: The scaling activity is triggered by calling an API operation.
+     *   Ess: The scaling activity is triggered by Auto Scaling.
      *
      * @example Api
      *

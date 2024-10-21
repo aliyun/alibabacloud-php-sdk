@@ -1,3 +1,7 @@
+2024-10-21 Version: 1.7.0
+- Support API DescribeElasticStrength.
+
+
 2024-10-16 Version: 1.6.3
 - Update API CreateScalingGroup: add param StopInstanceTimeout.
 - Update API DescribeScalingGroups: update response param.

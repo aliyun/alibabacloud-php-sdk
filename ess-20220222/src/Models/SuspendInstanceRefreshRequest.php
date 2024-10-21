@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SuspendInstanceRefreshRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the instance refresh task.
      *
+     * This parameter is required.
      * @example ir-a12ds234fasd*****
      *
      * @var string
@@ -23,8 +24,9 @@ class SuspendInstanceRefreshRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the scaling group.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -37,8 +39,9 @@ class SuspendInstanceRefreshRequest extends Model
     public $resourceOwnerAccount;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the scaling group.
      *
+     * This parameter is required.
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string

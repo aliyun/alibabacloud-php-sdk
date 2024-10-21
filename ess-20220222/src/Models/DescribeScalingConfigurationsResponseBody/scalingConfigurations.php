@@ -449,6 +449,8 @@ class scalingConfigurations extends Model
     public $securityGroupIds;
 
     /**
+     * @description The security options.
+     *
      * @var securityOptions
      */
     public $securityOptions;

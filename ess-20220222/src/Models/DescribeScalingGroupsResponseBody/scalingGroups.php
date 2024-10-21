@@ -172,8 +172,8 @@ class scalingGroups extends Model
      * @description The health check mode of the scaling group. Valid values:
      *
      *   NONE: Auto Scaling does not perform health checks.
-     *   ECS: Auto Scaling checks the health status of ECS instances in the scaling group.
-     *   LOAD_BALANCER: Auto Scaling checks the health status of instances in the scaling group based on the health check results of load balancers. The health check results of Classic Load Balancer (CLB, formerly known as Server Load Balancer or SLB) instances are not used as the basis to perform health checks on the instances in the scaling group.
+     *   ECS: Auto Scaling checks the health status of instances in the scaling group. If you want to enable instance health check, you can set the value to ECS, regardless of whether the scaling group is of ECS type or Elastic Container Instance type.
+     *   LOAD_BALANCER: Auto Scaling checks the health status of instances in the scaling group based on the health check results of load balancers. The health check results of Classic Load Balancer (CLB) instances are not supported as the health check basis for instances in the scaling group.
      *
      * @example ECS
      *
@@ -182,11 +182,11 @@ class scalingGroups extends Model
     public $healthCheckType;
 
     /**
-     * @description The health check modes of the scaling group. Valid values:
+     * @description The health check mode of the scaling group. Valid values:
      *
      *   NONE: Auto Scaling does not perform health checks.
-     *   ECS: Auto Scaling checks the health status of ECS instances in the scaling group.
-     *   LOAD_BALANCER: Auto Scaling checks the health status of instances in the scaling group based on the health check results of load balancers. The health check results of CLB instances are not used as the basis to perform health checks on the instances in the scaling group.
+     *   ECS: Auto Scaling checks the health status of instances in the scaling group. If you want to enable instance health check, you can set the value to ECS, regardless of whether the scaling group is of ECS type or Elastic Container Instance type.
+     *   LOAD_BALANCER: Auto Scaling checks the health status of instances in the scaling group based on the health check results of load balancers. The health check results of CLB instances are not supported as the health check basis for instances in the scaling group.
      *
      * @var string[]
      */
@@ -473,7 +473,7 @@ class scalingGroups extends Model
     public $spotAllocationStrategy;
 
     /**
-     * @description 伸缩组中抢占式实例的数量。
+     * @description The number of preemptible instances in the scaling group.
      *
      * @example 0
      *
@@ -509,6 +509,8 @@ class scalingGroups extends Model
     public $standbyCapacity;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $stopInstanceTimeout;
