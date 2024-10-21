@@ -236,6 +236,8 @@ use AlibabaCloud\SDK\Cbn\V20170912\Models\ModifyCenRouteMapRequest;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\ModifyCenRouteMapResponse;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\ModifyFlowLogAttributeRequest;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\ModifyFlowLogAttributeResponse;
+use AlibabaCloud\SDK\Cbn\V20170912\Models\ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest;
+use AlibabaCloud\SDK\Cbn\V20170912\Models\ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\ModifyTransitRouterCidrRequest;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\ModifyTransitRouterCidrResponse;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\ModifyTransitRouterMulticastDomainRequest;
@@ -1541,6 +1543,9 @@ class Cbn extends OpenApiClient
         }
         if (!Utils::isUnset($request->destinationInstanceIdsReverseMatch)) {
             $query['DestinationInstanceIdsReverseMatch'] = $request->destinationInstanceIdsReverseMatch;
+        }
+        if (!Utils::isUnset($request->destinationRegionIds)) {
+            $query['DestinationRegionIds'] = $request->destinationRegionIds;
         }
         if (!Utils::isUnset($request->destinationRouteTableIds)) {
             $query['DestinationRouteTableIds'] = $request->destinationRouteTableIds;
@@ -9773,6 +9778,9 @@ class Cbn extends OpenApiClient
         if (!Utils::isUnset($request->destinationInstanceIdsReverseMatch)) {
             $query['DestinationInstanceIdsReverseMatch'] = $request->destinationInstanceIdsReverseMatch;
         }
+        if (!Utils::isUnset($request->destinationRegionIds)) {
+            $query['DestinationRegionIds'] = $request->destinationRegionIds;
+        }
         if (!Utils::isUnset($request->destinationRouteTableIds)) {
             $query['DestinationRouteTableIds'] = $request->destinationRouteTableIds;
         }
@@ -9952,6 +9960,80 @@ class Cbn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyFlowLogAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 编辑流分类规则的名称和描述
+     *  *
+     * @param ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest $request ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse
+     */
+    public function modifyTrafficMatchRuleToTrafficMarkingPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->trafficMarkingPolicyId)) {
+            $query['TrafficMarkingPolicyId'] = $request->trafficMarkingPolicyId;
+        }
+        if (!Utils::isUnset($request->trafficMatchRuleDescription)) {
+            $query['TrafficMatchRuleDescription'] = $request->trafficMatchRuleDescription;
+        }
+        if (!Utils::isUnset($request->trafficMatchRuleId)) {
+            $query['TrafficMatchRuleId'] = $request->trafficMatchRuleId;
+        }
+        if (!Utils::isUnset($request->trafficMatchRuleName)) {
+            $query['TrafficMatchRuleName'] = $request->trafficMatchRuleName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyTrafficMatchRuleToTrafficMarkingPolicy',
+            'version'     => '2017-09-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 编辑流分类规则的名称和描述
+     *  *
+     * @param ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest $request ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest
+     *
+     * @return ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse
+     */
+    public function modifyTrafficMatchRuleToTrafficMarkingPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyTrafficMatchRuleToTrafficMarkingPolicyWithOptions($request, $runtime);
     }
 
     /**

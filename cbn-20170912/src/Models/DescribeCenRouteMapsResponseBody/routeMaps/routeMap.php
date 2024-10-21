@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenRouteMapsResponseBody
 use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenRouteMapsResponseBody\routeMaps\routeMap\destinationChildInstanceTypes;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenRouteMapsResponseBody\routeMaps\routeMap\destinationCidrBlocks;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenRouteMapsResponseBody\routeMaps\routeMap\destinationInstanceIds;
+use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenRouteMapsResponseBody\routeMaps\routeMap\destinationRegionIds;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenRouteMapsResponseBody\routeMaps\routeMap\destinationRouteTableIds;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenRouteMapsResponseBody\routeMaps\routeMap\matchAsns;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenRouteMapsResponseBody\routeMaps\routeMap\matchCommunitySet;
@@ -140,6 +141,11 @@ class routeMap extends Model
      * @var bool
      */
     public $destinationInstanceIdsReverseMatch;
+
+    /**
+     * @var destinationRegionIds
+     */
+    public $destinationRegionIds;
 
     /**
      * @description The IDs of the destination route tables to which the routes belong. You can enter at most 32 route table IDs.
@@ -338,6 +344,7 @@ class routeMap extends Model
         'destinationCidrBlocks'              => 'DestinationCidrBlocks',
         'destinationInstanceIds'             => 'DestinationInstanceIds',
         'destinationInstanceIdsReverseMatch' => 'DestinationInstanceIdsReverseMatch',
+        'destinationRegionIds'               => 'DestinationRegionIds',
         'destinationRouteTableIds'           => 'DestinationRouteTableIds',
         'mapResult'                          => 'MapResult',
         'matchAddressType'                   => 'MatchAddressType',
@@ -399,6 +406,9 @@ class routeMap extends Model
         }
         if (null !== $this->destinationInstanceIdsReverseMatch) {
             $res['DestinationInstanceIdsReverseMatch'] = $this->destinationInstanceIdsReverseMatch;
+        }
+        if (null !== $this->destinationRegionIds) {
+            $res['DestinationRegionIds'] = null !== $this->destinationRegionIds ? $this->destinationRegionIds->toMap() : null;
         }
         if (null !== $this->destinationRouteTableIds) {
             $res['DestinationRouteTableIds'] = null !== $this->destinationRouteTableIds ? $this->destinationRouteTableIds->toMap() : null;
@@ -504,6 +514,9 @@ class routeMap extends Model
         }
         if (isset($map['DestinationInstanceIdsReverseMatch'])) {
             $model->destinationInstanceIdsReverseMatch = $map['DestinationInstanceIdsReverseMatch'];
+        }
+        if (isset($map['DestinationRegionIds'])) {
+            $model->destinationRegionIds = destinationRegionIds::fromMap($map['DestinationRegionIds']);
         }
         if (isset($map['DestinationRouteTableIds'])) {
             $model->destinationRouteTableIds = destinationRouteTableIds::fromMap($map['DestinationRouteTableIds']);

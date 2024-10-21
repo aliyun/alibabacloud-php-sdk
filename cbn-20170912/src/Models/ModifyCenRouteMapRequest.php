@@ -148,6 +148,11 @@ class ModifyCenRouteMapRequest extends Model
     public $destinationInstanceIdsReverseMatch;
 
     /**
+     * @var string[]
+     */
+    public $destinationRegionIds;
+
+    /**
      * @description The IDs of the destination route tables to which the routes belong. You can enter at most 32 route table IDs.
      *
      * > The destination route table IDs take effect only when Direction is set to Export from Regional Gateway and the destination route tables belong to network instances deployed in the current region.
@@ -388,6 +393,7 @@ class ModifyCenRouteMapRequest extends Model
         'destinationCidrBlocks'              => 'DestinationCidrBlocks',
         'destinationInstanceIds'             => 'DestinationInstanceIds',
         'destinationInstanceIdsReverseMatch' => 'DestinationInstanceIdsReverseMatch',
+        'destinationRegionIds'               => 'DestinationRegionIds',
         'destinationRouteTableIds'           => 'DestinationRouteTableIds',
         'mapResult'                          => 'MapResult',
         'matchAddressType'                   => 'MatchAddressType',
@@ -450,6 +456,9 @@ class ModifyCenRouteMapRequest extends Model
         }
         if (null !== $this->destinationInstanceIdsReverseMatch) {
             $res['DestinationInstanceIdsReverseMatch'] = $this->destinationInstanceIdsReverseMatch;
+        }
+        if (null !== $this->destinationRegionIds) {
+            $res['DestinationRegionIds'] = $this->destinationRegionIds;
         }
         if (null !== $this->destinationRouteTableIds) {
             $res['DestinationRouteTableIds'] = $this->destinationRouteTableIds;
@@ -564,6 +573,11 @@ class ModifyCenRouteMapRequest extends Model
         }
         if (isset($map['DestinationInstanceIdsReverseMatch'])) {
             $model->destinationInstanceIdsReverseMatch = $map['DestinationInstanceIdsReverseMatch'];
+        }
+        if (isset($map['DestinationRegionIds'])) {
+            if (!empty($map['DestinationRegionIds'])) {
+                $model->destinationRegionIds = $map['DestinationRegionIds'];
+            }
         }
         if (isset($map['DestinationRouteTableIds'])) {
             if (!empty($map['DestinationRouteTableIds'])) {
