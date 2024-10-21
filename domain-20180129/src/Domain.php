@@ -161,6 +161,8 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForModifyingDomainDnsR
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForModifyingDomainDnsResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForReserveDropListDomainRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForReserveDropListDomainResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForTransferOutByAuthorizationCodeRequest;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForTransferOutByAuthorizationCodeResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForTransferProhibitionLockRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForTransferProhibitionLockResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForUpdateProhibitionLockRequest;
@@ -221,6 +223,8 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForSynchronizingDnsHo
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForSynchronizingDnsHostResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForSynchronizingDSRecordRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForSynchronizingDSRecordResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForTransferOutByAuthorizationCodeRequest;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForTransferOutByAuthorizationCodeResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForTransferProhibitionLockRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForTransferProhibitionLockResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForUpdateProhibitionLockRequest;
@@ -4611,6 +4615,59 @@ class Domain extends OpenApiClient
     }
 
     /**
+     * @summary 基于转移码的批量转出任务提交
+     *  *
+     * @param SaveBatchTaskForTransferOutByAuthorizationCodeRequest $request SaveBatchTaskForTransferOutByAuthorizationCodeRequest
+     * @param RuntimeOptions                                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SaveBatchTaskForTransferOutByAuthorizationCodeResponse SaveBatchTaskForTransferOutByAuthorizationCodeResponse
+     */
+    public function saveBatchTaskForTransferOutByAuthorizationCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->long)) {
+            $query['Long'] = $request->long;
+        }
+        if (!Utils::isUnset($request->transferOutParamList)) {
+            $query['TransferOutParamList'] = $request->transferOutParamList;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveBatchTaskForTransferOutByAuthorizationCode',
+            'version'     => '2018-01-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveBatchTaskForTransferOutByAuthorizationCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 基于转移码的批量转出任务提交
+     *  *
+     * @param SaveBatchTaskForTransferOutByAuthorizationCodeRequest $request SaveBatchTaskForTransferOutByAuthorizationCodeRequest
+     *
+     * @return SaveBatchTaskForTransferOutByAuthorizationCodeResponse SaveBatchTaskForTransferOutByAuthorizationCodeResponse
+     */
+    public function saveBatchTaskForTransferOutByAuthorizationCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveBatchTaskForTransferOutByAuthorizationCodeWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 保存批量任务-开启/关闭禁止转移锁
      *  *
      * @param SaveBatchTaskForTransferProhibitionLockRequest $request SaveBatchTaskForTransferProhibitionLockRequest
@@ -6591,6 +6648,62 @@ class Domain extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->saveSingleTaskForSynchronizingDnsHostWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 基于转移码的单个转出任务提交
+     *  *
+     * @param SaveSingleTaskForTransferOutByAuthorizationCodeRequest $request SaveSingleTaskForTransferOutByAuthorizationCodeRequest
+     * @param RuntimeOptions                                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SaveSingleTaskForTransferOutByAuthorizationCodeResponse SaveSingleTaskForTransferOutByAuthorizationCodeResponse
+     */
+    public function saveSingleTaskForTransferOutByAuthorizationCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authorizationCode)) {
+            $query['AuthorizationCode'] = $request->authorizationCode;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveSingleTaskForTransferOutByAuthorizationCode',
+            'version'     => '2018-01-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveSingleTaskForTransferOutByAuthorizationCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 基于转移码的单个转出任务提交
+     *  *
+     * @param SaveSingleTaskForTransferOutByAuthorizationCodeRequest $request SaveSingleTaskForTransferOutByAuthorizationCodeRequest
+     *
+     * @return SaveSingleTaskForTransferOutByAuthorizationCodeResponse SaveSingleTaskForTransferOutByAuthorizationCodeResponse
+     */
+    public function saveSingleTaskForTransferOutByAuthorizationCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveSingleTaskForTransferOutByAuthorizationCodeWithOptions($request, $runtime);
     }
 
     /**
