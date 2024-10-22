@@ -854,6 +854,9 @@ class Green extends OpenApiClient
             $query['RegionId'] = $request->regionId;
         }
         $body = [];
+        if (!Utils::isUnset($request->keywordIdList)) {
+            $body['KeywordIdList'] = $request->keywordIdList;
+        }
         if (!Utils::isUnset($request->keywordIds)) {
             $body['KeywordIds'] = $request->keywordIds;
         }

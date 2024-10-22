@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteKeywordRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $keywordIdList;
+
+    /**
      * @example [16754493]
      *
      * @var string
@@ -29,9 +34,10 @@ class DeleteKeywordRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'keywordIds' => 'KeywordIds',
-        'libId'      => 'LibId',
-        'regionId'   => 'RegionId',
+        'keywordIdList' => 'KeywordIdList',
+        'keywordIds'    => 'KeywordIds',
+        'libId'         => 'LibId',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -41,6 +47,9 @@ class DeleteKeywordRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->keywordIdList) {
+            $res['KeywordIdList'] = $this->keywordIdList;
+        }
         if (null !== $this->keywordIds) {
             $res['KeywordIds'] = $this->keywordIds;
         }
@@ -62,6 +71,9 @@ class DeleteKeywordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['KeywordIdList'])) {
+            $model->keywordIdList = $map['KeywordIdList'];
+        }
         if (isset($map['KeywordIds'])) {
             $model->keywordIds = $map['KeywordIds'];
         }
