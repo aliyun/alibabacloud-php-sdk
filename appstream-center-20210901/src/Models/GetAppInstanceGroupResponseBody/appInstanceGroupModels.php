@@ -116,6 +116,11 @@ class appInstanceGroupModels extends Model
     public $nodePool;
 
     /**
+     * @var string
+     */
+    public $officeSiteId;
+
+    /**
      * @example Windows
      *
      * @var string
@@ -234,6 +239,7 @@ class appInstanceGroupModels extends Model
         'maxAmount'                   => 'MaxAmount',
         'minAmount'                   => 'MinAmount',
         'nodePool'                    => 'NodePool',
+        'officeSiteId'                => 'OfficeSiteId',
         'osType'                      => 'OsType',
         'otaInfo'                     => 'OtaInfo',
         'productType'                 => 'ProductType',
@@ -317,6 +323,9 @@ class appInstanceGroupModels extends Model
                     $res['NodePool'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->officeSiteId) {
+            $res['OfficeSiteId'] = $this->officeSiteId;
         }
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
@@ -434,6 +443,9 @@ class appInstanceGroupModels extends Model
                     $model->nodePool[$n++] = null !== $item ? nodePool::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['OfficeSiteId'])) {
+            $model->officeSiteId = $map['OfficeSiteId'];
         }
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];

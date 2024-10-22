@@ -40,6 +40,11 @@ class ListAppInstanceGroupRequest extends Model
     public $nodeInstanceType;
 
     /**
+     * @var string
+     */
+    public $officeSiteId;
+
+    /**
      * @example 1
      *
      * @var int
@@ -81,6 +86,7 @@ class ListAppInstanceGroupRequest extends Model
         'appInstanceGroupName' => 'AppInstanceGroupName',
         'bizRegionId'          => 'BizRegionId',
         'nodeInstanceType'     => 'NodeInstanceType',
+        'officeSiteId'         => 'OfficeSiteId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
         'productType'          => 'ProductType',
@@ -109,6 +115,9 @@ class ListAppInstanceGroupRequest extends Model
         }
         if (null !== $this->nodeInstanceType) {
             $res['NodeInstanceType'] = $this->nodeInstanceType;
+        }
+        if (null !== $this->officeSiteId) {
+            $res['OfficeSiteId'] = $this->officeSiteId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -151,6 +160,9 @@ class ListAppInstanceGroupRequest extends Model
         }
         if (isset($map['NodeInstanceType'])) {
             $model->nodeInstanceType = $map['NodeInstanceType'];
+        }
+        if (isset($map['OfficeSiteId'])) {
+            $model->officeSiteId = $map['OfficeSiteId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

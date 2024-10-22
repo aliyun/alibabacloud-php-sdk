@@ -23,6 +23,11 @@ class network extends Model
     public $ipExpireMinutes;
 
     /**
+     * @var string
+     */
+    public $officeSiteId;
+
+    /**
      * @var routes[]
      */
     public $routes;
@@ -33,11 +38,18 @@ class network extends Model
      * @var string
      */
     public $strategyType;
+
+    /**
+     * @var string[]
+     */
+    public $vSwitchIds;
     protected $_name = [
         'domainRules'     => 'DomainRules',
         'ipExpireMinutes' => 'IpExpireMinutes',
+        'officeSiteId'    => 'OfficeSiteId',
         'routes'          => 'Routes',
         'strategyType'    => 'StrategyType',
+        'vSwitchIds'      => 'VSwitchIds',
     ];
 
     public function validate()
@@ -59,6 +71,9 @@ class network extends Model
         if (null !== $this->ipExpireMinutes) {
             $res['IpExpireMinutes'] = $this->ipExpireMinutes;
         }
+        if (null !== $this->officeSiteId) {
+            $res['OfficeSiteId'] = $this->officeSiteId;
+        }
         if (null !== $this->routes) {
             $res['Routes'] = [];
             if (null !== $this->routes && \is_array($this->routes)) {
@@ -70,6 +85,9 @@ class network extends Model
         }
         if (null !== $this->strategyType) {
             $res['StrategyType'] = $this->strategyType;
+        }
+        if (null !== $this->vSwitchIds) {
+            $res['VSwitchIds'] = $this->vSwitchIds;
         }
 
         return $res;
@@ -95,6 +113,9 @@ class network extends Model
         if (isset($map['IpExpireMinutes'])) {
             $model->ipExpireMinutes = $map['IpExpireMinutes'];
         }
+        if (isset($map['OfficeSiteId'])) {
+            $model->officeSiteId = $map['OfficeSiteId'];
+        }
         if (isset($map['Routes'])) {
             if (!empty($map['Routes'])) {
                 $model->routes = [];
@@ -106,6 +127,11 @@ class network extends Model
         }
         if (isset($map['StrategyType'])) {
             $model->strategyType = $map['StrategyType'];
+        }
+        if (isset($map['VSwitchIds'])) {
+            if (!empty($map['VSwitchIds'])) {
+                $model->vSwitchIds = $map['VSwitchIds'];
+            }
         }
 
         return $model;

@@ -18,6 +18,7 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AskSessionPackageRenewPric
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AskSessionPackageRenewPriceResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupShrinkRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\BuySessionPackageRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\BuySessionPackageResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CancelOtaTaskRequest;
@@ -433,14 +434,19 @@ class Appstreamcenter extends OpenApiClient
     /**
      * @summary 授权用户
      *  *
-     * @param AuthorizeInstanceGroupRequest $request AuthorizeInstanceGroupRequest
+     * @param AuthorizeInstanceGroupRequest $tmpReq  AuthorizeInstanceGroupRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
      * @return AuthorizeInstanceGroupResponse AuthorizeInstanceGroupResponse
      */
-    public function authorizeInstanceGroupWithOptions($request, $runtime)
+    public function authorizeInstanceGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new AuthorizeInstanceGroupShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->userMeta)) {
+            $request->userMetaShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userMeta, 'UserMeta', 'json');
+        }
         $body = [];
         if (!Utils::isUnset($request->appInstanceGroupId)) {
             $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
@@ -454,6 +460,9 @@ class Appstreamcenter extends OpenApiClient
         }
         if (!Utils::isUnset($request->unAuthorizeUserIds)) {
             $bodyFlat['UnAuthorizeUserIds'] = $request->unAuthorizeUserIds;
+        }
+        if (!Utils::isUnset($request->userMetaShrink)) {
+            $body['UserMeta'] = $request->userMetaShrink;
         }
         $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req  = new OpenApiRequest([
@@ -1682,6 +1691,9 @@ class Appstreamcenter extends OpenApiClient
         if (!Utils::isUnset($request->nodeInstanceType)) {
             $query['NodeInstanceType'] = $request->nodeInstanceType;
         }
+        if (!Utils::isUnset($request->officeSiteId)) {
+            $query['OfficeSiteId'] = $request->officeSiteId;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
@@ -1813,11 +1825,29 @@ class Appstreamcenter extends OpenApiClient
         if (!Utils::isUnset($request->bizRegionId)) {
             $query['BizRegionId'] = $request->bizRegionId;
         }
+        if (!Utils::isUnset($request->cpu)) {
+            $query['Cpu'] = $request->cpu;
+        }
+        if (!Utils::isUnset($request->gpu)) {
+            $query['Gpu'] = $request->gpu;
+        }
+        if (!Utils::isUnset($request->gpuMemory)) {
+            $query['GpuMemory'] = $request->gpuMemory;
+        }
         if (!Utils::isUnset($request->language)) {
             $query['Language'] = $request->language;
         }
+        if (!Utils::isUnset($request->memory)) {
+            $query['Memory'] = $request->memory;
+        }
         if (!Utils::isUnset($request->nodeInstanceType)) {
             $query['NodeInstanceType'] = $request->nodeInstanceType;
+        }
+        if (!Utils::isUnset($request->nodeInstanceTypeFamily)) {
+            $query['NodeInstanceTypeFamily'] = $request->nodeInstanceTypeFamily;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
         if (!Utils::isUnset($request->osType)) {
             $query['OsType'] = $request->osType;
@@ -1830,6 +1860,9 @@ class Appstreamcenter extends OpenApiClient
         }
         if (!Utils::isUnset($request->productType)) {
             $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->sortType)) {
+            $query['SortType'] = $request->sortType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

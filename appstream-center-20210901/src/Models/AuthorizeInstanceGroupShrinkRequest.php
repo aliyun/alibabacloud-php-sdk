@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupRequest\userMeta;
 use AlibabaCloud\Tea\Model;
 
-class AuthorizeInstanceGroupRequest extends Model
+class AuthorizeInstanceGroupShrinkRequest extends Model
 {
     /**
      * @description This parameter is required.
@@ -38,15 +37,15 @@ class AuthorizeInstanceGroupRequest extends Model
     public $unAuthorizeUserIds;
 
     /**
-     * @var userMeta
+     * @var string
      */
-    public $userMeta;
+    public $userMetaShrink;
     protected $_name = [
         'appInstanceGroupId' => 'AppInstanceGroupId',
         'authorizeUserIds'   => 'AuthorizeUserIds',
         'productType'        => 'ProductType',
         'unAuthorizeUserIds' => 'UnAuthorizeUserIds',
-        'userMeta'           => 'UserMeta',
+        'userMetaShrink'     => 'UserMeta',
     ];
 
     public function validate()
@@ -68,8 +67,8 @@ class AuthorizeInstanceGroupRequest extends Model
         if (null !== $this->unAuthorizeUserIds) {
             $res['UnAuthorizeUserIds'] = $this->unAuthorizeUserIds;
         }
-        if (null !== $this->userMeta) {
-            $res['UserMeta'] = null !== $this->userMeta ? $this->userMeta->toMap() : null;
+        if (null !== $this->userMetaShrink) {
+            $res['UserMeta'] = $this->userMetaShrink;
         }
 
         return $res;
@@ -78,7 +77,7 @@ class AuthorizeInstanceGroupRequest extends Model
     /**
      * @param array $map
      *
-     * @return AuthorizeInstanceGroupRequest
+     * @return AuthorizeInstanceGroupShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -100,7 +99,7 @@ class AuthorizeInstanceGroupRequest extends Model
             }
         }
         if (isset($map['UserMeta'])) {
-            $model->userMeta = userMeta::fromMap($map['UserMeta']);
+            $model->userMetaShrink = $map['UserMeta'];
         }
 
         return $model;

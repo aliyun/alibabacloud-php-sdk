@@ -18,8 +18,6 @@ class CreateAppInstanceGroupShrinkRequest extends Model
     public $appCenterImageId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $appInstanceGroupName;

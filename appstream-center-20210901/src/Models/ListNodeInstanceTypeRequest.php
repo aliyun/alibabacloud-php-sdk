@@ -18,6 +18,21 @@ class ListNodeInstanceTypeRequest extends Model
     public $bizRegionId;
 
     /**
+     * @var float
+     */
+    public $cpu;
+
+    /**
+     * @var float
+     */
+    public $gpu;
+
+    /**
+     * @var int
+     */
+    public $gpuMemory;
+
+    /**
      * @description 语言类型。
      *
      * @example zh-CN
@@ -27,11 +42,26 @@ class ListNodeInstanceTypeRequest extends Model
     public $language;
 
     /**
+     * @var int
+     */
+    public $memory;
+
+    /**
      * @example appstreaming.vgpu.4c8g.2g
      *
      * @var string
      */
     public $nodeInstanceType;
+
+    /**
+     * @var string
+     */
+    public $nodeInstanceTypeFamily;
+
+    /**
+     * @var string
+     */
+    public $orderBy;
 
     /**
      * @description 支持的操作系统类型。
@@ -68,14 +98,26 @@ class ListNodeInstanceTypeRequest extends Model
      * @var string
      */
     public $productType;
+
+    /**
+     * @var string
+     */
+    public $sortType;
     protected $_name = [
-        'bizRegionId'      => 'BizRegionId',
-        'language'         => 'Language',
-        'nodeInstanceType' => 'NodeInstanceType',
-        'osType'           => 'OsType',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'productType'      => 'ProductType',
+        'bizRegionId'            => 'BizRegionId',
+        'cpu'                    => 'Cpu',
+        'gpu'                    => 'Gpu',
+        'gpuMemory'              => 'GpuMemory',
+        'language'               => 'Language',
+        'memory'                 => 'Memory',
+        'nodeInstanceType'       => 'NodeInstanceType',
+        'nodeInstanceTypeFamily' => 'NodeInstanceTypeFamily',
+        'orderBy'                => 'OrderBy',
+        'osType'                 => 'OsType',
+        'pageNumber'             => 'PageNumber',
+        'pageSize'               => 'PageSize',
+        'productType'            => 'ProductType',
+        'sortType'               => 'SortType',
     ];
 
     public function validate()
@@ -88,11 +130,29 @@ class ListNodeInstanceTypeRequest extends Model
         if (null !== $this->bizRegionId) {
             $res['BizRegionId'] = $this->bizRegionId;
         }
+        if (null !== $this->cpu) {
+            $res['Cpu'] = $this->cpu;
+        }
+        if (null !== $this->gpu) {
+            $res['Gpu'] = $this->gpu;
+        }
+        if (null !== $this->gpuMemory) {
+            $res['GpuMemory'] = $this->gpuMemory;
+        }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
+        if (null !== $this->memory) {
+            $res['Memory'] = $this->memory;
+        }
         if (null !== $this->nodeInstanceType) {
             $res['NodeInstanceType'] = $this->nodeInstanceType;
+        }
+        if (null !== $this->nodeInstanceTypeFamily) {
+            $res['NodeInstanceTypeFamily'] = $this->nodeInstanceTypeFamily;
+        }
+        if (null !== $this->orderBy) {
+            $res['OrderBy'] = $this->orderBy;
         }
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
@@ -105,6 +165,9 @@ class ListNodeInstanceTypeRequest extends Model
         }
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
+        }
+        if (null !== $this->sortType) {
+            $res['SortType'] = $this->sortType;
         }
 
         return $res;
@@ -121,11 +184,29 @@ class ListNodeInstanceTypeRequest extends Model
         if (isset($map['BizRegionId'])) {
             $model->bizRegionId = $map['BizRegionId'];
         }
+        if (isset($map['Cpu'])) {
+            $model->cpu = $map['Cpu'];
+        }
+        if (isset($map['Gpu'])) {
+            $model->gpu = $map['Gpu'];
+        }
+        if (isset($map['GpuMemory'])) {
+            $model->gpuMemory = $map['GpuMemory'];
+        }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
+        if (isset($map['Memory'])) {
+            $model->memory = $map['Memory'];
+        }
         if (isset($map['NodeInstanceType'])) {
             $model->nodeInstanceType = $map['NodeInstanceType'];
+        }
+        if (isset($map['NodeInstanceTypeFamily'])) {
+            $model->nodeInstanceTypeFamily = $map['NodeInstanceTypeFamily'];
+        }
+        if (isset($map['OrderBy'])) {
+            $model->orderBy = $map['OrderBy'];
         }
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
@@ -138,6 +219,9 @@ class ListNodeInstanceTypeRequest extends Model
         }
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
+        }
+        if (isset($map['SortType'])) {
+            $model->sortType = $map['SortType'];
         }
 
         return $model;
