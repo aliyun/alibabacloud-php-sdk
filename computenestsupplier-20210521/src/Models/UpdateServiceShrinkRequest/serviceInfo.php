@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceShrinkRequest;
 
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceShrinkRequest\serviceInfo\agreements;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceShrinkRequest\serviceInfo\softwares;
 use AlibabaCloud\Tea\Model;
 
 class serviceInfo extends Model
@@ -63,6 +64,11 @@ class serviceInfo extends Model
      * @var string
      */
     public $shortDescription;
+
+    /**
+     * @var softwares[]
+     */
+    public $softwares;
     protected $_name = [
         'agreements'         => 'Agreements',
         'image'              => 'Image',
@@ -70,6 +76,7 @@ class serviceInfo extends Model
         'longDescriptionUrl' => 'LongDescriptionUrl',
         'name'               => 'Name',
         'shortDescription'   => 'ShortDescription',
+        'softwares'          => 'Softwares',
     ];
 
     public function validate()
@@ -102,6 +109,15 @@ class serviceInfo extends Model
         }
         if (null !== $this->shortDescription) {
             $res['ShortDescription'] = $this->shortDescription;
+        }
+        if (null !== $this->softwares) {
+            $res['Softwares'] = [];
+            if (null !== $this->softwares && \is_array($this->softwares)) {
+                $n = 0;
+                foreach ($this->softwares as $item) {
+                    $res['Softwares'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -138,6 +154,15 @@ class serviceInfo extends Model
         }
         if (isset($map['ShortDescription'])) {
             $model->shortDescription = $map['ShortDescription'];
+        }
+        if (isset($map['Softwares'])) {
+            if (!empty($map['Softwares'])) {
+                $model->softwares = [];
+                $n                = 0;
+                foreach ($map['Softwares'] as $item) {
+                    $model->softwares[$n++] = null !== $item ? softwares::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
