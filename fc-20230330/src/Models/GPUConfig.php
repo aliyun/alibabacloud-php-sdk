@@ -16,7 +16,7 @@ class GPUConfig extends Model
     public $gpuMemorySize;
 
     /**
-     * @example fc.gpu.ampere.1
+     * @example fc.gpu.tesla.1
      *
      * @var string
      */

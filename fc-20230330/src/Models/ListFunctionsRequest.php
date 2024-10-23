@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionsRequest extends Model
 {
     /**
+     * @description The version of Function Compute to which the functions belong. Valid values: v3 and v2. v3: only lists functions of Function Compute 3.0. v2: only lists functions of Function Compute 2.0. By default, this parameter is left empty and functions in both Function Compute 2.0 and Function Compute 3.0 are listed.
+     *
      * @example v3
      *
      * @var string

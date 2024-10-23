@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class VPCConfig extends Model
 {
     /**
+     * @example acs:ram::188077086902****:role/fc-test
+     *
+     * @var string
+     */
+    public $role;
+
+    /**
      * @example sg-bp18hj1wtxgy3b0***
      *
      * @var string
@@ -27,6 +34,7 @@ class VPCConfig extends Model
      */
     public $vpcId;
     protected $_name = [
+        'role'            => 'role',
         'securityGroupId' => 'securityGroupId',
         'vSwitchIds'      => 'vSwitchIds',
         'vpcId'           => 'vpcId',
@@ -39,6 +47,9 @@ class VPCConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->role) {
+            $res['role'] = $this->role;
+        }
         if (null !== $this->securityGroupId) {
             $res['securityGroupId'] = $this->securityGroupId;
         }
@@ -60,6 +71,9 @@ class VPCConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['role'])) {
+            $model->role = $map['role'];
+        }
         if (isset($map['securityGroupId'])) {
             $model->securityGroupId = $map['securityGroupId'];
         }

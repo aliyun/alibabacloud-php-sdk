@@ -192,7 +192,7 @@ class FC extends OpenApiClient
     /**
      * @summary Creates a custom domain name.
      *  *
-     * @description If you wish to access applications or functions created in Function Compute via a fixed domain name in a production environment, or if you need to address the forced download behavior when accessing HTTP triggers, you can achieve this by binding a custom domain to your application or function.
+     * @description If you want to use a fixed domain name to access an application or function in a production environment of Function Compute, or to resolve the issue of forced downloads when accessing an HTTP trigger, you can bind a custom domain name to the application or function.
      *  *
      * @param CreateCustomDomainRequest $request CreateCustomDomainRequest
      * @param string[]                  $headers map
@@ -225,7 +225,7 @@ class FC extends OpenApiClient
     /**
      * @summary Creates a custom domain name.
      *  *
-     * @description If you wish to access applications or functions created in Function Compute via a fixed domain name in a production environment, or if you need to address the forced download behavior when accessing HTTP triggers, you can achieve this by binding a custom domain to your application or function.
+     * @description If you want to use a fixed domain name to access an application or function in a production environment of Function Compute, or to resolve the issue of forced downloads when accessing an HTTP trigger, you can bind a custom domain name to the application or function.
      *  *
      * @param CreateCustomDomainRequest $request CreateCustomDomainRequest
      *
@@ -242,7 +242,7 @@ class FC extends OpenApiClient
     /**
      * @summary Creates a function.
      *  *
-     * @description In Function Compute, a function serves as the smallest unit of resource scheduling and execution, typically referring to a piece of code written by users that can execute independently in response to specific events or requests.
+     * @description Resources of Function Compute are scheduled and run based on functions. A function usually refers to a code snippet that is written by a user and can be independently executed to respond to events and requests.
      *  *
      * @param CreateFunctionRequest $request CreateFunctionRequest
      * @param string[]              $headers map
@@ -275,7 +275,7 @@ class FC extends OpenApiClient
     /**
      * @summary Creates a function.
      *  *
-     * @description In Function Compute, a function serves as the smallest unit of resource scheduling and execution, typically referring to a piece of code written by users that can execute independently in response to specific events or requests.
+     * @description Resources of Function Compute are scheduled and run based on functions. A function usually refers to a code snippet that is written by a user and can be independently executed to respond to events and requests.
      *  *
      * @param CreateFunctionRequest $request CreateFunctionRequest
      *
@@ -1140,7 +1140,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about a function.
+     * @summary http://pre.hhht/#vpc
      *  *
      * @param string             $functionName
      * @param GetFunctionRequest $request      GetFunctionRequest
@@ -1176,7 +1176,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about a function.
+     * @summary http://pre.hhht/#vpc
      *  *
      * @param string             $functionName
      * @param GetFunctionRequest $request      GetFunctionRequest

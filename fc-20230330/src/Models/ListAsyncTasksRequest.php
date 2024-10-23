@@ -22,7 +22,7 @@ class ListAsyncTasksRequest extends Model
     public $includePayload;
 
     /**
-     * @description The number of asynchronous tasks to return. Valid values: [1,100]. Default value: 50.
+     * @description The number of asynchronous tasks to return. Valid values: [1,100]. Default value: 20.
      *
      * @example 10
      *
