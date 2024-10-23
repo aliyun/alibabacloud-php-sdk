@@ -18,9 +18,29 @@ class DescribeBackupsRequest extends Model
     public $backupId;
 
     /**
+     * @description The Resource Access Management (RAM) role of the Alibaba Cloud account to which the backup set belongs.
+     *
+     * >  This parameter must be specified only when cross-account backup operations are performed.
+     * @example role-for-xxx
+     *
+     * @var string
+     */
+    public $crossRole;
+
+    /**
+     * @description The Alibaba Cloud account to which the backup set belongs.
+     *
+     * >  This parameter must be specified only when cross-account backup operations are performed.
+     * @example 195****
+     *
+     * @var string
+     */
+    public $crossUid;
+
+    /**
      * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
-     * > You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+     * This parameter is required.
      * @example am-bp18934i73vb5****
      *
      * @var string
@@ -69,6 +89,16 @@ class DescribeBackupsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID.
+     *
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -88,12 +118,15 @@ class DescribeBackupsRequest extends Model
     public $startTime;
     protected $_name = [
         'backupId'             => 'BackupId',
+        'crossRole'            => 'CrossRole',
+        'crossUid'             => 'CrossUid',
         'DBClusterId'          => 'DBClusterId',
         'endTime'              => 'EndTime',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'startTime'            => 'StartTime',
@@ -108,6 +141,12 @@ class DescribeBackupsRequest extends Model
         $res = [];
         if (null !== $this->backupId) {
             $res['BackupId'] = $this->backupId;
+        }
+        if (null !== $this->crossRole) {
+            $res['CrossRole'] = $this->crossRole;
+        }
+        if (null !== $this->crossUid) {
+            $res['CrossUid'] = $this->crossUid;
         }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
@@ -126,6 +165,9 @@ class DescribeBackupsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -151,6 +193,12 @@ class DescribeBackupsRequest extends Model
         if (isset($map['BackupId'])) {
             $model->backupId = $map['BackupId'];
         }
+        if (isset($map['CrossRole'])) {
+            $model->crossRole = $map['CrossRole'];
+        }
+        if (isset($map['CrossUid'])) {
+            $model->crossUid = $map['CrossUid'];
+        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
@@ -168,6 +216,9 @@ class DescribeBackupsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

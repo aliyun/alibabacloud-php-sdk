@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UnbindDBResourcePoolWithUserRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example am-bpxxxxxxxx47
      *
      * @var string
@@ -28,8 +29,9 @@ class UnbindDBResourcePoolWithUserRequest extends Model
     public $ownerId;
 
     /**
-     * @description The name of the resource pool. You cannot unbind users from the default resource pool named USER_DEFAULT.
+     * @description The name of the resource group.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -37,8 +39,9 @@ class UnbindDBResourcePoolWithUserRequest extends Model
     public $poolName;
 
     /**
-     * @description The user bound to the resource pool.
+     * @description The database account with which the resource group is associated.
      *
+     * This parameter is required.
      * @example testb
      *
      * @var string

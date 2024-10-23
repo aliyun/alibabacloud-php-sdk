@@ -88,6 +88,24 @@ class items extends Model
     public $SQL;
 
     /**
+     * @description The name of the schema.
+     *
+     * @example adb_demo
+     *
+     * @var string
+     */
+    public $schemaName;
+
+    /**
+     * @description The name of the table.
+     *
+     * @example test_table
+     *
+     * @var string
+     */
+    public $tableName;
+
+    /**
      * @description The total number of entries returned. Minimum value: 0. Default value: 0.
      *
      * @example 30
@@ -104,6 +122,8 @@ class items extends Model
         'pageSize'   => 'PageSize',
         'reason'     => 'Reason',
         'SQL'        => 'SQL',
+        'schemaName' => 'SchemaName',
+        'tableName'  => 'TableName',
         'totalCount' => 'TotalCount',
     ];
 
@@ -137,6 +157,12 @@ class items extends Model
         }
         if (null !== $this->SQL) {
             $res['SQL'] = $this->SQL;
+        }
+        if (null !== $this->schemaName) {
+            $res['SchemaName'] = $this->schemaName;
+        }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -176,6 +202,12 @@ class items extends Model
         }
         if (isset($map['SQL'])) {
             $model->SQL = $map['SQL'];
+        }
+        if (isset($map['SchemaName'])) {
+            $model->schemaName = $map['SchemaName'];
+        }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

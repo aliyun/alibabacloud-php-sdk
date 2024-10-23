@@ -26,11 +26,7 @@ class DescribeAvailableResourceResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The supported edition. Valid values:
-     *
-     *   **basic**: Basic Edition
-     *   **cluster**: Cluster Edition
-     *   **mixed_storage**: elastic mode for Cluster Edition
+     * @description The ID of the request.
      *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
      *

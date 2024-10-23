@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDiagnosisRecordsResponseBody;
 
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDiagnosisRecordsResponseBody\querys\queryProperties;
 use AlibabaCloud\Tea\Model;
 
 class querys extends Model
@@ -73,6 +74,11 @@ class querys extends Model
     public $outputRows;
 
     /**
+     * @var string
+     */
+    public $patternId;
+
+    /**
      * @description The peak memory. Unit: bytes.
      *
      * @example 16648
@@ -89,6 +95,13 @@ class querys extends Model
      * @var string
      */
     public $processId;
+
+    /**
+     * @description The query properties.
+     *
+     * @var queryProperties[]
+     */
+    public $queryProperties;
 
     /**
      * @description The amount of time that is consumed for queuing. Unit: milliseconds.
@@ -130,8 +143,8 @@ class querys extends Model
     /**
      * @description The SQL statement.
      *
-     * > For performance considerations, an SQL statement cannot exceed 5,120 characters in length. Otherwise, the SQL statement is truncated. You can call the [DownloadDiagnosisRecords](~~308212~~) operation to download the diagnostic information about SQL statements that meet a condition in an AnalyticDB for MySQL cluster, including the complete SQL statements.
-     * @example SELECT count(*)\nFROM nation
+     * > For performance considerations, an SQL statement cannot exceed 5,120 characters in length. Otherwise, the SQL statement is truncated. You can call the [DownloadDiagnosisRecords](https://help.aliyun.com/document_detail/308212.html) operation to download the diagnostic information about SQL statements that meet a condition in an AnalyticDB for MySQL cluster, including the complete SQL statements.
+     * @example SELECT count(*)\\nFROM nation
      *
      * @var string
      */
@@ -232,8 +245,10 @@ class querys extends Model
         'executionTime'         => 'ExecutionTime',
         'outputDataSize'        => 'OutputDataSize',
         'outputRows'            => 'OutputRows',
+        'patternId'             => 'PatternId',
         'peakMemory'            => 'PeakMemory',
         'processId'             => 'ProcessId',
+        'queryProperties'       => 'QueryProperties',
         'queueTime'             => 'QueueTime',
         'rcHost'                => 'RcHost',
         'resourceCostRank'      => 'ResourceCostRank',
@@ -278,11 +293,23 @@ class querys extends Model
         if (null !== $this->outputRows) {
             $res['OutputRows'] = $this->outputRows;
         }
+        if (null !== $this->patternId) {
+            $res['PatternId'] = $this->patternId;
+        }
         if (null !== $this->peakMemory) {
             $res['PeakMemory'] = $this->peakMemory;
         }
         if (null !== $this->processId) {
             $res['ProcessId'] = $this->processId;
+        }
+        if (null !== $this->queryProperties) {
+            $res['QueryProperties'] = [];
+            if (null !== $this->queryProperties && \is_array($this->queryProperties)) {
+                $n = 0;
+                foreach ($this->queryProperties as $item) {
+                    $res['QueryProperties'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->queueTime) {
             $res['QueueTime'] = $this->queueTime;
@@ -359,11 +386,23 @@ class querys extends Model
         if (isset($map['OutputRows'])) {
             $model->outputRows = $map['OutputRows'];
         }
+        if (isset($map['PatternId'])) {
+            $model->patternId = $map['PatternId'];
+        }
         if (isset($map['PeakMemory'])) {
             $model->peakMemory = $map['PeakMemory'];
         }
         if (isset($map['ProcessId'])) {
             $model->processId = $map['ProcessId'];
+        }
+        if (isset($map['QueryProperties'])) {
+            if (!empty($map['QueryProperties'])) {
+                $model->queryProperties = [];
+                $n                      = 0;
+                foreach ($map['QueryProperties'] as $item) {
+                    $model->queryProperties[$n++] = null !== $item ? queryProperties::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['QueueTime'])) {
             $model->queueTime = $map['QueueTime'];

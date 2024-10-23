@@ -9,6 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeAuditLogConfigResponseBody extends Model
 {
     /**
+     * @description The details about the access denial. This parameter is returned only if Resource Access Management (RAM) permission verification failed.
+     *
+     * @example {
+     * "PolicyType": "AccountLevelIdentityBasedPolicy",
+     * "AuthPrincipalOwnerId": "1*****************7",
+     * "AuthPrincipalType": "SubUser",
+     * "AuthPrincipalDisplayName": "2***************9",
+     * }
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
      * @description The status of SQL audit. Valid values:
      *
      *   **on**: SQL audit is enabled.
@@ -21,7 +34,7 @@ class DescribeAuditLogConfigResponseBody extends Model
     public $auditLogStatus;
 
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * @example am-t4nj8619bz2w3****
      *
@@ -30,7 +43,7 @@ class DescribeAuditLogConfigResponseBody extends Model
     public $DBClusterId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example F0983B43-B2EC-536A-8791-142B5CF1E9B6
      *
@@ -38,9 +51,10 @@ class DescribeAuditLogConfigResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'auditLogStatus' => 'AuditLogStatus',
-        'DBClusterId'    => 'DBClusterId',
-        'requestId'      => 'RequestId',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'auditLogStatus'     => 'AuditLogStatus',
+        'DBClusterId'        => 'DBClusterId',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -50,6 +64,9 @@ class DescribeAuditLogConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
         if (null !== $this->auditLogStatus) {
             $res['AuditLogStatus'] = $this->auditLogStatus;
         }
@@ -71,6 +88,9 @@ class DescribeAuditLogConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
         if (isset($map['AuditLogStatus'])) {
             $model->auditLogStatus = $map['AuditLogStatus'];
         }

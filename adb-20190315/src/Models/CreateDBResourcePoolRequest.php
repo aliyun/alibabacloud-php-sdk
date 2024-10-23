@@ -11,7 +11,7 @@ class CreateDBResourcePoolRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the cluster IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a specific region.
+     * This parameter is required.
      * @example am-bp11q28kvl688****
      *
      * @var string
@@ -45,8 +45,9 @@ class CreateDBResourcePoolRequest extends Model
      *
      *   The name can be up to 255 characters in length.
      *   The name must start with a letter or a digit.
-     *   The name can contain letters, digits, hyphens (\_), and underscores (\_).
+     *   The name can contain letters, digits, hyphens (_), and underscores (_).
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -60,7 +61,7 @@ class CreateDBResourcePoolRequest extends Model
      *
      *   **interactive**
      *
-     * > For more information, see [Query execution modes](~~189502~~).
+     * > For more information, see [Query execution modes](https://help.aliyun.com/document_detail/189502.html).
      * @example interactive
      *
      * @var string

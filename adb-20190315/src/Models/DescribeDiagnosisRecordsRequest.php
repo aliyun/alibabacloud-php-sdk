@@ -11,7 +11,7 @@ class DescribeDiagnosisRecordsRequest extends Model
     /**
      * @description The source IP address.
      *
-     * > You can call the [DescribeDiagnosisDimensions](~~308210~~) operation to query the resource group, database name, username, and source IP address of the SQL statements to be queried.
+     * > You can call the [DescribeDiagnosisDimensions](https://help.aliyun.com/document_detail/308210.html) operation to query the resource group, database name, username, and source IP address of the SQL statements to be queried.
      * @example 59.82.xx.xx
      *
      * @var string
@@ -21,7 +21,7 @@ class DescribeDiagnosisRecordsRequest extends Model
     /**
      * @description The cluster ID.
      *
-     * > You can call the [DescribeDBClusters](~~129857~~) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
+     * This parameter is required.
      * @example am-bp1r053byu48p****
      *
      * @var string
@@ -31,7 +31,7 @@ class DescribeDiagnosisRecordsRequest extends Model
     /**
      * @description The database on which the SQL statements are executed.
      *
-     * > You can call the [DescribeDiagnosisDimensions](~~308210~~) operation to query the resource group, database name, username, and source IP address of the SQL statements to be queried.
+     * > You can call the [DescribeDiagnosisDimensions](https://help.aliyun.com/document_detail/308210.html) operation to query the resource group, database name, username, and source IP address of the SQL statements to be queried.
      * @example adb_demo
      *
      * @var string
@@ -47,6 +47,7 @@ class DescribeDiagnosisRecordsRequest extends Model
      *
      *   The maximum time range that can be specified is 24 hours.
      *
+     * This parameter is required.
      * @example 1633017540000
      *
      * @var string
@@ -161,8 +162,9 @@ class DescribeDiagnosisRecordsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the SQL pattern.[](~~321868~~)
+     * @description The SQL pattern ID.
      *
+     * >  You can call the [DescribeSQLPatterns](https://help.aliyun.com/document_detail/321868.html) operation to query the information about all SQL patterns within an AnalyticDB for MySQL cluster in a time range, including SQL pattern IDs.
      * @example 5575924945138******
      *
      * @var string
@@ -176,6 +178,7 @@ class DescribeDiagnosisRecordsRequest extends Model
      *   `{"Type":"status","Value":"finished"}`: queries executed SQL statements. You can set `Value` to `running` to query SQL statements that are being executed. You can also set Value to `failed` to query SQL statements that failed to be executed.
      *   `{"Type":"cost","Min":"10","Max":"200"}`: queries SQL statements whose execution durations are in the range of 10 to 200 milliseconds. You can also customize the maximum and minimum execution durations.
      *
+     * This parameter is required.
      * @example {"Type":"status","Value":"finished"}
      *
      * @var string
@@ -185,7 +188,7 @@ class DescribeDiagnosisRecordsRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
-     * > You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -195,7 +198,7 @@ class DescribeDiagnosisRecordsRequest extends Model
     /**
      * @description The resource group to which the SQL statements belong.
      *
-     * > You can call the [DescribeDiagnosisDimensions](~~308210~~) operation to query the resource group, database name, username, and source IP address of the SQL statements to be queried.
+     * > You can call the [DescribeDiagnosisDimensions](https://help.aliyun.com/document_detail/308210.html) operation to query the resource group, database name, username, and source IP address of the SQL statements to be queried.
      * @example user_default
      *
      * @var string
@@ -205,7 +208,7 @@ class DescribeDiagnosisRecordsRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
-     * > Only data within the last 14 days can be queried.
+     * This parameter is required.
      * @example 1632931200000
      *
      * @var string
@@ -215,7 +218,7 @@ class DescribeDiagnosisRecordsRequest extends Model
     /**
      * @description The username that is used to execute the SQL statements.
      *
-     * > You can call the [DescribeDiagnosisDimensions](~~308210~~) operation to query the resource group, database name, username, and source IP address of the SQL statements to be queried.
+     * > You can call the [DescribeDiagnosisDimensions](https://help.aliyun.com/document_detail/308210.html) operation to query the resource group, database name, username, and source IP address of the SQL statements to be queried.
      * @example test_user
      *
      * @var string

@@ -11,7 +11,7 @@ class DescribeSQAConfigResponseBody extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+     * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
      * @example am-8vbyw9awuj141haf9
      *
      * @var string

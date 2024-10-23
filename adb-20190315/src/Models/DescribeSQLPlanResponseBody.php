@@ -20,7 +20,7 @@ class DescribeSQLPlanResponseBody extends Model
     /**
      * @description The original information about the SQL statement.
      *
-     * @example {\"queryId\":\"20210527_160443_10581_hdhzr\",\"session\":{\"queryId\":\"20210527_160443_10581_hdhzr\",\"hasSharedStage\":false,\"parentId\":0}}
+     * @example {\\"queryId\\":\\"20210527_160443_10581_hdhzr\\",\\"session\\":{\\"queryId\\":\\"20210527_160443_10581_hdhzr\\",\\"hasSharedStage\\":false,\\"parentId\\":0}}
      *
      * @var string
      */

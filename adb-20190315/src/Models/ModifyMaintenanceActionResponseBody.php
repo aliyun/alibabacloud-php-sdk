@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyMaintenanceActionResponseBody extends Model
 {
     /**
-     * @description The O\&M event ID.
+     * @description The O\\&M event ID.
      *
      * @example 11111
      *

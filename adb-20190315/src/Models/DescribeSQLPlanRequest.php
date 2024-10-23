@@ -11,7 +11,7 @@ class DescribeSQLPlanRequest extends Model
     /**
      * @description The cluster ID.
      *
-     * > You can call the [DescribeDBClusters](~~129857~~) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
+     * This parameter is required.
      * @example am-****************
      *
      * @var string
@@ -31,7 +31,7 @@ class DescribeSQLPlanRequest extends Model
     /**
      * @description The query ID.
      *
-     * > You can call the [DescribeProcessList](~~143382~~) operation to query the IDs of queries that are being executed.
+     * This parameter is required.
      * @example 202105271604431720161662490345*******
      *
      * @var string

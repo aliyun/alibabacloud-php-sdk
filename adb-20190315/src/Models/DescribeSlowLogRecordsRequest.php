@@ -11,7 +11,7 @@ class DescribeSlowLogRecordsRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the cluster IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a specific region.
+     * This parameter is required.
      * @example am-bp1rqvm70uh2****
      *
      * @var string
@@ -30,7 +30,7 @@ class DescribeSlowLogRecordsRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
      *
-     * >  The end time must be later than the start time. The specified time range must be less than seven days.
+     * This parameter is required.
      * @example 2021-05-27T16:00:00Z
      *
      * @var string
@@ -131,6 +131,7 @@ class DescribeSlowLogRecordsRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2021-05-20T16:00:00Z
      *
      * @var string

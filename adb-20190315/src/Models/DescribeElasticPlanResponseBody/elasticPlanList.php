@@ -51,7 +51,7 @@ class elasticPlanList extends Model
     public $elasticPlanWorkerSpec;
 
     /**
-     * @description Indicates whether the scaling plan takes effect. Default value: true. Valid values:
+     * @description Indicates whether the scaling plan takes effect. Valid values:
      *
      *   **true** (default)
      *   **false**
@@ -81,6 +81,10 @@ class elasticPlanList extends Model
     public $endTime;
 
     /**
+     * @description The days of the month when the scaling plan was executed. A value indicates a day of the month. Multiple values are separated by commas (,).
+     *
+     * @example 1,15,25
+     *
      * @var string
      */
     public $monthlyRepeat;

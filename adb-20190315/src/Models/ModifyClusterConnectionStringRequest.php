@@ -9,11 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterConnectionStringRequest extends Model
 {
     /**
-     * @description The prefix of public endpoints.
+     * @description The prefix of the public endpoint.
      *
      *   The prefix can contain lowercase letters, digits, and hyphens (-). It must start with a lowercase letter.
      *   The prefix can be up to 30 characters in length.
      *
+     * This parameter is required.
      * @example test-123
      *
      * @var string
@@ -23,7 +24,7 @@ class ModifyClusterConnectionStringRequest extends Model
     /**
      * @description The current public endpoint of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
-     * >  You can call the [DescribeDBClusterNetInfo](~~143384~~) operation to query the public endpoint of the cluster.
+     * This parameter is required.
      * @example am-bp18934i73vb****.ads.aliyuncs.com
      *
      * @var string
@@ -33,7 +34,7 @@ class ModifyClusterConnectionStringRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the cluster IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a specific region.
+     * This parameter is required.
      * @example am-bp18934i73vb****
      *
      * @var string

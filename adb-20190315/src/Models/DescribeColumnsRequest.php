@@ -11,6 +11,7 @@ class DescribeColumnsRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example am-bp1xxxxxxxx47
      *
      * @var string
@@ -40,6 +41,7 @@ class DescribeColumnsRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example adb_demo
      *
      * @var string
@@ -49,6 +51,7 @@ class DescribeColumnsRequest extends Model
     /**
      * @description The name of the table.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class KillProcessRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example am-bp1xxxxxxxx47
      *
      * @var string
@@ -28,7 +29,7 @@ class KillProcessRequest extends Model
     public $ownerId;
 
     /**
-     * @description The unique ID of the process. You can call the [DescribeProcessList](~~190092~~) operation to obtain the ID.
+     * @description The unique ID of the query. You can call the [DescribeProcessList](https://help.aliyun.com/document_detail/190092.html) operation to obtain the unique ID of a query.
      *
      * @example 202011191048151921681492420315100****
      *

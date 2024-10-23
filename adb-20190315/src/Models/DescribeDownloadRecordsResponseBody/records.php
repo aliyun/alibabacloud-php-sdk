@@ -51,8 +51,6 @@ class records extends Model
     /**
      * @description The download URL of the file.
      *
-     * @example https://perth-download-task.oss-cn-beijing.aliyuncs.com/adbmysql/query-sql-logs/am-**************\/20210805104301-20210805164302.xlsx?Expires=1943514161&OSSAccessKeyId=*********&Signature=******"
-     *
      * @var string
      */
     public $url;

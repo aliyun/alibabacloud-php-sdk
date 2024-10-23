@@ -11,11 +11,17 @@ class DescribeInclinedTablesRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example am-bpxxxxxxxx47
      *
      * @var string
      */
     public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $lang;
 
     /**
      * @description The order in which queries are sorted in the JSON format based on the specified fields. Specify the fields used to sort the queries and the order type.
@@ -63,6 +69,11 @@ class DescribeInclinedTablesRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -76,6 +87,7 @@ class DescribeInclinedTablesRequest extends Model
      *   FactTable
      *   DimensionTable
      *
+     * This parameter is required.
      * @example FactTable
      *
      * @var string
@@ -83,11 +95,13 @@ class DescribeInclinedTablesRequest extends Model
     public $tableType;
     protected $_name = [
         'DBClusterId'          => 'DBClusterId',
+        'lang'                 => 'Lang',
         'order'                => 'Order',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'tableType'            => 'TableType',
@@ -103,6 +117,9 @@ class DescribeInclinedTablesRequest extends Model
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
@@ -117,6 +134,9 @@ class DescribeInclinedTablesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -142,6 +162,9 @@ class DescribeInclinedTablesRequest extends Model
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }
@@ -156,6 +179,9 @@ class DescribeInclinedTablesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

@@ -11,7 +11,7 @@ class DescribeDBClusterHealthStatusRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the cluster IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a specific region.
+     * This parameter is required.
      * @example am-bp1d8lbdj22rx****
      *
      * @var string
@@ -21,7 +21,7 @@ class DescribeDBClusterHealthStatusRequest extends Model
     /**
      * @description The ID of the region.
      *
-     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

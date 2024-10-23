@@ -36,10 +36,10 @@ class address extends Model
     public $IPAddress;
 
     /**
-     * @description The network type of the endpoint. Valid values:
+     * @description The network type of the cluster. Valid values:
      *
-     *   **Public**: public endpoint
-     *   **VPC**: Virtual Private Cloud (VPC) endpoint
+     *   **Public**: public endpoint.
+     *   **VPC**: Virtual Private Cloud (VPC) endpoint.
      *
      * @example VPC
      *
@@ -57,9 +57,9 @@ class address extends Model
     public $port;
 
     /**
-     * @description The ID of the VPC.
+     * @description The VPC ID.
      *
-     * >  This parameter is empty when Public is returned for NetType.
+     * >  If NetType is set to Public, an empty string is returned for this parameter.
      * @example vpc-xxxxxxxxx
      *
      * @var string
@@ -67,9 +67,9 @@ class address extends Model
     public $VPCId;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The vSwitch ID.
      *
-     * >  This parameter is empty when Public is returned for NetType.
+     * >  If NetType is set to Public, an empty string is returned for this parameter.
      * @example vsw-xxxxxx
      *
      * @var string

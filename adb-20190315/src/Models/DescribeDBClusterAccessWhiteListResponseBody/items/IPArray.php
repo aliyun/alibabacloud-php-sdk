@@ -21,7 +21,7 @@ class IPArray extends Model
     /**
      * @description The name of the IP address whitelist.
      *
-     *   The name of an IP address whitelist must be 2 to 32 characters in length. The name can contain lowercase letters, digits, and underscores (\_). The name must start with a lowercase letter and end with a lowercase letter or digit.
+     *   The name of an IP address whitelist must be 2 to 32 characters in length. The name can contain lowercase letters, digits, and underscores (_). The name must start with a lowercase letter and end with a lowercase letter or digit.
      *   Each cluster supports up to 50 IP address whitelists.
      *
      * @example test

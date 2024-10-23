@@ -18,7 +18,7 @@ class ModifyDBClusterAccessWhiteListRequest extends Model
     public $DBClusterIPArrayAttribute;
 
     /**
-     * @description The name of the IP address whitelist that you want to modify. Default value: **Default**. The name of an IP address whitelist must be 2 to 32 characters in length. The name can contain lowercase letters, digits, and underscores (\_). The name must start with a lowercase letter and end with a lowercase letter or digit.
+     * @description The name of the IP address whitelist that you want to modify. Default value: **Default**. The name of an IP address whitelist must be 2 to 32 characters in length. The name can contain lowercase letters, digits, and underscores (_). The name must start with a lowercase letter and end with a lowercase letter or digit.
      *
      * Each cluster supports up to 50 IP address whitelists.
      * @example test
@@ -30,6 +30,7 @@ class ModifyDBClusterAccessWhiteListRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxxxxx
      *
      * @var string
@@ -76,7 +77,7 @@ class ModifyDBClusterAccessWhiteListRequest extends Model
      *   IP address. Example: 10.23.12.24.
      *   CIDR block. Example: 10.23.12.24/24. In this example, 24 indicates that the prefix of the CIDR block is 24 bits in length. You can replace 24 with a value that ranges from 1 to 32.
      *
-     * >  This parameter must be specified unless ModifyMode is set to Delete.
+     * This parameter is required.
      * @example 10.23.12.24
      *
      * @var string

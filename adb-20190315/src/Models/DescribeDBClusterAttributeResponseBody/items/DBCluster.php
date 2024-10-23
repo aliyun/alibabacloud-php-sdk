@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterAttributeResponseBody\items;
 
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterAttributeResponseBody\items\DBCluster\tags;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterAttributeResponseBody\items\DBCluster\taskInfo;
 use AlibabaCloud\Tea\Model;
 
 class DBCluster extends Model
@@ -16,7 +17,7 @@ class DBCluster extends Model
      *   **CLUSTER**: reserved mode for Cluster Edition.
      *   **MIXED_STORAGE**: elastic mode for Cluster Edition.
      *
-     * >  For more information about cluster editions, see [Editions](~~205001~~).
+     * >  For more information about cluster editions, see [Editions](https://help.aliyun.com/document_detail/205001.html).
      * @example MIXED_STORAGE
      *
      * @var string
@@ -90,7 +91,7 @@ class DBCluster extends Model
     public $DBClusterNetworkType;
 
     /**
-     * @description The state of the cluster. For more information, see [Cluster states](~~143075~~).
+     * @description The status of the cluster. For more information, see [Cluster states](https://help.aliyun.com/document_detail/143075.html).
      *
      * @example Running
      *
@@ -99,7 +100,7 @@ class DBCluster extends Model
     public $DBClusterStatus;
 
     /**
-     * @description The cluster type. Valid values:
+     * @description The type of the cluster. Valid values:
      *
      *   **Common**: common cluster.
      *   **RDS_ANALYSIS**: MySQL analytic instance.
@@ -154,7 +155,7 @@ class DBCluster extends Model
      *
      * @example false
      *
-     * @var string
+     * @var bool
      */
     public $diskEncryption;
 
@@ -174,12 +175,12 @@ class DBCluster extends Model
      *   **cloud**: basic disk.
      *   **cloud_ssd**: standard SSD.
      *   **cloud_efficiency**: ultra disk.
-     *   **cloud_essd0**: PL0 enhanced SSD (ESSD).
+     *   **cloud_essd0**: PL0 Enterprise SSD (ESSD).
      *   **cloud_essd**: PL1 ESSD.
      *   **cloud_essd2**: PL2 ESSD.
      *   **cloud_essd3**: PL3 ESSD.
      *
-     * >  For more information about ESSDs, see [ESSDs](~~122389~~).
+     * >  For more information about ESSDs, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
      * @example cloud_essd
      *
      * @var string
@@ -241,7 +242,7 @@ class DBCluster extends Model
     public $enableSpark;
 
     /**
-     * @description The engine of the cluster. **AnalyticDB** is returned.
+     * @description The database engine of the cluster. **AnalyticDB** is returned.
      *
      * @example AnalyticDB
      *
@@ -348,9 +349,9 @@ class DBCluster extends Model
     public $lockReason;
 
     /**
-     * @description The maintenance window of the cluster. The time is displayed in the *HH:mmZ-HH:mmZ* format in UTC. An example is *04:00Z-05:00Z*, which indicates that routine maintenance is performed from 04:00 to 05:00.
+     * @description The maintenance window of the cluster. The time is displayed in the *HH:mmZ-HH:mmZ* format in UTC. Example: *04:00Z-05:00Z*, which indicates that routine maintenance is performed from 04:00 to 05:00.
      *
-     * >  For more information about maintenance windows, see [Configure a maintenance window](~~122569~~).
+     * >  For more information about maintenance windows, see [Configure a maintenance window](https://help.aliyun.com/document_detail/122569.html).
      * @example 04:00Z-05:00Z
      *
      * @var string
@@ -363,7 +364,7 @@ class DBCluster extends Model
      *   **flexible**: elastic mode.
      *   **reserver**: reserved mode.
      *
-     * >  For more information about cluster modes, see [Editions](~~205001~~).
+     * >  For more information about cluster modes, see [Editions](https://help.aliyun.com/document_detail/205001.html).
      * @example flexible
      *
      * @var string
@@ -390,6 +391,18 @@ class DBCluster extends Model
      * @var int
      */
     public $port;
+
+    /**
+     * @description The edition of the cluster. Valid values:
+     *
+     *   **BasicVersion**: Basic Edition.
+     *   **EnterpriseVersion**: Enterprise Edition.
+     *
+     * @example BasicVersion
+     *
+     * @var string
+     */
+    public $productVersion;
 
     /**
      * @description The ID of the ApsaraDB RDS instance from which data is synchronized to the cluster. This parameter is returned only for MySQL analytic instances.
@@ -433,6 +446,13 @@ class DBCluster extends Model
      * @var tags
      */
     public $tags;
+
+    /**
+     * @description The job information.
+     *
+     * @var taskInfo
+     */
+    public $taskInfo;
 
     /**
      * @description Indicates whether Elastic Network Interface (ENI) is enabled. Valid values:
@@ -518,11 +538,13 @@ class DBCluster extends Model
         'mode'                  => 'Mode',
         'payType'               => 'PayType',
         'port'                  => 'Port',
+        'productVersion'        => 'ProductVersion',
         'rdsInstanceId'         => 'RdsInstanceId',
         'regionId'              => 'RegionId',
         'resourceGroupId'       => 'ResourceGroupId',
         'storageResource'       => 'StorageResource',
         'tags'                  => 'Tags',
+        'taskInfo'              => 'TaskInfo',
         'userENIStatus'         => 'UserENIStatus',
         'VPCCloudInstanceId'    => 'VPCCloudInstanceId',
         'VPCId'                 => 'VPCId',
@@ -645,6 +667,9 @@ class DBCluster extends Model
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+        if (null !== $this->productVersion) {
+            $res['ProductVersion'] = $this->productVersion;
+        }
         if (null !== $this->rdsInstanceId) {
             $res['RdsInstanceId'] = $this->rdsInstanceId;
         }
@@ -659,6 +684,9 @@ class DBCluster extends Model
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
+        if (null !== $this->taskInfo) {
+            $res['TaskInfo'] = null !== $this->taskInfo ? $this->taskInfo->toMap() : null;
         }
         if (null !== $this->userENIStatus) {
             $res['UserENIStatus'] = $this->userENIStatus;
@@ -795,6 +823,9 @@ class DBCluster extends Model
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+        if (isset($map['ProductVersion'])) {
+            $model->productVersion = $map['ProductVersion'];
+        }
         if (isset($map['RdsInstanceId'])) {
             $model->rdsInstanceId = $map['RdsInstanceId'];
         }
@@ -809,6 +840,9 @@ class DBCluster extends Model
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
+        }
+        if (isset($map['TaskInfo'])) {
+            $model->taskInfo = taskInfo::fromMap($map['TaskInfo']);
         }
         if (isset($map['UserENIStatus'])) {
             $model->userENIStatus = $map['UserENIStatus'];

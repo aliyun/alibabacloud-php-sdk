@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class accountList extends Model
 {
     /**
-     * @description The name of the account.
+     * @description The name of the database account.
      *
      * @example rdsdt_dts_adb
      *

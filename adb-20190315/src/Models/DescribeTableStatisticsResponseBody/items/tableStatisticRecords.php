@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tableStatisticRecords extends Model
 {
     /**
-     * @description The total amount of cold data. Unit: byte.
+     * @description The cold data size. Unit: bytes.
      *
-     * >  The parameter is returned only when the engine version of the cluster is 3.1.3.4 or later.
+     * >  The parameter is returned only for AnalyticDB for MySQL clusters of V3.1.3.4 or later.
      * @example 0
      *
      * @var int
@@ -19,8 +19,9 @@ class tableStatisticRecords extends Model
     public $coldDataSize;
 
     /**
-     * @description The amount of data in the table. Unit: byte.
+     * @description The data size of table records. Unit: bytes.
      *
+     * >  The data size of table records, excluding the data size of regular index and primary key indexes.
      * @example 15592
      *
      * @var int
@@ -28,12 +29,16 @@ class tableStatisticRecords extends Model
     public $dataSize;
 
     /**
+     * @description The hot data size. Unit: bytes.
+     *
+     * @example 1048576
+     *
      * @var int
      */
     public $hotDataSize;
 
     /**
-     * @description The amount of data in indexes. Unit: byte.
+     * @description The data size of regular indexes. Unit: bytes.
      *
      * @example 3076
      *
@@ -42,6 +47,10 @@ class tableStatisticRecords extends Model
     public $indexSize;
 
     /**
+     * @description The data size of other data. Unit: bytes.
+     *
+     * @example 1048576
+     *
      * @var int
      */
     public $otherSize;
@@ -56,7 +65,7 @@ class tableStatisticRecords extends Model
     public $partitionCount;
 
     /**
-     * @description The amount of data in primary key indexes. Unit: byte.
+     * @description The data size of primary key indexes. Unit: bytes.
      *
      * @example 16340
      *
@@ -83,6 +92,11 @@ class tableStatisticRecords extends Model
     public $schemaName;
 
     /**
+     * @description The percentage of the table size. Unit: %.
+     *
+     * >  Formula: Table storage percentage = Total data size of a table/Total data size of the cluster × 100%.
+     * @example 66.23
+     *
      * @var float
      */
     public $spaceRatio;
@@ -97,6 +111,11 @@ class tableStatisticRecords extends Model
     public $tableName;
 
     /**
+     * @description The total data size. Unit: bytes.
+     *
+     * >  The following formulas can be used to calculate the total data size: Formula 1: Total data size = Hot data size + Cold data size. Formula 2: Total data size = Data size of table records + Data size of regular indexes + Data size of primary key indexes + Data size of other data.
+     * @example 1577
+     *
      * @var int
      */
     public $totalSize;

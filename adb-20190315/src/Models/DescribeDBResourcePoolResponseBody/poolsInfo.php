@@ -51,7 +51,7 @@ class poolsInfo extends Model
      *   **batch**
      *   **interactive**
      *
-     * >  For more information, see [Query execution modes](~~189502~~).
+     * >  For more information, see [Query execution modes](https://help.aliyun.com/document_detail/189502.html).
      * @example default_type
      *
      * @var string

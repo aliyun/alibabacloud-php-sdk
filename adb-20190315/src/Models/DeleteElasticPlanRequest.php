@@ -11,7 +11,7 @@ class DeleteElasticPlanRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
-     * > You can call the [DescribeDBClusters](~~612241~~) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+     * This parameter is required.
      * @example am-bp1xxxxxxxx47
      *
      * @var string
@@ -21,7 +21,7 @@ class DeleteElasticPlanRequest extends Model
     /**
      * @description The name of the scaling plan.
      *
-     * > You can call the [DescribeElasticPlans](~~601334~~) operation to query the names of scaling plans.
+     * This parameter is required.
      * @example test
      *
      * @var string

@@ -11,7 +11,7 @@ class DescribeDBClusterAttributeRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
-     * > You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+     * This parameter is required.
      * @example am-bp111m2cfrdl1****
      *
      * @var string
@@ -29,6 +29,15 @@ class DescribeDBClusterAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the cluster.
+     *
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -41,6 +50,7 @@ class DescribeDBClusterAttributeRequest extends Model
         'DBClusterId'          => 'DBClusterId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
     ];
@@ -60,6 +70,9 @@ class DescribeDBClusterAttributeRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -87,6 +100,9 @@ class DescribeDBClusterAttributeRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

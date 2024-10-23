@@ -11,7 +11,7 @@ class DescribeDBClusterPerformanceRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL clusters within a region.
+     * This parameter is required.
      * @example am-************
      *
      * @var string
@@ -37,7 +37,7 @@ class DescribeDBClusterPerformanceRequest extends Model
      *
      *   Connections
      *
-     *   **AnalyticDB_Connections**: the number of database connections.
+     *   **AnalyticDB_Connections**: the number of connections of the cluster.
      *
      *   Writes
      *
@@ -49,7 +49,7 @@ class DescribeDBClusterPerformanceRequest extends Model
      *
      *   **AnalyticDB_UpdateRT**: the update response time.
      *
-     *   Deletion
+     *   Deletes
      *
      *   **AnalyticDB_DeleteRT**: the delete response time.
      *
@@ -62,12 +62,17 @@ class DescribeDBClusterPerformanceRequest extends Model
      *   Disks
      *
      *   **AnalyticDB_IO**: the disk I/O throughput.
-     *   **AnalyticDB_IO_UTIL**: the I/O utilization.
-     *   **AnalyticDB_IO_WAIT**: the I/O wait time.
-     *   **AnalyticDB_IOPS**: the disk input/output operations per second (IOPS).
+     *   **AnalyticDB_IO_UTIL**: the disk I/O usage.
+     *   **AnalyticDB_IO_WAIT**: the disk I/O wait time.
+     *   **AnalyticDB_IOPS**: the disk IOPS.
      *   **AnalyticDB_DiskUsage**: the disk space that is used.
      *   **AnalyticDB_HotDataDiskUsage**: the disk space that is used by hot data.
      *   **AnalyticDB_ColdDataDiskUsage**: the disk space that is used by cold data.
+     *
+     *   Other
+     *
+     *   **AnalyticDB_BuildTaskCount**: the number of BUILD jobs.
+     *   **AnalyticDB_ComputeMemoryUsedRatio**: the compute memory usage.
      *
      * >  If you leave this parameter empty, the values of all the preceding performance metrics are returned.
      * @example AnalyticDB_CPU
@@ -89,6 +94,7 @@ class DescribeDBClusterPerformanceRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

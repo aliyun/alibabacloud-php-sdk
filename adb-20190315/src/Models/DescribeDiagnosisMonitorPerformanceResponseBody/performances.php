@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class performances extends Model
 {
     /**
-     * @description The total amount of time consumed by the query. Unit: milliseconds.
+     * @description The total execution duration. Unit: milliseconds.
      *
-     * >  This parameter indicates the sum of `QueuedTime`, `TotalPlanningTime`, and `ExecutionTime`.
+     * >  This value is the cumulative value of the `QueuedTime`, `TotalPlanningTime`, and `ExecutionTime` parameters.
      * @example 252
      *
      * @var int
@@ -28,9 +28,8 @@ class performances extends Model
     public $peakMemory;
 
     /**
-     * @description The ID of the query.
+     * @description The query ID.
      *
-     * >  You can call the [DescribeProcessList](~~143382~~) operation to query the IDs of queries that are being executed.
      * @example 202210311015270330101470300315153****
      *
      * @var string
@@ -47,7 +46,7 @@ class performances extends Model
     public $rcHost;
 
     /**
-     * @description The number of entries scanned.
+     * @description The number of rows scanned.
      *
      * @example 2345
      *
@@ -65,7 +64,7 @@ class performances extends Model
     public $scanSize;
 
     /**
-     * @description The execution start time of the SQL statement. The time is in the UNIX timestamp format. Unit: milliseconds.
+     * @description The execution start time of the SQL statement. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1669011260000
      *
@@ -74,7 +73,7 @@ class performances extends Model
     public $startTime;
 
     /**
-     * @description The state of the SQL statement. Valid values:
+     * @description The status of the SQL statement. Valid values:
      *
      *   **running**
      *   **finished**

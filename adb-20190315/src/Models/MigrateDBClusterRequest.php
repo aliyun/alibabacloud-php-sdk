@@ -9,8 +9,14 @@ use AlibabaCloud\Tea\Model;
 class MigrateDBClusterRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $computeResource;
+
+    /**
      * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example am-bp1xxxxxxxx47
      *
      * @var string
@@ -36,12 +42,31 @@ class MigrateDBClusterRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $shardNumber;
+
+    /**
+     * @var string
+     */
+    public $storageResource;
+
+    /**
+     * @var string
+     */
+    public $storageResourceSize;
     protected $_name = [
+        'computeResource'      => 'ComputeResource',
         'DBClusterId'          => 'DBClusterId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'shardNumber'          => 'ShardNumber',
+        'storageResource'      => 'StorageResource',
+        'storageResourceSize'  => 'StorageResourceSize',
     ];
 
     public function validate()
@@ -51,6 +76,9 @@ class MigrateDBClusterRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->computeResource) {
+            $res['ComputeResource'] = $this->computeResource;
+        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
@@ -66,6 +94,15 @@ class MigrateDBClusterRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->shardNumber) {
+            $res['ShardNumber'] = $this->shardNumber;
+        }
+        if (null !== $this->storageResource) {
+            $res['StorageResource'] = $this->storageResource;
+        }
+        if (null !== $this->storageResourceSize) {
+            $res['StorageResourceSize'] = $this->storageResourceSize;
+        }
 
         return $res;
     }
@@ -78,6 +115,9 @@ class MigrateDBClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ComputeResource'])) {
+            $model->computeResource = $map['ComputeResource'];
+        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
@@ -92,6 +132,15 @@ class MigrateDBClusterRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ShardNumber'])) {
+            $model->shardNumber = $map['ShardNumber'];
+        }
+        if (isset($map['StorageResource'])) {
+            $model->storageResource = $map['StorageResource'];
+        }
+        if (isset($map['StorageResourceSize'])) {
+            $model->storageResourceSize = $map['StorageResourceSize'];
         }
 
         return $model;

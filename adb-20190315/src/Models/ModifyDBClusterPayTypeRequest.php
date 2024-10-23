@@ -11,6 +11,7 @@ class ModifyDBClusterPayTypeRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example am-bp11q28kvl688****
      *
      * @var string
@@ -23,6 +24,7 @@ class ModifyDBClusterPayTypeRequest extends Model
      *   **Postpaid**: pay-as-you-go.
      *   **Prepaid**: subscription.
      *
+     * This parameter is required.
      * @example Prepaid
      *
      * @var string
@@ -41,6 +43,11 @@ class ModifyDBClusterPayTypeRequest extends Model
      * @var string
      */
     public $period;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @description The subscription duration of the subscription cluster.
@@ -63,6 +70,7 @@ class ModifyDBClusterPayTypeRequest extends Model
         'dbClusterId' => 'DbClusterId',
         'payType'     => 'PayType',
         'period'      => 'Period',
+        'regionId'    => 'RegionId',
         'usedTime'    => 'UsedTime',
     ];
 
@@ -81,6 +89,9 @@ class ModifyDBClusterPayTypeRequest extends Model
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->usedTime) {
             $res['UsedTime'] = $this->usedTime;
@@ -105,6 +116,9 @@ class ModifyDBClusterPayTypeRequest extends Model
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['UsedTime'])) {
             $model->usedTime = $map['UsedTime'];

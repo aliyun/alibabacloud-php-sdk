@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeTablePartitionDiagnoseResponseBody\detectionItems;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeTablePartitionDiagnoseResponseBody\items;
 use AlibabaCloud\Tea\Model;
 
@@ -19,7 +20,14 @@ class DescribeTablePartitionDiagnoseResponseBody extends Model
     public $DBClusterId;
 
     /**
-     * @description The information of tables.
+     * @description The queried detection items and detection results.
+     *
+     * @var detectionItems[]
+     */
+    public $detectionItems;
+
+    /**
+     * @description The table statistics.
      *
      * @var items[]
      */
@@ -80,6 +88,7 @@ class DescribeTablePartitionDiagnoseResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'DBClusterId'                   => 'DBClusterId',
+        'detectionItems'                => 'DetectionItems',
         'items'                         => 'Items',
         'pageNumber'                    => 'PageNumber',
         'pageSize'                      => 'PageSize',
@@ -98,6 +107,15 @@ class DescribeTablePartitionDiagnoseResponseBody extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->detectionItems) {
+            $res['DetectionItems'] = [];
+            if (null !== $this->detectionItems && \is_array($this->detectionItems)) {
+                $n = 0;
+                foreach ($this->detectionItems as $item) {
+                    $res['DetectionItems'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->items) {
             $res['Items'] = [];
@@ -140,6 +158,15 @@ class DescribeTablePartitionDiagnoseResponseBody extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['DetectionItems'])) {
+            if (!empty($map['DetectionItems'])) {
+                $model->detectionItems = [];
+                $n                     = 0;
+                foreach ($map['DetectionItems'] as $item) {
+                    $model->detectionItems[$n++] = null !== $item ? detectionItems::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {

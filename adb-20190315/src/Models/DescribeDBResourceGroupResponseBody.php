@@ -19,7 +19,7 @@ class DescribeDBResourceGroupResponseBody extends Model
     public $DBClusterId;
 
     /**
-     * @description The queried resource group.
+     * @description The queried resource groups.
      *
      * @var groupsInfo[]
      */

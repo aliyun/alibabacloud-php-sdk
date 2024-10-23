@@ -11,6 +11,7 @@ class DeleteDBClusterRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example am-bp1u8c0mgfg58****
      *
      * @var string

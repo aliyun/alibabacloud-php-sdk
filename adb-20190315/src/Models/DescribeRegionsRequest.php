@@ -33,6 +33,16 @@ class DescribeRegionsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the cluster.
+     *
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+     * @example cn-shenzhen
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -45,6 +55,7 @@ class DescribeRegionsRequest extends Model
         'acceptLanguage'       => 'AcceptLanguage',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
     ];
@@ -64,6 +75,9 @@ class DescribeRegionsRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -91,6 +105,9 @@ class DescribeRegionsRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

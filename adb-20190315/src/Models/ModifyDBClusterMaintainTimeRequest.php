@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterMaintainTimeRequest extends Model
 {
     /**
-     * @description The ID of cluster.
+     * @description The cluster ID.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the details of all AnalyticDB for MySQL clusters within a specific region, including cluster IDs.
+     * This parameter is required.
      * @example am-bp111m2cfrdl****
      *
      * @var string
@@ -19,9 +19,9 @@ class ModifyDBClusterMaintainTimeRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description The maintenance window of the cluster. It is in the hh:mmZ-hh:mmZ format.
+     * @description The maintenance window of the cluster. Specify the maintenance window in the hh:mmZ-hh:mmZ format.
      *
-     * >  The maintenance window lasts only 1 hour. Specify the beginning and end of the time range on the hour.
+     * This parameter is required.
      * @example 22:00Z-23:00Z
      *
      * @var string

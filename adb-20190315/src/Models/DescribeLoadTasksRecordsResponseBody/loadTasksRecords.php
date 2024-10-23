@@ -56,7 +56,7 @@ class loadTasksRecords extends Model
     /**
      * @description The SQL statement that is used in the asynchronous import or export task.
      *
-     * @example insert overwrite into courses_external_table\nselect * from courses
+     * @example insert overwrite into courses_external_table\\nselect * from courses
      *
      * @var string
      */

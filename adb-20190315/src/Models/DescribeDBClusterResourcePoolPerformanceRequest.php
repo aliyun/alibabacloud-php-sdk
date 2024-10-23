@@ -11,7 +11,7 @@ class DescribeDBClusterResourcePoolPerformanceRequest extends Model
     /**
      * @description The cluster ID.
      *
-     * > You can call the [DescribeDBClusters](~~129857~~) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
+     * This parameter is required.
      * @example am-****************
      *
      * @var string
@@ -21,6 +21,7 @@ class DescribeDBClusterResourcePoolPerformanceRequest extends Model
     /**
      * @description The end of the time range to monitor the resource group. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2021-06-10T07:01Z
      *
      * @var string
@@ -43,7 +44,7 @@ class DescribeDBClusterResourcePoolPerformanceRequest extends Model
      *
      *   If you leave this parameter empty, the monitoring information about all metrics is returned.
      *
-     *   For more information about scaling plans, see [Create a resource scaling plan](~~189507~~).
+     *   For more information about scaling plans, see [Create a resource scaling plan](https://help.aliyun.com/document_detail/189507.html).
      *
      * @example AnalyticDB_RP_CPU
      *
@@ -89,7 +90,7 @@ class DescribeDBClusterResourcePoolPerformanceRequest extends Model
     /**
      * @description The beginning of the time range to monitor the resource group. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time must be in UTC.
      *
-     * > You can view only the monitoring information about the resource groups within the last two days.
+     * This parameter is required.
      * @example 2021-06-10T07:00Z
      *
      * @var string

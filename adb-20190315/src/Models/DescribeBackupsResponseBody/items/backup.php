@@ -18,6 +18,11 @@ class backup extends Model
     public $backupEndTime;
 
     /**
+     * @var string
+     */
+    public $backupExpiredTime;
+
+    /**
      * @description The backup set ID.
      *
      * @example 32732****
@@ -74,13 +79,14 @@ class backup extends Model
      */
     public $DBClusterId;
     protected $_name = [
-        'backupEndTime'   => 'BackupEndTime',
-        'backupId'        => 'BackupId',
-        'backupMethod'    => 'BackupMethod',
-        'backupSize'      => 'BackupSize',
-        'backupStartTime' => 'BackupStartTime',
-        'backupType'      => 'BackupType',
-        'DBClusterId'     => 'DBClusterId',
+        'backupEndTime'     => 'BackupEndTime',
+        'backupExpiredTime' => 'BackupExpiredTime',
+        'backupId'          => 'BackupId',
+        'backupMethod'      => 'BackupMethod',
+        'backupSize'        => 'BackupSize',
+        'backupStartTime'   => 'BackupStartTime',
+        'backupType'        => 'BackupType',
+        'DBClusterId'       => 'DBClusterId',
     ];
 
     public function validate()
@@ -92,6 +98,9 @@ class backup extends Model
         $res = [];
         if (null !== $this->backupEndTime) {
             $res['BackupEndTime'] = $this->backupEndTime;
+        }
+        if (null !== $this->backupExpiredTime) {
+            $res['BackupExpiredTime'] = $this->backupExpiredTime;
         }
         if (null !== $this->backupId) {
             $res['BackupId'] = $this->backupId;
@@ -125,6 +134,9 @@ class backup extends Model
         $model = new self();
         if (isset($map['BackupEndTime'])) {
             $model->backupEndTime = $map['BackupEndTime'];
+        }
+        if (isset($map['BackupExpiredTime'])) {
+            $model->backupExpiredTime = $map['BackupExpiredTime'];
         }
         if (isset($map['BackupId'])) {
             $model->backupId = $map['BackupId'];

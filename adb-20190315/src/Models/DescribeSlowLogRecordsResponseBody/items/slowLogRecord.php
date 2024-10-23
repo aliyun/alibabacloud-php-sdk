@@ -29,7 +29,7 @@ class slowLogRecord extends Model
     /**
      * @description The IP address of the client that is used to connect to the database.
      *
-     * @example 172.16.**.**
+     * @example ``172.16.**.**``
      *
      * @var string
      */
@@ -110,7 +110,7 @@ class slowLogRecord extends Model
     /**
      * @description Details of the SQL statement.
      *
-     * @example INSERT OVERWRITE INTO hdfs_import_external\nSELECT *\nFROM adb_hdfs_import_source
+     * @example INSERT OVERWRITE INTO hdfs_import_external\\nSELECT *\\nFROM adb_hdfs_import_source
      *
      * @var string
      */

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeSlowLogTrendResponse extends Model
+class DescribeExcessivePrimaryKeysResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeSlowLogTrendResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeSlowLogTrendResponseBody
+     * @var DescribeExcessivePrimaryKeysResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class DescribeSlowLogTrendResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeSlowLogTrendResponse
+     * @return DescribeExcessivePrimaryKeysResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class DescribeSlowLogTrendResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeSlowLogTrendResponseBody::fromMap($map['body']);
+            $model->body = DescribeExcessivePrimaryKeysResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -11,7 +11,7 @@ class BindDBResourceGroupWithUserRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the cluster IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a specific region.
+     * This parameter is required.
      * @example am-bp1ub9grke1****
      *
      * @var string
@@ -21,6 +21,7 @@ class BindDBResourceGroupWithUserRequest extends Model
     /**
      * @description The name of the resource group.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -30,6 +31,7 @@ class BindDBResourceGroupWithUserRequest extends Model
     /**
      * @description The database account with which to associate the resource group. It can be a standard account or a privileged account.
      *
+     * This parameter is required.
      * @example accout
      *
      * @var string

@@ -11,7 +11,7 @@ class tag extends Model
     /**
      * @description The tag key.
      *
-     * >  You can call the [TagResources](~~179253~~) operation to add a tag to the cluster.
+     * >  You can call the [TagResources](https://help.aliyun.com/document_detail/179253.html) operation to add a tag to the cluster.
      * @example tag1
      *
      * @var string

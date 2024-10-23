@@ -11,7 +11,7 @@ class ModifySQAConfigRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+     * This parameter is required.
      * @example am-8vb369k7zxdt10tz0
      *
      * @var string
@@ -21,7 +21,7 @@ class ModifySQAConfigRequest extends Model
     /**
      * @description The name of the resource group.
      *
-     * >  You can call the [DescribeDBResourceGroup](~~459446~~) operation to query the resource group name of a cluster.
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -65,6 +65,7 @@ class ModifySQAConfigRequest extends Model
      *   on
      *   off
      *
+     * This parameter is required.
      * @example off
      *
      * @var string

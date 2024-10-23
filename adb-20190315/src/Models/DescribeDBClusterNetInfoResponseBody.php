@@ -19,14 +19,14 @@ class DescribeDBClusterNetInfoResponseBody extends Model
     public $clusterNetworkType;
 
     /**
-     * @description The network information of the cluster.
+     * @description The queried network information about the cluster.
      *
      * @var items
      */
     public $items;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
      *

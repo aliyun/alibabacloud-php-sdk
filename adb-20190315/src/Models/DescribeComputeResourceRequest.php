@@ -49,7 +49,7 @@ class DescribeComputeResourceRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
-     * > You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -69,7 +69,7 @@ class DescribeComputeResourceRequest extends Model
     /**
      * @description The zone ID of the cluster.
      *
-     * > You can call the [DescribeRegions](~~129857~~) operation to query the most recent zone list.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/129857.html) operation to query the most recent zone list.
      * @example cn-beijing-f
      *
      * @var string

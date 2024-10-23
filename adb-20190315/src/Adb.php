@@ -80,8 +80,12 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterPerformanceRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterPerformanceResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterResourcePoolPerformanceRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterResourcePoolPerformanceResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterSpaceSummaryRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterSpaceSummaryResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClustersRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClustersResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterSSLRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterSSLResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterStatusRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterStatusResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBResourceGroupRequest;
@@ -106,8 +110,12 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeElasticDailyPlanRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeElasticDailyPlanResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeElasticPlanRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeElasticPlanResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeExcessivePrimaryKeysRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeExcessivePrimaryKeysResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeInclinedTablesRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeInclinedTablesResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeKernelVersionRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeKernelVersionResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeLoadTasksRecordsRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeLoadTasksRecordsResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeMaintenanceActionRequest;
@@ -126,8 +134,6 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSchemasRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSchemasResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSlowLogRecordsRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSlowLogRecordsResponse;
-use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSlowLogTrendRequest;
-use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSlowLogTrendResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSQAConfigRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSQAConfigResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSqlPatternRequest;
@@ -190,8 +196,11 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBClusterRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBClusterResourceGroupRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBClusterResourceGroupResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBClusterResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBClusterSSLRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBClusterSSLResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBResourceGroupRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBResourceGroupResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBResourceGroupShrinkRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBResourcePoolRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBResourcePoolResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyElasticPlanRequest;
@@ -219,6 +228,8 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\UnbindDBResourcePoolWithUserRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\UnbindDBResourcePoolWithUserResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\UpgradeKernelVersionRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\UpgradeKernelVersionResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -305,10 +316,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param AllocateClusterPublicConnectionRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @param AllocateClusterPublicConnectionRequest $request AllocateClusterPublicConnectionRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AllocateClusterPublicConnectionResponse
+     * @return AllocateClusterPublicConnectionResponse AllocateClusterPublicConnectionResponse
      */
     public function allocateClusterPublicConnectionWithOptions($request, $runtime)
     {
@@ -351,9 +362,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param AllocateClusterPublicConnectionRequest $request
+     * @param AllocateClusterPublicConnectionRequest $request AllocateClusterPublicConnectionRequest
      *
-     * @return AllocateClusterPublicConnectionResponse
+     * @return AllocateClusterPublicConnectionResponse AllocateClusterPublicConnectionResponse
      */
     public function allocateClusterPublicConnection($request)
     {
@@ -363,10 +374,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ApplyAdviceByIdRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary ApplyAdviceById
+     *  *
+     * @param ApplyAdviceByIdRequest $request ApplyAdviceByIdRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApplyAdviceByIdResponse
+     * @return ApplyAdviceByIdResponse ApplyAdviceByIdResponse
      */
     public function applyAdviceByIdWithOptions($request, $runtime)
     {
@@ -403,9 +416,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ApplyAdviceByIdRequest $request
+     * @summary ApplyAdviceById
+     *  *
+     * @param ApplyAdviceByIdRequest $request ApplyAdviceByIdRequest
      *
-     * @return ApplyAdviceByIdResponse
+     * @return ApplyAdviceByIdResponse ApplyAdviceByIdResponse
      */
     public function applyAdviceById($request)
     {
@@ -415,8 +430,8 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition.
-     *   *
+     * @description You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition.
+     *  *
      * @param AttachUserENIRequest $request AttachUserENIRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -460,8 +475,8 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition.
-     *   *
+     * @description You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition.
+     *  *
      * @param AttachUserENIRequest $request AttachUserENIRequest
      *
      * @return AttachUserENIResponse AttachUserENIResponse
@@ -474,10 +489,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param BatchApplyAdviceByIdListRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary BatchApplyAdviceByIdList
+     *  *
+     * @param BatchApplyAdviceByIdListRequest $request BatchApplyAdviceByIdListRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchApplyAdviceByIdListResponse
+     * @return BatchApplyAdviceByIdListResponse BatchApplyAdviceByIdListResponse
      */
     public function batchApplyAdviceByIdListWithOptions($request, $runtime)
     {
@@ -514,9 +531,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param BatchApplyAdviceByIdListRequest $request
+     * @summary BatchApplyAdviceByIdList
+     *  *
+     * @param BatchApplyAdviceByIdListRequest $request BatchApplyAdviceByIdListRequest
      *
-     * @return BatchApplyAdviceByIdListResponse
+     * @return BatchApplyAdviceByIdListResponse BatchApplyAdviceByIdListResponse
      */
     public function batchApplyAdviceByIdList($request)
     {
@@ -526,10 +545,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ## Precautions
-     *   * *   This operation is applicable only for elastic clusters of 32 cores or more.
-     *   * *   The default resource group USER_DEFAULT cannot be associated with a database account.
-     *   *
+     * @summary Associates a resource group of an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster with a database account.
+     *  *
+     * @description ## Precautions
+     * *   This operation is applicable only for elastic clusters of 32 cores or more.
+     * *   The default resource group USER_DEFAULT cannot be associated with a database account.
+     *  *
      * @param BindDBResourceGroupWithUserRequest $request BindDBResourceGroupWithUserRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -579,10 +600,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ## Precautions
-     *   * *   This operation is applicable only for elastic clusters of 32 cores or more.
-     *   * *   The default resource group USER_DEFAULT cannot be associated with a database account.
-     *   *
+     * @summary Associates a resource group of an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster with a database account.
+     *  *
+     * @description ## Precautions
+     * *   This operation is applicable only for elastic clusters of 32 cores or more.
+     * *   The default resource group USER_DEFAULT cannot be associated with a database account.
+     *  *
      * @param BindDBResourceGroupWithUserRequest $request BindDBResourceGroupWithUserRequest
      *
      * @return BindDBResourceGroupWithUserResponse BindDBResourceGroupWithUserResponse
@@ -595,9 +618,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
-     *   * *   The default resource group USER_DEFAULT cannot be associated with a database account.
-     *   *
+     * @description *   This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
+     * *   The default resource group USER_DEFAULT cannot be associated with a database account.
+     *  *
      * @param BindDBResourcePoolWithUserRequest $request BindDBResourcePoolWithUserRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -647,9 +670,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
-     *   * *   The default resource group USER_DEFAULT cannot be associated with a database account.
-     *   *
+     * @description *   This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
+     * *   The default resource group USER_DEFAULT cannot be associated with a database account.
+     *  *
      * @param BindDBResourcePoolWithUserRequest $request BindDBResourcePoolWithUserRequest
      *
      * @return BindDBResourcePoolWithUserResponse BindDBResourcePoolWithUserResponse
@@ -662,10 +685,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param CreateAccountRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Creates a database account for an AnalyticDB for MySQL cluster.
+     *  *
+     * @param CreateAccountRequest $request CreateAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccountWithOptions($request, $runtime)
     {
@@ -717,9 +742,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param CreateAccountRequest $request
+     * @summary Creates a database account for an AnalyticDB for MySQL cluster.
+     *  *
+     * @param CreateAccountRequest $request CreateAccountRequest
      *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccount($request)
     {
@@ -729,8 +756,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * After you create a cluster, you are billed for the cluster specifications that you select. For more information about the billable items and pricing for Data Warehouse Edition (V3.0) clusters, see [Billable items of Data Warehouse Edition (V3.0)](~~303131~~) and [Pricing for Data Warehouse Edition (V3.0)](~~135229~~).
-     *   *
+     * @summary Creates an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *  *
+     * @description After you create a cluster, you are billed for the cluster specifications that you select. For more information about the billable items and pricing for Data Warehouse Edition (V3.0) clusters, see [Billable items of Data Warehouse Edition (V3.0)](https://help.aliyun.com/document_detail/303131.html) and [Pricing for Data Warehouse Edition (V3.0)](https://help.aliyun.com/document_detail/135229.html).
+     *  *
      * @param CreateDBClusterRequest $request CreateDBClusterRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -775,6 +804,9 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->elasticIOResource)) {
             $query['ElasticIOResource'] = $request->elasticIOResource;
+        }
+        if (!Utils::isUnset($request->enableSSL)) {
+            $query['EnableSSL'] = $request->enableSSL;
         }
         if (!Utils::isUnset($request->executorCount)) {
             $query['ExecutorCount'] = $request->executorCount;
@@ -858,8 +890,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * After you create a cluster, you are billed for the cluster specifications that you select. For more information about the billable items and pricing for Data Warehouse Edition (V3.0) clusters, see [Billable items of Data Warehouse Edition (V3.0)](~~303131~~) and [Pricing for Data Warehouse Edition (V3.0)](~~135229~~).
-     *   *
+     * @summary Creates an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *  *
+     * @description After you create a cluster, you are billed for the cluster specifications that you select. For more information about the billable items and pricing for Data Warehouse Edition (V3.0) clusters, see [Billable items of Data Warehouse Edition (V3.0)](https://help.aliyun.com/document_detail/303131.html) and [Pricing for Data Warehouse Edition (V3.0)](https://help.aliyun.com/document_detail/135229.html).
+     *  *
      * @param CreateDBClusterRequest $request CreateDBClusterRequest
      *
      * @return CreateDBClusterResponse CreateDBClusterResponse
@@ -872,9 +906,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ## Precautions
-     *   * This operation is applicable only for elastic clusters of 32 cores or more.
-     *   *
+     * @summary Creates a resource group for an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *  *
+     * @description ## Precautions
+     * This operation is applicable only for elastic clusters of 32 cores or more.
+     *  *
      * @param CreateDBResourceGroupRequest $request CreateDBResourceGroupRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -927,9 +963,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ## Precautions
-     *   * This operation is applicable only for elastic clusters of 32 cores or more.
-     *   *
+     * @summary Creates a resource group for an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *  *
+     * @description ## Precautions
+     * This operation is applicable only for elastic clusters of 32 cores or more.
+     *  *
      * @param CreateDBResourceGroupRequest $request CreateDBResourceGroupRequest
      *
      * @return CreateDBResourceGroupResponse CreateDBResourceGroupResponse
@@ -942,8 +980,8 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * This operation is applicable only for elastic clusters of 32 cores or more.
-     *   *
+     * @description This operation is applicable only for elastic clusters of 32 cores or more.
+     *  *
      * @param CreateDBResourcePoolRequest $request CreateDBResourcePoolRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -996,8 +1034,8 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * This operation is applicable only for elastic clusters of 32 cores or more.
-     *   *
+     * @description This operation is applicable only for elastic clusters of 32 cores or more.
+     *  *
      * @param CreateDBResourcePoolRequest $request CreateDBResourcePoolRequest
      *
      * @return CreateDBResourcePoolResponse CreateDBResourcePoolResponse
@@ -1010,9 +1048,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
-     *   *
+     * @summary Creates a scheduled scaling plan. This operation can be used only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition.
+     *  *
+     * @description ###
+     * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
+     *  *
      * @param CreateElasticPlanRequest $request CreateElasticPlanRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -1092,9 +1132,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
-     *   *
+     * @summary Creates a scheduled scaling plan. This operation can be used only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition.
+     *  *
+     * @description ###
+     * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
+     *  *
      * @param CreateElasticPlanRequest $request CreateElasticPlanRequest
      *
      * @return CreateElasticPlanResponse CreateElasticPlanResponse
@@ -1107,10 +1149,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccountRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param DeleteAccountRequest $request DeleteAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccountWithOptions($request, $runtime)
     {
@@ -1156,9 +1198,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccountRequest $request
+     * @param DeleteAccountRequest $request DeleteAccountRequest
      *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccount($request)
     {
@@ -1168,9 +1210,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * *   Subscription clusters cannot be deleted by using API operations. After expiration, subscription clusters are automatically released. If you no longer need a cluster, you can submit a request to unsubscribe from the cluster in the Billing Management console. For more information about cluster refunds, see [Refund policy](~~471477~~).
-     *   * *   After you delete a cluster, resources of the cluster are immediately released, and data of the cluster is no longer retained and cannot be recovered. Proceed with caution.
-     *   *
+     * @summary Deletes an AnalyticDB for MySQL cluster.
+     *  *
+     * @description *   Subscription clusters cannot be deleted by using API operations. After expiration, subscription clusters are automatically released. If you no longer need a cluster, you can submit a request to unsubscribe from the cluster in the Billing Management console. For more information about cluster refunds, see [Refund policy](https://help.aliyun.com/document_detail/471477.html).
+     * *   After you delete a cluster, resources of the cluster are immediately released, and data of the cluster is no longer retained and cannot be recovered. Proceed with caution.
+     *  *
      * @param DeleteDBClusterRequest $request DeleteDBClusterRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -1214,9 +1258,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * *   Subscription clusters cannot be deleted by using API operations. After expiration, subscription clusters are automatically released. If you no longer need a cluster, you can submit a request to unsubscribe from the cluster in the Billing Management console. For more information about cluster refunds, see [Refund policy](~~471477~~).
-     *   * *   After you delete a cluster, resources of the cluster are immediately released, and data of the cluster is no longer retained and cannot be recovered. Proceed with caution.
-     *   *
+     * @summary Deletes an AnalyticDB for MySQL cluster.
+     *  *
+     * @description *   Subscription clusters cannot be deleted by using API operations. After expiration, subscription clusters are automatically released. If you no longer need a cluster, you can submit a request to unsubscribe from the cluster in the Billing Management console. For more information about cluster refunds, see [Refund policy](https://help.aliyun.com/document_detail/471477.html).
+     * *   After you delete a cluster, resources of the cluster are immediately released, and data of the cluster is no longer retained and cannot be recovered. Proceed with caution.
+     *  *
      * @param DeleteDBClusterRequest $request DeleteDBClusterRequest
      *
      * @return DeleteDBClusterResponse DeleteDBClusterResponse
@@ -1229,10 +1275,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ### Precautions
-     *   * *   You can call this operation only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
-     *   * *   The default resource group USER_DEFAULT cannot be deleted.
-     *   *
+     * @summary Deletes a resource group from an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *  *
+     * @description ### Precautions
+     * *   You can call this operation only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
+     * *   The default resource group USER_DEFAULT cannot be deleted.
+     *  *
      * @param DeleteDBResourceGroupRequest $request DeleteDBResourceGroupRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -1279,10 +1327,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ### Precautions
-     *   * *   You can call this operation only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
-     *   * *   The default resource group USER_DEFAULT cannot be deleted.
-     *   *
+     * @summary Deletes a resource group from an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *  *
+     * @description ### Precautions
+     * *   You can call this operation only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
+     * *   The default resource group USER_DEFAULT cannot be deleted.
+     *  *
      * @param DeleteDBResourceGroupRequest $request DeleteDBResourceGroupRequest
      *
      * @return DeleteDBResourceGroupResponse DeleteDBResourceGroupResponse
@@ -1295,10 +1345,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * **Precautions**
-     *   * *   This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
-     *   * *   The default resource group USER_DEFAULT cannot be deleted.
-     *   *
+     * @description **Precautions**
+     * *   This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
+     * *   The default resource group USER_DEFAULT cannot be deleted.
+     *  *
      * @param DeleteDBResourcePoolRequest $request DeleteDBResourcePoolRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -1345,10 +1395,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * **Precautions**
-     *   * *   This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
-     *   * *   The default resource group USER_DEFAULT cannot be deleted.
-     *   *
+     * @description **Precautions**
+     * *   This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
+     * *   The default resource group USER_DEFAULT cannot be deleted.
+     *  *
      * @param DeleteDBResourcePoolRequest $request DeleteDBResourcePoolRequest
      *
      * @return DeleteDBResourcePoolResponse DeleteDBResourcePoolResponse
@@ -1361,10 +1411,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DeleteElasticPlanRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Deletes a scheduled scaling plan. This operation can be used only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition.
+     *  *
+     * @param DeleteElasticPlanRequest $request DeleteElasticPlanRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteElasticPlanResponse
+     * @return DeleteElasticPlanResponse DeleteElasticPlanResponse
      */
     public function deleteElasticPlanWithOptions($request, $runtime)
     {
@@ -1407,9 +1459,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DeleteElasticPlanRequest $request
+     * @summary Deletes a scheduled scaling plan. This operation can be used only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition.
+     *  *
+     * @param DeleteElasticPlanRequest $request DeleteElasticPlanRequest
      *
-     * @return DeleteElasticPlanResponse
+     * @return DeleteElasticPlanResponse DeleteElasticPlanResponse
      */
     public function deleteElasticPlan($request)
     {
@@ -1419,10 +1473,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries a list of database accounts for an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeAccountsRequest $request DescribeAccountsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAccountsResponse
+     * @return DescribeAccountsResponse DescribeAccountsResponse
      */
     public function describeAccountsWithOptions($request, $runtime)
     {
@@ -1468,9 +1524,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountsRequest $request
+     * @summary Queries a list of database accounts for an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeAccountsRequest $request DescribeAccountsRequest
      *
-     * @return DescribeAccountsResponse
+     * @return DescribeAccountsResponse DescribeAccountsResponse
      */
     public function describeAccounts($request)
     {
@@ -1480,10 +1538,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAdviceServiceEnabledRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries whether the suggestion feature is enabled for an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeAdviceServiceEnabledRequest $request DescribeAdviceServiceEnabledRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAdviceServiceEnabledResponse
+     * @return DescribeAdviceServiceEnabledResponse DescribeAdviceServiceEnabledResponse
      */
     public function describeAdviceServiceEnabledWithOptions($request, $runtime)
     {
@@ -1514,9 +1574,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAdviceServiceEnabledRequest $request
+     * @summary Queries whether the suggestion feature is enabled for an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeAdviceServiceEnabledRequest $request DescribeAdviceServiceEnabledRequest
      *
-     * @return DescribeAdviceServiceEnabledResponse
+     * @return DescribeAdviceServiceEnabledResponse DescribeAdviceServiceEnabledResponse
      */
     public function describeAdviceServiceEnabled($request)
     {
@@ -1526,10 +1588,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAllAccountsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the information about an account or the list of accounts of a specific database within an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeAllAccountsRequest $request DescribeAllAccountsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAllAccountsResponse
+     * @return DescribeAllAccountsResponse DescribeAllAccountsResponse
      */
     public function describeAllAccountsWithOptions($request, $runtime)
     {
@@ -1569,9 +1633,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAllAccountsRequest $request
+     * @summary Queries the information about an account or the list of accounts of a specific database within an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeAllAccountsRequest $request DescribeAllAccountsRequest
      *
-     * @return DescribeAllAccountsResponse
+     * @return DescribeAllAccountsResponse DescribeAllAccountsResponse
      */
     public function describeAllAccounts($request)
     {
@@ -1581,10 +1647,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAllDataSourceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries a list of databases, tables, and columns in a cluster.
+     *  *
+     * @param DescribeAllDataSourceRequest $request DescribeAllDataSourceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAllDataSourceResponse
+     * @return DescribeAllDataSourceResponse DescribeAllDataSourceResponse
      */
     public function describeAllDataSourceWithOptions($request, $runtime)
     {
@@ -1630,9 +1698,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAllDataSourceRequest $request
+     * @summary Queries a list of databases, tables, and columns in a cluster.
+     *  *
+     * @param DescribeAllDataSourceRequest $request DescribeAllDataSourceRequest
      *
-     * @return DescribeAllDataSourceResponse
+     * @return DescribeAllDataSourceResponse DescribeAllDataSourceResponse
      */
     public function describeAllDataSource($request)
     {
@@ -1642,23 +1712,34 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAppliedAdvicesRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the applied optimization suggestions for an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeAppliedAdvicesRequest $request DescribeAppliedAdvicesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAppliedAdvicesResponse
+     * @return DescribeAppliedAdvicesResponse DescribeAppliedAdvicesResponse
      */
     public function describeAppliedAdvicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->adviceType)) {
+            $query['AdviceType'] = $request->adviceType;
+        }
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -1668,6 +1749,9 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->schemaTableName)) {
+            $query['SchemaTableName'] = $request->schemaTableName;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -1691,9 +1775,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAppliedAdvicesRequest $request
+     * @summary Queries the applied optimization suggestions for an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeAppliedAdvicesRequest $request DescribeAppliedAdvicesRequest
      *
-     * @return DescribeAppliedAdvicesResponse
+     * @return DescribeAppliedAdvicesResponse DescribeAppliedAdvicesResponse
      */
     public function describeAppliedAdvices($request)
     {
@@ -1703,10 +1789,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAuditLogConfigRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the SQL audit settings of an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeAuditLogConfigRequest $request DescribeAuditLogConfigRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAuditLogConfigResponse
+     * @return DescribeAuditLogConfigResponse DescribeAuditLogConfigResponse
      */
     public function describeAuditLogConfigWithOptions($request, $runtime)
     {
@@ -1749,9 +1837,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAuditLogConfigRequest $request
+     * @summary Queries the SQL audit settings of an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeAuditLogConfigRequest $request DescribeAuditLogConfigRequest
      *
-     * @return DescribeAuditLogConfigResponse
+     * @return DescribeAuditLogConfigResponse DescribeAuditLogConfigResponse
      */
     public function describeAuditLogConfig($request)
     {
@@ -1761,9 +1851,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Before you call the DescribeAuditLogRecords operation to query the SQL audit logs of an AnalyticDB for MySQL cluster, you must enable SQL audit for the cluster. You can call the [DescribeAuditLogConfig](~~190628~~) operation to query the status of SQL audit. If SQL audit is disabled, you can call the [ModifyAuditLogConfig](~~190629~~) operation to enable SQL audit.
-     *   * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
-     *   *
+     * @summary Queries the SQL audit logs of an AnalyticDB for MySQL cluster.
+     *  *
+     * @description Before you call the DescribeAuditLogRecords operation to query the SQL audit logs of an AnalyticDB for MySQL cluster, you must enable SQL audit for the cluster. You can call the [DescribeAuditLogConfig](https://help.aliyun.com/document_detail/190628.html) operation to query the status of SQL audit. If SQL audit is disabled, you can call the [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/190629.html) operation to enable SQL audit.
+     * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
+     *  *
      * @param DescribeAuditLogRecordsRequest $request DescribeAuditLogRecordsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -1846,9 +1938,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Before you call the DescribeAuditLogRecords operation to query the SQL audit logs of an AnalyticDB for MySQL cluster, you must enable SQL audit for the cluster. You can call the [DescribeAuditLogConfig](~~190628~~) operation to query the status of SQL audit. If SQL audit is disabled, you can call the [ModifyAuditLogConfig](~~190629~~) operation to enable SQL audit.
-     *   * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
-     *   *
+     * @summary Queries the SQL audit logs of an AnalyticDB for MySQL cluster.
+     *  *
+     * @description Before you call the DescribeAuditLogRecords operation to query the SQL audit logs of an AnalyticDB for MySQL cluster, you must enable SQL audit for the cluster. You can call the [DescribeAuditLogConfig](https://help.aliyun.com/document_detail/190628.html) operation to query the status of SQL audit. If SQL audit is disabled, you can call the [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/190629.html) operation to enable SQL audit.
+     * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
+     *  *
      * @param DescribeAuditLogRecordsRequest $request DescribeAuditLogRecordsRequest
      *
      * @return DescribeAuditLogRecordsResponse DescribeAuditLogRecordsResponse
@@ -1861,10 +1955,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAutoRenewAttributeRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the auto-renewal status of a subscription AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeAutoRenewAttributeRequest $request DescribeAutoRenewAttributeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAutoRenewAttributeResponse
+     * @return DescribeAutoRenewAttributeResponse DescribeAutoRenewAttributeResponse
      */
     public function describeAutoRenewAttributeWithOptions($request, $runtime)
     {
@@ -1916,9 +2012,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAutoRenewAttributeRequest $request
+     * @summary Queries the auto-renewal status of a subscription AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeAutoRenewAttributeRequest $request DescribeAutoRenewAttributeRequest
      *
-     * @return DescribeAutoRenewAttributeResponse
+     * @return DescribeAutoRenewAttributeResponse DescribeAutoRenewAttributeResponse
      */
     public function describeAutoRenewAttribute($request)
     {
@@ -1928,10 +2026,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableAdvicesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the available suggestions for cluster optimization.
+     *  *
+     * @param DescribeAvailableAdvicesRequest $request DescribeAvailableAdvicesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAvailableAdvicesResponse
+     * @return DescribeAvailableAdvicesResponse DescribeAvailableAdvicesResponse
      */
     public function describeAvailableAdvicesWithOptions($request, $runtime)
     {
@@ -1940,11 +2040,20 @@ class Adb extends OpenApiClient
         if (!Utils::isUnset($request->adviceDate)) {
             $query['AdviceDate'] = $request->adviceDate;
         }
+        if (!Utils::isUnset($request->adviceType)) {
+            $query['AdviceType'] = $request->adviceType;
+        }
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
         }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -1954,6 +2063,9 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->schemaTableName)) {
+            $query['SchemaTableName'] = $request->schemaTableName;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1974,9 +2086,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableAdvicesRequest $request
+     * @summary Queries the available suggestions for cluster optimization.
+     *  *
+     * @param DescribeAvailableAdvicesRequest $request DescribeAvailableAdvicesRequest
      *
-     * @return DescribeAvailableAdvicesResponse
+     * @return DescribeAvailableAdvicesResponse DescribeAvailableAdvicesResponse
      */
     public function describeAvailableAdvices($request)
     {
@@ -1986,10 +2100,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableResourceRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the resources of clusters within zones of a region.
+     *  *
+     * @param DescribeAvailableResourceRequest $request DescribeAvailableResourceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAvailableResourceResponse
+     * @return DescribeAvailableResourceResponse DescribeAvailableResourceResponse
      */
     public function describeAvailableResourceWithOptions($request, $runtime)
     {
@@ -2041,9 +2157,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableResourceRequest $request
+     * @summary Queries the resources of clusters within zones of a region.
+     *  *
+     * @param DescribeAvailableResourceRequest $request DescribeAvailableResourceRequest
      *
-     * @return DescribeAvailableResourceResponse
+     * @return DescribeAvailableResourceResponse DescribeAvailableResourceResponse
      */
     public function describeAvailableResource($request)
     {
@@ -2053,10 +2171,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
@@ -2096,9 +2214,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
      *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicy($request)
     {
@@ -2108,10 +2226,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries a list of backup sets for an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackupsWithOptions($request, $runtime)
     {
@@ -2119,6 +2239,12 @@ class Adb extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->backupId)) {
             $query['BackupId'] = $request->backupId;
+        }
+        if (!Utils::isUnset($request->crossRole)) {
+            $query['CrossRole'] = $request->crossRole;
+        }
+        if (!Utils::isUnset($request->crossUid)) {
+            $query['CrossUid'] = $request->crossUid;
         }
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
@@ -2137,6 +2263,9 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -2166,9 +2295,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupsRequest $request
+     * @summary Queries a list of backup sets for an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
      *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackups($request)
     {
@@ -2178,10 +2309,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeColumnsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DescribeColumnsRequest $request DescribeColumnsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeColumnsResponse
+     * @return DescribeColumnsResponse DescribeColumnsResponse
      */
     public function describeColumnsWithOptions($request, $runtime)
     {
@@ -2227,9 +2358,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeColumnsRequest $request
+     * @param DescribeColumnsRequest $request DescribeColumnsRequest
      *
-     * @return DescribeColumnsResponse
+     * @return DescribeColumnsResponse DescribeColumnsResponse
      */
     public function describeColumns($request)
     {
@@ -2239,10 +2370,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeComputeResourceRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the specifications of computing resources for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+     *  *
+     * @param DescribeComputeResourceRequest $request DescribeComputeResourceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeComputeResourceResponse
+     * @return DescribeComputeResourceResponse DescribeComputeResourceResponse
      */
     public function describeComputeResourceWithOptions($request, $runtime)
     {
@@ -2294,9 +2427,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeComputeResourceRequest $request
+     * @summary Queries the specifications of computing resources for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+     *  *
+     * @param DescribeComputeResourceRequest $request DescribeComputeResourceRequest
      *
-     * @return DescribeComputeResourceResponse
+     * @return DescribeComputeResourceResponse DescribeComputeResourceResponse
      */
     public function describeComputeResource($request)
     {
@@ -2306,10 +2441,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeConnectionCountRecordsRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries the current number of connections to an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeConnectionCountRecordsRequest $request DescribeConnectionCountRecordsRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeConnectionCountRecordsResponse
+     * @return DescribeConnectionCountRecordsResponse DescribeConnectionCountRecordsResponse
      */
     public function describeConnectionCountRecordsWithOptions($request, $runtime)
     {
@@ -2349,9 +2486,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeConnectionCountRecordsRequest $request
+     * @summary Queries the current number of connections to an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeConnectionCountRecordsRequest $request DescribeConnectionCountRecordsRequest
      *
-     * @return DescribeConnectionCountRecordsResponse
+     * @return DescribeConnectionCountRecordsResponse DescribeConnectionCountRecordsResponse
      */
     public function describeConnectionCountRecords($request)
     {
@@ -2361,10 +2500,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterAccessWhiteListRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Queries a list of IP address whitelists for an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeDBClusterAccessWhiteListRequest $request DescribeDBClusterAccessWhiteListRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterAccessWhiteListResponse
+     * @return DescribeDBClusterAccessWhiteListResponse DescribeDBClusterAccessWhiteListResponse
      */
     public function describeDBClusterAccessWhiteListWithOptions($request, $runtime)
     {
@@ -2378,6 +2519,9 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -2404,9 +2548,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterAccessWhiteListRequest $request
+     * @summary Queries a list of IP address whitelists for an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeDBClusterAccessWhiteListRequest $request DescribeDBClusterAccessWhiteListRequest
      *
-     * @return DescribeDBClusterAccessWhiteListResponse
+     * @return DescribeDBClusterAccessWhiteListResponse DescribeDBClusterAccessWhiteListResponse
      */
     public function describeDBClusterAccessWhiteList($request)
     {
@@ -2416,10 +2562,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterAttributeRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the information about an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeDBClusterAttributeRequest $request DescribeDBClusterAttributeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterAttributeResponse
+     * @return DescribeDBClusterAttributeResponse DescribeDBClusterAttributeResponse
      */
     public function describeDBClusterAttributeWithOptions($request, $runtime)
     {
@@ -2433,6 +2581,9 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -2459,9 +2610,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterAttributeRequest $request
+     * @summary Queries the information about an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeDBClusterAttributeRequest $request DescribeDBClusterAttributeRequest
      *
-     * @return DescribeDBClusterAttributeResponse
+     * @return DescribeDBClusterAttributeResponse DescribeDBClusterAttributeResponse
      */
     public function describeDBClusterAttribute($request)
     {
@@ -2471,10 +2624,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterHealthStatusRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param DescribeDBClusterHealthStatusRequest $request DescribeDBClusterHealthStatusRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterHealthStatusResponse
+     * @return DescribeDBClusterHealthStatusResponse DescribeDBClusterHealthStatusResponse
      */
     public function describeDBClusterHealthStatusWithOptions($request, $runtime)
     {
@@ -2505,9 +2658,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterHealthStatusRequest $request
+     * @param DescribeDBClusterHealthStatusRequest $request DescribeDBClusterHealthStatusRequest
      *
-     * @return DescribeDBClusterHealthStatusResponse
+     * @return DescribeDBClusterHealthStatusResponse DescribeDBClusterHealthStatusResponse
      */
     public function describeDBClusterHealthStatus($request)
     {
@@ -2517,10 +2670,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterNetInfoRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the network information about an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeDBClusterNetInfoRequest $request DescribeDBClusterNetInfoRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterNetInfoResponse
+     * @return DescribeDBClusterNetInfoResponse DescribeDBClusterNetInfoResponse
      */
     public function describeDBClusterNetInfoWithOptions($request, $runtime)
     {
@@ -2534,6 +2689,9 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -2560,9 +2718,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterNetInfoRequest $request
+     * @summary Queries the network information about an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeDBClusterNetInfoRequest $request DescribeDBClusterNetInfoRequest
      *
-     * @return DescribeDBClusterNetInfoResponse
+     * @return DescribeDBClusterNetInfoResponse DescribeDBClusterNetInfoResponse
      */
     public function describeDBClusterNetInfo($request)
     {
@@ -2572,8 +2732,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the performance data of a cluster over a time range based on its performance metrics. The data is collected every 30 seconds. This operation allows you to query information about slow queries, such as the SQL query duration, number of scanned rows, and amount of scanned data.
-     *   *
+     * @summary Queries the performance data of an AnalyticDB for MySQL cluster.
+     *  *
+     * @description You can call this operation to query the performance data of a cluster over a time range based on its performance metrics. The data is collected every 30 seconds. This operation allows you to query information about slow queries, such as the SQL query duration, number of scanned rows, and amount of scanned data.
+     *  *
      * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -2632,8 +2794,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the performance data of a cluster over a time range based on its performance metrics. The data is collected every 30 seconds. This operation allows you to query information about slow queries, such as the SQL query duration, number of scanned rows, and amount of scanned data.
-     *   *
+     * @summary Queries the performance data of an AnalyticDB for MySQL cluster.
+     *  *
+     * @description You can call this operation to query the performance data of a cluster over a time range based on its performance metrics. The data is collected every 30 seconds. This operation allows you to query information about slow queries, such as the SQL query duration, number of scanned rows, and amount of scanned data.
+     *  *
      * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
      *
      * @return DescribeDBClusterPerformanceResponse DescribeDBClusterPerformanceResponse
@@ -2646,8 +2810,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * > You can also view the monitoring information about resource groups within an AnalyticDB for MySQL cluster in elastic mode for Cluster Edition in the form of graphs in the console. For more information, see [View monitoring information](~~188721~~).
-     *   *
+     * @summary Queries the monitoring information about resource groups within an AnalyticDB for MySQL cluster.
+     *  *
+     * @description > You can also view the monitoring information about resource groups within an AnalyticDB for MySQL cluster in elastic mode for Cluster Edition in the form of graphs in the console. For more information, see [View monitoring information](https://help.aliyun.com/document_detail/188721.html).
+     *  *
      * @param DescribeDBClusterResourcePoolPerformanceRequest $request DescribeDBClusterResourcePoolPerformanceRequest
      * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
@@ -2703,8 +2869,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * > You can also view the monitoring information about resource groups within an AnalyticDB for MySQL cluster in elastic mode for Cluster Edition in the form of graphs in the console. For more information, see [View monitoring information](~~188721~~).
-     *   *
+     * @summary Queries the monitoring information about resource groups within an AnalyticDB for MySQL cluster.
+     *  *
+     * @description > You can also view the monitoring information about resource groups within an AnalyticDB for MySQL cluster in elastic mode for Cluster Edition in the form of graphs in the console. For more information, see [View monitoring information](https://help.aliyun.com/document_detail/188721.html).
+     *  *
      * @param DescribeDBClusterResourcePoolPerformanceRequest $request DescribeDBClusterResourcePoolPerformanceRequest
      *
      * @return DescribeDBClusterResourcePoolPerformanceResponse DescribeDBClusterResourcePoolPerformanceResponse
@@ -2717,10 +2885,133 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterStatusRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the SSL configurations of an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *  *
+     * @param DescribeDBClusterSSLRequest $request DescribeDBClusterSSLRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterStatusResponse
+     * @return DescribeDBClusterSSLResponse DescribeDBClusterSSLResponse
+     */
+    public function describeDBClusterSSLWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBClusterSSL',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBClusterSSLResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the SSL configurations of an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *  *
+     * @param DescribeDBClusterSSLRequest $request DescribeDBClusterSSLRequest
+     *
+     * @return DescribeDBClusterSSLResponse DescribeDBClusterSSLResponse
+     */
+    public function describeDBClusterSSL($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBClusterSSLWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the storage overview information of an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster, such as the total data size, hot data size, cold data size, and data growth.
+     *  *
+     * @param DescribeDBClusterSpaceSummaryRequest $request DescribeDBClusterSpaceSummaryRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDBClusterSpaceSummaryResponse DescribeDBClusterSpaceSummaryResponse
+     */
+    public function describeDBClusterSpaceSummaryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBClusterSpaceSummary',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBClusterSpaceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the storage overview information of an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster, such as the total data size, hot data size, cold data size, and data growth.
+     *  *
+     * @param DescribeDBClusterSpaceSummaryRequest $request DescribeDBClusterSpaceSummaryRequest
+     *
+     * @return DescribeDBClusterSpaceSummaryResponse DescribeDBClusterSpaceSummaryResponse
+     */
+    public function describeDBClusterSpaceSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBClusterSpaceSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the status of AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+     *  *
+     * @param DescribeDBClusterStatusRequest $request DescribeDBClusterStatusRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDBClusterStatusResponse DescribeDBClusterStatusResponse
      */
     public function describeDBClusterStatusWithOptions($request, $runtime)
     {
@@ -2760,9 +3051,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterStatusRequest $request
+     * @summary Queries the status of AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+     *  *
+     * @param DescribeDBClusterStatusRequest $request DescribeDBClusterStatusRequest
      *
-     * @return DescribeDBClusterStatusResponse
+     * @return DescribeDBClusterStatusResponse DescribeDBClusterStatusResponse
      */
     public function describeDBClusterStatus($request)
     {
@@ -2772,10 +3065,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClustersRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries a list of AnalyticDB for MySQL clusters within a region.
+     *  *
+     * @param DescribeDBClustersRequest $request DescribeDBClustersRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClustersResponse
+     * @return DescribeDBClustersResponse DescribeDBClustersResponse
      */
     public function describeDBClustersWithOptions($request, $runtime)
     {
@@ -2839,9 +3134,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClustersRequest $request
+     * @summary Queries a list of AnalyticDB for MySQL clusters within a region.
+     *  *
+     * @param DescribeDBClustersRequest $request DescribeDBClustersRequest
      *
-     * @return DescribeDBClustersResponse
+     * @return DescribeDBClustersResponse DescribeDBClustersResponse
      */
     public function describeDBClusters($request)
     {
@@ -2851,9 +3148,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * You can call this operation only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
-     *   *
+     * @summary Queries the information about a resource group for an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *  *
+     * @description ###
+     * You can call this operation only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
+     *  *
      * @param DescribeDBResourceGroupRequest $request DescribeDBResourceGroupRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -2900,9 +3199,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * You can call this operation only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
-     *   *
+     * @summary Queries the information about a resource group for an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *  *
+     * @description ###
+     * You can call this operation only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
+     *  *
      * @param DescribeDBResourceGroupRequest $request DescribeDBResourceGroupRequest
      *
      * @return DescribeDBResourceGroupResponse DescribeDBResourceGroupResponse
@@ -2915,8 +3216,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * This operation is applicable only for elastic clusters of 32 cores or more.
-     *   *
+     * @summary 查询资源池
+     *  *
+     * @description This operation is applicable only for elastic clusters of 32 cores or more.
+     *  *
      * @param DescribeDBResourcePoolRequest $request DescribeDBResourcePoolRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -2963,8 +3266,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * This operation is applicable only for elastic clusters of 32 cores or more.
-     *   *
+     * @summary 查询资源池
+     *  *
+     * @description This operation is applicable only for elastic clusters of 32 cores or more.
+     *  *
      * @param DescribeDBResourcePoolRequest $request DescribeDBResourcePoolRequest
      *
      * @return DescribeDBResourcePoolResponse DescribeDBResourcePoolResponse
@@ -2977,10 +3282,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisDimensionsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the deduplicated statistics of SQL statements that meet a condition of the resource group, database, username, and source IP address in an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeDiagnosisDimensionsRequest $request DescribeDiagnosisDimensionsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDiagnosisDimensionsResponse
+     * @return DescribeDiagnosisDimensionsResponse DescribeDiagnosisDimensionsResponse
      */
     public function describeDiagnosisDimensionsWithOptions($request, $runtime)
     {
@@ -3023,9 +3330,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisDimensionsRequest $request
+     * @summary Queries the deduplicated statistics of SQL statements that meet a condition of the resource group, database, username, and source IP address in an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeDiagnosisDimensionsRequest $request DescribeDiagnosisDimensionsRequest
      *
-     * @return DescribeDiagnosisDimensionsResponse
+     * @return DescribeDiagnosisDimensionsResponse DescribeDiagnosisDimensionsResponse
      */
     public function describeDiagnosisDimensions($request)
     {
@@ -3035,10 +3344,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisMonitorPerformanceRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary Queries the monitoring information about queries within a time range.
+     *  *
+     * @param DescribeDiagnosisMonitorPerformanceRequest $request DescribeDiagnosisMonitorPerformanceRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDiagnosisMonitorPerformanceResponse
+     * @return DescribeDiagnosisMonitorPerformanceResponse DescribeDiagnosisMonitorPerformanceResponse
      */
     public function describeDiagnosisMonitorPerformanceWithOptions($request, $runtime)
     {
@@ -3081,9 +3392,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisMonitorPerformanceRequest $request
+     * @summary Queries the monitoring information about queries within a time range.
+     *  *
+     * @param DescribeDiagnosisMonitorPerformanceRequest $request DescribeDiagnosisMonitorPerformanceRequest
      *
-     * @return DescribeDiagnosisMonitorPerformanceResponse
+     * @return DescribeDiagnosisMonitorPerformanceResponse DescribeDiagnosisMonitorPerformanceResponse
      */
     public function describeDiagnosisMonitorPerformance($request)
     {
@@ -3093,10 +3406,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisRecordsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the diagnostic information about SQL statements that meet a condition in an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeDiagnosisRecordsRequest $request DescribeDiagnosisRecordsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDiagnosisRecordsResponse
+     * @return DescribeDiagnosisRecordsResponse DescribeDiagnosisRecordsResponse
      */
     public function describeDiagnosisRecordsWithOptions($request, $runtime)
     {
@@ -3178,9 +3493,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisRecordsRequest $request
+     * @summary Queries the diagnostic information about SQL statements that meet a condition in an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeDiagnosisRecordsRequest $request DescribeDiagnosisRecordsRequest
      *
-     * @return DescribeDiagnosisRecordsResponse
+     * @return DescribeDiagnosisRecordsResponse DescribeDiagnosisRecordsResponse
      */
     public function describeDiagnosisRecords($request)
     {
@@ -3190,10 +3507,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisSQLInfoRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the execution information about an SQL statement, including the execution plan, execution information, resource usage, and self-diagnostics results.
+     *  *
+     * @param DescribeDiagnosisSQLInfoRequest $request DescribeDiagnosisSQLInfoRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDiagnosisSQLInfoResponse
+     * @return DescribeDiagnosisSQLInfoResponse DescribeDiagnosisSQLInfoResponse
      */
     public function describeDiagnosisSQLInfoWithOptions($request, $runtime)
     {
@@ -3218,9 +3537,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisSQLInfoRequest $request
+     * @summary Queries the execution information about an SQL statement, including the execution plan, execution information, resource usage, and self-diagnostics results.
+     *  *
+     * @param DescribeDiagnosisSQLInfoRequest $request DescribeDiagnosisSQLInfoRequest
      *
-     * @return DescribeDiagnosisSQLInfoResponse
+     * @return DescribeDiagnosisSQLInfoResponse DescribeDiagnosisSQLInfoResponse
      */
     public function describeDiagnosisSQLInfo($request)
     {
@@ -3230,10 +3551,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisTasksRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the execution information about distributed tasks in a stage of a query.
+     *  *
+     * @param DescribeDiagnosisTasksRequest $request DescribeDiagnosisTasksRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDiagnosisTasksResponse
+     * @return DescribeDiagnosisTasksResponse DescribeDiagnosisTasksResponse
      */
     public function describeDiagnosisTasksWithOptions($request, $runtime)
     {
@@ -3258,9 +3581,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisTasksRequest $request
+     * @summary Queries the execution information about distributed tasks in a stage of a query.
+     *  *
+     * @param DescribeDiagnosisTasksRequest $request DescribeDiagnosisTasksRequest
      *
-     * @return DescribeDiagnosisTasksResponse
+     * @return DescribeDiagnosisTasksResponse DescribeDiagnosisTasksResponse
      */
     public function describeDiagnosisTasks($request)
     {
@@ -3270,10 +3595,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDownloadRecordsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeDownloadRecordsRequest $request DescribeDownloadRecordsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDownloadRecordsResponse
+     * @return DescribeDownloadRecordsResponse DescribeDownloadRecordsResponse
      */
     public function describeDownloadRecordsWithOptions($request, $runtime)
     {
@@ -3307,9 +3632,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDownloadRecordsRequest $request
+     * @param DescribeDownloadRecordsRequest $request DescribeDownloadRecordsRequest
      *
-     * @return DescribeDownloadRecordsResponse
+     * @return DescribeDownloadRecordsResponse DescribeDownloadRecordsResponse
      */
     public function describeDownloadRecords($request)
     {
@@ -3319,10 +3644,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeEIURangeRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the range for the number of elastic I/O units (EIUs) for an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *  *
+     * @param DescribeEIURangeRequest $request DescribeEIURangeRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEIURangeResponse
+     * @return DescribeEIURangeResponse DescribeEIURangeResponse
      */
     public function describeEIURangeWithOptions($request, $runtime)
     {
@@ -3358,6 +3685,12 @@ class Adb extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->storageSize)) {
+            $query['StorageSize'] = $request->storageSize;
+        }
+        if (!Utils::isUnset($request->subOperation)) {
+            $query['SubOperation'] = $request->subOperation;
+        }
         if (!Utils::isUnset($request->zoneId)) {
             $query['ZoneId'] = $request->zoneId;
         }
@@ -3380,9 +3713,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeEIURangeRequest $request
+     * @summary Queries the range for the number of elastic I/O units (EIUs) for an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *  *
+     * @param DescribeEIURangeRequest $request DescribeEIURangeRequest
      *
-     * @return DescribeEIURangeResponse
+     * @return DescribeEIURangeResponse DescribeEIURangeResponse
      */
     public function describeEIURange($request)
     {
@@ -3392,8 +3727,8 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * This operation is available only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
-     *   *
+     * @description This operation is available only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
+     *  *
      * @param DescribeElasticDailyPlanRequest $request DescribeElasticDailyPlanRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -3449,8 +3784,8 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * This operation is available only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
-     *   *
+     * @description This operation is available only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
+     *  *
      * @param DescribeElasticDailyPlanRequest $request DescribeElasticDailyPlanRequest
      *
      * @return DescribeElasticDailyPlanResponse DescribeElasticDailyPlanResponse
@@ -3463,9 +3798,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
-     *   *
+     * @summary Queries scaling plans of an AnalyticDB for MySQL cluster. This operation can be used only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition.
+     *  *
+     * @description ###
+     * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
+     *  *
      * @param DescribeElasticPlanRequest $request DescribeElasticPlanRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -3518,9 +3855,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
-     *   *
+     * @summary Queries scaling plans of an AnalyticDB for MySQL cluster. This operation can be used only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition.
+     *  *
+     * @description ###
+     * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
+     *  *
      * @param DescribeElasticPlanRequest $request DescribeElasticPlanRequest
      *
      * @return DescribeElasticPlanResponse DescribeElasticPlanResponse
@@ -3533,17 +3872,25 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeInclinedTablesRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the tables that have excessive primary key fields in an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *  *
+     * @param DescribeExcessivePrimaryKeysRequest $request DescribeExcessivePrimaryKeysRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInclinedTablesResponse
+     * @return DescribeExcessivePrimaryKeysResponse DescribeExcessivePrimaryKeysResponse
      */
-    public function describeInclinedTablesWithOptions($request, $runtime)
+    public function describeExcessivePrimaryKeysWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
         if (!Utils::isUnset($request->order)) {
             $query['Order'] = $request->order;
@@ -3559,6 +3906,86 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeExcessivePrimaryKeys',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeExcessivePrimaryKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the tables that have excessive primary key fields in an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *  *
+     * @param DescribeExcessivePrimaryKeysRequest $request DescribeExcessivePrimaryKeysRequest
+     *
+     * @return DescribeExcessivePrimaryKeysResponse DescribeExcessivePrimaryKeysResponse
+     */
+    public function describeExcessivePrimaryKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeExcessivePrimaryKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the monitoring information about tables.
+     *  *
+     * @param DescribeInclinedTablesRequest $request DescribeInclinedTablesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeInclinedTablesResponse DescribeInclinedTablesResponse
+     */
+    public function describeInclinedTablesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -3588,9 +4015,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeInclinedTablesRequest $request
+     * @summary Queries the monitoring information about tables.
+     *  *
+     * @param DescribeInclinedTablesRequest $request DescribeInclinedTablesRequest
      *
-     * @return DescribeInclinedTablesResponse
+     * @return DescribeInclinedTablesResponse DescribeInclinedTablesResponse
      */
     public function describeInclinedTables($request)
     {
@@ -3600,8 +4029,72 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * For information about how to asynchronously submit import and export tasks, see [Asynchronously submit an import or export task](~~160291~~).
-     *   *
+     * @summary Queries the information about the minor version of an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeKernelVersionRequest $request DescribeKernelVersionRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeKernelVersionResponse DescribeKernelVersionResponse
+     */
+    public function describeKernelVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeKernelVersion',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeKernelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the information about the minor version of an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeKernelVersionRequest $request DescribeKernelVersionRequest
+     *
+     * @return DescribeKernelVersionResponse DescribeKernelVersionResponse
+     */
+    public function describeKernelVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeKernelVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the information about asynchronous import and export tasks of an AnalyticDB for MySQL cluster.
+     *  *
+     * @description For information about how to asynchronously submit import and export tasks, see [Asynchronously submit an import or export task](https://help.aliyun.com/document_detail/160291.html).
+     *  *
      * @param DescribeLoadTasksRecordsRequest $request DescribeLoadTasksRecordsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -3669,8 +4162,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * For information about how to asynchronously submit import and export tasks, see [Asynchronously submit an import or export task](~~160291~~).
-     *   *
+     * @summary Queries the information about asynchronous import and export tasks of an AnalyticDB for MySQL cluster.
+     *  *
+     * @description For information about how to asynchronously submit import and export tasks, see [Asynchronously submit an import or export task](https://help.aliyun.com/document_detail/160291.html).
+     *  *
      * @param DescribeLoadTasksRecordsRequest $request DescribeLoadTasksRecordsRequest
      *
      * @return DescribeLoadTasksRecordsResponse DescribeLoadTasksRecordsResponse
@@ -3683,10 +4178,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeMaintenanceActionRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the information about O&M events.
+     *  *
+     * @param DescribeMaintenanceActionRequest $request DescribeMaintenanceActionRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMaintenanceActionResponse
+     * @return DescribeMaintenanceActionResponse DescribeMaintenanceActionResponse
      */
     public function describeMaintenanceActionWithOptions($request, $runtime)
     {
@@ -3741,9 +4238,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeMaintenanceActionRequest $request
+     * @summary Queries the information about O&M events.
+     *  *
+     * @param DescribeMaintenanceActionRequest $request DescribeMaintenanceActionRequest
      *
-     * @return DescribeMaintenanceActionResponse
+     * @return DescribeMaintenanceActionResponse DescribeMaintenanceActionResponse
      */
     public function describeMaintenanceAction($request)
     {
@@ -3753,10 +4252,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeOperatorPermissionRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeOperatorPermissionRequest $request DescribeOperatorPermissionRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOperatorPermissionResponse
+     * @return DescribeOperatorPermissionResponse DescribeOperatorPermissionResponse
      */
     public function describeOperatorPermissionWithOptions($request, $runtime)
     {
@@ -3796,9 +4295,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeOperatorPermissionRequest $request
+     * @param DescribeOperatorPermissionRequest $request DescribeOperatorPermissionRequest
      *
-     * @return DescribeOperatorPermissionResponse
+     * @return DescribeOperatorPermissionResponse DescribeOperatorPermissionResponse
      */
     public function describeOperatorPermission($request)
     {
@@ -3808,10 +4307,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribePatternPerformanceRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the metrics of an SQL pattern such as the query duration and average memory usage within a period of time.
+     *  *
+     * @param DescribePatternPerformanceRequest $request DescribePatternPerformanceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePatternPerformanceResponse
+     * @return DescribePatternPerformanceResponse DescribePatternPerformanceResponse
      */
     public function describePatternPerformanceWithOptions($request, $runtime)
     {
@@ -3851,9 +4352,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribePatternPerformanceRequest $request
+     * @summary Queries the metrics of an SQL pattern such as the query duration and average memory usage within a period of time.
+     *  *
+     * @param DescribePatternPerformanceRequest $request DescribePatternPerformanceRequest
      *
-     * @return DescribePatternPerformanceResponse
+     * @return DescribePatternPerformanceResponse DescribePatternPerformanceResponse
      */
     public function describePatternPerformance($request)
     {
@@ -3863,10 +4366,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeProcessListRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the queries that are being executed on a cluster.
+     *  *
+     * @param DescribeProcessListRequest $request DescribeProcessListRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeProcessListResponse
+     * @return DescribeProcessListResponse DescribeProcessListResponse
      */
     public function describeProcessListWithOptions($request, $runtime)
     {
@@ -3927,9 +4432,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeProcessListRequest $request
+     * @summary Queries the queries that are being executed on a cluster.
+     *  *
+     * @param DescribeProcessListRequest $request DescribeProcessListRequest
      *
-     * @return DescribeProcessListResponse
+     * @return DescribeProcessListResponse DescribeProcessListResponse
      */
     public function describeProcessList($request)
     {
@@ -3939,10 +4446,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries a list of available regions and zones for AnalyticDB for MySQL.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -3956,6 +4465,9 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -3982,9 +4494,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @summary Queries a list of available regions and zones for AnalyticDB for MySQL.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -3994,10 +4508,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeResubmitConfigRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 查询Resubmit配置
+     *  *
+     * @param DescribeResubmitConfigRequest $request DescribeResubmitConfigRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeResubmitConfigResponse
+     * @return DescribeResubmitConfigResponse DescribeResubmitConfigResponse
      */
     public function describeResubmitConfigWithOptions($request, $runtime)
     {
@@ -4043,9 +4559,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeResubmitConfigRequest $request
+     * @summary 查询Resubmit配置
+     *  *
+     * @param DescribeResubmitConfigRequest $request DescribeResubmitConfigRequest
      *
-     * @return DescribeResubmitConfigResponse
+     * @return DescribeResubmitConfigResponse DescribeResubmitConfigResponse
      */
     public function describeResubmitConfig($request)
     {
@@ -4055,10 +4573,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSQAConfigRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 查询SQA状态
+     *  *
+     * @param DescribeSQAConfigRequest $request DescribeSQAConfigRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSQAConfigResponse
+     * @return DescribeSQAConfigResponse DescribeSQAConfigResponse
      */
     public function describeSQAConfigWithOptions($request, $runtime)
     {
@@ -4107,9 +4627,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSQAConfigRequest $request
+     * @summary 查询SQA状态
+     *  *
+     * @param DescribeSQAConfigRequest $request DescribeSQAConfigRequest
      *
-     * @return DescribeSQAConfigResponse
+     * @return DescribeSQAConfigResponse DescribeSQAConfigResponse
      */
     public function describeSQAConfig($request)
     {
@@ -4119,10 +4641,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSQLPatternsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries a list of SQL patterns for an AnalyticDB for MySQL cluster within a period of time.
+     *  *
+     * @param DescribeSQLPatternsRequest $request DescribeSQLPatternsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSQLPatternsResponse
+     * @return DescribeSQLPatternsResponse DescribeSQLPatternsResponse
      */
     public function describeSQLPatternsWithOptions($request, $runtime)
     {
@@ -4174,9 +4698,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSQLPatternsRequest $request
+     * @summary Queries a list of SQL patterns for an AnalyticDB for MySQL cluster within a period of time.
+     *  *
+     * @param DescribeSQLPatternsRequest $request DescribeSQLPatternsRequest
      *
-     * @return DescribeSQLPatternsResponse
+     * @return DescribeSQLPatternsResponse DescribeSQLPatternsResponse
      */
     public function describeSQLPatterns($request)
     {
@@ -4186,10 +4712,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSQLPlanRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the plan information about an SQL statement such as a query statement or an extract-transform-load (ETL) task statement.
+     *  *
+     * @param DescribeSQLPlanRequest $request DescribeSQLPlanRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSQLPlanResponse
+     * @return DescribeSQLPlanResponse DescribeSQLPlanResponse
      */
     public function describeSQLPlanWithOptions($request, $runtime)
     {
@@ -4232,9 +4760,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSQLPlanRequest $request
+     * @summary Queries the plan information about an SQL statement such as a query statement or an extract-transform-load (ETL) task statement.
+     *  *
+     * @param DescribeSQLPlanRequest $request DescribeSQLPlanRequest
      *
-     * @return DescribeSQLPlanResponse
+     * @return DescribeSQLPlanResponse DescribeSQLPlanResponse
      */
     public function describeSQLPlan($request)
     {
@@ -4244,10 +4774,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSQLPlanTaskRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DescribeSQLPlanTaskRequest $request DescribeSQLPlanTaskRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSQLPlanTaskResponse
+     * @return DescribeSQLPlanTaskResponse DescribeSQLPlanTaskResponse
      */
     public function describeSQLPlanTaskWithOptions($request, $runtime)
     {
@@ -4293,9 +4823,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSQLPlanTaskRequest $request
+     * @param DescribeSQLPlanTaskRequest $request DescribeSQLPlanTaskRequest
      *
-     * @return DescribeSQLPlanTaskResponse
+     * @return DescribeSQLPlanTaskResponse DescribeSQLPlanTaskResponse
      */
     public function describeSQLPlanTask($request)
     {
@@ -4305,10 +4835,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSchemasRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DescribeSchemasRequest $request DescribeSchemasRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSchemasResponse
+     * @return DescribeSchemasResponse DescribeSchemasResponse
      */
     public function describeSchemasWithOptions($request, $runtime)
     {
@@ -4348,9 +4878,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSchemasRequest $request
+     * @param DescribeSchemasRequest $request DescribeSchemasRequest
      *
-     * @return DescribeSchemasResponse
+     * @return DescribeSchemasResponse DescribeSchemasResponse
      */
     public function describeSchemas($request)
     {
@@ -4360,10 +4890,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlowLogRecordsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSlowLogRecordsResponse
+     * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
      */
     public function describeSlowLogRecordsWithOptions($request, $runtime)
     {
@@ -4430,9 +4960,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlowLogRecordsRequest $request
+     * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
      *
-     * @return DescribeSlowLogRecordsResponse
+     * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
      */
     public function describeSlowLogRecords($request)
     {
@@ -4442,74 +4972,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlowLogTrendRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries a list of SQL patterns for an AnalyticDB for MySQL cluster within a time range.
+     *  *
+     * @param DescribeSqlPatternRequest $request DescribeSqlPatternRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSlowLogTrendResponse
-     */
-    public function describeSlowLogTrendWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
-        }
-        if (!Utils::isUnset($request->DBName)) {
-            $query['DBName'] = $request->DBName;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSlowLogTrend',
-            'version'     => '2019-03-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeSlowLogTrendResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSlowLogTrendRequest $request
-     *
-     * @return DescribeSlowLogTrendResponse
-     */
-    public function describeSlowLogTrend($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSlowLogTrendWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSqlPatternRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeSqlPatternResponse
+     * @return DescribeSqlPatternResponse DescribeSqlPatternResponse
      */
     public function describeSqlPatternWithOptions($request, $runtime)
     {
@@ -4558,9 +5026,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSqlPatternRequest $request
+     * @summary Queries a list of SQL patterns for an AnalyticDB for MySQL cluster within a time range.
+     *  *
+     * @param DescribeSqlPatternRequest $request DescribeSqlPatternRequest
      *
-     * @return DescribeSqlPatternResponse
+     * @return DescribeSqlPatternResponse DescribeSqlPatternResponse
      */
     public function describeSqlPattern($request)
     {
@@ -4570,10 +5040,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeTableAccessCountRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeTableAccessCountRequest $request DescribeTableAccessCountRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTableAccessCountResponse
+     * @return DescribeTableAccessCountResponse DescribeTableAccessCountResponse
      */
     public function describeTableAccessCountWithOptions($request, $runtime)
     {
@@ -4619,9 +5089,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeTableAccessCountRequest $request
+     * @param DescribeTableAccessCountRequest $request DescribeTableAccessCountRequest
      *
-     * @return DescribeTableAccessCountResponse
+     * @return DescribeTableAccessCountResponse DescribeTableAccessCountResponse
      */
     public function describeTableAccessCount($request)
     {
@@ -4631,10 +5101,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeTableDetailRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DescribeTableDetailRequest $request DescribeTableDetailRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTableDetailResponse
+     * @return DescribeTableDetailResponse DescribeTableDetailResponse
      */
     public function describeTableDetailWithOptions($request, $runtime)
     {
@@ -4648,6 +5118,9 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -4680,9 +5153,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeTableDetailRequest $request
+     * @param DescribeTableDetailRequest $request DescribeTableDetailRequest
      *
-     * @return DescribeTableDetailResponse
+     * @return DescribeTableDetailResponse DescribeTableDetailResponse
      */
     public function describeTableDetail($request)
     {
@@ -4692,10 +5165,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeTablePartitionDiagnoseRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries the information about partition diagnostics.
+     *  *
+     * @param DescribeTablePartitionDiagnoseRequest $request DescribeTablePartitionDiagnoseRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTablePartitionDiagnoseResponse
+     * @return DescribeTablePartitionDiagnoseResponse DescribeTablePartitionDiagnoseResponse
      */
     public function describeTablePartitionDiagnoseWithOptions($request, $runtime)
     {
@@ -4703,6 +5178,12 @@ class Adb extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -4744,9 +5225,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeTablePartitionDiagnoseRequest $request
+     * @summary Queries the information about partition diagnostics.
+     *  *
+     * @param DescribeTablePartitionDiagnoseRequest $request DescribeTablePartitionDiagnoseRequest
      *
-     * @return DescribeTablePartitionDiagnoseResponse
+     * @return DescribeTablePartitionDiagnoseResponse DescribeTablePartitionDiagnoseResponse
      */
     public function describeTablePartitionDiagnose($request)
     {
@@ -4756,8 +5239,8 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * >  For more information about table statistics, see [View monitoring information of resource pools](~~188721~~).
-     *   *
+     * @summary Queries the information about table statistics for an AnalyticDB for MySQL cluster.
+     *  *
      * @param DescribeTableStatisticsRequest $request DescribeTableStatisticsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -4816,8 +5299,8 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * >  For more information about table statistics, see [View monitoring information of resource pools](~~188721~~).
-     *   *
+     * @summary Queries the information about table statistics for an AnalyticDB for MySQL cluster.
+     *  *
      * @param DescribeTableStatisticsRequest $request DescribeTableStatisticsRequest
      *
      * @return DescribeTableStatisticsResponse DescribeTableStatisticsResponse
@@ -4830,10 +5313,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeTablesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries a list of tables in a database of an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeTablesRequest $request DescribeTablesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTablesResponse
+     * @return DescribeTablesResponse DescribeTablesResponse
      */
     public function describeTablesWithOptions($request, $runtime)
     {
@@ -4879,9 +5364,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeTablesRequest $request
+     * @summary Queries a list of tables in a database of an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DescribeTablesRequest $request DescribeTablesRequest
      *
-     * @return DescribeTablesResponse
+     * @return DescribeTablesResponse DescribeTablesResponse
      */
     public function describeTables($request)
     {
@@ -4891,10 +5378,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeTaskInfoRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the information about a task.
+     *  *
+     * @param DescribeTaskInfoRequest $request DescribeTaskInfoRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTaskInfoResponse
+     * @return DescribeTaskInfoResponse DescribeTaskInfoResponse
      */
     public function describeTaskInfoWithOptions($request, $runtime)
     {
@@ -4940,9 +5429,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeTaskInfoRequest $request
+     * @summary Queries the information about a task.
+     *  *
+     * @param DescribeTaskInfoRequest $request DescribeTaskInfoRequest
      *
-     * @return DescribeTaskInfoResponse
+     * @return DescribeTaskInfoResponse DescribeTaskInfoResponse
      */
     public function describeTaskInfo($request)
     {
@@ -4952,10 +5443,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeVSwitchesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the vSwitches.
+     *  *
+     * @param DescribeVSwitchesRequest $request DescribeVSwitchesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVSwitchesResponse
+     * @return DescribeVSwitchesResponse DescribeVSwitchesResponse
      */
     public function describeVSwitchesWithOptions($request, $runtime)
     {
@@ -5007,9 +5500,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeVSwitchesRequest $request
+     * @summary Queries the vSwitches.
+     *  *
+     * @param DescribeVSwitchesRequest $request DescribeVSwitchesRequest
      *
-     * @return DescribeVSwitchesResponse
+     * @return DescribeVSwitchesResponse DescribeVSwitchesResponse
      */
     public function describeVSwitches($request)
     {
@@ -5019,8 +5514,8 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition.
-     *   *
+     * @description You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition.
+     *  *
      * @param DetachUserENIRequest $request DetachUserENIRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -5064,8 +5559,8 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition.
-     *   *
+     * @description You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition.
+     *  *
      * @param DetachUserENIRequest $request DetachUserENIRequest
      *
      * @return DetachUserENIResponse DetachUserENIResponse
@@ -5078,10 +5573,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DisableAdviceServiceRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DisableAdviceServiceRequest $request DisableAdviceServiceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableAdviceServiceResponse
+     * @return DisableAdviceServiceResponse DisableAdviceServiceResponse
      */
     public function disableAdviceServiceWithOptions($request, $runtime)
     {
@@ -5112,9 +5607,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DisableAdviceServiceRequest $request
+     * @param DisableAdviceServiceRequest $request DisableAdviceServiceRequest
      *
-     * @return DisableAdviceServiceResponse
+     * @return DisableAdviceServiceResponse DisableAdviceServiceResponse
      */
     public function disableAdviceService($request)
     {
@@ -5124,10 +5619,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DownloadDiagnosisRecordsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Downloads the diagnostic information about SQL statements that meet a condition for an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DownloadDiagnosisRecordsRequest $request DownloadDiagnosisRecordsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DownloadDiagnosisRecordsResponse
+     * @return DownloadDiagnosisRecordsResponse DownloadDiagnosisRecordsResponse
      */
     public function downloadDiagnosisRecordsWithOptions($request, $runtime)
     {
@@ -5197,9 +5694,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DownloadDiagnosisRecordsRequest $request
+     * @summary Downloads the diagnostic information about SQL statements that meet a condition for an AnalyticDB for MySQL cluster.
+     *  *
+     * @param DownloadDiagnosisRecordsRequest $request DownloadDiagnosisRecordsRequest
      *
-     * @return DownloadDiagnosisRecordsResponse
+     * @return DownloadDiagnosisRecordsResponse DownloadDiagnosisRecordsResponse
      */
     public function downloadDiagnosisRecords($request)
     {
@@ -5209,10 +5708,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param EnableAdviceServiceRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param EnableAdviceServiceRequest $request EnableAdviceServiceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableAdviceServiceResponse
+     * @return EnableAdviceServiceResponse EnableAdviceServiceResponse
      */
     public function enableAdviceServiceWithOptions($request, $runtime)
     {
@@ -5243,9 +5742,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param EnableAdviceServiceRequest $request
+     * @param EnableAdviceServiceRequest $request EnableAdviceServiceRequest
      *
-     * @return EnableAdviceServiceResponse
+     * @return EnableAdviceServiceResponse EnableAdviceServiceResponse
      */
     public function enableAdviceService($request)
     {
@@ -5255,9 +5754,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * If you need Alibaba Cloud technical support to perform operations on your AnalyticDB for MySQL cluster, you must grant permissions to the service account of your cluster. When the validity period of the authorization ends, the granted permissions are automatically revoked.
-     *   *
+     * @summary Grants permissions to the service account of an AnalyticDB for MySQL cluster.
+     *  *
+     * @description ###
+     * If you need Alibaba Cloud technical support to perform operations on your AnalyticDB for MySQL cluster, you must grant permissions to the service account of your cluster. When the validity period of the authorization ends, the granted permissions are automatically revoked.
+     *  *
      * @param GrantOperatorPermissionRequest $request GrantOperatorPermissionRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -5307,9 +5808,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * If you need Alibaba Cloud technical support to perform operations on your AnalyticDB for MySQL cluster, you must grant permissions to the service account of your cluster. When the validity period of the authorization ends, the granted permissions are automatically revoked.
-     *   *
+     * @summary Grants permissions to the service account of an AnalyticDB for MySQL cluster.
+     *  *
+     * @description ###
+     * If you need Alibaba Cloud technical support to perform operations on your AnalyticDB for MySQL cluster, you must grant permissions to the service account of your cluster. When the validity period of the authorization ends, the granted permissions are automatically revoked.
+     *  *
      * @param GrantOperatorPermissionRequest $request GrantOperatorPermissionRequest
      *
      * @return GrantOperatorPermissionResponse GrantOperatorPermissionResponse
@@ -5322,10 +5825,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param KillProcessRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Terminates an ongoing query.
+     *  *
+     * @param KillProcessRequest $request KillProcessRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return KillProcessResponse
+     * @return KillProcessResponse KillProcessResponse
      */
     public function killProcessWithOptions($request, $runtime)
     {
@@ -5368,9 +5873,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param KillProcessRequest $request
+     * @summary Terminates an ongoing query.
+     *  *
+     * @param KillProcessRequest $request KillProcessRequest
      *
-     * @return KillProcessResponse
+     * @return KillProcessResponse KillProcessResponse
      */
     public function killProcess($request)
     {
@@ -5380,10 +5887,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the tags that are added to AnalyticDB for MySQL clusters, or the AnalyticDB for MySQL clusters that have tags added.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -5435,9 +5944,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary Queries the tags that are added to AnalyticDB for MySQL clusters, or the AnalyticDB for MySQL clusters that have tags added.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -5447,15 +5958,20 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param MigrateDBClusterRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Migrates data from a Data Warehouse Edition (V3.0) cluster to a Data Lakehouse Edition (V3.0) cluster in AnalyticDB for MySQL.
+     *  *
+     * @param MigrateDBClusterRequest $request MigrateDBClusterRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return MigrateDBClusterResponse
+     * @return MigrateDBClusterResponse MigrateDBClusterResponse
      */
     public function migrateDBClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->computeResource)) {
+            $query['ComputeResource'] = $request->computeResource;
+        }
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
         }
@@ -5470,6 +5986,15 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->shardNumber)) {
+            $query['ShardNumber'] = $request->shardNumber;
+        }
+        if (!Utils::isUnset($request->storageResource)) {
+            $query['StorageResource'] = $request->storageResource;
+        }
+        if (!Utils::isUnset($request->storageResourceSize)) {
+            $query['StorageResourceSize'] = $request->storageResourceSize;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5490,9 +6015,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param MigrateDBClusterRequest $request
+     * @summary Migrates data from a Data Warehouse Edition (V3.0) cluster to a Data Lakehouse Edition (V3.0) cluster in AnalyticDB for MySQL.
+     *  *
+     * @param MigrateDBClusterRequest $request MigrateDBClusterRequest
      *
-     * @return MigrateDBClusterResponse
+     * @return MigrateDBClusterResponse MigrateDBClusterResponse
      */
     public function migrateDBCluster($request)
     {
@@ -5502,10 +6029,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountDescriptionRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Modifies the description of a database account for an AnalyticDB for MySQL cluster.
+     *  *
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescriptionWithOptions($request, $runtime)
     {
@@ -5551,9 +6080,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountDescriptionRequest $request
+     * @summary Modifies the description of a database account for an AnalyticDB for MySQL cluster.
+     *  *
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
      *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescription($request)
     {
@@ -5563,10 +6094,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyAuditLogConfigRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param ModifyAuditLogConfigRequest $request ModifyAuditLogConfigRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAuditLogConfigResponse
+     * @return ModifyAuditLogConfigResponse ModifyAuditLogConfigResponse
      */
     public function modifyAuditLogConfigWithOptions($request, $runtime)
     {
@@ -5612,9 +6143,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyAuditLogConfigRequest $request
+     * @param ModifyAuditLogConfigRequest $request ModifyAuditLogConfigRequest
      *
-     * @return ModifyAuditLogConfigResponse
+     * @return ModifyAuditLogConfigResponse ModifyAuditLogConfigResponse
      */
     public function modifyAuditLogConfig($request)
     {
@@ -5624,10 +6155,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyAutoRenewAttributeRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Modifies the auto-renewal status of a subscription AnalyticDB for MySQL cluster.
+     *  *
+     * @param ModifyAutoRenewAttributeRequest $request ModifyAutoRenewAttributeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAutoRenewAttributeResponse
+     * @return ModifyAutoRenewAttributeResponse ModifyAutoRenewAttributeResponse
      */
     public function modifyAutoRenewAttributeWithOptions($request, $runtime)
     {
@@ -5679,9 +6212,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyAutoRenewAttributeRequest $request
+     * @summary Modifies the auto-renewal status of a subscription AnalyticDB for MySQL cluster.
+     *  *
+     * @param ModifyAutoRenewAttributeRequest $request ModifyAutoRenewAttributeRequest
      *
-     * @return ModifyAutoRenewAttributeResponse
+     * @return ModifyAutoRenewAttributeResponse ModifyAutoRenewAttributeResponse
      */
     public function modifyAutoRenewAttribute($request)
     {
@@ -5691,10 +6226,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyBackupPolicyRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicyWithOptions($request, $runtime)
     {
@@ -5749,9 +6284,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyBackupPolicyRequest $request
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
      *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicy($request)
     {
@@ -5761,10 +6296,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyClusterConnectionStringRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Changes the endpoint of an AnalyticDB for MySQL cluster.
+     *  *
+     * @param ModifyClusterConnectionStringRequest $request ModifyClusterConnectionStringRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyClusterConnectionStringResponse
+     * @return ModifyClusterConnectionStringResponse ModifyClusterConnectionStringResponse
      */
     public function modifyClusterConnectionStringWithOptions($request, $runtime)
     {
@@ -5813,9 +6350,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyClusterConnectionStringRequest $request
+     * @summary Changes the endpoint of an AnalyticDB for MySQL cluster.
+     *  *
+     * @param ModifyClusterConnectionStringRequest $request ModifyClusterConnectionStringRequest
      *
-     * @return ModifyClusterConnectionStringResponse
+     * @return ModifyClusterConnectionStringResponse ModifyClusterConnectionStringResponse
      */
     public function modifyClusterConnectionString($request)
     {
@@ -5825,10 +6364,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Changes the specifications of an AnalyticDB for MySQL cluster.
+     *  *
+     * @param ModifyDBClusterRequest $request ModifyDBClusterRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterResponse
+     * @return ModifyDBClusterResponse ModifyDBClusterResponse
      */
     public function modifyDBClusterWithOptions($request, $runtime)
     {
@@ -5907,9 +6448,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterRequest $request
+     * @summary Changes the specifications of an AnalyticDB for MySQL cluster.
+     *  *
+     * @param ModifyDBClusterRequest $request ModifyDBClusterRequest
      *
-     * @return ModifyDBClusterResponse
+     * @return ModifyDBClusterResponse ModifyDBClusterResponse
      */
     public function modifyDBCluster($request)
     {
@@ -5919,10 +6462,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterAccessWhiteListRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Modifies the IP address whitelists of a cluster.
+     *  *
+     * @param ModifyDBClusterAccessWhiteListRequest $request ModifyDBClusterAccessWhiteListRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterAccessWhiteListResponse
+     * @return ModifyDBClusterAccessWhiteListResponse ModifyDBClusterAccessWhiteListResponse
      */
     public function modifyDBClusterAccessWhiteListWithOptions($request, $runtime)
     {
@@ -5974,9 +6519,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterAccessWhiteListRequest $request
+     * @summary Modifies the IP address whitelists of a cluster.
+     *  *
+     * @param ModifyDBClusterAccessWhiteListRequest $request ModifyDBClusterAccessWhiteListRequest
      *
-     * @return ModifyDBClusterAccessWhiteListResponse
+     * @return ModifyDBClusterAccessWhiteListResponse ModifyDBClusterAccessWhiteListResponse
      */
     public function modifyDBClusterAccessWhiteList($request)
     {
@@ -5986,10 +6533,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterDescriptionRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param ModifyDBClusterDescriptionRequest $request ModifyDBClusterDescriptionRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterDescriptionResponse
+     * @return ModifyDBClusterDescriptionResponse ModifyDBClusterDescriptionResponse
      */
     public function modifyDBClusterDescriptionWithOptions($request, $runtime)
     {
@@ -6032,9 +6579,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterDescriptionRequest $request
+     * @param ModifyDBClusterDescriptionRequest $request ModifyDBClusterDescriptionRequest
      *
-     * @return ModifyDBClusterDescriptionResponse
+     * @return ModifyDBClusterDescriptionResponse ModifyDBClusterDescriptionResponse
      */
     public function modifyDBClusterDescription($request)
     {
@@ -6044,10 +6591,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterMaintainTimeRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Changes the maintenance window of an AnalyticDB for MySQL cluster.
+     *  *
+     * @param ModifyDBClusterMaintainTimeRequest $request ModifyDBClusterMaintainTimeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterMaintainTimeResponse
+     * @return ModifyDBClusterMaintainTimeResponse ModifyDBClusterMaintainTimeResponse
      */
     public function modifyDBClusterMaintainTimeWithOptions($request, $runtime)
     {
@@ -6090,9 +6639,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterMaintainTimeRequest $request
+     * @summary Changes the maintenance window of an AnalyticDB for MySQL cluster.
+     *  *
+     * @param ModifyDBClusterMaintainTimeRequest $request ModifyDBClusterMaintainTimeRequest
      *
-     * @return ModifyDBClusterMaintainTimeResponse
+     * @return ModifyDBClusterMaintainTimeResponse ModifyDBClusterMaintainTimeResponse
      */
     public function modifyDBClusterMaintainTime($request)
     {
@@ -6102,10 +6653,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterPayTypeRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Changes the billing method of an AnalyticDB for MySQL cluster.
+     *  *
+     * @param ModifyDBClusterPayTypeRequest $request ModifyDBClusterPayTypeRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterPayTypeResponse
+     * @return ModifyDBClusterPayTypeResponse ModifyDBClusterPayTypeResponse
      */
     public function modifyDBClusterPayTypeWithOptions($request, $runtime)
     {
@@ -6119,6 +6672,9 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->period)) {
             $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->usedTime)) {
             $query['UsedTime'] = $request->usedTime;
@@ -6142,9 +6698,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterPayTypeRequest $request
+     * @summary Changes the billing method of an AnalyticDB for MySQL cluster.
+     *  *
+     * @param ModifyDBClusterPayTypeRequest $request ModifyDBClusterPayTypeRequest
      *
-     * @return ModifyDBClusterPayTypeResponse
+     * @return ModifyDBClusterPayTypeResponse ModifyDBClusterPayTypeResponse
      */
     public function modifyDBClusterPayType($request)
     {
@@ -6154,8 +6712,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Resource Management enables you to build an organizational structure for resources based on your business needs. You can use a resource directory, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](~~94475#concept-zyn-3p1-dhb~~ "Resource Management provides a collection of resource management services that support enterprise IT administration. The services include Resource Directory, Resource Group, and Tag. Resource Directory allows you to build an organizational structure for resources based on your business requirements. Resource Group and Tag allow you to hierarchically manage the resources. Resource Sharing allows you to share the resources among your accounts.").
-     *   *
+     * @summary Modifies the resource group of an AnalyticDB for MySQL cluster.
+     *  *
+     * @description Resource Management enables you to build an organizational structure for resources based on your business needs. You can use a resource directory, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](~~94475#concept-zyn-3p1-dhb~~ "Resource Management provides a collection of resource management services that support enterprise IT administration. The services include Resource Directory, Resource Group, and Tag. Resource Directory allows you to build an organizational structure for resources based on your business requirements. Resource Group and Tag allow you to hierarchically manage the resources. Resource Sharing allows you to share the resources among your accounts.")
+     *  *
      * @param ModifyDBClusterResourceGroupRequest $request ModifyDBClusterResourceGroupRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -6202,8 +6762,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Resource Management enables you to build an organizational structure for resources based on your business needs. You can use a resource directory, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](~~94475#concept-zyn-3p1-dhb~~ "Resource Management provides a collection of resource management services that support enterprise IT administration. The services include Resource Directory, Resource Group, and Tag. Resource Directory allows you to build an organizational structure for resources based on your business requirements. Resource Group and Tag allow you to hierarchically manage the resources. Resource Sharing allows you to share the resources among your accounts.").
-     *   *
+     * @summary Modifies the resource group of an AnalyticDB for MySQL cluster.
+     *  *
+     * @description Resource Management enables you to build an organizational structure for resources based on your business needs. You can use a resource directory, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](~~94475#concept-zyn-3p1-dhb~~ "Resource Management provides a collection of resource management services that support enterprise IT administration. The services include Resource Directory, Resource Group, and Tag. Resource Directory allows you to build an organizational structure for resources based on your business requirements. Resource Group and Tag allow you to hierarchically manage the resources. Resource Sharing allows you to share the resources among your accounts.")
+     *  *
      * @param ModifyDBClusterResourceGroupRequest $request ModifyDBClusterResourceGroupRequest
      *
      * @return ModifyDBClusterResourceGroupResponse ModifyDBClusterResourceGroupResponse
@@ -6216,18 +6778,90 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ## Precautions
-     *   * *   This operation is applicable only for elastic clusters of 32 cores or more.
-     *   * *   The number of nodes cannot be changed for the default resource group USER_DEFAULT.
-     *   *
-     * @param ModifyDBResourceGroupRequest $request ModifyDBResourceGroupRequest
+     * @summary Modifies the SSL configurations of an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *  *
+     * @param ModifyDBClusterSSLRequest $request ModifyDBClusterSSLRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyDBClusterSSLResponse ModifyDBClusterSSLResponse
+     */
+    public function modifyDBClusterSSLWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->connectionString)) {
+            $query['ConnectionString'] = $request->connectionString;
+        }
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->enableSSL)) {
+            $query['EnableSSL'] = $request->enableSSL;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBClusterSSL',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBClusterSSLResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Modifies the SSL configurations of an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *  *
+     * @param ModifyDBClusterSSLRequest $request ModifyDBClusterSSLRequest
+     *
+     * @return ModifyDBClusterSSLResponse ModifyDBClusterSSLResponse
+     */
+    public function modifyDBClusterSSL($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBClusterSSLWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Modifies the number of nodes or the query execution mode for a resource group of an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *  *
+     * @description ## Precautions
+     * *   This operation is applicable only for elastic clusters of 32 cores or more.
+     * *   The number of nodes cannot be changed for the default resource group USER_DEFAULT.
+     *  *
+     * @param ModifyDBResourceGroupRequest $tmpReq  ModifyDBResourceGroupRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
      * @return ModifyDBResourceGroupResponse ModifyDBResourceGroupResponse
      */
-    public function modifyDBResourceGroupWithOptions($request, $runtime)
+    public function modifyDBResourceGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ModifyDBResourceGroupShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->poolUserList)) {
+            $request->poolUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->poolUserList, 'PoolUserList', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
@@ -6246,6 +6880,9 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->poolUserListShrink)) {
+            $query['PoolUserList'] = $request->poolUserListShrink;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -6272,10 +6909,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ## Precautions
-     *   * *   This operation is applicable only for elastic clusters of 32 cores or more.
-     *   * *   The number of nodes cannot be changed for the default resource group USER_DEFAULT.
-     *   *
+     * @summary Modifies the number of nodes or the query execution mode for a resource group of an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *  *
+     * @description ## Precautions
+     * *   This operation is applicable only for elastic clusters of 32 cores or more.
+     * *   The number of nodes cannot be changed for the default resource group USER_DEFAULT.
+     *  *
      * @param ModifyDBResourceGroupRequest $request ModifyDBResourceGroupRequest
      *
      * @return ModifyDBResourceGroupResponse ModifyDBResourceGroupResponse
@@ -6288,10 +6927,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * *   You can call this operation only for elastic clusters of 32 cores or more.
-     *   * *   You cannot change the number of nodes for the USER_DEFAULT resource group.
-     *   *
+     * @summary Modifies the resources of a resource group. This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition.
+     *  *
+     * @description ###
+     * *   You can call this operation only for elastic clusters of 32 cores or more.
+     * *   You cannot change the number of nodes for the USER_DEFAULT resource group.
+     *  *
      * @param ModifyDBResourcePoolRequest $request ModifyDBResourcePoolRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -6344,10 +6985,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * *   You can call this operation only for elastic clusters of 32 cores or more.
-     *   * *   You cannot change the number of nodes for the USER_DEFAULT resource group.
-     *   *
+     * @summary Modifies the resources of a resource group. This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition.
+     *  *
+     * @description ###
+     * *   You can call this operation only for elastic clusters of 32 cores or more.
+     * *   You cannot change the number of nodes for the USER_DEFAULT resource group.
+     *  *
      * @param ModifyDBResourcePoolRequest $request ModifyDBResourcePoolRequest
      *
      * @return ModifyDBResourcePoolResponse ModifyDBResourcePoolResponse
@@ -6360,8 +7003,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
-     *   *
+     * @summary Modifies a scheduled scaling plan. This operation can be used only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition.
+     *  *
+     * @description You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
+     *  *
      * @param ModifyElasticPlanRequest $request ModifyElasticPlanRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -6441,8 +7086,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
-     *   *
+     * @summary Modifies a scheduled scaling plan. This operation can be used only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition.
+     *  *
+     * @description You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
+     *  *
      * @param ModifyElasticPlanRequest $request ModifyElasticPlanRequest
      *
      * @return ModifyElasticPlanResponse ModifyElasticPlanResponse
@@ -6455,10 +7102,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyLogBackupPolicyRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Modifies the log backup settings of an AnalyticDB for MySQL cluster.
+     *  *
+     * @param ModifyLogBackupPolicyRequest $request ModifyLogBackupPolicyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyLogBackupPolicyResponse
+     * @return ModifyLogBackupPolicyResponse ModifyLogBackupPolicyResponse
      */
     public function modifyLogBackupPolicyWithOptions($request, $runtime)
     {
@@ -6507,9 +7156,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyLogBackupPolicyRequest $request
+     * @summary Modifies the log backup settings of an AnalyticDB for MySQL cluster.
+     *  *
+     * @param ModifyLogBackupPolicyRequest $request ModifyLogBackupPolicyRequest
      *
-     * @return ModifyLogBackupPolicyResponse
+     * @return ModifyLogBackupPolicyResponse ModifyLogBackupPolicyResponse
      */
     public function modifyLogBackupPolicy($request)
     {
@@ -6519,10 +7170,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyMaintenanceActionRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Changes the switchover time of O&M events.
+     *  *
+     * @param ModifyMaintenanceActionRequest $request ModifyMaintenanceActionRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyMaintenanceActionResponse
+     * @return ModifyMaintenanceActionResponse ModifyMaintenanceActionResponse
      */
     public function modifyMaintenanceActionWithOptions($request, $runtime)
     {
@@ -6571,9 +7224,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyMaintenanceActionRequest $request
+     * @summary Changes the switchover time of O&M events.
+     *  *
+     * @param ModifyMaintenanceActionRequest $request ModifyMaintenanceActionRequest
      *
-     * @return ModifyMaintenanceActionResponse
+     * @return ModifyMaintenanceActionResponse ModifyMaintenanceActionResponse
      */
     public function modifyMaintenanceAction($request)
     {
@@ -6583,10 +7238,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyResubmitConfigRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * @summary 修改Resubmit配置
+     *  *
+     * @param ModifyResubmitConfigRequest $tmpReq  ModifyResubmitConfigRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyResubmitConfigResponse
+     * @return ModifyResubmitConfigResponse ModifyResubmitConfigResponse
      */
     public function modifyResubmitConfigWithOptions($tmpReq, $runtime)
     {
@@ -6637,9 +7294,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifyResubmitConfigRequest $request
+     * @summary 修改Resubmit配置
+     *  *
+     * @param ModifyResubmitConfigRequest $request ModifyResubmitConfigRequest
      *
-     * @return ModifyResubmitConfigResponse
+     * @return ModifyResubmitConfigResponse ModifyResubmitConfigResponse
      */
     public function modifyResubmitConfig($request)
     {
@@ -6649,10 +7308,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifySQAConfigRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 修改SQA配置
+     *  *
+     * @param ModifySQAConfigRequest $request ModifySQAConfigRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySQAConfigResponse
+     * @return ModifySQAConfigResponse ModifySQAConfigResponse
      */
     public function modifySQAConfigWithOptions($request, $runtime)
     {
@@ -6701,9 +7362,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ModifySQAConfigRequest $request
+     * @summary 修改SQA配置
+     *  *
+     * @param ModifySQAConfigRequest $request ModifySQAConfigRequest
      *
-     * @return ModifySQAConfigResponse
+     * @return ModifySQAConfigResponse ModifySQAConfigResponse
      */
     public function modifySQAConfig($request)
     {
@@ -6713,10 +7376,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ReleaseClusterPublicConnectionRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Releases the public endpoint of an AnalyticDB for MySQL cluster.
+     *  *
+     * @param ReleaseClusterPublicConnectionRequest $request ReleaseClusterPublicConnectionRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleaseClusterPublicConnectionResponse
+     * @return ReleaseClusterPublicConnectionResponse ReleaseClusterPublicConnectionResponse
      */
     public function releaseClusterPublicConnectionWithOptions($request, $runtime)
     {
@@ -6756,9 +7421,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ReleaseClusterPublicConnectionRequest $request
+     * @summary Releases the public endpoint of an AnalyticDB for MySQL cluster.
+     *  *
+     * @param ReleaseClusterPublicConnectionRequest $request ReleaseClusterPublicConnectionRequest
      *
-     * @return ReleaseClusterPublicConnectionResponse
+     * @return ReleaseClusterPublicConnectionResponse ReleaseClusterPublicConnectionResponse
      */
     public function releaseClusterPublicConnection($request)
     {
@@ -6768,10 +7435,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ResetAccountPasswordRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Resets the password of a database account for an AnalyticDB for MySQL cluster.
+     *  *
+     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetAccountPasswordResponse
+     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
      */
     public function resetAccountPasswordWithOptions($request, $runtime)
     {
@@ -6820,9 +7489,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param ResetAccountPasswordRequest $request
+     * @summary Resets the password of a database account for an AnalyticDB for MySQL cluster.
+     *  *
+     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
      *
-     * @return ResetAccountPasswordResponse
+     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
      */
     public function resetAccountPassword($request)
     {
@@ -6832,10 +7503,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param RevokeOperatorPermissionRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param RevokeOperatorPermissionRequest $request RevokeOperatorPermissionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevokeOperatorPermissionResponse
+     * @return RevokeOperatorPermissionResponse RevokeOperatorPermissionResponse
      */
     public function revokeOperatorPermissionWithOptions($request, $runtime)
     {
@@ -6875,9 +7546,9 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param RevokeOperatorPermissionRequest $request
+     * @param RevokeOperatorPermissionRequest $request RevokeOperatorPermissionRequest
      *
-     * @return RevokeOperatorPermissionResponse
+     * @return RevokeOperatorPermissionResponse RevokeOperatorPermissionResponse
      */
     public function revokeOperatorPermission($request)
     {
@@ -6887,10 +7558,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Adds tags to an AnalyticDB for MySQL cluster.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -6939,9 +7612,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary Adds tags to an AnalyticDB for MySQL cluster.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -6951,10 +7626,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param UnbindDBResourceGroupWithUserRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Disassociates a resource group of an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster from a database account.
+     *  *
+     * @param UnbindDBResourceGroupWithUserRequest $request UnbindDBResourceGroupWithUserRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindDBResourceGroupWithUserResponse
+     * @return UnbindDBResourceGroupWithUserResponse UnbindDBResourceGroupWithUserResponse
      */
     public function unbindDBResourceGroupWithUserWithOptions($request, $runtime)
     {
@@ -7000,9 +7677,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param UnbindDBResourceGroupWithUserRequest $request
+     * @summary Disassociates a resource group of an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster from a database account.
+     *  *
+     * @param UnbindDBResourceGroupWithUserRequest $request UnbindDBResourceGroupWithUserRequest
      *
-     * @return UnbindDBResourceGroupWithUserResponse
+     * @return UnbindDBResourceGroupWithUserResponse UnbindDBResourceGroupWithUserResponse
      */
     public function unbindDBResourceGroupWithUser($request)
     {
@@ -7012,10 +7691,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param UnbindDBResourcePoolWithUserRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Disassociates a database account from a resource group. This operation can be called only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition.
+     *  *
+     * @param UnbindDBResourcePoolWithUserRequest $request UnbindDBResourcePoolWithUserRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindDBResourcePoolWithUserResponse
+     * @return UnbindDBResourcePoolWithUserResponse UnbindDBResourcePoolWithUserResponse
      */
     public function unbindDBResourcePoolWithUserWithOptions($request, $runtime)
     {
@@ -7061,9 +7742,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param UnbindDBResourcePoolWithUserRequest $request
+     * @summary Disassociates a database account from a resource group. This operation can be called only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition.
+     *  *
+     * @param UnbindDBResourcePoolWithUserRequest $request UnbindDBResourcePoolWithUserRequest
      *
-     * @return UnbindDBResourcePoolWithUserResponse
+     * @return UnbindDBResourcePoolWithUserResponse UnbindDBResourcePoolWithUserResponse
      */
     public function unbindDBResourcePoolWithUser($request)
     {
@@ -7073,10 +7756,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Removes all tags from AnalyticDB for MySQL clusters.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -7128,14 +7813,81 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary Removes all tags from AnalyticDB for MySQL clusters.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Updates the minor version of an AnalyticDB for MySQL cluster.
+     *  *
+     * @param UpgradeKernelVersionRequest $request UpgradeKernelVersionRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpgradeKernelVersionResponse UpgradeKernelVersionResponse
+     */
+    public function upgradeKernelVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->DBVersion)) {
+            $query['DBVersion'] = $request->DBVersion;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->switchMode)) {
+            $query['SwitchMode'] = $request->switchMode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeKernelVersion',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpgradeKernelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Updates the minor version of an AnalyticDB for MySQL cluster.
+     *  *
+     * @param UpgradeKernelVersionRequest $request UpgradeKernelVersionRequest
+     *
+     * @return UpgradeKernelVersionResponse UpgradeKernelVersionResponse
+     */
+    public function upgradeKernelVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeKernelVersionWithOptions($request, $runtime);
     }
 }

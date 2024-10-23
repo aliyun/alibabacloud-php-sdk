@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchApplyAdviceByIdListRequest extends Model
 {
     /**
+     * @description The date when the suggestion is generated. Specify the date in the yyyyMMdd format. The date must be in UTC.
+     *
      * @example 20221115
      *
      * @var int
@@ -16,6 +18,8 @@ class BatchApplyAdviceByIdListRequest extends Model
     public $adviceDate;
 
     /**
+     * @description The IDs of the suggestions to be applied. Separate multiple IDs with commas (,).
+     *
      * @example c2589ff3-e86c-4f19-80c8-2aeb7dd9****,53414470-ebf4-4a53-a312-8a1ad8fd****,6e8dce84-fec8-4b0b-9c04-b0cea12c****,b3b9703d-55ca-47e0-96dd-6a4a9dbf****
      *
      * @var string
@@ -23,11 +27,9 @@ class BatchApplyAdviceByIdListRequest extends Model
     public $adviceIdList;
 
     /**
-     * @description The message returned for the operation. Valid values:
+     * @description The ID of the cluster.
      *
-     *   **SUCCESS** is returned if the operation is successful.
-     *   An error message is returned if the operation fails.
-     *
+     * This parameter is required.
      * @example am-uf6g8w25jacm7****
      *
      * @var string
@@ -35,8 +37,9 @@ class BatchApplyAdviceByIdListRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description The ID of the request.
+     * @description The region ID of the cluster. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

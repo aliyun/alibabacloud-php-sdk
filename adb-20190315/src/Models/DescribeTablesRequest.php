@@ -11,6 +11,7 @@ class DescribeTablesRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example am-bp1xxxxxxxx47
      *
      * @var string
@@ -30,7 +31,7 @@ class DescribeTablesRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
-     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -50,6 +51,7 @@ class DescribeTablesRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example adb_demo
      *
      * @var string

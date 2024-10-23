@@ -11,6 +11,7 @@ class DescribeAutoRenewAttributeRequest extends Model
     /**
      * @description The cluster ID. Separate multiple clusters with commas (,).
      *
+     * This parameter is required.
      * @example am-bp11q28kvl688****
      *
      * @var string
@@ -53,6 +54,7 @@ class DescribeAutoRenewAttributeRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

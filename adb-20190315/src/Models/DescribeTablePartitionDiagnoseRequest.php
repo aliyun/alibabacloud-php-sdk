@@ -11,11 +11,46 @@ class DescribeTablePartitionDiagnoseRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example am-bp1xxxxxxxx47
      *
      * @var string
      */
     public $DBClusterId;
+
+    /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese.
+     *   **en**: English.
+     *
+     * @example zh
+     *
+     * @var string
+     */
+    public $lang;
+
+    /**
+     * @description The order by which to sort query results. Specify the parameter value in the JSON string format. Example: `[{"Field":"TotalSize","Type":"Desc"}]`.
+     *
+     *   `Field` specifies the field by which to sort the query results. Valid values:
+     *
+     *   `SchemaName`: the name of the database to which the table belongs.
+     *   `TableName`: the name of the table.
+     *   `TotalSize`: the total data size of the table.
+     *   `SpaceRatio`: the storage percentage of the table.
+     *
+     *   `Type` specifies the sorting order. Valid values:
+     *
+     *   `Asc`: ascending order.
+     *   `Desc`: descending order.
+     *
+     * >  If you do not specify this parameter, the query results are sorted by the TotalSize field in descending order.
+     * @example [{\\"Field\\":\\"TotalSize\\",\\"Type\\":\\"Desc\\"}]
+     *
+     * @var string
+     */
+    public $order;
 
     /**
      * @var string
@@ -69,6 +104,8 @@ class DescribeTablePartitionDiagnoseRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'DBClusterId'          => 'DBClusterId',
+        'lang'                 => 'Lang',
+        'order'                => 'Order',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
@@ -87,6 +124,12 @@ class DescribeTablePartitionDiagnoseRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->order) {
+            $res['Order'] = $this->order;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -123,6 +166,12 @@ class DescribeTablePartitionDiagnoseRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['Order'])) {
+            $model->order = $map['Order'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

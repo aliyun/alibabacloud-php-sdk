@@ -14,6 +14,7 @@ class ModifyAuditLogConfigRequest extends Model
      *   **on**: SQL audit is enabled.
      *   **off**: SQL audit is disabled.
      *
+     * This parameter is required.
      * @example on
      *
      * @var string
@@ -23,6 +24,7 @@ class ModifyAuditLogConfigRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example am-t4nj8619bz2w3****
      *
      * @var string
@@ -40,8 +42,9 @@ class ModifyAuditLogConfigRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

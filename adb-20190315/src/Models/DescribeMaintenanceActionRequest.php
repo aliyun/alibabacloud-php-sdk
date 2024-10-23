@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeMaintenanceActionRequest extends Model
 {
     /**
-     * @description Specifies whether to return the information about pending or historical O\&M events. Valid values:
+     * @description Specifies whether to return the information about pending or historical O\\&M events. Valid values:
      *
-     *   **0**: returns the information about pending O\&M event.
-     *   **1**: returns the information about historical O\&M event.
+     *   **0**: returns the information about pending O\\&M event.
+     *   **1**: returns the information about historical O\\&M event.
      *
-     * If you do not specify this parameter, the information about pending O\&M event are returned.
+     * If you do not specify this parameter, the information about pending O\\&M event are returned.
      * @example 1
      *
      * @var int
@@ -52,9 +52,10 @@ class DescribeMaintenanceActionRequest extends Model
     /**
      * @description The region ID. Valid values:
      *
-     *   The ID of the region where the O\&M event occurs. Example: `cn-hangzhou`. You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
-     *   You can also set Region to `all` to query the O\&M events in all regions. If you set `Region` to `all`, you must set `TaskType` to `all`.
+     *   The ID of the region where the O\\&M event occurs. Example: `cn-hangzhou`. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+     *   You can also set Region to `all` to query the O\\&M events in all regions. If you set `Region` to `all`, you must set `TaskType` to `all`.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -62,9 +63,9 @@ class DescribeMaintenanceActionRequest extends Model
     public $region;
 
     /**
-     * @description The ID of the region where the O\&M event occurs.
+     * @description The ID of the region where the O\\&M event occurs.
      *
-     * > You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -82,11 +83,12 @@ class DescribeMaintenanceActionRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the O\&M event. Valid values:
+     * @description The type of the O\\&M event. Valid values:
      *
      *   **rds_apsaradb_upgrade**: database software upgrades.
-     *   **all**: all the O\&M events in all regions within the current account. If you set `Region` to `all`, you must set `TaskType` to `all`.
+     *   **all**: all the O\\&M events in all regions within the current account. If you set `Region` to `all`, you must set `TaskType` to `all`.
      *
+     * This parameter is required.
      * @example rds_apsaradb_upgrade
      *
      * @var string

@@ -24,10 +24,11 @@ class CreateAccountRequest extends Model
      * @description The name of the database account.
      *
      *   The name must start with a lowercase letter and end with a lowercase letter or a digit.
-     *   The name can contain lowercase letters, digits, and underscores (\_).
+     *   The name can contain lowercase letters, digits, and underscores (_).
      *   The name must be 2 to 16 characters in length.
      *   Reserved account names such as root, admin, and opsadmin cannot be used.
      *
+     * This parameter is required.
      * @example test_accout
      *
      * @var string
@@ -41,6 +42,7 @@ class CreateAccountRequest extends Model
      *   Special characters include `! @ # $ % ^ & * ( ) _ + - =`
      *   The password must be 8 to 32 characters in length.
      *
+     * This parameter is required.
      * @example Test_accout1
      *
      * @var string
@@ -63,7 +65,7 @@ class CreateAccountRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
-     * > You can call the [DescribeDBClusters](~~129857~~) operation to view cluster IDs.
+     * This parameter is required.
      * @example am-bp1r053byu48p****
      *
      * @var string

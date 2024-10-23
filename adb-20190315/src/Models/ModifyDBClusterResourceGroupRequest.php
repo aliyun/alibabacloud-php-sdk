@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterResourceGroupRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example am-bpxxxxx
      *
      * @var string
@@ -18,8 +19,9 @@ class ModifyDBClusterResourceGroupRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description The ID of the resource group. For more information, see [View basic information of a resource group](~~151181#task-2398293~~ "This topic describes how to view basic information of a resource group, including the resource group ID, resource group name, and resource group display name.").
+     * @description The resource group ID. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
      *
+     * This parameter is required.
      * @example rg-acxxxxx
      *
      * @var string

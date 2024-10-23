@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterRequest extends Model
 {
     /**
-     * @description The computing resources of the cluster. You can call the [DescribeAvailableResource](~~190632~~) operation to query the computing resources that are available within a region.
+     * @description The computing resources of the cluster. You can call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/190632.html) operation to query the computing resources that are available within a region.
      *
      * > This parameter must be specified when Mode is set to Flexible.
      * @example 32Core128GBNEW
@@ -34,6 +34,7 @@ class ModifyDBClusterRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example am-bp1u8c0mgfg58****
      *
      * @var string
@@ -171,7 +172,7 @@ class ModifyDBClusterRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the cluster. You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * @description The region ID of the cluster. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

@@ -28,9 +28,17 @@ class CreateDBClusterRequest extends Model
     public $clientToken;
 
     /**
-     * @description The computing resources of the cluster. This parameter is required if the Mode parameter is set to **Flexible**.
+     * @description The computing resources of the cluster. You can use computing resources to compute data. The increase in the computing resources can accelerate data queries. The computing resources are available for Cluster Edition and Basic Edition.
      *
-     * >  You can call the [DescribeAvailableResource](~~190632~~) operation to query the computing resources that are available within a specific region.
+     *   Computing resources for Cluster Edition include 16 cores and 64 GB memory, 24 cores and 96 GB memory, and 32 cores or more. Cluster Edition supports resource isolation, scheduled scaling, and tiered storage of hot and cold data.
+     *   Computing resources for Basic Edition include 8 cores and 32 GB memory and 16 cores and 64 GB memory. Alibaba Cloud does not provide an SLA guarantee for Basic Edition, and 4 to 8 hours are required for a failover. We recommend that you do not use Basic Edition in production environments.
+     *
+     * >
+     *
+     *   You can call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/190632.html) operation to query the available computing resources in a region.
+     *
+     *   This parameter must be specified when Mode is set to **Flexible**.
+     *
      * @example 32Core128GB
      *
      * @var string
@@ -46,7 +54,7 @@ class CreateDBClusterRequest extends Model
      *
      *   **MixedStorage**: elastic mode for Cluster Edition
      *
-     * >  If the DBClusterCategory parameter is set to Cluster, you must set the Mode parameter to Reserver. If the DBClusterCategory parameter is set to MixedStorage, you must set the Mode parameter to Flexible. Otherwise, the cluster fails to be created.
+     * This parameter is required.
      * @example Cluster
      *
      * @var string
@@ -81,6 +89,7 @@ class CreateDBClusterRequest extends Model
     /**
      * @description The network type of the cluster. Set the value to **VPC**.
      *
+     * This parameter is required.
      * @example VPC
      *
      * @var string
@@ -90,6 +99,7 @@ class CreateDBClusterRequest extends Model
     /**
      * @description The version of the cluster. Set the value to **3.0**.
      *
+     * This parameter is required.
      * @example 3.0
      *
      * @var string
@@ -121,27 +131,37 @@ class CreateDBClusterRequest extends Model
     public $DBNodeStorage;
 
     /**
-     * @description Specifies whether to enable disk encryption.
-     *
-     * Valid values:
+     * @description Indicates whether disk encryption is enabled. Valid values:
      *
      *   true
      *   false
      *
      * @example true
      *
-     * @var string
+     * @var bool
      */
     public $diskEncryption;
 
     /**
-     * @description The number of elastic I/O units (EIUs). For more information, see [Use EIUs to scale up storage resources](~~189505~~).
+     * @description The number of elastic I/O units (EIUs). For more information, see [Use EIUs to scale up storage resources](https://help.aliyun.com/document_detail/189505.html).
      *
      * @example 0
      *
      * @var string
      */
     public $elasticIOResource;
+
+    /**
+     * @description Specifies whether to enable SSL encryption. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $enableSSL;
 
     /**
      * @description A reserved parameter.
@@ -153,7 +173,7 @@ class CreateDBClusterRequest extends Model
     public $executorCount;
 
     /**
-     * @description The Key Management Service (KMS) ID that is used for disk encryption. This parameter is valid only when DiskEncryption is set to true.
+     * @description The Key Management Service (KMS) ID that is used for disk encryption. This parameter takes effect only when DiskEncryption is set to true.
      *
      * @example xxxxxxxx-xxxx-xxxx-xxxx-xxxx
      *
@@ -189,6 +209,7 @@ class CreateDBClusterRequest extends Model
      *   **Postpaid**: pay-as-you-go
      *   **Prepaid**: subscription
      *
+     * This parameter is required.
      * @example Postpaid
      *
      * @var string
@@ -211,7 +232,7 @@ class CreateDBClusterRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
-     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -324,7 +345,7 @@ class CreateDBClusterRequest extends Model
     /**
      * @description The zone ID of the cluster.
      *
-     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent zone list.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent zone list.
      * @example cn-hangzhou-h
      *
      * @var string
@@ -343,6 +364,7 @@ class CreateDBClusterRequest extends Model
         'DBNodeStorage'        => 'DBNodeStorage',
         'diskEncryption'       => 'DiskEncryption',
         'elasticIOResource'    => 'ElasticIOResource',
+        'enableSSL'            => 'EnableSSL',
         'executorCount'        => 'ExecutorCount',
         'kmsId'                => 'KmsId',
         'mode'                 => 'Mode',
@@ -408,6 +430,9 @@ class CreateDBClusterRequest extends Model
         }
         if (null !== $this->elasticIOResource) {
             $res['ElasticIOResource'] = $this->elasticIOResource;
+        }
+        if (null !== $this->enableSSL) {
+            $res['EnableSSL'] = $this->enableSSL;
         }
         if (null !== $this->executorCount) {
             $res['ExecutorCount'] = $this->executorCount;
@@ -525,6 +550,9 @@ class CreateDBClusterRequest extends Model
         }
         if (isset($map['ElasticIOResource'])) {
             $model->elasticIOResource = $map['ElasticIOResource'];
+        }
+        if (isset($map['EnableSSL'])) {
+            $model->enableSSL = $map['EnableSSL'];
         }
         if (isset($map['ExecutorCount'])) {
             $model->executorCount = $map['ExecutorCount'];

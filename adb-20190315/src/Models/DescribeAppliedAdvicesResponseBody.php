@@ -48,6 +48,13 @@ class DescribeAppliedAdvicesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The names of the tables in the DatabaseName.TableName format.
+     *
+     * @var string[]
+     */
+    public $schemaTableNames;
+
+    /**
      * @description The total number of entries returned. The value is an integer that is greater than or equal to 0. Default value: 0.
      *
      * @example 1
@@ -56,11 +63,12 @@ class DescribeAppliedAdvicesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'items'      => 'Items',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'totalCount' => 'TotalCount',
+        'items'            => 'Items',
+        'pageNumber'       => 'PageNumber',
+        'pageSize'         => 'PageSize',
+        'requestId'        => 'RequestId',
+        'schemaTableNames' => 'SchemaTableNames',
+        'totalCount'       => 'TotalCount',
     ];
 
     public function validate()
@@ -87,6 +95,9 @@ class DescribeAppliedAdvicesResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->schemaTableNames) {
+            $res['SchemaTableNames'] = $this->schemaTableNames;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -120,6 +131,11 @@ class DescribeAppliedAdvicesResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SchemaTableNames'])) {
+            if (!empty($map['SchemaTableNames'])) {
+                $model->schemaTableNames = $map['SchemaTableNames'];
+            }
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

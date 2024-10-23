@@ -11,7 +11,7 @@ class DescribeElasticDailyPlanRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the cluster IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a specific region.
+     * This parameter is required.
      * @example am-bp11q28kvl688****
      *
      * @var string
@@ -45,7 +45,7 @@ class DescribeElasticDailyPlanRequest extends Model
      * @description The name of the scaling plan. Valid values:
      *
      *   The name must be 2 to 30 characters in length.
-     *   The name can contain letters, digits, and underscores (\_).
+     *   The name can contain letters, digits, and underscores (_).
      *
      * @example realtimeplan
      *
@@ -76,7 +76,7 @@ class DescribeElasticDailyPlanRequest extends Model
     /**
      * @description The name of the resource group.
      *
-     * >  You can call the [DescribeDBResourceGroup](~~466685~~) operation to query the resource group name.
+     * >  You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/466685.html) operation to query the resource group name.
      * @example test
      *
      * @var string

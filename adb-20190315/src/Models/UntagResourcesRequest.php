@@ -34,7 +34,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The region ID.
      *
-     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +44,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The ID of cluster N. Valid values of N: 1 to 50.
      *
+     * This parameter is required.
      * @example am-bp1xxx.1
      *
      * @var string[]
@@ -63,6 +64,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The resource type. Set the value to **ALIYUN::ADB::CLUSTER**.
      *
+     * This parameter is required.
      * @example ALIYUN::ADB::CLUSTER
      *
      * @var string

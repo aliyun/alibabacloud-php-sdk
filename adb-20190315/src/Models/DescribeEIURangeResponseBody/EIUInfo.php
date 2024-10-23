@@ -27,12 +27,42 @@ class EIUInfo extends Model
     /**
      * @description A reserved parameter.
      *
+     * @example none
+     *
+     * @var string
+     */
+    public $maxValue;
+
+    /**
+     * @description A reserved parameter.
+     *
+     * @example none
+     *
+     * @var string
+     */
+    public $minValue;
+
+    /**
+     * @description A reserved parameter.
+     *
+     * @example none
+     *
+     * @var string
+     */
+    public $step;
+
+    /**
+     * @description A reserved parameter.
+     *
      * @var string[]
      */
     public $storageResourceRange;
     protected $_name = [
         'defaultValue'         => 'DefaultValue',
         'EIURange'             => 'EIURange',
+        'maxValue'             => 'MaxValue',
+        'minValue'             => 'MinValue',
+        'step'                 => 'Step',
         'storageResourceRange' => 'StorageResourceRange',
     ];
 
@@ -48,6 +78,15 @@ class EIUInfo extends Model
         }
         if (null !== $this->EIURange) {
             $res['EIURange'] = $this->EIURange;
+        }
+        if (null !== $this->maxValue) {
+            $res['MaxValue'] = $this->maxValue;
+        }
+        if (null !== $this->minValue) {
+            $res['MinValue'] = $this->minValue;
+        }
+        if (null !== $this->step) {
+            $res['Step'] = $this->step;
         }
         if (null !== $this->storageResourceRange) {
             $res['StorageResourceRange'] = $this->storageResourceRange;
@@ -71,6 +110,15 @@ class EIUInfo extends Model
             if (!empty($map['EIURange'])) {
                 $model->EIURange = $map['EIURange'];
             }
+        }
+        if (isset($map['MaxValue'])) {
+            $model->maxValue = $map['MaxValue'];
+        }
+        if (isset($map['MinValue'])) {
+            $model->minValue = $map['MinValue'];
+        }
+        if (isset($map['Step'])) {
+            $model->step = $map['Step'];
         }
         if (isset($map['StorageResourceRange'])) {
             if (!empty($map['StorageResourceRange'])) {

@@ -21,6 +21,7 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example am-bp1xxxxxxxx47
      *
      * @var string
@@ -82,7 +83,7 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @description The start time of the full backup within a time range. Specify the time range in the HH:mmZ-HH:mmZ format. The time must be in UTC.
      *
-     * >  The time range is 1 hour.
+     * This parameter is required.
      * @example 00:00Z-01:00Z
      *
      * @var string

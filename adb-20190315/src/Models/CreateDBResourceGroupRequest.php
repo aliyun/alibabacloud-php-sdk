@@ -11,7 +11,7 @@ class CreateDBResourceGroupRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the cluster IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a specific region.
+     * This parameter is required.
      * @example am-bp1ub9grke1****
      *
      * @var string
@@ -22,9 +22,10 @@ class CreateDBResourceGroupRequest extends Model
      * @description The name of the resource group.
      *
      *   The name can be up to 255 characters in length.
-     *   The name must start with a letter or a digit.
-     *   The name can contain letters, digits, hyphens (\_), and underscores (\_).
+     *   The name must start with an uppercase letter or a digit.
+     *   The name can contain uppercase letters, digits, hyphens (-), and underscores (_).
      *
+     * This parameter is required.
      * @example test_group
      *
      * @var string
@@ -32,9 +33,9 @@ class CreateDBResourceGroupRequest extends Model
     public $groupName;
 
     /**
-     * @description The query execution mode. Default value: batch. Valid values:
+     * @description The query execution mode. Valid values:
      *
-     *   **interactive**
+     *   **interactive** (default)
      *   **batch**
      *
      * @example interactive

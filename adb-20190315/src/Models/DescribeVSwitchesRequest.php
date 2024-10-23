@@ -21,7 +21,7 @@ class DescribeVSwitchesRequest extends Model
     /**
      * @description The region ID.
      *
-     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -46,7 +46,7 @@ class DescribeVSwitchesRequest extends Model
     /**
      * @description The virtual private cloud (VPC) ID.
      *
-     * > You can call the [DescribeDBClusters](~~129857~~) operation to query the VPC ID.
+     * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the VPC ID.
      * @example vpc-bp13h7uzhulpuxvnp****
      *
      * @var string
@@ -65,7 +65,7 @@ class DescribeVSwitchesRequest extends Model
     /**
      * @description The zone ID.
      *
-     * > You can call the [DescribeRegions](~~129857~~) operation to query the most recent zone list.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/129857.html) operation to query the most recent zone list.
      * @example cn-hangzhou-h
      *
      * @var string

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeResubmitConfigRequest extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+     * This parameter is required.
      * @example am-8vbyw9awuj141haf9
      *
      * @var string
@@ -21,7 +21,7 @@ class DescribeResubmitConfigRequest extends Model
     /**
      * @description The name of the resource group.
      *
-     * >  You can call the [DescribeDBResourceGroup](~~459446~~) operation to query the resource group name of a cluster.
+     * This parameter is required.
      * @example test_group
      *
      * @var string

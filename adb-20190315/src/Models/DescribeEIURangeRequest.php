@@ -11,7 +11,7 @@ class DescribeEIURangeRequest extends Model
     /**
      * @description The specifications of computing resources.
      *
-     * >  You can call the [DescribeComputeResource](~~469002~~) operation to query the specifications of computing resources.
+     * >  You can call the [DescribeComputeResource](https://help.aliyun.com/document_detail/469002.html) operation to query the specifications of computing resources.
      * @example {
      * }
      * @var string
@@ -24,7 +24,7 @@ class DescribeEIURangeRequest extends Model
      *   This parameter can be left empty when **Operation** is set to **Buy**.
      *   This parameter must be specified when **Operation** is set to **Upgrade** or **Downgrade**.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+     * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
      * @example am-bp16t5ci7r74s****
      *
      * @var string
@@ -44,8 +44,7 @@ class DescribeEIURangeRequest extends Model
      * @description The type of the operation. Valid values:
      *
      *   **Buy**: purchases a cluster.
-     *   **Upgrade**: upgrades a cluster.
-     *   **Downgrade**: downgrades a cluster.
+     *   **Modify**: changes configurations of a cluster.
      *
      * @example Buy
      *
@@ -66,7 +65,7 @@ class DescribeEIURangeRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
-     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -93,9 +92,34 @@ class DescribeEIURangeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The specifications of storage resources. Default value: **8ACU**. Valid values:
+     *
+     *   **8ACU**
+     *   **12ACU**
+     *   **16ACU**
+     *
+     * @example 8ACU
+     *
+     * @var string
+     */
+    public $storageSize;
+
+    /**
+     * @description The type of the sub-operation. Valid values:
+     *
+     *   **Upgrade**: upgrades a cluster.
+     *   **Downgrade**: downgrades a cluster.
+     *
+     * @example Upgrade
+     *
+     * @var string
+     */
+    public $subOperation;
+
+    /**
      * @description The zone ID of the cluster.
      *
-     * >  You can call the [DescribeRegions](~~612293~~) operation to query the most recent zone list.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612293.html) operation to query the most recent zone list.
      * @example cn-hangzhou-h
      *
      * @var string
@@ -112,6 +136,8 @@ class DescribeEIURangeRequest extends Model
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'storageSize'          => 'StorageSize',
+        'subOperation'         => 'SubOperation',
         'zoneId'               => 'ZoneId',
     ];
 
@@ -151,6 +177,12 @@ class DescribeEIURangeRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->storageSize) {
+            $res['StorageSize'] = $this->storageSize;
+        }
+        if (null !== $this->subOperation) {
+            $res['SubOperation'] = $this->subOperation;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -196,6 +228,12 @@ class DescribeEIURangeRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['StorageSize'])) {
+            $model->storageSize = $map['StorageSize'];
+        }
+        if (isset($map['SubOperation'])) {
+            $model->subOperation = $map['SubOperation'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];

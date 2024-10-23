@@ -11,6 +11,7 @@ class DeleteAccountRequest extends Model
     /**
      * @description The account of the database.
      *
+     * This parameter is required.
      * @example test_accout
      *
      * @var string
@@ -30,6 +31,7 @@ class DeleteAccountRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxxxxx
      *
      * @var string

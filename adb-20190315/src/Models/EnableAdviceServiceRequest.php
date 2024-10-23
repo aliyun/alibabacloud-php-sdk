@@ -11,7 +11,7 @@ class EnableAdviceServiceRequest extends Model
     /**
      * @description The ID of the cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of Data Warehouse Edition (V3.0) clusters.
+     * This parameter is required.
      * @example am-bp1q10xxzq2z4****
      *
      * @var string
@@ -21,7 +21,7 @@ class EnableAdviceServiceRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
-     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

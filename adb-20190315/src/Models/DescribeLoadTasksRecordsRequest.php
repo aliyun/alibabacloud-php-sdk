@@ -11,7 +11,7 @@ class DescribeLoadTasksRecordsRequest extends Model
     /**
      * @description The cluster ID.
      *
-     * > You can call the [DescribeDBClusters](~~129857~~) operation to query the information about all AnalyticDB for MySQL clusters in a region, including cluster IDs.
+     * This parameter is required.
      * @example am-bp2590j****
      *
      * @var string
@@ -30,6 +30,7 @@ class DescribeLoadTasksRecordsRequest extends Model
     /**
      * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2021-05-18T06:30:00Z
      *
      * @var string
@@ -86,7 +87,7 @@ class DescribeLoadTasksRecordsRequest extends Model
     /**
      * @description The region ID.
      *
-     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string
@@ -106,7 +107,7 @@ class DescribeLoadTasksRecordsRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
      *
-     * > We recommend that you set the query start time to any point in time within 30 days.
+     * This parameter is required.
      * @example 2021-05-18T06:00:00Z
      *
      * @var string

@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyMaintenanceActionRequest extends Model
 {
     /**
-     * @description The ID of the pending O\&M event. You can specify multiple IDs to batch change the switchover time. Separate multiple IDs with commas (,).
-     * > - You can change the switchover time only for pending O\&M events. The switchover time of historical O\&M events cannot be changed. For more information about the status of pending and historical O\&M events, see [DescribeMaintenanceAction](~~271738~~).
+     * @description The ID of the pending O\\&M event. You can specify multiple IDs to batch change the switchover time. Separate multiple IDs with commas (,).
+     * This parameter is required.
      * @example 11111
      *
      * @var string
@@ -28,9 +28,9 @@ class ModifyMaintenanceActionRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the pending O\&M event occurs.
+     * @description The ID of the region where the pending O\\&M event occurs.
      *
-     * > - You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -57,8 +57,9 @@ class ModifyMaintenanceActionRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The point in time when you want the system to perform operations on the pending O\&M event. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+     * @description The point in time when you want the system to perform operations on the pending O\\&M event. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2021-07-09T22:00:00Z
      *
      * @var string

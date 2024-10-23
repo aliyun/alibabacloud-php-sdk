@@ -9,61 +9,53 @@ use AlibabaCloud\Tea\Model;
 class table extends Model
 {
     /**
-     * @description Indicates whether data is skewed in partitions of the table. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
-     * @var bool
+     * @var string
      */
     public $isIncline;
 
     /**
-     * @description The name of the table.
-     *
-     * @example test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The name of the database.
-     *
-     * @example adb_demo
-     *
+     * @var int
+     */
+    public $rowCount;
+
+    /**
      * @var string
      */
     public $schema;
 
     /**
-     * @description The number of rows in the table.
-     *
-     * @example 2
-     *
-     * @var int
+     * @var string
      */
     public $size;
 
     /**
-     * @description The type of the table. Valid values:
-     *
-     *   **FactTable**
-     *   **DimensionTable**
-     *
-     * @example FactTable
-     *
+     * @var float
+     */
+    public $spaceRatio;
+
+    /**
+     * @var int
+     */
+    public $totalSize;
+
+    /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'isIncline' => 'IsIncline',
-        'name'      => 'Name',
-        'schema'    => 'Schema',
-        'size'      => 'Size',
-        'type'      => 'Type',
+        'isIncline'  => 'IsIncline',
+        'name'       => 'Name',
+        'rowCount'   => 'RowCount',
+        'schema'     => 'Schema',
+        'size'       => 'Size',
+        'spaceRatio' => 'SpaceRatio',
+        'totalSize'  => 'TotalSize',
+        'type'       => 'Type',
     ];
 
     public function validate()
@@ -79,11 +71,20 @@ class table extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->rowCount) {
+            $res['RowCount'] = $this->rowCount;
+        }
         if (null !== $this->schema) {
             $res['Schema'] = $this->schema;
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
+        }
+        if (null !== $this->spaceRatio) {
+            $res['SpaceRatio'] = $this->spaceRatio;
+        }
+        if (null !== $this->totalSize) {
+            $res['TotalSize'] = $this->totalSize;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -106,11 +107,20 @@ class table extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['RowCount'])) {
+            $model->rowCount = $map['RowCount'];
+        }
         if (isset($map['Schema'])) {
             $model->schema = $map['Schema'];
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
+        }
+        if (isset($map['SpaceRatio'])) {
+            $model->spaceRatio = $map['SpaceRatio'];
+        }
+        if (isset($map['TotalSize'])) {
+            $model->totalSize = $map['TotalSize'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

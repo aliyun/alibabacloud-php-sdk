@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTableStatisticsResponseBody extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * @example am-****************
      *
@@ -19,14 +19,14 @@ class DescribeTableStatisticsResponseBody extends Model
     public $DBClusterId;
 
     /**
-     * @description Details about table statistics.
+     * @description The queried table statistics.
      *
      * @var items
      */
     public $items;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -35,7 +35,7 @@ class DescribeTableStatisticsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned on the current page.
+     * @description The number of entries per page.
      *
      * @example 30
      *
@@ -44,7 +44,7 @@ class DescribeTableStatisticsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 4C4433FF-5D3A-4C3E-A19C-6D93B2******
      *
@@ -53,7 +53,7 @@ class DescribeTableStatisticsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

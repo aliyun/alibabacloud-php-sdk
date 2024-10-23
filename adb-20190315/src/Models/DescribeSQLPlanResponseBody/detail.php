@@ -83,7 +83,7 @@ class detail extends Model
     /**
      * @description The SQL statement.
      *
-     * @example INSERT OVERWRITE INTO hdfs_import_external\nSELECT *\nFROM adb_hdfs_import_source
+     * @example INSERT OVERWRITE INTO hdfs_import_external\\nSELECT *\\nFROM adb_hdfs_import_source
      *
      * @var string
      */

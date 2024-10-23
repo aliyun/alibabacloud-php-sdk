@@ -10,16 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnosisMonitorPerformanceResponseBody extends Model
 {
     /**
-     * @description The monitoring information of queries displayed in Gantt charts.
+     * @description The monitoring information about queries displayed in Gantt charts.
      *
      * @var performances[]
      */
     public $performances;
 
     /**
-     * @description The threshold for the number of queries displayed in a Gantt chart. The default value is 10000.
+     * @description The threshold for the number of queries displayed in a Gantt chart. Default value: 10000.
      *
-     * >  A maximum of 10,000 queries can be displayed in a Gantt chart even if more queries exist.
+     * >  Up to 10,000 queries can be displayed in a Gantt chart even if more queries exist.
      * @example 10000
      *
      * @var int
@@ -29,8 +29,8 @@ class DescribeDiagnosisMonitorPerformanceResponseBody extends Model
     /**
      * @description Indicates whether all queries are returned. Valid values:
      *
-     *   true: All queries are returned.
-     *   false: Only a specified number of queries are returned.
+     *   true
+     *   false
      *
      * @example false
      *
@@ -39,7 +39,7 @@ class DescribeDiagnosisMonitorPerformanceResponseBody extends Model
     public $performancesTruncated;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0F1AC5FD-16E9-5399-B81F-5AC434B1D9F8
      *

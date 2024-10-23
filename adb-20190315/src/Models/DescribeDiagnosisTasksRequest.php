@@ -11,7 +11,7 @@ class DescribeDiagnosisTasksRequest extends Model
     /**
      * @description The cluster ID.
      *
-     * > You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+     * This parameter is required.
      * @example am-bp1r053byu48p****
      *
      * @var string
@@ -32,9 +32,9 @@ class DescribeDiagnosisTasksRequest extends Model
      *
      * >
      *
-     *   `Field` indicates the field that is used to sort the tasks. Valid values of Field: `State`, `CreateTime`, `DBName`, `ProcessID`, `UpdateTime`, `JobName`, and `ProcessRows`.
+     *   `Field` specifies the field that is used to sort the tasks. Valid values of Field: `State`, `CreateTime`, `DBName`, `ProcessID`, `UpdateTime`, `JobName`, and `ProcessRows`.
      *
-     *   `Type` indicates the sort type. Valid values of Type: `Desc` and `Asc`. The values are case-insensitive.
+     *   `Type` specifies the sort order. Valid values of Type: `Desc` and `Asc`. The values are case-insensitive.
      *
      * @example [{"Field":"StartTime", "Type": "desc" }]
      *
@@ -67,7 +67,7 @@ class DescribeDiagnosisTasksRequest extends Model
     /**
      * @description The query ID.
      *
-     * > You can call the [DescribeProcessList](~~190092~~) operation to query the IDs of queries that are being executed.
+     * This parameter is required.
      * @example 202011191048151921681492420315100****
      *
      * @var string
@@ -77,7 +77,7 @@ class DescribeDiagnosisTasksRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
-     * > You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -87,6 +87,7 @@ class DescribeDiagnosisTasksRequest extends Model
     /**
      * @description The ID of a stage in the query that is specified by the `ProcessId` parameter.
      *
+     * This parameter is required.
      * @example Stage[26]
      *
      * @var string

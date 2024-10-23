@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterStatusResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEAU
      *
@@ -18,18 +18,7 @@ class DescribeDBClusterStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The states of clusters. Valid values:
-     *
-     *   **Preparing**: The cluster is being prepared.
-     *   **Creating**: The cluster is being created.
-     *   **Restoring**: The cluster is being restored from a backup.
-     *   **Running**: The cluster is running.
-     *   **Deleting**: The cluster is being deleted.
-     *   **ClassChanging**: The cluster configurations are being changed.
-     *   **NetAddressCreating**: A network connection is being created.
-     *   **NetAddressDeleting**: A network connection is being released.
-     *   **NetAddressModifying**: A network connection is being modified.
-     *   **EngineVersionUpgrading**: The engine version is being updated.
+     * @description The status of clusters.
      *
      * @var string[]
      */

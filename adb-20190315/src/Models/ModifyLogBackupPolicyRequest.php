@@ -11,6 +11,7 @@ class ModifyLogBackupPolicyRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
+     * This parameter is required.
      * @example am-bp1xxxxxxxx47
      *
      * @var string
@@ -23,6 +24,7 @@ class ModifyLogBackupPolicyRequest extends Model
      *   **Enable**
      *   **Disable**
      *
+     * This parameter is required.
      * @example Enable
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeTableDetailRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example am-bp1xxxxxxxx47
      *
      * @var string
@@ -30,6 +31,11 @@ class DescribeTableDetailRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -40,6 +46,7 @@ class DescribeTableDetailRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example adb_demo
      *
      * @var string
@@ -49,6 +56,7 @@ class DescribeTableDetailRequest extends Model
     /**
      * @description The name of the table.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -58,6 +66,7 @@ class DescribeTableDetailRequest extends Model
         'DBClusterId'          => 'DBClusterId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'schemaName'           => 'SchemaName',
@@ -79,6 +88,9 @@ class DescribeTableDetailRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -112,6 +124,9 @@ class DescribeTableDetailRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

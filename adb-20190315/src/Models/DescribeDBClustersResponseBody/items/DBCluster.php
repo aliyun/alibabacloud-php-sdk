@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClustersResponseBody\items;
 
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClustersResponseBody\items\DBCluster\tags;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClustersResponseBody\items\DBCluster\taskInfo;
 use AlibabaCloud\Tea\Model;
 
 class DBCluster extends Model
@@ -16,7 +17,7 @@ class DBCluster extends Model
      *   **CLUSTER**: reserved mode for Cluster Edition.
      *   **MIXED_STORAGE**: elastic mode for Cluster Edition.
      *
-     * >  For more information about cluster editions, see [Editions](~~205001~~).
+     * >  For more information about cluster editions, see [Editions](https://help.aliyun.com/document_detail/205001.html).
      * @example MIXED_STORAGE
      *
      * @var string
@@ -33,7 +34,7 @@ class DBCluster extends Model
     public $commodityCode;
 
     /**
-     * @description The specifications of computing resources that are used in the cluster in elastic mode. The increase of computing resources can speed up queries. You can adjust the value of this parameter to scale the cluster.
+     * @description The specifications of computing resources that are used in the cluster in elastic mode. Computing resources are used to compute data. The increase in the computing resources can accelerate queries. You can scale computing resources based on your business requirements.
      *
      * @example 8Core32GB
      *
@@ -87,7 +88,7 @@ class DBCluster extends Model
     public $DBClusterNetworkType;
 
     /**
-     * @description The state of the cluster. For more information, see [Cluster states](~~143075~~).
+     * @description The status of the cluster. For more information, see [Cluster states](https://help.aliyun.com/document_detail/143075.html).
      *
      * @example Running
      *
@@ -108,7 +109,7 @@ class DBCluster extends Model
     public $DBClusterType;
 
     /**
-     * @description The instance type of the cluster.
+     * @description The specifications of the cluster.
      *
      * @example E8
      *
@@ -146,16 +147,16 @@ class DBCluster extends Model
     /**
      * @description The disk type of the cluster. Valid values:
      *
-     *   **local_ssd**: local disk.
+     *   **local_ssd**: local SSD.
      *   **cloud**: basic disk.
      *   **cloud_ssd**: standard SSD.
      *   **cloud_efficiency**: ultra disk.
-     *   **cloud_essd**: PL0 enhanced SSD (ESSD).
+     *   **cloud_essd0**: PL0 Enterprise SSD (ESSD).
      *   **cloud_essd**: PL1 ESSD.
      *   **cloud_essd2**: PL2 ESSD.
      *   **cloud_essd3**: PL3 ESSD.
      *
-     * >  For more information, see [ESSDs](~~122389~~).
+     * >  For more information about ESSDs, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
      * @example cloud_essd
      *
      * @var string
@@ -163,7 +164,7 @@ class DBCluster extends Model
     public $diskType;
 
     /**
-     * @description The ID of the Data Transmission Service (DTS) synchronization task. This parameter is returned only for MySQL analytic instances.
+     * @description The ID of the Data Transmission Service (DTS) synchronization job. This parameter is returned only for MySQL analytic instances.
      *
      * @example dtsb1578j90XXXX
      *
@@ -172,7 +173,7 @@ class DBCluster extends Model
     public $dtsJobId;
 
     /**
-     * @description The number of elastic I/O units (EIUs). For more information, see [Use EIUs to scale up storage resources](~~189505~~).
+     * @description The number of elastic I/O units (EIUs). For more information, see [Elasticity of the storage layer](https://help.aliyun.com/document_detail/189505.html).
      *
      * >  This parameter is returned only for clusters in elastic mode.
      * @example 0
@@ -200,7 +201,7 @@ class DBCluster extends Model
     public $executorCount;
 
     /**
-     * @description The time when the cluster expires. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time is displayed in UTC. Example: *2999-09-08T16:00:00Z*.
+     * @description The expiration time of the cluster. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time is displayed in UTC. Example: *2999-09-08T16:00:00Z*.
      *
      * >
      *
@@ -251,7 +252,7 @@ class DBCluster extends Model
      *   **ManualLock**: The cluster is manually locked.
      *   **LockByExpiration**: The cluster is automatically locked due to cluster expiration.
      *   **LockByRestoration**: The cluster is automatically locked due to cluster restoration.
-     *   **LockByDiskQuota**: The cluster is automatically locked when it has used 90% of its storage.
+     *   **LockByDiskQuota**: The cluster is automatically locked when 90% of the cluster storage is used.
      *
      * @example Unlock
      *
@@ -277,7 +278,7 @@ class DBCluster extends Model
      *
      * >
      *
-     *   For more information about cluster modes, see [Editions](~~205001~~).
+     *   For more information about cluster modes, see [Editions](https://help.aliyun.com/document_detail/205001.html).
      *
      * @example flexible
      *
@@ -307,6 +308,18 @@ class DBCluster extends Model
     public $port;
 
     /**
+     * @description The edition of the cluster. Valid values:
+     *
+     *   **BasicVersion**: Basic Edition.
+     *   **EnterpriseVersion**: Enterprise Edition.
+     *
+     * @example EnterpriseVersion
+     *
+     * @var string
+     */
+    public $productVersion;
+
+    /**
      * @description The ID of the ApsaraDB RDS instance from which data is synchronized to the cluster. This parameter is returned only for MySQL analytic instances.
      *
      * @example rm-bp11q28kvl688****
@@ -334,7 +347,7 @@ class DBCluster extends Model
     public $resourceGroupId;
 
     /**
-     * @description The specifications of storage resources that are used in the cluster in elastic mode. These resources are used to read and write data. You can increase the value of this parameter to improve the read and write performance of the cluster.
+     * @description The specifications of storage resources that are used in the cluster in elastic mode. Storage resources are used to read and write data. The increase in the storage resources can improve the read and write performance of the cluster.
      *
      * @example 8Core32GB
      *
@@ -350,7 +363,14 @@ class DBCluster extends Model
     public $tags;
 
     /**
-     * @description The ID of the cluster that is deployed in the VPC.
+     * @description The job progress.
+     *
+     * @var taskInfo
+     */
+    public $taskInfo;
+
+    /**
+     * @description The ID of the cluster that resides in the VPC.
      *
      * @example am-bp163885f8q21****-controller
      *
@@ -413,11 +433,13 @@ class DBCluster extends Model
         'mode'                 => 'Mode',
         'payType'              => 'PayType',
         'port'                 => 'Port',
+        'productVersion'       => 'ProductVersion',
         'rdsInstanceId'        => 'RdsInstanceId',
         'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
         'storageResource'      => 'StorageResource',
         'tags'                 => 'Tags',
+        'taskInfo'             => 'TaskInfo',
         'VPCCloudInstanceId'   => 'VPCCloudInstanceId',
         'VPCId'                => 'VPCId',
         'vSwitchId'            => 'VSwitchId',
@@ -515,6 +537,9 @@ class DBCluster extends Model
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+        if (null !== $this->productVersion) {
+            $res['ProductVersion'] = $this->productVersion;
+        }
         if (null !== $this->rdsInstanceId) {
             $res['RdsInstanceId'] = $this->rdsInstanceId;
         }
@@ -529,6 +554,9 @@ class DBCluster extends Model
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
+        if (null !== $this->taskInfo) {
+            $res['TaskInfo'] = null !== $this->taskInfo ? $this->taskInfo->toMap() : null;
         }
         if (null !== $this->VPCCloudInstanceId) {
             $res['VPCCloudInstanceId'] = $this->VPCCloudInstanceId;
@@ -638,6 +666,9 @@ class DBCluster extends Model
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+        if (isset($map['ProductVersion'])) {
+            $model->productVersion = $map['ProductVersion'];
+        }
         if (isset($map['RdsInstanceId'])) {
             $model->rdsInstanceId = $map['RdsInstanceId'];
         }
@@ -652,6 +683,9 @@ class DBCluster extends Model
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
+        }
+        if (isset($map['TaskInfo'])) {
+            $model->taskInfo = taskInfo::fromMap($map['TaskInfo']);
         }
         if (isset($map['VPCCloudInstanceId'])) {
             $model->VPCCloudInstanceId = $map['VPCCloudInstanceId'];

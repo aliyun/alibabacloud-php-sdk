@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeMaintenanceActionResponseBody extends Model
 {
     /**
-     * @description The queried O\&M events.
+     * @description The queried O\\&M events.
      *
      * @var items[]
      */

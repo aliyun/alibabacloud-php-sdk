@@ -12,10 +12,11 @@ class ModifyAccountDescriptionRequest extends Model
      * @description The description of the account. The description must meet the following requirements:
      *
      *   The description must start with a letter.
-     *   The description can contain letters, digits, underscores (\_), and hyphens (-).
+     *   The description can contain letters, digits, underscores (_), and hyphens (-).
      *   The description cannot start with `http://` or `https://`.
      *   The description must be 2 to 256 characters in length.
      *
+     * This parameter is required.
      * @example AccDesc
      *
      * @var string
@@ -23,8 +24,9 @@ class ModifyAccountDescriptionRequest extends Model
     public $accountDescription;
 
     /**
-     * @description The name of the account.
+     * @description The name of the database account.
      *
+     * This parameter is required.
      * @example testacc
      *
      * @var string
@@ -32,8 +34,9 @@ class ModifyAccountDescriptionRequest extends Model
     public $accountName;
 
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example am-bp1xxxxxxxx47
      *
      * @var string

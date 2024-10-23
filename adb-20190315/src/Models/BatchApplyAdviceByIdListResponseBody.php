@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class BatchApplyAdviceByIdListResponseBody extends Model
 {
     /**
+     * @description The message returned for the operation. Valid values:
+     *
+     *   **SUCCESS** is returned if the operation is successful.
+     *   An error message is returned if the operation fails.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -16,6 +21,8 @@ class BatchApplyAdviceByIdListResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 86F92D26-B774-5FA1-8E53-82CBEEEBB012
      *
      * @var string

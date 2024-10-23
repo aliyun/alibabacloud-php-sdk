@@ -11,6 +11,7 @@ class DescribeOperatorPermissionRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxxxxx
      *
      * @var string

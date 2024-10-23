@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeTableStatisticsRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query details about all AnalyticDB for MySQL clusters in a specific region, including cluster IDs.
+     * This parameter is required.
      * @example am-****************
      *
      * @var string
@@ -19,19 +19,23 @@ class DescribeTableStatisticsRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description The keyword that is used to query information by table name.
+     *
+     * @example you_table_name
+     *
      * @var string
      */
     public $keyword;
 
     /**
-     * @description The order in which to sort the retrieved records by field. Specify this value in the JSON format. The value is an ordered array that uses the order of the input array and contains `Field` and `Type`. Example: `[{ "Field":"TableName", "Type":"Asc" }]`.
+     * @description The order in which to sort the queried information. Specify this parameter as an ordered JSON array that consists of the `Field` and `Type` fields. Example: `[{ "Field":"TableName", "Type":"Asc" }]`.
      *
-     *   In the example, `Field` indicates the field that is used to sort the retrieved records. Set the value of Field to `TableName`.
+     *   `Field` specifies the field that is used to sort the queried information. The following fields are supported: `TableName`, ColdDataSize, DataSize, PrimaryKeyIndexSize, RowCount, IndexSize, SchemaName, and PartitionCount.
      *
-     *   `Type` indicates the sort type. Valid values (case-insensitive):
+     *   `Type` specifies the sorting order. Valid values (case-insensitive):
      *
-     *   **Desc**: The entries are sorted in descending order.
-     *   **Asc**: The entries are sorted in ascending order.
+     *   **Desc**: descending order.
+     *   **Asc**: ascending order.
      *
      * @example [ { "Field":"TableName", "Type":"Asc" } ]
      *
@@ -50,7 +54,7 @@ class DescribeTableStatisticsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+     * @description The page number. Pages start from page 1. Default value: **1**.
      *
      * @example 1
      *
@@ -59,7 +63,11 @@ class DescribeTableStatisticsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: 30.
+     * @description The number of entries per page. Valid values:
+     *
+     *   **30** (default)
+     *   **50**
+     *   **100**
      *
      * @example 30
      *
@@ -70,7 +78,7 @@ class DescribeTableStatisticsRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
-     * >  You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
      * @example cn-beijing
      *
      * @var string

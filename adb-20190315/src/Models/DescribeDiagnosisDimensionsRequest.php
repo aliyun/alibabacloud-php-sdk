@@ -11,7 +11,7 @@ class DescribeDiagnosisDimensionsRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
-     * > You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+     * This parameter is required.
      * @example am-bt6u59zcmd945****
      *
      * @var string
@@ -27,6 +27,7 @@ class DescribeDiagnosisDimensionsRequest extends Model
      *
      *   The maximum time range that can be specified is 24 hours.
      *
+     * This parameter is required.
      * @example 1625220213000
      *
      * @var string
@@ -54,6 +55,7 @@ class DescribeDiagnosisDimensionsRequest extends Model
      *   `{"Type":"status","Value":"finished"}`: queries executed SQL statements. You can set `Value` to `running` to query SQL statements that are being executed. You can also set Value to `failed` to query SQL statements that failed to be executed.
      *   `{"Type":"cost","Min":"10","Max":"200"}`: queries SQL statements whose execution durations are in the range of 10 to 200 milliseconds. You can also customize the maximum and minimum execution durations.
      *
+     * This parameter is required.
      * @example {"Type":"maxCost","Value":"100"}
      *
      * @var string
@@ -63,7 +65,7 @@ class DescribeDiagnosisDimensionsRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
-     * > You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -73,7 +75,7 @@ class DescribeDiagnosisDimensionsRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
-     * > Only data within the last 14 days can be queried. If you call this operation to query data that is earlier than 14 days, an empty string is returned.
+     * This parameter is required.
      * @example 1625220210000
      *
      * @var string

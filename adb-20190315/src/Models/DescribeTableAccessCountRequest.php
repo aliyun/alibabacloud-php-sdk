@@ -11,7 +11,7 @@ class DescribeTableAccessCountRequest extends Model
     /**
      * @description The ID of the cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the details of all AnalyticDB for MySQL clusters within a specified region, including cluster IDs.
+     * This parameter is required.
      * @example am-bp1r053byu48p****
      *
      * @var string
@@ -60,7 +60,7 @@ class DescribeTableAccessCountRequest extends Model
     /**
      * @description The ID of the region.
      *
-     * >  You can call the [DescribeRegions](~~143074~~) operation to query the regions and zones supported by AnalyticDB for MySQL, including region IDs.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -70,7 +70,7 @@ class DescribeTableAccessCountRequest extends Model
     /**
      * @description The date to query. Specify the time in the *yyyy-MM-dd* format. The time must be in UTC.
      *
-     * >  Only data for the last 30 days can be queried.
+     * This parameter is required.
      * @example 2021-08-30
      *
      * @var string

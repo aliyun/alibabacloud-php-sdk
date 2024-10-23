@@ -11,7 +11,7 @@ class CreateElasticPlanRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
-     * > You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+     * This parameter is required.
      * @example am-bp1d8lbdj22rx****
      *
      * @var string
@@ -40,6 +40,10 @@ class CreateElasticPlanRequest extends Model
     public $elasticPlanEndDay;
 
     /**
+     * @description The dates of the month when you want to execute the scaling plan. A number specifies a date of the month. Separate multiple values with commas (,).
+     *
+     * @example 1,15,25
+     *
      * @var string
      */
     public $elasticPlanMonthlyRepeat;
@@ -48,8 +52,9 @@ class CreateElasticPlanRequest extends Model
      * @description The name of the scaling plan.
      *
      *   The name must be 2 to 30 characters in length.
-     *   The name can contain letters, digits, and underscores (\_).
+     *   The name can contain letters, digits, and underscores (_).
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -80,6 +85,7 @@ class CreateElasticPlanRequest extends Model
     /**
      * @description The restoration time of the scaling plan. Specify the time on the hour in the HH:mm:ss format. The interval between the scale-up time and the restoration time cannot be more than 24 hours.
      *
+     * This parameter is required.
      * @example 10:00:00
      *
      * @var string
@@ -89,6 +95,7 @@ class CreateElasticPlanRequest extends Model
     /**
      * @description The scale-up time of the scaling plan. Specify the time on the hour in the HH:mm:ss format.
      *
+     * This parameter is required.
      * @example 08:00:00
      *
      * @var string
@@ -110,7 +117,7 @@ class CreateElasticPlanRequest extends Model
     public $elasticPlanType;
 
     /**
-     * @description The days of the week when you want to execute the scaling plan. Valid values: 0 to 6, which indicates Sunday to Saturday. Separate multiple values with commas (,).
+     * @description The days of the week when you want to execute the scaling plan. Valid values: 0 to 6 (Sunday to Saturday). Separate multiple values with commas (,).
      *
      * @example 1,2,3,4,5
      *
@@ -158,7 +165,7 @@ class CreateElasticPlanRequest extends Model
     /**
      * @description The name of the resource group.
      *
-     * > You can call the [DescribeDBResourceGroup](~~466685~~) operation to query the resource group name.
+     * > You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/466685.html) operation to query the resource group name.
      * @example realtime
      *
      * @var string

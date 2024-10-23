@@ -51,7 +51,7 @@ class DescribeAvailableResourceRequest extends Model
     /**
      * @description The region ID.
      *
-     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -71,7 +71,7 @@ class DescribeAvailableResourceRequest extends Model
     /**
      * @description The zone ID.
      *
-     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent zone list.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent zone list.
      * @example cn-hangzhou-k
      *
      * @var string

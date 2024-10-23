@@ -20,8 +20,9 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the cluster. You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * @description The region ID of the cluster. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -35,8 +36,9 @@ class TagResourcesRequest extends Model
      *
      *   You can add tags to up to 50 clusters at a time.
      *
-     *   You can call the [DescribeDBClusters](~~129857~~) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
+     *   You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
      *
+     * This parameter is required.
      * @example am-bp1xxx.1
      *
      * @var string[]
@@ -56,6 +58,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The type of the cluster. Set the value to **ALIYUN::ADB::CLUSTER**.
      *
+     * This parameter is required.
      * @example ALIYUN::ADB::CLUSTER
      *
      * @var string
@@ -65,6 +68,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The tags to add to the cluster.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

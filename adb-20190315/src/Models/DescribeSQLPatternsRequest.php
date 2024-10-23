@@ -11,7 +11,7 @@ class DescribeSQLPatternsRequest extends Model
     /**
      * @description The cluster ID.
      *
-     * > You can call the [DescribeDBClusters](~~129857~~) operation to query the information about all AnalyticDB for MySQL clusters in a region, including cluster IDs.
+     * This parameter is required.
      * @example am-bp1r053byu48p****
      *
      * @var string
@@ -21,7 +21,7 @@ class DescribeSQLPatternsRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
      *
-     * > The end time must be later than the start time.
+     * This parameter is required.
      * @example 2021-09-30T00:15:00Z
      *
      * @var string
@@ -73,6 +73,7 @@ class DescribeSQLPatternsRequest extends Model
      *   `Asc`: ascending order.
      *   `Desc`: descending order.
      *
+     * This parameter is required.
      * @example [{"Field":"AverageQueryTime","Type":"Asc"}]
      *
      * @var string
@@ -106,7 +107,7 @@ class DescribeSQLPatternsRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
-     * > You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -122,6 +123,7 @@ class DescribeSQLPatternsRequest extends Model
      *
      *   The maximum time range that can be specified is 24 hours.
      *
+     * This parameter is required.
      * @example 2021-09-30T00:10:00Z
      *
      * @var string

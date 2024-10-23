@@ -32,7 +32,7 @@ class groupsInfo extends Model
      *   **interactive**
      *   **batch** (default)
      *
-     * > For more information, see [Query execution modes](~~189502~~).
+     * > For more information, see [Query execution modes](https://help.aliyun.com/document_detail/189502.html).
      * @example interactive
      *
      * @var string
@@ -41,6 +41,13 @@ class groupsInfo extends Model
 
     /**
      * @description The database accounts that are associated with the resource group.
+     *
+     * @var string[]
+     */
+    public $groupUserList;
+
+    /**
+     * @description The database accounts that are associated with the resource group. Multiple database accounts are separated by commas (,).
      *
      * @example testb,testc
      *
@@ -66,12 +73,13 @@ class groupsInfo extends Model
      */
     public $updateTime;
     protected $_name = [
-        'createTime' => 'CreateTime',
-        'groupName'  => 'GroupName',
-        'groupType'  => 'GroupType',
-        'groupUsers' => 'GroupUsers',
-        'nodeNum'    => 'NodeNum',
-        'updateTime' => 'UpdateTime',
+        'createTime'    => 'CreateTime',
+        'groupName'     => 'GroupName',
+        'groupType'     => 'GroupType',
+        'groupUserList' => 'GroupUserList',
+        'groupUsers'    => 'GroupUsers',
+        'nodeNum'       => 'NodeNum',
+        'updateTime'    => 'UpdateTime',
     ];
 
     public function validate()
@@ -89,6 +97,9 @@ class groupsInfo extends Model
         }
         if (null !== $this->groupType) {
             $res['GroupType'] = $this->groupType;
+        }
+        if (null !== $this->groupUserList) {
+            $res['GroupUserList'] = $this->groupUserList;
         }
         if (null !== $this->groupUsers) {
             $res['GroupUsers'] = $this->groupUsers;
@@ -119,6 +130,11 @@ class groupsInfo extends Model
         }
         if (isset($map['GroupType'])) {
             $model->groupType = $map['GroupType'];
+        }
+        if (isset($map['GroupUserList'])) {
+            if (!empty($map['GroupUserList'])) {
+                $model->groupUserList = $map['GroupUserList'];
+            }
         }
         if (isset($map['GroupUsers'])) {
             $model->groupUsers = $map['GroupUsers'];

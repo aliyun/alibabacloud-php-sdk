@@ -11,7 +11,7 @@ class DescribeSqlPatternRequest extends Model
     /**
      * @description The cluster ID.
      *
-     * > You can call the [DescribeDBClusters](~~129857~~) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
+     * This parameter is required.
      * @example am-bp1r053byu48p****
      *
      * @var string
@@ -76,7 +76,7 @@ class DescribeSqlPatternRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
-     * > You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -96,7 +96,7 @@ class DescribeSqlPatternRequest extends Model
     /**
      * @description The start date to query. Specify the time in the *yyyy-MM-dd* format. The time must be in UTC.
      *
-     * > Only data within the last 30 days can be queried.
+     * This parameter is required.
      * @example 2021-08-30
      *
      * @var string

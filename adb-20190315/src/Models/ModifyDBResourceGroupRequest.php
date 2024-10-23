@@ -11,7 +11,7 @@ class ModifyDBResourceGroupRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the cluster IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a specific region.
+     * This parameter is required.
      * @example am-bp1ub9grke1****
      *
      * @var string
@@ -21,6 +21,7 @@ class ModifyDBResourceGroupRequest extends Model
     /**
      * @description The name of the resource group.
      *
+     * This parameter is required.
      * @example test_group
      *
      * @var string
@@ -33,7 +34,7 @@ class ModifyDBResourceGroupRequest extends Model
      *   **interactive**
      *   **batch**
      *
-     * >  For more information, see [Query execution modes](~~189502~~).
+     * >  For more information, see [Query execution modes](https://help.aliyun.com/document_detail/189502.html).
      * @example batch
      *
      * @var string
@@ -63,6 +64,13 @@ class ModifyDBResourceGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The database accounts with which to associate the resource group. They can be standard accounts or privileged accounts.
+     *
+     * @var string[]
+     */
+    public $poolUserList;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -78,6 +86,7 @@ class ModifyDBResourceGroupRequest extends Model
         'nodeNum'              => 'NodeNum',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'poolUserList'         => 'PoolUserList',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
     ];
@@ -106,6 +115,9 @@ class ModifyDBResourceGroupRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->poolUserList) {
+            $res['PoolUserList'] = $this->poolUserList;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -142,6 +154,11 @@ class ModifyDBResourceGroupRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PoolUserList'])) {
+            if (!empty($map['PoolUserList'])) {
+                $model->poolUserList = $map['PoolUserList'];
+            }
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

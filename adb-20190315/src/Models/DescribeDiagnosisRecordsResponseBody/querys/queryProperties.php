@@ -2,32 +2,32 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSlowLogTrendResponseBody\items\slowLogTrendItem\series;
+namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDiagnosisRecordsResponseBody\querys;
 
 use AlibabaCloud\Tea\Model;
 
-class seriesItem extends Model
+class queryProperties extends Model
 {
     /**
-     * @description The name of the performance metric.
+     * @description The name of the query property.
      *
-     * @example slow_log_trend
+     * @example ff
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description The values of the performance metric.
+     * @description The value of the query property.
      *
-     * @example [ [ "2019-05-06T05:17:46.487Z", 5 ], [ "2019-05-06T05:18:20.784Z", 5 ] ]
+     * @example xian
      *
      * @var string
      */
-    public $values;
+    public $value;
     protected $_name = [
-        'name'   => 'Name',
-        'values' => 'Values',
+        'name'  => 'Name',
+        'value' => 'Value',
     ];
 
     public function validate()
@@ -40,8 +40,8 @@ class seriesItem extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->values) {
-            $res['Values'] = $this->values;
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -50,7 +50,7 @@ class seriesItem extends Model
     /**
      * @param array $map
      *
-     * @return seriesItem
+     * @return queryProperties
      */
     public static function fromMap($map = [])
     {
@@ -58,8 +58,8 @@ class seriesItem extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Values'])) {
-            $model->values = $map['Values'];
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

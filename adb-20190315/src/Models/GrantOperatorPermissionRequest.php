@@ -11,7 +11,7 @@ class GrantOperatorPermissionRequest extends Model
     /**
      * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
-     * > You can call the [DescribeDBClusters](~~129857~~) operation to query cluster IDs.
+     * This parameter is required.
      * @example am-bp1565u55p32****
      *
      * @var string
@@ -21,6 +21,7 @@ class GrantOperatorPermissionRequest extends Model
     /**
      * @description The expiration time of the service account permissions. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2022-11-30T00:00:00Z
      *
      * @var string
@@ -43,6 +44,7 @@ class GrantOperatorPermissionRequest extends Model
      *   **Control**: configuration permissions. The service account is granted permissions to query and modify cluster configurations.
      *   **Data**: data permissions. The service account is granted permissions to query schemas, indexes, and SQL statements.
      *
+     * This parameter is required.
      * @example Control
      *
      * @var string
