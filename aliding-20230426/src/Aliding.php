@@ -12693,7 +12693,7 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @summary 查询直播信息
+     * @summary 查询群直播详情
      *  *
      * @param QueryGroupLiveInfoRequest $tmpReq    QueryGroupLiveInfoRequest
      * @param QueryGroupLiveInfoHeaders $tmpHeader QueryGroupLiveInfoHeaders
@@ -12714,14 +12714,13 @@ class Aliding extends OpenApiClient
         if (!Utils::isUnset($tmpReq->tenantContext)) {
             $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
         }
-        $query = [];
+        $body = [];
         if (!Utils::isUnset($request->anchorUnionId)) {
-            $query['AnchorUnionId'] = $request->anchorUnionId;
+            $body['AnchorUnionId'] = $request->anchorUnionId;
         }
         if (!Utils::isUnset($request->liveUuid)) {
-            $query['LiveUuid'] = $request->liveUuid;
+            $body['LiveUuid'] = $request->liveUuid;
         }
-        $body = [];
         if (!Utils::isUnset($request->tenantContextShrink)) {
             $body['TenantContext'] = $request->tenantContextShrink;
         }
@@ -12734,7 +12733,6 @@ class Aliding extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -12742,7 +12740,7 @@ class Aliding extends OpenApiClient
             'version'     => '2023-04-26',
             'protocol'    => 'HTTPS',
             'pathname'    => '/dingtalk/v1/ysp/queryGroupLiveInfo',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'formData',
@@ -12753,7 +12751,7 @@ class Aliding extends OpenApiClient
     }
 
     /**
-     * @summary 查询直播信息
+     * @summary 查询群直播详情
      *  *
      * @param QueryGroupLiveInfoRequest $request QueryGroupLiveInfoRequest
      *

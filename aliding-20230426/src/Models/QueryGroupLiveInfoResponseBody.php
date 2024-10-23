@@ -70,6 +70,11 @@ class QueryGroupLiveInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $staffId;
+
+    /**
      * @example 1687924800000
      *
      * @var int
@@ -96,11 +101,15 @@ class QueryGroupLiveInfoResponseBody extends Model
     public $uv;
 
     /**
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+     *
      * @var string
      */
     public $vendorRequestId;
 
     /**
+     * @example dingtalk
+     *
      * @var string
      */
     public $vendorType;
@@ -114,6 +123,7 @@ class QueryGroupLiveInfoResponseBody extends Model
         'liveStatus'       => 'liveStatus',
         'playbackDuration' => 'playbackDuration',
         'requestId'        => 'requestId',
+        'staffId'          => 'staffId',
         'startTime'        => 'startTime',
         'subscribeCount'   => 'subscribeCount',
         'title'            => 'title',
@@ -155,6 +165,9 @@ class QueryGroupLiveInfoResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+        if (null !== $this->staffId) {
+            $res['staffId'] = $this->staffId;
         }
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
@@ -212,6 +225,9 @@ class QueryGroupLiveInfoResponseBody extends Model
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+        if (isset($map['staffId'])) {
+            $model->staffId = $map['staffId'];
         }
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];

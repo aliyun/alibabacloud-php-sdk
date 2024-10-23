@@ -10,14 +10,18 @@ use AlibabaCloud\Tea\Model;
 class QueryGroupLiveInfoRequest extends Model
 {
     /**
-     * @example Eijxxx
+     * @description This parameter is required.
+     *
+     * @example 333d
      *
      * @var string
      */
     public $anchorUnionId;
 
     /**
-     * @example 123456
+     * @description This parameter is required.
+     *
+     * @example 4d38xxxxx
      *
      * @var string
      */
