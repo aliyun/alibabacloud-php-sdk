@@ -184,10 +184,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param AddClientIdToOIDCProviderRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Adds a client ID to an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @param AddClientIdToOIDCProviderRequest $request AddClientIdToOIDCProviderRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddClientIdToOIDCProviderResponse
+     * @return AddClientIdToOIDCProviderResponse AddClientIdToOIDCProviderResponse
      */
     public function addClientIdToOIDCProviderWithOptions($request, $runtime)
     {
@@ -218,9 +220,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param AddClientIdToOIDCProviderRequest $request
+     * @summary Adds a client ID to an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @param AddClientIdToOIDCProviderRequest $request AddClientIdToOIDCProviderRequest
      *
-     * @return AddClientIdToOIDCProviderResponse
+     * @return AddClientIdToOIDCProviderResponse AddClientIdToOIDCProviderResponse
      */
     public function addClientIdToOIDCProvider($request)
     {
@@ -230,9 +234,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * This topic provides an example on how to add the fingerprint `902ef2deeb3c5b13ea4c3d5193629309e231****` to the OIDC IdP named `TestOIDCProvider`.
-     *   *
+     * @summary Adds a fingerprint to an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @description ###
+     * This topic provides an example on how to add the fingerprint `902ef2deeb3c5b13ea4c3d5193629309e231****` to the OIDC IdP named `TestOIDCProvider`.
+     *  *
      * @param AddFingerprintToOIDCProviderRequest $request AddFingerprintToOIDCProviderRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -267,9 +273,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * This topic provides an example on how to add the fingerprint `902ef2deeb3c5b13ea4c3d5193629309e231****` to the OIDC IdP named `TestOIDCProvider`.
-     *   *
+     * @summary Adds a fingerprint to an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @description ###
+     * This topic provides an example on how to add the fingerprint `902ef2deeb3c5b13ea4c3d5193629309e231****` to the OIDC IdP named `TestOIDCProvider`.
+     *  *
      * @param AddFingerprintToOIDCProviderRequest $request AddFingerprintToOIDCProviderRequest
      *
      * @return AddFingerprintToOIDCProviderResponse AddFingerprintToOIDCProviderResponse
@@ -282,10 +290,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param AddUserToGroupRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 将RAM用户添加到指定的用户组
+     *  *
+     * @param AddUserToGroupRequest $request AddUserToGroupRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddUserToGroupResponse
+     * @return AddUserToGroupResponse AddUserToGroupResponse
      */
     public function addUserToGroupWithOptions($request, $runtime)
     {
@@ -316,9 +326,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param AddUserToGroupRequest $request
+     * @summary 将RAM用户添加到指定的用户组
+     *  *
+     * @param AddUserToGroupRequest $request AddUserToGroupRequest
      *
-     * @return AddUserToGroupResponse
+     * @return AddUserToGroupResponse AddUserToGroupResponse
      */
     public function addUserToGroup($request)
     {
@@ -328,10 +340,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param BindMFADeviceRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Binds a multi-factor authentication (MFA) device to a RAM user.
+     *  *
+     * @param BindMFADeviceRequest $request BindMFADeviceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindMFADeviceResponse
+     * @return BindMFADeviceResponse BindMFADeviceResponse
      */
     public function bindMFADeviceWithOptions($request, $runtime)
     {
@@ -368,9 +382,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param BindMFADeviceRequest $request
+     * @summary Binds a multi-factor authentication (MFA) device to a RAM user.
+     *  *
+     * @param BindMFADeviceRequest $request BindMFADeviceRequest
      *
-     * @return BindMFADeviceResponse
+     * @return BindMFADeviceResponse BindMFADeviceResponse
      */
     public function bindMFADevice($request)
     {
@@ -380,8 +396,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](~~43765~~) is set to `True`. The value True indicates that RAM users can change their passwords.
-     *   *
+     * @summary 修改RAM用户的登录密码
+     *  *
+     * @description >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can change their passwords.
+     *  *
      * @param ChangePasswordRequest $request ChangePasswordRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -416,8 +434,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](~~43765~~) is set to `True`. The value True indicates that RAM users can change their passwords.
-     *   *
+     * @summary 修改RAM用户的登录密码
+     *  *
+     * @description >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can change their passwords.
+     *  *
      * @param ChangePasswordRequest $request ChangePasswordRequest
      *
      * @return ChangePasswordResponse ChangePasswordResponse
@@ -430,10 +450,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param CreateAccessKeyRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 创建主账号或RAM用户访问密钥
+     *  *
+     * @param CreateAccessKeyRequest $request CreateAccessKeyRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAccessKeyResponse
+     * @return CreateAccessKeyResponse CreateAccessKeyResponse
      */
     public function createAccessKeyWithOptions($request, $runtime)
     {
@@ -461,9 +483,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param CreateAccessKeyRequest $request
+     * @summary 创建主账号或RAM用户访问密钥
+     *  *
+     * @param CreateAccessKeyRequest $request CreateAccessKeyRequest
      *
-     * @return CreateAccessKeyResponse
+     * @return CreateAccessKeyResponse CreateAccessKeyResponse
      */
     public function createAccessKey($request)
     {
@@ -473,10 +497,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param CreateAppSecretRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Creates an application secret for the specified application.
+     *  *
+     * @param CreateAppSecretRequest $request CreateAppSecretRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAppSecretResponse
+     * @return CreateAppSecretResponse CreateAppSecretResponse
      */
     public function createAppSecretWithOptions($request, $runtime)
     {
@@ -504,9 +530,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param CreateAppSecretRequest $request
+     * @summary Creates an application secret for the specified application.
+     *  *
+     * @param CreateAppSecretRequest $request CreateAppSecretRequest
      *
-     * @return CreateAppSecretResponse
+     * @return CreateAppSecretResponse CreateAppSecretResponse
      */
     public function createAppSecret($request)
     {
@@ -516,10 +544,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Creates an application.
+     *  *
+     * @param CreateApplicationRequest $request CreateApplicationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateApplicationResponse
+     * @return CreateApplicationResponse CreateApplicationResponse
      */
     public function createApplicationWithOptions($request, $runtime)
     {
@@ -574,9 +604,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationRequest $request
+     * @summary Creates an application.
+     *  *
+     * @param CreateApplicationRequest $request CreateApplicationRequest
      *
-     * @return CreateApplicationResponse
+     * @return CreateApplicationResponse CreateApplicationResponse
      */
     public function createApplication($request)
     {
@@ -586,10 +618,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param CreateGroupRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Creates a RAM user group.
+     *  *
+     * @param CreateGroupRequest $request CreateGroupRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGroupResponse
+     * @return CreateGroupResponse CreateGroupResponse
      */
     public function createGroupWithOptions($request, $runtime)
     {
@@ -623,9 +657,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param CreateGroupRequest $request
+     * @summary Creates a RAM user group.
+     *  *
+     * @param CreateGroupRequest $request CreateGroupRequest
      *
-     * @return CreateGroupResponse
+     * @return CreateGroupResponse CreateGroupResponse
      */
     public function createGroup($request)
     {
@@ -635,10 +671,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param CreateLoginProfileRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 开启指定RAM用户的控制台登录
+     *  *
+     * @param CreateLoginProfileRequest $request CreateLoginProfileRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLoginProfileResponse
+     * @return CreateLoginProfileResponse CreateLoginProfileResponse
      */
     public function createLoginProfileWithOptions($request, $runtime)
     {
@@ -678,9 +716,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param CreateLoginProfileRequest $request
+     * @summary 开启指定RAM用户的控制台登录
+     *  *
+     * @param CreateLoginProfileRequest $request CreateLoginProfileRequest
      *
-     * @return CreateLoginProfileResponse
+     * @return CreateLoginProfileResponse CreateLoginProfileResponse
      */
     public function createLoginProfile($request)
     {
@@ -690,15 +730,17 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ### Prerequisites
-     *   * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificates, and the client IDs are obtained from an external (IdP, such as Google G Suite or Okta.
-     *   * ### Limits
-     *   * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
-     *   * *   You can add a maximum of 20 client IDs to an OIDC IdP.
-     *   * *   You can add a maximum of five fingerprints to an OIDC IdP.
-     *   * ###
-     *   * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
-     *   *
+     * @summary Creates an OpenID Connect (OIDC) identity provider (IdP) to configure a trust relationship between Alibaba Cloud and an external IdP. This topic provides an example on how to create an IdP named TestOIDCProvider to configure a trust relationship between the external IdP Okta and Alibaba Cloud.
+     *  *
+     * @description ### Prerequisites
+     * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificates, and the client IDs are obtained from an external (IdP, such as Google G Suite or Okta.
+     * ### Limits
+     * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
+     * *   You can add a maximum of 20 client IDs to an OIDC IdP.
+     * *   You can add a maximum of five fingerprints to an OIDC IdP.
+     * ###
+     * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
+     *  *
      * @param CreateOIDCProviderRequest $request CreateOIDCProviderRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -745,15 +787,17 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ### Prerequisites
-     *   * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificates, and the client IDs are obtained from an external (IdP, such as Google G Suite or Okta.
-     *   * ### Limits
-     *   * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
-     *   * *   You can add a maximum of 20 client IDs to an OIDC IdP.
-     *   * *   You can add a maximum of five fingerprints to an OIDC IdP.
-     *   * ###
-     *   * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
-     *   *
+     * @summary Creates an OpenID Connect (OIDC) identity provider (IdP) to configure a trust relationship between Alibaba Cloud and an external IdP. This topic provides an example on how to create an IdP named TestOIDCProvider to configure a trust relationship between the external IdP Okta and Alibaba Cloud.
+     *  *
+     * @description ### Prerequisites
+     * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificates, and the client IDs are obtained from an external (IdP, such as Google G Suite or Okta.
+     * ### Limits
+     * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
+     * *   You can add a maximum of 20 client IDs to an OIDC IdP.
+     * *   You can add a maximum of five fingerprints to an OIDC IdP.
+     * ###
+     * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
+     *  *
      * @param CreateOIDCProviderRequest $request CreateOIDCProviderRequest
      *
      * @return CreateOIDCProviderResponse CreateOIDCProviderResponse
@@ -766,10 +810,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param CreateSAMLProviderRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 创建角色SSO身份提供商
+     *  *
+     * @param CreateSAMLProviderRequest $request CreateSAMLProviderRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSAMLProviderResponse
+     * @return CreateSAMLProviderResponse CreateSAMLProviderResponse
      */
     public function createSAMLProviderWithOptions($request, $runtime)
     {
@@ -803,9 +849,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param CreateSAMLProviderRequest $request
+     * @summary 创建角色SSO身份提供商
+     *  *
+     * @param CreateSAMLProviderRequest $request CreateSAMLProviderRequest
      *
-     * @return CreateSAMLProviderResponse
+     * @return CreateSAMLProviderResponse CreateSAMLProviderResponse
      */
     public function createSAMLProvider($request)
     {
@@ -815,8 +863,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create a RAM user named `test`.
-     *   *
+     * @summary Creates a RAM user.
+     *  *
+     * @description This topic provides an example on how to create a RAM user named `test`.
+     *  *
      * @param CreateUserRequest $request CreateUserRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -863,8 +913,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create a RAM user named `test`.
-     *   *
+     * @summary Creates a RAM user.
+     *  *
+     * @description This topic provides an example on how to create a RAM user named `test`.
+     *  *
      * @param CreateUserRequest $request CreateUserRequest
      *
      * @return CreateUserResponse CreateUserResponse
@@ -877,10 +929,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param CreateVirtualMFADeviceRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 创建多因素认证设备
+     *  *
+     * @param CreateVirtualMFADeviceRequest $request CreateVirtualMFADeviceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateVirtualMFADeviceResponse
+     * @return CreateVirtualMFADeviceResponse CreateVirtualMFADeviceResponse
      */
     public function createVirtualMFADeviceWithOptions($request, $runtime)
     {
@@ -908,9 +962,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param CreateVirtualMFADeviceRequest $request
+     * @summary 创建多因素认证设备
+     *  *
+     * @param CreateVirtualMFADeviceRequest $request CreateVirtualMFADeviceRequest
      *
-     * @return CreateVirtualMFADeviceResponse
+     * @return CreateVirtualMFADeviceResponse CreateVirtualMFADeviceResponse
      */
     public function createVirtualMFADevice($request)
     {
@@ -920,10 +976,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccessKeyRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 删除用户的访问密钥
+     *  *
+     * @param DeleteAccessKeyRequest $request DeleteAccessKeyRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAccessKeyResponse
+     * @return DeleteAccessKeyResponse DeleteAccessKeyResponse
      */
     public function deleteAccessKeyWithOptions($request, $runtime)
     {
@@ -954,9 +1012,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccessKeyRequest $request
+     * @summary 删除用户的访问密钥
+     *  *
+     * @param DeleteAccessKeyRequest $request DeleteAccessKeyRequest
      *
-     * @return DeleteAccessKeyResponse
+     * @return DeleteAccessKeyResponse DeleteAccessKeyResponse
      */
     public function deleteAccessKey($request)
     {
@@ -966,10 +1026,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param DeleteAppSecretRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Delete the application secret for the specified application.
+     *  *
+     * @param DeleteAppSecretRequest $request DeleteAppSecretRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAppSecretResponse
+     * @return DeleteAppSecretResponse DeleteAppSecretResponse
      */
     public function deleteAppSecretWithOptions($request, $runtime)
     {
@@ -1000,9 +1062,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param DeleteAppSecretRequest $request
+     * @summary Delete the application secret for the specified application.
+     *  *
+     * @param DeleteAppSecretRequest $request DeleteAppSecretRequest
      *
-     * @return DeleteAppSecretResponse
+     * @return DeleteAppSecretResponse DeleteAppSecretResponse
      */
     public function deleteAppSecret($request)
     {
@@ -1012,10 +1076,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param DeleteApplicationRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Deletes an application.
+     *  *
+     * @param DeleteApplicationRequest $request DeleteApplicationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteApplicationResponse
+     * @return DeleteApplicationResponse DeleteApplicationResponse
      */
     public function deleteApplicationWithOptions($request, $runtime)
     {
@@ -1043,9 +1109,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param DeleteApplicationRequest $request
+     * @summary Deletes an application.
+     *  *
+     * @param DeleteApplicationRequest $request DeleteApplicationRequest
      *
-     * @return DeleteApplicationResponse
+     * @return DeleteApplicationResponse DeleteApplicationResponse
      */
     public function deleteApplication($request)
     {
@@ -1055,8 +1123,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
-     *   *
+     * @summary 删除指定的用户组
+     *  *
+     * @description Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
+     *  *
      * @param DeleteGroupRequest $request DeleteGroupRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -1088,8 +1158,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
-     *   *
+     * @summary 删除指定的用户组
+     *  *
+     * @description Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
+     *  *
      * @param DeleteGroupRequest $request DeleteGroupRequest
      *
      * @return DeleteGroupResponse DeleteGroupResponse
@@ -1102,10 +1174,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param DeleteLoginProfileRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 关闭指定RAM用户的控制台登录
+     *  *
+     * @param DeleteLoginProfileRequest $request DeleteLoginProfileRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteLoginProfileResponse
+     * @return DeleteLoginProfileResponse DeleteLoginProfileResponse
      */
     public function deleteLoginProfileWithOptions($request, $runtime)
     {
@@ -1133,9 +1207,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param DeleteLoginProfileRequest $request
+     * @summary 关闭指定RAM用户的控制台登录
+     *  *
+     * @param DeleteLoginProfileRequest $request DeleteLoginProfileRequest
      *
-     * @return DeleteLoginProfileResponse
+     * @return DeleteLoginProfileResponse DeleteLoginProfileResponse
      */
     public function deleteLoginProfile($request)
     {
@@ -1145,9 +1221,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * This topic provides an example on how to remove the OIDC IdP named `TestOIDCProvider`.
-     *   *
+     * @summary Deletes an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @description ###
+     * This topic provides an example on how to remove the OIDC IdP named `TestOIDCProvider`.
+     *  *
      * @param DeleteOIDCProviderRequest $request DeleteOIDCProviderRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -1179,9 +1257,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * This topic provides an example on how to remove the OIDC IdP named `TestOIDCProvider`.
-     *   *
+     * @summary Deletes an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @description ###
+     * This topic provides an example on how to remove the OIDC IdP named `TestOIDCProvider`.
+     *  *
      * @param DeleteOIDCProviderRequest $request DeleteOIDCProviderRequest
      *
      * @return DeleteOIDCProviderResponse DeleteOIDCProviderResponse
@@ -1194,10 +1274,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param DeleteSAMLProviderRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 删除指定的角色SSO身份提供商
+     *  *
+     * @param DeleteSAMLProviderRequest $request DeleteSAMLProviderRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSAMLProviderResponse
+     * @return DeleteSAMLProviderResponse DeleteSAMLProviderResponse
      */
     public function deleteSAMLProviderWithOptions($request, $runtime)
     {
@@ -1225,9 +1307,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param DeleteSAMLProviderRequest $request
+     * @summary 删除指定的角色SSO身份提供商
+     *  *
+     * @param DeleteSAMLProviderRequest $request DeleteSAMLProviderRequest
      *
-     * @return DeleteSAMLProviderResponse
+     * @return DeleteSAMLProviderResponse DeleteSAMLProviderResponse
      */
     public function deleteSAMLProvider($request)
     {
@@ -1237,10 +1321,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary 删除RAM用户
+     *  *
+     * @param DeleteUserRequest $request DeleteUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUserWithOptions($request, $runtime)
     {
@@ -1271,9 +1357,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserRequest $request
+     * @summary 删除RAM用户
+     *  *
+     * @param DeleteUserRequest $request DeleteUserRequest
      *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUser($request)
     {
@@ -1283,10 +1371,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param DeleteVirtualMFADeviceRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 删除多因素认证设备
+     *  *
+     * @param DeleteVirtualMFADeviceRequest $request DeleteVirtualMFADeviceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVirtualMFADeviceResponse
+     * @return DeleteVirtualMFADeviceResponse DeleteVirtualMFADeviceResponse
      */
     public function deleteVirtualMFADeviceWithOptions($request, $runtime)
     {
@@ -1314,9 +1404,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param DeleteVirtualMFADeviceRequest $request
+     * @summary 删除多因素认证设备
+     *  *
+     * @param DeleteVirtualMFADeviceRequest $request DeleteVirtualMFADeviceRequest
      *
-     * @return DeleteVirtualMFADeviceResponse
+     * @return DeleteVirtualMFADeviceResponse DeleteVirtualMFADeviceResponse
      */
     public function deleteVirtualMFADevice($request)
     {
@@ -1326,10 +1418,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param DisableVirtualMFARequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 解绑并删除多因素认证设备
+     *  *
+     * @param DisableVirtualMFARequest $request DisableVirtualMFARequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableVirtualMFAResponse
+     * @return DisableVirtualMFAResponse DisableVirtualMFAResponse
      */
     public function disableVirtualMFAWithOptions($request, $runtime)
     {
@@ -1357,9 +1451,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param DisableVirtualMFARequest $request
+     * @summary 解绑并删除多因素认证设备
+     *  *
+     * @param DisableVirtualMFARequest $request DisableVirtualMFARequest
      *
-     * @return DisableVirtualMFAResponse
+     * @return DisableVirtualMFAResponse DisableVirtualMFAResponse
      */
     public function disableVirtualMFA($request)
     {
@@ -1369,9 +1465,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Generates a user credential report.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateCredentialReportResponse
+     * @return GenerateCredentialReportResponse GenerateCredentialReportResponse
      */
     public function generateCredentialReportWithOptions($runtime)
     {
@@ -1392,7 +1490,9 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @return GenerateCredentialReportResponse
+     * @summary Generates a user credential report.
+     *  *
+     * @return GenerateCredentialReportResponse GenerateCredentialReportResponse
      */
     public function generateCredentialReport()
     {
@@ -1402,10 +1502,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param GetAccessKeyLastUsedRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the time when an AccessKey pair was used for the last time.
+     *  *
+     * @param GetAccessKeyLastUsedRequest $request GetAccessKeyLastUsedRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAccessKeyLastUsedResponse
+     * @return GetAccessKeyLastUsedResponse GetAccessKeyLastUsedResponse
      */
     public function getAccessKeyLastUsedWithOptions($request, $runtime)
     {
@@ -1436,9 +1538,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param GetAccessKeyLastUsedRequest $request
+     * @summary Queries the time when an AccessKey pair was used for the last time.
+     *  *
+     * @param GetAccessKeyLastUsedRequest $request GetAccessKeyLastUsedRequest
      *
-     * @return GetAccessKeyLastUsedResponse
+     * @return GetAccessKeyLastUsedResponse GetAccessKeyLastUsedResponse
      */
     public function getAccessKeyLastUsed($request)
     {
@@ -1448,9 +1552,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 查询主账号多因素认证设备信息
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAccountMFAInfoResponse
+     * @return GetAccountMFAInfoResponse GetAccountMFAInfoResponse
      */
     public function getAccountMFAInfoWithOptions($runtime)
     {
@@ -1471,7 +1577,9 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @return GetAccountMFAInfoResponse
+     * @summary 查询主账号多因素认证设备信息
+     *  *
+     * @return GetAccountMFAInfoResponse GetAccountMFAInfoResponse
      */
     public function getAccountMFAInfo()
     {
@@ -1481,9 +1589,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 查询阿里云账号的安全报告
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAccountSecurityPracticeReportResponse
+     * @return GetAccountSecurityPracticeReportResponse GetAccountSecurityPracticeReportResponse
      */
     public function getAccountSecurityPracticeReportWithOptions($runtime)
     {
@@ -1504,7 +1614,9 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @return GetAccountSecurityPracticeReportResponse
+     * @summary 查询阿里云账号的安全报告
+     *  *
+     * @return GetAccountSecurityPracticeReportResponse GetAccountSecurityPracticeReportResponse
      */
     public function getAccountSecurityPracticeReport()
     {
@@ -1514,9 +1626,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 查询主账号概览信息
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAccountSummaryResponse
+     * @return GetAccountSummaryResponse GetAccountSummaryResponse
      */
     public function getAccountSummaryWithOptions($runtime)
     {
@@ -1537,7 +1651,9 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @return GetAccountSummaryResponse
+     * @summary 查询主账号概览信息
+     *  *
+     * @return GetAccountSummaryResponse GetAccountSummaryResponse
      */
     public function getAccountSummary()
     {
@@ -1547,10 +1663,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param GetAppSecretRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries the details of an application secret.
+     *  *
+     * @param GetAppSecretRequest $request GetAppSecretRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAppSecretResponse
+     * @return GetAppSecretResponse GetAppSecretResponse
      */
     public function getAppSecretWithOptions($request, $runtime)
     {
@@ -1581,9 +1699,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param GetAppSecretRequest $request
+     * @summary Queries the details of an application secret.
+     *  *
+     * @param GetAppSecretRequest $request GetAppSecretRequest
      *
-     * @return GetAppSecretResponse
+     * @return GetAppSecretResponse GetAppSecretResponse
      */
     public function getAppSecret($request)
     {
@@ -1593,8 +1713,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the configurations of an application named `472457090344041****`.
-     *   *
+     * @summary Queries the configuration information about an application.
+     *  *
+     * @description This topic provides an example on how to query the configurations of an application named `472457090344041****`.
+     *  *
      * @param GetApplicationRequest $request GetApplicationRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -1626,8 +1748,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the configurations of an application named `472457090344041****`.
-     *   *
+     * @summary Queries the configuration information about an application.
+     *  *
+     * @description This topic provides an example on how to query the configurations of an application named `472457090344041****`.
+     *  *
      * @param GetApplicationRequest $request GetApplicationRequest
      *
      * @return GetApplicationResponse GetApplicationResponse
@@ -1640,10 +1764,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param GetCredentialReportRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the user credential reports of an Alibaba Cloud account.
+     *  *
+     * @param GetCredentialReportRequest $request GetCredentialReportRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCredentialReportResponse
+     * @return GetCredentialReportResponse GetCredentialReportResponse
      */
     public function getCredentialReportWithOptions($request, $runtime)
     {
@@ -1674,9 +1800,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param GetCredentialReportRequest $request
+     * @summary Queries the user credential reports of an Alibaba Cloud account.
+     *  *
+     * @param GetCredentialReportRequest $request GetCredentialReportRequest
      *
-     * @return GetCredentialReportResponse
+     * @return GetCredentialReportResponse GetCredentialReportResponse
      */
     public function getCredentialReport($request)
     {
@@ -1686,9 +1814,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the default domain name of an Alibaba Cloud account.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDefaultDomainResponse
+     * @return GetDefaultDomainResponse GetDefaultDomainResponse
      */
     public function getDefaultDomainWithOptions($runtime)
     {
@@ -1709,7 +1839,9 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @return GetDefaultDomainResponse
+     * @summary Queries the default domain name of an Alibaba Cloud account.
+     *  *
+     * @return GetDefaultDomainResponse GetDefaultDomainResponse
      */
     public function getDefaultDomain()
     {
@@ -1719,10 +1851,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param GetGroupRequest $request
-     * @param RuntimeOptions  $runtime
+     * @summary Queries the information about a Resource Access Management (RAM) user group.
+     *  *
+     * @param GetGroupRequest $request GetGroupRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGroupResponse
+     * @return GetGroupResponse GetGroupResponse
      */
     public function getGroupWithOptions($request, $runtime)
     {
@@ -1750,9 +1884,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param GetGroupRequest $request
+     * @summary Queries the information about a Resource Access Management (RAM) user group.
+     *  *
+     * @param GetGroupRequest $request GetGroupRequest
      *
-     * @return GetGroupResponse
+     * @return GetGroupResponse GetGroupResponse
      */
     public function getGroup($request)
     {
@@ -1762,10 +1898,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param GetLoginProfileRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the console logon settings of a RAM user.
+     *  *
+     * @param GetLoginProfileRequest $request GetLoginProfileRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLoginProfileResponse
+     * @return GetLoginProfileResponse GetLoginProfileResponse
      */
     public function getLoginProfileWithOptions($request, $runtime)
     {
@@ -1793,9 +1931,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param GetLoginProfileRequest $request
+     * @summary Queries the console logon settings of a RAM user.
+     *  *
+     * @param GetLoginProfileRequest $request GetLoginProfileRequest
      *
-     * @return GetLoginProfileResponse
+     * @return GetLoginProfileResponse GetLoginProfileResponse
      */
     public function getLoginProfile($request)
     {
@@ -1805,9 +1945,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * This topic provides an example on how to query the information about an OpenID Connect (OIDC) identity provider (IdP) named `TestOIDCProvider`.
-     *   *
+     * @summary Queries the information about an OIDC IdP.
+     *  *
+     * @description ###
+     * This topic provides an example on how to query the information about an OpenID Connect (OIDC) identity provider (IdP) named `TestOIDCProvider`.
+     *  *
      * @param GetOIDCProviderRequest $request GetOIDCProviderRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -1839,9 +1981,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * This topic provides an example on how to query the information about an OpenID Connect (OIDC) identity provider (IdP) named `TestOIDCProvider`.
-     *   *
+     * @summary Queries the information about an OIDC IdP.
+     *  *
+     * @description ###
+     * This topic provides an example on how to query the information about an OpenID Connect (OIDC) identity provider (IdP) named `TestOIDCProvider`.
+     *  *
      * @param GetOIDCProviderRequest $request GetOIDCProviderRequest
      *
      * @return GetOIDCProviderResponse GetOIDCProviderResponse
@@ -1854,9 +1998,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the details of the password policy for RAM users.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPasswordPolicyResponse
+     * @return GetPasswordPolicyResponse GetPasswordPolicyResponse
      */
     public function getPasswordPolicyWithOptions($runtime)
     {
@@ -1877,7 +2023,9 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @return GetPasswordPolicyResponse
+     * @summary Queries the details of the password policy for RAM users.
+     *  *
+     * @return GetPasswordPolicyResponse GetPasswordPolicyResponse
      */
     public function getPasswordPolicy()
     {
@@ -1887,10 +2035,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param GetSAMLProviderRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the information about an identity provider (IdP) for role-based single sign-on (SSO).
+     *  *
+     * @param GetSAMLProviderRequest $request GetSAMLProviderRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSAMLProviderResponse
+     * @return GetSAMLProviderResponse GetSAMLProviderResponse
      */
     public function getSAMLProviderWithOptions($request, $runtime)
     {
@@ -1918,9 +2068,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param GetSAMLProviderRequest $request
+     * @summary Queries the information about an identity provider (IdP) for role-based single sign-on (SSO).
+     *  *
+     * @param GetSAMLProviderRequest $request GetSAMLProviderRequest
      *
-     * @return GetSAMLProviderResponse
+     * @return GetSAMLProviderResponse GetSAMLProviderResponse
      */
     public function getSAMLProvider($request)
     {
@@ -1930,9 +2082,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the security preferences for RAM users.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSecurityPreferenceResponse
+     * @return GetSecurityPreferenceResponse GetSecurityPreferenceResponse
      */
     public function getSecurityPreferenceWithOptions($runtime)
     {
@@ -1953,7 +2107,9 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @return GetSecurityPreferenceResponse
+     * @summary Queries the security preferences for RAM users.
+     *  *
+     * @return GetSecurityPreferenceResponse GetSecurityPreferenceResponse
      */
     public function getSecurityPreference()
     {
@@ -1963,8 +2119,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example to show how to query the information about a RAM user named `test@example.onaliyun.com`.
-     *   *
+     * @summary Queries the information about a RAM user.
+     *  *
+     * @description This topic provides an example to show how to query the information about a RAM user named `test@example.onaliyun.com`.
+     *  *
      * @param GetUserRequest $request GetUserRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -2002,8 +2160,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example to show how to query the information about a RAM user named `test@example.onaliyun.com`.
-     *   *
+     * @summary Queries the information about a RAM user.
+     *  *
+     * @description This topic provides an example to show how to query the information about a RAM user named `test@example.onaliyun.com`.
+     *  *
      * @param GetUserRequest $request GetUserRequest
      *
      * @return GetUserResponse GetUserResponse
@@ -2016,10 +2176,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param GetUserMFAInfoRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 查询RAM用户多因素认证设备信息
+     *  *
+     * @param GetUserMFAInfoRequest $request GetUserMFAInfoRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserMFAInfoResponse
+     * @return GetUserMFAInfoResponse GetUserMFAInfoResponse
      */
     public function getUserMFAInfoWithOptions($request, $runtime)
     {
@@ -2047,9 +2209,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param GetUserMFAInfoRequest $request
+     * @summary 查询RAM用户多因素认证设备信息
+     *  *
+     * @param GetUserMFAInfoRequest $request GetUserMFAInfoRequest
      *
-     * @return GetUserMFAInfoResponse
+     * @return GetUserMFAInfoResponse GetUserMFAInfoResponse
      */
     public function getUserMFAInfo($request)
     {
@@ -2059,9 +2223,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 查询用户SSO身份提供商信息
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserSsoSettingsResponse
+     * @return GetUserSsoSettingsResponse GetUserSsoSettingsResponse
      */
     public function getUserSsoSettingsWithOptions($runtime)
     {
@@ -2082,7 +2248,9 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @return GetUserSsoSettingsResponse
+     * @summary 查询用户SSO身份提供商信息
+     *  *
+     * @return GetUserSsoSettingsResponse GetUserSsoSettingsResponse
      */
     public function getUserSsoSettings()
     {
@@ -2092,10 +2260,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param GetVerificationInfoRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 获取用户安全认证的信息
+     *  *
+     * @param GetVerificationInfoRequest $request GetVerificationInfoRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetVerificationInfoResponse
+     * @return GetVerificationInfoResponse GetVerificationInfoResponse
      */
     public function getVerificationInfoWithOptions($request, $runtime)
     {
@@ -2123,9 +2293,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param GetVerificationInfoRequest $request
+     * @summary 获取用户安全认证的信息
+     *  *
+     * @param GetVerificationInfoRequest $request GetVerificationInfoRequest
      *
-     * @return GetVerificationInfoResponse
+     * @return GetVerificationInfoResponse GetVerificationInfoResponse
      */
     public function getVerificationInfo($request)
     {
@@ -2135,10 +2307,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param ListAccessKeysRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 查询主账号或RAM用户访问密钥列表
+     *  *
+     * @param ListAccessKeysRequest $request ListAccessKeysRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAccessKeysResponse
+     * @return ListAccessKeysResponse ListAccessKeysResponse
      */
     public function listAccessKeysWithOptions($request, $runtime)
     {
@@ -2166,9 +2340,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param ListAccessKeysRequest $request
+     * @summary 查询主账号或RAM用户访问密钥列表
+     *  *
+     * @param ListAccessKeysRequest $request ListAccessKeysRequest
      *
-     * @return ListAccessKeysResponse
+     * @return ListAccessKeysResponse ListAccessKeysResponse
      */
     public function listAccessKeys($request)
     {
@@ -2178,10 +2354,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param ListAppSecretIdsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the secret IDs of an application.
+     *  *
+     * @param ListAppSecretIdsRequest $request ListAppSecretIdsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAppSecretIdsResponse
+     * @return ListAppSecretIdsResponse ListAppSecretIdsResponse
      */
     public function listAppSecretIdsWithOptions($request, $runtime)
     {
@@ -2209,9 +2387,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param ListAppSecretIdsRequest $request
+     * @summary Queries the secret IDs of an application.
+     *  *
+     * @param ListAppSecretIdsRequest $request ListAppSecretIdsRequest
      *
-     * @return ListAppSecretIdsResponse
+     * @return ListAppSecretIdsResponse ListAppSecretIdsResponse
      */
     public function listAppSecretIds($request)
     {
@@ -2221,8 +2401,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
-     *   *
+     * @summary Lists the created applications.
+     *  *
+     * @description This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
+     *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
      * @return ListApplicationsResponse ListApplicationsResponse
@@ -2246,8 +2428,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
-     *   *
+     * @summary Lists the created applications.
+     *  *
+     * @description This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
+     *  *
      * @return ListApplicationsResponse ListApplicationsResponse
      */
     public function listApplications()
@@ -2258,10 +2442,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param ListGroupsRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Queries RAM user groups.
+     *  *
+     * @param ListGroupsRequest $request ListGroupsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGroupsResponse
+     * @return ListGroupsResponse ListGroupsResponse
      */
     public function listGroupsWithOptions($request, $runtime)
     {
@@ -2292,9 +2478,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param ListGroupsRequest $request
+     * @summary Queries RAM user groups.
+     *  *
+     * @param ListGroupsRequest $request ListGroupsRequest
      *
-     * @return ListGroupsResponse
+     * @return ListGroupsResponse ListGroupsResponse
      */
     public function listGroups($request)
     {
@@ -2304,10 +2492,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param ListGroupsForUserRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the RAM user groups to which a RAM user belongs.
+     *  *
+     * @param ListGroupsForUserRequest $request ListGroupsForUserRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGroupsForUserResponse
+     * @return ListGroupsForUserResponse ListGroupsForUserResponse
      */
     public function listGroupsForUserWithOptions($request, $runtime)
     {
@@ -2335,9 +2525,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param ListGroupsForUserRequest $request
+     * @summary Queries the RAM user groups to which a RAM user belongs.
+     *  *
+     * @param ListGroupsForUserRequest $request ListGroupsForUserRequest
      *
-     * @return ListGroupsForUserResponse
+     * @return ListGroupsForUserResponse ListGroupsForUserResponse
      */
     public function listGroupsForUser($request)
     {
@@ -2347,9 +2539,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * This topic provides an example on how to query all OpenID Connect (OIDC) identity providers (IdPs) within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
-     *   *
+     * @summary Queries OIDC IdPs.
+     *  *
+     * @description ###
+     * This topic provides an example on how to query all OpenID Connect (OIDC) identity providers (IdPs) within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
+     *  *
      * @param ListOIDCProvidersRequest $request ListOIDCProvidersRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -2384,9 +2578,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * This topic provides an example on how to query all OpenID Connect (OIDC) identity providers (IdPs) within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
-     *   *
+     * @summary Queries OIDC IdPs.
+     *  *
+     * @description ###
+     * This topic provides an example on how to query all OpenID Connect (OIDC) identity providers (IdPs) within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
+     *  *
      * @param ListOIDCProvidersRequest $request ListOIDCProvidersRequest
      *
      * @return ListOIDCProvidersResponse ListOIDCProvidersResponse
@@ -2399,10 +2595,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param ListPredefinedScopesRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries predefined application permissions.
+     *  *
+     * @param ListPredefinedScopesRequest $request ListPredefinedScopesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPredefinedScopesResponse
+     * @return ListPredefinedScopesResponse ListPredefinedScopesResponse
      */
     public function listPredefinedScopesWithOptions($request, $runtime)
     {
@@ -2430,9 +2628,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param ListPredefinedScopesRequest $request
+     * @summary Queries predefined application permissions.
+     *  *
+     * @param ListPredefinedScopesRequest $request ListPredefinedScopesRequest
      *
-     * @return ListPredefinedScopesResponse
+     * @return ListPredefinedScopesResponse ListPredefinedScopesResponse
      */
     public function listPredefinedScopes($request)
     {
@@ -2442,10 +2642,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param ListSAMLProvidersRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 查询角色SSO身份提供商列表
+     *  *
+     * @param ListSAMLProvidersRequest $request ListSAMLProvidersRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSAMLProvidersResponse
+     * @return ListSAMLProvidersResponse ListSAMLProvidersResponse
      */
     public function listSAMLProvidersWithOptions($request, $runtime)
     {
@@ -2476,9 +2678,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param ListSAMLProvidersRequest $request
+     * @summary 查询角色SSO身份提供商列表
+     *  *
+     * @param ListSAMLProvidersRequest $request ListSAMLProvidersRequest
      *
-     * @return ListSAMLProvidersResponse
+     * @return ListSAMLProvidersResponse ListSAMLProvidersResponse
      */
     public function listSAMLProviders($request)
     {
@@ -2488,12 +2692,14 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
-     *   * *   `ResourceId.N`
-     *   * *   `Tag.N.Key`
-     *   * *   `Tag.N.Key` and `Tag.N.Value`.
-     *   *
+     * @summary Queries the tags that are added resources.
+     *  *
+     * @description ###
+     * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
+     * *   `ResourceId.N`
+     * *   `Tag.N.Key`
+     * *   `Tag.N.Key` and `Tag.N.Value`
+     *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -2540,12 +2746,14 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
-     *   * *   `ResourceId.N`
-     *   * *   `Tag.N.Key`
-     *   * *   `Tag.N.Key` and `Tag.N.Value`.
-     *   *
+     * @summary Queries the tags that are added resources.
+     *  *
+     * @description ###
+     * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
+     * *   `ResourceId.N`
+     * *   `Tag.N.Key`
+     * *   `Tag.N.Key` and `Tag.N.Value`
+     *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
      * @return ListTagResourcesResponse ListTagResourcesResponse
@@ -2558,10 +2766,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * You can call the following API operations to query the information about all RAM users:
-     *   * *   ListUsers: queries the details of all RAM users.
-     *   * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
-     *   *
+     * @summary Queries the basic information about all RAM users.
+     *  *
+     * @description You can call the following API operations to query the information about all RAM users:
+     * *   ListUsers: queries the details of all RAM users.
+     * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+     *  *
      * @param ListUserBasicInfosRequest $request ListUserBasicInfosRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -2576,6 +2786,9 @@ class Ims extends OpenApiClient
         }
         if (!Utils::isUnset($request->maxItems)) {
             $query['MaxItems'] = $request->maxItems;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
@@ -2599,10 +2812,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * You can call the following API operations to query the information about all RAM users:
-     *   * *   ListUsers: queries the details of all RAM users.
-     *   * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
-     *   *
+     * @summary Queries the basic information about all RAM users.
+     *  *
+     * @description You can call the following API operations to query the information about all RAM users:
+     * *   ListUsers: queries the details of all RAM users.
+     * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+     *  *
      * @param ListUserBasicInfosRequest $request ListUserBasicInfosRequest
      *
      * @return ListUserBasicInfosResponse ListUserBasicInfosResponse
@@ -2615,11 +2830,13 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ### [](#)
-     *   * You can call the following API operations to query the details of all RAM users:
-     *   * *   ListUsers: queries the details of all RAM users.
-     *   * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
-     *   *
+     * @summary Queries the details of all RAM users.
+     *  *
+     * @description ### [](#)
+     * You can call the following API operations to query the details of all RAM users:
+     * *   ListUsers: queries the details of all RAM users.
+     * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+     *  *
      * @param ListUsersRequest $request ListUsersRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -2634,6 +2851,9 @@ class Ims extends OpenApiClient
         }
         if (!Utils::isUnset($request->maxItems)) {
             $query['MaxItems'] = $request->maxItems;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
@@ -2657,11 +2877,13 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ### [](#)
-     *   * You can call the following API operations to query the details of all RAM users:
-     *   * *   ListUsers: queries the details of all RAM users.
-     *   * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
-     *   *
+     * @summary Queries the details of all RAM users.
+     *  *
+     * @description ### [](#)
+     * You can call the following API operations to query the details of all RAM users:
+     * *   ListUsers: queries the details of all RAM users.
+     * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+     *  *
      * @param ListUsersRequest $request ListUsersRequest
      *
      * @return ListUsersResponse ListUsersResponse
@@ -2674,10 +2896,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param ListUsersForGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries Resource Access Management (RAM) users in a RAM user group.
+     *  *
+     * @param ListUsersForGroupRequest $request ListUsersForGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUsersForGroupResponse
+     * @return ListUsersForGroupResponse ListUsersForGroupResponse
      */
     public function listUsersForGroupWithOptions($request, $runtime)
     {
@@ -2711,9 +2935,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param ListUsersForGroupRequest $request
+     * @summary Queries Resource Access Management (RAM) users in a RAM user group.
+     *  *
+     * @param ListUsersForGroupRequest $request ListUsersForGroupRequest
      *
-     * @return ListUsersForGroupResponse
+     * @return ListUsersForGroupResponse ListUsersForGroupResponse
      */
     public function listUsersForGroup($request)
     {
@@ -2723,10 +2949,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param ListVirtualMFADevicesRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries multi-factor authentication (MFA) devices.
+     *  *
+     * @param ListVirtualMFADevicesRequest $request ListVirtualMFADevicesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListVirtualMFADevicesResponse
+     * @return ListVirtualMFADevicesResponse ListVirtualMFADevicesResponse
      */
     public function listVirtualMFADevicesWithOptions($request, $runtime)
     {
@@ -2757,9 +2985,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param ListVirtualMFADevicesRequest $request
+     * @summary Queries multi-factor authentication (MFA) devices.
+     *  *
+     * @param ListVirtualMFADevicesRequest $request ListVirtualMFADevicesRequest
      *
-     * @return ListVirtualMFADevicesResponse
+     * @return ListVirtualMFADevicesResponse ListVirtualMFADevicesResponse
      */
     public function listVirtualMFADevices($request)
     {
@@ -2769,9 +2999,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
-     *   *
+     * @summary Removes a client ID from an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @description ###
+     * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
+     *  *
      * @param RemoveClientIdFromOIDCProviderRequest $request RemoveClientIdFromOIDCProviderRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -2806,9 +3038,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
-     *   *
+     * @summary Removes a client ID from an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @description ###
+     * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
+     *  *
      * @param RemoveClientIdFromOIDCProviderRequest $request RemoveClientIdFromOIDCProviderRequest
      *
      * @return RemoveClientIdFromOIDCProviderResponse RemoveClientIdFromOIDCProviderResponse
@@ -2821,9 +3055,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * This topic provides an example on how to remove the fingerprint `6938fd4d98bab03faadb97b34396831e3780****` from the OIDC IdP named `TestOIDCProvider`.
-     *   *
+     * @summary Removes a fingerprint from an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @description ###
+     * This topic provides an example on how to remove the fingerprint `6938fd4d98bab03faadb97b34396831e3780****` from the OIDC IdP named `TestOIDCProvider`.
+     *  *
      * @param RemoveFingerprintFromOIDCProviderRequest $request RemoveFingerprintFromOIDCProviderRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
@@ -2858,9 +3094,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * This topic provides an example on how to remove the fingerprint `6938fd4d98bab03faadb97b34396831e3780****` from the OIDC IdP named `TestOIDCProvider`.
-     *   *
+     * @summary Removes a fingerprint from an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @description ###
+     * This topic provides an example on how to remove the fingerprint `6938fd4d98bab03faadb97b34396831e3780****` from the OIDC IdP named `TestOIDCProvider`.
+     *  *
      * @param RemoveFingerprintFromOIDCProviderRequest $request RemoveFingerprintFromOIDCProviderRequest
      *
      * @return RemoveFingerprintFromOIDCProviderResponse RemoveFingerprintFromOIDCProviderResponse
@@ -2873,10 +3111,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param RemoveUserFromGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 将RAM用户从用户组中移除
+     *  *
+     * @param RemoveUserFromGroupRequest $request RemoveUserFromGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveUserFromGroupResponse
+     * @return RemoveUserFromGroupResponse RemoveUserFromGroupResponse
      */
     public function removeUserFromGroupWithOptions($request, $runtime)
     {
@@ -2907,9 +3147,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param RemoveUserFromGroupRequest $request
+     * @summary 将RAM用户从用户组中移除
+     *  *
+     * @param RemoveUserFromGroupRequest $request RemoveUserFromGroupRequest
      *
-     * @return RemoveUserFromGroupResponse
+     * @return RemoveUserFromGroupResponse RemoveUserFromGroupResponse
      */
     public function removeUserFromGroup($request)
     {
@@ -2919,10 +3161,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param SetDefaultDomainRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Configures the default domain name.
+     *  *
+     * @param SetDefaultDomainRequest $request SetDefaultDomainRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDefaultDomainResponse
+     * @return SetDefaultDomainResponse SetDefaultDomainResponse
      */
     public function setDefaultDomainWithOptions($request, $runtime)
     {
@@ -2950,9 +3194,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param SetDefaultDomainRequest $request
+     * @summary Configures the default domain name.
+     *  *
+     * @param SetDefaultDomainRequest $request SetDefaultDomainRequest
      *
-     * @return SetDefaultDomainResponse
+     * @return SetDefaultDomainResponse SetDefaultDomainResponse
      */
     public function setDefaultDomain($request)
     {
@@ -2962,10 +3208,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param SetPasswordPolicyRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Configures the password policy for RAM users.
+     *  *
+     * @param SetPasswordPolicyRequest $request SetPasswordPolicyRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetPasswordPolicyResponse
+     * @return SetPasswordPolicyResponse SetPasswordPolicyResponse
      */
     public function setPasswordPolicyWithOptions($request, $runtime)
     {
@@ -3023,9 +3271,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param SetPasswordPolicyRequest $request
+     * @summary Configures the password policy for RAM users.
+     *  *
+     * @param SetPasswordPolicyRequest $request SetPasswordPolicyRequest
      *
-     * @return SetPasswordPolicyResponse
+     * @return SetPasswordPolicyResponse SetPasswordPolicyResponse
      */
     public function setPasswordPolicy($request)
     {
@@ -3035,9 +3285,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
-     *   *
+     * @summary Configures security preferences for a RAM user.
+     *  *
+     * @description ###
+     * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
+     *  *
      * @param SetSecurityPreferenceRequest $tmpReq  SetSecurityPreferenceRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -3101,9 +3353,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
-     *   *
+     * @summary Configures security preferences for a RAM user.
+     *  *
+     * @description ###
+     * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
+     *  *
      * @param SetSecurityPreferenceRequest $request SetSecurityPreferenceRequest
      *
      * @return SetSecurityPreferenceResponse SetSecurityPreferenceResponse
@@ -3116,10 +3370,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param SetUserSsoSettingsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 设置用户SSO身份提供商信息
+     *  *
+     * @param SetUserSsoSettingsRequest $request SetUserSsoSettingsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetUserSsoSettingsResponse
+     * @return SetUserSsoSettingsResponse SetUserSsoSettingsResponse
      */
     public function setUserSsoSettingsWithOptions($request, $runtime)
     {
@@ -3153,9 +3409,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param SetUserSsoSettingsRequest $request
+     * @summary 设置用户SSO身份提供商信息
+     *  *
+     * @param SetUserSsoSettingsRequest $request SetUserSsoSettingsRequest
      *
-     * @return SetUserSsoSettingsResponse
+     * @return SetUserSsoSettingsResponse SetUserSsoSettingsResponse
      */
     public function setUserSsoSettings($request)
     {
@@ -3165,10 +3423,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Adds tags to resources.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -3205,9 +3465,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary Adds tags to resources.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -3217,10 +3479,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param UnbindMFADeviceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 为RAM用户解绑多因素认证设备
+     *  *
+     * @param UnbindMFADeviceRequest $request UnbindMFADeviceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindMFADeviceResponse
+     * @return UnbindMFADeviceResponse UnbindMFADeviceResponse
      */
     public function unbindMFADeviceWithOptions($request, $runtime)
     {
@@ -3248,9 +3512,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param UnbindMFADeviceRequest $request
+     * @summary 为RAM用户解绑多因素认证设备
+     *  *
+     * @param UnbindMFADeviceRequest $request UnbindMFADeviceRequest
      *
-     * @return UnbindMFADeviceResponse
+     * @return UnbindMFADeviceResponse UnbindMFADeviceResponse
      */
     public function unbindMFADevice($request)
     {
@@ -3260,10 +3526,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Removes tags from a resource.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -3303,9 +3571,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary Removes tags from a resource.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -3315,10 +3585,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param UpdateAccessKeyRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 修改访问密钥状态
+     *  *
+     * @param UpdateAccessKeyRequest $request UpdateAccessKeyRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAccessKeyResponse
+     * @return UpdateAccessKeyResponse UpdateAccessKeyResponse
      */
     public function updateAccessKeyWithOptions($request, $runtime)
     {
@@ -3352,9 +3624,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param UpdateAccessKeyRequest $request
+     * @summary 修改访问密钥状态
+     *  *
+     * @param UpdateAccessKeyRequest $request UpdateAccessKeyRequest
      *
-     * @return UpdateAccessKeyResponse
+     * @return UpdateAccessKeyResponse UpdateAccessKeyResponse
      */
     public function updateAccessKey($request)
     {
@@ -3364,10 +3638,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Modifies the information about a specified application.
+     *  *
+     * @param UpdateApplicationRequest $request UpdateApplicationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateApplicationResponse
+     * @return UpdateApplicationResponse UpdateApplicationResponse
      */
     public function updateApplicationWithOptions($request, $runtime)
     {
@@ -3419,9 +3695,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationRequest $request
+     * @summary Modifies the information about a specified application.
+     *  *
+     * @param UpdateApplicationRequest $request UpdateApplicationRequest
      *
-     * @return UpdateApplicationResponse
+     * @return UpdateApplicationResponse UpdateApplicationResponse
      */
     public function updateApplication($request)
     {
@@ -3431,10 +3709,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param UpdateGroupRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Modifies the information of a RAM user group.
+     *  *
+     * @param UpdateGroupRequest $request UpdateGroupRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGroupResponse
+     * @return UpdateGroupResponse UpdateGroupResponse
      */
     public function updateGroupWithOptions($request, $runtime)
     {
@@ -3471,9 +3751,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param UpdateGroupRequest $request
+     * @summary Modifies the information of a RAM user group.
+     *  *
+     * @param UpdateGroupRequest $request UpdateGroupRequest
      *
-     * @return UpdateGroupResponse
+     * @return UpdateGroupResponse UpdateGroupResponse
      */
     public function updateGroup($request)
     {
@@ -3483,10 +3765,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param UpdateLoginProfileRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 修改RAM用户的控制台登录信息
+     *  *
+     * @param UpdateLoginProfileRequest $request UpdateLoginProfileRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateLoginProfileResponse
+     * @return UpdateLoginProfileResponse UpdateLoginProfileResponse
      */
     public function updateLoginProfileWithOptions($request, $runtime)
     {
@@ -3526,9 +3810,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param UpdateLoginProfileRequest $request
+     * @summary 修改RAM用户的控制台登录信息
+     *  *
+     * @param UpdateLoginProfileRequest $request UpdateLoginProfileRequest
      *
-     * @return UpdateLoginProfileResponse
+     * @return UpdateLoginProfileResponse UpdateLoginProfileResponse
      */
     public function updateLoginProfile($request)
     {
@@ -3538,9 +3824,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * This topic provides an example on how to change the description of the OIDC IdP named `TestOIDCProvider` to `This is a new OIDC Provider.`.
-     *   *
+     * @summary Modifies the description and client IDs of an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @description ###
+     * This topic provides an example on how to change the description of the OIDC IdP named `TestOIDCProvider` to `This is a new OIDC Provider.`
+     *  *
      * @param UpdateOIDCProviderRequest $request UpdateOIDCProviderRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -3581,9 +3869,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * This topic provides an example on how to change the description of the OIDC IdP named `TestOIDCProvider` to `This is a new OIDC Provider.`.
-     *   *
+     * @summary Modifies the description and client IDs of an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @description ###
+     * This topic provides an example on how to change the description of the OIDC IdP named `TestOIDCProvider` to `This is a new OIDC Provider.`
+     *  *
      * @param UpdateOIDCProviderRequest $request UpdateOIDCProviderRequest
      *
      * @return UpdateOIDCProviderResponse UpdateOIDCProviderResponse
@@ -3596,8 +3886,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`.
-     *   *
+     * @summary 修改角色SSO身份提供商信息
+     *  *
+     * @description This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
+     *  *
      * @param UpdateSAMLProviderRequest $request UpdateSAMLProviderRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -3635,8 +3927,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`.
-     *   *
+     * @summary 修改角色SSO身份提供商信息
+     *  *
+     * @description This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
+     *  *
      * @param UpdateSAMLProviderRequest $request UpdateSAMLProviderRequest
      *
      * @return UpdateSAMLProviderResponse UpdateSAMLProviderResponse
@@ -3649,8 +3943,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example to show how to modify the name of a RAM user from `test@example.onaliyun.com` to `new@example.onaliyun.com`.
-     *   *
+     * @summary Modifies the information about a RAM user.
+     *  *
+     * @description This topic provides an example to show how to modify the name of a RAM user from `test@example.onaliyun.com` to `new@example.onaliyun.com`.
+     *  *
      * @param UpdateUserRequest $request UpdateUserRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -3700,8 +3996,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example to show how to modify the name of a RAM user from `test@example.onaliyun.com` to `new@example.onaliyun.com`.
-     *   *
+     * @summary Modifies the information about a RAM user.
+     *  *
+     * @description This topic provides an example to show how to modify the name of a RAM user from `test@example.onaliyun.com` to `new@example.onaliyun.com`.
+     *  *
      * @param UpdateUserRequest $request UpdateUserRequest
      *
      * @return UpdateUserResponse UpdateUserResponse

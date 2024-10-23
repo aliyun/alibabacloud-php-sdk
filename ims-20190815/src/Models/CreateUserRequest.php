@@ -22,7 +22,7 @@ class CreateUserRequest extends Model
     /**
      * @description The display name of the RAM user.
      *
-     * The name must be 1 to 24 characters in length.
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -60,7 +60,7 @@ class CreateUserRequest extends Model
     /**
      * @description The logon name of the RAM user.
      *
-     * The value of `UserPrincipalName` must be 1 to 128 characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (\_). The value of `<username>` must be 1 to 64 characters in length.
+     * This parameter is required.
      * @example test@example.onaliyun.com
      *
      * @var string

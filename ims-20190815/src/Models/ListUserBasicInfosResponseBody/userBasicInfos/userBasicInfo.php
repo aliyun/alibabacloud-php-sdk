@@ -18,6 +18,11 @@ class userBasicInfo extends Model
     public $displayName;
 
     /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @description The ID of the RAM user.
      *
      * @example 20732900249392****
@@ -36,6 +41,7 @@ class userBasicInfo extends Model
     public $userPrincipalName;
     protected $_name = [
         'displayName'       => 'DisplayName',
+        'status'            => 'Status',
         'userId'            => 'UserId',
         'userPrincipalName' => 'UserPrincipalName',
     ];
@@ -49,6 +55,9 @@ class userBasicInfo extends Model
         $res = [];
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -70,6 +79,9 @@ class userBasicInfo extends Model
         $model = new self();
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

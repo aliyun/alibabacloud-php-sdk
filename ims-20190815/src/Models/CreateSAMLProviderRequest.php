@@ -30,7 +30,7 @@ class CreateSAMLProviderRequest extends Model
     /**
      * @description The name of the IdP.
      *
-     * The value can be up to 128 characters in length. The name can contain letters, digits,`  periods (.), hyphens (-), and underscores (_) `. The name cannot start or end with`  periods (.), hyphens (-), or underscores (_) `.
+     * This parameter is required.
      * @example test-provider
      *
      * @var string

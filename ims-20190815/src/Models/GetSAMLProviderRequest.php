@@ -11,6 +11,7 @@ class GetSAMLProviderRequest extends Model
     /**
      * @description The name of the IdP.
      *
+     * This parameter is required.
      * @example test-provider
      *
      * @var string

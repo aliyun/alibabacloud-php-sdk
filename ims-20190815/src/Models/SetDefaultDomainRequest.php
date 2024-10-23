@@ -11,7 +11,7 @@ class SetDefaultDomainRequest extends Model
     /**
      * @description The default domain name.
      *
-     * >  The default domain name cannot start or end with a hyphen (-) and cannot have two consecutive hyphens (-).
+     * This parameter is required.
      * @example examplecompany.onaliyun.com
      *
      * @var string

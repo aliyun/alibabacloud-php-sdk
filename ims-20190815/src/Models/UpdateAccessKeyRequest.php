@@ -14,6 +14,7 @@ class UpdateAccessKeyRequest extends Model
      *   Active
      *   Inactive
      *
+     * This parameter is required.
      * @example Active
      *
      * @var string
@@ -23,6 +24,7 @@ class UpdateAccessKeyRequest extends Model
     /**
      * @description The AccessKey ID of the AccessKey pair for which you want to modify the status.
      *
+     * This parameter is required.
      * @example LTAI4GFTgcR8m8cZQDTH****
      *
      * @var string

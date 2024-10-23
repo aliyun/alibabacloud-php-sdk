@@ -11,6 +11,7 @@ class GetAccessKeyLastUsedRequest extends Model
     /**
      * @description The ID of the AccessKey pair that you want to query.
      *
+     * This parameter is required.
      * @example LTAI4GFTgcR8m8cZQDTH****
      *
      * @var string

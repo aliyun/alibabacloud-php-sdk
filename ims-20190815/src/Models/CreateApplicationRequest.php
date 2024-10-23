@@ -21,7 +21,7 @@ class CreateApplicationRequest extends Model
     /**
      * @description The application name.
      *
-     * The name can be up to 64 characters in length. The name can contain letters, digits, periods (.), underscores (\_), and hyphens (-).
+     * The name can be up to 64 characters in length. The name can contain letters, digits, periods (.), underscores (_), and hyphens (-).
      * @example myapp
      *
      * @var string
@@ -35,6 +35,7 @@ class CreateApplicationRequest extends Model
      *   NativeApp: a native application that runs on an operating system, such as a desktop operating system or a mobile operating system.
      *   ServerApp: an application that accesses Alibaba Cloud services without the need of manual user logon. User provisioning is automated based on the System for Cross-Domain Identity Management (SCIM) protocol.
      *
+     * This parameter is required.
      * @example WebApp
      *
      * @var string
@@ -44,7 +45,7 @@ class CreateApplicationRequest extends Model
     /**
      * @description The display name of the application.
      *
-     * The name can be up to 24 characters in length.
+     * This parameter is required.
      * @example myapp
      *
      * @var string
@@ -113,7 +114,7 @@ class CreateApplicationRequest extends Model
      *   true
      *   false
      *
-     * >- For applications of the NativeApp type, this parameter can be set to true or false. If you do not set this parameter, false is used. Applications of the NativeApp type run in untrusted environments and the secrets of these applications are not protected. Therefore, we recommend that you do not set this parameter to true unless otherwise specified. For more information, see [Use an application of the NativeApp type to log on to Alibaba Cloud](~~93697~~).
+     * >- For applications of the NativeApp type, this parameter can be set to true or false. If you do not set this parameter, false is used. Applications of the NativeApp type run in untrusted environments and the secrets of these applications are not protected. Therefore, we recommend that you do not set this parameter to true unless otherwise specified. For more information, see [Use an application of the NativeApp type to log on to Alibaba Cloud](https://help.aliyun.com/document_detail/93697.html).
      * @example true
      *
      * @var bool

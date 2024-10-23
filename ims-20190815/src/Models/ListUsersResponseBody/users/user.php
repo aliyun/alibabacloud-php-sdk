@@ -79,6 +79,11 @@ class user extends Model
     public $provisionType;
 
     /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @description The tags.
      *
      * @var tags
@@ -119,6 +124,7 @@ class user extends Model
         'lastLoginDate'     => 'LastLoginDate',
         'mobilePhone'       => 'MobilePhone',
         'provisionType'     => 'ProvisionType',
+        'status'            => 'Status',
         'tags'              => 'Tags',
         'updateDate'        => 'UpdateDate',
         'userId'            => 'UserId',
@@ -152,6 +158,9 @@ class user extends Model
         }
         if (null !== $this->provisionType) {
             $res['ProvisionType'] = $this->provisionType;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
@@ -197,6 +206,9 @@ class user extends Model
         }
         if (isset($map['ProvisionType'])) {
             $model->provisionType = $map['ProvisionType'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);

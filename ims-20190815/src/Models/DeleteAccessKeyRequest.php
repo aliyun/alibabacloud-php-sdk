@@ -11,6 +11,7 @@ class DeleteAccessKeyRequest extends Model
     /**
      * @description The ID of the AccessKey pair that you want to delete.
      *
+     * This parameter is required.
      * @example LTAI4GFTgcR8m8cZQDTH****
      *
      * @var string

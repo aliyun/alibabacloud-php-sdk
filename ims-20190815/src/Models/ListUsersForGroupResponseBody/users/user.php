@@ -18,7 +18,7 @@ class user extends Model
     public $displayName;
 
     /**
-     * @description The time when the RAM user was added.
+     * @description The time when the RAM user was added to the RAM user group. The time is displayed in UTC.
      *
      * @example 2020-10-20T06:57:00Z
      *

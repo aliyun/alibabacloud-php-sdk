@@ -22,8 +22,9 @@ class ListVirtualMFADevicesResponseBody extends Model
     public $isTruncated;
 
     /**
-     * @description The `marker`. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
      *
+     * >  This parameter is returned only when `IsTruncated` is `true`.
      * @example EXAMPLE
      *
      * @var string
@@ -31,7 +32,7 @@ class ListVirtualMFADevicesResponseBody extends Model
     public $marker;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 32272612-DF82-485E-8BA9-AFA4E0C3D0BA
      *
@@ -40,7 +41,7 @@ class ListVirtualMFADevicesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information of the MFA device.
+     * @description The information about the MFA device.
      *
      * @var virtualMFADevices
      */

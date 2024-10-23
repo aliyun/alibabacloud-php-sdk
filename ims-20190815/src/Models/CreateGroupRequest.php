@@ -31,7 +31,7 @@ class CreateGroupRequest extends Model
     /**
      * @description The name of the RAM user group. You must specify this parameter.
      *
-     * The name can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-).
+     * The name can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
      * @example Dev-Team
      *
      * @var string

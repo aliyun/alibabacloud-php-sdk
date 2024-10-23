@@ -51,7 +51,7 @@ class UpdateUserRequest extends Model
     /**
      * @description The new logon name of the RAM user.
      *
-     * The value of `UserPrincipalName` must be 1 to 128 characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (\_). The value of `<username>` must be 1 to 64 characters in length.
+     * The value of `UserPrincipalName` must be 1 to 128 characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_). The value of `<username>` must be 1 to 64 characters in length.
      * @example new@example.onaliyun.com
      *
      * @var string

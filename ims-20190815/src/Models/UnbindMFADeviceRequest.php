@@ -11,6 +11,7 @@ class UnbindMFADeviceRequest extends Model
     /**
      * @description The logon name of the RAM user.
      *
+     * This parameter is required.
      * @example test@example.onaliyun.com
      *
      * @var string

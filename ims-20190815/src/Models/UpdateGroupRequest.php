@@ -40,7 +40,7 @@ class UpdateGroupRequest extends Model
     /**
      * @description The new name of the RAM user group.
      *
-     * The name can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-).
+     * The name can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
      * @example Test-Team
      *
      * @var string

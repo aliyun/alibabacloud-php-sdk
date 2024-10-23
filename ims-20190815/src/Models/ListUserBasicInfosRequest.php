@@ -29,6 +29,11 @@ class ListUserBasicInfosRequest extends Model
     public $maxItems;
 
     /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @description The tag value.
      *
      * @var tag[]
@@ -37,6 +42,7 @@ class ListUserBasicInfosRequest extends Model
     protected $_name = [
         'marker'   => 'Marker',
         'maxItems' => 'MaxItems',
+        'status'   => 'Status',
         'tag'      => 'Tag',
     ];
 
@@ -52,6 +58,9 @@ class ListUserBasicInfosRequest extends Model
         }
         if (null !== $this->maxItems) {
             $res['MaxItems'] = $this->maxItems;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -79,6 +88,9 @@ class ListUserBasicInfosRequest extends Model
         }
         if (isset($map['MaxItems'])) {
             $model->maxItems = $map['MaxItems'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

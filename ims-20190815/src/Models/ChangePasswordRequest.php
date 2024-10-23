@@ -11,7 +11,7 @@ class ChangePasswordRequest extends Model
     /**
      * @description The new password that is used to log on to the console.
      *
-     * The password must meet the complexity requirements. For more information, see [GetPasswordPolicy](~~186691~~).
+     * This parameter is required.
      * @example newpassword
      *
      * @var string
@@ -21,6 +21,7 @@ class ChangePasswordRequest extends Model
     /**
      * @description The old password that is used to log on to the console.
      *
+     * This parameter is required.
      * @example mypassword
      *
      * @var string
