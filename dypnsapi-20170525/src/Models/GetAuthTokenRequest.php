@@ -9,6 +9,26 @@ use AlibabaCloud\Tea\Model;
 class GetAuthTokenRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $bizType;
+
+    /**
+     * @var int
+     */
+    public $cmApiCode;
+
+    /**
+     * @var int
+     */
+    public $ctApiCode;
+
+    /**
+     * @var int
+     */
+    public $cuApiCode;
+
+    /**
      * @description The requested domain name.
      *
      * This parameter is required.
@@ -47,13 +67,23 @@ class GetAuthTokenRequest extends Model
      * @var string
      */
     public $url;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
+        'bizType'              => 'BizType',
+        'cmApiCode'            => 'CmApiCode',
+        'ctApiCode'            => 'CtApiCode',
+        'cuApiCode'            => 'CuApiCode',
         'origin'               => 'Origin',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'sceneCode'            => 'SceneCode',
         'url'                  => 'Url',
+        'version'              => 'Version',
     ];
 
     public function validate()
@@ -63,6 +93,18 @@ class GetAuthTokenRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
+        }
+        if (null !== $this->cmApiCode) {
+            $res['CmApiCode'] = $this->cmApiCode;
+        }
+        if (null !== $this->ctApiCode) {
+            $res['CtApiCode'] = $this->ctApiCode;
+        }
+        if (null !== $this->cuApiCode) {
+            $res['CuApiCode'] = $this->cuApiCode;
+        }
         if (null !== $this->origin) {
             $res['Origin'] = $this->origin;
         }
@@ -81,6 +123,9 @@ class GetAuthTokenRequest extends Model
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
+        }
 
         return $res;
     }
@@ -93,6 +138,18 @@ class GetAuthTokenRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
+        }
+        if (isset($map['CmApiCode'])) {
+            $model->cmApiCode = $map['CmApiCode'];
+        }
+        if (isset($map['CtApiCode'])) {
+            $model->ctApiCode = $map['CtApiCode'];
+        }
+        if (isset($map['CuApiCode'])) {
+            $model->cuApiCode = $map['CuApiCode'];
+        }
         if (isset($map['Origin'])) {
             $model->origin = $map['Origin'];
         }
@@ -110,6 +167,9 @@ class GetAuthTokenRequest extends Model
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

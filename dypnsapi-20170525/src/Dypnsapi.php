@@ -499,6 +499,18 @@ class Dypnsapi extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->bizType)) {
+            $query['BizType'] = $request->bizType;
+        }
+        if (!Utils::isUnset($request->cmApiCode)) {
+            $query['CmApiCode'] = $request->cmApiCode;
+        }
+        if (!Utils::isUnset($request->ctApiCode)) {
+            $query['CtApiCode'] = $request->ctApiCode;
+        }
+        if (!Utils::isUnset($request->cuApiCode)) {
+            $query['CuApiCode'] = $request->cuApiCode;
+        }
         if (!Utils::isUnset($request->origin)) {
             $query['Origin'] = $request->origin;
         }
@@ -516,6 +528,9 @@ class Dypnsapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->url)) {
             $query['Url'] = $request->url;
+        }
+        if (!Utils::isUnset($request->version)) {
+            $query['Version'] = $request->version;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
