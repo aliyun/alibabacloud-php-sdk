@@ -83,6 +83,8 @@ class SendBatchCardSmsRequest extends Model
      * @description The signature. You can view the template code in the **Signature** column on the **Signaturess** tab of the **Go China** page in the Alibaba Cloud SMS console.
      *
      * This parameter is required.
+     * @example [\\"aliyun\\",\\"aliyuncode\\"]
+     *
      * @var string
      */
     public $signNameJson;

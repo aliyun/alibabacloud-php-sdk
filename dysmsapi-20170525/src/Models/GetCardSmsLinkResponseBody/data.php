@@ -20,6 +20,8 @@ class data extends Model
     /**
      * @description The signatures must correspond to the mobile numbers and short URLs in sequence.
      *
+     * @example ["aliyun","aliyun2"]
+     *
      * @var string
      */
     public $cardSignNames;

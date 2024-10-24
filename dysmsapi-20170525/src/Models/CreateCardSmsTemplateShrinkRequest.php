@@ -27,6 +27,8 @@ class CreateCardSmsTemplateShrinkRequest extends Model
     /**
      * @description The description of the message template.
      *
+     * @example Image and Text Template
+     *
      * @var string
      */
     public $memo;
@@ -41,6 +43,8 @@ class CreateCardSmsTemplateShrinkRequest extends Model
      *   Message template content varies based on the template type. For more information, see [Sample message templates](https://help.aliyun.com/document_detail/435361.html).
      *
      * This parameter is required.
+     * @example {
+     * }
      * @var string
      */
     public $templateShrink;
@@ -49,6 +53,8 @@ class CreateCardSmsTemplateShrinkRequest extends Model
      * @description The name of the card message template.
      *
      * This parameter is required.
+     * @example Aliyun Image and Text Template
+     *
      * @var string
      */
     public $templateName;

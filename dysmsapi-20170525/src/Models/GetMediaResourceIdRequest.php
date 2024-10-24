@@ -31,6 +31,8 @@ class GetMediaResourceIdRequest extends Model
     /**
      * @description The description of the resource.
      *
+     * @example remark
+     *
      * @var string
      */
     public $memo;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateSmsTemplateRequest extends Model
 {
     /**
+     * @description Application scenarios, instructions as follows:
+     * - For e-commerce platform stores, applicable only to enterprise users, enter the display link of the e-commerce store with HTTP or HTTPS.
      * @example http://www.aliyun.com/
      *
      * @var string
@@ -16,6 +18,10 @@ class UpdateSmsTemplateRequest extends Model
     public $applySceneContent;
 
     /**
+     * @description International/Hong Kong, Macao, and Taiwan template type. When the **TemplateType** parameter is **3**, this parameter is required for international/Hong Kong, Macao, and Taiwan templates, with values:
+     * - **0**: Verification code.
+     * - **1**: SMS notification.
+     * - **2**: Promotional SMS.
      * @example 0
      *
      * @var int
@@ -23,6 +29,8 @@ class UpdateSmsTemplateRequest extends Model
     public $intlType;
 
     /**
+     * @description Additional information, such as uploading business proof documents or screenshots, to help reviewers understand your business details. Optional and can be left unset.
+     *
      * @var string[]
      */
     public $moreData;
@@ -33,11 +41,19 @@ class UpdateSmsTemplateRequest extends Model
     public $ownerId;
 
     /**
+     * @description SMS signature associated with the template during the application.
+     *
+     * @example 阿里云
+     *
      * @var string
      */
     public $relatedSignName;
 
     /**
+     * @description Explanation for the SMS template application, which serves as a reference for template review.
+     *
+     * @example 登录场景使用验证码
+     *
      * @var string
      */
     public $remark;
@@ -53,8 +69,9 @@ class UpdateSmsTemplateRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description This parameter is required.
+     * @description Template Code of an unapproved template.
      *
+     * This parameter is required.
      * @example SMS_152550****
      *
      * @var string
@@ -62,20 +79,29 @@ class UpdateSmsTemplateRequest extends Model
     public $templateCode;
 
     /**
-     * @description This parameter is required.
+     * @description Template content, up to 500 characters in length.
+     *
+     * This parameter is required.
+     * @example 您正在申请手机注册，验证码为：${code}，5分钟内有效！
      *
      * @var string
      */
     public $templateContent;
 
     /**
-     * @description This parameter is required.
+     * @description Template name, up to 30 characters in length.
+     *
+     * This parameter is required.
+     * @example 验证码
      *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description Template variable rules.
+     *
+     * For guidance on filling variable rules, refer to the [Sample Documentation](https://help.aliyun.com/zh/sms/templaterule-template-variable-parameter-filling-example?spm).
      * @example {"code":"characterWithNumber"}
      *
      * @var string
@@ -83,8 +109,14 @@ class UpdateSmsTemplateRequest extends Model
     public $templateRule;
 
     /**
-     * @description This parameter is required.
+     * @description SMS type. Values:
      *
+     * - **0**: Verification code.
+     * - **1**: SMS notification.
+     * - **2**: Promotional SMS.
+     * - **3**: International/Hong Kong, Macao, and Taiwan messages.
+     *
+     * This parameter is required.
      * @example 0
      *
      * @var int

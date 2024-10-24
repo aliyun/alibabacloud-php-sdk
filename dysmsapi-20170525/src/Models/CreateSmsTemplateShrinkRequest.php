@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSmsTemplateShrinkRequest extends Model
 {
     /**
+     * @description If there is an applicable scenario, you can fill it in.
+     *
      * @example http://www.aliyun.com/
      *
      * @var string
@@ -16,6 +18,10 @@ class CreateSmsTemplateShrinkRequest extends Model
     public $applySceneContent;
 
     /**
+     * @description International/Hong Kong, Macao, and Taiwan template type. When the **TemplateType** parameter is **3**, this parameter is required for international/Hong Kong, Macao, and Taiwan templates, with values:
+     * - **0**: Verification code.
+     * - **1**: SMS notification.
+     * - **2**: Promotional message.
      * @example 0
      *
      * @var int
@@ -23,6 +29,9 @@ class CreateSmsTemplateShrinkRequest extends Model
     public $intlType;
 
     /**
+     * @description Additional materials you can upload, such as business proof documents or screenshots, to help reviewers understand your business details.
+     *
+     * This parameter is optional; please fill it in according to actual needs.
      * @var string
      */
     public $moreDataShrink;
@@ -33,11 +42,22 @@ class CreateSmsTemplateShrinkRequest extends Model
     public $ownerId;
 
     /**
+     * @description The signature name that the template needs to be associated with. The associated SMS signature must have passed the review.
+     *
+     * This parameter is mandatory when the TemplateType parameter is **0**, **1**, or **2**.
+     *
+     * <notice>Associating a signature can expedite the review process. Note that this associated signature is unrelated to the signature selected when sending SMS messages.</notice>
+     * @example Aliyun
+     *
      * @var string
      */
     public $relatedSignName;
 
     /**
+     * @description Please describe the business scenario where you use SMS or provide an online link to the scenario, along with a complete example of the SMS (with variable contents filled), as complete information helps increase the template approval rate. Failure to follow guidelines or leaving this field blank may affect the approval of your template.
+     *
+     * @example Request verification code SMS.
+     *
      * @var string
      */
     public $remark;
@@ -53,20 +73,29 @@ class CreateSmsTemplateShrinkRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description This parameter is required.
+     * @description Template content, up to 500 characters in length.
+     *
+     * This parameter is required.
+     * @example You are applying for mobile registration. The verification code is: ${code}. It is valid for 5 minutes!
      *
      * @var string
      */
     public $templateContent;
 
     /**
-     * @description This parameter is required.
+     * @description Template name, up to 30 characters in length.
+     *
+     * This parameter is required.
+     * @example aliyunCode
      *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description Template variable rules.
+     *
+     * For filling in variable rules, refer to the [Sample Documentation](https://help.aliyun.com/zh/sms/templaterule-template-variable-parameter-filling-example).
      * @example {"code":"characterWithNumber"}
      *
      * @var string
@@ -74,8 +103,14 @@ class CreateSmsTemplateShrinkRequest extends Model
     public $templateRule;
 
     /**
-     * @description This parameter is required.
+     * @description SMS type. Values:
      *
+     * - **0**: Verification code.
+     * - **1**: SMS notification.
+     * - **2**: Promotional message.
+     * - **3**: International/Hong Kong, Macao, and Taiwan messages.
+     *
+     * This parameter is required.
      * @example 0
      *
      * @var int

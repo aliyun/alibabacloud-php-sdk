@@ -6,12 +6,36 @@ namespace AlibabaCloud\SDK\Dysmsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetSmsSignRequest extends Model
+class QueryExtCodeSignRequest extends Model
 {
+    /**
+     * @description 扩展码A3
+     *
+     * This parameter is required.
+     * @example 01
+     *
+     * @var string
+     */
+    public $extCode;
+
     /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageNo;
+
+    /**
+     * @example 20
+     *
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -24,16 +48,19 @@ class GetSmsSignRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Signature name. Must be an SMS signature already applied for by this account.
+     * @description 签名
      *
      * This parameter is required.
-     * @example Aliyun
+     * @example 示例值示例值
      *
      * @var string
      */
     public $signName;
     protected $_name = [
+        'extCode'              => 'ExtCode',
         'ownerId'              => 'OwnerId',
+        'pageNo'               => 'PageNo',
+        'pageSize'             => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'signName'             => 'SignName',
@@ -46,8 +73,17 @@ class GetSmsSignRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->extCode) {
+            $res['ExtCode'] = $this->extCode;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -65,13 +101,22 @@ class GetSmsSignRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetSmsSignRequest
+     * @return QueryExtCodeSignRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExtCode'])) {
+            $model->extCode = $map['ExtCode'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

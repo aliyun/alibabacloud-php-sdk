@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSmsSignShrinkRequest extends Model
 {
     /**
+     * @description Application scenarios, instructions as follows:
+     * - For e-commerce platform store names, applicable only to enterprise users, provide a display link with HTTP or HTTPS for the store.
      * @example http://www.aliyun.com/
      *
      * @var string
@@ -16,6 +18,9 @@ class CreateSmsSignShrinkRequest extends Model
     public $applySceneContent;
 
     /**
+     * @description Additional information to supplement uploaded business proof documents or screenshots, which helps reviewers understand your business details.
+     *
+     * This parameter is optional; please fill it out based on your actual needs.
      * @var string
      */
     public $moreDataShrink;
@@ -26,15 +31,21 @@ class CreateSmsSignShrinkRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description Approved or under-review qualification ID.
      *
-     * @example 2004393xxxx
+     * This parameter is required.
+     * @example 8563**
      *
      * @var int
      */
     public $qualificationId;
 
     /**
+     * @description Explanation of the SMS signature scenario, with a maximum length of 200 characters.
+     *
+     * > The scenario explanation is one of the reference materials for signature review. Please provide a detailed description of the usage scenarios for your live services, along with links to verify these services such as website URLs with MIIT备案, app store display links, full names of public accounts or mini-programs, etc. For login scenarios, test account credentials are also required. A comprehensive application explanation enhances the efficiency of signature and template reviews. Refer to the **Application Scenario** column in the [Signature Source](https://help.aliyun.com/zh/sms/user-guide/signature-specifications-1?spm=a2c4g.11186623.0.i2#section-xup-k46-yi4) table for filling in SMS scenarios.
+     * @example SMS signature for the login scenario using verification code.
+     *
      * @var string
      */
     public $remark;
@@ -50,15 +61,30 @@ class CreateSmsSignShrinkRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description This parameter is required.
+     * @description Signature name. Please adhere to the [Signature Specifications](https://help.aliyun.com/zh/sms/user-guide/signature-specifications-1?spm=a2c4g.11186623.0.0.4f9710fder2gR7#section-0p8-qn8-mmy).
+     *
+     * This parameter is required.
+     * @example Aliyun
      *
      * @var string
      */
     public $signName;
 
     /**
-     * @description This parameter is required.
+     * @description Signature source. Values:
      *
+     * - **0**: Full name or abbreviation of an enterprise or institution.
+     * - **1**: Full name or abbreviation of a MIIT-registered website.
+     * - **2**: Full name or abbreviation of an App.
+     * - **3**: Full name or abbreviation of an official account or mini-program.
+     * - **4**: Full name or abbreviation of an e-commerce platform store.
+     * - **5**: Full name or abbreviation of a trademark.
+     *
+     * For detailed information on signature sources, refer to [Signature Source](https://help.aliyun.com/zh/sms/user-guide/signature-specifications-1?spm=a2c4g.11186623.0.0.4f9710fder2gR7#section-xup-k46-yi4).
+     *
+     * > This interface does not support applying for signatures with sources as **Test or Learning** and **Trial Use**. If you need to apply for signatures with these sources, please go to the [SMS Service Console](https://dysms.console.aliyun.com/domestic/text/sign/add/qualification).
+     *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -66,6 +92,13 @@ class CreateSmsSignShrinkRequest extends Model
     public $signSource;
 
     /**
+     * @description Signature type. Values:
+     *
+     * - **0**: Verification Code
+     *
+     * - **1**: General (Default)
+     *
+     * > It is recommended to use the default value: **General**.
      * @example 1
      *
      * @var int
@@ -73,6 +106,9 @@ class CreateSmsSignShrinkRequest extends Model
     public $signType;
 
     /**
+     * @description Choose whether the applied signature is for self-use or third-party use.
+     *
+     * >Notice: Please select self-use qualification ID when the signature is for self-use; choose third-party use qualification ID when it\\"s for third-party use.
      * @example false
      *
      * @var bool

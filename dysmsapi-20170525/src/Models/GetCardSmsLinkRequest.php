@@ -46,6 +46,8 @@ class GetCardSmsLinkRequest extends Model
     /**
      * @description The variables of the message template.
      *
+     * @example [{},{}]
+     *
      * @var string
      */
     public $cardTemplateParamJson;
@@ -106,6 +108,8 @@ class GetCardSmsLinkRequest extends Model
      * @description The signature. You can view the template code in the **Signature** column on the **Signaturess** tab of the **Go China** page in the Alibaba Cloud SMS console.
      *
      * This parameter is required.
+     * @example [\\"aliyun\\", \\"aliyun2\\"]
+     *
      * @var string
      */
     public $signNameJson;

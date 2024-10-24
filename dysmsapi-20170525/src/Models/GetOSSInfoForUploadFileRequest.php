@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetOSSInfoForUploadFileRequest extends Model
 {
     /**
+     * @description Business type, default value is **fcMediaSms**.
+     *
+     * When creating signatures and templates, and uploading **additional materials**, this value is **fcMediaSms**.
      * @example fcMediaSms
      *
      * @var string

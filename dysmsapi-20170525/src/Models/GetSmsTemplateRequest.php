@@ -24,8 +24,9 @@ class GetSmsTemplateRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description This parameter is required.
+     * @description SMS template code.
      *
+     * This parameter is required.
      * @example SMS_20375****
      *
      * @var string

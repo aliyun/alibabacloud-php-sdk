@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to delete all tags from the message template. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -21,6 +26,8 @@ class UntagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The name of the cloud service. Set the value to **dysms**.
+     *
      * @example dysms
      *
      * @var string
@@ -28,8 +35,9 @@ class UntagResourcesRequest extends Model
     public $prodCode;
 
     /**
-     * @description This parameter is required.
+     * @description The region. Set the value to cn-hangzhou.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +45,8 @@ class UntagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The array of message template codes. You can specify 1 to 20 message templates.
+     *
      * @example SMS_23423423
      *
      * @var string[]
@@ -54,8 +64,9 @@ class UntagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the resource. Set the value to TEMPLATE.
      *
+     * This parameter is required.
      * @example TEMPLATE
      *
      * @var string
@@ -63,6 +74,8 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The array of tag keys. You can specify 1 to 20 tag keys.
+     *
      * @example TestKey
      *
      * @var string[]

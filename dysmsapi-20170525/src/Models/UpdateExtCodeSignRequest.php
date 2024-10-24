@@ -6,8 +6,28 @@ namespace AlibabaCloud\SDK\Dysmsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetSmsSignRequest extends Model
+class UpdateExtCodeSignRequest extends Model
 {
+    /**
+     * @description 要修改的扩展码A3
+     *
+     * This parameter is required.
+     * @example 01
+     *
+     * @var string
+     */
+    public $existExtCode;
+
+    /**
+     * @description 修改后的扩展码A3
+     *
+     * This parameter is required.
+     * @example 02
+     *
+     * @var string
+     */
+    public $newExtCode;
+
     /**
      * @var int
      */
@@ -24,15 +44,17 @@ class GetSmsSignRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Signature name. Must be an SMS signature already applied for by this account.
+     * @description 签名
      *
      * This parameter is required.
-     * @example Aliyun
+     * @example 示例值示例值示例值
      *
      * @var string
      */
     public $signName;
     protected $_name = [
+        'existExtCode'         => 'ExistExtCode',
+        'newExtCode'           => 'NewExtCode',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -46,6 +68,12 @@ class GetSmsSignRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->existExtCode) {
+            $res['ExistExtCode'] = $this->existExtCode;
+        }
+        if (null !== $this->newExtCode) {
+            $res['NewExtCode'] = $this->newExtCode;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -65,11 +93,17 @@ class GetSmsSignRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetSmsSignRequest
+     * @return UpdateExtCodeSignRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExistExtCode'])) {
+            $model->existExtCode = $map['ExistExtCode'];
+        }
+        if (isset($map['NewExtCode'])) {
+            $model->newExtCode = $map['NewExtCode'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }

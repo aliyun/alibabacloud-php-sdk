@@ -20,6 +20,8 @@ class cardObjects extends Model
     /**
      * @description The variables. Special characters, such as $ and {}, do not need to be entered.
      *
+     * @example {\\"param3\\":\\"three\\",\\"param1\\":\\"one\\",\\"param2\\":\\"two\\"}
+     *
      * @var string
      */
     public $dyncParams;

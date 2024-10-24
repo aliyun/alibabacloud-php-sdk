@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class auditInfo extends Model
 {
     /**
+     * @description Audit date and time.
+     *
      * @example 2024-06-03 12:02:34
      *
      * @var string
@@ -16,6 +18,10 @@ class auditInfo extends Model
     public $auditDate;
 
     /**
+     * @description Reasons for not passing the review.
+     *
+     * @example reason for rejection.
+     *
      * @var string
      */
     public $rejectInfo;

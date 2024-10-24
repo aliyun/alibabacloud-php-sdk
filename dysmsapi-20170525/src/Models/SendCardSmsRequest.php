@@ -74,6 +74,8 @@ class SendCardSmsRequest extends Model
      * @description The signature. You can view the template code in the **Signature** column on the **Signaturess** tab of the **Go China** page in the Alibaba Cloud SMS console.
      *
      * This parameter is required.
+     * @example aliyun
+     *
      * @var string
      */
     public $signName;
@@ -92,6 +94,8 @@ class SendCardSmsRequest extends Model
      * @description The variables of the text message template.
      *
      * > If you need to add line breaks to the JSON template, make sure that the format is valid.
+     * @example {\\"uri\\":\\"Zg11tZ\\"}
+     *
      * @var string
      */
     public $smsTemplateParam;

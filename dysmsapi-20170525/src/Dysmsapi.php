@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Dysmsapi\V20170525;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddExtCodeSignRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddExtCodeSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddShortUrlRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddShortUrlResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddSmsSignRequest;
@@ -27,12 +29,16 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsSignShrinkRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsTemplateShrinkRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteExtCodeSignRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteExtCodeSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteShortUrlRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteShortUrlResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsTemplateResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetCardSmsDetailsRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetCardSmsDetailsResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetCardSmsLinkRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetCardSmsLinkResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetMediaResourceIdRequest;
@@ -54,6 +60,8 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryCardSmsTemplateReportRequest
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryCardSmsTemplateReportResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryCardSmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryCardSmsTemplateResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryExtCodeSignRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryExtCodeSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryMobilesCardSupportRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryMobilesCardSupportResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryMobilesCardSupportShrinkRequest;
@@ -87,6 +95,8 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateExtCodeSignRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateExtCodeSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateSmsSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateSmsSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateSmsSignShrinkRequest;
@@ -138,6 +148,65 @@ class Dysmsapi extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 添加验证码签名信息
+     *  *
+     * @param AddExtCodeSignRequest $request AddExtCodeSignRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AddExtCodeSignResponse AddExtCodeSignResponse
+     */
+    public function addExtCodeSignWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->extCode)) {
+            $query['ExtCode'] = $request->extCode;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->signName)) {
+            $query['SignName'] = $request->signName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddExtCodeSign',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddExtCodeSignResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 添加验证码签名信息
+     *  *
+     * @param AddExtCodeSignRequest $request AddExtCodeSignRequest
+     *
+     * @return AddExtCodeSignResponse AddExtCodeSignResponse
+     */
+    public function addExtCodeSign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addExtCodeSignWithOptions($request, $runtime);
     }
 
     /**
@@ -642,7 +711,12 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @summary 创建短信签名
+     * @summary Create SMS Signature
+     *  *
+     * @description - For details about the announcement of changes to the new and original interfaces, see [Announcement on Updates to SMS Service Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+     * - Individual authenticated users can apply for one formal signature per natural day under the same Alibaba Cloud account, while enterprise authenticated users have no current restrictions. For details on the differences in rights between individual and enterprise users, please refer to [User Guide](https://help.aliyun.com/zh/sms/user-guide/usage-notes?spm).
+     * - Signature information applied through the interface will be synchronized in the SMS service console. For operations related to signatures in the console, see [SMS Signatures](https://help.aliyun.com/zh/sms/user-guide/create-signatures?spm).
+     * - After submitting the signature application, you can query the signature review status and details via the [GetSmsSign](https://help.aliyun.com/zh/sms/developer-reference/api-dysmsapi-2017-05-25-getsmssign?spm) interface. You can also [Configure Receipt Messages](https://help.aliyun.com/zh/sms/developer-reference/configure-delivery-receipts-1?spm) and obtain signature review status messages through SignSmsReport.
      *  *
      * @param CreateSmsSignRequest $tmpReq  CreateSmsSignRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -710,7 +784,12 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @summary 创建短信签名
+     * @summary Create SMS Signature
+     *  *
+     * @description - For details about the announcement of changes to the new and original interfaces, see [Announcement on Updates to SMS Service Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+     * - Individual authenticated users can apply for one formal signature per natural day under the same Alibaba Cloud account, while enterprise authenticated users have no current restrictions. For details on the differences in rights between individual and enterprise users, please refer to [User Guide](https://help.aliyun.com/zh/sms/user-guide/usage-notes?spm).
+     * - Signature information applied through the interface will be synchronized in the SMS service console. For operations related to signatures in the console, see [SMS Signatures](https://help.aliyun.com/zh/sms/user-guide/create-signatures?spm).
+     * - After submitting the signature application, you can query the signature review status and details via the [GetSmsSign](https://help.aliyun.com/zh/sms/developer-reference/api-dysmsapi-2017-05-25-getsmssign?spm) interface. You can also [Configure Receipt Messages](https://help.aliyun.com/zh/sms/developer-reference/configure-delivery-receipts-1?spm) and obtain signature review status messages through SignSmsReport.
      *  *
      * @param CreateSmsSignRequest $request CreateSmsSignRequest
      *
@@ -724,7 +803,14 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @summary 创建短信模板
+     * @summary Create SMS Template
+     *  *
+     * @description - For details about the changes of this new interface compared to the original one, please refer to [Announcement on the Update of SMS Service Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+     * - It is recommended to apply for SMS templates via the API with at least a 30-second interval between each request.
+     * - The template information applied through the API will be synchronized in the SMS service console. For operations related to templates in the console, please refer to SMS Templates.
+     * - After submitting the template application, you can query the audit status and details using the GetSmsTemplate interface. You can also configure delivery receipts to obtain the audit status messages via TemplateSmsReport.
+     * - Domestic SMS templates are not interchangeable with international/Hong Kong, Macao, and Taiwan SMS templates. Please apply for templates based on your business scenario.
+     * - Only enterprise-verified users can apply for promotional messages and international/Hong Kong, Macao, and Taiwan messages. For differences in rights between personal and enterprise users, please refer to Usage Instructions.
      *  *
      * @param CreateSmsTemplateRequest $tmpReq  CreateSmsTemplateRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -795,7 +881,14 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @summary 创建短信模板
+     * @summary Create SMS Template
+     *  *
+     * @description - For details about the changes of this new interface compared to the original one, please refer to [Announcement on the Update of SMS Service Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+     * - It is recommended to apply for SMS templates via the API with at least a 30-second interval between each request.
+     * - The template information applied through the API will be synchronized in the SMS service console. For operations related to templates in the console, please refer to SMS Templates.
+     * - After submitting the template application, you can query the audit status and details using the GetSmsTemplate interface. You can also configure delivery receipts to obtain the audit status messages via TemplateSmsReport.
+     * - Domestic SMS templates are not interchangeable with international/Hong Kong, Macao, and Taiwan SMS templates. Please apply for templates based on your business scenario.
+     * - Only enterprise-verified users can apply for promotional messages and international/Hong Kong, Macao, and Taiwan messages. For differences in rights between personal and enterprise users, please refer to Usage Instructions.
      *  *
      * @param CreateSmsTemplateRequest $request CreateSmsTemplateRequest
      *
@@ -806,6 +899,65 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSmsTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除验证码签名
+     *  *
+     * @param DeleteExtCodeSignRequest $request DeleteExtCodeSignRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteExtCodeSignResponse DeleteExtCodeSignResponse
+     */
+    public function deleteExtCodeSignWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->extCode)) {
+            $query['ExtCode'] = $request->extCode;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->signName)) {
+            $query['SignName'] = $request->signName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteExtCodeSign',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteExtCodeSignResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除验证码签名
+     *  *
+     * @param DeleteExtCodeSignRequest $request DeleteExtCodeSignRequest
+     *
+     * @return DeleteExtCodeSignResponse DeleteExtCodeSignResponse
+     */
+    public function deleteExtCodeSign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteExtCodeSignWithOptions($request, $runtime);
     }
 
     /**
@@ -1007,6 +1159,80 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
+     * @summary 查询卡片发送详情
+     *  *
+     * @param GetCardSmsDetailsRequest $request GetCardSmsDetailsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetCardSmsDetailsResponse GetCardSmsDetailsResponse
+     */
+    public function getCardSmsDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizCardId)) {
+            $query['BizCardId'] = $request->bizCardId;
+        }
+        if (!Utils::isUnset($request->bizDigitId)) {
+            $query['BizDigitId'] = $request->bizDigitId;
+        }
+        if (!Utils::isUnset($request->bizSmsId)) {
+            $query['BizSmsId'] = $request->bizSmsId;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sendDate)) {
+            $query['SendDate'] = $request->sendDate;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCardSmsDetails',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCardSmsDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询卡片发送详情
+     *  *
+     * @param GetCardSmsDetailsRequest $request GetCardSmsDetailsRequest
+     *
+     * @return GetCardSmsDetailsResponse GetCardSmsDetailsResponse
+     */
+    public function getCardSmsDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCardSmsDetailsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the short URLs of a card messages template.
      *  *
      * @description ### QPS limit
@@ -1194,7 +1420,10 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @summary 短信上传文件，获取授权信息
+     * @summary SMS File Upload, Get Authorization Info
+     *  *
+     * @description - When creating signatures or templates, you can upload materials such as login pages with links, backend page screenshots, software copyrights, supplementary agreements, etc. This helps the review personnel understand your business details. If there are multiple materials, they can be combined into one file, supporting png, jpg, jpeg, doc, docx, pdf formats.
+     * - For additional materials needed when creating signatures or templates, you can upload them to the OSS file system for storage. For file upload operations, refer to [OSS File Upload](https://help.aliyun.com/zh/sms/upload-files-through-oss).
      *  *
      * @param GetOSSInfoForUploadFileRequest $request GetOSSInfoForUploadFileRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -1236,7 +1465,10 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @summary 短信上传文件，获取授权信息
+     * @summary SMS File Upload, Get Authorization Info
+     *  *
+     * @description - When creating signatures or templates, you can upload materials such as login pages with links, backend page screenshots, software copyrights, supplementary agreements, etc. This helps the review personnel understand your business details. If there are multiple materials, they can be combined into one file, supporting png, jpg, jpeg, doc, docx, pdf formats.
+     * - For additional materials needed when creating signatures or templates, you can upload them to the OSS file system for storage. For file upload operations, refer to [OSS File Upload](https://help.aliyun.com/zh/sms/upload-files-through-oss).
      *  *
      * @param GetOSSInfoForUploadFileRequest $request GetOSSInfoForUploadFileRequest
      *
@@ -1250,7 +1482,11 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询短信签名详情
+     * @summary Query SMS Signature Details
+     *  *
+     * @description - For details about the changes of this new interface and the original one, please refer to [Announcement on the Update of SMS Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+     * - Review Time: Generally, after submitting the signature, Alibaba Cloud expects to complete the review within 2 hours (Review Business Hours: Monday to Sunday 9:00~21:00, with legal holidays postponed). It is recommended to submit your application before 18:00.
+     * - If the signature fails the review, the reason for the failure will be returned. Please refer to [Handling Suggestions for Failed SMS Reviews](https://help.aliyun.com/zh/sms/user-guide/causes-of-application-failures-and-suggestions?spm), invoke the [UpdateSmsSign](https://help.aliyun.com/zh/sms/developer-reference/api-dysmsapi-2017-05-25-updatesmssign?spm) API, or modify the unapproved SMS signature on the [Signature Management](https://dysms.console.aliyun.com/domestic/text/sign) page.
      *  *
      * @param GetSmsSignRequest $request GetSmsSignRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -1292,7 +1528,11 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询短信签名详情
+     * @summary Query SMS Signature Details
+     *  *
+     * @description - For details about the changes of this new interface and the original one, please refer to [Announcement on the Update of SMS Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+     * - Review Time: Generally, after submitting the signature, Alibaba Cloud expects to complete the review within 2 hours (Review Business Hours: Monday to Sunday 9:00~21:00, with legal holidays postponed). It is recommended to submit your application before 18:00.
+     * - If the signature fails the review, the reason for the failure will be returned. Please refer to [Handling Suggestions for Failed SMS Reviews](https://help.aliyun.com/zh/sms/user-guide/causes-of-application-failures-and-suggestions?spm), invoke the [UpdateSmsSign](https://help.aliyun.com/zh/sms/developer-reference/api-dysmsapi-2017-05-25-updatesmssign?spm) API, or modify the unapproved SMS signature on the [Signature Management](https://dysms.console.aliyun.com/domestic/text/sign) page.
      *  *
      * @param GetSmsSignRequest $request GetSmsSignRequest
      *
@@ -1306,7 +1546,12 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询文本短信模板详情
+     * @summary Query Text SMS Template Details
+     *  *
+     * @description - For details about the announcement of changes to the new and original interfaces, see [Announcement on Updates to SMS Service Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+     * - Review Time: Under normal circumstances, Alibaba Cloud expects to complete the review within 2 hours after template submission (review working hours: Monday to Sunday 9:00~21:00, with statutory holidays postponed). It is recommended to submit your application before 18:00.
+     * - If the template fails the review, the reason for the failure will be returned. Please refer to [Handling Suggestions for Failed SMS Reviews](https://help.aliyun.com/zh/sms/user-guide/causes-of-application-failures-and-suggestions?spm=a2c4g.11186623.0.0.41fd339f3bPSCQ), invoke the [ModifySmsTemplate](https://help.aliyun.com/zh/sms/developer-reference/api-dysmsapi-2017-05-25-modifysmstemplate?spm=a2c4g.11186623.0.0.5b1f6e8bQloFit) API or modify the SMS template on the [Template Management](https://dysms.console.aliyun.com/domestic/text/template) page.
+     * - The current QuerySmsTemplate interface queries the audit details of a single template by template code. The [QuerySmsTemplateList](https://help.aliyun.com/zh/sms/developer-reference/api-dysmsapi-2017-05-25-querysmstemplatelist?spm=a2c4g.11186623.0.0.24086e8bO8cFn4) interface can query the template details of all templates under your current account.
      *  *
      * @param GetSmsTemplateRequest $request GetSmsTemplateRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -1348,7 +1593,12 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询文本短信模板详情
+     * @summary Query Text SMS Template Details
+     *  *
+     * @description - For details about the announcement of changes to the new and original interfaces, see [Announcement on Updates to SMS Service Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+     * - Review Time: Under normal circumstances, Alibaba Cloud expects to complete the review within 2 hours after template submission (review working hours: Monday to Sunday 9:00~21:00, with statutory holidays postponed). It is recommended to submit your application before 18:00.
+     * - If the template fails the review, the reason for the failure will be returned. Please refer to [Handling Suggestions for Failed SMS Reviews](https://help.aliyun.com/zh/sms/user-guide/causes-of-application-failures-and-suggestions?spm=a2c4g.11186623.0.0.41fd339f3bPSCQ), invoke the [ModifySmsTemplate](https://help.aliyun.com/zh/sms/developer-reference/api-dysmsapi-2017-05-25-modifysmstemplate?spm=a2c4g.11186623.0.0.5b1f6e8bQloFit) API or modify the SMS template on the [Template Management](https://dysms.console.aliyun.com/domestic/text/template) page.
+     * - The current QuerySmsTemplate interface queries the audit details of a single template by template code. The [QuerySmsTemplateList](https://help.aliyun.com/zh/sms/developer-reference/api-dysmsapi-2017-05-25-querysmstemplatelist?spm=a2c4g.11186623.0.0.24086e8bO8cFn4) interface can query the template details of all templates under your current account.
      *  *
      * @param GetSmsTemplateRequest $request GetSmsTemplateRequest
      *
@@ -1719,6 +1969,71 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryCardSmsTemplateReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询验证码签名
+     *  *
+     * @param QueryExtCodeSignRequest $request QueryExtCodeSignRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryExtCodeSignResponse QueryExtCodeSignResponse
+     */
+    public function queryExtCodeSignWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->extCode)) {
+            $query['ExtCode'] = $request->extCode;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->signName)) {
+            $query['SignName'] = $request->signName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryExtCodeSign',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryExtCodeSignResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询验证码签名
+     *  *
+     * @param QueryExtCodeSignRequest $request QueryExtCodeSignRequest
+     *
+     * @return QueryExtCodeSignResponse QueryExtCodeSignResponse
+     */
+    public function queryExtCodeSign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryExtCodeSignWithOptions($request, $runtime);
     }
 
     /**
@@ -2811,6 +3126,11 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
+     * @summary Deletes tags from a message template.
+     *  *
+     * @description ### QPS limit
+     * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -2866,6 +3186,11 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
+     * @summary Deletes tags from a message template.
+     *  *
+     * @description ### QPS limit
+     * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *
      * @return UntagResourcesResponse UntagResourcesResponse
@@ -2878,7 +3203,73 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @summary 修改文本短信签名
+     * @summary 修改验证码签名
+     *  *
+     * @param UpdateExtCodeSignRequest $request UpdateExtCodeSignRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateExtCodeSignResponse UpdateExtCodeSignResponse
+     */
+    public function updateExtCodeSignWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->existExtCode)) {
+            $query['ExistExtCode'] = $request->existExtCode;
+        }
+        if (!Utils::isUnset($request->newExtCode)) {
+            $query['NewExtCode'] = $request->newExtCode;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->signName)) {
+            $query['SignName'] = $request->signName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateExtCodeSign',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateExtCodeSignResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改验证码签名
+     *  *
+     * @param UpdateExtCodeSignRequest $request UpdateExtCodeSignRequest
+     *
+     * @return UpdateExtCodeSignResponse UpdateExtCodeSignResponse
+     */
+    public function updateExtCodeSign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateExtCodeSignWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Update Text SMS Signature
+     *  *
+     * @description - For details about the changes of this new interface and the original one, please refer to [Announcement on the Update of SMS Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+     * - Only signatures that have not passed the review can be modified. Please refer to [Handling Suggestions for Failed SMS Reviews](https://help.aliyun.com/zh/sms/user-guide/causes-of-application-failures-and-suggestions?spm) and call this interface to modify and resubmit for review after modification.
+     * - Signature information applied through the interface will be synchronized in the SMS service console. For operations related to signatures in the console, please see [SMS Signatures](https://help.aliyun.com/zh/sms/user-guide/create-signatures?spm).
      *  *
      * @param UpdateSmsSignRequest $tmpReq  UpdateSmsSignRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -2946,7 +3337,11 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @summary 修改文本短信签名
+     * @summary Update Text SMS Signature
+     *  *
+     * @description - For details about the changes of this new interface and the original one, please refer to [Announcement on the Update of SMS Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+     * - Only signatures that have not passed the review can be modified. Please refer to [Handling Suggestions for Failed SMS Reviews](https://help.aliyun.com/zh/sms/user-guide/causes-of-application-failures-and-suggestions?spm) and call this interface to modify and resubmit for review after modification.
+     * - Signature information applied through the interface will be synchronized in the SMS service console. For operations related to signatures in the console, please see [SMS Signatures](https://help.aliyun.com/zh/sms/user-guide/create-signatures?spm).
      *  *
      * @param UpdateSmsSignRequest $request UpdateSmsSignRequest
      *
@@ -2960,7 +3355,13 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @summary 修改文本短信模板
+     * @summary Update Text SMS Template
+     *  *
+     * @description - For details about the changes of this new interface compared to the original one, please refer to [Announcement on SMS Service Update: Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+     * - Only templates that have not passed the review can be modified. Please refer to [Handling Suggestions for Failed SMS Template Reviews](https://help.aliyun.com/zh/sms/user-guide/causes-of-application-failures-and-suggestions?spm=a2c4g.11186623.0.0.4bf5561ajcFtMQ) and call this interface to modify and resubmit for review.
+     * - Modifications made through the interface will be synchronized in the SMS service console. For related operations on templates in the console, see [SMS Templates](https://help.aliyun.com/zh/sms/user-guide/message-templates/?spm=a2c4g.11186623.0.0.35a947464Itaxp).
+     * ### QPS Limit
+     * The single-user QPS limit for this interface is 1000 times/second. Exceeding this limit will result in API throttling, which may impact your business. Please make calls reasonably.
      *  *
      * @param UpdateSmsTemplateRequest $tmpReq  UpdateSmsTemplateRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -3034,7 +3435,13 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @summary 修改文本短信模板
+     * @summary Update Text SMS Template
+     *  *
+     * @description - For details about the changes of this new interface compared to the original one, please refer to [Announcement on SMS Service Update: Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).
+     * - Only templates that have not passed the review can be modified. Please refer to [Handling Suggestions for Failed SMS Template Reviews](https://help.aliyun.com/zh/sms/user-guide/causes-of-application-failures-and-suggestions?spm=a2c4g.11186623.0.0.4bf5561ajcFtMQ) and call this interface to modify and resubmit for review.
+     * - Modifications made through the interface will be synchronized in the SMS service console. For related operations on templates in the console, see [SMS Templates](https://help.aliyun.com/zh/sms/user-guide/message-templates/?spm=a2c4g.11186623.0.0.35a947464Itaxp).
+     * ### QPS Limit
+     * The single-user QPS limit for this interface is 1000 times/second. Exceeding this limit will result in API throttling, which may impact your business. Please make calls reasonably.
      *  *
      * @param UpdateSmsTemplateRequest $request UpdateSmsTemplateRequest
      *

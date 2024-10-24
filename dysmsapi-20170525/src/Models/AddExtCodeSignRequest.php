@@ -6,8 +6,18 @@ namespace AlibabaCloud\SDK\Dysmsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetSmsSignRequest extends Model
+class AddExtCodeSignRequest extends Model
 {
+    /**
+     * @description 扩展码A3
+     *
+     * This parameter is required.
+     * @example 01
+     *
+     * @var string
+     */
+    public $extCode;
+
     /**
      * @var int
      */
@@ -24,15 +34,16 @@ class GetSmsSignRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Signature name. Must be an SMS signature already applied for by this account.
+     * @description 签名
      *
      * This parameter is required.
-     * @example Aliyun
+     * @example 示例值
      *
      * @var string
      */
     public $signName;
     protected $_name = [
+        'extCode'              => 'ExtCode',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -46,6 +57,9 @@ class GetSmsSignRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->extCode) {
+            $res['ExtCode'] = $this->extCode;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -65,11 +79,14 @@ class GetSmsSignRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetSmsSignRequest
+     * @return AddExtCodeSignRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExtCode'])) {
+            $model->extCode = $map['ExtCode'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }

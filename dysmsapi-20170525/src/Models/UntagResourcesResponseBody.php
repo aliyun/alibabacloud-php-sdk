@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
+     *
      * @example OK
      *
      * @var string
@@ -16,6 +21,11 @@ class UntagResourcesResponseBody extends Model
     public $code;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var string
@@ -23,6 +33,8 @@ class UntagResourcesResponseBody extends Model
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example A90E4451-FED7-49D2-87C8-00700A8C****
      *
      * @var string
