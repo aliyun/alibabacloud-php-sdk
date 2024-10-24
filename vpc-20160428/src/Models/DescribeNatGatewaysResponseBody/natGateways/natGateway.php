@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysResponseBody\natGateways;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysResponseBody\natGateways\natGateway\accessMode;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysResponseBody\natGateways\natGateway\forwardTableIds;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysResponseBody\natGateways\natGateway\fullNatTableIds;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysResponseBody\natGateways\natGateway\ipLists;
@@ -14,6 +15,11 @@ use AlibabaCloud\Tea\Model;
 
 class natGateway extends Model
 {
+    /**
+     * @var accessMode
+     */
+    public $accessMode;
+
     /**
      * @description Indicates whether automatic payment is enabled. Valid values:
      *
@@ -310,6 +316,7 @@ class natGateway extends Model
      */
     public $vpcId;
     protected $_name = [
+        'accessMode'                => 'AccessMode',
         'autoPay'                   => 'AutoPay',
         'businessStatus'            => 'BusinessStatus',
         'creationTime'              => 'CreationTime',
@@ -349,6 +356,9 @@ class natGateway extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessMode) {
+            $res['AccessMode'] = null !== $this->accessMode ? $this->accessMode->toMap() : null;
+        }
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
@@ -451,6 +461,9 @@ class natGateway extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessMode'])) {
+            $model->accessMode = accessMode::fromMap($map['AccessMode']);
+        }
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }

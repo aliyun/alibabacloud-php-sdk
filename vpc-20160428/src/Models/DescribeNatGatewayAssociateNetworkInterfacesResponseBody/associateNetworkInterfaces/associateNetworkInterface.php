@@ -41,12 +41,18 @@ class associateNetworkInterface extends Model
      * @var string
      */
     public $resourceType;
+
+    /**
+     * @var string
+     */
+    public $tunnelIndex;
     protected $_name = [
         'IPv4Sets'           => 'IPv4Sets',
         'networkInterfaceId' => 'NetworkInterfaceId',
         'resourceId'         => 'ResourceId',
         'resourceOwnerId'    => 'ResourceOwnerId',
         'resourceType'       => 'ResourceType',
+        'tunnelIndex'        => 'TunnelIndex',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class associateNetworkInterface extends Model
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->tunnelIndex) {
+            $res['TunnelIndex'] = $this->tunnelIndex;
         }
 
         return $res;
@@ -97,6 +106,9 @@ class associateNetworkInterface extends Model
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['TunnelIndex'])) {
+            $model->tunnelIndex = $map['TunnelIndex'];
         }
 
         return $model;

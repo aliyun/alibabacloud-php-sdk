@@ -19,6 +19,10 @@ class ModifyRouteEntryRequest extends Model
     public $description;
 
     /**
+     * @description The destination CIDR block of the route entry. Only IPv4 CIDR blocks, IPv6 CIDR blocks, and prefix lists are supported.
+     *
+     * @example 192.168.0.0/24
+     *
      * @var string
      */
     public $destinationCidrBlock;
@@ -91,6 +95,10 @@ class ModifyRouteEntryRequest extends Model
     public $routeEntryName;
 
     /**
+     * @description The ID of the route table to which the route entry belongs.
+     *
+     * @example vtb-bp1nk7zk65du3pni8z9td
+     *
      * @var string
      */
     public $routeTableId;

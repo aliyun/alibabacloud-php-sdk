@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class IPv4Set extends Model
 {
     /**
-     * @example 172.17.\*\*.**
+     * @example ``172.17.**.**``
      *
      * @var string
      */

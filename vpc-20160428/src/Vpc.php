@@ -134,6 +134,7 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateIPv6TranslatorRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateIPv6TranslatorResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatGatewayRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatGatewayResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatGatewayShrinkRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatIpCidrRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatIpCidrResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatIpRequest;
@@ -6257,15 +6258,23 @@ class Vpc extends OpenApiClient
      * It takes 1 to 3 minutes to create a NAT gateway.
      * *   You cannot repeatedly call the **CreateNatGateway** operation within a specific period of time.
      *  *
-     * @param CreateNatGatewayRequest $request CreateNatGatewayRequest
+     * @param CreateNatGatewayRequest $tmpReq  CreateNatGatewayRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
      * @return CreateNatGatewayResponse CreateNatGatewayResponse
      */
-    public function createNatGatewayWithOptions($request, $runtime)
+    public function createNatGatewayWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateNatGatewayShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->accessMode)) {
+            $request->accessModeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->accessMode, 'AccessMode', 'json');
+        }
         $query = [];
+        if (!Utils::isUnset($request->accessModeShrink)) {
+            $query['AccessMode'] = $request->accessModeShrink;
+        }
         if (!Utils::isUnset($request->autoPay)) {
             $query['AutoPay'] = $request->autoPay;
         }
@@ -6307,6 +6316,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->pricingCycle)) {
             $query['PricingCycle'] = $request->pricingCycle;
+        }
+        if (!Utils::isUnset($request->privateLinkEnabled)) {
+            $query['PrivateLinkEnabled'] = $request->privateLinkEnabled;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -19797,8 +19809,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI DisableNatGatewayEcsMetric is deprecated
+     *  *
      * @summary Disables traffic monitoring for an Elastic Compute Service (ECS) instance.
      *  *
+     * Deprecated
+     *
      * @param DisableNatGatewayEcsMetricRequest $request DisableNatGatewayEcsMetricRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -19839,8 +19855,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI DisableNatGatewayEcsMetric is deprecated
+     *  *
      * @summary Disables traffic monitoring for an Elastic Compute Service (ECS) instance.
      *  *
+     * Deprecated
+     *
      * @param DisableNatGatewayEcsMetricRequest $request DisableNatGatewayEcsMetricRequest
      *
      * @return DisableNatGatewayEcsMetricResponse DisableNatGatewayEcsMetricResponse
@@ -20200,8 +20220,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI EnableNatGatewayEcsMetric is deprecated
+     *  *
      * @summary Enables Elastic Compute Service (ECS) traffic monitoring.
      *  *
+     * Deprecated
+     *
      * @param EnableNatGatewayEcsMetricRequest $request EnableNatGatewayEcsMetricRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -20242,8 +20266,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI EnableNatGatewayEcsMetric is deprecated
+     *  *
      * @summary Enables Elastic Compute Service (ECS) traffic monitoring.
      *  *
+     * Deprecated
+     *
      * @param EnableNatGatewayEcsMetricRequest $request EnableNatGatewayEcsMetricRequest
      *
      * @return EnableNatGatewayEcsMetricResponse EnableNatGatewayEcsMetricResponse
@@ -25929,7 +25957,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 修改路由条目属性
+     * @summary Modifies the name and description of a custom route entry.
      *  *
      * @description You cannot repeatedly call the **ModifyRouteEntry** operation to modify the name and description of a custom route within the specified period of time.
      *  *
@@ -25997,7 +26025,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 修改路由条目属性
+     * @summary Modifies the name and description of a custom route entry.
      *  *
      * @description You cannot repeatedly call the **ModifyRouteEntry** operation to modify the name and description of a custom route within the specified period of time.
      *  *
@@ -31211,6 +31239,8 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI UpdateNatGatewayNatType is deprecated
+     *  *
      * @summary Upgrades a standard NAT gateway to an enhanced NAT gateway.
      *  *
      * @description Before you call this operation, take note of the following limits:
@@ -31223,6 +31253,8 @@ class Vpc extends OpenApiClient
      * *   It takes about five minutes to upgrade a standard NAT gateway to an enhanced NAT gateway. During the upgrade, transient connection errors may occur once or twice. The service can be recovered by reconnection. You can determine whether to enable automatic reconnection or use manual reconnection based on your business requirements.
      * *   You can only upgrade standard NAT gateways to enhanced NAT gateways. You are not allowed to downgrade enhanced NAT gateways to standard NAT gateways.
      *  *
+     * Deprecated
+     *
      * @param UpdateNatGatewayNatTypeRequest $request UpdateNatGatewayNatTypeRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -31284,6 +31316,8 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI UpdateNatGatewayNatType is deprecated
+     *  *
      * @summary Upgrades a standard NAT gateway to an enhanced NAT gateway.
      *  *
      * @description Before you call this operation, take note of the following limits:
@@ -31296,6 +31330,8 @@ class Vpc extends OpenApiClient
      * *   It takes about five minutes to upgrade a standard NAT gateway to an enhanced NAT gateway. During the upgrade, transient connection errors may occur once or twice. The service can be recovered by reconnection. You can determine whether to enable automatic reconnection or use manual reconnection based on your business requirements.
      * *   You can only upgrade standard NAT gateways to enhanced NAT gateways. You are not allowed to downgrade enhanced NAT gateways to standard NAT gateways.
      *  *
+     * Deprecated
+     *
      * @param UpdateNatGatewayNatTypeRequest $request UpdateNatGatewayNatTypeRequest
      *
      * @return UpdateNatGatewayNatTypeResponse UpdateNatGatewayNatTypeResponse

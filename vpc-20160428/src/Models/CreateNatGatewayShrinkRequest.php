@@ -4,16 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatGatewayRequest\accessMode;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatGatewayRequest\tag;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatGatewayShrinkRequest\tag;
 use AlibabaCloud\Tea\Model;
 
-class CreateNatGatewayRequest extends Model
+class CreateNatGatewayShrinkRequest extends Model
 {
     /**
-     * @var accessMode
+     * @var string
      */
-    public $accessMode;
+    public $accessModeShrink;
 
     /**
      * @description Subscription Internet NAT gateways are no longer available for purchase. Ignore this parameter.
@@ -234,7 +233,7 @@ class CreateNatGatewayRequest extends Model
      */
     public $vpcId;
     protected $_name = [
-        'accessMode'                => 'AccessMode',
+        'accessModeShrink'          => 'AccessMode',
         'autoPay'                   => 'AutoPay',
         'clientToken'               => 'ClientToken',
         'description'               => 'Description',
@@ -267,8 +266,8 @@ class CreateNatGatewayRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accessMode) {
-            $res['AccessMode'] = null !== $this->accessMode ? $this->accessMode->toMap() : null;
+        if (null !== $this->accessModeShrink) {
+            $res['AccessMode'] = $this->accessModeShrink;
         }
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
@@ -352,13 +351,13 @@ class CreateNatGatewayRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateNatGatewayRequest
+     * @return CreateNatGatewayShrinkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessMode'])) {
-            $model->accessMode = accessMode::fromMap($map['AccessMode']);
+            $model->accessModeShrink = $map['AccessMode'];
         }
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];

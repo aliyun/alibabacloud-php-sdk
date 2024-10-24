@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponseBody\accessMode;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponseBody\billingConfig;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponseBody\deletionProtectionInfo;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponseBody\forwardTable;
@@ -16,6 +17,11 @@ use AlibabaCloud\Tea\Model;
 
 class GetNatGatewayAttributeResponseBody extends Model
 {
+    /**
+     * @var accessMode
+     */
+    public $accessMode;
+
     /**
      * @description The billing information.
      *
@@ -240,6 +246,7 @@ class GetNatGatewayAttributeResponseBody extends Model
      */
     public $vpcId;
     protected $_name = [
+        'accessMode'             => 'AccessMode',
         'billingConfig'          => 'BillingConfig',
         'businessStatus'         => 'BusinessStatus',
         'creationTime'           => 'CreationTime',
@@ -274,6 +281,9 @@ class GetNatGatewayAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessMode) {
+            $res['AccessMode'] = null !== $this->accessMode ? $this->accessMode->toMap() : null;
+        }
         if (null !== $this->billingConfig) {
             $res['BillingConfig'] = null !== $this->billingConfig ? $this->billingConfig->toMap() : null;
         }
@@ -367,6 +377,9 @@ class GetNatGatewayAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessMode'])) {
+            $model->accessMode = accessMode::fromMap($map['AccessMode']);
+        }
         if (isset($map['BillingConfig'])) {
             $model->billingConfig = billingConfig::fromMap($map['BillingConfig']);
         }

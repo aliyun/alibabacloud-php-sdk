@@ -20,7 +20,7 @@ class ModifyExpressCloudConnectionAttributeRequest extends Model
     /**
      * @description The peer IP address when the SAG device is connected to the cloud.
      *
-     * @example 172.16.\*\*.**
+     * @example ``172.16.**.**``
      *
      * @var string
      */
@@ -67,7 +67,7 @@ class ModifyExpressCloudConnectionAttributeRequest extends Model
     /**
      * @description The on-premises IP address when the SAG device is connected to the cloud.
      *
-     * @example 10.10.\*\*.**
+     * @example ``10.10.**.**``
      *
      * @var string
      */
