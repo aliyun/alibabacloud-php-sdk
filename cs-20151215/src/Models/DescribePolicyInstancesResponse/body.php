@@ -103,6 +103,41 @@ class body extends Model
      * @var string
      */
     public $policyAction;
+
+    /**
+     * @deprecated
+     *
+     * @var string
+     */
+    public $created;
+
+    /**
+     * @deprecated
+     *
+     * @var string
+     */
+    public $updated;
+
+    /**
+     * @deprecated
+     *
+     * @var string
+     */
+    public $resourceId;
+
+    /**
+     * @deprecated
+     *
+     * @var int
+     */
+    public $totalViolations;
+
+    /**
+     * @deprecated
+     *
+     * @var int
+     */
+    public $isDeleted;
     protected $_name = [
         'aliUid'            => 'ali_uid',
         'clusterId'         => 'cluster_id',
@@ -114,6 +149,11 @@ class body extends Model
         'policySeverity'    => 'policy_severity',
         'policyScope'       => 'policy_scope',
         'policyAction'      => 'policy_action',
+        'created'           => 'Created',
+        'updated'           => 'Updated',
+        'resourceId'        => 'resource_id',
+        'totalViolations'   => 'total_violations',
+        'isDeleted'         => 'is_deleted',
     ];
 
     public function validate()
@@ -152,6 +192,21 @@ class body extends Model
         }
         if (null !== $this->policyAction) {
             $res['policy_action'] = $this->policyAction;
+        }
+        if (null !== $this->created) {
+            $res['Created'] = $this->created;
+        }
+        if (null !== $this->updated) {
+            $res['Updated'] = $this->updated;
+        }
+        if (null !== $this->resourceId) {
+            $res['resource_id'] = $this->resourceId;
+        }
+        if (null !== $this->totalViolations) {
+            $res['total_violations'] = $this->totalViolations;
+        }
+        if (null !== $this->isDeleted) {
+            $res['is_deleted'] = $this->isDeleted;
         }
 
         return $res;
@@ -194,6 +249,21 @@ class body extends Model
         }
         if (isset($map['policy_action'])) {
             $model->policyAction = $map['policy_action'];
+        }
+        if (isset($map['Created'])) {
+            $model->created = $map['Created'];
+        }
+        if (isset($map['Updated'])) {
+            $model->updated = $map['Updated'];
+        }
+        if (isset($map['resource_id'])) {
+            $model->resourceId = $map['resource_id'];
+        }
+        if (isset($map['total_violations'])) {
+            $model->totalViolations = $map['total_violations'];
+        }
+        if (isset($map['is_deleted'])) {
+            $model->isDeleted = $map['is_deleted'];
         }
 
         return $model;

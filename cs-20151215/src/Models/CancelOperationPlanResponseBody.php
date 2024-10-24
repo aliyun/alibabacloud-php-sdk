@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CancelOperationPlanResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example db82195b-75a8-40e5-9be4-16f1829dc624
+     *
      * @var string
      */
     public $requestId;

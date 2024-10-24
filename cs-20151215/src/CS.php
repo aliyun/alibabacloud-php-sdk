@@ -562,7 +562,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary You can call the CancelOperationPlan operation to cancel a pending auto O\\\\\\&M plan.
+     * @summary You can call the CancelOperationPlan operation to cancel a pending auto O\\\\\\\\\\\\&M plan.
      *  *
      * @param string         $planId
      * @param string[]       $headers map
@@ -591,7 +591,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary You can call the CancelOperationPlan operation to cancel a pending auto O\\\\\\&M plan.
+     * @summary You can call the CancelOperationPlan operation to cancel a pending auto O\\\\\\\\\\\\&M plan.
      *  *
      * @param string $planId
      *
@@ -1875,7 +1875,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary You can call the DeleteClusterNodepool operation to delete a node pool by node pool ID.
+     * @summary null
      *  *
      * @param string                       $ClusterId
      * @param string                       $NodepoolId
@@ -1912,7 +1912,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary You can call the DeleteClusterNodepool operation to delete a node pool by node pool ID.
+     * @summary null
      *  *
      * @param string                       $ClusterId
      * @param string                       $NodepoolId

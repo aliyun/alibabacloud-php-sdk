@@ -18,6 +18,8 @@ class DeleteClusterNodepoolResponseBody extends Model
     public $requestId;
 
     /**
+     * @description task IDs
+     *
      * @example T-655ace947e0e6603af000004
      *
      * @var string
