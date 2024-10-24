@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
 use AlibabaCloud\SDK\Rds\V20140815\Models\RunRCInstancesRequest\dataDisk;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RunRCInstancesRequest\systemDisk;
+use AlibabaCloud\SDK\Rds\V20140815\Models\RunRCInstancesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class RunRCInstancesRequest extends Model
@@ -57,6 +58,11 @@ class RunRCInstancesRequest extends Model
     public $clientToken;
 
     /**
+     * @var string
+     */
+    public $createMode;
+
+    /**
      * @description The information about the data disks.
      *
      * @var dataDisk[]
@@ -92,6 +98,11 @@ class RunRCInstancesRequest extends Model
      * @var bool
      */
     public $dryRun;
+
+    /**
+     * @var string
+     */
+    public $hostName;
 
     /**
      * @description The ID of the image used by the instance.
@@ -207,6 +218,11 @@ class RunRCInstancesRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The reserved parameter. This parameter is not supported.
      *
      * @example null
@@ -233,6 +249,11 @@ class RunRCInstancesRequest extends Model
     public $systemDisk;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @description The vSwitch ID of the instance. You must specify this parameter when you create an instance of the virtual private cloud (VPC) type. The specified vSwitch and security group must belong to the same VPC.
      *
      * This parameter is required.
@@ -256,10 +277,12 @@ class RunRCInstancesRequest extends Model
         'autoPay'                     => 'AutoPay',
         'autoRenew'                   => 'AutoRenew',
         'clientToken'                 => 'ClientToken',
+        'createMode'                  => 'CreateMode',
         'dataDisk'                    => 'DataDisk',
         'deploymentSetId'             => 'DeploymentSetId',
         'description'                 => 'Description',
         'dryRun'                      => 'DryRun',
+        'hostName'                    => 'HostName',
         'imageId'                     => 'ImageId',
         'instanceChargeType'          => 'InstanceChargeType',
         'instanceName'                => 'InstanceName',
@@ -272,9 +295,11 @@ class RunRCInstancesRequest extends Model
         'period'                      => 'Period',
         'periodUnit'                  => 'PeriodUnit',
         'regionId'                    => 'RegionId',
+        'resourceGroupId'             => 'ResourceGroupId',
         'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
         'securityGroupId'             => 'SecurityGroupId',
         'systemDisk'                  => 'SystemDisk',
+        'tag'                         => 'Tag',
         'vSwitchId'                   => 'VSwitchId',
         'zoneId'                      => 'ZoneId',
     ];
@@ -298,6 +323,9 @@ class RunRCInstancesRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->createMode) {
+            $res['CreateMode'] = $this->createMode;
+        }
         if (null !== $this->dataDisk) {
             $res['DataDisk'] = [];
             if (null !== $this->dataDisk && \is_array($this->dataDisk)) {
@@ -315,6 +343,9 @@ class RunRCInstancesRequest extends Model
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->hostName) {
+            $res['HostName'] = $this->hostName;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -352,6 +383,9 @@ class RunRCInstancesRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->securityEnhancementStrategy) {
             $res['SecurityEnhancementStrategy'] = $this->securityEnhancementStrategy;
         }
@@ -360,6 +394,15 @@ class RunRCInstancesRequest extends Model
         }
         if (null !== $this->systemDisk) {
             $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -391,6 +434,9 @@ class RunRCInstancesRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['CreateMode'])) {
+            $model->createMode = $map['CreateMode'];
+        }
         if (isset($map['DataDisk'])) {
             if (!empty($map['DataDisk'])) {
                 $model->dataDisk = [];
@@ -408,6 +454,9 @@ class RunRCInstancesRequest extends Model
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['HostName'])) {
+            $model->hostName = $map['HostName'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
@@ -445,6 +494,9 @@ class RunRCInstancesRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['SecurityEnhancementStrategy'])) {
             $model->securityEnhancementStrategy = $map['SecurityEnhancementStrategy'];
         }
@@ -453,6 +505,15 @@ class RunRCInstancesRequest extends Model
         }
         if (isset($map['SystemDisk'])) {
             $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\AttachWhitelistTemplateToInstanceReque
 use AlibabaCloud\SDK\Rds\V20140815\Models\AttachWhitelistTemplateToInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CalculateDBInstanceWeightRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CalculateDBInstanceWeightResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CancelActiveOperationTasksRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CancelActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CheckAccountNameAvailableRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CheckAccountNameAvailableResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CheckCloudResourceAuthorizedRequest;
@@ -1265,6 +1267,102 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->calculateDBInstanceWeightWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary This interface is used to cancel maintenance tasks that have not yet started.
+     *  *
+     * @description ### Supported Engines
+     * - RDS MySQL
+     * - RDS PostgreSQL
+     * - RDS SQL Server
+     * - RDS MariaDB
+     * ### Related Function Documentation
+     * >Notice: Before using this interface, please carefully read the function documentation to ensure you fully understand the prerequisites and the impact of using the interface before proceeding with the operation.
+     * - [RDS MySQL Scheduled Events](https://help.aliyun.com/document_detail/104183.html)
+     * - [RDS PostgreSQL Scheduled Events](https://help.aliyun.com/document_detail/104452.html)
+     * - [RDS SQL Server Scheduled Events](https://help.aliyun.com/document_detail/104451.html)
+     * - [RDS MariaDB Scheduled Events](https://help.aliyun.com/document_detail/104454.html)
+     * ### Usage Restrictions
+     * The task cannot be canceled under the following conditions:
+     * - `allowCancel` is 0.
+     * - The current time is later than the task start time.
+     * - The task status is not 3 (waiting for execution).
+     *  *
+     * @param CancelActiveOperationTasksRequest $request CancelActiveOperationTasksRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CancelActiveOperationTasksResponse CancelActiveOperationTasksResponse
+     */
+    public function cancelActiveOperationTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelActiveOperationTasks',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary This interface is used to cancel maintenance tasks that have not yet started.
+     *  *
+     * @description ### Supported Engines
+     * - RDS MySQL
+     * - RDS PostgreSQL
+     * - RDS SQL Server
+     * - RDS MariaDB
+     * ### Related Function Documentation
+     * >Notice: Before using this interface, please carefully read the function documentation to ensure you fully understand the prerequisites and the impact of using the interface before proceeding with the operation.
+     * - [RDS MySQL Scheduled Events](https://help.aliyun.com/document_detail/104183.html)
+     * - [RDS PostgreSQL Scheduled Events](https://help.aliyun.com/document_detail/104452.html)
+     * - [RDS SQL Server Scheduled Events](https://help.aliyun.com/document_detail/104451.html)
+     * - [RDS MariaDB Scheduled Events](https://help.aliyun.com/document_detail/104454.html)
+     * ### Usage Restrictions
+     * The task cannot be canceled under the following conditions:
+     * - `allowCancel` is 0.
+     * - The current time is later than the task start time.
+     * - The task status is not 3 (waiting for execution).
+     *  *
+     * @param CancelActiveOperationTasksRequest $request CancelActiveOperationTasksRequest
+     *
+     * @return CancelActiveOperationTasksResponse CancelActiveOperationTasksResponse
+     */
+    public function cancelActiveOperationTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelActiveOperationTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -14462,6 +14560,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->vpcId)) {
             $query['VpcId'] = $request->vpcId;
         }
@@ -20358,6 +20459,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->payType)) {
             $query['PayType'] = $request->payType;
         }
+        if (!Utils::isUnset($request->readOnlyDBInstanceClass)) {
+            $query['ReadOnlyDBInstanceClass'] = $request->readOnlyDBInstanceClass;
+        }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
         }
@@ -21237,7 +21341,8 @@ class Rds extends OpenApiClient
      * @description ### [](#)Supported database engines
      * *   SQL Server
      * ### [](#)References
-     * You can call this operation to modify the database properties of an ApsaraDB RDS for SQL Server instance and archive data from an instance that uses general Enterprise SSDs (ESSDs) to an Object Storage Service (OSS) bucket. Before you call this operation to archive data to an OSS bucket, you must enable the data archiving feature in the ApsaraDB RDS console. For more information, see [Modify database properties](https://help.aliyun.com/document_detail/2401398.html) and [Archive cloud disk data to an OSS bucket](https://help.aliyun.com/document_detail/2767189.html).
+     * <props="china">You can call this operation to modify the database properties of an ApsaraDB RDS for SQL Server instance and archive data from an instance that uses general Enterprise SSDs (ESSDs) to an Object Storage Service (OSS) bucket. Before you call this operation to archive data to an OSS bucket, you must enable the data archiving feature in the ApsaraDB RDS console. For more information, see [Modify database properties](https://help.aliyun.com/document_detail/2401398.html) and [Archive cloud disk data to an OSS bucket](https://help.aliyun.com/document_detail/2767189.html).
+     * <props="intl">You can call this operation to modify the database properties of an ApsaraDB RDS for SQL Server instance and archive data from an instance that uses general Enterprise SSDs (ESSDs) to an Object Storage Service (OSS) bucket. Before you call this operation to archive data to an OSS bucket, you must enable the data archiving feature in the ApsaraDB RDS console. For more information, see [Modify database properties](https://help.aliyun.com/document_detail/2401398.html).
      * > : Before you call this operation, read the preceding topics and make sure that you fully understand the prerequisites and impacts of this operation.
      *  *
      * @param ModifyDatabaseConfigRequest $request ModifyDatabaseConfigRequest
@@ -21297,7 +21402,8 @@ class Rds extends OpenApiClient
      * @description ### [](#)Supported database engines
      * *   SQL Server
      * ### [](#)References
-     * You can call this operation to modify the database properties of an ApsaraDB RDS for SQL Server instance and archive data from an instance that uses general Enterprise SSDs (ESSDs) to an Object Storage Service (OSS) bucket. Before you call this operation to archive data to an OSS bucket, you must enable the data archiving feature in the ApsaraDB RDS console. For more information, see [Modify database properties](https://help.aliyun.com/document_detail/2401398.html) and [Archive cloud disk data to an OSS bucket](https://help.aliyun.com/document_detail/2767189.html).
+     * <props="china">You can call this operation to modify the database properties of an ApsaraDB RDS for SQL Server instance and archive data from an instance that uses general Enterprise SSDs (ESSDs) to an Object Storage Service (OSS) bucket. Before you call this operation to archive data to an OSS bucket, you must enable the data archiving feature in the ApsaraDB RDS console. For more information, see [Modify database properties](https://help.aliyun.com/document_detail/2401398.html) and [Archive cloud disk data to an OSS bucket](https://help.aliyun.com/document_detail/2767189.html).
+     * <props="intl">You can call this operation to modify the database properties of an ApsaraDB RDS for SQL Server instance and archive data from an instance that uses general Enterprise SSDs (ESSDs) to an Object Storage Service (OSS) bucket. Before you call this operation to archive data to an OSS bucket, you must enable the data archiving feature in the ApsaraDB RDS console. For more information, see [Modify database properties](https://help.aliyun.com/document_detail/2401398.html).
      * > : Before you call this operation, read the preceding topics and make sure that you fully understand the prerequisites and impacts of this operation.
      *  *
      * @param ModifyDatabaseConfigRequest $request ModifyDatabaseConfigRequest
@@ -24857,6 +24963,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->createMode)) {
+            $query['CreateMode'] = $request->createMode;
+        }
         if (!Utils::isUnset($request->dataDiskShrink)) {
             $query['DataDisk'] = $request->dataDiskShrink;
         }
@@ -24868,6 +24977,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->dryRun)) {
             $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->hostName)) {
+            $query['HostName'] = $request->hostName;
         }
         if (!Utils::isUnset($request->imageId)) {
             $query['ImageId'] = $request->imageId;
@@ -24905,6 +25017,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->securityEnhancementStrategy)) {
             $query['SecurityEnhancementStrategy'] = $request->securityEnhancementStrategy;
         }
@@ -24913,6 +25028,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->systemDiskShrink)) {
             $query['SystemDisk'] = $request->systemDiskShrink;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;

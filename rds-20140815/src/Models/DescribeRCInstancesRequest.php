@@ -47,6 +47,11 @@ class DescribeRCInstancesRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $tag;
+
+    /**
      * @description The virtual private cloud (VPC) ID.
      *
      * @example vpc-uf6f7l4fg90****
@@ -59,6 +64,7 @@ class DescribeRCInstancesRequest extends Model
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'regionId'   => 'RegionId',
+        'tag'        => 'Tag',
         'vpcId'      => 'VpcId',
     ];
 
@@ -80,6 +86,9 @@ class DescribeRCInstancesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -107,6 +116,9 @@ class DescribeRCInstancesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

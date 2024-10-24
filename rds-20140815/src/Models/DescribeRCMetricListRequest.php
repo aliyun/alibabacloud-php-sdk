@@ -46,7 +46,7 @@ class DescribeRCMetricListRequest extends Model
     public $length;
 
     /**
-     * @description The metric that you want to use. For more information, see [CloudMonitor metrics](javascript:void\\(0\\)).
+     * @description The metric that you want to use. For more information, see [CloudMonitor metrics](https://cms.console.aliyun.com/metric-meta/acs_ecs_dashboard/ecs).
      *
      * This parameter is required.
      * @example CPUUtilization

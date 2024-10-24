@@ -218,6 +218,11 @@ class ModifyDBInstanceSpecRequest extends Model
     public $payType;
 
     /**
+     * @var string
+     */
+    public $readOnlyDBInstanceClass;
+
+    /**
      * @description The ID of the resource group.
      *
      * @example rg-acfmy**********
@@ -335,6 +340,7 @@ class ModifyDBInstanceSpecRequest extends Model
         'ownerAccount'             => 'OwnerAccount',
         'ownerId'                  => 'OwnerId',
         'payType'                  => 'PayType',
+        'readOnlyDBInstanceClass'  => 'ReadOnlyDBInstanceClass',
         'resourceGroupId'          => 'ResourceGroupId',
         'resourceOwnerAccount'     => 'ResourceOwnerAccount',
         'resourceOwnerId'          => 'ResourceOwnerId',
@@ -405,6 +411,9 @@ class ModifyDBInstanceSpecRequest extends Model
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
+        }
+        if (null !== $this->readOnlyDBInstanceClass) {
+            $res['ReadOnlyDBInstanceClass'] = $this->readOnlyDBInstanceClass;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -501,6 +510,9 @@ class ModifyDBInstanceSpecRequest extends Model
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
+        }
+        if (isset($map['ReadOnlyDBInstanceClass'])) {
+            $model->readOnlyDBInstanceClass = $map['ReadOnlyDBInstanceClass'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

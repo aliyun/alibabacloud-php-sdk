@@ -18,6 +18,11 @@ class RCInstances extends Model
     public $clusterName;
 
     /**
+     * @var string
+     */
+    public $createMode;
+
+    /**
      * @description The database type.
      *
      * @example rds_custom
@@ -63,6 +68,11 @@ class RCInstances extends Model
     public $hostName;
 
     /**
+     * @var string
+     */
+    public $instanceChargeType;
+
+    /**
      * @description The instance ID.
      *
      * @example rm-2ze704f*****
@@ -105,16 +115,18 @@ class RCInstances extends Model
      */
     public $vpcId;
     protected $_name = [
-        'clusterName' => 'ClusterName',
-        'dbType'      => 'DbType',
-        'description' => 'Description',
-        'gmtCreated'  => 'GmtCreated',
-        'hostIp'      => 'HostIp',
-        'hostName'    => 'HostName',
-        'instanceId'  => 'InstanceId',
-        'regionId'    => 'RegionId',
-        'status'      => 'Status',
-        'vpcId'       => 'VpcId',
+        'clusterName'        => 'ClusterName',
+        'createMode'         => 'CreateMode',
+        'dbType'             => 'DbType',
+        'description'        => 'Description',
+        'gmtCreated'         => 'GmtCreated',
+        'hostIp'             => 'HostIp',
+        'hostName'           => 'HostName',
+        'instanceChargeType' => 'InstanceChargeType',
+        'instanceId'         => 'InstanceId',
+        'regionId'           => 'RegionId',
+        'status'             => 'Status',
+        'vpcId'              => 'VpcId',
     ];
 
     public function validate()
@@ -126,6 +138,9 @@ class RCInstances extends Model
         $res = [];
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
+        }
+        if (null !== $this->createMode) {
+            $res['CreateMode'] = $this->createMode;
         }
         if (null !== $this->dbType) {
             $res['DbType'] = $this->dbType;
@@ -141,6 +156,9 @@ class RCInstances extends Model
         }
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
+        }
+        if (null !== $this->instanceChargeType) {
+            $res['InstanceChargeType'] = $this->instanceChargeType;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -169,6 +187,9 @@ class RCInstances extends Model
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
+        if (isset($map['CreateMode'])) {
+            $model->createMode = $map['CreateMode'];
+        }
         if (isset($map['DbType'])) {
             $model->dbType = $map['DbType'];
         }
@@ -183,6 +204,9 @@ class RCInstances extends Model
         }
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];
+        }
+        if (isset($map['InstanceChargeType'])) {
+            $model->instanceChargeType = $map['InstanceChargeType'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

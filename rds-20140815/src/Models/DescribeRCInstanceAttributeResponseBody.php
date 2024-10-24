@@ -169,6 +169,11 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $innerIpAddress;
 
     /**
+     * @var string
+     */
+    public $instanceChargeType;
+
+    /**
      * @description The instance ID.
      *
      * @example rc-dh2jf9n6j4s14926****
@@ -301,6 +306,11 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The security groups.
      *
      * @var securityGroupIds
@@ -387,6 +397,7 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         'hostType'                => 'HostType',
         'imageId'                 => 'ImageId',
         'innerIpAddress'          => 'InnerIpAddress',
+        'instanceChargeType'      => 'InstanceChargeType',
         'instanceId'              => 'InstanceId',
         'instanceName'            => 'InstanceName',
         'instanceNetworkType'     => 'InstanceNetworkType',
@@ -401,6 +412,7 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         'publicIpAddress'         => 'PublicIpAddress',
         'regionId'                => 'RegionId',
         'requestId'               => 'RequestId',
+        'resourceGroupId'         => 'ResourceGroupId',
         'securityGroupIds'        => 'SecurityGroupIds',
         'serialNumber'            => 'SerialNumber',
         'status'                  => 'Status',
@@ -468,6 +480,9 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         if (null !== $this->innerIpAddress) {
             $res['InnerIpAddress'] = null !== $this->innerIpAddress ? $this->innerIpAddress->toMap() : null;
         }
+        if (null !== $this->instanceChargeType) {
+            $res['InstanceChargeType'] = $this->instanceChargeType;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -509,6 +524,9 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->securityGroupIds) {
             $res['SecurityGroupIds'] = null !== $this->securityGroupIds ? $this->securityGroupIds->toMap() : null;
@@ -594,6 +612,9 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         if (isset($map['InnerIpAddress'])) {
             $model->innerIpAddress = innerIpAddress::fromMap($map['InnerIpAddress']);
         }
+        if (isset($map['InstanceChargeType'])) {
+            $model->instanceChargeType = $map['InstanceChargeType'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -635,6 +656,9 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SecurityGroupIds'])) {
             $model->securityGroupIds = securityGroupIds::fromMap($map['SecurityGroupIds']);
