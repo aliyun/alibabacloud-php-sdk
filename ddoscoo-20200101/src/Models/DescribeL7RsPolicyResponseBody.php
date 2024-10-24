@@ -39,6 +39,8 @@ class DescribeL7RsPolicyResponseBody extends Model
     public $requestId;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $rsAttrRwTimeoutMax;

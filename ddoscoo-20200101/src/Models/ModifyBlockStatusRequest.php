@@ -19,7 +19,7 @@ class ModifyBlockStatusRequest extends Model
     public $duration;
 
     /**
-     * @description The ID of the Anti-DDoS Pro instance to manage.
+     * @description The ID of the Anti-DDoS Proxy (Chinese Mainland) instance to manage.
      *
      * This parameter is required.
      * @example ddoscoo-cn-mp91j1ao****

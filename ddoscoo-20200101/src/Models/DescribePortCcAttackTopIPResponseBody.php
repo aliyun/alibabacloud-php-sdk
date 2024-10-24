@@ -19,7 +19,7 @@ class DescribePortCcAttackTopIPResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the source IP address of the attack.
+     * @description The top IP addresses from which most attacks are initiated.
      *
      * @var topIp[]
      */

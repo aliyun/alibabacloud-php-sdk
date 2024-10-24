@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeUnBlockCountResponseBody extends Model
 {
     /**
-     * @description The remaining quota that you can use the Diversion from Origin Server policy.
+     * @description The remaining number of times that you can enable the near-origin traffic diversion feature.
      *
      * @example 7
      *
@@ -18,7 +18,7 @@ class DescribeUnBlockCountResponseBody extends Model
     public $remainCount;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
      *
@@ -27,7 +27,7 @@ class DescribeUnBlockCountResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total quota that you can use the Diversion from Origin Server policy.
+     * @description The total number of times that you can enable the near-origin traffic diversion feature.
      *
      * @example 10
      *

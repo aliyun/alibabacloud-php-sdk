@@ -128,6 +128,10 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDestinationPortEventReques
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDestinationPortEventResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainAttackEventsRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainAttackEventsResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainBpsRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainBpsResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainH2FingerprintRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainH2FingerprintResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainOverviewRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainOverviewResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainQPSListRequest;
@@ -144,6 +148,14 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainStatusCodeListReques
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainStatusCodeListResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainTopAttackListRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainTopAttackListResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainTopFingerprintRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainTopFingerprintResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainTopHttpMethodRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainTopHttpMethodResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainTopRefererRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainTopRefererResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainTopUserAgentRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainTopUserAgentResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainViewSourceCountriesRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainViewSourceCountriesResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainViewSourceProvincesRequest;
@@ -3820,6 +3832,121 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @summary 查询域名业务带宽流量
+     *  *
+     * @param DescribeDomainBpsRequest $request DescribeDomainBpsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDomainBpsResponse DescribeDomainBpsResponse
+     */
+    public function describeDomainBpsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainBps',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDomainBpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询域名业务带宽流量
+     *  *
+     * @param DescribeDomainBpsRequest $request DescribeDomainBpsRequest
+     *
+     * @return DescribeDomainBpsResponse DescribeDomainBpsResponse
+     */
+    public function describeDomainBps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainBpsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询HTTP2指纹
+     *  *
+     * @param DescribeDomainH2FingerprintRequest $request DescribeDomainH2FingerprintRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDomainH2FingerprintResponse DescribeDomainH2FingerprintResponse
+     */
+    public function describeDomainH2FingerprintWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainH2Fingerprint',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDomainH2FingerprintResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询HTTP2指纹
+     *  *
+     * @param DescribeDomainH2FingerprintRequest $request DescribeDomainH2FingerprintRequest
+     *
+     * @return DescribeDomainH2FingerprintResponse DescribeDomainH2FingerprintResponse
+     */
+    public function describeDomainH2Fingerprint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainH2FingerprintWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the attack overview of a website, such as the peak HTTP and HTTPS traffic.
      *  *
      * @param DescribeDomainOverviewRequest $request DescribeDomainOverviewRequest
@@ -4222,6 +4349,245 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @summary 查询域名 top fingerprint
+     *  *
+     * @param DescribeDomainTopFingerprintRequest $request DescribeDomainTopFingerprintRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDomainTopFingerprintResponse DescribeDomainTopFingerprintResponse
+     */
+    public function describeDomainTopFingerprintWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainTopFingerprint',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDomainTopFingerprintResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询域名 top fingerprint
+     *  *
+     * @param DescribeDomainTopFingerprintRequest $request DescribeDomainTopFingerprintRequest
+     *
+     * @return DescribeDomainTopFingerprintResponse DescribeDomainTopFingerprintResponse
+     */
+    public function describeDomainTopFingerprint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainTopFingerprintWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询域名 top HttpMethod
+     *  *
+     * @param DescribeDomainTopHttpMethodRequest $request DescribeDomainTopHttpMethodRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDomainTopHttpMethodResponse DescribeDomainTopHttpMethodResponse
+     */
+    public function describeDomainTopHttpMethodWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainTopHttpMethod',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDomainTopHttpMethodResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询域名 top HttpMethod
+     *  *
+     * @param DescribeDomainTopHttpMethodRequest $request DescribeDomainTopHttpMethodRequest
+     *
+     * @return DescribeDomainTopHttpMethodResponse DescribeDomainTopHttpMethodResponse
+     */
+    public function describeDomainTopHttpMethod($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainTopHttpMethodWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询域名top referer
+     *  *
+     * @param DescribeDomainTopRefererRequest $request DescribeDomainTopRefererRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDomainTopRefererResponse DescribeDomainTopRefererResponse
+     */
+    public function describeDomainTopRefererWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainTopReferer',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDomainTopRefererResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询域名top referer
+     *  *
+     * @param DescribeDomainTopRefererRequest $request DescribeDomainTopRefererRequest
+     *
+     * @return DescribeDomainTopRefererResponse DescribeDomainTopRefererResponse
+     */
+    public function describeDomainTopReferer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainTopRefererWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询top user agent
+     *  *
+     * @param DescribeDomainTopUserAgentRequest $request DescribeDomainTopUserAgentRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDomainTopUserAgentResponse DescribeDomainTopUserAgentResponse
+     */
+    public function describeDomainTopUserAgentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainTopUserAgent',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDomainTopUserAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询top user agent
+     *  *
+     * @param DescribeDomainTopUserAgentRequest $request DescribeDomainTopUserAgentRequest
+     *
+     * @return DescribeDomainTopUserAgentResponse DescribeDomainTopUserAgentResponse
+     */
+    public function describeDomainTopUserAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainTopUserAgentWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the areas and countries from which requests are sent to a website within a specified period of time.
      *  *
      * @param DescribeDomainViewSourceCountriesRequest $request DescribeDomainViewSourceCountriesRequest
@@ -4502,9 +4868,9 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the available burstable protection bandwidths of an Anti-DDoS Pro instance.
+     * @summary Queries the available burstable protection bandwidths of an Anti-DDoS Proxy (Chinese Mainland) instance.
      *  *
-     * @description > This operation is suitable only for Anti-DDoS Pro.
+     * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
      *  *
      * @param DescribeElasticBandwidthSpecRequest $request DescribeElasticBandwidthSpecRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -4537,9 +4903,9 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the available burstable protection bandwidths of an Anti-DDoS Pro instance.
+     * @summary Queries the available burstable protection bandwidths of an Anti-DDoS Proxy (Chinese Mainland) instance.
      *  *
-     * @description > This operation is suitable only for Anti-DDoS Pro.
+     * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
      *  *
      * @param DescribeElasticBandwidthSpecRequest $request DescribeElasticBandwidthSpecRequest
      *
@@ -7064,9 +7430,9 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the remaining quota that allows you to use the Diversion from Origin Server policy.
+     * @summary Queries the total number and the remaining number of times that you can enable the near-origin traffic diversion feature.
      *  *
-     * @description > This operation is suitable only for Anti-DDoS Pro.
+     * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
      *  *
      * @param DescribeUnBlockCountRequest $request DescribeUnBlockCountRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -7099,9 +7465,9 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the remaining quota that allows you to use the Diversion from Origin Server policy.
+     * @summary Queries the total number and the remaining number of times that you can enable the near-origin traffic diversion feature.
      *  *
-     * @description > This operation is suitable only for Anti-DDoS Pro.
+     * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
      *  *
      * @param DescribeUnBlockCountRequest $request DescribeUnBlockCountRequest
      *

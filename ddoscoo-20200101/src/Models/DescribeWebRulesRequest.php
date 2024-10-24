@@ -37,7 +37,7 @@ class DescribeWebRulesRequest extends Model
     public $instanceIds;
 
     /**
-     * @description When paginating, set the page number of the current page. The default value is 1.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -46,7 +46,7 @@ class DescribeWebRulesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description When paginating, set the number of forwarding rules per page. The range of values is: 1~10.
+     * @description The number of entries per page. Valid values: **1** to **10**.
      *
      * @example 10
      *
