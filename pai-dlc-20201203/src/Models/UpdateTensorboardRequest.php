@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateTensorboardRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $accessibility;
+
+    /**
      * @example MaxRunningTimeMinutes
      *
      * @var int
@@ -22,6 +27,7 @@ class UpdateTensorboardRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'accessibility'         => 'Accessibility',
         'maxRunningTimeMinutes' => 'MaxRunningTimeMinutes',
         'workspaceId'           => 'WorkspaceId',
     ];
@@ -33,6 +39,9 @@ class UpdateTensorboardRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessibility) {
+            $res['Accessibility'] = $this->accessibility;
+        }
         if (null !== $this->maxRunningTimeMinutes) {
             $res['MaxRunningTimeMinutes'] = $this->maxRunningTimeMinutes;
         }
@@ -51,6 +60,9 @@ class UpdateTensorboardRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Accessibility'])) {
+            $model->accessibility = $map['Accessibility'];
+        }
         if (isset($map['MaxRunningTimeMinutes'])) {
             $model->maxRunningTimeMinutes = $map['MaxRunningTimeMinutes'];
         }

@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class GetJobResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $accessibility;
+
+    /**
      * @example a*****
      *
      * @var string
@@ -262,6 +267,7 @@ class GetJobResponseBody extends Model
      */
     public $workspaceName;
     protected $_name = [
+        'accessibility'    => 'Accessibility',
         'clusterId'        => 'ClusterId',
         'codeSource'       => 'CodeSource',
         'credentialConfig' => 'CredentialConfig',
@@ -310,6 +316,9 @@ class GetJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessibility) {
+            $res['Accessibility'] = $this->accessibility;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -463,6 +472,9 @@ class GetJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Accessibility'])) {
+            $model->accessibility = $map['Accessibility'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }

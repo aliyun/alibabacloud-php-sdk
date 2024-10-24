@@ -1546,6 +1546,9 @@ class Paidlc extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->accessibility)) {
+            $body['Accessibility'] = $request->accessibility;
+        }
         if (!Utils::isUnset($request->priority)) {
             $body['Priority'] = $request->priority;
         }
@@ -1598,6 +1601,9 @@ class Paidlc extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->accessibility)) {
+            $query['Accessibility'] = $request->accessibility;
+        }
         if (!Utils::isUnset($request->maxRunningTimeMinutes)) {
             $query['MaxRunningTimeMinutes'] = $request->maxRunningTimeMinutes;
         }
