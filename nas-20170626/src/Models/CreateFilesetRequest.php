@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
+use AlibabaCloud\SDK\NAS\V20170626\Models\CreateFilesetRequest\quota;
 use AlibabaCloud\Tea\Model;
 
 class CreateFilesetRequest extends Model
@@ -81,6 +82,11 @@ class CreateFilesetRequest extends Model
      * @var string
      */
     public $fileSystemPath;
+
+    /**
+     * @var quota
+     */
+    public $quota;
     protected $_name = [
         'clientToken'        => 'ClientToken',
         'deletionProtection' => 'DeletionProtection',
@@ -88,6 +94,7 @@ class CreateFilesetRequest extends Model
         'dryRun'             => 'DryRun',
         'fileSystemId'       => 'FileSystemId',
         'fileSystemPath'     => 'FileSystemPath',
+        'quota'              => 'Quota',
     ];
 
     public function validate()
@@ -114,6 +121,9 @@ class CreateFilesetRequest extends Model
         }
         if (null !== $this->fileSystemPath) {
             $res['FileSystemPath'] = $this->fileSystemPath;
+        }
+        if (null !== $this->quota) {
+            $res['Quota'] = null !== $this->quota ? $this->quota->toMap() : null;
         }
 
         return $res;
@@ -144,6 +154,9 @@ class CreateFilesetRequest extends Model
         }
         if (isset($map['FileSystemPath'])) {
             $model->fileSystemPath = $map['FileSystemPath'];
+        }
+        if (isset($map['Quota'])) {
+            $model->quota = quota::fromMap($map['Quota']);
         }
 
         return $model;

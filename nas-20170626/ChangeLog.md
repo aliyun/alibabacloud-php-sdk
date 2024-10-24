@@ -1,3 +1,10 @@
+2024-10-24 Version: 2.3.1
+- Update API CreateFileset: add param Quota.
+- Update API CreateFileset: update param FileSystemPath.
+- Update API DescribeFilesets: update param Filters.
+- Update API DescribeFilesets: update response param.
+
+
 2024-10-17 Version: 2.3.0
 - Support API CancelDataFlowSubTask.
 - Support API CreateDataFlowSubTask.

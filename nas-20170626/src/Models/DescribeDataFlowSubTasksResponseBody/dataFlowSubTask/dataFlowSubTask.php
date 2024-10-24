@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class dataFlowSubTask extends Model
 {
     /**
+     * @description The time when the data streaming task was created.
+     *
      * @example 2024-07-01 19:59:29
      *
      * @var string
@@ -18,13 +20,17 @@ class dataFlowSubTask extends Model
     public $createTime;
 
     /**
-     * @example dfid-194433a5be31****
+     * @description The ID of the data flow.
+     *
+     * @example df-194433a5be31****
      *
      * @var string
      */
     public $dataFlowId;
 
     /**
+     * @description The ID of the data streaming task.
+     *
      * @example subTaskId-370kyfmyknxcyzw****
      *
      * @var string
@@ -32,13 +38,22 @@ class dataFlowSubTask extends Model
     public $dataFlowSubTaskId;
 
     /**
-     * @example taskId-12345678
+     * @description The ID of the data flow task.
+     *
+     * @example task-38aa8e890f45****
      *
      * @var string
      */
     public $dataFlowTaskId;
 
     /**
+     * @description The path of the destination file. Limits:
+     *
+     *   The path must be 1 to 1,023 characters in length.
+     *   The path must be encoded in UTF-8.
+     *   The path must start with a forward slash (/).
+     *   The path must end with the file name.
+     *
      * @example /mnt/file.png
      *
      * @var string
@@ -46,6 +61,8 @@ class dataFlowSubTask extends Model
     public $dstFilePath;
 
     /**
+     * @description The time when the data streaming task ended.
+     *
      * @example 2024-07-04 11:14:22
      *
      * @var string
@@ -53,16 +70,22 @@ class dataFlowSubTask extends Model
     public $endTime;
 
     /**
+     * @description The error message returned when the task failed.
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description The file information.
+     *
      * @var fileDetail
      */
     public $fileDetail;
 
     /**
+     * @description The ID of the file system.
+     *
      * @example bmcpfs-370lx1ev9ss27o0****
      *
      * @var string
@@ -70,6 +93,8 @@ class dataFlowSubTask extends Model
     public $fileSystemId;
 
     /**
+     * @description The progress of the data streaming task. Valid values: 0 to 10000.
+     *
      * @example 10000
      *
      * @var int
@@ -77,11 +102,20 @@ class dataFlowSubTask extends Model
     public $progress;
 
     /**
+     * @description The progress information about data streaming tasks.
+     *
      * @var progressStats
      */
     public $progressStats;
 
     /**
+     * @description The path of the source file. Limits:
+     *
+     *   The path must be 1 to 1,023 characters in length.
+     *   The path must be encoded in UTF-8.
+     *   The path must start with a forward slash (/).
+     *   The path must end with the file name.
+     *
      * @example /test/file.png
      *
      * @var string
@@ -89,6 +123,8 @@ class dataFlowSubTask extends Model
     public $srcFilePath;
 
     /**
+     * @description The time when the data streaming task started.
+     *
      * @example 2024-07-03 10:43:16
      *
      * @var string
@@ -96,6 +132,16 @@ class dataFlowSubTask extends Model
     public $startTime;
 
     /**
+     * @description The status of the data streaming task. Valid values:
+     *
+     *   EXPIRED: The task is terminated.
+     *   CREATED: The task is created.
+     *   RUNNING: The task is running.
+     *   COMPLETE: The task is complete.
+     *   CANCELING: The task is being canceled.
+     *   FAILED: The task failed to be executed.
+     *   CANCELED: The task is canceled.
+     *
      * @example COMPLETE
      *
      * @var string

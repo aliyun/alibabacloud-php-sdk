@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataFlowSubTasksResponseBody extends Model
 {
     /**
+     * @description The details about data streaming tasks.
+     *
      * @var dataFlowSubTask
      */
     public $dataFlowSubTask;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
      * @example pUJaUwAAAABhdGUyNTk1MQ==
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeDataFlowSubTasksResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example 98696EF0-1607-4E9D-B01D-F20930B6****
      *
      * @var string

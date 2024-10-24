@@ -11,7 +11,7 @@ class CreateDataFlowResponseBody extends Model
     /**
      * @description The dataflow ID.
      *
-     * @example dfid-194433a5be31****
+     * @example df-194433a5be31****
      *
      * @var string
      */

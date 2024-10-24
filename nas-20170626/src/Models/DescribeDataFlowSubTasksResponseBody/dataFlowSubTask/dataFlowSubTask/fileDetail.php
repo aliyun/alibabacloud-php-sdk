@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class fileDetail extends Model
 {
     /**
+     * @description The checksum. Format example: crc64:123456.
+     *
      * @example crc64:850309505450944****
      *
      * @var string
@@ -16,6 +18,8 @@ class fileDetail extends Model
     public $checksum;
 
     /**
+     * @description The time when the file was modified. The value is a UNIX timestamp. Unit: ns.
+     *
      * @example 1721167603
      *
      * @var int
@@ -23,6 +27,8 @@ class fileDetail extends Model
     public $modifyTime;
 
     /**
+     * @description The file size. Unit: bytes.
+     *
      * @example 68
      *
      * @var int

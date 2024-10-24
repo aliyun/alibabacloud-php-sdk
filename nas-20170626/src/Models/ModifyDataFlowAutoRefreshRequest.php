@@ -44,7 +44,7 @@ class ModifyDataFlowAutoRefreshRequest extends Model
      * @description The dataflow ID.
      *
      * This parameter is required.
-     * @example dfid-194433a5be31****
+     * @example df-194433a5be31****
      *
      * @var string
      */

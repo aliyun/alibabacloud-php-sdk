@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataFlowSubTasksRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example bmcpfs-370lx1ev9ss27o0****
      *
      * @var string
@@ -19,11 +20,18 @@ class DescribeDataFlowSubTasksRequest extends Model
     public $fileSystemId;
 
     /**
+     * @description The filter that is used to query data streaming tasks.
+     *
      * @var filters[]
      */
     public $filters;
 
     /**
+     * @description The number of results for each query.
+     *
+     *   Valid values: 20 to 100.
+     *   Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -31,6 +39,8 @@ class DescribeDataFlowSubTasksRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
      * @example iWk0AQAAAAAvY2FzZS8=
      *
      * @var string

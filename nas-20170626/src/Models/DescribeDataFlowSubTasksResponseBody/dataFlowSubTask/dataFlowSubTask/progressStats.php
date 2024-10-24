@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class progressStats extends Model
 {
     /**
+     * @description The actual amount of data for which the data flow task is complete. Unit: bytes.
+     *
      * @example 68
      *
      * @var int
@@ -16,6 +18,8 @@ class progressStats extends Model
     public $actualBytes;
 
     /**
+     * @description The average flow velocity. Unit: bytes/s.
+     *
      * @example 34
      *
      * @var int
@@ -23,6 +27,8 @@ class progressStats extends Model
     public $averageSpeed;
 
     /**
+     * @description The amount of data (including skipped data) for which the data flow task is complete. Unit: bytes.
+     *
      * @example 68
      *
      * @var int
@@ -30,6 +36,8 @@ class progressStats extends Model
     public $bytesDone;
 
     /**
+     * @description The amount of data scanned on the source. Unit: bytes.
+     *
      * @example 68
      *
      * @var int

@@ -130,17 +130,27 @@ class CreateDataFlowRequest extends Model
     public $sourceSecurityType;
 
     /**
-     * @description The access path of the source storage. Format: `<storage type>://<path>`.
+     * @description The access path of the source storage. Format: `<storage type>://[<account id>:]<path>`.
      *
      * Parameters:
      *
      *   storage type: Only OSS is supported.
      *
+     *   account id (optional): the UID of the account of the source storage.
+     *
      *   path: the name of the OSS bucket. Limits:
      *
-     *   The path can contain only lowercase letters, digits, and hyphens (-). The path must start and end with a lowercase letter or digit.
-     *   The path can be up to 128 characters in length.
-     *   The path must be encoded in UTF-8.
+     *   The name can contain only lowercase letters, digits, and hyphens (-). The name must start and end with a lowercase letter or digit.
+     *   The name can be up to 128 characters in length.
+     *   The name must be encoded in UTF-8.
+     *
+     * >
+     *
+     *   The OSS bucket must be an existing bucket in the region.
+     *
+     *   Only CPFS for LINGJUN V2.6.0 and later support the account id parameter.
+     *
+     *   The account id parameter is optional. This parameter is required when you use OSS buckets across accounts.
      *
      * This parameter is required.
      * @example oss://bucket1

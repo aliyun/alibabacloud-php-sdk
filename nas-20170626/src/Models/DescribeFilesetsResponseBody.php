@@ -21,6 +21,8 @@ class DescribeFilesetsResponseBody extends Model
      *
      * @example cpfs-099394bd928c****
      *
+     * @deprecated
+     *
      * @var string
      */
     public $fileSystemId;

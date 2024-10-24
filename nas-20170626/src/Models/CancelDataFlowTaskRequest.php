@@ -22,7 +22,7 @@ class CancelDataFlowTaskRequest extends Model
      * @description The dataflow ID.
      *
      * This parameter is required.
-     * @example dfid-194433a5be31****
+     * @example df-194433a5be31****
      *
      * @var string
      */
@@ -45,6 +45,9 @@ class CancelDataFlowTaskRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-125487\\*\\*\\*\\*.
+     *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
+     *
      * This parameter is required.
      * @example cpfs-099394bd928c****
      *
@@ -56,7 +59,7 @@ class CancelDataFlowTaskRequest extends Model
      * @description The ID of the dataflow task.
      *
      * This parameter is required.
-     * @example taskId-1345768****
+     * @example task-38aa8e890f45****
      *
      * @var string
      */

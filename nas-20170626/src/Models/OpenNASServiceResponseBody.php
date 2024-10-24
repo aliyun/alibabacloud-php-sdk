@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class OpenNASServiceResponseBody extends Model
 {
     /**
+     * @description The details about the failed permission verification.
+     *
+     * @example {
+     * "PolicyType": "AccountLevelIdentityBasedPolicy",
+     * "AuthPrincipalOwnerId": "178321033379****",
+     * "EncodedDiagnosticMessage": "AJpt/382mjxDSIYIqa/cUIFvOg9tajlLyN+LJA0C78kWfKIl****",
+     * "AuthPrincipalType": "SubUser",
+     * "AuthPrincipalDisplayName": "21794847602038****",
+     * }
      * @var string
      */
     public $accessDeniedDetail;
