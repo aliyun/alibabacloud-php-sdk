@@ -6,6 +6,14 @@
 - Update API GetNatGatewayAttribute: update response param.
 
 
+2024-10-24 Version: 6.9.5
+- Update API CreateNatGateway: add param AccessMode.
+- Update API CreateNatGateway: add param PrivateLinkEnabled.
+- Update API DescribeNatGatewayAssociateNetworkInterfaces: update response param.
+- Update API DescribeNatGateways: update response param.
+- Update API GetNatGatewayAttribute: update response param.
+
+
 2024-09-25 Version: 6.9.4
 - Update API CreateFlowLog: add param IpVersion.
 - Update API DescribeFlowLogs: update response param.
