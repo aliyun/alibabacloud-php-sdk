@@ -16,6 +16,8 @@ class DeleteEaiAllRequest extends Model
     public $clientInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example eais-hza1ahi0uuw0re33****
      *
      * @var string
@@ -23,6 +25,8 @@ class DeleteEaiAllRequest extends Model
     public $elasticAcceleratedInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shenzhen
      *
      * @var string

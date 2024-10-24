@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteEaisEiRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example eais-hzu00xufs1c8j5nn****
      *
      * @var string
@@ -23,6 +25,8 @@ class DeleteEaisEiRequest extends Model
     public $force;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

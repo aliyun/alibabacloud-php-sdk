@@ -12,8 +12,6 @@ use AlibabaCloud\SDK\Eais\V20190624\Models\AttachEaisEiRequest;
 use AlibabaCloud\SDK\Eais\V20190624\Models\AttachEaisEiResponse;
 use AlibabaCloud\SDK\Eais\V20190624\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Eais\V20190624\Models\ChangeResourceGroupResponse;
-use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaiAllRequest;
-use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaiAllResponse;
 use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaiEciRequest;
 use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaiEciResponse;
 use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaiEciShrinkRequest;
@@ -42,10 +40,20 @@ use AlibabaCloud\SDK\Eais\V20190624\Models\DetachEaisEiRequest;
 use AlibabaCloud\SDK\Eais\V20190624\Models\DetachEaisEiResponse;
 use AlibabaCloud\SDK\Eais\V20190624\Models\GetInstanceMetricsRequest;
 use AlibabaCloud\SDK\Eais\V20190624\Models\GetInstanceMetricsResponse;
+use AlibabaCloud\SDK\Eais\V20190624\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\Eais\V20190624\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Eais\V20190624\Models\StartEaiJupyterRequest;
+use AlibabaCloud\SDK\Eais\V20190624\Models\StartEaiJupyterResponse;
 use AlibabaCloud\SDK\Eais\V20190624\Models\StartEaisEiRequest;
 use AlibabaCloud\SDK\Eais\V20190624\Models\StartEaisEiResponse;
+use AlibabaCloud\SDK\Eais\V20190624\Models\StopEaiJupyterRequest;
+use AlibabaCloud\SDK\Eais\V20190624\Models\StopEaiJupyterResponse;
 use AlibabaCloud\SDK\Eais\V20190624\Models\StopEaisEiRequest;
 use AlibabaCloud\SDK\Eais\V20190624\Models\StopEaisEiResponse;
+use AlibabaCloud\SDK\Eais\V20190624\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\Eais\V20190624\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Eais\V20190624\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\Eais\V20190624\Models\UntagResourcesResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -139,10 +147,12 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param AttachEaiRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 将弹性加速计算实例挂载到ECS实例上
+     *  *
+     * @param AttachEaiRequest $request AttachEaiRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachEaiResponse
+     * @return AttachEaiResponse AttachEaiResponse
      */
     public function attachEaiWithOptions($request, $runtime)
     {
@@ -176,9 +186,11 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param AttachEaiRequest $request
+     * @summary 将弹性加速计算实例挂载到ECS实例上
+     *  *
+     * @param AttachEaiRequest $request AttachEaiRequest
      *
-     * @return AttachEaiResponse
+     * @return AttachEaiResponse AttachEaiResponse
      */
     public function attachEai($request)
     {
@@ -188,10 +200,12 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param AttachEaisEiRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 将EI绑定到ECS或ECI实例上。
+     *  *
+     * @param AttachEaisEiRequest $request AttachEaisEiRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachEaisEiResponse
+     * @return AttachEaisEiResponse AttachEaisEiResponse
      */
     public function attachEaisEiWithOptions($request, $runtime)
     {
@@ -228,9 +242,11 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param AttachEaisEiRequest $request
+     * @summary 将EI绑定到ECS或ECI实例上。
+     *  *
+     * @param AttachEaisEiRequest $request AttachEaisEiRequest
      *
-     * @return AttachEaisEiResponse
+     * @return AttachEaisEiResponse AttachEaisEiResponse
      */
     public function attachEaisEi($request)
     {
@@ -240,10 +256,12 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 资源转组
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
@@ -277,9 +295,11 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
+     * @summary 资源转组
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -289,10 +309,12 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param CreateEaiRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 创建一个弹性加速计算实例
+     *  *
+     * @param CreateEaiRequest $request CreateEaiRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEaiResponse
+     * @return CreateEaiResponse CreateEaiResponse
      */
     public function createEaiWithOptions($request, $runtime)
     {
@@ -341,9 +363,11 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param CreateEaiRequest $request
+     * @summary 创建一个弹性加速计算实例
+     *  *
+     * @param CreateEaiRequest $request CreateEaiRequest
      *
-     * @return CreateEaiResponse
+     * @return CreateEaiResponse CreateEaiResponse
      */
     public function createEai($request)
     {
@@ -353,106 +377,12 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param CreateEaiAllRequest $request CreateEaiAllRequest
+     * @summary 创建一个EAIS实例和ECI实例并绑定
+     *  *
+     * @param CreateEaiEciRequest $tmpReq  CreateEaiEciRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEaiAllResponse CreateEaiAllResponse
-     */
-    public function createEaiAllWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clientImageId)) {
-            $query['ClientImageId'] = $request->clientImageId;
-        }
-        if (!Utils::isUnset($request->clientInstanceName)) {
-            $query['ClientInstanceName'] = $request->clientInstanceName;
-        }
-        if (!Utils::isUnset($request->clientInstanceType)) {
-            $query['ClientInstanceType'] = $request->clientInstanceType;
-        }
-        if (!Utils::isUnset($request->clientInternetMaxBandwidthIn)) {
-            $query['ClientInternetMaxBandwidthIn'] = $request->clientInternetMaxBandwidthIn;
-        }
-        if (!Utils::isUnset($request->clientInternetMaxBandwidthOut)) {
-            $query['ClientInternetMaxBandwidthOut'] = $request->clientInternetMaxBandwidthOut;
-        }
-        if (!Utils::isUnset($request->clientPassword)) {
-            $query['ClientPassword'] = $request->clientPassword;
-        }
-        if (!Utils::isUnset($request->clientSecurityGroupId)) {
-            $query['ClientSecurityGroupId'] = $request->clientSecurityGroupId;
-        }
-        if (!Utils::isUnset($request->clientSystemDiskCategory)) {
-            $query['ClientSystemDiskCategory'] = $request->clientSystemDiskCategory;
-        }
-        if (!Utils::isUnset($request->clientSystemDiskSize)) {
-            $query['ClientSystemDiskSize'] = $request->clientSystemDiskSize;
-        }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
-        }
-        if (!Utils::isUnset($request->clientVSwitchId)) {
-            $query['ClientVSwitchId'] = $request->clientVSwitchId;
-        }
-        if (!Utils::isUnset($request->clientZoneId)) {
-            $query['ClientZoneId'] = $request->clientZoneId;
-        }
-        if (!Utils::isUnset($request->eaiInstanceType)) {
-            $query['EaiInstanceType'] = $request->eaiInstanceType;
-        }
-        if (!Utils::isUnset($request->instanceName)) {
-            $query['InstanceName'] = $request->instanceName;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateEaiAll',
-            'version'     => '2019-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateEaiAllResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param CreateEaiAllRequest $request CreateEaiAllRequest
-     *
-     * @return CreateEaiAllResponse CreateEaiAllResponse
-     */
-    public function createEaiAll($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createEaiAllWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateEaiEciRequest $tmpReq
-     * @param RuntimeOptions      $runtime
-     *
-     * @return CreateEaiEciResponse
+     * @return CreateEaiEciResponse CreateEaiEciResponse
      */
     public function createEaiEciWithOptions($tmpReq, $runtime)
     {
@@ -506,9 +436,11 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param CreateEaiEciRequest $request
+     * @summary 创建一个EAIS实例和ECI实例并绑定
+     *  *
+     * @param CreateEaiEciRequest $request CreateEaiEciRequest
      *
-     * @return CreateEaiEciResponse
+     * @return CreateEaiEciResponse CreateEaiEciResponse
      */
     public function createEaiEci($request)
     {
@@ -518,10 +450,12 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param CreateEaiEcsRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @summary 创建一个EAIS实例和ECS实例并绑定
+     *  *
+     * @param CreateEaiEcsRequest $tmpReq  CreateEaiEcsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEaiEcsResponse
+     * @return CreateEaiEcsResponse CreateEaiEcsResponse
      */
     public function createEaiEcsWithOptions($tmpReq, $runtime)
     {
@@ -575,9 +509,11 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param CreateEaiEcsRequest $request
+     * @summary 创建一个EAIS实例和ECS实例并绑定
+     *  *
+     * @param CreateEaiEcsRequest $request CreateEaiEcsRequest
      *
-     * @return CreateEaiEcsResponse
+     * @return CreateEaiEcsResponse CreateEaiEcsResponse
      */
     public function createEaiEcs($request)
     {
@@ -587,10 +523,12 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param CreateEaiJupyterRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary 创建一个EAIS Jupyter环境
+     *  *
+     * @param CreateEaiJupyterRequest $tmpReq  CreateEaiJupyterRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEaiJupyterResponse
+     * @return CreateEaiJupyterResponse CreateEaiJupyterResponse
      */
     public function createEaiJupyterWithOptions($tmpReq, $runtime)
     {
@@ -644,9 +582,11 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param CreateEaiJupyterRequest $request
+     * @summary 创建一个EAIS Jupyter环境
+     *  *
+     * @param CreateEaiJupyterRequest $request CreateEaiJupyterRequest
      *
-     * @return CreateEaiJupyterResponse
+     * @return CreateEaiJupyterResponse CreateEaiJupyterResponse
      */
     public function createEaiJupyter($request)
     {
@@ -656,10 +596,12 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param CreateEaisEiRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 创建一个弹性加速计算实例
+     *  *
+     * @param CreateEaisEiRequest $request CreateEaisEiRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEaisEiResponse
+     * @return CreateEaisEiResponse CreateEaisEiResponse
      */
     public function createEaisEiWithOptions($request, $runtime)
     {
@@ -705,9 +647,11 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param CreateEaisEiRequest $request
+     * @summary 创建一个弹性加速计算实例
+     *  *
+     * @param CreateEaisEiRequest $request CreateEaisEiRequest
      *
-     * @return CreateEaisEiResponse
+     * @return CreateEaisEiResponse CreateEaisEiResponse
      */
     public function createEaisEi($request)
     {
@@ -717,10 +661,12 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param DeleteEaiRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 释放一个弹性加速计算实例
+     *  *
+     * @param DeleteEaiRequest $request DeleteEaiRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEaiResponse
+     * @return DeleteEaiResponse DeleteEaiResponse
      */
     public function deleteEaiWithOptions($request, $runtime)
     {
@@ -754,9 +700,11 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param DeleteEaiRequest $request
+     * @summary 释放一个弹性加速计算实例
+     *  *
+     * @param DeleteEaiRequest $request DeleteEaiRequest
      *
-     * @return DeleteEaiResponse
+     * @return DeleteEaiResponse DeleteEaiResponse
      */
     public function deleteEai($request)
     {
@@ -766,10 +714,12 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param DeleteEaiAllRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 释放一个弹性加速计算实例以及与其绑定的ECS或ECI实例
+     *  *
+     * @param DeleteEaiAllRequest $request DeleteEaiAllRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEaiAllResponse
+     * @return DeleteEaiAllResponse DeleteEaiAllResponse
      */
     public function deleteEaiAllWithOptions($request, $runtime)
     {
@@ -803,9 +753,11 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param DeleteEaiAllRequest $request
+     * @summary 释放一个弹性加速计算实例以及与其绑定的ECS或ECI实例
+     *  *
+     * @param DeleteEaiAllRequest $request DeleteEaiAllRequest
      *
-     * @return DeleteEaiAllResponse
+     * @return DeleteEaiAllResponse DeleteEaiAllResponse
      */
     public function deleteEaiAll($request)
     {
@@ -815,10 +767,12 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param DeleteEaisEiRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 释放弹性加速计算实例
+     *  *
+     * @param DeleteEaisEiRequest $request DeleteEaisEiRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEaisEiResponse
+     * @return DeleteEaisEiResponse DeleteEaisEiResponse
      */
     public function deleteEaisEiWithOptions($request, $runtime)
     {
@@ -852,9 +806,11 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param DeleteEaisEiRequest $request
+     * @summary 释放弹性加速计算实例
+     *  *
+     * @param DeleteEaisEiRequest $request DeleteEaisEiRequest
      *
-     * @return DeleteEaisEiResponse
+     * @return DeleteEaisEiResponse DeleteEaisEiResponse
      */
     public function deleteEaisEi($request)
     {
@@ -864,10 +820,12 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param DescribeEaisRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 查询一个或多个弹性加速计算实例的详细信息
+     *  *
+     * @param DescribeEaisRequest $request DescribeEaisRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEaisResponse
+     * @return DescribeEaisResponse DescribeEaisResponse
      */
     public function describeEaisWithOptions($request, $runtime)
     {
@@ -922,9 +880,11 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param DescribeEaisRequest $request
+     * @summary 查询一个或多个弹性加速计算实例的详细信息
+     *  *
+     * @param DescribeEaisRequest $request DescribeEaisRequest
      *
-     * @return DescribeEaisResponse
+     * @return DescribeEaisResponse DescribeEaisResponse
      */
     public function describeEais($request)
     {
@@ -934,9 +894,11 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 查询您可以使用的阿里云地域
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($runtime)
     {
@@ -957,7 +919,9 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @return DescribeRegionsResponse
+     * @summary 查询您可以使用的阿里云地域
+     *  *
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions()
     {
@@ -967,10 +931,12 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param DetachEaiRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 从ECS实例上卸载弹性加速计算实例
+     *  *
+     * @param DetachEaiRequest $request DetachEaiRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachEaiResponse
+     * @return DetachEaiResponse DetachEaiResponse
      */
     public function detachEaiWithOptions($request, $runtime)
     {
@@ -1001,9 +967,11 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param DetachEaiRequest $request
+     * @summary 从ECS实例上卸载弹性加速计算实例
+     *  *
+     * @param DetachEaiRequest $request DetachEaiRequest
      *
-     * @return DetachEaiResponse
+     * @return DetachEaiResponse DetachEaiResponse
      */
     public function detachEai($request)
     {
@@ -1013,10 +981,12 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param DetachEaisEiRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 将EI实例与ECS或ECI实例解绑
+     *  *
+     * @param DetachEaisEiRequest $request DetachEaisEiRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachEaisEiResponse
+     * @return DetachEaisEiResponse DetachEaisEiResponse
      */
     public function detachEaisEiWithOptions($request, $runtime)
     {
@@ -1047,9 +1017,11 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param DetachEaisEiRequest $request
+     * @summary 将EI实例与ECS或ECI实例解绑
+     *  *
+     * @param DetachEaisEiRequest $request DetachEaisEiRequest
      *
-     * @return DetachEaisEiResponse
+     * @return DetachEaisEiResponse DetachEaisEiResponse
      */
     public function detachEaisEi($request)
     {
@@ -1059,10 +1031,12 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceMetricsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 获取EAIS实例级别的监控数据
+     *  *
+     * @param GetInstanceMetricsRequest $request GetInstanceMetricsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceMetricsResponse
+     * @return GetInstanceMetricsResponse GetInstanceMetricsResponse
      */
     public function getInstanceMetricsWithOptions($request, $runtime)
     {
@@ -1105,9 +1079,11 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceMetricsRequest $request
+     * @summary 获取EAIS实例级别的监控数据
+     *  *
+     * @param GetInstanceMetricsRequest $request GetInstanceMetricsRequest
      *
-     * @return GetInstanceMetricsResponse
+     * @return GetInstanceMetricsResponse GetInstanceMetricsResponse
      */
     public function getInstanceMetrics($request)
     {
@@ -1117,10 +1093,121 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param StartEaisEiRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 查询标签列表
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartEaisEiResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2019-06-24',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询标签列表
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     *
+     * @return ListTagResourcesResponse ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 启动一个部署了notebook的弹性加速计算实例
+     *  *
+     * @param StartEaiJupyterRequest $request StartEaiJupyterRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StartEaiJupyterResponse StartEaiJupyterResponse
+     */
+    public function startEaiJupyterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartEaiJupyter',
+            'version'     => '2019-06-24',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartEaiJupyterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 启动一个部署了notebook的弹性加速计算实例
+     *  *
+     * @param StartEaiJupyterRequest $request StartEaiJupyterRequest
+     *
+     * @return StartEaiJupyterResponse StartEaiJupyterResponse
+     */
+    public function startEaiJupyter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startEaiJupyterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 启动一个弹性加速计算实例
+     *  *
+     * @param StartEaisEiRequest $request StartEaisEiRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StartEaisEiResponse StartEaisEiResponse
      */
     public function startEaisEiWithOptions($request, $runtime)
     {
@@ -1151,9 +1238,11 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param StartEaisEiRequest $request
+     * @summary 启动一个弹性加速计算实例
+     *  *
+     * @param StartEaisEiRequest $request StartEaisEiRequest
      *
-     * @return StartEaisEiResponse
+     * @return StartEaisEiResponse StartEaisEiResponse
      */
     public function startEaisEi($request)
     {
@@ -1163,10 +1252,62 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param StopEaisEiRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary 停止一个部署了notebook的弹性加速计算实例
+     *  *
+     * @param StopEaiJupyterRequest $request StopEaiJupyterRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopEaisEiResponse
+     * @return StopEaiJupyterResponse StopEaiJupyterResponse
+     */
+    public function stopEaiJupyterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopEaiJupyter',
+            'version'     => '2019-06-24',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopEaiJupyterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 停止一个部署了notebook的弹性加速计算实例
+     *  *
+     * @param StopEaiJupyterRequest $request StopEaiJupyterRequest
+     *
+     * @return StopEaiJupyterResponse StopEaiJupyterResponse
+     */
+    public function stopEaiJupyter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopEaiJupyterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 停止一个弹性加速计算实例
+     *  *
+     * @param StopEaisEiRequest $request StopEaisEiRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StopEaisEiResponse StopEaisEiResponse
      */
     public function stopEaisEiWithOptions($request, $runtime)
     {
@@ -1197,14 +1338,131 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param StopEaisEiRequest $request
+     * @summary 停止一个弹性加速计算实例
+     *  *
+     * @param StopEaisEiRequest $request StopEaisEiRequest
      *
-     * @return StopEaisEiResponse
+     * @return StopEaisEiResponse StopEaisEiResponse
      */
     public function stopEaisEi($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->stopEaisEiWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 为弹性加速计算实例创建并绑定标签
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TagResourcesResponse TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2019-06-24',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 为弹性加速计算实例创建并绑定标签
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     *
+     * @return TagResourcesResponse TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 解绑并删除标签
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UntagResourcesResponse UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2019-06-24',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 解绑并删除标签
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     *
+     * @return UntagResourcesResponse UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
     }
 }

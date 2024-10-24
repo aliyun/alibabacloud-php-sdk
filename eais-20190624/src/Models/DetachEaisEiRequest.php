@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DetachEaisEiRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example eais-hzu00xufs1c8j5nn****
      *
      * @var string
@@ -16,6 +18,8 @@ class DetachEaisEiRequest extends Model
     public $eiInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

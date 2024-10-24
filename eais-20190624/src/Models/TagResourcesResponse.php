@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ChangeResourceGroupResponse extends Model
+class TagResourcesResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ChangeResourceGroupResponse extends Model
     public $statusCode;
 
     /**
-     * @var ChangeResourceGroupResponseBody
+     * @var TagResourcesResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class ChangeResourceGroupResponse extends Model
     /**
      * @param array $map
      *
-     * @return ChangeResourceGroupResponse
+     * @return TagResourcesResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class ChangeResourceGroupResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ChangeResourceGroupResponseBody::fromMap($map['body']);
+            $model->body = TagResourcesResponseBody::fromMap($map['body']);
         }
 
         return $model;

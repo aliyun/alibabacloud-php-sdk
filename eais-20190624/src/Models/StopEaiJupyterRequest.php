@@ -6,28 +6,28 @@ namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DetachEaiRequest extends Model
+class StopEaiJupyterRequest extends Model
 {
     /**
      * @description This parameter is required.
      *
-     * @example eais-sz8t15a7gt7z7j7i****
+     * @example eais-hze3x2gv9wimdj0k****
      *
      * @var string
      */
-    public $elasticAcceleratedInstanceId;
+    public $instanceId;
 
     /**
      * @description This parameter is required.
      *
-     * @example cn-shenzhen
+     * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'elasticAcceleratedInstanceId' => 'ElasticAcceleratedInstanceId',
-        'regionId'                     => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -37,8 +37,8 @@ class DetachEaiRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->elasticAcceleratedInstanceId) {
-            $res['ElasticAcceleratedInstanceId'] = $this->elasticAcceleratedInstanceId;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -50,13 +50,13 @@ class DetachEaiRequest extends Model
     /**
      * @param array $map
      *
-     * @return DetachEaiRequest
+     * @return StopEaiJupyterRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ElasticAcceleratedInstanceId'])) {
-            $model->elasticAcceleratedInstanceId = $map['ElasticAcceleratedInstanceId'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

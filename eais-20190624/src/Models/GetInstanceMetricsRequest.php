@@ -16,6 +16,8 @@ class GetInstanceMetricsRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example eais-hznzre6ffmz9num4****
      *
      * @var string
@@ -23,6 +25,8 @@ class GetInstanceMetricsRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example MemoryUsage
      *
      * @var string

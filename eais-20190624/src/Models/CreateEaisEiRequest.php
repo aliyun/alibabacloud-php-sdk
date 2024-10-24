@@ -23,6 +23,8 @@ class CreateEaisEiRequest extends Model
     public $instanceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example eais.ei-a6.2xlarge
      *
      * @var string
@@ -30,6 +32,8 @@ class CreateEaisEiRequest extends Model
     public $instanceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +48,8 @@ class CreateEaisEiRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sg-bp16jgp51ttnkbdr****
      *
      * @var string
@@ -51,6 +57,8 @@ class CreateEaisEiRequest extends Model
     public $securityGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vsw-bp17wmd1wb6fwlimk****
      *
      * @var string

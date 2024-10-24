@@ -22,6 +22,8 @@ class CreateEaiJupyterRequest extends Model
     public $eaisName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example eais.ei-a6.2xlarge
      *
      * @var string
@@ -34,6 +36,8 @@ class CreateEaiJupyterRequest extends Model
     public $environmentVar;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -46,6 +50,8 @@ class CreateEaiJupyterRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sg-uf66jeqopgqa9hdn****
      *
      * @var string
@@ -53,6 +59,8 @@ class CreateEaiJupyterRequest extends Model
     public $securityGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vsw-uf6h3rbwbm90urjwa****
      *
      * @var string

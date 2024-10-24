@@ -28,6 +28,8 @@ class CreateEaiRequest extends Model
     public $instanceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example eais.ei-a6.2xlarge
      *
      * @var string
@@ -35,6 +37,8 @@ class CreateEaiRequest extends Model
     public $instanceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shenzhen
      *
      * @var string

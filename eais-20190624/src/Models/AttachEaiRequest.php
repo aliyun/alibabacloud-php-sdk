@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AttachEaiRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example i-wz93g6pyat2g7t7o****
      *
      * @var string
@@ -16,6 +18,8 @@ class AttachEaiRequest extends Model
     public $clientInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example eais-sz8t15a7gt7z7j7i****
      *
      * @var string
@@ -23,6 +27,8 @@ class AttachEaiRequest extends Model
     public $elasticAcceleratedInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shenzhen
      *
      * @var string

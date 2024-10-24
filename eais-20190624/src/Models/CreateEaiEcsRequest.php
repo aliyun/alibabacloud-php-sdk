@@ -24,6 +24,8 @@ class CreateEaiEcsRequest extends Model
     public $eaisName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example eais.ei-a6.2xlarge
      *
      * @var string
@@ -36,6 +38,8 @@ class CreateEaiEcsRequest extends Model
     public $ecs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-shenzhen
      *
      * @var string
@@ -50,6 +54,8 @@ class CreateEaiEcsRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sg-uf66jeqopgqa9hdn****
      *
      * @var string
@@ -57,6 +63,8 @@ class CreateEaiEcsRequest extends Model
     public $securityGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vsw-uf6h3rbwbm90urjwa****
      *
      * @var string

@@ -21,6 +21,8 @@ class CreateEaiJupyterShrinkRequest extends Model
     public $eaisName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example eais.ei-a6.2xlarge
      *
      * @var string
@@ -33,6 +35,8 @@ class CreateEaiJupyterShrinkRequest extends Model
     public $environmentVarShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -45,6 +49,8 @@ class CreateEaiJupyterShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sg-uf66jeqopgqa9hdn****
      *
      * @var string
@@ -52,6 +58,8 @@ class CreateEaiJupyterShrinkRequest extends Model
     public $securityGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vsw-uf6h3rbwbm90urjwa****
      *
      * @var string
