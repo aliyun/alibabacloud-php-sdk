@@ -17,6 +17,10 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateDatasetLabelsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateDatasetLabelsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateDatasetRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateDatasetResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateDatasetVersionLabelsRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateDatasetVersionLabelsResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateDatasetVersionRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateDatasetVersionResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateExperimentRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateExperimentResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateMemberRequest;
@@ -41,6 +45,9 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteCodeSourceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetLabelsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetLabelsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetVersionLabelsRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetVersionLabelsResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetVersionResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteExperimentLabelResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteExperimentResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteMembersRequest;
@@ -58,6 +65,7 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteWorkspaceResourceRespons
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteWorkspaceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetCodeSourceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetVersionResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDefaultWorkspaceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDefaultWorkspaceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetExperimentRequest;
@@ -78,6 +86,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListCodeSourcesRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListCodeSourcesResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListDatasetsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListDatasetsResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListDatasetVersionsRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListDatasetVersionsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListExperimentRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListExperimentResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListExperimentShrinkRequest;
@@ -118,6 +128,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\SetExperimentLabelsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\SetExperimentLabelsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateDatasetRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateDatasetResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateDatasetVersionRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateDatasetVersionResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateDefaultWorkspaceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateDefaultWorkspaceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateExperimentRequest;
@@ -576,6 +588,139 @@ class AIWorkSpace extends OpenApiClient
         $headers = [];
 
         return $this->createDatasetLabelsWithOptions($DatasetId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建数据集版本
+     *  *
+     * @param string                      $DatasetId
+     * @param CreateDatasetVersionRequest $request   CreateDatasetVersionRequest
+     * @param string[]                    $headers   map
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return CreateDatasetVersionResponse CreateDatasetVersionResponse
+     */
+    public function createDatasetVersionWithOptions($DatasetId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dataCount)) {
+            $body['DataCount'] = $request->dataCount;
+        }
+        if (!Utils::isUnset($request->dataSize)) {
+            $body['DataSize'] = $request->dataSize;
+        }
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $body['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->labels)) {
+            $body['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->options)) {
+            $body['Options'] = $request->options;
+        }
+        if (!Utils::isUnset($request->property)) {
+            $body['Property'] = $request->property;
+        }
+        if (!Utils::isUnset($request->sourceId)) {
+            $body['SourceId'] = $request->sourceId;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $body['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->uri)) {
+            $body['Uri'] = $request->uri;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDatasetVersion',
+            'version'     => '2021-02-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/datasets/' . OpenApiUtilClient::getEncodeParam($DatasetId) . '/versions',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDatasetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建数据集版本
+     *  *
+     * @param string                      $DatasetId
+     * @param CreateDatasetVersionRequest $request   CreateDatasetVersionRequest
+     *
+     * @return CreateDatasetVersionResponse CreateDatasetVersionResponse
+     */
+    public function createDatasetVersion($DatasetId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createDatasetVersionWithOptions($DatasetId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建数据集版本的标签
+     *  *
+     * @param string                            $DatasetId
+     * @param string                            $VersionName
+     * @param CreateDatasetVersionLabelsRequest $request     CreateDatasetVersionLabelsRequest
+     * @param string[]                          $headers     map
+     * @param RuntimeOptions                    $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return CreateDatasetVersionLabelsResponse CreateDatasetVersionLabelsResponse
+     */
+    public function createDatasetVersionLabelsWithOptions($DatasetId, $VersionName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->labels)) {
+            $body['Labels'] = $request->labels;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDatasetVersionLabels',
+            'version'     => '2021-02-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/datasets/' . OpenApiUtilClient::getEncodeParam($DatasetId) . '/versions/' . OpenApiUtilClient::getEncodeParam($VersionName) . '/labels',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDatasetVersionLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建数据集版本的标签
+     *  *
+     * @param string                            $DatasetId
+     * @param string                            $VersionName
+     * @param CreateDatasetVersionLabelsRequest $request     CreateDatasetVersionLabelsRequest
+     *
+     * @return CreateDatasetVersionLabelsResponse CreateDatasetVersionLabelsResponse
+     */
+    public function createDatasetVersionLabels($DatasetId, $VersionName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createDatasetVersionLabelsWithOptions($DatasetId, $VersionName, $request, $headers, $runtime);
     }
 
     /**
@@ -1351,6 +1496,106 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定版本的数据集信息，如果删除的版本是该数据集的仅存版本，版本删除后会联动删除dataset 表中的数据集信息
+     *  *
+     * @param string         $DatasetId
+     * @param string         $VersionName
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDatasetVersionResponse DeleteDatasetVersionResponse
+     */
+    public function deleteDatasetVersionWithOptions($DatasetId, $VersionName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDatasetVersion',
+            'version'     => '2021-02-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/datasets/' . OpenApiUtilClient::getEncodeParam($DatasetId) . '/versions/' . OpenApiUtilClient::getEncodeParam($VersionName) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDatasetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除指定版本的数据集信息，如果删除的版本是该数据集的仅存版本，版本删除后会联动删除dataset 表中的数据集信息
+     *  *
+     * @param string $DatasetId
+     * @param string $VersionName
+     *
+     * @return DeleteDatasetVersionResponse DeleteDatasetVersionResponse
+     */
+    public function deleteDatasetVersion($DatasetId, $VersionName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteDatasetVersionWithOptions($DatasetId, $VersionName, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除数据集版本的标签。
+     *  *
+     * @param string                            $DatasetId
+     * @param string                            $VersionName
+     * @param DeleteDatasetVersionLabelsRequest $request     DeleteDatasetVersionLabelsRequest
+     * @param string[]                          $headers     map
+     * @param RuntimeOptions                    $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDatasetVersionLabelsResponse DeleteDatasetVersionLabelsResponse
+     */
+    public function deleteDatasetVersionLabelsWithOptions($DatasetId, $VersionName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keys)) {
+            $query['Keys'] = $request->keys;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDatasetVersionLabels',
+            'version'     => '2021-02-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/datasets/' . OpenApiUtilClient::getEncodeParam($DatasetId) . '/versions/' . OpenApiUtilClient::getEncodeParam($VersionName) . '/labels',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDatasetVersionLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除数据集版本的标签。
+     *  *
+     * @param string                            $DatasetId
+     * @param string                            $VersionName
+     * @param DeleteDatasetVersionLabelsRequest $request     DeleteDatasetVersionLabelsRequest
+     *
+     * @return DeleteDatasetVersionLabelsResponse DeleteDatasetVersionLabelsResponse
+     */
+    public function deleteDatasetVersionLabels($DatasetId, $VersionName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteDatasetVersionLabelsWithOptions($DatasetId, $VersionName, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 删除实验
      *  *
      * @param string         $ExperimentId
@@ -1978,6 +2223,52 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * @summary 获取指定版本的数据集信息
+     *  *
+     * @param string         $DatasetId
+     * @param string         $VersionName
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return GetDatasetVersionResponse GetDatasetVersionResponse
+     */
+    public function getDatasetVersionWithOptions($DatasetId, $VersionName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetDatasetVersion',
+            'version'     => '2021-02-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/datasets/' . OpenApiUtilClient::getEncodeParam($DatasetId) . '/versions/' . OpenApiUtilClient::getEncodeParam($VersionName) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDatasetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取指定版本的数据集信息
+     *  *
+     * @param string $DatasetId
+     * @param string $VersionName
+     *
+     * @return GetDatasetVersionResponse GetDatasetVersionResponse
+     */
+    public function getDatasetVersion($DatasetId, $VersionName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDatasetVersionWithOptions($DatasetId, $VersionName, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取默认工作空间
      *  *
      * @param GetDefaultWorkspaceRequest $request GetDefaultWorkspaceRequest
@@ -2506,6 +2797,85 @@ class AIWorkSpace extends OpenApiClient
         $headers = [];
 
         return $this->listCodeSourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取数据集版本列表
+     *  *
+     * @param string                     $DatasetId
+     * @param ListDatasetVersionsRequest $request   ListDatasetVersionsRequest
+     * @param string[]                   $headers   map
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ListDatasetVersionsResponse ListDatasetVersionsResponse
+     */
+    public function listDatasetVersionsWithOptions($DatasetId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataSourcesTypes)) {
+            $query['DataSourcesTypes'] = $request->dataSourcesTypes;
+        }
+        if (!Utils::isUnset($request->labelKeys)) {
+            $query['LabelKeys'] = $request->labelKeys;
+        }
+        if (!Utils::isUnset($request->lableValues)) {
+            $query['LableValues'] = $request->lableValues;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->properties)) {
+            $query['Properties'] = $request->properties;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->sourceId)) {
+            $query['SourceId'] = $request->sourceId;
+        }
+        if (!Utils::isUnset($request->sourceTypes)) {
+            $query['SourceTypes'] = $request->sourceTypes;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDatasetVersions',
+            'version'     => '2021-02-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/datasets/' . OpenApiUtilClient::getEncodeParam($DatasetId) . '/versions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDatasetVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取数据集版本列表
+     *  *
+     * @param string                     $DatasetId
+     * @param ListDatasetVersionsRequest $request   ListDatasetVersionsRequest
+     *
+     * @return ListDatasetVersionsResponse ListDatasetVersionsResponse
+     */
+    public function listDatasetVersions($DatasetId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDatasetVersionsWithOptions($DatasetId, $request, $headers, $runtime);
     }
 
     /**
@@ -4007,6 +4377,69 @@ class AIWorkSpace extends OpenApiClient
         $headers = [];
 
         return $this->updateDatasetWithOptions($DatasetId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新指定版本的数据集信息
+     *  *
+     * @param string                      $DatasetId
+     * @param string                      $VersionName
+     * @param UpdateDatasetVersionRequest $request     UpdateDatasetVersionRequest
+     * @param string[]                    $headers     map
+     * @param RuntimeOptions              $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return UpdateDatasetVersionResponse UpdateDatasetVersionResponse
+     */
+    public function updateDatasetVersionWithOptions($DatasetId, $VersionName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dataCount)) {
+            $body['DataCount'] = $request->dataCount;
+        }
+        if (!Utils::isUnset($request->dataSize)) {
+            $body['DataSize'] = $request->dataSize;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->options)) {
+            $body['Options'] = $request->options;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDatasetVersion',
+            'version'     => '2021-02-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/datasets/' . OpenApiUtilClient::getEncodeParam($DatasetId) . '/versions/' . OpenApiUtilClient::getEncodeParam($VersionName) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDatasetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新指定版本的数据集信息
+     *  *
+     * @param string                      $DatasetId
+     * @param string                      $VersionName
+     * @param UpdateDatasetVersionRequest $request     UpdateDatasetVersionRequest
+     *
+     * @return UpdateDatasetVersionResponse UpdateDatasetVersionResponse
+     */
+    public function updateDatasetVersion($DatasetId, $VersionName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateDatasetVersionWithOptions($DatasetId, $VersionName, $request, $headers, $runtime);
     }
 
     /**
