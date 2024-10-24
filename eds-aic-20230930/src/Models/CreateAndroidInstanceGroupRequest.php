@@ -77,6 +77,11 @@ class CreateAndroidInstanceGroupRequest extends Model
     public $instanceGroupSpec;
 
     /**
+     * @var string
+     */
+    public $keyPairId;
+
+    /**
      * @example 1
      *
      * @var int
@@ -130,6 +135,7 @@ class CreateAndroidInstanceGroupRequest extends Model
         'imageId'           => 'ImageId',
         'instanceGroupName' => 'InstanceGroupName',
         'instanceGroupSpec' => 'InstanceGroupSpec',
+        'keyPairId'         => 'KeyPairId',
         'numberOfInstances' => 'NumberOfInstances',
         'officeSiteId'      => 'OfficeSiteId',
         'period'            => 'Period',
@@ -174,6 +180,9 @@ class CreateAndroidInstanceGroupRequest extends Model
         }
         if (null !== $this->instanceGroupSpec) {
             $res['InstanceGroupSpec'] = $this->instanceGroupSpec;
+        }
+        if (null !== $this->keyPairId) {
+            $res['KeyPairId'] = $this->keyPairId;
         }
         if (null !== $this->numberOfInstances) {
             $res['NumberOfInstances'] = $this->numberOfInstances;
@@ -234,6 +243,9 @@ class CreateAndroidInstanceGroupRequest extends Model
         }
         if (isset($map['InstanceGroupSpec'])) {
             $model->instanceGroupSpec = $map['InstanceGroupSpec'];
+        }
+        if (isset($map['KeyPairId'])) {
+            $model->keyPairId = $map['KeyPairId'];
         }
         if (isset($map['NumberOfInstances'])) {
             $model->numberOfInstances = $map['NumberOfInstances'];

@@ -414,6 +414,9 @@ class Edsaic extends OpenApiClient
         if (!Utils::isUnset($request->instanceGroupSpec)) {
             $query['InstanceGroupSpec'] = $request->instanceGroupSpec;
         }
+        if (!Utils::isUnset($request->keyPairId)) {
+            $query['KeyPairId'] = $request->keyPairId;
+        }
         if (!Utils::isUnset($request->numberOfInstances)) {
             $query['NumberOfInstances'] = $request->numberOfInstances;
         }
