@@ -161,6 +161,11 @@ class PushRequest extends Model
     public $androidNotificationNotifyId;
 
     /**
+     * @var string
+     */
+    public $androidNotificationThreadId;
+
+    /**
      * @example classification
      *
      * @var string
@@ -647,6 +652,7 @@ class PushRequest extends Model
         'androidNotificationHonorChannel'  => 'AndroidNotificationHonorChannel',
         'androidNotificationHuaweiChannel' => 'AndroidNotificationHuaweiChannel',
         'androidNotificationNotifyId'      => 'AndroidNotificationNotifyId',
+        'androidNotificationThreadId'      => 'AndroidNotificationThreadId',
         'androidNotificationVivoChannel'   => 'AndroidNotificationVivoChannel',
         'androidNotificationXiaomiChannel' => 'AndroidNotificationXiaomiChannel',
         'androidNotifyType'                => 'AndroidNotifyType',
@@ -798,6 +804,9 @@ class PushRequest extends Model
         }
         if (null !== $this->androidNotificationNotifyId) {
             $res['AndroidNotificationNotifyId'] = $this->androidNotificationNotifyId;
+        }
+        if (null !== $this->androidNotificationThreadId) {
+            $res['AndroidNotificationThreadId'] = $this->androidNotificationThreadId;
         }
         if (null !== $this->androidNotificationVivoChannel) {
             $res['AndroidNotificationVivoChannel'] = $this->androidNotificationVivoChannel;
@@ -1095,6 +1104,9 @@ class PushRequest extends Model
         }
         if (isset($map['AndroidNotificationNotifyId'])) {
             $model->androidNotificationNotifyId = $map['AndroidNotificationNotifyId'];
+        }
+        if (isset($map['AndroidNotificationThreadId'])) {
+            $model->androidNotificationThreadId = $map['AndroidNotificationThreadId'];
         }
         if (isset($map['AndroidNotificationVivoChannel'])) {
             $model->androidNotificationVivoChannel = $map['AndroidNotificationVivoChannel'];

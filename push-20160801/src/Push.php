@@ -163,6 +163,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 绑定别名
+     *  *
      * @param BindAliasRequest $request BindAliasRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -200,6 +202,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 绑定别名
+     *  *
      * @param BindAliasRequest $request BindAliasRequest
      *
      * @return BindAliasResponse BindAliasResponse
@@ -212,6 +216,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 绑定手机号码
+     *  *
      * @param BindPhoneRequest $request BindPhoneRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -249,6 +255,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 绑定手机号码
+     *  *
      * @param BindPhoneRequest $request BindPhoneRequest
      *
      * @return BindPhoneResponse BindPhoneResponse
@@ -261,6 +269,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 绑定标签
+     *  *
      * @param BindTagRequest $request BindTagRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -301,6 +311,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 绑定标签
+     *  *
      * @param BindTagRequest $request BindTagRequest
      *
      * @return BindTagResponse BindTagResponse
@@ -313,6 +325,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 取消定时推送任务
+     *  *
      * @param CancelPushRequest $request CancelPushRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -347,6 +361,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 取消定时推送任务
+     *  *
      * @param CancelPushRequest $request CancelPushRequest
      *
      * @return CancelPushResponse CancelPushResponse
@@ -402,7 +418,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead.
+     * @deprecated openAPI CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead
+     *  *
+     * @summary 【废弃】验证设备有效性
      *  *
      * Deprecated
      *
@@ -440,7 +458,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead.
+     * @deprecated openAPI CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead
+     *  *
+     * @summary 【废弃】验证设备有效性
      *  *
      * Deprecated
      *
@@ -456,6 +476,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 批量检查设备有效性
+     *  *
      * @param CheckDevicesRequest $request CheckDevicesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -490,6 +512,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 批量检查设备有效性
+     *  *
      * @param CheckDevicesRequest $request CheckDevicesRequest
      *
      * @return CheckDevicesResponse CheckDevicesResponse
@@ -502,6 +526,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 完成持续推送任务
+     *  *
      * @param CompleteContinuouslyPushRequest $request CompleteContinuouslyPushRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -536,6 +562,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 完成持续推送任务
+     *  *
      * @param CompleteContinuouslyPushRequest $request CompleteContinuouslyPushRequest
      *
      * @return CompleteContinuouslyPushResponse CompleteContinuouslyPushResponse
@@ -548,6 +576,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 持续推送
+     *  *
      * @param ContinuouslyPushRequest $request ContinuouslyPushRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -588,6 +618,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 持续推送
+     *  *
      * @param ContinuouslyPushRequest $request ContinuouslyPushRequest
      *
      * @return ContinuouslyPushResponse ContinuouslyPushResponse
@@ -600,7 +632,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead.
+     * @deprecated openAPI ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead
+     *  *
+     * @summary 【废弃】查询用户已创建的app列表
      *  *
      * Deprecated
      *
@@ -627,7 +661,9 @@ class Push extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead.
+     * @deprecated openAPI ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead
+     *  *
+     * @summary 【废弃】查询用户已创建的app列表
      *  *
      * Deprecated
      *
@@ -641,6 +677,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 获取标签列表
+     *  *
      * @param ListTagsRequest $request ListTagsRequest
      * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
@@ -672,6 +710,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 获取标签列表
+     *  *
      * @param ListTagsRequest $request ListTagsRequest
      *
      * @return ListTagsResponse ListTagsResponse
@@ -684,6 +724,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 批量推送
+     *  *
      * @param MassPushRequest $request MassPushRequest
      * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
@@ -720,6 +762,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 批量推送
+     *  *
      * @param MassPushRequest $request MassPushRequest
      *
      * @return MassPushResponse MassPushResponse
@@ -732,6 +776,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 高级推送接口
+     *  *
      * @param PushRequest    $request PushRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -812,6 +858,9 @@ class Push extends OpenApiClient
         }
         if (!Utils::isUnset($request->androidNotificationNotifyId)) {
             $query['AndroidNotificationNotifyId'] = $request->androidNotificationNotifyId;
+        }
+        if (!Utils::isUnset($request->androidNotificationThreadId)) {
+            $query['AndroidNotificationThreadId'] = $request->androidNotificationThreadId;
         }
         if (!Utils::isUnset($request->androidNotificationVivoChannel)) {
             $query['AndroidNotificationVivoChannel'] = $request->androidNotificationVivoChannel;
@@ -1045,6 +1094,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 高级推送接口
+     *  *
      * @param PushRequest $request PushRequest
      *
      * @return PushResponse PushResponse
@@ -1057,6 +1108,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 推送消息给Android设备
+     *  *
      * @param PushMessageToAndroidRequest $request PushMessageToAndroidRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -1106,6 +1159,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 推送消息给Android设备
+     *  *
      * @param PushMessageToAndroidRequest $request PushMessageToAndroidRequest
      *
      * @return PushMessageToAndroidResponse PushMessageToAndroidResponse
@@ -1118,6 +1173,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 推送消息给iOS设备
+     *  *
      * @param PushMessageToiOSRequest $request PushMessageToiOSRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -1167,6 +1224,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 推送消息给iOS设备
+     *  *
      * @param PushMessageToiOSRequest $request PushMessageToiOSRequest
      *
      * @return PushMessageToiOSResponse PushMessageToiOSResponse
@@ -1179,6 +1238,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 推送通知给Android设备
+     *  *
      * @param PushNoticeToAndroidRequest $request PushNoticeToAndroidRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -1231,6 +1292,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 推送通知给Android设备
+     *  *
      * @param PushNoticeToAndroidRequest $request PushNoticeToAndroidRequest
      *
      * @return PushNoticeToAndroidResponse PushNoticeToAndroidResponse
@@ -1243,6 +1306,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 推送通知给iOS设备
+     *  *
      * @param PushNoticeToiOSRequest $request PushNoticeToiOSRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -1295,6 +1360,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 推送通知给iOS设备
+     *  *
      * @param PushNoticeToiOSRequest $request PushNoticeToiOSRequest
      *
      * @return PushNoticeToiOSResponse PushNoticeToiOSResponse
@@ -1307,6 +1374,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 查询别名
+     *  *
      * @param QueryAliasesRequest $request QueryAliasesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -1341,6 +1410,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 查询别名
+     *  *
      * @param QueryAliasesRequest $request QueryAliasesRequest
      *
      * @return QueryAliasesResponse QueryAliasesResponse
@@ -1353,6 +1424,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 查询设备详情
+     *  *
      * @param QueryDeviceInfoRequest $request QueryDeviceInfoRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -1387,6 +1460,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 查询设备详情
+     *  *
      * @param QueryDeviceInfoRequest $request QueryDeviceInfoRequest
      *
      * @return QueryDeviceInfoResponse QueryDeviceInfoResponse
@@ -1399,6 +1474,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 设备新增与留存
+     *  *
      * @param QueryDeviceStatRequest $request QueryDeviceStatRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -1442,6 +1519,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 设备新增与留存
+     *  *
      * @param QueryDeviceStatRequest $request QueryDeviceStatRequest
      *
      * @return QueryDeviceStatResponse QueryDeviceStatResponse
@@ -1454,6 +1533,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 通过账户查询设备列表
+     *  *
      * @param QueryDevicesByAccountRequest $request QueryDevicesByAccountRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -1488,6 +1569,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 通过账户查询设备列表
+     *  *
      * @param QueryDevicesByAccountRequest $request QueryDevicesByAccountRequest
      *
      * @return QueryDevicesByAccountResponse QueryDevicesByAccountResponse
@@ -1500,6 +1583,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 通过别名查询设备列表
+     *  *
      * @param QueryDevicesByAliasRequest $request QueryDevicesByAliasRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -1534,6 +1619,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 通过别名查询设备列表
+     *  *
      * @param QueryDevicesByAliasRequest $request QueryDevicesByAliasRequest
      *
      * @return QueryDevicesByAliasResponse QueryDevicesByAliasResponse
@@ -1616,6 +1703,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary App维度推送统计
+     *  *
      * @param QueryPushStatByAppRequest $request QueryPushStatByAppRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -1656,6 +1745,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary App维度推送统计
+     *  *
      * @param QueryPushStatByAppRequest $request QueryPushStatByAppRequest
      *
      * @return QueryPushStatByAppResponse QueryPushStatByAppResponse
@@ -1668,6 +1759,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 任务维度推送统计
+     *  *
      * @param QueryPushStatByMsgRequest $request QueryPushStatByMsgRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -1702,6 +1795,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 任务维度推送统计
+     *  *
      * @param QueryPushStatByMsgRequest $request QueryPushStatByMsgRequest
      *
      * @return QueryPushStatByMsgResponse QueryPushStatByMsgResponse
@@ -1714,6 +1809,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 查询标签列表
+     *  *
      * @param QueryTagsRequest $request QueryTagsRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -1751,6 +1848,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 查询标签列表
+     *  *
      * @param QueryTagsRequest $request QueryTagsRequest
      *
      * @return QueryTagsResponse QueryTagsResponse
@@ -1763,6 +1862,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 去重设备统计
+     *  *
      * @param QueryUniqueDeviceStatRequest $request QueryUniqueDeviceStatRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -1803,6 +1904,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 去重设备统计
+     *  *
      * @param QueryUniqueDeviceStatRequest $request QueryUniqueDeviceStatRequest
      *
      * @return QueryUniqueDeviceStatResponse QueryUniqueDeviceStatResponse
@@ -1815,6 +1918,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 删除标签
+     *  *
      * @param RemoveTagRequest $request RemoveTagRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -1849,6 +1954,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 删除标签
+     *  *
      * @param RemoveTagRequest $request RemoveTagRequest
      *
      * @return RemoveTagResponse RemoveTagResponse
@@ -1861,6 +1968,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 解绑别名
+     *  *
      * @param UnbindAliasRequest $request UnbindAliasRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -1901,6 +2010,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 解绑别名
+     *  *
      * @param UnbindAliasRequest $request UnbindAliasRequest
      *
      * @return UnbindAliasResponse UnbindAliasResponse
@@ -1913,6 +2024,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 解绑手机号码
+     *  *
      * @param UnbindPhoneRequest $request UnbindPhoneRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -1947,6 +2060,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 解绑手机号码
+     *  *
      * @param UnbindPhoneRequest $request UnbindPhoneRequest
      *
      * @return UnbindPhoneResponse UnbindPhoneResponse
@@ -1959,6 +2074,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 绑定标签
+     *  *
      * @param UnbindTagRequest $request UnbindTagRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -1999,6 +2116,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * @summary 绑定标签
+     *  *
      * @param UnbindTagRequest $request UnbindTagRequest
      *
      * @return UnbindTagResponse UnbindTagResponse
