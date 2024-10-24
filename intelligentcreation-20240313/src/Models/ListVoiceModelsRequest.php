@@ -23,6 +23,11 @@ class ListVoiceModelsRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $resSpecType;
+
+    /**
      * @example offlineSynthesis
      *
      * @var string
@@ -36,10 +41,11 @@ class ListVoiceModelsRequest extends Model
      */
     public $voiceType;
     protected $_name = [
-        'pageNumber' => 'pageNumber',
-        'pageSize'   => 'pageSize',
-        'useScene'   => 'useScene',
-        'voiceType'  => 'voiceType',
+        'pageNumber'  => 'pageNumber',
+        'pageSize'    => 'pageSize',
+        'resSpecType' => 'resSpecType',
+        'useScene'    => 'useScene',
+        'voiceType'   => 'voiceType',
     ];
 
     public function validate()
@@ -54,6 +60,9 @@ class ListVoiceModelsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resSpecType) {
+            $res['resSpecType'] = $this->resSpecType;
         }
         if (null !== $this->useScene) {
             $res['useScene'] = $this->useScene;
@@ -78,6 +87,9 @@ class ListVoiceModelsRequest extends Model
         }
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+        if (isset($map['resSpecType'])) {
+            $model->resSpecType = $map['resSpecType'];
         }
         if (isset($map['useScene'])) {
             $model->useScene = $map['useScene'];

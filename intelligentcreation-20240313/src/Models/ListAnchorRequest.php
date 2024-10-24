@@ -44,6 +44,11 @@ class ListAnchorRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $resSpecType;
+
+    /**
      * @example offlineSynthesis
      *
      * @var string
@@ -55,6 +60,7 @@ class ListAnchorRequest extends Model
         'digitalHumanType' => 'digitalHumanType',
         'pageNumber'       => 'pageNumber',
         'pageSize'         => 'pageSize',
+        'resSpecType'      => 'resSpecType',
         'useScene'         => 'useScene',
     ];
 
@@ -79,6 +85,9 @@ class ListAnchorRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resSpecType) {
+            $res['resSpecType'] = $this->resSpecType;
         }
         if (null !== $this->useScene) {
             $res['useScene'] = $this->useScene;
@@ -109,6 +118,9 @@ class ListAnchorRequest extends Model
         }
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+        if (isset($map['resSpecType'])) {
+            $model->resSpecType = $map['resSpecType'];
         }
         if (isset($map['useScene'])) {
             $model->useScene = $map['useScene'];

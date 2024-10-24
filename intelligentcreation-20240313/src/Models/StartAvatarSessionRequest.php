@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class StartAvatarSessionRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $customPushUrl;
+
+    /**
      * @example 13534711288320
      *
      * @var string
@@ -22,8 +27,9 @@ class StartAvatarSessionRequest extends Model
      */
     public $requestId;
     protected $_name = [
-        'projectId' => 'projectId',
-        'requestId' => 'requestId',
+        'customPushUrl' => 'customPushUrl',
+        'projectId'     => 'projectId',
+        'requestId'     => 'requestId',
     ];
 
     public function validate()
@@ -33,6 +39,9 @@ class StartAvatarSessionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->customPushUrl) {
+            $res['customPushUrl'] = $this->customPushUrl;
+        }
         if (null !== $this->projectId) {
             $res['projectId'] = $this->projectId;
         }
@@ -51,6 +60,9 @@ class StartAvatarSessionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['customPushUrl'])) {
+            $model->customPushUrl = $map['customPushUrl'];
+        }
         if (isset($map['projectId'])) {
             $model->projectId = $map['projectId'];
         }

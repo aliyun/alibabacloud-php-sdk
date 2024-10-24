@@ -2,48 +2,36 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SubmitProjectTaskRequest\frames\layers;
+namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SaveAvatarProjectRequest\frames\layers;
 
 use AlibabaCloud\Tea\Model;
 
 class material extends Model
 {
     /**
-     * @example video/mp4
+     * @example image/png
      *
      * @var string
      */
     public $format;
 
     /**
-     * @example 38863
+     * @example 434508
      *
      * @var string
      */
     public $id;
 
     /**
-     * @var string
-     */
-    public $speed;
-
-    /**
-     * @example https://meeting.dingtalk.com/j/1COFppy0POR
+     * @example https://alidocs.dingtalk.com/i/nodes/vy20BglGWOxjGpq0C5G4DlN0VA7depqY
      *
      * @var string
      */
     public $url;
-
-    /**
-     * @var int
-     */
-    public $volume;
     protected $_name = [
         'format' => 'format',
         'id'     => 'id',
-        'speed'  => 'speed',
         'url'    => 'url',
-        'volume' => 'volume',
     ];
 
     public function validate()
@@ -59,14 +47,8 @@ class material extends Model
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
-        if (null !== $this->speed) {
-            $res['speed'] = $this->speed;
-        }
         if (null !== $this->url) {
             $res['url'] = $this->url;
-        }
-        if (null !== $this->volume) {
-            $res['volume'] = $this->volume;
         }
 
         return $res;
@@ -86,14 +68,8 @@ class material extends Model
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
-        if (isset($map['speed'])) {
-            $model->speed = $map['speed'];
-        }
         if (isset($map['url'])) {
             $model->url = $map['url'];
-        }
-        if (isset($map['volume'])) {
-            $model->volume = $map['volume'];
         }
 
         return $model;
