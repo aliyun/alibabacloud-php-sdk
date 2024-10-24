@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetCustomTemplateResponseBody;
 
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetCustomTemplateResponseBody\customTemplate\frontendHint;
 use AlibabaCloud\Tea\Model;
 
 class customTemplate extends Model
@@ -14,6 +15,11 @@ class customTemplate extends Model
      * @var string
      */
     public $createTime;
+
+    /**
+     * @var frontendHint
+     */
+    public $frontendHint;
 
     /**
      * @example true
@@ -86,6 +92,7 @@ class customTemplate extends Model
     public $typeName;
     protected $_name = [
         'createTime'     => 'CreateTime',
+        'frontendHint'   => 'FrontendHint',
         'isDefault'      => 'IsDefault',
         'modifiedTime'   => 'ModifiedTime',
         'status'         => 'Status',
@@ -107,6 +114,9 @@ class customTemplate extends Model
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->frontendHint) {
+            $res['FrontendHint'] = null !== $this->frontendHint ? $this->frontendHint->toMap() : null;
         }
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
@@ -152,6 +162,9 @@ class customTemplate extends Model
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['FrontendHint'])) {
+            $model->frontendHint = frontendHint::fromMap($map['FrontendHint']);
         }
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];
