@@ -60,6 +60,11 @@ class application extends Model
     public $applicationTemplateId;
 
     /**
+     * @var string[]
+     */
+    public $applicationVisibility;
+
+    /**
      * @description The authorization type of the EIAM application. Valid values:
      *
      *   authorize_required: Only the user with explicit authorization can access the application.
@@ -185,6 +190,7 @@ class application extends Model
         'applicationName'       => 'ApplicationName',
         'applicationSourceType' => 'ApplicationSourceType',
         'applicationTemplateId' => 'ApplicationTemplateId',
+        'applicationVisibility' => 'ApplicationVisibility',
         'authorizationType'     => 'AuthorizationType',
         'clientId'              => 'ClientId',
         'createTime'            => 'CreateTime',
@@ -220,6 +226,9 @@ class application extends Model
         }
         if (null !== $this->applicationTemplateId) {
             $res['ApplicationTemplateId'] = $this->applicationTemplateId;
+        }
+        if (null !== $this->applicationVisibility) {
+            $res['ApplicationVisibility'] = $this->applicationVisibility;
         }
         if (null !== $this->authorizationType) {
             $res['AuthorizationType'] = $this->authorizationType;
@@ -283,6 +292,11 @@ class application extends Model
         }
         if (isset($map['ApplicationTemplateId'])) {
             $model->applicationTemplateId = $map['ApplicationTemplateId'];
+        }
+        if (isset($map['ApplicationVisibility'])) {
+            if (!empty($map['ApplicationVisibility'])) {
+                $model->applicationVisibility = $map['ApplicationVisibility'];
+            }
         }
         if (isset($map['AuthorizationType'])) {
             $model->authorizationType = $map['AuthorizationType'];

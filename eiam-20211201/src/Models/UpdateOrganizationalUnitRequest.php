@@ -29,7 +29,7 @@ class UpdateOrganizationalUnitRequest extends Model
     public $organizationalUnitId;
 
     /**
-     * @description The name of the organization. The name can be up to 64 characters in length and must be unique in the same parent organization.
+     * @description The name of the organization. The name can be up to 128 characters in length and must be unique in the same parent organization.
      *
      * @example ou_name
      *
