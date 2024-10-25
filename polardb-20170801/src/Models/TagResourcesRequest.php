@@ -30,8 +30,9 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example pc-*****************
      *
      * @var string[]
@@ -59,8 +60,9 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description This parameter is required.
+     * @description The tags.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

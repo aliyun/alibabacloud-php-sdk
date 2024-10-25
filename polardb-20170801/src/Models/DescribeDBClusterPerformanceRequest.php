@@ -58,6 +58,10 @@ class DescribeDBClusterPerformanceRequest extends Model
     public $startTime;
 
     /**
+     * @description The Query Type
+     *
+     * @example orca
+     *
      * @var string
      */
     public $type;

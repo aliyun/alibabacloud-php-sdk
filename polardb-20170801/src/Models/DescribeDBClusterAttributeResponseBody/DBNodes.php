@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DBNodes extends Model
 {
     /**
-     * @description The number of CPU cores for compute node scale-out within seconds.
+     * @description Number of CPU cores for second-level elastic scaling.
      *
      * @example 6
      *
@@ -18,6 +18,8 @@ class DBNodes extends Model
     public $addedCpuCores;
 
     /**
+     * @description Number of CPU cores for the node.
+     *
      * @example 2
      *
      * @var string
@@ -25,7 +27,7 @@ class DBNodes extends Model
     public $cpuCores;
 
     /**
-     * @description The time when the node was created.
+     * @description Node creation time.
      *
      * @example 2020-03-23T21:35:43Z
      *
@@ -34,7 +36,7 @@ class DBNodes extends Model
     public $creationTime;
 
     /**
-     * @description The type of the node.
+     * @description Node specification.
      *
      * @example polar.mysql.x4.large
      *
@@ -43,7 +45,7 @@ class DBNodes extends Model
     public $DBNodeClass;
 
     /**
-     * @description The ID of the node.
+     * @description Node ID.
      *
      * @example pi-****************
      *
@@ -52,11 +54,10 @@ class DBNodes extends Model
     public $DBNodeId;
 
     /**
-     * @description The role of the node. Valid values:
+     * @description Node role, with possible values as follows:
      *
-     *   **Writer**: The node is the primary node.
-     *   **Reader**: The node is a read-only node.
-     *
+     * - **Writer**: Primary node.
+     * - **Reader**: Read-only node.
      * @example Reader
      *
      * @var string
@@ -64,21 +65,20 @@ class DBNodes extends Model
     public $DBNodeRole;
 
     /**
-     * @description The status of the node. Valid values:
-     *
-     *   **Creating**: The cluster is being created.
-     *   **Running**: The cluster is running.
-     *   **Deleting**: The cluster is being deleted.
-     *   **Rebooting**: The cluster is restarting.
-     *   **DBNodeCreating**: PolarProxy is being added.
-     *   **DBNodeDeleting**: PolarProxy is being deleted.
-     *   **ClassChanging**: The specification type of PolarProxy are being modified.
-     *   **NetAddressCreating**: The network connection is being created.
-     *   **NetAddressDeleting**: The network connection is being deleted.
-     *   **NetAddressModifying**: The network connection is being modified.
-     *   **MinorVersionUpgrading**: The minor version is being updated.
-     *   **Maintaining**: The cluster is being maintained.
-     *   **Switching**: A failover is being performed.
+     * @description Node status, with possible values as follows:
+     * **Creating**: Creating
+     * **Running**: Running
+     * **Deleting**: Deleting
+     * **Rebooting**: Rebooting
+     * **DBNodeCreating**: Adding node
+     * **DBNodeDeleting**: Removing node
+     * **ClassChanging**: Modifying node specification
+     * **NetAddressCreating**: Creating network connection
+     * **NetAddressDeleting**: Deleting network connection
+     * **NetAddressModifying**: Modifying network connection
+     * **MinorVersionUpgrading**: Upgrading minor version
+     * **Maintaining**: Instance maintenance
+     * **Switching**: Switching
      *
      * @example Running
      *
@@ -87,8 +87,8 @@ class DBNodes extends Model
     public $DBNodeStatus;
 
     /**
-     * @description The failover priority. Each node is assigned a failover priority. If a failover occurs, a node can be selected as a primary node. The priority determines the probability at which a node is selected as a primary node. A larger value indicates a higher priority. Valid values: 1 to 15.
-     *
+     * @description Failover priority. Each node has a failover priority, determining the likelihood of being elected as the primary node during a failover. A higher value indicates a higher priority.
+     * Range: 1 to 15.
      * @example 1
      *
      * @var int
@@ -96,11 +96,10 @@ class DBNodes extends Model
     public $failoverPriority;
 
     /**
-     * @description Indicates whether the hot standby feature is enabled. Valid values:
+     * @description Whether hot standby is enabled. Possible values are:
      *
-     *   **ON**
-     *   **OFF**
-     *
+     * - **ON**: Enabled
+     * - **OFF**: Disabled
      * @example ON
      *
      * @var string
@@ -108,11 +107,10 @@ class DBNodes extends Model
     public $hotReplicaMode;
 
     /**
-     * @description Indicates whether the In-Memory Column Index (IMCI) feature is enabled. Valid values:
+     * @description Whether columnar index is enabled. Possible values are:
      *
-     *   **ON**
-     *   **OFF**
-     *
+     * - **ON**: Enabled
+     * - **OFF**: Disabled
      * @example ON
      *
      * @var string
@@ -120,7 +118,7 @@ class DBNodes extends Model
     public $imciSwitch;
 
     /**
-     * @description The ID of the primary node in the cluster that runs Multi-master Cluster Edition.
+     * @description Primary node ID of the multi-master architecture cluster edition.
      *
      * @example pi-bp18z52akld3*****
      *
@@ -129,7 +127,7 @@ class DBNodes extends Model
     public $masterId;
 
     /**
-     * @description The maximum number of concurrent connections in the cluster.
+     * @description Maximum concurrent connections of the cluster.
      *
      * @example 8000
      *
@@ -138,7 +136,7 @@ class DBNodes extends Model
     public $maxConnections;
 
     /**
-     * @description The maximum input/output operations per second (IOPS).
+     * @description Maximum number of I/O requests, that is, IOPS.
      *
      * @example 32000
      *
@@ -147,6 +145,8 @@ class DBNodes extends Model
     public $maxIOPS;
 
     /**
+     * @description Node memory size, in MB.
+     *
      * @example 8192
      *
      * @var string
@@ -154,11 +154,27 @@ class DBNodes extends Model
     public $memorySize;
 
     /**
+     * @description The name of the hot standby compute node corresponding to the node when the hot standby storage and compute clusters feature is enabled.
+     *
+     * @example pi-bp18z52mirror*****
+     *
      * @var string
      */
     public $mirrorInsName;
 
     /**
+     * @var string
+     */
+    public $multiMasterLocalStandby;
+
+    /**
+     * @var string
+     */
+    public $multiMasterPrimaryNode;
+
+    /**
+     * @description Orca feature, valid values are:
+     * - off: disabled
      * @example off
      *
      * @var string
@@ -166,6 +182,8 @@ class DBNodes extends Model
     public $orca;
 
     /**
+     * @description Remote memory size, in MB.
+     *
      * @example 3072
      *
      * @var string
@@ -173,10 +191,11 @@ class DBNodes extends Model
     public $remoteMemorySize;
 
     /**
-     * @description Indicates whether the global consistency (high-performance mode) feature is enabled for the node. Valid values:
+     * @description Whether the node has the global consistency (high-performance mode) feature enabled. Possible values are:
      *
-     *   **ON**
-     *   **OFF**
+     * - **ON**: Enabled
+     *
+     * - **OFF**: Disabled
      *
      * This parameter is required.
      * @example ON
@@ -186,8 +205,8 @@ class DBNodes extends Model
     public $sccMode;
 
     /**
-     * @description The routing weight of the node. Valid values: 1 to 100 Default value: 1.
-     *
+     * @description Routing weight.
+     * Range: 1~100. Default is 1.
      * @example 1
      *
      * @var string
@@ -195,9 +214,12 @@ class DBNodes extends Model
     public $serverWeight;
 
     /**
-     * @description The type of the serverless node. Only **AgileServerless** can be returned.
+     * @description Serverless type. Possible values include:
      *
-     * > This parameter is supported only for serverless clusters.
+     * - **AgileServerless**: Agile
+     * - **SteadyServerless**: Steady
+     *
+     * > This parameter is only supported by Serverless clusters.
      * @example AgileServerless
      *
      * @var string
@@ -205,6 +227,10 @@ class DBNodes extends Model
     public $serverlessType;
 
     /**
+     * @description Identifies whether the node is in the primary or standby availability zone, primarily used in resource mirroring scenarios.
+     * Values include:
+     * - **Primary**: Primary Availability Zone
+     * - **Standby**: Standby Availability Zone
      * @example Primary
      *
      * @var string
@@ -212,7 +238,7 @@ class DBNodes extends Model
     public $subCluster;
 
     /**
-     * @description The ID of the zone.
+     * @description Availability zone ID.
      *
      * @example cn-hangzhou-i
      *
@@ -220,28 +246,30 @@ class DBNodes extends Model
      */
     public $zoneId;
     protected $_name = [
-        'addedCpuCores'    => 'AddedCpuCores',
-        'cpuCores'         => 'CpuCores',
-        'creationTime'     => 'CreationTime',
-        'DBNodeClass'      => 'DBNodeClass',
-        'DBNodeId'         => 'DBNodeId',
-        'DBNodeRole'       => 'DBNodeRole',
-        'DBNodeStatus'     => 'DBNodeStatus',
-        'failoverPriority' => 'FailoverPriority',
-        'hotReplicaMode'   => 'HotReplicaMode',
-        'imciSwitch'       => 'ImciSwitch',
-        'masterId'         => 'MasterId',
-        'maxConnections'   => 'MaxConnections',
-        'maxIOPS'          => 'MaxIOPS',
-        'memorySize'       => 'MemorySize',
-        'mirrorInsName'    => 'MirrorInsName',
-        'orca'             => 'Orca',
-        'remoteMemorySize' => 'RemoteMemorySize',
-        'sccMode'          => 'SccMode',
-        'serverWeight'     => 'ServerWeight',
-        'serverlessType'   => 'ServerlessType',
-        'subCluster'       => 'SubCluster',
-        'zoneId'           => 'ZoneId',
+        'addedCpuCores'           => 'AddedCpuCores',
+        'cpuCores'                => 'CpuCores',
+        'creationTime'            => 'CreationTime',
+        'DBNodeClass'             => 'DBNodeClass',
+        'DBNodeId'                => 'DBNodeId',
+        'DBNodeRole'              => 'DBNodeRole',
+        'DBNodeStatus'            => 'DBNodeStatus',
+        'failoverPriority'        => 'FailoverPriority',
+        'hotReplicaMode'          => 'HotReplicaMode',
+        'imciSwitch'              => 'ImciSwitch',
+        'masterId'                => 'MasterId',
+        'maxConnections'          => 'MaxConnections',
+        'maxIOPS'                 => 'MaxIOPS',
+        'memorySize'              => 'MemorySize',
+        'mirrorInsName'           => 'MirrorInsName',
+        'multiMasterLocalStandby' => 'MultiMasterLocalStandby',
+        'multiMasterPrimaryNode'  => 'MultiMasterPrimaryNode',
+        'orca'                    => 'Orca',
+        'remoteMemorySize'        => 'RemoteMemorySize',
+        'sccMode'                 => 'SccMode',
+        'serverWeight'            => 'ServerWeight',
+        'serverlessType'          => 'ServerlessType',
+        'subCluster'              => 'SubCluster',
+        'zoneId'                  => 'ZoneId',
     ];
 
     public function validate()
@@ -295,6 +323,12 @@ class DBNodes extends Model
         }
         if (null !== $this->mirrorInsName) {
             $res['MirrorInsName'] = $this->mirrorInsName;
+        }
+        if (null !== $this->multiMasterLocalStandby) {
+            $res['MultiMasterLocalStandby'] = $this->multiMasterLocalStandby;
+        }
+        if (null !== $this->multiMasterPrimaryNode) {
+            $res['MultiMasterPrimaryNode'] = $this->multiMasterPrimaryNode;
         }
         if (null !== $this->orca) {
             $res['Orca'] = $this->orca;
@@ -373,6 +407,12 @@ class DBNodes extends Model
         }
         if (isset($map['MirrorInsName'])) {
             $model->mirrorInsName = $map['MirrorInsName'];
+        }
+        if (isset($map['MultiMasterLocalStandby'])) {
+            $model->multiMasterLocalStandby = $map['MultiMasterLocalStandby'];
+        }
+        if (isset($map['MultiMasterPrimaryNode'])) {
+            $model->multiMasterPrimaryNode = $map['MultiMasterPrimaryNode'];
         }
         if (isset($map['Orca'])) {
             $model->orca = $map['Orca'];

@@ -22,6 +22,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CloseDBClusterMigrationRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CloseDBClusterMigrationResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAccountRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAccountResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateActivationCodeRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateActivationCodeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBackupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBackupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateColdStorageInstanceRequest;
@@ -42,6 +44,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalDatabaseNetworkRequest
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalDatabaseNetworkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalSecurityIPGroupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalSecurityIPGroupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateOrGetVirtualLicenseOrderRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateOrGetVirtualLicenseOrderResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateParameterGroupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateParameterGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateServiceLinkedRoleRequest;
@@ -74,6 +78,10 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteParameterGroupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteParameterGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAccountsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAccountsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActivationCodeDetailsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActivationCodeDetailsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActivationCodesRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActivationCodesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAITaskStatusRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAITaskStatusResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAutoRenewAttributeRequest;
@@ -146,6 +154,10 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalSecurityIPGroupRelat
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalSecurityIPGroupRelationResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalSecurityIPGroupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalSecurityIPGroupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLicenseOrderDetailsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLicenseOrderDetailsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLicenseOrdersRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLicenseOrdersResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLogBackupPolicyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLogBackupPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeMaskingRulesRequest;
@@ -903,6 +915,77 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * @summary 生成轻量化版本激活码
+     *  *
+     * @param CreateActivationCodeRequest $request CreateActivationCodeRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateActivationCodeResponse CreateActivationCodeResponse
+     */
+    public function createActivationCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunOrderId)) {
+            $query['AliyunOrderId'] = $request->aliyunOrderId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->macAddress)) {
+            $query['MacAddress'] = $request->macAddress;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->systemIdentifier)) {
+            $query['SystemIdentifier'] = $request->systemIdentifier;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateActivationCode',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateActivationCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 生成轻量化版本激活码
+     *  *
+     * @param CreateActivationCodeRequest $request CreateActivationCodeRequest
+     *
+     * @return CreateActivationCodeResponse CreateActivationCodeResponse
+     */
+    public function createActivationCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createActivationCodeWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates a full snapshot backup for a PolarDB cluster.
      *  *
      * @description >
@@ -975,7 +1058,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 创建冷存储实例
+     * @summary Creates a cluster that is used to store cold data.
      *  *
      * @param CreateColdStorageInstanceRequest $request CreateColdStorageInstanceRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -1029,7 +1112,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 创建冷存储实例
+     * @summary Creates a cluster that is used to store cold data.
      *  *
      * @param CreateColdStorageInstanceRequest $request CreateColdStorageInstanceRequest
      *
@@ -1043,7 +1126,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a PolarDB cluster.
+     * @summary Create Database Cluster
      *  *
      * @param CreateDBClusterRequest $request CreateDBClusterRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -1235,7 +1318,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a PolarDB cluster.
+     * @summary Create Database Cluster
      *  *
      * @param CreateDBClusterRequest $request CreateDBClusterRequest
      *
@@ -1838,6 +1921,65 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createGlobalSecurityIPGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建或获取虚拟证书订单
+     *  *
+     * @param CreateOrGetVirtualLicenseOrderRequest $request CreateOrGetVirtualLicenseOrderRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateOrGetVirtualLicenseOrderResponse CreateOrGetVirtualLicenseOrderResponse
+     */
+    public function createOrGetVirtualLicenseOrderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOrGetVirtualLicenseOrder',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateOrGetVirtualLicenseOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建或获取虚拟证书订单
+     *  *
+     * @param CreateOrGetVirtualLicenseOrderRequest $request CreateOrGetVirtualLicenseOrderRequest
+     *
+     * @return CreateOrGetVirtualLicenseOrderResponse CreateOrGetVirtualLicenseOrderResponse
+     */
+    public function createOrGetVirtualLicenseOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOrGetVirtualLicenseOrderWithOptions($request, $runtime);
     }
 
     /**
@@ -2845,7 +2987,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the state of the PolarDB for AI feature for a cluster.
+     * @summary Queries the status of the PolarDB for AI feature.
      *  *
      * @param DescribeAITaskStatusRequest $request DescribeAITaskStatusRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -2875,7 +3017,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the state of the PolarDB for AI feature for a cluster.
+     * @summary Queries the status of the PolarDB for AI feature.
      *  *
      * @param DescribeAITaskStatusRequest $request DescribeAITaskStatusRequest
      *
@@ -2954,6 +3096,133 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAccountsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询激活码详情
+     *  *
+     * @param DescribeActivationCodeDetailsRequest $request DescribeActivationCodeDetailsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeActivationCodeDetailsResponse DescribeActivationCodeDetailsResponse
+     */
+    public function describeActivationCodeDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->activationCodeId)) {
+            $query['ActivationCodeId'] = $request->activationCodeId;
+        }
+        if (!Utils::isUnset($request->aliyunOrderId)) {
+            $query['AliyunOrderId'] = $request->aliyunOrderId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeActivationCodeDetails',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeActivationCodeDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询激活码详情
+     *  *
+     * @param DescribeActivationCodeDetailsRequest $request DescribeActivationCodeDetailsRequest
+     *
+     * @return DescribeActivationCodeDetailsResponse DescribeActivationCodeDetailsResponse
+     */
+    public function describeActivationCodeDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeActivationCodeDetailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询激活码列表
+     *  *
+     * @param DescribeActivationCodesRequest $request DescribeActivationCodesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeActivationCodesResponse DescribeActivationCodesResponse
+     */
+    public function describeActivationCodesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunOrderId)) {
+            $query['AliyunOrderId'] = $request->aliyunOrderId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeActivationCodes',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeActivationCodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询激活码列表
+     *  *
+     * @param DescribeActivationCodesRequest $request DescribeActivationCodesRequest
+     *
+     * @return DescribeActivationCodesResponse DescribeActivationCodesResponse
+     */
+    public function describeActivationCodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeActivationCodesWithOptions($request, $runtime);
     }
 
     /**
@@ -4221,7 +4490,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Transparent Data Encryption (TDE) settings of a PolarDB for MySQL cluster.
+     * @summary Queries the transparent data encryption (TDE) settings of a PolarDB cluster.
      *  *
      * @param DescribeDBClusterTDERequest $request DescribeDBClusterTDERequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -4266,7 +4535,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Transparent Data Encryption (TDE) settings of a PolarDB for MySQL cluster.
+     * @summary Queries the transparent data encryption (TDE) settings of a PolarDB cluster.
      *  *
      * @param DescribeDBClusterTDERequest $request DescribeDBClusterTDERequest
      *
@@ -5379,6 +5648,139 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * @summary 查看License订单详情
+     *  *
+     * @param DescribeLicenseOrderDetailsRequest $request DescribeLicenseOrderDetailsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeLicenseOrderDetailsResponse DescribeLicenseOrderDetailsResponse
+     */
+    public function describeLicenseOrderDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunOrderId)) {
+            $query['AliyunOrderId'] = $request->aliyunOrderId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLicenseOrderDetails',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeLicenseOrderDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看License订单详情
+     *  *
+     * @param DescribeLicenseOrderDetailsRequest $request DescribeLicenseOrderDetailsRequest
+     *
+     * @return DescribeLicenseOrderDetailsResponse DescribeLicenseOrderDetailsResponse
+     */
+    public function describeLicenseOrderDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLicenseOrderDetailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询License订单列表
+     *  *
+     * @param DescribeLicenseOrdersRequest $request DescribeLicenseOrdersRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeLicenseOrdersResponse DescribeLicenseOrdersResponse
+     */
+    public function describeLicenseOrdersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunOrderId)) {
+            $query['AliyunOrderId'] = $request->aliyunOrderId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->packageType)) {
+            $query['PackageType'] = $request->packageType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->purchaseChannel)) {
+            $query['PurchaseChannel'] = $request->purchaseChannel;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->virtualOrder)) {
+            $query['VirtualOrder'] = $request->virtualOrder;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLicenseOrders',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeLicenseOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询License订单列表
+     *  *
+     * @param DescribeLicenseOrdersRequest $request DescribeLicenseOrdersRequest
+     *
+     * @return DescribeLicenseOrdersResponse DescribeLicenseOrdersResponse
+     */
+    public function describeLicenseOrders($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLicenseOrdersWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the retention policy of log backups in a PolarDB cluster.
      *  *
      * @param DescribeLogBackupPolicyRequest $request DescribeLogBackupPolicyRequest
@@ -6115,9 +6517,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of the slow query logs of a PolarDB cluster.
+     * @summary Slow Log Details
      *  *
-     * @description > This operation is applicable only to PolarDB for MySQL clusters.
+     * @description >- Only PolarDB MySQL Edition clusters support calling this interface.
+     * >- Starting from September 1, 2024, due to the optimization of the SQL template algorithm, when calling this interface, the value of the SQLHash field will change. For more details, please refer to [Notice] Optimization of Slow SQL Template Algorithm (~~2845725~~).
      *  *
      * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -6186,9 +6589,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of the slow query logs of a PolarDB cluster.
+     * @summary Slow Log Details
      *  *
-     * @description > This operation is applicable only to PolarDB for MySQL clusters.
+     * @description >- Only PolarDB MySQL Edition clusters support calling this interface.
+     * >- Starting from September 1, 2024, due to the optimization of the SQL template algorithm, when calling this interface, the value of the SQLHash field will change. For more details, please refer to [Notice] Optimization of Slow SQL Template Algorithm (~~2845725~~).
      *  *
      * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
      *
@@ -6283,9 +6687,9 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of the tasks that are generated by calling API operations. For example, you can call this operation to view the details of the task when you create a cluster.
+     * @summary Queries the status of the tasks that are generated based on API operations, such as the status of instance creation tasks.
      *  *
-     * @description *   You can call this operation to view the details of a task that is generated by a specific API operation or in the console. The system calls the specific API operation when you perform an operation in the console. For example, you can view the details of the task when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation or [create a cluster](https://help.aliyun.com/document_detail/58769.html) in the console.
+     * @description *   You can call this operation to view the details of a task that is generated by a specific API operation or in the PolarDB console. The system calls the specific API operation when you perform an operation in the PolarDB console. For example, you can view the details of the task when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation or [create a cluster](https://help.aliyun.com/document_detail/58769.html) in the PolarDB console.
      * *   You can view the details of tasks that are generated only when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create a cluster and `CreationOption` is not set to `CreateGdnStandby`.
      *  *
      * @param DescribeTasksRequest $request DescribeTasksRequest
@@ -6349,9 +6753,9 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of the tasks that are generated by calling API operations. For example, you can call this operation to view the details of the task when you create a cluster.
+     * @summary Queries the status of the tasks that are generated based on API operations, such as the status of instance creation tasks.
      *  *
-     * @description *   You can call this operation to view the details of a task that is generated by a specific API operation or in the console. The system calls the specific API operation when you perform an operation in the console. For example, you can view the details of the task when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation or [create a cluster](https://help.aliyun.com/document_detail/58769.html) in the console.
+     * @description *   You can call this operation to view the details of a task that is generated by a specific API operation or in the PolarDB console. The system calls the specific API operation when you perform an operation in the PolarDB console. For example, you can view the details of the task when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation or [create a cluster](https://help.aliyun.com/document_detail/58769.html) in the PolarDB console.
      * *   You can view the details of tasks that are generated only when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create a cluster and `CreationOption` is not set to `CreateGdnStandby`.
      *  *
      * @param DescribeTasksRequest $request DescribeTasksRequest
@@ -6647,7 +7051,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 修改sql防火墙状态
+     * @summary Modifies the status of SQL firewall rules for a cluster.
      *  *
      * @param EnableFirewallRulesRequest $request EnableFirewallRulesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -6698,7 +7102,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 修改sql防火墙状态
+     * @summary Modifies the status of SQL firewall rules for a cluster.
      *  *
      * @param EnableFirewallRulesRequest $request EnableFirewallRulesRequest
      *
@@ -6949,7 +7353,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tags that are bound to one or more PolarDB clusters, or queries the PolarDB clusters to which one or more tags are bound.
+     * @summary Queries the tags that are added to one or more PolarDB clusters, or the PolarDB clusters to which one or more tags are added.
      *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -7006,7 +7410,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tags that are bound to one or more PolarDB clusters, or queries the PolarDB clusters to which one or more tags are bound.
+     * @summary Queries the tags that are added to one or more PolarDB clusters, or the PolarDB clusters to which one or more tags are added.
      *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
@@ -7416,6 +7820,9 @@ class Polardb extends OpenApiClient
         }
         if (!Utils::isUnset($request->faultSimulateMode)) {
             $query['FaultSimulateMode'] = $request->faultSimulateMode;
+        }
+        if (!Utils::isUnset($request->imciAutoIndex)) {
+            $query['ImciAutoIndex'] = $request->imciAutoIndex;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -8296,6 +8703,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the configurations of a resource group for a database cluster.
+     *  *
      * @param ModifyDBClusterResourceGroupRequest $request ModifyDBClusterResourceGroupRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -8345,6 +8754,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the configurations of a resource group for a database cluster.
+     *  *
      * @param ModifyDBClusterResourceGroupRequest $request ModifyDBClusterResourceGroupRequest
      *
      * @return ModifyDBClusterResourceGroupResponse ModifyDBClusterResourceGroupResponse
@@ -8609,7 +9020,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Enables the TDE feature or changes the encryption method for a specified PolarDB for MySQL cluster.
+     * @summary Enables the transparent data encryption (TDE) feature for a PolarDB cluster.
      *  *
      * @description > *   To perform this operation, you must activate KMS first. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
      * > *   After TDE is enabled, you cannot disable TDE.
@@ -8672,7 +9083,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Enables the TDE feature or changes the encryption method for a specified PolarDB for MySQL cluster.
+     * @summary Enables the transparent data encryption (TDE) feature for a PolarDB cluster.
      *  *
      * @description > *   To perform this operation, you must activate KMS first. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
      * > *   After TDE is enabled, you cannot disable TDE.
@@ -8914,7 +9325,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables a cluster node.
+     * @summary Enables or disables the hot standby node in a cluster.
      *  *
      * @param ModifyDBNodeHotReplicaModeRequest $request ModifyDBNodeHotReplicaModeRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -8965,7 +9376,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables a cluster node.
+     * @summary Enables or disables the hot standby node in a cluster.
      *  *
      * @param ModifyDBNodeHotReplicaModeRequest $request ModifyDBNodeHotReplicaModeRequest
      *
@@ -9136,7 +9547,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a Global Database Network (GDN).
+     * @summary Modifies a global database network (GDN).
      *  *
      * @param ModifyGlobalDatabaseNetworkRequest $request ModifyGlobalDatabaseNetworkRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -9193,7 +9604,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a Global Database Network (GDN).
+     * @summary Modifies a global database network (GDN).
      *  *
      * @param ModifyGlobalDatabaseNetworkRequest $request ModifyGlobalDatabaseNetworkRequest
      *
@@ -10292,6 +10703,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * @summary Creates tags for a PolarDB cluster.
+     *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -10344,6 +10757,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * @summary Creates tags for a PolarDB cluster.
+     *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      *
      * @return TagResourcesResponse TagResourcesResponse
@@ -10356,7 +10771,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Temporarily upgrades the configuration of a PolarDB cluster or adds one or more nodes to a cluster.
+     * @summary Temporarily changes the node configurations of a cluster.
      *  *
      * @param TempModifyDBNodeRequest $request TempModifyDBNodeRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -10416,7 +10831,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Temporarily upgrades the configuration of a PolarDB cluster or adds one or more nodes to a cluster.
+     * @summary Temporarily changes the node configurations of a cluster.
      *  *
      * @param TempModifyDBNodeRequest $request TempModifyDBNodeRequest
      *
@@ -10432,9 +10847,10 @@ class Polardb extends OpenApiClient
     /**
      * @summary Changes the billing method of a PolarDB cluster.
      *  *
-     * @description > *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
-     * >*   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
-     * >*   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
+     * @description >
+     * *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
+     * *   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
+     * *   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
      *  *
      * @param TransformDBClusterPayTypeRequest $request TransformDBClusterPayTypeRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -10499,9 +10915,10 @@ class Polardb extends OpenApiClient
     /**
      * @summary Changes the billing method of a PolarDB cluster.
      *  *
-     * @description > *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
-     * >*   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
-     * >*   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
+     * @description >
+     * *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
+     * *   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
+     * *   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
      *  *
      * @param TransformDBClusterPayTypeRequest $request TransformDBClusterPayTypeRequest
      *

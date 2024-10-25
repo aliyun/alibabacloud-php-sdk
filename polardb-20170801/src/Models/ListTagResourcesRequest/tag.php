@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The key of the tag. To query the details of clusters to which multiple tags are bound, click **Add** to add tags.
+     * @description The tag key. To query the details of clusters to which multiple tags are added, click **Add** to add tags.
      *
      * >
      *

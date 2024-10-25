@@ -52,17 +52,18 @@ class CreateAccountRequest extends Model
     /**
      * @description The permissions that are granted to the account. Valid values:
      *
-     *   **ReadWrite**: read and write permissions
-     *   **ReadOnly**: read-only permissions
-     *   **DMLOnly**: the permissions to execute only DML statements
-     *   **DDLOnly**: the permissions to execute only DDL statements
-     *   **ReadIndex**: the read and index permissions
+     *   **ReadWrite**: read and write permissions.
+     *   **ReadOnly**: read-only permissions.
+     *   **DMLOnly**: the permissions to execute only DML statements.
+     *   **DDLOnly**: the permissions to execute only DDL statements.
+     *   **ReadIndex**: the read-only and index permissions.
      *
      * >
      *
-     *   The `AccountPrivilege` parameter is valid only after you specify the `DBName` parameter.
+     *   `AccountPrivilege` is valid only after you specify `DBName`.
      *
-     *   If multiple database names are specified by the `DBName` parameter, you must grant permissions on the databases. Separate multiple permissions with commas (,). For example, if you want to grant the account the read and write permissions on DB1 and the read-only permissions on DB2, set `DBName` to `DB1,DB2`, and set `AccountPrivilege` to `ReadWrite,ReadOnly`.
+     *   If multiple database names are specified by the `DBName` parameter, you must grant permissions on the databases. Separate multiple permissions with commas (,), and make sure that the length of the value of `AccountPrivilege` does not exceed 900. For example, if you want to grant the account the read and write permissions on DB1 and the read-only permissions on DB2, set `DBName` to `DB1,DB2` and set `AccountPrivilege` to `ReadWrite,ReadOnly`.
+     *
      *   This parameter is valid only for standard accounts of PolarDB for MySQL clusters.
      *
      * @example ReadWrite
@@ -112,7 +113,7 @@ class CreateAccountRequest extends Model
     /**
      * @description The name of the database that can be accessed by the account. To enter multiple database names, separate the names with commas (,).
      *
-     * > This parameter is valid only for standard accounts of PolarDB for MySQL clusters.
+     * >  This parameter is valid only for standard accounts of PolarDB for MySQL clusters.
      * @example testdb
      *
      * @var string
@@ -130,6 +131,13 @@ class CreateAccountRequest extends Model
     public $ownerId;
 
     /**
+     * @description Specifies whether to grant the specified account required permissions on all existing databases in the current cluster and databases that will be further created for the current cluster. Valid values:
+     *
+     *   **0 or unspecified**: does not grant required permissions.
+     *   **1**: grants required permissions.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $privForAllDB;

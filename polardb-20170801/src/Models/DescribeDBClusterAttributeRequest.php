@@ -9,8 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterAttributeRequest extends Model
 {
     /**
-     * @description The ID of cluster.
-     *
+     * @description Cluster ID.
      * This parameter is required.
      * @example pc-*****************
      *
@@ -19,7 +18,7 @@ class DescribeDBClusterAttributeRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description Specifies whether to query information about AI-related nodes.
+     * @description Whether to obtain information about AI-related nodes.
      *
      * @example AI
      *

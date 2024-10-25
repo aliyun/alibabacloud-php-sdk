@@ -47,9 +47,9 @@ class TempModifyDBNodeRequest extends Model
     public $modifyType;
 
     /**
-     * @description The type of operation performed on the cluster. Valid values:
+     * @description The operation type. Valid values:
      *
-     *   **Modify**: temporarily upgrade the configuration of the cluster.
+     *   **Modify**: temporarily upgrades the configuration of the cluster.
      *
      * This parameter is required.
      * @example Modify

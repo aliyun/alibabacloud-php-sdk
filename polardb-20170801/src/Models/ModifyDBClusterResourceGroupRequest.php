@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterResourceGroupRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example pc-*************
      *
      * @var string
@@ -18,8 +19,9 @@ class ModifyDBClusterResourceGroupRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the new resource group.
      *
+     * This parameter is required.
      * @example rg-**********
      *
      * @var string
@@ -37,6 +39,8 @@ class ModifyDBClusterResourceGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the original resource group.
+     *
      * @example rg-**********
      *
      * @var string

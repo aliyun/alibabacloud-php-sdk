@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The key of the tag that you want to create for the cluster. To create multiple tags for a cluster at a time, click the **+** icon.
+     * @description Tag key. If you need to add multiple tags to the target cluster at once, click **Add** to add a tag key.
      *
-     * > You can create up to 20 key-value pairs of tags at a time. Each value of the `Tag.N.Key` parameter is paired with a value of the `Tag.N.Value` parameter.
+     * > Up to 20 pairs of tags can be added each time, where `Tag.N.Key` corresponds to `Tag.N.Value`.
      * @example type
      *
      * @var string
@@ -19,9 +19,9 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The value of the tag that you want to create for the cluster. To create multiple tags for a cluster at a time, click the **+** icon.
+     * @description Tag value. If you need to add multiple tags to the target cluster at once, click **Add** to add tag values.
      *
-     * > You can create up to 20 key-value pairs of tags at a time. Each value of the `Tag.N.Value` parameter is paired with a value of the `Tag.N.Key` parameter.
+     * > Up to 20 pairs of tags can be added each time, where `Tag.N.Value` corresponds to `Tag.N.Key`.
      * @example test
      *
      * @var string

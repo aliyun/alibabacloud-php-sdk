@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DBClusters extends Model
 {
     /**
+     * @description The edition of the cluster.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $category;

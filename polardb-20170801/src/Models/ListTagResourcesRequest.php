@@ -39,7 +39,7 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The cluster ID. To query the tags of multiple clusters, click **Add** to add cluster IDs.
+     * @description The IDs of the clusters. To query the tags of multiple clusters, click **Add** to add cluster IDs.
      *
      * >
      *

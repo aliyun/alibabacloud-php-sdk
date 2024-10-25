@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBClusterRequest extends Model
 {
     /**
-     * @description The retention policy for the backup sets when you delete the cluster. Valid values:
+     * @description The retention policy applied to the backup sets when the cluster is released. Valid values:
      *
-     *   **ALL**: permanently retains all backups.
-     *   **LATEST**: permanently retains the most recent backup. A backup is automatically created before you delete the cluster.
-     *   **NONE**: No backup sets are retained after you delete the cluster.
+     *   **ALL**: permanently retains all backup sets.
+     *   **LATEST**: permanently retains the most recent backup set that is automatically created before the cluster is released.
+     *   **NONE**: does not retain backup sets.
      *
      * @example NONE
      *

@@ -19,6 +19,11 @@ class OpenAITaskRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description The node type. Valid values:
+     *
+     *   **DLNode**: This node is an AI node.
+     *   **SearchNode**: This node is a node for which the PolarDB for AI feature is enabled.
+     *
      * @example DLNode
      *
      * @var string

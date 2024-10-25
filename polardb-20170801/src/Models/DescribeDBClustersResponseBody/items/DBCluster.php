@@ -185,6 +185,13 @@ class DBCluster extends Model
     public $expired;
 
     /**
+     * @description Indicates whether the hot standby storage cluster feature is enabled. Valid values:
+     *
+     *   ON
+     *   OFF
+     *
+     * @example OFF
+     *
      * @var string
      */
     public $hotStandbyCluster;

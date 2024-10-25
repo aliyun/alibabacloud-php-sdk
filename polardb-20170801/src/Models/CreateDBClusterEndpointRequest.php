@@ -9,12 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateDBClusterEndpointRequest extends Model
 {
     /**
-     * @description Specifies whether to automatically associate newly added nodes with the cluster endpoint. Valid values:
+     * @description Specifies whether to enable automatic association of newly added nodes with the cluster endpoint. Valid values:
      *
-     *   **Enable**: Newly added nodes are automatically associated with the cluster endpoint.
-     *   **Disable**: Newly added nodes are not automatically associated with the cluster endpoint.
+     *   **Enable**: enables automatic association of newly added nodes with the cluster endpoint.
+     *   **Disable** (default): disables automatic association of newly added nodes with the cluster endpoint.
      *
-     * Default value: **Disable**.
      * @example Disable
      *
      * @var string
@@ -118,11 +117,20 @@ class CreateDBClusterEndpointRequest extends Model
     public $ownerId;
 
     /**
+     * @description Global consistency timeout strategy. The value range is as follows:
+     * - **0**: Send the request to the primary node
+     * - **2**: Timeout degradation, when a global consistency read times out, the query operation will automatically degrade to an inconsistent read, and the client will not receive an error message
+     * @example 0
+     *
      * @var string
      */
     public $polarSccTimeoutAction;
 
     /**
+     * @description Global consistency timeout
+     *
+     * @example 100
+     *
      * @var string
      */
     public $polarSccWaitTimeout;
@@ -151,6 +159,10 @@ class CreateDBClusterEndpointRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Whether the node has enabled the global consistency (high-performance mode) feature. The value range is as follows:
+     * - **ON**: Enabled - **OFF**: Disabled
+     * @example on
+     *
      * @var string
      */
     public $sccMode;

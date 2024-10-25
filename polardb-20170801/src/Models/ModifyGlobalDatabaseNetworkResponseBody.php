@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyGlobalDatabaseNetworkResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C61892A4-0850-4516-9E26-44D96C1782DE
      *

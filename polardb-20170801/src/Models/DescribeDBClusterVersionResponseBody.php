@@ -48,6 +48,8 @@ class DescribeDBClusterVersionResponseBody extends Model
     public $DBRevisionVersion;
 
     /**
+     * @description The versions to which the cluster can be upgraded.
+     *
      * @var DBRevisionVersionList[]
      */
     public $DBRevisionVersionList;

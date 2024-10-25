@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterRequest extends Model
 {
     /**
-     * @description Enable storage compression function. The value of this parameter is ON.
+     * @description Specifies whether to enable storage compression. Set the value to **ON**.
      *
      * @example ON
      *
@@ -28,6 +28,11 @@ class ModifyDBClusterRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description The list of nodes for the drill.
+     *
+     * >  You can specify only one node for a node-level disaster recovery drill. For a primary zone-level disaster recovery drill, you can either choose not to specify this parameter or specify all nodes.
+     * @example pi-rwxxx
+     *
      * @var string
      */
     public $DBNodeCrashList;
@@ -45,26 +50,38 @@ class ModifyDBClusterRequest extends Model
     public $dataSyncMode;
 
     /**
+     * @description The fault injection method. Valid values:
+     *
+     *   CrashSQLInjection: `Crash SQL`-based fault injection.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $faultInjectionType;
 
     /**
-     * @description The fault scenario that you want to simulate for the cluster.
+     * @description The level of the disaster recovery drill. Valid values:
      *
-     *   Set the value to **0**. The value 0 indicates the scenario in which the primary zone of the cluster fails.
+     *   `0` or `FaultInjection`: The primary zone level.
+     *   `1`: The node level.
      *
      * >
      *
-     *   This parameter takes effect only when you set the `StandbyHAMode` parameter to 0.
+     *   In **primary zone-level disaster recovery drill** scenarios, all compute nodes in the primary zone are unavailable. Data loss occurs during failovers in the scenarios.
      *
-     *   If you set this parameter to 0, all compute nodes deployed in the primary zone are unavailable. In this case, the switchover degrades the cluster performance.
+     *   In **node-level disaster recovery drill** scenarios, you can specify only one compute node for the disaster recovery drill. You can use the `DBNodeCrashList` parameter to specify the name of the compute node that you want to use for the drill.
      *
      * @example 0
      *
      * @var string
      */
     public $faultSimulateMode;
+
+    /**
+     * @var string
+     */
+    public $imciAutoIndex;
 
     /**
      * @var string
@@ -87,11 +104,10 @@ class ModifyDBClusterRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Specifies whether to enable the cross-zone automatic switchover mode. Valid values:
+     * @description Specifies whether to enable cross-zone automatic switchover. Valid values:
      *
-     *   **ON**: Enable the cross-zone automatic switchover mode.
-     *   **OFF**: Disable the cross-zone automatic switchover mode.
-     *   **0**: Enable the customer drill mode.
+     *   **ON**: enables cross-zone automatic switchover.
+     *   **OFF**: disables cross-zone automatic switchover.
      *
      * @example ON
      *
@@ -100,7 +116,7 @@ class ModifyDBClusterRequest extends Model
     public $standbyHAMode;
 
     /**
-     * @description Specifies whether to enable automatic storage scaling for the cluster of Standard Edition. Valid values:
+     * @description Specifies whether to enable automatic storage scaling. This parameter is available only for Standard Edition clusters. Valid values:
      *
      *   Enable
      *   Disable
@@ -127,6 +143,7 @@ class ModifyDBClusterRequest extends Model
         'dataSyncMode'         => 'DataSyncMode',
         'faultInjectionType'   => 'FaultInjectionType',
         'faultSimulateMode'    => 'FaultSimulateMode',
+        'imciAutoIndex'        => 'ImciAutoIndex',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -160,6 +177,9 @@ class ModifyDBClusterRequest extends Model
         }
         if (null !== $this->faultSimulateMode) {
             $res['FaultSimulateMode'] = $this->faultSimulateMode;
+        }
+        if (null !== $this->imciAutoIndex) {
+            $res['ImciAutoIndex'] = $this->imciAutoIndex;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -211,6 +231,9 @@ class ModifyDBClusterRequest extends Model
         }
         if (isset($map['FaultSimulateMode'])) {
             $model->faultSimulateMode = $map['FaultSimulateMode'];
+        }
+        if (isset($map['ImciAutoIndex'])) {
+            $model->imciAutoIndex = $map['ImciAutoIndex'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

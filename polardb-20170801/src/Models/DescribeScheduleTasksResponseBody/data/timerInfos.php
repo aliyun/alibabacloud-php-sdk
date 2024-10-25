@@ -18,6 +18,10 @@ class timerInfos extends Model
     public $action;
 
     /**
+     * @description The ID of the scheduled task.
+     *
+     * @example 86293c29-a03d-4872-b625-***********
+     *
      * @var string
      */
     public $crontabJobId;

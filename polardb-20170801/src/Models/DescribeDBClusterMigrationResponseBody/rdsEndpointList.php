@@ -17,8 +17,10 @@ class rdsEndpointList extends Model
     public $addressItems;
 
     /**
-     * @description The type of the source database.
+     * @description The role of the source database instance.
      *
+     * @example ReadOnly
+     * Primary
      * @var string
      */
     public $custinsType;

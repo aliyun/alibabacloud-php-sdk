@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDBClusterResponseBody extends Model
 {
     /**
-     * @description The ID of cluster.
+     * @description Cluster ID.
      *
      * @example pc-bp1s826a1up******
      *
@@ -18,7 +18,7 @@ class CreateDBClusterResponseBody extends Model
     public $DBClusterId;
 
     /**
-     * @description The ID of the order.
+     * @description Order ID.
      *
      * @example 211454967******
      *
@@ -27,7 +27,7 @@ class CreateDBClusterResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the request.
+     * @description Request ID.
      *
      * @example E56531A4-E552-40BA-9C58-137B80******
      *
@@ -36,7 +36,7 @@ class CreateDBClusterResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the resource group.
+     * @description Resource group ID.
      *
      * @example rg-***************
      *

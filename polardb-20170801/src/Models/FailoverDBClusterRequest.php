@@ -48,7 +48,7 @@ class FailoverDBClusterRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Specifies whether to fail back to the original primary zone after a failover. Valid values:
+     * @description Specifies whether to switch back services to the original primary zone when the original primary zone recovers.
      *
      *   true
      *   false
@@ -71,6 +71,11 @@ class FailoverDBClusterRequest extends Model
     public $targetDBNodeId;
 
     /**
+     * @description Whether it is a primary-standby switch within the primary availability zone, with the following values:
+     *
+     * Standby: Switch to the storage hot backup cluster.
+     * @example Primary
+     *
      * @var string
      */
     public $targetZoneType;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateColdStorageInstanceResponseBody extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example pcs_2zeth2gf4i83e578t
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateColdStorageInstanceResponseBody extends Model
     public $coldStorageInstanceId;
 
     /**
+     * @description The request ID.
+     *
      * @example F6EBB4ED-D12F-5F49-824C-9DD9C0EC4CF2
      *
      * @var string

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeScheduleTasksResponseBody extends Model
 {
     /**
-     * @description The result data that is returned.
+     * @description The result data.
      *
      * @var data
      */

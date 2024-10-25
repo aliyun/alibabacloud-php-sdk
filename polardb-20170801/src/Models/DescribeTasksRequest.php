@@ -95,7 +95,7 @@ class DescribeTasksRequest extends Model
      *   **Running**: The task is running.
      *   **Finished**: The task is completed.
      *   **Closed**: The task is closed.
-     *   **Pause**: The task is suspended.
+     *   **Pause**: The task is paused.
      *   **Stop**: The task is interrupted.
      *
      * >

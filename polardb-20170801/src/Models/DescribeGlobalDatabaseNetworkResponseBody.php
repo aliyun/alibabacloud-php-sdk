@@ -99,6 +99,10 @@ class DescribeGlobalDatabaseNetworkResponseBody extends Model
     public $GDNStatus;
 
     /**
+     * @description The global domain name.
+     *
+     * @example [gdnid].gdn.rds.aliyuncs.com
+     *
      * @var string
      */
     public $globalDomainName;

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class EnableFirewallRulesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example pc-************
      *
      * @var string
@@ -18,6 +19,12 @@ class EnableFirewallRulesRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description Specifies whether to enable or disable the specified firewall rules. Valid values:
+     *
+     *   **true**: enables the specified firewall rules.
+     *   **false**: disables the specified firewall rules.
+     *
+     * > This parameter is valid only when you specify the **RuleNameList** parameter.
      * @example true
      *
      * @var bool
@@ -45,8 +52,11 @@ class EnableFirewallRulesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the firewall rule that you want to enable for the cluster. You can specify multiple firewall rules at a time. Separate multiple rules with commas (,).
      *
+     * > You can call the **DescribeFirewallRules** operation to query the details of all firewall rules that are applicable to a cluster, such as rule names.
+     *
+     * This parameter is required.
      * @example test111
      *
      * @var string

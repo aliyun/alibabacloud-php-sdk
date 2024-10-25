@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterTDEResponseBody extends Model
 {
     /**
+     * @description Indicates whether automatic key rotation is allowed. Valid values:
+     *
+     *   **Enabled**: Automatic key rotation is allowed.
+     *   **Disabled**: Automatic key rotation is not allowed.
+     *
+     * >  This parameter is returned only for a PolarDB for PostgreSQL or PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+     * @example Enabled
+     *
      * @var string
      */
     public $automaticRotation;
@@ -28,6 +36,7 @@ class DescribeDBClusterTDEResponseBody extends Model
      *   **ON**
      *   **OFF**
      *
+     * >  This parameter is returned only for a PolarDB for MySQL cluster.
      * @example ON
      *
      * @var string
@@ -53,6 +62,11 @@ class DescribeDBClusterTDEResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The automatic key rotation period configured in Key Management Service (KMS). If no automatic key rotation period is configured, 0s is returned. Unit: seconds.
+     *
+     * >  This parameter is returned only for a PolarDB for PostgreSQL or PolarDB for PostgreSQL (Compatible with Oracle) cluster whose AutomaticRotation parameter is set to Enabled.
+     * @example 604800s
+     *
      * @var string
      */
     public $rotationInterval;

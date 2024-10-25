@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description Specifies whether to unbinds all tags from the cluster. Valid values: **true** and **false**. Default value: **false**.
+     * @description Specifies whether to detach all tags from the cluster. Valid values: **true** and **false**. Default value: **false**.
      *
-     * >  This parameter takes effect only when the value of the `TagKey.n` parameter is empty.
+     * >  This parameter takes effect only if `TagKey.n` is empty.
      * @example true
      *
      * @var bool

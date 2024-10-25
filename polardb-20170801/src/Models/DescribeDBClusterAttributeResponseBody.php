@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterAttributeResponseBody extends Model
 {
     /**
+     * @description Start time for free AI activation
+     *
      * @example 2024-03-13T01:20:28Z
      *
      * @var string
@@ -18,11 +20,10 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $aiCreatingTime;
 
     /**
-     * @description The information status of the AI node. Valid values:
+     * @description Types of AI nodes. Values include:
      *
-     *   SearchNode: search node.
-     *   DLNode: AI node
-     *
+     * - **SearchNode**: Search node.
+     * - **DLNode**: AI node.
      * @example DLNode
      *
      * @var string
@@ -30,6 +31,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $aiType;
 
     /**
+     * @description CPU architecture. Available options are:
+     * - **X86**
+     * - **ARM**
      * @example X86
      *
      * @var string
@@ -37,7 +41,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $architecture;
 
     /**
-     * @description Maximum blktags in file system.
+     * @description Maximum number of blktags in the file system.
      *
      * @example 7,864,320
      *
@@ -46,7 +50,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $blktagTotal;
 
     /**
-     * @description The current blktag usage.
+     * @description Current blktag usage.
      *
      * @example 5,242,880
      *
@@ -55,15 +59,16 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $blktagUsed;
 
     /**
-     * @description [The edition of PolarDB](https://help.aliyun.com/document_detail/183258.html). Valid values:
+     * @description [Product Series](https://help.aliyun.com/document_detail/183258.html), with values as follows:
+     * **Normal**: Cluster Edition
+     * **Basic**: Single Node
+     * **Archive**: High Compression Engine (X-Engine)
+     * **NormalMultimaster**: Multi-Master Cluster Edition
+     * **SENormal**: Standard Edition
      *
-     *   **Normal**: Cluster Edition.
-     *   **Basic**: Single Node Edition.
-     *   **Archive**: X-Engine Edition.
-     *   **NormalMultimaster**: Multi-master Cluster Edition.
-     *   **SENormal**: Standard Edition.
-     *
-     * >- Only PolarDB for MySQL 8.0 supports X-Engine Edition and Multi-master Cluster Edition.
+     * > * PolarDB PostgreSQL version 11 does not support single-node.
+     * >* PolarDB MySQL versions 8.0 and 5.7, and PolarDB PostgreSQL version 14 support the Standard Edition.
+     * >* PolarDB MySQL version 8.0 supports High Compression Engine (X-Engine) and Multi-Master Cluster Edition.
      * @example Normal
      *
      * @var string
@@ -71,6 +76,8 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $category;
 
     /**
+     * @description Whether storage compression is enabled. Values are as follows:
+     * - OFF: Disabled
      * @example ON
      *
      * @var string
@@ -78,6 +85,8 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $compressStorageMode;
 
     /**
+     * @description Compressed storage data size.
+     * > This parameter is supported only when the cluster\\"s storage compression feature is enabled.
      * @example 15529410560
      *
      * @var int
@@ -85,7 +94,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $compressStorageUsed;
 
     /**
-     * @description The time when the cluster was created.
+     * @description Cluster creation time.
      *
      * @example 2020-08-14T05:58:42Z
      *
@@ -94,7 +103,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $creationTime;
 
     /**
-     * @description The description of the cluster.
+     * @description Cluster description.
      *
      * @example test
      *
@@ -103,7 +112,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $DBClusterDescription;
 
     /**
-     * @description The ID of cluster.
+     * @description Cluster ID.
      *
      * @example pc-*****************
      *
@@ -112,7 +121,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $DBClusterId;
 
     /**
-     * @description The network type of the cluster.
+     * @description Network type of the cluster.
      *
      * @example VPC
      *
@@ -121,7 +130,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $DBClusterNetworkType;
 
     /**
-     * @description The status of the cluster. For information about the valid values, see [Cluster states](https://help.aliyun.com/document_detail/99286.html).
+     * @description Cluster status. For the full list of values, refer to [Cluster Status Table](https://help.aliyun.com/document_detail/99286.html).
      *
      * @example Running
      *
@@ -137,7 +146,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $DBNodes;
 
     /**
-     * @description The type of the database engine.
+     * @description Database engine type.
      *
      * @example MySQL
      *
@@ -146,7 +155,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $DBType;
 
     /**
-     * @description The version of the database engine.
+     * @description Database engine version.
      *
      * @example 8.0
      *
@@ -158,10 +167,11 @@ class DescribeDBClusterAttributeResponseBody extends Model
      * @description The status of the minor version. Valid values:
      *
      *   **Stable**: The minor version is stable.
-     *   **Old**: The minor version is outdated. We recommend that you upgrade the cluster to the latest version.
-     *   **HighRisk**: The minor version has critical defects. We recommend that you immediately upgrade the cluster to the latest version.
+     *   **Old**: The minor version is outdated. We recommend that you update it to the latest version.
+     *   **HighRisk**: The minor version has critical defects. We recommend that you immediately update it to the latest version.
+     *   **Beta**: The minor version is a Beta version.
      *
-     * > For more information about how to upgrade the minor version, see [Upgrade versions](https://help.aliyun.com/document_detail/158572.html).
+     * >  For information about how to update the minor version, see [Minor version update](https://help.aliyun.com/document_detail/158572.html).
      * @example Stable
      *
      * @var string
@@ -169,7 +179,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $DBVersionStatus;
 
     /**
-     * @description The total physical storage of level-1 backups (snapshots). Unit: bytes.
+     * @description Total size of Level 1 backups (snapshots), in bytes.
      *
      * @example 74448896
      *
@@ -178,8 +188,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $dataLevel1BackupChainSize;
 
     /**
-     * @description Indicates the rule of data replication. Valid values: AsyncSync: asynchronous. SemiSync: semi-synchronous.
-     *
+     * @description Data replication relationship mode. Values are as follows:
+     * - **AsyncSync**: Asynchronous
+     * - **SemiSync**: Semi-synchronous
      * @example AsyncSync
      *
      * @var string
@@ -187,10 +198,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $dataSyncMode;
 
     /**
-     * @description Indicates whether the cluster is locked and can be deleted. Valid values:
-     *
-     *   **0**: The cluster is not locked and can be deleted.
-     *   **1**: The cluster is locked and cannot be deleted.
+     * @description Lock status for cluster deletion, with values as follows:
+     * **0**: Unlocked, cluster can be deleted.
+     * **1**: Locked, cluster cannot be deleted.
      *
      * @example 0
      *
@@ -199,7 +209,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $deletionLock;
 
     /**
-     * @description The database type.
+     * @description Cluster engine.
      *
      * @example POLARDB
      *
@@ -208,9 +218,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $engine;
 
     /**
-     * @description The time when the cluster expires.
+     * @description Cluster expiration time.
      *
-     * > A specific value will be returned only for subscription (**Prepaid**) clusters. For pay-as-you-go (**Postpaid**) clusters, an empty string will be returned.
+     * > Only clusters with **Prepaid** (subscription) payment methods return specific parameter values; **Postpaid** (pay-as-you-go) clusters return empty values.
      * @example 2020-11-14T16:00:00Z
      *
      * @var string
@@ -218,9 +228,8 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $expireTime;
 
     /**
-     * @description Indicates whether the cluster has expired. Valid values:
-     *
-     * > This parameter is returned only for subscription (**Prepaid**) clusters.
+     * @description Whether the cluster has expired.
+     * > This parameter is only supported for clusters with **Prepaid** (Subscription) payment methods.
      * @example false
      *
      * @var string
@@ -228,8 +237,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $expired;
 
     /**
-     * @description Indicates whether to replenish resources for the primary database after a cross-zone switchover. Valid values: true false
-     *
+     * @description Whether to replenish resources for the new primary after cross-AZ switch. Values are as follows:
+     * - **true**: Yes
+     * - **false**: No
      * @example false
      *
      * @var bool
@@ -237,6 +247,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $hasCompleteStandbyRes;
 
     /**
+     * @description Whether to enable storage hot backup cluster (and Standby compute nodes). Values are as follows:
+     * - **StandbyClusterON**: Enable storage hot backup/Enable storage hot backup and Standby compute nodes.
+     * - **StandbyClusterOFF**: Disable storage hot backup/Disable storage hot backup and Standby compute nodes.
      * @example StandbyClusterON
      *
      * @var string
@@ -244,7 +257,12 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $hotStandbyCluster;
 
     /**
-     * @description Maximum inodes in file system.
+     * @var string
+     */
+    public $imciAutoIndex;
+
+    /**
+     * @description Maximum number of inodes in the file system.
      *
      * @example 6,291,456
      *
@@ -253,7 +271,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $inodeTotal;
 
     /**
-     * @description The current inode usage.
+     * @description Current inode usage.
      *
      * @example 4,194,304
      *
@@ -262,11 +280,11 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $inodeUsed;
 
     /**
-     * @description Indicates whether the kernel is of the latest version. Valid values:
+     * @description Indicates whether it is the latest kernel version. Values are as follows:
      *
-     *   **true**
-     *   **false**
+     * - **true**: Yes
      *
+     * - **false**: No
      * @example false
      *
      * @var bool
@@ -274,11 +292,10 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $isLatestVersion;
 
     /**
-     * @description Indicates whether PolarProxy uses the latest version. Valid values:
+     * @description Indicates whether it is the latest version of the database proxy, with possible values as follows:
      *
-     *   **true**
-     *   **false**
-     *
+     * - **true**: Yes
+     * - **false**: No
      * @example false
      *
      * @var bool
@@ -286,12 +303,11 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $isProxyLatestVersion;
 
     /**
-     * @description The lock mode. Valid values:
+     * @description Lock mode. Possible values are as follows:
      *
-     *   **Unlock**: The cluster is not locked.
-     *   **ManualLock**: The cluster is manually locked.
-     *   **LockByExpiration**: The cluster is automatically locked due to cluster expiration.
-     *
+     * - **Unlock**: Unlocked.
+     * - **ManualLock**: Manually triggered lock.
+     * - **LockByExpiration**: Automatic cluster lock upon expiration.
      * @example Unlock
      *
      * @var string
@@ -299,7 +315,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $lockMode;
 
     /**
-     * @description The maintenance window of the cluster. The format is `HH:mmZ-HH:mmZ`. The time is displayed in UTC. For example, the value `16:00Z-17:00Z` indicates that the cluster can be maintained from 00:00 to 01:00 (UTC+08:00).
+     * @description The maintenance window for the cluster, formatted as `HH:mmZ-HH:mmZ` (UTC time). For example, `16:00Z-17:00Z` indicates that routine maintenance can be performed from 0:00 to 1:00 (UTC+08:00).
      *
      * @example 18:00Z-19:00Z
      *
@@ -308,6 +324,11 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $maintainTime;
 
     /**
+     * @description Orca function with possible values as follows:
+     *
+     * - **on**: Enabled
+     *
+     * - **off**: Disabled
      * @example ON
      *
      * @var string
@@ -315,11 +336,10 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $orca;
 
     /**
-     * @description The billing method of the cluster. Valid values:
+     * @description Payment type. Possible values are:
      *
-     *   **Postpaid**: pay-as-you-go.
-     *   **Prepaid**: subscription
-     *
+     * - **Postpaid**: Pay-As-You-Go
+     * - **Prepaid**: Prepaid (Subscription).
      * @example Prepaid
      *
      * @var string
@@ -327,6 +347,8 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $payType;
 
     /**
+     * @description Describes the preconfigured read and write IOPS for ESSD AutoPL cloud disks. Possible values: 0 to min{50,000, 1000*capacity - baseline performance}.<br>Baseline performance = min{1,800 + 50*capacity, 50000}.<br>Note: This parameter is supported only when StorageType is ESSDAUTOPL.
+     *
      * @example 2500
      *
      * @var string
@@ -334,7 +356,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $provisionedIops;
 
     /**
-     * @description The number of CPU cores for PolarProxy.
+     * @description Number of CPU cores for the database proxy.
      *
      * @example 4
      *
@@ -343,7 +365,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $proxyCpuCores;
 
     /**
-     * @description The type of the serverless PolarProxy. Valid value: AgileServerless.
+     * @description Serverless type for the database proxy. Currently, the value is fixed to AgileServerless.
      *
      * @example AgileServerless
      *
@@ -352,7 +374,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $proxyServerlessType;
 
     /**
-     * @description The number of CPU cores for PolarProxy Standard Enterprise Edition.
+     * @description Standard configuration CPU cores for the database proxy.
      *
      * @example 2
      *
@@ -361,20 +383,19 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $proxyStandardCpuCores;
 
     /**
-     * @description The status of PolarProxy. Valid values:
+     * @description Status of the database proxy. Possible values include:
      *
-     *   **Creating**: PolarProxy is being created.
-     *   **Running**: PolarProxy is running.
-     *   **Deleting**: PolarProxy is being released.
-     *   **Rebooting**: PolarProxy is restarting.
-     *   **DBNodeCreating**: PolarProxy is being added.
-     *   **DBNodeDeleting**: PolarProxy is being deleted.
-     *   **ClassChanging**: The specifications of PolarProxy are being changed.
-     *   **NetAddressCreating**: The network connection is being created.
-     *   **NetAddressDeleting**: The network connection is being deleted.
-     *   **NetAddressModifying**: The network connection is being modified.
-     *   **Deleted**: PolarProxy is released.
-     *
+     * - **Creating**: Creating
+     * - **Running**: Running
+     * - **Deleting**: Releasing
+     * - **Rebooting**: Restarting
+     * - **DBNodeCreating**: Adding nodes
+     * - **DBNodeDeleting**: Deleting nodes
+     * - **ClassChanging**: Changing node specifications
+     * - **NetAddressCreating**: Creating network connections
+     * - **NetAddressDeleting**: Deleting network connections
+     * - **NetAddressModifying**: Modifying network connections
+     * - **Deleted**: Released
      * @example Running
      *
      * @var string
@@ -382,11 +403,10 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $proxyStatus;
 
     /**
-     * @description The type of PolarProxy. Valid values:
+     * @description Database proxy types, with the following values:
      *
-     *   **Exclusive**: Dedicated Enterprise Edition
-     *   **General**: Standard Enterprise Edition
-     *
+     * - **Exclusive**: Enterprise Exclusive Edition
+     * - **General**: Enterprise General Purpose Edition
      * @example Exclusive
      *
      * @var string
@@ -394,7 +414,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $proxyType;
 
     /**
-     * @description The region ID of the security group.
+     * @description Region ID.
      *
      * @example cn-hangzhou
      *
@@ -403,7 +423,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description Request ID.
      *
      * @example 074467EF-86B9-4C23-ACBF-E9B81A******
      *
@@ -412,7 +432,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of your Alibaba Cloud resource group.
+     * @description Resource group ID.
      *
      * @example rg-***************
      *
@@ -421,6 +441,8 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @description If RestoreType is **RestoreByTime** or **RestoreByTimeOss**, this value represents the recovery time point. If RestoreType is **RestoreByBackupSet** or **RestoreByBackupSetOss**, this value indicates the ID of the backup set on which the recovery is based.
+     * <note>Only clusters restored from a backup set or time point after June 1, 2024, support this parameter.</note>
      * @example 2179639137
      *
      * @var string
@@ -428,6 +450,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $restoreDataPoint;
 
     /**
+     * @description Cluster recovery method, with possible values:
+     * **RestoreByTime**: Restore from a time point based on primary backup. * **RestoreByBackupSet**: Restore from a backup set based on primary backup. * **RestoreByTimeOss**: Restore from a time point based on secondary backup. * **RestoreByBackupSetOss**: Restore from a backup set based on secondary backup. * **CloneFromSourceCluster**: Clone from the source cluster.
+     * <note>This parameter is only supported for clusters restored from a backup set or time point after June 1, 2024.</note>
      * @example RestoreByTime
      *
      * @var string
@@ -435,7 +460,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $restoreType;
 
     /**
-     * @description The storage of SQL. Unit: bytes. If the value is -1, no data is stored.
+     * @description Storage amount of SQL, in bytes. If the value is -1, it indicates no data.
      *
      * @example 0
      *
@@ -444,8 +469,8 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $SQLSize;
 
     /**
-     * @description The type of the serverless cluster. Only **AgileServerless** can be returned.
-     *
+     * @description Serverless type. Valid values are as follows:
+     * - AgileServerless: Agile - SteadyServerless: Stable
      * @example AgileServerless
      *
      * @var string
@@ -453,6 +478,8 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $serverlessType;
 
     /**
+     * @description Source cluster ID. <note>Clusters restored from backup sets or specific points in time after June 1, 2024, support this parameter.</note>
+     *
      * @example pc-pz51ziv48317b2880
      *
      * @var string
@@ -460,13 +487,20 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $sourceDBCluster;
 
     /**
+     * @description The region ID of the source cluster.
+     *
+     * >  This parameter is returned only if the source cluster ID exists.
+     * @example cn-beijing
+     *
      * @var string
      */
     public $sourceRegionId;
 
     /**
-     * @description Indicates whether the cross-zone disaster recovery feature is enabled. Valid values: ON OFF 0: Customer Drill Mode
-     *
+     * @description Cross-AZ disaster recovery mode. Values are as follows:
+     * - **ON**: Enable cross-AZ disaster recovery mode.
+     * - **OFF**: Disable cross-AZ disaster recovery mode.
+     * - **0**: Customer drill mode.
      * @example OFF
      *
      * @var string
@@ -474,7 +508,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $standbyHAMode;
 
     /**
-     * @description The maximum storage capacity of the current cluster specification. Unit: bytes.
+     * @description The maximum storage capacity of the current cluster specification, in bytes.
      *
      * @example 10995116277760
      *
@@ -483,11 +517,8 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $storageMax;
 
     /**
-     * @description The billing method of the storage. Valid values:
-     *
-     *   **Postpaid**: pay-as-you-go
-     *   **Prepaid**: subscription.
-     *
+     * @description Storage billing type. Valid values are as follows:
+     * - **Postpaid**：Pay-as-you-go (by capacity). - **Prepaid**：Subscription (by space).
      * @example Prepaid
      *
      * @var string
@@ -495,7 +526,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $storagePayType;
 
     /**
-     * @description The storage space that uses the subscription billing method. Unit: bytes.
+     * @description Storage space for pay-by-space (subscription) billing. Unit: Byte.
      *
      * @example 50
      *
@@ -504,7 +535,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $storageSpace;
 
     /**
-     * @description The storage type. Set the value to **HighPerformance**.
+     * @description Storage type, with a fixed value of **HighPerformance**.
      *
      * @example HighPerformance
      *
@@ -513,7 +544,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $storageType;
 
     /**
-     * @description The storage space consumed by the cluster. Unit: bytes.
+     * @description Amount of used storage space, in bytes.
      *
      * @example 3012558848
      *
@@ -522,11 +553,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $storageUsed;
 
     /**
-     * @description Indicates whether the multi-zone data consistency feature is enabled for the cluster. Valid values:
-     *
-     *   **ON**: Multi-zone data consistency is enabled, which is suitable for Standard Edition clusters that run Multi-zone Edition.
-     *   **OFF**
-     *
+     * @description Indicates whether multi-AZ data strong consistency is enabled for the cluster. The value ranges are as follows:
+     * - **ON**: Indicates that multi-AZ data strong consistency is enabled, applicable to the Standard 3AZ scenario.
+     * - **OFF**: Indicates that multi-AZ data strong consistency is not enabled.
      * @example ON
      *
      * @var string
@@ -534,12 +563,11 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $strictConsistency;
 
     /**
-     * @description The specification type of the compute node. Valid values:
+     * @description Specification type of compute nodes, with possible values as follows:
+     * **Exclusive**: Dedicated specification
+     * **General**: General-purpose specification
      *
-     *   **Exclusive**: dedicated.
-     *   **General**: general-purpose.
-     *
-     * > This parameter is supported only for PolarDB for MySQL clusters of Cluster Edition.
+     * > This parameter is supported only for PolarDB MySQL Edition with the product series set to Cluster Edition.
      * @example Exclusive
      *
      * @var string
@@ -547,19 +575,23 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $subCategory;
 
     /**
+     * @description Indicates whether the failover with hot replica feature is supported if the cluster has In-Memory Column Index (IMCI) nodes.
+     *
+     * @example ON
+     *
      * @var string
      */
     public $supportInstantSwitchWithImci;
 
     /**
-     * @description Details about the tags.
+     * @description Details of tags.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The VPC ID of the cluster.
+     * @description VPC ID.
      *
      * @example vpc-*******************
      *
@@ -568,7 +600,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $VPCId;
 
     /**
-     * @description The vSwitch ID of the cluster.
+     * @description VSwitch ID.
      *
      * @example vsw-*********************
      *
@@ -577,7 +609,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $vSwitchId;
 
     /**
-     * @description The zone ID of the cluster.
+     * @description Availability Zone IDs.
      *
      * @example cn-hangzhou-i,cn-hangzhou-g
      *
@@ -610,6 +642,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
         'expired'                      => 'Expired',
         'hasCompleteStandbyRes'        => 'HasCompleteStandbyRes',
         'hotStandbyCluster'            => 'HotStandbyCluster',
+        'imciAutoIndex'                => 'ImciAutoIndex',
         'inodeTotal'                   => 'InodeTotal',
         'inodeUsed'                    => 'InodeUsed',
         'isLatestVersion'              => 'IsLatestVersion',
@@ -735,6 +768,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (null !== $this->hotStandbyCluster) {
             $res['HotStandbyCluster'] = $this->hotStandbyCluster;
+        }
+        if (null !== $this->imciAutoIndex) {
+            $res['ImciAutoIndex'] = $this->imciAutoIndex;
         }
         if (null !== $this->inodeTotal) {
             $res['InodeTotal'] = $this->inodeTotal;
@@ -942,6 +978,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (isset($map['HotStandbyCluster'])) {
             $model->hotStandbyCluster = $map['HotStandbyCluster'];
+        }
+        if (isset($map['ImciAutoIndex'])) {
+            $model->imciAutoIndex = $map['ImciAutoIndex'];
         }
         if (isset($map['InodeTotal'])) {
             $model->inodeTotal = $map['InodeTotal'];

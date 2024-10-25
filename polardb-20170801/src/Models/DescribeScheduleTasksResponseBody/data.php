@@ -28,7 +28,7 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description The details of the scheduled task.
+     * @description The details of the scheduled tasks.
      *
      * @var timerInfos[]
      */

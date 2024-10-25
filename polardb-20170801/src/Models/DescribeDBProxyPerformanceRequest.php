@@ -28,6 +28,11 @@ class DescribeDBProxyPerformanceRequest extends Model
     public $DBEndpointId;
 
     /**
+     * @description Database instance node ID.
+     *
+     * > It is used to query the metrics of Proxy on different DB nodes, supporting metrics such as PolarProxy_DBConns, PolarProxy_DBQps, and PolarProxy_DBActionOps.
+     * @example pi-******************
+     *
      * @var string
      */
     public $DBNodeId;

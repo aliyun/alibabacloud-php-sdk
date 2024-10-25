@@ -21,6 +21,10 @@ class ModifyDBClusterServerlessConfRequest extends Model
     public $allowShutDown;
 
     /**
+     * @description Cycle policy ID.
+     *
+     * @example 143f8e9f-2566-4dff-be47-bed79f28fc78
+     *
      * @var string
      */
     public $crontabJobId;
@@ -152,21 +156,37 @@ class ModifyDBClusterServerlessConfRequest extends Model
     public $secondsUntilAutoPause;
 
     /**
+     * @description CPU burst threshold
+     *
+     * @example 80
+     *
      * @var string
      */
     public $serverlessRuleCpuEnlargeThreshold;
 
     /**
+     * @description CPU downscale threshold
+     *
+     * @example 50
+     *
      * @var string
      */
     public $serverlessRuleCpuShrinkThreshold;
 
     /**
+     * @description Elastic sensitivity. Values: - normal: standard - flexible: sensitive
+     *
+     * @example normal
+     * flexible
      * @var string
      */
     public $serverlessRuleMode;
 
     /**
+     * @description Asynchronous task ID.
+     *
+     * @example 143f8e9f-2566-4dff-be47-bed79f28fc78
+     *
      * @var string
      */
     public $taskId;

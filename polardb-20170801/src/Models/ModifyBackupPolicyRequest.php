@@ -26,13 +26,13 @@ class ModifyBackupPolicyRequest extends Model
     public $backupFrequency;
 
     /**
-     * @description Specifies whether to retain backups when you delete a cluster. Valid values:
+     * @description Specifies whether to retain backups when a cluster is deleted. Valid values:
      *
      *   **ALL**: permanently retains all backups.
-     *   **LATEST**: permanently retains only the last backup.
+     *   **LATEST**: permanently retains the most recent backup.
      *   **NONE**: does not retain backups.
      *
-     * > The default value is NONE.
+     * >  The default value of the parameter is NONE.
      * @example NONE
      *
      * @var string
@@ -116,7 +116,7 @@ class ModifyBackupPolicyRequest extends Model
      *   **30 to 7300**: Cross-region level-2 backups are retained for 30 to 7,300 days.
      *   **1**: Cross-region level-2 backups are permanently retained.
      *
-     * > The default value is **0**. By default, the cross-region level-2 backup feature is disabled when you create a cluster.
+     * >  The default value of the parameter is **0**.
      * @example 30
      *
      * @var string
@@ -145,10 +145,10 @@ class ModifyBackupPolicyRequest extends Model
      * @description The retention period of level-2 backups. Valid values:
      *
      *   **0**: The level-2 backup feature is disabled.
-     *   **30 to 7300**: Cross-region level-2 backups are retained for 30 to 7,300 days.
-     *   **1**: Cross-region level-2 backups are permanently retained.
+     *   **30 to 7300**: Level-2 backups are retained for 30 to 7,300 days.
+     *   **1**: Level-2 backups are permanently retained.
      *
-     * > The default value is **0**. By default, the level-2 backup feature is disabled when you create a cluster.
+     * >  The default value of this parameter is **0**.
      * @example 0
      *
      * @var string

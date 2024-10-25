@@ -41,6 +41,8 @@ class DescribeAITaskStatusResponseBody extends Model
     /**
      * @description The state description of the PolarDB for AI feature.
      *
+     * @example Closed State
+     *
      * @var string
      */
     public $statusName;

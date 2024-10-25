@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogRecordsResponseBody extends Model
 {
     /**
-     * @description The ID of cluster.
+     * @description Cluster ID.
      *
      * @example pc-*****************
      *
@@ -19,7 +19,7 @@ class DescribeSlowLogRecordsResponseBody extends Model
     public $DBClusterId;
 
     /**
-     * @description The type of the database engine.
+     * @description Database engine.
      *
      * @example polardb_mysql
      *
@@ -28,14 +28,14 @@ class DescribeSlowLogRecordsResponseBody extends Model
     public $engine;
 
     /**
-     * @description Details about slow query logs.
+     * @description List of slow log details.
      *
      * @var items
      */
     public $items;
 
     /**
-     * @description The number of the returned page.
+     * @description Page number.
      *
      * @example 1
      *
@@ -44,7 +44,7 @@ class DescribeSlowLogRecordsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description Number of records on this page.
      *
      * @example 1
      *
@@ -53,7 +53,7 @@ class DescribeSlowLogRecordsResponseBody extends Model
     public $pageRecordCount;
 
     /**
-     * @description The ID of the request.
+     * @description Request ID.
      *
      * @example A7E6A8FD-C50B-46B2-BA85-D8B8D3******
      *
@@ -62,7 +62,7 @@ class DescribeSlowLogRecordsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of SQL statements.
+     * @description Total number of SQL statements.
      *
      * @example 1
      *

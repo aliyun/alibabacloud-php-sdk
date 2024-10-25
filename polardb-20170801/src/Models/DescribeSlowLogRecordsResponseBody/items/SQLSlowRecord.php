@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SQLSlowRecord extends Model
 {
     /**
-     * @description The name of the database.
+     * @description Database name.
      *
      * @example testdb
      *
@@ -18,7 +18,7 @@ class SQLSlowRecord extends Model
     public $DBName;
 
     /**
-     * @description The ID of the node.
+     * @description Node ID.
      *
      * @example pi-*****************
      *
@@ -27,7 +27,7 @@ class SQLSlowRecord extends Model
     public $DBNodeId;
 
     /**
-     * @description The time when the SQL statement was executed. The time is in the `yyyy-MM-ddTHH:mmZ` format. The time is displayed in UTC.
+     * @description Time when the SQL starts execution. The format is `YYYY-MM-DDThh:mmZ` (UTC time).
      *
      * @example 2021-04-07T03:47Z
      *
@@ -36,7 +36,7 @@ class SQLSlowRecord extends Model
     public $executionStartTime;
 
     /**
-     * @description The IP address of the client that is used to connect to the database.
+     * @description Client address connecting to the database.
      *
      * @example testdb[testdb] @  [100.**.**.242]
      *
@@ -45,7 +45,7 @@ class SQLSlowRecord extends Model
     public $hostAddress;
 
     /**
-     * @description The period of time during which the SQL statement was locked. Unit: seconds.
+     * @description SQL lock duration in seconds.
      *
      * @example 0
      *
@@ -54,7 +54,7 @@ class SQLSlowRecord extends Model
     public $lockTimes;
 
     /**
-     * @description The number of rows parsed by the SQL statement.
+     * @description Number of rows parsed.
      *
      * @example 0
      *
@@ -63,7 +63,7 @@ class SQLSlowRecord extends Model
     public $parseRowCounts;
 
     /**
-     * @description The time range for the query. Unit: milliseconds.
+     * @description Query time. Unit: milliseconds.
      *
      * @example 100
      *
@@ -72,7 +72,7 @@ class SQLSlowRecord extends Model
     public $queryTimeMS;
 
     /**
-     * @description The amount of time that was consumed to execute the SQL statement. Unit: seconds.
+     * @description SQL execution duration, in seconds.
      *
      * @example 20
      *
@@ -81,7 +81,7 @@ class SQLSlowRecord extends Model
     public $queryTimes;
 
     /**
-     * @description The number of rows returned by the SQL statement.
+     * @description Number of rows returned.
      *
      * @example 0
      *
@@ -90,12 +90,16 @@ class SQLSlowRecord extends Model
     public $returnRowCounts;
 
     /**
+     * @description Unique identifier for the SQL statement in slow log statistics.
+     *
+     * @example U2FsdGVk****
+     *
      * @var string
      */
     public $SQLHash;
 
     /**
-     * @description The SQL statement that is executed in the query.
+     * @description Query statement.
      *
      * @var string
      */

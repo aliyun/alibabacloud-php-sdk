@@ -19,6 +19,12 @@ class ModifyDBClusterTDERequest extends Model
     public $DBClusterId;
 
     /**
+     * @description Specifies whether to allow the TDE key of the cluster to be automatically rotated within the next maintenance window after a lapse of the rotation period when a change in the KMS key version is detected. This parameter is supported only for custom keys. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * >  This parameter is supported only for a PolarDB for PostgreSQL or PolarDB for PostgreSQL (Compatible with Oracle) cluster.
      * @example false
      *
      * @var string
@@ -31,6 +37,7 @@ class ModifyDBClusterTDERequest extends Model
      *   **ON**
      *   **OFF**
      *
+     * >  This parameter takes effect only for a PolarDB for MySQL cluster.
      * @example ON
      *
      * @var string

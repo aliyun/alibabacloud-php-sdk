@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class EnableFirewallRulesResponseBody extends Model
 {
     /**
+     * @description The message that is returned for the request.
+     *
+     * > If the request was successful, Successful is returned. If the request failed, an error message that contains information such as an error code is returned.
      * @example Message
      *
      * @var string
@@ -25,6 +28,11 @@ class EnableFirewallRulesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
