@@ -1,3 +1,8 @@
+2024-10-25 Version: 2.4.1
+- Update API ListServiceInstanceLogs: update response param.
+- Update API ListServiceInstanceResources: add param Filters.
+
+
 2024-07-26 Version: 2.4.0
 - Support API ListServiceInstanceUpgradeHistory.
 - Support API RollbackServiceInstance.

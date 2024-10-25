@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceResourcesRequest\filters;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceResourcesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
@@ -26,6 +27,14 @@ class ListServiceInstanceResourcesRequest extends Model
      * @var string
      */
     public $expireTimeStart;
+
+    /**
+     * @description The filter conditions. Vaild values:
+     *
+     * - ResourceARN：The Alibaba Cloud Resource Name (ARN) of a resource.
+     * @var filters[]
+     */
+    public $filters;
 
     /**
      * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
@@ -107,6 +116,7 @@ class ListServiceInstanceResourcesRequest extends Model
     protected $_name = [
         'expireTimeEnd'               => 'ExpireTimeEnd',
         'expireTimeStart'             => 'ExpireTimeStart',
+        'filters'                     => 'Filters',
         'maxResults'                  => 'MaxResults',
         'nextToken'                   => 'NextToken',
         'payType'                     => 'PayType',
@@ -129,6 +139,15 @@ class ListServiceInstanceResourcesRequest extends Model
         }
         if (null !== $this->expireTimeStart) {
             $res['ExpireTimeStart'] = $this->expireTimeStart;
+        }
+        if (null !== $this->filters) {
+            $res['Filters'] = [];
+            if (null !== $this->filters && \is_array($this->filters)) {
+                $n = 0;
+                foreach ($this->filters as $item) {
+                    $res['Filters'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -177,6 +196,15 @@ class ListServiceInstanceResourcesRequest extends Model
         }
         if (isset($map['ExpireTimeStart'])) {
             $model->expireTimeStart = $map['ExpireTimeStart'];
+        }
+        if (isset($map['Filters'])) {
+            if (!empty($map['Filters'])) {
+                $model->filters = [];
+                $n              = 0;
+                foreach ($map['Filters'] as $item) {
+                    $model->filters[$n++] = null !== $item ? filters::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

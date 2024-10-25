@@ -965,6 +965,9 @@ class ComputeNest extends OpenApiClient
         if (!Utils::isUnset($request->expireTimeStart)) {
             $query['ExpireTimeStart'] = $request->expireTimeStart;
         }
+        if (!Utils::isUnset($request->filters)) {
+            $query['Filters'] = $request->filters;
+        }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
         }
@@ -1793,6 +1796,8 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
+     * @summary 升级服务实例
+     *  *
      * @param UpgradeServiceInstanceRequest $tmpReq  UpgradeServiceInstanceRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -1844,6 +1849,8 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
+     * @summary 升级服务实例
+     *  *
      * @param UpgradeServiceInstanceRequest $request UpgradeServiceInstanceRequest
      *
      * @return UpgradeServiceInstanceResponse UpgradeServiceInstanceResponse
