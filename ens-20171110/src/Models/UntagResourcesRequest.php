@@ -11,10 +11,9 @@ class UntagResourcesRequest extends Model
     /**
      * @description Specifies whether to remove all tags from the resource. This parameter takes effect only if you do not specify TagKey.N. Valid values:
      *
-     *   true
-     *   false
+     *   **true**
+     *   **false** (default)
      *
-     * Default value: false.
      * @example true
      *
      * @var bool
@@ -30,11 +29,7 @@ class UntagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The resource type.
-     *
-     * Valid values:
-     *
-     *   instance
+     * @description The type of the resource.
      *
      * This parameter is required.
      * @example instance

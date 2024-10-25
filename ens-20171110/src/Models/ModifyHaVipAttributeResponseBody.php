@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyHaVipAttributeResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example F3B261DD-3858-4D3C-877D-303ADF374600
      *
      * @var string

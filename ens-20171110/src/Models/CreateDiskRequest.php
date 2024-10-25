@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateDiskRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateDiskRequest extends Model
@@ -94,6 +95,11 @@ class CreateDiskRequest extends Model
      * @var string
      */
     public $snapshotId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'category'           => 'Category',
         'diskName'           => 'DiskName',
@@ -103,6 +109,7 @@ class CreateDiskRequest extends Model
         'KMSKeyId'           => 'KMSKeyId',
         'size'               => 'Size',
         'snapshotId'         => 'SnapshotId',
+        'tag'                => 'Tag',
     ];
 
     public function validate()
@@ -135,6 +142,15 @@ class CreateDiskRequest extends Model
         }
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -171,6 +187,15 @@ class CreateDiskRequest extends Model
         }
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -36,7 +36,7 @@ class tagResources extends Model
     public $tagKey;
 
     /**
-     * @description The tag value.
+     * @description The value of the tag.
      *
      * @example CLUSTER
      *

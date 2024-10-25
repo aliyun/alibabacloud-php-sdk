@@ -37,7 +37,7 @@ class DescribeSnatTableEntriesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Details of SNAT entries.
+     * @description The details of the SNAT entries.
      *
      * @var snatTableEntries[]
      */

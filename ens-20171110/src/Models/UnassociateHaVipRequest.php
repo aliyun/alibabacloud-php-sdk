@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UnassociateHaVipRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the HAVIP that you want to disassociate.
      *
+     * This parameter is required.
      * @example havip-5p14t****
      *
      * @var string
@@ -18,8 +19,9 @@ class UnassociateHaVipRequest extends Model
     public $haVipId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the ENS instance or ENI that you want to disassociate from the HAVIP.
      *
+     * This parameter is required.
      * @example i-5ecpqvk****
      *
      * @var string

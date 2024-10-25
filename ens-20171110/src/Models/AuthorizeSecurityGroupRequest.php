@@ -53,7 +53,7 @@ class AuthorizeSecurityGroupRequest extends Model
     public $portRange;
 
     /**
-     * @description The priority of the security group rule. Valid values: **1** to **100**.
+     * @description The priority of security group rule N. Valid values: **1** to **100**.
      *
      * Default value: **1**.
      * @example 1

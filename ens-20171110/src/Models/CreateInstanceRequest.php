@@ -108,11 +108,11 @@ class CreateInstanceRequest extends Model
     public $internetChargeType;
 
     /**
-     * @description The type of IP address. Valid values:
+     * @description The type of the IP address. Valid values:
      *
-     *   **ipv4**: IPv4. This is the default value.
-     *   **ipv6**: IPv6.
-     *   **ipv4Andipv6**: IPv4 and IPv6.
+     *   **ipv4** (default)
+     *   **ipv6**
+     *   **ipv4Andipv6**
      *
      * @example ipv4
      *
@@ -157,7 +157,7 @@ class CreateInstanceRequest extends Model
     public $passwordInherit;
 
     /**
-     * @description The billing method of the instance. The value is set to Subscription.
+     * @description The billing method of the instance. Set the value to Subscription.
      *
      * @example Subscription
      *
@@ -207,7 +207,7 @@ class CreateInstanceRequest extends Model
     public $quantity;
 
     /**
-     * @description Specifies whether to automatically append sequential suffixes to the hostnames specified by the **HostName** parameter and instance names specified by the **InstanceName** parameter. The sequential numbers in the suffix range from **001** to **999**.
+     * @description Specifies whether to automatically append sequential suffixes to the hostnames specified by the **HostName** parameter and instance names specified by the **InstanceName** parameter. The sequential suffixes range from **001** to **999**.
      *
      * Examples: **LocalHost001** and **LocalHost002**, and **MyInstance001** and **MyInstance002**.
      *

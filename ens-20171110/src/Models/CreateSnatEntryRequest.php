@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateSnatEntryRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $idleTimeout;
+
+    /**
      * @description The ID of the Network Address Translation (NAT) gateway.
      *
      * This parameter is required.
@@ -76,6 +81,7 @@ class CreateSnatEntryRequest extends Model
      */
     public $standbySnatIp;
     protected $_name = [
+        'idleTimeout'     => 'IdleTimeout',
         'natGatewayId'    => 'NatGatewayId',
         'snatEntryName'   => 'SnatEntryName',
         'snatIp'          => 'SnatIp',
@@ -92,6 +98,9 @@ class CreateSnatEntryRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->idleTimeout) {
+            $res['IdleTimeout'] = $this->idleTimeout;
+        }
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
         }
@@ -125,6 +134,9 @@ class CreateSnatEntryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IdleTimeout'])) {
+            $model->idleTimeout = $map['IdleTimeout'];
+        }
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
         }

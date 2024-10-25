@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeStorageVolumeRequest extends Model
 {
     /**
+     * @description The ID of the node.
+     *
      * @example cn-shenzhen-3
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeStorageVolumeRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The ID of the gateway.
+     *
      * @example sgw-****
      *
      * @var string
@@ -23,6 +27,11 @@ class DescribeStorageVolumeRequest extends Model
     public $gatewayId;
 
     /**
+     * @description Specifies whether to enable the volume. Valid values:
+     *
+     *   **1** (default): enables the volume.
+     *   **0**: disables the volume.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +39,8 @@ class DescribeStorageVolumeRequest extends Model
     public $isEnable;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +48,8 @@ class DescribeStorageVolumeRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +57,8 @@ class DescribeStorageVolumeRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the storage medium.
+     *
      * @example d-***
      *
      * @var string
@@ -51,6 +66,8 @@ class DescribeStorageVolumeRequest extends Model
     public $storageId;
 
     /**
+     * @description The ID of the volume.
+     *
      * @example sv-***
      *
      * @var string

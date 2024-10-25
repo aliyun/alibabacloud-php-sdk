@@ -20,7 +20,7 @@ class AccosicateNetworkAclRequest extends Model
     public $networkAclId;
 
     /**
-     * @description The information about the resources with which you want to associate the network ACL.
+     * @description The type of resource with which you want to associate the network ACL.
      *
      * This parameter is required.
      * @var resource[]

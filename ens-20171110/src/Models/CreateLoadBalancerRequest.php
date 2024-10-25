@@ -49,7 +49,7 @@ class CreateLoadBalancerRequest extends Model
     public $networkId;
 
     /**
-     * @description The billing method of the instance. Valid value: PostPaid. PostPaid specifies the pay-as-you-go billing method.
+     * @description The billing method of the cluster. Valid value: PostPaid. PostPaid specifies the pay-as-you-go billing method.
      *
      * This parameter is required.
      * @example PostPaid

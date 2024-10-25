@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class storageVolumes extends Model
 {
     /**
+     * @description The authentication protocol. The value is set to **CHAP**.
+     *
      * @example CHAP
      *
      * @var string
@@ -16,6 +18,8 @@ class storageVolumes extends Model
     public $authProtocol;
 
     /**
+     * @description The time when the volume was created. The time is displayed in UTC.
+     *
      * @example 2024-03-14T09:35:32Z
      *
      * @var string
@@ -23,6 +27,8 @@ class storageVolumes extends Model
     public $creationTime;
 
     /**
+     * @description The description of the volume.
+     *
      * @example testDescription
      *
      * @var string
@@ -30,6 +36,8 @@ class storageVolumes extends Model
     public $description;
 
     /**
+     * @description The ID of the node.
+     *
      * @example cn-shenzhen-3
      *
      * @var string
@@ -37,6 +45,11 @@ class storageVolumes extends Model
     public $ensRegionId;
 
     /**
+     * @description Indicates whether authentication is enabled. Valid values:
+     *
+     *   **1**: Authentication is enabled.
+     *   **0** (default): Authentication is disabled.
+     *
      * @example 0
      *
      * @var int
@@ -44,6 +57,11 @@ class storageVolumes extends Model
     public $isAuth;
 
     /**
+     * @description Indicates whether the volume is enabled. Valid values:
+     *
+     *   **1** (default): The volume is enabled.
+     *   **0**: The volume is disabled.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +69,13 @@ class storageVolumes extends Model
     public $isEnable;
 
     /**
+     * @description The status of the volume. Valid values:
+     *
+     *   creating
+     *   available
+     *   deleting
+     *   deleted
+     *
      * @example available
      *
      * @var string
@@ -58,6 +83,8 @@ class storageVolumes extends Model
     public $status;
 
     /**
+     * @description The ID of the storage gateway.
+     *
      * @example sgw-***
      *
      * @var string
@@ -65,6 +92,8 @@ class storageVolumes extends Model
     public $storageGatewayId;
 
     /**
+     * @description The ID of the storage medium.
+     *
      * @example d-***
      *
      * @var string
@@ -72,6 +101,8 @@ class storageVolumes extends Model
     public $storageId;
 
     /**
+     * @description The ID of the volume.
+     *
      * @example sv-***
      *
      * @var string
@@ -79,6 +110,8 @@ class storageVolumes extends Model
     public $storageVolumeId;
 
     /**
+     * @description The name of the volume.
+     *
      * @example testVolumeName
      *
      * @var string
@@ -86,6 +119,8 @@ class storageVolumes extends Model
     public $storageVolumeName;
 
     /**
+     * @description The destination of the volume.
+     *
      * @example iqn.*.*.*:*
      *
      * @var string

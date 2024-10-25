@@ -18,7 +18,7 @@ class backendServers extends Model
     public $ip;
 
     /**
-     * @description The backend port that is used by the ELB instance.
+     * @description The backend port that is used by the Edge Load Balancer (ELB) instance.
      *
      * @example 0
      *
@@ -37,10 +37,10 @@ class backendServers extends Model
     public $serverId;
 
     /**
-     * @description The type of the backend server. Valid values:
+     * @description The type of backend server. Valid values:
      *
      *   **ens**: an Edge Node Service (ENS) instance.
-     *   **eni**: an elastic network interface (ENI).
+     *   **eni**: an Elastic Network Interface (ENI).
      *
      * @example ens
      *

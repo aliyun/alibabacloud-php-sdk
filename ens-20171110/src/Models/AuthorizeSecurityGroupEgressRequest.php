@@ -19,12 +19,12 @@ class AuthorizeSecurityGroupEgressRequest extends Model
     public $destCidrIp;
 
     /**
-     * @description The transport layer protocol. The values of this parameter are case-sensitive. Valid values:
+     * @description The transport layer protocol. The value of this parameter is case-sensitive. Valid values:
      *
-     *   tcp: TCP.
-     *   udp: UDP.
-     *   icmp: ICMP.
-     *   gre: GRE.
+     *   tcp
+     *   udp
+     *   icmp
+     *   gre
      *   all: All protocols are supported.
      *
      * This parameter is required.
@@ -35,10 +35,10 @@ class AuthorizeSecurityGroupEgressRequest extends Model
     public $ipProtocol;
 
     /**
-     * @description The action of security group rule N that determines whether to allow inbound access. Valid values:
+     * @description The action of the security group rule. Valid values:
      *
      *   accept: allows access. This is the default value.
-     *   drop: denies access and returns no responses.
+     *   drop: denies access and does not return responses.
      *
      * @example accept
      *
@@ -62,7 +62,7 @@ class AuthorizeSecurityGroupEgressRequest extends Model
     public $portRange;
 
     /**
-     * @description The priority of the security group rule. Valid values: **1 to 100**. Default value: **1**.
+     * @description The priority of security group rule N. Valid values: **1 to 100**. Default value: **1**.
      *
      * @example 1
      *

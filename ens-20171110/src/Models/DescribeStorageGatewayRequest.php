@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeStorageGatewayRequest extends Model
 {
     /**
+     * @description The ID of the node.
+     *
      * @example cn-beijing-cmcc
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeStorageGatewayRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The ID of the gateway.
+     *
      * @example sgw-****
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeStorageGatewayRequest extends Model
     public $gatewayId;
 
     /**
+     * @description The type of the gateway. Set this parameter to **1**. **1** indicates iSCSI.
+     *
      * @example 1
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeStorageGatewayRequest extends Model
     public $gatewayType;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeStorageGatewayRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var string
@@ -44,6 +54,8 @@ class DescribeStorageGatewayRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
      * @example n-***
      *
      * @var string

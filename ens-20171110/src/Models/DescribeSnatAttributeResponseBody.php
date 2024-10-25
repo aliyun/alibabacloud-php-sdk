@@ -28,7 +28,7 @@ class DescribeSnatAttributeResponseBody extends Model
     public $destCIDR;
 
     /**
-     * @description Timeout period.
+     * @description The timeout period. Unit: seconds.
      *
      * @example 10
      *
@@ -134,9 +134,11 @@ class DescribeSnatAttributeResponseBody extends Model
     public $status;
 
     /**
-     * @description The type of the NAT. Valid values:
+     * @description The type of the NAT.
      *
-     * - FullCone: full cone NAT.
+     *   Empty: symmetric NAT.
+     *   FullCone: full cone NAT.
+     *
      * @example FullCone
      *
      * @var string

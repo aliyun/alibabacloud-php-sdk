@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSelfImagesResponseBody\images;
 
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSelfImagesResponseBody\images\image\diskDeviceMappings;
 use AlibabaCloud\Tea\Model;
 
 class image extends Model
@@ -37,6 +38,11 @@ class image extends Model
      * @var string
      */
     public $creationTime;
+
+    /**
+     * @var diskDeviceMappings
+     */
+    public $diskDeviceMappings;
 
     /**
      * @description The ID of the image.
@@ -78,6 +84,10 @@ class image extends Model
     public $imageSize;
 
     /**
+     * @description The size of the image storage.
+     *
+     * @example 400
+     *
      * @var string
      */
     public $imageStorageSize;
@@ -143,19 +153,20 @@ class image extends Model
      */
     public $status;
     protected $_name = [
-        'architecture'     => 'Architecture',
-        'computeType'      => 'ComputeType',
-        'creationTime'     => 'CreationTime',
-        'imageId'          => 'ImageId',
-        'imageName'        => 'ImageName',
-        'imageOwnerAlias'  => 'ImageOwnerAlias',
-        'imageSize'        => 'ImageSize',
-        'imageStorageSize' => 'ImageStorageSize',
-        'instanceId'       => 'InstanceId',
-        'osVersion'        => 'OsVersion',
-        'platform'         => 'Platform',
-        'snapshotId'       => 'SnapshotId',
-        'status'           => 'Status',
+        'architecture'       => 'Architecture',
+        'computeType'        => 'ComputeType',
+        'creationTime'       => 'CreationTime',
+        'diskDeviceMappings' => 'DiskDeviceMappings',
+        'imageId'            => 'ImageId',
+        'imageName'          => 'ImageName',
+        'imageOwnerAlias'    => 'ImageOwnerAlias',
+        'imageSize'          => 'ImageSize',
+        'imageStorageSize'   => 'ImageStorageSize',
+        'instanceId'         => 'InstanceId',
+        'osVersion'          => 'OsVersion',
+        'platform'           => 'Platform',
+        'snapshotId'         => 'SnapshotId',
+        'status'             => 'Status',
     ];
 
     public function validate()
@@ -173,6 +184,9 @@ class image extends Model
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->diskDeviceMappings) {
+            $res['DiskDeviceMappings'] = null !== $this->diskDeviceMappings ? $this->diskDeviceMappings->toMap() : null;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -224,6 +238,9 @@ class image extends Model
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['DiskDeviceMappings'])) {
+            $model->diskDeviceMappings = diskDeviceMappings::fromMap($map['DiskDeviceMappings']);
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];

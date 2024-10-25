@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeStorageGatewayResponseBody extends Model
 {
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,9 @@ class DescribeStorageGatewayResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -33,11 +38,15 @@ class DescribeStorageGatewayResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The list information.
+     *
      * @var storageGateways[]
      */
     public $storageGateways;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 16
      *
      * @var int

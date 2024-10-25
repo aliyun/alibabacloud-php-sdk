@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNatGatewayRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateNatGatewayRequest extends Model
@@ -47,6 +48,11 @@ class CreateNatGatewayRequest extends Model
     public $networkId;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @description The ID of the vSwitch.
      *
      * This parameter is required.
@@ -60,6 +66,7 @@ class CreateNatGatewayRequest extends Model
         'instanceType' => 'InstanceType',
         'name'         => 'Name',
         'networkId'    => 'NetworkId',
+        'tag'          => 'Tag',
         'vSwitchId'    => 'VSwitchId',
     ];
 
@@ -81,6 +88,15 @@ class CreateNatGatewayRequest extends Model
         }
         if (null !== $this->networkId) {
             $res['NetworkId'] = $this->networkId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -108,6 +124,15 @@ class CreateNatGatewayRequest extends Model
         }
         if (isset($map['NetworkId'])) {
             $model->networkId = $map['NetworkId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

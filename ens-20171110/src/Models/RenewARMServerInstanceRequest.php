@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RenewARMServerInstanceRequest extends Model
 {
     /**
-     * @description Specifies whether to enable auto-renewal for the subscription. Valid values:
+     * @description Specifies whether to enable auto-renewal for the premium bandwidth plan. Valid values:
      *
-     *   true
-     *   false (default)
+     *   **true**.
+     *   **false** (default).
      *
      * @example true
      *

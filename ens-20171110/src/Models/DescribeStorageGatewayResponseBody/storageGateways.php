@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class storageGateways extends Model
 {
     /**
+     * @description The internal CIDR block.
+     *
      * @example 192.168.2.0/24
      *
      * @var string
@@ -16,6 +18,8 @@ class storageGateways extends Model
     public $cidrBlock;
 
     /**
+     * @description The time when the storage gateway was created. The time is displayed in UTC.
+     *
      * @example 2024-05-14T03:07:47Z
      *
      * @var string
@@ -23,6 +27,8 @@ class storageGateways extends Model
     public $creationTime;
 
     /**
+     * @description The description of the storage gateway.
+     *
      * @example testDescription
      *
      * @var string
@@ -30,6 +36,8 @@ class storageGateways extends Model
     public $description;
 
     /**
+     * @description The ID of the node.
+     *
      * @example cn-beijing-cmcc
      *
      * @var string
@@ -37,6 +45,8 @@ class storageGateways extends Model
     public $ensRegionId;
 
     /**
+     * @description The IP address of the service.
+     *
      * @example *.*.*.*
      *
      * @var string
@@ -44,6 +54,13 @@ class storageGateways extends Model
     public $serviceIp;
 
     /**
+     * @description The status of the storage gateway. Valid values:
+     *
+     *   creating
+     *   available
+     *   deleting
+     *   deleted
+     *
      * @example available
      *
      * @var string
@@ -51,6 +68,8 @@ class storageGateways extends Model
     public $status;
 
     /**
+     * @description The ID of the storage gateway.
+     *
      * @example sgw-***
      *
      * @var string
@@ -58,6 +77,8 @@ class storageGateways extends Model
     public $storageGatewayId;
 
     /**
+     * @description The name of the storage gateway.
+     *
      * @example testGateway
      *
      * @var string
@@ -65,6 +86,8 @@ class storageGateways extends Model
     public $storageGatewayName;
 
     /**
+     * @description The type of the storage gateway. Default value: 1, which indicates iSCSI.
+     *
      * @example 1
      *
      * @var int
@@ -72,6 +95,8 @@ class storageGateways extends Model
     public $storageGatewayType;
 
     /**
+     * @description The ID of the VPC.
+     *
      * @example n-***
      *
      * @var string

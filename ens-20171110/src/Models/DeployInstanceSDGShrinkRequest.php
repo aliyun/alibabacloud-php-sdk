@@ -9,9 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeployInstanceSDGShrinkRequest extends Model
 {
     /**
-     * @description The deployment type of the SDG. Valid values:
-     *
-     *   shared: shared read/write splitting deployment. The content of the SDG is read-only, and data updates are written to the local storage of the instance.
+     * @description The deployment type of the SDG. shared: shared read/write splitting deployment. The content of the SDG is read-only, and data updates are written to the local storage of the instance.
      *
      * @example shared
      *

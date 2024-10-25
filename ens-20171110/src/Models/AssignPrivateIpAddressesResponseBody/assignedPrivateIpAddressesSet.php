@@ -18,7 +18,7 @@ class assignedPrivateIpAddressesSet extends Model
     public $networkInterfaceId;
 
     /**
-     * @description The secondary private IP addresses that are assigned to the ENI.
+     * @description The assigned private IP addresses.
      *
      * @var string[]
      */

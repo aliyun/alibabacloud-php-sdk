@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEipInstanceRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateEipInstanceRequest extends Model
@@ -77,6 +78,11 @@ class CreateEipInstanceRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'bandwidth'          => 'Bandwidth',
         'description'        => 'Description',
@@ -85,6 +91,7 @@ class CreateEipInstanceRequest extends Model
         'internetChargeType' => 'InternetChargeType',
         'isp'                => 'Isp',
         'name'               => 'Name',
+        'tag'                => 'Tag',
     ];
 
     public function validate()
@@ -114,6 +121,15 @@ class CreateEipInstanceRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -147,6 +163,15 @@ class CreateEipInstanceRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

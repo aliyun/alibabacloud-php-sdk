@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponseBody\in
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponseBody\instances\instance\dataDisk;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponseBody\instances\instance\innerIpAddress;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponseBody\instances\instance\networkAttributes;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponseBody\instances\instance\networkInterfaces;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponseBody\instances\instance\privateIpAddresses;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponseBody\instances\instance\publicIpAddress;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponseBody\instances\instance\publicIpAddresses;
@@ -196,6 +197,11 @@ class instance extends Model
     public $networkAttributes;
 
     /**
+     * @var networkInterfaces
+     */
+    public $networkInterfaces;
+
+    /**
      * @description The name of the image.
      *
      * @example centos 6.8 x86_64
@@ -273,6 +279,7 @@ class instance extends Model
     /**
      * @description The tags of the instance.
      *
+     * >  This operation does not return tag information. You can call this operation in combination with the tag-related operations.
      * @var tags
      */
     public $tags;
@@ -296,6 +303,7 @@ class instance extends Model
         'keyPairName'             => 'KeyPairName',
         'memory'                  => 'Memory',
         'networkAttributes'       => 'NetworkAttributes',
+        'networkInterfaces'       => 'NetworkInterfaces',
         'OSName'                  => 'OSName',
         'privateIpAddresses'      => 'PrivateIpAddresses',
         'publicIpAddress'         => 'PublicIpAddress',
@@ -371,6 +379,9 @@ class instance extends Model
         }
         if (null !== $this->networkAttributes) {
             $res['NetworkAttributes'] = null !== $this->networkAttributes ? $this->networkAttributes->toMap() : null;
+        }
+        if (null !== $this->networkInterfaces) {
+            $res['NetworkInterfaces'] = null !== $this->networkInterfaces ? $this->networkInterfaces->toMap() : null;
         }
         if (null !== $this->OSName) {
             $res['OSName'] = $this->OSName;
@@ -470,6 +481,9 @@ class instance extends Model
         }
         if (isset($map['NetworkAttributes'])) {
             $model->networkAttributes = networkAttributes::fromMap($map['NetworkAttributes']);
+        }
+        if (isset($map['NetworkInterfaces'])) {
+            $model->networkInterfaces = networkInterfaces::fromMap($map['NetworkInterfaces']);
         }
         if (isset($map['OSName'])) {
             $model->OSName = $map['OSName'];

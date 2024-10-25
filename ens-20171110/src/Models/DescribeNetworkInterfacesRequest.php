@@ -59,7 +59,7 @@ class DescribeNetworkInterfacesRequest extends Model
     public $networkInterfaceName;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     * @description The page number of the returned page. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -68,7 +68,7 @@ class DescribeNetworkInterfacesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 50.
      *
      * @example 50
      *
@@ -111,10 +111,10 @@ class DescribeNetworkInterfacesRequest extends Model
     public $status;
 
     /**
-     * @description The type of the ENI. Valid values:
+     * @description The type of the ENI. Valid Values:
      *
-     *   Primary
-     *   Secondary
+     *   Primary: primary ENI.
+     *   Secondary: secondary ENI.
      *
      * This parameter is empty by default, which indicates that both primary and secondary ENIs are queried.
      * @example Secondary

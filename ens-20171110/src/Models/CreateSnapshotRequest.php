@@ -29,7 +29,7 @@ class CreateSnapshotRequest extends Model
     public $diskId;
 
     /**
-     * @description The ID of the ENS node.
+     * @description The ID of the ENS node. You can query the node ID by calling the [DescribeEnsRegions](~~DescribeEnsRegions~~) operation.
      *
      * This parameter is required.
      * @example cn-shenzhen-3

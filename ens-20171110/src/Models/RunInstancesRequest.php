@@ -182,7 +182,7 @@ class RunInstancesRequest extends Model
     public $internetMaxBandwidthOut;
 
     /**
-     * @description The type of the IP address. Valid values:
+     * @description The type of the IP address. Examples:
      *
      *   **ipv4** (default).
      *   **ipv6**.

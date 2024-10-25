@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeImagesResponseBody\images;
 
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeImagesResponseBody\images\image\diskDeviceMappings;
 use AlibabaCloud\Tea\Model;
 
 class image extends Model
@@ -25,6 +26,11 @@ class image extends Model
      * @var string
      */
     public $creationTime;
+
+    /**
+     * @var diskDeviceMappings
+     */
+    public $diskDeviceMappings;
 
     /**
      * @description The ID of the image.
@@ -87,14 +93,15 @@ class image extends Model
      */
     public $snapshotId;
     protected $_name = [
-        'architecture'    => 'Architecture',
-        'creationTime'    => 'CreationTime',
-        'imageId'         => 'ImageId',
-        'imageName'       => 'ImageName',
-        'imageOwnerAlias' => 'ImageOwnerAlias',
-        'imageSize'       => 'ImageSize',
-        'platform'        => 'Platform',
-        'snapshotId'      => 'SnapshotId',
+        'architecture'       => 'Architecture',
+        'creationTime'       => 'CreationTime',
+        'diskDeviceMappings' => 'DiskDeviceMappings',
+        'imageId'            => 'ImageId',
+        'imageName'          => 'ImageName',
+        'imageOwnerAlias'    => 'ImageOwnerAlias',
+        'imageSize'          => 'ImageSize',
+        'platform'           => 'Platform',
+        'snapshotId'         => 'SnapshotId',
     ];
 
     public function validate()
@@ -109,6 +116,9 @@ class image extends Model
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->diskDeviceMappings) {
+            $res['DiskDeviceMappings'] = null !== $this->diskDeviceMappings ? $this->diskDeviceMappings->toMap() : null;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -145,6 +155,9 @@ class image extends Model
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['DiskDeviceMappings'])) {
+            $model->diskDeviceMappings = diskDeviceMappings::fromMap($map['DiskDeviceMappings']);
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateVSwitchRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateVSwitchRequest extends Model
@@ -52,6 +53,11 @@ class CreateVSwitchRequest extends Model
     public $networkId;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @description The name of the vSwitch. The name must meet the following requirements:
      *
      *   The name must be 2 to 128 characters in length.
@@ -68,6 +74,7 @@ class CreateVSwitchRequest extends Model
         'description' => 'Description',
         'ensRegionId' => 'EnsRegionId',
         'networkId'   => 'NetworkId',
+        'tag'         => 'Tag',
         'vSwitchName' => 'VSwitchName',
     ];
 
@@ -89,6 +96,15 @@ class CreateVSwitchRequest extends Model
         }
         if (null !== $this->networkId) {
             $res['NetworkId'] = $this->networkId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->vSwitchName) {
             $res['VSwitchName'] = $this->vSwitchName;
@@ -116,6 +132,15 @@ class CreateVSwitchRequest extends Model
         }
         if (isset($map['NetworkId'])) {
             $model->networkId = $map['NetworkId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VSwitchName'])) {
             $model->vSwitchName = $map['VSwitchName'];

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class snatTableEntries extends Model
 {
     /**
+     * @var int
+     */
+    public $idleTimeout;
+
+    /**
      * @description The ID of the NAT gateway.
      *
      * @example nat-5t7nh1cfm6kxiszlttr38****
@@ -89,6 +94,7 @@ class snatTableEntries extends Model
      */
     public $status;
     protected $_name = [
+        'idleTimeout'   => 'IdleTimeout',
         'natGatewayId'  => 'NatGatewayId',
         'snatEntryId'   => 'SnatEntryId',
         'snatEntryName' => 'SnatEntryName',
@@ -106,6 +112,9 @@ class snatTableEntries extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->idleTimeout) {
+            $res['IdleTimeout'] = $this->idleTimeout;
+        }
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
         }
@@ -142,6 +151,9 @@ class snatTableEntries extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IdleTimeout'])) {
+            $model->idleTimeout = $map['IdleTimeout'];
+        }
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
         }

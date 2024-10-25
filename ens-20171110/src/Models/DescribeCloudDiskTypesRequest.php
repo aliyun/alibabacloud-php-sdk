@@ -16,8 +16,14 @@ class DescribeCloudDiskTypesRequest extends Model
      * @var string
      */
     public $ensRegionId;
+
+    /**
+     * @var string[]
+     */
+    public $ensRegionIds;
     protected $_name = [
-        'ensRegionId' => 'EnsRegionId',
+        'ensRegionId'  => 'EnsRegionId',
+        'ensRegionIds' => 'EnsRegionIds',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class DescribeCloudDiskTypesRequest extends Model
         $res = [];
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
+        }
+        if (null !== $this->ensRegionIds) {
+            $res['EnsRegionIds'] = $this->ensRegionIds;
         }
 
         return $res;
@@ -44,6 +53,11 @@ class DescribeCloudDiskTypesRequest extends Model
         $model = new self();
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
+        }
+        if (isset($map['EnsRegionIds'])) {
+            if (!empty($map['EnsRegionIds'])) {
+                $model->ensRegionIds = $map['EnsRegionIds'];
+            }
         }
 
         return $model;

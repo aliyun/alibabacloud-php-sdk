@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeStorageVolumeResponseBody extends Model
 {
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeStorageVolumeResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeStorageVolumeResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example AAE90880-4970-4D81-A534-A6C0F3631F74
      *
      * @var string
@@ -31,11 +37,15 @@ class DescribeStorageVolumeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The list of returned results.
+     *
      * @var storageVolumes[]
      */
     public $storageVolumes;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 15
      *
      * @var string

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNetworkRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateNetworkRequest extends Model
@@ -54,11 +55,17 @@ class CreateNetworkRequest extends Model
      * @var string
      */
     public $networkName;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'cidrBlock'   => 'CidrBlock',
         'description' => 'Description',
         'ensRegionId' => 'EnsRegionId',
         'networkName' => 'NetworkName',
+        'tag'         => 'Tag',
     ];
 
     public function validate()
@@ -79,6 +86,15 @@ class CreateNetworkRequest extends Model
         }
         if (null !== $this->networkName) {
             $res['NetworkName'] = $this->networkName;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -103,6 +119,15 @@ class CreateNetworkRequest extends Model
         }
         if (isset($map['NetworkName'])) {
             $model->networkName = $map['NetworkName'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

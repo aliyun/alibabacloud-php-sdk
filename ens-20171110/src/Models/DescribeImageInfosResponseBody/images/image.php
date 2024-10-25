@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeImageInfosResponseBody\images;
 
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeImageInfosResponseBody\images\image\diskDeviceMappings;
 use AlibabaCloud\Tea\Model;
 
 class image extends Model
@@ -30,6 +31,11 @@ class image extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var diskDeviceMappings
+     */
+    public $diskDeviceMappings;
 
     /**
      * @description The ID of the image.
@@ -76,13 +82,14 @@ class image extends Model
      */
     public $OSType;
     protected $_name = [
-        'computeType'  => 'ComputeType',
-        'description'  => 'Description',
-        'imageId'      => 'ImageId',
-        'imageSize'    => 'ImageSize',
-        'imageVersion' => 'ImageVersion',
-        'OSName'       => 'OSName',
-        'OSType'       => 'OSType',
+        'computeType'        => 'ComputeType',
+        'description'        => 'Description',
+        'diskDeviceMappings' => 'DiskDeviceMappings',
+        'imageId'            => 'ImageId',
+        'imageSize'          => 'ImageSize',
+        'imageVersion'       => 'ImageVersion',
+        'OSName'             => 'OSName',
+        'OSType'             => 'OSType',
     ];
 
     public function validate()
@@ -97,6 +104,9 @@ class image extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->diskDeviceMappings) {
+            $res['DiskDeviceMappings'] = null !== $this->diskDeviceMappings ? $this->diskDeviceMappings->toMap() : null;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -130,6 +140,9 @@ class image extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DiskDeviceMappings'])) {
+            $model->diskDeviceMappings = diskDeviceMappings::fromMap($map['DiskDeviceMappings']);
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];

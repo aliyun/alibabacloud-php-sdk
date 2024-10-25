@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AssociateEnsEipAddressRequest extends Model
 {
     /**
-     * @description The ID of the EIP.
+     * @description The ID of the EIP that you want to associate.
      *
      * This parameter is required.
      * @example eip-5sc1sgcrsrwgwdvx44hru3p63
@@ -19,7 +19,7 @@ class AssociateEnsEipAddressRequest extends Model
     public $allocationId;
 
     /**
-     * @description The ID of the cloud service with which you want to associate the EIP.
+     * @description The ID of the cloud service with which the EIP is associated.
      *
      * This parameter is required.
      * @example lb-5saivuir6b1mupxjfbhmk1xkb
@@ -33,7 +33,7 @@ class AssociateEnsEipAddressRequest extends Model
      *
      *   **Nat**: a NAT gateway.
      *   **SlbInstance**: an ELB instance.
-     *   **NetworkInterface**: a secondary ENI.
+     *   **NetworkInterface**: a secondary elastic network interface (ENI).
      *   **NatSlbInstance**: If you want to associate multiple EIPs to an ELB instance, you need to set the parameter to this value.
      *   **EnsInstance** (default): an ENS instance.
      *

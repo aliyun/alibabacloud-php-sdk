@@ -72,7 +72,7 @@ class orderDetails extends Model
     public $orderType;
 
     /**
-     * @description The storage protocol. Valid values: nsf and smb.
+     * @description The storage protocol. Set the value to nfs.
      *
      * This parameter is required.
      * @example nfs

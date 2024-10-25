@@ -27,6 +27,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\AttachDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AttachDiskResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AttachEnsInstancesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AttachEnsInstancesResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\AttachNetworkInterfaceRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\AttachNetworkInterfaceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AuthorizeSecurityGroupEgressRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AuthorizeSecurityGroupEgressResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AuthorizeSecurityGroupRequest;
@@ -45,6 +47,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\CreateARMServerInstancesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateARMServerInstancesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateClassicNetworkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateClassicNetworkResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateClusterRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateClusterResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateDiskResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEipInstanceRequest;
@@ -187,6 +191,11 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeBandWithdChargeTypeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCloudDiskAvailableResourceInfoResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCloudDiskTypesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCloudDiskTypesResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCloudDiskTypesShrinkRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterKubeConfigRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterKubeConfigResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCreatePrePaidInstanceResultRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCreatePrePaidInstanceResultResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDataDistResultRequest;
@@ -198,6 +207,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDataPushResultRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDataPushResultResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDeviceServiceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDeviceServiceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDiskIopsListRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDiskIopsListResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDisksRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDisksResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeElbAvailableResourceInfoResponse;
@@ -256,6 +267,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeImagesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeImagesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceAutoRenewAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceAutoRenewAttributeResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceBandwidthDetailRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceBandwidthDetailResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceMonitorDataRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceMonitorDataResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceSpecResponse;
@@ -273,6 +286,10 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeLoadBalancerHTTPListenerAttrib
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeLoadBalancerHTTPListenerAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeLoadBalancerHTTPSListenerAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeLoadBalancerHTTPSListenerAttributeResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeLoadBalancerListenersRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeLoadBalancerListenersResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeLoadBalancerListenMonitorRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeLoadBalancerListenMonitorResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeLoadBalancerSpecRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeLoadBalancerSpecResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeLoadBalancersRequest;
@@ -319,6 +336,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGsShrinkRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSecondaryPublicIpAddressesRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSecondaryPublicIpAddressesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSecurityGroupAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSecurityGroupAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSecurityGroupsRequest;
@@ -327,6 +346,10 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSelfImagesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSelfImagesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeServcieScheduleRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeServcieScheduleResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeServerLoadBalancerListenMonitorRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeServerLoadBalancerListenMonitorResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeServerLoadBalancerMonitorRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeServerLoadBalancerMonitorResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSnapshotsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSnapshotsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSnatAttributeRequest;
@@ -343,6 +366,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeVSwitchesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeVSwitchesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DetachDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DetachDiskResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DetachNetworkInterfaceRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DetachNetworkInterfaceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DistApplicationDataRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DistApplicationDataResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ExportBillDetailDataRequest;
@@ -399,6 +424,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyInstanceAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyInstanceAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyInstanceAutoRenewAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyInstanceAutoRenewAttributeResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyInstanceBootConfigurationRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyInstanceBootConfigurationResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyInstanceChargeTypeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyInstanceChargeTypeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyInstanceChargeTypeShrinkRequest;
@@ -406,6 +433,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyLoadBalancerAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyLoadBalancerAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyNetworkAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyNetworkAttributeResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyNetworkInterfaceAttributeRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyNetworkInterfaceAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyPrepayInstanceSpecRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyPrepayInstanceSpecResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifySecurityGroupAttributeRequest;
@@ -1138,6 +1167,70 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @summary Attaches an Elastic Network Interface (ENI) to an Edge Node Service (ECS) instance.
+     *  *
+     * @description When you call this operation, take note of the following limits:
+     * *   The ENI must be in the Available state.
+     * *   An ENI can be attached to only one instance that is the same zone and the same Virtual Private Cloud (VPC).
+     * *   The instance must be in the Stopped state.
+     * *   A maximum of 10 ENIs can be attached to an instance.
+     * *   This operation is an asynchronous operation. After you call this operation to attach an ENI, you can view the status of the ENI to check whether the ENI is attached.
+     *  *
+     * @param AttachNetworkInterfaceRequest $request AttachNetworkInterfaceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AttachNetworkInterfaceResponse AttachNetworkInterfaceResponse
+     */
+    public function attachNetworkInterfaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->networkInterfaceId)) {
+            $query['NetworkInterfaceId'] = $request->networkInterfaceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachNetworkInterface',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AttachNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Attaches an Elastic Network Interface (ENI) to an Edge Node Service (ECS) instance.
+     *  *
+     * @description When you call this operation, take note of the following limits:
+     * *   The ENI must be in the Available state.
+     * *   An ENI can be attached to only one instance that is the same zone and the same Virtual Private Cloud (VPC).
+     * *   The instance must be in the Stopped state.
+     * *   A maximum of 10 ENIs can be attached to an instance.
+     * *   This operation is an asynchronous operation. After you call this operation to attach an ENI, you can view the status of the ENI to check whether the ENI is attached.
+     *  *
+     * @param AttachNetworkInterfaceRequest $request AttachNetworkInterfaceRequest
+     *
+     * @return AttachNetworkInterfaceResponse AttachNetworkInterfaceResponse
+     */
+    public function attachNetworkInterface($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachNetworkInterfaceWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates an inbound security group rule. This operation allows or denies the inbound traffic from other devices to instances in the security group.
      *  *
      * @param AuthorizeSecurityGroupRequest $request AuthorizeSecurityGroupRequest
@@ -1633,6 +1726,56 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @summary 创建边缘容器集群
+     *  *
+     * @param CreateClusterRequest $request CreateClusterRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateClusterResponse CreateClusterResponse
+     */
+    public function createClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterVersion)) {
+            $query['ClusterVersion'] = $request->clusterVersion;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCluster',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建边缘容器集群
+     *  *
+     * @param CreateClusterRequest $request CreateClusterRequest
+     *
+     * @return CreateClusterResponse CreateClusterResponse
+     */
+    public function createCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createClusterWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates a pay-as-you-go or subscription data disk.
      *  *
      * @param CreateDiskRequest $request CreateDiskRequest
@@ -1667,6 +1810,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->snapshotId)) {
             $query['SnapshotId'] = $request->snapshotId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1735,6 +1881,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2979,6 +3128,9 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->networkId)) {
             $query['NetworkId'] = $request->networkId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;
         }
@@ -3040,6 +3192,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->networkName)) {
             $query['NetworkName'] = $request->networkName;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3371,6 +3526,9 @@ class Ens extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->idleTimeout)) {
+            $query['IdleTimeout'] = $request->idleTimeout;
+        }
         if (!Utils::isUnset($request->natGatewayId)) {
             $query['NatGatewayId'] = $request->natGatewayId;
         }
@@ -3573,6 +3731,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->networkId)) {
             $query['NetworkId'] = $request->networkId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->vSwitchName)) {
             $query['VSwitchName'] = $request->vSwitchName;
@@ -5526,14 +5687,19 @@ class Ens extends OpenApiClient
     /**
      * @summary Queries the specifications of resources that you can purchase when you create an instance.
      *  *
-     * @param DescribeCloudDiskTypesRequest $request DescribeCloudDiskTypesRequest
+     * @param DescribeCloudDiskTypesRequest $tmpReq  DescribeCloudDiskTypesRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
      * @return DescribeCloudDiskTypesResponse DescribeCloudDiskTypesResponse
      */
-    public function describeCloudDiskTypesWithOptions($request, $runtime)
+    public function describeCloudDiskTypesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new DescribeCloudDiskTypesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ensRegionIds)) {
+            $request->ensRegionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ensRegionIds, 'EnsRegionIds', 'json');
+        }
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5565,6 +5731,100 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCloudDiskTypesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询边缘容器集群
+     *  *
+     * @param DescribeClusterRequest $request DescribeClusterRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeClusterResponse DescribeClusterResponse
+     */
+    public function describeClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCluster',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询边缘容器集群
+     *  *
+     * @param DescribeClusterRequest $request DescribeClusterRequest
+     *
+     * @return DescribeClusterResponse DescribeClusterResponse
+     */
+    public function describeCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询边缘容器集群证书
+     *  *
+     * @param DescribeClusterKubeConfigRequest $request DescribeClusterKubeConfigRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeClusterKubeConfigResponse DescribeClusterKubeConfigResponse
+     */
+    public function describeClusterKubeConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterKubeConfig',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeClusterKubeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询边缘容器集群证书
+     *  *
+     * @param DescribeClusterKubeConfigRequest $request DescribeClusterKubeConfigRequest
+     *
+     * @return DescribeClusterKubeConfigResponse DescribeClusterKubeConfigResponse
+     */
+    public function describeClusterKubeConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClusterKubeConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -5844,6 +6104,50 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDeviceServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the disk IOPS monitoring data.
+     *  *
+     * @param DescribeDiskIopsListRequest $request DescribeDiskIopsListRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDiskIopsListResponse DescribeDiskIopsListResponse
+     */
+    public function describeDiskIopsListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDiskIopsList',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDiskIopsListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the disk IOPS monitoring data.
+     *  *
+     * @param DescribeDiskIopsListRequest $request DescribeDiskIopsListRequest
+     *
+     * @return DescribeDiskIopsListResponse DescribeDiskIopsListResponse
+     */
+    public function describeDiskIopsList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDiskIopsListWithOptions($request, $runtime);
     }
 
     /**
@@ -7493,6 +7797,50 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @summary 查询实例5分钟粒度带宽明细
+     *  *
+     * @param DescribeInstanceBandwidthDetailRequest $request DescribeInstanceBandwidthDetailRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeInstanceBandwidthDetailResponse DescribeInstanceBandwidthDetailResponse
+     */
+    public function describeInstanceBandwidthDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceBandwidthDetail',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceBandwidthDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询实例5分钟粒度带宽明细
+     *  *
+     * @param DescribeInstanceBandwidthDetailRequest $request DescribeInstanceBandwidthDetailRequest
+     *
+     * @return DescribeInstanceBandwidthDetailResponse DescribeInstanceBandwidthDetailResponse
+     */
+    public function describeInstanceBandwidthDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceBandwidthDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the vCPU and memory usage of an instance.
      *  *
      * @param DescribeInstanceMonitorDataRequest $request DescribeInstanceMonitorDataRequest
@@ -8002,6 +8350,103 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeLoadBalancerHTTPSListenerAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary LB监听级监控数据查询
+     *  *
+     * @param DescribeLoadBalancerListenMonitorRequest $request DescribeLoadBalancerListenMonitorRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeLoadBalancerListenMonitorResponse DescribeLoadBalancerListenMonitorResponse
+     */
+    public function describeLoadBalancerListenMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLoadBalancerListenMonitor',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeLoadBalancerListenMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary LB监听级监控数据查询
+     *  *
+     * @param DescribeLoadBalancerListenMonitorRequest $request DescribeLoadBalancerListenMonitorRequest
+     *
+     * @return DescribeLoadBalancerListenMonitorResponse DescribeLoadBalancerListenMonitorResponse
+     */
+    public function describeLoadBalancerListenMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLoadBalancerListenMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 调用DescribeLoadBalancerListeners查询负载均衡实例监听列表。
+     *  *
+     * @param DescribeLoadBalancerListenersRequest $request DescribeLoadBalancerListenersRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeLoadBalancerListenersResponse DescribeLoadBalancerListenersResponse
+     */
+    public function describeLoadBalancerListenersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLoadBalancerListeners',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeLoadBalancerListenersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 调用DescribeLoadBalancerListeners查询负载均衡实例监听列表。
+     *  *
+     * @param DescribeLoadBalancerListenersRequest $request DescribeLoadBalancerListenersRequest
+     *
+     * @return DescribeLoadBalancerListenersResponse DescribeLoadBalancerListenersResponse
+     */
+    public function describeLoadBalancerListeners($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLoadBalancerListenersWithOptions($request, $runtime);
     }
 
     /**
@@ -9148,6 +9593,68 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @summary Queries created secondary public IP addresses.
+     *  *
+     * @param DescribeSecondaryPublicIpAddressesRequest $request DescribeSecondaryPublicIpAddressesRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSecondaryPublicIpAddressesResponse DescribeSecondaryPublicIpAddressesResponse
+     */
+    public function describeSecondaryPublicIpAddressesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ensRegionId)) {
+            $query['EnsRegionId'] = $request->ensRegionId;
+        }
+        if (!Utils::isUnset($request->isp)) {
+            $query['Isp'] = $request->isp;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->secondaryPublicIpAddress)) {
+            $query['SecondaryPublicIpAddress'] = $request->secondaryPublicIpAddress;
+        }
+        if (!Utils::isUnset($request->secondaryPublicIpId)) {
+            $query['SecondaryPublicIpId'] = $request->secondaryPublicIpId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSecondaryPublicIpAddresses',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSecondaryPublicIpAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries created secondary public IP addresses.
+     *  *
+     * @param DescribeSecondaryPublicIpAddressesRequest $request DescribeSecondaryPublicIpAddressesRequest
+     *
+     * @return DescribeSecondaryPublicIpAddressesResponse DescribeSecondaryPublicIpAddressesResponse
+     */
+    public function describeSecondaryPublicIpAddresses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSecondaryPublicIpAddressesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the rules of a security group.
      *  *
      * @param DescribeSecurityGroupAttributeRequest $request DescribeSecurityGroupAttributeRequest
@@ -9363,6 +9870,94 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @summary ESLB实例监听级监控数据
+     *  *
+     * @param DescribeServerLoadBalancerListenMonitorRequest $request DescribeServerLoadBalancerListenMonitorRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeServerLoadBalancerListenMonitorResponse DescribeServerLoadBalancerListenMonitorResponse
+     */
+    public function describeServerLoadBalancerListenMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeServerLoadBalancerListenMonitor',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeServerLoadBalancerListenMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary ESLB实例监听级监控数据
+     *  *
+     * @param DescribeServerLoadBalancerListenMonitorRequest $request DescribeServerLoadBalancerListenMonitorRequest
+     *
+     * @return DescribeServerLoadBalancerListenMonitorResponse DescribeServerLoadBalancerListenMonitorResponse
+     */
+    public function describeServerLoadBalancerListenMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeServerLoadBalancerListenMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary ESLB实例请求监控数据
+     *  *
+     * @param DescribeServerLoadBalancerMonitorRequest $request DescribeServerLoadBalancerMonitorRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeServerLoadBalancerMonitorResponse DescribeServerLoadBalancerMonitorResponse
+     */
+    public function describeServerLoadBalancerMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeServerLoadBalancerMonitor',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeServerLoadBalancerMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary ESLB实例请求监控数据
+     *  *
+     * @param DescribeServerLoadBalancerMonitorRequest $request DescribeServerLoadBalancerMonitorRequest
+     *
+     * @return DescribeServerLoadBalancerMonitorResponse DescribeServerLoadBalancerMonitorResponse
+     */
+    public function describeServerLoadBalancerMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeServerLoadBalancerMonitorWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries information about snapshots.
      *  *
      * @param DescribeSnapshotsRequest $request DescribeSnapshotsRequest
@@ -9516,7 +10111,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 查询存储网关
+     * @summary Queries storage gateways.
      *  *
      * @param DescribeStorageGatewayRequest $request DescribeStorageGatewayRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -9564,7 +10159,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 查询存储网关
+     * @summary Queries storage gateways.
      *  *
      * @param DescribeStorageGatewayRequest $request DescribeStorageGatewayRequest
      *
@@ -9578,7 +10173,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 查询存储卷
+     * @summary Queries volumes.
      *  *
      * @param DescribeStorageVolumeRequest $request DescribeStorageVolumeRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -9629,7 +10224,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 查询存储卷
+     * @summary Queries volumes.
      *  *
      * @param DescribeStorageVolumeRequest $request DescribeStorageVolumeRequest
      *
@@ -9817,6 +10412,65 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detachDiskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Detach an elastic network interface (ENI) from an instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
+     * *   You cannot detach a primary ENI from an instance.
+     * *   The ENI must be in the InUse state.
+     * *   The instances are in the Stopped state.
+     * *   This operation is an asynchronous operation. After this operation is called to detach an ENI, you can check the state of the ENI to determine whether the ENI is detached.
+     *  *
+     * @param DetachNetworkInterfaceRequest $request DetachNetworkInterfaceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DetachNetworkInterfaceResponse DetachNetworkInterfaceResponse
+     */
+    public function detachNetworkInterfaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->networkInterfaceId)) {
+            $query['NetworkInterfaceId'] = $request->networkInterfaceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachNetworkInterface',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetachNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Detach an elastic network interface (ENI) from an instance.
+     *  *
+     * @description Before you call this operation, take note of the following items:
+     * *   You cannot detach a primary ENI from an instance.
+     * *   The ENI must be in the InUse state.
+     * *   The instances are in the Stopped state.
+     * *   This operation is an asynchronous operation. After this operation is called to detach an ENI, you can check the state of the ENI to determine whether the ENI is detached.
+     *  *
+     * @param DetachNetworkInterfaceRequest $request DetachNetworkInterfaceRequest
+     *
+     * @return DetachNetworkInterfaceResponse DetachNetworkInterfaceResponse
+     */
+    public function detachNetworkInterface($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachNetworkInterfaceWithOptions($request, $runtime);
     }
 
     /**
@@ -10042,8 +10696,11 @@ class Ens extends OpenApiClient
     public function getBucketAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bucketName)) {
+            $query['BucketName'] = $request->bucketName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -10051,7 +10708,7 @@ class Ens extends OpenApiClient
             'version'     => '2017-11-10',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -11039,7 +11696,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 调用ModifyHaVipAttribute接口更新高可用VIP的名称和描述。
+     * @summary Modifies the name of a high-availability virtual IP address (HAVIP).
      *  *
      * @param ModifyHaVipAttributeRequest $request ModifyHaVipAttributeRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -11075,7 +11732,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 调用ModifyHaVipAttribute接口更新高可用VIP的名称和描述。
+     * @summary Modifies the name of a high-availability virtual IP address (HAVIP).
      *  *
      * @param ModifyHaVipAttributeRequest $request ModifyHaVipAttributeRequest
      *
@@ -11318,6 +11975,50 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @summary 修改启动配置，只支持异构实例(PCFarm裸金属)。
+     *  *
+     * @param ModifyInstanceBootConfigurationRequest $request ModifyInstanceBootConfigurationRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyInstanceBootConfigurationResponse ModifyInstanceBootConfigurationResponse
+     */
+    public function modifyInstanceBootConfigurationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceBootConfiguration',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyInstanceBootConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改启动配置，只支持异构实例(PCFarm裸金属)。
+     *  *
+     * @param ModifyInstanceBootConfigurationRequest $request ModifyInstanceBootConfigurationRequest
+     *
+     * @return ModifyInstanceBootConfigurationResponse ModifyInstanceBootConfigurationResponse
+     */
+    public function modifyInstanceBootConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceBootConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Changes the billing method of Edge Node Service (ENS) instances. You can switch between the pay-as-you-go and subscription billing methods for instances. You can also change the billing method for disks that you created with pay-as-you-go instances to subscription.
      *  *
      * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of ENS.
@@ -11506,6 +12207,59 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyNetworkAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Modifies the attributes of an elastic network interface (ENI), such as its name and description.
+     *  *
+     * @param ModifyNetworkInterfaceAttributeRequest $request ModifyNetworkInterfaceAttributeRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyNetworkInterfaceAttributeResponse ModifyNetworkInterfaceAttributeResponse
+     */
+    public function modifyNetworkInterfaceAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->networkInterfaceId)) {
+            $query['NetworkInterfaceId'] = $request->networkInterfaceId;
+        }
+        if (!Utils::isUnset($request->networkInterfaceName)) {
+            $query['NetworkInterfaceName'] = $request->networkInterfaceName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyNetworkInterfaceAttribute',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyNetworkInterfaceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Modifies the attributes of an elastic network interface (ENI), such as its name and description.
+     *  *
+     * @param ModifyNetworkInterfaceAttributeRequest $request ModifyNetworkInterfaceAttributeRequest
+     *
+     * @return ModifyNetworkInterfaceAttributeResponse ModifyNetworkInterfaceAttributeResponse
+     */
+    public function modifyNetworkInterfaceAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyNetworkInterfaceAttributeWithOptions($request, $runtime);
     }
 
     /**
@@ -12791,7 +13545,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Removes a deployed shared data group (SDG) on compute instances.
+     * @summary Removes a shared data group (SDG) that is attached to the compute instance.
      *  *
      * @param RemoveInstanceSDGRequest $tmpReq  RemoveInstanceSDGRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -12829,7 +13583,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Removes a deployed shared data group (SDG) on compute instances.
+     * @summary Removes a shared data group (SDG) that is attached to the compute instance.
      *  *
      * @param RemoveInstanceSDGRequest $request RemoveInstanceSDGRequest
      *
@@ -13672,7 +14426,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Creates one or more pay-as-you-go or subscription Edge Node Service (ENS) instances.
+     * @summary Purchases instances.
      *  *
      * @param RunInstancesRequest $tmpReq  RunInstancesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -13821,7 +14575,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Creates one or more pay-as-you-go or subscription Edge Node Service (ENS) instances.
+     * @summary Purchases instances.
      *  *
      * @param RunInstancesRequest $request RunInstancesRequest
      *
@@ -15139,7 +15893,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 调用UnassociateHaVip接口将高可用VIP从云产品实例上解绑。
+     * @summary Disassociates a high-availability virtual IP address (HAVIP) from an Edge Node Service (ENS) instance or Elastic Network Interface (ENI).
      *  *
      * @param UnassociateHaVipRequest $request UnassociateHaVipRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -15175,7 +15929,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 调用UnassociateHaVip接口将高可用VIP从云产品实例上解绑。
+     * @summary Disassociates a high-availability virtual IP address (HAVIP) from an Edge Node Service (ENS) instance or Elastic Network Interface (ENI).
      *  *
      * @param UnassociateHaVipRequest $request UnassociateHaVipRequest
      *

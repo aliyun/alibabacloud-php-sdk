@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
-     * @description The ID of the resource with which you want to associate the network ACL.
+     * @description The ID of the associated resource.
      *
      * This parameter is required.
      * @example n-5****
@@ -19,7 +19,9 @@ class resource extends Model
     public $resourceId;
 
     /**
-     * @description The type of resource with which you want to associate the network ACL. Set the value to **Network**.
+     * @description The type of the associated resource. Set the value to **Network**.
+     *
+     * Valid values of **N**: 0 to 29. You can associate a network ACL with at most 30 resources.
      *
      * This parameter is required.
      * @example Network

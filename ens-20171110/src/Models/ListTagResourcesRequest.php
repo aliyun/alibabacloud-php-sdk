@@ -26,9 +26,7 @@ class ListTagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource. Valid values:
-     *
-     *   instance
+     * @description The type of the resource. Set the value to instance.
      *
      * This parameter is required.
      * @example instance

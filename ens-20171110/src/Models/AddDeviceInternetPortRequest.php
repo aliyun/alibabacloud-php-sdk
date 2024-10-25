@@ -33,7 +33,7 @@ class AddDeviceInternetPortRequest extends Model
     public $instanceId;
 
     /**
-     * @description The internal IP address of the instance.
+     * @description The private IP address of the simple application server.
      *
      * This parameter is required.
      * @example 10.0.0.50
