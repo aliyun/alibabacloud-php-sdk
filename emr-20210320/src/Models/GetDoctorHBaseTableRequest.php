@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetDoctorHBaseTableRequest extends Model
 {
     /**
-     * @description 集群ID。
+     * @description Cluster ID.
      *
      * This parameter is required.
      * @example c-b933c5aac8fe****
@@ -19,8 +19,9 @@ class GetDoctorHBaseTableRequest extends Model
     public $clusterId;
 
     /**
-     * @description This parameter is required.
+     * @description Date.
      *
+     * This parameter is required.
      * @example 2023-01-01
      *
      * @var string
@@ -28,7 +29,7 @@ class GetDoctorHBaseTableRequest extends Model
     public $dateTime;
 
     /**
-     * @description 区域ID。
+     * @description Region ID.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -38,8 +39,9 @@ class GetDoctorHBaseTableRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description Table name.
      *
+     * This parameter is required.
      * @example namespace1:tb_item
      *
      * @var string

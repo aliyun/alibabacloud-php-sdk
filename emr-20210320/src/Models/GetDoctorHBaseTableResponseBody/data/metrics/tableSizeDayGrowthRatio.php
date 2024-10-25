@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tableSizeDayGrowthRatio extends Model
 {
     /**
+     * @description Metric description.
+     *
      * @example Day growth ratio of table size
      *
      * @var string
@@ -16,6 +18,8 @@ class tableSizeDayGrowthRatio extends Model
     public $description;
 
     /**
+     * @description Metric name.
+     *
      * @example tableSizeDayGrowthRatio
      *
      * @var string
@@ -23,6 +27,8 @@ class tableSizeDayGrowthRatio extends Model
     public $name;
 
     /**
+     * @description Metric unit.
+     *
      * @example ""
      *
      * @var string
@@ -30,6 +36,8 @@ class tableSizeDayGrowthRatio extends Model
     public $unit;
 
     /**
+     * @description Metric value.
+     *
      * @example 1.5
      *
      * @var float

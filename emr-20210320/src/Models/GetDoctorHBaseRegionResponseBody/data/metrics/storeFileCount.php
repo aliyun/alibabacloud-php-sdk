@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class storeFileCount extends Model
 {
     /**
+     * @description Description of the metric.
+     *
      * @example Number of store file
      *
      * @var string
@@ -16,7 +18,7 @@ class storeFileCount extends Model
     public $description;
 
     /**
-     * @description The name of the metric.
+     * @description Metric name.
      *
      * @example storeFileCount
      *
@@ -25,6 +27,8 @@ class storeFileCount extends Model
     public $name;
 
     /**
+     * @description The unit of the metric.
+     *
      * @example ""
      *
      * @var string

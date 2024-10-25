@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class coldAccessDay extends Model
 {
     /**
+     * @description Description of the metric.
+     *
      * @example Cold access day
      *
      * @var string
@@ -16,6 +18,8 @@ class coldAccessDay extends Model
     public $description;
 
     /**
+     * @description Name of the metric.
+     *
      * @example coldAccessDay
      *
      * @var string
@@ -23,6 +27,8 @@ class coldAccessDay extends Model
     public $name;
 
     /**
+     * @description Unit of the metric.
+     *
      * @example day
      *
      * @var string
@@ -30,6 +36,8 @@ class coldAccessDay extends Model
     public $unit;
 
     /**
+     * @description Value of the metric.
+     *
      * @example 3
      *
      * @var int

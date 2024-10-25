@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class locality extends Model
 {
     /**
+     * @description Description of the metric.
+     *
      * @example The locality of data
      *
      * @var string
@@ -16,6 +18,8 @@ class locality extends Model
     public $description;
 
     /**
+     * @description Name of the metric.
+     *
      * @example locality
      *
      * @var string
@@ -23,6 +27,8 @@ class locality extends Model
     public $name;
 
     /**
+     * @description Unit of the metric.
+     *
      * @example ""
      *
      * @var string
@@ -30,6 +36,8 @@ class locality extends Model
     public $unit;
 
     /**
+     * @description Value of the metric.
+     *
      * @example 0.5
      *
      * @var float

@@ -16,7 +16,7 @@ class ListInstanceTypesResponseBody extends Model
     public $instanceTypes;
 
     /**
-     * @description 本次请求所返回的最大记录条数。
+     * @description The maximum number of records returned in this request.
      *
      * @example 20
      *
@@ -25,7 +25,7 @@ class ListInstanceTypesResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description 返回读取到的数据位置，空代表数据已经读取完毕。
+     * @description Returns the position of the read data.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
      *
@@ -34,7 +34,7 @@ class ListInstanceTypesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description 请求ID。
+     * @description Request ID.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
      *
@@ -43,7 +43,7 @@ class ListInstanceTypesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 本次请求条件下的数据总量。
+     * @description The total amount of data under the conditions of this request.
      *
      * @example 200
      *

@@ -116,6 +116,11 @@ class scalingActivity extends Model
     public $operationId;
 
     /**
+     * @var string
+     */
+    public $policyType;
+
+    /**
      * @description The description of the scaling rule.
      *
      * @var ScalingRule
@@ -151,6 +156,7 @@ class scalingActivity extends Model
         'nodeGroupId'     => 'NodeGroupId',
         'nodeGroupName'   => 'NodeGroupName',
         'operationId'     => 'OperationId',
+        'policyType'      => 'PolicyType',
         'ruleDetail'      => 'RuleDetail',
         'ruleName'        => 'RuleName',
         'startTime'       => 'StartTime',
@@ -201,6 +207,9 @@ class scalingActivity extends Model
         }
         if (null !== $this->operationId) {
             $res['OperationId'] = $this->operationId;
+        }
+        if (null !== $this->policyType) {
+            $res['PolicyType'] = $this->policyType;
         }
         if (null !== $this->ruleDetail) {
             $res['RuleDetail'] = null !== $this->ruleDetail ? $this->ruleDetail->toMap() : null;
@@ -261,6 +270,9 @@ class scalingActivity extends Model
         }
         if (isset($map['OperationId'])) {
             $model->operationId = $map['OperationId'];
+        }
+        if (isset($map['PolicyType'])) {
+            $model->policyType = $map['PolicyType'];
         }
         if (isset($map['RuleDetail'])) {
             $model->ruleDetail = ScalingRule::fromMap($map['RuleDetail']);

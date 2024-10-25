@@ -121,7 +121,7 @@ class clusterCloneMeta extends Model
     public $existCloneConfig;
 
     /**
-     * @description The attributes of the node.
+     * @description The attributes of all ECS instances.
      *
      * @var NodeAttributes
      */

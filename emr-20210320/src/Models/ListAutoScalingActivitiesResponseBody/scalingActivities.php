@@ -80,6 +80,11 @@ class scalingActivities extends Model
     public $expectNum;
 
     /**
+     * @var int[]
+     */
+    public $instanceTypeToNum;
+
+    /**
      * @description The ID of the node group.
      *
      * @example ng-869471354ecd****
@@ -107,6 +112,11 @@ class scalingActivities extends Model
     public $operationId;
 
     /**
+     * @var string
+     */
+    public $policyType;
+
+    /**
      * @description The name of the scaling rule.
      *
      * @example scaling-out-memory
@@ -124,18 +134,20 @@ class scalingActivities extends Model
      */
     public $startTime;
     protected $_name = [
-        'activityId'    => 'ActivityId',
-        'activityState' => 'ActivityState',
-        'activityType'  => 'ActivityType',
-        'clusterId'     => 'ClusterId',
-        'description'   => 'Description',
-        'endTime'       => 'EndTime',
-        'expectNum'     => 'ExpectNum',
-        'nodeGroupId'   => 'NodeGroupId',
-        'nodeGroupName' => 'NodeGroupName',
-        'operationId'   => 'OperationId',
-        'ruleName'      => 'RuleName',
-        'startTime'     => 'StartTime',
+        'activityId'        => 'ActivityId',
+        'activityState'     => 'ActivityState',
+        'activityType'      => 'ActivityType',
+        'clusterId'         => 'ClusterId',
+        'description'       => 'Description',
+        'endTime'           => 'EndTime',
+        'expectNum'         => 'ExpectNum',
+        'instanceTypeToNum' => 'InstanceTypeToNum',
+        'nodeGroupId'       => 'NodeGroupId',
+        'nodeGroupName'     => 'NodeGroupName',
+        'operationId'       => 'OperationId',
+        'policyType'        => 'PolicyType',
+        'ruleName'          => 'RuleName',
+        'startTime'         => 'StartTime',
     ];
 
     public function validate()
@@ -166,6 +178,9 @@ class scalingActivities extends Model
         if (null !== $this->expectNum) {
             $res['ExpectNum'] = $this->expectNum;
         }
+        if (null !== $this->instanceTypeToNum) {
+            $res['InstanceTypeToNum'] = $this->instanceTypeToNum;
+        }
         if (null !== $this->nodeGroupId) {
             $res['NodeGroupId'] = $this->nodeGroupId;
         }
@@ -174,6 +189,9 @@ class scalingActivities extends Model
         }
         if (null !== $this->operationId) {
             $res['OperationId'] = $this->operationId;
+        }
+        if (null !== $this->policyType) {
+            $res['PolicyType'] = $this->policyType;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
@@ -214,6 +232,9 @@ class scalingActivities extends Model
         if (isset($map['ExpectNum'])) {
             $model->expectNum = $map['ExpectNum'];
         }
+        if (isset($map['InstanceTypeToNum'])) {
+            $model->instanceTypeToNum = $map['InstanceTypeToNum'];
+        }
         if (isset($map['NodeGroupId'])) {
             $model->nodeGroupId = $map['NodeGroupId'];
         }
@@ -222,6 +243,9 @@ class scalingActivities extends Model
         }
         if (isset($map['OperationId'])) {
             $model->operationId = $map['OperationId'];
+        }
+        if (isset($map['PolicyType'])) {
+            $model->policyType = $map['PolicyType'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];

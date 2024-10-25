@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceTypesRequest extends Model
 {
     /**
-     * @description 集群ID，仅升配场景使用。
+     * @description The ID of cluster.
      *
      * @example c-b933c5aac8fe****
      *
@@ -18,7 +18,8 @@ class ListInstanceTypesRequest extends Model
     public $clusterId;
 
     /**
-     * @description 创建的EMR集群类型。取值范围：
+     * @description Cluster type.
+     *
      * This parameter is required.
      * @example DATALAKE
      *
@@ -27,8 +28,8 @@ class ListInstanceTypesRequest extends Model
     public $clusterType;
 
     /**
-     * @description 集群中的应用部署模式。取值范围：
-     * 默认值：NORMAL。
+     * @description Deployment mode.
+     *
      * @example HA
      *
      * @var string
@@ -36,7 +37,7 @@ class ListInstanceTypesRequest extends Model
     public $deployMode;
 
     /**
-     * @description 机型
+     * @description Instance Type
      *
      * @example ecs.g6.xlarge
      *
@@ -45,7 +46,7 @@ class ListInstanceTypesRequest extends Model
     public $instanceType;
 
     /**
-     * @description 是否变配。
+     * @description Whether to change the configuration.
      *
      * @example false
      *
@@ -54,7 +55,7 @@ class ListInstanceTypesRequest extends Model
     public $isModification;
 
     /**
-     * @description 节点组ID。
+     * @description Node group ID.
      *
      * @example G-F06C4B47966A****
      *
@@ -63,7 +64,8 @@ class ListInstanceTypesRequest extends Model
     public $nodeGroupId;
 
     /**
-     * @description 节点组类型。取值范围：
+     * @description Node group type.
+     *
      * This parameter is required.
      * @example CORE
      *
@@ -72,7 +74,8 @@ class ListInstanceTypesRequest extends Model
     public $nodeGroupType;
 
     /**
-     * @description 集群的付费类型。取值范围：
+     * @description Payment type.
+     *
      * This parameter is required.
      * @example PayAsYouGo
      *
@@ -81,7 +84,7 @@ class ListInstanceTypesRequest extends Model
     public $paymentType;
 
     /**
-     * @description 区域ID。
+     * @description The ID of the region in which you want to create the instance.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -91,16 +94,16 @@ class ListInstanceTypesRequest extends Model
     public $regionId;
 
     /**
-     * @description EMR发行版。
+     * @description EMR distribution.
      *
-     * @example EMR-5.3.0
+     * @example 线上已发布版本EMR-5.8.0
      *
      * @var string
      */
     public $releaseVersion;
 
     /**
-     * @description 可用区ID。
+     * @description Availability Zone ID
      *
      * This parameter is required.
      * @example cn-beijing-h

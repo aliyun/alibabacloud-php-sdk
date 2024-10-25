@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetApiTemplateRequest extends Model
 {
     /**
-     * @description 区域ID。
+     * @description Region ID.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -19,7 +19,7 @@ class GetApiTemplateRequest extends Model
     public $regionId;
 
     /**
-     * @description 集群模板id。
+     * @description Cluster template ID.
      *
      * This parameter is required.
      * @example at-41b4c6a0fc63****

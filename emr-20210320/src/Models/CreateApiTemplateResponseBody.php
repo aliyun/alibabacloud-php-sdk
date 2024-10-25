@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateApiTemplateResponseBody extends Model
 {
     /**
-     * @description 请求ID。
+     * @description Request ID.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
      *
@@ -18,6 +18,8 @@ class CreateApiTemplateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Template ID (to be deprecated).
+     *
      * @example at-41b4c6a0fc63****
      *
      * @var string
@@ -25,6 +27,8 @@ class CreateApiTemplateResponseBody extends Model
     public $success;
 
     /**
+     * @description Template ID (it is recommended to use the parameter TemplateId).
+     *
      * @example at-41b4c6a0fc63****
      *
      * @var string

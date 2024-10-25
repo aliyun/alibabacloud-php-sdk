@@ -33,121 +33,169 @@ use AlibabaCloud\Tea\Model;
 class metrics extends Model
 {
     /**
+     * @description Number of days the table has not been accessed.
+     *
      * @var coldAccessDay
      */
     public $coldAccessDay;
 
     /**
+     * @description Cold data access days configuration.
+     *
      * @var coldConfigDay
      */
     public $coldConfigDay;
 
     /**
+     * @description Cold data size.
+     *
      * @var coldDataSize
      */
     public $coldDataSize;
 
     /**
+     * @description Number of read requests per day.
+     *
      * @var dailyReadRequest
      */
     public $dailyReadRequest;
 
     /**
+     * @description Daily growth ratio of daily read requests.
+     *
      * @var dailyReadRequestDayGrowthRatio
      */
     public $dailyReadRequestDayGrowthRatio;
 
     /**
+     * @description Number of write requests per day.
+     *
      * @var dailyWriteRequest
      */
     public $dailyWriteRequest;
 
     /**
+     * @description Daily write request growth ratio.
+     *
      * @var dailyWriteRequestDayGrowthRatio
      */
     public $dailyWriteRequestDayGrowthRatio;
 
     /**
+     * @description Configuration for the number of days cold data is accessed.
+     *
      * @var freezeConfigDay
      */
     public $freezeConfigDay;
 
     /**
+     * @description Frozen data size.
+     *
      * @var freezeDataSize
      */
     public $freezeDataSize;
 
     /**
+     * @description Hot data size.
+     *
      * @var hotDataSize
      */
     public $hotDataSize;
 
     /**
+     * @description Locality rate.
+     *
      * @var locality
      */
     public $locality;
 
     /**
+     * @description Read request balance.
+     *
      * @var readRequestBalance
      */
     public $readRequestBalance;
 
     /**
+     * @description Region balance.
+     *
      * @var regionBalance
      */
     public $regionBalance;
 
     /**
+     * @description Number of regions.
+     *
      * @var regionCount
      */
     public $regionCount;
 
     /**
+     * @description Daily incremental ratio of regions
+     *
      * @var regionCountDayGrowthRatio
      */
     public $regionCountDayGrowthRatio;
 
     /**
+     * @description Number of RegionServers.
+     *
      * @var regionServerCount
      */
     public $regionServerCount;
 
     /**
+     * @description Request balance.
+     *
      * @var requestBalance
      */
     public $requestBalance;
 
     /**
+     * @description Number of store files.
+     *
      * @var storeFileCount
      */
     public $storeFileCount;
 
     /**
+     * @description Daily growth ratio of store file count.
+     *
      * @var storeFileCountDayGrowthRatio
      */
     public $storeFileCountDayGrowthRatio;
 
     /**
+     * @description Table size.
+     *
      * @var tableSize
      */
     public $tableSize;
 
     /**
+     * @description Daily growth ratio of table size.
+     *
      * @var tableSizeDayGrowthRatio
      */
     public $tableSizeDayGrowthRatio;
 
     /**
+     * @description Warm data access days configuration.
+     *
      * @var warmConfigDay
      */
     public $warmConfigDay;
 
     /**
+     * @description Warm data size.
+     *
      * @var warmDataSize
      */
     public $warmDataSize;
 
     /**
+     * @description Write request balance.
+     *
      * @var writeRequestBalance
      */
     public $writeRequestBalance;

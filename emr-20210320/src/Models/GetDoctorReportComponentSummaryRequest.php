@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetDoctorReportComponentSummaryRequest extends Model
 {
     /**
-     * @description 集群ID。
+     * @description Cluster ID.
      *
      * This parameter is required.
      * @example c-b933c5aac8fe****
@@ -19,8 +19,7 @@ class GetDoctorReportComponentSummaryRequest extends Model
     public $clusterId;
 
     /**
-     * @description component type
-     *
+     * @description Select component filter type. Values:
      * This parameter is required.
      * @example compute
      *
@@ -29,7 +28,7 @@ class GetDoctorReportComponentSummaryRequest extends Model
     public $componentType;
 
     /**
-     * @description dateTime for specify report
+     * @description Report date.
      *
      * This parameter is required.
      * @example 2023-01-01
@@ -39,7 +38,7 @@ class GetDoctorReportComponentSummaryRequest extends Model
     public $dateTime;
 
     /**
-     * @description 区域ID。
+     * @description Region ID.
      *
      * This parameter is required.
      * @example cn-hangzhou

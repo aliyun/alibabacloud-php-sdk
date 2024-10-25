@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class writeRequestBalance extends Model
 {
     /**
+     * @description Description of the metric.
+     *
      * @example The balance of distributing write requests
      *
      * @var string
@@ -16,6 +18,8 @@ class writeRequestBalance extends Model
     public $description;
 
     /**
+     * @description Name of the metric.
+     *
      * @example writeRequestBalance
      *
      * @var string
@@ -23,6 +27,8 @@ class writeRequestBalance extends Model
     public $name;
 
     /**
+     * @description Unit of the metric.
+     *
      * @example ""
      *
      * @var string
@@ -30,6 +36,8 @@ class writeRequestBalance extends Model
     public $unit;
 
     /**
+     * @description The value of the metric.
+     *
      * @example 0.5
      *
      * @var float

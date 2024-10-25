@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class warmConfigDay extends Model
 {
     /**
+     * @description Metric description.
+     *
      * @example Size of the warm data size
      *
      * @var string
@@ -16,6 +18,8 @@ class warmConfigDay extends Model
     public $description;
 
     /**
+     * @description Metric name.
+     *
      * @example warmConfigDay
      *
      * @var string
@@ -23,6 +27,8 @@ class warmConfigDay extends Model
     public $name;
 
     /**
+     * @description Metric unit.
+     *
      * @example MB
      *
      * @var string
@@ -30,6 +36,8 @@ class warmConfigDay extends Model
     public $unit;
 
     /**
+     * @description Metric value.
+     *
      * @example 1000
      *
      * @var int

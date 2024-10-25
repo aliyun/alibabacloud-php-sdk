@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterRequest extends Model
 {
     /**
-     * @description The application configurations. You can specify a maximum of 1,000 items.
+     * @description The service configurations. Number of elements in the array: 1 to 1000.
      *
      * @var ApplicationConfig[]
      */
     public $applicationConfigs;
 
     /**
-     * @description The applications. You can specify a maximum of 100 items.
+     * @description The services. Number of elements in the array: 1 to 100.
      *
      * This parameter is required.
      * @var Application[]
@@ -24,7 +24,7 @@ class CreateClusterRequest extends Model
     public $applications;
 
     /**
-     * @description The bootstrap actions. You can specify a maximum of 10 items.
+     * @description The bootstrap actions. Number of elements in the array: 1 to 10.
      *
      * @var Script[]
      */
@@ -79,12 +79,14 @@ class CreateClusterRequest extends Model
     public $deployMode;
 
     /**
+     * @example Emr cluster for ETL
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The attributes of all ECS instances.
+     * @description The attributes of all ECS instances. The basic attributes of all ECS instances in the cluster.
      *
      * This parameter is required.
      * @var NodeAttributes
@@ -92,7 +94,7 @@ class CreateClusterRequest extends Model
     public $nodeAttributes;
 
     /**
-     * @description The node groups. You can specify a maximum of 100 items.
+     * @description The node groups. Number of elements in the array: 1 to 100.
      *
      * This parameter is required.
      * @example NORMAL
@@ -163,7 +165,7 @@ class CreateClusterRequest extends Model
     public $subscriptionConfig;
 
     /**
-     * @description The tags. You can specify a maximum of 20 items.
+     * @description The list of tags. Number of elements in the array: 0 to 20.
      *
      * @example A7D960FA-6DBA-5E07-8746-A63E3E4D****
      *

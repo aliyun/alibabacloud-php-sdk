@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class freezeDataSize extends Model
 {
     /**
+     * @description Metric description.
+     *
      * @example Size of the freeze data size
      *
      * @var string
@@ -16,6 +18,8 @@ class freezeDataSize extends Model
     public $description;
 
     /**
+     * @description Metric name.
+     *
      * @example freezeDataSize
      *
      * @var string
@@ -23,6 +27,8 @@ class freezeDataSize extends Model
     public $name;
 
     /**
+     * @description Metric unit.
+     *
      * @example MB
      *
      * @var string
@@ -30,6 +36,8 @@ class freezeDataSize extends Model
     public $unit;
 
     /**
+     * @description Metric value.
+     *
      * @example 1000
      *
      * @var int

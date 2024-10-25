@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class regionCountDayGrowthRatio extends Model
 {
     /**
+     * @description Metric description.
+     *
      * @example Day growth ratio of region count
      *
      * @var string
@@ -16,6 +18,8 @@ class regionCountDayGrowthRatio extends Model
     public $description;
 
     /**
+     * @description Metric name.
+     *
      * @example regionCountDayGrowthRatio
      *
      * @var string
@@ -23,6 +27,8 @@ class regionCountDayGrowthRatio extends Model
     public $name;
 
     /**
+     * @description Metric unit.
+     *
      * @example ""
      *
      * @var string
@@ -30,6 +36,8 @@ class regionCountDayGrowthRatio extends Model
     public $unit;
 
     /**
+     * @description Metric value.
+     *
      * @example 0.8
      *
      * @var float

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class storeFileCountDayGrowthRatio extends Model
 {
     /**
+     * @description Metric description.
+     *
      * @example Day growth ratio of store file count
      *
      * @var string
@@ -16,6 +18,8 @@ class storeFileCountDayGrowthRatio extends Model
     public $description;
 
     /**
+     * @description Metric name.
+     *
      * @example storeFileCountDayGrowthRatio
      *
      * @var string
@@ -23,6 +27,8 @@ class storeFileCountDayGrowthRatio extends Model
     public $name;
 
     /**
+     * @description Metric unit.
+     *
      * @example ""
      *
      * @var string
@@ -30,6 +36,8 @@ class storeFileCountDayGrowthRatio extends Model
     public $unit;
 
     /**
+     * @description Metric value.
+     *
      * @example 1.5
      *
      * @var float

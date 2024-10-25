@@ -225,6 +225,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @summary Creates a predefined API operation template. The template contains information about an API operation, including the basic structure, request method, URL path, request parameters, and response format.
+     *  *
      * @param CreateApiTemplateRequest $request CreateApiTemplateRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -268,6 +270,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @summary Creates a predefined API operation template. The template contains information about an API operation, including the basic structure, request method, URL path, request parameters, and response format.
+     *  *
      * @param CreateApiTemplateRequest $request CreateApiTemplateRequest
      *
      * @return CreateApiTemplateResponse CreateApiTemplateResponse
@@ -547,6 +551,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @summary Deletes an API operation template.
+     *  *
      * @description 创建集群模板
      *  *
      * @param DeleteApiTemplateRequest $request DeleteApiTemplateRequest
@@ -589,6 +595,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @summary Deletes an API operation template.
+     *  *
      * @description 创建集群模板
      *  *
      * @param DeleteApiTemplateRequest $request DeleteApiTemplateRequest
@@ -705,7 +713,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @summary 获取API模板详情
+     * @summary Queries the detailed configuration information about an API operation template.
      *  *
      * @param GetApiTemplateRequest $request GetApiTemplateRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -741,7 +749,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @summary 获取API模板详情
+     * @summary Queries the detailed configuration information about an API operation template.
      *  *
      * @param GetApiTemplateRequest $request GetApiTemplateRequest
      *
@@ -808,7 +816,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @description 获取弹性伸缩活动详情。
+     * @summary 获取弹性伸缩活动详情。
      *  *
      * @param GetAutoScalingActivityRequest $request GetAutoScalingActivityRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -847,7 +855,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @description 获取弹性伸缩活动详情。
+     * @summary 获取弹性伸缩活动详情。
      *  *
      * @param GetAutoScalingActivityRequest $request GetAutoScalingActivityRequest
      *
@@ -1187,7 +1195,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @description list Doctor HBaseRegions
+     * @summary Get HBase Region information.
+     *  *
+     * @description List Doctor HBase Regions
      *  *
      * @param GetDoctorHBaseRegionRequest $request GetDoctorHBaseRegionRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -1229,7 +1239,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @description list Doctor HBaseRegions
+     * @summary Get HBase Region information.
+     *  *
+     * @description List Doctor HBase Regions
      *  *
      * @param GetDoctorHBaseRegionRequest $request GetDoctorHBaseRegionRequest
      *
@@ -1303,6 +1315,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @summary Get HBase Table information.
+     *  *
      * @description get Doctor HBaseTable
      *  *
      * @param GetDoctorHBaseTableRequest $request GetDoctorHBaseTableRequest
@@ -1345,6 +1359,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @summary Get HBase Table information.
+     *  *
      * @description get Doctor HBaseTable
      *  *
      * @param GetDoctorHBaseTableRequest $request GetDoctorHBaseTableRequest
@@ -1773,7 +1789,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @description get specify component's report analysis by emr doctor
+     * @summary Obtain the analysis result report of a specified component from EMR Doctor.
+     *  *
+     * @description get specify component\\"s report analysis by EMR Doctor
      *  *
      * @param GetDoctorReportComponentSummaryRequest $request GetDoctorReportComponentSummaryRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -1815,7 +1833,9 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @description get specify component's report analysis by emr doctor
+     * @summary Obtain the analysis result report of a specified component from EMR Doctor.
+     *  *
+     * @description get specify component\\"s report analysis by EMR Doctor
      *  *
      * @param GetDoctorReportComponentSummaryRequest $request GetDoctorReportComponentSummaryRequest
      *
@@ -2266,7 +2286,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @description 查询弹性伸缩活动列表。
+     * @summary 查询弹性伸缩活动列表。
      *  *
      * @param ListAutoScalingActivitiesRequest $request ListAutoScalingActivitiesRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -2301,6 +2321,9 @@ class Emr extends OpenApiClient
         if (!Utils::isUnset($request->scalingActivityType)) {
             $query['ScalingActivityType'] = $request->scalingActivityType;
         }
+        if (!Utils::isUnset($request->scalingPolicyType)) {
+            $query['ScalingPolicyType'] = $request->scalingPolicyType;
+        }
         if (!Utils::isUnset($request->scalingRuleName)) {
             $query['ScalingRuleName'] = $request->scalingRuleName;
         }
@@ -2326,7 +2349,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @description 查询弹性伸缩活动列表。
+     * @summary 查询弹性伸缩活动列表。
      *  *
      * @param ListAutoScalingActivitiesRequest $request ListAutoScalingActivitiesRequest
      *
@@ -3346,6 +3369,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @summary Lists instance types.
+     *  *
      * @param ListInstanceTypesRequest $request ListInstanceTypesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -3407,6 +3432,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @summary Lists instance types.
+     *  *
      * @param ListInstanceTypesRequest $request ListInstanceTypesRequest
      *
      * @return ListInstanceTypesResponse ListInstanceTypesResponse
@@ -3621,6 +3648,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @summary Queries the bootstrap actions or common scripts of an E-MapReduce (EMR) cluster.
+     *  *
      * @param ListScriptsRequest $request ListScriptsRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -3664,6 +3693,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @summary Queries the bootstrap actions or common scripts of an E-MapReduce (EMR) cluster.
+     *  *
      * @param ListScriptsRequest $request ListScriptsRequest
      *
      * @return ListScriptsResponse ListScriptsResponse

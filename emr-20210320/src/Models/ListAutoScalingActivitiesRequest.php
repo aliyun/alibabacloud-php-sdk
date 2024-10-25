@@ -86,6 +86,11 @@ class ListAutoScalingActivitiesRequest extends Model
     public $scalingActivityType;
 
     /**
+     * @var string
+     */
+    public $scalingPolicyType;
+
+    /**
      * @description The name of the scaling rule.
      *
      * @example scale-out-by-memroy
@@ -111,6 +116,7 @@ class ListAutoScalingActivitiesRequest extends Model
         'regionId'              => 'RegionId',
         'scalingActivityStates' => 'ScalingActivityStates',
         'scalingActivityType'   => 'ScalingActivityType',
+        'scalingPolicyType'     => 'ScalingPolicyType',
         'scalingRuleName'       => 'ScalingRuleName',
         'startTime'             => 'StartTime',
     ];
@@ -145,6 +151,9 @@ class ListAutoScalingActivitiesRequest extends Model
         }
         if (null !== $this->scalingActivityType) {
             $res['ScalingActivityType'] = $this->scalingActivityType;
+        }
+        if (null !== $this->scalingPolicyType) {
+            $res['ScalingPolicyType'] = $this->scalingPolicyType;
         }
         if (null !== $this->scalingRuleName) {
             $res['ScalingRuleName'] = $this->scalingRuleName;
@@ -189,6 +198,9 @@ class ListAutoScalingActivitiesRequest extends Model
         }
         if (isset($map['ScalingActivityType'])) {
             $model->scalingActivityType = $map['ScalingActivityType'];
+        }
+        if (isset($map['ScalingPolicyType'])) {
+            $model->scalingPolicyType = $map['ScalingPolicyType'];
         }
         if (isset($map['ScalingRuleName'])) {
             $model->scalingRuleName = $map['ScalingRuleName'];

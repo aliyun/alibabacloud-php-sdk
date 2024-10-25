@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class regionCount extends Model
 {
     /**
+     * @description Metric description.
+     *
      * @example Number of regions count
      *
      * @var string
@@ -16,6 +18,8 @@ class regionCount extends Model
     public $description;
 
     /**
+     * @description Metric name.
+     *
      * @example regionCount
      *
      * @var string
@@ -23,6 +27,8 @@ class regionCount extends Model
     public $name;
 
     /**
+     * @description Metric unit.
+     *
      * @example ""
      *
      * @var string
@@ -30,6 +36,8 @@ class regionCount extends Model
     public $unit;
 
     /**
+     * @description Metric value.
+     *
      * @example 10
      *
      * @var int

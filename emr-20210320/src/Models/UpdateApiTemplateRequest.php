@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateApiTemplateRequest extends Model
 {
     /**
-     * @description The name of the API. You can create only a cluster API operation template. Set the value to CreateCluster.
+     * @description The name of the API operation. You can create only a cluster API operation template. Set the value to CreateCluster.
      *
      * This parameter is required.
      * @example CreateCluster
@@ -19,7 +19,7 @@ class UpdateApiTemplateRequest extends Model
     public $apiName;
 
     /**
-     * @description The content of the cluster API operation template. Set the value to JSON strings of the request parameters of the [CreateCluster](https://help.aliyun.com/document_detail/454393.html) API for creating a cluster.
+     * @description The content of the cluster API operation template. Set the value to JSON strings of the request parameters of the [CreateCluster](https://help.aliyun.com/document_detail/454393.html) API operation for creating a cluster.
      *
      * This parameter is required.
      * @example CreateCluster

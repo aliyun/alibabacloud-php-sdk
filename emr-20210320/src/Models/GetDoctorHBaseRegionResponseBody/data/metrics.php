@@ -14,28 +14,36 @@ use AlibabaCloud\Tea\Model;
 class metrics extends Model
 {
     /**
+     * @description Number of read requests in a single day.
+     *
      * @var dailyReadRequest
      */
     public $dailyReadRequest;
 
     /**
+     * @description Number of write requests in a single day.
+     *
      * @var dailyWriteRequest
      */
     public $dailyWriteRequest;
 
     /**
-     * @description The number of StoreFiles.
+     * @description Store file count.
      *
      * @var storeFileCount
      */
     public $storeFileCount;
 
     /**
+     * @description Total read request count
+     *
      * @var totalReadRequest
      */
     public $totalReadRequest;
 
     /**
+     * @description Total write request count
+     *
      * @var totalWriteRequest
      */
     public $totalWriteRequest;

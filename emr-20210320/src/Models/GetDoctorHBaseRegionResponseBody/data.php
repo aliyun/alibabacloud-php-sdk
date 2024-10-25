@@ -10,13 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The metric information.
+     * @description Metrics information.
      *
      * @var metrics
      */
     public $metrics;
 
     /**
+     * @description Host of the RegionServer.
+     *
      * @example emr-worker-2.cluster-20****
      *
      * @var string
@@ -24,6 +26,8 @@ class data extends Model
     public $regionServerHost;
 
     /**
+     * @description Table name.
+     *
      * @example tb_item
      *
      * @var string

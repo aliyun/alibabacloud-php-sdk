@@ -19,7 +19,7 @@ class CreateApiTemplateRequest extends Model
     public $apiName;
 
     /**
-     * @description The content of the cluster API operation template. Set the value to JSON strings of the request parameters of the [CreateCluster](https://help.aliyun.com/zh/emr/emr-on-ecs/developer-reference/api-emr-2021-03-20-createcluster) API operation for creating a cluster.
+     * @description The content of the cluster API operation template. Set the value to JSON strings of the request parameters of the [CreateCluster](https://help.aliyun.com/document_detail/454393.html) API operation for creating a cluster.
      *
      * This parameter is required.
      * @example content
@@ -29,7 +29,7 @@ class CreateApiTemplateRequest extends Model
     public $content;
 
     /**
-     * @description 地域ID。
+     * @description The region ID.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -39,7 +39,7 @@ class CreateApiTemplateRequest extends Model
     public $regionId;
 
     /**
-     * @description 资源组ID。
+     * @description Resource group ID.
      *
      * @example rg-acfmzabjyop****
      *
@@ -48,7 +48,7 @@ class CreateApiTemplateRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description 集群模板名字。
+     * @description Cluster template name.
      *
      * This parameter is required.
      * @example DATALAKE模板

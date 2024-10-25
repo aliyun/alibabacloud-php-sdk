@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class totalReadRequest extends Model
 {
     /**
+     * @description Metric description.
+     *
      * @example Total read request
      *
      * @var string
@@ -16,6 +18,8 @@ class totalReadRequest extends Model
     public $description;
 
     /**
+     * @description Metric name.
+     *
      * @example totalReadRequest
      *
      * @var string
@@ -23,6 +27,8 @@ class totalReadRequest extends Model
     public $name;
 
     /**
+     * @description Metric unit.
+     *
      * @example ""
      *
      * @var string
@@ -30,6 +36,8 @@ class totalReadRequest extends Model
     public $unit;
 
     /**
+     * @description Metric value.
+     *
      * @example 1000
      *
      * @var int

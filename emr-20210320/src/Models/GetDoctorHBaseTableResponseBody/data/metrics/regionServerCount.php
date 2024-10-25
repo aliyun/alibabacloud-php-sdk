@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class regionServerCount extends Model
 {
     /**
+     * @description Metric description.
+     *
      * @example Number of region servers count
      *
      * @var string
@@ -16,6 +18,8 @@ class regionServerCount extends Model
     public $description;
 
     /**
+     * @description Metric name.
+     *
      * @example regionServerCount
      *
      * @var string
@@ -23,6 +27,8 @@ class regionServerCount extends Model
     public $name;
 
     /**
+     * @description Metric unit.
+     *
      * @example “”
      *
      * @var string
@@ -30,6 +36,8 @@ class regionServerCount extends Model
     public $unit;
 
     /**
+     * @description Usage.
+     *
      * @example 10
      *
      * @var int

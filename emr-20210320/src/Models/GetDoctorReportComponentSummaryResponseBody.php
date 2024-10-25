@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetDoctorReportComponentSummaryResponseBody extends Model
 {
     /**
-     * @description The content of the report.
+     * @description Report content.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description 请求ID。
+     * @description Request ID.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
      *
