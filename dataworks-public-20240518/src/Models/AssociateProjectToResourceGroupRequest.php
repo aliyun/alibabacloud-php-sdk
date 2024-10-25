@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AssociateProjectToResourceGroupRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the DataWorks workspace with which you want to associate the resource group.
      *
+     * This parameter is required.
      * @example 1000
      *
      * @var int
@@ -18,8 +19,9 @@ class AssociateProjectToResourceGroupRequest extends Model
     public $projectId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the resource group.
      *
+     * This parameter is required.
      * @example Serverless_res_group_524257424564736_6831777003XXXXX
      *
      * @var string

@@ -31,6 +31,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateNetworkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateNetworkResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateNodeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateNodeResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectMemberRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectMemberResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectMemberShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectShrinkRequest;
@@ -56,6 +59,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteNetworkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteNetworkResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteNodeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteNodeResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteProjectMemberRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteProjectMemberResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteResourceGroupRequest;
@@ -86,6 +91,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetNetworkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetNetworkResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetNodeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetNodeResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectMemberRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectMemberResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectRoleRequest;
@@ -98,8 +105,19 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetRouteRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetRouteResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetWorkflowDefinitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GrantMemberProjectRolesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GrantMemberProjectRolesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GrantMemberProjectRolesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ImportWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ImportWorkflowDefinitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityEvaluationTaskInstancesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityEvaluationTaskInstancesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityEvaluationTasksRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityEvaluationTasksResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityResultsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityResultsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityRulesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityRulesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourceSharedRulesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourceSharedRulesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourcesRequest;
@@ -126,6 +144,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodeDependenciesReques
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodeDependenciesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectMembersRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectMembersResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectMembersShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectRolesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectRolesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectRolesShrinkRequest;
@@ -157,6 +178,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RenameResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RenameResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RenameWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RenameWorkflowDefinitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RevokeMemberProjectRolesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RevokeMemberProjectRolesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RevokeMemberProjectRolesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartDIJobRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartDIJobResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartDIJobShrinkRequest;
@@ -300,7 +324,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 关联资源组到某个工作空间。
+     * @summary Associates a resource group with a workspace.
      *  *
      * @param AssociateProjectToResourceGroupRequest $request AssociateProjectToResourceGroupRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -336,7 +360,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 关联资源组到某个工作空间。
+     * @summary Associates a resource group with a workspace.
      *  *
      * @param AssociateProjectToResourceGroupRequest $request AssociateProjectToResourceGroupRequest
      *
@@ -939,6 +963,64 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 添加工作空间成员
+     *  *
+     * @param CreateProjectMemberRequest $tmpReq  CreateProjectMemberRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateProjectMemberResponse CreateProjectMemberResponse
+     */
+    public function createProjectMemberWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateProjectMemberShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->roleCodes)) {
+            $request->roleCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roleCodes, 'RoleCodes', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->roleCodesShrink)) {
+            $body['RoleCodes'] = $request->roleCodesShrink;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateProjectMember',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 添加工作空间成员
+     *  *
+     * @param CreateProjectMemberRequest $request CreateProjectMemberRequest
+     *
+     * @return CreateProjectMemberResponse CreateProjectMemberResponse
+     */
+    public function createProjectMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProjectMemberWithOptions($request, $runtime);
     }
 
     /**
@@ -1555,6 +1637,56 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary 移除工作空间成员
+     *  *
+     * @param DeleteProjectMemberRequest $request DeleteProjectMemberRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteProjectMemberResponse DeleteProjectMemberResponse
+     */
+    public function deleteProjectMemberWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteProjectMember',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 移除工作空间成员
+     *  *
+     * @param DeleteProjectMemberRequest $request DeleteProjectMemberRequest
+     *
+     * @return DeleteProjectMemberResponse DeleteProjectMemberResponse
+     */
+    public function deleteProjectMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteProjectMemberWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Deletes a file resource from DataStudio.
      *  *
      * @description >  A file resource that is deployed cannot be deleted. If you want to delete such a file resource, you must first undeploy the file resource.
@@ -1609,7 +1741,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除通用资源组。
+     * @summary Deletes a serverless resource group.
      *  *
      * @param DeleteResourceGroupRequest $request DeleteResourceGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -1642,7 +1774,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除通用资源组。
+     * @summary Deletes a serverless resource group.
      *  *
      * @param DeleteResourceGroupRequest $request DeleteResourceGroupRequest
      *
@@ -1757,7 +1889,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 将资源组和某个工作空间解除关联。
+     * @summary Disassociates a resource group from a workspace.
      *  *
      * @param DissociateProjectFromResourceGroupRequest $request DissociateProjectFromResourceGroupRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
@@ -1793,7 +1925,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 将资源组和某个工作空间解除关联。
+     * @summary Disassociates a resource group from a workspace.
      *  *
      * @param DissociateProjectFromResourceGroupRequest $request DissociateProjectFromResourceGroupRequest
      *
@@ -1956,7 +2088,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 验证用
+     * @summary Queries a data source by ID.
+     *  *
+     * @description You can call this operation only if you are assigned one of the following roles in DataWorks:
+     * *   Tenant Owner, Workspace Administrator, Deployment, Development, Project Owner, and O\\&M
      *  *
      * @param GetDataSourceRequest $request GetDataSourceRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -1986,7 +2121,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 验证用
+     * @summary Queries a data source by ID.
+     *  *
+     * @description You can call this operation only if you are assigned one of the following roles in DataWorks:
+     * *   Tenant Owner, Workspace Administrator, Deployment, Development, Project Owner, and O\\&M
      *  *
      * @param GetDataSourceRequest $request GetDataSourceRequest
      *
@@ -2264,6 +2402,56 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary 查询工作空间成员详情
+     *  *
+     * @param GetProjectMemberRequest $request GetProjectMemberRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetProjectMemberResponse GetProjectMemberResponse
+     */
+    public function getProjectMemberWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetProjectMember',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询工作空间成员详情
+     *  *
+     * @param GetProjectMemberRequest $request GetProjectMemberRequest
+     *
+     * @return GetProjectMemberResponse GetProjectMemberResponse
+     */
+    public function getProjectMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getProjectMemberWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 查询工作空间角色详情
      *  *
      * @param GetProjectRoleRequest $request GetProjectRoleRequest
@@ -2487,6 +2675,64 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getWorkflowDefinitionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 授予工作空间成员角色
+     *  *
+     * @param GrantMemberProjectRolesRequest $tmpReq  GrantMemberProjectRolesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GrantMemberProjectRolesResponse GrantMemberProjectRolesResponse
+     */
+    public function grantMemberProjectRolesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GrantMemberProjectRolesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->roleCodes)) {
+            $request->roleCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roleCodes, 'RoleCodes', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->roleCodesShrink)) {
+            $body['RoleCodes'] = $request->roleCodesShrink;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GrantMemberProjectRoles',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GrantMemberProjectRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 授予工作空间成员角色
+     *  *
+     * @param GrantMemberProjectRolesRequest $request GrantMemberProjectRolesRequest
+     *
+     * @return GrantMemberProjectRolesResponse GrantMemberProjectRolesResponse
+     */
+    public function grantMemberProjectRoles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->grantMemberProjectRolesWithOptions($request, $runtime);
     }
 
     /**
@@ -2762,6 +3008,174 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDIJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary ListDataQualityEvaluationTaskInstances
+     *  *
+     * @param ListDataQualityEvaluationTaskInstancesRequest $request ListDataQualityEvaluationTaskInstancesRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDataQualityEvaluationTaskInstancesResponse ListDataQualityEvaluationTaskInstancesResponse
+     */
+    public function listDataQualityEvaluationTaskInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataQualityEvaluationTaskInstances',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataQualityEvaluationTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary ListDataQualityEvaluationTaskInstances
+     *  *
+     * @param ListDataQualityEvaluationTaskInstancesRequest $request ListDataQualityEvaluationTaskInstancesRequest
+     *
+     * @return ListDataQualityEvaluationTaskInstancesResponse ListDataQualityEvaluationTaskInstancesResponse
+     */
+    public function listDataQualityEvaluationTaskInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataQualityEvaluationTaskInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDataQualityEvaluationTasksRequest $request ListDataQualityEvaluationTasksRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDataQualityEvaluationTasksResponse ListDataQualityEvaluationTasksResponse
+     */
+    public function listDataQualityEvaluationTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataQualityEvaluationTasks',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataQualityEvaluationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDataQualityEvaluationTasksRequest $request ListDataQualityEvaluationTasksRequest
+     *
+     * @return ListDataQualityEvaluationTasksResponse ListDataQualityEvaluationTasksResponse
+     */
+    public function listDataQualityEvaluationTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataQualityEvaluationTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDataQualityResultsRequest $request ListDataQualityResultsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDataQualityResultsResponse ListDataQualityResultsResponse
+     */
+    public function listDataQualityResultsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataQualityResults',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataQualityResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDataQualityResultsRequest $request ListDataQualityResultsRequest
+     *
+     * @return ListDataQualityResultsResponse ListDataQualityResultsResponse
+     */
+    public function listDataQualityResults($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataQualityResultsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 质量监控规则分页查询
+     *  *
+     * @param ListDataQualityRulesRequest $request ListDataQualityRulesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDataQualityRulesResponse ListDataQualityRulesResponse
+     */
+    public function listDataQualityRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataQualityRules',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataQualityRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 质量监控规则分页查询
+     *  *
+     * @param ListDataQualityRulesRequest $request ListDataQualityRulesRequest
+     *
+     * @return ListDataQualityRulesResponse ListDataQualityRulesResponse
+     */
+    public function listDataQualityRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataQualityRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -3075,6 +3489,73 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 分页查询工作空间成员详情
+     *  *
+     * @param ListProjectMembersRequest $tmpReq  ListProjectMembersRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListProjectMembersResponse ListProjectMembersResponse
+     */
+    public function listProjectMembersWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListProjectMembersShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->roleCodes)) {
+            $request->roleCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roleCodes, 'RoleCodes', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->userIds)) {
+            $request->userIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userIds, 'UserIds', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->roleCodesShrink)) {
+            $body['RoleCodes'] = $request->roleCodesShrink;
+        }
+        if (!Utils::isUnset($request->userIdsShrink)) {
+            $body['UserIds'] = $request->userIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListProjectMembers',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListProjectMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 分页查询工作空间成员详情
+     *  *
+     * @param ListProjectMembersRequest $request ListProjectMembersRequest
+     *
+     * @return ListProjectMembersResponse ListProjectMembersResponse
+     */
+    public function listProjectMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProjectMembersWithOptions($request, $runtime);
     }
 
     /**
@@ -3841,6 +4322,64 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary 撤销工作空间成员的角色
+     *  *
+     * @param RevokeMemberProjectRolesRequest $tmpReq  RevokeMemberProjectRolesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RevokeMemberProjectRolesResponse RevokeMemberProjectRolesResponse
+     */
+    public function revokeMemberProjectRolesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RevokeMemberProjectRolesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->roleCodes)) {
+            $request->roleCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roleCodes, 'RoleCodes', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->roleCodesShrink)) {
+            $body['RoleCodes'] = $request->roleCodesShrink;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RevokeMemberProjectRoles',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RevokeMemberProjectRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 撤销工作空间成员的角色
+     *  *
+     * @param RevokeMemberProjectRolesRequest $request RevokeMemberProjectRolesRequest
+     *
+     * @return RevokeMemberProjectRolesResponse RevokeMemberProjectRolesResponse
+     */
+    public function revokeMemberProjectRoles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeMemberProjectRolesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 启动数据集成任务
      *  *
      * @param StartDIJobRequest $tmpReq  StartDIJobRequest
@@ -4327,7 +4866,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新通用资源组基本信息。
+     * @summary Updates basic information about a resource group.
      *  *
      * @param UpdateResourceGroupRequest $request UpdateResourceGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -4366,7 +4905,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新通用资源组基本信息。
+     * @summary Updates basic information about a resource group.
      *  *
      * @param UpdateResourceGroupRequest $request UpdateResourceGroupRequest
      *

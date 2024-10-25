@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetDataSourceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The data source ID.
      *
+     * This parameter is required.
      * @example 16035
      *
      * @var int

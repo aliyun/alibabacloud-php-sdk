@@ -50,10 +50,10 @@ class ListResourcesRequest extends Model
      *
      * Valid values:
      *
-     *   python
-     *   jar
-     *   archive
-     *   file
+     *   Python
+     *   Jar
+     *   Archive
+     *   File
      *
      * @example python
      *

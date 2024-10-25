@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourceGroupRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the resource group.
      *
+     * This parameter is required.
      * @example Serverless_res_group_524257424564736_6831777003XXXXX
      *
      * @var string
@@ -18,6 +19,8 @@ class UpdateResourceGroupRequest extends Model
     public $id;
 
     /**
+     * @description The new name that you want to change for the resource group.
+     *
      * @example common_resource_group
      *
      * @var string
@@ -25,6 +28,8 @@ class UpdateResourceGroupRequest extends Model
     public $name;
 
     /**
+     * @description The new remarks that you want to modify for the resource group.
+     *
      * @example 创建用于普通任务的通用资源组
      *
      * @var string

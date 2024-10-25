@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataSource extends Model
 {
     /**
+     * @description The connection properties of the data source.
+     *
      * @example {
      * }
      * @var mixed
@@ -16,6 +18,12 @@ class dataSource extends Model
     public $connectionProperties;
 
     /**
+     * @description The mode in which the data source is added. The mode varies based on the data source type. Valid values:
+     *
+     *   InstanceMode: instance mode
+     *   UrlMode: connection string mode
+     *   CdhMode: CDH cluster mode
+     *
      * @example UrlMode
      *
      * @var string
@@ -23,6 +31,8 @@ class dataSource extends Model
     public $connectionPropertiesMode;
 
     /**
+     * @description The time when the data source was added. This value is a UNIX timestamp.
+     *
      * @example 1698286929333
      *
      * @var int
@@ -30,6 +40,8 @@ class dataSource extends Model
     public $createTime;
 
     /**
+     * @description The ID of the user who adds the data source.
+     *
      * @example 1107550004253538
      *
      * @var string
@@ -37,6 +49,8 @@ class dataSource extends Model
     public $createUser;
 
     /**
+     * @description The description of the data source.
+     *
      * @example test
      *
      * @var string
@@ -44,6 +58,8 @@ class dataSource extends Model
     public $description;
 
     /**
+     * @description The data source ID.
+     *
      * @example 16738
      *
      * @var int
@@ -51,6 +67,8 @@ class dataSource extends Model
     public $id;
 
     /**
+     * @description The time when the data source was last modified. This value is a UNIX timestamp.
+     *
      * @example 1698286929333
      *
      * @var int
@@ -58,6 +76,8 @@ class dataSource extends Model
     public $modifyTime;
 
     /**
+     * @description The ID of the user who modifies the data source.
+     *
      * @example 1107550004253538
      *
      * @var string
@@ -65,6 +85,8 @@ class dataSource extends Model
     public $modifyUser;
 
     /**
+     * @description The name of the data source.
+     *
      * @example test
      *
      * @var string
@@ -72,6 +94,8 @@ class dataSource extends Model
     public $name;
 
     /**
+     * @description The ID of the workspace with which the data source is associated.
+     *
      * @example 52660
      *
      * @var int
@@ -79,6 +103,8 @@ class dataSource extends Model
     public $projectId;
 
     /**
+     * @description The unique business key of the data source. For example, the unique business key of a Hologres data source is in the ${tenantOwnerId}:${regionId}:${type}:${instanceId}:${database} format.
+     *
      * @example 1107550004253538:cn-beijing:holo:hgprecn-cn-x0r3oun4k001:testdb
      *
      * @var string
@@ -86,6 +112,8 @@ class dataSource extends Model
     public $qualifiedName;
 
     /**
+     * @description The type of the data source.
+     *
      * @example hologres
      *
      * @var string

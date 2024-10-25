@@ -15,6 +15,8 @@ class GetDataSourceResponseBody extends Model
     public $dataSource;
 
     /**
+     * @description The request ID.
+     *
      * @example 9252F32F-D855-549E-8898-61CF5A733050
      *
      * @var string

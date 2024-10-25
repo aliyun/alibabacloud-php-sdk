@@ -79,7 +79,7 @@ class resources extends Model
     public $script;
 
     /**
-     * @description The storage path of the source of the file resource. If the value of the SourecType parameter is local, this parameter is empty.
+     * @description The path of the source of the file resource. If the SourecType parameter is set to Local, this parameter is left empty.
      *
      * @example XXX/unknown/ide/1/XXX/20240820200851_963a9da676de44ef8d06a6576a8c4d6a.py
      *
@@ -89,6 +89,11 @@ class resources extends Model
 
     /**
      * @description The storage type of the source of the file resource.
+     *
+     * Valid values:
+     *
+     *   Local
+     *   Oss
      *
      * @example local
      *
@@ -108,6 +113,12 @@ class resources extends Model
     /**
      * @description The storage type of the destination of the file resource.
      *
+     * Valid values:
+     *
+     *   Gateway
+     *   Oss
+     *   Hdfs
+     *
      * @example oss
      *
      * @var string
@@ -119,10 +130,10 @@ class resources extends Model
      *
      * Valid values:
      *
-     *   jar
-     *   python
-     *   file
-     *   archive
+     *   Python
+     *   Jar
+     *   Archive
+     *   File
      *
      * @example jar
      *

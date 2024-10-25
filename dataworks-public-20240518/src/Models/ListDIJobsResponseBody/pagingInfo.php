@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class pagingInfo extends Model
 {
     /**
-     * @description The synchronization tasks that are returned.
+     * @description The synchronization tasks returned.
      *
      * @var DIJobs[]
      */
