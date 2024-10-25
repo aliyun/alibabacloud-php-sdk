@@ -20,6 +20,7 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceInstanceR
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceInstanceShrinkRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceShrinkRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceUsageRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceUsageResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteArtifactRequest;
@@ -397,14 +398,19 @@ class ComputeNestSupplier extends OpenApiClient
     /**
      * @summary Creates a service.
      *  *
-     * @param CreateServiceRequest $request CreateServiceRequest
+     * @param CreateServiceRequest $tmpReq  CreateServiceRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
      * @return CreateServiceResponse CreateServiceResponse
      */
-    public function createServiceWithOptions($request, $runtime)
+    public function createServiceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateServiceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->complianceMetadata)) {
+            $request->complianceMetadataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->complianceMetadata, 'ComplianceMetadata', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->alarmMetadata)) {
             $query['AlarmMetadata'] = $request->alarmMetadata;
@@ -417,6 +423,9 @@ class ComputeNestSupplier extends OpenApiClient
         }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->complianceMetadataShrink)) {
+            $query['ComplianceMetadata'] = $request->complianceMetadataShrink;
         }
         if (!Utils::isUnset($request->deployMetadata)) {
             $query['DeployMetadata'] = $request->deployMetadata;
@@ -995,6 +1004,12 @@ class ComputeNestSupplier extends OpenApiClient
         }
         if (!Utils::isUnset($request->serviceId)) {
             $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
         }
         if (!Utils::isUnset($request->serviceVersion)) {
             $query['ServiceVersion'] = $request->serviceVersion;
@@ -2463,6 +2478,9 @@ class ComputeNestSupplier extends OpenApiClient
         if (!Utils::isUnset($tmpReq->commodity)) {
             $request->commodityShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->commodity, 'Commodity', 'json');
         }
+        if (!Utils::isUnset($tmpReq->complianceMetadata)) {
+            $request->complianceMetadataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->complianceMetadata, 'ComplianceMetadata', 'json');
+        }
         if (!Utils::isUnset($tmpReq->updateOption)) {
             $request->updateOptionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateOption, 'UpdateOption', 'json');
         }
@@ -2478,6 +2496,9 @@ class ComputeNestSupplier extends OpenApiClient
         }
         if (!Utils::isUnset($request->commodityShrink)) {
             $query['Commodity'] = $request->commodityShrink;
+        }
+        if (!Utils::isUnset($request->complianceMetadataShrink)) {
+            $query['ComplianceMetadata'] = $request->complianceMetadataShrink;
         }
         if (!Utils::isUnset($request->deployMetadata)) {
             $query['DeployMetadata'] = $request->deployMetadata;

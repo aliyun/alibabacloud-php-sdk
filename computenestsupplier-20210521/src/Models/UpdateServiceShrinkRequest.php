@@ -46,6 +46,11 @@ class UpdateServiceShrinkRequest extends Model
     public $commodityShrink;
 
     /**
+     * @var string
+     */
+    public $complianceMetadataShrink;
+
+    /**
      * @description The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
      *
      * @example {\\"EstimateTime\\":null,\\"SupplierDeployMetadata\\":{\\"DeployTimeout\\":7200},\\"EnableVnc\\":false}
@@ -251,31 +256,32 @@ class UpdateServiceShrinkRequest extends Model
      */
     public $versionName;
     protected $_name = [
-        'alarmMetadata'      => 'AlarmMetadata',
-        'approvalType'       => 'ApprovalType',
-        'clientToken'        => 'ClientToken',
-        'commodityShrink'    => 'Commodity',
-        'deployMetadata'     => 'DeployMetadata',
-        'deployType'         => 'DeployType',
-        'dryRun'             => 'DryRun',
-        'duration'           => 'Duration',
-        'isSupportOperated'  => 'IsSupportOperated',
-        'licenseMetadata'    => 'LicenseMetadata',
-        'logMetadata'        => 'LogMetadata',
-        'operationMetadata'  => 'OperationMetadata',
-        'policyNames'        => 'PolicyNames',
-        'regionId'           => 'RegionId',
-        'resellable'         => 'Resellable',
-        'serviceId'          => 'ServiceId',
-        'serviceInfo'        => 'ServiceInfo',
-        'serviceType'        => 'ServiceType',
-        'serviceVersion'     => 'ServiceVersion',
-        'shareType'          => 'ShareType',
-        'tenantType'         => 'TenantType',
-        'trialDuration'      => 'TrialDuration',
-        'updateOptionShrink' => 'UpdateOption',
-        'upgradeMetadata'    => 'UpgradeMetadata',
-        'versionName'        => 'VersionName',
+        'alarmMetadata'            => 'AlarmMetadata',
+        'approvalType'             => 'ApprovalType',
+        'clientToken'              => 'ClientToken',
+        'commodityShrink'          => 'Commodity',
+        'complianceMetadataShrink' => 'ComplianceMetadata',
+        'deployMetadata'           => 'DeployMetadata',
+        'deployType'               => 'DeployType',
+        'dryRun'                   => 'DryRun',
+        'duration'                 => 'Duration',
+        'isSupportOperated'        => 'IsSupportOperated',
+        'licenseMetadata'          => 'LicenseMetadata',
+        'logMetadata'              => 'LogMetadata',
+        'operationMetadata'        => 'OperationMetadata',
+        'policyNames'              => 'PolicyNames',
+        'regionId'                 => 'RegionId',
+        'resellable'               => 'Resellable',
+        'serviceId'                => 'ServiceId',
+        'serviceInfo'              => 'ServiceInfo',
+        'serviceType'              => 'ServiceType',
+        'serviceVersion'           => 'ServiceVersion',
+        'shareType'                => 'ShareType',
+        'tenantType'               => 'TenantType',
+        'trialDuration'            => 'TrialDuration',
+        'updateOptionShrink'       => 'UpdateOption',
+        'upgradeMetadata'          => 'UpgradeMetadata',
+        'versionName'              => 'VersionName',
     ];
 
     public function validate()
@@ -296,6 +302,9 @@ class UpdateServiceShrinkRequest extends Model
         }
         if (null !== $this->commodityShrink) {
             $res['Commodity'] = $this->commodityShrink;
+        }
+        if (null !== $this->complianceMetadataShrink) {
+            $res['ComplianceMetadata'] = $this->complianceMetadataShrink;
         }
         if (null !== $this->deployMetadata) {
             $res['DeployMetadata'] = $this->deployMetadata;
@@ -389,6 +398,9 @@ class UpdateServiceShrinkRequest extends Model
         }
         if (isset($map['Commodity'])) {
             $model->commodityShrink = $map['Commodity'];
+        }
+        if (isset($map['ComplianceMetadata'])) {
+            $model->complianceMetadataShrink = $map['ComplianceMetadata'];
         }
         if (isset($map['DeployMetadata'])) {
             $model->deployMetadata = $map['DeployMetadata'];

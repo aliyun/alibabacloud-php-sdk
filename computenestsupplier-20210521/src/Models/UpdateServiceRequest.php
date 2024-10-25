@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceRequest\commodity;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceRequest\complianceMetadata;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceRequest\serviceInfo;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceRequest\updateOption;
 use AlibabaCloud\Tea\Model;
@@ -46,6 +47,11 @@ class UpdateServiceRequest extends Model
      * @var commodity
      */
     public $commodity;
+
+    /**
+     * @var complianceMetadata
+     */
+    public $complianceMetadata;
 
     /**
      * @description The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
@@ -253,31 +259,32 @@ class UpdateServiceRequest extends Model
      */
     public $versionName;
     protected $_name = [
-        'alarmMetadata'     => 'AlarmMetadata',
-        'approvalType'      => 'ApprovalType',
-        'clientToken'       => 'ClientToken',
-        'commodity'         => 'Commodity',
-        'deployMetadata'    => 'DeployMetadata',
-        'deployType'        => 'DeployType',
-        'dryRun'            => 'DryRun',
-        'duration'          => 'Duration',
-        'isSupportOperated' => 'IsSupportOperated',
-        'licenseMetadata'   => 'LicenseMetadata',
-        'logMetadata'       => 'LogMetadata',
-        'operationMetadata' => 'OperationMetadata',
-        'policyNames'       => 'PolicyNames',
-        'regionId'          => 'RegionId',
-        'resellable'        => 'Resellable',
-        'serviceId'         => 'ServiceId',
-        'serviceInfo'       => 'ServiceInfo',
-        'serviceType'       => 'ServiceType',
-        'serviceVersion'    => 'ServiceVersion',
-        'shareType'         => 'ShareType',
-        'tenantType'        => 'TenantType',
-        'trialDuration'     => 'TrialDuration',
-        'updateOption'      => 'UpdateOption',
-        'upgradeMetadata'   => 'UpgradeMetadata',
-        'versionName'       => 'VersionName',
+        'alarmMetadata'      => 'AlarmMetadata',
+        'approvalType'       => 'ApprovalType',
+        'clientToken'        => 'ClientToken',
+        'commodity'          => 'Commodity',
+        'complianceMetadata' => 'ComplianceMetadata',
+        'deployMetadata'     => 'DeployMetadata',
+        'deployType'         => 'DeployType',
+        'dryRun'             => 'DryRun',
+        'duration'           => 'Duration',
+        'isSupportOperated'  => 'IsSupportOperated',
+        'licenseMetadata'    => 'LicenseMetadata',
+        'logMetadata'        => 'LogMetadata',
+        'operationMetadata'  => 'OperationMetadata',
+        'policyNames'        => 'PolicyNames',
+        'regionId'           => 'RegionId',
+        'resellable'         => 'Resellable',
+        'serviceId'          => 'ServiceId',
+        'serviceInfo'        => 'ServiceInfo',
+        'serviceType'        => 'ServiceType',
+        'serviceVersion'     => 'ServiceVersion',
+        'shareType'          => 'ShareType',
+        'tenantType'         => 'TenantType',
+        'trialDuration'      => 'TrialDuration',
+        'updateOption'       => 'UpdateOption',
+        'upgradeMetadata'    => 'UpgradeMetadata',
+        'versionName'        => 'VersionName',
     ];
 
     public function validate()
@@ -298,6 +305,9 @@ class UpdateServiceRequest extends Model
         }
         if (null !== $this->commodity) {
             $res['Commodity'] = null !== $this->commodity ? $this->commodity->toMap() : null;
+        }
+        if (null !== $this->complianceMetadata) {
+            $res['ComplianceMetadata'] = null !== $this->complianceMetadata ? $this->complianceMetadata->toMap() : null;
         }
         if (null !== $this->deployMetadata) {
             $res['DeployMetadata'] = $this->deployMetadata;
@@ -391,6 +401,9 @@ class UpdateServiceRequest extends Model
         }
         if (isset($map['Commodity'])) {
             $model->commodity = commodity::fromMap($map['Commodity']);
+        }
+        if (isset($map['ComplianceMetadata'])) {
+            $model->complianceMetadata = complianceMetadata::fromMap($map['ComplianceMetadata']);
         }
         if (isset($map['DeployMetadata'])) {
             $model->deployMetadata = $map['DeployMetadata'];

@@ -4,12 +4,11 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceRequest\complianceMetadata;
-use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceRequest\serviceInfo;
-use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceRequest\tag;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceShrinkRequest\serviceInfo;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceShrinkRequest\tag;
 use AlibabaCloud\Tea\Model;
 
-class CreateServiceRequest extends Model
+class CreateServiceShrinkRequest extends Model
 {
     /**
      * @description The alert configurations of the service.
@@ -52,9 +51,9 @@ class CreateServiceRequest extends Model
     public $clientToken;
 
     /**
-     * @var complianceMetadata
+     * @var string
      */
-    public $complianceMetadata;
+    public $complianceMetadataShrink;
 
     /**
      * @description The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
@@ -281,34 +280,34 @@ class CreateServiceRequest extends Model
      */
     public $versionName;
     protected $_name = [
-        'alarmMetadata'        => 'AlarmMetadata',
-        'approvalType'         => 'ApprovalType',
-        'buildParameters'      => 'BuildParameters',
-        'clientToken'          => 'ClientToken',
-        'complianceMetadata'   => 'ComplianceMetadata',
-        'deployMetadata'       => 'DeployMetadata',
-        'deployType'           => 'DeployType',
-        'dryRun'               => 'DryRun',
-        'duration'             => 'Duration',
-        'isSupportOperated'    => 'IsSupportOperated',
-        'licenseMetadata'      => 'LicenseMetadata',
-        'logMetadata'          => 'LogMetadata',
-        'operationMetadata'    => 'OperationMetadata',
-        'policyNames'          => 'PolicyNames',
-        'regionId'             => 'RegionId',
-        'resellable'           => 'Resellable',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'serviceId'            => 'ServiceId',
-        'serviceInfo'          => 'ServiceInfo',
-        'serviceType'          => 'ServiceType',
-        'shareType'            => 'ShareType',
-        'sourceServiceId'      => 'SourceServiceId',
-        'sourceServiceVersion' => 'SourceServiceVersion',
-        'tag'                  => 'Tag',
-        'tenantType'           => 'TenantType',
-        'trialDuration'        => 'TrialDuration',
-        'upgradeMetadata'      => 'UpgradeMetadata',
-        'versionName'          => 'VersionName',
+        'alarmMetadata'            => 'AlarmMetadata',
+        'approvalType'             => 'ApprovalType',
+        'buildParameters'          => 'BuildParameters',
+        'clientToken'              => 'ClientToken',
+        'complianceMetadataShrink' => 'ComplianceMetadata',
+        'deployMetadata'           => 'DeployMetadata',
+        'deployType'               => 'DeployType',
+        'dryRun'                   => 'DryRun',
+        'duration'                 => 'Duration',
+        'isSupportOperated'        => 'IsSupportOperated',
+        'licenseMetadata'          => 'LicenseMetadata',
+        'logMetadata'              => 'LogMetadata',
+        'operationMetadata'        => 'OperationMetadata',
+        'policyNames'              => 'PolicyNames',
+        'regionId'                 => 'RegionId',
+        'resellable'               => 'Resellable',
+        'resourceGroupId'          => 'ResourceGroupId',
+        'serviceId'                => 'ServiceId',
+        'serviceInfo'              => 'ServiceInfo',
+        'serviceType'              => 'ServiceType',
+        'shareType'                => 'ShareType',
+        'sourceServiceId'          => 'SourceServiceId',
+        'sourceServiceVersion'     => 'SourceServiceVersion',
+        'tag'                      => 'Tag',
+        'tenantType'               => 'TenantType',
+        'trialDuration'            => 'TrialDuration',
+        'upgradeMetadata'          => 'UpgradeMetadata',
+        'versionName'              => 'VersionName',
     ];
 
     public function validate()
@@ -330,8 +329,8 @@ class CreateServiceRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->complianceMetadata) {
-            $res['ComplianceMetadata'] = null !== $this->complianceMetadata ? $this->complianceMetadata->toMap() : null;
+        if (null !== $this->complianceMetadataShrink) {
+            $res['ComplianceMetadata'] = $this->complianceMetadataShrink;
         }
         if (null !== $this->deployMetadata) {
             $res['DeployMetadata'] = $this->deployMetadata;
@@ -421,7 +420,7 @@ class CreateServiceRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateServiceRequest
+     * @return CreateServiceShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -439,7 +438,7 @@ class CreateServiceRequest extends Model
             $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['ComplianceMetadata'])) {
-            $model->complianceMetadata = complianceMetadata::fromMap($map['ComplianceMetadata']);
+            $model->complianceMetadataShrink = $map['ComplianceMetadata'];
         }
         if (isset($map['DeployMetadata'])) {
             $model->deployMetadata = $map['DeployMetadata'];

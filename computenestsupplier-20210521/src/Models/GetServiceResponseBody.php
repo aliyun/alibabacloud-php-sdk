@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\commodity;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\complianceMetadata;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\serviceInfos;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\statistic;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\tags;
@@ -67,6 +68,11 @@ class GetServiceResponseBody extends Model
      * @var string
      */
     public $commodityCode;
+
+    /**
+     * @var complianceMetadata
+     */
+    public $complianceMetadata;
 
     /**
      * @description The time when the service was created.
@@ -567,6 +573,7 @@ class GetServiceResponseBody extends Model
         'categories'                  => 'Categories',
         'commodity'                   => 'Commodity',
         'commodityCode'               => 'CommodityCode',
+        'complianceMetadata'          => 'ComplianceMetadata',
         'createTime'                  => 'CreateTime',
         'crossRegionConnectionStatus' => 'CrossRegionConnectionStatus',
         'defaultLicenseDays'          => 'DefaultLicenseDays',
@@ -642,6 +649,9 @@ class GetServiceResponseBody extends Model
         }
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
+        }
+        if (null !== $this->complianceMetadata) {
+            $res['ComplianceMetadata'] = null !== $this->complianceMetadata ? $this->complianceMetadata->toMap() : null;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -831,6 +841,9 @@ class GetServiceResponseBody extends Model
         }
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
+        }
+        if (isset($map['ComplianceMetadata'])) {
+            $model->complianceMetadata = complianceMetadata::fromMap($map['ComplianceMetadata']);
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];

@@ -29,12 +29,21 @@ class GetServiceRequest extends Model
     /**
      * @description The service ID.
      *
-     * This parameter is required.
      * @example service-4ee86df83fd948******
      *
      * @var string
      */
     public $serviceId;
+
+    /**
+     * @var string
+     */
+    public $serviceInstanceId;
+
+    /**
+     * @var string
+     */
+    public $serviceName;
 
     /**
      * @description The service version.
@@ -67,6 +76,8 @@ class GetServiceRequest extends Model
         'filterAliUid'      => 'FilterAliUid',
         'regionId'          => 'RegionId',
         'serviceId'         => 'ServiceId',
+        'serviceInstanceId' => 'ServiceInstanceId',
+        'serviceName'       => 'ServiceName',
         'serviceVersion'    => 'ServiceVersion',
         'sharedAccountType' => 'SharedAccountType',
         'showDetail'        => 'ShowDetail',
@@ -87,6 +98,12 @@ class GetServiceRequest extends Model
         }
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
+        }
+        if (null !== $this->serviceInstanceId) {
+            $res['ServiceInstanceId'] = $this->serviceInstanceId;
+        }
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
         }
         if (null !== $this->serviceVersion) {
             $res['ServiceVersion'] = $this->serviceVersion;
@@ -117,6 +134,12 @@ class GetServiceRequest extends Model
         }
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
+        }
+        if (isset($map['ServiceInstanceId'])) {
+            $model->serviceInstanceId = $map['ServiceInstanceId'];
+        }
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
         }
         if (isset($map['ServiceVersion'])) {
             $model->serviceVersion = $map['ServiceVersion'];
