@@ -2467,13 +2467,10 @@ class Cbn extends OpenApiClient
     /**
      * @summary Associates the route table of an Enterprise Edition transit router with a prefix list.
      *  *
-     * @description *   Only the route tables of Enterprise Edition transit routers can be associated with prefix lists.
-     * *   A prefix list can be associated only with one route table of an Enterprise Edition.
-     * *   The CIDR blocks in the prefix list cannot overlap with those in the route table of the Enterprise Edition transit router. Otherwise, the prefix list fails to be associated with the route table.
-     * *   If the route table of an Enterprise Edition transit router needs to be associated with multiple prefix lists, make sure that the CIDR blocks in the prefix lists do not overlap. Otherwise, the route table fails to be associated with the prefix lists.
-     * ### Prerequisites
+     * @description To associate an Enterprise Edition transit router with a route prefix, you must meet the following requirements:
+     * *   You are familiar with the limits and route compatibility notes of prefix lists. For more information, see [Prefix lists](https://help.aliyun.com/document_detail/445605.html).
      * *   A prefix list is created. For more information, see [CreateVpcPrefixList](https://help.aliyun.com/document_detail/437367.html).
-     * *   The prefix list is shared with the Alibaba Cloud account that owns the Enterprise Edition transit router if the prefix list and the Enterprise Edition transit router belong to different Alibaba Cloud accounts. For more information about how to share a prefix list with another Alibaba Cloud account, see [Resource sharing overview](https://help.aliyun.com/document_detail/160622.html) and [API reference for resource sharing](https://help.aliyun.com/document_detail/193445.html).
+     * *   If the prefix list and the Enterprise Edition transit router belong to different Alibaba Cloud accounts, the prefix list is shared with the Alibaba Cloud account that owns the Enterprise Edition transit router. For more information, see [Resource sharing](https://help.aliyun.com/document_detail/160622.html) and [API references for resource sharing](https://help.aliyun.com/document_detail/193445.html).
      *  *
      * @param CreateTransitRouterPrefixListAssociationRequest $request CreateTransitRouterPrefixListAssociationRequest
      * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
@@ -2544,13 +2541,10 @@ class Cbn extends OpenApiClient
     /**
      * @summary Associates the route table of an Enterprise Edition transit router with a prefix list.
      *  *
-     * @description *   Only the route tables of Enterprise Edition transit routers can be associated with prefix lists.
-     * *   A prefix list can be associated only with one route table of an Enterprise Edition.
-     * *   The CIDR blocks in the prefix list cannot overlap with those in the route table of the Enterprise Edition transit router. Otherwise, the prefix list fails to be associated with the route table.
-     * *   If the route table of an Enterprise Edition transit router needs to be associated with multiple prefix lists, make sure that the CIDR blocks in the prefix lists do not overlap. Otherwise, the route table fails to be associated with the prefix lists.
-     * ### Prerequisites
+     * @description To associate an Enterprise Edition transit router with a route prefix, you must meet the following requirements:
+     * *   You are familiar with the limits and route compatibility notes of prefix lists. For more information, see [Prefix lists](https://help.aliyun.com/document_detail/445605.html).
      * *   A prefix list is created. For more information, see [CreateVpcPrefixList](https://help.aliyun.com/document_detail/437367.html).
-     * *   The prefix list is shared with the Alibaba Cloud account that owns the Enterprise Edition transit router if the prefix list and the Enterprise Edition transit router belong to different Alibaba Cloud accounts. For more information about how to share a prefix list with another Alibaba Cloud account, see [Resource sharing overview](https://help.aliyun.com/document_detail/160622.html) and [API reference for resource sharing](https://help.aliyun.com/document_detail/193445.html).
+     * *   If the prefix list and the Enterprise Edition transit router belong to different Alibaba Cloud accounts, the prefix list is shared with the Alibaba Cloud account that owns the Enterprise Edition transit router. For more information, see [Resource sharing](https://help.aliyun.com/document_detail/160622.html) and [API references for resource sharing](https://help.aliyun.com/document_detail/193445.html).
      *  *
      * @param CreateTransitRouterPrefixListAssociationRequest $request CreateTransitRouterPrefixListAssociationRequest
      *
@@ -3164,18 +3158,18 @@ class Cbn extends OpenApiClient
     /**
      * @summary Deletes a Cloud Enterprise Network (CEN) instance.
      *  *
-     * @description **DeleteCen** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the **DescribeCens** operation to query the status of a CEN instance.
-     * *   If a CEN instance is in the **Deleting** state, the CEN instance is being deleted. In this case, you can query the CEN instance but cannot perform other operations.
-     * *   If a CEN instance cannot be found, the CEN instance is deleted.
-     * #### Prerequisites
+     * @description **DeleteCen** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call **DescribeCens** to query the status of a CEN instance.
+     * *   If the CEN instance is in the **Deleting** state, the CEN instance is being deleted. In this case, you can query the CEN instance but cannot perform other operations.
+     * *   If the CEN instance cannot be found, the CEN instance is deleted.
+     * ### [](#)Prerequisites
      * The CEN instance that you want to delete is not associated with a bandwidth plan, and the transit router associated with the CEN instance does not have a network instance connection or a custom route table.
      * *   For more information about how to detach a network instance, see the following topics:
      *     *   [DeleteTransitRouterVpcAttachment](https://help.aliyun.com/document_detail/261220.html)
      *     *   [DeleteTransitRouterVbrAttachment](https://help.aliyun.com/document_detail/261223.html)
      *     *   [DeleteTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443992.html)
      *     *   [DeleteTransitRouterPeerAttachment](https://help.aliyun.com/document_detail/261227.html)
-     *      >For more information about how to detach network instances from a Basic Edition transit router, see [DetachCenChildInstance](https://help.aliyun.com/document_detail/65915.html).
-     * *   For more information about how to delete a custom route table, see [DeleteTransitRouterRouteTable](https://help.aliyun.com/document_detail/261235.html).
+     *     > For more information about how to detach network instances from a Basic Edition transit router, see [DetachCenChildInstance](https://help.aliyun.com/document_detail/65915.html).
+     * *   For more information about how to delete custom route tables from an Enterprise Edition transit router, see [DeleteTransitRouterRouteTable](https://help.aliyun.com/document_detail/261235.html).
      * *   For more information about how to disassociate a bandwidth plan from a CEN instance, see [UnassociateCenBandwidthPackage](https://help.aliyun.com/document_detail/65935.html).
      *  *
      * @param DeleteCenRequest $request DeleteCenRequest
@@ -3223,18 +3217,18 @@ class Cbn extends OpenApiClient
     /**
      * @summary Deletes a Cloud Enterprise Network (CEN) instance.
      *  *
-     * @description **DeleteCen** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the **DescribeCens** operation to query the status of a CEN instance.
-     * *   If a CEN instance is in the **Deleting** state, the CEN instance is being deleted. In this case, you can query the CEN instance but cannot perform other operations.
-     * *   If a CEN instance cannot be found, the CEN instance is deleted.
-     * #### Prerequisites
+     * @description **DeleteCen** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call **DescribeCens** to query the status of a CEN instance.
+     * *   If the CEN instance is in the **Deleting** state, the CEN instance is being deleted. In this case, you can query the CEN instance but cannot perform other operations.
+     * *   If the CEN instance cannot be found, the CEN instance is deleted.
+     * ### [](#)Prerequisites
      * The CEN instance that you want to delete is not associated with a bandwidth plan, and the transit router associated with the CEN instance does not have a network instance connection or a custom route table.
      * *   For more information about how to detach a network instance, see the following topics:
      *     *   [DeleteTransitRouterVpcAttachment](https://help.aliyun.com/document_detail/261220.html)
      *     *   [DeleteTransitRouterVbrAttachment](https://help.aliyun.com/document_detail/261223.html)
      *     *   [DeleteTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443992.html)
      *     *   [DeleteTransitRouterPeerAttachment](https://help.aliyun.com/document_detail/261227.html)
-     *      >For more information about how to detach network instances from a Basic Edition transit router, see [DetachCenChildInstance](https://help.aliyun.com/document_detail/65915.html).
-     * *   For more information about how to delete a custom route table, see [DeleteTransitRouterRouteTable](https://help.aliyun.com/document_detail/261235.html).
+     *     > For more information about how to detach network instances from a Basic Edition transit router, see [DetachCenChildInstance](https://help.aliyun.com/document_detail/65915.html).
+     * *   For more information about how to delete custom route tables from an Enterprise Edition transit router, see [DeleteTransitRouterRouteTable](https://help.aliyun.com/document_detail/261235.html).
      * *   For more information about how to disassociate a bandwidth plan from a CEN instance, see [UnassociateCenBandwidthPackage](https://help.aliyun.com/document_detail/65935.html).
      *  *
      * @param DeleteCenRequest $request DeleteCenRequest
@@ -3623,7 +3617,7 @@ class Cbn extends OpenApiClient
      *  *
      * @description `DeleteCenRouteMap` is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the `DescribeCenRouteMaps` operation to query the status of a routing policy.
      * *   If a routing policy is in the **Deleting** state, the routing policy is being deleted. You can query the routing policy but cannot perform other operations.
-     * *   If a routing policy cannot be found, it is deleted.``
+     * *   If a routing policy cannot be found, it is deleted.
      *  *
      * @param DeleteCenRouteMapRequest $request DeleteCenRouteMapRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -3678,7 +3672,7 @@ class Cbn extends OpenApiClient
      *  *
      * @description `DeleteCenRouteMap` is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the `DescribeCenRouteMaps` operation to query the status of a routing policy.
      * *   If a routing policy is in the **Deleting** state, the routing policy is being deleted. You can query the routing policy but cannot perform other operations.
-     * *   If a routing policy cannot be found, it is deleted.``
+     * *   If a routing policy cannot be found, it is deleted.
      *  *
      * @param DeleteCenRouteMapRequest $request DeleteCenRouteMapRequest
      *
@@ -4492,14 +4486,14 @@ class Cbn extends OpenApiClient
      * @summary Deletes blackhole routes and static routes that point to network instance connections from the route tables of an Enterprise Edition transit router.
      *  *
      * @description Before you call this operation, take note of the following items:
-     * *   If **TransitRouterRouteEntryId** is set, you must not set **TransitRouterRouteTableId** or **TransitRouterRouteEntryDestinationCidrBlock**. Otherwise, parameter conflicts will occur.
-     * *   If **TransitRouterRouteEntryId** is not set, you must specify the set parameters based on the type of the next hop:
-     *     *   To delete a blackhole route, you must set **TransitRouterRouteTableId**, **TransitRouterRouteEntryDestinationCidrBlock**, and **TransitRouterRouteEntryNextHopType**.
-     *     *   If the route that you want to delete is not a blackhole route, you must set **TransitRouterRouteTableId**, **TransitRouterRouteEntryDestinationCidrBlock**, **TransitRouterRouteEntryNextHopType**, and **TransitRouterRouteEntryNextHopId**.
-     * *   **DeleteTransitRouterRouteEntry** is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the system background. You can call the **ListTransitRouterRouteEntries** operation to query the status of a route entry.
-     *     *   If a route entry is in the **Deleting** state, the route entry is being deleted. You can query the route entry but cannot perform other operations.
+     * *   If you specify the **TransitRouterRouteEntryId** parameter to delete a specific route, you do not need to configure the **TransitRouterRouteTableId** or **TransitRouterRouteEntryDestinationCidrBlock**. Otherwise, parameter conflicts occur.
+     * *   If you do not specify the **TransitRouterRouteEntryId** parameter, configure the following parameters based on the next hop type of the route that you want to delete:
+     *     *   To delete a blackhole route, configure the following parameters: **TransitRouterRouteTableId**, **TransitRouterRouteEntryDestinationCidrBlock**, and **TransitRouterRouteEntryNextHopType**.
+     *     *   To delete routes other than blackhole routes, configure the following parameters: **TransitRouterRouteTableId**, **TransitRouterRouteEntryDestinationCidrBlock**, **TransitRouterRouteEntryNextHopType**, and **TransitRouterRouteEntryNextHopId**.
+     * *   **DeleteTransitRouterRouteEntry** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the **ListTransitRouterRouteEntries** operation to query the status of a route entry.
+     *     *   If the route entry is in the **Deleting** state, the route entry is being deleted. In this case, you can query the route entry but cannot perform other operations.
      *     *   If a route entry cannot be found, it is deleted.
-     * ## Limits
+     * ### [](#)Limits
      * You can call this operation to delete only static routes. Automatically learned routes are not supported. You can call the [ListTransitRouterRouteEntries](https://help.aliyun.com/document_detail/260941.html) operation to query route types.
      *  *
      * @param DeleteTransitRouterRouteEntryRequest $request DeleteTransitRouterRouteEntryRequest
@@ -4566,14 +4560,14 @@ class Cbn extends OpenApiClient
      * @summary Deletes blackhole routes and static routes that point to network instance connections from the route tables of an Enterprise Edition transit router.
      *  *
      * @description Before you call this operation, take note of the following items:
-     * *   If **TransitRouterRouteEntryId** is set, you must not set **TransitRouterRouteTableId** or **TransitRouterRouteEntryDestinationCidrBlock**. Otherwise, parameter conflicts will occur.
-     * *   If **TransitRouterRouteEntryId** is not set, you must specify the set parameters based on the type of the next hop:
-     *     *   To delete a blackhole route, you must set **TransitRouterRouteTableId**, **TransitRouterRouteEntryDestinationCidrBlock**, and **TransitRouterRouteEntryNextHopType**.
-     *     *   If the route that you want to delete is not a blackhole route, you must set **TransitRouterRouteTableId**, **TransitRouterRouteEntryDestinationCidrBlock**, **TransitRouterRouteEntryNextHopType**, and **TransitRouterRouteEntryNextHopId**.
-     * *   **DeleteTransitRouterRouteEntry** is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the system background. You can call the **ListTransitRouterRouteEntries** operation to query the status of a route entry.
-     *     *   If a route entry is in the **Deleting** state, the route entry is being deleted. You can query the route entry but cannot perform other operations.
+     * *   If you specify the **TransitRouterRouteEntryId** parameter to delete a specific route, you do not need to configure the **TransitRouterRouteTableId** or **TransitRouterRouteEntryDestinationCidrBlock**. Otherwise, parameter conflicts occur.
+     * *   If you do not specify the **TransitRouterRouteEntryId** parameter, configure the following parameters based on the next hop type of the route that you want to delete:
+     *     *   To delete a blackhole route, configure the following parameters: **TransitRouterRouteTableId**, **TransitRouterRouteEntryDestinationCidrBlock**, and **TransitRouterRouteEntryNextHopType**.
+     *     *   To delete routes other than blackhole routes, configure the following parameters: **TransitRouterRouteTableId**, **TransitRouterRouteEntryDestinationCidrBlock**, **TransitRouterRouteEntryNextHopType**, and **TransitRouterRouteEntryNextHopId**.
+     * *   **DeleteTransitRouterRouteEntry** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the **ListTransitRouterRouteEntries** operation to query the status of a route entry.
+     *     *   If the route entry is in the **Deleting** state, the route entry is being deleted. In this case, you can query the route entry but cannot perform other operations.
      *     *   If a route entry cannot be found, it is deleted.
-     * ## Limits
+     * ### [](#)Limits
      * You can call this operation to delete only static routes. Automatically learned routes are not supported. You can call the [ListTransitRouterRouteEntries](https://help.aliyun.com/document_detail/260941.html) operation to query route types.
      *  *
      * @param DeleteTransitRouterRouteEntryRequest $request DeleteTransitRouterRouteEntryRequest
@@ -7354,6 +7348,8 @@ class Cbn extends OpenApiClient
     /**
      * @summary Queries routes in route tables of network instances that point to network instance connections on Enterprise Edition transit routers.
      *  *
+     * @description Before you call the ListCenChildInstanceRouteEntriesToAttachment operation, make sure that all request parameter values are valid. If a parameter is set to an invalid value, a request ID is returned, but the routes to the network instance are not returned.
+     *  *
      * @param ListCenChildInstanceRouteEntriesToAttachmentRequest $request ListCenChildInstanceRouteEntriesToAttachmentRequest
      * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
      *
@@ -7416,6 +7412,8 @@ class Cbn extends OpenApiClient
 
     /**
      * @summary Queries routes in route tables of network instances that point to network instance connections on Enterprise Edition transit routers.
+     *  *
+     * @description Before you call the ListCenChildInstanceRouteEntriesToAttachment operation, make sure that all request parameter values are valid. If a parameter is set to an invalid value, a request ID is returned, but the routes to the network instance are not returned.
      *  *
      * @param ListCenChildInstanceRouteEntriesToAttachmentRequest $request ListCenChildInstanceRouteEntriesToAttachmentRequest
      *
@@ -10774,7 +10772,7 @@ class Cbn extends OpenApiClient
      * @summary Removes a traffic classification rule from a traffic marking policy.
      *  *
      * @description ### [](#)Precautions
-     * The **RemoveTraficMatchRuleFromTrafficMarkingPolicy** operation is deprecated and will be discontinued soon. If you need to delete traffic classification rules from a traffic marking policy, call the [RemoveTrafficMatchRuleFromTrafficMarkingPolicy](https://help.aliyun.com/document_detail/452726.html) operation.
+     * The **RemoveTraficMatchRuleFromTrafficMarkingPolicy** operation is deprecated and will be discontinued soon. To delete a traffic classification rule, call the [RemoveTrafficMatchRuleFromTrafficMarkingPolicy](https://help.aliyun.com/document_detail/452726.html) operation. Maintenance on this document has stopped.
      *  *
      * Deprecated
      *
@@ -10835,7 +10833,7 @@ class Cbn extends OpenApiClient
      * @summary Removes a traffic classification rule from a traffic marking policy.
      *  *
      * @description ### [](#)Precautions
-     * The **RemoveTraficMatchRuleFromTrafficMarkingPolicy** operation is deprecated and will be discontinued soon. If you need to delete traffic classification rules from a traffic marking policy, call the [RemoveTrafficMatchRuleFromTrafficMarkingPolicy](https://help.aliyun.com/document_detail/452726.html) operation.
+     * The **RemoveTraficMatchRuleFromTrafficMarkingPolicy** operation is deprecated and will be discontinued soon. To delete a traffic classification rule, call the [RemoveTrafficMatchRuleFromTrafficMarkingPolicy](https://help.aliyun.com/document_detail/452726.html) operation. Maintenance on this document has stopped.
      *  *
      * Deprecated
      *
@@ -10921,14 +10919,14 @@ class Cbn extends OpenApiClient
     /**
      * @summary Connects an on-premises network to a cloud service.
      *  *
-     * @description Cloud services refer to Alibaba Cloud services that use the 100.64.0.0/10 CIDR block to provide services. These cloud services include Object Storage Service (OSS), Simple Log Service, and Data Transmission Service (DTS). If your on-premises network needs to access a cloud service, you must attach the virtual border router (VBR) or Cloud Connect Network (CCN) instance that is connected to your on-premises network to a Cloud Enterprise Network (CEN) instance. In addition, you must attach a virtual private cloud (VPC) that is deployed in the same region as the cloud service to the CEN instance. This way, your on-premises network can connect to the VPC that is deployed in the same region as the cloud service and access the cloud service through the VPC.
-     * *   You can call this operation only for a Basic Edition transit router. An on-premises network associated with a VBR can use CEN to access only a cloud service that is deployed in the same region.
+     * @description Cloud services refer to Alibaba Cloud services that use the 100.64.0.0/10 CIDR block to provide services. These cloud services include Object Storage Service (OSS), Simple Log Service (SLS), and Data Transmission Service (DTS). If your on-premises network needs to access a cloud service, you must attach the virtual border router (VBR) or Cloud Connect Network (CCN) instance that is connected to your on-premises network to a Cloud Enterprise Network (CEN) instance. In addition, you must attach a virtual private cloud (VPC) that is deployed in the same region as the cloud service to the CEN instance. This way, your on-premises network can connect to the VPC that is deployed in the same region as the cloud service and access the cloud service through the VPC.
+     * *   This operation is supported only by Basic Edition transit routers. An on-premises network associated with a VBR can use CEN to access only a cloud service that is deployed in the same region.
      *     For example, if cloud services are deployed in the China (Beijing) region, only on-premises networks connected to VBRs in the China (Beijing) region can access the cloud services.
      * *   **ResolveAndRouteServiceInCen** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call **DescribeRouteServicesInCen** to query the status of a cloud service.
-     *     *   If a cloud service is in the **Creating** state, the connection to the cloud service is being created. In this case, you can query the cloud service but cannot perform other operations.
-     *     *   If a cloud service is in the **Active** state, the connection to the cloud service is created.
-     *     *   If a cloud service is in the **Failed** state, the connection to the cloud service failed.
-     * # [](#)Prerequisites
+     *     *   If the cloud service is in the **Creating** state, the connection to the cloud service is being created. In this case, you can query the cloud service but cannot perform other operations.
+     *     *   If the cloud service is in the **Active** state, the connection to the cloud service is created.
+     *     *   If the cloud service is in the **Failed** state, the connection to the cloud service failed.
+     * ### [](#)Prerequisites
      * Before you call this operation, make sure that the following conditions are met:
      * *   The VBR or CCN instance to which your on-premises network is connected is attached to a CEN instance.
      * *   A VPC that is deployed in the same region as the cloud service is attached to the CEN instance. For more information, see [AttachCenChildInstance](https://help.aliyun.com/document_detail/65902.html).
@@ -10996,14 +10994,14 @@ class Cbn extends OpenApiClient
     /**
      * @summary Connects an on-premises network to a cloud service.
      *  *
-     * @description Cloud services refer to Alibaba Cloud services that use the 100.64.0.0/10 CIDR block to provide services. These cloud services include Object Storage Service (OSS), Simple Log Service, and Data Transmission Service (DTS). If your on-premises network needs to access a cloud service, you must attach the virtual border router (VBR) or Cloud Connect Network (CCN) instance that is connected to your on-premises network to a Cloud Enterprise Network (CEN) instance. In addition, you must attach a virtual private cloud (VPC) that is deployed in the same region as the cloud service to the CEN instance. This way, your on-premises network can connect to the VPC that is deployed in the same region as the cloud service and access the cloud service through the VPC.
-     * *   You can call this operation only for a Basic Edition transit router. An on-premises network associated with a VBR can use CEN to access only a cloud service that is deployed in the same region.
+     * @description Cloud services refer to Alibaba Cloud services that use the 100.64.0.0/10 CIDR block to provide services. These cloud services include Object Storage Service (OSS), Simple Log Service (SLS), and Data Transmission Service (DTS). If your on-premises network needs to access a cloud service, you must attach the virtual border router (VBR) or Cloud Connect Network (CCN) instance that is connected to your on-premises network to a Cloud Enterprise Network (CEN) instance. In addition, you must attach a virtual private cloud (VPC) that is deployed in the same region as the cloud service to the CEN instance. This way, your on-premises network can connect to the VPC that is deployed in the same region as the cloud service and access the cloud service through the VPC.
+     * *   This operation is supported only by Basic Edition transit routers. An on-premises network associated with a VBR can use CEN to access only a cloud service that is deployed in the same region.
      *     For example, if cloud services are deployed in the China (Beijing) region, only on-premises networks connected to VBRs in the China (Beijing) region can access the cloud services.
      * *   **ResolveAndRouteServiceInCen** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call **DescribeRouteServicesInCen** to query the status of a cloud service.
-     *     *   If a cloud service is in the **Creating** state, the connection to the cloud service is being created. In this case, you can query the cloud service but cannot perform other operations.
-     *     *   If a cloud service is in the **Active** state, the connection to the cloud service is created.
-     *     *   If a cloud service is in the **Failed** state, the connection to the cloud service failed.
-     * # [](#)Prerequisites
+     *     *   If the cloud service is in the **Creating** state, the connection to the cloud service is being created. In this case, you can query the cloud service but cannot perform other operations.
+     *     *   If the cloud service is in the **Active** state, the connection to the cloud service is created.
+     *     *   If the cloud service is in the **Failed** state, the connection to the cloud service failed.
+     * ### [](#)Prerequisites
      * Before you call this operation, make sure that the following conditions are met:
      * *   The VBR or CCN instance to which your on-premises network is connected is attached to a CEN instance.
      * *   A VPC that is deployed in the same region as the cloud service is attached to the CEN instance. For more information, see [AttachCenChildInstance](https://help.aliyun.com/document_detail/65902.html).
@@ -11022,14 +11020,15 @@ class Cbn extends OpenApiClient
     /**
      * @summary Revokes the permissions that a transit router has on network instances that belong to another Alibaba Cloud account.
      *  *
-     * @description `RevokeInstanceFromTransitRouter` disallows transit routers only from connecting to virtual private clouds (VPCs), virtual border routers (VBRs), and IPsec-VPN connections.
-     * If you want to disallow transit routers from connecting to Cloud Connect Network (CCN) instances, call the [RevokeInstanceFromCbn](https://help.aliyun.com/document_detail/126142.html) operation.
-     * ## [](#)Prerequisite
+     * @description `RevokeInstanceFromTransitRouter` can be used to revoke permissions on virtual private clouds (VPCs), virtual border routers (VBRs), IPsec-VPN connections, and Express Connect Router (ECRs) that belong to another Alibaba Cloud account.
+     * To revoke permissions on Cloud Connect Network (CCN) instances that belong to another Alibaba Cloud account, call the [RevokeInstanceFromCbn](https://help.aliyun.com/document_detail/126142.html) operation.
+     * ### [](#)Prerequisites
      * Before you call `RevokeInstanceFromTransitRouter`, you must detach the network instances from the transit router.
-     * *   For more information about how to detach VPCs from an Enterprise Edition transit router, see [DeleteTransitRouterVpcAttachment](https://help.aliyun.com/document_detail/261220.html).
-     * *   For more information about how to detach VBRs from an Enterprise Edition transit router, see [DeleteTransitRouterVbrAttachment](https://help.aliyun.com/document_detail/261223.html).
-     * *   For more information about how to detach IPsec-VPN connections from an Enterprise Edition transit router, see [DeleteTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443992.html).
-     * *   For more information about how to detach network instances from a Basic Edition transit router, see [DetachCenChildInstance](https://help.aliyun.com/document_detail/65915.html).
+     * *   For more information about how to detach VPCs from Enterprise Edition transit routers, see [DeleteTransitRouterVpcAttachment](https://help.aliyun.com/document_detail/261220.html).
+     * *   For more information about how to detach VBRs from Enterprise Edition transit routers, see [DeleteTransitRouterVbrAttachment](https://help.aliyun.com/document_detail/261223.html).
+     * *   For more information about how to detach IPsec-VPN connections from Enterprise Edition transit routers, see [DeleteTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443992.html).
+     * *   For more information about how to detach ECRs from Enterprise Edition transit routers, see [DeleteTransitRouterEcrAttachment](https://help.aliyun.com/document_detail/443992.html).
+     * *   For more information about how to detach network instances from Basic Edition transit routers, see [DetachCenChildInstance](https://help.aliyun.com/document_detail/65915.html).
      *  *
      * @param RevokeInstanceFromTransitRouterRequest $request RevokeInstanceFromTransitRouterRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -11088,14 +11087,15 @@ class Cbn extends OpenApiClient
     /**
      * @summary Revokes the permissions that a transit router has on network instances that belong to another Alibaba Cloud account.
      *  *
-     * @description `RevokeInstanceFromTransitRouter` disallows transit routers only from connecting to virtual private clouds (VPCs), virtual border routers (VBRs), and IPsec-VPN connections.
-     * If you want to disallow transit routers from connecting to Cloud Connect Network (CCN) instances, call the [RevokeInstanceFromCbn](https://help.aliyun.com/document_detail/126142.html) operation.
-     * ## [](#)Prerequisite
+     * @description `RevokeInstanceFromTransitRouter` can be used to revoke permissions on virtual private clouds (VPCs), virtual border routers (VBRs), IPsec-VPN connections, and Express Connect Router (ECRs) that belong to another Alibaba Cloud account.
+     * To revoke permissions on Cloud Connect Network (CCN) instances that belong to another Alibaba Cloud account, call the [RevokeInstanceFromCbn](https://help.aliyun.com/document_detail/126142.html) operation.
+     * ### [](#)Prerequisites
      * Before you call `RevokeInstanceFromTransitRouter`, you must detach the network instances from the transit router.
-     * *   For more information about how to detach VPCs from an Enterprise Edition transit router, see [DeleteTransitRouterVpcAttachment](https://help.aliyun.com/document_detail/261220.html).
-     * *   For more information about how to detach VBRs from an Enterprise Edition transit router, see [DeleteTransitRouterVbrAttachment](https://help.aliyun.com/document_detail/261223.html).
-     * *   For more information about how to detach IPsec-VPN connections from an Enterprise Edition transit router, see [DeleteTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443992.html).
-     * *   For more information about how to detach network instances from a Basic Edition transit router, see [DetachCenChildInstance](https://help.aliyun.com/document_detail/65915.html).
+     * *   For more information about how to detach VPCs from Enterprise Edition transit routers, see [DeleteTransitRouterVpcAttachment](https://help.aliyun.com/document_detail/261220.html).
+     * *   For more information about how to detach VBRs from Enterprise Edition transit routers, see [DeleteTransitRouterVbrAttachment](https://help.aliyun.com/document_detail/261223.html).
+     * *   For more information about how to detach IPsec-VPN connections from Enterprise Edition transit routers, see [DeleteTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443992.html).
+     * *   For more information about how to detach ECRs from Enterprise Edition transit routers, see [DeleteTransitRouterEcrAttachment](https://help.aliyun.com/document_detail/443992.html).
+     * *   For more information about how to detach network instances from Basic Edition transit routers, see [DetachCenChildInstance](https://help.aliyun.com/document_detail/65915.html).
      *  *
      * @param RevokeInstanceFromTransitRouterRequest $request RevokeInstanceFromTransitRouterRequest
      *
@@ -11205,11 +11205,18 @@ class Cbn extends OpenApiClient
     /**
      * @summary Configures, modifies, or deletes the bandwidth of inter-region connections for a Basic Edition transit router.
      *  *
-     * @description ### Prerequisites
-     * The Cloud Enterprise Network (CEN) instance is associated with a bandwidth plan. For more information, see the [CreateCenBandwidthPackage](https://help.aliyun.com/document_detail/65919.html) and [AssociateCenBandwidthPackage](https://help.aliyun.com/document_detail/65934.html) topics.
-     * You can call the **SetCenInterRegionBandwidthLimit** operation to configure, modify, or remove the maximum bandwidth value of an inter-region connection.
-     * - If you set **BandwidthLimit** to a value other than 0, the maximum bandwidth value of the inter-region connection is set or changed to the specified value.
-     * - If you set **BandwidthLimit** to 0, no bandwidth resource is allocated to the inter-region connection.
+     * @description This operation is used to manage bandwidth of inter-region connections only for Basic Edition transit routers.
+     * ### [](#)Prerequisites
+     * The Cloud Enterprise Network (CEN) instance is associated with a bandwidth plan. For more information, see [CreateCenBandwidthPackage](https://help.aliyun.com/document_detail/65919.html) and [AssociateCenBandwidthPackage](https://help.aliyun.com/document_detail/65934.html).
+     * You can call the **SetCenInterRegionBandwidthLimit** operation to configure, change, or remove the bandwidth limit of an inter-region connection.
+     * *   If you set **BandwidthLimit** to a value other than 0, the bandwidth of the inter-region connection is set to the specified value.
+     * *   If you set **BandwidthLimit** to 0, the bandwidth of the inter-region connection is no longer limited.
+     * ### [](#)Limits
+     * *   The bandwidth limit of an inter-region connection cannot exceed the bandwidth limit of the associated bandwidth plan.
+     * *   The sum of bandwidth limits of all inter-region connections cannot exceed the bandwidth limit of the associated bandwidth plan.
+     * *   If bandwidth multiplexing is enabled for an inter-region connection, you cannot change the bandwidth of the inter-region connection.
+     * *   The **SetCenInterRegionBandwidthLimit** operation can be used to configure, modify, or delete the bandwidth of inter-region connections only for Basic Edition transit routers.
+     *     To configure, modify, or delete the bandwidth of inter-region connections for Enterprise Edition transit routers, call the [CreateTransitRouterPeerAttachment](https://help.aliyun.com/document_detail/261363.html), [UpdateTransitRouterPeerAttachmentAttribute](https://help.aliyun.com/document_detail/261229.html), or [DeleteTransitRouterPeerAttachment](https://help.aliyun.com/document_detail/261227.html) operation.
      *  *
      * @param SetCenInterRegionBandwidthLimitRequest $request SetCenInterRegionBandwidthLimitRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -11268,11 +11275,18 @@ class Cbn extends OpenApiClient
     /**
      * @summary Configures, modifies, or deletes the bandwidth of inter-region connections for a Basic Edition transit router.
      *  *
-     * @description ### Prerequisites
-     * The Cloud Enterprise Network (CEN) instance is associated with a bandwidth plan. For more information, see the [CreateCenBandwidthPackage](https://help.aliyun.com/document_detail/65919.html) and [AssociateCenBandwidthPackage](https://help.aliyun.com/document_detail/65934.html) topics.
-     * You can call the **SetCenInterRegionBandwidthLimit** operation to configure, modify, or remove the maximum bandwidth value of an inter-region connection.
-     * - If you set **BandwidthLimit** to a value other than 0, the maximum bandwidth value of the inter-region connection is set or changed to the specified value.
-     * - If you set **BandwidthLimit** to 0, no bandwidth resource is allocated to the inter-region connection.
+     * @description This operation is used to manage bandwidth of inter-region connections only for Basic Edition transit routers.
+     * ### [](#)Prerequisites
+     * The Cloud Enterprise Network (CEN) instance is associated with a bandwidth plan. For more information, see [CreateCenBandwidthPackage](https://help.aliyun.com/document_detail/65919.html) and [AssociateCenBandwidthPackage](https://help.aliyun.com/document_detail/65934.html).
+     * You can call the **SetCenInterRegionBandwidthLimit** operation to configure, change, or remove the bandwidth limit of an inter-region connection.
+     * *   If you set **BandwidthLimit** to a value other than 0, the bandwidth of the inter-region connection is set to the specified value.
+     * *   If you set **BandwidthLimit** to 0, the bandwidth of the inter-region connection is no longer limited.
+     * ### [](#)Limits
+     * *   The bandwidth limit of an inter-region connection cannot exceed the bandwidth limit of the associated bandwidth plan.
+     * *   The sum of bandwidth limits of all inter-region connections cannot exceed the bandwidth limit of the associated bandwidth plan.
+     * *   If bandwidth multiplexing is enabled for an inter-region connection, you cannot change the bandwidth of the inter-region connection.
+     * *   The **SetCenInterRegionBandwidthLimit** operation can be used to configure, modify, or delete the bandwidth of inter-region connections only for Basic Edition transit routers.
+     *     To configure, modify, or delete the bandwidth of inter-region connections for Enterprise Edition transit routers, call the [CreateTransitRouterPeerAttachment](https://help.aliyun.com/document_detail/261363.html), [UpdateTransitRouterPeerAttachmentAttribute](https://help.aliyun.com/document_detail/261229.html), or [DeleteTransitRouterPeerAttachment](https://help.aliyun.com/document_detail/261227.html) operation.
      *  *
      * @param SetCenInterRegionBandwidthLimitRequest $request SetCenInterRegionBandwidthLimitRequest
      *

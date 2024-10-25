@@ -39,7 +39,7 @@ class DescribeCenRouteMapsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -48,7 +48,7 @@ class DescribeCenRouteMapsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10**.
+     * @description The number of entries per page. Default value: **10**.
      *
      * @example 10
      *

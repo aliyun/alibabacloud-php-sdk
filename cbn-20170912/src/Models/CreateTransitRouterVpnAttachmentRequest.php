@@ -157,7 +157,7 @@ class CreateTransitRouterVpnAttachmentRequest extends Model
     /**
      * @description The ID of the zone in the current region.
      *
-     * This parameter is required.
+     * Resources are deployed in the specified zone.
      * @var zone[]
      */
     public $zone;

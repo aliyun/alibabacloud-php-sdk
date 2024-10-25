@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class trafficQosQueues extends Model
 {
     /**
+     * @description 带宽保障类型为按绝对值模式时，当前队列分配的跨地域带宽的值。
+     *
+     * @example 1
+     *
      * @var string
      */
     public $bandwidth;
@@ -21,6 +25,10 @@ class trafficQosQueues extends Model
     public $dscps;
 
     /**
+     * @description 当前队列实际生效的带宽值。
+     *
+     * @example 1.35
+     *
      * @var string
      */
     public $effectiveBandwidth;

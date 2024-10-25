@@ -11,9 +11,9 @@ class CreateTransitRouterPrefixListAssociationRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the token, but you must make sure that the token is unique among all requests. The token can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-4266****
      *
      * @var string
@@ -21,11 +21,12 @@ class CreateTransitRouterPrefixListAssociationRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to perform a dry run. Valid values:
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
      *
-     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
      *   **false** (default): performs a dry run and sends the request.
      *
+     * >  This parameter is not in use.
      * @example false
      *
      * @var bool
@@ -33,9 +34,9 @@ class CreateTransitRouterPrefixListAssociationRequest extends Model
     public $dryRun;
 
     /**
-     * @description The ID of the next hop.
+     * @description The ID of the next hop connection.
      *
-     * > If **NextHopType** is set to **BlackHole**, you must set this parameter to **BlackHole**.
+     * To specify all CIDR blocks in the prefix list as blackhole routes, set this parameter to **BlackHole**.
      *
      * This parameter is required.
      * @example tr-attach-flbq507rg2ckrj****
@@ -48,9 +49,10 @@ class CreateTransitRouterPrefixListAssociationRequest extends Model
      * @description The type of the next hop. Valid values:
      *
      *   **BlackHole**: specifies that all the CIDR blocks in the prefix list are blackhole routes. Packets destined for the CIDR blocks are dropped.
-     *   **VPC**: specifies that the next hop of the CIDR blocks in the prefix list is a virtual private cloud (VPC) connection.
-     *   **VBR**: specifies that the next hop of the CIDR blocks in the prefix list is a virtual border router (VBR) connection.
-     *   **TR**: specifies that the next hop of the CIDR blocks in the prefix list is an inter-region connection.
+     *   **VPC**: specifies a virtual private cloud (VPC) connection as the next hop.
+     *   **VBR**: specifies a virtual border router (VBR) connection as the next hop.
+     *   **TR**: specifies an inter-region connection as the next hop.
+     *   **ECR**: specifies an Express Connect Router (ECR) connection as the next hop.
      *
      * @example VPC
      *

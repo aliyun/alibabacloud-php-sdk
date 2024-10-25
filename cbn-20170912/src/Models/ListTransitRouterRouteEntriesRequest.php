@@ -60,7 +60,7 @@ class ListTransitRouterRouteEntriesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The filter conditions for route CIDR blocks.
+     * @description The filter conditions.
      *
      * @var routeFilter[]
      */

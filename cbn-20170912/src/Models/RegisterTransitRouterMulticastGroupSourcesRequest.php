@@ -31,7 +31,7 @@ class RegisterTransitRouterMulticastGroupSourcesRequest extends Model
     public $dryRun;
 
     /**
-     * @description The IP address of the multicast group to which the multicast source belongs. Valid values: **224.0.0.1** to **239.255.255.254**.
+     * @description The IP address of the multicast group to which the multicast source belongs. Valid values: **224.0.1.0** to **239.255.255.254**.
      *
      * This parameter is required.
      * @example 239.XX.XX.2

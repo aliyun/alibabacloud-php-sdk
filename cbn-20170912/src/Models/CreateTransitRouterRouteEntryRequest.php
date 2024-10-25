@@ -63,7 +63,7 @@ class CreateTransitRouterRouteEntryRequest extends Model
     public $transitRouterRouteEntryDescription;
 
     /**
-     * @description The destination CIDR block of the route.
+     * @description The destination CIDR block of the route entry. IPv4 and IPv6 addresses are supported.
      *
      * This parameter is required.
      * @example 192.168.0.0/24

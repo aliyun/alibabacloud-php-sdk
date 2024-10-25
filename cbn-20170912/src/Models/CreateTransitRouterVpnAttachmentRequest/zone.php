@@ -11,7 +11,7 @@ class zone extends Model
     /**
      * @description The zone ID of the read-only instance.
      *
-     * This parameter is required.
+     * You can call the [ListTransitRouterAvailableResource](https://help.aliyun.com/document_detail/261356.html) operation to query the most recent zone list.
      * @example cn-hangzhou-h
      *
      * @var string

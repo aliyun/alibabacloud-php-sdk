@@ -116,8 +116,9 @@ class routeMap extends Model
     public $destinationChildInstanceTypes;
 
     /**
-     * @description The prefixes of the routes.
+     * @description The prefix list against which routes are matched.
      *
+     * IPv4 and IPv6 addresses are supported.
      * @var destinationCidrBlocks
      */
     public $destinationCidrBlocks;
@@ -143,6 +144,8 @@ class routeMap extends Model
     public $destinationInstanceIdsReverseMatch;
 
     /**
+     * @description The IDs of the destination regions for the routing policy.
+     *
      * @var destinationRegionIds
      */
     public $destinationRegionIds;

@@ -19,10 +19,10 @@ class AssociateTransitRouterMulticastDomainRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether only to precheck the API request. Valid values:
+     * @description Specifies whether to perform a dry run, without sending the actual request. Valid values:
      *
-     *   **true**: prechecks the request but does not associate the vSwitch with the multicast domain. The system checks the required parameters, the request format, and the service limits. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-     *   **false** (default): sends the request. The vSwitch is associated with the multicast domain after the request passes the precheck.
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and sends the request.
      *
      * @example false
      *
@@ -71,9 +71,8 @@ class AssociateTransitRouterMulticastDomainRequest extends Model
     public $transitRouterMulticastDomainId;
 
     /**
-     * @description The vSwitch IDs.
+     * @description The IDs of vSwitches.
      *
-     * You can specify at most five vSwitch IDs in each call.
      * @var string[]
      */
     public $vSwitchIds;

@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class deleteTrafficMatchRules extends Model
 {
     /**
+     * @description The address family. Valid values: You can set the value to IPv4 or IPv6, or leave the value empty.
+     *
+     * @example IPv6
+     *
      * @var string
      */
     public $addressFamily;
 
     /**
-     * @description The destination CIDR block that is used to match packets.
+     * @description The destination CIDR block of packets. IPv4 and IPv6 addresses are supported.
      *
      * @example 192.168.200.3/32
      *
@@ -49,7 +53,7 @@ class deleteTrafficMatchRules extends Model
     public $protocol;
 
     /**
-     * @description The source CIDR block that is used to match packets.
+     * @description The source CIDR block of packets. IPv4 and IPv6 addresses are supported.
      *
      * @example 10.72.0.0/16
      *
@@ -67,7 +71,7 @@ class deleteTrafficMatchRules extends Model
     /**
      * @description The description of the traffic classification rule.
      *
-     * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http:// or https://.
+     * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
      * @example Hangzhou-to-Qingdao CAT
      *
      * @var string

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class effectiveBandwidthFilter extends Model
 {
     /**
+     * @description 实际生效带宽大于或等于指定带宽值。
+     *
+     * @example 50
+     *
      * @var int
      */
     public $gte;
 
     /**
+     * @description 实际生效带宽小于或等于指定带宽值。
+     *
+     * @example 20
+     *
      * @var int
      */
     public $lte;

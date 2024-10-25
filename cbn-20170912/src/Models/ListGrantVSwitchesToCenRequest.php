@@ -19,6 +19,10 @@ class ListGrantVSwitchesToCenRequest extends Model
     public $cenId;
 
     /**
+     * @description Specifies whether to enable IPv6. true: enables IPv6. false: disables IPv6. If you do not specify a value, vSwitches are not filtered based on this attribute.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enabledIpv6;

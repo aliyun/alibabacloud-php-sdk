@@ -37,6 +37,11 @@ class DescribeGrantRulesToCenRequest extends Model
     public $childInstanceOwnerId;
 
     /**
+     * @description Specifies whether to enable IPv6.
+     *
+     * 2.  true: enables IPv6. false: disables IPv6. If you do not specify a value, network instances are not filtered based on this parameter.
+     * @example true
+     *
      * @var bool
      */
     public $enabledIpv6;

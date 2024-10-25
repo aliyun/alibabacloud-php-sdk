@@ -70,7 +70,7 @@ class transitRouterRouteEntries extends Model
     public $transitRouterRouteEntryDescription;
 
     /**
-     * @description The destination CIDR block of the route.
+     * @description The destination CIDR block of the route entry. An IPv4 or IPv6 CIDR block is returned.
      *
      * @example 192.168.0.0/24
      *

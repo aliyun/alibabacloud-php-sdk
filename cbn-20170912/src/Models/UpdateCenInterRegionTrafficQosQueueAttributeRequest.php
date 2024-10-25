@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateCenInterRegionTrafficQosQueueAttributeRequest extends Model
 {
     /**
+     * @description 按带宽绝对值模式分配时，当前队列可使用的跨地域带宽的绝对值，单位Mbps。
+     *
+     * 输入数字即可，无需输入单位。
+     * @example 1
+     *
      * @var int
      */
     public $bandwidth;

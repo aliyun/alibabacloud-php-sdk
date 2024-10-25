@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class trafficQosPolicies extends Model
 {
     /**
+     * @description 带宽保障类型。
+     * - **byBandwidth**：按带宽绝对值模式配置QoS队列。
+     * - **byBandwidthPercent**：按带宽百分比模式配置QoS队列。
+     * @example byBandwidthPercent
+     *
      * @var string
      */
     public $bandwidthGuaranteeMode;

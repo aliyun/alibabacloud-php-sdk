@@ -12,9 +12,9 @@ class routeFilter extends Model
      * @description The match pattern for filtering CIDR blocks. Valid values:
      *
      *   **PrefixExactMatchCidrs**: exact matching.
-     *   **LongestPrefixMatchCidrs**: longest prefix matching. The specified IP address and CIDR block are considered a match.
-     *   **SubnetOfMatchCidrs**: subnet matching. The specified CIDR block is considered a match.
-     *   **SupernetOfMatchCidrs**: supernet matching. The specified CIDR block is considered a match.
+     *   **LongestPrefixMatchCidrs**: longest prefix matching. You can specify IP addresses and CIDR blocks.
+     *   **SubnetOfMatchCidrs**: subnet matching. The subnets of the specified CIDR blocks, including the CIDR block, are matches against the match conditions.
+     *   **SupernetOfMatchCidrs**: supernet matching. The supernets of the CIDR block, including the CIDR block, are matched against the match conditions.
      *
      * By default, the logical operator among filter conditions is **AND**. Information about a route entry is returned only if the route entry matches all filter conditions. Filter conditions must be unique.
      * @example PrefixExactMatchCidrs

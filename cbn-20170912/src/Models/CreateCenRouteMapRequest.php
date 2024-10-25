@@ -112,7 +112,7 @@ class CreateCenRouteMapRequest extends Model
     /**
      * @description The prefix list against which routes are matched.
      *
-     * You must specify the IP addresses in CIDR notation. You can enter at most 32 CIDR blocks.
+     * IPv4 and IPv4 addresses are supported.
      * @example 10.10.10.0/24
      *
      * @var string[]
@@ -148,6 +148,8 @@ class CreateCenRouteMapRequest extends Model
     public $destinationInstanceIdsReverseMatch;
 
     /**
+     * @description The destination region IDs of the route. You can specify at most 32 region IDs.
+     *
      * @var string[]
      */
     public $destinationRegionIds;

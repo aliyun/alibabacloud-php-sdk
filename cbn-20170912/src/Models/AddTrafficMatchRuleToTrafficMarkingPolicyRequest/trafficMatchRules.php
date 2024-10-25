@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class trafficMatchRules extends Model
 {
     /**
+     * @description The address family. You can set the value to IPv4 or IPv6, or leave the value empty.
+     *
+     * @example IPv4
+     *
      * @var string
      */
     public $addressFamily;
@@ -28,7 +32,7 @@ class trafficMatchRules extends Model
      *
      * You can specify at most two port numbers for this parameter. Take note of the following rules:
      *
-     *   If you enter only one port number, such as 1, packets whose destination port is 1 are considered a match.
+     *   If you enter only one port number, such as 1, packets whose destination port is 1 are considered a match. A value of -1 specifies all destination ports.
      *   If you enter two port numbers, such as 1 and 200, packets whose destination ports fall into 1 and 200 are considered a match.
      *   If you enter two port numbers and one of them is -1, the other port must also be -1. In this case, packets are considered a match regardless of the destination port.
      *
@@ -87,7 +91,7 @@ class trafficMatchRules extends Model
      *
      * You can enter at most two port numbers. Take note of the following rules:
      *
-     *   If you enter only one port number, such as 1, packets whose source port is 1 are considered a match.
+     *   If you enter only one port number, such as 1, packets whose source port is 1 are considered a match. A value of -1 specifies all source ports.
      *   If you enter two port numbers, such as 1 and 200, packets whose source ports fall into 1 and 200 are considered a match.
      *   If you enter two port numbers and one of them is -1, the other port number must also be -1. In this case, packets are considered a match regardless of the source port.
      *
@@ -108,7 +112,7 @@ class trafficMatchRules extends Model
     /**
      * @description The name of the traffic classification rule.
      *
-     * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
+     * The name is optional. If you enter a name, it must be 1 to 128 characters in length, and cannot start with http:// or https://.
      * @example nametest
      *
      * @var string
