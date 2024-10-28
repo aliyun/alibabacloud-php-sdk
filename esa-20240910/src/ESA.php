@@ -47,6 +47,13 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CommitRoutineStagingCodeRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CommitRoutineStagingCodeResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCustomScenePolicyResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppRecordRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppRecordResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppVersionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppVersionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppVersionShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateKvNamespaceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateKvNamespaceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateListRequest;
@@ -91,6 +98,12 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateWaitingRoomRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateWaitingRoomShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCustomScenePolicyResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppRecordRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppRecordResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppVersionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppVersionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteKvNamespaceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteKvNamespaceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteKvRequest;
@@ -153,6 +166,20 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\EnableCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ExportRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ExportRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCacheReserveSpecificationResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppStatusRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppStatusResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppVersionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppVersionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerDeployRegionsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerDeployRegionsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerLogsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerLogsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerStagingDeployStatusRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerStagingDeployStatusResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerTerminalRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerTerminalResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetErServiceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetErServiceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvAccountResponse;
@@ -213,6 +240,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppVersionsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppVersionsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeRoutinePlansResponse;
@@ -279,6 +308,9 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListWaitingRoomsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PreloadCachesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PreloadCachesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PreloadCachesShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\PublishEdgeContainerAppVersionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\PublishEdgeContainerAppVersionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\PublishEdgeContainerAppVersionShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PublishRoutineCodeVersionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PublishRoutineCodeVersionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PublishRoutineCodeVersionShrinkRequest;
@@ -290,8 +322,12 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\PutKvResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PutKvWithHighCapacityAdvanceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PutKvWithHighCapacityRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PutKvWithHighCapacityResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\RebuildEdgeContainerAppStagingEnvRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\RebuildEdgeContainerAppStagingEnvResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ResetScheduledPreloadJobRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ResetScheduledPreloadJobResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\RollbackEdgeContainerAppVersionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\RollbackEdgeContainerAppVersionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetHttpDDoSAttackIntelligentProtectionRequest;
@@ -1438,6 +1474,206 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCustomScenePolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建边缘容器的应用
+     *  *
+     * @param CreateEdgeContainerAppRequest $request CreateEdgeContainerAppRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateEdgeContainerAppResponse CreateEdgeContainerAppResponse
+     */
+    public function createEdgeContainerAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->healthCheckFailTimes)) {
+            $body['HealthCheckFailTimes'] = $request->healthCheckFailTimes;
+        }
+        if (!Utils::isUnset($request->healthCheckHost)) {
+            $body['HealthCheckHost'] = $request->healthCheckHost;
+        }
+        if (!Utils::isUnset($request->healthCheckHttpCode)) {
+            $body['HealthCheckHttpCode'] = $request->healthCheckHttpCode;
+        }
+        if (!Utils::isUnset($request->healthCheckInterval)) {
+            $body['HealthCheckInterval'] = $request->healthCheckInterval;
+        }
+        if (!Utils::isUnset($request->healthCheckMethod)) {
+            $body['HealthCheckMethod'] = $request->healthCheckMethod;
+        }
+        if (!Utils::isUnset($request->healthCheckPort)) {
+            $body['HealthCheckPort'] = $request->healthCheckPort;
+        }
+        if (!Utils::isUnset($request->healthCheckSuccTimes)) {
+            $body['HealthCheckSuccTimes'] = $request->healthCheckSuccTimes;
+        }
+        if (!Utils::isUnset($request->healthCheckTimeout)) {
+            $body['HealthCheckTimeout'] = $request->healthCheckTimeout;
+        }
+        if (!Utils::isUnset($request->healthCheckType)) {
+            $body['HealthCheckType'] = $request->healthCheckType;
+        }
+        if (!Utils::isUnset($request->healthCheckURI)) {
+            $body['HealthCheckURI'] = $request->healthCheckURI;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->remarks)) {
+            $body['Remarks'] = $request->remarks;
+        }
+        if (!Utils::isUnset($request->servicePort)) {
+            $body['ServicePort'] = $request->servicePort;
+        }
+        if (!Utils::isUnset($request->targetPort)) {
+            $body['TargetPort'] = $request->targetPort;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEdgeContainerApp',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateEdgeContainerAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建边缘容器的应用
+     *  *
+     * @param CreateEdgeContainerAppRequest $request CreateEdgeContainerAppRequest
+     *
+     * @return CreateEdgeContainerAppResponse CreateEdgeContainerAppResponse
+     */
+    public function createEdgeContainerApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEdgeContainerAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建一个边缘容器应用的域名记录
+     *  *
+     * @param CreateEdgeContainerAppRecordRequest $request CreateEdgeContainerAppRecordRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateEdgeContainerAppRecordResponse CreateEdgeContainerAppRecordResponse
+     */
+    public function createEdgeContainerAppRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->recordName)) {
+            $body['RecordName'] = $request->recordName;
+        }
+        if (!Utils::isUnset($request->siteId)) {
+            $body['SiteId'] = $request->siteId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEdgeContainerAppRecord',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateEdgeContainerAppRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建一个边缘容器应用的域名记录
+     *  *
+     * @param CreateEdgeContainerAppRecordRequest $request CreateEdgeContainerAppRecordRequest
+     *
+     * @return CreateEdgeContainerAppRecordResponse CreateEdgeContainerAppRecordResponse
+     */
+    public function createEdgeContainerAppRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEdgeContainerAppRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建边缘容器应用的版本
+     *  *
+     * @param CreateEdgeContainerAppVersionRequest $tmpReq  CreateEdgeContainerAppVersionRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateEdgeContainerAppVersionResponse CreateEdgeContainerAppVersionResponse
+     */
+    public function createEdgeContainerAppVersionWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateEdgeContainerAppVersionShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->containers)) {
+            $request->containersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->containers, 'Containers', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->containersShrink)) {
+            $body['Containers'] = $request->containersShrink;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->remarks)) {
+            $body['Remarks'] = $request->remarks;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEdgeContainerAppVersion',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateEdgeContainerAppVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建边缘容器应用的版本
+     *  *
+     * @param CreateEdgeContainerAppVersionRequest $request CreateEdgeContainerAppVersionRequest
+     *
+     * @return CreateEdgeContainerAppVersionResponse CreateEdgeContainerAppVersionResponse
+     */
+    public function createEdgeContainerAppVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEdgeContainerAppVersionWithOptions($request, $runtime);
     }
 
     /**
@@ -2655,6 +2891,156 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCustomScenePolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除边缘容器的应用
+     *  *
+     * @param DeleteEdgeContainerAppRequest $request DeleteEdgeContainerAppRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteEdgeContainerAppResponse DeleteEdgeContainerAppResponse
+     */
+    public function deleteEdgeContainerAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEdgeContainerApp',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteEdgeContainerAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除边缘容器的应用
+     *  *
+     * @param DeleteEdgeContainerAppRequest $request DeleteEdgeContainerAppRequest
+     *
+     * @return DeleteEdgeContainerAppResponse DeleteEdgeContainerAppResponse
+     */
+    public function deleteEdgeContainerApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEdgeContainerAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除一个边缘容器应用的域名记录
+     *  *
+     * @param DeleteEdgeContainerAppRecordRequest $request DeleteEdgeContainerAppRecordRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteEdgeContainerAppRecordResponse DeleteEdgeContainerAppRecordResponse
+     */
+    public function deleteEdgeContainerAppRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->recordName)) {
+            $body['RecordName'] = $request->recordName;
+        }
+        if (!Utils::isUnset($request->siteId)) {
+            $body['SiteId'] = $request->siteId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEdgeContainerAppRecord',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteEdgeContainerAppRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除一个边缘容器应用的域名记录
+     *  *
+     * @param DeleteEdgeContainerAppRecordRequest $request DeleteEdgeContainerAppRecordRequest
+     *
+     * @return DeleteEdgeContainerAppRecordResponse DeleteEdgeContainerAppRecordResponse
+     */
+    public function deleteEdgeContainerAppRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEdgeContainerAppRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除边缘容器应用的版本
+     *  *
+     * @param DeleteEdgeContainerAppVersionRequest $request DeleteEdgeContainerAppVersionRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteEdgeContainerAppVersionResponse DeleteEdgeContainerAppVersionResponse
+     */
+    public function deleteEdgeContainerAppVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEdgeContainerAppVersion',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteEdgeContainerAppVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除边缘容器应用的版本
+     *  *
+     * @param DeleteEdgeContainerAppVersionRequest $request DeleteEdgeContainerAppVersionRequest
+     *
+     * @return DeleteEdgeContainerAppVersionResponse DeleteEdgeContainerAppVersionResponse
+     */
+    public function deleteEdgeContainerAppVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEdgeContainerAppVersionWithOptions($request, $runtime);
     }
 
     /**
@@ -4211,6 +4597,326 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary 获取边缘容器应用信息
+     *  *
+     * @param GetEdgeContainerAppRequest $request GetEdgeContainerAppRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetEdgeContainerAppResponse GetEdgeContainerAppResponse
+     */
+    public function getEdgeContainerAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEdgeContainerApp',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetEdgeContainerAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取边缘容器应用信息
+     *  *
+     * @param GetEdgeContainerAppRequest $request GetEdgeContainerAppRequest
+     *
+     * @return GetEdgeContainerAppResponse GetEdgeContainerAppResponse
+     */
+    public function getEdgeContainerApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getEdgeContainerAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取边缘容器应用的状态信息
+     *  *
+     * @param GetEdgeContainerAppStatusRequest $request GetEdgeContainerAppStatusRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetEdgeContainerAppStatusResponse GetEdgeContainerAppStatusResponse
+     */
+    public function getEdgeContainerAppStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->publishEnv)) {
+            $query['PublishEnv'] = $request->publishEnv;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEdgeContainerAppStatus',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetEdgeContainerAppStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取边缘容器应用的状态信息
+     *  *
+     * @param GetEdgeContainerAppStatusRequest $request GetEdgeContainerAppStatusRequest
+     *
+     * @return GetEdgeContainerAppStatusResponse GetEdgeContainerAppStatusResponse
+     */
+    public function getEdgeContainerAppStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getEdgeContainerAppStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取边缘容器应用的某个版本信息
+     *  *
+     * @param GetEdgeContainerAppVersionRequest $request GetEdgeContainerAppVersionRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetEdgeContainerAppVersionResponse GetEdgeContainerAppVersionResponse
+     */
+    public function getEdgeContainerAppVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEdgeContainerAppVersion',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetEdgeContainerAppVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取边缘容器应用的某个版本信息
+     *  *
+     * @param GetEdgeContainerAppVersionRequest $request GetEdgeContainerAppVersionRequest
+     *
+     * @return GetEdgeContainerAppVersionResponse GetEdgeContainerAppVersionResponse
+     */
+    public function getEdgeContainerAppVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getEdgeContainerAppVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取边缘容器应用部署区域
+     *  *
+     * @param GetEdgeContainerDeployRegionsRequest $request GetEdgeContainerDeployRegionsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetEdgeContainerDeployRegionsResponse GetEdgeContainerDeployRegionsResponse
+     */
+    public function getEdgeContainerDeployRegionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEdgeContainerDeployRegions',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetEdgeContainerDeployRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取边缘容器应用部署区域
+     *  *
+     * @param GetEdgeContainerDeployRegionsRequest $request GetEdgeContainerDeployRegionsRequest
+     *
+     * @return GetEdgeContainerDeployRegionsResponse GetEdgeContainerDeployRegionsResponse
+     */
+    public function getEdgeContainerDeployRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getEdgeContainerDeployRegionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取边缘容器日志信息
+     *  *
+     * @param GetEdgeContainerLogsRequest $request GetEdgeContainerLogsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetEdgeContainerLogsResponse GetEdgeContainerLogsResponse
+     */
+    public function getEdgeContainerLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEdgeContainerLogs',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetEdgeContainerLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取边缘容器日志信息
+     *  *
+     * @param GetEdgeContainerLogsRequest $request GetEdgeContainerLogsRequest
+     *
+     * @return GetEdgeContainerLogsResponse GetEdgeContainerLogsResponse
+     */
+    public function getEdgeContainerLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getEdgeContainerLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取应用测试环境部署状态
+     *  *
+     * @param GetEdgeContainerStagingDeployStatusRequest $request GetEdgeContainerStagingDeployStatusRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetEdgeContainerStagingDeployStatusResponse GetEdgeContainerStagingDeployStatusResponse
+     */
+    public function getEdgeContainerStagingDeployStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEdgeContainerStagingDeployStatus',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetEdgeContainerStagingDeployStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取应用测试环境部署状态
+     *  *
+     * @param GetEdgeContainerStagingDeployStatusRequest $request GetEdgeContainerStagingDeployStatusRequest
+     *
+     * @return GetEdgeContainerStagingDeployStatusResponse GetEdgeContainerStagingDeployStatusResponse
+     */
+    public function getEdgeContainerStagingDeployStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getEdgeContainerStagingDeployStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取边缘容器应用终端信息
+     *  *
+     * @param GetEdgeContainerTerminalRequest $request GetEdgeContainerTerminalRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetEdgeContainerTerminalResponse GetEdgeContainerTerminalResponse
+     */
+    public function getEdgeContainerTerminalWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEdgeContainerTerminal',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetEdgeContainerTerminalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取边缘容器应用终端信息
+     *  *
+     * @param GetEdgeContainerTerminalRequest $request GetEdgeContainerTerminalRequest
+     *
+     * @return GetEdgeContainerTerminalResponse GetEdgeContainerTerminalResponse
+     */
+    public function getEdgeContainerTerminal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getEdgeContainerTerminalWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary GetErService
      *  *
      * @param GetErServiceRequest $request GetErServiceRequest
@@ -5591,6 +6297,50 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listEdgeContainerAppRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取边缘容器应用的全部版本信息
+     *  *
+     * @param ListEdgeContainerAppVersionsRequest $request ListEdgeContainerAppVersionsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListEdgeContainerAppVersionsResponse ListEdgeContainerAppVersionsResponse
+     */
+    public function listEdgeContainerAppVersionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEdgeContainerAppVersions',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEdgeContainerAppVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取边缘容器应用的全部版本信息
+     *  *
+     * @param ListEdgeContainerAppVersionsRequest $request ListEdgeContainerAppVersionsRequest
+     *
+     * @return ListEdgeContainerAppVersionsResponse ListEdgeContainerAppVersionsResponse
+     */
+    public function listEdgeContainerAppVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEdgeContainerAppVersionsWithOptions($request, $runtime);
     }
 
     /**
@@ -7166,6 +7916,84 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary 发布边缘容器应用的某个版本
+     *  *
+     * @param PublishEdgeContainerAppVersionRequest $tmpReq  PublishEdgeContainerAppVersionRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return PublishEdgeContainerAppVersionResponse PublishEdgeContainerAppVersionResponse
+     */
+    public function publishEdgeContainerAppVersionWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new PublishEdgeContainerAppVersionShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->regions)) {
+            $request->regionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->regions, 'Regions', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->fullRelease)) {
+            $query['FullRelease'] = $request->fullRelease;
+        }
+        if (!Utils::isUnset($request->publishType)) {
+            $query['PublishType'] = $request->publishType;
+        }
+        if (!Utils::isUnset($request->regionsShrink)) {
+            $query['Regions'] = $request->regionsShrink;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->percentage)) {
+            $body['Percentage'] = $request->percentage;
+        }
+        if (!Utils::isUnset($request->publishEnv)) {
+            $body['PublishEnv'] = $request->publishEnv;
+        }
+        if (!Utils::isUnset($request->remarks)) {
+            $body['Remarks'] = $request->remarks;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PublishEdgeContainerAppVersion',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PublishEdgeContainerAppVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 发布边缘容器应用的某个版本
+     *  *
+     * @param PublishEdgeContainerAppVersionRequest $request PublishEdgeContainerAppVersionRequest
+     *
+     * @return PublishEdgeContainerAppVersionResponse PublishEdgeContainerAppVersionResponse
+     */
+    public function publishEdgeContainerAppVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishEdgeContainerAppVersionWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 发布Routine某版本代码
      *  *
      * @param PublishRoutineCodeVersionRequest $tmpReq  PublishRoutineCodeVersionRequest
@@ -7490,6 +8318,53 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary 重建边缘容器应用的测试环境
+     *  *
+     * @param RebuildEdgeContainerAppStagingEnvRequest $request RebuildEdgeContainerAppStagingEnvRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RebuildEdgeContainerAppStagingEnvResponse RebuildEdgeContainerAppStagingEnvResponse
+     */
+    public function rebuildEdgeContainerAppStagingEnvWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RebuildEdgeContainerAppStagingEnv',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RebuildEdgeContainerAppStagingEnvResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 重建边缘容器应用的测试环境
+     *  *
+     * @param RebuildEdgeContainerAppStagingEnvRequest $request RebuildEdgeContainerAppStagingEnvRequest
+     *
+     * @return RebuildEdgeContainerAppStagingEnvResponse RebuildEdgeContainerAppStagingEnvResponse
+     */
+    public function rebuildEdgeContainerAppStagingEnv($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rebuildEdgeContainerAppStagingEnvWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 重置定时预热任务的进度，从头开始预热
      *  *
      * @param ResetScheduledPreloadJobRequest $request ResetScheduledPreloadJobRequest
@@ -7534,6 +8409,61 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resetScheduledPreloadJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 回滚边缘容器应用的某个版本
+     *  *
+     * @param RollbackEdgeContainerAppVersionRequest $request RollbackEdgeContainerAppVersionRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RollbackEdgeContainerAppVersionResponse RollbackEdgeContainerAppVersionResponse
+     */
+    public function rollbackEdgeContainerAppVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->remarks)) {
+            $body['Remarks'] = $request->remarks;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RollbackEdgeContainerAppVersion',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RollbackEdgeContainerAppVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 回滚边缘容器应用的某个版本
+     *  *
+     * @param RollbackEdgeContainerAppVersionRequest $request RollbackEdgeContainerAppVersionRequest
+     *
+     * @return RollbackEdgeContainerAppVersionResponse RollbackEdgeContainerAppVersionResponse
+     */
+    public function rollbackEdgeContainerAppVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rollbackEdgeContainerAppVersionWithOptions($request, $runtime);
     }
 
     /**
