@@ -69,6 +69,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteRouteRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteRouteResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteTaskRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteWorkflowDefinitionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromResourceGroupRequest;
@@ -103,6 +105,12 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetRouteRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetRouteResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskInstanceLogRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskInstanceLogResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskInstanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskInstanceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetWorkflowDefinitionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GrantMemberProjectRolesRequest;
@@ -136,6 +144,10 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIJobRunDetailsRequest
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIJobRunDetailsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIJobsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIJobsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDownstreamTaskInstancesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDownstreamTaskInstancesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDownstreamTasksRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDownstreamTasksResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListFunctionsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListFunctionsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNetworksRequest;
@@ -160,6 +172,19 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListResourcesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListResourcesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListRoutesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListRoutesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTaskInstanceOperationLogsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTaskInstanceOperationLogsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTaskInstancesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTaskInstancesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTaskInstancesShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTaskOperationLogsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTaskOperationLogsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTasksRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTasksResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListUpstreamTaskInstancesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListUpstreamTaskInstancesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListUpstreamTasksRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListUpstreamTasksResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListWorkflowDefinitionsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListWorkflowDefinitionsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveFunctionRequest;
@@ -170,6 +195,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveWorkflowDefinitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveTaskInstanceDependenciesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveTaskInstanceDependenciesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveTaskInstanceDependenciesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RenameFunctionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RenameFunctionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RenameNodeRequest;
@@ -178,14 +206,31 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RenameResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RenameResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RenameWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RenameWorkflowDefinitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RerunTaskInstancesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RerunTaskInstancesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RerunTaskInstancesShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ResumeTaskInstancesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ResumeTaskInstancesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ResumeTaskInstancesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RevokeMemberProjectRolesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RevokeMemberProjectRolesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RevokeMemberProjectRolesShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SetSuccessTaskInstancesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SetSuccessTaskInstancesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SetSuccessTaskInstancesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartDIJobRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartDIJobResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartDIJobShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopDIJobRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopDIJobResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopTaskInstancesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopTaskInstancesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopTaskInstancesShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SuspendTaskInstancesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SuspendTaskInstancesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SuspendTaskInstancesShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\TriggerSchedulerTaskInstanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\TriggerSchedulerTaskInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIAlarmRuleRequest;
@@ -206,6 +251,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateRouteRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateRouteResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskInstancesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskInstancesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskInstancesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateWorkflowDefinitionResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -1835,6 +1883,52 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param DeleteTaskRequest $request DeleteTaskRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteTaskResponse DeleteTaskResponse
+     */
+    public function deleteTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $query['ProjectEnv'] = $request->projectEnv;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTask',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteTaskRequest $request DeleteTaskRequest
+     *
+     * @return DeleteTaskResponse DeleteTaskResponse
+     */
+    public function deleteTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Deletes a workflow from DataStudio.
      *  *
      * @description >  A workflow that is deployed cannot be deleted. If you want to delete such a workflow, you must first undeploy the workflow.
@@ -2634,6 +2728,126 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param GetTaskRequest $request GetTaskRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetTaskResponse GetTaskResponse
+     */
+    public function getTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTask',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTaskRequest $request GetTaskRequest
+     *
+     * @return GetTaskResponse GetTaskResponse
+     */
+    public function getTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTaskInstanceRequest $request GetTaskInstanceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetTaskInstanceResponse GetTaskInstanceResponse
+     */
+    public function getTaskInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTaskInstance',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTaskInstanceRequest $request GetTaskInstanceRequest
+     *
+     * @return GetTaskInstanceResponse GetTaskInstanceResponse
+     */
+    public function getTaskInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTaskInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTaskInstanceLogRequest $request GetTaskInstanceLogRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetTaskInstanceLogResponse GetTaskInstanceLogResponse
+     */
+    public function getTaskInstanceLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTaskInstanceLog',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTaskInstanceLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTaskInstanceLogRequest $request GetTaskInstanceLogRequest
+     *
+     * @return GetTaskInstanceLogResponse GetTaskInstanceLogResponse
+     */
+    public function getTaskInstanceLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTaskInstanceLogWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the infomation about a workflow.
      *  *
      * @param GetWorkflowDefinitionRequest $request GetWorkflowDefinitionRequest
@@ -3316,6 +3530,86 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param ListDownstreamTaskInstancesRequest $request ListDownstreamTaskInstancesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDownstreamTaskInstancesResponse ListDownstreamTaskInstancesResponse
+     */
+    public function listDownstreamTaskInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDownstreamTaskInstances',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDownstreamTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDownstreamTaskInstancesRequest $request ListDownstreamTaskInstancesRequest
+     *
+     * @return ListDownstreamTaskInstancesResponse ListDownstreamTaskInstancesResponse
+     */
+    public function listDownstreamTaskInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDownstreamTaskInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDownstreamTasksRequest $request ListDownstreamTasksRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDownstreamTasksResponse ListDownstreamTasksResponse
+     */
+    public function listDownstreamTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDownstreamTasks',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDownstreamTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDownstreamTasksRequest $request ListDownstreamTasksRequest
+     *
+     * @return ListDownstreamTasksResponse ListDownstreamTasksResponse
+     */
+    public function listDownstreamTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDownstreamTasksWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries a list of user-defined functions (UDFs) in DataStudio. You can also specify filter conditions to query specific UDFs.
      *  *
      * @param ListFunctionsRequest $request ListFunctionsRequest
@@ -3854,6 +4148,341 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param ListTaskInstanceOperationLogsRequest $request ListTaskInstanceOperationLogsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTaskInstanceOperationLogsResponse ListTaskInstanceOperationLogsResponse
+     */
+    public function listTaskInstanceOperationLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTaskInstanceOperationLogs',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTaskInstanceOperationLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTaskInstanceOperationLogsRequest $request ListTaskInstanceOperationLogsRequest
+     *
+     * @return ListTaskInstanceOperationLogsResponse ListTaskInstanceOperationLogsResponse
+     */
+    public function listTaskInstanceOperationLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTaskInstanceOperationLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTaskInstancesRequest $tmpReq  ListTaskInstancesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTaskInstancesResponse ListTaskInstancesResponse
+     */
+    public function listTaskInstancesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListTaskInstancesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ids)) {
+            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->taskIds)) {
+            $request->taskIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskIds, 'TaskIds', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->bizdate)) {
+            $body['Bizdate'] = $request->bizdate;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->idsShrink)) {
+            $body['Ids'] = $request->idsShrink;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $body['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->runtimeResource)) {
+            $body['RuntimeResource'] = $request->runtimeResource;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $body['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskIdsShrink)) {
+            $body['TaskIds'] = $request->taskIdsShrink;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $body['TaskName'] = $request->taskName;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $body['TaskType'] = $request->taskType;
+        }
+        if (!Utils::isUnset($request->workflowId)) {
+            $body['WorkflowId'] = $request->workflowId;
+        }
+        if (!Utils::isUnset($request->workflowInstanceId)) {
+            $body['WorkflowInstanceId'] = $request->workflowInstanceId;
+        }
+        if (!Utils::isUnset($request->workflowInstanceType)) {
+            $body['WorkflowInstanceType'] = $request->workflowInstanceType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTaskInstances',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTaskInstancesRequest $request ListTaskInstancesRequest
+     *
+     * @return ListTaskInstancesResponse ListTaskInstancesResponse
+     */
+    public function listTaskInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTaskInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTaskOperationLogsRequest $request ListTaskOperationLogsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTaskOperationLogsResponse ListTaskOperationLogsResponse
+     */
+    public function listTaskOperationLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTaskOperationLogs',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTaskOperationLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTaskOperationLogsRequest $request ListTaskOperationLogsRequest
+     *
+     * @return ListTaskOperationLogsResponse ListTaskOperationLogsResponse
+     */
+    public function listTaskOperationLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTaskOperationLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTasksRequest $request ListTasksRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTasksResponse ListTasksResponse
+     */
+    public function listTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $body['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->runtimeResource)) {
+            $body['RuntimeResource'] = $request->runtimeResource;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $body['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $body['TaskType'] = $request->taskType;
+        }
+        if (!Utils::isUnset($request->triggerRecurrence)) {
+            $body['TriggerRecurrence'] = $request->triggerRecurrence;
+        }
+        if (!Utils::isUnset($request->triggerType)) {
+            $body['TriggerType'] = $request->triggerType;
+        }
+        if (!Utils::isUnset($request->workflowId)) {
+            $body['WorkflowId'] = $request->workflowId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTasks',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTasksRequest $request ListTasksRequest
+     *
+     * @return ListTasksResponse ListTasksResponse
+     */
+    public function listTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListUpstreamTaskInstancesRequest $request ListUpstreamTaskInstancesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListUpstreamTaskInstancesResponse ListUpstreamTaskInstancesResponse
+     */
+    public function listUpstreamTaskInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUpstreamTaskInstances',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListUpstreamTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListUpstreamTaskInstancesRequest $request ListUpstreamTaskInstancesRequest
+     *
+     * @return ListUpstreamTaskInstancesResponse ListUpstreamTaskInstancesResponse
+     */
+    public function listUpstreamTaskInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUpstreamTaskInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListUpstreamTasksRequest $request ListUpstreamTasksRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListUpstreamTasksResponse ListUpstreamTasksResponse
+     */
+    public function listUpstreamTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUpstreamTasks',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListUpstreamTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListUpstreamTasksRequest $request ListUpstreamTasksRequest
+     *
+     * @return ListUpstreamTasksResponse ListUpstreamTasksResponse
+     */
+    public function listUpstreamTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUpstreamTasksWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries a list of workflows in DataStudio. You can also specify filter conditions to query specific workflows.
      *  *
      * @param ListWorkflowDefinitionsRequest $request ListWorkflowDefinitionsRequest
@@ -4110,6 +4739,62 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param RemoveTaskInstanceDependenciesRequest $tmpReq  RemoveTaskInstanceDependenciesRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RemoveTaskInstanceDependenciesResponse RemoveTaskInstanceDependenciesResponse
+     */
+    public function removeTaskInstanceDependenciesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RemoveTaskInstanceDependenciesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->upstreamTaskInstanceIds)) {
+            $request->upstreamTaskInstanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->upstreamTaskInstanceIds, 'UpstreamTaskInstanceIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->comment)) {
+            $body['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->upstreamTaskInstanceIdsShrink)) {
+            $body['UpstreamTaskInstanceIds'] = $request->upstreamTaskInstanceIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveTaskInstanceDependencies',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveTaskInstanceDependenciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemoveTaskInstanceDependenciesRequest $request RemoveTaskInstanceDependenciesRequest
+     *
+     * @return RemoveTaskInstanceDependenciesResponse RemoveTaskInstanceDependenciesResponse
+     */
+    public function removeTaskInstanceDependencies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeTaskInstanceDependenciesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Renames a user-defined function (UDF) in DataStudio.
      *  *
      * @param RenameFunctionRequest $request RenameFunctionRequest
@@ -4322,6 +5007,108 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param RerunTaskInstancesRequest $tmpReq  RerunTaskInstancesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RerunTaskInstancesResponse RerunTaskInstancesResponse
+     */
+    public function rerunTaskInstancesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RerunTaskInstancesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ids)) {
+            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->comment)) {
+            $body['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->idsShrink)) {
+            $body['Ids'] = $request->idsShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RerunTaskInstances',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RerunTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RerunTaskInstancesRequest $request RerunTaskInstancesRequest
+     *
+     * @return RerunTaskInstancesResponse RerunTaskInstancesResponse
+     */
+    public function rerunTaskInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rerunTaskInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ResumeTaskInstancesRequest $tmpReq  ResumeTaskInstancesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ResumeTaskInstancesResponse ResumeTaskInstancesResponse
+     */
+    public function resumeTaskInstancesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ResumeTaskInstancesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ids)) {
+            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->comment)) {
+            $body['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->idsShrink)) {
+            $body['Ids'] = $request->idsShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ResumeTaskInstances',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResumeTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResumeTaskInstancesRequest $request ResumeTaskInstancesRequest
+     *
+     * @return ResumeTaskInstancesResponse ResumeTaskInstancesResponse
+     */
+    public function resumeTaskInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resumeTaskInstancesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 撤销工作空间成员的角色
      *  *
      * @param RevokeMemberProjectRolesRequest $tmpReq  RevokeMemberProjectRolesRequest
@@ -4377,6 +5164,57 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->revokeMemberProjectRolesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetSuccessTaskInstancesRequest $tmpReq  SetSuccessTaskInstancesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SetSuccessTaskInstancesResponse SetSuccessTaskInstancesResponse
+     */
+    public function setSuccessTaskInstancesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SetSuccessTaskInstancesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ids)) {
+            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->comment)) {
+            $body['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->idsShrink)) {
+            $body['Ids'] = $request->idsShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SetSuccessTaskInstances',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetSuccessTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetSuccessTaskInstancesRequest $request SetSuccessTaskInstancesRequest
+     *
+     * @return SetSuccessTaskInstancesResponse SetSuccessTaskInstancesResponse
+     */
+    public function setSuccessTaskInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setSuccessTaskInstancesWithOptions($request, $runtime);
     }
 
     /**
@@ -4470,6 +5308,154 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopDIJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopTaskInstancesRequest $tmpReq  StopTaskInstancesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StopTaskInstancesResponse StopTaskInstancesResponse
+     */
+    public function stopTaskInstancesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new StopTaskInstancesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ids)) {
+            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->comment)) {
+            $body['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->idsShrink)) {
+            $body['Ids'] = $request->idsShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StopTaskInstances',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StopTaskInstancesRequest $request StopTaskInstancesRequest
+     *
+     * @return StopTaskInstancesResponse StopTaskInstancesResponse
+     */
+    public function stopTaskInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopTaskInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SuspendTaskInstancesRequest $tmpReq  SuspendTaskInstancesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SuspendTaskInstancesResponse SuspendTaskInstancesResponse
+     */
+    public function suspendTaskInstancesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SuspendTaskInstancesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ids)) {
+            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->comment)) {
+            $body['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->idsShrink)) {
+            $body['Ids'] = $request->idsShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SuspendTaskInstances',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SuspendTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SuspendTaskInstancesRequest $request SuspendTaskInstancesRequest
+     *
+     * @return SuspendTaskInstancesResponse SuspendTaskInstancesResponse
+     */
+    public function suspendTaskInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->suspendTaskInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TriggerSchedulerTaskInstanceRequest $request TriggerSchedulerTaskInstanceRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TriggerSchedulerTaskInstanceResponse TriggerSchedulerTaskInstanceResponse
+     */
+    public function triggerSchedulerTaskInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->triggerTime)) {
+            $body['TriggerTime'] = $request->triggerTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TriggerSchedulerTaskInstance',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TriggerSchedulerTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TriggerSchedulerTaskInstanceRequest $request TriggerSchedulerTaskInstanceRequest
+     *
+     * @return TriggerSchedulerTaskInstanceResponse TriggerSchedulerTaskInstanceResponse
+     */
+    public function triggerSchedulerTaskInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->triggerSchedulerTaskInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -4966,6 +5952,57 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateTaskInstancesRequest $tmpReq  UpdateTaskInstancesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateTaskInstancesResponse UpdateTaskInstancesResponse
+     */
+    public function updateTaskInstancesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateTaskInstancesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->taskInstances)) {
+            $request->taskInstancesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskInstances, 'TaskInstances', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->comment)) {
+            $body['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->taskInstancesShrink)) {
+            $body['TaskInstances'] = $request->taskInstancesShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTaskInstances',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTaskInstancesRequest $request UpdateTaskInstancesRequest
+     *
+     * @return UpdateTaskInstancesResponse UpdateTaskInstancesResponse
+     */
+    public function updateTaskInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTaskInstancesWithOptions($request, $runtime);
     }
 
     /**
