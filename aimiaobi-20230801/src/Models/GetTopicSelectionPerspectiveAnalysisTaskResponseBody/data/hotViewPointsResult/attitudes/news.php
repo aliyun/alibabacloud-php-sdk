@@ -14,6 +14,11 @@ class news extends Model
     public $content;
 
     /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
      * @example 9957175DEDCF49C5ACF7A956B4FD67B2
      *
      * @var string
@@ -33,6 +38,11 @@ class news extends Model
      * @var string[]
      */
     public $imageUrls;
+
+    /**
+     * @var string
+     */
+    public $pubTime;
 
     /**
      * @var string
@@ -68,16 +78,18 @@ class news extends Model
      */
     public $url;
     protected $_name = [
-        'content'   => 'Content',
-        'docId'     => 'DocId',
-        'docUuid'   => 'DocUuid',
-        'imageUrls' => 'ImageUrls',
-        'source'    => 'Source',
-        'summary'   => 'Summary',
-        'tags'      => 'Tags',
-        'title'     => 'Title',
-        'topic'     => 'Topic',
-        'url'       => 'Url',
+        'content'    => 'Content',
+        'createTime' => 'CreateTime',
+        'docId'      => 'DocId',
+        'docUuid'    => 'DocUuid',
+        'imageUrls'  => 'ImageUrls',
+        'pubTime'    => 'PubTime',
+        'source'     => 'Source',
+        'summary'    => 'Summary',
+        'tags'       => 'Tags',
+        'title'      => 'Title',
+        'topic'      => 'Topic',
+        'url'        => 'Url',
     ];
 
     public function validate()
@@ -90,6 +102,9 @@ class news extends Model
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
         if (null !== $this->docId) {
             $res['DocId'] = $this->docId;
         }
@@ -98,6 +113,9 @@ class news extends Model
         }
         if (null !== $this->imageUrls) {
             $res['ImageUrls'] = $this->imageUrls;
+        }
+        if (null !== $this->pubTime) {
+            $res['PubTime'] = $this->pubTime;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
@@ -132,6 +150,9 @@ class news extends Model
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
         if (isset($map['DocId'])) {
             $model->docId = $map['DocId'];
         }
@@ -142,6 +163,9 @@ class news extends Model
             if (!empty($map['ImageUrls'])) {
                 $model->imageUrls = $map['ImageUrls'];
             }
+        }
+        if (isset($map['PubTime'])) {
+            $model->pubTime = $map['PubTime'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
