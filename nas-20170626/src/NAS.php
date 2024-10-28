@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\CancelDataFlowTaskRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CancelDataFlowTaskResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CancelDirQuotaRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CancelDirQuotaResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\CancelFilesetQuotaRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\CancelFilesetQuotaResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CancelLifecycleRetrieveJobRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CancelLifecycleRetrieveJobResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CancelRecycleBinJobRequest;
@@ -220,6 +222,8 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\RetryLifecycleRetrieveJobRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\RetryLifecycleRetrieveJobResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\SetDirQuotaRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\SetDirQuotaResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\SetFilesetQuotaRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\SetFilesetQuotaResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\StartDataFlowRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\StartDataFlowResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\StopDataFlowRequest;
@@ -888,6 +892,62 @@ class NAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelDirQuotaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 取消设置智能目录配额
+     *  *
+     * @param CancelFilesetQuotaRequest $request CancelFilesetQuotaRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CancelFilesetQuotaResponse CancelFilesetQuotaResponse
+     */
+    public function cancelFilesetQuotaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
+        }
+        if (!Utils::isUnset($request->fsetId)) {
+            $query['FsetId'] = $request->fsetId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelFilesetQuota',
+            'version'     => '2017-06-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelFilesetQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 取消设置智能目录配额
+     *  *
+     * @param CancelFilesetQuotaRequest $request CancelFilesetQuotaRequest
+     *
+     * @return CancelFilesetQuotaResponse CancelFilesetQuotaResponse
+     */
+    public function cancelFilesetQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelFilesetQuotaWithOptions($request, $runtime);
     }
 
     /**
@@ -6957,6 +7017,68 @@ class NAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setDirQuotaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 设置智能目录配额
+     *  *
+     * @param SetFilesetQuotaRequest $request SetFilesetQuotaRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SetFilesetQuotaResponse SetFilesetQuotaResponse
+     */
+    public function setFilesetQuotaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->fileCountLimit)) {
+            $query['FileCountLimit'] = $request->fileCountLimit;
+        }
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
+        }
+        if (!Utils::isUnset($request->fsetId)) {
+            $query['FsetId'] = $request->fsetId;
+        }
+        if (!Utils::isUnset($request->sizeLimit)) {
+            $query['SizeLimit'] = $request->sizeLimit;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetFilesetQuota',
+            'version'     => '2017-06-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetFilesetQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 设置智能目录配额
+     *  *
+     * @param SetFilesetQuotaRequest $request SetFilesetQuotaRequest
+     *
+     * @return SetFilesetQuotaResponse SetFilesetQuotaResponse
+     */
+    public function setFilesetQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setFilesetQuotaWithOptions($request, $runtime);
     }
 
     /**
