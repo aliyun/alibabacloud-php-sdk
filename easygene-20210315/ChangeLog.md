@@ -1,3 +1,6 @@
+2024-10-28 Version: 1.1.4
+- Generated php 2021-03-15 for EasyGene.
+
 2024-09-10 Version: 1.1.3
 - Update API AbortRun: update response param.
 - Update API AbortSubmission: update response param.
