@@ -164,6 +164,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\GetInstanceRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetInstanceTrendingReportRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetInstanceTrendingReportResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetIvrTrackingSummaryRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetIvrTrackingSummaryResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetLoginDetailsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetLoginDetailsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetMonoRecordingRequest;
@@ -1488,6 +1490,9 @@ class CCC extends OpenApiClient
         }
         if (!Utils::isUnset($request->routingType)) {
             $query['RoutingType'] = $request->routingType;
+        }
+        if (!Utils::isUnset($request->skillGroupId)) {
+            $query['SkillGroupId'] = $request->skillGroupId;
         }
         if (!Utils::isUnset($request->strategyName)) {
             $query['StrategyName'] = $request->strategyName;
@@ -4557,6 +4562,52 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getInstanceTrendingReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetIvrTrackingSummaryRequest $request GetIvrTrackingSummaryRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetIvrTrackingSummaryResponse GetIvrTrackingSummaryResponse
+     */
+    public function getIvrTrackingSummaryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetIvrTrackingSummary',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetIvrTrackingSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetIvrTrackingSummaryRequest $request GetIvrTrackingSummaryRequest
+     *
+     * @return GetIvrTrackingSummaryResponse GetIvrTrackingSummaryResponse
+     */
+    public function getIvrTrackingSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getIvrTrackingSummaryWithOptions($request, $runtime);
     }
 
     /**

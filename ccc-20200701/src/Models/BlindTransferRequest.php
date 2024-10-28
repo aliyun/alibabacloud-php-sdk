@@ -61,6 +61,11 @@ class BlindTransferRequest extends Model
     /**
      * @var string
      */
+    public $skillGroupId;
+
+    /**
+     * @var string
+     */
     public $strategyName;
 
     /**
@@ -116,6 +121,7 @@ class BlindTransferRequest extends Model
         'queuingOverflowThreshold' => 'QueuingOverflowThreshold',
         'queuingTimeoutSeconds'    => 'QueuingTimeoutSeconds',
         'routingType'              => 'RoutingType',
+        'skillGroupId'             => 'SkillGroupId',
         'strategyName'             => 'StrategyName',
         'strategyParams'           => 'StrategyParams',
         'tags'                     => 'Tags',
@@ -156,6 +162,9 @@ class BlindTransferRequest extends Model
         }
         if (null !== $this->routingType) {
             $res['RoutingType'] = $this->routingType;
+        }
+        if (null !== $this->skillGroupId) {
+            $res['SkillGroupId'] = $this->skillGroupId;
         }
         if (null !== $this->strategyName) {
             $res['StrategyName'] = $this->strategyName;
@@ -216,6 +225,9 @@ class BlindTransferRequest extends Model
         }
         if (isset($map['RoutingType'])) {
             $model->routingType = $map['RoutingType'];
+        }
+        if (isset($map['SkillGroupId'])) {
+            $model->skillGroupId = $map['SkillGroupId'];
         }
         if (isset($map['StrategyName'])) {
             $model->strategyName = $map['StrategyName'];
