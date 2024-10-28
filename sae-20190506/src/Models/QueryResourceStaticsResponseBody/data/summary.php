@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class summary extends Model
 {
     /**
+     * @var float
+     */
+    public $activeCpu;
+
+    /**
      * @description The CPU usage. Unit: core per minute.
      *
      * @example 3354
@@ -16,6 +21,11 @@ class summary extends Model
      * @var float
      */
     public $cpu;
+
+    /**
+     * @var float
+     */
+    public $idleCpu;
 
     /**
      * @description The memory usage. Unit: GiB per minute.
@@ -26,8 +36,10 @@ class summary extends Model
      */
     public $memory;
     protected $_name = [
-        'cpu'    => 'Cpu',
-        'memory' => 'Memory',
+        'activeCpu' => 'ActiveCpu',
+        'cpu'       => 'Cpu',
+        'idleCpu'   => 'IdleCpu',
+        'memory'    => 'Memory',
     ];
 
     public function validate()
@@ -37,8 +49,14 @@ class summary extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->activeCpu) {
+            $res['ActiveCpu'] = $this->activeCpu;
+        }
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
+        }
+        if (null !== $this->idleCpu) {
+            $res['IdleCpu'] = $this->idleCpu;
         }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
@@ -55,8 +73,14 @@ class summary extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActiveCpu'])) {
+            $model->activeCpu = $map['ActiveCpu'];
+        }
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
+        }
+        if (isset($map['IdleCpu'])) {
+            $model->idleCpu = $map['IdleCpu'];
         }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];

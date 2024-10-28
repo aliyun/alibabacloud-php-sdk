@@ -1,3 +1,7 @@
+2024-10-28 Version: 1.23.3
+- Update API QueryResourceStatics: update response param.
+
+
 2024-10-17 Version: 1.23.2
 - Update API DescribeConfigurationPrice: update response param.
 
