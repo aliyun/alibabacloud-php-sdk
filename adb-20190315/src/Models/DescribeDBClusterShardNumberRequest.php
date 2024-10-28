@@ -6,13 +6,12 @@ namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDBClusterSSLRequest extends Model
+class DescribeDBClusterShardNumberRequest extends Model
 {
     /**
-     * @description The cluster ID.
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     * @example am-bp1ub9grke1****
+     * @example am-uf6g8w25jacm7****
      *
      * @var string
      */
@@ -29,6 +28,8 @@ class DescribeDBClusterSSLRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -83,7 +84,7 @@ class DescribeDBClusterSSLRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDBClusterSSLRequest
+     * @return DescribeDBClusterShardNumberRequest
      */
     public static function fromMap($map = [])
     {

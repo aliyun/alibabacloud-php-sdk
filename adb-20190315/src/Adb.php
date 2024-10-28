@@ -80,6 +80,8 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterPerformanceRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterPerformanceResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterResourcePoolPerformanceRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterResourcePoolPerformanceResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterShardNumberRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterShardNumberResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterSpaceSummaryRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterSpaceSummaryResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClustersRequest;
@@ -2905,6 +2907,9 @@ class Adb extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -2941,6 +2946,68 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBClusterSSLWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取实例分片(Shard)数目
+     *  *
+     * @param DescribeDBClusterShardNumberRequest $request DescribeDBClusterShardNumberRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDBClusterShardNumberResponse DescribeDBClusterShardNumberResponse
+     */
+    public function describeDBClusterShardNumberWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBClusterShardNumber',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBClusterShardNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取实例分片(Shard)数目
+     *  *
+     * @param DescribeDBClusterShardNumberRequest $request DescribeDBClusterShardNumberRequest
+     *
+     * @return DescribeDBClusterShardNumberResponse DescribeDBClusterShardNumberResponse
+     */
+    public function describeDBClusterShardNumber($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBClusterShardNumberWithOptions($request, $runtime);
     }
 
     /**
