@@ -1,3 +1,6 @@
+2024-10-29 Version: 1.4.14
+- Generated php 2020-12-03 for pai-dlc.
+
 2024-10-24 Version: 1.4.13
 - Update API DeleteJob: update response param.
 - Update API GetJob: update response param.

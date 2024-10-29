@@ -28,6 +28,13 @@ class JobSettings extends Model
     public $caller;
 
     /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $disableEcsStockCheck;
+
+    /**
      * @example 535.54.03
      *
      * @var string
@@ -119,6 +126,7 @@ class JobSettings extends Model
         'advancedSettings'                => 'AdvancedSettings',
         'businessUserId'                  => 'BusinessUserId',
         'caller'                          => 'Caller',
+        'disableEcsStockCheck'            => 'DisableEcsStockCheck',
         'driver'                          => 'Driver',
         'enableErrorMonitoringInAIMaster' => 'EnableErrorMonitoringInAIMaster',
         'enableOssAppend'                 => 'EnableOssAppend',
@@ -149,6 +157,9 @@ class JobSettings extends Model
         }
         if (null !== $this->caller) {
             $res['Caller'] = $this->caller;
+        }
+        if (null !== $this->disableEcsStockCheck) {
+            $res['DisableEcsStockCheck'] = $this->disableEcsStockCheck;
         }
         if (null !== $this->driver) {
             $res['Driver'] = $this->driver;
@@ -209,6 +220,9 @@ class JobSettings extends Model
         }
         if (isset($map['Caller'])) {
             $model->caller = $map['Caller'];
+        }
+        if (isset($map['DisableEcsStockCheck'])) {
+            $model->disableEcsStockCheck = $map['DisableEcsStockCheck'];
         }
         if (isset($map['Driver'])) {
             $model->driver = $map['Driver'];
