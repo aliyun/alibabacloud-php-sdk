@@ -23,11 +23,21 @@ class ipamPoolAllocations extends Model
     public $creationTime;
 
     /**
+     * @var string
+     */
+    public $ipamPoolAllocationDescription;
+
+    /**
      * @example ipam-pool-alloc-112za33e4****
      *
      * @var string
      */
     public $ipamPoolAllocationId;
+
+    /**
+     * @var string
+     */
+    public $ipamPoolAllocationName;
 
     /**
      * @example ipam-pool-6rcq3tobayc20t****
@@ -85,17 +95,19 @@ class ipamPoolAllocations extends Model
      */
     public $status;
     protected $_name = [
-        'cidr'                 => 'Cidr',
-        'creationTime'         => 'CreationTime',
-        'ipamPoolAllocationId' => 'IpamPoolAllocationId',
-        'ipamPoolId'           => 'IpamPoolId',
-        'regionId'             => 'RegionId',
-        'resourceId'           => 'ResourceId',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'resourceRegionId'     => 'ResourceRegionId',
-        'resourceType'         => 'ResourceType',
-        'sourceCidr'           => 'SourceCidr',
-        'status'               => 'Status',
+        'cidr'                          => 'Cidr',
+        'creationTime'                  => 'CreationTime',
+        'ipamPoolAllocationDescription' => 'IpamPoolAllocationDescription',
+        'ipamPoolAllocationId'          => 'IpamPoolAllocationId',
+        'ipamPoolAllocationName'        => 'IpamPoolAllocationName',
+        'ipamPoolId'                    => 'IpamPoolId',
+        'regionId'                      => 'RegionId',
+        'resourceId'                    => 'ResourceId',
+        'resourceOwnerId'               => 'ResourceOwnerId',
+        'resourceRegionId'              => 'ResourceRegionId',
+        'resourceType'                  => 'ResourceType',
+        'sourceCidr'                    => 'SourceCidr',
+        'status'                        => 'Status',
     ];
 
     public function validate()
@@ -111,8 +123,14 @@ class ipamPoolAllocations extends Model
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+        if (null !== $this->ipamPoolAllocationDescription) {
+            $res['IpamPoolAllocationDescription'] = $this->ipamPoolAllocationDescription;
+        }
         if (null !== $this->ipamPoolAllocationId) {
             $res['IpamPoolAllocationId'] = $this->ipamPoolAllocationId;
+        }
+        if (null !== $this->ipamPoolAllocationName) {
+            $res['IpamPoolAllocationName'] = $this->ipamPoolAllocationName;
         }
         if (null !== $this->ipamPoolId) {
             $res['IpamPoolId'] = $this->ipamPoolId;
@@ -156,8 +174,14 @@ class ipamPoolAllocations extends Model
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+        if (isset($map['IpamPoolAllocationDescription'])) {
+            $model->ipamPoolAllocationDescription = $map['IpamPoolAllocationDescription'];
+        }
         if (isset($map['IpamPoolAllocationId'])) {
             $model->ipamPoolAllocationId = $map['IpamPoolAllocationId'];
+        }
+        if (isset($map['IpamPoolAllocationName'])) {
+            $model->ipamPoolAllocationName = $map['IpamPoolAllocationName'];
         }
         if (isset($map['IpamPoolId'])) {
             $model->ipamPoolId = $map['IpamPoolId'];

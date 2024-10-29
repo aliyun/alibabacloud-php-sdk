@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteIpamPoolAllocationRequest extends Model
 {
     /**
-     * @example 192.168.1.0/32
-     *
-     * @var string
-     */
-    public $cidr;
-
-    /**
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -39,13 +32,6 @@ class DeleteIpamPoolAllocationRequest extends Model
     public $ipamPoolAllocationId;
 
     /**
-     * @example ipam-pool-6rcq3tobayc20t****
-     *
-     * @var string
-     */
-    public $ipamPoolId;
-
-    /**
      * @description This parameter is required.
      *
      * @example cn-hangzhou
@@ -54,11 +40,9 @@ class DeleteIpamPoolAllocationRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'cidr'                 => 'Cidr',
         'clientToken'          => 'ClientToken',
         'dryRun'               => 'DryRun',
         'ipamPoolAllocationId' => 'IpamPoolAllocationId',
-        'ipamPoolId'           => 'IpamPoolId',
         'regionId'             => 'RegionId',
     ];
 
@@ -69,9 +53,6 @@ class DeleteIpamPoolAllocationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->cidr) {
-            $res['Cidr'] = $this->cidr;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -80,9 +61,6 @@ class DeleteIpamPoolAllocationRequest extends Model
         }
         if (null !== $this->ipamPoolAllocationId) {
             $res['IpamPoolAllocationId'] = $this->ipamPoolAllocationId;
-        }
-        if (null !== $this->ipamPoolId) {
-            $res['IpamPoolId'] = $this->ipamPoolId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -99,9 +77,6 @@ class DeleteIpamPoolAllocationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Cidr'])) {
-            $model->cidr = $map['Cidr'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
@@ -110,9 +85,6 @@ class DeleteIpamPoolAllocationRequest extends Model
         }
         if (isset($map['IpamPoolAllocationId'])) {
             $model->ipamPoolAllocationId = $map['IpamPoolAllocationId'];
-        }
-        if (isset($map['IpamPoolId'])) {
-            $model->ipamPoolId = $map['IpamPoolId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

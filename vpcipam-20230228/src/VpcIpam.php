@@ -30,6 +30,8 @@ use AlibabaCloud\SDK\VpcIpam\V20230228\Models\DeleteIpamScopeRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\DeleteIpamScopeResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\GetVpcIpamServiceStatusRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\GetVpcIpamServiceStatusResponse;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamDiscoveredResourceRequest;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamDiscoveredResourceResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamPoolAllocationsRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamPoolAllocationsResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamPoolCidrsRequest;
@@ -38,6 +40,8 @@ use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamPoolsRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamPoolsResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamResourceCidrsRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamResourceCidrsResponse;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamResourceDiscoveriesRequest;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamResourceDiscoveriesResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamScopesRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamScopesResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamsRequest;
@@ -50,6 +54,8 @@ use AlibabaCloud\SDK\VpcIpam\V20230228\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\UpdateIpamPoolAllocationRequest;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\UpdateIpamPoolAllocationResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\UpdateIpamPoolRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\UpdateIpamPoolResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\UpdateIpamRequest;
@@ -410,6 +416,12 @@ class VpcIpam extends OpenApiClient
         if (!Utils::isUnset($request->dryRun)) {
             $query['DryRun'] = $request->dryRun;
         }
+        if (!Utils::isUnset($request->ipamPoolAllocationDescription)) {
+            $query['IpamPoolAllocationDescription'] = $request->ipamPoolAllocationDescription;
+        }
+        if (!Utils::isUnset($request->ipamPoolAllocationName)) {
+            $query['IpamPoolAllocationName'] = $request->ipamPoolAllocationName;
+        }
         if (!Utils::isUnset($request->ipamPoolId)) {
             $query['IpamPoolId'] = $request->ipamPoolId;
         }
@@ -660,9 +672,6 @@ class VpcIpam extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->cidr)) {
-            $query['Cidr'] = $request->cidr;
-        }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -671,9 +680,6 @@ class VpcIpam extends OpenApiClient
         }
         if (!Utils::isUnset($request->ipamPoolAllocationId)) {
             $query['IpamPoolAllocationId'] = $request->ipamPoolAllocationId;
-        }
-        if (!Utils::isUnset($request->ipamPoolId)) {
-            $query['IpamPoolId'] = $request->ipamPoolId;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -890,6 +896,64 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
+     * @param ListIpamDiscoveredResourceRequest $request ListIpamDiscoveredResourceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListIpamDiscoveredResourceResponse ListIpamDiscoveredResourceResponse
+     */
+    public function listIpamDiscoveredResourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ipamResourceDiscoveryId)) {
+            $query['IpamResourceDiscoveryId'] = $request->ipamResourceDiscoveryId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceRegionId)) {
+            $query['ResourceRegionId'] = $request->resourceRegionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIpamDiscoveredResource',
+            'version'     => '2023-02-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListIpamDiscoveredResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListIpamDiscoveredResourceRequest $request ListIpamDiscoveredResourceRequest
+     *
+     * @return ListIpamDiscoveredResourceResponse ListIpamDiscoveredResourceResponse
+     */
+    public function listIpamDiscoveredResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIpamDiscoveredResourceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListIpamPoolAllocationsRequest $request ListIpamPoolAllocationsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -904,6 +968,9 @@ class VpcIpam extends OpenApiClient
         }
         if (!Utils::isUnset($request->ipamPoolAllocationIds)) {
             $query['IpamPoolAllocationIds'] = $request->ipamPoolAllocationIds;
+        }
+        if (!Utils::isUnset($request->ipamPoolAllocationName)) {
+            $query['IpamPoolAllocationName'] = $request->ipamPoolAllocationName;
         }
         if (!Utils::isUnset($request->ipamPoolId)) {
             $query['IpamPoolId'] = $request->ipamPoolId;
@@ -1152,6 +1219,86 @@ class VpcIpam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listIpamResourceCidrsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询ipam资源发现实例
+     *  *
+     * @param ListIpamResourceDiscoveriesRequest $request ListIpamResourceDiscoveriesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListIpamResourceDiscoveriesResponse ListIpamResourceDiscoveriesResponse
+     */
+    public function listIpamResourceDiscoveriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ipamResourceDiscoveryIds)) {
+            $query['IpamResourceDiscoveryIds'] = $request->ipamResourceDiscoveryIds;
+        }
+        if (!Utils::isUnset($request->ipamResourceDiscoveryName)) {
+            $query['IpamResourceDiscoveryName'] = $request->ipamResourceDiscoveryName;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIpamResourceDiscoveries',
+            'version'     => '2023-02-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListIpamResourceDiscoveriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询ipam资源发现实例
+     *  *
+     * @param ListIpamResourceDiscoveriesRequest $request ListIpamResourceDiscoveriesRequest
+     *
+     * @return ListIpamResourceDiscoveriesResponse ListIpamResourceDiscoveriesResponse
+     */
+    public function listIpamResourceDiscoveries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIpamResourceDiscoveriesWithOptions($request, $runtime);
     }
 
     /**
@@ -1748,6 +1895,68 @@ class VpcIpam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateIpamPoolWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新IPAM地址池分配信息
+     *  *
+     * @param UpdateIpamPoolAllocationRequest $request UpdateIpamPoolAllocationRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateIpamPoolAllocationResponse UpdateIpamPoolAllocationResponse
+     */
+    public function updateIpamPoolAllocationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ipamPoolAllocationDescription)) {
+            $query['IpamPoolAllocationDescription'] = $request->ipamPoolAllocationDescription;
+        }
+        if (!Utils::isUnset($request->ipamPoolAllocationId)) {
+            $query['IpamPoolAllocationId'] = $request->ipamPoolAllocationId;
+        }
+        if (!Utils::isUnset($request->ipamPoolAllocationName)) {
+            $query['IpamPoolAllocationName'] = $request->ipamPoolAllocationName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateIpamPoolAllocation',
+            'version'     => '2023-02-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateIpamPoolAllocationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新IPAM地址池分配信息
+     *  *
+     * @param UpdateIpamPoolAllocationRequest $request UpdateIpamPoolAllocationRequest
+     *
+     * @return UpdateIpamPoolAllocationResponse UpdateIpamPoolAllocationResponse
+     */
+    public function updateIpamPoolAllocation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateIpamPoolAllocationWithOptions($request, $runtime);
     }
 
     /**

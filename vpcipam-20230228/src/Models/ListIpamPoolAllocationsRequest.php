@@ -21,6 +21,11 @@ class ListIpamPoolAllocationsRequest extends Model
     public $ipamPoolAllocationIds;
 
     /**
+     * @var string
+     */
+    public $ipamPoolAllocationName;
+
+    /**
      * @description This parameter is required.
      *
      * @example ipam-pool-6rcq3tobayc20t****
@@ -52,12 +57,13 @@ class ListIpamPoolAllocationsRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'cidr'                  => 'Cidr',
-        'ipamPoolAllocationIds' => 'IpamPoolAllocationIds',
-        'ipamPoolId'            => 'IpamPoolId',
-        'maxResults'            => 'MaxResults',
-        'nextToken'             => 'NextToken',
-        'regionId'              => 'RegionId',
+        'cidr'                   => 'Cidr',
+        'ipamPoolAllocationIds'  => 'IpamPoolAllocationIds',
+        'ipamPoolAllocationName' => 'IpamPoolAllocationName',
+        'ipamPoolId'             => 'IpamPoolId',
+        'maxResults'             => 'MaxResults',
+        'nextToken'              => 'NextToken',
+        'regionId'               => 'RegionId',
     ];
 
     public function validate()
@@ -72,6 +78,9 @@ class ListIpamPoolAllocationsRequest extends Model
         }
         if (null !== $this->ipamPoolAllocationIds) {
             $res['IpamPoolAllocationIds'] = $this->ipamPoolAllocationIds;
+        }
+        if (null !== $this->ipamPoolAllocationName) {
+            $res['IpamPoolAllocationName'] = $this->ipamPoolAllocationName;
         }
         if (null !== $this->ipamPoolId) {
             $res['IpamPoolId'] = $this->ipamPoolId;
@@ -104,6 +113,9 @@ class ListIpamPoolAllocationsRequest extends Model
             if (!empty($map['IpamPoolAllocationIds'])) {
                 $model->ipamPoolAllocationIds = $map['IpamPoolAllocationIds'];
             }
+        }
+        if (isset($map['IpamPoolAllocationName'])) {
+            $model->ipamPoolAllocationName = $map['IpamPoolAllocationName'];
         }
         if (isset($map['IpamPoolId'])) {
             $model->ipamPoolId = $map['IpamPoolId'];
