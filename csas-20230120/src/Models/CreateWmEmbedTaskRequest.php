@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmEmbedTaskRequest\csvControl;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmEmbedTaskRequest\documentControl;
 use AlibabaCloud\Tea\Model;
 
 class CreateWmEmbedTaskRequest extends Model
 {
+    /**
+     * @var csvControl
+     */
+    public $csvControl;
+
     /**
      * @var documentControl
      */
@@ -90,6 +96,7 @@ class CreateWmEmbedTaskRequest extends Model
      */
     public $wmType;
     protected $_name = [
+        'csvControl'            => 'CsvControl',
         'documentControl'       => 'DocumentControl',
         'fileUrl'               => 'FileUrl',
         'filename'              => 'Filename',
@@ -110,6 +117,9 @@ class CreateWmEmbedTaskRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->csvControl) {
+            $res['CsvControl'] = null !== $this->csvControl ? $this->csvControl->toMap() : null;
+        }
         if (null !== $this->documentControl) {
             $res['DocumentControl'] = null !== $this->documentControl ? $this->documentControl->toMap() : null;
         }
@@ -155,6 +165,9 @@ class CreateWmEmbedTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CsvControl'])) {
+            $model->csvControl = csvControl::fromMap($map['CsvControl']);
+        }
         if (isset($map['DocumentControl'])) {
             $model->documentControl = documentControl::fromMap($map['DocumentControl']);
         }

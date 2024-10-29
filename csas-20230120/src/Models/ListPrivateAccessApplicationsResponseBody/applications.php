@@ -22,6 +22,11 @@ class applications extends Model
     public $applicationId;
 
     /**
+     * @var string
+     */
+    public $browserAccessStatus;
+
+    /**
      * @var string[]
      */
     public $connectorIds;
@@ -37,6 +42,16 @@ class applications extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $l7ProxyDomainAutomatic;
+
+    /**
+     * @var string
+     */
+    public $l7ProxyDomainCustom;
 
     /**
      * @example private_access_application_name
@@ -74,17 +89,20 @@ class applications extends Model
      */
     public $tagIds;
     protected $_name = [
-        'addresses'     => 'Addresses',
-        'applicationId' => 'ApplicationId',
-        'connectorIds'  => 'ConnectorIds',
-        'createTime'    => 'CreateTime',
-        'description'   => 'Description',
-        'name'          => 'Name',
-        'policyIds'     => 'PolicyIds',
-        'portRanges'    => 'PortRanges',
-        'protocol'      => 'Protocol',
-        'status'        => 'Status',
-        'tagIds'        => 'TagIds',
+        'addresses'              => 'Addresses',
+        'applicationId'          => 'ApplicationId',
+        'browserAccessStatus'    => 'BrowserAccessStatus',
+        'connectorIds'           => 'ConnectorIds',
+        'createTime'             => 'CreateTime',
+        'description'            => 'Description',
+        'l7ProxyDomainAutomatic' => 'L7ProxyDomainAutomatic',
+        'l7ProxyDomainCustom'    => 'L7ProxyDomainCustom',
+        'name'                   => 'Name',
+        'policyIds'              => 'PolicyIds',
+        'portRanges'             => 'PortRanges',
+        'protocol'               => 'Protocol',
+        'status'                 => 'Status',
+        'tagIds'                 => 'TagIds',
     ];
 
     public function validate()
@@ -100,6 +118,9 @@ class applications extends Model
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
+        if (null !== $this->browserAccessStatus) {
+            $res['BrowserAccessStatus'] = $this->browserAccessStatus;
+        }
         if (null !== $this->connectorIds) {
             $res['ConnectorIds'] = $this->connectorIds;
         }
@@ -108,6 +129,12 @@ class applications extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->l7ProxyDomainAutomatic) {
+            $res['L7ProxyDomainAutomatic'] = $this->l7ProxyDomainAutomatic;
+        }
+        if (null !== $this->l7ProxyDomainCustom) {
+            $res['L7ProxyDomainCustom'] = $this->l7ProxyDomainCustom;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -153,6 +180,9 @@ class applications extends Model
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
+        if (isset($map['BrowserAccessStatus'])) {
+            $model->browserAccessStatus = $map['BrowserAccessStatus'];
+        }
         if (isset($map['ConnectorIds'])) {
             if (!empty($map['ConnectorIds'])) {
                 $model->connectorIds = $map['ConnectorIds'];
@@ -163,6 +193,12 @@ class applications extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['L7ProxyDomainAutomatic'])) {
+            $model->l7ProxyDomainAutomatic = $map['L7ProxyDomainAutomatic'];
+        }
+        if (isset($map['L7ProxyDomainCustom'])) {
+            $model->l7ProxyDomainCustom = $map['L7ProxyDomainCustom'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListPrivateAccessApplicationsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $accessModes;
+
+    /**
      * @example 192.168.0.0/16
      *
      * @var string
@@ -71,6 +76,7 @@ class ListPrivateAccessApplicationsRequest extends Model
      */
     public $tagId;
     protected $_name = [
+        'accessModes'    => 'AccessModes',
         'address'        => 'Address',
         'applicationIds' => 'ApplicationIds',
         'connectorId'    => 'ConnectorId',
@@ -89,6 +95,9 @@ class ListPrivateAccessApplicationsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessModes) {
+            $res['AccessModes'] = $this->accessModes;
+        }
         if (null !== $this->address) {
             $res['Address'] = $this->address;
         }
@@ -128,6 +137,9 @@ class ListPrivateAccessApplicationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessModes'])) {
+            $model->accessModes = $map['AccessModes'];
+        }
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
         }

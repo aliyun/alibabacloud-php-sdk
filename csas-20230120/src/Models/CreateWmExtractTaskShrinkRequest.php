@@ -4,15 +4,14 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmExtractTaskRequest\csvControl;
 use AlibabaCloud\Tea\Model;
 
-class CreateWmExtractTaskRequest extends Model
+class CreateWmExtractTaskShrinkRequest extends Model
 {
     /**
-     * @var csvControl
+     * @var string
      */
-    public $csvControl;
+    public $csvControlShrink;
 
     /**
      * @example false
@@ -69,7 +68,7 @@ class CreateWmExtractTaskRequest extends Model
      */
     public $wmType;
     protected $_name = [
-        'csvControl'        => 'CsvControl',
+        'csvControlShrink'  => 'CsvControl',
         'documentIsCapture' => 'DocumentIsCapture',
         'fileUrl'           => 'FileUrl',
         'filename'          => 'Filename',
@@ -86,8 +85,8 @@ class CreateWmExtractTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->csvControl) {
-            $res['CsvControl'] = null !== $this->csvControl ? $this->csvControl->toMap() : null;
+        if (null !== $this->csvControlShrink) {
+            $res['CsvControl'] = $this->csvControlShrink;
         }
         if (null !== $this->documentIsCapture) {
             $res['DocumentIsCapture'] = $this->documentIsCapture;
@@ -117,13 +116,13 @@ class CreateWmExtractTaskRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateWmExtractTaskRequest
+     * @return CreateWmExtractTaskShrinkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CsvControl'])) {
-            $model->csvControl = csvControl::fromMap($map['CsvControl']);
+            $model->csvControlShrink = $map['CsvControl'];
         }
         if (isset($map['DocumentIsCapture'])) {
             $model->documentIsCapture = $map['DocumentIsCapture'];

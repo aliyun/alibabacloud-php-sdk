@@ -33,6 +33,7 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmEmbedTaskResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmEmbedTaskShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmExtractTaskRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmExtractTaskResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmExtractTaskShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmInfoMappingRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmInfoMappingResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteClientUserRequest;
@@ -471,8 +472,17 @@ class Csas extends OpenApiClient
         if (!Utils::isUnset($request->addresses)) {
             $bodyFlat['Addresses'] = $request->addresses;
         }
+        if (!Utils::isUnset($request->browserAccessStatus)) {
+            $body['BrowserAccessStatus'] = $request->browserAccessStatus;
+        }
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->l7ProxyDomainAutomaticPrefix)) {
+            $body['L7ProxyDomainAutomaticPrefix'] = $request->l7ProxyDomainAutomaticPrefix;
+        }
+        if (!Utils::isUnset($request->l7ProxyDomainCustom)) {
+            $body['L7ProxyDomainCustom'] = $request->l7ProxyDomainCustom;
         }
         if (!Utils::isUnset($request->name)) {
             $body['Name'] = $request->name;
@@ -880,8 +890,15 @@ class Csas extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new CreateWmEmbedTaskShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->csvControl)) {
+            $request->csvControlShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->csvControl, 'CsvControl', 'json');
+        }
         if (!Utils::isUnset($tmpReq->documentControl)) {
             $request->documentControlShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documentControl, 'DocumentControl', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->csvControlShrink)) {
+            $query['CsvControl'] = $request->csvControlShrink;
         }
         $body = [];
         if (!Utils::isUnset($request->documentControlShrink)) {
@@ -918,7 +935,8 @@ class Csas extends OpenApiClient
             $body['WmType'] = $request->wmType;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateWmEmbedTask',
@@ -952,14 +970,23 @@ class Csas extends OpenApiClient
     /**
      * @summary 创建文件水印提取任务
      *  *
-     * @param CreateWmExtractTaskRequest $request CreateWmExtractTaskRequest
+     * @param CreateWmExtractTaskRequest $tmpReq  CreateWmExtractTaskRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
      * @return CreateWmExtractTaskResponse CreateWmExtractTaskResponse
      */
-    public function createWmExtractTaskWithOptions($request, $runtime)
+    public function createWmExtractTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateWmExtractTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->csvControl)) {
+            $request->csvControlShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->csvControl, 'CsvControl', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->csvControlShrink)) {
+            $query['CsvControl'] = $request->csvControlShrink;
+        }
         $body = [];
         if (!Utils::isUnset($request->documentIsCapture)) {
             $body['DocumentIsCapture'] = $request->documentIsCapture;
@@ -983,7 +1010,8 @@ class Csas extends OpenApiClient
             $body['WmType'] = $request->wmType;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateWmExtractTask',
@@ -3929,6 +3957,15 @@ class Csas extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->l7ProxyDomainAutomaticPrefix)) {
+            $body['L7ProxyDomainAutomaticPrefix'] = $request->l7ProxyDomainAutomaticPrefix;
+        }
+        if (!Utils::isUnset($request->l7ProxyDomainCustom)) {
+            $body['L7ProxyDomainCustom'] = $request->l7ProxyDomainCustom;
+        }
+        if (!Utils::isUnset($request->l7ProxyDomainPrivate)) {
+            $body['L7ProxyDomainPrivate'] = $request->l7ProxyDomainPrivate;
         }
         if (!Utils::isUnset($request->modifyType)) {
             $body['ModifyType'] = $request->modifyType;

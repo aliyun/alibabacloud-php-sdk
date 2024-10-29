@@ -11,6 +11,11 @@ class CreateWmEmbedTaskShrinkRequest extends Model
     /**
      * @var string
      */
+    public $csvControlShrink;
+
+    /**
+     * @var string
+     */
     public $documentControlShrink;
 
     /**
@@ -89,6 +94,7 @@ class CreateWmEmbedTaskShrinkRequest extends Model
      */
     public $wmType;
     protected $_name = [
+        'csvControlShrink'      => 'CsvControl',
         'documentControlShrink' => 'DocumentControl',
         'fileUrl'               => 'FileUrl',
         'filename'              => 'Filename',
@@ -109,6 +115,9 @@ class CreateWmEmbedTaskShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->csvControlShrink) {
+            $res['CsvControl'] = $this->csvControlShrink;
+        }
         if (null !== $this->documentControlShrink) {
             $res['DocumentControl'] = $this->documentControlShrink;
         }
@@ -154,6 +163,9 @@ class CreateWmEmbedTaskShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CsvControl'])) {
+            $model->csvControlShrink = $map['CsvControl'];
+        }
         if (isset($map['DocumentControl'])) {
             $model->documentControlShrink = $map['DocumentControl'];
         }

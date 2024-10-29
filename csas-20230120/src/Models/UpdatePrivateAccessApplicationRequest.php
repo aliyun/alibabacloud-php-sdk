@@ -29,6 +29,21 @@ class UpdatePrivateAccessApplicationRequest extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $l7ProxyDomainAutomaticPrefix;
+
+    /**
+     * @var string
+     */
+    public $l7ProxyDomainCustom;
+
+    /**
+     * @var string
+     */
+    public $l7ProxyDomainPrivate;
+
+    /**
      * @example Cover
      *
      * @var string
@@ -59,14 +74,17 @@ class UpdatePrivateAccessApplicationRequest extends Model
      */
     public $tagIds;
     protected $_name = [
-        'addresses'     => 'Addresses',
-        'applicationId' => 'ApplicationId',
-        'description'   => 'Description',
-        'modifyType'    => 'ModifyType',
-        'portRanges'    => 'PortRanges',
-        'protocol'      => 'Protocol',
-        'status'        => 'Status',
-        'tagIds'        => 'TagIds',
+        'addresses'                    => 'Addresses',
+        'applicationId'                => 'ApplicationId',
+        'description'                  => 'Description',
+        'l7ProxyDomainAutomaticPrefix' => 'L7ProxyDomainAutomaticPrefix',
+        'l7ProxyDomainCustom'          => 'L7ProxyDomainCustom',
+        'l7ProxyDomainPrivate'         => 'L7ProxyDomainPrivate',
+        'modifyType'                   => 'ModifyType',
+        'portRanges'                   => 'PortRanges',
+        'protocol'                     => 'Protocol',
+        'status'                       => 'Status',
+        'tagIds'                       => 'TagIds',
     ];
 
     public function validate()
@@ -84,6 +102,15 @@ class UpdatePrivateAccessApplicationRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->l7ProxyDomainAutomaticPrefix) {
+            $res['L7ProxyDomainAutomaticPrefix'] = $this->l7ProxyDomainAutomaticPrefix;
+        }
+        if (null !== $this->l7ProxyDomainCustom) {
+            $res['L7ProxyDomainCustom'] = $this->l7ProxyDomainCustom;
+        }
+        if (null !== $this->l7ProxyDomainPrivate) {
+            $res['L7ProxyDomainPrivate'] = $this->l7ProxyDomainPrivate;
         }
         if (null !== $this->modifyType) {
             $res['ModifyType'] = $this->modifyType;
@@ -128,6 +155,15 @@ class UpdatePrivateAccessApplicationRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['L7ProxyDomainAutomaticPrefix'])) {
+            $model->l7ProxyDomainAutomaticPrefix = $map['L7ProxyDomainAutomaticPrefix'];
+        }
+        if (isset($map['L7ProxyDomainCustom'])) {
+            $model->l7ProxyDomainCustom = $map['L7ProxyDomainCustom'];
+        }
+        if (isset($map['L7ProxyDomainPrivate'])) {
+            $model->l7ProxyDomainPrivate = $map['L7ProxyDomainPrivate'];
         }
         if (isset($map['ModifyType'])) {
             $model->modifyType = $map['ModifyType'];

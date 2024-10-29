@@ -19,7 +19,22 @@ class CreatePrivateAccessApplicationRequest extends Model
     /**
      * @var string
      */
+    public $browserAccessStatus;
+
+    /**
+     * @var string
+     */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $l7ProxyDomainAutomaticPrefix;
+
+    /**
+     * @var string
+     */
+    public $l7ProxyDomainCustom;
 
     /**
      * @description This parameter is required.
@@ -60,13 +75,16 @@ class CreatePrivateAccessApplicationRequest extends Model
      */
     public $tagIds;
     protected $_name = [
-        'addresses'   => 'Addresses',
-        'description' => 'Description',
-        'name'        => 'Name',
-        'portRanges'  => 'PortRanges',
-        'protocol'    => 'Protocol',
-        'status'      => 'Status',
-        'tagIds'      => 'TagIds',
+        'addresses'                    => 'Addresses',
+        'browserAccessStatus'          => 'BrowserAccessStatus',
+        'description'                  => 'Description',
+        'l7ProxyDomainAutomaticPrefix' => 'L7ProxyDomainAutomaticPrefix',
+        'l7ProxyDomainCustom'          => 'L7ProxyDomainCustom',
+        'name'                         => 'Name',
+        'portRanges'                   => 'PortRanges',
+        'protocol'                     => 'Protocol',
+        'status'                       => 'Status',
+        'tagIds'                       => 'TagIds',
     ];
 
     public function validate()
@@ -79,8 +97,17 @@ class CreatePrivateAccessApplicationRequest extends Model
         if (null !== $this->addresses) {
             $res['Addresses'] = $this->addresses;
         }
+        if (null !== $this->browserAccessStatus) {
+            $res['BrowserAccessStatus'] = $this->browserAccessStatus;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->l7ProxyDomainAutomaticPrefix) {
+            $res['L7ProxyDomainAutomaticPrefix'] = $this->l7ProxyDomainAutomaticPrefix;
+        }
+        if (null !== $this->l7ProxyDomainCustom) {
+            $res['L7ProxyDomainCustom'] = $this->l7ProxyDomainCustom;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -120,8 +147,17 @@ class CreatePrivateAccessApplicationRequest extends Model
                 $model->addresses = $map['Addresses'];
             }
         }
+        if (isset($map['BrowserAccessStatus'])) {
+            $model->browserAccessStatus = $map['BrowserAccessStatus'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['L7ProxyDomainAutomaticPrefix'])) {
+            $model->l7ProxyDomainAutomaticPrefix = $map['L7ProxyDomainAutomaticPrefix'];
+        }
+        if (isset($map['L7ProxyDomainCustom'])) {
+            $model->l7ProxyDomainCustom = $map['L7ProxyDomainCustom'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
