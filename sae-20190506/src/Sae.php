@@ -1095,6 +1095,21 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->enableXForwardedFor)) {
+            $query['EnableXForwardedFor'] = $request->enableXForwardedFor;
+        }
+        if (!Utils::isUnset($request->enableXForwardedForClientSrcPort)) {
+            $query['EnableXForwardedForClientSrcPort'] = $request->enableXForwardedForClientSrcPort;
+        }
+        if (!Utils::isUnset($request->enableXForwardedForProto)) {
+            $query['EnableXForwardedForProto'] = $request->enableXForwardedForProto;
+        }
+        if (!Utils::isUnset($request->enableXForwardedForSlbId)) {
+            $query['EnableXForwardedForSlbId'] = $request->enableXForwardedForSlbId;
+        }
+        if (!Utils::isUnset($request->enableXForwardedForSlbPort)) {
+            $query['EnableXForwardedForSlbPort'] = $request->enableXForwardedForSlbPort;
+        }
         if (!Utils::isUnset($request->idleTimeout)) {
             $query['IdleTimeout'] = $request->idleTimeout;
         }
@@ -7278,6 +7293,21 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->enableXForwardedFor)) {
+            $query['EnableXForwardedFor'] = $request->enableXForwardedFor;
+        }
+        if (!Utils::isUnset($request->enableXForwardedForClientSrcPort)) {
+            $query['EnableXForwardedForClientSrcPort'] = $request->enableXForwardedForClientSrcPort;
+        }
+        if (!Utils::isUnset($request->enableXForwardedForProto)) {
+            $query['EnableXForwardedForProto'] = $request->enableXForwardedForProto;
+        }
+        if (!Utils::isUnset($request->enableXForwardedForSlbId)) {
+            $query['EnableXForwardedForSlbId'] = $request->enableXForwardedForSlbId;
+        }
+        if (!Utils::isUnset($request->enableXForwardedForSlbPort)) {
+            $query['EnableXForwardedForSlbPort'] = $request->enableXForwardedForSlbPort;
         }
         if (!Utils::isUnset($request->idleTimeout)) {
             $query['IdleTimeout'] = $request->idleTimeout;

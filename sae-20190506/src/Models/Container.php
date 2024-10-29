@@ -37,6 +37,11 @@ class Container extends Model
     public $image;
 
     /**
+     * @var ImageRegistryConfig
+     */
+    public $imageRegistryConfig;
+
+    /**
      * @var MetricsCollectConfig
      */
     public $metricsCollectConfig;
@@ -93,6 +98,7 @@ class Container extends Model
         'command'              => 'Command',
         'environmentVariables' => 'EnvironmentVariables',
         'image'                => 'Image',
+        'imageRegistryConfig'  => 'ImageRegistryConfig',
         'metricsCollectConfig' => 'MetricsCollectConfig',
         'port'                 => 'Port',
         'requestConcurrency'   => 'RequestConcurrency',
@@ -122,6 +128,9 @@ class Container extends Model
         }
         if (null !== $this->image) {
             $res['Image'] = $this->image;
+        }
+        if (null !== $this->imageRegistryConfig) {
+            $res['ImageRegistryConfig'] = null !== $this->imageRegistryConfig ? $this->imageRegistryConfig->toMap() : null;
         }
         if (null !== $this->metricsCollectConfig) {
             $res['MetricsCollectConfig'] = null !== $this->metricsCollectConfig ? $this->metricsCollectConfig->toMap() : null;
@@ -173,6 +182,9 @@ class Container extends Model
         }
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
+        }
+        if (isset($map['ImageRegistryConfig'])) {
+            $model->imageRegistryConfig = ImageRegistryConfig::fromMap($map['ImageRegistryConfig']);
         }
         if (isset($map['MetricsCollectConfig'])) {
             $model->metricsCollectConfig = MetricsCollectConfig::fromMap($map['MetricsCollectConfig']);

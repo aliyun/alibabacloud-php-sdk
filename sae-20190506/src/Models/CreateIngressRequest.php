@@ -54,6 +54,31 @@ class CreateIngressRequest extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $enableXForwardedFor;
+
+    /**
+     * @var bool
+     */
+    public $enableXForwardedForClientSrcPort;
+
+    /**
+     * @var bool
+     */
+    public $enableXForwardedForProto;
+
+    /**
+     * @var bool
+     */
+    public $enableXForwardedForSlbId;
+
+    /**
+     * @var bool
+     */
+    public $enableXForwardedForSlbPort;
+
+    /**
      * @description The timeout period of an idle connection. Unit: seconds. Valid values: 1 to 60.
      *
      * If no request is received within the specified timeout period, ALB closes the current connection. When another request is received, ALB establishes a new connection.
@@ -148,19 +173,24 @@ class CreateIngressRequest extends Model
      */
     public $slbId;
     protected $_name = [
-        'certId'           => 'CertId',
-        'certIds'          => 'CertIds',
-        'defaultRule'      => 'DefaultRule',
-        'description'      => 'Description',
-        'idleTimeout'      => 'IdleTimeout',
-        'listenerPort'     => 'ListenerPort',
-        'listenerProtocol' => 'ListenerProtocol',
-        'loadBalanceType'  => 'LoadBalanceType',
-        'namespaceId'      => 'NamespaceId',
-        'requestTimeout'   => 'RequestTimeout',
-        'rules'            => 'Rules',
-        'securityPolicyId' => 'SecurityPolicyId',
-        'slbId'            => 'SlbId',
+        'certId'                           => 'CertId',
+        'certIds'                          => 'CertIds',
+        'defaultRule'                      => 'DefaultRule',
+        'description'                      => 'Description',
+        'enableXForwardedFor'              => 'EnableXForwardedFor',
+        'enableXForwardedForClientSrcPort' => 'EnableXForwardedForClientSrcPort',
+        'enableXForwardedForProto'         => 'EnableXForwardedForProto',
+        'enableXForwardedForSlbId'         => 'EnableXForwardedForSlbId',
+        'enableXForwardedForSlbPort'       => 'EnableXForwardedForSlbPort',
+        'idleTimeout'                      => 'IdleTimeout',
+        'listenerPort'                     => 'ListenerPort',
+        'listenerProtocol'                 => 'ListenerProtocol',
+        'loadBalanceType'                  => 'LoadBalanceType',
+        'namespaceId'                      => 'NamespaceId',
+        'requestTimeout'                   => 'RequestTimeout',
+        'rules'                            => 'Rules',
+        'securityPolicyId'                 => 'SecurityPolicyId',
+        'slbId'                            => 'SlbId',
     ];
 
     public function validate()
@@ -181,6 +211,21 @@ class CreateIngressRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->enableXForwardedFor) {
+            $res['EnableXForwardedFor'] = $this->enableXForwardedFor;
+        }
+        if (null !== $this->enableXForwardedForClientSrcPort) {
+            $res['EnableXForwardedForClientSrcPort'] = $this->enableXForwardedForClientSrcPort;
+        }
+        if (null !== $this->enableXForwardedForProto) {
+            $res['EnableXForwardedForProto'] = $this->enableXForwardedForProto;
+        }
+        if (null !== $this->enableXForwardedForSlbId) {
+            $res['EnableXForwardedForSlbId'] = $this->enableXForwardedForSlbId;
+        }
+        if (null !== $this->enableXForwardedForSlbPort) {
+            $res['EnableXForwardedForSlbPort'] = $this->enableXForwardedForSlbPort;
         }
         if (null !== $this->idleTimeout) {
             $res['IdleTimeout'] = $this->idleTimeout;
@@ -232,6 +277,21 @@ class CreateIngressRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['EnableXForwardedFor'])) {
+            $model->enableXForwardedFor = $map['EnableXForwardedFor'];
+        }
+        if (isset($map['EnableXForwardedForClientSrcPort'])) {
+            $model->enableXForwardedForClientSrcPort = $map['EnableXForwardedForClientSrcPort'];
+        }
+        if (isset($map['EnableXForwardedForProto'])) {
+            $model->enableXForwardedForProto = $map['EnableXForwardedForProto'];
+        }
+        if (isset($map['EnableXForwardedForSlbId'])) {
+            $model->enableXForwardedForSlbId = $map['EnableXForwardedForSlbId'];
+        }
+        if (isset($map['EnableXForwardedForSlbPort'])) {
+            $model->enableXForwardedForSlbPort = $map['EnableXForwardedForSlbPort'];
         }
         if (isset($map['IdleTimeout'])) {
             $model->idleTimeout = $map['IdleTimeout'];

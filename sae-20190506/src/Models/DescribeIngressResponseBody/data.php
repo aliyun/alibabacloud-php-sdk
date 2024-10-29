@@ -43,6 +43,31 @@ class data extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $enableXForwardedFor;
+
+    /**
+     * @var bool
+     */
+    public $enableXForwardedForClientSrcPort;
+
+    /**
+     * @var bool
+     */
+    public $enableXForwardedForProto;
+
+    /**
+     * @var bool
+     */
+    public $enableXForwardedForSlbId;
+
+    /**
+     * @var bool
+     */
+    public $enableXForwardedForSlbPort;
+
+    /**
      * @description The HTTP status code. Valid values:
      *
      *   **2xx**: indicates that the request was successful.
@@ -57,6 +82,8 @@ class data extends Model
     public $id;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $idleTimeout;
@@ -108,6 +135,8 @@ class data extends Model
     public $namespaceId;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $requestTimeout;
@@ -120,6 +149,8 @@ class data extends Model
     public $rules;
 
     /**
+     * @example sp-n0kn923****
+     *
      * @var string
      */
     public $securityPolicyId;
@@ -145,22 +176,27 @@ class data extends Model
      */
     public $slbType;
     protected $_name = [
-        'certId'           => 'CertId',
-        'certIds'          => 'CertIds',
-        'defaultRule'      => 'DefaultRule',
-        'description'      => 'Description',
-        'id'               => 'Id',
-        'idleTimeout'      => 'IdleTimeout',
-        'listenerPort'     => 'ListenerPort',
-        'listenerProtocol' => 'ListenerProtocol',
-        'loadBalanceType'  => 'LoadBalanceType',
-        'name'             => 'Name',
-        'namespaceId'      => 'NamespaceId',
-        'requestTimeout'   => 'RequestTimeout',
-        'rules'            => 'Rules',
-        'securityPolicyId' => 'SecurityPolicyId',
-        'slbId'            => 'SlbId',
-        'slbType'          => 'SlbType',
+        'certId'                           => 'CertId',
+        'certIds'                          => 'CertIds',
+        'defaultRule'                      => 'DefaultRule',
+        'description'                      => 'Description',
+        'enableXForwardedFor'              => 'EnableXForwardedFor',
+        'enableXForwardedForClientSrcPort' => 'EnableXForwardedForClientSrcPort',
+        'enableXForwardedForProto'         => 'EnableXForwardedForProto',
+        'enableXForwardedForSlbId'         => 'EnableXForwardedForSlbId',
+        'enableXForwardedForSlbPort'       => 'EnableXForwardedForSlbPort',
+        'id'                               => 'Id',
+        'idleTimeout'                      => 'IdleTimeout',
+        'listenerPort'                     => 'ListenerPort',
+        'listenerProtocol'                 => 'ListenerProtocol',
+        'loadBalanceType'                  => 'LoadBalanceType',
+        'name'                             => 'Name',
+        'namespaceId'                      => 'NamespaceId',
+        'requestTimeout'                   => 'RequestTimeout',
+        'rules'                            => 'Rules',
+        'securityPolicyId'                 => 'SecurityPolicyId',
+        'slbId'                            => 'SlbId',
+        'slbType'                          => 'SlbType',
     ];
 
     public function validate()
@@ -181,6 +217,21 @@ class data extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->enableXForwardedFor) {
+            $res['EnableXForwardedFor'] = $this->enableXForwardedFor;
+        }
+        if (null !== $this->enableXForwardedForClientSrcPort) {
+            $res['EnableXForwardedForClientSrcPort'] = $this->enableXForwardedForClientSrcPort;
+        }
+        if (null !== $this->enableXForwardedForProto) {
+            $res['EnableXForwardedForProto'] = $this->enableXForwardedForProto;
+        }
+        if (null !== $this->enableXForwardedForSlbId) {
+            $res['EnableXForwardedForSlbId'] = $this->enableXForwardedForSlbId;
+        }
+        if (null !== $this->enableXForwardedForSlbPort) {
+            $res['EnableXForwardedForSlbPort'] = $this->enableXForwardedForSlbPort;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -247,6 +298,21 @@ class data extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['EnableXForwardedFor'])) {
+            $model->enableXForwardedFor = $map['EnableXForwardedFor'];
+        }
+        if (isset($map['EnableXForwardedForClientSrcPort'])) {
+            $model->enableXForwardedForClientSrcPort = $map['EnableXForwardedForClientSrcPort'];
+        }
+        if (isset($map['EnableXForwardedForProto'])) {
+            $model->enableXForwardedForProto = $map['EnableXForwardedForProto'];
+        }
+        if (isset($map['EnableXForwardedForSlbId'])) {
+            $model->enableXForwardedForSlbId = $map['EnableXForwardedForSlbId'];
+        }
+        if (isset($map['EnableXForwardedForSlbPort'])) {
+            $model->enableXForwardedForSlbPort = $map['EnableXForwardedForSlbPort'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
