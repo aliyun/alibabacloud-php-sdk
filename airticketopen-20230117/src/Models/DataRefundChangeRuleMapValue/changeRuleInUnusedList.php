@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class changeRuleInUnusedList extends Model
 {
     /**
+     * @description type: 2 - outbound segment unused; 3 - inbound segment unused
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,8 @@ class changeRuleInUnusedList extends Model
     public $type;
 
     /**
+     * @description time unit: day/hour
+     *
      * @example hour
      *
      * @var string
@@ -23,6 +27,8 @@ class changeRuleInUnusedList extends Model
     public $timeUnit;
 
     /**
+     * @description applicable change rule start time, time unit (day/hour)
+     *
      * @example 36
      *
      * @var int
@@ -30,6 +36,8 @@ class changeRuleInUnusedList extends Model
     public $ruleStartTime;
 
     /**
+     * @description applicable change rule end time, time unit (day/hour)
+     *
      * @example 12
      *
      * @var int
@@ -37,6 +45,8 @@ class changeRuleInUnusedList extends Model
     public $ruleEndTime;
 
     /**
+     * @description whether changeable X-Y hour(day) before departure
+     *
      * @example true
      *
      * @var bool
@@ -44,6 +54,8 @@ class changeRuleInUnusedList extends Model
     public $canChange;
 
     /**
+     * @description change fee X-Y hour(day) before departure
+     *
      * @example 100
      *
      * @var float

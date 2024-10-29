@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description order list
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description information of pagination
+     *
      * @var pagination
      */
     public $pagination;

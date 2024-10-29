@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class credential extends Model
 {
     /**
+     * @description issuing place (two-letter code)
+     *
      * @example CN
      *
      * @var string
@@ -16,6 +18,8 @@ class credential extends Model
     public $certIssuePlace;
 
     /**
+     * @description credential number
+     *
      * @example E1***5674
      *
      * @var string
@@ -23,6 +27,8 @@ class credential extends Model
     public $credentialNum;
 
     /**
+     * @description credential type , only support "1"(1 means passport) currently.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class credential extends Model
     public $credentialType;
 
     /**
+     * @description credential expiration date
+     *
      * @example 20290101
      *
      * @var string

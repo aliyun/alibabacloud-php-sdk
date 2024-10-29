@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class changedPriceInfo extends Model
 {
     /**
+     * @description adult fare
+     *
      * @example 100
      *
      * @var float
@@ -16,6 +18,8 @@ class changedPriceInfo extends Model
     public $adultPrice;
 
     /**
+     * @description adult tax
+     *
      * @example 10
      *
      * @var float
@@ -23,6 +27,8 @@ class changedPriceInfo extends Model
     public $adultTax;
 
     /**
+     * @description child fare
+     *
      * @example 100
      *
      * @var float
@@ -30,6 +36,8 @@ class changedPriceInfo extends Model
     public $childPrice;
 
     /**
+     * @description child tax
+     *
      * @example 10
      *
      * @var float
@@ -37,6 +45,8 @@ class changedPriceInfo extends Model
     public $childTax;
 
     /**
+     * @description infant fare
+     *
      * @example 100
      *
      * @var float
@@ -44,6 +54,8 @@ class changedPriceInfo extends Model
     public $infantPrice;
 
     /**
+     * @description infant tax
+     *
      * @example 10
      *
      * @var float

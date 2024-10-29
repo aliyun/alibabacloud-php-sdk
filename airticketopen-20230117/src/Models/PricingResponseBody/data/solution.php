@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class solution extends Model
 {
     /**
+     * @description adult fare
+     *
      * @example 300
      *
      * @var float
@@ -20,6 +22,8 @@ class solution extends Model
     public $adultPrice;
 
     /**
+     * @description adult tax
+     *
      * @example 30
      *
      * @var float
@@ -27,6 +31,8 @@ class solution extends Model
     public $adultTax;
 
     /**
+     * @description child fare
+     *
      * @example 200
      *
      * @var float
@@ -34,6 +40,8 @@ class solution extends Model
     public $childPrice;
 
     /**
+     * @description child tax
+     *
      * @example 20
      *
      * @var float
@@ -41,6 +49,8 @@ class solution extends Model
     public $childTax;
 
     /**
+     * @description infant fare
+     *
      * @example 200
      *
      * @var float
@@ -48,6 +58,8 @@ class solution extends Model
     public $infantPrice;
 
     /**
+     * @description infant tax
+     *
      * @example 10
      *
      * @var float
@@ -55,11 +67,15 @@ class solution extends Model
     public $infantTax;
 
     /**
+     * @description journey list
+     *
      * @var journeyList[]
      */
     public $journeyList;
 
     /**
+     * @description product type description
+     *
      * @example description
      *
      * @var string
@@ -67,6 +83,8 @@ class solution extends Model
     public $productTypeDescription;
 
     /**
+     * @description refund coupon description
+     *
      * @example description
      *
      * @var string
@@ -74,22 +92,28 @@ class solution extends Model
     public $refundTicketCouponDescription;
 
     /**
+     * @description through check-in baggage policy
+     *
      * @var segmentBaggageCheckInInfoList[]
      */
     public $segmentBaggageCheckInInfoList;
 
     /**
+     * @description baggage rule list
+     *
      * @var segmentBaggageMappingList[]
      */
     public $segmentBaggageMappingList;
 
     /**
+     * @description change and refund policy
+     *
      * @var segmentRefundChangeRuleMappingList[]
      */
     public $segmentRefundChangeRuleMappingList;
 
     /**
-     * @description solution_id
+     * @description solution_id, equals to solution_id in request
      *
      * @example eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
      *

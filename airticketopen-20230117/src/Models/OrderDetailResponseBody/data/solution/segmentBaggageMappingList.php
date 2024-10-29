@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class segmentBaggageMappingList extends Model
 {
     /**
+     * @description baggage rule mapping, key is passenger type, value is baggage allowance details
+     *
      * @var DataSolutionSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue[]
      */
     public $passengerBaggageAllowanceMapping;
 
     /**
+     * @description segment id list. all the listed segment ids share the same baggage rule
+     *
      * @var string[]
      */
     public $segmentIdList;

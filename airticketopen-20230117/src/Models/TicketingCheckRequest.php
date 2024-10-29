@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class TicketingCheckRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description order number
      *
+     * This parameter is required.
      * @example 496***2617111
      *
      * @var int

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class segmentParamList extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description arrival airport code (capitalized)
      *
+     * This parameter is required.
      * @example MFM
      *
      * @var string
@@ -18,6 +19,8 @@ class segmentParamList extends Model
     public $arrivalAirport;
 
     /**
+     * @description arrival city code (capitalized)
+     *
      * @example MFM
      *
      * @var string
@@ -25,6 +28,8 @@ class segmentParamList extends Model
     public $arrivalCity;
 
     /**
+     * @description RBD
+     *
      * @example V
      *
      * @var string
@@ -32,6 +37,8 @@ class segmentParamList extends Model
     public $cabin;
 
     /**
+     * @description child RBD
+     *
      * @example E
      *
      * @var string
@@ -39,8 +46,9 @@ class segmentParamList extends Model
     public $childCabin;
 
     /**
-     * @description This parameter is required.
+     * @description departure airport code (capitalized)
      *
+     * This parameter is required.
      * @example PVG
      *
      * @var string
@@ -48,6 +56,8 @@ class segmentParamList extends Model
     public $departureAirport;
 
     /**
+     * @description departure city code (capitalized)
+     *
      * @example SHA
      *
      * @var string
@@ -55,8 +65,9 @@ class segmentParamList extends Model
     public $departureCity;
 
     /**
-     * @description This parameter is required.
+     * @description departure time in string format (yyyy-MM-dd HH:mm:ss)
      *
+     * This parameter is required.
      * @example 2023-03-10 07:55:00
      *
      * @var string
@@ -64,8 +75,9 @@ class segmentParamList extends Model
     public $departureTime;
 
     /**
-     * @description This parameter is required.
+     * @description marketing flight no. (eg: KA5809)
      *
+     * This parameter is required.
      * @example HO1295
      *
      * @var string

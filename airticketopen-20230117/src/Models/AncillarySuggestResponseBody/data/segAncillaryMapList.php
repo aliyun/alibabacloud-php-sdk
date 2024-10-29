@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class segAncillaryMapList extends Model
 {
     /**
+     * @description Ancillary product
+     *
      * @var ancillary
      */
     public $ancillary;
 
     /**
+     * @description Segment ID list, these segments share the same ancillary
+     *
      * @var string[]
      */
     public $segmentIdList;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class flightSegmentCabinRelation extends Model
 {
     /**
+     * @description RBD
+     *
      * @example V
      *
      * @var string
@@ -16,6 +18,8 @@ class flightSegmentCabinRelation extends Model
     public $cabin;
 
     /**
+     * @description cabin class
+     *
      * @example Y
      *
      * @var string
@@ -23,6 +27,8 @@ class flightSegmentCabinRelation extends Model
     public $cabinClass;
 
     /**
+     * @description cabin class description
+     *
      * @example economy class
      *
      * @var string
@@ -30,6 +36,8 @@ class flightSegmentCabinRelation extends Model
     public $cabinClassName;
 
     /**
+     * @description availability
+     *
      * @example A
      *
      * @var string
@@ -37,6 +45,8 @@ class flightSegmentCabinRelation extends Model
     public $cabinQuantity;
 
     /**
+     * @description segment ID format: flight no.+departure airport[IATA airport code]+arrival airport[IATA airport code]+departure time(yyMMddHHmm)
+     *
      * @example HO1295-PVG-MFM-20230310
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class passengerList extends Model
 {
     /**
+     * @description date of birth (yyyyMMdd)
+     *
      * @example 20020320
      *
      * @var string
@@ -17,13 +19,16 @@ class passengerList extends Model
     public $birthday;
 
     /**
+     * @description travel document
+     *
      * @var credential
      */
     public $credential;
 
     /**
-     * @description This parameter is required.
+     * @description first name
      *
+     * This parameter is required.
      * @example SAN
      *
      * @var string
@@ -31,6 +36,8 @@ class passengerList extends Model
     public $firstName;
 
     /**
+     * @description gender 0: male; 1: female
+     *
      * @example 1
      *
      * @var int
@@ -38,8 +45,9 @@ class passengerList extends Model
     public $gender;
 
     /**
-     * @description This parameter is required.
+     * @description last name
      *
+     * This parameter is required.
      * @example ZHANG
      *
      * @var string
@@ -47,8 +55,9 @@ class passengerList extends Model
     public $lastName;
 
     /**
-     * @description This parameter is required.
+     * @description country code for mobile phone number
      *
+     * This parameter is required.
      * @example 86
      *
      * @var string
@@ -56,8 +65,9 @@ class passengerList extends Model
     public $mobileCountryCode;
 
     /**
-     * @description This parameter is required.
+     * @description mobile phone number
      *
+     * This parameter is required.
      * @example 182******92
      *
      * @var string
@@ -65,6 +75,8 @@ class passengerList extends Model
     public $mobilePhoneNumber;
 
     /**
+     * @description nationality
+     *
      * @example CN
      *
      * @var string
@@ -72,8 +84,9 @@ class passengerList extends Model
     public $nationality;
 
     /**
-     * @description This parameter is required.
+     * @description passenger type 0: adult; 1: child; 8: Infant
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int

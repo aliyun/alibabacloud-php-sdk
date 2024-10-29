@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class EnrichRequest extends Model
 {
     /**
+     * @description adult passenger amount 1-9
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,13 @@ class EnrichRequest extends Model
     public $adults;
 
     /**
+     * @description cabin class
+     * 1. **ALL_CABIN** : all cabin class
+     * 2. **Y** : economy class
+     * 3. **FC** : first class and business class
+     * 4. **S** : premium economy class
+     * 5. **YS** : economy class and premium economy class
+     * 6. **YSC** : economy class, premium economy class and business class
      * @example ALL_CABIN
      *
      * @var string
@@ -24,6 +33,8 @@ class EnrichRequest extends Model
     public $cabinClass;
 
     /**
+     * @description child passenger amount 0-9
+     *
      * @example 1
      *
      * @var int
@@ -31,6 +42,8 @@ class EnrichRequest extends Model
     public $children;
 
     /**
+     * @description infant passenger amount 0-9
+     *
      * @example 1
      *
      * @var int
@@ -38,11 +51,15 @@ class EnrichRequest extends Model
     public $infants;
 
     /**
+     * @description journey list
+     *
      * @var journeyParamList[]
      */
     public $journeyParamList;
 
     /**
+     * @description solution_id returned by Search
+     *
      * @example eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
      *
      * @var string

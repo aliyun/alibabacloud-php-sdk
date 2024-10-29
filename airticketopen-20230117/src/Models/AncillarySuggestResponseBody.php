@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AncillarySuggestResponseBody extends Model
 {
     /**
+     * @description Request ID
+     *
      * @example 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
      *
      * @var string
@@ -17,11 +19,15 @@ class AncillarySuggestResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Properly processed return data
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description error code
+     *
      * @example null
      *
      * @var string
@@ -29,6 +35,8 @@ class AncillarySuggestResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description Data carried in error handling
+     *
      * @example null
      *
      * @var mixed
@@ -36,6 +44,8 @@ class AncillarySuggestResponseBody extends Model
     public $errorData;
 
     /**
+     * @description Error message
+     *
      * @example null
      *
      * @var string
@@ -43,6 +53,8 @@ class AncillarySuggestResponseBody extends Model
     public $errorMsg;
 
     /**
+     * @description http request successful, status value is always 200
+     *
      * @example 200
      *
      * @var int
@@ -50,6 +62,8 @@ class AncillarySuggestResponseBody extends Model
     public $status;
 
     /**
+     * @description true represents success, false represents failure
+     *
      * @example true
      *
      * @var bool

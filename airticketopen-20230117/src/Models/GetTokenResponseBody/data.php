@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Remaining valid time of the token in seconds
+     *
      * @example 7200
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $expireTime;
 
     /**
+     * @description Timestamp of token generation in seconds
+     *
      * @example 1677055176
      *
      * @var int

@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class passengerRefundDetails extends Model
 {
     /**
+     * @description information of the passenger applying for a refund
+     *
      * @var passenger
      */
     public $passenger;
 
     /**
+     * @description details of the refund fee
+     *
      * @var refundFee
      */
     public $refundFee;

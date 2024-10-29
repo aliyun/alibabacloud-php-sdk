@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class segmentList extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description arrival airport code (capitalized)
      *
+     * This parameter is required.
      * @example MFM
      *
      * @var string
@@ -18,8 +19,9 @@ class segmentList extends Model
     public $arrivalAirport;
 
     /**
-     * @description This parameter is required.
+     * @description arrival city code (capitalized)
      *
+     * This parameter is required.
      * @example MFM
      *
      * @var string
@@ -27,8 +29,9 @@ class segmentList extends Model
     public $arrivalCity;
 
     /**
-     * @description This parameter is required.
+     * @description departure airport code (capitalized)
      *
+     * This parameter is required.
      * @example PVG
      *
      * @var string
@@ -36,8 +39,9 @@ class segmentList extends Model
     public $departureAirport;
 
     /**
-     * @description This parameter is required.
+     * @description departure city code (capitalized)
      *
+     * This parameter is required.
      * @example SHA
      *
      * @var string

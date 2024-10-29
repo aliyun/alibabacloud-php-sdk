@@ -17,11 +17,15 @@ class RefundDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description data
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description error code
+     *
      * @example null
      *
      * @var string
@@ -29,6 +33,8 @@ class RefundDetailResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description error data
+     *
      * @example null
      *
      * @var mixed
@@ -36,6 +42,8 @@ class RefundDetailResponseBody extends Model
     public $errorData;
 
     /**
+     * @description error message
+     *
      * @example null
      *
      * @var string
@@ -43,6 +51,8 @@ class RefundDetailResponseBody extends Model
     public $errorMsg;
 
     /**
+     * @description http reqeust has been processed successfully，status code is 200
+     *
      * @example 200
      *
      * @var int
@@ -50,6 +60,8 @@ class RefundDetailResponseBody extends Model
     public $status;
 
     /**
+     * @description true represents success, false represents failure
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OrderDetailRequest extends Model
 {
     /**
+     * @description order number created by book
+     *
      * @example 4966***617111
      *
      * @var int
@@ -16,6 +18,8 @@ class OrderDetailRequest extends Model
     public $orderNum;
 
     /**
+     * @description external order number(customized by buyer when book)
+     *
      * @example x091-2023-0220-j-0001
      *
      * @var string

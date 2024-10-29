@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class RefundApplyResponseBody extends Model
 {
     /**
-     * @description 请求 RequestId
+     * @description request ID
      *
      * @example 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
      *
@@ -19,11 +19,15 @@ class RefundApplyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description data
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description error code
+     *
      * @example null
      *
      * @var string
@@ -31,6 +35,8 @@ class RefundApplyResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description error data
+     *
      * @example null
      *
      * @var mixed
@@ -38,6 +44,8 @@ class RefundApplyResponseBody extends Model
     public $errorData;
 
     /**
+     * @description error message
+     *
      * @example null
      *
      * @var string
@@ -45,6 +53,8 @@ class RefundApplyResponseBody extends Model
     public $errorMsg;
 
     /**
+     * @description http reqeust has been processed successfully，status code is 200
+     *
      * @example 200
      *
      * @var int
@@ -52,6 +62,8 @@ class RefundApplyResponseBody extends Model
     public $status;
 
     /**
+     * @description true represents success, false represents failure
+     *
      * @example true
      *
      * @var bool

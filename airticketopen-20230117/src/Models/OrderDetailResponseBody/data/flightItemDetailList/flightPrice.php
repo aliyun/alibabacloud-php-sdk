@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class flightPrice extends Model
 {
     /**
+     * @description selling price
+     *
      * @example 300
      *
      * @var float
@@ -16,6 +18,8 @@ class flightPrice extends Model
     public $sellPrice;
 
     /**
+     * @description tax
+     *
      * @example 10
      *
      * @var float

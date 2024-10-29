@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class baggageAncillary extends Model
 {
     /**
-     * @description 行李件数 取值如：3、2、1、0、-2。 -2 表示计重
+     * @description baggage quantity, values such as: 3, 2, 1, 0, -2.     -2 indicates weight-based
      *
      * @example 0
      *
@@ -18,7 +18,7 @@ class baggageAncillary extends Model
     public $baggageAmount;
 
     /**
-     * @description 行李重量，0-50。isAllWeght=true 时，表示所有件数总重量。
+     * @description Baggage weight, 0-50. When isAllWeight=true, it represents the total weight of all baggages.
      *
      * @example 0
      *
@@ -27,7 +27,7 @@ class baggageAncillary extends Model
     public $baggageWeight;
 
     /**
-     * @description 行李重量单位
+     * @description Unit of baggage weight
      *
      * @example KG
      *
@@ -36,7 +36,7 @@ class baggageAncillary extends Model
     public $baggageWeightUnit;
 
     /**
-     * @description 是否所有行李重量
+     * @description Whether the weight is for all baggages
      *
      * @example true
      *
@@ -45,7 +45,7 @@ class baggageAncillary extends Model
     public $isAllWeight;
 
     /**
-     * @description 总价
+     * @description Total price
      *
      * @example 10.0
      *

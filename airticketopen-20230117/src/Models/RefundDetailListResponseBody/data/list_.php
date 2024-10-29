@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description whether it is a supplementary refund order (if the refund amount is not enough, you can use RefundApply to create a supplementary refund order)
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class list_ extends Model
     public $isMultiRefund;
 
     /**
+     * @description order number that returned by Book
+     *
      * @example 49884*****2345
      *
      * @var int
@@ -23,6 +27,8 @@ class list_ extends Model
     public $orderNum;
 
     /**
+     * @description refund order number that returned by RefundApply
+     *
      * @example 49884*****950
      *
      * @var int
@@ -30,6 +36,9 @@ class list_ extends Model
     public $refundOrderNum;
 
     /**
+     * @description refund order status
+     *
+     * 3: refund succeeded
      * @example 1
      *
      * @var int
@@ -37,6 +46,8 @@ class list_ extends Model
     public $refundOrderStatus;
 
     /**
+     * @description the original refund order number associated with this supplementary refund order, only avaliable when is_multi_refund=true
+     *
      * @example 49884*****2387
      *
      * @var string
@@ -44,6 +55,8 @@ class list_ extends Model
     public $relatedRefundOrderNum;
 
     /**
+     * @description transaction number
+     *
      * @example 49884**tde-95za
      *
      * @var string
@@ -51,6 +64,8 @@ class list_ extends Model
     public $transactionNo;
 
     /**
+     * @description refund time(timestamp)
+     *
      * @example 1677229002000
      *
      * @var int

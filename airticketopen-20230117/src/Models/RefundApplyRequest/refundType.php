@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class refundType extends Model
 {
     /**
+     * @description attachment file URLs
+     *
+     * (note: upload the files using a separate file upload interface to get the file URLs)
      * @example [xxx,yyy]
      *
      * @var string[]
@@ -16,15 +19,18 @@ class refundType extends Model
     public $file;
 
     /**
-     * @description This parameter is required.
+     * @description refund type
      *
-     * @example 0
+     * This parameter is required.
+     * @example 2
      *
      * @var int
      */
     public $refundTypeId;
 
     /**
+     * @description remark
+     *
      * @example remark desc
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class refundResults extends Model
 {
     /**
+     * @description reason for refund application failure
+     *
      * @example desc reason
      *
      * @var string
@@ -17,6 +19,8 @@ class refundResults extends Model
     public $failReason;
 
     /**
+     * @description refund order number
+     *
      * @example 4966***617202
      *
      * @var int
@@ -24,11 +28,16 @@ class refundResults extends Model
     public $refundOrderNum;
 
     /**
+     * @description passengers of current refund order
+     *
      * @var refundPassengers[]
      */
     public $refundPassengers;
 
     /**
+     * @description refund order status
+     *
+     * 1: refund order creation failed
      * @example 0
      *
      * @var int

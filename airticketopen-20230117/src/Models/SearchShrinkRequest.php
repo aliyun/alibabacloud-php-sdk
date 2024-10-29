@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SearchShrinkRequest extends Model
 {
     /**
+     * @description adult passenger amount 1-9
+     *
      * @example 2
      *
      * @var int
@@ -16,13 +18,21 @@ class SearchShrinkRequest extends Model
     public $adults;
 
     /**
-     * @description This parameter is required.
+     * @description itinerary list
      *
+     * This parameter is required.
      * @var string
      */
     public $airLegsShrink;
 
     /**
+     * @description cabin class
+     * 1. **ALL_CABIN** : all cabin class
+     * 2. **Y** : economy class
+     * 3. **FC** : first class and business class
+     * 4. **S** : premium economy class
+     * 5. **YS** : economy class and premium economy class
+     * 6. **YSC** : economy class, premium economy class and business class
      * @example ALL_CABIN
      *
      * @var string
@@ -30,6 +40,8 @@ class SearchShrinkRequest extends Model
     public $cabinClass;
 
     /**
+     * @description child passenger amount 0-9
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +49,8 @@ class SearchShrinkRequest extends Model
     public $children;
 
     /**
+     * @description infant passenger amount 0-9
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +58,8 @@ class SearchShrinkRequest extends Model
     public $infants;
 
     /**
+     * @description search controls
+     *
      * @var string
      */
     public $searchControlOptionsShrink;

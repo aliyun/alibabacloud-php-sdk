@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class segmentList extends Model
 {
     /**
+     * @description arrival airport code (capitalized)
+     *
      * @example MFM
      *
      * @var string
@@ -16,6 +18,8 @@ class segmentList extends Model
     public $arrivalAirport;
 
     /**
+     * @description arrival city code (capitalized)
+     *
      * @example MFM
      *
      * @var string
@@ -23,6 +27,8 @@ class segmentList extends Model
     public $arrivalCity;
 
     /**
+     * @description arrival terminal
+     *
      * @example T1
      *
      * @var string
@@ -30,6 +36,8 @@ class segmentList extends Model
     public $arrivalTerminal;
 
     /**
+     * @description arrival time in string format (yyyy-MM-dd HH:mm:ss)
+     *
      * @example 2023-03-10 10:40:00
      *
      * @var string
@@ -37,6 +45,8 @@ class segmentList extends Model
     public $arrivalTime;
 
     /**
+     * @description available seats (for reference only)
+     *
      * @example 7
      *
      * @var string
@@ -44,6 +54,8 @@ class segmentList extends Model
     public $availability;
 
     /**
+     * @description RBD
+     *
      * @example V
      *
      * @var string
@@ -51,6 +63,8 @@ class segmentList extends Model
     public $cabin;
 
     /**
+     * @description cabin class
+     *
      * @example ALL_CABIN
      *
      * @var string
@@ -58,6 +72,8 @@ class segmentList extends Model
     public $cabinClass;
 
     /**
+     * @description code share or not
+     *
      * @example false
      *
      * @var bool
@@ -65,6 +81,8 @@ class segmentList extends Model
     public $codeShare;
 
     /**
+     * @description departure airport code (capitalized)
+     *
      * @example PVG
      *
      * @var string
@@ -72,6 +90,8 @@ class segmentList extends Model
     public $departureAirport;
 
     /**
+     * @description departure city code (capitalized)
+     *
      * @example SHA
      *
      * @var string
@@ -79,6 +99,8 @@ class segmentList extends Model
     public $departureCity;
 
     /**
+     * @description departure terminal
+     *
      * @example T2
      *
      * @var string
@@ -86,6 +108,8 @@ class segmentList extends Model
     public $departureTerminal;
 
     /**
+     * @description departure time in string format (yyyy-MM-dd HH:mm:ss)
+     *
      * @example 2023-03-10 07:55:00
      *
      * @var string
@@ -93,6 +117,8 @@ class segmentList extends Model
     public $departureTime;
 
     /**
+     * @description equipment type
+     *
      * @example 32Q
      *
      * @var string
@@ -100,6 +126,8 @@ class segmentList extends Model
     public $equipType;
 
     /**
+     * @description flight time, unit: minute
+     *
      * @example 165
      *
      * @var int
@@ -107,6 +135,8 @@ class segmentList extends Model
     public $flightDuration;
 
     /**
+     * @description marketing airline code (eg: KA)
+     *
      * @example HO
      *
      * @var string
@@ -114,6 +144,8 @@ class segmentList extends Model
     public $marketingAirline;
 
     /**
+     * @description marketing airline flight no. (eg: KA5809)
+     *
      * @example HO1295
      *
      * @var string
@@ -121,6 +153,8 @@ class segmentList extends Model
     public $marketingFlightNo;
 
     /**
+     * @description marketing airline flight no. (eg: 5809)
+     *
      * @example 1295
      *
      * @var int
@@ -128,6 +162,8 @@ class segmentList extends Model
     public $marketingFlightNoInt;
 
     /**
+     * @description operating airline code (eg: CX)
+     *
      * @example HO
      *
      * @var string
@@ -135,6 +171,8 @@ class segmentList extends Model
     public $operatingAirline;
 
     /**
+     * @description operating airline flight no. (eg: CX601)
+     *
      * @example HO1295
      *
      * @var string
@@ -142,6 +180,8 @@ class segmentList extends Model
     public $operatingFlightNo;
 
     /**
+     * @description segment ID format: flight no.+departure airport[IATA airport code]+arrival airport[IATA airport code]+departure time(MMdd)
+     *
      * @example HO1295-PVG-MFM-20230310
      *
      * @var string
@@ -149,13 +189,17 @@ class segmentList extends Model
     public $segmentId;
 
     /**
-     * @example ""
+     * @description stop city list. when stop_quantity > 1 , use “,” for seperation
+     *
+     * @example MFM,PVG
      *
      * @var string
      */
     public $stopCityList;
 
     /**
+     * @description number of stops
+     *
      * @example 0
      *
      * @var int

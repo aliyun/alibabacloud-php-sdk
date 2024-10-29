@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description order number
+     *
      * @example 4966***617111
      *
      * @var int
@@ -17,6 +19,8 @@ class data extends Model
     public $orderNum;
 
     /**
+     * @description refund results
+     *
      * @var refundResults[]
      */
     public $refundResults;

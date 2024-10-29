@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class airLegs extends Model
 {
     /**
+     * @description arrival airport [IATA airport code] list
+     *
      * @example MFM
      *
      * @var string[]
@@ -16,8 +18,9 @@ class airLegs extends Model
     public $arrivalAirportList;
 
     /**
-     * @description This parameter is required.
+     * @description arrival city code
      *
+     * This parameter is required.
      * @example MFM
      *
      * @var string
@@ -25,6 +28,8 @@ class airLegs extends Model
     public $arrivalCity;
 
     /**
+     * @description departure airport [IATA airport code] list
+     *
      * @example PVG
      *
      * @var string[]
@@ -32,8 +37,9 @@ class airLegs extends Model
     public $departureAirportList;
 
     /**
-     * @description This parameter is required.
+     * @description departure city code
      *
+     * This parameter is required.
      * @example SHA
      *
      * @var string
@@ -41,8 +47,9 @@ class airLegs extends Model
     public $departureCity;
 
     /**
-     * @description This parameter is required.
+     * @description departure date (eg: yyyyMMdd)
      *
+     * This parameter is required.
      * @example 20230310
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue extends Model
 {
     /**
+     * @description checked baggage quantity
+     *
      * @example 22
      *
      * @var int
@@ -16,6 +18,8 @@ class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingV
     public $baggageAmount;
 
     /**
+     * @description checked baggage weight
+     *
      * @example 2
      *
      * @var int
@@ -23,6 +27,8 @@ class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingV
     public $baggageWeight;
 
     /**
+     * @description checked baggage weight unit
+     *
      * @example kg
      *
      * @var string
@@ -30,6 +36,8 @@ class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingV
     public $baggageWeightUnit;
 
     /**
+     * @description Whether the weight is for all baggages
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +45,8 @@ class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingV
     public $isAllWeight;
 
     /**
+     * @description carry-on baggage quantity
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,8 @@ class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingV
     public $carryOnAmount;
 
     /**
+     * @description carry-on baggage weight
+     *
      * @example 2
      *
      * @var int
@@ -51,6 +63,8 @@ class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingV
     public $carryOnWeight;
 
     /**
+     * @description carry-on baggage weight unit
+     *
      * @example kg
      *
      * @var string
@@ -58,6 +72,8 @@ class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingV
     public $carryOnWeightUnit;
 
     /**
+     * @description Whether the weight is for all baggages
+     *
      * @example true
      *
      * @var bool

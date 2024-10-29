@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RefundDetailListRequest extends Model
 {
     /**
+     * @description order number returned by Book
+     *
      * @example 49884*****950
      *
      * @var int
@@ -16,6 +18,8 @@ class RefundDetailListRequest extends Model
     public $orderNum;
 
     /**
+     * @description pagination query parameters, from which page to start querying
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class RefundDetailListRequest extends Model
     public $pageIndex;
 
     /**
+     * @description pagination query parameters, how many orders to return
+     *
      * @example 20
      *
      * @var int
@@ -30,8 +36,9 @@ class RefundDetailListRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description the earliest time(timestamp) of refund order creation
      *
+     * This parameter is required.
      * @example 1677229002000
      *
      * @var int
@@ -39,8 +46,9 @@ class RefundDetailListRequest extends Model
     public $refundCreateBeginTime;
 
     /**
-     * @description This parameter is required.
+     * @description the latest time(timestamp) of refund order creation
      *
+     * This parameter is required.
      * @example 1677229005000
      *
      * @var int

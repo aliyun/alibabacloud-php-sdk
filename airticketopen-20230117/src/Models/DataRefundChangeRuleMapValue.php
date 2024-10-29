@@ -13,21 +13,29 @@ use AlibabaCloud\Tea\Model;
 class DataRefundChangeRuleMapValue extends Model
 {
     /**
+     * @description refund rule for fully-unused tickets
+     *
      * @var refundRuleAllUnusedList[]
      */
     public $refundRuleAllUnusedList;
 
     /**
+     * @description refund rule for partially-used tickets
+     *
      * @var refundRulePartUnusedList[]
      */
     public $refundRulePartUnusedList;
 
     /**
+     * @description change rule for inbound segment unused tickets
+     *
      * @var changeRuleInUnusedList[]
      */
     public $changeRuleInUnusedList;
 
     /**
+     * @description change rule for outbound-flight-unused tickets
+     *
      * @var changeRuleOutUnusedList[]
      */
     public $changeRuleOutUnusedList;

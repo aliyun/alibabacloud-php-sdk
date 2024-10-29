@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class refundJourneys extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description segment list
      *
+     * This parameter is required.
      * @var segmentList[]
      */
     public $segmentList;

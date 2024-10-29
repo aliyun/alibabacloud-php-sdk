@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class originalPriceInfo extends Model
 {
     /**
-     * @description 成人单价
+     * @description adult fare
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class originalPriceInfo extends Model
     public $adultPrice;
 
     /**
-     * @description 成人税
+     * @description adult tax
      *
      * @example 20
      *
@@ -27,7 +27,7 @@ class originalPriceInfo extends Model
     public $adultTax;
 
     /**
-     * @description 儿童单价
+     * @description child fare
      *
      * @example 200
      *
@@ -36,7 +36,7 @@ class originalPriceInfo extends Model
     public $childPrice;
 
     /**
-     * @description 儿童税
+     * @description child tax
      *
      * @example 20
      *
@@ -45,7 +45,7 @@ class originalPriceInfo extends Model
     public $childTax;
 
     /**
-     * @description 婴儿单价
+     * @description infant fare
      *
      * @example 200
      *
@@ -54,7 +54,7 @@ class originalPriceInfo extends Model
     public $infantPrice;
 
     /**
-     * @description 婴儿税
+     * @description infant tax
      *
      * @example 20
      *

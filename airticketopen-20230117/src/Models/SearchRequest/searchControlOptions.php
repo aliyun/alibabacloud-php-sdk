@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class searchControlOptions extends Model
 {
     /**
+     * @description excluded airlines list
+     *
      * @var string[]
      */
     public $airlineExcludedList;
 
     /**
+     * @description preferred airlines list
+     *
      * @var string[]
      */
     public $airlinePreferList;

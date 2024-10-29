@@ -12,31 +12,43 @@ use AlibabaCloud\Tea\Model;
 class flightItemDetailList extends Model
 {
     /**
+     * @description b PNR(airline booking code) list
+     *
      * @var string[]
      */
     public $bPnrList;
 
     /**
+     * @description c PNR(airline booking code) list
+     *
      * @var string[]
      */
     public $cPnrList;
 
     /**
+     * @description flight price information for current passenger
+     *
      * @var flightPrice
      */
     public $flightPrice;
 
     /**
+     * @description RBD information in flight segment dimension
+     *
      * @var flightSegmentCabinRelation[]
      */
     public $flightSegmentCabinRelation;
 
     /**
+     * @description passenger
+     *
      * @var passenger
      */
     public $passenger;
 
     /**
+     * @description ticketing airline
+     *
      * @example HO
      *
      * @var string
@@ -44,6 +56,8 @@ class flightItemDetailList extends Model
     public $ticketAirLine;
 
     /**
+     * @description ticket number list
+     *
      * @var string[]
      */
     public $ticketNos;

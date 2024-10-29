@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class segmentBaggageCheckInInfoList extends Model
 {
     /**
+     * @description through check-in baggage policy type
+     * 3. baggage re-checkin needed at stop city ( applies for stop flight )
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class segmentBaggageCheckInInfoList extends Model
     public $luggageDirectInfoType;
 
     /**
+     * @description segment id list. all the listed segment ids share the same baggage through check-in policy
+     *
      * @var string[]
      */
     public $segmentIdList;

@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class passengerAncillaryPurchaseMapList extends Model
 {
     /**
+     * @description ancillary information
+     *
      * @var bookAncillaryReqItem
      */
     public $bookAncillaryReqItem;
 
     /**
+     * @description passenger list for unified ancillary purchases
+     *
      * @var passengerList[]
      */
     public $passengerList;

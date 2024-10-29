@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class passengerMultiRefundDetails extends Model
 {
     /**
+     * @description amount of the supplementary refund for the change order
+     *
      * @example 30
      *
      * @var float
@@ -17,6 +19,8 @@ class passengerMultiRefundDetails extends Model
     public $changeOrderRefundFee;
 
     /**
+     * @description amount of the supplementary refund for the original order
+     *
      * @example 30
      *
      * @var float
@@ -24,6 +28,8 @@ class passengerMultiRefundDetails extends Model
     public $originalOrderRefundFee;
 
     /**
+     * @description passenger for the refund
+     *
      * @var passenger
      */
     public $passenger;

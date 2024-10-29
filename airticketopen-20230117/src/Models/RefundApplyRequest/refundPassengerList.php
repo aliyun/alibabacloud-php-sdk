@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class refundPassengerList extends Model
 {
     /**
+     * @description credential number
+     *
      * @example 411***********4411
      *
      * @var string
@@ -16,8 +18,9 @@ class refundPassengerList extends Model
     public $document;
 
     /**
-     * @description This parameter is required.
+     * @description first name
      *
+     * This parameter is required.
      * @example SAN
      *
      * @var string
@@ -25,8 +28,9 @@ class refundPassengerList extends Model
     public $firstName;
 
     /**
-     * @description This parameter is required.
+     * @description last name
      *
+     * This parameter is required.
      * @example ZHANG
      *
      * @var string

@@ -9,24 +9,28 @@ use AlibabaCloud\Tea\Model;
 class OrderListRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description latest booking time (timestamp)
      *
-     * @example 1677229006000
+     * This parameter is required.
+     * @example 2023-02-02 11:20:00
      *
      * @var int
      */
     public $bookTimeEnd;
 
     /**
-     * @description This parameter is required.
+     * @description earliest book time(timestamp)
      *
-     * @example 1677229005000
+     * This parameter is required.
+     * @example 2023-02-01 11:20:00
      *
      * @var int
      */
     public $bookTimeStart;
 
     /**
+     * @description pagination query parameters, from which page to start querying
+     *
      * @example 1
      *
      * @var int
@@ -34,6 +38,8 @@ class OrderListRequest extends Model
     public $pageIndex;
 
     /**
+     * @description pagination query parameters, how many orders to return
+     *
      * @example 20
      *
      * @var int
@@ -41,6 +47,9 @@ class OrderListRequest extends Model
     public $pageSize;
 
     /**
+     * @description which order status will be query
+     *
+     * 5: order closed
      * @example 4
      *
      * @var int

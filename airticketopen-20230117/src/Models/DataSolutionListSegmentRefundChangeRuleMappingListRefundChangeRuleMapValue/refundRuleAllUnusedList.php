@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class refundRuleAllUnusedList extends Model
 {
     /**
+     * @description type: 0 - fully-unused ticket; 1 - partially used ticket
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class refundRuleAllUnusedList extends Model
     public $type;
 
     /**
+     * @description time unit: day/hour
+     *
      * @example hour
      *
      * @var string
@@ -23,6 +27,8 @@ class refundRuleAllUnusedList extends Model
     public $timeUnit;
 
     /**
+     * @description applicable refund rule start time, time unit (day/hour)
+     *
      * @example 36
      *
      * @var int
@@ -30,6 +36,8 @@ class refundRuleAllUnusedList extends Model
     public $ruleStartTime;
 
     /**
+     * @description applicable refund rule end time, time unit (day/hour)
+     *
      * @example 12
      *
      * @var int
@@ -37,6 +45,8 @@ class refundRuleAllUnusedList extends Model
     public $ruleEndTime;
 
     /**
+     * @description whether refundable X-Y hour(day) before departure
+     *
      * @example true
      *
      * @var bool
@@ -44,6 +54,8 @@ class refundRuleAllUnusedList extends Model
     public $canRefund;
 
     /**
+     * @description refund fee X-Y hour(day) before departure
+     *
      * @example 20
      *
      * @var float
@@ -51,6 +63,8 @@ class refundRuleAllUnusedList extends Model
     public $refundFee;
 
     /**
+     * @description whether tax is fully refundable X-Y hour(day) before departure
+     *
      * @example true
      *
      * @var bool
@@ -58,6 +72,8 @@ class refundRuleAllUnusedList extends Model
     public $canReturnAllTax;
 
     /**
+     * @description tax amount refundable X-Y hour(day) before departure
+     *
      * @example 20
      *
      * @var float

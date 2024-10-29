@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class bookAncillaryReqItem extends Model
 {
     /**
+     * @description ancillary product ID, returned by AncillarySuggest.
+     *
      * @example MDY2NTAxLCJleHAiOjE2NxNzM3MDEsIm5ix
      *
      * @var string
@@ -16,6 +18,8 @@ class bookAncillaryReqItem extends Model
     public $ancillaryId;
 
     /**
+     * @description type of ancillary product, only support "4"(4 means paid baggage) currently.
+     *
      * @example 4
      *
      * @var int

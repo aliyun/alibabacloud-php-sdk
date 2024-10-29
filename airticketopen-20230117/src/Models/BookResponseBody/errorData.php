@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class errorData extends Model
 {
     /**
+     * @description order information list. When the same input parameters are used to repeat a Book, if the booking has already been successful, the order number will be returned.
+     *
      * @var orderList[]
      */
     public $orderList;

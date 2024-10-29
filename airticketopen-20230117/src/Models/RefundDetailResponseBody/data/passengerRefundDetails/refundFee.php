@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class refundFee extends Model
 {
     /**
+     * @description total price of the used flight tickets
+     *
      * @example 30
      *
      * @var float
@@ -16,6 +18,8 @@ class refundFee extends Model
     public $alreadyUsedTotalFee;
 
     /**
+     * @description amount refunded to the user after change (only available when has change order)
+     *
      * @example 30
      *
      * @var float
@@ -23,6 +27,8 @@ class refundFee extends Model
     public $modifyRefundToBuyerMoney;
 
     /**
+     * @description non-refundable change service fee
+     *
      * @example 30
      *
      * @var float
@@ -30,6 +36,8 @@ class refundFee extends Model
     public $nonRefundableChangeServiceFee;
 
     /**
+     * @description non-refundable upgrade fee
+     *
      * @example 30
      *
      * @var float
@@ -37,6 +45,8 @@ class refundFee extends Model
     public $nonRefundableChangeUpgradeFee;
 
     /**
+     * @description non-refundable tax amount, i.e., tax refund fee
+     *
      * @example 30
      *
      * @var float
@@ -44,6 +54,8 @@ class refundFee extends Model
     public $nonRefundableTaxFee;
 
     /**
+     * @description non-refundable ticket amount, i.e., ticket refund fee
+     *
      * @example 30
      *
      * @var float
@@ -51,6 +63,8 @@ class refundFee extends Model
     public $nonRefundableTicketFee;
 
     /**
+     * @description amount refundable to the user from the original ticket (fare + tax - non_refundable_ticket_fee - non_refundable_tax_fee - already_used_total_fee - discount)
+     *
      * @example 30
      *
      * @var float

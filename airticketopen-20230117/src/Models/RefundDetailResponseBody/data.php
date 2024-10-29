@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description whether it is a supplementary refund order (if the refund amount is not enough, you can use RefundApply to create a supplementary refund order)
+     *
      * @example false
      *
      * @var bool
@@ -19,11 +21,15 @@ class data extends Model
     public $containMultiRefund;
 
     /**
+     * @description supplementary refund orders
+     *
      * @var multiRefundDetails[]
      */
     public $multiRefundDetails;
 
     /**
+     * @description order number that returned by Book
+     *
      * @example 4966***617111
      *
      * @var int
@@ -31,11 +37,15 @@ class data extends Model
     public $orderNum;
 
     /**
+     * @description refund details by passenger dimension
+     *
      * @var passengerRefundDetails[]
      */
     public $passengerRefundDetails;
 
     /**
+     * @description refund completed time(timestamp)
+     *
      * @example 1677229005000
      *
      * @var int
@@ -43,6 +53,8 @@ class data extends Model
     public $paySuccessUtcTime;
 
     /**
+     * @description URLs for refund attachments
+     *
      * @example [zzz,yyy]
      *
      * @var string[]
@@ -50,11 +62,15 @@ class data extends Model
     public $refundAttachmentUrls;
 
     /**
+     * @description refunded journey
+     *
      * @var refundJourneys[]
      */
     public $refundJourneys;
 
     /**
+     * @description refund order number that returned by RefundApply
+     *
      * @example 4966***617654
      *
      * @var int
@@ -62,6 +78,8 @@ class data extends Model
     public $refundOrderNum;
 
     /**
+     * @description reason for refund
+     *
      * @example desc reason
      *
      * @var string
@@ -69,6 +87,9 @@ class data extends Model
     public $refundReason;
 
     /**
+     * @description refund type
+     *
+     * 100: non-voluntary non-confirmed guidance
      * @example 5
      *
      * @var int
@@ -76,6 +97,8 @@ class data extends Model
     public $refundType;
 
     /**
+     * @description reason for refund rejection
+     *
      * @example refuse reason
      *
      * @var string
@@ -83,6 +106,9 @@ class data extends Model
     public $refuseReason;
 
     /**
+     * @description refund order status
+     *
+     * 3: refund succeeded
      * @example 1
      *
      * @var int
@@ -90,6 +116,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description transaction number
+     *
      * @example 1677229005000
      *
      * @var string
@@ -97,6 +125,8 @@ class data extends Model
     public $transactionNo;
 
     /**
+     * @description refund order created time(timestamp)
+     *
      * @example 1677229002000
      *
      * @var int

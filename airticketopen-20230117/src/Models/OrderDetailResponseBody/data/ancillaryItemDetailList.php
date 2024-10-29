@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ancillaryItemDetailList extends Model
 {
     /**
+     * @description the ancillary buyer booked
+     *
      * @var ancillary
      */
     public $ancillary;
 
     /**
+     * @description passenger
+     *
      * @var passenger
      */
     public $passenger;
 
     /**
+     * @description segment ID list, these segments share the same ancillary
+     *
      * @var string[]
      */
     public $segmentIdList;

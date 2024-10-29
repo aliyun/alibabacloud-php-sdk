@@ -196,7 +196,9 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 辅营-推荐
+     * @summary Ancillary - Suggestion
+     *  *
+     * @description search ancillary for selected solution, you should enter the solution_id returned by enrich.
      *  *
      * @param AncillarySuggestRequest $request AncillarySuggestRequest
      * @param AncillarySuggestHeaders $headers AncillarySuggestHeaders
@@ -241,7 +243,9 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 辅营-推荐
+     * @summary Ancillary - Suggestion
+     *  *
+     * @description search ancillary for selected solution, you should enter the solution_id returned by enrich.
      *  *
      * @param AncillarySuggestRequest $request AncillarySuggestRequest
      *
@@ -256,7 +260,12 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 交易-预定
+     * @summary Transaction-Reservation
+     *  *
+     * @description Enter solution_id returned by enrich, ancillary_id returned by ancillarySuggest(optional), passengers information and contact information, the book interface will create an order wait for pay.
+     * There are two issues should be noticed:
+     * 1. the solution_id must be processed by pricing.
+     * 2. the order created by book interface should be pay within 30 minutes, otherwise the order will be closed.
      *  *
      * @param BookRequest    $tmpReq  BookRequest
      * @param BookHeaders    $headers BookHeaders
@@ -324,7 +333,12 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 交易-预定
+     * @summary Transaction-Reservation
+     *  *
+     * @description Enter solution_id returned by enrich, ancillary_id returned by ancillarySuggest(optional), passengers information and contact information, the book interface will create an order wait for pay.
+     * There are two issues should be noticed:
+     * 1. the solution_id must be processed by pricing.
+     * 2. the order created by book interface should be pay within 30 minutes, otherwise the order will be closed.
      *  *
      * @param BookRequest $request BookRequest
      *
@@ -339,7 +353,9 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 交易-未支付取消
+     * @summary Transaction - Unpaid Cancellation
+     *  *
+     * @description close an unpaid order
      *  *
      * @param CancelRequest  $request CancelRequest
      * @param CancelHeaders  $headers CancelHeaders
@@ -384,7 +400,9 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 交易-未支付取消
+     * @summary Transaction - Unpaid Cancellation
+     *  *
+     * @description close an unpaid order
      *  *
      * @param CancelRequest $request CancelRequest
      *
@@ -800,7 +818,12 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 搜索-Enrich
+     * @summary Search-Enrich
+     *  *
+     * @description Enrich supports two modes:
+     * 1. mode1: enter solution_id returned by Search.
+     * 2. mode2: enter journeyParamList.
+     * If you already confirm which flight to fly with, then you can use mode2, otherwise, use mode1(search first, then chose one solution_ID and Enrich).
      *  *
      * @param EnrichRequest  $tmpReq  EnrichRequest
      * @param EnrichHeaders  $headers EnrichHeaders
@@ -865,7 +888,12 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 搜索-Enrich
+     * @summary Search-Enrich
+     *  *
+     * @description Enrich supports two modes:
+     * 1. mode1: enter solution_id returned by Search.
+     * 2. mode2: enter journeyParamList.
+     * If you already confirm which flight to fly with, then you can use mode2, otherwise, use mode1(search first, then chose one solution_ID and Enrich).
      *  *
      * @param EnrichRequest $request EnrichRequest
      *
@@ -1003,7 +1031,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 获取token
+     * @summary Get Token
      *  *
      * @param GetTokenRequest $request GetTokenRequest
      * @param string[]        $headers map
@@ -1041,7 +1069,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 获取token
+     * @summary Get Token
      *  *
      * @param GetTokenRequest $request GetTokenRequest
      *
@@ -1121,7 +1149,9 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 交易-订单详情
+     * @summary Trade-Order Details
+     *  *
+     * @description query order detail
      *  *
      * @param OrderDetailRequest $request OrderDetailRequest
      * @param OrderDetailHeaders $headers OrderDetailHeaders
@@ -1169,7 +1199,9 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 交易-订单详情
+     * @summary Trade-Order Details
+     *  *
+     * @description query order detail
      *  *
      * @param OrderDetailRequest $request OrderDetailRequest
      *
@@ -1184,7 +1216,9 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 交易-订单列表
+     * @summary Trade - Order List
+     *  *
+     * @description query order list
      *  *
      * @param OrderListRequest $request OrderListRequest
      * @param OrderListHeaders $headers OrderListHeaders
@@ -1241,7 +1275,9 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 交易-订单列表
+     * @summary Trade - Order List
+     *  *
+     * @description query order list
      *  *
      * @param OrderListRequest $request OrderListRequest
      *
@@ -1256,7 +1292,9 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary Pricing
+     * @summary Trade - Seat and Price Verification
+     *  *
+     * @description Check is price and remaining seats of solution you selected has changed. You should enter the solution_id returned by enrich.
      *  *
      * @param PricingRequest $request PricingRequest
      * @param PricingHeaders $headers PricingHeaders
@@ -1301,7 +1339,9 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary Pricing
+     * @summary Trade - Seat and Price Verification
+     *  *
+     * @description Check is price and remaining seats of solution you selected has changed. You should enter the solution_id returned by enrich.
      *  *
      * @param PricingRequest $request PricingRequest
      *
@@ -1317,6 +1357,8 @@ class AirticketOpen extends OpenApiClient
 
     /**
      * @summary 退票-申请
+     *  *
+     * @description Apply for a refund and generate a refund order.
      *  *
      * @param RefundApplyRequest $tmpReq  RefundApplyRequest
      * @param RefundApplyHeaders $headers RefundApplyHeaders
@@ -1383,6 +1425,8 @@ class AirticketOpen extends OpenApiClient
     /**
      * @summary 退票-申请
      *  *
+     * @description Apply for a refund and generate a refund order.
+     *  *
      * @param RefundApplyRequest $request RefundApplyRequest
      *
      * @return RefundApplyResponse RefundApplyResponse
@@ -1396,7 +1440,9 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 退票-Detail
+     * @summary Refund - Detail
+     *  *
+     * @description Query refund order detail.
      *  *
      * @param RefundDetailRequest $request RefundDetailRequest
      * @param RefundDetailHeaders $headers RefundDetailHeaders
@@ -1441,7 +1487,9 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 退票-Detail
+     * @summary Refund - Detail
+     *  *
+     * @description Query refund order detail.
      *  *
      * @param RefundDetailRequest $request RefundDetailRequest
      *
@@ -1456,7 +1504,9 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 退票-DetailList
+     * @summary Refund - Detail List
+     *  *
+     * @description Query refund order detail.
      *  *
      * @param RefundDetailListRequest $request RefundDetailListRequest
      * @param RefundDetailListHeaders $headers RefundDetailListHeaders
@@ -1513,7 +1563,9 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 退票-DetailList
+     * @summary Refund - Detail List
+     *  *
+     * @description Query refund order detail.
      *  *
      * @param RefundDetailListRequest $request RefundDetailListRequest
      *
@@ -1528,7 +1580,9 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 搜索
+     * @summary search
+     *  *
+     * @description Enter the information of departure, arrival, departure date, passenger number and cabin, return the lowest price for each flight.
      *  *
      * @param SearchRequest  $tmpReq  SearchRequest
      * @param SearchHeaders  $headers SearchHeaders
@@ -1596,7 +1650,9 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 搜索
+     * @summary search
+     *  *
+     * @description Enter the information of departure, arrival, departure date, passenger number and cabin, return the lowest price for each flight.
      *  *
      * @param SearchRequest $request SearchRequest
      *
@@ -1611,7 +1667,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 交易-支付出票
+     * @summary Transaction - Payment and Ticket Issuance
      *  *
      * @param TicketingRequest $request TicketingRequest
      * @param TicketingHeaders $headers TicketingHeaders
@@ -1656,7 +1712,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 交易-支付出票
+     * @summary Transaction - Payment and Ticket Issuance
      *  *
      * @param TicketingRequest $request TicketingRequest
      *
@@ -1671,7 +1727,9 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 交易-支付前校验
+     * @summary Transaction - Pre-payment verification
+     *  *
+     * @description Pre-check for Ticketing, this interface is optional to use.
      *  *
      * @param TicketingCheckRequest $request TicketingCheckRequest
      * @param TicketingCheckHeaders $headers TicketingCheckHeaders
@@ -1716,7 +1774,9 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * @summary 交易-支付前校验
+     * @summary Transaction - Pre-payment verification
+     *  *
+     * @description Pre-check for Ticketing, this interface is optional to use.
      *  *
      * @param TicketingCheckRequest $request TicketingCheckRequest
      *

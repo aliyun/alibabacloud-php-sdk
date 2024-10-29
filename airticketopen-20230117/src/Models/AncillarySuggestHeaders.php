@@ -21,6 +21,8 @@ class AncillarySuggestHeaders extends Model
     public $xAcsAirticketAccessToken;
 
     /**
+     * @description Language Code(refer to ISO_639)
+     *
      * @example en_US
      *
      * @var string

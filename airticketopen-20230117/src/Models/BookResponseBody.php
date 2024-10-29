@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class BookResponseBody extends Model
 {
     /**
+     * @description request ID
+     *
      * @example 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
      *
      * @var string
@@ -18,11 +20,15 @@ class BookResponseBody extends Model
     public $requestId;
 
     /**
+     * @description data
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description error code
+     *
      * @example null
      *
      * @var string
@@ -30,6 +36,8 @@ class BookResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description error data
+     *
      * @example null
      *
      * @var errorData
@@ -37,6 +45,8 @@ class BookResponseBody extends Model
     public $errorData;
 
     /**
+     * @description error message
+     *
      * @example null
      *
      * @var string
@@ -44,6 +54,8 @@ class BookResponseBody extends Model
     public $errorMsg;
 
     /**
+     * @description http reqeust has been processed successfully，status code is 200
+     *
      * @example 200
      *
      * @var int
@@ -51,6 +63,8 @@ class BookResponseBody extends Model
     public $status;
 
     /**
+     * @description true represents success, false represents failure
+     *
      * @example true
      *
      * @var bool

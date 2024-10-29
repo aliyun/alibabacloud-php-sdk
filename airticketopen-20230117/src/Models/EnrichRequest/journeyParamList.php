@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class journeyParamList extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description arrival city code (capitalized)
      *
+     * This parameter is required.
      * @example MFM
      *
      * @var string
@@ -19,8 +20,9 @@ class journeyParamList extends Model
     public $arrivalCity;
 
     /**
-     * @description This parameter is required.
+     * @description departure city code (capitalized)
      *
+     * This parameter is required.
      * @example SHA
      *
      * @var string
@@ -28,8 +30,9 @@ class journeyParamList extends Model
     public $departureCity;
 
     /**
-     * @description This parameter is required.
+     * @description departure date (eg: yyyyMMdd)
      *
+     * This parameter is required.
      * @example 20230310
      *
      * @var string
@@ -37,8 +40,9 @@ class journeyParamList extends Model
     public $departureDate;
 
     /**
-     * @description This parameter is required.
+     * @description segement param list
      *
+     * This parameter is required.
      * @var segmentParamList[]
      */
     public $segmentParamList;

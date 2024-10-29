@@ -39,6 +39,11 @@ class segmentList extends Model
     public $arriveTime;
 
     /**
+     * @var string
+     */
+    public $arriveTimeStr;
+
+    /**
      * @example false
      *
      * @var bool
@@ -85,6 +90,11 @@ class segmentList extends Model
     public $departureTime;
 
     /**
+     * @var string
+     */
+    public $departureTimeStr;
+
+    /**
      * @description This parameter is required.
      *
      * @example HO1295
@@ -104,12 +114,14 @@ class segmentList extends Model
         'arrivalCity'       => 'arrival_city',
         'arriveTerminal'    => 'arrive_terminal',
         'arriveTime'        => 'arrive_time',
+        'arriveTimeStr'     => 'arrive_time_str',
         'codeShare'         => 'code_share',
         'departureAirport'  => 'departure_airport',
         'departureCity'     => 'departure_city',
         'departureDate'     => 'departure_date',
         'departureTerminal' => 'departure_terminal',
         'departureTime'     => 'departure_time',
+        'departureTimeStr'  => 'departure_time_str',
         'marketingFlightNo' => 'marketing_flight_no',
         'operatingFlightNo' => 'operating_flight_no',
     ];
@@ -133,6 +145,9 @@ class segmentList extends Model
         if (null !== $this->arriveTime) {
             $res['arrive_time'] = $this->arriveTime;
         }
+        if (null !== $this->arriveTimeStr) {
+            $res['arrive_time_str'] = $this->arriveTimeStr;
+        }
         if (null !== $this->codeShare) {
             $res['code_share'] = $this->codeShare;
         }
@@ -150,6 +165,9 @@ class segmentList extends Model
         }
         if (null !== $this->departureTime) {
             $res['departure_time'] = $this->departureTime;
+        }
+        if (null !== $this->departureTimeStr) {
+            $res['departure_time_str'] = $this->departureTimeStr;
         }
         if (null !== $this->marketingFlightNo) {
             $res['marketing_flight_no'] = $this->marketingFlightNo;
@@ -181,6 +199,9 @@ class segmentList extends Model
         if (isset($map['arrive_time'])) {
             $model->arriveTime = $map['arrive_time'];
         }
+        if (isset($map['arrive_time_str'])) {
+            $model->arriveTimeStr = $map['arrive_time_str'];
+        }
         if (isset($map['code_share'])) {
             $model->codeShare = $map['code_share'];
         }
@@ -198,6 +219,9 @@ class segmentList extends Model
         }
         if (isset($map['departure_time'])) {
             $model->departureTime = $map['departure_time'];
+        }
+        if (isset($map['departure_time_str'])) {
+            $model->departureTimeStr = $map['departure_time_str'];
         }
         if (isset($map['marketing_flight_no'])) {
             $model->marketingFlightNo = $map['marketing_flight_no'];

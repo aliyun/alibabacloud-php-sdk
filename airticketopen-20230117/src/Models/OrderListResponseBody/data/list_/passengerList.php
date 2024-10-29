@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class passengerList extends Model
 {
     /**
+     * @description date of birth (yyyyMMdd)
+     *
      * @example 20020301
      *
      * @var string
@@ -17,11 +19,15 @@ class passengerList extends Model
     public $birthday;
 
     /**
+     * @description credential
+     *
      * @var credential
      */
     public $credential;
 
     /**
+     * @description first name
+     *
      * @example SAN
      *
      * @var string
@@ -29,6 +35,8 @@ class passengerList extends Model
     public $firstName;
 
     /**
+     * @description gender 0: MALE; 1: FEMALE
+     *
      * @example 0
      *
      * @var int
@@ -36,6 +44,8 @@ class passengerList extends Model
     public $gender;
 
     /**
+     * @description last name
+     *
      * @example ZHANG
      *
      * @var string
@@ -43,6 +53,8 @@ class passengerList extends Model
     public $lastName;
 
     /**
+     * @description mobile country code
+     *
      * @example 86
      *
      * @var string
@@ -50,6 +62,8 @@ class passengerList extends Model
     public $mobileCountryCode;
 
     /**
+     * @description mobile phone number
+     *
      * @example 183******96
      *
      * @var string
@@ -57,6 +71,8 @@ class passengerList extends Model
     public $mobilePhoneNumber;
 
     /**
+     * @description nationality (two-letter code)
+     *
      * @example CN
      *
      * @var string
@@ -64,6 +80,8 @@ class passengerList extends Model
     public $nationality;
 
     /**
+     * @description passenger type 0: adult; 1: child; 8: infant
+     *
      * @example 0
      *
      * @var int

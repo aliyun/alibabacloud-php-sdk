@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description price information after the price change
+     *
      * @var changedPriceInfo
      */
     public $changedPriceInfo;
 
     /**
+     * @description whether the price has changed
+     *
      * @example true
      *
      * @var bool
@@ -24,19 +28,23 @@ class data extends Model
     public $isChanged;
 
     /**
-     * @description 变价之前价格信息 isChanged = true 时，才有值
+     * @description the price information before the change, only available when is_changed = true
      *
      * @var originalPriceInfo
      */
     public $originalPriceInfo;
 
     /**
+     * @description remaining seats: A indicates more than 9, 0-9 represents the specific number
+     *
+     * @example A
+     *
      * @var string
      */
     public $remainSeats;
 
     /**
-     * @description solution
+     * @description the solution represented by the solution_id in request
      *
      * @var solution
      */

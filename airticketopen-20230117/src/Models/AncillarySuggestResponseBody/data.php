@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description ancillary detail list
+     *
      * @var segAncillaryMapList[]
      */
     public $segAncillaryMapList;
 
     /**
+     * @description solution_id, equals to solution_id in request
+     *
      * @example eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
      *
      * @var string

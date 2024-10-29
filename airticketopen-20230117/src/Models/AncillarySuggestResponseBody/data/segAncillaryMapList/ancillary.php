@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ancillary extends Model
 {
     /**
+     * @description Ancillary product ID
+     *
      * @example eJwz8DeySEo0NjQ01TU3TU
      *
      * @var string
@@ -17,6 +19,8 @@ class ancillary extends Model
     public $ancillaryId;
 
     /**
+     * @description Ancillary product type. currently supports 4: paid luggage
+     *
      * @example 4
      *
      * @var int
@@ -24,7 +28,7 @@ class ancillary extends Model
     public $ancillaryType;
 
     /**
-     * @description 行李辅营详情
+     * @description Baggage details
      *
      * @var baggageAncillary
      */

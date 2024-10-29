@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AncillarySuggestRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description solution_id returned by enrich
      *
+     * This parameter is required.
      * @example eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
      *
      * @var string

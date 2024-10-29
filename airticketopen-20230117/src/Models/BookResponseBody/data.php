@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description order information list
+     *
      * @var orderList[]
      */
     public $orderList;

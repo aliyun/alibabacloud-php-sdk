@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class refundJourneys extends Model
 {
     /**
+     * @description segment list
+     *
      * @var segmentList[]
      */
     public $segmentList;
 
     /**
+     * @description number of transfer
+     *
      * @example 0
      *
      * @var int

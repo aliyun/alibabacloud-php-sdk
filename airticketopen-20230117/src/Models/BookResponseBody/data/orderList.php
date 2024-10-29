@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class orderList extends Model
 {
     /**
+     * @description order number
+     *
      * @example 4966***617111
      *
      * @var int

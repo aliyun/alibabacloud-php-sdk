@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class multiRefundDetails extends Model
 {
     /**
+     * @description supplementary refund order number
+     *
      * @example 498843***6950
      *
      * @var int
@@ -17,6 +19,8 @@ class multiRefundDetails extends Model
     public $multiRefundOrderNum;
 
     /**
+     * @description transaction number of the supplementary refund order
+     *
      * @example 498843***6950
      *
      * @var string
@@ -24,6 +28,8 @@ class multiRefundDetails extends Model
     public $multiRefundTransactionNo;
 
     /**
+     * @description supplementary refund details in passenger dimension
+     *
      * @var passengerMultiRefundDetails[]
      */
     public $passengerMultiRefundDetails;

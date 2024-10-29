@@ -15,16 +15,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description ancillary product fulfillment details
+     *
      * @var ancillaryItemDetailList[]
      */
     public $ancillaryItemDetailList;
 
     /**
+     * @description baggage rule mapping, key is passenger type, value is baggage allowance details
+     *
      * @var DataBaggageAllowanceMapValue[]
      */
     public $baggageAllowanceMap;
 
     /**
+     * @description book time(timestamp)
+     *
      * @example 1677210784000
      *
      * @var int
@@ -32,11 +38,15 @@ class data extends Model
     public $bookTime;
 
     /**
+     * @description flight product fulfillment details
+     *
      * @var flightItemDetailList[]
      */
     public $flightItemDetailList;
 
     /**
+     * @description order number created by book
+     *
      * @example 4966***617111
      *
      * @var int
@@ -44,6 +54,9 @@ class data extends Model
     public $orderNum;
 
     /**
+     * @description order status
+     *
+     * 5: order closed
      * @example 4
      *
      * @var int
@@ -51,6 +64,8 @@ class data extends Model
     public $orderStatus;
 
     /**
+     * @description external order number(customized by buyer when book)
+     *
      * @example x091-2023-0220-j-0001
      *
      * @var string
@@ -58,11 +73,16 @@ class data extends Model
     public $outOrderNum;
 
     /**
+     * @description the information about all passenger of current order
+     *
      * @var passengerList[]
      */
     public $passengerList;
 
     /**
+     * @description payment status
+     *
+     * 4: transaction closed
      * @example 2
      *
      * @var int
@@ -70,6 +90,8 @@ class data extends Model
     public $payStatus;
 
     /**
+     * @description pay time(timestamp)
+     *
      * @example 1677210788000
      *
      * @var int
@@ -77,6 +99,8 @@ class data extends Model
     public $payTime;
 
     /**
+     * @description discount amount
+     *
      * @example 10
      *
      * @var float
@@ -84,6 +108,8 @@ class data extends Model
     public $promotionPrice;
 
     /**
+     * @description actual payment amount
+     *
      * @example 3000
      *
      * @var float
@@ -91,11 +117,15 @@ class data extends Model
     public $realPayPrice;
 
     /**
+     * @description change and refund policy mapping, key is passenger type, value is change and refund policy details
+     *
      * @var DataRefundChangeRuleMapValue[]
      */
     public $refundChangeRuleMap;
 
     /**
+     * @description buyer nickname
+     *
      * @example nick
      *
      * @var string
@@ -103,11 +133,15 @@ class data extends Model
     public $sessionNick;
 
     /**
+     * @description the solution buyer booked
+     *
      * @var solution
      */
     public $solution;
 
     /**
+     * @description order success time(timestamp)
+     *
      * @example 1677210786000
      *
      * @var int
@@ -115,6 +149,8 @@ class data extends Model
     public $succeedTime;
 
     /**
+     * @description total price of current order
+     *
      * @example 3000
      *
      * @var float
@@ -122,6 +158,8 @@ class data extends Model
     public $totalPrice;
 
     /**
+     * @description transaction number
+     *
      * @example hkduendkd-2023-dj0
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SearchResponseBody extends Model
 {
     /**
+     * @description request ID
+     *
      * @example 2236993B-7BE7-5F92-B179-21FF08570165
      *
      * @var string
@@ -17,32 +19,42 @@ class SearchResponseBody extends Model
     public $requestId;
 
     /**
+     * @description data
+     *
      * @var data
      */
     public $data;
 
     /**
-     * @example null
+     * @description error code
+     *
+     * @example ""
      *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @example null
+     * @description error data
+     *
+     * @example {}
      *
      * @var mixed
      */
     public $errorData;
 
     /**
-     * @example null
+     * @description error message
+     *
+     * @example ""
      *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description http reqeust has been processed successfully，status code is 200
+     *
      * @example 200
      *
      * @var int
@@ -50,6 +62,8 @@ class SearchResponseBody extends Model
     public $status;
 
     /**
+     * @description true represents success, false represents failure
+     *
      * @example true
      *
      * @var bool

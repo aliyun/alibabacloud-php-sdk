@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class segmentRefundChangeRuleMappingList extends Model
 {
     /**
+     * @description change and refund policy mapping, key is passenger type, value is change and refund policy details
+     *
      * @var DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValue[]
      */
     public $refundChangeRuleMap;
 
     /**
+     * @description segment id list. all the listed segment ids share the same change and refund policy
+     *
      * @var string[]
      */
     public $segmentIdList;
