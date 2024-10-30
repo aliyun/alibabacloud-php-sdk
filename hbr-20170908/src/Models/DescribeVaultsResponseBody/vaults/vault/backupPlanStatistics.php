@@ -18,6 +18,11 @@ class backupPlanStatistics extends Model
     public $archive;
 
     /**
+     * @var int
+     */
+    public $commonFileSystem;
+
+    /**
      * @description The number of backup plans for General-purpose NAS file systems.
      *
      * @example 1
@@ -134,20 +139,21 @@ class backupPlanStatistics extends Model
      */
     public $sqlServer;
     protected $_name = [
-        'archive'   => 'Archive',
-        'commonNas' => 'CommonNas',
-        'csg'       => 'Csg',
-        'ecsFile'   => 'EcsFile',
-        'ecsHana'   => 'EcsHana',
-        'isilon'    => 'Isilon',
-        'localFile' => 'LocalFile',
-        'localVm'   => 'LocalVm',
-        'mySql'     => 'MySql',
-        'nas'       => 'Nas',
-        'oracle'    => 'Oracle',
-        'oss'       => 'Oss',
-        'ots'       => 'Ots',
-        'sqlServer' => 'SqlServer',
+        'archive'          => 'Archive',
+        'commonFileSystem' => 'CommonFileSystem',
+        'commonNas'        => 'CommonNas',
+        'csg'              => 'Csg',
+        'ecsFile'          => 'EcsFile',
+        'ecsHana'          => 'EcsHana',
+        'isilon'           => 'Isilon',
+        'localFile'        => 'LocalFile',
+        'localVm'          => 'LocalVm',
+        'mySql'            => 'MySql',
+        'nas'              => 'Nas',
+        'oracle'           => 'Oracle',
+        'oss'              => 'Oss',
+        'ots'              => 'Ots',
+        'sqlServer'        => 'SqlServer',
     ];
 
     public function validate()
@@ -159,6 +165,9 @@ class backupPlanStatistics extends Model
         $res = [];
         if (null !== $this->archive) {
             $res['Archive'] = $this->archive;
+        }
+        if (null !== $this->commonFileSystem) {
+            $res['CommonFileSystem'] = $this->commonFileSystem;
         }
         if (null !== $this->commonNas) {
             $res['CommonNas'] = $this->commonNas;
@@ -213,6 +222,9 @@ class backupPlanStatistics extends Model
         $model = new self();
         if (isset($map['Archive'])) {
             $model->archive = $map['Archive'];
+        }
+        if (isset($map['CommonFileSystem'])) {
+            $model->commonFileSystem = $map['CommonFileSystem'];
         }
         if (isset($map['CommonNas'])) {
             $model->commonNas = $map['CommonNas'];
