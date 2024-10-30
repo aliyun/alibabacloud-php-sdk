@@ -2452,7 +2452,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询工作空间详情
+     * @summary Queries the information about a DataWorks workspace.
      *  *
      * @param GetProjectRequest $request GetProjectRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -2482,7 +2482,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询工作空间详情
+     * @summary Queries the information about a DataWorks workspace.
      *  *
      * @param GetProjectRequest $request GetProjectRequest
      *
