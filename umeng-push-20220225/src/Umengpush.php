@@ -229,6 +229,9 @@ class Umengpush extends OpenApiClient
         if (!Utils::isUnset($request->thirdPartyId)) {
             $body['ThirdPartyId'] = $request->thirdPartyId;
         }
+        if (!Utils::isUnset($request->callbackParams)) {
+            $body['callbackParams'] = $request->callbackParams;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
@@ -323,6 +326,9 @@ class Umengpush extends OpenApiClient
         if (!Utils::isUnset($request->thirdPartyId)) {
             $body['ThirdPartyId'] = $request->thirdPartyId;
         }
+        if (!Utils::isUnset($request->callbackParams)) {
+            $body['callbackParams'] = $request->callbackParams;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
@@ -410,6 +416,9 @@ class Umengpush extends OpenApiClient
         }
         if (!Utils::isUnset($request->thirdPartyId)) {
             $body['ThirdPartyId'] = $request->thirdPartyId;
+        }
+        if (!Utils::isUnset($request->callbackParams)) {
+            $body['callbackParams'] = $request->callbackParams;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -502,6 +511,9 @@ class Umengpush extends OpenApiClient
         if (!Utils::isUnset($request->thirdPartyId)) {
             $body['ThirdPartyId'] = $request->thirdPartyId;
         }
+        if (!Utils::isUnset($request->callbackParams)) {
+            $body['callbackParams'] = $request->callbackParams;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
@@ -593,6 +605,9 @@ class Umengpush extends OpenApiClient
         if (!Utils::isUnset($request->thirdPartyId)) {
             $body['ThirdPartyId'] = $request->thirdPartyId;
         }
+        if (!Utils::isUnset($request->callbackParams)) {
+            $body['callbackParams'] = $request->callbackParams;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
@@ -683,6 +698,9 @@ class Umengpush extends OpenApiClient
         }
         if (!Utils::isUnset($request->thirdPartyId)) {
             $body['ThirdPartyId'] = $request->thirdPartyId;
+        }
+        if (!Utils::isUnset($request->callbackParams)) {
+            $body['callbackParams'] = $request->callbackParams;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,

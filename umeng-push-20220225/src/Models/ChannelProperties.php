@@ -29,6 +29,13 @@ class ChannelProperties extends Model
     public $huaweiChannelImportance;
 
     /**
+     * @example 取值为"NORMAL"和"HIGH",默认为”NORMAL”
+     *
+     * @var string
+     */
+    public $huaweiMessageUrgency;
+
+    /**
      * @var string
      */
     public $mainActivity;
@@ -37,6 +44,13 @@ class ChannelProperties extends Model
      * @var string
      */
     public $oppoChannelId;
+
+    /**
+     * @example "true" ,默认为"false"，可不填
+     *
+     * @var string
+     */
+    public $useHuaweiMessage;
 
     /**
      * @example "true",默认"false"
@@ -59,8 +73,10 @@ class ChannelProperties extends Model
         'channelFcm'              => 'channelFcm',
         'huaweiChannelCategory'   => 'huaweiChannelCategory',
         'huaweiChannelImportance' => 'huaweiChannelImportance',
+        'huaweiMessageUrgency'    => 'huaweiMessageUrgency',
         'mainActivity'            => 'mainActivity',
         'oppoChannelId'           => 'oppoChannelId',
+        'useHuaweiMessage'        => 'useHuaweiMessage',
         'vivoAddBadge'            => 'vivoAddBadge',
         'vivoCategory'            => 'vivoCategory',
         'xiaomiChannelId'         => 'xiaomiChannelId',
@@ -85,11 +101,17 @@ class ChannelProperties extends Model
         if (null !== $this->huaweiChannelImportance) {
             $res['huaweiChannelImportance'] = $this->huaweiChannelImportance;
         }
+        if (null !== $this->huaweiMessageUrgency) {
+            $res['huaweiMessageUrgency'] = $this->huaweiMessageUrgency;
+        }
         if (null !== $this->mainActivity) {
             $res['mainActivity'] = $this->mainActivity;
         }
         if (null !== $this->oppoChannelId) {
             $res['oppoChannelId'] = $this->oppoChannelId;
+        }
+        if (null !== $this->useHuaweiMessage) {
+            $res['useHuaweiMessage'] = $this->useHuaweiMessage;
         }
         if (null !== $this->vivoAddBadge) {
             $res['vivoAddBadge'] = $this->vivoAddBadge;
@@ -124,11 +146,17 @@ class ChannelProperties extends Model
         if (isset($map['huaweiChannelImportance'])) {
             $model->huaweiChannelImportance = $map['huaweiChannelImportance'];
         }
+        if (isset($map['huaweiMessageUrgency'])) {
+            $model->huaweiMessageUrgency = $map['huaweiMessageUrgency'];
+        }
         if (isset($map['mainActivity'])) {
             $model->mainActivity = $map['mainActivity'];
         }
         if (isset($map['oppoChannelId'])) {
             $model->oppoChannelId = $map['oppoChannelId'];
+        }
+        if (isset($map['useHuaweiMessage'])) {
+            $model->useHuaweiMessage = $map['useHuaweiMessage'];
         }
         if (isset($map['vivoAddBadge'])) {
             $model->vivoAddBadge = $map['vivoAddBadge'];

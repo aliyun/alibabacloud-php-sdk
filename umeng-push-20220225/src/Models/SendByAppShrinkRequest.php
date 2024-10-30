@@ -56,6 +56,11 @@ class SendByAppShrinkRequest extends Model
      * @var string
      */
     public $thirdPartyId;
+
+    /**
+     * @var string
+     */
+    public $callbackParams;
     protected $_name = [
         'androidPayloadShrink'    => 'AndroidPayload',
         'channelPropertiesShrink' => 'ChannelProperties',
@@ -66,6 +71,7 @@ class SendByAppShrinkRequest extends Model
         'receiptType'             => 'ReceiptType',
         'receiptUrl'              => 'ReceiptUrl',
         'thirdPartyId'            => 'ThirdPartyId',
+        'callbackParams'          => 'callbackParams',
     ];
 
     public function validate()
@@ -101,6 +107,9 @@ class SendByAppShrinkRequest extends Model
         }
         if (null !== $this->thirdPartyId) {
             $res['ThirdPartyId'] = $this->thirdPartyId;
+        }
+        if (null !== $this->callbackParams) {
+            $res['callbackParams'] = $this->callbackParams;
         }
 
         return $res;
@@ -140,6 +149,9 @@ class SendByAppShrinkRequest extends Model
         }
         if (isset($map['ThirdPartyId'])) {
             $model->thirdPartyId = $map['ThirdPartyId'];
+        }
+        if (isset($map['callbackParams'])) {
+            $model->callbackParams = $map['callbackParams'];
         }
 
         return $model;
