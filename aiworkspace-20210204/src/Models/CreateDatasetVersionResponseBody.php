@@ -9,21 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateDatasetVersionResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @example v1
      *
      * @var string
      */
     public $versionName;
-
-    /**
-     * @example ADF6D849-*****-7E7030F0CE53
-     *
-     * @var string
-     */
-    public $requestId;
     protected $_name = [
+        'requestId'   => 'RequestId',
         'versionName' => 'VersionName',
-        'requestId'   => 'requestId',
     ];
 
     public function validate()
@@ -33,11 +31,11 @@ class CreateDatasetVersionResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->versionName) {
             $res['VersionName'] = $this->versionName;
-        }
-        if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
         }
 
         return $res;
@@ -51,11 +49,11 @@ class CreateDatasetVersionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['VersionName'])) {
             $model->versionName = $map['VersionName'];
-        }
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
         }
 
         return $model;

@@ -23,6 +23,8 @@ class CreateDatasetVersionRequest extends Model
     public $dataSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example OSS
      *
      * @var string
@@ -47,6 +49,8 @@ class CreateDatasetVersionRequest extends Model
     public $options;
 
     /**
+     * @description This parameter is required.
+     *
      * @example DIRECTORY
      *
      * @var string
@@ -68,6 +72,8 @@ class CreateDatasetVersionRequest extends Model
     public $sourceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://mybucket.oss-cn-beijing.aliyuncs.com/mypath/
      *
      * @var string

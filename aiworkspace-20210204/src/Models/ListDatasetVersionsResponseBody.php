@@ -28,24 +28,22 @@ class ListDatasetVersionsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @example 5
      *
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @example ADF6D849-*****-7E7030F0CE53
-     *
-     * @var string
-     */
-    public $requestId;
     protected $_name = [
         'datasetVersions' => 'DatasetVersions',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
+        'requestId'       => 'RequestId',
         'totalCount'      => 'TotalCount',
-        'requestId'       => 'requestId',
     ];
 
     public function validate()
@@ -70,11 +68,11 @@ class ListDatasetVersionsResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
         }
 
         return $res;
@@ -103,11 +101,11 @@ class ListDatasetVersionsResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
         }
 
         return $model;

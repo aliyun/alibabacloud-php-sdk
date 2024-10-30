@@ -9,13 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteDatasetVersionLabelsResponseBody extends Model
 {
     /**
-     * @example ADF6D849-*****-7E7030F0CE53
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'requestId' => 'requestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -26,7 +24,7 @@ class DeleteDatasetVersionLabelsResponseBody extends Model
     {
         $res = [];
         if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -40,8 +38,8 @@ class DeleteDatasetVersionLabelsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;
