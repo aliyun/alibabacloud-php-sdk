@@ -30,6 +30,8 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\CreateElasticPlanRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\CreateElasticPlanResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DeleteAccountResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DeleteBackupsRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DeleteBackupsResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DeleteDBClusterRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DeleteDBClusterResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DeleteDBResourceGroupRequest;
@@ -1209,6 +1211,50 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 手动删除备份集
+     *  *
+     * @param DeleteBackupsRequest $request DeleteBackupsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteBackupsResponse DeleteBackupsResponse
+     */
+    public function deleteBackupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBackups',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 手动删除备份集
+     *  *
+     * @param DeleteBackupsRequest $request DeleteBackupsRequest
+     *
+     * @return DeleteBackupsResponse DeleteBackupsResponse
+     */
+    public function deleteBackups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBackupsWithOptions($request, $runtime);
     }
 
     /**
