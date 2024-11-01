@@ -53,6 +53,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateUploadConfigResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateViewPointRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateViewPointResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateViewPointShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomHotTopicBroadcastJobRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomHotTopicBroadcastJobResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomTextRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomTextResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomTopicSelectionPerspectiveAnalysisTaskRequest;
@@ -63,6 +65,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDocClusterTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDocClusterTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetGeneratedContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetGeneratedContentResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetHotTopicBroadcastRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetHotTopicBroadcastResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetHotTopicBroadcastShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetInterveneGlobalReplyRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetInterveneGlobalReplyResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetInterveneImportTaskInfoRequest;
@@ -189,6 +194,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchNewsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchNewsShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitAsyncTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitAsyncTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomHotTopicBroadcastJobRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomHotTopicBroadcastJobResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomHotTopicBroadcastJobShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomTopicSelectionPerspectiveAnalysisTaskShrinkRequest;
@@ -1387,6 +1395,56 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * @summary 获取自定义播报单任务结果
+     *  *
+     * @param GetCustomHotTopicBroadcastJobRequest $request GetCustomHotTopicBroadcastJobRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetCustomHotTopicBroadcastJobResponse GetCustomHotTopicBroadcastJobResponse
+     */
+    public function getCustomHotTopicBroadcastJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCustomHotTopicBroadcastJob',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCustomHotTopicBroadcastJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取自定义播报单任务结果
+     *  *
+     * @param GetCustomHotTopicBroadcastJobRequest $request GetCustomHotTopicBroadcastJobRequest
+     *
+     * @return GetCustomHotTopicBroadcastJobResponse GetCustomHotTopicBroadcastJobResponse
+     */
+    public function getCustomHotTopicBroadcastJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCustomHotTopicBroadcastJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 获取自定义文本
      *  *
      * @param GetCustomTextRequest $request GetCustomTextRequest
@@ -1647,6 +1705,88 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getGeneratedContentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询新闻播报单
+     *  *
+     * @param GetHotTopicBroadcastRequest $tmpReq  GetHotTopicBroadcastRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetHotTopicBroadcastResponse GetHotTopicBroadcastResponse
+     */
+    public function getHotTopicBroadcastWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetHotTopicBroadcastShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->stepForCustomSummaryStyleConfig)) {
+            $request->stepForCustomSummaryStyleConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->stepForCustomSummaryStyleConfig, 'StepForCustomSummaryStyleConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->stepForNewsBroadcastContentConfig)) {
+            $request->stepForNewsBroadcastContentConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->stepForNewsBroadcastContentConfig, 'StepForNewsBroadcastContentConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->topics)) {
+            $request->topicsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->topics, 'Topics', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->calcTotalToken)) {
+            $body['CalcTotalToken'] = $request->calcTotalToken;
+        }
+        if (!Utils::isUnset($request->category)) {
+            $body['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->current)) {
+            $body['Current'] = $request->current;
+        }
+        if (!Utils::isUnset($request->hotTopicVersion)) {
+            $body['HotTopicVersion'] = $request->hotTopicVersion;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $body['Size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->stepForCustomSummaryStyleConfigShrink)) {
+            $body['StepForCustomSummaryStyleConfig'] = $request->stepForCustomSummaryStyleConfigShrink;
+        }
+        if (!Utils::isUnset($request->stepForNewsBroadcastContentConfigShrink)) {
+            $body['StepForNewsBroadcastContentConfig'] = $request->stepForNewsBroadcastContentConfigShrink;
+        }
+        if (!Utils::isUnset($request->topicsShrink)) {
+            $body['Topics'] = $request->topicsShrink;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetHotTopicBroadcast',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetHotTopicBroadcastResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询新闻播报单
+     *  *
+     * @param GetHotTopicBroadcastRequest $request GetHotTopicBroadcastRequest
+     *
+     * @return GetHotTopicBroadcastResponse GetHotTopicBroadcastResponse
+     */
+    public function getHotTopicBroadcast($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getHotTopicBroadcastWithOptions($request, $runtime);
     }
 
     /**
@@ -4947,6 +5087,70 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitAsyncTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 提交自定义播报单任务
+     *  *
+     * @param SubmitCustomHotTopicBroadcastJobRequest $tmpReq  SubmitCustomHotTopicBroadcastJobRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitCustomHotTopicBroadcastJobResponse SubmitCustomHotTopicBroadcastJobResponse
+     */
+    public function submitCustomHotTopicBroadcastJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitCustomHotTopicBroadcastJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->hotTopicBroadcastConfig)) {
+            $request->hotTopicBroadcastConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hotTopicBroadcastConfig, 'HotTopicBroadcastConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->topics)) {
+            $request->topicsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->topics, 'Topics', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->hotTopicBroadcastConfigShrink)) {
+            $body['HotTopicBroadcastConfig'] = $request->hotTopicBroadcastConfigShrink;
+        }
+        if (!Utils::isUnset($request->hotTopicVersion)) {
+            $body['HotTopicVersion'] = $request->hotTopicVersion;
+        }
+        if (!Utils::isUnset($request->topicsShrink)) {
+            $body['Topics'] = $request->topicsShrink;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitCustomHotTopicBroadcastJob',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitCustomHotTopicBroadcastJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提交自定义播报单任务
+     *  *
+     * @param SubmitCustomHotTopicBroadcastJobRequest $request SubmitCustomHotTopicBroadcastJobRequest
+     *
+     * @return SubmitCustomHotTopicBroadcastJobResponse SubmitCustomHotTopicBroadcastJobResponse
+     */
+    public function submitCustomHotTopicBroadcastJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitCustomHotTopicBroadcastJobWithOptions($request, $runtime);
     }
 
     /**
