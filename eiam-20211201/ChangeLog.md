@@ -1,3 +1,6 @@
+2024-11-01 Version: 1.5.2
+- Generated php 2021-12-01 for Eiam.
+
 2024-10-24 Version: 1.5.1
 - Update API CreateOrganizationalUnit: update param OrganizationalUnitName.
 - Update API GetApplication: update response param.

@@ -5724,7 +5724,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Unlocks an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) that is locked.
+     * @summary 解锁账户
      *  *
      * @param UnlockUserRequest $request UnlockUserRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -5760,7 +5760,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Unlocks an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) that is locked.
+     * @summary 解锁账户
      *  *
      * @param UnlockUserRequest $request UnlockUserRequest
      *
