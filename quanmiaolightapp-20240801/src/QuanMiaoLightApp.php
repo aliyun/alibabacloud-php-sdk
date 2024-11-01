@@ -12,6 +12,12 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListHotTopicSummariesRequ
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListHotTopicSummariesResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunCommentGenerationRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunCommentGenerationResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatShrinkRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicSummaryRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicSummaryResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicSummaryShrinkRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunMarketingInformationExtractRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunMarketingInformationExtractResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunMarketingInformationExtractShrinkRequest;
@@ -241,6 +247,165 @@ class QuanMiaoLightApp extends OpenApiClient
         $headers = [];
 
         return $this->runCommentGenerationWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 轻应用-热点播报-问答
+     *  *
+     * @param string                 $workspaceId
+     * @param RunHotTopicChatRequest $tmpReq      RunHotTopicChatRequest
+     * @param string[]               $headers     map
+     * @param RuntimeOptions         $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return RunHotTopicChatResponse RunHotTopicChatResponse
+     */
+    public function runHotTopicChatWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RunHotTopicChatShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->generateOptions)) {
+            $request->generateOptionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->generateOptions, 'generateOptions', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->hotTopics)) {
+            $request->hotTopicsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hotTopics, 'hotTopics', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->stepForBroadcastContentConfig)) {
+            $request->stepForBroadcastContentConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->stepForBroadcastContentConfig, 'stepForBroadcastContentConfig', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->category)) {
+            $body['category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->generateOptionsShrink)) {
+            $body['generateOptions'] = $request->generateOptionsShrink;
+        }
+        if (!Utils::isUnset($request->hotTopicVersion)) {
+            $body['hotTopicVersion'] = $request->hotTopicVersion;
+        }
+        if (!Utils::isUnset($request->hotTopicsShrink)) {
+            $body['hotTopics'] = $request->hotTopicsShrink;
+        }
+        if (!Utils::isUnset($request->imageCount)) {
+            $body['imageCount'] = $request->imageCount;
+        }
+        if (!Utils::isUnset($request->modelCustomPromptTemplate)) {
+            $body['modelCustomPromptTemplate'] = $request->modelCustomPromptTemplate;
+        }
+        if (!Utils::isUnset($request->modelId)) {
+            $body['modelId'] = $request->modelId;
+        }
+        if (!Utils::isUnset($request->originalSessionId)) {
+            $body['originalSessionId'] = $request->originalSessionId;
+        }
+        if (!Utils::isUnset($request->prompt)) {
+            $body['prompt'] = $request->prompt;
+        }
+        if (!Utils::isUnset($request->stepForBroadcastContentConfigShrink)) {
+            $body['stepForBroadcastContentConfig'] = $request->stepForBroadcastContentConfigShrink;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['taskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunHotTopicChat',
+            'version'     => '2024-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/runHotTopicChat',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunHotTopicChatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 轻应用-热点播报-问答
+     *  *
+     * @param string                 $workspaceId
+     * @param RunHotTopicChatRequest $request     RunHotTopicChatRequest
+     *
+     * @return RunHotTopicChatResponse RunHotTopicChatResponse
+     */
+    public function runHotTopicChat($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runHotTopicChatWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 轻应用-热点播报-热点摘要生成
+     *  *
+     * @param string                    $workspaceId
+     * @param RunHotTopicSummaryRequest $tmpReq      RunHotTopicSummaryRequest
+     * @param string[]                  $headers     map
+     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return RunHotTopicSummaryResponse RunHotTopicSummaryResponse
+     */
+    public function runHotTopicSummaryWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RunHotTopicSummaryShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->stepForCustomSummaryStyleConfig)) {
+            $request->stepForCustomSummaryStyleConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->stepForCustomSummaryStyleConfig, 'stepForCustomSummaryStyleConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->topicIds)) {
+            $request->topicIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->topicIds, 'topicIds', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->hotTopicVersion)) {
+            $body['hotTopicVersion'] = $request->hotTopicVersion;
+        }
+        if (!Utils::isUnset($request->stepForCustomSummaryStyleConfigShrink)) {
+            $body['stepForCustomSummaryStyleConfig'] = $request->stepForCustomSummaryStyleConfigShrink;
+        }
+        if (!Utils::isUnset($request->topicIdsShrink)) {
+            $body['topicIds'] = $request->topicIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunHotTopicSummary',
+            'version'     => '2024-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/runHotTopicSummary',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunHotTopicSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 轻应用-热点播报-热点摘要生成
+     *  *
+     * @param string                    $workspaceId
+     * @param RunHotTopicSummaryRequest $request     RunHotTopicSummaryRequest
+     *
+     * @return RunHotTopicSummaryResponse RunHotTopicSummaryResponse
+     */
+    public function runHotTopicSummary($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runHotTopicSummaryWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
