@@ -6,26 +6,22 @@ namespace AlibabaCloud\SDK\LinkedmallRetrieval\V20240501\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AISearchRequest extends Model
+class GenericSearchRequest extends Model
 {
     /**
-     * @example active
-     *
-     * @var string
-     */
-    public $card;
-
-    /**
-     * @description This parameter is required.
-     *
-     * @example 今年五一假期放假时间表
-     *
      * @var string
      */
     public $query;
+
+    /**
+     * @example OneWeek
+     *
+     * @var string
+     */
+    public $timeRange;
     protected $_name = [
-        'card'  => 'card',
-        'query' => 'query',
+        'query'     => 'query',
+        'timeRange' => 'timeRange',
     ];
 
     public function validate()
@@ -35,11 +31,11 @@ class AISearchRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->card) {
-            $res['card'] = $this->card;
-        }
         if (null !== $this->query) {
             $res['query'] = $this->query;
+        }
+        if (null !== $this->timeRange) {
+            $res['timeRange'] = $this->timeRange;
         }
 
         return $res;
@@ -48,16 +44,16 @@ class AISearchRequest extends Model
     /**
      * @param array $map
      *
-     * @return AISearchRequest
+     * @return GenericSearchRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['card'])) {
-            $model->card = $map['card'];
-        }
         if (isset($map['query'])) {
             $model->query = $map['query'];
+        }
+        if (isset($map['timeRange'])) {
+            $model->timeRange = $map['timeRange'];
         }
 
         return $model;

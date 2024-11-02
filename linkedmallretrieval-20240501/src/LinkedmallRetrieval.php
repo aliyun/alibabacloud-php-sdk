@@ -6,10 +6,10 @@ namespace AlibabaCloud\SDK\LinkedmallRetrieval\V20240501;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
-use AlibabaCloud\SDK\LinkedmallRetrieval\V20240501\Models\AISearchRequest;
-use AlibabaCloud\SDK\LinkedmallRetrieval\V20240501\Models\AISearchResponse;
 use AlibabaCloud\SDK\LinkedmallRetrieval\V20240501\Models\AISearchV2Request;
 use AlibabaCloud\SDK\LinkedmallRetrieval\V20240501\Models\AISearchV2Response;
+use AlibabaCloud\SDK\LinkedmallRetrieval\V20240501\Models\GenericSearchRequest;
+use AlibabaCloud\SDK\LinkedmallRetrieval\V20240501\Models\GenericSearchResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -47,59 +47,6 @@ class LinkedmallRetrieval extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
-    }
-
-    /**
-     * @summary AI搜索
-     *  *
-     * @param AISearchRequest $request AISearchRequest
-     * @param string[]        $headers map
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
-     *
-     * @return AISearchResponse AISearchResponse
-     */
-    public function aISearchWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->card)) {
-            $query['card'] = $request->card;
-        }
-        if (!Utils::isUnset($request->query)) {
-            $query['query'] = $request->query;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'AISearch',
-            'version'     => '2024-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/linked-retrieval/linked-retrieval-entry/v1/linkedRetrieval/commands/aiSearch',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return AISearchResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary AI搜索
-     *  *
-     * @param AISearchRequest $request AISearchRequest
-     *
-     * @return AISearchResponse AISearchResponse
-     */
-    public function aISearch($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->aISearchWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -156,5 +103,58 @@ class LinkedmallRetrieval extends OpenApiClient
         $headers = [];
 
         return $this->aISearchV2WithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 通用搜索
+     *  *
+     * @param GenericSearchRequest $request GenericSearchRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GenericSearchResponse GenericSearchResponse
+     */
+    public function genericSearchWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->query)) {
+            $query['query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->timeRange)) {
+            $query['timeRange'] = $request->timeRange;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenericSearch',
+            'version'     => '2024-05-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/linked-retrieval/linked-retrieval-entry/v2/linkedRetrieval/commands/genericSearch',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenericSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 通用搜索
+     *  *
+     * @param GenericSearchRequest $request GenericSearchRequest
+     *
+     * @return GenericSearchResponse GenericSearchResponse
+     */
+    public function genericSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->genericSearchWithOptions($request, $headers, $runtime);
     }
 }

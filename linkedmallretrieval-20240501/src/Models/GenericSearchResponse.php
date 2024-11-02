@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\LinkedmallRetrieval\V20240501\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AISearchResponse extends Model
+class GenericSearchResponse extends Model
 {
     /**
      * @var string[]
@@ -18,14 +18,10 @@ class AISearchResponse extends Model
      */
     public $statusCode;
 
-    /**
-     * @var AISearchResponseBody
-     */
     public $body;
     protected $_name = [
         'headers'    => 'headers',
         'statusCode' => 'statusCode',
-        'body'       => 'body',
     ];
 
     public function validate()
@@ -51,7 +47,7 @@ class AISearchResponse extends Model
     /**
      * @param array $map
      *
-     * @return AISearchResponse
+     * @return GenericSearchResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +59,7 @@ class AISearchResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = AISearchResponseBody::fromMap($map['body']);
+            $model->body = GenericSearchResult::fromMap($map['body']);
         }
 
         return $model;
