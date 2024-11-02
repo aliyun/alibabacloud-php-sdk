@@ -10,7 +10,10 @@ use AlibabaCloud\Tea\Model;
 class serverGroupInfos extends Model
 {
     /**
-     * @description The action specified for the server group.
+     * @description The action specified for the server group. Valid values:
+     *
+     *   **ForwardGroup**: distributes requests to server groups.
+     *   **TrafficMirror**: mirrors requests to server groups.
      *
      * @example TrafficMirror
      *

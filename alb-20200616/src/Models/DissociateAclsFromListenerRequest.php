@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DissociateAclsFromListenerRequest extends Model
 {
     /**
-     * @description The access control list (ACL) IDs.
+     * @description The access control list (ACL) IDs. You can disassociate at most three ACLs from a listener in each call.
      *
      * This parameter is required.
      * @var string[]

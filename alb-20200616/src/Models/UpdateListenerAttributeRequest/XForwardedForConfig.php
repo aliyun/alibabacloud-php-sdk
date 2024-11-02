@@ -106,7 +106,7 @@ class XForwardedForConfig extends Model
      *   **true**
      *   **false**
      *
-     * >  This parameter is returned only for HTTP and HTTPS listeners.
+     * >  HTTP and HTTPS listeners support this parameter.
      * @example false
      *
      * @var bool
@@ -124,12 +124,12 @@ class XForwardedForConfig extends Model
     public $XForwardedForClientSourceIpsTrusted;
 
     /**
-     * @description Specifies whether to use the `X-Forwarded-Client-Port` header to retrieve the client port. Valid values:
+     * @description Specifies whether to use the `XForwardedFor_ClientSrcPort` header to retrieve the client port. Valid values:
      *
      *   **true**
      *   **false**
      *
-     * >  This parameter is returned only for HTTP and HTTPS listeners.
+     * >  HTTP and HTTPS listeners support this parameter.
      * @example false
      *
      * @var bool
@@ -142,7 +142,7 @@ class XForwardedForConfig extends Model
      *   **true**
      *   **false**
      *
-     * >  This parameter is returned only for HTTP and HTTPS listeners.
+     * >  HTTP and HTTPS listeners support this parameter.
      * @example true
      *
      * @var bool
@@ -155,7 +155,7 @@ class XForwardedForConfig extends Model
      *   **true**
      *   **false**
      *
-     * >  This parameter is supported by HTTP, HTTPS, and QUIC listeners.
+     * >  HTTP, HTTPS, and QUIC listeners support this parameter.
      * @example false
      *
      * @var bool
@@ -168,7 +168,7 @@ class XForwardedForConfig extends Model
      *   **true**
      *   **false**
      *
-     * >  This parameter is supported by HTTP, HTTPS, and QUIC listeners.
+     * >  HTTP, HTTPS, and QUIC listeners support this parameter.
      * @example false
      *
      * @var bool
@@ -181,7 +181,7 @@ class XForwardedForConfig extends Model
      *   **true**
      *   **false**
      *
-     * >  This parameter is supported by HTTP, HTTPS, and QUIC listeners.
+     * >  HTTP, HTTPS, and QUIC listeners support this parameter.
      * @example false
      *
      * @var bool

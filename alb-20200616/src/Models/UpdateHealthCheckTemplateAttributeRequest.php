@@ -31,7 +31,7 @@ class UpdateHealthCheckTemplateAttributeRequest extends Model
     public $dryRun;
 
     /**
-     * @description The HTTP status codes that indicate healthy backend servers.
+     * @description The HTTP status codes that indicate a healthy backend server.
      *
      * @example 5
      *
@@ -54,7 +54,7 @@ class UpdateHealthCheckTemplateAttributeRequest extends Model
      *   **$SERVER_IP** (default): the private IP address of a backend server. If an IP address is specified, or this parameter is not specified, the ALB instance uses the private IP addresses of backend servers as domain names for health checks.
      *   **domain**: The domain name must be 1 to 80 characters in length, and can contain letters, digits, periods (.), and hyphens (-).
      *
-     * >  This parameter is supported only when you set `HealthCheckProtocol` to **HTTP** or **HTTPS**. HTTPS is unavailable by default. If you want to use HTTPS, log on to the SLB console, go to the Quota Center page, click the **ALB** tab, and then apply for the privilege to use HTTPS.
+     * >  This parameter is available only if `HealthCheckProtocol` is set to **HTTP** or **HTTPS**.
      * @example $_ip
      *
      * @var string
@@ -62,13 +62,13 @@ class UpdateHealthCheckTemplateAttributeRequest extends Model
     public $healthCheckHost;
 
     /**
-     * @description The HTTP version for health checks.
+     * @description The HTTP version that is used for health checks.
      *
      * Valid values: **HTTP1.0** and **HTTP1.1**.
      *
      * Default value: **HTTP1.1**.
      *
-     * >  This parameter takes effect only when `HealthCheckProtocol` is set to **HTTP** or **HTTPS**. HTTPS is unavailable by default. If you want to use HTTPS, log on to the SLB console, go to the Quota Center page, click the **ALB** tab, and then apply for the privilege to use HTTPS.
+     * >  This parameter is available only if you set `HealthCheckProtocol` to **HTTP** or **HTTPS**.
      * @example HTTP1.0
      *
      * @var string
@@ -91,7 +91,7 @@ class UpdateHealthCheckTemplateAttributeRequest extends Model
      *   **GET**: If the length of a response exceeds 8 KB, the response is truncated. However, the health check result is not affected.
      *   **POST**: gRPC health checks use the POST method by default.
      *
-     * >  This parameter is supported only when you set **HealthCheckProtocol** to **HTTP**, **HTTPS**, or **gRPC**. HTTPS is unavailable by default. If you want to use HTTPS, log on to the SLB console, go to the Quota Center page, click the **ALB** tab, and then apply for the privilege to use HTTPS.
+     * >  This parameter is available only if you set **HealthCheckProtocol** to **HTTP**, **HTTPS**, or **gRPC**.
      * @example HEAD
      *
      * @var string
@@ -105,7 +105,7 @@ class UpdateHealthCheckTemplateAttributeRequest extends Model
      *
      * The URL must start with a forward slash (/).
      *
-     * >  This parameter is supported only when you set **HealthCheckProtocol** to **HTTP**, **HTTPS**, or **gRPC**. HTTPS is unavailable by default. If you want to use HTTPS, log on to the SLB console, go to the Quota Center page, click the **ALB** tab, and then apply for the privilege to use HTTPS.
+     * >  This parameter is available only if you set **HealthCheckProtocol** to **HTTP**, **HTTPS**, or **gRPC**.
      * @example /test/index.html
      *
      * @var string
@@ -116,11 +116,10 @@ class UpdateHealthCheckTemplateAttributeRequest extends Model
      * @description The protocol that is used for health checks. Valid values:
      *
      *   **HTTP** (default): HTTP health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers.
-     *   **HTTPS**: The ALB instance sends HEAD or GET requests, which simulate browser requests, to check whether the backend server is healthy. HTTPS provides higher security than HTTP because HTTPS supports data encryption.
+     *   **HTTPS**: The ALB instance sends HEAD or GET requests, which simulate browser requests, to check whether the backend server is healthy. HTTPS supports encryption and provides higher security than HTTP.
      *   **TCP**: TCP health checks send TCP SYN packets to a backend server to check whether the port of the backend server is reachable.
      *   **gRPC**: gRPC health checks send POST or GET requests to a backend server to check whether the backend server is healthy.
      *
-     * >  HTTPS is unavailable by default. If you want to use HTTPS, log on to the SLB console, go to the Quota Center page, click the **ALB** tab, and then apply for the privilege to use HTTPS.
      * @example HTTP
      *
      * @var string
@@ -148,11 +147,9 @@ class UpdateHealthCheckTemplateAttributeRequest extends Model
     public $healthCheckTemplateName;
 
     /**
-     * @description The timeout period of a health check. If a backend server does not respond within the specified timeout period, the backend server fails the health check.
+     * @description The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the backend server is declared unhealthy.
      *
      * Unit: seconds. Valid values: **1 to 300**. Default value: **5**.
-     *
-     * > If the value of the `HealthCheckTimeout` parameter is smaller than that of the `HealthCheckInterval` parameter, the timeout period specified by the `HealthCheckTimeout` parameter is ignored and the value of the `HealthCheckInterval` parameter is used as the timeout period.
      * @example 3
      *
      * @var int

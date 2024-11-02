@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class servers extends Model
 {
     /**
-     * @description The description of the backend server. The description must be 2 to 256 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), commas (,), semicolons (;), forward slashes (/), and at signs (@). You can specify up to 40 servers in each call.
+     * @description The description of the backend server. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
      *
      * @example test
      *
@@ -18,9 +18,9 @@ class servers extends Model
     public $description;
 
     /**
-     * @description The port used by the backend server. Valid values: **1** to **65535**. You can specify up to 40 server IDs in each call.
+     * @description The port that is used by the backend server. Valid values: **1** to **65535**. You can specify at most 200 servers in each call.
      *
-     * > This parameter is required if the **ServerType** parameter is set to **Ecs**, **Eni**, **Eci**, or **Ip**. You do not need to set this parameter if **ServerType** is set to **Fc**.
+     * >  This parameter is required if you set **ServerType** to **Ecs**, **Eni**, **Eci**, or **Ip**. You do not need to set this parameter if **ServerType** is set to **Fc**.
      * @example 80
      *
      * @var int
@@ -28,12 +28,12 @@ class servers extends Model
     public $port;
 
     /**
-     * @description Specifies whether to enable the remote IP address feature. You can specify up to 40 server IDs in each call. Valid values:
+     * @description Specifies whether to enable the remote IP feature. You can specify at most 200 servers in each call. Default values:
      *
-     *   **true**
-     *   **false**
+     *   **true**: enables the feature.
+     *   **false**: disables the feature.
      *
-     * > If **ServerType** is set to **Ip**, this parameter is available.
+     * >  This parameter takes effect only when **ServerType** is set to **Ip**.
      * @example false
      *
      * @var bool
@@ -41,11 +41,11 @@ class servers extends Model
     public $remoteIpEnabled;
 
     /**
-     * @description The backend server ID. You can specify up to 40 server IDs in each call.
+     * @description The ID of the server group. You can specify at most 200 servers in each call.
      *
-     *   If ServerType is set to **Instance**, set the ServerId parameter to the ID of an Elastic Compute Service (ECS) instance, an elastic network interface (ENI), or an elastic container instance. These backend servers are specified by **Ecs**, **Eni**, or **Eci**.
-     *   If ServerType is set to **Ip**, set the ServerId parameter to an IP address specified in the server group.
-     *   If the backend server group is of the **Fc** type, set this parameter to the Alibaba Cloud Resource Name (ARN) of a function.
+     *   If the server group is of the **Instance** type, set ServerId to the ID of a resource of the **Ecs**, **Eni**, or **Eci** type.
+     *   If the server group is of the **Ip** type, set this parameter to IP addresses.
+     *   If the server group is of the **Fc** type, set ServerId to an Alibaba Cloud Resource Name (ARN).
      *
      * This parameter is required.
      * @example ecs-bp67acfmxazb4p****
@@ -55,9 +55,9 @@ class servers extends Model
     public $serverId;
 
     /**
-     * @description The IP address in inclusive ENI mode. You can specify up to 40 server IDs in each call.
+     * @description The IP address of the backend server. You can specify at most 200 servers in each call.
      *
-     * > You do not need to set this parameter if **ServerType** is set to **Fc**.
+     * >  You do not need to set this parameter if you set **ServerType** to **Fc**.
      * @example 192.168.1.1
      *
      * @var string
@@ -65,13 +65,13 @@ class servers extends Model
     public $serverIp;
 
     /**
-     * @description The type of the backend server that you want to add to the server group. You can specify up to 40 server IDs in each call. Valid values:
+     * @description The type of the backend server. You can specify at most 200 servers in each call. Default values:
      *
-     *   **Ecs**
-     *   **Eni**
-     *   **Eci**
-     *   **Ip**
-     *   **fc**
+     *   **Ecs**: Elastic Compute Service (ECS) instance
+     *   **Eni**: elastic network interface (ENI)
+     *   **Eci**: elastic container instance
+     *   **Ip**: IP address
+     *   **Fc**: Function Compute
      *
      * This parameter is required.
      * @example Ecs
@@ -81,9 +81,9 @@ class servers extends Model
     public $serverType;
 
     /**
-     * @description The weight of the backend server. Valid values: **0** to **100**. Default value: **100**. If the weight of a backend server is set to **0**, no requests are forwarded to the backend server. You can specify up to 40 server IDs in each call.
+     * @description The weight of the backend server. Valid values: **0** to **100**. Default value: **100**. If the value is set to **0**, no requests are forwarded to the server. You can specify at most 200 servers in each call.
      *
-     * > You do not need to set this parameter if **ServerType** is set to **Fc**.
+     * >  You do not need to set this parameter if you set **ServerType** to **Fc**.
      * @example 100
      *
      * @var int

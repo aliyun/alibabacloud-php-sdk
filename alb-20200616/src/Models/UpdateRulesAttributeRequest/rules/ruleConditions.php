@@ -39,7 +39,7 @@ class ruleConditions extends Model
     public $hostConfig;
 
     /**
-     * @description The configuration of the HTTP request method. Valid values of N: **1** to **20**.
+     * @description The configuration of the HTTP request method. You can configure at most 20 HTTP request methods.
      *
      * @var methodConfig
      */
@@ -81,15 +81,20 @@ class ruleConditions extends Model
     public $sourceIpConfig;
 
     /**
-     * @description The type of the forwarding rule. You can specify at most seven types of forwarding rule. Valid values:
+     * @description The condition type of the forwarding rule is invalid.
      *
-     *   **Host**: Responses are forwarded based on hosts.
-     *   **Path**: Responses are forwarded based on URLs.
-     *   **Header**: Responses are forwarded based on HTTP headers.
-     *   **QueryString**: Responses are forwarded based on query strings.
-     *   **Method**: Responses are forwarded based on request methods.
-     *   **Cookie**: Responses are forwarded based on cookies.
-     *   **SourceIp**: Responses are forwarded based on source IP addresses.
+     * You can specify at most seven condition types for inbound forwarding rules. Valid values:
+     *
+     *   **Host**: Requests are forwarded based on hosts.
+     *   **Path**: Requests are forwarded based on paths.
+     *   **Header**: Requests are forwarded based on HTTP headers.
+     *   **QueryString**: Requests are forwarded based on query strings.
+     *   **Method**: Requests are forwarded based on request methods.
+     *   **Cookie**: Requests are forwarded based on cookies.
+     *   **SourceIp**: Requests are forwarded based on source IP addresses.
+     *
+     * You can specify at most two condition types for outbound forwarding rules. Valid values:
+     *
      *   **ResponseHeader**: Responses are forwarded based on HTTP response headers.
      *   **ResponseStatusCode**: Response are forwarded based on response status codes.
      *

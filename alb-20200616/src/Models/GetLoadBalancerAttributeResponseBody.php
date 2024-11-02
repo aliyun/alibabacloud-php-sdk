@@ -241,9 +241,8 @@ class GetLoadBalancerAttributeResponseBody extends Model
     public $vpcId;
 
     /**
-     * @description The zone ID of the ALB instance.
+     * @description The zone and the vSwitch in the zone. A maximum of 10 zones is returned. If the current region supports two or more zones, at least two zones are returned.
      *
-     * You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query the zones of the ALB instance.
      * @var zoneMappings[]
      */
     public $zoneMappings;

@@ -34,7 +34,7 @@ class healthCheckTemplates extends Model
      *   **$SERVER_IP** (default): the private IP address of a backend server. If an IP address is specified, or this parameter is not specified, the ALB instance uses the private IP address of each backend server as the domain name for health checks.
      *   **domain**: The domain name must be 1 to 80 characters in length, and can contain letters, digits, periods (.), and hyphens (-).
      *
-     * >  This parameter takes effect only when `HealthCheckProtocol` is set to **HTTP** or **HTTPS**. HTTPS is unavailable by default. If you want to use HTTPS, log on to the SLB console, go to the Quota Center page, click the **ALB** tab, and then apply for the privilege to use HTTPs.
+     * >  This parameter takes effect only if you set `HealthCheckProtocol` to **HTTP** or **HTTPS**.
      * @example $_ip
      *
      * @var string
@@ -48,7 +48,7 @@ class healthCheckTemplates extends Model
      *
      * Default value: **HTTP 1.1**.
      *
-     * >  This parameter takes effect only when `HealthCheckProtocol` is set to **HTTP** or **HTTPS**. HTTPS is unavailable by default. If you want to use HTTPS, log on to the SLB console, go to the Quota Center page, click the **ALB** tab, and then apply for the privilege to use HTTPs.
+     * >  This parameter takes effect only if you set `HealthCheckProtocol` to **HTTP** or **HTTPS**.
      * @example HTTP 1.0
      *
      * @var string
@@ -65,13 +65,13 @@ class healthCheckTemplates extends Model
     public $healthCheckInterval;
 
     /**
-     * @description The HTTP method that is used for health checks. Valid value:
+     * @description The HTTP method that is used for health checks. Valid values:
      *
      *   **HEAD** (default): By default, HTTP and HTTPS health checks use the HEAD method.
      *   **GET**: If the length of a response exceeds 8 KB, the response is truncated. However, the health check result is not affected.
      *   **POST**: gRPC health checks use the POST method by default.
      *
-     * >  This parameter takes effect only when **HealthCheckProtocol** is set to **HTTP**, **HTTPS**, or **gRPC**. HTTPS is unavailable by default. If you want to use HTTPS, log on to the SLB console, go to the Quota Center page, click the **ALB** tab, and then apply for the privilege to use HTTPs.
+     * >  This parameter takes effect only if you set **HealthCheckProtocol** to **HTTP**, **HTTPS**, or **gRPC**.
      * @example HEAD
      *
      * @var string
@@ -89,14 +89,13 @@ class healthCheckTemplates extends Model
     public $healthCheckPath;
 
     /**
-     * @description The protocol that is used for health checks. Valid value:
+     * @description The protocol that is used for health checks. Valid values:
      *
      *   **HTTP** (default): The ALB instance sends HEAD or GET requests, which simulate browser requests, to check whether the backend server is healthy.
-     *   **HTTPS**: The ALB instance sends HEAD or GET requests, which simulate browser requests, to check whether the backend server is healthy. HTTPS provides higher security because HTTPS supports data encryption.
+     *   **HTTPS**: HTTPS health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers. HTTPS provides higher security because HTTPS supports data encryption.
      *   **TCP**: TCP health checks send TCP SYN packets to a backend server to check whether the port of the backend server is reachable.
-     *   **gRPC**: The ALB instance sends POST or GET requests to a backend server to check whether the backend server is healthy.
+     *   **gRPC**: gRPC health checks send POST or GET requests to a backend server to check whether the backend server is healthy.
      *
-     * >  HTTPS is unavailable by default. If you want to use HTTPS, log on to the SLB console, go to the Quota Center page, click the **ALB** tab, and then apply for the privilege to use HTTPs.
      * @example HTTP
      *
      * @var string
@@ -128,8 +127,6 @@ class healthCheckTemplates extends Model
      * Valid values: **1 to 300**. Unit: seconds.
      *
      * Default value: **5**.
-     *
-     * >  If the value of **HealthCHeckTimeout** is smaller than the value of **HealthCheckInterval**, **HealthCHeckTimeout** does not take effect. The value of **HealthCheckInterval** specifies the timeout period.
      * @example 3
      *
      * @var int

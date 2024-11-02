@@ -18,7 +18,7 @@ use AlibabaCloud\Tea\Model;
 class ruleActions extends Model
 {
     /**
-     * @description The origins allowed.
+     * @description Request forwarding based on CORS.
      *
      * @var corsConfig
      */
@@ -32,21 +32,21 @@ class ruleActions extends Model
     public $fixedResponseConfig;
 
     /**
-     * @description The server groups to which requests are distributed. Each forwarding rule supports at most five server groups.
+     * @description The server groups to which requests are forwarded. You can specify at most five server groups for each forwarding rule.
      *
      * @var forwardGroupConfig
      */
     public $forwardGroupConfig;
 
     /**
-     * @description The configuration of the header to be inserted.
+     * @description The key of the header to be inserted.
      *
      * @var insertHeaderConfig
      */
     public $insertHeaderConfig;
 
     /**
-     * @description The priority of the action. Valid values: **1 to 50000**. A smaller value indicates a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter is required. The priority of each action within a forwarding rule must be unique.
+     * @description The priority of the action. Valid values: **1 to 50000**. A smaller value indicates a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter cannot empty. The priority of each action within a forwarding rule must be unique.
      *
      * This parameter is required.
      * @example 1
@@ -56,57 +56,59 @@ class ruleActions extends Model
     public $order;
 
     /**
-     * @description The redirect configuration.
+     * @description The configuration of the redirect action.
      *
-     * > When you configure the **RedirectConfig** action, you can use the default value only for the **httpCode** parameter. Do not use the default values for the other parameters.
+     * >  Do not set all fields in **RedirectConfig** to default values, except for **httpCode**.
      * @var redirectConfig
      */
     public $redirectConfig;
 
     /**
+     * @description The HTTP header to be removed.
+     *
      * @var removeHeaderConfig
      */
     public $removeHeaderConfig;
 
     /**
-     * @description The rewrite configuration.
+     * @description The configuration of the rewrite action.
      *
-     * > If multiple actions are configured within a forwarding rule, you must set **RewriteConfig** to the value of **ForwardGroup**.
+     * >  If you specify multiple actions for a forwarding rule, you must configure the **ForwardGroup** parameter for the **RewriteConfig** action.
      * @var rewriteConfig
      */
     public $rewriteConfig;
 
     /**
-     * @description The action to throttle traffic.
+     * @description The configuration of the traffic throttling action.
      *
      * @var trafficLimitConfig
      */
     public $trafficLimitConfig;
 
     /**
-     * @description The action to mirror traffic.
+     * @description The configuration of the traffic mirroring action.
      *
      * @var trafficMirrorConfig
      */
     public $trafficMirrorConfig;
 
     /**
-     * @description The action type. Valid values:
+     * @description The action. Valid values:
      *
-     *   **ForwardGroup**: forwards a request to multiple vServer groups.
+     *   **ForwardGroup**: distributes requests to multiple vServer groups.
      *   **Redirect**: redirects a request.
      *   **FixedResponse**: returns a custom response.
      *   **Rewrite**: rewrites a request.
-     *   **InsertHeader**: inserts a header.
-     *   **RemoveHeaderConfig**: deletes a header.
-     *   **TrafficLimitConfig**: throttles network traffic.
-     *   **TrafficMirrorConfig**: mirrors traffic.
-     *   **CorsConfig**: forwards requests based on CORS.
+     *   **InsertHeader**: inserts headers.
+     *   **RemoveHeaderConfig:** deletes the header of a request.
+     *   **TrafficLimit**: throttles traffic.
+     *   **TrafficMirror**: mirrors network traffic.
+     *   **Cors**: enables cross-origin resource sharing (CORS).
      *
      * The following action types are supported:
      *
-     *   **FinalType**: the last action to be performed in a forwarding rule. Each forwarding rule can contain only one FinalType action. You can specify the **ForwardGroup**, **Redirect**, or **FixedResponse** action as the FinalType action.
-     *   **ExtType**: the action or the actions to be performed before the **FinalType** action. A forwarding rule can contain one or more **ExtType** actions. To specify this parameter, you must also specify **FinalType**. You can specify multiple **InsertHeader** actions or one **Rewrite** action.
+     *   **FinalType**: Each forwarding rule can contain only one FinalType action, which is performed at the end. You can specify only one of **ForwardGroup**, **Redirect**, and **FixedResponse**.
+     *   **ExtType**: Each forwarding rule can contain one or more **ExtType** actions, which are performed before the **FinalType** action. If you want to specify an ExtType action, you must also specify a **FinalType** action. You can specify multiple **InsertHeader** actions or one **Rewrite** action.
      *
      * This parameter is required.
      * @example ForwardGroup

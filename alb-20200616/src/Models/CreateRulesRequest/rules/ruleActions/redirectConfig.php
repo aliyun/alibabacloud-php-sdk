@@ -11,15 +11,15 @@ class redirectConfig extends Model
     /**
      * @description The hostname to which requests are forwarded. Valid values:
      *
-     *   **${host}** (default): If ${host} is returned, no other character is appended.
+     *   **${host}** (default): If you set the value to ${host}, you cannot append other characters.
      *
-     *   The hostname must meet the following requirements:
+     *   If you want to specify a custom value, make sure that the following requirements are met:
      *
      *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), periods (.), asterisks (\\*), and question marks (?).
      *   The hostname must contain at least one period (.) but cannot start or end with a period (.).
      *   The rightmost domain label can contain only letters and wildcard characters. It does not contain digits or hyphens (-).
      *   The domain labels cannot start or end with a hyphen (-).
-     *   You can place an asterisk (\\*) or a question mark (?) anywhere in a domain label as wildcard characters.
+     *   You can use an asterisk (\\*) or a question mark (?) anywhere in a domain label as wildcard characters.
      *
      * @example www.example.com
      *
@@ -28,7 +28,7 @@ class redirectConfig extends Model
     public $host;
 
     /**
-     * @description The redirect type. Valid values: **301**, **302**, **303**, **307**, and **308**.
+     * @description The HTTP status code that indicates the redirect type. Valid values: **301**, **302**, **303**, **307**, and **308**.
      *
      * @example 301
      *
@@ -41,7 +41,7 @@ class redirectConfig extends Model
      *
      *   Default value: **${path}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable can be specified only once. You can specify one or more of the preceding variables in each request. You can also combine them with a custom value.
      *
-     *   The path must meet the following requirements:
+     *   If you want to specify a custom value, make sure that the following requirements are met:
      *
      *   The URL must be 1 to 128 characters in length.
      *   The URL must start with a forward slash (/) and can contain letters, digits, and the following special characters: `$ - _ .+ / & ~ @ :`. It cannot contain the following special characters: `" % # ; ! ( ) [ ]^ , "`. You can use asterisks (\\*) and question marks (?) as wildcard characters.
@@ -54,9 +54,9 @@ class redirectConfig extends Model
     public $path;
 
     /**
-     * @description The port to which requests are distributed.
+     * @description The port to which requests are distributed. Valid values:
      *
-     *   **${port}** (default): If you set the value to ${port}, you cannot add other characters to the value.
+     *   **${port}** (default): If you set the value to ${port}, you cannot append other characters.
      *   You can also enter a port number. Valid values: **1 to 63335**.
      *
      * @example 10
@@ -68,10 +68,16 @@ class redirectConfig extends Model
     /**
      * @description The redirect protocol. Valid values:
      *
-     *   **${protocol}** (default): If ${protocol} is returned, no other character is appended.
-     *   **HTTP** or **HTTPS**
+     *   **${protocol}** (default): If you set the value to ${protocol}, you cannot modify the value or append other characters.
+     *   **HTTP**
+     *   **HTTPS**
      *
-     * >  HTTPS listeners supports only HTTPS redirects.
+     * >
+     *
+     *   HTTPS listeners support only HTTPS redirection.
+     *
+     *   HTTP listeners support HTTP and HTTPS redirection.
+     *
      * @example HTTP
      *
      * @var string
@@ -79,11 +85,11 @@ class redirectConfig extends Model
     public $protocol;
 
     /**
-     * @description The query string of the URL to which requests are redirected.
+     * @description The query string to which requests are redirected.
      *
      *   Default value: **${query}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable can be specified only once. The preceding variables can be used at the same time or combined with a custom value.
      *
-     *   The query string must meet the following requirements:
+     *   If you want to specify a custom value, make sure that the following requirements are met:
      *
      *   The query string must be 1 to 128 characters in length.
      *   The query string can contain printable characters, but cannot contain space characters, the special characters `# [ ] { } \\ | < > &`, or uppercase letters.

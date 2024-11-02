@@ -120,11 +120,9 @@ class GetHealthCheckTemplateAttributeResponseBody extends Model
     public $healthCheckTemplateName;
 
     /**
-     * @description The timeout period of a health check. If a backend server does not respond within the specified timeout period, the backend server fails the health check. Unit: seconds.
+     * @description The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the backend server is declared unhealthy. Unit: seconds.
      *
      * Valid values: **1** to **300**.
-     *
-     * > If the value of the `HealthCheckTimeout` parameter is smaller than that of the `HealthCheckInterval` parameter, the timeout period specified by the `HealthCheckTimeout` parameter is ignored and the value of the `HealthCheckInterval` parameter is used as the timeout period.
      * @example 200
      *
      * @var int

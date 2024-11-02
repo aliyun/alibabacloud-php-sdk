@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class serverGroupTuples extends Model
 {
     /**
-     * @description The ID of the server group.
+     * @description The ID of the VServer group.
      *
      * @example sgp-00mkgijak0w4qgz9****
      *

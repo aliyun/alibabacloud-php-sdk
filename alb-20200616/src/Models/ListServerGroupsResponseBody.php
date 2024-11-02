@@ -40,7 +40,7 @@ class ListServerGroupsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description A list of server groups.
+     * @description The server groups.
      *
      * @var serverGroups[]
      */

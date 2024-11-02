@@ -9,7 +9,20 @@ use AlibabaCloud\Tea\Model;
 class zoneMappings extends Model
 {
     /**
-     * @description The private IPv4 address. You must specify at least two zones. You can specify at most 10 zones.
+     * @description The type of EIP. Valid values:
+     *
+     *   **Common**: an EIP.
+     *   **Anycast**: an Anycast EIP.
+     *
+     * >  For more information about the regions in which ALB supports Anycast EIPs, see [Limits](https://help.aliyun.com/document_detail/460727.html).
+     * @example Common
+     *
+     * @var string
+     */
+    public $eipType;
+
+    /**
+     * @description The private IPv4 address. You must specify at least two zones. You can specify a maximum of 10 zones.
      *
      * @example 192.168.10.1
      *
@@ -18,7 +31,7 @@ class zoneMappings extends Model
     public $intranetAddress;
 
     /**
-     * @description The ID of the vSwitch in the zone. By default, each zone contains one vSwitch and one subnet. You can specify at least 10 zones.
+     * @description The ID of the vSwitch in the zone. By default, each zone contains one vSwitch and one subnet. You can specify at most 10 zones. If the region supports two or more zones, specify at least two zones.
      *
      * This parameter is required.
      * @example vsw-bp1rmcrwg3erh1fh8****
@@ -28,7 +41,7 @@ class zoneMappings extends Model
     public $vSwitchId;
 
     /**
-     * @description The zone name. You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query the most recent zone list. You can specify at least 10 zones.
+     * @description The zone name. You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query the most recent zone list. You can specify at most 10 zones. If the region supports two or more zones, specify at least two zones.
      *
      * This parameter is required.
      * @example cn-hangzhou-a
@@ -37,6 +50,7 @@ class zoneMappings extends Model
      */
     public $zoneId;
     protected $_name = [
+        'eipType'         => 'EipType',
         'intranetAddress' => 'IntranetAddress',
         'vSwitchId'       => 'VSwitchId',
         'zoneId'          => 'ZoneId',
@@ -49,6 +63,9 @@ class zoneMappings extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->eipType) {
+            $res['EipType'] = $this->eipType;
+        }
         if (null !== $this->intranetAddress) {
             $res['IntranetAddress'] = $this->intranetAddress;
         }
@@ -70,6 +87,9 @@ class zoneMappings extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EipType'])) {
+            $model->eipType = $map['EipType'];
+        }
         if (isset($map['IntranetAddress'])) {
             $model->intranetAddress = $map['IntranetAddress'];
         }

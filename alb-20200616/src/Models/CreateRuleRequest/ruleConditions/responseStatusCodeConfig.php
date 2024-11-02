@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class responseStatusCodeConfig extends Model
 {
     /**
+     * @description The response status codes.
+     *
      * @var string[]
      */
     public $values;

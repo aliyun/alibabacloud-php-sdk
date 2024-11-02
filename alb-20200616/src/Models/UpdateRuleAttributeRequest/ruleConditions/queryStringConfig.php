@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class queryStringConfig extends Model
 {
     /**
-     * @description The query string.
+     * @description The query strings. You can specify at most 20 query strings.
      *
      * @var values[]
      */

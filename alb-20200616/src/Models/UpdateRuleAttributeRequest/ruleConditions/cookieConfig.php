@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class cookieConfig extends Model
 {
     /**
-     * @description The configuration of the cookie.
+     * @description The key-value pairs of the cookie.
      *
      * @var values[]
      */

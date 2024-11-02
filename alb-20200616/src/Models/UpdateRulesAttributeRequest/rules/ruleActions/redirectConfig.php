@@ -16,7 +16,7 @@ class redirectConfig extends Model
      *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, and the following special characters: - . \\* = ~ _ + \\ ^ ! $ & | ( ) [ ] ?.
      *   The hostname must contain at least one period (.) but cannot start or end with a period (.).
      *   The rightmost domain label can contain only letters, asterisks (*), and question marks (?), and cannot contain digits or hyphens (-). The leftmost `domain label` can contain asterisks (*).
-     *   The domain labels cannot start or end with a hyphen (-). You can specify asterisks (∗) and question marks (?) anywhere in a domain label.
+     *   The domain labels cannot start or end with hyphens (-). You can specify asterisks (∗) and question marks (?) anywhere in a domain label.
      *
      * @example www.example.com
      *
@@ -34,11 +34,11 @@ class redirectConfig extends Model
     public $httpCode;
 
     /**
-     * @description The path to which requests are redirected.
+     * @description The path of the destination to which requests are forwarded. Valid values:
      *
      *   **${path}** (default): You can reference \\*\\*${host}**, **${protocol}** and **${port}\\*\\*. Each variable can be used only once. The preceding variables can be used at the same time or combined with a custom value.
      *
-     *   The path must meet the following requirements:
+     *   A custom value. You must ensure that the custom value meets the following requirements:
      *
      *   The path must be 1 to 128 characters in length. You can use asterisks (\\*) and question marks (?) as wildcard characters.
      *   The path can contain letters, digits, and the following special characters: `$ - _ . + / & ~ @ : \\" * ?`. It must start with a forward slash (/) and cannot contain the following characters: `" % # ; ! ( ) [ ] ^ , "`.
@@ -62,9 +62,9 @@ class redirectConfig extends Model
     /**
      * @description The protocol of the destination to which requests are forwarded. Valid values:
      *
-     * Valid values: **HTTP** and **HTTPS**.
+     * Valid values for HTTP listeners: **HTTP** and **HTTPS**.
      *
-     * >  HTTPS listeners supports only HTTPS redirects.
+     * Valid values for HTTPS listeners: **HTTPS**.
      * @example HTTP
      *
      * @var string

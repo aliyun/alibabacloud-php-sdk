@@ -11,7 +11,7 @@ class trafficLimitConfig extends Model
     /**
      * @description The number of requests per IP address. Valid values: **1** to **1000000**.
      *
-     * >  If both the QPS and PerIpQps properties are specified, make sure that the value of the QPS property is smaller than the value of the PerIpQps property.
+     * > If both the QPS and PerIpQps properties are specified, make sure that the value of the QPS property is smaller than the value of the PerIpQps property.
      * @example 80
      *
      * @var int

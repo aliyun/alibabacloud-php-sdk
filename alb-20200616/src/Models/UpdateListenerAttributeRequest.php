@@ -14,7 +14,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateListenerAttributeRequest extends Model
 {
     /**
-     * @description The information about the CA certificate.
+     * @description The CA certificate. You can specify only one CA certificate.
      *
      * @var caCertificates[]
      */
@@ -33,8 +33,9 @@ class UpdateListenerAttributeRequest extends Model
     public $caEnabled;
 
     /**
-     * @description The details about the certificates.
+     * @description The certificates. You can add at most 20 certificates.
      *
+     * >  Only server certificates are supported.
      * @var certificates[]
      */
     public $certificates;
@@ -108,7 +109,7 @@ class UpdateListenerAttributeRequest extends Model
     /**
      * @description The name of the listener.
      *
-     * The name must be 2 to 256 characters in length, and can contain letters, digits, and the following special characters: , . ; / @ _ -.
+     * The name must be 2 to 256 characters in length, and can contain letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (_), and hyphens (-).
      * @example HTTP_80
      *
      * @var string

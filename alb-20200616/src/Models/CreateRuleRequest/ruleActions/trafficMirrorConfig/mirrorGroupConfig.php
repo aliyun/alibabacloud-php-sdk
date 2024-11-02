@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class mirrorGroupConfig extends Model
 {
     /**
-     * @description The configuration of the server group to which traffic is mirrored.
+     * @description The server group to which traffic is mirrored.
      *
      * @var serverGroupTuples[]
      */

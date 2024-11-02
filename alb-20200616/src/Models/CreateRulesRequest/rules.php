@@ -43,7 +43,7 @@ class rules extends Model
     public $ruleActions;
 
     /**
-     * @description The conditions of the forwarding rule.
+     * @description The match conditions of the forwarding rule.
      *
      * This parameter is required.
      * @var ruleConditions[]
@@ -64,7 +64,7 @@ class rules extends Model
     public $ruleName;
 
     /**
-     * @description The tag that you want to add.
+     * @description The tags.
      *
      * @var tag[]
      */

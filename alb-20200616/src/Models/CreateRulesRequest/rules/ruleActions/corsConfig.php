@@ -11,8 +11,8 @@ class corsConfig extends Model
     /**
      * @description Specifies whether to allow credentials to be carried in CORS requests. Valid values:
      *
-     *   **on**
-     *   **off**
+     *   **on**: allows credentials to be carried in CORS requests.
+     *   **off**: does not allow credentials to be carried in CORS requests.
      *
      * @example on
      *
@@ -35,7 +35,7 @@ class corsConfig extends Model
     public $allowMethods;
 
     /**
-     * @description The trusted origins of CORS requests. One or more values are supported. Asterisks (`*`) can be used as wildcard characters.
+     * @description The trusted origins of CORS requests. You can specify one or more values, or only an asterisk (`*`).
      *
      *   Each value must start with `http://` or `https://`, which must be followed by a valid domain name, including top-level domain names. Example: `http://*.test.abc.example.com`.
      *   You can specify a port in each value or leave the port empty. Valid values: **1** to **65535**.

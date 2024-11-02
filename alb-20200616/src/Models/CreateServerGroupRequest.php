@@ -27,6 +27,13 @@ class CreateServerGroupRequest extends Model
     public $clientToken;
 
     /**
+     * @description The configurations of connection draining.
+     *
+     * After connection draining is enabled, ALB maintains data transmission for a period of time after the backend server is removed or declared unhealthy.
+     *
+     *
+     * >*   Basic ALB instances do not support connection draining. Standard and WAF-enabled ALB instances support connection draining.
+     * >*   Server groups of the instance and IP types support connection draining. Server groups of the Function Compute type do not support connection draining.
      * @var connectionDrainConfig
      */
     public $connectionDrainConfig;
@@ -54,11 +61,11 @@ class CreateServerGroupRequest extends Model
     /**
      * @description The backend protocol. Valid values:
      *
-     *   **HTTP** (default): The server group can be associated with HTTPS, HTTP, and QUIC listeners.
-     *   **HTTPS**: The server group can be associated with HTTPS listeners.
-     *   **gRPC**: The server group can be associated with HTTPS and QUIC listeners.
+     *   **HTTP**: allows you to associate an HTTPS, HTTP, or QUIC listener with the server group. This is the default value.
+     *   **HTTPS**: allows you to associate HTTPS listeners with backend servers.
+     *   **gRPC**: allows you to associate an HTTPS or QUIC listener with the server group.
      *
-     * > If the **ServerGroupType** parameter is set to **Fc**, you can set Protocol only to **HTTP**.
+     * >  You do not need to specify a backend protocol if you set **ServerGroupType** to **Fc**.
      * @example HTTP
      *
      * @var string
@@ -121,6 +128,10 @@ class CreateServerGroupRequest extends Model
     public $serviceName;
 
     /**
+     * @description The configurations of slow starts.
+     * > - Basic SLB instances do not support slow starts. Standard and WAF-enabled SLB instances support slow starts.
+     * >* Server groups of the server and IP types support slow starts. Server groups of the Function Compute type do not support slow starts.
+     * >* Slow start is supported only by the weighted round-robin scheduling algorithm.
      * @var slowStartConfig
      */
     public $slowStartConfig;

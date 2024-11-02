@@ -11,8 +11,8 @@ class insertHeaderConfig extends Model
     /**
      * @description Specifies whether to overwrite the header in the request. Valid values:
      *
-     *   **true**
-     *   **false** (default)
+     *   **true**: overwrites the request header.
+     *   **false** (default): does not overwrite the request header.
      *
      * @example false
      *
@@ -23,7 +23,7 @@ class insertHeaderConfig extends Model
     /**
      * @description The key of the header. The header key must be 1 to 40 characters in length, and can contain lowercase letters, digits, underscores (_), and hyphens (-). The key specified in `InsertHeader` must be unique.
      *
-     * >  The following header keys are not supported: `slb-id`, `slb-ip`, `x-forwarded-for`, `x-forwarded-proto`, `x-forwarded-eip`, `x-forwarded-port`, `x-forwarded-client-srcport`, `connection`, `upgrade`, `content-length`, `transfer-encoding`, `keep-alive`, `te, host`, `cookie`, `remoteip`, and `authority`. Header keys are not case-sensitive.
+     * > The following header keys are not supported: `slb-id`, `slb-ip`, `x-forwarded-for`, `x-forwarded-proto`, `x-forwarded-eip`, `x-forwarded-port`, `x-forwarded-client-srcport`, `connection`, `upgrade`, `content-length`, `transfer-encoding`, `keep-alive`, `te, host`, `cookie`, `remoteip`, and `authority`. Header keys are not case-sensitive.
      * @example test
      *
      * @var string

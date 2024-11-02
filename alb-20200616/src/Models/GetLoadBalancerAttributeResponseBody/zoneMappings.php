@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class zoneMappings extends Model
 {
     /**
-     * @description The IP address of the ALB instance.
+     * @description The address of the ALB instance.
      *
      * @var loadBalancerAddresses[]
      */

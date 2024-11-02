@@ -13,7 +13,7 @@ class rules extends Model
     /**
      * @description The priority of the forwarding rule. Valid values: **1 to 10000**. A smaller value specifies a higher priority. You can specify at most 20 rule priorities.
      *
-     * >  The priority of each forwarding rule within a listener must be unique.
+     * > The priority of each forwarding rule within a listener must be unique.
      * @example 10
      *
      * @var int
@@ -35,7 +35,7 @@ class rules extends Model
     public $ruleConditions;
 
     /**
-     * @description The ID of the forwarding rule. You can specify at most 20 rule IDs.
+     * @description The IDs of the forwarding rules. You can specify at most 20 rule IDs.
      *
      * This parameter is required.
      * @example rule-cxjh7vazn2jpnl****

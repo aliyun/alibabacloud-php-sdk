@@ -44,7 +44,7 @@ class RemoveServersFromServerGroupRequest extends Model
     public $serverGroupId;
 
     /**
-     * @description The backend servers that you want to remove from the server group. You can specify up to 40 backend servers in each call.
+     * @description The server group. You can add at most 200 backend servers to the server group.
      *
      * This parameter is required.
      * @var servers[]

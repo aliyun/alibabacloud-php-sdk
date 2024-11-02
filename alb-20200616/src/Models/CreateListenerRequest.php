@@ -15,7 +15,7 @@ use AlibabaCloud\Tea\Model;
 class CreateListenerRequest extends Model
 {
     /**
-     * @description The certificate authority (CA) certificates.
+     * @description The certificate authority (CA) certificates. You can specify only one CA certificate.
      *
      * @var caCertificates[]
      */

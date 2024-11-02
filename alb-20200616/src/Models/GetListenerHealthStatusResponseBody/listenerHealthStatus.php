@@ -37,7 +37,7 @@ class listenerHealthStatus extends Model
     public $listenerProtocol;
 
     /**
-     * @description The information about the server groups.
+     * @description The information about the server group.
      *
      * @var serverGroupInfos[]
      */

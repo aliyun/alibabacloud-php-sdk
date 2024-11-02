@@ -13,7 +13,7 @@ class rewriteConfig extends Model
      *
      *   **${host}** (default): If you set the value to ${host}, you cannot append other characters.
      *
-     *   The hostname must meet the following requirements:
+     *   If you want to specify a custom value, make sure that the following requirements are met:
      *
      *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), periods (.), asterisks (\\*), and question marks (?).
      *   The hostname must contain at least one period (.) but cannot start or end with a period (.).
@@ -31,9 +31,9 @@ class rewriteConfig extends Model
      *
      *   Default value: **${path}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable can be specified only once. You can specify one or more of the preceding variables in each request. You can also combine them with a custom value.
      *
-     *   The URL must meet the following requirements:
+     *   If you want to specify a custom value, make sure that the following requirements are met:
      *
-     *   The value must be 1 to 128 characters in length,
+     *   The URL must be 1 to 128 characters in length.
      *   The URL must start with a forward slash (/) and can contain letters, digits, and the following special characters: `$ - _ .+ / & ~ @ :`. It cannot contain the following special characters: `" % # ; ! ( ) [ ]^ , "`. You can use asterisks (\\*) and question marks (?) as wildcard characters.
      *   The URL is case-sensitive.
      *
@@ -44,11 +44,11 @@ class rewriteConfig extends Model
     public $path;
 
     /**
-     * @description The query string of the URL to which requests are rewritten.
+     * @description The query string of the URL to which requests are forwarded.
      *
      *   Default value: **${query}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable can be specified only once. The preceding variables can be used at the same time or combined with a custom value.
      *
-     *   The query string must meet the following requirements:
+     *   If you want to specify a custom value, make sure that the following requirements are met:
      *
      *   The query string must be 1 to 128 characters in length.
      *   The query string can contain printable characters, but cannot contain space characters, the special characters `# [ ] { } \\ | < > &`, or uppercase letters.

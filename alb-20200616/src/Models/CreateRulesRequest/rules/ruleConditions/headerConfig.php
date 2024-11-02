@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class headerConfig extends Model
 {
     /**
-     * @description The key of the header.
+     * @description The header key.
      *
      *   The header key must be 1 to 40 characters in length,
      *   The header key can contain letters, digits, hyphens (-), and underscores (_).

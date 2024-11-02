@@ -18,7 +18,7 @@ use AlibabaCloud\Tea\Model;
 class ruleConditions extends Model
 {
     /**
-     * @description The configurations of the cookies.
+     * @description The key-value pairs of the cookie.
      *
      * @var cookieConfig
      */
@@ -32,21 +32,21 @@ class ruleConditions extends Model
     public $headerConfig;
 
     /**
-     * @description The configurations of the host.
+     * @description The configuration of the host.
      *
      * @var hostConfig
      */
     public $hostConfig;
 
     /**
-     * @description The configurations of the request methods.
+     * @description The configurations of the request method.
      *
      * @var methodConfig
      */
     public $methodConfig;
 
     /**
-     * @description The configurations of the URLs.
+     * @description The configurations of the URL to which requests are forwarded.
      *
      * @var pathConfig
      */
@@ -60,17 +60,21 @@ class ruleConditions extends Model
     public $queryStringConfig;
 
     /**
+     * @description The configuration of headers.
+     *
      * @var responseHeaderConfig
      */
     public $responseHeaderConfig;
 
     /**
+     * @description The configurations of the response status codes.
+     *
      * @var responseStatusCodeConfig
      */
     public $responseStatusCodeConfig;
 
     /**
-     * @description The configuration of the source IP-based forwarding rule. This parameter is required and takes effect only when **Type** is set to **SourceIP**.
+     * @description Configurations of traffic matching based on source IP addresses. This parameter is required and valid when **Type** is set to **SourceIP**.
      *
      * @var sourceIpConfig
      */
@@ -81,11 +85,13 @@ class ruleConditions extends Model
      *
      *   **Host**: Requests are distributed based on hosts.
      *   **Path**: Requests are distributed based on paths.
-     *   **Header**: Requests are distributed based on HTTP headers.
+     *   **Header**: Requests are forwarded based on HTTP headers.
      *   **QueryString**: Requests are distributed based on query strings.
      *   **Method**: Requests are distributed based on request methods.
      *   **Cookie**: Requests are distributed based on cookies.
-     *   **SourceIp**: Requests are distributed based on source IP addresses.
+     *   **SourceIp**: Requests are forwarded based on source IP addresses.
+     *   **ResponseHeader**: Requests are forwarded based on HTTP response headers.
+     *   **ResponseStatusCode**: Requests are forwarded based on response status codes.
      *
      * This parameter is required.
      * @example Host

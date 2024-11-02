@@ -30,7 +30,7 @@ class ListListenersRequest extends Model
     public $listenerProtocol;
 
     /**
-     * @description The ID of the Application Load Balancer (ALB) instance. You can specify at most 20 IDs.
+     * @description The ALB instance ID. You can specify at most 20 instance IDs.
      *
      * @var string[]
      */

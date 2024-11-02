@@ -895,7 +895,7 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Creates an HTTP, HTTPS, or QUIC listener in a region.
+     * @summary Creates a listener.
      *  *
      * @description ## Usage notes
      * **CreateListener** is an asynchronous operation. After you call this operation, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/214353.html) operation to query the status of the HTTP, HTTPS, or QUIC listener.
@@ -984,7 +984,7 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Creates an HTTP, HTTPS, or QUIC listener in a region.
+     * @summary Creates a listener.
      *  *
      * @description ## Usage notes
      * **CreateListener** is an asynchronous operation. After you call this operation, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/214353.html) operation to query the status of the HTTP, HTTPS, or QUIC listener.
@@ -1188,17 +1188,17 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Creates one or more forwarding rules at a time.
+     * @summary Creates multiple forwarding rules at a time.
      *  *
      * @description When you call this operation, take note of the following limits:
-     * *   When you configure the **Redirect** action, you can use the default value for the **HttpCode** parameter but you cannot use the default values for all of the other parameters.
-     * *   If you specify the **Rewrite** action and other actions in a forwarding rule, make sure that one of the actions is **ForwardGroup**.
-     * *   **CreateRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of forwarding rules.
-     *     *   If forwarding rules are in the **Provisioning** state, the forwarding rules are being created.
-     *     *   If forwarding rules are in the **Available** state, the forwarding rules have been created.
+     * *   When you configure the **Redirect** action, do not use the default values for parameters other than **HttpCode**.
+     * *   If you specify multiple actions in a forward rule, you must specify the **ForwardGroup** parameter along with the **Rewrite** parameter.
+     * *   **CreateRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of the forwarding rules.
+     *     *   If the forwarding rules are in the **Provisioning** state, the forwarding rules are being created.
+     *     *   If the forwarding rules are in the **Available** state, the forwarding rules are created.
      * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
-     *     *   Limits on conditions: You can specify at most 5 conditions if you use a basic Application Load Balancer (ALB) instance, at most 10 conditions if you use a standard ALB instance, and at most 10 conditions if you use a WAF-enabled ALB instance.
-     *     *   Limits on actions: You can specify at most 3 actions if you use a basic ALB instance, at most 5 actions if you use a standard ALB instance, and at most 10 actions if you use a WAF-enabled ALB instance.
+     *     *   Conditions: 5 for each basic ALB instance, 10 for each standard ALB instance, and 10 for each WAF-enabled ALB instance.
+     *     *   Actions: 3 for each basic ALB instance, 5 for each standard ALB instance, and 5 for each WAF-enabled ALB instance.
      *  *
      * @param CreateRulesRequest $request CreateRulesRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -1240,17 +1240,17 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Creates one or more forwarding rules at a time.
+     * @summary Creates multiple forwarding rules at a time.
      *  *
      * @description When you call this operation, take note of the following limits:
-     * *   When you configure the **Redirect** action, you can use the default value for the **HttpCode** parameter but you cannot use the default values for all of the other parameters.
-     * *   If you specify the **Rewrite** action and other actions in a forwarding rule, make sure that one of the actions is **ForwardGroup**.
-     * *   **CreateRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of forwarding rules.
-     *     *   If forwarding rules are in the **Provisioning** state, the forwarding rules are being created.
-     *     *   If forwarding rules are in the **Available** state, the forwarding rules have been created.
+     * *   When you configure the **Redirect** action, do not use the default values for parameters other than **HttpCode**.
+     * *   If you specify multiple actions in a forward rule, you must specify the **ForwardGroup** parameter along with the **Rewrite** parameter.
+     * *   **CreateRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of the forwarding rules.
+     *     *   If the forwarding rules are in the **Provisioning** state, the forwarding rules are being created.
+     *     *   If the forwarding rules are in the **Available** state, the forwarding rules are created.
      * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
-     *     *   Limits on conditions: You can specify at most 5 conditions if you use a basic Application Load Balancer (ALB) instance, at most 10 conditions if you use a standard ALB instance, and at most 10 conditions if you use a WAF-enabled ALB instance.
-     *     *   Limits on actions: You can specify at most 3 actions if you use a basic ALB instance, at most 5 actions if you use a standard ALB instance, and at most 10 actions if you use a WAF-enabled ALB instance.
+     *     *   Conditions: 5 for each basic ALB instance, 10 for each standard ALB instance, and 10 for each WAF-enabled ALB instance.
+     *     *   Actions: 3 for each basic ALB instance, 5 for each standard ALB instance, and 5 for each WAF-enabled ALB instance.
      *  *
      * @param CreateRulesRequest $request CreateRulesRequest
      *
@@ -3281,7 +3281,7 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries Application Load Balancer (ALB) instances in a region based on filter conditions.
+     * @summary Queries the configurations of instances.
      *  *
      * @param ListLoadBalancersRequest $request ListLoadBalancersRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -3356,7 +3356,7 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries Application Load Balancer (ALB) instances in a region based on filter conditions.
+     * @summary Queries the configurations of instances.
      *  *
      * @param ListLoadBalancersRequest $request ListLoadBalancersRequest
      *
@@ -3603,7 +3603,7 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries server groups in a region.
+     * @summary Queries server groups.
      *  *
      * @param ListServerGroupsRequest $request ListServerGroupsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -3657,7 +3657,7 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries server groups in a region.
+     * @summary Queries server groups.
      *  *
      * @param ListServerGroupsRequest $request ListServerGroupsRequest
      *

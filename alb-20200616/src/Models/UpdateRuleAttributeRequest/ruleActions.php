@@ -18,7 +18,7 @@ use AlibabaCloud\Tea\Model;
 class ruleActions extends Model
 {
     /**
-     * @description The origins allowed.
+     * @description The CORS configuration.
      *
      * @var corsConfig
      */
@@ -46,7 +46,7 @@ class ruleActions extends Model
     public $insertHeaderConfig;
 
     /**
-     * @description The priority of the action. Valid values: **1 to 50000**. A lower value indicates a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter is required. The priority of each action within a forwarding rule must be unique. You can specify priorities for at most 20 actions.
+     * @description The priority of the action. Valid values: **1 to 50000**. A smaller value specifies a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter is required. The priority of each action within a forwarding rule must be unique. You can specify at most 20 forwarding rule priorities.
      *
      * @example 1
      *
@@ -55,13 +55,15 @@ class ruleActions extends Model
     public $order;
 
     /**
-     * @description The configuration of the redirection. You can specify at most 20 rewrites.
+     * @description The configuration of the redirect action. You can specify at most 20 redirect actions.
      *
      * @var redirectConfig
      */
     public $redirectConfig;
 
     /**
+     * @description The HTTP header to be removed.
+     *
      * @var removeHeaderConfig
      */
     public $removeHeaderConfig;
@@ -74,36 +76,36 @@ class ruleActions extends Model
     public $rewriteConfig;
 
     /**
-     * @description The action to throttle traffic.
+     * @description The configuration of the action to throttle traffic.
      *
      * @var trafficLimitConfig
      */
     public $trafficLimitConfig;
 
     /**
-     * @description The action to mirror traffic.
+     * @description The configuration of the traffic mirroring action.
      *
      * @var trafficMirrorConfig
      */
     public $trafficMirrorConfig;
 
     /**
-     * @description The action type. You can specify at most 11 types of actions. Valid values:
+     * @description The type of the task. You can specify at most 11 types of action. Valid values:
      *
-     *   **ForwardGroup**: forwards a request to multiple vServer groups.
-     *   **Redirect**: redirects a request.
-     *   **FixedResponse**: returns a custom response.
-     *   **Rewrite**: rewrites a request.
+     *   **ForwardGroup**: forwards requests to multiple vServer groups.
+     *   **Redirect**: redirects requests.
+     *   **FixedResponse**: returns a fixed response.
+     *   **Rewrite**: rewrites requests.
      *   **InsertHeader**: inserts a header.
-     *   **RemoveHeaderConfig**: deletes a header.
-     *   **TrafficLimitConfig**: throttles network traffic.
-     *   **TrafficMirrorConfig**: mirrors traffic.
-     *   **CorsConfig**: forwards requests based on CORS.
+     *   **RemoveHeader**: removes headers.
+     *   **TrafficLimit**: throttles traffic.
+     *   **trafficMirror**: mirrors network traffic.
+     *   **Cors**: forwards requests based on CORS.
      *
-     * The following action types are supported:
+     * The preceding actions can be classified into two types:
      *
-     *   **FinalType**: the last action to be performed in a forwarding rule. Each forwarding rule can contain only one FinalType action. You can specify a **ForwardGroup**, **Redirect**, or **FixedResponse** action as the FinalType action.
-     *   **ExtType**: the action or the actions to be performed before the **FinalType** action. A forwarding rule can contain one or more **ExtType** actions. To specify this parameter, you must also specify **FinalType**. You can specify multiple **InsertHeader** actions or one **Rewrite** action.
+     *   **FinalType**: Each forwarding rule can contain only one FinalType action, which is performed at the end. You can specify only one of **ForwardGroup**, **Redirect**, and **FixedResponse**.
+     *   **ExtType**: Each forwarding rule can contain one or more **ExtType** actions, which are performed before the **FinalType** action. If you want to specify an ExtType action, you must also specify a **FinalType** action. You can specify multiple **InsertHeader** actions or one **Rewrite** action.
      *
      * @example ForwardGroup
      *

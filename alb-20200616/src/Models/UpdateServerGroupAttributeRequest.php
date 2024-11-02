@@ -26,11 +26,12 @@ class UpdateServerGroupAttributeRequest extends Model
     /**
      * @description The configurations of connection draining.
      *
-     * After connection draining is enabled, ALB maintains data transmission for a period of time after the backend server is removed or declared unhealthy.
+     * >
      *
-     * > *   By default, connection draining is disabled. To enable connection draining, contact your account manager.
-     * >*   Basic ALB instances do not support connection draining. Standard and WAF-enabled ALB instances support connection draining.
-     * >*   Server groups of the instance and IP types support connection draining. Server groups of the Function Compute type do not support connection draining.
+     *   Basic SLB instances do not support connection draining. Standard and WAF-enabled SLB instances support connection draining.
+     *
+     *   Server groups of the server and IP types support connection draining. Server groups of the Function Compute type do not support connection draining.
+     *
      * @var connectionDrainConfig
      */
     public $connectionDrainConfig;

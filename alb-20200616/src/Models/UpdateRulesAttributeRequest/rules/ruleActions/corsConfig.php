@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class corsConfig extends Model
 {
     /**
-     * @description Specifies whether credentials can be carried in CORS requests. Valid values:
+     * @description Specifies whether to allow credentials to be carried in CORS requests. Valid values:
      *
-     *   **on**
-     *   **off**
+     *   **on**: allows credentials to be carried in CORS requests.
+     *   **off**: does not allow credentials to be carried in CORS requests.
      *
      * @example on
      *

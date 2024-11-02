@@ -32,28 +32,28 @@ class ruleConditions extends Model
     public $headerConfig;
 
     /**
-     * @description The configuration of the hosts. You can specify at most 20 hosts.
+     * @description The configuration of the hosts.
      *
      * @var hostConfig
      */
     public $hostConfig;
 
     /**
-     * @description The configurations of the request methods. You can specify at most 20 request methods.
+     * @description The configurations of the request methods.
      *
      * @var methodConfig
      */
     public $methodConfig;
 
     /**
-     * @description The configurations of the forwarding URLs. You can specify at most 20 forwarding URLs.
+     * @description The configurations of the forwarding URLs.
      *
      * @var pathConfig
      */
     public $pathConfig;
 
     /**
-     * @description The configuration of the query conditions. You can specify at most 20 query conditions.
+     * @description The configurations of the query strings. You can specify at most 20 query strings.
      *
      * @var queryStringConfig
      */

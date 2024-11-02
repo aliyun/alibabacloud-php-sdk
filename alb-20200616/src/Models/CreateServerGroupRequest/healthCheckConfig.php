@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class healthCheckConfig extends Model
 {
     /**
-     * @description The HTTP status codes that indicate healthy backend servers.
+     * @description The HTTP status codes that are used to indicate whether the backend server passes the health check.
      *
      * @var string[]
      */
@@ -47,7 +47,7 @@ class healthCheckConfig extends Model
      *
      *   The domain name must be 1 to 80 characters in length.
      *   The domain name can contain lowercase letters, digits, hyphens (-), and periods (.).
-     *   The domain name can contain at least one period (.) but cannot start or end with a period (.).
+     *   The domain name must contain at least one period (.) but cannot start or end with a period (.).
      *   The rightmost domain label of the domain name can contain only letters, and cannot contain digits or hyphens (-).
      *   The domain name cannot start or end with a hyphen (-).
      *
@@ -126,8 +126,6 @@ class healthCheckConfig extends Model
      * Valid values: **1** to **300**.
      *
      * Default value: **5**.
-     *
-     * >  If the value of **HealthCHeckTimeout** is smaller than the value of **HealthCheckInterval**, **HealthCHeckTimeout** does not take effect. The value of **HealthCheckInterval** specifies the timeout period.
      * @example 5
      *
      * @var int

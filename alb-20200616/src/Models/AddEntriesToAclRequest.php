@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class AddEntriesToAclRequest extends Model
 {
     /**
-     * @description The IP entries that you want to add. You can add up to 20 IP entries in each call.
+     * @description The ACL entries that you want to add. You can add at most 20 entries in each call.
      *
      * This parameter is required.
      * @var aclEntries[]

@@ -30,7 +30,7 @@ class DeleteHealthCheckTemplatesRequest extends Model
     public $dryRun;
 
     /**
-     * @description The ID of the health check template.
+     * @description The IDs of health check templates. You can specify at most 10 IDs.
      *
      * This parameter is required.
      * @example acl-123

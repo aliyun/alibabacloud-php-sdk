@@ -11,7 +11,7 @@ class serverGroupStickySession extends Model
     /**
      * @description Specifies whether to enable session persistence. Valid values:
      *
-     *   **true**
+     *   **true**: enables session persistence.
      *   **false** (default)
      *
      * @example false
@@ -21,7 +21,7 @@ class serverGroupStickySession extends Model
     public $enabled;
 
     /**
-     * @description The timeout period of sessions. Unit: seconds. Valid values: 1 to 86400.
+     * @description The timeout period of sessions. Unit: seconds Valid values: 1 to 86400.
      *
      * @example 2
      *

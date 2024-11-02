@@ -11,7 +11,7 @@ class XForwardedForConfig extends Model
     /**
      * @description The name of the custom header. This parameter takes effect only when you set **XForwardedForClientCertClientVerifyEnabled** to **true**.
      *
-     * >  Only HTTPS listeners support this parameter.
+     * > Only HTTPS listeners support this parameter.
      * @example test_client-verify-alias_123456
      *
      * @var string
@@ -21,7 +21,7 @@ class XForwardedForConfig extends Model
     /**
      * @description Specifies whether to use the `X-Forwarded-Clientcert-clientverify` header to retrieve the verification result of the client certificate. Valid values:
      *
-     *   **true**:
+     *   **true**
      *   **false** (default)
      *
      * >  Only HTTPS listeners support this parameter.
@@ -67,7 +67,7 @@ class XForwardedForConfig extends Model
     /**
      * @description Specifies whether to use the `X-Forwarded-Clientcert-issuerdn` header to retrieve information about the authority that issues the client certificate. Valid values:
      *
-     *   **true**:
+     *   **true**
      *   **false** (default)
      *
      * >  Only HTTPS listeners support this parameter.
@@ -90,7 +90,7 @@ class XForwardedForConfig extends Model
     /**
      * @description Specifies whether to use the `X-Forwarded-Clientcert-subjectdn` header to retrieve information about the owner of the client certificate. Valid values:
      *
-     *   **true**:
+     *   **true**
      *   **false** (default)
      *
      * >  Only HTTPS listeners support this parameter.
@@ -103,10 +103,10 @@ class XForwardedForConfig extends Model
     /**
      * @description Specifies whether to allow the ALB instance to retrieve client IP addresses from the X-Forwarded-For header. Valid values:
      *
-     *   **true**:
+     *   **true**
      *   **false** (default)
      *
-     * >  This parameter is supported only by HTTP and HTTPS listeners.
+     * >  HTTP and HTTPS listeners support this parameter.
      * @example false
      *
      * @var bool
@@ -124,12 +124,12 @@ class XForwardedForConfig extends Model
     public $XForwardedForClientSourceIpsTrusted;
 
     /**
-     * @description Specifies whether to use the `X-Forwarded-Client-Port` header to retrieve the client port. Valid values:
+     * @description Specifies whether to use the `X-Forwarded-Client-srcport` header to retrieve the client port. Valid values:
      *
-     *   **true**:
+     *   **true**
      *   **false** (default)
      *
-     * >  This parameter is returned only for HTTP and HTTPS listeners.
+     * >  HTTP and HTTPS listeners support this parameter.
      * @example true
      *
      * @var bool
@@ -142,7 +142,7 @@ class XForwardedForConfig extends Model
      *   **true** (default)
      *   **false**
      *
-     * >  This parameter is returned only for HTTP and HTTPS listeners.
+     * >  HTTP and HTTPS listeners support this parameter.
      * @example true
      *
      * @var bool
@@ -152,10 +152,10 @@ class XForwardedForConfig extends Model
     /**
      * @description Specifies whether to use the `X-Forwarded-Proto` header to retrieve the listener protocol. Valid values:
      *
-     *   **true**:
+     *   **true**
      *   **false** (default)
      *
-     * >  This parameter is supported by HTTP, HTTPS, and QUIC listeners.
+     * >  HTTP, HTTPS, and QUIC listeners support this parameter.
      * @example false
      *
      * @var bool
@@ -165,10 +165,10 @@ class XForwardedForConfig extends Model
     /**
      * @description Specifies whether to use the `SLB-ID` header to retrieve the ID of the ALB instance. Valid values:
      *
-     *   **true**:
+     *   **true**
      *   **false** (default)
      *
-     * >  This parameter is supported by HTTP, HTTPS, and QUIC listeners.
+     * >  HTTP, HTTPS, and QUIC listeners support this parameter.
      * @example false
      *
      * @var bool
@@ -178,10 +178,10 @@ class XForwardedForConfig extends Model
     /**
      * @description Specifies whether to use the `X-Forwarded-Port` header to retrieve the listener port of the ALB instance. Valid values:
      *
-     *   **true**:
+     *   **true**
      *   **false** (default)
      *
-     * >  This parameter is supported by HTTP, HTTPS, and QUIC listeners.
+     * >  HTTP, HTTPS, and QUIC listeners support this parameter.
      * @example false
      *
      * @var bool

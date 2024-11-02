@@ -40,13 +40,13 @@ class healthCheckConfig extends Model
     /**
      * @description The domain name that is used for health checks. The domain name meets the following requirements:
      *
-     *   The domain name must be 1 to 80 characters in length.
-     *   The domain name can contain lowercase letters, digits, hyphens (-), and periods (.).
-     *   The domain name can contain at least one period (.) but cannot start or end with a period (.).
-     *   The rightmost domain label of the domain name can contain only letters, and cannot contain digits or hyphens (-).
-     *   The domain name cannot start or end with a hyphen (-).
+     *   The domain name is 1 to 80 characters in length.
+     *   The domain name contains lowercase letters, digits, hyphens (-), and periods (.).
+     *   The domain name contains at least one period (.) but does not start or end with a period (.).
+     *   The rightmost domain label of the domain name contains only letters, and does not contain digits or hyphens (-).
+     *   The domain name does not start or end with a hyphen (-).
      *
-     * >  This parameter takes effect only when **HealthCheckProtocol** is set to **HTTP** or **HTTPS**. HTTPS is unavailable by default. If you want to use HTTPS, log on to the SLB console, go to the Quota Center page, click the **ALB** tab, and then apply for the privilege to use HTTPS.
+     * >  This parameter takes effect only if you set **HealthCheckProtocol** to **HTTP** or **HTTPS**.
      * @example www.example.com
      *
      * @var string
@@ -58,7 +58,7 @@ class healthCheckConfig extends Model
      *
      * Valid values: **HTTP1.0** and **HTTP1.1**.
      *
-     * >  This parameter takes effect only when **HealthCheckProtocol** is set to **HTTP** or **HTTPS**. HTTPS is unavailable by default. If you want to use HTTPS, log on to the SLB console, go to the Quota Center page, click the **ALB** tab, and then apply for the privilege to use HTTPS.
+     * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP** or **HTTPS**.
      * @example HTTP1.1
      *
      * @var string
@@ -81,7 +81,7 @@ class healthCheckConfig extends Model
      *   **POST**: gRPC health checks use the POST method by default.
      *   **HEAD**: HTTP and HTTPS health checks use the HEAD method by default.
      *
-     * >  This parameter takes effect only when **HealthCheckProtocol** is set to **HTTP**, **HTTPS**, or **gRPC**. HTTPS is unavailable by default. If you want to use HTTPS, log on to the SLB console, go to the Quota Center page, click the **ALB** tab, and then apply for the privilege to use HTTPS.
+     * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP**, **HTTPS**, or **gRPC**.
      * @example HEAD
      *
      * @var string
@@ -91,7 +91,7 @@ class healthCheckConfig extends Model
     /**
      * @description The URL that is used for health checks.
      *
-     * >  This parameter takes effect only when **HealthCheckProtocol** is set to **HTTP** or **HTTPS**. HTTPS is unavailable by default. If you want to use HTTPS, log on to the SLB console, go to the Quota Center page, click the **ALB** tab, and then apply for the privilege to use HTTPS.
+     * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP** or **HTTPS**.
      * @example /test/index.html
      *
      * @var string
@@ -106,7 +106,6 @@ class healthCheckConfig extends Model
      *   **TCP**: TCP health checks send TCP SYN packets to a backend server to check whether the port of the backend server is reachable.
      *   **gRPC**: gRPC health checks send POST or GET requests to a backend server to check whether the backend server is healthy.
      *
-     * >  HTTPS is unavailable by default. If you want to use HTTPS, log on to the SLB console, go to the Quota Center page, click the **ALB** tab, and then apply for the privilege to use HTTPS.
      * @example HTTP
      *
      * @var string

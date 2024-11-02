@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sourceIpConfig extends Model
 {
     /**
-     * @description The configuration of the source IP-based forwarding rule.
+     * @description The source IP addresses used for traffic matching.
      *
      * @var string[]
      */

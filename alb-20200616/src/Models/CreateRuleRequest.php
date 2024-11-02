@@ -69,9 +69,7 @@ class CreateRuleRequest extends Model
     public $priority;
 
     /**
-     * @description The maximum cache time of dry run requests in the browser. Unit: seconds.
-     *
-     * Valid values: **-1** to **172800**.
+     * @description The actions of the forwarding rule.
      *
      * This parameter is required.
      * @var ruleActions[]
@@ -79,7 +77,7 @@ class CreateRuleRequest extends Model
     public $ruleActions;
 
     /**
-     * @description The configuration of the source IP-based forwarding rule.
+     * @description The match conditions of the forwarding rule.
      *
      * This parameter is required.
      * @var ruleConditions[]
@@ -100,6 +98,8 @@ class CreateRuleRequest extends Model
     public $ruleName;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

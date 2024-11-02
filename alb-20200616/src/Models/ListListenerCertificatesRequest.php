@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListListenerCertificatesRequest extends Model
 {
     /**
+     * @description The certificate IDs.
+     *
      * @var string[]
      */
     public $certificateIds;

@@ -44,7 +44,7 @@ class AddServersToServerGroupRequest extends Model
     public $serverGroupId;
 
     /**
-     * @description The backend servers that you want to add to the server group. You can specify up to 40 backend servers in each call.
+     * @description The backend servers. You can specify at most 200 servers in each call.
      *
      * This parameter is required.
      * @var servers[]

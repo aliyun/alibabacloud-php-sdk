@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListAclRelationsRequest extends Model
 {
     /**
-     * @description Array of ACL ID.
+     * @description The access control list (ACL) IDs. You can query at most five ACLs in each call.
      *
      * This parameter is required.
      * @var string[]

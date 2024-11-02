@@ -58,7 +58,7 @@ class healthCheckConfig extends Model
     public $healthCheckHost;
 
     /**
-     * @description The HTTP version for health checks. Valid values:
+     * @description The HTTP version that is used for health checks. Valid values:
      *
      *   **HTTP1.0**
      *   **HTTP1.1**
@@ -109,7 +109,7 @@ class healthCheckConfig extends Model
     public $healthCheckPath;
 
     /**
-     * @description The protocol that is used for health checks. Valid values:
+     * @description The protocol that you want to use for health checks. Valid values:
      *
      *   **HTTP**: HTTP health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers.
      *   **HTTPS**: HTTPS health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers. HTTPS supports encryption and provides higher security than HTTP.
@@ -127,12 +127,7 @@ class healthCheckConfig extends Model
      *
      * Valid values: **1** to **300**.
      *
-     * >
-     *
-     *   If the value of **HealthCHeckTimeout** is smaller than the value of **HealthCheckInterval**, **HealthCHeckTimeout** becomes invalid. The timeout period is specified by the value of **HealthCheckInterval**.
-     *
-     *   This parameter takes effect only if you set **HealthCheckEnabled** to **true**.
-     *
+     * >  This parameter takes effect only if you set **HealthCheckEnabled** to **true**.
      * @example 3
      *
      * @var int

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class servers extends Model
 {
     /**
-     * @description The port that is used by the backend server. Valid values: **1** to **65535**. You can specify at most 40 servers in each call.
+     * @description The port that is used by the backend server. Valid values: **1** to **65535**.
      *
-     * > This parameter is required if the **ServerType** parameter is set to **Ecs**, **Eni**, **Eci**, or **Ip**.
+     * >  This parameter is required when you set **ServerType** to **Ecs**, **Eni**, **Eci**, or **Ip**.
      * @example 80
      *
      * @var int
@@ -19,11 +19,11 @@ class servers extends Model
     public $port;
 
     /**
-     * @description The backend server ID. You can specify up to 40 server IDs in each call.
+     * @description The ID of the server group.
      *
-     *   If the server group type is **Instance**, set the ServerId parameter to the ID of an ECS instance, an ENI, or an elastic container instance. These backend servers are specified by **Ecs**, **Eni**, or **Eci**.
-     *   If the server group type is **Ip**, set the ServerId parameter to an IP address specified in the server group.
-     *   If the server group type is **Fc**, set the ServerId parameter to the ARN of a function specified in the server group.
+     *   If the server group is of the **Instance** type, set ServerId to the ID of a resource of the **Ecs**, **Eni**, or **Eci** type.
+     *   If the server group is of the **Ip** type, set ServerId to IP addresses.
+     *   If the server group is of the **Fc**, set ServerId to the Alibaba Cloud Resource Name (ARN) of a function.
      *
      * This parameter is required.
      * @example i-bp1f9kdprbgy9uiu****
@@ -33,7 +33,7 @@ class servers extends Model
     public $serverId;
 
     /**
-     * @description The IP address in inclusive ENI mode. You can specify at most 40 servers in each call.
+     * @description The IP address of the elastic network interface (ENI) in exclusive mode.
      *
      * @example 192.168.1.1
      *
@@ -42,13 +42,13 @@ class servers extends Model
     public $serverIp;
 
     /**
-     * @description The type of the backend server. You can specify at most 40 servers in each call. Valid values:
+     * @description The type of the backend server. Valid values:
      *
-     *   **Ecs**
-     *   **Eni**
-     *   **Eci**
-     *   **Ip**
-     *   **Fc**
+     *   **Ecs**: ECS instance
+     *   **Eni**: ENI
+     *   **Eci**: elastic container instance
+     *   **Ip**: IP address
+     *   **Fc**: Function Compute
      *
      * This parameter is required.
      * @example Ecs

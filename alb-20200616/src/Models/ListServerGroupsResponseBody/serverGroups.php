@@ -29,14 +29,7 @@ class serverGroups extends Model
     /**
      * @description The configurations of connection draining.
      *
-     * >
-     *
-     *   By default, connection draining is disabled. To enable connection draining, contact your account manager.
-     *
-     *   Basic ALB instances do not support connection draining. Standard and WAF-enabled ALB instances support connection draining.
-     *
-     *   Server groups of the instance and IP types support connection draining. Server groups of the Function Compute type do not support connection draining.
-     *
+     * > -  Server groups of the instance and IP types support connection draining. Server groups of the Function Compute type do not support connection draining.
      * @var connectionDrainConfig
      */
     public $connectionDrainConfig;
@@ -176,14 +169,7 @@ class serverGroups extends Model
     /**
      * @description The configurations of slow starts.
      *
-     * >
-     *
-     *   Basic ALB instances do not support slow starts. Standard and WAF-enabled ALB instances support slow starts.
-     *
-     *   Server groups of the instance and IP types support slow starts. Server groups of the Function Compute type do not support slow starts.
-     *
-     *   Slow start is supported only by the weighted round-robin scheduling algorithm.
-     *
+     * > - Slow start is supported only by the weighted round-robin scheduling algorithm.
      * @var slowStartConfig
      */
     public $slowStartConfig;

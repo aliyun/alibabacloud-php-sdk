@@ -54,6 +54,12 @@ class ListServerGroupsRequest extends Model
     public $serverGroupNames;
 
     /**
+     * @description The server group type. Valid values:
+     *
+     *   **Instance**: instances, including ECS instances, ENIs, and elastic container instances.
+     *   **Ip**: IP addresses.
+     *   **Fc**: Function Compute
+     *
      * @example Instance
      *
      * @var string

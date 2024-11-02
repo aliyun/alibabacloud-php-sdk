@@ -44,7 +44,7 @@ class UpdateServerGroupServersAttributeRequest extends Model
     public $serverGroupId;
 
     /**
-     * @description The backend servers that you want to add to the server group. You can specify up to 40 servers in each call.
+     * @description The server groups. You can specify at most 40 server groups in each call.
      *
      * This parameter is required.
      * @var servers[]

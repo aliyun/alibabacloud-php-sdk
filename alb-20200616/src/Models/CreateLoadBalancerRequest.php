@@ -13,10 +13,10 @@ use AlibabaCloud\Tea\Model;
 class CreateLoadBalancerRequest extends Model
 {
     /**
-     * @description The mode in which IP addresses are allocated. Valid values:
+     * @description The mode in which IP addresses are allocated. Default value: Dynamic. Valid values:
      *
      *   **Fixed**: The ALB instance uses a static IP address.
-     *   **Dynamic**: dynamically allocates an IP address to each zone of the ALB instance.
+     *   **Dynamic** (default): The system dynamically allocates an IP address to each zone of the ALB instance.
      *
      * @example Dynamic
      *
@@ -151,7 +151,7 @@ class CreateLoadBalancerRequest extends Model
     public $vpcId;
 
     /**
-     * @description The zones and the vSwitches in the zones. You must specify at least two zones.
+     * @description The mappings between zones an vSwitches. You can specify at most 10 zones. If the selected region supports two or more zones, select at least two zones to ensure the high availability of your service.
      *
      * This parameter is required.
      * @var zoneMappings[]

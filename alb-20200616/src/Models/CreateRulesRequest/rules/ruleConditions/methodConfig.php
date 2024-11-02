@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class methodConfig extends Model
 {
     /**
-     * @description The request methods.
+     * @description The request methods. You can specify at most 20 request methods.
      *
      * @var string[]
      */

@@ -74,7 +74,7 @@ class ListLoadBalancersRequest extends Model
     public $loadBalancerIds;
 
     /**
-     * @description The names of the instances. You can specify at most 10 names.
+     * @description The instance names. You can specify at most 10 instance names.
      *
      * @var string[]
      */
@@ -144,7 +144,7 @@ class ListLoadBalancersRequest extends Model
     public $tag;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) to which the ALB instance belongs. You can specify at most 10 IDs.
+     * @description The ID of the VPC to which the ALB instance belongs. You can specify at most 10 VPC IDs.
      *
      * @var string[]
      */

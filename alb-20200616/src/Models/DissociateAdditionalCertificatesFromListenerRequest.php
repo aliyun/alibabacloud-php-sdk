@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DissociateAdditionalCertificatesFromListenerRequest extends Model
 {
     /**
-     * @description The additional certificates.
+     * @description The additional certificates. Only server certificates are supported. You can specify at most 20 certificates.
      *
      * This parameter is required.
      * @var certificates[]

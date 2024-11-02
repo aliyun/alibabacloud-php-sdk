@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListAScriptsRequest extends Model
 {
     /**
-     * @description The AScript rule IDs.
+     * @description The AScript rule IDs. You can specify at most 20 IDs in each call.
      *
      * @var string[]
      */
     public $AScriptIds;
 
     /**
-     * @description The names of the AScript rules.
+     * @description The AScript rule names. You can specify at most 10 names in each call.
      *
      * @var string[]
      */
     public $AScriptNames;
 
     /**
-     * @description The listener IDs.
+     * @description The listener IDs. You can specify at most 20 listener IDs in each call.
      *
      * @var string[]
      */

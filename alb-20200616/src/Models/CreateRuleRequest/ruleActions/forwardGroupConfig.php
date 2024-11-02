@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class forwardGroupConfig extends Model
 {
     /**
-     * @description The configuration of session persistence for server groups.
+     * @description The configuration of session persistence for the server groups.
      *
      * @var serverGroupStickySession
      */
     public $serverGroupStickySession;
 
     /**
-     * @description The server groups to which requests are distributed. Each forwarding rule supports at most five server groups.
+     * @description The server groups to which requests are forwarded. You can specify at most five server groups for each forwarding rule.
      *
      * @var serverGroupTuples[]
      */

@@ -56,7 +56,7 @@ class ruleActions extends Model
     public $order;
 
     /**
-     * @description The redirect configuration. You can specify at most 20 redirects.
+     * @description The configuration of the redirect action. You can specify at most 20 redirects.
      *
      * @var redirectConfig
      */
@@ -70,7 +70,7 @@ class ruleActions extends Model
     public $removeHeaderConfig;
 
     /**
-     * @description The rewrite configuration. You can specify at most 20 rewrites.
+     * @description The configuration of the rewrite action. You can specify at most 20 rewrites.
      *
      * @var rewriteConfig
      */
@@ -91,7 +91,7 @@ class ruleActions extends Model
     public $trafficMirrorConfig;
 
     /**
-     * @description The action type. You can specify at most 11 types of action. Valid values:
+     * @description The action. You can specify at most 11 types of action. Valid values:
      *
      *   **ForwardGroup**: distributes requests to multiple vServer groups.
      *   **Redirect**: redirects requests.

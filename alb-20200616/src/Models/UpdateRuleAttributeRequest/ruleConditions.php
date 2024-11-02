@@ -18,7 +18,7 @@ use AlibabaCloud\Tea\Model;
 class ruleConditions extends Model
 {
     /**
-     * @description The configuration of the cookie.
+     * @description The key-value pairs of the cookie.
      *
      * @var cookieConfig
      */
@@ -39,28 +39,28 @@ class ruleConditions extends Model
     public $hostConfig;
 
     /**
-     * @description The configurations of the request methods.
+     * @description The configuration of the request method.
      *
      * @var methodConfig
      */
     public $methodConfig;
 
     /**
-     * @description The configurations of the paths.
+     * @description The configurations of the forwarding URL.
      *
      * @var pathConfig
      */
     public $pathConfig;
 
     /**
-     * @description The configurations of the query strings. You can specify at most 20 query conditions.
+     * @description The configurations of the query strings.
      *
      * @var queryStringConfig
      */
     public $queryStringConfig;
 
     /**
-     * @description The configuration of the header.
+     * @description The configuration of headers.
      *
      * @var responseHeaderConfig
      */
@@ -74,14 +74,14 @@ class ruleConditions extends Model
     public $responseStatusCodeConfig;
 
     /**
-     * @description The configuration of the source IP addresses based on which user traffic is matched. You can add at most five source IP-based forwarding rules.
+     * @description Traffic matching based on source IP addresses. You can specify at most five IP addresses, including CIDR blocks.
      *
      * @var sourceIpConfig
      */
     public $sourceIpConfig;
 
     /**
-     * @description The type of the forwarding rule. You can specify up to seven types. Valid values:
+     * @description The type of forwarding rule. You can specify at most seven types of forwarding rule. Valid values:
      *
      *   **Host**: Requests are forwarded based on hosts.
      *   **Path**: Requests are forwarded based on paths.
@@ -89,7 +89,7 @@ class ruleConditions extends Model
      *   **QueryString**: Requests are forwarded based on query strings.
      *   **Method**: Requests are forwarded based on request methods.
      *   **Cookie**: Requests are forwarded based on cookies.
-     *   **SourceIp**: Requests are distributed based on source IP addresses.
+     *   **SourceIp**: Responses are forwarded based on source IP addresses.
      *   **ResponseHeader**: Requests are forwarded based on HTTP response headers.
      *   **ResponseStatusCode**: Requests are forwarded based on response status codes.
      *

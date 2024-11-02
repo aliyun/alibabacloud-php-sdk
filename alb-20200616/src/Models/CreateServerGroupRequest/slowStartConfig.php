@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class slowStartConfig extends Model
 {
     /**
+     * @description The duration of a slow start.
+     * Default value: 30.
      * @example 30
      *
      * @var int
@@ -16,6 +18,9 @@ class slowStartConfig extends Model
     public $slowStartDuration;
 
     /**
+     * @description Specifies whether to enable slow starts. Valid values:
+     *
+     * - false(default)
      * @example false
      *
      * @var bool

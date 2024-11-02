@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class addedServers extends Model
 {
     /**
-     * @description The description of the backend server. The description must be 2 to 256 characters in length, and can contain letters, digits, periods (.), underscores (_), hyphens (-), commas (,), semicolons (;), forward slashes (/), and at signs (@). You can specify at most 40 servers in each call.
+     * @description The description of the backend server. The description must be 2 to 256 characters in length, and cannot start with http:// or https://.
      *
      * @example test
      *
@@ -18,7 +18,7 @@ class addedServers extends Model
     public $description;
 
     /**
-     * @description The port used by the server group. Valid values: **1** to **65535**. You can specify at most 40 servers in each call.
+     * @description The port used by the backend server in the server group. Valid values: **1** to **65535**. You can specify at most 200 servers in each call.
      *
      * @example 80
      *
@@ -27,10 +27,10 @@ class addedServers extends Model
     public $port;
 
     /**
-     * @description The ID of the backend server. You can specify up to 40 server IDs in each call.
+     * @description The ID of the backend server. You can specify at most 200 servers in each call.
      *
-     *   If the server group type is **Instance**, set the ServerId parameter to the ID of an ECS instance, an ENI, or an elastic container instance. These backend servers are specified by **Ecs**, **Eni**, or **Eci**.
-     *   If the server group type is **Ip**, set the ServerId parameter to an IP address specified in the server group.
+     *   If the server group is of the **Instance** type, set ServerId to the ID of a resource of the **Ecs**, **Eni**, or **Eci** type.
+     *   If the server group is of the **Ip** type, set ServerId to IP addresses.
      *
      * This parameter is required.
      * @example i-bp1f9kdprbgy9uiu****
@@ -40,7 +40,7 @@ class addedServers extends Model
     public $serverId;
 
     /**
-     * @description The IP address in inclusive ENI mode. You can specify at most 40 servers in each call.
+     * @description The IP address of the elastic network interface (ENI) in exclusive mode.
      *
      * @example 192.168.1.1
      *
@@ -49,11 +49,11 @@ class addedServers extends Model
     public $serverIp;
 
     /**
-     * @description The type of the backend server that you want to remove from the server group. You can specify up to 40 backend servers in each call. Valid values:
+     * @description The type of backend server. You can specify at most 200 servers in each call. Valid values:
      *
-     *   **Ecs**
-     *   **Eni**
-     *   **Eci**
+     *   **Ecs**: Elastic Compute Service (ECS) instance
+     *   **Eni**: ENI
+     *   **Eci**: elastic container instance
      *
      * @example Ecs
      *
@@ -62,9 +62,9 @@ class addedServers extends Model
     public $serverType;
 
     /**
-     * @description The weight of the backend server that you want to add to the server group. You can specify up to 40 backend servers in each call.
+     * @description The weight of the backend server. You can specify at most 200 servers in each call.
      *
-     * Valid values: **0** to **100**. Default value: **100**. If the weight of a backend server is set to **0**, no requests are forwarded to the backend server.
+     * Valid values: **0** to **100**. Default value: **100**. If the value is set to **0**, no requests are forwarded to the server.
      * @example 100
      *
      * @var int
