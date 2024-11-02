@@ -43,6 +43,11 @@ class DescribeProcessTasksRequest extends Model
     public $entityType;
 
     /**
+     * @var string
+     */
+    public $entityUuid;
+
+    /**
      * @description The field that you use to sort the result.
      *
      * >  You can obtain the field from the response result.
@@ -205,6 +210,7 @@ class DescribeProcessTasksRequest extends Model
         'direction'           => 'Direction',
         'entityName'          => 'EntityName',
         'entityType'          => 'EntityType',
+        'entityUuid'          => 'EntityUuid',
         'orderField'          => 'OrderField',
         'pageNumber'          => 'PageNumber',
         'pageSize'            => 'PageSize',
@@ -237,6 +243,9 @@ class DescribeProcessTasksRequest extends Model
         }
         if (null !== $this->entityType) {
             $res['EntityType'] = $this->entityType;
+        }
+        if (null !== $this->entityUuid) {
+            $res['EntityUuid'] = $this->entityUuid;
         }
         if (null !== $this->orderField) {
             $res['OrderField'] = $this->orderField;
@@ -303,6 +312,9 @@ class DescribeProcessTasksRequest extends Model
         }
         if (isset($map['EntityType'])) {
             $model->entityType = $map['EntityType'];
+        }
+        if (isset($map['EntityUuid'])) {
+            $model->entityUuid = $map['EntityUuid'];
         }
         if (isset($map['OrderField'])) {
             $model->orderField = $map['OrderField'];

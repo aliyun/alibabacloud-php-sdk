@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDistinctReleasesResponseBody extends Model
 {
     /**
-     * @description The version information.
+     * @description The information about versions.
      *
      * @var records[]
      */

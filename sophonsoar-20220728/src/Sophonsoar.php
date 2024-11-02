@@ -2223,7 +2223,7 @@ class Sophonsoar extends OpenApiClient
     /**
      * @summary Submits and runs a Python3 script. You can call this operation only for data processing.
      *  *
-     * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=openapi-amp.newDocPublishment.0.0.4c41281fWhbdPa#/commodity/vm_intl).
      *  *
      * @param RunPython3ScriptRequest $request RunPython3ScriptRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -2267,7 +2267,7 @@ class Sophonsoar extends OpenApiClient
     /**
      * @summary Submits and runs a Python3 script. You can call this operation only for data processing.
      *  *
-     * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     * @description Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=openapi-amp.newDocPublishment.0.0.4c41281fWhbdPa#/commodity/vm_intl).
      *  *
      * @param RunPython3ScriptRequest $request RunPython3ScriptRequest
      *
@@ -2283,7 +2283,7 @@ class Sophonsoar extends OpenApiClient
     /**
      * @summary Triggers an enabled custom playbook or a predefined playbook.
      *  *
-     * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
      *  *
      * @param TriggerPlaybookRequest $request TriggerPlaybookRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -2321,7 +2321,7 @@ class Sophonsoar extends OpenApiClient
     /**
      * @summary Triggers an enabled custom playbook or a predefined playbook.
      *  *
-     * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
      *  *
      * @param TriggerPlaybookRequest $request TriggerPlaybookRequest
      *
@@ -2389,7 +2389,7 @@ class Sophonsoar extends OpenApiClient
     /**
      * @summary Triggers a playbook or a command.
      *  *
-     * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
      *  *
      * @param TriggerSophonPlaybookRequest $request TriggerSophonPlaybookRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -2436,7 +2436,7 @@ class Sophonsoar extends OpenApiClient
     /**
      * @summary Triggers a playbook or a command.
      *  *
-     * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     * @description Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.alibabacloud.com/en/pricing-calculator?_p_lc=1&spm=a2796.7960336.3034855210.1.7adab91arMeIx2#/commodity/vm_intl).
      *  *
      * @param TriggerSophonPlaybookRequest $request TriggerSophonPlaybookRequest
      *

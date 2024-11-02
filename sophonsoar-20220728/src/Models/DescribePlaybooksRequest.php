@@ -51,6 +51,13 @@ class DescribePlaybooksRequest extends Model
     public $name;
 
     /**
+     * @description The sorting order. Default value: desc. Valid values:
+     *
+     *   desc: descending order
+     *   asc: ascending order
+     *
+     * @example desc
+     *
      * @var string
      */
     public $order;
@@ -87,6 +94,11 @@ class DescribePlaybooksRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $paramTypes;
+
+    /**
      * @description The playbook UUID.
      *
      * >  You can use the UUID to query the information about a specific playbook.
@@ -100,6 +112,13 @@ class DescribePlaybooksRequest extends Model
     public $playbookUuid;
 
     /**
+     * @description The sorting basis. Default value: 1. Valid values:
+     *
+     *   1: last modification time
+     *   2: last execution time
+     *
+     * @example 1
+     *
      * @var string
      */
     public $sort;
@@ -121,6 +140,7 @@ class DescribePlaybooksRequest extends Model
         'ownType'      => 'OwnType',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
+        'paramTypes'   => 'ParamTypes',
         'playbookUuid' => 'PlaybookUuid',
         'sort'         => 'Sort',
         'startMillis'  => 'StartMillis',
@@ -156,6 +176,9 @@ class DescribePlaybooksRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->paramTypes) {
+            $res['ParamTypes'] = $this->paramTypes;
         }
         if (null !== $this->playbookUuid) {
             $res['PlaybookUuid'] = $this->playbookUuid;
@@ -201,6 +224,9 @@ class DescribePlaybooksRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ParamTypes'])) {
+            $model->paramTypes = $map['ParamTypes'];
         }
         if (isset($map['PlaybookUuid'])) {
             $model->playbookUuid = $map['PlaybookUuid'];

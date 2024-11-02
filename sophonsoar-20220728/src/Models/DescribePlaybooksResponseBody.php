@@ -18,7 +18,7 @@ class DescribePlaybooksResponseBody extends Model
     public $page;
 
     /**
-     * @description The list of playbooks.
+     * @description The playbooks.
      *
      * @var playbooks[]
      */

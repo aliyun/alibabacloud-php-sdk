@@ -18,7 +18,7 @@ class records extends Model
     public $description;
 
     /**
-     * @description The MD5 value of the playbook XML configuration.
+     * @description The MD5 value of the version XML configuration.
      *
      * @example 17cf53049bc8efa941207xxxxx
      *
@@ -27,6 +27,13 @@ class records extends Model
     public $taskflowMd5;
 
     /**
+     * @description The format of the playbook. Valid values:
+     *
+     *   **xml**: XML format.
+     *   **x6**: JSON format.
+     *
+     * @example x6
+     *
      * @var string
      */
     public $taskflowType;

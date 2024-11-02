@@ -39,6 +39,10 @@ class playbooks extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the playbook was modified.
+     *
+     * @example 1681396398000
+     *
      * @var string
      */
     public $gmtModified;
@@ -65,6 +69,11 @@ class playbooks extends Model
     public $ownType;
 
     /**
+     * @var string
+     */
+    public $paramType;
+
+    /**
      * @description The UUID of the playbook.
      *
      * @example bb5a8640-a14f-44ef-8376-cxxxxx
@@ -79,6 +88,7 @@ class playbooks extends Model
         'gmtModified'  => 'GmtModified',
         'lastRuntime'  => 'LastRuntime',
         'ownType'      => 'OwnType',
+        'paramType'    => 'ParamType',
         'playbookUuid' => 'PlaybookUuid',
     ];
 
@@ -106,6 +116,9 @@ class playbooks extends Model
         }
         if (null !== $this->ownType) {
             $res['OwnType'] = $this->ownType;
+        }
+        if (null !== $this->paramType) {
+            $res['ParamType'] = $this->paramType;
         }
         if (null !== $this->playbookUuid) {
             $res['PlaybookUuid'] = $this->playbookUuid;
@@ -139,6 +152,9 @@ class playbooks extends Model
         }
         if (isset($map['OwnType'])) {
             $model->ownType = $map['OwnType'];
+        }
+        if (isset($map['ParamType'])) {
+            $model->paramType = $map['ParamType'];
         }
         if (isset($map['PlaybookUuid'])) {
             $model->playbookUuid = $map['PlaybookUuid'];

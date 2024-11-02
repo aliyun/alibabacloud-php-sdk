@@ -36,6 +36,11 @@ class processTasks extends Model
     public $entityType;
 
     /**
+     * @var string
+     */
+    public $entityUuid;
+
+    /**
      * @description The error code returned if the call failed.
      *
      * @example sts_openapi.Info.DefenseSceneNotSupported
@@ -182,6 +187,7 @@ class processTasks extends Model
         'creator'             => 'Creator',
         'entityName'          => 'EntityName',
         'entityType'          => 'EntityType',
+        'entityUuid'          => 'EntityUuid',
         'errCode'             => 'ErrCode',
         'errMsg'              => 'ErrMsg',
         'errTip'              => 'ErrTip',
@@ -215,6 +221,9 @@ class processTasks extends Model
         }
         if (null !== $this->entityType) {
             $res['EntityType'] = $this->entityType;
+        }
+        if (null !== $this->entityUuid) {
+            $res['EntityUuid'] = $this->entityUuid;
         }
         if (null !== $this->errCode) {
             $res['ErrCode'] = $this->errCode;
@@ -284,6 +293,9 @@ class processTasks extends Model
         }
         if (isset($map['EntityType'])) {
             $model->entityType = $map['EntityType'];
+        }
+        if (isset($map['EntityUuid'])) {
+            $model->entityUuid = $map['EntityUuid'];
         }
         if (isset($map['ErrCode'])) {
             $model->errCode = $map['ErrCode'];
