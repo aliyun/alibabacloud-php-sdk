@@ -8,8 +8,10 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\FindIdpListByLoginIdentifierRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\FindIdpListByLoginIdentifierResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\FindIdpListByLoginIdentifierShrinkRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\GetLoginTokenRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\GetLoginTokenResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\GetLoginTokenShrinkRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\RefreshLoginTokenRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\RefreshLoginTokenResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -55,14 +57,23 @@ class Appstreamcenter extends OpenApiClient
     /**
      * @summary 身份认证查询接口
      *  *
-     * @param FindIdpListByLoginIdentifierRequest $request FindIdpListByLoginIdentifierRequest
+     * @param FindIdpListByLoginIdentifierRequest $tmpReq  FindIdpListByLoginIdentifierRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
      * @return FindIdpListByLoginIdentifierResponse FindIdpListByLoginIdentifierResponse
      */
-    public function findIdpListByLoginIdentifierWithOptions($request, $runtime)
+    public function findIdpListByLoginIdentifierWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new FindIdpListByLoginIdentifierShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->availableFeatures)) {
+            $request->availableFeaturesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->availableFeatures, 'AvailableFeatures', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->availableFeaturesShrink)) {
+            $query['AvailableFeatures'] = $request->availableFeaturesShrink;
+        }
         $body = [];
         if (!Utils::isUnset($request->clientChannel)) {
             $body['ClientChannel'] = $request->clientChannel;
@@ -89,7 +100,8 @@ class Appstreamcenter extends OpenApiClient
             $body['Uuid'] = $request->uuid;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'FindIdpListByLoginIdentifier',
@@ -123,17 +135,25 @@ class Appstreamcenter extends OpenApiClient
     /**
      * @summary GetLoginToken
      *  *
-     * @param GetLoginTokenRequest $request GetLoginTokenRequest
+     * @param GetLoginTokenRequest $tmpReq  GetLoginTokenRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
      * @return GetLoginTokenResponse GetLoginTokenResponse
      */
-    public function getLoginTokenWithOptions($request, $runtime)
+    public function getLoginTokenWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new GetLoginTokenShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->availableFeatures)) {
+            $request->availableFeaturesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->availableFeatures, 'AvailableFeatures', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->authenticationCode)) {
             $query['AuthenticationCode'] = $request->authenticationCode;
+        }
+        if (!Utils::isUnset($request->availableFeaturesShrink)) {
+            $query['AvailableFeatures'] = $request->availableFeaturesShrink;
         }
         if (!Utils::isUnset($request->clientId)) {
             $query['ClientId'] = $request->clientId;
@@ -185,6 +205,9 @@ class Appstreamcenter extends OpenApiClient
         }
         if (!Utils::isUnset($request->loginName)) {
             $query['LoginName'] = $request->loginName;
+        }
+        if (!Utils::isUnset($request->mfaType)) {
+            $query['MfaType'] = $request->mfaType;
         }
         if (!Utils::isUnset($request->networkType)) {
             $query['NetworkType'] = $request->networkType;

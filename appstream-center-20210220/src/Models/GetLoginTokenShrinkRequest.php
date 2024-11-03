@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210220\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetLoginTokenRequest extends Model
+class GetLoginTokenShrinkRequest extends Model
 {
     /**
      * @example 182901
@@ -16,9 +16,9 @@ class GetLoginTokenRequest extends Model
     public $authenticationCode;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $availableFeatures;
+    public $availableFeaturesShrink;
 
     /**
      * @description This parameter is required.
@@ -245,7 +245,7 @@ class GetLoginTokenRequest extends Model
     public $uuid;
     protected $_name = [
         'authenticationCode'       => 'AuthenticationCode',
-        'availableFeatures'        => 'AvailableFeatures',
+        'availableFeaturesShrink'  => 'AvailableFeatures',
         'clientId'                 => 'ClientId',
         'clientOS'                 => 'ClientOS',
         'clientType'               => 'ClientType',
@@ -290,8 +290,8 @@ class GetLoginTokenRequest extends Model
         if (null !== $this->authenticationCode) {
             $res['AuthenticationCode'] = $this->authenticationCode;
         }
-        if (null !== $this->availableFeatures) {
-            $res['AvailableFeatures'] = $this->availableFeatures;
+        if (null !== $this->availableFeaturesShrink) {
+            $res['AvailableFeatures'] = $this->availableFeaturesShrink;
         }
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
@@ -396,7 +396,7 @@ class GetLoginTokenRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetLoginTokenRequest
+     * @return GetLoginTokenShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -405,7 +405,7 @@ class GetLoginTokenRequest extends Model
             $model->authenticationCode = $map['AuthenticationCode'];
         }
         if (isset($map['AvailableFeatures'])) {
-            $model->availableFeatures = $map['AvailableFeatures'];
+            $model->availableFeaturesShrink = $map['AvailableFeatures'];
         }
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];

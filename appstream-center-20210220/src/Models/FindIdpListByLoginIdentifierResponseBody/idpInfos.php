@@ -37,6 +37,11 @@ class idpInfos extends Model
     /**
      * @var string
      */
+    public $idpNameEN;
+
+    /**
+     * @var string
+     */
     public $idpProvider;
 
     /**
@@ -62,6 +67,7 @@ class idpInfos extends Model
         'cookies'       => 'Cookies',
         'idpId'         => 'IdpId',
         'idpName'       => 'IdpName',
+        'idpNameEN'     => 'IdpNameEN',
         'idpProvider'   => 'IdpProvider',
         'jumpSwitch'    => 'JumpSwitch',
         'ssoProtocol'   => 'SsoProtocol',
@@ -86,6 +92,9 @@ class idpInfos extends Model
         }
         if (null !== $this->idpName) {
             $res['IdpName'] = $this->idpName;
+        }
+        if (null !== $this->idpNameEN) {
+            $res['IdpNameEN'] = $this->idpNameEN;
         }
         if (null !== $this->idpProvider) {
             $res['IdpProvider'] = $this->idpProvider;
@@ -122,6 +131,9 @@ class idpInfos extends Model
         }
         if (isset($map['IdpName'])) {
             $model->idpName = $map['IdpName'];
+        }
+        if (isset($map['IdpNameEN'])) {
+            $model->idpNameEN = $map['IdpNameEN'];
         }
         if (isset($map['IdpProvider'])) {
             $model->idpProvider = $map['IdpProvider'];

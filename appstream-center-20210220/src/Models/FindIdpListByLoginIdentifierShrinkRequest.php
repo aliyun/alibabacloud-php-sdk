@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210220\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class FindIdpListByLoginIdentifierRequest extends Model
+class FindIdpListByLoginIdentifierShrinkRequest extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $availableFeatures;
+    public $availableFeaturesShrink;
 
     /**
      * @example pc
@@ -69,15 +69,15 @@ class FindIdpListByLoginIdentifierRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'availableFeatures' => 'AvailableFeatures',
-        'clientChannel'     => 'ClientChannel',
-        'clientId'          => 'ClientId',
-        'clientIp'          => 'ClientIp',
-        'clientOS'          => 'ClientOS',
-        'clientVersion'     => 'ClientVersion',
-        'loginIdentifier'   => 'LoginIdentifier',
-        'supportTypes'      => 'SupportTypes',
-        'uuid'              => 'Uuid',
+        'availableFeaturesShrink' => 'AvailableFeatures',
+        'clientChannel'           => 'ClientChannel',
+        'clientId'                => 'ClientId',
+        'clientIp'                => 'ClientIp',
+        'clientOS'                => 'ClientOS',
+        'clientVersion'           => 'ClientVersion',
+        'loginIdentifier'         => 'LoginIdentifier',
+        'supportTypes'            => 'SupportTypes',
+        'uuid'                    => 'Uuid',
     ];
 
     public function validate()
@@ -87,8 +87,8 @@ class FindIdpListByLoginIdentifierRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->availableFeatures) {
-            $res['AvailableFeatures'] = $this->availableFeatures;
+        if (null !== $this->availableFeaturesShrink) {
+            $res['AvailableFeatures'] = $this->availableFeaturesShrink;
         }
         if (null !== $this->clientChannel) {
             $res['ClientChannel'] = $this->clientChannel;
@@ -121,13 +121,13 @@ class FindIdpListByLoginIdentifierRequest extends Model
     /**
      * @param array $map
      *
-     * @return FindIdpListByLoginIdentifierRequest
+     * @return FindIdpListByLoginIdentifierShrinkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableFeatures'])) {
-            $model->availableFeatures = $map['AvailableFeatures'];
+            $model->availableFeaturesShrink = $map['AvailableFeatures'];
         }
         if (isset($map['ClientChannel'])) {
             $model->clientChannel = $map['ClientChannel'];

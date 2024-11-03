@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210220\Models;
 
+use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\GetLoginTokenResponseBody\mfaTypeList;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\GetLoginTokenResponseBody\passwordStrategy;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\GetLoginTokenResponseBody\riskVerifyInfo;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\GetLoginTokenResponseBody\tenantInfos;
@@ -80,6 +81,11 @@ class GetLoginTokenResponseBody extends Model
      * @var string
      */
     public $loginToken;
+
+    /**
+     * @var mfaTypeList[]
+     */
+    public $mfaTypeList;
 
     /**
      * @example MFABind
@@ -200,6 +206,7 @@ class GetLoginTokenResponseBody extends Model
         'keepAliveToken'    => 'KeepAliveToken',
         'label'             => 'Label',
         'loginToken'        => 'LoginToken',
+        'mfaTypeList'       => 'MfaTypeList',
         'nextStage'         => 'NextStage',
         'officeSites'       => 'OfficeSites',
         'passwordStrategy'  => 'PasswordStrategy',
@@ -255,6 +262,15 @@ class GetLoginTokenResponseBody extends Model
         }
         if (null !== $this->loginToken) {
             $res['LoginToken'] = $this->loginToken;
+        }
+        if (null !== $this->mfaTypeList) {
+            $res['MfaTypeList'] = [];
+            if (null !== $this->mfaTypeList && \is_array($this->mfaTypeList)) {
+                $n = 0;
+                foreach ($this->mfaTypeList as $item) {
+                    $res['MfaTypeList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->nextStage) {
             $res['NextStage'] = $this->nextStage;
@@ -354,6 +370,15 @@ class GetLoginTokenResponseBody extends Model
         }
         if (isset($map['LoginToken'])) {
             $model->loginToken = $map['LoginToken'];
+        }
+        if (isset($map['MfaTypeList'])) {
+            if (!empty($map['MfaTypeList'])) {
+                $model->mfaTypeList = [];
+                $n                  = 0;
+                foreach ($map['MfaTypeList'] as $item) {
+                    $model->mfaTypeList[$n++] = null !== $item ? mfaTypeList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['NextStage'])) {
             $model->nextStage = $map['NextStage'];
