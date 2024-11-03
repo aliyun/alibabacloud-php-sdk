@@ -9554,6 +9554,9 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->queryHashkey)) {
+            $query['QueryHashkey'] = $request->queryHashkey;
+        }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
         }

@@ -9,11 +9,12 @@ use AlibabaCloud\Tea\Model;
 class RefreshObjectCachesRequest extends Model
 {
     /**
-     * @description Specifies whether to refresh resources in a directory if the resources are different from the resources in the same directory in the origin server. Default value: false.
+     * @description When the comparison between the source content and the source site resources is consistent, should the resources within the corresponding range be forcibly refreshed. The default is false.
      *
-     *   **true**: refresh all resources in the directory.
-     *   **false**: refresh the changed resources in the directory.
+     *   **true**: purges all resources in the range that corresponds to the type of the purge task. If you set this parameter to true, when the requested resource matches the resource in the range that corresponds to the type of the purge task, the POP retrieves the resource from the origin server, returns the resource to the client, and caches the resource.
+     *   **false**: purges the changed resources in the range that corresponds to the type of the purge task. If you set this parameter to false, when the requested resource matches the resource in the range that corresponds to the type of the purge task, the POP obtains the Last-Modified parameter of the resource from the origin server. If the obtained value of the Last-Modified parameter is the same as that of the cached resource, the cached resource is returned. Otherwise, the POP retrieves the resource from the origin server, returns the resource to the client, and caches the resource.
      *
+     * >  This parameter takes effect only when the ObjectType parameter is not set to File.
      * @example false
      *
      * @var bool
@@ -21,8 +22,10 @@ class RefreshObjectCachesRequest extends Model
     public $force;
 
     /**
-     * @description This parameter is required.
+     * @description *   If you submit multiple URLs or directories at a time, separate them with line breaks (\\n) or (\\r\\n).
+     *   The total number of domain names contained all URLs in a submitted task cannot exceed 10.
      *
+     * This parameter is required.
      * @example http://example.com/image/1.png\\nhttp://aliyundoc.com/image/2.png
      *
      * @var string

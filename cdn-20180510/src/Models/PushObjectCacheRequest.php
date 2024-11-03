@@ -54,6 +54,11 @@ class PushObjectCacheRequest extends Model
     public $ownerId;
 
     /**
+     * @var bool
+     */
+    public $queryHashkey;
+
+    /**
      * @var string
      */
     public $securityToken;
@@ -71,6 +76,7 @@ class PushObjectCacheRequest extends Model
         'l2Preload'     => 'L2Preload',
         'objectPath'    => 'ObjectPath',
         'ownerId'       => 'OwnerId',
+        'queryHashkey'  => 'QueryHashkey',
         'securityToken' => 'SecurityToken',
         'withHeader'    => 'WithHeader',
     ];
@@ -93,6 +99,9 @@ class PushObjectCacheRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->queryHashkey) {
+            $res['QueryHashkey'] = $this->queryHashkey;
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
@@ -123,6 +132,9 @@ class PushObjectCacheRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['QueryHashkey'])) {
+            $model->queryHashkey = $map['QueryHashkey'];
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];

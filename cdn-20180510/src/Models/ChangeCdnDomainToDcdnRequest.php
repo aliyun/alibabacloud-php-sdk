@@ -19,9 +19,7 @@ class ChangeCdnDomainToDcdnRequest extends Model
     public $domainName;
 
     /**
-     * @description The operation that you want to perform on the check items. Valid values:
-     *
-     **preCheck**: return the verification result.
+     * @description The operation to perform. Set the value to preCheck. Precheck is performed, and the result is returned. If the precheck passes, set the value to enforce to perform the transfer.
      *
      * @example preCheck
      *
