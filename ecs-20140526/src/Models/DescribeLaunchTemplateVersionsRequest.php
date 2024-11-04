@@ -33,7 +33,7 @@ class DescribeLaunchTemplateVersionsRequest extends Model
     /**
      * @description The ID of the launch template.
      *
-     * You must set LaunchTemplateId or LaunchTemplateName to specify a launch template.
+     * You must set `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template.
      * @example lt-bp168lnahrdwl39p****
      *
      * @var string
@@ -43,6 +43,7 @@ class DescribeLaunchTemplateVersionsRequest extends Model
     /**
      * @description The name of the launch template.
      *
+     * You must set `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template.
      * @example testLaunchTemplateName
      *
      * @var string
@@ -50,7 +51,7 @@ class DescribeLaunchTemplateVersionsRequest extends Model
     public $launchTemplateName;
 
     /**
-     * @description Version N of the launch template.
+     * @description The versions of the launch template.
      *
      * @example 1
      *
@@ -59,7 +60,7 @@ class DescribeLaunchTemplateVersionsRequest extends Model
     public $launchTemplateVersion;
 
     /**
-     * @description The maximum version number in the version range to query.
+     * @description The maximum version number in the version range to query. This parameter is used together with `MinVersion` to specify a version range to query.
      *
      * @example 10
      *
@@ -68,7 +69,7 @@ class DescribeLaunchTemplateVersionsRequest extends Model
     public $maxVersion;
 
     /**
-     * @description The minimum version number in the version range to query.
+     * @description The minimum version number in the version range to query. This parameter is used together with `MaxVersion` to specify a version range to query.
      *
      * @example 1
      *

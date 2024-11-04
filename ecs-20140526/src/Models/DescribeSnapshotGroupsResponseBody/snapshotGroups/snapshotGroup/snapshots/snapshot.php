@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class snapshot extends Model
 {
     /**
-     * @description Indicates whether the snapshot can be used to create or roll back disks. Valid values:
+     * @description Indicates whether the snapshot can be shared and be used to create or roll back a disk. Valid values:
      *
      *   true
      *   false
@@ -25,8 +25,9 @@ class snapshot extends Model
      * @description Indicates whether the instant access feature is enabled. Valid values:
      *
      *   true: The instant access feature is enabled. By default, the instant access feature is enabled for ESSDs.
-     *   false: The instant access feature is disabled. The snapshot is a normal snapshot for which the instant access feature is disabled.
+     *   false: The instant access feature is disabled. The snapshot is a standard snapshot for which the instant access feature is disabled.
      *
+     * >  This parameter is no longer used. By default, standard snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
      * @example true
      *
      * @var bool
@@ -34,9 +35,9 @@ class snapshot extends Model
     public $instantAccess;
 
     /**
-     * @description The retention period of the instant access feature. After the retention period ends, the snapshot is automatically released.
+     * @description The validity period of the instant access feature. When the validity period ends, the instant access snapshot is automatically released.
      *
-     * >  This parameter is deprecated. The normal snapshots of enhanced SSDs (ESSDs) are upgraded to support the instant access feature by default. No additional configurations are required to enable the feature and you are not charged for the feature. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
+     * >  This parameter is no longer used. By default, standard snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
      * @example 3
      *
      * @var int

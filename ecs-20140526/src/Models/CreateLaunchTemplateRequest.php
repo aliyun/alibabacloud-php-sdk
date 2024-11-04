@@ -128,16 +128,22 @@ class CreateLaunchTemplateRequest extends Model
     public $hostName;
 
     /**
+     * @example enabled
+     *
      * @var string
      */
     public $httpEndpoint;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $httpPutResponseHopLimit;
 
     /**
+     * @example optional
+     *
      * @var string
      */
     public $httpTokens;

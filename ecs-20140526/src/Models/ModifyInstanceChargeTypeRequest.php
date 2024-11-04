@@ -11,10 +11,10 @@ class ModifyInstanceChargeTypeRequest extends Model
     /**
      * @description Specifies whether to automatically complete the payment. Valid values:
      *
-     *   true: The payment is automatically completed. Make sure that your account balance is sufficient. Otherwise, your order becomes invalid and is canceled.
+     *   true: The payment is automatically completed. Maintain a sufficient account balance. Otherwise, your order becomes invalid and is canceled.
      *   false: An order is generated but no payment is made.
      *
-     * > If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, you can log on to the ECS console to pay for the order.
+     * >  If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, you can log on to the ECS console to pay for the order.
      * @example false
      *
      * @var bool
@@ -31,9 +31,9 @@ class ModifyInstanceChargeTypeRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to perform only a dry run. Valid Values:
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
      *
-     *   true: performs only a dry run. The system checks whether your AccessKey pair is valid, whether Resource Access Management (RAM) users are granted permissions, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized Resource Access Management (RAM) users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
      *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * Default value: false.
@@ -44,7 +44,10 @@ class ModifyInstanceChargeTypeRequest extends Model
     public $dryRun;
 
     /**
-     * @description Specifies whether to change the billing method of all data disks attached to the instance from pay-as-you-go to subscription.
+     * @description Specifies whether to change the billing method of all data disks on the instance from pay-as-you-go to subscription. Valid values:
+     *
+     *   true
+     *   false
      *
      * Default value: false.
      * @example false
@@ -56,8 +59,8 @@ class ModifyInstanceChargeTypeRequest extends Model
     /**
      * @description The new billing method. Valid values:
      *
-     *   PrePaid
-     *   PostPaid
+     *   PrePaid: subscription
+     *   PostPaid: pay-as-you-go
      *
      * Default value: PrePaid.
      * @example PrePaid
@@ -77,7 +80,10 @@ class ModifyInstanceChargeTypeRequest extends Model
     public $instanceIds;
 
     /**
-     * @description Specifies whether to return cost details of the order after the billing method is changed from subscription to pay-as-you-go.
+     * @description Specifies whether to return cost details of the order after the billing method is changed from subscription to pay-as-you-go. Valid values:
+     *
+     *   true
+     *   false
      *
      * Default value: false.
      * @example false

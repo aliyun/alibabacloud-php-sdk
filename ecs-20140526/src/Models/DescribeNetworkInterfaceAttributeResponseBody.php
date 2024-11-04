@@ -273,6 +273,10 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $slaveInterfaceSpecification;
 
     /**
+     * @description This parameter is not publicly available.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $sourceDestCheck;

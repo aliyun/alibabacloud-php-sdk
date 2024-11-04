@@ -85,12 +85,16 @@ class CreateImagePipelineRequest extends Model
     public $description;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example null
+     *
      * @var string
      */
     public $imageFamily;
 
     /**
-     * @description The prefix of the image name. The prefix must be 2 to 64 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+     * @description The prefix of the image name. The prefix must be 2 to 64 characters in length. The prefix must start with a letter and cannot start with `http://` or `https://`. The prefix can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * The system generates the final complete image name that consists of the specified prefix and the ID of the build task (`ExecutionId`) in the format of `{ImageName}_{ExecutionId}`.
      * @example testImageName
@@ -120,9 +124,9 @@ class CreateImagePipelineRequest extends Model
     public $internetMaxBandwidthOut;
 
     /**
-     * @description The name of the image template. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+     * @description The name of the launch template. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
-     * > If you do not specify the `Name` parameter, the return value of `ImagePipelineId` is used.
+     * >  If you do not specify `Name`, the return value of `ImagePipelineId` is used.
      * @example testImagePipeline
      *
      * @var string
@@ -150,6 +154,10 @@ class CreateImagePipelineRequest extends Model
     public $regionId;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example null
+     *
      * @var string
      */
     public $repairMode;
@@ -191,6 +199,10 @@ class CreateImagePipelineRequest extends Model
     public $tag;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example null
+     *
      * @var string
      */
     public $testContent;

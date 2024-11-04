@@ -87,6 +87,11 @@ class CreateCommandRequest extends Model
     public $enableParameter;
 
     /**
+     * @var string
+     */
+    public $launcher;
+
+    /**
      * @description The name of the command. The name supports all character sets and can be up to 128 characters in length.
      *
      * This parameter is required.
@@ -185,6 +190,7 @@ class CreateCommandRequest extends Model
         'contentEncoding'      => 'ContentEncoding',
         'description'          => 'Description',
         'enableParameter'      => 'EnableParameter',
+        'launcher'             => 'Launcher',
         'name'                 => 'Name',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -216,6 +222,9 @@ class CreateCommandRequest extends Model
         }
         if (null !== $this->enableParameter) {
             $res['EnableParameter'] = $this->enableParameter;
+        }
+        if (null !== $this->launcher) {
+            $res['Launcher'] = $this->launcher;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -279,6 +288,9 @@ class CreateCommandRequest extends Model
         }
         if (isset($map['EnableParameter'])) {
             $model->enableParameter = $map['EnableParameter'];
+        }
+        if (isset($map['Launcher'])) {
+            $model->launcher = $map['Launcher'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

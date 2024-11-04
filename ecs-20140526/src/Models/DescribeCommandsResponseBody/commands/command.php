@@ -87,6 +87,11 @@ class command extends Model
     public $latest;
 
     /**
+     * @var string
+     */
+    public $launcher;
+
+    /**
      * @description The name of the command.
      *
      * @example testName
@@ -178,6 +183,7 @@ class command extends Model
         'enableParameter'      => 'EnableParameter',
         'invokeTimes'          => 'InvokeTimes',
         'latest'               => 'Latest',
+        'launcher'             => 'Launcher',
         'name'                 => 'Name',
         'parameterDefinitions' => 'ParameterDefinitions',
         'parameterNames'       => 'ParameterNames',
@@ -220,6 +226,9 @@ class command extends Model
         }
         if (null !== $this->latest) {
             $res['Latest'] = $this->latest;
+        }
+        if (null !== $this->launcher) {
+            $res['Launcher'] = $this->launcher;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -286,6 +295,9 @@ class command extends Model
         }
         if (isset($map['Latest'])) {
             $model->latest = $map['Latest'];
+        }
+        if (isset($map['Launcher'])) {
+            $model->launcher = $map['Launcher'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

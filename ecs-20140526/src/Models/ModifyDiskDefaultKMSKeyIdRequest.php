@@ -19,7 +19,7 @@ class ModifyDiskDefaultKMSKeyIdRequest extends Model
     public $KMSKeyId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2679950.html) operation to query the most recent region list.
      *
      * This parameter is required.
      * @example cn-hangzhou

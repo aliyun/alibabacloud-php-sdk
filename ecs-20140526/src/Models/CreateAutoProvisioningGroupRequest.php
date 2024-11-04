@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\dataDiskConfig;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\launchConfiguration;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\launchTemplateConfig;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\resourcePoolOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\systemDiskConfig;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\tag;
 use AlibabaCloud\Tea\Model;
@@ -209,6 +210,16 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The resource pool options to use to create instances. When you specify this parameter, take note of the following items:
+     *
+     *   This parameter takes effect only when the auto provisioning group creates pay-as-you-go instances.
+     *   This parameter takes effect only if you set `AutoProvisioningGroupType` to instant.
+     *
+     * @var resourcePoolOptions
+     */
+    public $resourcePoolOptions;
+
+    /**
      * @description The policy for creating preemptible instances. Valid values:
      *
      *   lowest-price: cost optimization policy. The auto provisioning group selects the lowest-priced instance type to create instances.
@@ -346,6 +357,7 @@ class CreateAutoProvisioningGroupRequest extends Model
         'resourceGroupId'                  => 'ResourceGroupId',
         'resourceOwnerAccount'             => 'ResourceOwnerAccount',
         'resourceOwnerId'                  => 'ResourceOwnerId',
+        'resourcePoolOptions'              => 'ResourcePoolOptions',
         'spotAllocationStrategy'           => 'SpotAllocationStrategy',
         'spotInstanceInterruptionBehavior' => 'SpotInstanceInterruptionBehavior',
         'spotInstancePoolsToUseCount'      => 'SpotInstancePoolsToUseCount',
@@ -443,6 +455,9 @@ class CreateAutoProvisioningGroupRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->resourcePoolOptions) {
+            $res['ResourcePoolOptions'] = null !== $this->resourcePoolOptions ? $this->resourcePoolOptions->toMap() : null;
         }
         if (null !== $this->spotAllocationStrategy) {
             $res['SpotAllocationStrategy'] = $this->spotAllocationStrategy;
@@ -578,6 +593,9 @@ class CreateAutoProvisioningGroupRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ResourcePoolOptions'])) {
+            $model->resourcePoolOptions = resourcePoolOptions::fromMap($map['ResourcePoolOptions']);
         }
         if (isset($map['SpotAllocationStrategy'])) {
             $model->spotAllocationStrategy = $map['SpotAllocationStrategy'];

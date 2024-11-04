@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class imageOptions extends Model
 {
     /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $currentOSNVMeSupported;
+
+    /**
      * @description Indicates whether the instance that uses the image supports logons of the ecs-user user. Valid values:
      *
      *   true
@@ -20,7 +27,8 @@ class imageOptions extends Model
      */
     public $loginAsNonRoot;
     protected $_name = [
-        'loginAsNonRoot' => 'LoginAsNonRoot',
+        'currentOSNVMeSupported' => 'CurrentOSNVMeSupported',
+        'loginAsNonRoot'         => 'LoginAsNonRoot',
     ];
 
     public function validate()
@@ -30,6 +38,9 @@ class imageOptions extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->currentOSNVMeSupported) {
+            $res['CurrentOSNVMeSupported'] = $this->currentOSNVMeSupported;
+        }
         if (null !== $this->loginAsNonRoot) {
             $res['LoginAsNonRoot'] = $this->loginAsNonRoot;
         }
@@ -45,6 +56,9 @@ class imageOptions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CurrentOSNVMeSupported'])) {
+            $model->currentOSNVMeSupported = $map['CurrentOSNVMeSupported'];
+        }
         if (isset($map['LoginAsNonRoot'])) {
             $model->loginAsNonRoot = $map['LoginAsNonRoot'];
         }

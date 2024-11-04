@@ -22,7 +22,7 @@ class ModifyInstanceMetadataOptionsRequest extends Model
     public $httpEndpoint;
 
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
+     * @description >  This parameter is not publicly available.
      *
      * @example 1
      *

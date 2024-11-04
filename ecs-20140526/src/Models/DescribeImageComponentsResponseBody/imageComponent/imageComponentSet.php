@@ -20,6 +20,10 @@ class imageComponentSet extends Model
     public $componentType;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example null
+     *
      * @var string
      */
     public $componentVersion;
@@ -82,6 +86,8 @@ class imageComponentSet extends Model
     public $owner;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
      * @var parameters
      */
     public $parameters;

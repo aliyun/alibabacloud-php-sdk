@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class snapshot extends Model
 {
     /**
-     * @description Indicates whether the snapshot can be used to create or roll back a disk. Valid values:
+     * @description Indicates whether the snapshot can be shared and be used to create or roll back a cloud disk. Valid values:
      *
      *   true
      *   false
@@ -61,9 +61,10 @@ class snapshot extends Model
     /**
      * @description Indicates whether the instant access feature is enabled. Valid values:
      *
-     *   true: The instant access feature is enabled. By default, the instant access feature is enabled for Enterprise SSDs (ESSDs).
-     *   false: The instant access feature is disabled. The snapshot is a normal snapshot for which the instant access feature is disabled.
+     *   true: The instant access feature is enabled. By default, the instant access feature is enabled for Enterprise SSDs (ESSDs) and ESSD Entry disks.
+     *   false: The instant access feature is disabled. The snapshot is a standard snapshot for which the instant access feature is disabled.
      *
+     * >  This parameter is no longer used. The standard snapshots of ESSDs are upgraded to support the instant access feature by default. No additional configurations are required to enable the feature and you are not charged for the feature. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
      * @example false
      *
      * @var bool
@@ -73,7 +74,7 @@ class snapshot extends Model
     /**
      * @description Indicates the validity period of the instant access feature. When the specified period expires, the instant access feature is automatically disabled.
      *
-     * >  This parameter is no longer used. The normal snapshots of ESSDs are upgraded to support the instant access feature by default. No additional configurations are required to enable the feature and you are not charged for the feature. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
+     * >  This parameter is no longer used. The standard snapshots of ESSDs are upgraded to support the instant access feature by default. No additional configurations are required to enable the feature and you are not charged for the feature. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
      * @example 30
      *
      * @var int

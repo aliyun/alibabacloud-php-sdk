@@ -33,25 +33,25 @@ class dataDisk extends Model
     /**
      * @description The category of data disk N. Valid values:
      *
-     *   cloud_efficiency: ultra disk.
+     *   cloud_efficiency: ultra disk
      *
-     *   cloud_ssd: standard SSD.
+     *   cloud_ssd: standard SSD
      *
-     *   cloud_essd: ESSD.
+     *   cloud_essd: ESSD
      *
-     *   cloud: basic disk.
+     *   cloud: basic disk
      *
-     *   cloud_auto: ESSD AutoPL disk.
+     *   cloud_auto: ESSD AutoPL disk
      *
-     *   cloud_essd_entry: ESSD Entry disk.
+     *   cloud_essd_entry: ESSD Entry disk
      *
      **
      *
      **Note** This parameter can be set to `cloud_essd_entry` only when `InstanceType` is set to `ecs.u1` or `ecs.e`.
      *
-     *   elastic_ephemeral_disk_standard: standard elastic ephemeral disk.
+     *   elastic_ephemeral_disk_standard: standard elastic ephemeral disk
      *
-     *   elastic_ephemeral_disk_premium: premium elastic ephemeral disk.
+     *   elastic_ephemeral_disk_premium: premium elastic ephemeral disk
      *
      * For I/O optimized instances, the default value is cloud_efficiency. For non-I/O optimized instances, the default value is cloud.
      * @example cloud_ssd
@@ -88,7 +88,7 @@ class dataDisk extends Model
      *   1st to 25th data disks: /dev/xvd`[b-z]`.
      *   From the 26th data disk on: /dev/xvd`[aa-zz]`. For example, the 26th data disk is named /dev/xvdaa, the 27th data disk is named /dev/xvdab, and so on.
      *
-     * >  This parameter is applicable to scenarios in which a full image is used to create instances. A full image is an image that contains an operating system, application software, and business data. For these scenarios, you can set the parameter to the mount point of data disk N contained in the full image and modify `DataDisk.N.Size` and `DataDisk.N.Category` to change the category and size of data disk N created based on the image.
+     * >  This parameter is applicable to scenarios in which a full image is used to create instances. A full image is an image that contains an operating system, application software, and business data. For these scenarios, you can set the parameter to the mount point of data disk N contained in the full image and modify the `DataDisk.N.Size` and `DataDisk.N.Category` parameters to change the category and size of data disk N created based on the image.
      * @example /dev/xvdb
      *
      * @var string
@@ -139,11 +139,11 @@ class dataDisk extends Model
      * @description The performance level of the ESSD to use as data disk N. The value of N must be the same as that in `DataDisk.N.Category` when DataDisk.N.Category is set to cloud_essd. Valid values:
      *
      *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-     *   PL1 (default): A single ESSD can deliver up to 50,000 random read/write IOPS.
-     *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
-     *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+     *   PL1 (default): A single ESSD can deliver up to 50000 random read/write IOPS.
+     *   PL2: A single ESSD can deliver up to 100000 random read/write IOPS.
+     *   PL3: A single ESSD can deliver up to 1000000 random read/write IOPS.
      *
-     * For more information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+     * For information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
      * @example PL1
      *
      * @var string
@@ -169,14 +169,14 @@ class dataDisk extends Model
      *
      *   Valid values when DataDisk.N.Category is set to cloud_essd: vary based on the value of `DataDisk.N.PerformanceLevel`.
      *
-     *   Valid values when DataDisk.N.PerformanceLevel is set to PL0: 1 to 32768.
-     *   Valid values when DataDisk.N.PerformanceLevel is set to PL1: 20 to 32768.
-     *   Valid values when DataDisk.N.PerformanceLevel is set to PL2: 461 to 32768.
-     *   Valid values when DataDisk.N.PerformanceLevel is set to PL3: 1261 to 32768.
+     *   Valid values when DataDisk.N.PerformanceLevel is set to PL0: 1 to 65536.
+     *   Valid values when DataDisk.N.PerformanceLevel is set to PL1: 20 to 65536.
+     *   Valid values when DataDisk.N.PerformanceLevel is set to PL2: 461 to 65536.
+     *   Valid values when DataDisk.N.PerformanceLevel is set to PL3: 1261 to 65536.
      *
      *   Valid values when DataDisk.N.Category is set to cloud: 5 to 2000.
      *
-     *   Valid values when DataDisk.N.Category is set to cloud_auto: 1 to 32768.
+     *   Valid values when DiskCategory is set to cloud_auto: 1 to 65536.
      *
      *   Valid values when DataDisk.N.Category is set to cloud_essd_entry: 10 to 32768.
      *
@@ -190,7 +190,7 @@ class dataDisk extends Model
     /**
      * @description The ID of the snapshot to use to create data disk N. Valid values of N: 1 to 16.
      *
-     * If `DataDisk.N.SnapshotId` is specified, `DataDisk.N.Size` is ignored. The data disk is created based on the size of the specified snapshot. Use snapshots created after July 15, 2013. Otherwise, an error is returned and your request is rejected.
+     * When the `DataDisk.N.SnapshotId` parameter is specified, the `DataDisk.N.Size` parameter is ignored. The data disk is created with the size of the specified snapshot. Use snapshots created on or after July 15, 2013. Otherwise, an error is returned and your request is rejected.
      * @example s-bp17441ohwka0yuh****
      *
      * @var string
@@ -198,7 +198,7 @@ class dataDisk extends Model
     public $snapshotId;
 
     /**
-     * @description The ID of the dedicated block storage cluster to which data disk N belongs. If you want to use a disk in a dedicated block storage cluster as data disk N when you create the instance, specify this parameter.
+     * @description The ID of the dedicated block storage cluster to which data disk N belongs. If you want to use a disk in a dedicated block storage cluster as data disk N when you create the instance, you must specify this parameter.
      *
      * @example dbsc-j5e1sf2vaf5he8m2****
      *

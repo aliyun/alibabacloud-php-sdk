@@ -232,7 +232,7 @@ class instance extends Model
     public $imageId;
 
     /**
-     * @description Details about the image options.
+     * @description The image options.
      *
      * @var imageOptions
      */

@@ -37,6 +37,11 @@ class ModifyCommandRequest extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $launcher;
+
+    /**
      * @description The command name. The name supports all character sets and can be up to 128 characters in length.
      *
      * @example test-CommandName
@@ -96,6 +101,7 @@ class ModifyCommandRequest extends Model
         'commandContent'       => 'CommandContent',
         'commandId'            => 'CommandId',
         'description'          => 'Description',
+        'launcher'             => 'Launcher',
         'name'                 => 'Name',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -121,6 +127,9 @@ class ModifyCommandRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->launcher) {
+            $res['Launcher'] = $this->launcher;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -166,6 +175,9 @@ class ModifyCommandRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Launcher'])) {
+            $model->launcher = $map['Launcher'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

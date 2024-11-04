@@ -18,7 +18,7 @@ class DescribeSnapshotsRequest extends Model
     /**
      * @description The category of the snapshot. Valid values:
      *
-     *   Standard: normal snapshot
+     *   Standard: standard snapshot
      *   Flash: local snapshot
      *
      * The local snapshot feature is replaced by the instant access feature. When you specify this parameter, take note of the following items:

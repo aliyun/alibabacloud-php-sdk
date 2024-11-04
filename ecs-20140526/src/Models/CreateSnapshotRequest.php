@@ -12,10 +12,10 @@ class CreateSnapshotRequest extends Model
     /**
      * @description The category of the snapshot. Valid values:
      *
-     *   Standard: normal snapshot
+     *   Standard: standard snapshot
      *   Flash: local snapshot
      *
-     * >  This parameter is no longer used. By default, new normal snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
+     * >  This parameter is no longer used. By default, new standard snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
      * @example Standard
      *
      * @var string
@@ -55,9 +55,9 @@ class CreateSnapshotRequest extends Model
      * @description Specifies whether to enable the instant access feature. Valid values:
      *
      *   true: enables the instant access feature. This feature can be enabled only for ESSDs.
-     *   false: does not enable the instant access feature. If InstantAccess is set to false, a normal snapshot is created.
+     *   false: does not enable the instant access feature. If InstantAccess is set to false, a standard snapshot is created.
      *
-     * >  This parameter is no longer used. By default, new normal snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
+     * >  This parameter is no longer used. By default, new standard snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
      * @example false
      *
      * @var bool
@@ -67,7 +67,7 @@ class CreateSnapshotRequest extends Model
     /**
      * @description The validity period of the instant access feature. When the validity period ends, the feature is disabled and the instant access snapshot is automatically released. This parameter takes effect only when `InstantAccess` is set to true. Unit: days. Valid values: 1 to 65535.
      *
-     * >  This parameter is no longer used. By default, new normal snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
+     * >  This parameter is no longer used. By default, new standard snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
      * @example 1
      *
      * @var int
@@ -87,7 +87,7 @@ class CreateSnapshotRequest extends Model
     /**
      * @description The snapshot type. Valid values:
      *
-     *   Standard: normal snapshot
+     *   Standard: standard snapshot
      *   Flash: local snapshot
      *
      * > This parameter will be removed in the future. We recommend that you use the `InstantAccess` parameter to ensure future compatibility. This parameter and the `InstantAccess` parameter cannot be specified at the same time. For more information, see the "Description" section of this topic.
@@ -118,9 +118,9 @@ class CreateSnapshotRequest extends Model
     public $retentionDays;
 
     /**
-     * @description The name of the snapshot. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+     * @description The name of the snapshot. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
-     * It cannot start with `auto` because snapshots whose names start with auto are recognized as automatic snapshots.
+     * The name cannot start with `auto` because snapshots whose names start with auto are recognized as automatic snapshots.
      * @example testSnapshotName
      *
      * @var string

@@ -79,6 +79,10 @@ class imagePipelineSet extends Model
     public $description;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example null
+     *
      * @var string
      */
     public $imageFamily;
@@ -129,6 +133,10 @@ class imagePipelineSet extends Model
     public $name;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example null
+     *
      * @var string
      */
     public $repairMode;
@@ -159,6 +167,10 @@ class imagePipelineSet extends Model
     public $tags;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example null
+     *
      * @var string
      */
     public $testContent;

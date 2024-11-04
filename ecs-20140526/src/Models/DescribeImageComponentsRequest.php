@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageComponentsRequest extends Model
 {
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example null
+     *
      * @var string
      */
     public $componentType;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example null
+     *
      * @var string
      */
     public $componentVersion;
@@ -109,6 +117,10 @@ class DescribeImageComponentsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example null
+     *
      * @var string
      */
     public $systemType;

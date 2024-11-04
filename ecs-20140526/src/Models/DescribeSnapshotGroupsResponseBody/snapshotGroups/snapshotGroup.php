@@ -74,7 +74,7 @@ class snapshotGroup extends Model
     public $snapshotGroupId;
 
     /**
-     * @description Details of the snapshots in the snapshot-consistent group.
+     * @description The information about the snapshots in the snapshot-consistent group.
      *
      * @var snapshots
      */

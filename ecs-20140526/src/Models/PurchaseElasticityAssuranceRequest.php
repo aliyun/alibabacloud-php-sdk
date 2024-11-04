@@ -15,6 +15,8 @@ class PurchaseElasticityAssuranceRequest extends Model
     public $privatePoolOptions;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+     *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -32,6 +34,12 @@ class PurchaseElasticityAssuranceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The term of the elasticity assurance. The unit of the term is determined by the PeriodUnit value. Valid values:
+     *
+     *   When the PeriodUnit parameter is set to Month, valid values are 1, 2, 3, 4, 5, 6, 7, 8, and 9.
+     *   When the PeriodUnit parameter is set to Year, valid values are 1, 2, 3, 4, and 5.
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -39,6 +47,12 @@ class PurchaseElasticityAssuranceRequest extends Model
     public $period;
 
     /**
+     * @description The unit of the term of the elasticity assurance. Valid values:
+     *
+     *   Month
+     *   Year
+     *
+     * Default value: Year.
      * @example Month
      *
      * @var string
@@ -46,8 +60,9 @@ class PurchaseElasticityAssuranceRequest extends Model
     public $periodUnit;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the elasticity assurance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2679950.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +80,8 @@ class PurchaseElasticityAssuranceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The time when the elasticity assurance takes effect. The default value is the time when the elasticity assurance is created. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+     *
      * @example 2024-06-18T00:00Z
      *
      * @var string

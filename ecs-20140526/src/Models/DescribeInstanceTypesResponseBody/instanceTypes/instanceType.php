@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\cpuOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\enhancedNetwork;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\networkCards;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\supportedBootModes;
@@ -40,6 +41,11 @@ class instanceType extends Model
      * @var int
      */
     public $cpuCoreCount;
+
+    /**
+     * @var cpuOptions
+     */
+    public $cpuOptions;
 
     /**
      * @description The CPU base frequency. Unit: GHz.
@@ -404,6 +410,7 @@ class instanceType extends Model
         'baselineCredit'              => 'BaselineCredit',
         'cpuArchitecture'             => 'CpuArchitecture',
         'cpuCoreCount'                => 'CpuCoreCount',
+        'cpuOptions'                  => 'CpuOptions',
         'cpuSpeedFrequency'           => 'CpuSpeedFrequency',
         'cpuTurboFrequency'           => 'CpuTurboFrequency',
         'diskQuantity'                => 'DiskQuantity',
@@ -458,6 +465,9 @@ class instanceType extends Model
         }
         if (null !== $this->cpuCoreCount) {
             $res['CpuCoreCount'] = $this->cpuCoreCount;
+        }
+        if (null !== $this->cpuOptions) {
+            $res['CpuOptions'] = null !== $this->cpuOptions ? $this->cpuOptions->toMap() : null;
         }
         if (null !== $this->cpuSpeedFrequency) {
             $res['CpuSpeedFrequency'] = $this->cpuSpeedFrequency;
@@ -590,6 +600,9 @@ class instanceType extends Model
         }
         if (isset($map['CpuCoreCount'])) {
             $model->cpuCoreCount = $map['CpuCoreCount'];
+        }
+        if (isset($map['CpuOptions'])) {
+            $model->cpuOptions = cpuOptions::fromMap($map['CpuOptions']);
         }
         if (isset($map['CpuSpeedFrequency'])) {
             $model->cpuSpeedFrequency = $map['CpuSpeedFrequency'];

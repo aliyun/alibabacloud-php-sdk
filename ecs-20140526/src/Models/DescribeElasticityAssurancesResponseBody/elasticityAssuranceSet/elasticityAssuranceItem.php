@@ -27,6 +27,11 @@ class elasticityAssuranceItem extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $elasticityAssuranceOwnerId;
+
+    /**
      * @description The time when the elasticity assurance expires.
      *
      * @example 2021-12-03T16:00Z
@@ -163,6 +168,7 @@ class elasticityAssuranceItem extends Model
     protected $_name = [
         'allocatedResources'              => 'AllocatedResources',
         'description'                     => 'Description',
+        'elasticityAssuranceOwnerId'      => 'ElasticityAssuranceOwnerId',
         'endTime'                         => 'EndTime',
         'instanceChargeType'              => 'InstanceChargeType',
         'latestStartTime'                 => 'LatestStartTime',
@@ -191,6 +197,9 @@ class elasticityAssuranceItem extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->elasticityAssuranceOwnerId) {
+            $res['ElasticityAssuranceOwnerId'] = $this->elasticityAssuranceOwnerId;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -251,6 +260,9 @@ class elasticityAssuranceItem extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['ElasticityAssuranceOwnerId'])) {
+            $model->elasticityAssuranceOwnerId = $map['ElasticityAssuranceOwnerId'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];

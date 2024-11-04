@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagePipelinesResponseBody extends Model
 {
     /**
-     * @description Details about the image templates.
+     * @description The information about the image templates.
      *
      * @var imagePipeline
      */

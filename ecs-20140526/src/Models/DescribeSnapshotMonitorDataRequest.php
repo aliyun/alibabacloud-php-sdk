@@ -11,7 +11,7 @@ class DescribeSnapshotMonitorDataRequest extends Model
     /**
      * @description The category of the snapshot. Valid values:
      *
-     *   Standard: normal snapshot
+     *   Standard: standard snapshot
      *   Flash: local snapshot
      *
      * Default value: Standard.

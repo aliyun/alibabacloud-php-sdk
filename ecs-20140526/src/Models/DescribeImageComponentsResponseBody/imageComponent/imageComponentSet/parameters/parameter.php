@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class parameter extends Model
 {
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example null
+     *
      * @var string
      */
     public $defaultValue;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example null
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example null
+     *
      * @var string
      */
     public $type;

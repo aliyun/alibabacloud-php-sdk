@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskEncryptionByDefaultStatusRequest extends Model
 {
     /**
-     * @description The ID of the region. You can call the DescribeRegions operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2679950.html) operation to query the most recent region list.
      *
      * This parameter is required.
      * @example cn-hangzhou

@@ -19,7 +19,7 @@ class launchTemplateVersionSet extends Model
     public $createTime;
 
     /**
-     * @description The creator of the launch template version.
+     * @description The ID of the Alibaba Cloud account that created the launch template.
      *
      * @example 123456789****
      *

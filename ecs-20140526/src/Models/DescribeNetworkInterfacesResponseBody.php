@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkInterfacesResponseBody extends Model
 {
     /**
-     * @description Details about the ENIs.
+     * @description Details of the ENIs.
      *
      * @var networkInterfaceSets
      */

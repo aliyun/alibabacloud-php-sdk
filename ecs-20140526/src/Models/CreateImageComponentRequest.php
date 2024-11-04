@@ -29,6 +29,10 @@ class CreateImageComponentRequest extends Model
     public $componentType;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example null
+     *
      * @var string
      */
     public $componentVersion;
@@ -52,9 +56,9 @@ class CreateImageComponentRequest extends Model
     public $description;
 
     /**
-     * @description The component name. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with http:// or https://.[ ](http://https://。、、、（:）、（_）、（.）（-）。)The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+     * @description The name of the image component. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
-     * > If you do not configure `Name`, the return value of `ImageComponentId` is used.
+     * >  If you do not specify `Name`, the return value of `ImageComponentId` is used.
      * @example testComponent
      *
      * @var string
@@ -101,7 +105,7 @@ class CreateImageComponentRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The operating system type supported by the image component. Only Linux is supported. Set the value to Linux.
+     * @description The type of the operating system supported by the image component. Only Linux operating systems are supported. Set the value to Linux.
      *
      * Default value: Linux.
      * @example Linux

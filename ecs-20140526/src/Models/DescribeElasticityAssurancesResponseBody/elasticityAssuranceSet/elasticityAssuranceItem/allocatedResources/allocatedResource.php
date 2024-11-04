@@ -4,10 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssurancesResponseBody\elasticityAssuranceSet\elasticityAssuranceItem\allocatedResources;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssurancesResponseBody\elasticityAssuranceSet\elasticityAssuranceItem\allocatedResources\allocatedResource\elasticityAssuranceUsages;
 use AlibabaCloud\Tea\Model;
 
 class allocatedResource extends Model
 {
+    /**
+     * @var int
+     */
+    public $availableAmount;
+
+    /**
+     * @var elasticityAssuranceUsages
+     */
+    public $elasticityAssuranceUsages;
+
     /**
      * @description The instance type.
      *
@@ -44,10 +55,12 @@ class allocatedResource extends Model
      */
     public $zoneId;
     protected $_name = [
-        'instanceType' => 'InstanceType',
-        'totalAmount'  => 'TotalAmount',
-        'usedAmount'   => 'UsedAmount',
-        'zoneId'       => 'zoneId',
+        'availableAmount'           => 'AvailableAmount',
+        'elasticityAssuranceUsages' => 'ElasticityAssuranceUsages',
+        'instanceType'              => 'InstanceType',
+        'totalAmount'               => 'TotalAmount',
+        'usedAmount'                => 'UsedAmount',
+        'zoneId'                    => 'zoneId',
     ];
 
     public function validate()
@@ -57,6 +70,12 @@ class allocatedResource extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->availableAmount) {
+            $res['AvailableAmount'] = $this->availableAmount;
+        }
+        if (null !== $this->elasticityAssuranceUsages) {
+            $res['ElasticityAssuranceUsages'] = null !== $this->elasticityAssuranceUsages ? $this->elasticityAssuranceUsages->toMap() : null;
+        }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
@@ -81,6 +100,12 @@ class allocatedResource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AvailableAmount'])) {
+            $model->availableAmount = $map['AvailableAmount'];
+        }
+        if (isset($map['ElasticityAssuranceUsages'])) {
+            $model->elasticityAssuranceUsages = elasticityAssuranceUsages::fromMap($map['ElasticityAssuranceUsages']);
+        }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }

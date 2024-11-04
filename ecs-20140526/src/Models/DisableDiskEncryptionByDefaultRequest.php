@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DisableDiskEncryptionByDefaultRequest extends Model
 {
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     * @description The ID of the region for which you want to disable Account-level EBS Default Encryption. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2679950.html) operation to query the most recent region list.
      *
      * This parameter is required.
      * @example cn-hangzhou

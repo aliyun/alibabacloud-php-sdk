@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class privatePoolOptions extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the elasticity assurance.
      *
+     * This parameter is required.
      * @example eap-bp67acfmxazb4****
      *
      * @var string
@@ -18,6 +19,12 @@ class privatePoolOptions extends Model
     public $id;
 
     /**
+     * @description The type of the private pool that is associated with the elasticity assurance. Valid values:
+     *
+     *   Open: open private pool. If you use the elasticity assurance to create ECS instances, the open private pool that is associated with the elasticity assurance is automatically matched. If no capacity is available in the open private pool, resources in the public pool are automatically used to create the ECS instances.
+     *   Target: targeted private pool. If you use the elasticity assurance to create ECS instances, the targeted private pool that is associated with the elasticity assurance is automatically matched. If no capacity is available in the private pool, the ECS instances fail to be created.
+     *
+     * Default value: Open.
      * @example Open
      *
      * @var string
