@@ -72,6 +72,9 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\SubmitIndexJobResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentShrinkRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateFileTagRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateFileTagResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateFileTagShrinkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateMemoryNodeRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateMemoryNodeResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateMemoryRequest;
@@ -2260,6 +2263,65 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->updateAndPublishAgentWithOptions($workspaceId, $appCode, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新文档Tag
+     *  *
+     * @param string               $WorkspaceId
+     * @param string               $FileId
+     * @param UpdateFileTagRequest $tmpReq      UpdateFileTagRequest
+     * @param string[]             $headers     map
+     * @param RuntimeOptions       $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return UpdateFileTagResponse UpdateFileTagResponse
+     */
+    public function updateFileTagWithOptions($WorkspaceId, $FileId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateFileTagShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $body['Tags'] = $request->tagsShrink;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateFileTag',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/file/' . OpenApiUtilClient::getEncodeParam($FileId) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateFileTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新文档Tag
+     *  *
+     * @param string               $WorkspaceId
+     * @param string               $FileId
+     * @param UpdateFileTagRequest $request     UpdateFileTagRequest
+     *
+     * @return UpdateFileTagResponse UpdateFileTagResponse
+     */
+    public function updateFileTag($WorkspaceId, $FileId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateFileTagWithOptions($WorkspaceId, $FileId, $request, $headers, $runtime);
     }
 
     /**
