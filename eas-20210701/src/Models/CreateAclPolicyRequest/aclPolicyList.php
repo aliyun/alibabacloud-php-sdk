@@ -20,6 +20,7 @@ class aclPolicyList extends Model
     /**
      * @description The IP CIDR block in the VPC that can access the private gateway.
      *
+     * This parameter is required.
      * @example 10.23.XX.XX/32
      *
      * @var string

@@ -6,27 +6,22 @@ namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateAclPolicyShrinkRequest extends Model
+class DeleteGatewayIntranetLinkedVpcPeerShrinkRequest extends Model
 {
     /**
-     * @description The whitelisted IP CIDR blocks in the VPC that can access the private gateway.
-     *
-     * This parameter is required.
      * @var string
      */
-    public $aclPolicyListShrink;
+    public $peerVpcsShrink;
 
     /**
-     * @description The ID of the virtual private cloud (VPC). For more information about how to obtain the VPC ID, see DescribeVpcs.
-     *
-     * @example vpc-uf66uio7md****
+     * @example vpc-2zetuli9ws0qgjd******
      *
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'aclPolicyListShrink' => 'AclPolicyList',
-        'vpcId'               => 'VpcId',
+        'peerVpcsShrink' => 'PeerVpcs',
+        'vpcId'          => 'VpcId',
     ];
 
     public function validate()
@@ -36,8 +31,8 @@ class CreateAclPolicyShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aclPolicyListShrink) {
-            $res['AclPolicyList'] = $this->aclPolicyListShrink;
+        if (null !== $this->peerVpcsShrink) {
+            $res['PeerVpcs'] = $this->peerVpcsShrink;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -49,13 +44,13 @@ class CreateAclPolicyShrinkRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateAclPolicyShrinkRequest
+     * @return DeleteGatewayIntranetLinkedVpcPeerShrinkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AclPolicyList'])) {
-            $model->aclPolicyListShrink = $map['AclPolicyList'];
+        if (isset($map['PeerVpcs'])) {
+            $model->peerVpcsShrink = $map['PeerVpcs'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

@@ -43,11 +43,21 @@ class ListGatewayRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @description The ID of the resource group. To obtain a resource group ID, see the ResourceId field in the response of the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation.
+     *
+     * @example eas-r-4gt8twzwllfo******
+     *
+     * @var string
+     */
+    public $resourceName;
     protected $_name = [
-        'gatewayId'   => 'GatewayId',
-        'gatewayName' => 'GatewayName',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
+        'gatewayId'    => 'GatewayId',
+        'gatewayName'  => 'GatewayName',
+        'pageNumber'   => 'PageNumber',
+        'pageSize'     => 'PageSize',
+        'resourceName' => 'ResourceName',
     ];
 
     public function validate()
@@ -68,6 +78,9 @@ class ListGatewayRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceName) {
+            $res['ResourceName'] = $this->resourceName;
         }
 
         return $res;
@@ -92,6 +105,9 @@ class ListGatewayRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceName'])) {
+            $model->resourceName = $map['ResourceName'];
         }
 
         return $model;

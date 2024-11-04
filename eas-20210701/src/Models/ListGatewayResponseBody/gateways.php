@@ -9,6 +9,18 @@ use AlibabaCloud\Tea\Model;
 class gateways extends Model
 {
     /**
+     * @description The billing method. Valid values:
+     *
+     *   PrePaid: subscription.
+     *   PostPaid: pay-as-you-go.
+     *
+     * @example PostPaid
+     *
+     * @var string
+     */
+    public $chargeType;
+
+    /**
      * @description The time when the private gateway was created. The time is displayed in UTC.
      *
      * @example 2020-05-19T14:19:42Z
@@ -117,6 +129,7 @@ class gateways extends Model
      */
     public $updateTime;
     protected $_name = [
+        'chargeType'      => 'ChargeType',
         'createTime'      => 'CreateTime',
         'gatewayId'       => 'GatewayId',
         'gatewayName'     => 'GatewayName',
@@ -137,6 +150,9 @@ class gateways extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -182,6 +198,9 @@ class gateways extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }

@@ -12,6 +12,7 @@ class CreateAclPolicyRequest extends Model
     /**
      * @description The whitelisted IP CIDR blocks in the VPC that can access the private gateway.
      *
+     * This parameter is required.
      * @var aclPolicyList[]
      */
     public $aclPolicyList;

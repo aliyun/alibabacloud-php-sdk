@@ -18,7 +18,7 @@ class ListServicesRequest extends Model
     public $filter;
 
     /**
-     * @description The ID of the private gateway.
+     * @description The private gateway ID.
      *
      * @example gw-1uhcqmsc7x22******
      *
@@ -100,6 +100,22 @@ class ListServicesRequest extends Model
     public $resourceName;
 
     /**
+     * @description The server role.
+     *
+     * Valid values:
+     *
+     *   DataLoader
+     *   FrontEnd
+     *   DataSet
+     *   SDProxy
+     *   LLMSscheduler
+     *   ScalableJob
+     *   LLMGateway
+     *   Job
+     *   Queue
+     *
+     * @example LLMGateway
+     *
      * @var string
      */
     public $role;

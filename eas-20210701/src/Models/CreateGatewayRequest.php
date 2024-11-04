@@ -18,6 +18,28 @@ class CreateGatewayRequest extends Model
     public $resourceName;
 
     /**
+     * @description Specifies whether to enable auto-renewal. Valid values:
+     *
+     *   false (default)
+     *   true
+     *
+     * @var bool
+     */
+    public $autoRenewal;
+
+    /**
+     * @description The billing method. Valid values:
+     *
+     *   PrePaid: subscription.
+     *   PostPaid: pay-as-you-go.
+     *
+     * @example PostPaid
+     *
+     * @var string
+     */
+    public $chargeType;
+
+    /**
      * @description Specifies whether to enable Internet access. Default value: false.
      *
      * Valid values:
@@ -79,6 +101,8 @@ class CreateGatewayRequest extends Model
     public $replicas;
     protected $_name = [
         'resourceName'   => 'ResourceName',
+        'autoRenewal'    => 'AutoRenewal',
+        'chargeType'     => 'ChargeType',
         'enableInternet' => 'EnableInternet',
         'enableIntranet' => 'EnableIntranet',
         'instanceType'   => 'InstanceType',
@@ -95,6 +119,12 @@ class CreateGatewayRequest extends Model
         $res = [];
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
+        }
+        if (null !== $this->autoRenewal) {
+            $res['AutoRenewal'] = $this->autoRenewal;
+        }
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
         }
         if (null !== $this->enableInternet) {
             $res['EnableInternet'] = $this->enableInternet;
@@ -125,6 +155,12 @@ class CreateGatewayRequest extends Model
         $model = new self();
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
+        }
+        if (isset($map['AutoRenewal'])) {
+            $model->autoRenewal = $map['AutoRenewal'];
+        }
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
         }
         if (isset($map['EnableInternet'])) {
             $model->enableInternet = $map['EnableInternet'];

@@ -6,6 +6,9 @@ namespace AlibabaCloud\SDK\Eas\V20210701;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Eas\V20210701\Models\AttachGatewayDomainRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\AttachGatewayDomainResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\AttachGatewayDomainShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CloneServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CloneServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CloneServiceShrinkRequest;
@@ -17,6 +20,9 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\CreateAppServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateAppServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateBenchmarkTaskRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateBenchmarkTaskResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateGatewayIntranetLinkedVpcPeerRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateGatewayIntranetLinkedVpcPeerResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateGatewayIntranetLinkedVpcPeerShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateGatewayIntranetLinkedVpcRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateGatewayIntranetLinkedVpcResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateGatewayRequest;
@@ -36,10 +42,15 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceMirrorResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceShrinkRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateVirtualResourceRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateVirtualResourceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteAclPolicyRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteAclPolicyResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteAclPolicyShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteBenchmarkTaskResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayIntranetLinkedVpcPeerRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayIntranetLinkedVpcPeerResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayIntranetLinkedVpcPeerShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayIntranetLinkedVpcRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayIntranetLinkedVpcResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayResponse;
@@ -57,6 +68,7 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceLabelResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceLabelShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceMirrorResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteVirtualResourceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeBenchmarkTaskReportRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeBenchmarkTaskReportResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeBenchmarkTaskResponse;
@@ -77,12 +89,19 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceMirrorResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeSpotDiscountHistoryRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeSpotDiscountHistoryResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeVirtualResourceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DetachGatewayDomainRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DetachGatewayDomainResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DetachGatewayDomainShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DevelopServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DevelopServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListAclPolicyRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListAclPolicyResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListBenchmarkTaskRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListBenchmarkTaskResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayDomainsResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayIntranetLinkedVpcPeerRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayIntranetLinkedVpcPeerResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayIntranetLinkedVpcResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayResponse;
@@ -105,6 +124,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\ListServicesShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceVersionsRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceVersionsResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListTenantAddonsResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListVirtualResourceRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListVirtualResourceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ReinstallTenantAddonResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ReleaseServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ReleaseServiceResponse;
@@ -141,6 +162,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceSafetyLockRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceSafetyLockResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceVersionRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceVersionResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateVirtualResourceRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateVirtualResourceResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -195,6 +218,65 @@ class Eas extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary Binds a custom domain name to a private gateway.
+     *  *
+     * @param string                     $ClusterId
+     * @param string                     $GatewayId
+     * @param AttachGatewayDomainRequest $tmpReq    AttachGatewayDomainRequest
+     * @param string[]                   $headers   map
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return AttachGatewayDomainResponse AttachGatewayDomainResponse
+     */
+    public function attachGatewayDomainWithOptions($ClusterId, $GatewayId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AttachGatewayDomainShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->customDomain)) {
+            $request->customDomainShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customDomain, 'CustomDomain', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->customDomainShrink)) {
+            $query['CustomDomain'] = $request->customDomainShrink;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachGatewayDomain',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/domain/attach',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return AttachGatewayDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Binds a custom domain name to a private gateway.
+     *  *
+     * @param string                     $ClusterId
+     * @param string                     $GatewayId
+     * @param AttachGatewayDomainRequest $request   AttachGatewayDomainRequest
+     *
+     * @return AttachGatewayDomainResponse AttachGatewayDomainResponse
+     */
+    public function attachGatewayDomain($ClusterId, $GatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->attachGatewayDomainWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime);
     }
 
     /**
@@ -485,7 +567,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Creates a private gateway. You can create a private gateway only in a self-managed resource group.
+     * @summary Creates a gateway.
      *  *
      * @param CreateGatewayRequest $request CreateGatewayRequest
      * @param string[]             $headers map
@@ -501,6 +583,12 @@ class Eas extends OpenApiClient
             $query['ResourceName'] = $request->resourceName;
         }
         $body = [];
+        if (!Utils::isUnset($request->autoRenewal)) {
+            $body['AutoRenewal'] = $request->autoRenewal;
+        }
+        if (!Utils::isUnset($request->chargeType)) {
+            $body['ChargeType'] = $request->chargeType;
+        }
         if (!Utils::isUnset($request->enableInternet)) {
             $body['EnableInternet'] = $request->enableInternet;
         }
@@ -537,7 +625,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Creates a private gateway. You can create a private gateway only in a self-managed resource group.
+     * @summary Creates a gateway.
      *  *
      * @param CreateGatewayRequest $request CreateGatewayRequest
      *
@@ -606,6 +694,68 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->createGatewayIntranetLinkedVpcWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建网关内网访问端点跨VPC连接
+     *  *
+     * @param string                                    $ClusterId
+     * @param string                                    $GatewayId
+     * @param CreateGatewayIntranetLinkedVpcPeerRequest $tmpReq    CreateGatewayIntranetLinkedVpcPeerRequest
+     * @param string[]                                  $headers   map
+     * @param RuntimeOptions                            $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return CreateGatewayIntranetLinkedVpcPeerResponse CreateGatewayIntranetLinkedVpcPeerResponse
+     */
+    public function createGatewayIntranetLinkedVpcPeerWithOptions($ClusterId, $GatewayId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateGatewayIntranetLinkedVpcPeerShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->peerVpcs)) {
+            $request->peerVpcsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->peerVpcs, 'PeerVpcs', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->peerVpcsShrink)) {
+            $query['PeerVpcs'] = $request->peerVpcsShrink;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGatewayIntranetLinkedVpcPeer',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/intranet_endpoint_linked_vpc_peer',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateGatewayIntranetLinkedVpcPeerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建网关内网访问端点跨VPC连接
+     *  *
+     * @param string                                    $ClusterId
+     * @param string                                    $GatewayId
+     * @param CreateGatewayIntranetLinkedVpcPeerRequest $request   CreateGatewayIntranetLinkedVpcPeerRequest
+     *
+     * @return CreateGatewayIntranetLinkedVpcPeerResponse CreateGatewayIntranetLinkedVpcPeerResponse
+     */
+    public function createGatewayIntranetLinkedVpcPeer($ClusterId, $GatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createGatewayIntranetLinkedVpcPeerWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime);
     }
 
     /**
@@ -1056,6 +1206,59 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Creates a virtual resource group.
+     *  *
+     * @param CreateVirtualResourceRequest $request CreateVirtualResourceRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateVirtualResourceResponse CreateVirtualResourceResponse
+     */
+    public function createVirtualResourceWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->resources)) {
+            $body['Resources'] = $request->resources;
+        }
+        if (!Utils::isUnset($request->virtualResourceName)) {
+            $body['VirtualResourceName'] = $request->virtualResourceName;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVirtualResource',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/virtualresources',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateVirtualResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Creates a virtual resource group.
+     *  *
+     * @param CreateVirtualResourceRequest $request CreateVirtualResourceRequest
+     *
+     * @return CreateVirtualResourceResponse CreateVirtualResourceResponse
+     */
+    public function createVirtualResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createVirtualResourceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary Deletes an access control list (ACL) for a private gateway. The IP CIDR block that is deleted from the ACL cannot access the private gateway.
      *  *
      * @param string                 $ClusterId
@@ -1264,6 +1467,68 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->deleteGatewayIntranetLinkedVpcWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除网关内网访问端点跨VPC连接
+     *  *
+     * @param string                                    $ClusterId
+     * @param string                                    $GatewayId
+     * @param DeleteGatewayIntranetLinkedVpcPeerRequest $tmpReq    DeleteGatewayIntranetLinkedVpcPeerRequest
+     * @param string[]                                  $headers   map
+     * @param RuntimeOptions                            $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return DeleteGatewayIntranetLinkedVpcPeerResponse DeleteGatewayIntranetLinkedVpcPeerResponse
+     */
+    public function deleteGatewayIntranetLinkedVpcPeerWithOptions($ClusterId, $GatewayId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteGatewayIntranetLinkedVpcPeerShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->peerVpcs)) {
+            $request->peerVpcsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->peerVpcs, 'PeerVpcs', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->peerVpcsShrink)) {
+            $query['PeerVpcs'] = $request->peerVpcsShrink;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGatewayIntranetLinkedVpcPeer',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/intranet_endpoint_linked_vpc_peer',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteGatewayIntranetLinkedVpcPeerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除网关内网访问端点跨VPC连接
+     *  *
+     * @param string                                    $ClusterId
+     * @param string                                    $GatewayId
+     * @param DeleteGatewayIntranetLinkedVpcPeerRequest $request   DeleteGatewayIntranetLinkedVpcPeerRequest
+     *
+     * @return DeleteGatewayIntranetLinkedVpcPeerResponse DeleteGatewayIntranetLinkedVpcPeerResponse
+     */
+    public function deleteGatewayIntranetLinkedVpcPeer($ClusterId, $GatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteGatewayIntranetLinkedVpcPeerWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime);
     }
 
     /**
@@ -1762,6 +2027,52 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->deleteServiceMirrorWithOptions($ClusterId, $ServiceName, $headers, $runtime);
+    }
+
+    /**
+     * @summary Deletes a virtual resource group that contains no resources or instances.
+     *  *
+     * @param string         $ClusterId
+     * @param string         $VirtualResourceId
+     * @param string[]       $headers           map
+     * @param RuntimeOptions $runtime           runtime options for this request RuntimeOptions
+     *
+     * @return DeleteVirtualResourceResponse DeleteVirtualResourceResponse
+     */
+    public function deleteVirtualResourceWithOptions($ClusterId, $VirtualResourceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVirtualResource',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/virtualresources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($VirtualResourceId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteVirtualResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes a virtual resource group that contains no resources or instances.
+     *  *
+     * @param string $ClusterId
+     * @param string $VirtualResourceId
+     *
+     * @return DeleteVirtualResourceResponse DeleteVirtualResourceResponse
+     */
+    public function deleteVirtualResource($ClusterId, $VirtualResourceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteVirtualResourceWithOptions($ClusterId, $VirtualResourceId, $headers, $runtime);
     }
 
     /**
@@ -2573,6 +2884,111 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary Views the details of a virtual resource group.
+     *  *
+     * @param string         $ClusterId
+     * @param string         $VirtualResourceId
+     * @param string[]       $headers           map
+     * @param RuntimeOptions $runtime           runtime options for this request RuntimeOptions
+     *
+     * @return DescribeVirtualResourceResponse DescribeVirtualResourceResponse
+     */
+    public function describeVirtualResourceWithOptions($ClusterId, $VirtualResourceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVirtualResource',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/virtualresources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($VirtualResourceId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVirtualResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Views the details of a virtual resource group.
+     *  *
+     * @param string $ClusterId
+     * @param string $VirtualResourceId
+     *
+     * @return DescribeVirtualResourceResponse DescribeVirtualResourceResponse
+     */
+    public function describeVirtualResource($ClusterId, $VirtualResourceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeVirtualResourceWithOptions($ClusterId, $VirtualResourceId, $headers, $runtime);
+    }
+
+    /**
+     * @summary Unbinds a custom domain name from a private gateway.
+     *  *
+     * @param string                     $ClusterId
+     * @param string                     $GatewayId
+     * @param DetachGatewayDomainRequest $tmpReq    DetachGatewayDomainRequest
+     * @param string[]                   $headers   map
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return DetachGatewayDomainResponse DetachGatewayDomainResponse
+     */
+    public function detachGatewayDomainWithOptions($ClusterId, $GatewayId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DetachGatewayDomainShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->customDomain)) {
+            $request->customDomainShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customDomain, 'CustomDomain', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->customDomainShrink)) {
+            $query['CustomDomain'] = $request->customDomainShrink;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachGatewayDomain',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/domain/detach',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetachGatewayDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Unbinds a custom domain name from a private gateway.
+     *  *
+     * @param string                     $ClusterId
+     * @param string                     $GatewayId
+     * @param DetachGatewayDomainRequest $request   DetachGatewayDomainRequest
+     *
+     * @return DetachGatewayDomainResponse DetachGatewayDomainResponse
+     */
+    public function detachGatewayDomain($ClusterId, $GatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->detachGatewayDomainWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary Switches a container service to development mode or exits development mode.
      *  *
      * @param string                $ClusterId
@@ -2764,6 +3180,9 @@ class Eas extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->resourceName)) {
+            $query['ResourceName'] = $request->resourceName;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -2796,6 +3215,52 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->listGatewayWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary Queries a list of custom domain names of a private gateway.
+     *  *
+     * @param string         $ClusterId
+     * @param string         $GatewayId
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ListGatewayDomainsResponse ListGatewayDomainsResponse
+     */
+    public function listGatewayDomainsWithOptions($ClusterId, $GatewayId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListGatewayDomains',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/domains',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGatewayDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries a list of custom domain names of a private gateway.
+     *  *
+     * @param string $ClusterId
+     * @param string $GatewayId
+     *
+     * @return ListGatewayDomainsResponse ListGatewayDomainsResponse
+     */
+    public function listGatewayDomains($ClusterId, $GatewayId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listGatewayDomainsWithOptions($ClusterId, $GatewayId, $headers, $runtime);
     }
 
     /**
@@ -2842,6 +3307,60 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->listGatewayIntranetLinkedVpcWithOptions($ClusterId, $GatewayId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取网关内网访问端点跨VPC连接列表
+     *  *
+     * @param string                                  $ClusterId
+     * @param string                                  $GatewayId
+     * @param ListGatewayIntranetLinkedVpcPeerRequest $request   ListGatewayIntranetLinkedVpcPeerRequest
+     * @param string[]                                $headers   map
+     * @param RuntimeOptions                          $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ListGatewayIntranetLinkedVpcPeerResponse ListGatewayIntranetLinkedVpcPeerResponse
+     */
+    public function listGatewayIntranetLinkedVpcPeerWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGatewayIntranetLinkedVpcPeer',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/intranet_endpoint_linked_vpc_peer',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGatewayIntranetLinkedVpcPeerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取网关内网访问端点跨VPC连接列表
+     *  *
+     * @param string                                  $ClusterId
+     * @param string                                  $GatewayId
+     * @param ListGatewayIntranetLinkedVpcPeerRequest $request   ListGatewayIntranetLinkedVpcPeerRequest
+     *
+     * @return ListGatewayIntranetLinkedVpcPeerResponse ListGatewayIntranetLinkedVpcPeerResponse
+     */
+    public function listGatewayIntranetLinkedVpcPeer($ClusterId, $GatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listGatewayIntranetLinkedVpcPeerWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime);
     }
 
     /**
@@ -3366,7 +3885,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of services that are created by the current user.
+     * @summary Lists services.
      *  *
      * @param ListServicesRequest $tmpReq  ListServicesRequest
      * @param string[]            $headers map
@@ -3454,7 +3973,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of services that are created by the current user.
+     * @summary Lists services.
      *  *
      * @param ListServicesRequest $request ListServicesRequest
      *
@@ -3510,7 +4029,66 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about a tenant plug-in.
+     * @summary Queries a list of virtual resource groups for the current user.
+     *  *
+     * @param ListVirtualResourceRequest $request ListVirtualResourceRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListVirtualResourceResponse ListVirtualResourceResponse
+     */
+    public function listVirtualResourceWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->virtualResourceId)) {
+            $query['VirtualResourceId'] = $request->virtualResourceId;
+        }
+        if (!Utils::isUnset($request->virtualResourceName)) {
+            $query['VirtualResourceName'] = $request->virtualResourceName;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVirtualResource',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/virtualresources',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListVirtualResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries a list of virtual resource groups for the current user.
+     *  *
+     * @param ListVirtualResourceRequest $request ListVirtualResourceRequest
+     *
+     * @return ListVirtualResourceResponse ListVirtualResourceResponse
+     */
+    public function listVirtualResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listVirtualResourceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary Resets tenant configurations.
      *  *
      * @param string         $ClusterId
      * @param string         $TenantAddonName
@@ -3540,7 +4118,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about a tenant plug-in.
+     * @summary Resets tenant configurations.
      *  *
      * @param string $ClusterId
      * @param string $TenantAddonName
@@ -4659,5 +5237,62 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->updateServiceVersionWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary Updates the information about a virtual resource group.
+     *  *
+     * @param string                       $ClusterId
+     * @param string                       $VirtualResourceId
+     * @param UpdateVirtualResourceRequest $request           UpdateVirtualResourceRequest
+     * @param string[]                     $headers           map
+     * @param RuntimeOptions               $runtime           runtime options for this request RuntimeOptions
+     *
+     * @return UpdateVirtualResourceResponse UpdateVirtualResourceResponse
+     */
+    public function updateVirtualResourceWithOptions($ClusterId, $VirtualResourceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->resources)) {
+            $body['Resources'] = $request->resources;
+        }
+        if (!Utils::isUnset($request->virtualResourceName)) {
+            $body['VirtualResourceName'] = $request->virtualResourceName;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateVirtualResource',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/virtualresources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($VirtualResourceId) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateVirtualResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Updates the information about a virtual resource group.
+     *  *
+     * @param string                       $ClusterId
+     * @param string                       $VirtualResourceId
+     * @param UpdateVirtualResourceRequest $request           UpdateVirtualResourceRequest
+     *
+     * @return UpdateVirtualResourceResponse UpdateVirtualResourceResponse
+     */
+    public function updateVirtualResource($ClusterId, $VirtualResourceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateVirtualResourceWithOptions($ClusterId, $VirtualResourceId, $request, $headers, $runtime);
     }
 }
