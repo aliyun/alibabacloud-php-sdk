@@ -44,7 +44,6 @@ class CreateProjectShrinkRequest extends Model
     /**
      * @description The description of the workspace.
      *
-     * This parameter is required.
      * @example test_describe
      *
      * @var string

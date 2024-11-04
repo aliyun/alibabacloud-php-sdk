@@ -24,11 +24,15 @@ class data extends Model
     public $alertInterval;
 
     /**
+     * @description The alert notification method.
+     *
      * @var string[]
      */
     public $alertMethods;
 
     /**
+     * @description The description of the alert recipient.
+     *
      * @var string[]
      */
     public $alertTargets;
@@ -180,6 +184,8 @@ class data extends Model
     public $useflag;
 
     /**
+     * @description The information about the webhook URL.
+     *
      * @var string[]
      */
     public $webhooks;

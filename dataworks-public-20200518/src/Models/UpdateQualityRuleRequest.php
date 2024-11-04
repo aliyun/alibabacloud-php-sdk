@@ -21,7 +21,7 @@ class UpdateQualityRuleRequest extends Model
     public $blockType;
 
     /**
-     * @description The checker ID. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to obtain the ID of the checker.
+     * @description The checker ID. Valid values: 2: indicates that the current value is compared with the average value of the previous 7 days. 3: indicates that the current value is compared with the average value of the previous 30 days. 4: indicates that the current value is compared with the value 1 day earlier. 5: indicates that the current value is compared with the value 7 days earlier. 6: indicates that the current value is compared with the value 30 days earlier. 7: indicates the variance between the current value and the value 7 days earlier. 8: indicates the variance between the current value and the value 30 days earlier. 9: indicates that the current value is compared with a fixed value. 10: indicates that the current value is compared with the value 1, 7, or 30 days earlier. 11: indicates that the current value is compared with the value of the previous cycle. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to query the ID.
      *
      * This parameter is required.
      * @example 9
@@ -99,6 +99,7 @@ class UpdateQualityRuleRequest extends Model
     /**
      * @description The comparison operator, such as >, >=, =, ≠, <, or <=.
      *
+     * >  If you set the Checker parameter to 9, you must configure the Operator parameter.
      * @example >
      *
      * @var string

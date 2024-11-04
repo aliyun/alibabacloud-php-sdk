@@ -14,6 +14,8 @@ class receivers extends Model
     public $alertTargets;
 
     /**
+     * @example OWNER
+     *
      * @var string
      */
     public $alertUnit;

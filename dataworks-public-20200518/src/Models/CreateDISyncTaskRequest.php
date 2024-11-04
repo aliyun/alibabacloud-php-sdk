@@ -44,10 +44,11 @@ class CreateDISyncTaskRequest extends Model
     public $taskName;
 
     /**
-     * @description The settings that specify the storage path of the data synchronization task and the resource group used by the task. The following parameters are supported:
+     * @description The configuration parameters of the data synchronization task. The following parameters are supported:
      *
      *   FileFolderPath: the storage path of the data synchronization task.
      *   ResourceGroup: the identifier of the resource group for Data Integration that is used by the data synchronization task. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to query the identifier of the resource group.
+     *   Cu: the specifications occupied by the data synchronization task in the serverless resource group. The value of this parameter must be a multiple of 0.5.
      *
      * @example {"FileFolderPath":"Business Flow/XXX/Data Integration","ResourceGroup":"S_res_group_XXX_XXXX"}
      *

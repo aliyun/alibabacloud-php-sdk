@@ -10412,7 +10412,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a custom alert rule.
+     * @summary Queries the information about a custom alert rule.
      *  *
      * @description ## Debugging
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=GetRemind\\&type=RPC\\&version=2020-05-18)
@@ -10448,7 +10448,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a custom alert rule.
+     * @summary Queries the information about a custom alert rule.
      *  *
      * @description ## Debugging
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=GetRemind\\&type=RPC\\&version=2020-05-18)
@@ -14490,7 +14490,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页获取租户下面的数据源类型粒度的表名称
+     * @summary Obtains tables of different data source types within a tenant by page.
      *  *
      * @param ListTablesRequest $request ListTablesRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -14529,7 +14529,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页获取租户下面的数据源类型粒度的表名称
+     * @summary Obtains tables of different data source types within a tenant by page.
      *  *
      * @param ListTablesRequest $request ListTablesRequest
      *
@@ -18172,7 +18172,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Updates the metadata information about a table.
+     * @summary Updates the metadata information about a table. Only MaxCompute tables are supported.
      *  *
      * @param UpdateMetaTableRequest $request UpdateMetaTableRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -18237,7 +18237,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Updates the metadata information about a table.
+     * @summary Updates the metadata information about a table. Only MaxCompute tables are supported.
      *  *
      * @param UpdateMetaTableRequest $request UpdateMetaTableRequest
      *
