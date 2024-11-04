@@ -16,6 +16,11 @@ class RunCommandRequest extends Model
     public $commandContent;
 
     /**
+     * @var string
+     */
+    public $contentEncoding;
+
+    /**
      * @var string[]
      */
     public $instanceIds;
@@ -27,9 +32,10 @@ class RunCommandRequest extends Model
      */
     public $timeout;
     protected $_name = [
-        'commandContent' => 'CommandContent',
-        'instanceIds'    => 'InstanceIds',
-        'timeout'        => 'Timeout',
+        'commandContent'  => 'CommandContent',
+        'contentEncoding' => 'ContentEncoding',
+        'instanceIds'     => 'InstanceIds',
+        'timeout'         => 'Timeout',
     ];
 
     public function validate()
@@ -41,6 +47,9 @@ class RunCommandRequest extends Model
         $res = [];
         if (null !== $this->commandContent) {
             $res['CommandContent'] = $this->commandContent;
+        }
+        if (null !== $this->contentEncoding) {
+            $res['ContentEncoding'] = $this->contentEncoding;
         }
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
@@ -62,6 +71,9 @@ class RunCommandRequest extends Model
         $model = new self();
         if (isset($map['CommandContent'])) {
             $model->commandContent = $map['CommandContent'];
+        }
+        if (isset($map['ContentEncoding'])) {
+            $model->contentEncoding = $map['ContentEncoding'];
         }
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {

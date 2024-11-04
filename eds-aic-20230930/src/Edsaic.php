@@ -2488,6 +2488,9 @@ class Edsaic extends OpenApiClient
         if (!Utils::isUnset($request->commandContent)) {
             $query['CommandContent'] = $request->commandContent;
         }
+        if (!Utils::isUnset($request->contentEncoding)) {
+            $query['ContentEncoding'] = $request->contentEncoding;
+        }
         if (!Utils::isUnset($request->instanceIds)) {
             $query['InstanceIds'] = $request->instanceIds;
         }
