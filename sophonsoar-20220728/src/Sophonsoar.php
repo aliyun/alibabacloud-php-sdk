@@ -64,6 +64,8 @@ use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePopApiRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePopApiResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePopApiVersionListRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePopApiVersionListResponse;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeProcessTaskCountRequest;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeProcessTaskCountResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeProcessTasksRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeProcessTasksResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescriberPython3ScriptLogsRequest;
@@ -1478,6 +1480,50 @@ class Sophonsoar extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePopApiVersionListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 根据实体uuid查询关联的处置任务数
+     *  *
+     * @param DescribeProcessTaskCountRequest $request DescribeProcessTaskCountRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeProcessTaskCountResponse DescribeProcessTaskCountResponse
+     */
+    public function describeProcessTaskCountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeProcessTaskCount',
+            'version'     => '2022-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeProcessTaskCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据实体uuid查询关联的处置任务数
+     *  *
+     * @param DescribeProcessTaskCountRequest $request DescribeProcessTaskCountRequest
+     *
+     * @return DescribeProcessTaskCountResponse DescribeProcessTaskCountResponse
+     */
+    public function describeProcessTaskCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeProcessTaskCountWithOptions($request, $runtime);
     }
 
     /**
