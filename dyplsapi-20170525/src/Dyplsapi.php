@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\AddAxnTrackNoRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\AddAxnTrackNoResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\AddSecretBlacklistRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\AddSecretBlacklistResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAXBCallRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAXBCallResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxbRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxbResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxgRequest;
@@ -21,10 +23,15 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxnResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindBatchAxgRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindBatchAxgResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindBatchAxgShrinkRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindXBRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindXBResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BuySecretNoRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BuySecretNoResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CancelPickUpWaybillRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CancelPickUpWaybillResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\ConfigXRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\ConfigXResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\ConfigXShrinkRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreateAxgGroupRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreateAxgGroupResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillPreQueryRequest;
@@ -33,6 +40,8 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillPreQueryShrink
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillShrinkRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreateSmsSignRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreateSmsSignResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteAxgGroupRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteAxgGroupResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteSecretBlacklistRequest;
@@ -41,6 +50,12 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetSecretAsrDetailRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetSecretAsrDetailResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetTotalPublicUrlRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetTotalPublicUrlResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetXConfigRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetXConfigResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetXDefaultConfigRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetXDefaultConfigResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\ListXTelephonesRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\ListXTelephonesResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\LockSecretNoRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\LockSecretNoResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\OperateAxgGroupRequest;
@@ -55,14 +70,20 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QuerySecretNoDetailRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QuerySecretNoDetailResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QuerySecretNoRemainRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QuerySecretNoRemainResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QuerySoundRecordRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QuerySoundRecordResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QuerySubscriptionDetailRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QuerySubscriptionDetailResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QuerySubsIdRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QuerySubsIdResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\ReleaseSecretNoRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\ReleaseSecretNoResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UnBindAXBRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UnBindAXBResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UnbindSubscriptionRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UnbindSubscriptionResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UnBindXBRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UnBindXBResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UnlockSecretNoRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UnlockSecretNoResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateSubscriptionRequest;
@@ -241,6 +262,80 @@ class Dyplsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addSecretBlacklistWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 调用本接口向工作号平台请求为员工B的工作号X建立呼叫绑定（B，X，A），允许B通过X呼叫客户A
+     *  *
+     * @param BindAXBCallRequest $request BindAXBCallRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BindAXBCallResponse BindAXBCallResponse
+     */
+    public function bindAXBCallWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authId)) {
+            $query['AuthId'] = $request->authId;
+        }
+        if (!Utils::isUnset($request->callerParentId)) {
+            $query['CallerParentId'] = $request->callerParentId;
+        }
+        if (!Utils::isUnset($request->customerPoolKey)) {
+            $query['CustomerPoolKey'] = $request->customerPoolKey;
+        }
+        if (!Utils::isUnset($request->expiration)) {
+            $query['Expiration'] = $request->expiration;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->reqId)) {
+            $query['ReqId'] = $request->reqId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->telA)) {
+            $query['TelA'] = $request->telA;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindAXBCall',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BindAXBCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 调用本接口向工作号平台请求为员工B的工作号X建立呼叫绑定（B，X，A），允许B通过X呼叫客户A
+     *  *
+     * @param BindAXBCallRequest $request BindAXBCallRequest
+     *
+     * @return BindAXBCallResponse BindAXBCallResponse
+     */
+    public function bindAXBCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindAXBCallWithOptions($request, $runtime);
     }
 
     /**
@@ -493,6 +588,9 @@ class Dyplsapi extends OpenApiClient
         if (!Utils::isUnset($request->expiration)) {
             $query['Expiration'] = $request->expiration;
         }
+        if (!Utils::isUnset($request->extend)) {
+            $query['Extend'] = $request->extend;
+        }
         if (!Utils::isUnset($request->isRecordingEnabled)) {
             $query['IsRecordingEnabled'] = $request->isRecordingEnabled;
         }
@@ -733,6 +831,77 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
+     * @summary 平台指定工作号X 和员工号B建立关联，完成X 实名认证，绑定生效后，所有X 的呼叫都会转接到B
+     *  *
+     * @param BindXBRequest  $request BindXBRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BindXBResponse BindXBResponse
+     */
+    public function bindXBWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callerParentId)) {
+            $query['CallerParentId'] = $request->callerParentId;
+        }
+        if (!Utils::isUnset($request->customerPoolKey)) {
+            $query['CustomerPoolKey'] = $request->customerPoolKey;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->reqId)) {
+            $query['ReqId'] = $request->reqId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->telB)) {
+            $query['TelB'] = $request->telB;
+        }
+        if (!Utils::isUnset($request->telX)) {
+            $query['TelX'] = $request->telX;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindXB',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BindXBResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 平台指定工作号X 和员工号B建立关联，完成X 实名认证，绑定生效后，所有X 的呼叫都会转接到B
+     *  *
+     * @param BindXBRequest $request BindXBRequest
+     *
+     * @return BindXBResponse BindXBResponse
+     */
+    public function bindXB($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindXBWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Purchases a phone number.
      *  *
      * @description *   After you create a phone number pool in the Phone Number Protection console, the phone number pool is empty by default. You must purchase phone numbers and add them to the phone number pool.
@@ -873,6 +1042,94 @@ class Dyplsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelPickUpWaybillWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 配置X号码，单独对工作号的话音呼叫、企业名片等通信功能进行配置操作
+     *  *
+     * @param ConfigXRequest $tmpReq  ConfigXRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ConfigXResponse ConfigXResponse
+     */
+    public function configXWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ConfigXShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->sequenceCalls)) {
+            $request->sequenceCallsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sequenceCalls, 'SequenceCalls', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->callAbility)) {
+            $query['CallAbility'] = $request->callAbility;
+        }
+        if (!Utils::isUnset($request->callerParentId)) {
+            $query['CallerParentId'] = $request->callerParentId;
+        }
+        if (!Utils::isUnset($request->customerPoolKey)) {
+            $query['CustomerPoolKey'] = $request->customerPoolKey;
+        }
+        if (!Utils::isUnset($request->GNFlag)) {
+            $query['GNFlag'] = $request->GNFlag;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->reqId)) {
+            $query['ReqId'] = $request->reqId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sequenceCallsShrink)) {
+            $query['SequenceCalls'] = $request->sequenceCallsShrink;
+        }
+        if (!Utils::isUnset($request->sequenceMode)) {
+            $query['SequenceMode'] = $request->sequenceMode;
+        }
+        if (!Utils::isUnset($request->smsAbility)) {
+            $query['SmsAbility'] = $request->smsAbility;
+        }
+        if (!Utils::isUnset($request->smsSignMode)) {
+            $query['SmsSignMode'] = $request->smsSignMode;
+        }
+        if (!Utils::isUnset($request->telX)) {
+            $query['TelX'] = $request->telX;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfigX',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ConfigXResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 配置X号码，单独对工作号的话音呼叫、企业名片等通信功能进行配置操作
+     *  *
+     * @param ConfigXRequest $request ConfigXRequest
+     *
+     * @return ConfigXResponse ConfigXResponse
+     */
+    public function configX($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configXWithOptions($request, $runtime);
     }
 
     /**
@@ -1132,6 +1389,74 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
+     * @summary B向A 发短信，客户端获取“短信标签”，尾部添加“标签”。通过“标签”解析被叫A，发短信到A。
+     *  *
+     * @param CreateSmsSignRequest $request CreateSmsSignRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateSmsSignResponse CreateSmsSignResponse
+     */
+    public function createSmsSignWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->calledNo)) {
+            $query['CalledNo'] = $request->calledNo;
+        }
+        if (!Utils::isUnset($request->callerParentId)) {
+            $query['CallerParentId'] = $request->callerParentId;
+        }
+        if (!Utils::isUnset($request->callingNo)) {
+            $query['CallingNo'] = $request->callingNo;
+        }
+        if (!Utils::isUnset($request->customerPoolKey)) {
+            $query['CustomerPoolKey'] = $request->customerPoolKey;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->reqId)) {
+            $query['ReqId'] = $request->reqId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSmsSign',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSmsSignResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary B向A 发短信，客户端获取“短信标签”，尾部添加“标签”。通过“标签”解析被叫A，发短信到A。
+     *  *
+     * @param CreateSmsSignRequest $request CreateSmsSignRequest
+     *
+     * @return CreateSmsSignResponse CreateSmsSignResponse
+     */
+    public function createSmsSign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSmsSignWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteAxgGroupRequest $request DeleteAxgGroupRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -1381,6 +1706,204 @@ class Dyplsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTotalPublicUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取X号码配置信息
+     *  *
+     * @param GetXConfigRequest $request GetXConfigRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetXConfigResponse GetXConfigResponse
+     */
+    public function getXConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callerParentId)) {
+            $query['CallerParentId'] = $request->callerParentId;
+        }
+        if (!Utils::isUnset($request->customerPoolKey)) {
+            $query['CustomerPoolKey'] = $request->customerPoolKey;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->reqId)) {
+            $query['ReqId'] = $request->reqId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->telX)) {
+            $query['TelX'] = $request->telX;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetXConfig',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetXConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取X号码配置信息
+     *  *
+     * @param GetXConfigRequest $request GetXConfigRequest
+     *
+     * @return GetXConfigResponse GetXConfigResponse
+     */
+    public function getXConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getXConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取X号码默认配置信息
+     *  *
+     * @param GetXDefaultConfigRequest $request GetXDefaultConfigRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetXDefaultConfigResponse GetXDefaultConfigResponse
+     */
+    public function getXDefaultConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callerParentId)) {
+            $query['CallerParentId'] = $request->callerParentId;
+        }
+        if (!Utils::isUnset($request->customerPoolKey)) {
+            $query['CustomerPoolKey'] = $request->customerPoolKey;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->reqId)) {
+            $query['ReqId'] = $request->reqId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->telX)) {
+            $query['TelX'] = $request->telX;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetXDefaultConfig',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetXDefaultConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取X号码默认配置信息
+     *  *
+     * @param GetXDefaultConfigRequest $request GetXDefaultConfigRequest
+     *
+     * @return GetXDefaultConfigResponse GetXDefaultConfigResponse
+     */
+    public function getXDefaultConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getXDefaultConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询客户名下X号码列表
+     *  *
+     * @param ListXTelephonesRequest $request ListXTelephonesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListXTelephonesResponse ListXTelephonesResponse
+     */
+    public function listXTelephonesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callerParentId)) {
+            $query['CallerParentId'] = $request->callerParentId;
+        }
+        if (!Utils::isUnset($request->customerPoolKey)) {
+            $query['CustomerPoolKey'] = $request->customerPoolKey;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->reqId)) {
+            $query['ReqId'] = $request->reqId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListXTelephones',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListXTelephonesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询客户名下X号码列表
+     *  *
+     * @param ListXTelephonesRequest $request ListXTelephonesRequest
+     *
+     * @return ListXTelephonesResponse ListXTelephonesResponse
+     */
+    public function listXTelephones($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listXTelephonesWithOptions($request, $runtime);
     }
 
     /**
@@ -1881,6 +2404,71 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
+     * @summary 查询通话录音链接
+     *  *
+     * @param QuerySoundRecordRequest $request QuerySoundRecordRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QuerySoundRecordResponse QuerySoundRecordResponse
+     */
+    public function querySoundRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callId)) {
+            $query['CallId'] = $request->callId;
+        }
+        if (!Utils::isUnset($request->callerParentId)) {
+            $query['CallerParentId'] = $request->callerParentId;
+        }
+        if (!Utils::isUnset($request->customerPoolKey)) {
+            $query['CustomerPoolKey'] = $request->customerPoolKey;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->reqId)) {
+            $query['ReqId'] = $request->reqId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySoundRecord',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySoundRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询通话录音链接
+     *  *
+     * @param QuerySoundRecordRequest $request QuerySoundRecordRequest
+     *
+     * @return QuerySoundRecordResponse QuerySoundRecordResponse
+     */
+    public function querySoundRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySoundRecordWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries binding IDs.
      *  *
      * @description You can query binding IDs by phone number X. In the AXB product, multiple bindings may exist for the same phone number X. In this case, multiple binding IDs may be obtained for the same phone number X.
@@ -2081,6 +2669,139 @@ class Dyplsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->releaseSecretNoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 解除指定的呼叫绑定关系（A，X，B），解决呼叫绑定关系后，员工B不能通过工作号X呼叫到客户A。
+     *  *
+     * @param UnBindAXBRequest $request UnBindAXBRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UnBindAXBResponse UnBindAXBResponse
+     */
+    public function unBindAXBWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bindId)) {
+            $query['BindId'] = $request->bindId;
+        }
+        if (!Utils::isUnset($request->callerParentId)) {
+            $query['CallerParentId'] = $request->callerParentId;
+        }
+        if (!Utils::isUnset($request->customerPoolKey)) {
+            $query['CustomerPoolKey'] = $request->customerPoolKey;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->reqId)) {
+            $query['ReqId'] = $request->reqId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnBindAXB',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnBindAXBResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 解除指定的呼叫绑定关系（A，X，B），解决呼叫绑定关系后，员工B不能通过工作号X呼叫到客户A。
+     *  *
+     * @param UnBindAXBRequest $request UnBindAXBRequest
+     *
+     * @return UnBindAXBResponse UnBindAXBResponse
+     */
+    public function unBindAXB($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unBindAXBWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 调用本接口可取消工作号X与员工号码B的绑定。绑定解除后，对X的呼叫都不会转接给B。
+     *  *
+     * @param UnBindXBRequest $request UnBindXBRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UnBindXBResponse UnBindXBResponse
+     */
+    public function unBindXBWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authId)) {
+            $query['AuthId'] = $request->authId;
+        }
+        if (!Utils::isUnset($request->callerParentId)) {
+            $query['CallerParentId'] = $request->callerParentId;
+        }
+        if (!Utils::isUnset($request->customerPoolKey)) {
+            $query['CustomerPoolKey'] = $request->customerPoolKey;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->reqId)) {
+            $query['ReqId'] = $request->reqId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->telX)) {
+            $query['TelX'] = $request->telX;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnBindXB',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnBindXBResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 调用本接口可取消工作号X与员工号码B的绑定。绑定解除后，对X的呼叫都不会转接给B。
+     *  *
+     * @param UnBindXBRequest $request UnBindXBRequest
+     *
+     * @return UnBindXBResponse UnBindXBResponse
+     */
+    public function unBindXB($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unBindXBWithOptions($request, $runtime);
     }
 
     /**

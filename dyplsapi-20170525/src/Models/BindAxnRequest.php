@@ -83,6 +83,11 @@ class BindAxnRequest extends Model
     public $expiration;
 
     /**
+     * @var string
+     */
+    public $extend;
+
+    /**
      * @description Specifies whether to record all calls made by the bound phone numbers. Valid values:
      *
      *   **true**
@@ -199,6 +204,7 @@ class BindAxnRequest extends Model
         'callTimeout'          => 'CallTimeout',
         'expectCity'           => 'ExpectCity',
         'expiration'           => 'Expiration',
+        'extend'               => 'Extend',
         'isRecordingEnabled'   => 'IsRecordingEnabled',
         'noType'               => 'NoType',
         'outId'                => 'OutId',
@@ -240,6 +246,9 @@ class BindAxnRequest extends Model
         }
         if (null !== $this->expiration) {
             $res['Expiration'] = $this->expiration;
+        }
+        if (null !== $this->extend) {
+            $res['Extend'] = $this->extend;
         }
         if (null !== $this->isRecordingEnabled) {
             $res['IsRecordingEnabled'] = $this->isRecordingEnabled;
@@ -309,6 +318,9 @@ class BindAxnRequest extends Model
         }
         if (isset($map['Expiration'])) {
             $model->expiration = $map['Expiration'];
+        }
+        if (isset($map['Extend'])) {
+            $model->extend = $map['Extend'];
         }
         if (isset($map['IsRecordingEnabled'])) {
             $model->isRecordingEnabled = $map['IsRecordingEnabled'];
