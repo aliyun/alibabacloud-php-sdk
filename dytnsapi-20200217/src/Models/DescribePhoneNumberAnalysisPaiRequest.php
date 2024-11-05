@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CertNoThreeElementVerificationRequest extends Model
+class DescribePhoneNumberAnalysisPaiRequest extends Model
 {
     /**
      * @description This parameter is required.
      *
-     * @example QASDW@#**
+     * @example 示例值示例值示例值
      *
      * @var string
      */
@@ -20,41 +20,32 @@ class CertNoThreeElementVerificationRequest extends Model
     /**
      * @description This parameter is required.
      *
-     * @example 示例值
-     *
-     * @var string
-     */
-    public $certName;
-
-    /**
-     * @description This parameter is required.
-     *
-     * @example 3***************0
-     *
-     * @var string
-     */
-    public $certNo;
-
-    /**
-     * @description This parameter is required.
-     *
-     * @example iVBOFMKODOFNDFP123DFSMOO...
-     *
-     * @var string
-     */
-    public $certPicture;
-
-    /**
      * @example 示例值示例值
      *
      * @var string
      */
-    public $mask;
+    public $inputNumber;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example 示例值示例值
+     *
+     * @var string
+     */
+    public $modelConfig;
 
     /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @example 16
+     *
+     * @var int
+     */
+    public $rate;
 
     /**
      * @var string
@@ -67,11 +58,10 @@ class CertNoThreeElementVerificationRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'authCode'             => 'AuthCode',
-        'certName'             => 'CertName',
-        'certNo'               => 'CertNo',
-        'certPicture'          => 'CertPicture',
-        'mask'                 => 'Mask',
+        'inputNumber'          => 'InputNumber',
+        'modelConfig'          => 'ModelConfig',
         'ownerId'              => 'OwnerId',
+        'rate'                 => 'Rate',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
     ];
@@ -86,20 +76,17 @@ class CertNoThreeElementVerificationRequest extends Model
         if (null !== $this->authCode) {
             $res['AuthCode'] = $this->authCode;
         }
-        if (null !== $this->certName) {
-            $res['CertName'] = $this->certName;
+        if (null !== $this->inputNumber) {
+            $res['InputNumber'] = $this->inputNumber;
         }
-        if (null !== $this->certNo) {
-            $res['CertNo'] = $this->certNo;
-        }
-        if (null !== $this->certPicture) {
-            $res['CertPicture'] = $this->certPicture;
-        }
-        if (null !== $this->mask) {
-            $res['Mask'] = $this->mask;
+        if (null !== $this->modelConfig) {
+            $res['ModelConfig'] = $this->modelConfig;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->rate) {
+            $res['Rate'] = $this->rate;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -114,7 +101,7 @@ class CertNoThreeElementVerificationRequest extends Model
     /**
      * @param array $map
      *
-     * @return CertNoThreeElementVerificationRequest
+     * @return DescribePhoneNumberAnalysisPaiRequest
      */
     public static function fromMap($map = [])
     {
@@ -122,20 +109,17 @@ class CertNoThreeElementVerificationRequest extends Model
         if (isset($map['AuthCode'])) {
             $model->authCode = $map['AuthCode'];
         }
-        if (isset($map['CertName'])) {
-            $model->certName = $map['CertName'];
+        if (isset($map['InputNumber'])) {
+            $model->inputNumber = $map['InputNumber'];
         }
-        if (isset($map['CertNo'])) {
-            $model->certNo = $map['CertNo'];
-        }
-        if (isset($map['CertPicture'])) {
-            $model->certPicture = $map['CertPicture'];
-        }
-        if (isset($map['Mask'])) {
-            $model->mask = $map['Mask'];
+        if (isset($map['ModelConfig'])) {
+            $model->modelConfig = $map['ModelConfig'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Rate'])) {
+            $model->rate = $map['Rate'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

@@ -22,6 +22,8 @@ use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribeMobileOperatorAttributeRe
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribeMobileOperatorAttributeResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAnalysisAIRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAnalysisAIResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAnalysisPaiRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAnalysisPaiResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAnalysisRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAnalysisResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAnalysisTransparentRequest;
@@ -747,6 +749,71 @@ class Dytnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePhoneNumberAnalysisAIWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 号码分析服务pai供应商批量查询接口
+     *  *
+     * @param DescribePhoneNumberAnalysisPaiRequest $request DescribePhoneNumberAnalysisPaiRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribePhoneNumberAnalysisPaiResponse DescribePhoneNumberAnalysisPaiResponse
+     */
+    public function describePhoneNumberAnalysisPaiWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authCode)) {
+            $query['AuthCode'] = $request->authCode;
+        }
+        if (!Utils::isUnset($request->inputNumber)) {
+            $query['InputNumber'] = $request->inputNumber;
+        }
+        if (!Utils::isUnset($request->modelConfig)) {
+            $query['ModelConfig'] = $request->modelConfig;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->rate)) {
+            $query['Rate'] = $request->rate;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePhoneNumberAnalysisPai',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePhoneNumberAnalysisPaiResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 号码分析服务pai供应商批量查询接口
+     *  *
+     * @param DescribePhoneNumberAnalysisPaiRequest $request DescribePhoneNumberAnalysisPaiRequest
+     *
+     * @return DescribePhoneNumberAnalysisPaiResponse DescribePhoneNumberAnalysisPaiResponse
+     */
+    public function describePhoneNumberAnalysisPai($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePhoneNumberAnalysisPaiWithOptions($request, $runtime);
     }
 
     /**
