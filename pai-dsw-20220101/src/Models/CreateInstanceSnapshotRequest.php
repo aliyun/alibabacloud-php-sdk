@@ -15,6 +15,8 @@ class CreateInstanceSnapshotRequest extends Model
     public $excludePaths;
 
     /**
+     * @description This parameter is required.
+     *
      * @example registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
      *
      * @var string
@@ -41,6 +43,8 @@ class CreateInstanceSnapshotRequest extends Model
     public $snapshotDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example training_data_env
      *
      * @var string
