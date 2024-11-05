@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterShardNumberResponseBody extends Model
 {
     /**
+     * @var int[]
+     */
+    public $availableShardNumbers;
+
+    /**
      * @example CBE843D8-964D-5EA3-9D31-822125611B6E
      *
      * @var string
@@ -22,8 +27,9 @@ class DescribeDBClusterShardNumberResponseBody extends Model
      */
     public $shardNumber;
     protected $_name = [
-        'requestId'   => 'RequestId',
-        'shardNumber' => 'ShardNumber',
+        'availableShardNumbers' => 'AvailableShardNumbers',
+        'requestId'             => 'RequestId',
+        'shardNumber'           => 'ShardNumber',
     ];
 
     public function validate()
@@ -33,6 +39,9 @@ class DescribeDBClusterShardNumberResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->availableShardNumbers) {
+            $res['AvailableShardNumbers'] = $this->availableShardNumbers;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,6 +60,11 @@ class DescribeDBClusterShardNumberResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AvailableShardNumbers'])) {
+            if (!empty($map['AvailableShardNumbers'])) {
+                $model->availableShardNumbers = $map['AvailableShardNumbers'];
+            }
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

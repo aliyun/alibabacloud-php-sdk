@@ -1,3 +1,7 @@
+2024-11-05 Version: 4.2.1
+- Update API DescribeDBClusterShardNumber: update response param.
+
+
 2024-10-31 Version: 4.2.0
 - Support API DeleteBackups.
 

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteBackupsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the backup set that you want to delete. Separate multiple backup set IDs with commas (,).
      *
+     * This parameter is required.
      * @example 766,767
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteBackupsRequest extends Model
     public $backupIds;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the AnalyticDB for MySQL cluster.
      *
+     * This parameter is required.
      * @example am-bp1ub9grke1****
      *
      * @var string
@@ -37,6 +39,8 @@ class DeleteBackupsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the cluster.
+     *
      * @example cn-hangzhou
      *
      * @var string
