@@ -157,7 +157,7 @@ class CreateDBInstanceRequest extends Model
     public $encryptionKey;
 
     /**
-     * @description The database engine of the instance. The value is fixed as **MongoDB**.
+     * @description The database engine of the instance. Set the value to **MongoDB**.
      *
      * @example MongoDB
      *
@@ -324,6 +324,10 @@ class CreateDBInstanceRequest extends Model
     public $restoreTime;
 
     /**
+     * @description The backup restore type of the instance.
+     * - 3：restore an instance to the specified cross-regional backup set.
+     * @example 0
+     *
      * @var string
      */
     public $restoreType;
@@ -384,19 +388,20 @@ class CreateDBInstanceRequest extends Model
     public $srcDBInstanceId;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * > -  This parameter is required when restore type is set to 2 or 3.
+     * @example 2
+     *
      * @var string
      */
     public $srcRegion;
 
     /**
-     * @description The storage engine of the instance. Default value: WiredTiger. Valid values:
+     * @description The storage engine of the instance. Set the value to **WiredTiger**.
      *
-     *   **WiredTiger**
-     *   **RocksDB**
-     *   **TerarkDB**
-     *
-     * >  *   When you call this operation to clone an instance or restore an instance from the recycle bin, set the value of this parameter to the storage engine of the source instance.
-     * >  *   For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
+     * > * If you call this operation to clone an instance or restore an instance from the recycle bin, set this parameter to the storage engine of the source instance.
+     * > * For more information about the limits on database versions and storage engines of an instance, see [MongoDB versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
      * @example WiredTiger
      *
      * @var string

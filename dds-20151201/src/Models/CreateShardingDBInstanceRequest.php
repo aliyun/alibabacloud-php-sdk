@@ -39,6 +39,11 @@ class CreateShardingDBInstanceRequest extends Model
     public $autoRenew;
 
     /**
+     * @description The ID of the backup set.
+     *
+     * > When you call this operation to clone an instance based on the backup set, this parameter is required. The **SrcDBInstanceId** parameter is also required.
+     * @example cb-xxx
+     *
      * @var string
      */
     public $backupId;
@@ -49,7 +54,7 @@ class CreateShardingDBInstanceRequest extends Model
      *   **PostPaid** (default): pay-as-you-go
      *   **PrePaid**: subscription
      *
-     * >  If you set this parameter to **PrePaid**, you must also specify the **Period** parameter.
+     * >  If this parameter is set to **PrePaid**, you must also configure the **Period** parameter.
      * @example PrePaid
      *
      * @var string
@@ -87,12 +92,17 @@ class CreateShardingDBInstanceRequest extends Model
     public $DBInstanceDescription;
 
     /**
+     * @description The region of the backup set used for the cross-region backup and restoration.
+     *
+     * >  This parameter is required when you set the RestoreType parameter to 3.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $destRegion;
 
     /**
-     * @description Specifies whether to enable disk encryption.
+     * @description Indicates whether disk encryption is enabled.
      *
      * @example true
      *
@@ -120,17 +130,17 @@ class CreateShardingDBInstanceRequest extends Model
     public $engine;
 
     /**
-     * @description The version of the database engine. Valid values:
+     * @description The database engine version of the instance. Valid values:
      *
+     *   **7.0**
      *   **6.0**
      *   **5.0**
      *   **4.4**
      *   **4.2**
      *   **4.0**
-     *   **3.4**
      *
-     * > *   For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
-     * > *   If you call this operation to clone an instance, set the value of this parameter to the engine version of the source instance.
+     * > * For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
+     * > * If you call this operation to clone an instance, set the value of this parameter to the database engine version of the source instance.
      *
      * This parameter is required.
      * @example 4.4
@@ -188,8 +198,9 @@ class CreateShardingDBInstanceRequest extends Model
     public $mongos;
 
     /**
-     * @description The network type of the instance. Set the value to VPC.
+     * @description The network type of the instance.
      *
+     * Set the value to **VPC**.
      * @example VPC
      *
      * @var string
@@ -221,8 +232,8 @@ class CreateShardingDBInstanceRequest extends Model
     /**
      * @description The access protocol type of the instance. Valid values:
      *
-     *   **mongodb**: the MongoDB protocol
-     *   **dynamodb**: the DynamoDB protocol
+     *   **mongodb**
+     *   **dynamodb**
      *
      * @example mongodb
      *
@@ -287,6 +298,10 @@ class CreateShardingDBInstanceRequest extends Model
     public $restoreTime;
 
     /**
+     * @description The backup restore type of the instance.
+     * - 3：restore an instance to the specified cross-regional backup set.
+     * @example 1
+     *
      * @var string
      */
     public $restoreType;
@@ -348,6 +363,11 @@ class CreateShardingDBInstanceRequest extends Model
     public $srcDBInstanceId;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * > This parameter is required when restore type is set to 2 or 3.
+     * @example cn-beijing
+     *
      * @var string
      */
     public $srcRegion;
@@ -355,8 +375,8 @@ class CreateShardingDBInstanceRequest extends Model
     /**
      * @description The storage engine of the instance. Set the value to **WiredTiger**.
      *
-     * > *   If you call this operation to clone an instance, set the value of this parameter to the storage engine of the source instance.
-     * > *   For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
+     * > * If you call this operation to clone an instance, set the value of this parameter to the storage engine of the source instance.
+     * > * For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
      * @example WiredTiger
      *
      * @var string

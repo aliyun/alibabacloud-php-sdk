@@ -120,6 +120,8 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRenewalPriceRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRenewalPriceResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeReplicaSetRoleRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeReplicaSetRoleResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRestoreDBInstanceListRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRestoreDBInstanceListResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRoleZoneInfoRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRoleZoneInfoResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRunningLogRecordsRequest;
@@ -557,6 +559,9 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->destRegion)) {
             $query['DestRegion'] = $request->destRegion;
         }
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
+        }
         if (!Utils::isUnset($request->instanceType)) {
             $query['InstanceType'] = $request->instanceType;
         }
@@ -765,7 +770,7 @@ class Dds extends OpenApiClient
     /**
      * @summary Creates or clones an ApsaraDB for MongoDB replica set instance.
      *  *
-     * @description Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail/mongodb_computeudr_dp_cn) of ApsaraDB for MongoDB before you call this operation.
+     * @description Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
      * For more information about the instance types of ApsaraDB for MongoDB instances, see [Instance types](https://www.alibabacloud.com/help/en/mongodb/product-overview/instance-types-1).
      * To create sharded cluster instances, you can call the [CreateShardingDBInstance](~~CreateShardingDBInstance~~) operation.
      *  *
@@ -922,7 +927,7 @@ class Dds extends OpenApiClient
     /**
      * @summary Creates or clones an ApsaraDB for MongoDB replica set instance.
      *  *
-     * @description Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail/mongodb_computeudr_dp_cn) of ApsaraDB for MongoDB before you call this operation.
+     * @description Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
      * For more information about the instance types of ApsaraDB for MongoDB instances, see [Instance types](https://www.alibabacloud.com/help/en/mongodb/product-overview/instance-types-1).
      * To create sharded cluster instances, you can call the [CreateShardingDBInstance](~~CreateShardingDBInstance~~) operation.
      *  *
@@ -1198,7 +1203,7 @@ class Dds extends OpenApiClient
     /**
      * @summary Creates or clones an ApsaraDB for MongoDB sharded cluster instance.
      *  *
-     * @description *   Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail) of ApsaraDB for MongoDB before you call this operation.
+     * @description *   Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
      * *   For more information about the instance types of ApsaraDB for MongoDB, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
      * *   To create standalone instances and replica set instances, you can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation.
      *  *
@@ -1346,7 +1351,7 @@ class Dds extends OpenApiClient
     /**
      * @summary Creates or clones an ApsaraDB for MongoDB sharded cluster instance.
      *  *
-     * @description *   Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail) of ApsaraDB for MongoDB before you call this operation.
+     * @description *   Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
      * *   For more information about the instance types of ApsaraDB for MongoDB, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
      * *   To create standalone instances and replica set instances, you can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation.
      *  *
@@ -4662,6 +4667,70 @@ class Dds extends OpenApiClient
     }
 
     /**
+     * @param DescribeRestoreDBInstanceListRequest $request DescribeRestoreDBInstanceListRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeRestoreDBInstanceListResponse DescribeRestoreDBInstanceListResponse
+     */
+    public function describeRestoreDBInstanceListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->creationTimeAfter)) {
+            $query['CreationTimeAfter'] = $request->creationTimeAfter;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRestoreDBInstanceList',
+            'version'     => '2015-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRestoreDBInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRestoreDBInstanceListRequest $request DescribeRestoreDBInstanceListRequest
+     *
+     * @return DescribeRestoreDBInstanceListResponse DescribeRestoreDBInstanceListResponse
+     */
+    public function describeRestoreDBInstanceList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRestoreDBInstanceListWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the role and zone of each node in an ApsaraDB for MongoDB instance.
      *  *
      * @description > For more information, see [View the zone of a node](https://help.aliyun.com/document_detail/123825.html).
@@ -5931,6 +6000,8 @@ class Dds extends OpenApiClient
     /**
      * @summary Modifies a backup policy for an ApsaraDB for MongoDB instance.
      *  *
+     * @description Cross-regional backup only supports  MongoDB sharded cluster instance and MongoDB replica set.
+     *  *
      * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -6032,6 +6103,8 @@ class Dds extends OpenApiClient
 
     /**
      * @summary Modifies a backup policy for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Cross-regional backup only supports  MongoDB sharded cluster instance and MongoDB replica set.
      *  *
      * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
      *
@@ -8069,7 +8142,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @summary 重启副本集单个节点
+     * @summary Restarts a node in an ApsaraDB for MongoDB instance.
+     *  *
+     * @description You can call this operation to restart a node in a replica set instance or a child instance in a sharded cluster instance.
+     * >  When you call this operation, the instance must meet the following requirements:
+     * *   The instance is in the Running state.
+     * *   The instance is a replica set or sharded cluster instance of the standard edition.
      *  *
      * @param RestartNodeRequest $request RestartNodeRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -8120,7 +8198,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @summary 重启副本集单个节点
+     * @summary Restarts a node in an ApsaraDB for MongoDB instance.
+     *  *
+     * @description You can call this operation to restart a node in a replica set instance or a child instance in a sharded cluster instance.
+     * >  When you call this operation, the instance must meet the following requirements:
+     * *   The instance is in the Running state.
+     * *   The instance is a replica set or sharded cluster instance of the standard edition.
      *  *
      * @param RestartNodeRequest $request RestartNodeRequest
      *
@@ -8364,12 +8447,12 @@ class Dds extends OpenApiClient
     /**
      * @summary Changes the billing method of an instance from pay-as-you-go to subscription or from subscription to pay-as-you-go.
      *  *
-     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail) of ApsaraDB for MongoDB.
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB
      * Before you call this API operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
      * *   The instance is in the Running state.
      * *   Your instance has no unpaid billing method change orders.
      * *   The instance type is available for purchase. For more information about unavailable instance types, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
-     * > To change the billing method of an instance whose instance type is no longer available to purchase, call the [ModifyDBInstanceSpec](https://help.aliyun.com/document_detail/61816.html) or [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html) operation to first change the instance type.
+     * > To change the billing method of an instance whose instance type is no longer available to purchase, call the [ModifyDBInstanceSpec](https://help.aliyun.com/document_detail/61816.html) or [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html) operation to change the instance type first.
      *  *
      * @param TransformInstanceChargeTypeRequest $request TransformInstanceChargeTypeRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -8437,12 +8520,12 @@ class Dds extends OpenApiClient
     /**
      * @summary Changes the billing method of an instance from pay-as-you-go to subscription or from subscription to pay-as-you-go.
      *  *
-     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/mongodb/detail) of ApsaraDB for MongoDB.
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB
      * Before you call this API operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
      * *   The instance is in the Running state.
      * *   Your instance has no unpaid billing method change orders.
      * *   The instance type is available for purchase. For more information about unavailable instance types, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
-     * > To change the billing method of an instance whose instance type is no longer available to purchase, call the [ModifyDBInstanceSpec](https://help.aliyun.com/document_detail/61816.html) or [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html) operation to first change the instance type.
+     * > To change the billing method of an instance whose instance type is no longer available to purchase, call the [ModifyDBInstanceSpec](https://help.aliyun.com/document_detail/61816.html) or [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html) operation to change the instance type first.
      *  *
      * @param TransformInstanceChargeTypeRequest $request TransformInstanceChargeTypeRequest
      *
@@ -8664,6 +8747,9 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->switchMode)) {
+            $query['SwitchMode'] = $request->switchMode;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -8731,6 +8817,9 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->switchMode)) {
+            $query['SwitchMode'] = $request->switchMode;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

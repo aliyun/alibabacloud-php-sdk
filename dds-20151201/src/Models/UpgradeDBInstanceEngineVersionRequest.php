@@ -47,6 +47,11 @@ class UpgradeDBInstanceEngineVersionRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var int
+     */
+    public $switchMode;
     protected $_name = [
         'DBInstanceId'         => 'DBInstanceId',
         'engineVersion'        => 'EngineVersion',
@@ -54,6 +59,7 @@ class UpgradeDBInstanceEngineVersionRequest extends Model
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'switchMode'           => 'SwitchMode',
     ];
 
     public function validate()
@@ -80,6 +86,9 @@ class UpgradeDBInstanceEngineVersionRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->switchMode) {
+            $res['SwitchMode'] = $this->switchMode;
         }
 
         return $res;
@@ -110,6 +119,9 @@ class UpgradeDBInstanceEngineVersionRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SwitchMode'])) {
+            $model->switchMode = $map['SwitchMode'];
         }
 
         return $model;

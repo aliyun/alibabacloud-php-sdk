@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class networkAddress extends Model
 {
     /**
+     * @var string
+     */
+    public $connectionType;
+
+    /**
      * @description The remaining duration of the classic network endpoint. Unit: seconds.
      *
      * @example 2591963
@@ -92,6 +97,11 @@ class networkAddress extends Model
     public $role;
 
     /**
+     * @var string
+     */
+    public $txtRecord;
+
+    /**
      * @description The VPC ID of the instance.
      *
      * >  This parameter is returned when the network type is **VPC**.
@@ -111,6 +121,7 @@ class networkAddress extends Model
      */
     public $vswitchId;
     protected $_name = [
+        'connectionType' => 'ConnectionType',
         'expiredTime'    => 'ExpiredTime',
         'IPAddress'      => 'IPAddress',
         'networkAddress' => 'NetworkAddress',
@@ -119,6 +130,7 @@ class networkAddress extends Model
         'nodeType'       => 'NodeType',
         'port'           => 'Port',
         'role'           => 'Role',
+        'txtRecord'      => 'TxtRecord',
         'VPCId'          => 'VPCId',
         'vswitchId'      => 'VswitchId',
     ];
@@ -130,6 +142,9 @@ class networkAddress extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->connectionType) {
+            $res['ConnectionType'] = $this->connectionType;
+        }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
         }
@@ -154,6 +169,9 @@ class networkAddress extends Model
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
+        if (null !== $this->txtRecord) {
+            $res['TxtRecord'] = $this->txtRecord;
+        }
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
         }
@@ -172,6 +190,9 @@ class networkAddress extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConnectionType'])) {
+            $model->connectionType = $map['ConnectionType'];
+        }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
         }
@@ -195,6 +216,9 @@ class networkAddress extends Model
         }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
+        }
+        if (isset($map['TxtRecord'])) {
+            $model->txtRecord = $map['TxtRecord'];
         }
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];

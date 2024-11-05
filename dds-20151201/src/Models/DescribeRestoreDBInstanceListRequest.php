@@ -6,29 +6,25 @@ namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeBackupPolicyRequest extends Model
+class DescribeRestoreDBInstanceListRequest extends Model
 {
     /**
-     * @description The instance ID.
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     * @example dds-bp16cb162771****
+     * @example 2024-07-24T14:00:00Z
+     *
+     * @var string
+     */
+    public $creationTimeAfter;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example dds-bp114f14849d****
      *
      * @var string
      */
     public $DBInstanceId;
-
-    /**
-     * @description The architecture of the instance. Valid values:
-     *
-     *   **sharding**: sharded cluster instance
-     *   **replicate**: replica set or standalone instance
-     *
-     * @example sharding
-     *
-     * @var string
-     */
-    public $instanceType;
 
     /**
      * @var string
@@ -41,6 +37,20 @@ class DescribeBackupPolicyRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @example 30
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -49,29 +59,15 @@ class DescribeBackupPolicyRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
-     * @description The region ID of the instance.
-     *
-     * @example cn-beijing
-     *
-     * @var string
-     */
-    public $srcRegion;
     protected $_name = [
+        'creationTimeAfter'    => 'CreationTimeAfter',
         'DBInstanceId'         => 'DBInstanceId',
-        'instanceType'         => 'InstanceType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'pageNumber'           => 'PageNumber',
+        'pageSize'             => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
-        'srcRegion'            => 'SrcRegion',
     ];
 
     public function validate()
@@ -81,11 +77,11 @@ class DescribeBackupPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->creationTimeAfter) {
+            $res['CreationTimeAfter'] = $this->creationTimeAfter;
+        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -93,17 +89,17 @@ class DescribeBackupPolicyRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->srcRegion) {
-            $res['SrcRegion'] = $this->srcRegion;
         }
 
         return $res;
@@ -112,16 +108,16 @@ class DescribeBackupPolicyRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeBackupPolicyRequest
+     * @return DescribeRestoreDBInstanceListRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreationTimeAfter'])) {
+            $model->creationTimeAfter = $map['CreationTimeAfter'];
+        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
@@ -129,17 +125,17 @@ class DescribeBackupPolicyRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['SrcRegion'])) {
-            $model->srcRegion = $map['SrcRegion'];
         }
 
         return $model;

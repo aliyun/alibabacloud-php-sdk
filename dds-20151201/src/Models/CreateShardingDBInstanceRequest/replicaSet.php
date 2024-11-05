@@ -11,8 +11,8 @@ class replicaSet extends Model
     /**
      * @description The instance type of the shard node. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
      *
-     * > *   **N** specifies the serial number of the shard node for which the instance type is specified. For example, **ReplicaSet.2.Class** specifies the instance type of the second shard node.
-     * > *   Valid values for **N**: **2** to **32**.
+     * > * **N** specifies the serial number of the shard node for which the instance type is specified. For example, **ReplicaSet.2.Class** specifies the instance type of the second shard node.
+     * > * Valid values of **N**: **2** to **32**.
      *
      * This parameter is required.
      * @example dds.shard.standard
@@ -22,11 +22,11 @@ class replicaSet extends Model
     public $class;
 
     /**
-     * @description The number of read-only nodes in shard node N.
+     * @description The number of read-only nodes in the shard node.
      *
-     * Valid values: **0**, 1, 2, 3, 4, and **5**. Default value: **0**.
+     * Valid values: **0**, **1, 2, 3, 4, and 5**. Default value: **0**.
      *
-     * >  **N** specifies the serial number of the shard node for which you want to set the number of read-only nodes. For example, **ReplicaSet.2.ReadonlyReplicas** specifies the number of read-only nodes in the second shard node.
+     * >  **N** specifies the serial number of the shard node for which you want to set the number of read-only nodes. **ReplicaSet.2.ReadonlyReplicas** specifies the number of read-only nodes in the second shard node.
      * @example 0
      *
      * @var int
@@ -34,10 +34,10 @@ class replicaSet extends Model
     public $readonlyReplicas;
 
     /**
-     * @description The storage space of the shard node. Unit: GB.
+     * @description The storage capacity of the shard node. Unit: GB.
      *
-     * > *   The values that can be specified for this parameter vary based on the instance types. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
-     * > *   **N** specifies the serial number of the shard node for which the storage space is specified. For example, **ReplicaSet.2.Storage** specifies the storage space of the second shard node.
+     * > * The values that can be specified for this parameter vary based on the instance types. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
+     * > * **N** specifies the serial number of the shard node for which the storage space is specified. For example, **ReplicaSet.2.Storage** specifies the storage space of the second shard node.
      *
      * This parameter is required.
      * @example 10

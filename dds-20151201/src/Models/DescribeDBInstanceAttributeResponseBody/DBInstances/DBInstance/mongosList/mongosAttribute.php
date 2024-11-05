@@ -18,6 +18,25 @@ class mongosAttribute extends Model
     public $connectSting;
 
     /**
+     * @description The minor version of the current MongoDB kernel.
+     *
+     * @example mongodb_20220518_4.0.21
+     *
+     * @var string
+     */
+    public $currentKernelVersion;
+
+    /**
+     * @description The lock status of the instance. Valid values:
+     *
+     *   **Unlock**: The instance is not locked.
+     *   **ManualLock**: The instance is manually locked.
+     *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
+     *   **LockByRestoration**: The instance is automatically locked before a rollback.
+     *   **LockByDiskQuota**: The instance is automatically locked because its storage capacity is exhausted and the instance is inaccessible.
+     *
+     * @example Unlock
+     *
      * @var string
      */
     public $lockMode;
@@ -114,18 +133,19 @@ class mongosAttribute extends Model
      */
     public $vpcCloudInstanceId;
     protected $_name = [
-        'connectSting'       => 'ConnectSting',
-        'lockMode'           => 'LockMode',
-        'maxConnections'     => 'MaxConnections',
-        'maxIOPS'            => 'MaxIOPS',
-        'nodeClass'          => 'NodeClass',
-        'nodeDescription'    => 'NodeDescription',
-        'nodeId'             => 'NodeId',
-        'port'               => 'Port',
-        'status'             => 'Status',
-        'VPCId'              => 'VPCId',
-        'vSwitchId'          => 'VSwitchId',
-        'vpcCloudInstanceId' => 'VpcCloudInstanceId',
+        'connectSting'         => 'ConnectSting',
+        'currentKernelVersion' => 'CurrentKernelVersion',
+        'lockMode'             => 'LockMode',
+        'maxConnections'       => 'MaxConnections',
+        'maxIOPS'              => 'MaxIOPS',
+        'nodeClass'            => 'NodeClass',
+        'nodeDescription'      => 'NodeDescription',
+        'nodeId'               => 'NodeId',
+        'port'                 => 'Port',
+        'status'               => 'Status',
+        'VPCId'                => 'VPCId',
+        'vSwitchId'            => 'VSwitchId',
+        'vpcCloudInstanceId'   => 'VpcCloudInstanceId',
     ];
 
     public function validate()
@@ -137,6 +157,9 @@ class mongosAttribute extends Model
         $res = [];
         if (null !== $this->connectSting) {
             $res['ConnectSting'] = $this->connectSting;
+        }
+        if (null !== $this->currentKernelVersion) {
+            $res['CurrentKernelVersion'] = $this->currentKernelVersion;
         }
         if (null !== $this->lockMode) {
             $res['LockMode'] = $this->lockMode;
@@ -185,6 +208,9 @@ class mongosAttribute extends Model
         $model = new self();
         if (isset($map['ConnectSting'])) {
             $model->connectSting = $map['ConnectSting'];
+        }
+        if (isset($map['CurrentKernelVersion'])) {
+            $model->currentKernelVersion = $map['CurrentKernelVersion'];
         }
         if (isset($map['LockMode'])) {
             $model->lockMode = $map['LockMode'];

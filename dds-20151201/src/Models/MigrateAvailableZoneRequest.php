@@ -34,6 +34,10 @@ class MigrateAvailableZoneRequest extends Model
     public $effectiveTime;
 
     /**
+     * @description The ID of the destination hidden zone.
+     *
+     * @example cn-shanghai-n
+     *
      * @var string
      */
     public $hiddenZoneId;
@@ -59,6 +63,10 @@ class MigrateAvailableZoneRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the destination secondary zone.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $secondaryZoneId;

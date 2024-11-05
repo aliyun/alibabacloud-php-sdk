@@ -41,6 +41,11 @@ class CheckRecoveryConditionRequest extends Model
     public $destRegion;
 
     /**
+     * @var string
+     */
+    public $engineVersion;
+
+    /**
      * @description The instance architecture. Valid values:
      *
      *   replicate
@@ -130,6 +135,7 @@ class CheckRecoveryConditionRequest extends Model
         'backupId'             => 'BackupId',
         'databaseNames'        => 'DatabaseNames',
         'destRegion'           => 'DestRegion',
+        'engineVersion'        => 'EngineVersion',
         'instanceType'         => 'InstanceType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -157,6 +163,9 @@ class CheckRecoveryConditionRequest extends Model
         }
         if (null !== $this->destRegion) {
             $res['DestRegion'] = $this->destRegion;
+        }
+        if (null !== $this->engineVersion) {
+            $res['EngineVersion'] = $this->engineVersion;
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
@@ -208,6 +217,9 @@ class CheckRecoveryConditionRequest extends Model
         }
         if (isset($map['DestRegion'])) {
             $model->destRegion = $map['DestRegion'];
+        }
+        if (isset($map['EngineVersion'])) {
+            $model->engineVersion = $map['EngineVersion'];
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];

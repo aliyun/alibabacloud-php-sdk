@@ -31,6 +31,11 @@ class DescribeBackupsRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The region ID of the Cross-regional backup.
+     *
+     * >  This parameter is required for the Cross-regional backup.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $destRegion;
@@ -65,7 +70,7 @@ class DescribeBackupsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number of the page to return.
+     * @description The number of the page to return. The value must be a positive integer that does not exceed the maximum value of the INTEGER data type. Default value: **1**.
      *
      * @example 1
      *
@@ -74,7 +79,7 @@ class DescribeBackupsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values:
+     * @description The number of entries to return per page. Valid values:
      *
      *   **30** (default)
      *   **50**
@@ -97,6 +102,11 @@ class DescribeBackupsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * >-  This parameter is required if you want to query cross-region backups.
+     * @example cn-beijing
+     *
      * @var string
      */
     public $srcRegion;

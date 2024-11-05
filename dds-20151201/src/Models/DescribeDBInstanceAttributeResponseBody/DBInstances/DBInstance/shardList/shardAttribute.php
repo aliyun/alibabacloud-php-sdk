@@ -18,6 +18,25 @@ class shardAttribute extends Model
     public $connectString;
 
     /**
+     * @description The minor version of the current MongoDB kernel.
+     *
+     * @example mongodb_20230613_4.0.25
+     *
+     * @var string
+     */
+    public $currentKernelVersion;
+
+    /**
+     * @description The lock status of the shard node. Valid values:
+     *
+     *   **Unlock**: The instance is not locked.
+     *   **ManualLock**: The instance is manually locked.
+     *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
+     *   **LockByRestoration**: The instance is automatically locked before a rollback.
+     *   **LockByDiskQuota**: The instance is automatically locked because its storage capacity is exhausted and the instance is inaccessible.
+     *
+     * @example Unlock
+     *
      * @var string
      */
     public $lockMode;
@@ -32,7 +51,7 @@ class shardAttribute extends Model
     public $maxConnections;
 
     /**
-     * @description shard节点的最大云盘吞吐量。
+     * @description The maximum MBPS of the shard node.
      *
      * @example 350
      *
@@ -112,18 +131,19 @@ class shardAttribute extends Model
      */
     public $status;
     protected $_name = [
-        'connectString'    => 'ConnectString',
-        'lockMode'         => 'LockMode',
-        'maxConnections'   => 'MaxConnections',
-        'maxDiskMbps'      => 'MaxDiskMbps',
-        'maxIOPS'          => 'MaxIOPS',
-        'nodeClass'        => 'NodeClass',
-        'nodeDescription'  => 'NodeDescription',
-        'nodeId'           => 'NodeId',
-        'nodeStorage'      => 'NodeStorage',
-        'port'             => 'Port',
-        'readonlyReplicas' => 'ReadonlyReplicas',
-        'status'           => 'Status',
+        'connectString'        => 'ConnectString',
+        'currentKernelVersion' => 'CurrentKernelVersion',
+        'lockMode'             => 'LockMode',
+        'maxConnections'       => 'MaxConnections',
+        'maxDiskMbps'          => 'MaxDiskMbps',
+        'maxIOPS'              => 'MaxIOPS',
+        'nodeClass'            => 'NodeClass',
+        'nodeDescription'      => 'NodeDescription',
+        'nodeId'               => 'NodeId',
+        'nodeStorage'          => 'NodeStorage',
+        'port'                 => 'Port',
+        'readonlyReplicas'     => 'ReadonlyReplicas',
+        'status'               => 'Status',
     ];
 
     public function validate()
@@ -135,6 +155,9 @@ class shardAttribute extends Model
         $res = [];
         if (null !== $this->connectString) {
             $res['ConnectString'] = $this->connectString;
+        }
+        if (null !== $this->currentKernelVersion) {
+            $res['CurrentKernelVersion'] = $this->currentKernelVersion;
         }
         if (null !== $this->lockMode) {
             $res['LockMode'] = $this->lockMode;
@@ -183,6 +206,9 @@ class shardAttribute extends Model
         $model = new self();
         if (isset($map['ConnectString'])) {
             $model->connectString = $map['ConnectString'];
+        }
+        if (isset($map['CurrentKernelVersion'])) {
+            $model->currentKernelVersion = $map['CurrentKernelVersion'];
         }
         if (isset($map['LockMode'])) {
             $model->lockMode = $map['LockMode'];

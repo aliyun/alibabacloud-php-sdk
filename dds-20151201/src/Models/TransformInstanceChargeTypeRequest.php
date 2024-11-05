@@ -14,7 +14,7 @@ class TransformInstanceChargeTypeRequest extends Model
      *   **true**
      *   **false**
      *
-     * >  Default value: **true**.
+     * > Default value: **true**.
      * @example true
      *
      * @var bool
@@ -46,8 +46,8 @@ class TransformInstanceChargeTypeRequest extends Model
     /**
      * @description The billing method of the instance. Valid values:
      *
-     *   **PrePaid**: subscription
-     *   **PostPaid**: pay-as-you-go
+     *   **PrePaid:** subscription.
+     *   **PostPaid:** pay-as-you-go.
      *
      * This parameter is required.
      * @example PrePaid
@@ -57,10 +57,7 @@ class TransformInstanceChargeTypeRequest extends Model
     public $chargeType;
 
     /**
-     * @description Specifies whether to use coupons. Default value: null. Valid values:
-     *
-     *   **default** or **null**: uses coupons.
-     *   **youhuiquan_promotion_option_id_for_blank**: does not use coupons.
+     * @description The coupon code. Default value: `youhuiquan_promotion_option_id_for_blank`.
      *
      * @example youhuiquan_promotion_option_id_for_blank
      *
@@ -69,7 +66,7 @@ class TransformInstanceChargeTypeRequest extends Model
     public $couponNo;
 
     /**
-     * @description The ID of the instance
+     * @description The ID of the instance.
      *
      * This parameter is required.
      * @example dds-2ze55b3ec56c****
@@ -89,10 +86,7 @@ class TransformInstanceChargeTypeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The subscription duration. Valid values:
-     *
-     *   If the PricingCycle parameter is set to Month, the valid values of this parameter range from **1** to **9**.
-     *   If the PricingCycle parameter is set to Year, the valid values of this parameter are **1**, **2**, **3**, and **5**.
+     * @description The subscription duration of the instance. Unit: months. Valid values: **1, 2, 3, 4, 5, 6, 7, 8, 9******, **12**, **24**, and **36**.
      *
      * @example 1
      *
@@ -101,12 +95,12 @@ class TransformInstanceChargeTypeRequest extends Model
     public $period;
 
     /**
-     * @description The unit of the subscription duration. Valid values:
+     * @description 实例付费时长单位
+     * 取值说明：
+     * - **Month：** 月
+     * -  **Year：** 年
      *
-     *   **Month**
-     *   **Year**
-     *
-     * Default value: Month.
+     * 默认值：Month
      * @example Month
      *
      * @var string

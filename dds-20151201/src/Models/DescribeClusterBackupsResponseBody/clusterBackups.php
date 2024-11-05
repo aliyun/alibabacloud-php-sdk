@@ -88,6 +88,11 @@ class clusterBackups extends Model
     public $clusterBackupStatus;
 
     /**
+     * @var string
+     */
+    public $engineVersion;
+
+    /**
      * @description The additional information in the JSON format.
      *
      * @var extraInfo
@@ -123,6 +128,7 @@ class clusterBackups extends Model
         'clusterBackupSize'      => 'ClusterBackupSize',
         'clusterBackupStartTime' => 'ClusterBackupStartTime',
         'clusterBackupStatus'    => 'ClusterBackupStatus',
+        'engineVersion'          => 'EngineVersion',
         'extraInfo'              => 'ExtraInfo',
         'isAvail'                => 'IsAvail',
         'progress'               => 'Progress',
@@ -164,6 +170,9 @@ class clusterBackups extends Model
         }
         if (null !== $this->clusterBackupStatus) {
             $res['ClusterBackupStatus'] = $this->clusterBackupStatus;
+        }
+        if (null !== $this->engineVersion) {
+            $res['EngineVersion'] = $this->engineVersion;
         }
         if (null !== $this->extraInfo) {
             $res['ExtraInfo'] = null !== $this->extraInfo ? $this->extraInfo->toMap() : null;
@@ -215,6 +224,9 @@ class clusterBackups extends Model
         }
         if (isset($map['ClusterBackupStatus'])) {
             $model->clusterBackupStatus = $map['ClusterBackupStatus'];
+        }
+        if (isset($map['EngineVersion'])) {
+            $model->engineVersion = $map['EngineVersion'];
         }
         if (isset($map['ExtraInfo'])) {
             $model->extraInfo = extraInfo::fromMap($map['ExtraInfo']);

@@ -44,7 +44,7 @@ class DBInstance extends Model
     public $chargeType;
 
     /**
-     * @description The information of the Configserver nodes.
+     * @description The details of the ConfigServer node.
      *
      * >  This parameter is returned if the instance is a sharded cluster instance.
      * @var configserverList
@@ -327,7 +327,7 @@ class DBInstance extends Model
     public $maxIOPS;
 
     /**
-     * @description 实例的最大云盘吞吐量，单位MB/s。
+     * @description The maximum MBPS of the instance.
      *
      * @example 350
      *
@@ -336,7 +336,7 @@ class DBInstance extends Model
     public $maxMBPS;
 
     /**
-     * @description The information of the mongos nodes.
+     * @description The details of the mongos node.
      *
      * >  This parameter is returned if the instance is a sharded cluster instance.
      * @var mongosList
@@ -478,7 +478,7 @@ class DBInstance extends Model
     public $secondaryZoneId;
 
     /**
-     * @description The information of the shard nodes.
+     * @description The details of the shard node.
      *
      * >  This parameter is returned if the instance is a sharded cluster instance.
      * @var shardList

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupPolicyRequest extends Model
 {
     /**
-     * @description The frequency at which high-frequency backup is created. Valid values:
+     * @description The frequency at which high-frequency backups are generated. Valid values:
      *
      *   **-1**: High-frequency backup is disabled.
      *   **30**: High-frequency backups are generated every 30 minutes.
@@ -23,9 +23,9 @@ class ModifyBackupPolicyRequest extends Model
      *
      * >
      *
-     *   If the **SnapshotBackupType** parameter is set to **Standard**, this parameter is set to -1 and cannot be changed.
+     *   If you set the **SnapshotBackupType** parameter to **Standard**, you must fix the value of this parameter to -1.
      *
-     *   High-frequency backup takes effect only when the **SnapshotBackupType** parameter is set to **Flash** and the value of this parameter is greater than 0.
+     *   High-frequency backup takes effect only when you set the **SnapshotBackupType** parameter to **Flash** and this parameter to a value greater than 0.
      *
      * @example -1
      *
@@ -49,36 +49,77 @@ class ModifyBackupPolicyRequest extends Model
     public $backupRetentionPeriod;
 
     /**
+     * @description The backup retention policy configured for the instance. Valid values:
+     *
+     * For more information, see [Retain the backup files of an ApsaraDB for MongoDB instance for a long period of time](https://help.aliyun.com/document_detail/4920562.html).
+     * @example 2
+     *
      * @var int
      */
     public $backupRetentionPolicyOnClusterDeletion;
 
     /**
+     * @description The retention period of Cross-regional backup.
+     * Valid values:
+     *
+     *   **Monday**
+     *   **Tuesday**
+     *   **Wednesday**
+     *   **Thursday**
+     *   **Friday**
+     *   **Saturday**
+     *   **Sunday**
+     *
+     * >- When SnapshotBackupType  is set to standard, this value needs to be a subset of the PreferredBackupPeriod.
+     * @example Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday
+     *
      * @var string
      */
     public $crossBackupPeriod;
 
     /**
+     * @description The operation strategy of Cross-regional backup.
+     * - delete
+     * @example update
+     *
      * @var string
      */
     public $crossBackupType;
 
     /**
+     * @description The retention type of Cross-regional  log backup.
+     *
+     * - never : retain the backup permanently.
+     * @example delay
+     *
      * @var string
      */
     public $crossLogRetentionType;
 
     /**
+     * @description The retention time of Cross-regional log backup, 3 - 1825 days.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $crossLogRetentionValue;
 
     /**
+     * @description The retention type of Cross-regional backup.
+     *
+     * - never : retain the backup permanently.
+     * @example delay
+     *
      * @var string
      */
     public $crossRetentionType;
 
     /**
+     * @description The retention time of Cross-regional backup, 3 - 1825 days.
+     * > - Used and must be used when CrossRetentionType is delay.
+     * @example 7
+     *
      * @var int
      */
     public $crossRetentionValue;
@@ -94,6 +135,10 @@ class ModifyBackupPolicyRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The region id of Cross-regional backup.
+     * > - Required for Cross-regional backup.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $destRegion;
@@ -111,6 +156,10 @@ class ModifyBackupPolicyRequest extends Model
     public $enableBackupLog;
 
     /**
+     * @description Whether to turn on cross-regional log backup.
+     * - 0: turn off. Used for replicate set.
+     * @example 1
+     *
      * @var int
      */
     public $enableCrossLogBackup;
@@ -118,11 +167,22 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @description The number of days for which high-frequency backups are retained. Before you use this parameter, make sure that you specify the BackupInterval parameter. By default, high-frequency backups are retained for one day.
      *
+     * @example 1
+     *
      * @var int
      */
     public $highFrequencyBackupRetention;
 
     /**
+     * @description The instance architecture. Valid values:
+     *
+     *   replicate
+     *   sharding
+     *
+     * > * This parameter is required  for Cross-regional backup.
+     * > * This parameter is required for backup recovery of deleted instances.
+     * @example replicate
+     *
      * @var string
      */
     public $instanceType;
@@ -157,6 +217,10 @@ class ModifyBackupPolicyRequest extends Model
      *   **Friday**
      *   **Saturday**
      *   **Sunday**
+     *
+     **
+     *
+     **Notice**: To ensure data security, make sure that the system backs up data at least twice a week.
      *
      * >  Separate multiple values with commas (,).
      * @example Monday,Wednesday,Friday,Sunday
@@ -198,6 +262,11 @@ class ModifyBackupPolicyRequest extends Model
     public $snapshotBackupType;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * > - Required for backup recovery of deleted instances.
+     * @example cn-beijing
+     *
      * @var string
      */
     public $srcRegion;

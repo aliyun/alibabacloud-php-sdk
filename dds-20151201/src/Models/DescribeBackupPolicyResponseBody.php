@@ -38,36 +38,76 @@ class DescribeBackupPolicyResponseBody extends Model
     public $backupRetentionPeriod;
 
     /**
+     * @description The backup retention policy configured for the instance. Valid values:
+     *
+     * For more information, see [Retain the backup files of an ApsaraDB for MongoDB instance for a long period of time](https://help.aliyun.com/document_detail/2779111.html).
+     * @example 0
+     *
      * @var int
      */
     public $backupRetentionPolicyOnClusterDeletion;
 
     /**
+     * @description The retention period of Cross-regional backup.
+     * Valid values:
+     *
+     *   **Monday**
+     *   **Tuesday**
+     *   **Wednesday**
+     *   **Thursday**
+     *   **Friday**
+     *   **Saturday**
+     *   **Sunday**
+     *
+     * @example Monday
+     *
      * @var string
      */
     public $crossBackupPeriod;
 
     /**
+     * @description The retention type of Cross-regional  log backup.
+     *
+     * - never : retain the backup permanently.
+     * @example delay
+     *
      * @var string
      */
     public $crossLogRetentionType;
 
     /**
+     * @description The retention time of Cross-regional log backup.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $crossLogRetentionValue;
 
     /**
+     * @description The retention type of Cross-regional backup.
+     *
+     * - never : retain the backup permanently.
+     * @example delay
+     *
      * @var string
      */
     public $crossRetentionType;
 
     /**
+     * @description The retention time of Cross-regional backup.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $crossRetentionValue;
 
     /**
+     * @description The region ID of the cross-regional backup..
+     *
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $destRegion;
@@ -85,6 +125,10 @@ class DescribeBackupPolicyResponseBody extends Model
     public $enableBackupLog;
 
     /**
+     * @description Whether to turn on cross-regional log backup.
+     * - 0: turn off. Used for replicate set.
+     * @example 1
+     *
      * @var int
      */
     public $enableCrossLogBackup;
@@ -134,6 +178,10 @@ class DescribeBackupPolicyResponseBody extends Model
     public $preferredBackupTime;
 
     /**
+     * @description The time of next standard backup.
+     *
+     * @example 2024-06-19T19:11Z
+     *
      * @var string
      */
     public $preferredNextBackupTime;
@@ -160,6 +208,10 @@ class DescribeBackupPolicyResponseBody extends Model
     public $snapshotBackupType;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $srcRegion;

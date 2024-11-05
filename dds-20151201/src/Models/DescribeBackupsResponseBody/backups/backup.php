@@ -45,7 +45,7 @@ class backup extends Model
     /**
      * @description The internal download URL of the backup set.
      *
-     * >  You can use the URL to download the specified backup set on an Elastic Compute Service (ECS) instance that is in the same Virtual Private Cloud (VPC) as the ApsaraDB for MongoDB instance.
+     * >  You can use the URL to download the specified backup set on an Elastic Compute Service (ECS) instance that is in the same virtual private cloud (VPC) as the ApsaraDB for MongoDB instance.
      * @var string
      */
     public $backupIntranetDownloadURL;
@@ -75,7 +75,7 @@ class backup extends Model
     /**
      * @description The backup mode of the backup set. Valid values:
      *
-     *   **Automated**:
+     *   **Automated**
      *   **Manual**
      *
      * @example Automated
@@ -85,11 +85,19 @@ class backup extends Model
     public $backupMode;
 
     /**
+     * @description The name of the backup set (invalid now).
+     *
+     * @example 12345678.tar.gz
+     *
      * @var string
      */
     public $backupName;
 
     /**
+     * @description The scale of the backup set (invalid now).
+     *
+     * @example DBInstance
+     *
      * @var string
      */
     public $backupScale;
@@ -137,6 +145,15 @@ class backup extends Model
     public $backupType;
 
     /**
+     * @var string
+     */
+    public $engineVersion;
+
+    /**
+     * @description Availability of the backup set.
+     * - 1: available
+     * @example 1
+     *
      * @var bool
      */
     public $isAvail;
@@ -155,6 +172,7 @@ class backup extends Model
         'backupStartTime'           => 'BackupStartTime',
         'backupStatus'              => 'BackupStatus',
         'backupType'                => 'BackupType',
+        'engineVersion'             => 'EngineVersion',
         'isAvail'                   => 'IsAvail',
     ];
 
@@ -206,6 +224,9 @@ class backup extends Model
         }
         if (null !== $this->backupType) {
             $res['BackupType'] = $this->backupType;
+        }
+        if (null !== $this->engineVersion) {
+            $res['EngineVersion'] = $this->engineVersion;
         }
         if (null !== $this->isAvail) {
             $res['IsAvail'] = $this->isAvail;
@@ -263,6 +284,9 @@ class backup extends Model
         }
         if (isset($map['BackupType'])) {
             $model->backupType = $map['BackupType'];
+        }
+        if (isset($map['EngineVersion'])) {
+            $model->engineVersion = $map['EngineVersion'];
         }
         if (isset($map['IsAvail'])) {
             $model->isAvail = $map['IsAvail'];

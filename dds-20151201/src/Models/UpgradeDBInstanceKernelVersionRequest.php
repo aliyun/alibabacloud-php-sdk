@@ -37,12 +37,18 @@ class UpgradeDBInstanceKernelVersionRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $switchMode;
     protected $_name = [
         'DBInstanceId'         => 'DBInstanceId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'switchMode'           => 'SwitchMode',
     ];
 
     public function validate()
@@ -66,6 +72,9 @@ class UpgradeDBInstanceKernelVersionRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->switchMode) {
+            $res['SwitchMode'] = $this->switchMode;
         }
 
         return $res;
@@ -93,6 +102,9 @@ class UpgradeDBInstanceKernelVersionRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SwitchMode'])) {
+            $model->switchMode = $map['SwitchMode'];
         }
 
         return $model;

@@ -27,6 +27,15 @@ class replicaSet extends Model
     public $connectionPort;
 
     /**
+     * @description The connection type of the node.
+     *
+     * @example SRV
+     *
+     * @var string
+     */
+    public $connectionType;
+
+    /**
      * @description The remaining duration of the classic network endpoint. Unit: seconds.
      *
      * @example 1209582
@@ -71,6 +80,7 @@ class replicaSet extends Model
     protected $_name = [
         'connectionDomain' => 'ConnectionDomain',
         'connectionPort'   => 'ConnectionPort',
+        'connectionType'   => 'ConnectionType',
         'expiredTime'      => 'ExpiredTime',
         'networkType'      => 'NetworkType',
         'replicaSetRole'   => 'ReplicaSetRole',
@@ -89,6 +99,9 @@ class replicaSet extends Model
         }
         if (null !== $this->connectionPort) {
             $res['ConnectionPort'] = $this->connectionPort;
+        }
+        if (null !== $this->connectionType) {
+            $res['ConnectionType'] = $this->connectionType;
         }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
@@ -119,6 +132,9 @@ class replicaSet extends Model
         }
         if (isset($map['ConnectionPort'])) {
             $model->connectionPort = $map['ConnectionPort'];
+        }
+        if (isset($map['ConnectionType'])) {
+            $model->connectionType = $map['ConnectionType'];
         }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];

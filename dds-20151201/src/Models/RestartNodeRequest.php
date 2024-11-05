@@ -9,8 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RestartNodeRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+     *
+     * This parameter is required.
      * @example dds-bpxxxxxxxx
      *
      * @var string
@@ -18,6 +21,9 @@ class RestartNodeRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The ID of the shard, mongos, or ConfigServer node in a child instance of the sharded cluster instance.
+     *
+     * >  If you set the **DBInstanceId** parameter to the ID of a sharded cluster instance, you must specify this parameter.
      * @example d-bp128a003436****
      *
      * @var string
@@ -45,8 +51,9 @@ class RestartNodeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description This parameter is required.
+     * @description The role ID of the node.
      *
+     * This parameter is required.
      * @example 6025****
      *
      * @var string

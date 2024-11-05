@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RestartNodeResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example ECBCA991-XXXX-XXXX-834C-B3E8007F33AA
      *
      * @var string
