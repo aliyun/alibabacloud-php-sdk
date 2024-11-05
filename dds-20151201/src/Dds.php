@@ -4667,6 +4667,8 @@ class Dds extends OpenApiClient
     }
 
     /**
+     * @summary Queries ApsaraDB for MongoDB instances whose backups are restored within seven days.
+     *  *
      * @param DescribeRestoreDBInstanceListRequest $request DescribeRestoreDBInstanceListRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -4719,6 +4721,8 @@ class Dds extends OpenApiClient
     }
 
     /**
+     * @summary Queries ApsaraDB for MongoDB instances whose backups are restored within seven days.
+     *  *
      * @param DescribeRestoreDBInstanceListRequest $request DescribeRestoreDBInstanceListRequest
      *
      * @return DescribeRestoreDBInstanceListResponse DescribeRestoreDBInstanceListResponse

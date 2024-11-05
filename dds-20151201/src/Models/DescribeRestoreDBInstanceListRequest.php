@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeRestoreDBInstanceListRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Find instances created after the specified time, formatted as <i>yyyy-MM-dd</i>T<i>HH:00:00</i>Z (UTC time).
      *
+     * This parameter is required.
      * @example 2024-07-24T14:00:00Z
      *
      * @var string
@@ -18,8 +19,9 @@ class DescribeRestoreDBInstanceListRequest extends Model
     public $creationTimeAfter;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example dds-bp114f14849d****
      *
      * @var string
@@ -37,6 +39,8 @@ class DescribeRestoreDBInstanceListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +48,8 @@ class DescribeRestoreDBInstanceListRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 30
      *
      * @var int

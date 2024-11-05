@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class networkAddress extends Model
 {
     /**
+     * @description The public endpoint type. Valid values:
+     *
+     *   **SRV**
+     *   **Normal**
+     *
+     * @example SRV
+     *
      * @var string
      */
     public $connectionType;
@@ -97,6 +104,10 @@ class networkAddress extends Model
     public $role;
 
     /**
+     * @description Txt record which can be used to store MongoDB-related meta data, such as version, configuration parameters and etc. With the combination of txt record and other technology, for example SRV record, the MongoDB client can complete the complex service discovery and configuration passing.
+     *
+     * @example mongo.example.com. IN TXT "config=replicaSet=myReplicaSet"
+     *
      * @var string
      */
     public $txtRecord;

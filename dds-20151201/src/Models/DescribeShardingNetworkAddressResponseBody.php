@@ -18,7 +18,7 @@ class DescribeShardingNetworkAddressResponseBody extends Model
     public $compatibleConnections;
 
     /**
-     * @description The endpoints of ApsaraDB for MongoDB instances.
+     * @description The endpoints of the ApsaraDB for MongoDB sharded cluster instance.
      *
      * @var networkAddresses
      */

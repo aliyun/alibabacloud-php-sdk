@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DBInstance extends Model
 {
     /**
+     * @description The time of instance creation, formatted as <i>yyyy-MM-dd</i>T<i>HH:00:00</i>Z (UTC time).
+     *
      * @example 2022-01-02T07:43:59Z
      *
      * @var string
@@ -16,11 +18,17 @@ class DBInstance extends Model
     public $creationTime;
 
     /**
+     * @description The description of the instance.
+     *
+     * @example test-database
+     *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
+     * @description The instance ID.
+     *
      * @example dds-bp12c5b040dc****
      *
      * @var string
@@ -28,6 +36,8 @@ class DBInstance extends Model
     public $DBInstanceId;
 
     /**
+     * @description The status of the instance. For more information, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
+     *
      * @example Running
      *
      * @var string
@@ -35,6 +45,11 @@ class DBInstance extends Model
     public $DBInstanceStatus;
 
     /**
+     * @description The architecture of the instance. Valid values:
+     *
+     *   **sharding**: sharded cluster instance
+     *   **replicate**: replica set or standalone instance
+     *
      * @example replicate
      *
      * @var string
@@ -42,6 +57,16 @@ class DBInstance extends Model
     public $DBInstanceType;
 
     /**
+     * @description The database engine version of the instance. Valid values:
+     *
+     *   **7.0**
+     *   **6.0**
+     *   **5.0**
+     *   **4.4**
+     *   **4.2**
+     *   **4.0**
+     *   **3.4**
+     *
      * @example 4.2
      *
      * @var string
@@ -49,6 +74,8 @@ class DBInstance extends Model
     public $engineVersion;
 
     /**
+     * @description The secondary availability zone 2 for the instance when implementing multi-AZ deployment.
+     *
      * @example cn-hangzhou-h
      *
      * @var string
@@ -56,6 +83,11 @@ class DBInstance extends Model
     public $hiddenZoneId;
 
     /**
+     * @description Specifies whether the instance is deleted. Valid values:
+     *
+     *   **0**: not deleted
+     *   **1**: deleted
+     *
      * @example 0
      *
      * @var int
@@ -63,6 +95,8 @@ class DBInstance extends Model
     public $isDeleted;
 
     /**
+     * @description The locked state of the instance, value description:
+     * - LockByDiskQuota: Automatically locked due to disk quota exceeded.
      * @example Unlock
      *
      * @var string
@@ -70,6 +104,8 @@ class DBInstance extends Model
     public $lockMode;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -77,6 +113,8 @@ class DBInstance extends Model
     public $regionId;
 
     /**
+     * @description The secondary availability zone 1 for the instance when implementing multi-AZ deployment.
+     *
      * @example cn-hangzhou-i
      *
      * @var string
@@ -84,6 +122,8 @@ class DBInstance extends Model
     public $secondaryZoneId;
 
     /**
+     * @description The zone ID of the instance.
+     *
      * @example cn-hangzhou-g
      *
      * @var string

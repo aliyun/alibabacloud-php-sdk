@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeRestoreDBInstanceListResponseBody extends Model
 {
     /**
+     * @description DB instances list.
+     *
      * @var DBInstances
      */
     public $DBInstances;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeRestoreDBInstanceListResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 30
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeRestoreDBInstanceListResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 1AF0AD89-ED4F-44AD-B65F-BFC1D5Cxxxxx
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeRestoreDBInstanceListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of instances in the query results.
+     *
      * @example 5
      *
      * @var int
