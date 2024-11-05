@@ -9,7 +9,11 @@ use AlibabaCloud\Tea\Model;
 class snapshotLink extends Model
 {
     /**
-     * @description The category of the snapshot.
+     * @description The type of the snapshot chain. Valid values:
+     *
+     *   standard: standard snapshot chain.
+     *   archive: archive snapshot chain.
+     *   flash: instant access snapshot chain.
      *
      * @example standard
      *
@@ -38,10 +42,10 @@ class snapshotLink extends Model
     /**
      * @description Indicates whether the instant access feature is enabled. Valid values:
      *
-     *   true: The instant access feature is enabled. This feature can be enabled only for enhanced SSDs (ESSDs).
+     *   true: The instant access feature is enabled. The feature can be enabled only for Enterprise SSDs (ESSDs).
      *   false: The instant access feature is disabled. The snapshot is a standard snapshot for which the instant access feature is disabled.
      *
-     * >  This parameter is no longer used. By default, new standard snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
+     * >  This parameter is no longer used. By default, standard snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
      * @example false
      *
      * @var bool

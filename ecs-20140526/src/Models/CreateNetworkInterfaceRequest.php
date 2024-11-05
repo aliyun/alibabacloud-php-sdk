@@ -289,6 +289,11 @@ class CreateNetworkInterfaceRequest extends Model
     public $securityGroupIds;
 
     /**
+     * @var bool
+     */
+    public $sourceDestCheck;
+
+    /**
      * @description The tags to add to the ENI.
      *
      * @var tag[]
@@ -358,6 +363,7 @@ class CreateNetworkInterfaceRequest extends Model
         'secondaryPrivateIpAddressCount'  => 'SecondaryPrivateIpAddressCount',
         'securityGroupId'                 => 'SecurityGroupId',
         'securityGroupIds'                => 'SecurityGroupIds',
+        'sourceDestCheck'                 => 'SourceDestCheck',
         'tag'                             => 'Tag',
         'txQueueSize'                     => 'TxQueueSize',
         'vSwitchId'                       => 'VSwitchId',
@@ -460,6 +466,9 @@ class CreateNetworkInterfaceRequest extends Model
         }
         if (null !== $this->securityGroupIds) {
             $res['SecurityGroupIds'] = $this->securityGroupIds;
+        }
+        if (null !== $this->sourceDestCheck) {
+            $res['SourceDestCheck'] = $this->sourceDestCheck;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -590,6 +599,9 @@ class CreateNetworkInterfaceRequest extends Model
             if (!empty($map['SecurityGroupIds'])) {
                 $model->securityGroupIds = $map['SecurityGroupIds'];
             }
+        }
+        if (isset($map['SourceDestCheck'])) {
+            $model->sourceDestCheck = $map['SourceDestCheck'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

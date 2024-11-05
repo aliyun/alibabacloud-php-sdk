@@ -22,9 +22,12 @@ class snapshot extends Model
     public $available;
 
     /**
-     * @description The category of the snapshot.
+     * @description The category of the snapshot. Valid values:
      *
-     * >  This parameter will be removed in the future. We recommend that you use `InstantAccess` to ensure future compatibility.
+     *   Standard: standard snapshot.
+     *   Flash: local snapshot. This value will be deprecated. The local snapshot feature is replaced by the instant access feature.
+     *   archive: archive snapshot.
+     *
      * @example standard
      *
      * @var string
@@ -64,7 +67,7 @@ class snapshot extends Model
      *   true: The instant access feature is enabled. By default, the instant access feature is enabled for Enterprise SSDs (ESSDs) and ESSD Entry disks.
      *   false: The instant access feature is disabled. The snapshot is a standard snapshot for which the instant access feature is disabled.
      *
-     * >  This parameter is no longer used. The standard snapshots of ESSDs are upgraded to support the instant access feature by default. No additional configurations are required to enable the feature and you are not charged for the feature. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
+     * >  This parameter is deprecated. By default, new standard snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
      * @example false
      *
      * @var bool
@@ -72,9 +75,9 @@ class snapshot extends Model
     public $instantAccess;
 
     /**
-     * @description Indicates the validity period of the instant access feature. When the specified period expires, the instant access feature is automatically disabled.
+     * @description Indicates the validity period of the instant access feature. When the validity period ends, the instant access feature is automatically disabled.
      *
-     * >  This parameter is no longer used. The standard snapshots of ESSDs are upgraded to support the instant access feature by default. No additional configurations are required to enable the feature and you are not charged for the feature. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
+     * >  This parameter is deprecated. By default, new standard snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
      * @example 30
      *
      * @var int

@@ -22,10 +22,15 @@ class StartInstanceRequest extends Model
     public $dryRun;
 
     /**
-     * @description Specifies whether to restore the instance to its initial health state. This parameter is applicable to instances that are equipped with local disks, such as d1, i1, and i2 instances. If a local disk of a d1, i1, or i2 instance fails, you can use this parameter to specify whether to restore the instance to its initial health state on startup. Valid values:
+     * @description Specifies whether to restore the ECS instance to the initial health state on startup if a local disk fails. This parameter is applicable to ECS instances that are equipped with local disks, such as d1, i1, and i2 instances. Valid values:
      *
-     *   true: restores the instance to its initial health state on startup. After the instance is restored to its initial health state, data stored on the local disks of the instance is lost.
-     *   false: does not perform operations and keeps the instance in the current state.
+     *   true: restores the ECS instance to the initial health state on startup.
+     *
+     **
+     *
+     **Warning**: After the ECS instance is restored to the initial health state, data stored on the local disks of the instance is lost.
+     *
+     *   false: does not restore the ECS instance to the initial health state on startup. The instance remains in the current state.
      *
      * Default value: false.
      * @example true

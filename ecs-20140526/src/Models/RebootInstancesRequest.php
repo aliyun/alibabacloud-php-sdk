@@ -51,7 +51,7 @@ class RebootInstancesRequest extends Model
     public $forceReboot;
 
     /**
-     * @description The instance IDs. You can specify up to 100 instance IDs.
+     * @description The IDs of ECS instances. Valid values of N: 1 to 100.
      *
      * This parameter is required.
      * @example i-bp67acfmxazb4p****

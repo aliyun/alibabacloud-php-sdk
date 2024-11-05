@@ -37,6 +37,10 @@ class ModifyCommandRequest extends Model
     public $description;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example python3 -u {{ACS::ScriptFileName|Ext(".py")}}
+     *
      * @var string
      */
     public $launcher;

@@ -38,7 +38,7 @@ class StartInstancesRequest extends Model
     public $dryRun;
 
     /**
-     * @description The IDs of the ECS instances. You can specify up to 100 ECS instance IDs.
+     * @description The IDs of ECS instances. Valid values of N: 1 to 100.
      *
      * This parameter is required.
      * @example i-bp67acfmxazb4p****

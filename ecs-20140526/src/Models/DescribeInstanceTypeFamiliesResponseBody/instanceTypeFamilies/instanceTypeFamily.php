@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instanceTypeFamily extends Model
 {
     /**
-     * @description The generation of the instance family.
+     * @description The series of the instance family.
      *
      * @example ecs-5
      *

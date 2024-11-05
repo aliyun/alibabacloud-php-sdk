@@ -48,6 +48,10 @@ class securityGroup extends Model
     public $ecsCount;
 
     /**
+     * @description The number of rules that reference security groups in the security group.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $groupToGroupRuleCount;
@@ -62,6 +66,10 @@ class securityGroup extends Model
     public $resourceGroupId;
 
     /**
+     * @description The number of rules in the security group.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $ruleCount;

@@ -87,6 +87,8 @@ class command extends Model
     public $latest;
 
     /**
+     * @example python3 -u {{ACS::ScriptFileName|Ext(".py")}}
+     *
      * @var string
      */
     public $launcher;

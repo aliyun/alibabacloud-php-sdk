@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceRamRoleRequest extends Model
 {
     /**
-     * @description The IDs of instances. You can specify up to 100 instance IDs in a single request. You must specify at least one of the `InstanceIds` and `RamRoleName` parameters.
+     * @description The IDs of ECS instances. You can specify up to 100 instance IDs in a single request.
      *
+     * >  You must specify at least one parameter from `InstanceIds` and `RamRoleName`.
      * @example ["i-bp67acfmxazb1p****", "i-bp67acfmxazb2p****", "bp67acfmxazb3p****"…]
      *
      * @var string
@@ -23,7 +24,7 @@ class DescribeInstanceRamRoleRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * Default value: 1.
      * @example 1
@@ -33,7 +34,7 @@ class DescribeInstanceRamRoleRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * Default value: 10.
      * @example 10
@@ -43,8 +44,9 @@ class DescribeInstanceRamRoleRequest extends Model
     public $pageSize;
 
     /**
-     * @description The name of the instance RAM role. You can call the [ListRoles](https://help.aliyun.com/document_detail/28713.html) operation provided by RAM to query the instance RAM roles that you created. You must specify at least one of the `InstanceIds` and `RamRoleName` parameters.
+     * @description The name of the instance RAM role. If you specify this parameter, all ECS instances to which the instance RAM role is attached are returned in the response. You can call the [ListRoles](https://help.aliyun.com/document_detail/28713.html) operation of RAM to query the names of available instance RAM roles.
      *
+     * >  You must specify at least one parameter from `InstanceIds` and `RamRoleName`.
      * @example EcsServiceRole-EcsDocGuideTest
      *
      * @var string

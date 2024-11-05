@@ -30,10 +30,10 @@ class DeleteInstancesRequest extends Model
     public $dryRun;
 
     /**
-     * @description Specifies whether to forcefully release the instance that is in the **Running** (`Running`) state. Default value: false. Valid values:
+     * @description Specifies whether to forcefully release the ECS instance in the **Running** (`Running`) state. Valid values:
      *
-     *   true: forcefully releases the instance that is in the **Running** (`Running`) state. When the Force parameter is set to true, this operation is equivalent to a power-off operation. Temporary data in the memory and storage of the instance is erased and cannot be restored.
-     *   false: normally releases the instance. This value is valid only for instances that are in the **Stopped** (`Stopped`) state.
+     *   true: forcefully releases the ECS instance in the **Running** (`Running`) state. When Force is set to true, this operation is equivalent to a power-off operation. Temporary data in the memory and storage of the instance is erased and cannot be restored.
+     *   false (default): normally releases the ECS instance. This value is valid only for instances that are in the **Stopped** (`Stopped`) state.
      *
      * @example false
      *
@@ -82,7 +82,7 @@ class DeleteInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Specifies whether to release an expired subscription instance.
+     * @description Specifies whether to release the expired subscription instance.
      *
      * Default value: false.
      * @example false

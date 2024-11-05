@@ -9,10 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotMonitorDataRequest extends Model
 {
     /**
-     * @description The category of the snapshot. Valid values:
+     * @description The type of the snapshot. Valid values:
      *
      *   Standard: standard snapshot
      *   Flash: local snapshot
+     *   Archive: archive snapshot
      *
      * Default value: Standard.
      * @example Standard

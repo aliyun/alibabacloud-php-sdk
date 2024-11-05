@@ -140,6 +140,11 @@ class CreateNetworkInterfaceResponseBody extends Model
     public $serviceManaged;
 
     /**
+     * @var bool
+     */
+    public $sourceDestCheck;
+
+    /**
      * @description The state of the ENI.
      *
      * @example Available
@@ -206,6 +211,7 @@ class CreateNetworkInterfaceResponseBody extends Model
         'securityGroupIds'     => 'SecurityGroupIds',
         'serviceID'            => 'ServiceID',
         'serviceManaged'       => 'ServiceManaged',
+        'sourceDestCheck'      => 'SourceDestCheck',
         'status'               => 'Status',
         'tags'                 => 'Tags',
         'type'                 => 'Type',
@@ -265,6 +271,9 @@ class CreateNetworkInterfaceResponseBody extends Model
         }
         if (null !== $this->serviceManaged) {
             $res['ServiceManaged'] = $this->serviceManaged;
+        }
+        if (null !== $this->sourceDestCheck) {
+            $res['SourceDestCheck'] = $this->sourceDestCheck;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -340,6 +349,9 @@ class CreateNetworkInterfaceResponseBody extends Model
         }
         if (isset($map['ServiceManaged'])) {
             $model->serviceManaged = $map['ServiceManaged'];
+        }
+        if (isset($map['SourceDestCheck'])) {
+            $model->sourceDestCheck = $map['SourceDestCheck'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

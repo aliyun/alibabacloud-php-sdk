@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DetachInstanceRamRoleRequest extends Model
 {
     /**
-     * @description The IDs of instances. The value can be a JSON array that consists of up to 100 instance IDs. Separate the IDs with commas (,).
+     * @description The IDs of ECS instances. You can specify 1 to 100 instance IDs.
      *
      * This parameter is required.
      * @example ["i-bp67acfmxazb4p****", "i-bp67acfmxazb5p****", "i-bp67acfmxazb6p****"…]
@@ -24,7 +24,7 @@ class DetachInstanceRamRoleRequest extends Model
     public $ownerId;
 
     /**
-     * @description The name of the instance RAM role. You can call the [ListRoles](https://help.aliyun.com/document_detail/28713.html) operation provided by RAM to query the instance RAM roles that you created.
+     * @description The name of the instance RAM role. You can call the [ListRoles](https://help.aliyun.com/document_detail/28713.html) operation of RAM to query the names of available instance RAM roles.
      *
      * @example RamRoleTest
      *

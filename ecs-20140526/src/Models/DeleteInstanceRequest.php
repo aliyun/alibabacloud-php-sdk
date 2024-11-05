@@ -21,10 +21,10 @@ class DeleteInstanceRequest extends Model
     public $dryRun;
 
     /**
-     * @description Specifies whether to forcefully release the instance in the **Running** (`Running`) state. Valid values:
+     * @description Specifies whether to forcefully release the ECS instance in the **Running** (`Running`) state. Valid values:
      *
-     *   true: forcefully releases the instance in the **Running** (`Running`) state. This operation is equivalent to the power-off operation. Cache data that is not written to persistent storage will be lost.
-     *   false: normally releases the instance. This value take effects only if the instance is in the **Stopped** (`Stopped`) state.
+     *   true: forcefully releases the ECS instance in the **Running** (`Running`) state. When Force is set to true, this operation is equivalent to a power-off operation. Temporary data in the memory and storage of the instance is erased and cannot be restored.
+     *   false: normally releases the ECS instance. This value is valid only if the instance is in the **Stopped** (`Stopped`) state.
      *
      * Default value: false.
      * @example false

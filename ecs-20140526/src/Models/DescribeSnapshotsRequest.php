@@ -18,15 +18,15 @@ class DescribeSnapshotsRequest extends Model
     /**
      * @description The category of the snapshot. Valid values:
      *
-     *   Standard: standard snapshot
-     *   Flash: local snapshot
+     *   Standard: standard snapshot.
      *
-     * The local snapshot feature is replaced by the instant access feature. When you specify this parameter, take note of the following items:
+     *   Flash: local snapshot. This value will be deprecated. The local snapshot feature is replaced by the instant access feature. When you specify this parameter, take note of the following items:
      *
      *   If you have used local snapshots before December 14, 2020, you can use this parameter.
      *   If you have not used local snapshots before December 14, 2020, you cannot use this parameter.
      *
-     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     *   archive: archive snapshot.
+     *
      * @example Standard
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instanceRamRoleSet extends Model
 {
     /**
-     * @description The instance ID.
+     * @description The ID of the ECS instance.
      *
      * @example i-bp67acfmxazb4p****
      *

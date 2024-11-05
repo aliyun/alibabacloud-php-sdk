@@ -227,6 +227,11 @@ class networkInterface extends Model
     public $securityGroupIds;
 
     /**
+     * @var bool
+     */
+    public $sourceDestCheck;
+
+    /**
      * @description The Tx queue depth of ENI N.
      *
      * When you specify this parameter, take note of the following items:
@@ -270,6 +275,7 @@ class networkInterface extends Model
         'rxQueueSize'                 => 'RxQueueSize',
         'securityGroupId'             => 'SecurityGroupId',
         'securityGroupIds'            => 'SecurityGroupIds',
+        'sourceDestCheck'             => 'SourceDestCheck',
         'txQueueSize'                 => 'TxQueueSize',
         'vSwitchId'                   => 'VSwitchId',
     ];
@@ -325,6 +331,9 @@ class networkInterface extends Model
         }
         if (null !== $this->securityGroupIds) {
             $res['SecurityGroupIds'] = $this->securityGroupIds;
+        }
+        if (null !== $this->sourceDestCheck) {
+            $res['SourceDestCheck'] = $this->sourceDestCheck;
         }
         if (null !== $this->txQueueSize) {
             $res['TxQueueSize'] = $this->txQueueSize;
@@ -392,6 +401,9 @@ class networkInterface extends Model
             if (!empty($map['SecurityGroupIds'])) {
                 $model->securityGroupIds = $map['SecurityGroupIds'];
             }
+        }
+        if (isset($map['SourceDestCheck'])) {
+            $model->sourceDestCheck = $map['SourceDestCheck'];
         }
         if (isset($map['TxQueueSize'])) {
             $model->txQueueSize = $map['TxQueueSize'];

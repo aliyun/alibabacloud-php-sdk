@@ -31,10 +31,10 @@ class StopInstanceRequest extends Model
     public $dryRun;
 
     /**
-     * @description Specifies whether to forcibly stop the instance. Valid values:
+     * @description Specifies whether to forcefully stop the ECS instance. Valid values:
      *
-     *   true
-     *   false
+     *   true: forcefully stops the ECS instance. If you set ForceStop to true, this operation is equivalent to a power-off operation. Cache data that is not written to storage devices on the instance is lost.
+     *   false: normally stops the ECS instance.
      *
      * Default value: false.
      * @example false

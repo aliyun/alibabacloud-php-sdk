@@ -19,7 +19,7 @@ class detachInstanceRamRoleResult extends Model
     public $code;
 
     /**
-     * @description The ID of the instance from which you attempted to detach the instance RAM role.
+     * @description The ID of the ECS instance from which you attempted to detach the instance RAM role.
      *
      * @example i-bp67acfmxazb4p****
      *
@@ -28,7 +28,7 @@ class detachInstanceRamRoleResult extends Model
     public $instanceId;
 
     /**
-     * @description Details about the instance RAM role of the instance.
+     * @description The name of the instance RAM role and the ID of the ECS instance.
      *
      * @var instanceRamRoleSets
      */

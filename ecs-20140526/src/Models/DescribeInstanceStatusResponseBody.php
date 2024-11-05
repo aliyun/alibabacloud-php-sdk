@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceStatusResponseBody extends Model
 {
     /**
-     * @description The status information of the instances.
+     * @description The IDs and status of the ECS instances.
      *
      * @var instanceStatuses
      */

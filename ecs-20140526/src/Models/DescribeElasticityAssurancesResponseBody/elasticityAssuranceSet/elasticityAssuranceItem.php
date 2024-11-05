@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class elasticityAssuranceItem extends Model
 {
     /**
-     * @description Details about the allocated resources.
+     * @description The information about the allocated resources.
      *
      * @var allocatedResources
      */
@@ -27,6 +27,8 @@ class elasticityAssuranceItem extends Model
     public $description;
 
     /**
+     * @example e114477596854834
+     *
      * @var string
      */
     public $elasticityAssuranceOwnerId;

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceRamRoleResponseBody extends Model
 {
     /**
-     * @description Details about the instance RAM roles.
+     * @description The IDs of the ECS instances and the names of the corresponding instance RAM roles.
      *
      * @var instanceRamRoleSets
      */
     public $instanceRamRoleSets;
 
     /**
-     * @description The region ID of the instance RAM role.
+     * @description The region ID of the ECS instances.
      *
      * @example cn-hangzhou
      *
@@ -35,7 +35,7 @@ class DescribeInstanceRamRoleResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of instance RAM roles returned.
+     * @description The number of ECS instances returned.
      *
      * @example 1
      *

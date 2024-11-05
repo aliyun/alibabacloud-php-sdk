@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceStatusRequest extends Model
 {
     /**
-     * @description The cluster ID of the instances.
+     * @description The ID of the cluster to which the ECS instances belong.
      *
+     * >  This parameter is deprecated. We recommend that you do not use this parameter.
      * @example cls-bp67acfmxazb4p****
      *
      * @var string
@@ -18,8 +19,9 @@ class DescribeInstanceStatusRequest extends Model
     public $clusterId;
 
     /**
-     * @description The IDs of the instances. When you use this parameter to specify multiple instance IDs, separate the IDs with commas(,). Example: `InstanceId.1=i-bp1j4i2jdf3owlhe****, InstanceId.2=i-bp1j4i2jdf3o1234****`.
+     * @description The IDs of ECS instances. You can specify 1 to 100 instance IDs.
      *
+     * Example: ["i-bp1j4i2jdf3owlhe\\*\\*\\*\\*", "i-bp1j4i2jdf3o1234\\*\\*\\*\\*"].
      * @example i-bp1j4i2jdf3owlhe****
      *
      * @var string[]

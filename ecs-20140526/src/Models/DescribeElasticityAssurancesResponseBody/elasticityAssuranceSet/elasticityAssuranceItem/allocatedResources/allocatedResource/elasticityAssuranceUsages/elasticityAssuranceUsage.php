@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class elasticityAssuranceUsage extends Model
 {
     /**
+     * @example 1144775968548340
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $usedAmount;

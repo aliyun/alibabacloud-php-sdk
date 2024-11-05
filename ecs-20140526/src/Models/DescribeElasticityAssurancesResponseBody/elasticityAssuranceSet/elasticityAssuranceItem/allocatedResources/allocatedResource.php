@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class allocatedResource extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $availableAmount;

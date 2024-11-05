@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DetachInstanceRamRoleResponseBody extends Model
 {
     /**
-     * @description Details about the results of detaching instance RAM roles from the instances.
+     * @description The results of the instance RAM role detachment, which include the names of the instance RAM roles and the IDs of the ECS instances from which you attempted to detach the instance RAM roles.
      *
      * @var detachInstanceRamRoleResults
      */
     public $detachInstanceRamRoleResults;
 
     /**
-     * @description The number of instances from which instance RAM roles failed to be detached.
+     * @description The number of ECS instances from which instance RAM roles failed to be detached.
      *
      * @example 0
      *
@@ -44,7 +44,7 @@ class DetachInstanceRamRoleResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of instances from which you attempted to detach instance RAM roles.
+     * @description The total number of ECS instances from which you attempted to detach instance RAM roles.
      *
      * @example 1
      *

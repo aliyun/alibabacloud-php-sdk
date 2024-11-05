@@ -51,7 +51,7 @@ class StopInstancesRequest extends Model
     public $forceStop;
 
     /**
-     * @description The IDs of instances.
+     * @description The IDs of ECS instances. You can specify 1 to 100 instance IDs.
      *
      * This parameter is required.
      * @example i-bp67acfmxazb4p****
