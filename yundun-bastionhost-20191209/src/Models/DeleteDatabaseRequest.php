@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteDatabaseRequest extends Model
 {
     /**
+     * @description The ID of the database that you want to delete.
+     *
+     * This parameter is required.
      * @example 11
      *
      * @var string
@@ -16,6 +19,9 @@ class DeleteDatabaseRequest extends Model
     public $databaseId;
 
     /**
+     * @description The ID of the bastion host from which you want to delete the database.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-78v1ghxxxxx
      *
      * @var string
@@ -23,6 +29,9 @@ class DeleteDatabaseRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

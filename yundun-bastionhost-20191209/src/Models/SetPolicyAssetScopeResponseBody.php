@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetPolicyAssetScopeResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 5EAB922E-F476-5DFA-9290-313C608E724B
      *
      * @var string

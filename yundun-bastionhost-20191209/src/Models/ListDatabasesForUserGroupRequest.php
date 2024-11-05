@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListDatabasesForUserGroupRequest extends Model
 {
     /**
-     * @example 47.101.**.**
+     * @description The address of the database to query. Only exact match is supported.
+     *
+     * @example ``47.101.**.**``
      *
      * @var string
      */
     public $databaseAddress;
 
     /**
+     * @description The name of the database to query.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,13 @@ class ListDatabasesForUserGroupRequest extends Model
     public $databaseName;
 
     /**
+     * @description The engine of the database to query. Valid values:
+     *
+     *   **MySQL**
+     *   **Oracle**
+     *   **PostgreSQL**
+     *   **SQLServer**
+     *
      * @example MySQL
      *
      * @var string
@@ -30,6 +41,9 @@ class ListDatabasesForUserGroupRequest extends Model
     public $databaseType;
 
     /**
+     * @description The bastion host ID.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-7mz2ve7h00a
      *
      * @var string
@@ -37,11 +51,15 @@ class ListDatabasesForUserGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $networkDomainId;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var string
@@ -49,6 +67,8 @@ class ListDatabasesForUserGroupRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.\\
+     * > We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var string
@@ -56,6 +76,9 @@ class ListDatabasesForUserGroupRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -63,6 +86,9 @@ class ListDatabasesForUserGroupRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the user group to query.
+     *
+     * This parameter is required.
      * @example 2
      *
      * @var string

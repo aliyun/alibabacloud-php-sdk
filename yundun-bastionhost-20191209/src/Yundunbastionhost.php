@@ -339,10 +339,15 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param AcceptApproveCommandRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary If an O\\&M engineer attempts to run a command specified in the Command Approval field on the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+     *  *
+     * @description You can call this operation as a Bastionhost administrator to approve the request to run a command of an O\\&M engineer.
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param AcceptApproveCommandRequest $request AcceptApproveCommandRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return AcceptApproveCommandResponse
+     * @return AcceptApproveCommandResponse AcceptApproveCommandResponse
      */
     public function acceptApproveCommandWithOptions($request, $runtime)
     {
@@ -376,9 +381,14 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param AcceptApproveCommandRequest $request
+     * @summary If an O\\&M engineer attempts to run a command specified in the Command Approval field on the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+     *  *
+     * @description You can call this operation as a Bastionhost administrator to approve the request to run a command of an O\\&M engineer.
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param AcceptApproveCommandRequest $request AcceptApproveCommandRequest
      *
-     * @return AcceptApproveCommandResponse
+     * @return AcceptApproveCommandResponse AcceptApproveCommandResponse
      */
     public function acceptApproveCommand($request)
     {
@@ -388,9 +398,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * You can call this operation as a Bastionhost administrator to approve an O\\&M application of an O\\&M engineer.
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Approves an O\\\\\\&M application.
+     *  *
+     * @description You can call this operation as a Bastionhost administrator to approve an O\\&M application of an O\\&M engineer.
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param AcceptOperationTicketRequest $request AcceptOperationTicketRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -400,6 +412,9 @@ class Yundunbastionhost extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
         if (!Utils::isUnset($request->effectCount)) {
             $query['EffectCount'] = $request->effectCount;
         }
@@ -437,9 +452,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * You can call this operation as a Bastionhost administrator to approve an O\\&M application of an O\\&M engineer.
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Approves an O\\\\\\&M application.
+     *  *
+     * @description You can call this operation as a Bastionhost administrator to approve an O\\&M application of an O\\&M engineer.
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param AcceptOperationTicketRequest $request AcceptOperationTicketRequest
      *
      * @return AcceptOperationTicketResponse AcceptOperationTicketResponse
@@ -452,10 +469,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param AddDatabasesToGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Adds multiple databases to a specified asset group.
+     *  *
+     * @param AddDatabasesToGroupRequest $request AddDatabasesToGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddDatabasesToGroupResponse
+     * @return AddDatabasesToGroupResponse AddDatabasesToGroupResponse
      */
     public function addDatabasesToGroupWithOptions($request, $runtime)
     {
@@ -492,9 +511,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param AddDatabasesToGroupRequest $request
+     * @summary Adds multiple databases to a specified asset group.
+     *  *
+     * @param AddDatabasesToGroupRequest $request AddDatabasesToGroupRequest
      *
-     * @return AddDatabasesToGroupResponse
+     * @return AddDatabasesToGroupResponse AddDatabasesToGroupResponse
      */
     public function addDatabasesToGroup($request)
     {
@@ -504,10 +525,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * You can call this operation to add one or more hosts to a host group. You can add multiple hosts to a host group to manage and grant permissions on the hosts in a centralized manner.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
-     *   *
+     * @summary Adds one or more hosts to the specified host group.
+     *  *
+     * @description You can call this operation to add one or more hosts to a host group. You can add multiple hosts to a host group to manage and grant permissions on the hosts in a centralized manner.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *  *
      * @param AddHostsToGroupRequest $request AddHostsToGroupRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -548,10 +571,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * You can call this operation to add one or more hosts to a host group. You can add multiple hosts to a host group to manage and grant permissions on the hosts in a centralized manner.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
-     *   *
+     * @summary Adds one or more hosts to the specified host group.
+     *  *
+     * @description You can call this operation to add one or more hosts to a host group. You can add multiple hosts to a host group to manage and grant permissions on the hosts in a centralized manner.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *  *
      * @param AddHostsToGroupRequest $request AddHostsToGroupRequest
      *
      * @return AddHostsToGroupResponse AddHostsToGroupResponse
@@ -564,11 +589,13 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * #
-     *   * You can call this operation to add one or more users to a user group. After you call the [CreateUserGroup](~~204596~~) operation to create a user group, you can call the AddUsersToGroup operation to add multiple users to the user group. Then, you can manage and grant permissions to the users at a time.
-     *   * # Limit
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Add one or more users to a user group.
+     *  *
+     * @description #
+     * You can call this operation to add one or more users to a user group. After you call the [CreateUserGroup](https://help.aliyun.com/document_detail/204596.html) operation to create a user group, you can call the AddUsersToGroup operation to add multiple users to the user group. Then, you can manage and grant permissions to the users at a time.
+     * # Limit
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param AddUsersToGroupRequest $request AddUsersToGroupRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -609,11 +636,13 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * #
-     *   * You can call this operation to add one or more users to a user group. After you call the [CreateUserGroup](~~204596~~) operation to create a user group, you can call the AddUsersToGroup operation to add multiple users to the user group. Then, you can manage and grant permissions to the users at a time.
-     *   * # Limit
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Add one or more users to a user group.
+     *  *
+     * @description #
+     * You can call this operation to add one or more users to a user group. After you call the [CreateUserGroup](https://help.aliyun.com/document_detail/204596.html) operation to create a user group, you can call the AddUsersToGroup operation to add multiple users to the user group. Then, you can manage and grant permissions to the users at a time.
+     * # Limit
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param AddUsersToGroupRequest $request AddUsersToGroupRequest
      *
      * @return AddUsersToGroupResponse AddUsersToGroupResponse
@@ -626,10 +655,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param AttachDatabaseAccountsToUserRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Authorizes a user to manage databases and database accounts.
+     *  *
+     * @param AttachDatabaseAccountsToUserRequest $request AttachDatabaseAccountsToUserRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachDatabaseAccountsToUserResponse
+     * @return AttachDatabaseAccountsToUserResponse AttachDatabaseAccountsToUserResponse
      */
     public function attachDatabaseAccountsToUserWithOptions($request, $runtime)
     {
@@ -666,9 +697,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param AttachDatabaseAccountsToUserRequest $request
+     * @summary Authorizes a user to manage databases and database accounts.
+     *  *
+     * @param AttachDatabaseAccountsToUserRequest $request AttachDatabaseAccountsToUserRequest
      *
-     * @return AttachDatabaseAccountsToUserResponse
+     * @return AttachDatabaseAccountsToUserResponse AttachDatabaseAccountsToUserResponse
      */
     public function attachDatabaseAccountsToUser($request)
     {
@@ -678,10 +711,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param AttachDatabaseAccountsToUserGroupRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary Authorizes a user group to manage databases and database accounts.
+     *  *
+     * @param AttachDatabaseAccountsToUserGroupRequest $request AttachDatabaseAccountsToUserGroupRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachDatabaseAccountsToUserGroupResponse
+     * @return AttachDatabaseAccountsToUserGroupResponse AttachDatabaseAccountsToUserGroupResponse
      */
     public function attachDatabaseAccountsToUserGroupWithOptions($request, $runtime)
     {
@@ -718,9 +753,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param AttachDatabaseAccountsToUserGroupRequest $request
+     * @summary Authorizes a user group to manage databases and database accounts.
+     *  *
+     * @param AttachDatabaseAccountsToUserGroupRequest $request AttachDatabaseAccountsToUserGroupRequest
      *
-     * @return AttachDatabaseAccountsToUserGroupResponse
+     * @return AttachDatabaseAccountsToUserGroupResponse AttachDatabaseAccountsToUserGroupResponse
      */
     public function attachDatabaseAccountsToUserGroup($request)
     {
@@ -730,10 +767,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param AttachHostAccountsToHostShareKeyRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Associates host accounts with a shared key.
+     *  *
+     * @param AttachHostAccountsToHostShareKeyRequest $request AttachHostAccountsToHostShareKeyRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachHostAccountsToHostShareKeyResponse
+     * @return AttachHostAccountsToHostShareKeyResponse AttachHostAccountsToHostShareKeyResponse
      */
     public function attachHostAccountsToHostShareKeyWithOptions($request, $runtime)
     {
@@ -770,9 +809,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param AttachHostAccountsToHostShareKeyRequest $request
+     * @summary Associates host accounts with a shared key.
+     *  *
+     * @param AttachHostAccountsToHostShareKeyRequest $request AttachHostAccountsToHostShareKeyRequest
      *
-     * @return AttachHostAccountsToHostShareKeyResponse
+     * @return AttachHostAccountsToHostShareKeyResponse AttachHostAccountsToHostShareKeyResponse
      */
     public function attachHostAccountsToHostShareKey($request)
     {
@@ -782,10 +823,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param AttachHostAccountsToUserRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Authorizes a user to manage the hosts and host accounts.
+     *  *
+     * @param AttachHostAccountsToUserRequest $request AttachHostAccountsToUserRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachHostAccountsToUserResponse
+     * @return AttachHostAccountsToUserResponse AttachHostAccountsToUserResponse
      */
     public function attachHostAccountsToUserWithOptions($request, $runtime)
     {
@@ -822,9 +865,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param AttachHostAccountsToUserRequest $request
+     * @summary Authorizes a user to manage the hosts and host accounts.
+     *  *
+     * @param AttachHostAccountsToUserRequest $request AttachHostAccountsToUserRequest
      *
-     * @return AttachHostAccountsToUserResponse
+     * @return AttachHostAccountsToUserResponse AttachHostAccountsToUserResponse
      */
     public function attachHostAccountsToUser($request)
     {
@@ -834,8 +879,10 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * After you authorize a user group to manage specific hosts and host accounts, all the users in the user group have access to the authorized hosts and host accounts.
-     *   *
+     * @summary Authorizes a user group to manage one or more hosts and host accounts.
+     *  *
+     * @description After you authorize a user group to manage specific hosts and host accounts, all the users in the user group have access to the authorized hosts and host accounts.
+     *  *
      * @param AttachHostAccountsToUserGroupRequest $request AttachHostAccountsToUserGroupRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -876,8 +923,10 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * After you authorize a user group to manage specific hosts and host accounts, all the users in the user group have access to the authorized hosts and host accounts.
-     *   *
+     * @summary Authorizes a user group to manage one or more hosts and host accounts.
+     *  *
+     * @description After you authorize a user group to manage specific hosts and host accounts, all the users in the user group have access to the authorized hosts and host accounts.
+     *  *
      * @param AttachHostAccountsToUserGroupRequest $request AttachHostAccountsToUserGroupRequest
      *
      * @return AttachHostAccountsToUserGroupResponse AttachHostAccountsToUserGroupResponse
@@ -890,10 +939,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param AttachHostGroupAccountsToUserRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Authorizes a user to manage one or more host groups and host accounts.
+     *  *
+     * @param AttachHostGroupAccountsToUserRequest $request AttachHostGroupAccountsToUserRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachHostGroupAccountsToUserResponse
+     * @return AttachHostGroupAccountsToUserResponse AttachHostGroupAccountsToUserResponse
      */
     public function attachHostGroupAccountsToUserWithOptions($request, $runtime)
     {
@@ -930,9 +981,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param AttachHostGroupAccountsToUserRequest $request
+     * @summary Authorizes a user to manage one or more host groups and host accounts.
+     *  *
+     * @param AttachHostGroupAccountsToUserRequest $request AttachHostGroupAccountsToUserRequest
      *
-     * @return AttachHostGroupAccountsToUserResponse
+     * @return AttachHostGroupAccountsToUserResponse AttachHostGroupAccountsToUserResponse
      */
     public function attachHostGroupAccountsToUser($request)
     {
@@ -942,10 +995,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param AttachHostGroupAccountsToUserGroupRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Authorizes a user to manage one or more host groups and host accounts.
+     *  *
+     * @param AttachHostGroupAccountsToUserGroupRequest $request AttachHostGroupAccountsToUserGroupRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachHostGroupAccountsToUserGroupResponse
+     * @return AttachHostGroupAccountsToUserGroupResponse AttachHostGroupAccountsToUserGroupResponse
      */
     public function attachHostGroupAccountsToUserGroupWithOptions($request, $runtime)
     {
@@ -982,9 +1037,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param AttachHostGroupAccountsToUserGroupRequest $request
+     * @summary Authorizes a user to manage one or more host groups and host accounts.
+     *  *
+     * @param AttachHostGroupAccountsToUserGroupRequest $request AttachHostGroupAccountsToUserGroupRequest
      *
-     * @return AttachHostGroupAccountsToUserGroupResponse
+     * @return AttachHostGroupAccountsToUserGroupResponse AttachHostGroupAccountsToUserGroupResponse
      */
     public function attachHostGroupAccountsToUserGroup($request)
     {
@@ -994,10 +1051,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ConfigInstanceSecurityGroupsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Configures security groups for a bastion host.
+     *  *
+     * @param ConfigInstanceSecurityGroupsRequest $request ConfigInstanceSecurityGroupsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfigInstanceSecurityGroupsResponse
+     * @return ConfigInstanceSecurityGroupsResponse ConfigInstanceSecurityGroupsResponse
      */
     public function configInstanceSecurityGroupsWithOptions($request, $runtime)
     {
@@ -1034,9 +1093,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ConfigInstanceSecurityGroupsRequest $request
+     * @summary Configures security groups for a bastion host.
+     *  *
+     * @param ConfigInstanceSecurityGroupsRequest $request ConfigInstanceSecurityGroupsRequest
      *
-     * @return ConfigInstanceSecurityGroupsResponse
+     * @return ConfigInstanceSecurityGroupsResponse ConfigInstanceSecurityGroupsResponse
      */
     public function configInstanceSecurityGroups($request)
     {
@@ -1046,11 +1107,13 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * You can call this operation to configure a whitelist of public IP addresses for a bastion host. By default, a bastion host is accessible from all public IP addresses. If you want to allow the requests from specific public IP addresses, you can call this operation to add trusted IP addresses to the whitelist of the bastion host.
-     *   * ## Limits
-     *   * You can call this operation up to 30 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Configures a whitelist of public IP addresses for a bastion host.
+     *  *
+     * @description ## Usage notes
+     * You can call this operation to configure a whitelist of public IP addresses for a bastion host. By default, a bastion host is accessible from all public IP addresses. If you want to allow the requests from specific public IP addresses, you can call this operation to add trusted IP addresses to the whitelist of the bastion host.
+     * ## Limits
+     * You can call this operation up to 30 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ConfigInstanceWhiteListRequest $request ConfigInstanceWhiteListRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -1088,11 +1151,13 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * You can call this operation to configure a whitelist of public IP addresses for a bastion host. By default, a bastion host is accessible from all public IP addresses. If you want to allow the requests from specific public IP addresses, you can call this operation to add trusted IP addresses to the whitelist of the bastion host.
-     *   * ## Limits
-     *   * You can call this operation up to 30 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Configures a whitelist of public IP addresses for a bastion host.
+     *  *
+     * @description ## Usage notes
+     * You can call this operation to configure a whitelist of public IP addresses for a bastion host. By default, a bastion host is accessible from all public IP addresses. If you want to allow the requests from specific public IP addresses, you can call this operation to add trusted IP addresses to the whitelist of the bastion host.
+     * ## Limits
+     * You can call this operation up to 30 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ConfigInstanceWhiteListRequest $request ConfigInstanceWhiteListRequest
      *
      * @return ConfigInstanceWhiteListResponse ConfigInstanceWhiteListResponse
@@ -1105,10 +1170,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param CreateDatabaseRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Imports an ApsaraDB RDS for MySQL instance, ApsaraDB RDS for SQL Server instance, ApsaraDB RDS for PostgreSQL instance, PolarDB for MySQL cluster, PolarDB for PostgreSQL cluster, PolarDB for PostgreSQL (Compatible with Oracle) cluster, self-managed MySQL database, self-managed SQL Server database, self-managed PostgreSQL database, or self-managed Oracle database to a bastion host.
+     *  *
+     * @param CreateDatabaseRequest $request CreateDatabaseRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDatabaseResponse
+     * @return CreateDatabaseResponse CreateDatabaseResponse
      */
     public function createDatabaseWithOptions($request, $runtime)
     {
@@ -1175,9 +1242,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param CreateDatabaseRequest $request
+     * @summary Imports an ApsaraDB RDS for MySQL instance, ApsaraDB RDS for SQL Server instance, ApsaraDB RDS for PostgreSQL instance, PolarDB for MySQL cluster, PolarDB for PostgreSQL cluster, PolarDB for PostgreSQL (Compatible with Oracle) cluster, self-managed MySQL database, self-managed SQL Server database, self-managed PostgreSQL database, or self-managed Oracle database to a bastion host.
+     *  *
+     * @param CreateDatabaseRequest $request CreateDatabaseRequest
      *
-     * @return CreateDatabaseResponse
+     * @return CreateDatabaseResponse CreateDatabaseResponse
      */
     public function createDatabase($request)
     {
@@ -1187,10 +1256,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param CreateDatabaseAccountRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary After a database is created, you can create a database account for the database. After the account is created, O\\&M engineers can use the account to log on to and perform O\\&M operations on the database.
+     *  *
+     * @param CreateDatabaseAccountRequest $request CreateDatabaseAccountRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDatabaseAccountResponse
+     * @return CreateDatabaseAccountResponse CreateDatabaseAccountResponse
      */
     public function createDatabaseAccountWithOptions($request, $runtime)
     {
@@ -1236,9 +1307,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param CreateDatabaseAccountRequest $request
+     * @summary After a database is created, you can create a database account for the database. After the account is created, O\\&M engineers can use the account to log on to and perform O\\&M operations on the database.
+     *  *
+     * @param CreateDatabaseAccountRequest $request CreateDatabaseAccountRequest
      *
-     * @return CreateDatabaseAccountResponse
+     * @return CreateDatabaseAccountResponse CreateDatabaseAccountResponse
      */
     public function createDatabaseAccount($request)
     {
@@ -1248,10 +1321,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param CreateHostRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Bastionhost allows you to perform O\\&M operations on hosts from different sources, such as Alibaba Cloud Elastic Compute Service (ECS) instances, servers in on-premises data centers, and servers on other cloud platforms. Before you perform O\\&M operations on hosts by using a bastion host, you must import the hosts to the bastion host. You can call this operation to import a host to a bastion host.
+     *  *
+     * @param CreateHostRequest $request CreateHostRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateHostResponse
+     * @return CreateHostResponse CreateHostResponse
      */
     public function createHostWithOptions($request, $runtime)
     {
@@ -1312,9 +1387,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param CreateHostRequest $request
+     * @summary Bastionhost allows you to perform O\\&M operations on hosts from different sources, such as Alibaba Cloud Elastic Compute Service (ECS) instances, servers in on-premises data centers, and servers on other cloud platforms. Before you perform O\\&M operations on hosts by using a bastion host, you must import the hosts to the bastion host. You can call this operation to import a host to a bastion host.
+     *  *
+     * @param CreateHostRequest $request CreateHostRequest
      *
-     * @return CreateHostResponse
+     * @return CreateHostResponse CreateHostResponse
      */
     public function createHost($request)
     {
@@ -1324,10 +1401,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param CreateHostAccountRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary After you import a host to a bastion host, you must add an account of the host to the bastion host. This way, O\\&M engineers can use the account to log on to and perform O\\&M operations on the host by using the bastion host.
+     *  *
+     * @param CreateHostAccountRequest $request CreateHostAccountRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateHostAccountResponse
+     * @return CreateHostAccountResponse CreateHostAccountResponse
      */
     public function createHostAccountWithOptions($request, $runtime)
     {
@@ -1379,9 +1458,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param CreateHostAccountRequest $request
+     * @summary After you import a host to a bastion host, you must add an account of the host to the bastion host. This way, O\\&M engineers can use the account to log on to and perform O\\&M operations on the host by using the bastion host.
+     *  *
+     * @param CreateHostAccountRequest $request CreateHostAccountRequest
      *
-     * @return CreateHostAccountResponse
+     * @return CreateHostAccountResponse CreateHostAccountResponse
      */
     public function createHostAccount($request)
     {
@@ -1391,10 +1472,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param CreateHostGroupRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary You can create asset groups based on your business requirements and add assets of the same type to an asset group. This allows you to classify assets and manage multiple assets at a time.
+     *  *
+     * @param CreateHostGroupRequest $request CreateHostGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateHostGroupResponse
+     * @return CreateHostGroupResponse CreateHostGroupResponse
      */
     public function createHostGroupWithOptions($request, $runtime)
     {
@@ -1431,9 +1514,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param CreateHostGroupRequest $request
+     * @summary You can create asset groups based on your business requirements and add assets of the same type to an asset group. This allows you to classify assets and manage multiple assets at a time.
+     *  *
+     * @param CreateHostGroupRequest $request CreateHostGroupRequest
      *
-     * @return CreateHostGroupResponse
+     * @return CreateHostGroupResponse CreateHostGroupResponse
      */
     public function createHostGroup($request)
     {
@@ -1443,10 +1528,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param CreateHostShareKeyRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Bastionhost provides the shared key feature. This feature allows you to manage the private key that is used to log on to a host in a bastion host. This way, you can associate the private key with multiple accounts of the host to make host account management more efficient.
+     *  *
+     * @param CreateHostShareKeyRequest $request CreateHostShareKeyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateHostShareKeyResponse
+     * @return CreateHostShareKeyResponse CreateHostShareKeyResponse
      */
     public function createHostShareKeyWithOptions($request, $runtime)
     {
@@ -1486,9 +1573,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param CreateHostShareKeyRequest $request
+     * @summary Bastionhost provides the shared key feature. This feature allows you to manage the private key that is used to log on to a host in a bastion host. This way, you can associate the private key with multiple accounts of the host to make host account management more efficient.
+     *  *
+     * @param CreateHostShareKeyRequest $request CreateHostShareKeyRequest
      *
-     * @return CreateHostShareKeyResponse
+     * @return CreateHostShareKeyResponse CreateHostShareKeyResponse
      */
     public function createHostShareKey($request)
     {
@@ -1498,10 +1587,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param CreateNetworkDomainRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Creates a network domain.
+     *  *
+     * @param CreateNetworkDomainRequest $request CreateNetworkDomainRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateNetworkDomainResponse
+     * @return CreateNetworkDomainResponse CreateNetworkDomainResponse
      */
     public function createNetworkDomainWithOptions($request, $runtime)
     {
@@ -1544,9 +1635,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param CreateNetworkDomainRequest $request
+     * @summary Creates a network domain.
+     *  *
+     * @param CreateNetworkDomainRequest $request CreateNetworkDomainRequest
      *
-     * @return CreateNetworkDomainResponse
+     * @return CreateNetworkDomainResponse CreateNetworkDomainResponse
      */
     public function createNetworkDomain($request)
     {
@@ -1556,10 +1649,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param CreatePolicyRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Configures a command control, command approval, protocol control, or access control policy to manage O\\&M operations. This effectively prevents users from performing high-risk operations or accidental operations to ensure O\\&M security.
+     *  *
+     * @param CreatePolicyRequest $request CreatePolicyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePolicyResponse
+     * @return CreatePolicyResponse CreatePolicyResponse
      */
     public function createPolicyWithOptions($request, $runtime)
     {
@@ -1599,9 +1694,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param CreatePolicyRequest $request
+     * @summary Configures a command control, command approval, protocol control, or access control policy to manage O\\&M operations. This effectively prevents users from performing high-risk operations or accidental operations to ensure O\\&M security.
+     *  *
+     * @param CreatePolicyRequest $request CreatePolicyRequest
      *
-     * @return CreatePolicyResponse
+     * @return CreatePolicyResponse CreatePolicyResponse
      */
     public function createPolicy($request)
     {
@@ -1611,10 +1708,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param CreateRuleRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary You can create authorization rules to authorize multiple users to manage assets. You can also specify a validity period for an authorization rule. This way, you can manage users and assets in a more efficient manner and limit the time periods during which users can access assets.
+     *  *
+     * @param CreateRuleRequest $request CreateRuleRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRuleResponse
+     * @return CreateRuleResponse CreateRuleResponse
      */
     public function createRuleWithOptions($request, $runtime)
     {
@@ -1672,9 +1771,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param CreateRuleRequest $request
+     * @summary You can create authorization rules to authorize multiple users to manage assets. You can also specify a validity period for an authorization rule. This way, you can manage users and assets in a more efficient manner and limit the time periods during which users can access assets.
+     *  *
+     * @param CreateRuleRequest $request CreateRuleRequest
      *
-     * @return CreateRuleResponse
+     * @return CreateRuleResponse CreateRuleResponse
      */
     public function createRule($request)
     {
@@ -1684,11 +1785,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * You can call this operation to add a user to a bastion host. You can add local users and Resource Access Management (RAM) users. After a Bastionhost administrator adds a user to a bastion host, the O&M personnel can log on to the bastion host as the user to perform O&M operations on the host on which they have permissions.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Adds a user to a bastion host.
+     *  *
+     * @description You can call the CreateUser operation to add local users, Resource Access Management (RAM) users, Active Directory (AD)-authenticated users, or Lightweight Directory Access Protocol (LDAP)-authenticated users to a bastion host. After a Bastionhost administrator adds a user to a bastion host, O\\&M engineers can log on to the bastion host as the user to perform O\\&M operations on the hosts that the user is authorized to manage.
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *  *
      * @param CreateUserRequest $request CreateUserRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -1771,11 +1872,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * You can call this operation to add a user to a bastion host. You can add local users and Resource Access Management (RAM) users. After a Bastionhost administrator adds a user to a bastion host, the O&M personnel can log on to the bastion host as the user to perform O&M operations on the host on which they have permissions.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Adds a user to a bastion host.
+     *  *
+     * @description You can call the CreateUser operation to add local users, Resource Access Management (RAM) users, Active Directory (AD)-authenticated users, or Lightweight Directory Access Protocol (LDAP)-authenticated users to a bastion host. After a Bastionhost administrator adds a user to a bastion host, O\\&M engineers can log on to the bastion host as the user to perform O\\&M operations on the hosts that the user is authorized to manage.
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *  *
      * @param CreateUserRequest $request CreateUserRequest
      *
      * @return CreateUserResponse CreateUserResponse
@@ -1788,9 +1889,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * You can call this operation to create a user group for a bastion host as an administrator. Then, you can call the [AddUsersToGroup](~~204600~~) operation to add users to the user group at a time. After you add the users to the user group, you can authorize and manage the users in a centralized manner.
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Creates a user group for the specified bastion host.
+     *  *
+     * @description You can call this operation to create a user group for a bastion host as an administrator. Then, you can call the [AddUsersToGroup](https://help.aliyun.com/document_detail/204600.html) operation to add users to the user group at a time. After you add the users to the user group, you can authorize and manage the users in a centralized manner.
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param CreateUserGroupRequest $request CreateUserGroupRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -1831,9 +1934,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * You can call this operation to create a user group for a bastion host as an administrator. Then, you can call the [AddUsersToGroup](~~204600~~) operation to add users to the user group at a time. After you add the users to the user group, you can authorize and manage the users in a centralized manner.
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Creates a user group for the specified bastion host.
+     *  *
+     * @description You can call this operation to create a user group for a bastion host as an administrator. Then, you can call the [AddUsersToGroup](https://help.aliyun.com/document_detail/204600.html) operation to add users to the user group at a time. After you add the users to the user group, you can authorize and manage the users in a centralized manner.
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param CreateUserGroupRequest $request CreateUserGroupRequest
      *
      * @return CreateUserGroupResponse CreateUserGroupResponse
@@ -1846,8 +1951,10 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * You can call the CreateUserPublicKey operation to create a public key for the specified user of a bastion host.
-     *   *
+     * @summary Creates a public key for a bastion host user and hosts the public key in the bastion host. This way, O\\&M engineers can use the private key that corresponds to the public key to log on to the bastion host from an O\\&M client.
+     *  *
+     * @description You can call the CreateUserPublicKey operation to create a public key for the specified user of a bastion host.
+     *  *
      * @param CreateUserPublicKeyRequest $request CreateUserPublicKeyRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -1894,8 +2001,10 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * You can call the CreateUserPublicKey operation to create a public key for the specified user of a bastion host.
-     *   *
+     * @summary Creates a public key for a bastion host user and hosts the public key in the bastion host. This way, O\\&M engineers can use the private key that corresponds to the public key to log on to the bastion host from an O\\&M client.
+     *  *
+     * @description You can call the CreateUserPublicKey operation to create a public key for the specified user of a bastion host.
+     *  *
      * @param CreateUserPublicKeyRequest $request CreateUserPublicKeyRequest
      *
      * @return CreateUserPublicKeyResponse CreateUserPublicKeyResponse
@@ -1908,10 +2017,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DeleteDatabaseRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Deletes a database.
+     *  *
+     * @param DeleteDatabaseRequest $request DeleteDatabaseRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDatabaseResponse
+     * @return DeleteDatabaseResponse DeleteDatabaseResponse
      */
     public function deleteDatabaseWithOptions($request, $runtime)
     {
@@ -1945,9 +2056,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DeleteDatabaseRequest $request
+     * @summary Deletes a database.
+     *  *
+     * @param DeleteDatabaseRequest $request DeleteDatabaseRequest
      *
-     * @return DeleteDatabaseResponse
+     * @return DeleteDatabaseResponse DeleteDatabaseResponse
      */
     public function deleteDatabase($request)
     {
@@ -1957,10 +2070,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DeleteDatabaseAccountRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Deletes a database account.
+     *  *
+     * @param DeleteDatabaseAccountRequest $request DeleteDatabaseAccountRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDatabaseAccountResponse
+     * @return DeleteDatabaseAccountResponse DeleteDatabaseAccountResponse
      */
     public function deleteDatabaseAccountWithOptions($request, $runtime)
     {
@@ -1994,9 +2109,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DeleteDatabaseAccountRequest $request
+     * @summary Deletes a database account.
+     *  *
+     * @param DeleteDatabaseAccountRequest $request DeleteDatabaseAccountRequest
      *
-     * @return DeleteDatabaseAccountResponse
+     * @return DeleteDatabaseAccountResponse DeleteDatabaseAccountResponse
      */
     public function deleteDatabaseAccount($request)
     {
@@ -2006,10 +2123,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DeleteHostRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Deletes the specified host.
+     *  *
+     * @param DeleteHostRequest $request DeleteHostRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteHostResponse
+     * @return DeleteHostResponse DeleteHostResponse
      */
     public function deleteHostWithOptions($request, $runtime)
     {
@@ -2043,9 +2162,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DeleteHostRequest $request
+     * @summary Deletes the specified host.
+     *  *
+     * @param DeleteHostRequest $request DeleteHostRequest
      *
-     * @return DeleteHostResponse
+     * @return DeleteHostResponse DeleteHostResponse
      */
     public function deleteHost($request)
     {
@@ -2055,12 +2176,14 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * This interface is used to delete individual host accounts. If a host account is no longer in use, you can invoke this interface to delete the host account for that host that has been configured on the bastion.
-     *   * >  After you remove the host account, you must enter the username and password of the host when you log on to the host in Bastionhost.
-     *   * ## QPS Limit
-     *   * The single-user QPS limit of this interface is 10 times/second. If the limit is exceeded, the API call will be stream-limited, which may affect your business, please call reasonably.
-     *   *
+     * @summary Removes a host account.
+     *  *
+     * @description ## Usage notes
+     * This interface is used to delete individual host accounts. If a host account is no longer in use, you can invoke this interface to delete the host account for that host that has been configured on the bastion.
+     * >  After you remove the host account, you must enter the username and password of the host when you log on to the host in Bastionhost.
+     * ## QPS Limit
+     * The single-user QPS limit of this interface is 10 times/second. If the limit is exceeded, the API call will be stream-limited, which may affect your business, please call reasonably.
+     *  *
      * @param DeleteHostAccountRequest $request DeleteHostAccountRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -2098,12 +2221,14 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * This interface is used to delete individual host accounts. If a host account is no longer in use, you can invoke this interface to delete the host account for that host that has been configured on the bastion.
-     *   * >  After you remove the host account, you must enter the username and password of the host when you log on to the host in Bastionhost.
-     *   * ## QPS Limit
-     *   * The single-user QPS limit of this interface is 10 times/second. If the limit is exceeded, the API call will be stream-limited, which may affect your business, please call reasonably.
-     *   *
+     * @summary Removes a host account.
+     *  *
+     * @description ## Usage notes
+     * This interface is used to delete individual host accounts. If a host account is no longer in use, you can invoke this interface to delete the host account for that host that has been configured on the bastion.
+     * >  After you remove the host account, you must enter the username and password of the host when you log on to the host in Bastionhost.
+     * ## QPS Limit
+     * The single-user QPS limit of this interface is 10 times/second. If the limit is exceeded, the API call will be stream-limited, which may affect your business, please call reasonably.
+     *  *
      * @param DeleteHostAccountRequest $request DeleteHostAccountRequest
      *
      * @return DeleteHostAccountResponse DeleteHostAccountResponse
@@ -2116,10 +2241,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * You can call this operation to delete a single host group. If you no longer need to perform O\\&M operations on all hosts in a host group, you can call this operation to delete the host group.
-     *   * ### Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Deletes a host group.
+     *  *
+     * @description You can call this operation to delete a single host group. If you no longer need to perform O\\&M operations on all hosts in a host group, you can call this operation to delete the host group.
+     * ### Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeleteHostGroupRequest $request DeleteHostGroupRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -2157,10 +2284,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * You can call this operation to delete a single host group. If you no longer need to perform O\\&M operations on all hosts in a host group, you can call this operation to delete the host group.
-     *   * ### Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Deletes a host group.
+     *  *
+     * @description You can call this operation to delete a single host group. If you no longer need to perform O\\&M operations on all hosts in a host group, you can call this operation to delete the host group.
+     * ### Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeleteHostGroupRequest $request DeleteHostGroupRequest
      *
      * @return DeleteHostGroupResponse DeleteHostGroupResponse
@@ -2173,10 +2302,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DeleteHostShareKeyRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Deletes a shared key.
+     *  *
+     * @param DeleteHostShareKeyRequest $request DeleteHostShareKeyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteHostShareKeyResponse
+     * @return DeleteHostShareKeyResponse DeleteHostShareKeyResponse
      */
     public function deleteHostShareKeyWithOptions($request, $runtime)
     {
@@ -2210,9 +2341,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DeleteHostShareKeyRequest $request
+     * @summary Deletes a shared key.
+     *  *
+     * @param DeleteHostShareKeyRequest $request DeleteHostShareKeyRequest
      *
-     * @return DeleteHostShareKeyResponse
+     * @return DeleteHostShareKeyResponse DeleteHostShareKeyResponse
      */
     public function deleteHostShareKey($request)
     {
@@ -2222,10 +2355,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DeleteNetworkDomainRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Deletes a network domain.
+     *  *
+     * @param DeleteNetworkDomainRequest $request DeleteNetworkDomainRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNetworkDomainResponse
+     * @return DeleteNetworkDomainResponse DeleteNetworkDomainResponse
      */
     public function deleteNetworkDomainWithOptions($request, $runtime)
     {
@@ -2259,9 +2394,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DeleteNetworkDomainRequest $request
+     * @summary Deletes a network domain.
+     *  *
+     * @param DeleteNetworkDomainRequest $request DeleteNetworkDomainRequest
      *
-     * @return DeleteNetworkDomainResponse
+     * @return DeleteNetworkDomainResponse DeleteNetworkDomainResponse
      */
     public function deleteNetworkDomain($request)
     {
@@ -2271,10 +2408,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DeletePolicyRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Deletes a control policy.
+     *  *
+     * @param DeletePolicyRequest $request DeletePolicyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePolicyResponse
+     * @return DeletePolicyResponse DeletePolicyResponse
      */
     public function deletePolicyWithOptions($request, $runtime)
     {
@@ -2308,9 +2447,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DeletePolicyRequest $request
+     * @summary Deletes a control policy.
+     *  *
+     * @param DeletePolicyRequest $request DeletePolicyRequest
      *
-     * @return DeletePolicyResponse
+     * @return DeletePolicyResponse DeletePolicyResponse
      */
     public function deletePolicy($request)
     {
@@ -2320,10 +2461,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DeleteRuleRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Deletes an authorization rule.
+     *  *
+     * @param DeleteRuleRequest $request DeleteRuleRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRuleResponse
+     * @return DeleteRuleResponse DeleteRuleResponse
      */
     public function deleteRuleWithOptions($request, $runtime)
     {
@@ -2357,9 +2500,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DeleteRuleRequest $request
+     * @summary Deletes an authorization rule.
+     *  *
+     * @param DeleteRuleRequest $request DeleteRuleRequest
      *
-     * @return DeleteRuleResponse
+     * @return DeleteRuleResponse DeleteRuleResponse
      */
     public function deleteRule($request)
     {
@@ -2369,10 +2514,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Deletes a bastion host user.
+     *  *
+     * @param DeleteUserRequest $request DeleteUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUserWithOptions($request, $runtime)
     {
@@ -2406,9 +2553,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserRequest $request
+     * @summary Deletes a bastion host user.
+     *  *
+     * @param DeleteUserRequest $request DeleteUserRequest
      *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUser($request)
     {
@@ -2418,10 +2567,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserGroupRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Deletes a specified user group from a specified bastion host.
+     *  *
+     * @param DeleteUserGroupRequest $request DeleteUserGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserGroupResponse
+     * @return DeleteUserGroupResponse DeleteUserGroupResponse
      */
     public function deleteUserGroupWithOptions($request, $runtime)
     {
@@ -2455,9 +2606,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserGroupRequest $request
+     * @summary Deletes a specified user group from a specified bastion host.
+     *  *
+     * @param DeleteUserGroupRequest $request DeleteUserGroupRequest
      *
-     * @return DeleteUserGroupResponse
+     * @return DeleteUserGroupResponse DeleteUserGroupResponse
      */
     public function deleteUserGroup($request)
     {
@@ -2467,8 +2620,10 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * You can call the DeleteUserPublicKey operation to delete a public key from the specified user of a bastion host.
-     *   *
+     * @summary Deletes a public key from the specified user.
+     *  *
+     * @description You can call the DeleteUserPublicKey operation to delete a public key from the specified user of a bastion host.
+     *  *
      * @param DeleteUserPublicKeyRequest $request DeleteUserPublicKeyRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -2506,8 +2661,10 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * You can call the DeleteUserPublicKey operation to delete a public key from the specified user of a bastion host.
-     *   *
+     * @summary Deletes a public key from the specified user.
+     *  *
+     * @description You can call the DeleteUserPublicKey operation to delete a public key from the specified user of a bastion host.
+     *  *
      * @param DeleteUserPublicKeyRequest $request DeleteUserPublicKeyRequest
      *
      * @return DeleteUserPublicKeyResponse DeleteUserPublicKeyResponse
@@ -2520,10 +2677,14 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceAttributeRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the attribute information about the specified bastion host. The information includes the ID and remarks of the bastion host.
+     *  *
+     * @description ****
+     *  *
+     * @param DescribeInstanceAttributeRequest $request DescribeInstanceAttributeRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceAttributeResponse
+     * @return DescribeInstanceAttributeResponse DescribeInstanceAttributeResponse
      */
     public function describeInstanceAttributeWithOptions($request, $runtime)
     {
@@ -2554,9 +2715,13 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceAttributeRequest $request
+     * @summary Queries the attribute information about the specified bastion host. The information includes the ID and remarks of the bastion host.
+     *  *
+     * @description ****
+     *  *
+     * @param DescribeInstanceAttributeRequest $request DescribeInstanceAttributeRequest
      *
-     * @return DescribeInstanceAttributeResponse
+     * @return DescribeInstanceAttributeResponse DescribeInstanceAttributeResponse
      */
     public function describeInstanceAttribute($request)
     {
@@ -2566,10 +2731,10 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param DescribeInstancesRequest $request DescribeInstancesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstancesResponse
+     * @return DescribeInstancesResponse DescribeInstancesResponse
      */
     public function describeInstancesWithOptions($request, $runtime)
     {
@@ -2618,9 +2783,9 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancesRequest $request
+     * @param DescribeInstancesRequest $request DescribeInstancesRequest
      *
-     * @return DescribeInstancesResponse
+     * @return DescribeInstancesResponse DescribeInstancesResponse
      */
     public function describeInstances($request)
     {
@@ -2630,10 +2795,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries available regions where you can create bastion hosts.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -2664,9 +2831,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @summary Queries available regions where you can create bastion hosts.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -2676,10 +2845,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DetachDatabaseAccountsFromUserRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Revokes permissions on databases and database accounts from a user.
+     *  *
+     * @param DetachDatabaseAccountsFromUserRequest $request DetachDatabaseAccountsFromUserRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachDatabaseAccountsFromUserResponse
+     * @return DetachDatabaseAccountsFromUserResponse DetachDatabaseAccountsFromUserResponse
      */
     public function detachDatabaseAccountsFromUserWithOptions($request, $runtime)
     {
@@ -2716,9 +2887,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DetachDatabaseAccountsFromUserRequest $request
+     * @summary Revokes permissions on databases and database accounts from a user.
+     *  *
+     * @param DetachDatabaseAccountsFromUserRequest $request DetachDatabaseAccountsFromUserRequest
      *
-     * @return DetachDatabaseAccountsFromUserResponse
+     * @return DetachDatabaseAccountsFromUserResponse DetachDatabaseAccountsFromUserResponse
      */
     public function detachDatabaseAccountsFromUser($request)
     {
@@ -2728,10 +2901,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DetachDatabaseAccountsFromUserGroupRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary Revokes permissions on databases and database accounts from a user group.
+     *  *
+     * @param DetachDatabaseAccountsFromUserGroupRequest $request DetachDatabaseAccountsFromUserGroupRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachDatabaseAccountsFromUserGroupResponse
+     * @return DetachDatabaseAccountsFromUserGroupResponse DetachDatabaseAccountsFromUserGroupResponse
      */
     public function detachDatabaseAccountsFromUserGroupWithOptions($request, $runtime)
     {
@@ -2768,9 +2943,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DetachDatabaseAccountsFromUserGroupRequest $request
+     * @summary Revokes permissions on databases and database accounts from a user group.
+     *  *
+     * @param DetachDatabaseAccountsFromUserGroupRequest $request DetachDatabaseAccountsFromUserGroupRequest
      *
-     * @return DetachDatabaseAccountsFromUserGroupResponse
+     * @return DetachDatabaseAccountsFromUserGroupResponse DetachDatabaseAccountsFromUserGroupResponse
      */
     public function detachDatabaseAccountsFromUserGroup($request)
     {
@@ -2780,10 +2957,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DetachHostAccountsFromHostShareKeyRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Disassociate host accounts from a shared key.
+     *  *
+     * @param DetachHostAccountsFromHostShareKeyRequest $request DetachHostAccountsFromHostShareKeyRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachHostAccountsFromHostShareKeyResponse
+     * @return DetachHostAccountsFromHostShareKeyResponse DetachHostAccountsFromHostShareKeyResponse
      */
     public function detachHostAccountsFromHostShareKeyWithOptions($request, $runtime)
     {
@@ -2820,9 +2999,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DetachHostAccountsFromHostShareKeyRequest $request
+     * @summary Disassociate host accounts from a shared key.
+     *  *
+     * @param DetachHostAccountsFromHostShareKeyRequest $request DetachHostAccountsFromHostShareKeyRequest
      *
-     * @return DetachHostAccountsFromHostShareKeyResponse
+     * @return DetachHostAccountsFromHostShareKeyResponse DetachHostAccountsFromHostShareKeyResponse
      */
     public function detachHostAccountsFromHostShareKey($request)
     {
@@ -2832,10 +3013,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DetachHostAccountsFromUserRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Revokes permissions on hosts and host accounts from a user.
+     *  *
+     * @param DetachHostAccountsFromUserRequest $request DetachHostAccountsFromUserRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachHostAccountsFromUserResponse
+     * @return DetachHostAccountsFromUserResponse DetachHostAccountsFromUserResponse
      */
     public function detachHostAccountsFromUserWithOptions($request, $runtime)
     {
@@ -2872,9 +3055,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DetachHostAccountsFromUserRequest $request
+     * @summary Revokes permissions on hosts and host accounts from a user.
+     *  *
+     * @param DetachHostAccountsFromUserRequest $request DetachHostAccountsFromUserRequest
      *
-     * @return DetachHostAccountsFromUserResponse
+     * @return DetachHostAccountsFromUserResponse DetachHostAccountsFromUserResponse
      */
     public function detachHostAccountsFromUser($request)
     {
@@ -2884,10 +3069,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DetachHostAccountsFromUserGroupRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Revokes the permissions on one or more hosts and host accounts from a user group.
+     *  *
+     * @param DetachHostAccountsFromUserGroupRequest $request DetachHostAccountsFromUserGroupRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachHostAccountsFromUserGroupResponse
+     * @return DetachHostAccountsFromUserGroupResponse DetachHostAccountsFromUserGroupResponse
      */
     public function detachHostAccountsFromUserGroupWithOptions($request, $runtime)
     {
@@ -2924,9 +3111,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DetachHostAccountsFromUserGroupRequest $request
+     * @summary Revokes the permissions on one or more hosts and host accounts from a user group.
+     *  *
+     * @param DetachHostAccountsFromUserGroupRequest $request DetachHostAccountsFromUserGroupRequest
      *
-     * @return DetachHostAccountsFromUserGroupResponse
+     * @return DetachHostAccountsFromUserGroupResponse DetachHostAccountsFromUserGroupResponse
      */
     public function detachHostAccountsFromUserGroup($request)
     {
@@ -2936,10 +3125,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DetachHostGroupAccountsFromUserRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Removes host groups and host accounts from the list of host groups and host accounts that a user is authorized to manage.
+     *  *
+     * @param DetachHostGroupAccountsFromUserRequest $request DetachHostGroupAccountsFromUserRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachHostGroupAccountsFromUserResponse
+     * @return DetachHostGroupAccountsFromUserResponse DetachHostGroupAccountsFromUserResponse
      */
     public function detachHostGroupAccountsFromUserWithOptions($request, $runtime)
     {
@@ -2976,9 +3167,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DetachHostGroupAccountsFromUserRequest $request
+     * @summary Removes host groups and host accounts from the list of host groups and host accounts that a user is authorized to manage.
+     *  *
+     * @param DetachHostGroupAccountsFromUserRequest $request DetachHostGroupAccountsFromUserRequest
      *
-     * @return DetachHostGroupAccountsFromUserResponse
+     * @return DetachHostGroupAccountsFromUserResponse DetachHostGroupAccountsFromUserResponse
      */
     public function detachHostGroupAccountsFromUser($request)
     {
@@ -2988,8 +3181,10 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @summary Revokes permissions on one or more host groups and host accounts from a user group.
+     *  *
+     * @description ****
+     *  *
      * @param DetachHostGroupAccountsFromUserGroupRequest $request DetachHostGroupAccountsFromUserGroupRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
@@ -3030,8 +3225,10 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @summary Revokes permissions on one or more host groups and host accounts from a user group.
+     *  *
+     * @description ****
+     *  *
      * @param DetachHostGroupAccountsFromUserGroupRequest $request DetachHostGroupAccountsFromUserGroupRequest
      *
      * @return DetachHostGroupAccountsFromUserGroupResponse DetachHostGroupAccountsFromUserGroupResponse
@@ -3044,10 +3241,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DisableInstancePublicAccessRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Disables Internet access for a bastion host.
+     *  *
+     * @param DisableInstancePublicAccessRequest $request DisableInstancePublicAccessRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableInstancePublicAccessResponse
+     * @return DisableInstancePublicAccessResponse DisableInstancePublicAccessResponse
      */
     public function disableInstancePublicAccessWithOptions($request, $runtime)
     {
@@ -3078,9 +3277,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DisableInstancePublicAccessRequest $request
+     * @summary Disables Internet access for a bastion host.
+     *  *
+     * @param DisableInstancePublicAccessRequest $request DisableInstancePublicAccessRequest
      *
-     * @return DisableInstancePublicAccessResponse
+     * @return DisableInstancePublicAccessResponse DisableInstancePublicAccessResponse
      */
     public function disableInstancePublicAccess($request)
     {
@@ -3090,10 +3291,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DisableRuleRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Disables an authorization rule.
+     *  *
+     * @param DisableRuleRequest $request DisableRuleRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableRuleResponse
+     * @return DisableRuleResponse DisableRuleResponse
      */
     public function disableRuleWithOptions($request, $runtime)
     {
@@ -3127,9 +3330,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param DisableRuleRequest $request
+     * @summary Disables an authorization rule.
+     *  *
+     * @param DisableRuleRequest $request DisableRuleRequest
      *
-     * @return DisableRuleResponse
+     * @return DisableRuleResponse DisableRuleResponse
      */
     public function disableRule($request)
     {
@@ -3139,10 +3344,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param EnableInstancePublicAccessRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Enables Internet access for a bastion host.
+     *  *
+     * @param EnableInstancePublicAccessRequest $request EnableInstancePublicAccessRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableInstancePublicAccessResponse
+     * @return EnableInstancePublicAccessResponse EnableInstancePublicAccessResponse
      */
     public function enableInstancePublicAccessWithOptions($request, $runtime)
     {
@@ -3173,9 +3380,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param EnableInstancePublicAccessRequest $request
+     * @summary Enables Internet access for a bastion host.
+     *  *
+     * @param EnableInstancePublicAccessRequest $request EnableInstancePublicAccessRequest
      *
-     * @return EnableInstancePublicAccessResponse
+     * @return EnableInstancePublicAccessResponse EnableInstancePublicAccessResponse
      */
     public function enableInstancePublicAccess($request)
     {
@@ -3185,10 +3394,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param EnableRuleRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Enables an authorization rule.
+     *  *
+     * @param EnableRuleRequest $request EnableRuleRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableRuleResponse
+     * @return EnableRuleResponse EnableRuleResponse
      */
     public function enableRuleWithOptions($request, $runtime)
     {
@@ -3222,9 +3433,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param EnableRuleRequest $request
+     * @summary Enables an authorization rule.
+     *  *
+     * @param EnableRuleRequest $request EnableRuleRequest
      *
-     * @return EnableRuleResponse
+     * @return EnableRuleResponse EnableRuleResponse
      */
     public function enableRule($request)
     {
@@ -3234,10 +3447,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GenerateAssetOperationTokenRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Applies for an O&M token.
+     *  *
+     * @param GenerateAssetOperationTokenRequest $request GenerateAssetOperationTokenRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateAssetOperationTokenResponse
+     * @return GenerateAssetOperationTokenResponse GenerateAssetOperationTokenResponse
      */
     public function generateAssetOperationTokenWithOptions($request, $runtime)
     {
@@ -3261,11 +3476,23 @@ class Yundunbastionhost extends OpenApiClient
         if (!Utils::isUnset($request->assetType)) {
             $query['AssetType'] = $request->assetType;
         }
+        if (!Utils::isUnset($request->databaseSchema)) {
+            $query['DatabaseSchema'] = $request->databaseSchema;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->loginAttribute)) {
+            $query['LoginAttribute'] = $request->loginAttribute;
+        }
+        if (!Utils::isUnset($request->operationMode)) {
+            $query['OperationMode'] = $request->operationMode;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->ssoClient)) {
+            $query['SsoClient'] = $request->ssoClient;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3286,9 +3513,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GenerateAssetOperationTokenRequest $request
+     * @summary Applies for an O&M token.
+     *  *
+     * @param GenerateAssetOperationTokenRequest $request GenerateAssetOperationTokenRequest
      *
-     * @return GenerateAssetOperationTokenResponse
+     * @return GenerateAssetOperationTokenResponse GenerateAssetOperationTokenResponse
      */
     public function generateAssetOperationToken($request)
     {
@@ -3298,10 +3527,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetDatabaseRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Queries the detailed information about a database.
+     *  *
+     * @param GetDatabaseRequest $request GetDatabaseRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDatabaseResponse
+     * @return GetDatabaseResponse GetDatabaseResponse
      */
     public function getDatabaseWithOptions($request, $runtime)
     {
@@ -3335,9 +3566,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetDatabaseRequest $request
+     * @summary Queries the detailed information about a database.
+     *  *
+     * @param GetDatabaseRequest $request GetDatabaseRequest
      *
-     * @return GetDatabaseResponse
+     * @return GetDatabaseResponse GetDatabaseResponse
      */
     public function getDatabase($request)
     {
@@ -3347,10 +3580,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetDatabaseAccountRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the detailed information about a database account.
+     *  *
+     * @param GetDatabaseAccountRequest $request GetDatabaseAccountRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDatabaseAccountResponse
+     * @return GetDatabaseAccountResponse GetDatabaseAccountResponse
      */
     public function getDatabaseAccountWithOptions($request, $runtime)
     {
@@ -3384,9 +3619,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetDatabaseAccountRequest $request
+     * @summary Queries the detailed information about a database account.
+     *  *
+     * @param GetDatabaseAccountRequest $request GetDatabaseAccountRequest
      *
-     * @return GetDatabaseAccountResponse
+     * @return GetDatabaseAccountResponse GetDatabaseAccountResponse
      */
     public function getDatabaseAccount($request)
     {
@@ -3396,10 +3633,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetHostRequest $request
-     * @param RuntimeOptions $runtime
+     * @summary Queries the details of a host, such as the name, source, address, protocol, and service port of the host.
+     *  *
+     * @param GetHostRequest $request GetHostRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetHostResponse
+     * @return GetHostResponse GetHostResponse
      */
     public function getHostWithOptions($request, $runtime)
     {
@@ -3433,9 +3672,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetHostRequest $request
+     * @summary Queries the details of a host, such as the name, source, address, protocol, and service port of the host.
+     *  *
+     * @param GetHostRequest $request GetHostRequest
      *
-     * @return GetHostResponse
+     * @return GetHostResponse GetHostResponse
      */
     public function getHost($request)
     {
@@ -3445,10 +3686,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetHostAccountRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the details of a specified host account.
+     *  *
+     * @param GetHostAccountRequest $request GetHostAccountRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetHostAccountResponse
+     * @return GetHostAccountResponse GetHostAccountResponse
      */
     public function getHostAccountWithOptions($request, $runtime)
     {
@@ -3482,9 +3725,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetHostAccountRequest $request
+     * @summary Queries the details of a specified host account.
+     *  *
+     * @param GetHostAccountRequest $request GetHostAccountRequest
      *
-     * @return GetHostAccountResponse
+     * @return GetHostAccountResponse GetHostAccountResponse
      */
     public function getHostAccount($request)
     {
@@ -3494,10 +3739,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetHostGroupRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries the details of a specified host group.
+     *  *
+     * @param GetHostGroupRequest $request GetHostGroupRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetHostGroupResponse
+     * @return GetHostGroupResponse GetHostGroupResponse
      */
     public function getHostGroupWithOptions($request, $runtime)
     {
@@ -3531,9 +3778,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetHostGroupRequest $request
+     * @summary Queries the details of a specified host group.
+     *  *
+     * @param GetHostGroupRequest $request GetHostGroupRequest
      *
-     * @return GetHostGroupResponse
+     * @return GetHostGroupResponse GetHostGroupResponse
      */
     public function getHostGroup($request)
     {
@@ -3543,10 +3792,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetHostShareKeyRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the information about a shared key.
+     *  *
+     * @param GetHostShareKeyRequest $request GetHostShareKeyRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetHostShareKeyResponse
+     * @return GetHostShareKeyResponse GetHostShareKeyResponse
      */
     public function getHostShareKeyWithOptions($request, $runtime)
     {
@@ -3580,9 +3831,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetHostShareKeyRequest $request
+     * @summary Queries the information about a shared key.
+     *  *
+     * @param GetHostShareKeyRequest $request GetHostShareKeyRequest
      *
-     * @return GetHostShareKeyResponse
+     * @return GetHostShareKeyResponse GetHostShareKeyResponse
      */
     public function getHostShareKey($request)
     {
@@ -3592,11 +3845,13 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * You can call this operation to query the settings of AD authentication on a bastion host. After you configure AD authentication on a bastion host, you can import AD-authenticated users into the bastion host. After the AD-authenticated users are imported into the bastion host, the AD-authenticated users can log on to the bastion host to perform O\\&M operations on servers.
-     *   * ### Limit
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the settings of Active Directory (AD) authentication on a bastion host.
+     *  *
+     * @description ###
+     * You can call this operation to query the settings of AD authentication on a bastion host. After you configure AD authentication on a bastion host, you can import AD-authenticated users into the bastion host. After the AD-authenticated users are imported into the bastion host, the AD-authenticated users can log on to the bastion host to perform O\\&M operations on servers.
+     * ### Limit
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param GetInstanceADAuthServerRequest $request GetInstanceADAuthServerRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -3631,11 +3886,13 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * ###
-     *   * You can call this operation to query the settings of AD authentication on a bastion host. After you configure AD authentication on a bastion host, you can import AD-authenticated users into the bastion host. After the AD-authenticated users are imported into the bastion host, the AD-authenticated users can log on to the bastion host to perform O\\&M operations on servers.
-     *   * ### Limit
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the settings of Active Directory (AD) authentication on a bastion host.
+     *  *
+     * @description ###
+     * You can call this operation to query the settings of AD authentication on a bastion host. After you configure AD authentication on a bastion host, you can import AD-authenticated users into the bastion host. After the AD-authenticated users are imported into the bastion host, the AD-authenticated users can log on to the bastion host to perform O\\&M operations on servers.
+     * ### Limit
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param GetInstanceADAuthServerRequest $request GetInstanceADAuthServerRequest
      *
      * @return GetInstanceADAuthServerResponse GetInstanceADAuthServerResponse
@@ -3648,10 +3905,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceLDAPAuthServerRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the settings of Lightweight Directory Access Protocol (LDAP) authentication on a bastion host.
+     *  *
+     * @param GetInstanceLDAPAuthServerRequest $request GetInstanceLDAPAuthServerRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceLDAPAuthServerResponse
+     * @return GetInstanceLDAPAuthServerResponse GetInstanceLDAPAuthServerResponse
      */
     public function getInstanceLDAPAuthServerWithOptions($request, $runtime)
     {
@@ -3682,9 +3941,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceLDAPAuthServerRequest $request
+     * @summary Queries the settings of Lightweight Directory Access Protocol (LDAP) authentication on a bastion host.
+     *  *
+     * @param GetInstanceLDAPAuthServerRequest $request GetInstanceLDAPAuthServerRequest
      *
-     * @return GetInstanceLDAPAuthServerResponse
+     * @return GetInstanceLDAPAuthServerResponse GetInstanceLDAPAuthServerResponse
      */
     public function getInstanceLDAPAuthServer($request)
     {
@@ -3694,10 +3955,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the settings of two-factor authentication on a bastion host. After you enable two-factor authentication, Bastionhost sends a verification code to a local user when the local user logs on to a bastion host. A local user can log on to the bastion host only when the local user enters the valid username and password and the verification code. This reduces the security risks caused by account information leaks.
-     *   * ### Limit
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the settings of two-factor authentication on a bastion host.
+     *  *
+     * @description You can call this operation to query the settings of two-factor authentication on a bastion host. After you enable two-factor authentication, Bastionhost sends a verification code to a local user when the local user logs on to a bastion host. A local user can log on to the bastion host only when the local user enters the valid username and password and the verification code. This reduces the security risks caused by account information leaks.
+     * ### Limit
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param GetInstanceTwoFactorRequest $request GetInstanceTwoFactorRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -3732,10 +3995,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the settings of two-factor authentication on a bastion host. After you enable two-factor authentication, Bastionhost sends a verification code to a local user when the local user logs on to a bastion host. A local user can log on to the bastion host only when the local user enters the valid username and password and the verification code. This reduces the security risks caused by account information leaks.
-     *   * ### Limit
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the settings of two-factor authentication on a bastion host.
+     *  *
+     * @description You can call this operation to query the settings of two-factor authentication on a bastion host. After you enable two-factor authentication, Bastionhost sends a verification code to a local user when the local user logs on to a bastion host. A local user can log on to the bastion host only when the local user enters the valid username and password and the verification code. This reduces the security risks caused by account information leaks.
+     * ### Limit
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param GetInstanceTwoFactorRequest $request GetInstanceTwoFactorRequest
      *
      * @return GetInstanceTwoFactorResponse GetInstanceTwoFactorResponse
@@ -3748,10 +4013,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetNetworkDomainRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the detailed information about a network domain.
+     *  *
+     * @param GetNetworkDomainRequest $request GetNetworkDomainRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetNetworkDomainResponse
+     * @return GetNetworkDomainResponse GetNetworkDomainResponse
      */
     public function getNetworkDomainWithOptions($request, $runtime)
     {
@@ -3785,9 +4052,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetNetworkDomainRequest $request
+     * @summary Queries the detailed information about a network domain.
+     *  *
+     * @param GetNetworkDomainRequest $request GetNetworkDomainRequest
      *
-     * @return GetNetworkDomainResponse
+     * @return GetNetworkDomainResponse GetNetworkDomainResponse
      */
     public function getNetworkDomain($request)
     {
@@ -3797,10 +4066,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetPolicyRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Queries the detailed information about a control policy.
+     *  *
+     * @param GetPolicyRequest $request GetPolicyRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPolicyResponse
+     * @return GetPolicyResponse GetPolicyResponse
      */
     public function getPolicyWithOptions($request, $runtime)
     {
@@ -3834,9 +4105,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetPolicyRequest $request
+     * @summary Queries the detailed information about a control policy.
+     *  *
+     * @param GetPolicyRequest $request GetPolicyRequest
      *
-     * @return GetPolicyResponse
+     * @return GetPolicyResponse GetPolicyResponse
      */
     public function getPolicy($request)
     {
@@ -3846,10 +4119,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetPolicyAssetScopeRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the assets to which a control policy applies.
+     *  *
+     * @param GetPolicyAssetScopeRequest $request GetPolicyAssetScopeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPolicyAssetScopeResponse
+     * @return GetPolicyAssetScopeResponse GetPolicyAssetScopeResponse
      */
     public function getPolicyAssetScopeWithOptions($request, $runtime)
     {
@@ -3883,9 +4158,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetPolicyAssetScopeRequest $request
+     * @summary Queries the assets to which a control policy applies.
+     *  *
+     * @param GetPolicyAssetScopeRequest $request GetPolicyAssetScopeRequest
      *
-     * @return GetPolicyAssetScopeResponse
+     * @return GetPolicyAssetScopeResponse GetPolicyAssetScopeResponse
      */
     public function getPolicyAssetScope($request)
     {
@@ -3895,10 +4172,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetPolicyUserScopeRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the scope of users to whom a control policy applies.
+     *  *
+     * @param GetPolicyUserScopeRequest $request GetPolicyUserScopeRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPolicyUserScopeResponse
+     * @return GetPolicyUserScopeResponse GetPolicyUserScopeResponse
      */
     public function getPolicyUserScopeWithOptions($request, $runtime)
     {
@@ -3932,9 +4211,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetPolicyUserScopeRequest $request
+     * @summary Queries the scope of users to whom a control policy applies.
+     *  *
+     * @param GetPolicyUserScopeRequest $request GetPolicyUserScopeRequest
      *
-     * @return GetPolicyUserScopeResponse
+     * @return GetPolicyUserScopeResponse GetPolicyUserScopeResponse
      */
     public function getPolicyUserScope($request)
     {
@@ -3944,10 +4225,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetRuleRequest $request
-     * @param RuntimeOptions $runtime
+     * @summary Queries the detailed information about an authorization rule.
+     *  *
+     * @param GetRuleRequest $request GetRuleRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRuleResponse
+     * @return GetRuleResponse GetRuleResponse
      */
     public function getRuleWithOptions($request, $runtime)
     {
@@ -3981,9 +4264,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetRuleRequest $request
+     * @summary Queries the detailed information about an authorization rule.
+     *  *
+     * @param GetRuleRequest $request GetRuleRequest
      *
-     * @return GetRuleResponse
+     * @return GetRuleResponse GetRuleResponse
      */
     public function getRule($request)
     {
@@ -3993,10 +4278,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetUserRequest $request
-     * @param RuntimeOptions $runtime
+     * @summary Queries the details of a user of the specified bastion host.
+     *  *
+     * @param GetUserRequest $request GetUserRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserResponse
+     * @return GetUserResponse GetUserResponse
      */
     public function getUserWithOptions($request, $runtime)
     {
@@ -4030,9 +4317,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetUserRequest $request
+     * @summary Queries the details of a user of the specified bastion host.
+     *  *
+     * @param GetUserRequest $request GetUserRequest
      *
-     * @return GetUserResponse
+     * @return GetUserResponse GetUserResponse
      */
     public function getUser($request)
     {
@@ -4042,10 +4331,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetUserGroupRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries the details of a user group in a bastion host.
+     *  *
+     * @param GetUserGroupRequest $request GetUserGroupRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserGroupResponse
+     * @return GetUserGroupResponse GetUserGroupResponse
      */
     public function getUserGroupWithOptions($request, $runtime)
     {
@@ -4079,9 +4370,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param GetUserGroupRequest $request
+     * @summary Queries the details of a user group in a bastion host.
+     *  *
+     * @param GetUserGroupRequest $request GetUserGroupRequest
      *
-     * @return GetUserGroupResponse
+     * @return GetUserGroupResponse GetUserGroupResponse
      */
     public function getUserGroup($request)
     {
@@ -4091,10 +4384,15 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListApproveCommandsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries commands to be reviewed.
+     *  *
+     * @description You can call this operation to query commands to be reviewed by a Bastionhost administrator.
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ListApproveCommandsRequest $request ListApproveCommandsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListApproveCommandsResponse
+     * @return ListApproveCommandsResponse ListApproveCommandsResponse
      */
     public function listApproveCommandsWithOptions($request, $runtime)
     {
@@ -4131,9 +4429,14 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListApproveCommandsRequest $request
+     * @summary Queries commands to be reviewed.
+     *  *
+     * @description You can call this operation to query commands to be reviewed by a Bastionhost administrator.
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ListApproveCommandsRequest $request ListApproveCommandsRequest
      *
-     * @return ListApproveCommandsResponse
+     * @return ListApproveCommandsResponse ListApproveCommandsResponse
      */
     public function listApproveCommands($request)
     {
@@ -4143,10 +4446,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListDatabaseAccountsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the database accounts of a database.
+     *  *
+     * @param ListDatabaseAccountsRequest $request ListDatabaseAccountsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDatabaseAccountsResponse
+     * @return ListDatabaseAccountsResponse ListDatabaseAccountsResponse
      */
     public function listDatabaseAccountsWithOptions($request, $runtime)
     {
@@ -4189,9 +4494,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListDatabaseAccountsRequest $request
+     * @summary Queries the database accounts of a database.
+     *  *
+     * @param ListDatabaseAccountsRequest $request ListDatabaseAccountsRequest
      *
-     * @return ListDatabaseAccountsResponse
+     * @return ListDatabaseAccountsResponse ListDatabaseAccountsResponse
      */
     public function listDatabaseAccounts($request)
     {
@@ -4201,10 +4508,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListDatabaseAccountsForUserRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the database accounts of a database and whether a user is authorized to manage each database account.
+     *  *
+     * @param ListDatabaseAccountsForUserRequest $request ListDatabaseAccountsForUserRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDatabaseAccountsForUserResponse
+     * @return ListDatabaseAccountsForUserResponse ListDatabaseAccountsForUserResponse
      */
     public function listDatabaseAccountsForUserWithOptions($request, $runtime)
     {
@@ -4250,9 +4559,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListDatabaseAccountsForUserRequest $request
+     * @summary Queries the database accounts of a database and whether a user is authorized to manage each database account.
+     *  *
+     * @param ListDatabaseAccountsForUserRequest $request ListDatabaseAccountsForUserRequest
      *
-     * @return ListDatabaseAccountsForUserResponse
+     * @return ListDatabaseAccountsForUserResponse ListDatabaseAccountsForUserResponse
      */
     public function listDatabaseAccountsForUser($request)
     {
@@ -4262,10 +4573,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListDatabaseAccountsForUserGroupRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Queries the database accounts of a database and whether a user group is authorized to manage each database account.
+     *  *
+     * @param ListDatabaseAccountsForUserGroupRequest $request ListDatabaseAccountsForUserGroupRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDatabaseAccountsForUserGroupResponse
+     * @return ListDatabaseAccountsForUserGroupResponse ListDatabaseAccountsForUserGroupResponse
      */
     public function listDatabaseAccountsForUserGroupWithOptions($request, $runtime)
     {
@@ -4311,9 +4624,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListDatabaseAccountsForUserGroupRequest $request
+     * @summary Queries the database accounts of a database and whether a user group is authorized to manage each database account.
+     *  *
+     * @param ListDatabaseAccountsForUserGroupRequest $request ListDatabaseAccountsForUserGroupRequest
      *
-     * @return ListDatabaseAccountsForUserGroupResponse
+     * @return ListDatabaseAccountsForUserGroupResponse ListDatabaseAccountsForUserGroupResponse
      */
     public function listDatabaseAccountsForUserGroup($request)
     {
@@ -4323,10 +4638,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListDatabasesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the databases that are managed by a bastion host.
+     *  *
+     * @param ListDatabasesRequest $request ListDatabasesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDatabasesResponse
+     * @return ListDatabasesResponse ListDatabasesResponse
      */
     public function listDatabasesWithOptions($request, $runtime)
     {
@@ -4375,9 +4692,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListDatabasesRequest $request
+     * @summary Queries the databases that are managed by a bastion host.
+     *  *
+     * @param ListDatabasesRequest $request ListDatabasesRequest
      *
-     * @return ListDatabasesResponse
+     * @return ListDatabasesResponse ListDatabasesResponse
      */
     public function listDatabases($request)
     {
@@ -4387,10 +4706,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListDatabasesForUserRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the databases that a user is authorized to manage.
+     *  *
+     * @param ListDatabasesForUserRequest $request ListDatabasesForUserRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDatabasesForUserResponse
+     * @return ListDatabasesForUserResponse ListDatabasesForUserResponse
      */
     public function listDatabasesForUserWithOptions($request, $runtime)
     {
@@ -4442,9 +4763,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListDatabasesForUserRequest $request
+     * @summary Queries the databases that a user is authorized to manage.
+     *  *
+     * @param ListDatabasesForUserRequest $request ListDatabasesForUserRequest
      *
-     * @return ListDatabasesForUserResponse
+     * @return ListDatabasesForUserResponse ListDatabasesForUserResponse
      */
     public function listDatabasesForUser($request)
     {
@@ -4454,10 +4777,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListDatabasesForUserGroupRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the databases that a user group is authorized to manage.
+     *  *
+     * @param ListDatabasesForUserGroupRequest $request ListDatabasesForUserGroupRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDatabasesForUserGroupResponse
+     * @return ListDatabasesForUserGroupResponse ListDatabasesForUserGroupResponse
      */
     public function listDatabasesForUserGroupWithOptions($request, $runtime)
     {
@@ -4509,9 +4834,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListDatabasesForUserGroupRequest $request
+     * @summary Queries the databases that a user group is authorized to manage.
+     *  *
+     * @param ListDatabasesForUserGroupRequest $request ListDatabasesForUserGroupRequest
      *
-     * @return ListDatabasesForUserGroupResponse
+     * @return ListDatabasesForUserGroupResponse ListDatabasesForUserGroupResponse
      */
     public function listDatabasesForUserGroup($request)
     {
@@ -4521,10 +4848,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostAccountsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries accounts of a specified host.
+     *  *
+     * @param ListHostAccountsRequest $request ListHostAccountsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHostAccountsResponse
+     * @return ListHostAccountsResponse ListHostAccountsResponse
      */
     public function listHostAccountsWithOptions($request, $runtime)
     {
@@ -4570,9 +4899,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostAccountsRequest $request
+     * @summary Queries accounts of a specified host.
+     *  *
+     * @param ListHostAccountsRequest $request ListHostAccountsRequest
      *
-     * @return ListHostAccountsResponse
+     * @return ListHostAccountsResponse ListHostAccountsResponse
      */
     public function listHostAccounts($request)
     {
@@ -4582,10 +4913,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostAccountsForHostShareKeyRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries the host accounts that are associated with a shared key.
+     *  *
+     * @param ListHostAccountsForHostShareKeyRequest $request ListHostAccountsForHostShareKeyRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHostAccountsForHostShareKeyResponse
+     * @return ListHostAccountsForHostShareKeyResponse ListHostAccountsForHostShareKeyResponse
      */
     public function listHostAccountsForHostShareKeyWithOptions($request, $runtime)
     {
@@ -4625,9 +4958,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostAccountsForHostShareKeyRequest $request
+     * @summary Queries the host accounts that are associated with a shared key.
+     *  *
+     * @param ListHostAccountsForHostShareKeyRequest $request ListHostAccountsForHostShareKeyRequest
      *
-     * @return ListHostAccountsForHostShareKeyResponse
+     * @return ListHostAccountsForHostShareKeyResponse ListHostAccountsForHostShareKeyResponse
      */
     public function listHostAccountsForHostShareKey($request)
     {
@@ -4637,10 +4972,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostAccountsForUserRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the host accounts that the specified user is authorized to manage on the specified host.
+     *  *
+     * @param ListHostAccountsForUserRequest $request ListHostAccountsForUserRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHostAccountsForUserResponse
+     * @return ListHostAccountsForUserResponse ListHostAccountsForUserResponse
      */
     public function listHostAccountsForUserWithOptions($request, $runtime)
     {
@@ -4686,9 +5023,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostAccountsForUserRequest $request
+     * @summary Queries the host accounts that the specified user is authorized to manage on the specified host.
+     *  *
+     * @param ListHostAccountsForUserRequest $request ListHostAccountsForUserRequest
      *
-     * @return ListHostAccountsForUserResponse
+     * @return ListHostAccountsForUserResponse ListHostAccountsForUserResponse
      */
     public function listHostAccountsForUser($request)
     {
@@ -4698,10 +5037,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostAccountsForUserGroupRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the host accounts of the specified host that the specified user group is authorized to manage.
+     *  *
+     * @param ListHostAccountsForUserGroupRequest $request ListHostAccountsForUserGroupRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHostAccountsForUserGroupResponse
+     * @return ListHostAccountsForUserGroupResponse ListHostAccountsForUserGroupResponse
      */
     public function listHostAccountsForUserGroupWithOptions($request, $runtime)
     {
@@ -4747,9 +5088,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostAccountsForUserGroupRequest $request
+     * @summary Queries the host accounts of the specified host that the specified user group is authorized to manage.
+     *  *
+     * @param ListHostAccountsForUserGroupRequest $request ListHostAccountsForUserGroupRequest
      *
-     * @return ListHostAccountsForUserGroupResponse
+     * @return ListHostAccountsForUserGroupResponse ListHostAccountsForUserGroupResponse
      */
     public function listHostAccountsForUserGroup($request)
     {
@@ -4759,10 +5102,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostGroupAccountNamesForUserRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Queries the names of the host accounts that a specified user is authorized to manage in a specified host group.
+     *  *
+     * @param ListHostGroupAccountNamesForUserRequest $request ListHostGroupAccountNamesForUserRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHostGroupAccountNamesForUserResponse
+     * @return ListHostGroupAccountNamesForUserResponse ListHostGroupAccountNamesForUserResponse
      */
     public function listHostGroupAccountNamesForUserWithOptions($request, $runtime)
     {
@@ -4799,9 +5144,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostGroupAccountNamesForUserRequest $request
+     * @summary Queries the names of the host accounts that a specified user is authorized to manage in a specified host group.
+     *  *
+     * @param ListHostGroupAccountNamesForUserRequest $request ListHostGroupAccountNamesForUserRequest
      *
-     * @return ListHostGroupAccountNamesForUserResponse
+     * @return ListHostGroupAccountNamesForUserResponse ListHostGroupAccountNamesForUserResponse
      */
     public function listHostGroupAccountNamesForUser($request)
     {
@@ -4811,10 +5158,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostGroupAccountNamesForUserGroupRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary Queries the names of the host accounts that a user group is authorized to manage in a host group.
+     *  *
+     * @param ListHostGroupAccountNamesForUserGroupRequest $request ListHostGroupAccountNamesForUserGroupRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHostGroupAccountNamesForUserGroupResponse
+     * @return ListHostGroupAccountNamesForUserGroupResponse ListHostGroupAccountNamesForUserGroupResponse
      */
     public function listHostGroupAccountNamesForUserGroupWithOptions($request, $runtime)
     {
@@ -4851,9 +5200,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostGroupAccountNamesForUserGroupRequest $request
+     * @summary Queries the names of the host accounts that a user group is authorized to manage in a host group.
+     *  *
+     * @param ListHostGroupAccountNamesForUserGroupRequest $request ListHostGroupAccountNamesForUserGroupRequest
      *
-     * @return ListHostGroupAccountNamesForUserGroupResponse
+     * @return ListHostGroupAccountNamesForUserGroupResponse ListHostGroupAccountNamesForUserGroupResponse
      */
     public function listHostGroupAccountNamesForUserGroup($request)
     {
@@ -4863,10 +5214,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostGroupsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries a list of asset groups that are managed by a bastion host.
+     *  *
+     * @param ListHostGroupsRequest $request ListHostGroupsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHostGroupsResponse
+     * @return ListHostGroupsResponse ListHostGroupsResponse
      */
     public function listHostGroupsWithOptions($request, $runtime)
     {
@@ -4906,9 +5259,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostGroupsRequest $request
+     * @summary Queries a list of asset groups that are managed by a bastion host.
+     *  *
+     * @param ListHostGroupsRequest $request ListHostGroupsRequest
      *
-     * @return ListHostGroupsResponse
+     * @return ListHostGroupsResponse ListHostGroupsResponse
      */
     public function listHostGroups($request)
     {
@@ -4918,10 +5273,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostGroupsForUserRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries a list of host groups that a bastion host user is authorized or is not authorized to manage.
+     *  *
+     * @param ListHostGroupsForUserRequest $request ListHostGroupsForUserRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHostGroupsForUserResponse
+     * @return ListHostGroupsForUserResponse ListHostGroupsForUserResponse
      */
     public function listHostGroupsForUserWithOptions($request, $runtime)
     {
@@ -4967,9 +5324,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostGroupsForUserRequest $request
+     * @summary Queries a list of host groups that a bastion host user is authorized or is not authorized to manage.
+     *  *
+     * @param ListHostGroupsForUserRequest $request ListHostGroupsForUserRequest
      *
-     * @return ListHostGroupsForUserResponse
+     * @return ListHostGroupsForUserResponse ListHostGroupsForUserResponse
      */
     public function listHostGroupsForUser($request)
     {
@@ -4979,10 +5338,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostGroupsForUserGroupRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the hosts that a specified user group is authorized or not authorized to manage.
+     *  *
+     * @param ListHostGroupsForUserGroupRequest $request ListHostGroupsForUserGroupRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHostGroupsForUserGroupResponse
+     * @return ListHostGroupsForUserGroupResponse ListHostGroupsForUserGroupResponse
      */
     public function listHostGroupsForUserGroupWithOptions($request, $runtime)
     {
@@ -5028,9 +5389,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostGroupsForUserGroupRequest $request
+     * @summary Queries the hosts that a specified user group is authorized or not authorized to manage.
+     *  *
+     * @param ListHostGroupsForUserGroupRequest $request ListHostGroupsForUserGroupRequest
      *
-     * @return ListHostGroupsForUserGroupResponse
+     * @return ListHostGroupsForUserGroupResponse ListHostGroupsForUserGroupResponse
      */
     public function listHostGroupsForUserGroup($request)
     {
@@ -5040,10 +5403,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostShareKeysRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the shared keys that are associated with a host.
+     *  *
+     * @param ListHostShareKeysRequest $request ListHostShareKeysRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHostShareKeysResponse
+     * @return ListHostShareKeysResponse ListHostShareKeysResponse
      */
     public function listHostShareKeysWithOptions($request, $runtime)
     {
@@ -5080,9 +5445,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostShareKeysRequest $request
+     * @summary Queries the shared keys that are associated with a host.
+     *  *
+     * @param ListHostShareKeysRequest $request ListHostShareKeysRequest
      *
-     * @return ListHostShareKeysResponse
+     * @return ListHostShareKeysResponse ListHostShareKeysResponse
      */
     public function listHostShareKeys($request)
     {
@@ -5092,10 +5459,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostsRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Queries the hosts in a bastion host.
+     *  *
+     * @param ListHostsRequest $request ListHostsRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHostsResponse
+     * @return ListHostsResponse ListHostsResponse
      */
     public function listHostsWithOptions($request, $runtime)
     {
@@ -5153,9 +5522,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostsRequest $request
+     * @summary Queries the hosts in a bastion host.
+     *  *
+     * @param ListHostsRequest $request ListHostsRequest
      *
-     * @return ListHostsResponse
+     * @return ListHostsResponse ListHostsResponse
      */
     public function listHosts($request)
     {
@@ -5165,10 +5536,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostsForUserRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the hosts that a user group is authorized or not authorized to manage.
+     *  *
+     * @param ListHostsForUserRequest $request ListHostsForUserRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHostsForUserResponse
+     * @return ListHostsForUserResponse ListHostsForUserResponse
      */
     public function listHostsForUserWithOptions($request, $runtime)
     {
@@ -5220,9 +5593,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostsForUserRequest $request
+     * @summary Queries the hosts that a user group is authorized or not authorized to manage.
+     *  *
+     * @param ListHostsForUserRequest $request ListHostsForUserRequest
      *
-     * @return ListHostsForUserResponse
+     * @return ListHostsForUserResponse ListHostsForUserResponse
      */
     public function listHostsForUser($request)
     {
@@ -5232,10 +5607,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostsForUserGroupRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the hosts that a user group is authorized or not authorized to manage.
+     *  *
+     * @param ListHostsForUserGroupRequest $request ListHostsForUserGroupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHostsForUserGroupResponse
+     * @return ListHostsForUserGroupResponse ListHostsForUserGroupResponse
      */
     public function listHostsForUserGroupWithOptions($request, $runtime)
     {
@@ -5287,9 +5664,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListHostsForUserGroupRequest $request
+     * @summary Queries the hosts that a user group is authorized or not authorized to manage.
+     *  *
+     * @param ListHostsForUserGroupRequest $request ListHostsForUserGroupRequest
      *
-     * @return ListHostsForUserGroupResponse
+     * @return ListHostsForUserGroupResponse ListHostsForUserGroupResponse
      */
     public function listHostsForUserGroup($request)
     {
@@ -5299,10 +5678,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListNetworkDomainsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the network domains created in a bastion host.
+     *  *
+     * @param ListNetworkDomainsRequest $request ListNetworkDomainsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListNetworkDomainsResponse
+     * @return ListNetworkDomainsResponse ListNetworkDomainsResponse
      */
     public function listNetworkDomainsWithOptions($request, $runtime)
     {
@@ -5345,9 +5726,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListNetworkDomainsRequest $request
+     * @summary Queries the network domains created in a bastion host.
+     *  *
+     * @param ListNetworkDomainsRequest $request ListNetworkDomainsRequest
      *
-     * @return ListNetworkDomainsResponse
+     * @return ListNetworkDomainsResponse ListNetworkDomainsResponse
      */
     public function listNetworkDomains($request)
     {
@@ -5357,10 +5740,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListOperationDatabaseAccountsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries a list of database accounts that the current Resource Access Management (RAM) user is authorized to manage.
+     *  *
+     * @param ListOperationDatabaseAccountsRequest $request ListOperationDatabaseAccountsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOperationDatabaseAccountsResponse
+     * @return ListOperationDatabaseAccountsResponse ListOperationDatabaseAccountsResponse
      */
     public function listOperationDatabaseAccountsWithOptions($request, $runtime)
     {
@@ -5403,9 +5788,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListOperationDatabaseAccountsRequest $request
+     * @summary Queries a list of database accounts that the current Resource Access Management (RAM) user is authorized to manage.
+     *  *
+     * @param ListOperationDatabaseAccountsRequest $request ListOperationDatabaseAccountsRequest
      *
-     * @return ListOperationDatabaseAccountsResponse
+     * @return ListOperationDatabaseAccountsResponse ListOperationDatabaseAccountsResponse
      */
     public function listOperationDatabaseAccounts($request)
     {
@@ -5415,10 +5802,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListOperationDatabasesRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries a list of databases that the current Resource Access Management (RAM) user is authorized to manage.
+     *  *
+     * @param ListOperationDatabasesRequest $request ListOperationDatabasesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOperationDatabasesResponse
+     * @return ListOperationDatabasesResponse ListOperationDatabasesResponse
      */
     public function listOperationDatabasesWithOptions($request, $runtime)
     {
@@ -5473,9 +5862,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListOperationDatabasesRequest $request
+     * @summary Queries a list of databases that the current Resource Access Management (RAM) user is authorized to manage.
+     *  *
+     * @param ListOperationDatabasesRequest $request ListOperationDatabasesRequest
      *
-     * @return ListOperationDatabasesResponse
+     * @return ListOperationDatabasesResponse ListOperationDatabasesResponse
      */
     public function listOperationDatabases($request)
     {
@@ -5485,10 +5876,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListOperationHostAccountsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries a list of host accounts that the current Resource Access Management (RAM) user is authorized to manage.
+     *  *
+     * @param ListOperationHostAccountsRequest $request ListOperationHostAccountsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOperationHostAccountsResponse
+     * @return ListOperationHostAccountsResponse ListOperationHostAccountsResponse
      */
     public function listOperationHostAccountsWithOptions($request, $runtime)
     {
@@ -5531,9 +5924,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListOperationHostAccountsRequest $request
+     * @summary Queries a list of host accounts that the current Resource Access Management (RAM) user is authorized to manage.
+     *  *
+     * @param ListOperationHostAccountsRequest $request ListOperationHostAccountsRequest
      *
-     * @return ListOperationHostAccountsResponse
+     * @return ListOperationHostAccountsResponse ListOperationHostAccountsResponse
      */
     public function listOperationHostAccounts($request)
     {
@@ -5543,10 +5938,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListOperationHostsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries a list of hosts that the current Resource Access Management (RAM) user is authorized to manage.
+     *  *
+     * @param ListOperationHostsRequest $request ListOperationHostsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOperationHostsResponse
+     * @return ListOperationHostsResponse ListOperationHostsResponse
      */
     public function listOperationHostsWithOptions($request, $runtime)
     {
@@ -5601,9 +5998,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListOperationHostsRequest $request
+     * @summary Queries a list of hosts that the current Resource Access Management (RAM) user is authorized to manage.
+     *  *
+     * @param ListOperationHostsRequest $request ListOperationHostsRequest
      *
-     * @return ListOperationHostsResponse
+     * @return ListOperationHostsResponse ListOperationHostsResponse
      */
     public function listOperationHosts($request)
     {
@@ -5613,10 +6012,15 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListOperationTicketsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries O\\\\\\&M applications to be reviewed.
+     *  *
+     * @description You can call this operation to query the O\\&M applications to be reviewed by a Bastionhost administrator.
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ListOperationTicketsRequest $request ListOperationTicketsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOperationTicketsResponse
+     * @return ListOperationTicketsResponse ListOperationTicketsResponse
      */
     public function listOperationTicketsWithOptions($request, $runtime)
     {
@@ -5656,9 +6060,14 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListOperationTicketsRequest $request
+     * @summary Queries O\\\\\\&M applications to be reviewed.
+     *  *
+     * @description You can call this operation to query the O\\&M applications to be reviewed by a Bastionhost administrator.
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ListOperationTicketsRequest $request ListOperationTicketsRequest
      *
-     * @return ListOperationTicketsResponse
+     * @return ListOperationTicketsResponse ListOperationTicketsResponse
      */
     public function listOperationTickets($request)
     {
@@ -5668,10 +6077,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListPoliciesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries a list of control policies.
+     *  *
+     * @param ListPoliciesRequest $request ListPoliciesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPoliciesResponse
+     * @return ListPoliciesResponse ListPoliciesResponse
      */
     public function listPoliciesWithOptions($request, $runtime)
     {
@@ -5711,9 +6122,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListPoliciesRequest $request
+     * @summary Queries a list of control policies.
+     *  *
+     * @param ListPoliciesRequest $request ListPoliciesRequest
      *
-     * @return ListPoliciesResponse
+     * @return ListPoliciesResponse ListPoliciesResponse
      */
     public function listPolicies($request)
     {
@@ -5723,10 +6136,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListRulesRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Queries a list of authorization rules of a bastion host.
+     *  *
+     * @param ListRulesRequest $request ListRulesRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRulesResponse
+     * @return ListRulesResponse ListRulesResponse
      */
     public function listRulesWithOptions($request, $runtime)
     {
@@ -5769,9 +6184,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListRulesRequest $request
+     * @summary Queries a list of authorization rules of a bastion host.
+     *  *
+     * @param ListRulesRequest $request ListRulesRequest
      *
-     * @return ListRulesResponse
+     * @return ListRulesResponse ListRulesResponse
      */
     public function listRules($request)
     {
@@ -5781,10 +6198,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListTagKeysRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Queries the tags that are added to a resource.
+     *  *
+     * @param ListTagKeysRequest $request ListTagKeysRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagKeysResponse
+     * @return ListTagKeysResponse ListTagKeysResponse
      */
     public function listTagKeysWithOptions($request, $runtime)
     {
@@ -5821,9 +6240,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListTagKeysRequest $request
+     * @summary Queries the tags that are added to a resource.
+     *  *
+     * @param ListTagKeysRequest $request ListTagKeysRequest
      *
-     * @return ListTagKeysResponse
+     * @return ListTagKeysResponse ListTagKeysResponse
      */
     public function listTagKeys($request)
     {
@@ -5833,10 +6254,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the tags bound to one or more Bastionhost instances.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -5876,9 +6299,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary Queries the tags bound to one or more Bastionhost instances.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -5888,10 +6313,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListUserGroupsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries a list of user groups on a bastion host.
+     *  *
+     * @param ListUserGroupsRequest $request ListUserGroupsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserGroupsResponse
+     * @return ListUserGroupsResponse ListUserGroupsResponse
      */
     public function listUserGroupsWithOptions($request, $runtime)
     {
@@ -5931,9 +6358,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListUserGroupsRequest $request
+     * @summary Queries a list of user groups on a bastion host.
+     *  *
+     * @param ListUserGroupsRequest $request ListUserGroupsRequest
      *
-     * @return ListUserGroupsResponse
+     * @return ListUserGroupsResponse ListUserGroupsResponse
      */
     public function listUserGroups($request)
     {
@@ -5943,10 +6372,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListUserPublicKeysRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries all public keys of the specified user.
+     *  *
+     * @param ListUserPublicKeysRequest $request ListUserPublicKeysRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserPublicKeysResponse
+     * @return ListUserPublicKeysResponse ListUserPublicKeysResponse
      */
     public function listUserPublicKeysWithOptions($request, $runtime)
     {
@@ -5986,9 +6417,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListUserPublicKeysRequest $request
+     * @summary Queries all public keys of the specified user.
+     *  *
+     * @param ListUserPublicKeysRequest $request ListUserPublicKeysRequest
      *
-     * @return ListUserPublicKeysResponse
+     * @return ListUserPublicKeysResponse ListUserPublicKeysResponse
      */
     public function listUserPublicKeys($request)
     {
@@ -5998,10 +6431,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListUsersRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Queries a list of users of a bastion host.
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsersWithOptions($request, $runtime)
     {
@@ -6059,9 +6494,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ListUsersRequest $request
+     * @summary Queries a list of users of a bastion host.
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
      *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsers($request)
     {
@@ -6071,11 +6508,13 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * # Description
-     *   * You can call this operation to lock one or more users of a bastion host. If a user does not need to use a bastion host to perform O\\&M operations within a specific period of time, you can lock the user. The locked user can no longer log on to or perform O\\&M operations on the hosts on which the user is granted permissions. If you want to unlock the user later, you can call the [UnlockUsers](~~204590~~) operation.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Locks one or more users of a bastion host.
+     *  *
+     * @description # Description
+     * You can call this operation to lock one or more users of a bastion host. If a user does not need to use a bastion host to perform O\\&M operations within a specific period of time, you can lock the user. The locked user can no longer log on to or perform O\\&M operations on the hosts on which the user is granted permissions. If you want to unlock the user later, you can call the [UnlockUsers](https://help.aliyun.com/document_detail/204590.html) operation.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param LockUsersRequest $request LockUsersRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -6113,11 +6552,13 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * # Description
-     *   * You can call this operation to lock one or more users of a bastion host. If a user does not need to use a bastion host to perform O\\&M operations within a specific period of time, you can lock the user. The locked user can no longer log on to or perform O\\&M operations on the hosts on which the user is granted permissions. If you want to unlock the user later, you can call the [UnlockUsers](~~204590~~) operation.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Locks one or more users of a bastion host.
+     *  *
+     * @description # Description
+     * You can call this operation to lock one or more users of a bastion host. If a user does not need to use a bastion host to perform O\\&M operations within a specific period of time, you can lock the user. The locked user can no longer log on to or perform O\\&M operations on the hosts on which the user is granted permissions. If you want to unlock the user later, you can call the [UnlockUsers](https://help.aliyun.com/document_detail/204590.html) operation.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param LockUsersRequest $request LockUsersRequest
      *
      * @return LockUsersResponse LockUsersResponse
@@ -6130,10 +6571,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyDatabaseRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Modifies the basic information about a database.
+     *  *
+     * @param ModifyDatabaseRequest $request ModifyDatabaseRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDatabaseResponse
+     * @return ModifyDatabaseResponse ModifyDatabaseResponse
      */
     public function modifyDatabaseWithOptions($request, $runtime)
     {
@@ -6191,9 +6634,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyDatabaseRequest $request
+     * @summary Modifies the basic information about a database.
+     *  *
+     * @param ModifyDatabaseRequest $request ModifyDatabaseRequest
      *
-     * @return ModifyDatabaseResponse
+     * @return ModifyDatabaseResponse ModifyDatabaseResponse
      */
     public function modifyDatabase($request)
     {
@@ -6203,10 +6648,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyDatabaseAccountRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Modifies the basic information about a database account.
+     *  *
+     * @param ModifyDatabaseAccountRequest $request ModifyDatabaseAccountRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDatabaseAccountResponse
+     * @return ModifyDatabaseAccountResponse ModifyDatabaseAccountResponse
      */
     public function modifyDatabaseAccountWithOptions($request, $runtime)
     {
@@ -6249,9 +6696,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyDatabaseAccountRequest $request
+     * @summary Modifies the basic information about a database account.
+     *  *
+     * @param ModifyDatabaseAccountRequest $request ModifyDatabaseAccountRequest
      *
-     * @return ModifyDatabaseAccountResponse
+     * @return ModifyDatabaseAccountResponse ModifyDatabaseAccountResponse
      */
     public function modifyDatabaseAccount($request)
     {
@@ -6261,9 +6710,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyHost operation to modify the basic information about a host in a data center, an Elastic Compute Service (ECS) instance, or a host in an ApsaraDB MyBase dedicated cluster.
-     *   * > The basic information about ECS instances and hosts in ApsaraDB MyBase dedicated clusters within your Alibaba Cloud account is synchronized to Bastionhost on a regular basis. After you modify the basic information about an ECS instance or a host in an ApsaraDB MyBase dedicated cluster, the modification result may be overwritten by the synchronized information.
-     *   *
+     * @summary Modifies information about a host. The information includes the address, name, and description of the host and the operating system that the host runs.
+     *  *
+     * @description You can call the ModifyHost operation to modify the basic information about a host in a data center, an Elastic Compute Service (ECS) instance, or a host in an ApsaraDB MyBase dedicated cluster.
+     * > The basic information about ECS instances and hosts in ApsaraDB MyBase dedicated clusters within your Alibaba Cloud account is synchronized to Bastionhost on a regular basis. After you modify the basic information about an ECS instance or a host in an ApsaraDB MyBase dedicated cluster, the modification result may be overwritten by the synchronized information.
+     *  *
      * @param ModifyHostRequest $request ModifyHostRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -6319,9 +6770,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyHost operation to modify the basic information about a host in a data center, an Elastic Compute Service (ECS) instance, or a host in an ApsaraDB MyBase dedicated cluster.
-     *   * > The basic information about ECS instances and hosts in ApsaraDB MyBase dedicated clusters within your Alibaba Cloud account is synchronized to Bastionhost on a regular basis. After you modify the basic information about an ECS instance or a host in an ApsaraDB MyBase dedicated cluster, the modification result may be overwritten by the synchronized information.
-     *   *
+     * @summary Modifies information about a host. The information includes the address, name, and description of the host and the operating system that the host runs.
+     *  *
+     * @description You can call the ModifyHost operation to modify the basic information about a host in a data center, an Elastic Compute Service (ECS) instance, or a host in an ApsaraDB MyBase dedicated cluster.
+     * > The basic information about ECS instances and hosts in ApsaraDB MyBase dedicated clusters within your Alibaba Cloud account is synchronized to Bastionhost on a regular basis. After you modify the basic information about an ECS instance or a host in an ApsaraDB MyBase dedicated cluster, the modification result may be overwritten by the synchronized information.
+     *  *
      * @param ModifyHostRequest $request ModifyHostRequest
      *
      * @return ModifyHostResponse ModifyHostResponse
@@ -6334,10 +6787,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyHostAccountRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Modifies the information about a host account, such as the username, password, and private key of the host account.
+     *  *
+     * @param ModifyHostAccountRequest $request ModifyHostAccountRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyHostAccountResponse
+     * @return ModifyHostAccountResponse ModifyHostAccountResponse
      */
     public function modifyHostAccountWithOptions($request, $runtime)
     {
@@ -6386,9 +6841,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyHostAccountRequest $request
+     * @summary Modifies the information about a host account, such as the username, password, and private key of the host account.
+     *  *
+     * @param ModifyHostAccountRequest $request ModifyHostAccountRequest
      *
-     * @return ModifyHostAccountResponse
+     * @return ModifyHostAccountResponse ModifyHostAccountResponse
      */
     public function modifyHostAccount($request)
     {
@@ -6398,10 +6855,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyHostGroupRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Modifies the name or description of the specified host group.
+     *  *
+     * @param ModifyHostGroupRequest $request ModifyHostGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyHostGroupResponse
+     * @return ModifyHostGroupResponse ModifyHostGroupResponse
      */
     public function modifyHostGroupWithOptions($request, $runtime)
     {
@@ -6441,9 +6900,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyHostGroupRequest $request
+     * @summary Modifies the name or description of the specified host group.
+     *  *
+     * @param ModifyHostGroupRequest $request ModifyHostGroupRequest
      *
-     * @return ModifyHostGroupResponse
+     * @return ModifyHostGroupResponse ModifyHostGroupResponse
      */
     public function modifyHostGroup($request)
     {
@@ -6453,10 +6914,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyHostShareKeyRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Modifies a shared key.
+     *  *
+     * @param ModifyHostShareKeyRequest $request ModifyHostShareKeyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyHostShareKeyResponse
+     * @return ModifyHostShareKeyResponse ModifyHostShareKeyResponse
      */
     public function modifyHostShareKeyWithOptions($request, $runtime)
     {
@@ -6499,9 +6962,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyHostShareKeyRequest $request
+     * @summary Modifies a shared key.
+     *  *
+     * @param ModifyHostShareKeyRequest $request ModifyHostShareKeyRequest
      *
-     * @return ModifyHostShareKeyResponse
+     * @return ModifyHostShareKeyResponse ModifyHostShareKeyResponse
      */
     public function modifyHostShareKey($request)
     {
@@ -6511,10 +6976,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyHostsActiveAddressTypeRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Changes the portal type of one or more hosts for O\\&M.
+     *  *
+     * @param ModifyHostsActiveAddressTypeRequest $request ModifyHostsActiveAddressTypeRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyHostsActiveAddressTypeResponse
+     * @return ModifyHostsActiveAddressTypeResponse ModifyHostsActiveAddressTypeResponse
      */
     public function modifyHostsActiveAddressTypeWithOptions($request, $runtime)
     {
@@ -6551,9 +7018,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyHostsActiveAddressTypeRequest $request
+     * @summary Changes the portal type of one or more hosts for O\\&M.
+     *  *
+     * @param ModifyHostsActiveAddressTypeRequest $request ModifyHostsActiveAddressTypeRequest
      *
-     * @return ModifyHostsActiveAddressTypeResponse
+     * @return ModifyHostsActiveAddressTypeResponse ModifyHostsActiveAddressTypeResponse
      */
     public function modifyHostsActiveAddressType($request)
     {
@@ -6563,12 +7032,14 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * You can call this operation to change the port for the O&M protocol on one or more hosts. If the standard port for the O&M protocol on your host is vulnerable to attacks, you can call this operation to specify a custom port. For example, the standard port for SSH is port 22.
-     *   * >  Ports 0 to 1024 are reserved for Bastionhost. Do not change the port for the O&M protocol to a reserved port.
-     *   * ## QPS limit
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Changes the port for the O\\\\\\\\\\\\&M protocol on one or more hosts.
+     *  *
+     * @description ## Usage notes
+     * You can call this operation to change the port for the O&M protocol on one or more hosts. If the standard port for the O&M protocol on your host is vulnerable to attacks, you can call this operation to specify a custom port. For example, the standard port for SSH is port 22.
+     * >  Ports 0 to 1024 are reserved for Bastionhost. Do not change the port for the O&M protocol to a reserved port.
+     * ## QPS limit
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyHostsPortRequest $request ModifyHostsPortRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -6612,12 +7083,14 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * You can call this operation to change the port for the O&M protocol on one or more hosts. If the standard port for the O&M protocol on your host is vulnerable to attacks, you can call this operation to specify a custom port. For example, the standard port for SSH is port 22.
-     *   * >  Ports 0 to 1024 are reserved for Bastionhost. Do not change the port for the O&M protocol to a reserved port.
-     *   * ## QPS limit
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Changes the port for the O\\\\\\\\\\\\&M protocol on one or more hosts.
+     *  *
+     * @description ## Usage notes
+     * You can call this operation to change the port for the O&M protocol on one or more hosts. If the standard port for the O&M protocol on your host is vulnerable to attacks, you can call this operation to specify a custom port. For example, the standard port for SSH is port 22.
+     * >  Ports 0 to 1024 are reserved for Bastionhost. Do not change the port for the O&M protocol to a reserved port.
+     * ## QPS limit
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyHostsPortRequest $request ModifyHostsPortRequest
      *
      * @return ModifyHostsPortResponse ModifyHostsPortResponse
@@ -6630,10 +7103,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceADAuthServerRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Modifies the settings of the Active Directory (AD) authentication server of a bastion host.
+     *  *
+     * @param ModifyInstanceADAuthServerRequest $request ModifyInstanceADAuthServerRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceADAuthServerResponse
+     * @return ModifyInstanceADAuthServerResponse ModifyInstanceADAuthServerResponse
      */
     public function modifyInstanceADAuthServerWithOptions($request, $runtime)
     {
@@ -6700,9 +7175,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceADAuthServerRequest $request
+     * @summary Modifies the settings of the Active Directory (AD) authentication server of a bastion host.
+     *  *
+     * @param ModifyInstanceADAuthServerRequest $request ModifyInstanceADAuthServerRequest
      *
-     * @return ModifyInstanceADAuthServerResponse
+     * @return ModifyInstanceADAuthServerResponse ModifyInstanceADAuthServerResponse
      */
     public function modifyInstanceADAuthServer($request)
     {
@@ -6712,10 +7189,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceAttributeRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Modifies the information about a bastion host.
+     *  *
+     * @param ModifyInstanceAttributeRequest $request ModifyInstanceAttributeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceAttributeResponse
+     * @return ModifyInstanceAttributeResponse ModifyInstanceAttributeResponse
      */
     public function modifyInstanceAttributeWithOptions($request, $runtime)
     {
@@ -6749,9 +7228,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceAttributeRequest $request
+     * @summary Modifies the information about a bastion host.
+     *  *
+     * @param ModifyInstanceAttributeRequest $request ModifyInstanceAttributeRequest
      *
-     * @return ModifyInstanceAttributeResponse
+     * @return ModifyInstanceAttributeResponse ModifyInstanceAttributeResponse
      */
     public function modifyInstanceAttribute($request)
     {
@@ -6761,10 +7242,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceLDAPAuthServerRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Modifies the settings of the Lightweight Directory Access Protocol (LDAP) authentication server of a bastion host.
+     *  *
+     * @param ModifyInstanceLDAPAuthServerRequest $request ModifyInstanceLDAPAuthServerRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceLDAPAuthServerResponse
+     * @return ModifyInstanceLDAPAuthServerResponse ModifyInstanceLDAPAuthServerResponse
      */
     public function modifyInstanceLDAPAuthServerWithOptions($request, $runtime)
     {
@@ -6831,9 +7314,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceLDAPAuthServerRequest $request
+     * @summary Modifies the settings of the Lightweight Directory Access Protocol (LDAP) authentication server of a bastion host.
+     *  *
+     * @param ModifyInstanceLDAPAuthServerRequest $request ModifyInstanceLDAPAuthServerRequest
      *
-     * @return ModifyInstanceLDAPAuthServerResponse
+     * @return ModifyInstanceLDAPAuthServerResponse ModifyInstanceLDAPAuthServerResponse
      */
     public function modifyInstanceLDAPAuthServer($request)
     {
@@ -6843,10 +7328,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceTwoFactorRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Modifies the two-factor authentication settings of a bastion host.
+     *  *
+     * @param ModifyInstanceTwoFactorRequest $request ModifyInstanceTwoFactorRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceTwoFactorResponse
+     * @return ModifyInstanceTwoFactorResponse ModifyInstanceTwoFactorResponse
      */
     public function modifyInstanceTwoFactorWithOptions($request, $runtime)
     {
@@ -6886,9 +7373,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceTwoFactorRequest $request
+     * @summary Modifies the two-factor authentication settings of a bastion host.
+     *  *
+     * @param ModifyInstanceTwoFactorRequest $request ModifyInstanceTwoFactorRequest
      *
-     * @return ModifyInstanceTwoFactorResponse
+     * @return ModifyInstanceTwoFactorResponse ModifyInstanceTwoFactorResponse
      */
     public function modifyInstanceTwoFactor($request)
     {
@@ -6898,10 +7387,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyNetworkDomainRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Modifies the basic information about a network domain.
+     *  *
+     * @param ModifyNetworkDomainRequest $request ModifyNetworkDomainRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyNetworkDomainResponse
+     * @return ModifyNetworkDomainResponse ModifyNetworkDomainResponse
      */
     public function modifyNetworkDomainWithOptions($request, $runtime)
     {
@@ -6947,9 +7438,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyNetworkDomainRequest $request
+     * @summary Modifies the basic information about a network domain.
+     *  *
+     * @param ModifyNetworkDomainRequest $request ModifyNetworkDomainRequest
      *
-     * @return ModifyNetworkDomainResponse
+     * @return ModifyNetworkDomainResponse ModifyNetworkDomainResponse
      */
     public function modifyNetworkDomain($request)
     {
@@ -6959,10 +7452,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyPolicyRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Modifies the basic information about a control policy.
+     *  *
+     * @param ModifyPolicyRequest $request ModifyPolicyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyPolicyResponse
+     * @return ModifyPolicyResponse ModifyPolicyResponse
      */
     public function modifyPolicyWithOptions($request, $runtime)
     {
@@ -7005,9 +7500,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyPolicyRequest $request
+     * @summary Modifies the basic information about a control policy.
+     *  *
+     * @param ModifyPolicyRequest $request ModifyPolicyRequest
      *
-     * @return ModifyPolicyResponse
+     * @return ModifyPolicyResponse ModifyPolicyResponse
      */
     public function modifyPolicy($request)
     {
@@ -7017,10 +7514,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyRuleRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Modifies the basic information of an authorization rule.
+     *  *
+     * @param ModifyRuleRequest $request ModifyRuleRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyRuleResponse
+     * @return ModifyRuleResponse ModifyRuleResponse
      */
     public function modifyRuleWithOptions($request, $runtime)
     {
@@ -7081,9 +7580,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyRuleRequest $request
+     * @summary Modifies the basic information of an authorization rule.
+     *  *
+     * @param ModifyRuleRequest $request ModifyRuleRequest
      *
-     * @return ModifyRuleResponse
+     * @return ModifyRuleResponse ModifyRuleResponse
      */
     public function modifyRule($request)
     {
@@ -7093,10 +7594,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyUserRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Modifies the information about a user of a bastion host.
+     *  *
+     * @param ModifyUserRequest $request ModifyUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyUserResponse
+     * @return ModifyUserResponse ModifyUserResponse
      */
     public function modifyUserWithOptions($request, $runtime)
     {
@@ -7169,9 +7672,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyUserRequest $request
+     * @summary Modifies the information about a user of a bastion host.
+     *  *
+     * @param ModifyUserRequest $request ModifyUserRequest
      *
-     * @return ModifyUserResponse
+     * @return ModifyUserResponse ModifyUserResponse
      */
     public function modifyUser($request)
     {
@@ -7181,10 +7686,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyUserGroupRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Modifies the information about the specified user group.
+     *  *
+     * @param ModifyUserGroupRequest $request ModifyUserGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyUserGroupResponse
+     * @return ModifyUserGroupResponse ModifyUserGroupResponse
      */
     public function modifyUserGroupWithOptions($request, $runtime)
     {
@@ -7224,9 +7731,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyUserGroupRequest $request
+     * @summary Modifies the information about the specified user group.
+     *  *
+     * @param ModifyUserGroupRequest $request ModifyUserGroupRequest
      *
-     * @return ModifyUserGroupResponse
+     * @return ModifyUserGroupResponse ModifyUserGroupResponse
      */
     public function modifyUserGroup($request)
     {
@@ -7236,10 +7745,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyUserPublicKeyRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Modifies the public key of the user.
+     *  *
+     * @param ModifyUserPublicKeyRequest $request ModifyUserPublicKeyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyUserPublicKeyResponse
+     * @return ModifyUserPublicKeyResponse ModifyUserPublicKeyResponse
      */
     public function modifyUserPublicKeyWithOptions($request, $runtime)
     {
@@ -7282,9 +7793,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ModifyUserPublicKeyRequest $request
+     * @summary Modifies the public key of the user.
+     *  *
+     * @param ModifyUserPublicKeyRequest $request ModifyUserPublicKeyRequest
      *
-     * @return ModifyUserPublicKeyResponse
+     * @return ModifyUserPublicKeyResponse ModifyUserPublicKeyResponse
      */
     public function modifyUserPublicKey($request)
     {
@@ -7294,10 +7807,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param MoveDatabasesToNetworkDomainRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Adds multiple databases to a network domain at a time.
+     *  *
+     * @param MoveDatabasesToNetworkDomainRequest $request MoveDatabasesToNetworkDomainRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return MoveDatabasesToNetworkDomainResponse
+     * @return MoveDatabasesToNetworkDomainResponse MoveDatabasesToNetworkDomainResponse
      */
     public function moveDatabasesToNetworkDomainWithOptions($request, $runtime)
     {
@@ -7334,9 +7849,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param MoveDatabasesToNetworkDomainRequest $request
+     * @summary Adds multiple databases to a network domain at a time.
+     *  *
+     * @param MoveDatabasesToNetworkDomainRequest $request MoveDatabasesToNetworkDomainRequest
      *
-     * @return MoveDatabasesToNetworkDomainResponse
+     * @return MoveDatabasesToNetworkDomainResponse MoveDatabasesToNetworkDomainResponse
      */
     public function moveDatabasesToNetworkDomain($request)
     {
@@ -7346,10 +7863,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param MoveHostsToNetworkDomainRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Adds multiple hosts to a network domain at a time.
+     *  *
+     * @param MoveHostsToNetworkDomainRequest $request MoveHostsToNetworkDomainRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return MoveHostsToNetworkDomainResponse
+     * @return MoveHostsToNetworkDomainResponse MoveHostsToNetworkDomainResponse
      */
     public function moveHostsToNetworkDomainWithOptions($request, $runtime)
     {
@@ -7386,9 +7905,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param MoveHostsToNetworkDomainRequest $request
+     * @summary Adds multiple hosts to a network domain at a time.
+     *  *
+     * @param MoveHostsToNetworkDomainRequest $request MoveHostsToNetworkDomainRequest
      *
-     * @return MoveHostsToNetworkDomainResponse
+     * @return MoveHostsToNetworkDomainResponse MoveHostsToNetworkDomainResponse
      */
     public function moveHostsToNetworkDomain($request)
     {
@@ -7398,10 +7919,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param MoveResourceGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Moves a bastion host from one resource group to another resource group.
+     *  *
+     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return MoveResourceGroupResponse
+     * @return MoveResourceGroupResponse MoveResourceGroupResponse
      */
     public function moveResourceGroupWithOptions($request, $runtime)
     {
@@ -7438,9 +7961,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param MoveResourceGroupRequest $request
+     * @summary Moves a bastion host from one resource group to another resource group.
+     *  *
+     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
      *
-     * @return MoveResourceGroupResponse
+     * @return MoveResourceGroupResponse MoveResourceGroupResponse
      */
     public function moveResourceGroup($request)
     {
@@ -7450,10 +7975,15 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param RejectApproveCommandRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary If an O\\&M engineer attempts to run a command specified in the Command Approval section of the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+     *  *
+     * @description You can call this operation as a Bastionhost administrator to reject the request to run a command of an O\\&M engineer.
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param RejectApproveCommandRequest $request RejectApproveCommandRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RejectApproveCommandResponse
+     * @return RejectApproveCommandResponse RejectApproveCommandResponse
      */
     public function rejectApproveCommandWithOptions($request, $runtime)
     {
@@ -7487,9 +8017,14 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param RejectApproveCommandRequest $request
+     * @summary If an O\\&M engineer attempts to run a command specified in the Command Approval section of the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+     *  *
+     * @description You can call this operation as a Bastionhost administrator to reject the request to run a command of an O\\&M engineer.
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param RejectApproveCommandRequest $request RejectApproveCommandRequest
      *
-     * @return RejectApproveCommandResponse
+     * @return RejectApproveCommandResponse RejectApproveCommandResponse
      */
     public function rejectApproveCommand($request)
     {
@@ -7499,9 +8034,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * You can call this operation to reject an O\\&M application of an O\\&M engineer as a Bastionhost administrator.
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary If a Bastionhost administrator enables O\\&M Approval on the Create Control Policy page, O\\&M engineers can log on to assets to perform O\\&M operations only after the administrator approves their O\\&M applications.
+     *  *
+     * @description You can call this operation to reject an O\\&M application of an O\\&M engineer as a Bastionhost administrator.
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param RejectOperationTicketRequest $request RejectOperationTicketRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -7511,6 +8048,9 @@ class Yundunbastionhost extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -7539,9 +8079,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * You can call this operation to reject an O\\&M application of an O\\&M engineer as a Bastionhost administrator.
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary If a Bastionhost administrator enables O\\&M Approval on the Create Control Policy page, O\\&M engineers can log on to assets to perform O\\&M operations only after the administrator approves their O\\&M applications.
+     *  *
+     * @description You can call this operation to reject an O\\&M application of an O\\&M engineer as a Bastionhost administrator.
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param RejectOperationTicketRequest $request RejectOperationTicketRequest
      *
      * @return RejectOperationTicketResponse RejectOperationTicketResponse
@@ -7554,10 +8096,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param RemoveDatabasesFromGroupRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Removes multiple databases from an asset group at a time.
+     *  *
+     * @param RemoveDatabasesFromGroupRequest $request RemoveDatabasesFromGroupRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveDatabasesFromGroupResponse
+     * @return RemoveDatabasesFromGroupResponse RemoveDatabasesFromGroupResponse
      */
     public function removeDatabasesFromGroupWithOptions($request, $runtime)
     {
@@ -7594,9 +8138,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param RemoveDatabasesFromGroupRequest $request
+     * @summary Removes multiple databases from an asset group at a time.
+     *  *
+     * @param RemoveDatabasesFromGroupRequest $request RemoveDatabasesFromGroupRequest
      *
-     * @return RemoveDatabasesFromGroupResponse
+     * @return RemoveDatabasesFromGroupResponse RemoveDatabasesFromGroupResponse
      */
     public function removeDatabasesFromGroup($request)
     {
@@ -7606,10 +8152,16 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param RemoveHostsFromGroupRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Removes multiple hosts from an asset group at a time.
+     *  *
+     * @description You can call the RemoveHostsFromGroup operation to remove multiple hosts from an asset group at a time. If you no longer need to manage some hosts in an asset group, you can call this operation to remove the hosts from the asset group.
+     * # [](#qps-)QPS limit
+     * You can call this API operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *  *
+     * @param RemoveHostsFromGroupRequest $request RemoveHostsFromGroupRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveHostsFromGroupResponse
+     * @return RemoveHostsFromGroupResponse RemoveHostsFromGroupResponse
      */
     public function removeHostsFromGroupWithOptions($request, $runtime)
     {
@@ -7646,9 +8198,15 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param RemoveHostsFromGroupRequest $request
+     * @summary Removes multiple hosts from an asset group at a time.
+     *  *
+     * @description You can call the RemoveHostsFromGroup operation to remove multiple hosts from an asset group at a time. If you no longer need to manage some hosts in an asset group, you can call this operation to remove the hosts from the asset group.
+     * # [](#qps-)QPS limit
+     * You can call this API operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *  *
+     * @param RemoveHostsFromGroupRequest $request RemoveHostsFromGroupRequest
      *
-     * @return RemoveHostsFromGroupResponse
+     * @return RemoveHostsFromGroupResponse RemoveHostsFromGroupResponse
      */
     public function removeHostsFromGroup($request)
     {
@@ -7658,10 +8216,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * You can call this operation to remove one or more users from a user group. When users in a user group are transferred to a new position, resign, or are switched to another user group, you can call this operation to remove the users from the current user group at a time.
-     *   * ## QPS limit
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Removes one or more users from a user group.
+     *  *
+     * @description You can call this operation to remove one or more users from a user group. When users in a user group are transferred to a new position, resign, or are switched to another user group, you can call this operation to remove the users from the current user group at a time.
+     * ## QPS limit
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param RemoveUsersFromGroupRequest $request RemoveUsersFromGroupRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -7702,10 +8262,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * You can call this operation to remove one or more users from a user group. When users in a user group are transferred to a new position, resign, or are switched to another user group, you can call this operation to remove the users from the current user group at a time.
-     *   * ## QPS limit
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Removes one or more users from a user group.
+     *  *
+     * @description You can call this operation to remove one or more users from a user group. When users in a user group are transferred to a new position, resign, or are switched to another user group, you can call this operation to remove the users from the current user group at a time.
+     * ## QPS limit
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param RemoveUsersFromGroupRequest $request RemoveUsersFromGroupRequest
      *
      * @return RemoveUsersFromGroupResponse RemoveUsersFromGroupResponse
@@ -7718,10 +8280,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param RenewAssetOperationTokenRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Renews an O\\&M token for one hour.
+     *  *
+     * @param RenewAssetOperationTokenRequest $request RenewAssetOperationTokenRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenewAssetOperationTokenResponse
+     * @return RenewAssetOperationTokenResponse RenewAssetOperationTokenResponse
      */
     public function renewAssetOperationTokenWithOptions($request, $runtime)
     {
@@ -7755,9 +8319,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param RenewAssetOperationTokenRequest $request
+     * @summary Renews an O\\&M token for one hour.
+     *  *
+     * @param RenewAssetOperationTokenRequest $request RenewAssetOperationTokenRequest
      *
-     * @return RenewAssetOperationTokenResponse
+     * @return RenewAssetOperationTokenResponse RenewAssetOperationTokenResponse
      */
     public function renewAssetOperationToken($request)
     {
@@ -7767,10 +8333,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ResetHostAccountCredentialRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Deletes the logon credential of a specified host account. The logon credential can be the password or Secure Shell (SSH) private key.
+     *  *
+     * @param ResetHostAccountCredentialRequest $request ResetHostAccountCredentialRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetHostAccountCredentialResponse
+     * @return ResetHostAccountCredentialResponse ResetHostAccountCredentialResponse
      */
     public function resetHostAccountCredentialWithOptions($request, $runtime)
     {
@@ -7807,9 +8375,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param ResetHostAccountCredentialRequest $request
+     * @summary Deletes the logon credential of a specified host account. The logon credential can be the password or Secure Shell (SSH) private key.
+     *  *
+     * @param ResetHostAccountCredentialRequest $request ResetHostAccountCredentialRequest
      *
-     * @return ResetHostAccountCredentialResponse
+     * @return ResetHostAccountCredentialResponse ResetHostAccountCredentialResponse
      */
     public function resetHostAccountCredential($request)
     {
@@ -7819,10 +8389,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param SetPolicyAccessTimeRangeConfigRequest $tmpReq
-     * @param RuntimeOptions                        $runtime
+     * @summary Configures the logon period limits in a control policy.
+     *  *
+     * @param SetPolicyAccessTimeRangeConfigRequest $tmpReq  SetPolicyAccessTimeRangeConfigRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetPolicyAccessTimeRangeConfigResponse
+     * @return SetPolicyAccessTimeRangeConfigResponse SetPolicyAccessTimeRangeConfigResponse
      */
     public function setPolicyAccessTimeRangeConfigWithOptions($tmpReq, $runtime)
     {
@@ -7864,9 +8436,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param SetPolicyAccessTimeRangeConfigRequest $request
+     * @summary Configures the logon period limits in a control policy.
+     *  *
+     * @param SetPolicyAccessTimeRangeConfigRequest $request SetPolicyAccessTimeRangeConfigRequest
      *
-     * @return SetPolicyAccessTimeRangeConfigResponse
+     * @return SetPolicyAccessTimeRangeConfigResponse SetPolicyAccessTimeRangeConfigResponse
      */
     public function setPolicyAccessTimeRangeConfig($request)
     {
@@ -7876,10 +8450,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param SetPolicyApprovalConfigRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
+     * @summary Configures the O&M approval setting in a control policy.
+     *  *
+     * @param SetPolicyApprovalConfigRequest $tmpReq  SetPolicyApprovalConfigRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetPolicyApprovalConfigResponse
+     * @return SetPolicyApprovalConfigResponse SetPolicyApprovalConfigResponse
      */
     public function setPolicyApprovalConfigWithOptions($tmpReq, $runtime)
     {
@@ -7921,9 +8497,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param SetPolicyApprovalConfigRequest $request
+     * @summary Configures the O&M approval setting in a control policy.
+     *  *
+     * @param SetPolicyApprovalConfigRequest $request SetPolicyApprovalConfigRequest
      *
-     * @return SetPolicyApprovalConfigResponse
+     * @return SetPolicyApprovalConfigResponse SetPolicyApprovalConfigResponse
      */
     public function setPolicyApprovalConfig($request)
     {
@@ -7933,10 +8511,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param SetPolicyAssetScopeRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Specifies the assets to which a control policy applies.
+     *  *
+     * @param SetPolicyAssetScopeRequest $request SetPolicyAssetScopeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetPolicyAssetScopeResponse
+     * @return SetPolicyAssetScopeResponse SetPolicyAssetScopeResponse
      */
     public function setPolicyAssetScopeWithOptions($request, $runtime)
     {
@@ -7982,9 +8562,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param SetPolicyAssetScopeRequest $request
+     * @summary Specifies the assets to which a control policy applies.
+     *  *
+     * @param SetPolicyAssetScopeRequest $request SetPolicyAssetScopeRequest
      *
-     * @return SetPolicyAssetScopeResponse
+     * @return SetPolicyAssetScopeResponse SetPolicyAssetScopeResponse
      */
     public function setPolicyAssetScope($request)
     {
@@ -7994,10 +8576,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param SetPolicyCommandConfigRequest $tmpReq
-     * @param RuntimeOptions                $runtime
+     * @summary Specifies the commands that can or cannot be run by the users or on the assets associated with the policy and the commands that must be reviewed.
+     *  *
+     * @param SetPolicyCommandConfigRequest $tmpReq  SetPolicyCommandConfigRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetPolicyCommandConfigResponse
+     * @return SetPolicyCommandConfigResponse SetPolicyCommandConfigResponse
      */
     public function setPolicyCommandConfigWithOptions($tmpReq, $runtime)
     {
@@ -8039,9 +8623,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param SetPolicyCommandConfigRequest $request
+     * @summary Specifies the commands that can or cannot be run by the users or on the assets associated with the policy and the commands that must be reviewed.
+     *  *
+     * @param SetPolicyCommandConfigRequest $request SetPolicyCommandConfigRequest
      *
-     * @return SetPolicyCommandConfigResponse
+     * @return SetPolicyCommandConfigResponse SetPolicyCommandConfigResponse
      */
     public function setPolicyCommandConfig($request)
     {
@@ -8051,10 +8637,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param SetPolicyIPAclConfigRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * @summary Configures access control settings in a control policy.
+     *  *
+     * @param SetPolicyIPAclConfigRequest $tmpReq  SetPolicyIPAclConfigRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetPolicyIPAclConfigResponse
+     * @return SetPolicyIPAclConfigResponse SetPolicyIPAclConfigResponse
      */
     public function setPolicyIPAclConfigWithOptions($tmpReq, $runtime)
     {
@@ -8096,9 +8684,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param SetPolicyIPAclConfigRequest $request
+     * @summary Configures access control settings in a control policy.
+     *  *
+     * @param SetPolicyIPAclConfigRequest $request SetPolicyIPAclConfigRequest
      *
-     * @return SetPolicyIPAclConfigResponse
+     * @return SetPolicyIPAclConfigResponse SetPolicyIPAclConfigResponse
      */
     public function setPolicyIPAclConfig($request)
     {
@@ -8108,10 +8698,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param SetPolicyProtocolConfigRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
+     * @summary Modify the protocol control settings in a control policy.
+     *  *
+     * @param SetPolicyProtocolConfigRequest $tmpReq  SetPolicyProtocolConfigRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetPolicyProtocolConfigResponse
+     * @return SetPolicyProtocolConfigResponse SetPolicyProtocolConfigResponse
      */
     public function setPolicyProtocolConfigWithOptions($tmpReq, $runtime)
     {
@@ -8153,9 +8745,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param SetPolicyProtocolConfigRequest $request
+     * @summary Modify the protocol control settings in a control policy.
+     *  *
+     * @param SetPolicyProtocolConfigRequest $request SetPolicyProtocolConfigRequest
      *
-     * @return SetPolicyProtocolConfigResponse
+     * @return SetPolicyProtocolConfigResponse SetPolicyProtocolConfigResponse
      */
     public function setPolicyProtocolConfig($request)
     {
@@ -8165,10 +8759,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param SetPolicyUserScopeRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Specifies the users to whom a control policy applies.
+     *  *
+     * @param SetPolicyUserScopeRequest $request SetPolicyUserScopeRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetPolicyUserScopeResponse
+     * @return SetPolicyUserScopeResponse SetPolicyUserScopeResponse
      */
     public function setPolicyUserScopeWithOptions($request, $runtime)
     {
@@ -8211,9 +8807,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param SetPolicyUserScopeRequest $request
+     * @summary Specifies the users to whom a control policy applies.
+     *  *
+     * @param SetPolicyUserScopeRequest $request SetPolicyUserScopeRequest
      *
-     * @return SetPolicyUserScopeResponse
+     * @return SetPolicyUserScopeResponse SetPolicyUserScopeResponse
      */
     public function setPolicyUserScope($request)
     {
@@ -8223,10 +8821,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param StartInstanceRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Enables the specified bastion host.
+     *  *
+     * @param StartInstanceRequest $request StartInstanceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartInstanceResponse
+     * @return StartInstanceResponse StartInstanceResponse
      */
     public function startInstanceWithOptions($request, $runtime)
     {
@@ -8263,9 +8863,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param StartInstanceRequest $request
+     * @summary Enables the specified bastion host.
+     *  *
+     * @param StartInstanceRequest $request StartInstanceRequest
      *
-     * @return StartInstanceResponse
+     * @return StartInstanceResponse StartInstanceResponse
      */
     public function startInstance($request)
     {
@@ -8275,10 +8877,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Creates and adds tags to specified bastion hosts.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -8315,9 +8919,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary Creates and adds tags to specified bastion hosts.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -8327,10 +8933,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * After you call the [LockUsers](~~204591~~) operation to lock one or more users of a bastion host, you can call this operation to unlock the users. After the users are unlocked, the users can perform O\\&M operations by using the bastion host.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Unlocks one or more users of a bastion host.
+     *  *
+     * @description After you call the [LockUsers](https://help.aliyun.com/document_detail/204591.html) operation to lock one or more users of a bastion host, you can call this operation to unlock the users. After the users are unlocked, the users can perform O\\&M operations by using the bastion host.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param UnlockUsersRequest $request UnlockUsersRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -8368,10 +8976,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * After you call the [LockUsers](~~204591~~) operation to lock one or more users of a bastion host, you can call this operation to unlock the users. After the users are unlocked, the users can perform O\\&M operations by using the bastion host.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Unlocks one or more users of a bastion host.
+     *  *
+     * @description After you call the [LockUsers](https://help.aliyun.com/document_detail/204591.html) operation to lock one or more users of a bastion host, you can call this operation to unlock the users. After the users are unlocked, the users can perform O\\&M operations by using the bastion host.
+     * # Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param UnlockUsersRequest $request UnlockUsersRequest
      *
      * @return UnlockUsersResponse UnlockUsersResponse
@@ -8384,10 +8994,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Removes tags from the specified bastion host and deletes the tags at a time.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -8427,9 +9039,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary Removes tags from the specified bastion host and deletes the tags at a time.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -8439,10 +9053,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param VerifyInstanceADAuthServerRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 验证实例AD服务配置
+     *  *
+     * @param VerifyInstanceADAuthServerRequest $request VerifyInstanceADAuthServerRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifyInstanceADAuthServerResponse
+     * @return VerifyInstanceADAuthServerResponse VerifyInstanceADAuthServerResponse
      */
     public function verifyInstanceADAuthServerWithOptions($request, $runtime)
     {
@@ -8500,9 +9116,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param VerifyInstanceADAuthServerRequest $request
+     * @summary 验证实例AD服务配置
+     *  *
+     * @param VerifyInstanceADAuthServerRequest $request VerifyInstanceADAuthServerRequest
      *
-     * @return VerifyInstanceADAuthServerResponse
+     * @return VerifyInstanceADAuthServerResponse VerifyInstanceADAuthServerResponse
      */
     public function verifyInstanceADAuthServer($request)
     {
@@ -8512,10 +9130,12 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param VerifyInstanceLDAPAuthServerRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 验证实例LDAP服务配置
+     *  *
+     * @param VerifyInstanceLDAPAuthServerRequest $request VerifyInstanceLDAPAuthServerRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifyInstanceLDAPAuthServerResponse
+     * @return VerifyInstanceLDAPAuthServerResponse VerifyInstanceLDAPAuthServerResponse
      */
     public function verifyInstanceLDAPAuthServerWithOptions($request, $runtime)
     {
@@ -8570,9 +9190,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @param VerifyInstanceLDAPAuthServerRequest $request
+     * @summary 验证实例LDAP服务配置
+     *  *
+     * @param VerifyInstanceLDAPAuthServerRequest $request VerifyInstanceLDAPAuthServerRequest
      *
-     * @return VerifyInstanceLDAPAuthServerResponse
+     * @return VerifyInstanceLDAPAuthServerResponse VerifyInstanceLDAPAuthServerResponse
      */
     public function verifyInstanceLDAPAuthServer($request)
     {

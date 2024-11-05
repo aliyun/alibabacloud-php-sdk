@@ -12,21 +12,33 @@ use AlibabaCloud\Tea\Model;
 class assetScope extends Model
 {
     /**
+     * @description The databases and database accounts to which the control policy applies.
+     *
      * @var databases[]
      */
     public $databases;
 
     /**
+     * @description The asset groups and asset accounts to which the control policy applies.
+     *
      * @var hostGroups[]
      */
     public $hostGroups;
 
     /**
+     * @description The hosts and host accounts to which the control policy applies.
+     *
      * @var hosts[]
      */
     public $hosts;
 
     /**
+     * @description The scope of assets to which the control policy applies.
+     *
+     *   If **All** is returned for this parameter, the control policy applies to all assets.
+     *
+     *   If no value is returned for this parameter, the control policy applies to the assets specified in the return values of Databases, HostGroups, and Hosts.
+     *
      * @example All
      *
      * @var string

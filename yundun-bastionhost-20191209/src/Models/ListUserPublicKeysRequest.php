@@ -11,7 +11,7 @@ class ListUserPublicKeysRequest extends Model
     /**
      * @description The ID of the bastion host on which you want to query all public keys of the user.
      *
-     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -28,7 +28,7 @@ class ListUserPublicKeysRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.\
+     * @description The number of entries to return on each page.\\
      * > We recommend that you do not leave this parameter empty.
      * @example 50
      *
@@ -39,7 +39,7 @@ class ListUserPublicKeysRequest extends Model
     /**
      * @description The region ID of the bastion host on which you want to query all public keys of the user.
      *
-     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-shanghai
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListApproveCommandsRequest extends Model
 {
     /**
+     * @description The ID of the bastion host.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-zvp2xvysf08
      *
      * @var string
@@ -16,6 +19,9 @@ class ListApproveCommandsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The number of the page. Default value: **1**.
+     *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -23,6 +29,8 @@ class ListApproveCommandsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.\\
+     * This parameter is required.
      * @example 20
      *
      * @var string
@@ -30,6 +38,9 @@ class ListApproveCommandsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-beijing
      *
      * @var string

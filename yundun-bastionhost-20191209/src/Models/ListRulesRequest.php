@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListRulesRequest extends Model
 {
     /**
+     * @description The bastion host ID.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-5yd34ol020a
      *
      * @var string
@@ -16,6 +19,8 @@ class ListRulesRequest extends Model
     public $instanceId;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +28,8 @@ class ListRulesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.\\
+     * > We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var string
@@ -30,6 +37,9 @@ class ListRulesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +47,8 @@ class ListRulesRequest extends Model
     public $regionId;
 
     /**
+     * @description The name of the authorization rule to query. Only exact match is supported.
+     *
      * @example rule
      *
      * @var string
@@ -44,6 +56,11 @@ class ListRulesRequest extends Model
     public $ruleName;
 
     /**
+     * @description The state of the authorization rule to query.
+     *
+     *   **Enabled**
+     *   **Disabled**
+     *
      * @example Enabled
      *
      * @var string

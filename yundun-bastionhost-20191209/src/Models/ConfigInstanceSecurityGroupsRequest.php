@@ -11,6 +11,7 @@ class ConfigInstanceSecurityGroupsRequest extends Model
     /**
      * @description An array that consists of the IDs of authorized security groups.
      *
+     * This parameter is required.
      * @example sg-bp14u00sh39jvw5****
      *
      * @var string[]
@@ -20,7 +21,7 @@ class ConfigInstanceSecurityGroupsRequest extends Model
     /**
      * @description The ID of the bastion host.
      *
-     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-78v1gh****
      *
      * @var string

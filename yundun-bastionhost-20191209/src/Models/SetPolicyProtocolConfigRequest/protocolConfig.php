@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class protocolConfig extends Model
 {
     /**
+     * @description The settings of the Remote Desktop Protocol (RDP) options.
+     *
      * @var RDP
      */
     public $RDP;
 
     /**
+     * @description The settings of the SSH and SSH Fine Transfer Protocol (SFTP) options.
+     *
      * @var SSH
      */
     public $SSH;

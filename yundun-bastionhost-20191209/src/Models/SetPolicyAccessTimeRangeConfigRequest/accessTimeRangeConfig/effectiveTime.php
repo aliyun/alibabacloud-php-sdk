@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class effectiveTime extends Model
 {
     /**
+     * @description The days of the week during which users can log on to the assets.
+     *
      * @var int[]
      */
     public $days;
 
     /**
+     * @description The time periods of the day during which users can log on to the assets.
+     *
      * @var int[]
      */
     public $hours;

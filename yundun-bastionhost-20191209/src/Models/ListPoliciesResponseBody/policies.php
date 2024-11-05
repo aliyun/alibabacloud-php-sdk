@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class policies extends Model
 {
     /**
+     * @description The remarks of the control policy.
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The control policy ID.
+     *
      * @example 2
      *
      * @var string
@@ -21,6 +25,8 @@ class policies extends Model
     public $policyId;
 
     /**
+     * @description The name of the control policy.
+     *
      * @example test
      *
      * @var string
@@ -28,6 +34,8 @@ class policies extends Model
     public $policyName;
 
     /**
+     * @description The priority of the control policy. A smaller value indicates a higher priority.
+     *
      * @example 1
      *
      * @var int

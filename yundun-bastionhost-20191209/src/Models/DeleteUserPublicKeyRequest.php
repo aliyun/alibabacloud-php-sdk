@@ -11,7 +11,7 @@ class DeleteUserPublicKeyRequest extends Model
     /**
      * @description The ID of the Bastionhost instance to which the users to be queried belong.
      *
-     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the Bastionhost instance.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -19,8 +19,9 @@ class DeleteUserPublicKeyRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the public key.
+     * @description The public key ID.
      *
+     * This parameter is required.
      * @example 11
      *
      * @var string
@@ -28,7 +29,7 @@ class DeleteUserPublicKeyRequest extends Model
     public $publicKeyId;
 
     /**
-     * @description The region ID of the bastion host. For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * @description The region ID of the bastion host. For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      *
      * @example cn-hangzhou
      *

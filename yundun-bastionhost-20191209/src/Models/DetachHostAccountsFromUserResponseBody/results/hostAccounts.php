@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class hostAccounts extends Model
 {
     /**
-     * @description The return code that indicates whether permissions on the specified host account were revoked from the user. Valid values:
+     * @description The return code that indicates whether permissions on the specified host accounts were revoked from the user. Valid values:
      *
      *   **OK**: The call was successful.
      *   **UNEXPECTED**: An unknown error occurred.
@@ -24,7 +24,7 @@ class hostAccounts extends Model
     public $code;
 
     /**
-     * @description The ID of the host account.
+     * @description The host account ID.
      *
      * @example 1
      *

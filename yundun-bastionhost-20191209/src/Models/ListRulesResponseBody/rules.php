@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @description The remarks of the authorization rule.
+     *
      * @example comment
      *
      * @var string
@@ -16,6 +18,8 @@ class rules extends Model
     public $comment;
 
     /**
+     * @description The end time of the validity period of the authorization rule. The value is a timestamp. Unit: seconds.
+     *
      * @example 1709258400
      *
      * @var int
@@ -23,6 +27,8 @@ class rules extends Model
     public $effectiveEndTime;
 
     /**
+     * @description The start time of the validity period of the authorization rule. The value is a timestamp. Unit: seconds.
+     *
      * @example 1685499134
      *
      * @var int
@@ -30,6 +36,8 @@ class rules extends Model
     public $effectiveStartTime;
 
     /**
+     * @description The authorization rule ID.
+     *
      * @example 13
      *
      * @var string
@@ -37,6 +45,8 @@ class rules extends Model
     public $ruleId;
 
     /**
+     * @description The name of the authorization rule.
+     *
      * @example rule
      *
      * @var string
@@ -44,6 +54,11 @@ class rules extends Model
     public $ruleName;
 
     /**
+     * @description The state of the authorization rule.
+     *
+     *   **Enabled**
+     *   **Disabled**
+     *
      * @example Enabled
      *
      * @var string

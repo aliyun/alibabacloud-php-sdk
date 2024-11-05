@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class accessTimeRangeConfig extends Model
 {
     /**
+     * @description The details about the periods during which users can log on to the assets.
+     *
      * @var effectiveTime[]
      */
     public $effectiveTime;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class hostGroups extends Model
 {
     /**
+     * @description The asset accounts to which the control policy applies.
+     *
+     * > This parameter is required if AccountScopeType is set to AccountName.
      * @var string[]
      */
     public $accountNames;
 
     /**
+     * @description The scope of asset accounts to which the control policy applies. Valid values:
+     *
+     * **All**: The control policy applies to all accounts in the asset group.
+     * **AccountName**: The control policy applies to specified accounts in the asset group.
+     *
      * @example All
      *
      * @var string
@@ -21,6 +29,8 @@ class hostGroups extends Model
     public $accountScopeType;
 
     /**
+     * @description The asset group ID.
+     *
      * @example 86
      *
      * @var string

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class SetPolicyCommandConfigShrinkRequest extends Model
 {
     /**
+     * @description The command control settings.
+     *
+     * This parameter is required.
      * @var string
      */
     public $commandConfigShrink;
 
     /**
+     * @description The bastion host ID.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-78v1ghxxxxx
      *
      * @var string
@@ -21,6 +27,9 @@ class SetPolicyCommandConfigShrinkRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the control policy that you want to modify.
+     *
+     * This parameter is required.
      * @example 45
      *
      * @var string
@@ -28,6 +37,9 @@ class SetPolicyCommandConfigShrinkRequest extends Model
     public $policyId;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

@@ -11,6 +11,7 @@ class CreateHostShareKeyRequest extends Model
     /**
      * @description The name of the shared key that you want to create. The name can be a maximum of 128 characters in length.
      *
+     * This parameter is required.
      * @example name
      *
      * @var string
@@ -18,8 +19,9 @@ class CreateHostShareKeyRequest extends Model
     public $hostShareKeyName;
 
     /**
-     * @description The ID of the bastion host. You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * @description The bastion host ID.
      *
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -38,6 +40,7 @@ class CreateHostShareKeyRequest extends Model
     /**
      * @description The private key. The value is a Base64-encoded string.
      *
+     * This parameter is required.
      * @example ****
      *
      * @var string
@@ -45,8 +48,9 @@ class CreateHostShareKeyRequest extends Model
     public $privateKey;
 
     /**
-     * @description The region ID of the bastion host. For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * @description The region ID of the bastion host.
      *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

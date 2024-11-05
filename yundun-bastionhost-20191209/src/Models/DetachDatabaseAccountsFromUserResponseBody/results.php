@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @description The error code that is returned. If **OK** is returned, the operation was successful. If another error code is returned, the operation failed.
+     *
      * @example OK
      *
      * @var string
@@ -17,11 +19,15 @@ class results extends Model
     public $code;
 
     /**
+     * @description A list that shows the operation results of the database accounts.
+     *
      * @var databaseAccounts[]
      */
     public $databaseAccounts;
 
     /**
+     * @description The ID of the database on which the permissions are revoked.
+     *
      * @example 4
      *
      * @var string
@@ -29,11 +35,15 @@ class results extends Model
     public $databaseId;
 
     /**
+     * @description The error message that is returned.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The user ID.
+     *
      * @example 1
      *
      * @var string

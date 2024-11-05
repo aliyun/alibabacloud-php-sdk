@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDatabaseResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 162088A7-7D47-56A3-9D04-93DE7B6DBE1C
      *
      * @var string

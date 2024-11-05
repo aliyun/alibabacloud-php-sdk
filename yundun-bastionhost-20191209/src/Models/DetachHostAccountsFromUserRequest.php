@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DetachHostAccountsFromUserRequest extends Model
 {
     /**
-     * @description The IDs of the host and host account on which you want to revoke permissions from the user. You can specify up to 10 host IDs and up to 10 host account IDs for each host. You can specify only host IDs. In this case, the permissions on both the specified hosts and all host accounts of the hosts are revoked from the user. For more information about this parameter, see the "Description of the Hosts parameter" section of this topic.
+     * @description The IDs of the hosts and host accounts on which you want to revoke permissions from the user. You can specify up to 10 host IDs and up to 10 host account IDs for each host. You can specify only host IDs. In this case, the permissions on the specified hosts and all accounts of the hosts are revoked from the user. For more information about this parameter, see the Description of the Hosts parameter section of this topic.
      *
-     * >  You can call the [ListHosts](~~200665~~) operation to query the ID of the host and the [ListHostAccounts](~~204372~~) operation to query the ID of the host account.
+     * This parameter is required.
      * @example [ {"HostId":"1"}, {"HostId":"2","HostAccountIds":["1","2","3"]}, {"HostId":"3","HostAccountIds":["4","5","6"]}, {"HostId":"4","HostAccountIds":["9","8","7"]} ]
      *
      * @var string
@@ -19,9 +19,9 @@ class DetachHostAccountsFromUserRequest extends Model
     public $hosts;
 
     /**
-     * @description The ID of the bastion host in which you want to revoke permissions on the specified hosts and host accounts from the user.
+     * @description The ID of the bastion host on which you want to revoke permissions on the specified hosts and host accounts from the user.
      *
-     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -29,9 +29,9 @@ class DetachHostAccountsFromUserRequest extends Model
     public $instanceId;
 
     /**
-     * @description The region ID of the bastion host in which you want to revoke permissions on the specified hosts and host accounts from the user.
+     * @description The region ID of the bastion host on which you want to revoke permissions on the specified hosts and host accounts from the user.
      *
-     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -39,9 +39,9 @@ class DetachHostAccountsFromUserRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the user from which you want to revoke permissions on the specified hosts and host accounts.
+     * @description The ID of the user from whom you want to revoke permissions on the specified hosts and host accounts.
      *
-     * >  You can call the [ListUsers](~~204522~~) operation to query the ID of the user.
+     * This parameter is required.
      * @example 1
      *
      * @var string

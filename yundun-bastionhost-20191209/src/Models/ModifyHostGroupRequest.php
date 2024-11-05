@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyHostGroupRequest extends Model
 {
     /**
-     * @description The new description of the host group. The value can be up to 500 characters in length.
+     * @description The new remarks of the asset group. The remarks can be up to 500 characters in length.
      *
      * @example comment
      *
@@ -18,9 +18,9 @@ class ModifyHostGroupRequest extends Model
     public $comment;
 
     /**
-     * @description The ID of the host group that you want to modify.
+     * @description The ID of the asset group that you want to modify.
      *
-     * > You can call the [ListHostGroups](~~201307~~) operation to query the ID of the host group.
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -28,7 +28,7 @@ class ModifyHostGroupRequest extends Model
     public $hostGroupId;
 
     /**
-     * @description The new name of the host group. The name can be up to 128 characters in length.
+     * @description The new name of the asset group. The name can be up to 128 characters in length.
      *
      * @example Group01
      *
@@ -37,9 +37,9 @@ class ModifyHostGroupRequest extends Model
     public $hostGroupName;
 
     /**
-     * @description The ID of the bastion host on which you want to modify the information about the host group.
+     * @description The ID of the bastion host whose asset group you want to modify.
      *
-     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -47,9 +47,9 @@ class ModifyHostGroupRequest extends Model
     public $instanceId;
 
     /**
-     * @description The region ID of the bastion host on which you want to modify the information about the host group.
+     * @description The region ID of the bastion host whose asset group you want to modify.
      *
-     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

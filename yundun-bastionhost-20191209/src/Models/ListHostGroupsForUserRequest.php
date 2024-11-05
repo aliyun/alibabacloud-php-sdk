@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListHostGroupsForUserRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The name of the host group to query. The name can be up to 128 characters in length. Only exact match is supported.
      *
      * @example group
      *
@@ -18,8 +18,9 @@ class ListHostGroupsForUserRequest extends Model
     public $hostGroupName;
 
     /**
-     * @description The host groups returned.
+     * @description The ID of the bastion host whose user you want to query.
      *
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -27,9 +28,11 @@ class ListHostGroupsForUserRequest extends Model
     public $instanceId;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The category of the host groups to query. Valid values:
      *
-     * >  We recommend that you do not leave the PageSize parameter empty.
+     *   **Authorized** (default): queries the host groups that the user is authorized to manage.
+     *   **Unauthorized**: queries the host groups that the user is not authorized to manage.
+     *
      * @example Authorized
      *
      * @var string
@@ -37,7 +40,7 @@ class ListHostGroupsForUserRequest extends Model
     public $mode;
 
     /**
-     * @description The ID of the host group.
+     * @description The page number. Default value: **1**.
      *
      * @example １
      *
@@ -46,9 +49,8 @@ class ListHostGroupsForUserRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the user.
-     *
-     * >  You can call the [ListUsers](~~204522~~) operation to query the ID of the user.
+     * @description The number of entries per page.\\
+     * >  We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var string
@@ -56,8 +58,9 @@ class ListHostGroupsForUserRequest extends Model
     public $pageSize;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The region ID of the bastion host whose user you want to query.
      *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -65,9 +68,9 @@ class ListHostGroupsForUserRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the Bastionhost instance where you want to query the host groups that the user is authorized or not authorized to manage.
+     * @description The user ID.
      *
-     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the Bastionhost instance.
+     * This parameter is required.
      * @example １
      *
      * @var string

@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class RejectOperationTicketRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $comment;
+
+    /**
      * @description The ID of the bastion host.
      *
-     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -19,8 +24,9 @@ class RejectOperationTicketRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the O\&M application that you want to reject. You can call the ListOperationTickets operation to query the IDs of all O\&M applications that require review.
+     * @description The ID of the O\\&M application that you want to reject.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var string
@@ -30,13 +36,14 @@ class RejectOperationTicketRequest extends Model
     /**
      * @description The region ID of the bastion host.
      *
-     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
+        'comment'           => 'Comment',
         'instanceId'        => 'InstanceId',
         'operationTicketId' => 'OperationTicketId',
         'regionId'          => 'RegionId',
@@ -49,6 +56,9 @@ class RejectOperationTicketRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -70,6 +80,9 @@ class RejectOperationTicketRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

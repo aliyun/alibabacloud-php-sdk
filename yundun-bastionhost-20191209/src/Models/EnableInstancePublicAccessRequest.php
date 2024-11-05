@@ -11,7 +11,7 @@ class EnableInstancePublicAccessRequest extends Model
     /**
      * @description The ID of the bastion host.
      *
-     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-78v1gh****
      *
      * @var string

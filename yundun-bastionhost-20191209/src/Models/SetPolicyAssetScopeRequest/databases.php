@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class databases extends Model
 {
     /**
+     * @description The scope of database accounts to which the control policy applies. Valid values:
+     *
+     *   **All**: The control policy applies to all database accounts of the database.
+     *   **AccountId**: The control policy applies to specified database accounts of the database.
+     *
      * @example AccountId
      *
      * @var string
@@ -16,11 +21,16 @@ class databases extends Model
     public $accountScopeType;
 
     /**
+     * @description The database accounts to which the control policy applies.
+     *
+     * >  This parameter is required if AccountScopeType is set to AccountId.
      * @var string[]
      */
     public $databaseAccountIds;
 
     /**
+     * @description The database ID.
+     *
      * @example 3
      *
      * @var string

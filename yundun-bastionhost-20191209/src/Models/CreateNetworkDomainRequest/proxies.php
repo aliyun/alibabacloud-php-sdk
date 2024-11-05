@@ -9,13 +9,19 @@ use AlibabaCloud\Tea\Model;
 class proxies extends Model
 {
     /**
-     * @example 47.104.**。**
+     * @description The IP address of the proxy server.
+     *
+     * @example ``47.104.**.**``
      *
      * @var string
      */
     public $address;
 
     /**
+     * @description The node type of the proxy server. Valid values:
+     *
+     * - **Master**: primary proxy server.
+     * - **Slave**: secondary proxy server.
      * @example Master
      *
      * @var string
@@ -23,6 +29,8 @@ class proxies extends Model
     public $nodeType;
 
     /**
+     * @description The Base64-encoded password of the proxy server.
+     *
      * @example ***
      *
      * @var string
@@ -30,6 +38,8 @@ class proxies extends Model
     public $password;
 
     /**
+     * @description The port of the proxy server.
+     *
      * @example 22
      *
      * @var int
@@ -37,6 +47,11 @@ class proxies extends Model
     public $port;
 
     /**
+     * @description The proxy type. Valid values:
+     *
+     * - **SSHProxy**
+     * - **HTTPProxy**
+     * - **Socks5Proxy**
      * @example SSHProxy
      *
      * @var string
@@ -44,6 +59,8 @@ class proxies extends Model
     public $proxyType;
 
     /**
+     * @description The username of the proxy server.
+     *
      * @example root
      *
      * @var string

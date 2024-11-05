@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyNetworkDomainRequest extends Model
 {
     /**
+     * @description The new remarks of the network domain.
+     *
      * @example xxx
      *
      * @var string
@@ -17,6 +19,9 @@ class ModifyNetworkDomainRequest extends Model
     public $comment;
 
     /**
+     * @description The ID of the bastion host to which the network domain to modify belongs.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-x0r3hyr3f09
      *
      * @var string
@@ -24,6 +29,9 @@ class ModifyNetworkDomainRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the network domain to modify.
+     *
+     * This parameter is required.
      * @example 3
      *
      * @var string
@@ -31,6 +39,8 @@ class ModifyNetworkDomainRequest extends Model
     public $networkDomainId;
 
     /**
+     * @description The new name of the network domain.
+     *
      * @example test
      *
      * @var string
@@ -38,6 +48,11 @@ class ModifyNetworkDomainRequest extends Model
     public $networkDomainName;
 
     /**
+     * @description The new connection mode of the network domain. Valid values:
+     *
+     *   **Direct**
+     *   **Proxy**
+     *
      * @example Proxy
      *
      * @var string
@@ -45,11 +60,16 @@ class ModifyNetworkDomainRequest extends Model
     public $networkDomainType;
 
     /**
+     * @description The information about the proxy servers in the network domain.
+     *
      * @var proxies[]
      */
     public $proxies;
 
     /**
+     * @description The region ID of the bastion host to which the network domain to modify belongs.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

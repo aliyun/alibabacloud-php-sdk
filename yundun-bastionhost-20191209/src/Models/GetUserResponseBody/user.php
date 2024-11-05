@@ -54,11 +54,24 @@ class user extends Model
     public $email;
 
     /**
+     * @description This parameter is required if LanguageStatus is set to Custom.
+     *
+     * - **zh-cn**: simplified Chinese.
+     * - **en**: English.
+     * @example en
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @description Indicates whether notifications are sent in the language specified in the global settings or a custom language.
+     *
+     *   **Global**: Global
+     *   **Custom**: Custom
+     *
+     * @example Custom
+     *
      * @var string
      */
     public $languageStatus;

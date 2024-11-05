@@ -18,8 +18,9 @@ class CreateUserRequest extends Model
     public $comment;
 
     /**
-     * @description The display name of the user that you want to add. This display name can be up to 128 characters in length.
+     * @description The display name of the user that you want to add. The display name can be up to 128 characters in length.
      *
+     * >  If you leave this parameter empty, the logon name is used as the display name.
      * @example Bob
      *
      * @var string
@@ -27,7 +28,7 @@ class CreateUserRequest extends Model
     public $displayName;
 
     /**
-     * @description The end of the validity period of the user. The value is a UNIX timestamp. Unit: seconds.
+     * @description The end time of the validity period of the user. Specify a UNIX timestamp. Unit: seconds.
      *
      * @example 1672502400
      *
@@ -36,7 +37,7 @@ class CreateUserRequest extends Model
     public $effectiveEndTime;
 
     /**
-     * @description The beginning of the validity period of the user. The value is a UNIX timestamp. Unit: seconds.
+     * @description The start time of the validity period of the user. Specify a UNIX timestamp. Unit: seconds.
      *
      * @example 1669630029
      *
@@ -47,6 +48,12 @@ class CreateUserRequest extends Model
     /**
      * @description The email address of the user that you want to add.
      *
+     * >
+     *
+     *   This parameter is required if TwoFactorStatus is set to Enable and TwoFactorMethods is set to email, or if TwoFactorStatus is set to Global and TwoFactorMethods is set to email in the global two-factor authentication settings.
+     *
+     *   You can call the [GetInstanceTwoFactor](https://help.aliyun.com/document_detail/462968.html) operation to query the global two-factor authentication settings.
+     *
      * @example username@example.com
      *
      * @var string
@@ -56,7 +63,7 @@ class CreateUserRequest extends Model
     /**
      * @description The ID of the bastion host to which you want to add a user.
      *
-     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -64,17 +71,38 @@ class CreateUserRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required if LanguageStatus is set to Custom. Valid values:
+     *
+     *   **zh-cn**: simplified Chinese.
+     *   **en**: English.
+     *
+     * @example en
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @description Specifies whether to send notifications in the language specified in the global settings or a custom language.
+     *
+     *   **Global**
+     *   **Custom**
+     *
+     * >  If you leave this parameter empty, the default value Global is used.
+     * @example Custom
+     *
      * @var string
      */
     public $languageStatus;
 
     /**
      * @description The mobile phone number of the user that you want to add.
+     *
+     * >
+     *
+     *   This parameter is required if TwoFactorStatus is set to Enable and TwoFactorMethods is set to sms or dingtalk, or if TwoFactorStatus is set to Global and TwoFactorMethods is set to sms or dingtalk in the global two-factor authentication settings.
+     *
+     *   You can call the [GetInstanceTwoFactor](https://help.aliyun.com/document_detail/462968.html) operation to query the global two-factor authentication settings.
      *
      * @example 1359999****
      *
@@ -83,27 +111,28 @@ class CreateUserRequest extends Model
     public $mobile;
 
     /**
-     * @description The country where the mobile number of the user is registered. Default value: **CN**. Valid values:
+     * @description The location where the mobile phone number of the user is registered. Default value: CN. Valid values:
      *
-     *   **CN**: the Chinese mainland, whose country calling code is +86
-     *   **HK**: Hong Kong (China), whose country calling code is +852
-     *   **MO**: Macau (China), whose country calling code is +853
-     *   **TW**: Taiwan (China), whose country calling code is +886
-     *   **RU**: Russia, whose country calling code is +7
-     *   **SG**: Singapore, whose country calling code is +65
-     *   **MY**: Malaysia, whose country calling code is +60
-     *   **ID**: Indonesia, whose country calling code is +62
-     *   **DE**: Germany, whose country calling code is +49
-     *   **AU**: Australia, whose country calling code is +61
-     *   **US**: US, whose country calling code is +1
-     *   **AE**: United Arab Emirates, whose country calling code is +971
-     *   **JP**: Japan, whose country calling code is +81
-     *   **GB**: UK, whose country calling code is +44
-     *   **IN**: India, whose country calling code is +91
-     *   **KR**: Republic of Korea, whose country calling code is +82
-     *   **PH**: Philippines, whose country calling code is +63
-     *   **CH**: Switzerland, whose country calling code is +41
-     *   **SE**: Sweden, whose country calling code is +46
+     *   **CN**: the Chinese mainland, whose international dialing code is +86.
+     *   **HK**: Hong Kong (China), whose international dialing code is +852.
+     *   **MO**: Macao (China), whose international dialing code is +853.
+     *   **TW**: Taiwan (China), whose international dialing code is +886.
+     *   **RU**: Russia, whose international dialing code is +7.
+     *   **SG**: Singapore, whose international dialing code is +65.
+     *   **MY**: Malaysia, whose international dialing code is +60.
+     *   **ID**: Indonesia, whose international dialing code is +62.
+     *   **DE**: Germany, whose international dialing code is +49.
+     *   **AU**: Australia, whose international dialing code is +61.
+     *   **US**: US, whose international dialing code is +1.
+     *   **AE**: United Arab Emirates, whose international dialing code is +971.
+     *   **JP**: Japan, whose international dialing code is +81.
+     *   **GB**: UK, whose international dialing code is +44.
+     *   **IN**: India, whose international dialing code is +91.
+     *   **KR**: Republic of Korea, whose international dialing code is +82.
+     *   **PH**: Philippines, whose international dialing code is +63.
+     *   **CH**: Switzerland, whose international dialing code is +41.
+     *   **SE:** Sweden, whose international dialing code is +46.
+     *   **SA:** Saudi Arabia, whose international dialing code is +966.
      *
      * @example CN
      *
@@ -114,7 +143,10 @@ class CreateUserRequest extends Model
     /**
      * @description Specifies whether password reset is required upon the next logon. Valid values:
      *
-     * - false: no
+     *   **true**
+     *   **false**
+     *
+     * >  If you leave this parameter empty, the default value false is used.
      * @example true
      *
      * @var bool
@@ -122,9 +154,9 @@ class CreateUserRequest extends Model
     public $needResetPassword;
 
     /**
-     * @description The logon password of the user that you want to add. The logon password can be up to 128 characters in length.
+     * @description The logon password of the user that you want to add. The logon password must be 8 to 128 characters in length. It must contain uppercase letters, lowercase letters, digits, and special characters.
      *
-     * >  This parameter is required if the **Source** parameter is set to **Local**.
+     * > This parameter is required if Source is set to Local.
      * @example 213****
      *
      * @var string
@@ -134,7 +166,7 @@ class CreateUserRequest extends Model
     /**
      * @description The region ID of the bastion host to which you want to add a user.
      *
-     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -142,12 +174,14 @@ class CreateUserRequest extends Model
     public $regionId;
 
     /**
-     * @description The source of the user that you want to add. Valid values:
+     * @description The type of the user that you want to add. Valid values:
      *
-     * - **Local**: a local user
-     * - **Ram**: a RAM user
-     * - **AD** : an AD-authenticated user
-     * - **LDAP** : an LDAP-authenticated user
+     *   **Local**: a local user.
+     *   **Ram**: a RAM user.
+     *   **AD**: an AD-authenticated user.
+     *   **LDAP**: an LDAP-authenticated user.
+     *
+     * This parameter is required.
      * @example local
      *
      * @var string
@@ -155,9 +189,14 @@ class CreateUserRequest extends Model
     public $source;
 
     /**
-     * @description The unique identifier of the user that you want to add.
+     * @description The unique ID of the user that you want to add.
      *
-     * >  This parameter uniquely identifies a RAM user of the bastion host. This parameter is required if the **Source** parameter is set to **Ram**. You can call the [ListUsers](~~28684~~) operation to obtain the unique identifier of the user from the **UserId** response parameter.
+     * >
+     *
+     *   This parameter uniquely identifies a RAM user of the bastion host. This parameter is required if Source is set to Ram. You can call the [ListUsers](https://help.aliyun.com/document_detail/28684.html) operation in RAM to obtain the unique ID of the user from the UserId response parameter.
+     *
+     *   This parameter is required if Source is set to AD or LDAP. Specify the distinguished name (DN) of the Active Directory (AD)-authenticated user or Lightweight Directory Access Protocol (LDAP)-authenticated user that you want to add.
+     *
      * @example 122748924538****
      *
      * @var string
@@ -167,12 +206,12 @@ class CreateUserRequest extends Model
     /**
      * @description The two-factor authentication method. You can select only one method. Valid values:
      *
-     *   **sms:** text message
-     *   **email:** email
-     *   **dingtalk:** DingTalk
-     *   **totp OTP:** time-based one-time password (TOTP) app
+     *   **sms**: text message-based two-factor authentication.
+     *   **email**: email-based two-factor authentication.
+     *   **dingtalk**: DingTalk-based two-factor authentication.
+     *   **totp OTP**: one-time password (OTP) token-based two-factor authentication.
      *
-     * > *   When the TwoFactorStatus parameter is set to Enable, you must specify one of the preceding values.
+     * >  If TwoFactorStatus is set to Enable, you must select one of the preceding values for TwoFactorMethods.
      * @example ["sms"]
      *
      * @var string
@@ -180,9 +219,13 @@ class CreateUserRequest extends Model
     public $twoFactorMethods;
 
     /**
-     * @description The two-factor authentication status of the user. Valid values:
+     * @description Specifies whether two-factor authentication is enabled for the user. Valid values:
      *
-     * - Enable: enable two-factor authentication and follows settings of the single user
+     *   **Global**: The global settings apply.
+     *   **Disable**: Two-factor authentication is disabled.
+     *   **Enable**: Two-factor authentication is enabled and user-specific settings apply.
+     *
+     * >  If you leave this parameter empty, the default value Global is used.
      * @example Enable
      *
      * @var string
@@ -190,8 +233,9 @@ class CreateUserRequest extends Model
     public $twoFactorStatus;
 
     /**
-     * @description The logon name of the user that you want to add. The logon name can contain only letters, digits, and underscores (\_) and can be up to 128 characters in length.
+     * @description The logon name of the user that you want to add. The logon name must be 1 to 128 characters in length and can contain only letters, digits, and underscores (_).
      *
+     * This parameter is required.
      * @example abc_def
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkDomainResponseBody extends Model
 {
     /**
+     * @description The ID of the network domain.
+     *
      * @example 31
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateNetworkDomainResponseBody extends Model
     public $networkDomainId;
 
     /**
+     * @description The request ID.
+     *
      * @example A2873E9C-A7EA-5735-845C-65D3792623D2
      *
      * @var string

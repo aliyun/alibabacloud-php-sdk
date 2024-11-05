@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListPoliciesResponseBody extends Model
 {
     /**
+     * @description The control policies.
+     *
      * @var policies[]
      */
     public $policies;
 
     /**
+     * @description The request ID.
+     *
      * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
      *
      * @var string
@@ -22,6 +26,8 @@ class ListPoliciesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of control policies that are returned.
+     *
      * @example 10
      *
      * @var int

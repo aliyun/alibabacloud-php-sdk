@@ -9,11 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ModifyPolicyRequest extends Model
 {
     /**
+     * @description The new remarks of the control policy.
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The ID of the bastion host to which the control policy to modify belongs.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-09k1u8mv501
      *
      * @var string
@@ -21,6 +26,9 @@ class ModifyPolicyRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the control policy that you want to modify.
+     *
+     * This parameter is required.
      * @example 7
      *
      * @var string
@@ -28,6 +36,8 @@ class ModifyPolicyRequest extends Model
     public $policyId;
 
     /**
+     * @description The new name of the control policy.
+     *
      * @example test
      *
      * @var string
@@ -35,6 +45,8 @@ class ModifyPolicyRequest extends Model
     public $policyName;
 
     /**
+     * @description The priority of the modified control policy. Valid values: 1 to 100. The smaller the value, the higher the priority. Default value: 1.
+     *
      * @example 3
      *
      * @var string
@@ -42,6 +54,9 @@ class ModifyPolicyRequest extends Model
     public $priority;
 
     /**
+     * @description The region ID of the bastion host to which the control policy to modify belongs.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

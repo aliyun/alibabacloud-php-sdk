@@ -11,6 +11,7 @@ class ModifyInstanceLDAPAuthServerRequest extends Model
     /**
      * @description The username of the account that is used for the LDAP server.
      *
+     * This parameter is required.
      * @example cn=Manager,dc=test,dc=com
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyInstanceLDAPAuthServerRequest extends Model
     /**
      * @description The Base distinguished name (DN).
      *
+     * This parameter is required.
      * @example dc=test,dc=com
      *
      * @var string
@@ -45,8 +47,9 @@ class ModifyInstanceLDAPAuthServerRequest extends Model
     public $filter;
 
     /**
-     * @description The ID of the bastion host. You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * @description The bastion host ID.
      *
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -104,6 +107,7 @@ class ModifyInstanceLDAPAuthServerRequest extends Model
     /**
      * @description The port that is used to access the LDAP server.
      *
+     * This parameter is required.
      * @example 389
      *
      * @var string
@@ -111,8 +115,9 @@ class ModifyInstanceLDAPAuthServerRequest extends Model
     public $port;
 
     /**
-     * @description The region ID of the bastion host. For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * @description The region ID of the bastion host.
      *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -122,6 +127,7 @@ class ModifyInstanceLDAPAuthServerRequest extends Model
     /**
      * @description The address of the LDAP server.
      *
+     * This parameter is required.
      * @example 192.168.XX.XX
      *
      * @var string

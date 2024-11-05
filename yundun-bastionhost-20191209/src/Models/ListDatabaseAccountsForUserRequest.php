@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDatabaseAccountsForUserRequest extends Model
 {
     /**
+     * @description The name of the database account to query. The name can be up to 128 characters in length. Only exact match is supported.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,9 @@ class ListDatabaseAccountsForUserRequest extends Model
     public $databaseAccountName;
 
     /**
+     * @description The ID of the database whose accounts you want to query.
+     *
+     * This parameter is required.
      * @example 89
      *
      * @var string
@@ -23,6 +28,9 @@ class ListDatabaseAccountsForUserRequest extends Model
     public $databaseId;
 
     /**
+     * @description The bastion host ID.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-zz42zoqql01
      *
      * @var string
@@ -30,6 +38,8 @@ class ListDatabaseAccountsForUserRequest extends Model
     public $instanceId;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var string
@@ -37,6 +47,8 @@ class ListDatabaseAccountsForUserRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.\\
+     * > We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var string
@@ -44,6 +56,9 @@ class ListDatabaseAccountsForUserRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-shanghai
      *
      * @var string
@@ -51,6 +66,9 @@ class ListDatabaseAccountsForUserRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the user to query. This operation returns whether the user is authorized to manage each database account.
+     *
+     * This parameter is required.
      * @example 2
      *
      * @var string

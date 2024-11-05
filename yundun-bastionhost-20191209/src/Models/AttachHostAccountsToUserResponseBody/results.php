@@ -33,7 +33,7 @@ class results extends Model
     public $code;
 
     /**
-     * @description The result of authorizing the specified user to manage the specified host accounts.
+     * @description The result of authorizing the user to manage the host accounts.
      *
      * @var hostAccounts[]
      */

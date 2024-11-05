@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class userGroups extends Model
 {
     /**
+     * @description The ID of the authorized user group.
+     *
      * @example 2
      *
      * @var string

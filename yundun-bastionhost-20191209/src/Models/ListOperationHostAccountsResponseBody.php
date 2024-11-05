@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListOperationHostAccountsResponseBody extends Model
 {
     /**
+     * @description The host accounts returned.
+     *
      * @var hostAccounts[]
      */
     public $hostAccounts;
 
     /**
+     * @description The request ID.
+     *
      * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
      *
      * @var string
@@ -22,6 +26,8 @@ class ListOperationHostAccountsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of host accounts returned.
+     *
      * @example 1
      *
      * @var int

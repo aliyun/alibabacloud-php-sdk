@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class databaseAccounts extends Model
 {
     /**
+     * @description The error code that is returned. If OK is returned, the authorization was successful. If another error code is returned, the authorization failed.
+     *
      * @example OK
      *
      * @var string
@@ -16,6 +18,8 @@ class databaseAccounts extends Model
     public $code;
 
     /**
+     * @description The database account ID.
+     *
      * @example 6
      *
      * @var string
@@ -23,6 +27,8 @@ class databaseAccounts extends Model
     public $databaseAccountId;
 
     /**
+     * @description The error message that is returned.
+     *
      * @example success
      *
      * @var string

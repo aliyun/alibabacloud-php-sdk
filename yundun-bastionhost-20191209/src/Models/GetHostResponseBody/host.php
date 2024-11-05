@@ -67,7 +67,7 @@ class host extends Model
     public $hostPublicAddress;
 
     /**
-     * @description The ID of the new network domain to which the host belongs.
+     * @description The ID of the network domain to which the host belongs.
      *
      * @example 1
      *

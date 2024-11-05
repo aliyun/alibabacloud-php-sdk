@@ -20,7 +20,7 @@ class ModifyHostRequest extends Model
     /**
      * @description The ID of the host.
      *
-     * > You can call the [ListHosts](~~200665~~) operation to query the ID of the host.
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -57,7 +57,7 @@ class ModifyHostRequest extends Model
     /**
      * @description The ID of the bastion host on which you want to modify the information about the host.
      *
-     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -67,6 +67,7 @@ class ModifyHostRequest extends Model
     /**
      * @description The ID of the new network domain to which the host belongs.
      *
+     * > You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
      * @example 1
      *
      * @var string
@@ -88,7 +89,7 @@ class ModifyHostRequest extends Model
     /**
      * @description The region ID of the bastion host on which you want to modify the information about the host.
      *
-     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

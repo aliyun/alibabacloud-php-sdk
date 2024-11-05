@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class databaseAccounts extends Model
 {
     /**
+     * @description The ID of the database account that the policy authorizes users to manage.
+     *
      * @example 5
      *
      * @var string

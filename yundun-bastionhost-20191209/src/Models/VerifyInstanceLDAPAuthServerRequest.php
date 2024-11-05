@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class VerifyInstanceLDAPAuthServerRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cn=Manager,dc=test,dc=com
      *
      * @var string
@@ -16,6 +18,8 @@ class VerifyInstanceLDAPAuthServerRequest extends Model
     public $account;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dc=test,dc=com
      *
      * @var string
@@ -30,6 +34,8 @@ class VerifyInstanceLDAPAuthServerRequest extends Model
     public $filter;
 
     /**
+     * @description This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -51,6 +57,8 @@ class VerifyInstanceLDAPAuthServerRequest extends Model
     public $password;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 389
      *
      * @var string
@@ -65,6 +73,8 @@ class VerifyInstanceLDAPAuthServerRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 192.168.XX.XX
      *
      * @var string

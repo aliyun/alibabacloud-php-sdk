@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class approveCommands extends Model
 {
     /**
+     * @description The ID of the command to be reviewed.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class approveCommands extends Model
     public $approveCommandId;
 
     /**
+     * @description The username of the asset account that is used for O\\&M.
+     *
      * @example root
      *
      * @var string
@@ -23,13 +27,17 @@ class approveCommands extends Model
     public $assetAccountName;
 
     /**
-     * @example 10.167.66.167
+     * @description The IP address of the asset for O\\&M.
+     *
+     * @example 10.167.XX.XX
      *
      * @var string
      */
     public $assetIp;
 
     /**
+     * @description The name of the asset.
+     *
      * @example poros-test
      *
      * @var string
@@ -37,13 +45,17 @@ class approveCommands extends Model
     public $assetName;
 
     /**
-     * @example 172.18.60.68
+     * @description The source IP address from which the application is submitted.
+     *
+     * @example 172.18.XX.XX
      *
      * @var string
      */
     public $clientIp;
 
     /**
+     * @description The Bastionhost user who submitted the O\\&M application.
+     *
      * @example test
      *
      * @var string
@@ -51,6 +63,8 @@ class approveCommands extends Model
     public $clientUser;
 
     /**
+     * @description The command to be reviewed.
+     *
      * @example /bin/bash
      *
      * @var string
@@ -58,6 +72,8 @@ class approveCommands extends Model
     public $command;
 
     /**
+     * @description The time when the O\\&M application was submitted. The value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1679393152
      *
      * @var string
@@ -65,6 +81,8 @@ class approveCommands extends Model
     public $createTime;
 
     /**
+     * @description The O\\&M protocol.
+     *
      * @example SSH
      *
      * @var string
@@ -72,6 +90,8 @@ class approveCommands extends Model
     public $protocolName;
 
     /**
+     * @description The ID of the O\\&M session that triggered the review.
+     *
      * @example 95f873ab64a76d5b0000000000004d5e
      *
      * @var string
@@ -79,6 +99,8 @@ class approveCommands extends Model
     public $sessionId;
 
     /**
+     * @description The status of the review. Valid values: **Wait**: The command is pending review.
+     *
      * @example Wait
      *
      * @var string

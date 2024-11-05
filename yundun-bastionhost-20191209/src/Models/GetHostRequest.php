@@ -11,7 +11,7 @@ class GetHostRequest extends Model
     /**
      * @description The ID of the host that you want to query. You can specify only one host ID.
      *
-     * >  You can call the [ListHosts](~~200665~~) operation to query the ID of the host.
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -21,7 +21,7 @@ class GetHostRequest extends Model
     /**
      * @description The ID of the bastion host in which you want to query the host.
      *
-     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -31,7 +31,7 @@ class GetHostRequest extends Model
     /**
      * @description The region ID of the bastion host in which you want to query the host.
      *
-     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

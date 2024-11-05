@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class approval extends Model
 {
     /**
+     * @description The commands that can be run only after approval.
+     *
      * @var string[]
      */
     public $commands;

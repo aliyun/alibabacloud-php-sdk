@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class assetOperationToken extends Model
 {
     /**
+     * @description The remaining number of times that you can use the O\\&M token.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class assetOperationToken extends Model
     public $countLeft;
 
     /**
+     * @description The time when the O\\&M token expires. The value is a UNIX timestamp.
+     *
      * @example 1709110797
      *
      * @var int
@@ -23,6 +27,8 @@ class assetOperationToken extends Model
     public $expireTime;
 
     /**
+     * @description Indicates whether the number of times that you can use the O\\&M token is limited.
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +36,8 @@ class assetOperationToken extends Model
     public $hasCountLimit;
 
     /**
+     * @description The maximum number of renewals. A value of 0 indicates that renewal is not supported.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +45,8 @@ class assetOperationToken extends Model
     public $maxRenewCount;
 
     /**
+     * @description The number of times the O\\&M token is renewed.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,13 @@ class assetOperationToken extends Model
     public $renewCount;
 
     /**
+     * @var string
+     */
+    public $ssoUrl;
+
+    /**
+     * @description The O\\&M token that you apply for.
+     *
      * @example NmYyMmEzNmMwYzljNGY******
      *
      * @var string
@@ -51,6 +68,8 @@ class assetOperationToken extends Model
     public $token;
 
     /**
+     * @description The ID of the O\\&M token.
+     *
      * @example 1
      *
      * @var string
@@ -62,6 +81,7 @@ class assetOperationToken extends Model
         'hasCountLimit' => 'HasCountLimit',
         'maxRenewCount' => 'MaxRenewCount',
         'renewCount'    => 'RenewCount',
+        'ssoUrl'        => 'SsoUrl',
         'token'         => 'Token',
         'tokenId'       => 'TokenId',
     ];
@@ -87,6 +107,9 @@ class assetOperationToken extends Model
         }
         if (null !== $this->renewCount) {
             $res['RenewCount'] = $this->renewCount;
+        }
+        if (null !== $this->ssoUrl) {
+            $res['SsoUrl'] = $this->ssoUrl;
         }
         if (null !== $this->token) {
             $res['Token'] = $this->token;
@@ -120,6 +143,9 @@ class assetOperationToken extends Model
         }
         if (isset($map['RenewCount'])) {
             $model->renewCount = $map['RenewCount'];
+        }
+        if (isset($map['SsoUrl'])) {
+            $model->ssoUrl = $map['SsoUrl'];
         }
         if (isset($map['Token'])) {
             $model->token = $map['Token'];

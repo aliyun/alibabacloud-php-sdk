@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListRulesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
      *
      * @var string
@@ -17,11 +19,15 @@ class ListRulesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The authorization rules that are returned.
+     *
      * @var rules[]
      */
     public $rules;
 
     /**
+     * @description The total number of authorization rules that are returned.
+     *
      * @example 1
      *
      * @var int

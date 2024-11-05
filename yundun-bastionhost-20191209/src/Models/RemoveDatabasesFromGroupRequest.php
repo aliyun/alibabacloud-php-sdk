@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class RemoveDatabasesFromGroupRequest extends Model
 {
     /**
+     * @description The IDs of the databases that you want to remove.
+     *
+     * This parameter is required.
      * @var string[]
      */
     public $databaseIds;
 
     /**
+     * @description The ID of the asset group from which you want to remove databases.
+     *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -21,6 +27,9 @@ class RemoveDatabasesFromGroupRequest extends Model
     public $hostGroupId;
 
     /**
+     * @description The ID of the bastion host whose asset group you want to manage.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-78v1ghxxxxx
      *
      * @var string
@@ -28,6 +37,9 @@ class RemoveDatabasesFromGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region ID of the bastion host whose asset group you want to manage.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

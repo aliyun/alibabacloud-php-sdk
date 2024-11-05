@@ -9,13 +9,18 @@ use AlibabaCloud\Tea\Model;
 class ListOperationTicketsRequest extends Model
 {
     /**
-     * @example 10.167.66.167
+     * @description The IP address of the asset that is contained in the O\\&M application to be reviewed.
+     *
+     * @example 10.167.XX.XX
      *
      * @var string
      */
     public $assetAddress;
 
     /**
+     * @description The ID of the bastion host.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -23,6 +28,8 @@ class ListOperationTicketsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The number of the page. Default value: **1**.
+     *
      * @example 1
      *
      * @var string
@@ -30,6 +37,8 @@ class ListOperationTicketsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.\\
+     * >  We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var string
@@ -37,6 +46,9 @@ class ListOperationTicketsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

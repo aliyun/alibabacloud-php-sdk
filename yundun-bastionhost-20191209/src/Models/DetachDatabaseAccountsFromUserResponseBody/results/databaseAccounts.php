@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class databaseAccounts extends Model
 {
     /**
+     * @description The error code that is returned. If OK is returned, the operation was successful. If another error code is returned, the operation failed.
+     *
      * @example OK
      *
      * @var string
@@ -16,6 +18,8 @@ class databaseAccounts extends Model
     public $code;
 
     /**
+     * @description The ID of the database account on which the permissions are revoked.
+     *
      * @example 9
      *
      * @var string
@@ -23,6 +27,8 @@ class databaseAccounts extends Model
     public $databaseAccountId;
 
     /**
+     * @description The error message that is returned.
+     *
      * @var string
      */
     public $message;

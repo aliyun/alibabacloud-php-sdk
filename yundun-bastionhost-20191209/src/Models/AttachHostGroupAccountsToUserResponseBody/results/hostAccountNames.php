@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class hostAccountNames extends Model
 {
     /**
-     * @description The return code that indicates whether the user was authorized to manage the specified host account. Valid values:
+     * @description The return code that indicates whether the user was authorized to manage the host account. Valid values:
      *
      *   **OK**: The call was successful.
      *   **UNEXPECTED**: An unknown error occurred.

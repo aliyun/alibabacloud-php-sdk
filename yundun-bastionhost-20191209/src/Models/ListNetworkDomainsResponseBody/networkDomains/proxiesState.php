@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class proxiesState extends Model
 {
     /**
+     * @description The node type of the proxy server. Valid values:
+     *
+     *   **Master**: primary proxy server.
+     *   **Slave**: secondary proxy server.
+     *
      * @example Master
      *
      * @var string
@@ -16,6 +21,11 @@ class proxiesState extends Model
     public $nodeType;
 
     /**
+     * @description The status of the proxy server.
+     *
+     *   **Available**
+     *   **Unavailable**
+     *
      * @example Available
      *
      * @var string

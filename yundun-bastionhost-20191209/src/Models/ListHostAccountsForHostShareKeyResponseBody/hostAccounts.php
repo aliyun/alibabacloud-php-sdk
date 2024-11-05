@@ -36,7 +36,7 @@ class hostAccounts extends Model
     public $hostsAccountId;
 
     /**
-     * @description The O\&M protocol.
+     * @description The O\\&M protocol.
      *
      * @example SSH
      *

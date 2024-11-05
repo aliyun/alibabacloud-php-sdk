@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DisableRuleResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 98DBE5C2-7D7A-5393-9E5A-71074336D33B
      *
      * @var string

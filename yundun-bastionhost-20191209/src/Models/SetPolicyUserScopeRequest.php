@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetPolicyUserScopeRequest extends Model
 {
     /**
+     * @description The bastion host ID.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -16,6 +19,9 @@ class SetPolicyUserScopeRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the control policy that you want to modify.
+     *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -23,6 +29,9 @@ class SetPolicyUserScopeRequest extends Model
     public $policyId;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +39,13 @@ class SetPolicyUserScopeRequest extends Model
     public $regionId;
 
     /**
+     * @description The scope of users to whom the control policy applies. Valid values:
+     *
+     * **All**: The control policy applies to all users.
+     * **User**: The control policy applies to specified users.
+     * **UserGroup**: The control policy applies to specified user groups.
+     *
+     * This parameter is required.
      * @example All
      *
      * @var string
@@ -37,11 +53,17 @@ class SetPolicyUserScopeRequest extends Model
     public $scopeType;
 
     /**
+     * @description The user groups to which the control policy applies.
+     *
+     * > This parameter is required if ScopeType is set to UserGroup. You can specify up to 100 user group IDs.
      * @var string[]
      */
     public $userGroupIds;
 
     /**
+     * @description The users to whom the control policy applies.
+     *
+     * > This parameter is required if ScopeType is set to User. You can specify up to 500 user IDs.
      * @var string[]
      */
     public $userIds;

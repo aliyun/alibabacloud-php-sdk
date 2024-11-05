@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyRuleRequest extends Model
 {
     /**
+     * @description The new remarks of the authorization rule. It can be up to 500 characters in length.
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The databases and database accounts that a user associated with the modified rule can manage.
+     *
      * @var databases[]
      */
     public $databases;
 
     /**
+     * @description The end time of the new validity period of the authorization rule. The value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1672502400
      *
      * @var int
@@ -29,6 +35,8 @@ class ModifyRuleRequest extends Model
     public $effectiveEndTime;
 
     /**
+     * @description The start time of the new validity period of the authorization rule. The value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1669630029
      *
      * @var int
@@ -36,16 +44,23 @@ class ModifyRuleRequest extends Model
     public $effectiveStartTime;
 
     /**
+     * @description The asset groups and asset accounts that a user associated with the modified rule can manage.
+     *
      * @var hostGroups[]
      */
     public $hostGroups;
 
     /**
+     * @description An array that consists of the host IDs and host account IDs with which the modified authorization rule is associated.
+     *
      * @var hosts[]
      */
     public $hosts;
 
     /**
+     * @description The ID of the bastion host whose authorization rule you want to modify.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-zmb2y9ydw08
      *
      * @var string
@@ -53,6 +68,9 @@ class ModifyRuleRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region ID of the bastion host to which the authorization rule to modify belongs.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -60,6 +78,9 @@ class ModifyRuleRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the authorization rule to modify.
+     *
+     * This parameter is required.
      * @example 68
      *
      * @var string
@@ -67,6 +88,8 @@ class ModifyRuleRequest extends Model
     public $ruleId;
 
     /**
+     * @description The new name of the authorization rule. The name must be 1 to 128 characters in length and can contain periods (.), underscores (_), hyphens (-), single quotation marks (\\"), and spaces. It cannot start with a special character.
+     *
      * @example test
      *
      * @var string
@@ -74,11 +97,15 @@ class ModifyRuleRequest extends Model
     public $ruleName;
 
     /**
+     * @description The IDs of the user groups with which the modified authorization rule is associated.
+     *
      * @var string[]
      */
     public $userGroupIds;
 
     /**
+     * @description The IDs of the users with whom the modified authorization rule is associated.
+     *
      * @var string[]
      */
     public $userIds;

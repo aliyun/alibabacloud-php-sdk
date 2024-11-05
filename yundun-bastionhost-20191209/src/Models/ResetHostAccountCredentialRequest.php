@@ -14,6 +14,7 @@ class ResetHostAccountCredentialRequest extends Model
      *   **Password**
      *   **PrivateKey**
      *
+     * This parameter is required.
      * @example Password
      *
      * @var string
@@ -23,7 +24,7 @@ class ResetHostAccountCredentialRequest extends Model
     /**
      * @description The ID of the host account for which the logon credential is to be deleted.
      *
-     * >  You can call the [ListHostAccounts](~~204372~~) operation to query the ID of the host account.
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -33,7 +34,7 @@ class ResetHostAccountCredentialRequest extends Model
     /**
      * @description The ID of the bastion host from which you want to delete the logon credential for the host account.
      *
-     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -43,7 +44,7 @@ class ResetHostAccountCredentialRequest extends Model
     /**
      * @description The region ID of the bastion host from which you want to delete the logon credential for the host account.
      *
-     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

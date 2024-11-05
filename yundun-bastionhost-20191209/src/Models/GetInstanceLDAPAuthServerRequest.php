@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceLDAPAuthServerRequest extends Model
 {
     /**
-     * @description Indicates whether passwords are required. Valid values:
+     * @description The ID of the bastion host.
      *
-     *   **true**: required
-     *   **false**: not required
-     *
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -21,8 +19,9 @@ class GetInstanceLDAPAuthServerRequest extends Model
     public $instanceId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **GetInstanceLDAPAuthServer**.
+     * @description The region ID of the bastion host.
      *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

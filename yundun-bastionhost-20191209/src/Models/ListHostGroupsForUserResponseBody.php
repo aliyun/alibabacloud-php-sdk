@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListHostGroupsForUserResponseBody extends Model
 {
     /**
-     * @description ListHostGroupsForUser
+     * @description The host groups returned.
      *
      * @var hostGroups[]
      */
     public $hostGroups;
 
     /**
-     * @description Queries the host groups that a specified user is authorized or not authorized to manage.
+     * @description The request ID.
      *
      * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
      *
@@ -26,9 +26,8 @@ class ListHostGroupsForUserResponseBody extends Model
     public $requestId;
 
     /**
-     * @description All Bastionhost API requests must include common request parameters. For more information about common request parameters, see [Common parameters](~~148139~~).
+     * @description The total number of host groups returned.
      *
-     * For more information about sample requests, see the "Examples" section of this topic.
      * @example 1
      *
      * @var int

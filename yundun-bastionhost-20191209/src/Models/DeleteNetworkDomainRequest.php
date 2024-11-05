@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteNetworkDomainRequest extends Model
 {
     /**
+     * @description The ID of the bastion host whose network domain you want to delete.
+     *
+     * This parameter is required.
      * @example bastionhost_std_intl-sg-uq833e2dz02
      *
      * @var string
@@ -16,6 +19,9 @@ class DeleteNetworkDomainRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the network domain to be deleted.
+     *
+     * This parameter is required.
      * @example 2
      *
      * @var string
@@ -23,6 +29,9 @@ class DeleteNetworkDomainRequest extends Model
     public $networkDomainId;
 
     /**
+     * @description The region ID of the bastion host whose network domain you want to delete.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

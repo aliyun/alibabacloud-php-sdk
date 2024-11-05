@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRuleRequest extends Model
 {
     /**
+     * @description The remarks of the authorization rule. The remarks can be up to 500 characters in length.
+     *
      * @example comment
      *
      * @var string
@@ -19,11 +21,15 @@ class CreateRuleRequest extends Model
     public $comment;
 
     /**
+     * @description The information about the database that runs on your server.
+     *
      * @var databases[]
      */
     public $databases;
 
     /**
+     * @description The end time of the validity period of the authorization rule. Specify a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1672502400
      *
      * @var int
@@ -31,6 +37,8 @@ class CreateRuleRequest extends Model
     public $effectiveEndTime;
 
     /**
+     * @description The start time of the validity period of the authorization rule. Specify a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1669630029
      *
      * @var int
@@ -38,16 +46,23 @@ class CreateRuleRequest extends Model
     public $effectiveStartTime;
 
     /**
+     * @description The information about the asset group that you want to authorize to manage.
+     *
      * @var hostGroups[]
      */
     public $hostGroups;
 
     /**
+     * @description The host information.
+     *
      * @var hosts[]
      */
     public $hosts;
 
     /**
+     * @description The bastion host ID.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-5yd2ymfsa0e
      *
      * @var string
@@ -55,6 +70,9 @@ class CreateRuleRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -62,6 +80,9 @@ class CreateRuleRequest extends Model
     public $regionId;
 
     /**
+     * @description The name of the authorization rule. The name can be up to 128 characters in length.
+     *
+     * This parameter is required.
      * @example rule
      *
      * @var string
@@ -69,11 +90,15 @@ class CreateRuleRequest extends Model
     public $ruleName;
 
     /**
+     * @description An array that consists of user group IDs.
+     *
      * @var string[]
      */
     public $userGroupIds;
 
     /**
+     * @description An array that consists of user IDs.
+     *
      * @var string[]
      */
     public $userIds;

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @description Indicates whether the database is added to the network domain.
+     *
+     * > The code LICENSE_OUT_OF_LIMIT indicates that the network domain feature is not supported by the current Bastionhost edition.
      * @example OK
      *
      * @var string
@@ -16,6 +19,8 @@ class results extends Model
     public $code;
 
     /**
+     * @description The database ID.
+     *
      * @example 45
      *
      * @var string
@@ -23,6 +28,10 @@ class results extends Model
     public $databaseId;
 
     /**
+     * @description The error message that is returned.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $message;

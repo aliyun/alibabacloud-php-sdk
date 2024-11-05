@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class instanceAttribute extends Model
 {
     /**
+     * @description The IDs of authorized security groups.
+     *
      * @var string[]
      */
     public $authorizedSecurityGroups;
@@ -24,7 +26,7 @@ class instanceAttribute extends Model
     public $bandwidth;
 
     /**
-     * @description The extra bandwidth plan of the bastion host.
+     * @description The bandwidth plan ID.
      *
      * @example 5
      *
@@ -33,6 +35,8 @@ class instanceAttribute extends Model
     public $bandwidthPackage;
 
     /**
+     * @description The status of the database O&M feature.
+     *
      * @example Disable
      *
      * @var string
@@ -40,11 +44,15 @@ class instanceAttribute extends Model
     public $dbOperationModule;
 
     /**
+     * @description The description of the instance.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the Elastic Network Interface (ENI).
+     *
      * @example eni-bp1455jrzwm7moaxxxxx
      *
      * @var string
@@ -52,6 +60,8 @@ class instanceAttribute extends Model
     public $eniInstanceId;
 
     /**
+     * @description The time when the instance expires.
+     *
      * @example 1578326400000
      *
      * @var int
@@ -59,6 +69,8 @@ class instanceAttribute extends Model
     public $expireTime;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example bastionhost-cn-78v1ghxxxxx
      *
      * @var string
@@ -66,6 +78,16 @@ class instanceAttribute extends Model
     public $instanceId;
 
     /**
+     * @description The status of the instance. Valid values:
+     *
+     *   PENDING: The instance is not initialized.
+     *   CREATING: The instance is being created.
+     *   RUNNING: The instance is running.
+     *   EXPIRED: The instance expired.
+     *   CREATE_FAILED: The instance fails to be created.
+     *   UPGRADING: The configurations of the instance are being changed.
+     *   UPGRADE_FAILED: The configurations of the instance fail to be changed.
+     *
      * @example RUNNING
      *
      * @var string
@@ -73,6 +95,8 @@ class instanceAttribute extends Model
     public $instanceStatus;
 
     /**
+     * @description The public endpoint.
+     *
      * @example drawvxalwb-public.bastionhost.aliyuncs.com
      *
      * @var string
@@ -80,6 +104,8 @@ class instanceAttribute extends Model
     public $internetEndpoint;
 
     /**
+     * @description The private endpoint.
+     *
      * @example drawvxalwb.bastionhost.aliyuncs.com
      *
      * @var string
@@ -87,6 +113,8 @@ class instanceAttribute extends Model
     public $intranetEndpoint;
 
     /**
+     * @description The license code.
+     *
      * @example bhah_ent_50_asset
      *
      * @var string
@@ -94,6 +122,10 @@ class instanceAttribute extends Model
     public $licenseCode;
 
     /**
+     * @description The status of the automatic password change feature.
+     *
+     * - **Enable**
+     * - **Disable**
      * @example Enable
      *
      * @var string
@@ -101,6 +133,10 @@ class instanceAttribute extends Model
     public $modifyPasswordModule;
 
     /**
+     * @description The status of the network domain feature.
+     *
+     * - **Enable**
+     * - **Disable**
      * @example Enable
      *
      * @var string
@@ -108,31 +144,43 @@ class instanceAttribute extends Model
     public $networkProxyModule;
 
     /**
+     * @description An array that consists of the O&M ports of the bastion host.
+     *
      * @var ports[]
      */
     public $ports;
 
     /**
+     * @description An array that consists of the egress private IP addresses of the bastion host.
+     *
      * @var string[]
      */
     public $privateExportIps;
 
     /**
+     * @description The private IP addresses that are allowed to access the instance.
+     *
      * @var string[]
      */
     public $privateWhiteList;
 
     /**
+     * @description An array that consists of the egress public IP addresses of the bastion host.
+     *
      * @var string[]
      */
     public $publicExportIps;
 
     /**
+     * @description The public IP address.
+     *
      * @var string[]
      */
     public $publicIps;
 
     /**
+     * @description Indicates whether the Bastionhost instance can be accessed over the Internet.
+     *
      * @example true
      *
      * @var bool
@@ -140,11 +188,15 @@ class instanceAttribute extends Model
     public $publicNetworkAccess;
 
     /**
+     * @description The public IP addresses that are allowed to access the instance.
+     *
      * @var string[]
      */
     public $publicWhiteList;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -152,6 +204,8 @@ class instanceAttribute extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
      * @example rg-aekzc427dbl2shy
      *
      * @var string
@@ -159,11 +213,15 @@ class instanceAttribute extends Model
     public $resourceGroupId;
 
     /**
+     * @description The IDs of the security groups to which the instance belongs.
+     *
      * @var string[]
      */
     public $securityGroupIds;
 
     /**
+     * @description The time when the instance started.
+     *
      * @example 1577681345000
      *
      * @var int
@@ -171,6 +229,8 @@ class instanceAttribute extends Model
     public $startTime;
 
     /**
+     * @description The storage capacity of the bastion host. Unit: bytes.
+     *
      * @example 2199023255552
      *
      * @var int
@@ -178,6 +238,8 @@ class instanceAttribute extends Model
     public $storage;
 
     /**
+     * @description The ID of the VPC to which the instance belongs.
+     *
      * @example vpc-bp1c85tzgqu1bf5bxxxxx
      *
      * @var string
@@ -185,6 +247,8 @@ class instanceAttribute extends Model
     public $vpcId;
 
     /**
+     * @description The ID of the vSwitch to which the instance connects.
+     *
      * @example vsw-bp1xfwzzfti0kjbfxxxxx
      *
      * @var string
@@ -192,6 +256,10 @@ class instanceAttribute extends Model
     public $vswitchId;
 
     /**
+     * @description The status of the web terminal.
+     *
+     * - **Enable**
+     * - **Disable**
      * @example Enable
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeletePolicyRequest extends Model
 {
     /**
+     * @description The ID of the bastion host whose control policy you want to delete.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -16,6 +19,9 @@ class DeletePolicyRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the control policy to be deleted.
+     *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -23,6 +29,9 @@ class DeletePolicyRequest extends Model
     public $policyId;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

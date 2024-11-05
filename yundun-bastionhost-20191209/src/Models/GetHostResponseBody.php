@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetHostResponseBody extends Model
 {
     /**
-     * @description The information about the host that was queried.
+     * @description The returned information about the host.
      *
      * @var host
      */

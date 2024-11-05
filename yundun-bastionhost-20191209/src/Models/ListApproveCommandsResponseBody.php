@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListApproveCommandsResponseBody extends Model
 {
     /**
+     * @description The commands to be reviewed.
+     *
      * @var approveCommands[]
      */
     public $approveCommands;
 
     /**
+     * @description The request ID.
+     *
      * @example E3EF7711-766D-5888-997B-EFBA76809229
      *
      * @var string
@@ -22,6 +26,8 @@ class ListApproveCommandsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of commands to be reviewed.
+     *
      * @example 15
      *
      * @var int

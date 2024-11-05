@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @description The error code returned. If **OK** is returned, the operation was successful. If another error code is returned, the operation failed.
+     *
      * @example OK
      *
      * @var string
@@ -16,6 +18,8 @@ class results extends Model
     public $code;
 
     /**
+     * @description The database ID.
+     *
      * @example 9
      *
      * @var string
@@ -23,6 +27,8 @@ class results extends Model
     public $databaseId;
 
     /**
+     * @description The asset group ID.
+     *
      * @example 1
      *
      * @var string
@@ -30,6 +36,8 @@ class results extends Model
     public $hostGroupId;
 
     /**
+     * @description The error message returned.
+     *
      * @var string
      */
     public $message;

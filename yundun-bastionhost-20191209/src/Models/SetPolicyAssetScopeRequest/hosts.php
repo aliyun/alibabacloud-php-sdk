@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class hosts extends Model
 {
     /**
+     * @description The scope of host accounts to which the control policy applies. Valid values:
+     *
+     * **All**: The control policy applies to all accounts of the host.
+     * **AccountId**: The control policy applies specified accounts of the host.
+     *
      * @example All
      *
      * @var string
@@ -16,11 +21,16 @@ class hosts extends Model
     public $accountScopeType;
 
     /**
+     * @description The host accounts to which the control policy applies.
+     *
+     * > This parameter is required if AccountScopeType is set to AccountId.
      * @var string[]
      */
     public $hostAccountIds;
 
     /**
+     * @description The host ID.
+     *
      * @example 1
      *
      * @var string

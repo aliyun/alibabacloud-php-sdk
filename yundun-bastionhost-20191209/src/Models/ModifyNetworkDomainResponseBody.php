@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyNetworkDomainResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example ED49CD1E-3510-5E5C-9133-E2067B656501
      *
      * @var string

@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListDatabasesForUserRequest extends Model
 {
     /**
-     * @example 47.101.**.**
+     * @description The address of the database to query. Only exact match is supported.
+     *
+     * @example ``47.101.**.**``
      *
      * @var string
      */
     public $databaseAddress;
 
     /**
+     * @description The name of the database to query.
+     *
      * @example MySQL-8.0
      *
      * @var string
@@ -23,6 +27,13 @@ class ListDatabasesForUserRequest extends Model
     public $databaseName;
 
     /**
+     * @description The engine of the database to query. Valid values:
+     *
+     *   **MySQL**
+     *   **Oracle**
+     *   **PostgreSQL**
+     *   **SQLServer**
+     *
      * @example MySQL
      *
      * @var string
@@ -30,6 +41,9 @@ class ListDatabasesForUserRequest extends Model
     public $databaseType;
 
     /**
+     * @description The bastion host ID.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-tl32swayw7o
      *
      * @var string
@@ -37,6 +51,8 @@ class ListDatabasesForUserRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the network domain where the database to query resides.
+     *
      * @example 5
      *
      * @var string
@@ -44,6 +60,8 @@ class ListDatabasesForUserRequest extends Model
     public $networkDomainId;
 
     /**
+     * @description The page number. Default value: **1**. Pages start from page 1.
+     *
      * @example 1
      *
      * @var string
@@ -51,6 +69,8 @@ class ListDatabasesForUserRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.\\
+     * > We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var string
@@ -58,6 +78,9 @@ class ListDatabasesForUserRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +88,9 @@ class ListDatabasesForUserRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the user to query.
+     *
+     * This parameter is required.
      * @example 3
      *
      * @var string

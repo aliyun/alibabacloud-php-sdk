@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListNetworkDomainsRequest extends Model
 {
     /**
+     * @description The bastion host ID.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-tl329pvu70x
      *
      * @var string
@@ -16,11 +19,18 @@ class ListNetworkDomainsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The name of the network domain.
+     *
      * @var string
      */
     public $networkDomainName;
 
     /**
+     * @description The connection mode of the network domain. Valid values:
+     *
+     *   **Direct**
+     *   **Proxy**
+     *
      * @example Proxy
      *
      * @var string
@@ -28,6 +38,8 @@ class ListNetworkDomainsRequest extends Model
     public $networkDomainType;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var string
@@ -35,6 +47,8 @@ class ListNetworkDomainsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.\\
+     * > We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var string
@@ -42,6 +56,9 @@ class ListNetworkDomainsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

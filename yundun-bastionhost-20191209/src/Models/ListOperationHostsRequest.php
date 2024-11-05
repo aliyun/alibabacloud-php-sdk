@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListOperationHostsRequest extends Model
 {
     /**
+     * @description The address of the host that you want to query. You can set this parameter to a domain name or an IP address. Only exact match is supported.
+     *
      * @example 10.162.172.132
      *
      * @var string
@@ -16,6 +18,8 @@ class ListOperationHostsRequest extends Model
     public $hostAddress;
 
     /**
+     * @description The name of the host that you want to query. Only exact match is supported.
+     *
      * @example abc
      *
      * @var string
@@ -23,6 +27,9 @@ class ListOperationHostsRequest extends Model
     public $hostName;
 
     /**
+     * @description The ID of the bastion host.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-09k22avmw0q
      *
      * @var string
@@ -30,6 +37,11 @@ class ListOperationHostsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The operating system of the host that you want to query. Valid values:
+     *
+     *   **Linux**
+     *   **Windows**
+     *
      * @example Linux
      *
      * @var string
@@ -37,6 +49,8 @@ class ListOperationHostsRequest extends Model
     public $OSType;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var string
@@ -44,6 +58,8 @@ class ListOperationHostsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.\\
+     * >  We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var string
@@ -51,6 +67,9 @@ class ListOperationHostsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -58,6 +77,11 @@ class ListOperationHostsRequest extends Model
     public $regionId;
 
     /**
+     * @description The source of the host that you want to query. Valid values:
+     *
+     *   **Local**
+     *   **Ecs**
+     *
      * @example Local
      *
      * @var string
@@ -65,6 +89,8 @@ class ListOperationHostsRequest extends Model
     public $source;
 
     /**
+     * @description The ID of the Elastic Compute Service (ECS) instance. Exact match is supported.
+     *
      * @example i-bp19ienyt0yax748****
      *
      * @var string
@@ -72,6 +98,11 @@ class ListOperationHostsRequest extends Model
     public $sourceInstanceId;
 
     /**
+     * @description The status of the host that you want to query. Valid values:
+     *
+     *   **Normal**
+     *   **Release**
+     *
      * @example Normal
      *
      * @var string

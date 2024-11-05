@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteNetworkDomainResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 66B9D942-E3C8-5068-A479-5A7B7BF3DE35
      *
      * @var string

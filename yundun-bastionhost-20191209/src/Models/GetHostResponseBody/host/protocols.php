@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class protocols extends Model
 {
     /**
-     * @description The fingerprint of the host. This parameter uniquely identifies a host.
+     * @description The fingerprint of the host. This parameter uniquely identifies a host. A value is returned for this parameter only if you have performed O\\&M operations on the host by using the bastion host. Otherwise, no value is returned.
      *
      * @example ssh-ed25519|3e:46:5a:e1:1f:0d:39:7e:61:35:d5:fa:7b:2b:**:**
      *

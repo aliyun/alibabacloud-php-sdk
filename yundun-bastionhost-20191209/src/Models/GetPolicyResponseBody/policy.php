@@ -14,21 +14,29 @@ use AlibabaCloud\Tea\Model;
 class policy extends Model
 {
     /**
+     * @description The details of the logon period restrictions.
+     *
      * @var accessTimeRangeConfig
      */
     public $accessTimeRangeConfig;
 
     /**
+     * @description The O\\&M approval setting.
+     *
      * @var approvalConfig
      */
     public $approvalConfig;
 
     /**
+     * @description The details of the command policy.
+     *
      * @var commandConfig
      */
     public $commandConfig;
 
     /**
+     * @description The description of the control policy.
+     *
      * @example comment
      *
      * @var string
@@ -36,11 +44,15 @@ class policy extends Model
     public $comment;
 
     /**
+     * @description The access control settings on source IP addresses.
+     *
      * @var IPAclConfig
      */
     public $IPAclConfig;
 
     /**
+     * @description The ID of the control policy.
+     *
      * @example 3
      *
      * @var string
@@ -48,6 +60,8 @@ class policy extends Model
     public $policyId;
 
     /**
+     * @description The name of the control policy.
+     *
      * @example test
      *
      * @var string
@@ -55,6 +69,8 @@ class policy extends Model
     public $policyName;
 
     /**
+     * @description The priority of the control policy. A smaller value indicates a higher priority.
+     *
      * @example 1
      *
      * @var int
@@ -62,6 +78,8 @@ class policy extends Model
     public $priority;
 
     /**
+     * @description The details of protocol control.
+     *
      * @var protocolConfig
      */
     public $protocolConfig;

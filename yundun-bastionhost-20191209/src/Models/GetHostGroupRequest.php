@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetHostGroupRequest extends Model
 {
     /**
-     * @description The ID of the host group.
+     * @description The ID of the asset group to query.
      *
-     * > You can call the [ListHostGroups](~~201307~~) operation to query the ID of the host group.
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -19,9 +19,9 @@ class GetHostGroupRequest extends Model
     public $hostGroupId;
 
     /**
-     * @description The ID of the bastion host in which you want to query the details of the host group.
+     * @description The ID of the bastion host whose asset group you want to query.
      *
-     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -29,9 +29,9 @@ class GetHostGroupRequest extends Model
     public $instanceId;
 
     /**
-     * @description The region ID of the bastion host in which you want to query the details of the host group.
+     * @description The region ID of the bastion host whose asset group you want to query.
      *
-     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * > For more information about the mapping between region IDs and region names, [see Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

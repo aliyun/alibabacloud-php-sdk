@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class databases extends Model
 {
     /**
+     * @description The database accounts on which permissions are granted by using the authorization rule.
+     *
      * @var databaseAccounts[]
      */
     public $databaseAccounts;
 
     /**
+     * @description The ID of the database that the policy authorizes users to manage.
+     *
      * @example 2
      *
      * @var string

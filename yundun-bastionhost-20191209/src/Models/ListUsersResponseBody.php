@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListUsersResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
      *
@@ -19,7 +19,7 @@ class ListUsersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of users that were queried.
+     * @description The total number of users returned.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class ListUsersResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The list of users that were queried.
+     * @description The users returned.
      *
      * @var users[]
      */

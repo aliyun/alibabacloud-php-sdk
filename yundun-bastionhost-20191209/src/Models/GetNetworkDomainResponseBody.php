@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetNetworkDomainResponseBody extends Model
 {
     /**
+     * @description The detailed information about the network domain.
+     *
      * @var networkDomain
      */
     public $networkDomain;
 
     /**
+     * @description The request ID.
+     *
      * @example 05F59944-2E24-595C-B21A-8C9955E60FAF
      *
      * @var string

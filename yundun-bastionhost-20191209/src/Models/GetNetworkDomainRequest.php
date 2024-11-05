@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetNetworkDomainRequest extends Model
 {
     /**
+     * @description The bastion host ID.
+     * This parameter is required.
      * @example bastionhost-cn-i7m2btk6g48
      *
      * @var string
@@ -16,6 +18,8 @@ class GetNetworkDomainRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the network domain to query.
+     * This parameter is required.
      * @example 3
      *
      * @var string
@@ -23,6 +27,9 @@ class GetNetworkDomainRequest extends Model
     public $networkDomainId;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

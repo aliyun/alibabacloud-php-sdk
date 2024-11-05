@@ -9,13 +9,19 @@ use AlibabaCloud\Tea\Model;
 class proxies extends Model
 {
     /**
-     * @example 47.102.**.**
+     * @description The IP address of the proxy server.
+     *
+     * @example ``47.102.**.**``
      *
      * @var string
      */
     public $address;
 
     /**
+     * @description Indicates whether the proxy server has a password. Valid values:
+     *
+     * - **true**
+     * - **false**
      * @example true
      *
      * @var bool
@@ -23,6 +29,9 @@ class proxies extends Model
     public $hasPassword;
 
     /**
+     * @description The node type of the proxy server. Valid values:
+     * - **Master**: primary proxy server.
+     * - **Slave**: secondary proxy server.
      * @example Master
      *
      * @var string
@@ -30,6 +39,8 @@ class proxies extends Model
     public $nodeType;
 
     /**
+     * @description The port of the proxy server.
+     *
      * @example 22
      *
      * @var int
@@ -37,6 +48,10 @@ class proxies extends Model
     public $port;
 
     /**
+     * @description The status of the proxy server.
+     *
+     * - **Available**
+     * - **Unavailable**
      * @example Unavailable
      *
      * @var string
@@ -44,6 +59,12 @@ class proxies extends Model
     public $proxyState;
 
     /**
+     * @description The error code that indicates the status of the proxy server.
+     *
+     * - **CHECK_PWD_FAILED**: The password is invalid.
+     * - **CHECK_PWD_TIMEOUT**: The password verification session timed out.
+     * - **CHECK_PWD_NETWORK_ERR**: A network error occurred.
+     * - **UNEXPECTED**: An unknown error occurred.
      * @example CHECK_PWD_TIMEOUT
      *
      * @var string
@@ -51,6 +72,11 @@ class proxies extends Model
     public $proxyStateErrorCode;
 
     /**
+     * @description The proxy type. Valid values:
+     *
+     * - **SSHProxy**
+     * - **HTTPProxy**
+     * - **Socks5Proxy**
      * @example HTTPProxy
      *
      * @var string
@@ -58,6 +84,8 @@ class proxies extends Model
     public $proxyType;
 
     /**
+     * @description The username of the proxy server.
+     *
      * @example root
      *
      * @var string

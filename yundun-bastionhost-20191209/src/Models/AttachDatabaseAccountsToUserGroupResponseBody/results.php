@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @description The error code returned. If OK is returned, the authorization was successful. If another error code is returned, the authorization failed.
+     *
      * @example OK
      *
      * @var string
@@ -17,11 +19,15 @@ class results extends Model
     public $code;
 
     /**
+     * @description A list that shows the authorization results of the database accounts.
+     *
      * @var databaseAccounts[]
      */
     public $databaseAccounts;
 
     /**
+     * @description The database ID.
+     *
      * @example 2
      *
      * @var string
@@ -29,11 +35,15 @@ class results extends Model
     public $databaseId;
 
     /**
+     * @description The error message returned.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The user group ID.
+     *
      * @example 1
      *
      * @var string

@@ -10,11 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DetachDatabaseAccountsFromUserRequest extends Model
 {
     /**
+     * @description The databases.
+     *
      * @var databases[]
      */
     public $databases;
 
     /**
+     * @description The bastion host ID.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-pe335ipfk01
      *
      * @var string
@@ -22,6 +27,9 @@ class DetachDatabaseAccountsFromUserRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-shanghai
      *
      * @var string
@@ -29,6 +37,9 @@ class DetachDatabaseAccountsFromUserRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the user from whom you want to revoke the permissions on databases and database accounts.
+     *
+     * This parameter is required.
      * @example 1
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListHostAccountsForHostShareKeyRequest extends Model
 {
     /**
-     * @description The ID of the shared key.
+     * @description The shared key ID.
      *
+     * This parameter is required.
      * @example 1124
      *
      * @var string
@@ -18,8 +19,9 @@ class ListHostAccountsForHostShareKeyRequest extends Model
     public $hostShareKeyId;
 
     /**
-     * @description The ID of the bastion host. You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * @description The bastion host ID.
      *
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -45,8 +47,9 @@ class ListHostAccountsForHostShareKeyRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the bastion host. For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * @description The region ID of the bastion host.
      *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

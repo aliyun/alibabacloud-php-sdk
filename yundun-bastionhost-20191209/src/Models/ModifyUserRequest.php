@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyUserRequest extends Model
 {
     /**
-     * @description The new description of the user. The description can be up to 500 characters in length.
+     * @description The new remarks of the user. The remarks can be up to 500 characters in length.
      *
+     * >  Leave this parameter empty if you do not want to change the remarks of the user.
      * @example comment
      *
      * @var string
@@ -18,8 +19,9 @@ class ModifyUserRequest extends Model
     public $comment;
 
     /**
-     * @description The new display name of the user. This display name can be up to 128 characters in length.
+     * @description The new display name of the user. The display name can be up to 128 characters in length.
      *
+     * >  Leave this parameter empty if you do not want to change the display name of the user.
      * @example Bob
      *
      * @var string
@@ -27,8 +29,9 @@ class ModifyUserRequest extends Model
     public $displayName;
 
     /**
-     * @description The end of the validity period of the user. The value is a UNIX timestamp. Unit: seconds.
+     * @description The end time of the validity period of the user. Specify a UNIX timestamp. Unit: seconds.
      *
+     * >  Leave this parameter empty if you do not want to change the end time of the validity period.
      * @example 1672502400
      *
      * @var int
@@ -36,8 +39,9 @@ class ModifyUserRequest extends Model
     public $effectiveEndTime;
 
     /**
-     * @description The beginning of the validity period of the user. The value is a UNIX timestamp. Unit: seconds.
+     * @description The start time of the validity period of the user. Specify a UNIX timestamp. Unit: seconds.
      *
+     * >  Leave this parameter empty if you do not want to change the start time of the validity period.
      * @example 1669630029
      *
      * @var int
@@ -47,7 +51,14 @@ class ModifyUserRequest extends Model
     /**
      * @description The new email address of the user.
      *
-     * > This parameter is required when the TwoFactorStatus parameter is set to Enable and the TwoFactorMethods parameter is set to email.
+     * >
+     *
+     *   This parameter is required if TwoFactorStatus is set to Enable and TwoFactorMethods is set to email, or if TwoFactorStatus is set to Global and TwoFactorMethods is set to email in the global two-factor authentication settings.
+     *
+     *   You can call the [GetInstanceTwoFactor](https://help.aliyun.com/document_detail/462968.html) operation to query the global two-factor authentication settings.
+     *
+     *   Leave this parameter empty if you do not want to change the email address of the user.
+     *
      * @example username@example.com
      *
      * @var string
@@ -55,9 +66,9 @@ class ModifyUserRequest extends Model
     public $email;
 
     /**
-     * @description The ID of the bastion host where you want to modify user information.
+     * @description The ID of the bastion host on which you want to modify the information about the user.
      *
-     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -65,19 +76,40 @@ class ModifyUserRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required if LanguageStatus is set to Custom.
+     *
+     * - **zh-cn**: simplified Chinese
+     * - **en**: English
+     * @example en
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @description Specifies whether to send notifications in the language specified in the global settings or a custom language.
+     *
+     *   **Global**
+     *   **Custom**
+     *
+     * >  Leave this parameter empty if you do not want to change the natural language used to notify the user.
+     * @example Custom
+     *
      * @var string
      */
     public $languageStatus;
 
     /**
-     * @description The new mobile number of the user.
+     * @description The new mobile phone number of the user.
      *
-     * > This parameter is required when the TwoFactorStatus parameter is set to Enable and the TwoFactorMethods parameter is set to sms or dingtalk.
+     * >
+     *
+     *   This parameter is required if TwoFactorStatus is set to Enable and TwoFactorMethods is set to sms or dingtalk, or if TwoFactorStatus is set to Global and TwoFactorMethods is set to sms or dingtalk in the global two-factor authentication settings.
+     *
+     *   You can call the [GetInstanceTwoFactor](https://help.aliyun.com/document_detail/462968.html) operation to query the global two-factor authentication settings.
+     *
+     *   Leave this parameter empty if you do not want to change the mobile phone number of the user.
+     *
      * @example 1358888****
      *
      * @var string
@@ -117,7 +149,10 @@ class ModifyUserRequest extends Model
     /**
      * @description Specifies whether password reset is required upon the next logon. Valid values:
      *
-     * - false: no
+     *   **true**
+     *   **false**
+     *
+     * >  Leave this parameter empty if you do not want to change the password reset settings for the user.
      * @example true
      *
      * @var bool
@@ -125,8 +160,9 @@ class ModifyUserRequest extends Model
     public $needResetPassword;
 
     /**
-     * @description The new password of the user. The password must be 8 to 128 characters in length and must contain lowercase letters, uppercase letters, digits, and special characters.
+     * @description The new password of the user. The password must be 8 to 128 characters in length. It must contain uppercase letters, lowercase letters, digits, and special characters.
      *
+     * > Leave this parameter empty if you do not want to change the password of the user.
      * @example 321****
      *
      * @var string
@@ -134,9 +170,9 @@ class ModifyUserRequest extends Model
     public $password;
 
     /**
-     * @description The region ID of the bastion host where you want to modify user information.
+     * @description The region ID of the bastion host on which you want to modify the information about the user.
      *
-     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -146,12 +182,12 @@ class ModifyUserRequest extends Model
     /**
      * @description The two-factor authentication method. You can select only one method. Valid values:
      *
-     *   **sms:** text message
-     *   **email:** email
-     *   **dingtalk:** DingTalk
-     *   **totp OTP:** time-based one-time password (TOTP) app
+     *   **sms**: text message-based two-factor authentication.
+     *   **email**: email-based two-factor authentication.
+     *   **dingtalk**: DingTalk-based two-factor authentication.
+     *   **totp OTP:** one-time password (OTP) token-based two-factor authentication.
      *
-     * > *   When the TwoFactorStatus parameter is set to Enable, you must specify one of the preceding values.
+     * >  If TwoFactorStatus is set to Enable, you must specify one of the valid values as TwoFactorMethods.
      * @example sms
      *
      * @var string
@@ -159,12 +195,13 @@ class ModifyUserRequest extends Model
     public $twoFactorMethods;
 
     /**
-     * @description The two-factor authentication status of the user. Valid values:
+     * @description Specifies whether two-factor authentication is enabled for the user. Valid values:
      *
-     *   **Global:** follows the global settings
-     *   **Disable:** disables two-factor authentication
-     *   **Enable:** enable two-factor authentication and follows settings of the single user
+     *   **Global**: The global settings apply.
+     *   **Disable**: Two-factor authentication is disabled.
+     *   **Enable**: Two-factor authentication is enabled and user-specific settings apply.
      *
+     * >  Leave this parameter empty if you do not want to change the two-factory authentication settings for the user.
      * @example Enable
      *
      * @var string
@@ -174,6 +211,7 @@ class ModifyUserRequest extends Model
     /**
      * @description The ID of the user whose information you want to modify.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string

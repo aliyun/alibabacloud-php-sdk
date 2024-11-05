@@ -23,7 +23,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The region ID of the bastion host to query.
      *
-     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -33,7 +33,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description An array that consists of IDs of bastion hosts.
      *
-     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -42,6 +42,8 @@ class UntagResourcesRequest extends Model
      * @description The type of the resource.
      *
      * Set the value to **INSTANCE**, which indicates that the resource is a bastion host.
+     *
+     * This parameter is required.
      * @example INSTANCE
      *
      * @var string

@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class SSH extends Model
 {
     /**
+     * @description Specifies whether to enable remote command execution. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
+     * > If you do not specify this parameter, the default value Disable is used.
      * @example Enable
      *
      * @var string
@@ -16,6 +22,19 @@ class SSH extends Model
     public $execCommand;
 
     /**
+     * @description Specifies whether to enable SFTP channels. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
+     * >
+     *
+     *   If you do not specify this parameter, the default value Disable is used.
+     *
+     *   You must set at least one of the following parameters to Enable: SSHChannel and SFTPChannel.
+     *
+     *   If you select Enable Only SFTP Permission for a host account, do not set SSHChannel and SFTPChannel to Disable for the account. Otherwise, users of the bastion host cannot use the account to access the host.
+     *
      * @example Enable
      *
      * @var string
@@ -23,6 +42,12 @@ class SSH extends Model
     public $SFTPChannel;
 
     /**
+     * @description Specifies whether to enable file downloading during SFTP-based O\\&M. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
+     * > If you do not specify this parameter, the default value Disable is used.
      * @example Enable
      *
      * @var string
@@ -30,6 +55,12 @@ class SSH extends Model
     public $SFTPDownloadFile;
 
     /**
+     * @description Specifies whether to enable folder creation during SFTP-based O\\&M. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
+     * > If you do not specify this parameter, the default value Disable is used.
      * @example Enable
      *
      * @var string
@@ -37,6 +68,12 @@ class SSH extends Model
     public $SFTPMkdir;
 
     /**
+     * @description Specifies whether to enable file deletion during SFTP-based O\\&M. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
+     * > If you do not specify this parameter, the default value Disable is used.
      * @example Enable
      *
      * @var string
@@ -44,6 +81,12 @@ class SSH extends Model
     public $SFTPRemoveFile;
 
     /**
+     * @description Specifies whether to enable file renaming during SFTP-based O\\&M. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
+     * > If you do not specify this parameter, the default value Disable is used.
      * @example Enable
      *
      * @var string
@@ -51,6 +94,12 @@ class SSH extends Model
     public $SFTPRenameFile;
 
     /**
+     * @description Specifies whether to enable folder deletion during SFTP-based O\\&M. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
+     * > If you do not specify this parameter, the default value Disable is used.
      * @example Enable
      *
      * @var string
@@ -58,6 +107,12 @@ class SSH extends Model
     public $SFTPRmdir;
 
     /**
+     * @description Specifies whether to enable file uploading during SFTP-based O\\&M. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
+     * > If you do not specify this parameter, the default value Disable is used.
      * @example Enable
      *
      * @var string
@@ -65,6 +120,19 @@ class SSH extends Model
     public $SFTPUploadFile;
 
     /**
+     * @description Specifies whether to enable SSH channels. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
+     * >
+     *
+     *   If you do not specify this parameter, the default value Disable is used.
+     *
+     *   You must set at least one of the following parameters to Enable: SSHChannel and SFTPChannel. If you set SSHChannel to Disable, SSH-based logon is disabled for the asset account. Proceed with caution.
+     *
+     *   If you select Enable Only SFTP Permission for a host account, do not set SSHChannel and SFTPChannel to Disable for the account. Otherwise, users of the bastion host cannot use the account to access the host.
+     *
      * @example Enable
      *
      * @var string
@@ -72,6 +140,12 @@ class SSH extends Model
     public $SSHChannel;
 
     /**
+     * @description Specifies whether to enable X11 forwarding. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
+     * > If you do not specify this parameter, the default value Disable is used.
      * @example Enable
      *
      * @var string

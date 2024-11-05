@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class SetPolicyProtocolConfigRequest extends Model
 {
     /**
+     * @description The bastion host ID.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -17,6 +20,9 @@ class SetPolicyProtocolConfigRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the control policy that you want to modify.
+     *
+     * This parameter is required.
      * @example 61
      *
      * @var string
@@ -24,11 +30,17 @@ class SetPolicyProtocolConfigRequest extends Model
     public $policyId;
 
     /**
+     * @description The protocol control settings.
+     *
+     * This parameter is required.
      * @var protocolConfig
      */
     public $protocolConfig;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

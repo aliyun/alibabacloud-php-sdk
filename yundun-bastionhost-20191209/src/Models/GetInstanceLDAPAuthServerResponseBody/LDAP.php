@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class LDAP extends Model
 {
     /**
-     * @description The ID of the bastion host.
+     * @description The account of the LDAP server.
      *
-     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
      * @example cn=Manager,dc=test,dc=com
      *
      * @var string
@@ -19,7 +18,7 @@ class LDAP extends Model
     public $account;
 
     /**
-     * @description The field that is used to indicate the logon name of a user on the LDAP server.
+     * @description The Base distinguished name (DN).
      *
      * @example dc=test,dc=com
      *
@@ -28,7 +27,7 @@ class LDAP extends Model
     public $baseDN;
 
     /**
-     * @description The address of the secondary LDAP server.
+     * @description The field that is used to indicate the email address of a user on the LDAP server.
      *
      * @example emailAttr
      *
@@ -37,7 +36,7 @@ class LDAP extends Model
     public $emailMapping;
 
     /**
-     * @description The Base distinguished name (DN).
+     * @description The condition that is used to filter users.
      *
      * @example (&(objectClass=top))
      *
@@ -46,7 +45,10 @@ class LDAP extends Model
     public $filter;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description Indicates whether passwords are required. Valid values:
+     *
+     *   **true**: required
+     *   **false**: not required
      *
      * @example true
      *
@@ -55,7 +57,10 @@ class LDAP extends Model
     public $hasPassword;
 
     /**
-     * @description The condition that is used to filter users.
+     * @description Indicates whether SSL is supported. Valid values:
+     *
+     *   **true**: supported
+     *   **false**: not supported
      *
      * @example true
      *
@@ -64,7 +69,7 @@ class LDAP extends Model
     public $isSSL;
 
     /**
-     * @description The port that is used to access the LDAP server.
+     * @description The field that is used to indicate the logon name of a user on the LDAP server.
      *
      * @example userNameAttr
      *
@@ -73,7 +78,7 @@ class LDAP extends Model
     public $loginNameMapping;
 
     /**
-     * @description The field that is used to indicate the email address of a user on the LDAP server.
+     * @description The field that is used to indicate the mobile phone number of a user on the LDAP server.
      *
      * @example mobileAttr
      *
@@ -82,7 +87,7 @@ class LDAP extends Model
     public $mobileMapping;
 
     /**
-     * @description The field that is used to indicate the mobile phone number of a user on the LDAP server.
+     * @description The field that is used to indicate the name of a user on the LDAP server.
      *
      * @example nameAttr
      *
@@ -91,6 +96,8 @@ class LDAP extends Model
     public $nameMapping;
 
     /**
+     * @description The port that is used to access the LDAP server.
+     *
      * @example 389
      *
      * @var int
@@ -98,6 +105,8 @@ class LDAP extends Model
     public $port;
 
     /**
+     * @description The address of the LDAP server.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -105,6 +114,8 @@ class LDAP extends Model
     public $server;
 
     /**
+     * @description The address of the secondary LDAP server.
+     *
      * @example 192.168.XX.XX
      *
      * @var string

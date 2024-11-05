@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class networkDomains extends Model
 {
     /**
+     * @description The remarks of the network domain.
+     *
      * @example comment
      *
      * @var string
@@ -17,6 +19,11 @@ class networkDomains extends Model
     public $comment;
 
     /**
+     * @description Indicates whether the network domain is built-in.
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -24,6 +31,8 @@ class networkDomains extends Model
     public $default;
 
     /**
+     * @description The network domain ID.
+     *
      * @example 2
      *
      * @var string
@@ -31,6 +40,8 @@ class networkDomains extends Model
     public $networkDomainId;
 
     /**
+     * @description The name of the network domain.
+     *
      * @example test
      *
      * @var string
@@ -38,6 +49,11 @@ class networkDomains extends Model
     public $networkDomainName;
 
     /**
+     * @description The connection mode of the network domain. Valid values:
+     *
+     *   **Direct**
+     *   **Proxy**
+     *
      * @example Proxy
      *
      * @var string

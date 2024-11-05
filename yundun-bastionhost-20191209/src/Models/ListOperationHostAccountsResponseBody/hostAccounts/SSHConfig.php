@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SSHConfig extends Model
 {
     /**
+     * @description Indicates whether SFTP channels are enabled for the account.
+     *
      * @var bool
      */
     public $enableSFTPChannel;
 
     /**
+     * @description Indicates whether SSH channels are enabled for the account.
+     *
      * @var bool
      */
     public $enableSSHChannel;

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetDatabaseRequest extends Model
 {
     /**
+     * @description The ID of the database to query.
+     *
+     * This parameter is required.
      * @example 21
      *
      * @var string
@@ -16,6 +19,9 @@ class GetDatabaseRequest extends Model
     public $databaseId;
 
     /**
+     * @description The ID of the bastion host that manages the database to query.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-wwo36qbv601
      *
      * @var string
@@ -23,6 +29,9 @@ class GetDatabaseRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region ID of the bastion host that manages the database to query.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

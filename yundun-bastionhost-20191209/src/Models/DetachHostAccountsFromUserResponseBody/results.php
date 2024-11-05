@@ -32,7 +32,7 @@ class results extends Model
     public $hostAccounts;
 
     /**
-     * @description The ID of the host.
+     * @description The host ID.
      *
      * @example 1
      *
@@ -48,7 +48,7 @@ class results extends Model
     public $message;
 
     /**
-     * @description The ID of the user.
+     * @description The user ID.
      *
      * @example 1
      *

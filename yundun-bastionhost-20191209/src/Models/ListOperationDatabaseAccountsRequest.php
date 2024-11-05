@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListOperationDatabaseAccountsRequest extends Model
 {
     /**
+     * @description The name of the database account. Exact match is supported.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,9 @@ class ListOperationDatabaseAccountsRequest extends Model
     public $databaseAccountName;
 
     /**
+     * @description The database ID.
+     *
+     * This parameter is required.
      * @example 56
      *
      * @var string
@@ -23,6 +28,9 @@ class ListOperationDatabaseAccountsRequest extends Model
     public $databaseId;
 
     /**
+     * @description The ID of the bastion host.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-2r42t9cvf0i
      *
      * @var string
@@ -30,6 +38,8 @@ class ListOperationDatabaseAccountsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var string
@@ -37,6 +47,8 @@ class ListOperationDatabaseAccountsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.\\
+     * >  We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var string
@@ -44,6 +56,9 @@ class ListOperationDatabaseAccountsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-shanghai
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListOperationTicketsResponseBody extends Model
 {
     /**
+     * @description The O\\&M applications to be reviewed.
+     *
      * @var operationTickets[]
      */
     public $operationTickets;
 
     /**
+     * @description The request ID.
+     *
      * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
      *
      * @var string
@@ -22,6 +26,8 @@ class ListOperationTicketsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of O\\&M applications to be reviewed.
+     *
      * @example 20
      *
      * @var int

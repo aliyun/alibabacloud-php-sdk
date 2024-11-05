@@ -21,6 +21,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The region ID of the Bastionhost instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -28,7 +29,7 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The IDs of instances. The ID is up to 20.
+     * @description The IDs of instances.
      *
      * @example bastionhost-cn-78v1gcxxxxx
      *
@@ -39,7 +40,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The type of the resource.
      *
-     * Set the value to INSTANCE, which indicates that the resource is a Bastionhost instance.
+     * This parameter is required.
      * @example INSTANCE
      *
      * @var string

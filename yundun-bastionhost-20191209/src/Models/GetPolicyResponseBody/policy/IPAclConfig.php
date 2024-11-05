@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class IPAclConfig extends Model
 {
     /**
+     * @description The mode of access control on source IP addresses. Valid values:
+     *
+     *   white: whitelist mode.
+     *   black: blacklist mode.
+     *
      * @example black
      *
      * @var string
@@ -16,6 +21,8 @@ class IPAclConfig extends Model
     public $aclType;
 
     /**
+     * @description The IP addresses from which logons are not allowed.
+     *
      * @var string[]
      */
     public $IPs;

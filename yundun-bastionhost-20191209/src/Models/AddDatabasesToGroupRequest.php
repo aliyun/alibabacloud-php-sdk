@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class AddDatabasesToGroupRequest extends Model
 {
     /**
+     * @description An array that consists of the database IDs.
+     *
+     * This parameter is required.
      * @var string[]
      */
     public $databaseIds;
 
     /**
+     * @description The ID of the asset group to which you want to add the databases.
+     *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -21,6 +27,9 @@ class AddDatabasesToGroupRequest extends Model
     public $hostGroupId;
 
     /**
+     * @description The bastion host ID.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -28,6 +37,9 @@ class AddDatabasesToGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetHostShareKeyRequest extends Model
 {
     /**
-     * @description The time when the information about the shared key was last modified.
+     * @description The ID of the shared key whose information you want to query.
      *
+     * This parameter is required.
      * @example 10427
      *
      * @var string
@@ -18,8 +19,9 @@ class GetHostShareKeyRequest extends Model
     public $hostShareKeyId;
 
     /**
-     * @description The ID of the shared key whose details you want to query.
+     * @description The bastion host ID.
      *
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -27,8 +29,9 @@ class GetHostShareKeyRequest extends Model
     public $instanceId;
 
     /**
-     * @description The name of the shared key.
+     * @description The region ID of the bastion host.
      *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

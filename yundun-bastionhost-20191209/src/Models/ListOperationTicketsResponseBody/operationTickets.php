@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class operationTickets extends Model
 {
     /**
+     * @description The ID of the O\\&M applicant.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class operationTickets extends Model
     public $applyUserId;
 
     /**
+     * @description The username of the O\\&M applicant.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,13 @@ class operationTickets extends Model
     public $applyUsername;
 
     /**
+     * @var string
+     */
+    public $approveComment;
+
+    /**
+     * @description The ID of the asset account.
+     *
      * @example 1
      *
      * @var string
@@ -30,6 +41,8 @@ class operationTickets extends Model
     public $assetAccountId;
 
     /**
+     * @description The username of the asset account.
+     *
      * @example root
      *
      * @var string
@@ -37,13 +50,17 @@ class operationTickets extends Model
     public $assetAccountName;
 
     /**
-     * @example 10.167.66.167
+     * @description The IP address of the asset.
+     *
+     * @example 10.167.XX.XX
      *
      * @var string
      */
     public $assetAddress;
 
     /**
+     * @description The ID of the asset.
+     *
      * @example 2
      *
      * @var string
@@ -51,6 +68,8 @@ class operationTickets extends Model
     public $assetId;
 
     /**
+     * @description The name of the asset.
+     *
      * @example poros-test
      *
      * @var string
@@ -58,6 +77,8 @@ class operationTickets extends Model
     public $assetName;
 
     /**
+     * @description The network domain ID of the asset.
+     *
      * @example 2
      *
      * @var string
@@ -65,6 +86,8 @@ class operationTickets extends Model
     public $assetNetworkDomainId;
 
     /**
+     * @description The operating system of the asset.
+     *
      * @example Linux
      *
      * @var string
@@ -72,6 +95,13 @@ class operationTickets extends Model
     public $assetOs;
 
     /**
+     * @description The name of the asset source to which the asset belongs. Valid values:
+     *
+     *   **Local**: an on-premises host.
+     *   **Ecs**: an Elastic Compute Service (ECS) instance.
+     *   **Rds**: an ApsaraDB RDS instance.
+     *   A third-party asset source.
+     *
      * @example Local
      *
      * @var string
@@ -79,6 +109,8 @@ class operationTickets extends Model
     public $assetSource;
 
     /**
+     * @description The ID of the asset source to which the asset belongs.
+     *
      * @example 1
      *
      * @var string
@@ -86,6 +118,8 @@ class operationTickets extends Model
     public $assetSourceInstanceId;
 
     /**
+     * @description The time when the O\\&M application was submitted. The value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1669965908
      *
      * @var int
@@ -93,6 +127,23 @@ class operationTickets extends Model
     public $createdTime;
 
     /**
+     * @var int
+     */
+    public $effectCount;
+
+    /**
+     * @var int
+     */
+    public $effectEndTime;
+
+    /**
+     * @var int
+     */
+    public $effectStartTime;
+
+    /**
+     * @description The ID of the O\\&M application to be reviewed.
+     *
      * @example 1
      *
      * @var string
@@ -100,6 +151,8 @@ class operationTickets extends Model
     public $operationTicketId;
 
     /**
+     * @description The O\\&M protocol.
+     *
      * @example SSH
      *
      * @var string
@@ -107,6 +160,10 @@ class operationTickets extends Model
     public $protocolName;
 
     /**
+     * @description The status of the review. Valid value:
+     *
+     *   Normal: to be reviewed
+     *
      * @example Normal
      *
      * @var string
@@ -115,6 +172,7 @@ class operationTickets extends Model
     protected $_name = [
         'applyUserId'           => 'ApplyUserId',
         'applyUsername'         => 'ApplyUsername',
+        'approveComment'        => 'ApproveComment',
         'assetAccountId'        => 'AssetAccountId',
         'assetAccountName'      => 'AssetAccountName',
         'assetAddress'          => 'AssetAddress',
@@ -125,6 +183,9 @@ class operationTickets extends Model
         'assetSource'           => 'AssetSource',
         'assetSourceInstanceId' => 'AssetSourceInstanceId',
         'createdTime'           => 'CreatedTime',
+        'effectCount'           => 'EffectCount',
+        'effectEndTime'         => 'EffectEndTime',
+        'effectStartTime'       => 'EffectStartTime',
         'operationTicketId'     => 'OperationTicketId',
         'protocolName'          => 'ProtocolName',
         'state'                 => 'State',
@@ -142,6 +203,9 @@ class operationTickets extends Model
         }
         if (null !== $this->applyUsername) {
             $res['ApplyUsername'] = $this->applyUsername;
+        }
+        if (null !== $this->approveComment) {
+            $res['ApproveComment'] = $this->approveComment;
         }
         if (null !== $this->assetAccountId) {
             $res['AssetAccountId'] = $this->assetAccountId;
@@ -173,6 +237,15 @@ class operationTickets extends Model
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
+        if (null !== $this->effectCount) {
+            $res['EffectCount'] = $this->effectCount;
+        }
+        if (null !== $this->effectEndTime) {
+            $res['EffectEndTime'] = $this->effectEndTime;
+        }
+        if (null !== $this->effectStartTime) {
+            $res['EffectStartTime'] = $this->effectStartTime;
+        }
         if (null !== $this->operationTicketId) {
             $res['OperationTicketId'] = $this->operationTicketId;
         }
@@ -199,6 +272,9 @@ class operationTickets extends Model
         }
         if (isset($map['ApplyUsername'])) {
             $model->applyUsername = $map['ApplyUsername'];
+        }
+        if (isset($map['ApproveComment'])) {
+            $model->approveComment = $map['ApproveComment'];
         }
         if (isset($map['AssetAccountId'])) {
             $model->assetAccountId = $map['AssetAccountId'];
@@ -229,6 +305,15 @@ class operationTickets extends Model
         }
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
+        }
+        if (isset($map['EffectCount'])) {
+            $model->effectCount = $map['EffectCount'];
+        }
+        if (isset($map['EffectEndTime'])) {
+            $model->effectEndTime = $map['EffectEndTime'];
+        }
+        if (isset($map['EffectStartTime'])) {
+            $model->effectStartTime = $map['EffectStartTime'];
         }
         if (isset($map['OperationTicketId'])) {
             $model->operationTicketId = $map['OperationTicketId'];

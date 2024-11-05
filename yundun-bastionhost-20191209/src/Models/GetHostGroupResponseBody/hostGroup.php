@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class hostGroup extends Model
 {
     /**
-     * @description The description of the host group.
+     * @description The remarks of the asset group.
      *
      * @example Description
      *
@@ -18,7 +18,7 @@ class hostGroup extends Model
     public $comment;
 
     /**
-     * @description The ID of the host group.
+     * @description The asset group ID.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class hostGroup extends Model
     public $hostGroupId;
 
     /**
-     * @description The name of the host group.
+     * @description The name of the asset group.
      *
      * @example Host group 1
      *

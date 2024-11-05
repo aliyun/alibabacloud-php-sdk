@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetPolicyAssetScopeResponseBody extends Model
 {
     /**
+     * @description The assets to which the control policy applies.
+     *
      * @var assetScope
      */
     public $assetScope;
 
     /**
+     * @description The request ID.
+     *
      * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
      *
      * @var string

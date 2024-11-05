@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class MoveDatabasesToNetworkDomainRequest extends Model
 {
     /**
+     * @description The IDs of the databases that you want to add to the network domain.
+     *
+     * This parameter is required.
      * @var string[]
      */
     public $databaseIds;
 
     /**
+     * @description The bastion host ID.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-zpr3h2zo60l
      *
      * @var string
@@ -21,6 +27,9 @@ class MoveDatabasesToNetworkDomainRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the network domain to which you want to add databases.
+     *
+     * This parameter is required.
      * @example 3
      *
      * @var string
@@ -28,6 +37,8 @@ class MoveDatabasesToNetworkDomainRequest extends Model
     public $networkDomainId;
 
     /**
+     * @description The region ID of the bastion host.
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListUserGroupsRequest extends Model
 {
     /**
+     * @description The ID of the bastion host on which you want to query user groups.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListUserGroupsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +27,8 @@ class ListUserGroupsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     * Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      * @example 20
      *
      * @var string
@@ -30,6 +36,8 @@ class ListUserGroupsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the bastion host on which you want to query user groups.
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/462924.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +45,8 @@ class ListUserGroupsRequest extends Model
     public $regionId;
 
     /**
+     * @description The name of the user group that you want to query. Only exact match is supported.
+     *
      * @example TestGroup01
      *
      * @var string

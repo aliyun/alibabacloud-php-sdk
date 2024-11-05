@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RejectApproveCommandRequest extends Model
 {
     /**
+     * @description The ID of the command that you want to reject.
+     *
+     * This parameter is required.
      * @example 574
      *
      * @var string
@@ -16,6 +19,9 @@ class RejectApproveCommandRequest extends Model
     public $commandId;
 
     /**
+     * @description The ID of the bastion host.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -23,6 +29,9 @@ class RejectApproveCommandRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

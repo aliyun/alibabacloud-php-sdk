@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListPoliciesRequest extends Model
 {
     /**
+     * @description The bastion host ID.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-5yd393wzk08
      *
      * @var string
@@ -16,6 +19,8 @@ class ListPoliciesRequest extends Model
     public $instanceId;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +28,8 @@ class ListPoliciesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.\\
+     * > We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var string
@@ -30,6 +37,8 @@ class ListPoliciesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the control policy to query. Only exact match is supported.
+     *
      * @example 123
      *
      * @var string
@@ -37,6 +46,9 @@ class ListPoliciesRequest extends Model
     public $policyName;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

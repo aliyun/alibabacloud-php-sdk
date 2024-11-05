@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class MoveHostsToNetworkDomainResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example F9B9E190-9C8E-5FEE-B963-7E9F1FD7FB4E
      *
      * @var string
@@ -17,6 +19,8 @@ class MoveHostsToNetworkDomainResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The result of the call.
+     *
      * @var results[]
      */
     public $results;

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListDatabasesRequest extends Model
 {
     /**
+     * @description The engine of the database to query. Valid values:
+     *
+     *   **MySQL**
+     *   **Oracle**
+     *   **PostgreSQL**
+     *   **SQLServer**
+     *
      * @example MySQL
      *
      * @var string
@@ -16,6 +23,9 @@ class ListDatabasesRequest extends Model
     public $databaseType;
 
     /**
+     * @description The ID of the asset group to query. This operation returns the databases in the asset group.
+     *
+     * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the asset group.
      * @example 20
      *
      * @var string
@@ -23,6 +33,9 @@ class ListDatabasesRequest extends Model
     public $hostGroupId;
 
     /**
+     * @description The ID of the bastion host to query.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-7mz28f5tk0o
      *
      * @var string
@@ -30,6 +43,8 @@ class ListDatabasesRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the network domain where the database to query resides.
+     *
      * @example 2
      *
      * @var string
@@ -37,6 +52,8 @@ class ListDatabasesRequest extends Model
     public $networkDomainId;
 
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var string
@@ -44,6 +61,8 @@ class ListDatabasesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     * > We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var string
@@ -51,6 +70,9 @@ class ListDatabasesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the bastion host to query.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -58,6 +80,12 @@ class ListDatabasesRequest extends Model
     public $regionId;
 
     /**
+     * @description The type of the database to query. Valid values:
+     *
+     * **Local**: on-premises database.
+     * **Rds**: ApsaraDB for RDS instance.
+     * **PolarDB**: PolarDB cluster
+     *
      * @example Local
      *
      * @var string

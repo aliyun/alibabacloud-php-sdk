@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListHostGroupsResponseBody extends Model
 {
     /**
-     * @description An array that consists of the host groups.
+     * @description The asset groups returned.
      *
      * @var hostGroups[]
      */
     public $hostGroups;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
      *
@@ -26,7 +26,7 @@ class ListHostGroupsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of host groups returned.
+     * @description The total number of asset groups returned.
      *
      * @example 1
      *

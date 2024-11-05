@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class SetPolicyIPAclConfigShrinkRequest extends Model
 {
     /**
+     * @description The access control settings for source IP addresses.
+     *
+     * This parameter is required.
      * @var string
      */
     public $IPAclConfigShrink;
 
     /**
+     * @description The bastion host ID.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -21,6 +27,9 @@ class SetPolicyIPAclConfigShrinkRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the control policy that you want to modify.
+     *
+     * This parameter is required.
      * @example 3
      *
      * @var string
@@ -28,6 +37,9 @@ class SetPolicyIPAclConfigShrinkRequest extends Model
     public $policyId;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

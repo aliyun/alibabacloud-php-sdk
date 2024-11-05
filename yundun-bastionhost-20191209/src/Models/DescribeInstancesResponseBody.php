@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesResponseBody extends Model
 {
     /**
-     * @description An array that consists of the queried bastion hosts.
+     * @description An array that consists of the bastion hosts returned.
      *
      * @var instances[]
      */

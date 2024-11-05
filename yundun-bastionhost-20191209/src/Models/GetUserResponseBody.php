@@ -19,7 +19,7 @@ class GetUserResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details of the user that was queried.
+     * @description The detailed information about the queried user.
      *
      * @var user
      */

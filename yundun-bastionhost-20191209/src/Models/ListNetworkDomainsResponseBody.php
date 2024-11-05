@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListNetworkDomainsResponseBody extends Model
 {
     /**
+     * @description The network domains that are returned.
+     *
      * @var networkDomains[]
      */
     public $networkDomains;
 
     /**
+     * @description The request ID.
+     *
      * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
      *
      * @var string
@@ -22,6 +26,8 @@ class ListNetworkDomainsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of network domains that are returned.
+     *
      * @example 5
      *
      * @var int

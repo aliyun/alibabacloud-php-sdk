@@ -16,12 +16,10 @@ class results extends Model
      *   **UNEXPECTED**: An unknown error occurred.
      *
      *   **INVALID_ARGUMENT**: A request parameter is invalid.
-     *
      * >Make sure that the request parameters are valid and call the operation again.
      *
      *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
-     *
-     * >Check whether the specified ID of the bastion host exists, whether the specified hosts exist, and whether the specified host IDs are valid. Then, call the operation again.
+     * > Make sure that the specified bastion host ID and host IDs are valid. Then, call the operation again.
      *
      *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
      *
@@ -32,7 +30,7 @@ class results extends Model
     public $code;
 
     /**
-     * @description The ID of the host group.
+     * @description The asset group ID.
      *
      * @example 1
      *
@@ -41,7 +39,7 @@ class results extends Model
     public $hostGroupId;
 
     /**
-     * @description The ID of the host.
+     * @description The host ID.
      *
      * @example 1
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class hostAccounts extends Model
 {
     /**
+     * @description The ID of the host account that the policy authorizes users to manage.
+     *
      * @example 9
      *
      * @var string

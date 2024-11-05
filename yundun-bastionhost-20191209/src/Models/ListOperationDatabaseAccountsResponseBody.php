@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListOperationDatabaseAccountsResponseBody extends Model
 {
     /**
+     * @description The database accounts returned.
+     *
      * @var databaseAccounts[]
      */
     public $databaseAccounts;
 
     /**
+     * @description The request ID.
+     *
      * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
      *
      * @var string
@@ -22,6 +26,8 @@ class ListOperationDatabaseAccountsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 5
      *
      * @var int

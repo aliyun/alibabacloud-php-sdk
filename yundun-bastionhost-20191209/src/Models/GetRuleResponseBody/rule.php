@@ -14,6 +14,8 @@ use AlibabaCloud\Tea\Model;
 class rule extends Model
 {
     /**
+     * @description The remarks of the authorization rule.
+     *
      * @example comment
      *
      * @var string
@@ -21,11 +23,15 @@ class rule extends Model
     public $comment;
 
     /**
+     * @description The databases on which permissions are granted by using the authorization rule.
+     *
      * @var databases[]
      */
     public $databases;
 
     /**
+     * @description The end time of the validity period of the authorization rule. The value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1698720972
      *
      * @var string
@@ -33,6 +39,8 @@ class rule extends Model
     public $effectiveEndTime;
 
     /**
+     * @description The start time of the validity period of the authorization rule. The value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1687140883
      *
      * @var string
@@ -40,16 +48,22 @@ class rule extends Model
     public $effectiveStartTime;
 
     /**
+     * @description The asset groups on which permissions are granted by using the authorization rule.
+     *
      * @var hostGroups[]
      */
     public $hostGroups;
 
     /**
+     * @description The information about the hosts that the policy authorizes users to manage.
+     *
      * @var hosts[]
      */
     public $hosts;
 
     /**
+     * @description The ID of the authorization rule.
+     *
      * @example 3
      *
      * @var string
@@ -57,6 +71,8 @@ class rule extends Model
     public $ruleId;
 
     /**
+     * @description The name of the authorization rule.
+     *
      * @example rule
      *
      * @var string
@@ -64,11 +80,15 @@ class rule extends Model
     public $ruleName;
 
     /**
+     * @description The authorized user groups.
+     *
      * @var userGroups[]
      */
     public $userGroups;
 
     /**
+     * @description The authorized users.
+     *
      * @var users[]
      */
     public $users;

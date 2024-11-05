@@ -11,8 +11,8 @@ class ModifyInstanceTwoFactorRequest extends Model
     /**
      * @description Specifies whether to enable two-factor authentication. Valid values:
      *
-     *   **true**: enables two-factor authentication.
-     *   **false**: disables two-factor authentication.
+     *   **true**: yes
+     *   **false**: no
      *
      * @example true
      *
@@ -23,7 +23,7 @@ class ModifyInstanceTwoFactorRequest extends Model
     /**
      * @description The ID of the bastion host.
      *
-     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -33,7 +33,7 @@ class ModifyInstanceTwoFactorRequest extends Model
     /**
      * @description The region ID of the bastion host.
      *
-     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -41,7 +41,7 @@ class ModifyInstanceTwoFactorRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The duration within which two-factor authentication is not required after a user passes two-factor authentication. Valid values: 0 to 168. Unit: hours. If you set this parameter to 0, the user must pass two-factor authentication every time the user logs on to the bastion host.
      *
      * @example 1
      *
@@ -50,11 +50,13 @@ class ModifyInstanceTwoFactorRequest extends Model
     public $skipTwoFactorTime;
 
     /**
-     * @description One or more methods that are used to send a verification code if two-factor authentication is enabled. If you set the EnableTwoFactor parameter to true, you must specify at least one method. Valid values:
+     * @description The method used to send a verification code for two-factor authentication. If EnableTwoFactor is set to true, you must specify at least one method. Valid values:
      *
-     *   **sms**: text message
-     *   **email**: email
-     *   **dingtalk**: Notice in DingTalk
+     *   **sms:** text message.
+     *   **email**: email.
+     *   **dingtalk**: notice in DingTalk.
+     *   **totp**: one-time password (OTP) token.
+     *   **gmusbkey**: SM-based USB key.
      *
      * @example ["sms"]
      *

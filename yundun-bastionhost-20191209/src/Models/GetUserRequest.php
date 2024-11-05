@@ -11,7 +11,7 @@ class GetUserRequest extends Model
     /**
      * @description The ID of the bastion host on which you want to query the user.
      *
-     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -21,7 +21,7 @@ class GetUserRequest extends Model
     /**
      * @description The region ID of the bastion host on which you want to query the user.
      *
-     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -31,7 +31,7 @@ class GetUserRequest extends Model
     /**
      * @description The ID of the user.
      *
-     * > You can call the [ListUsers](~~204522~~) operation to query the ID of the user.
+     * This parameter is required.
      * @example 1
      *
      * @var string

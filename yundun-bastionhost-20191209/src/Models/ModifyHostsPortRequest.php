@@ -11,7 +11,7 @@ class ModifyHostsPortRequest extends Model
     /**
      * @description The ID of the host for which you want to change the port. The value is a JSON string. You can add up to 100 host IDs. If you specify multiple IDs, separate the IDs with commas (,).
      *
-     * >  You can call the [ListHosts](~~200665~~) operation to query the IDs of hosts.
+     * This parameter is required.
      * @example ["1","2","3"]
      *
      * @var string
@@ -21,7 +21,7 @@ class ModifyHostsPortRequest extends Model
     /**
      * @description The ID of the bastion host for which you want to change the port of the host.
      *
-     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -31,6 +31,7 @@ class ModifyHostsPortRequest extends Model
     /**
      * @description The new port of the host. The port number must be an integer. Valid values: 22 to 65535.
      *
+     * This parameter is required.
      * @example 22
      *
      * @var string
@@ -43,6 +44,7 @@ class ModifyHostsPortRequest extends Model
      *   **SSH**
      *   **RDP**
      *
+     * This parameter is required.
      * @example SSH
      *
      * @var string
@@ -52,7 +54,7 @@ class ModifyHostsPortRequest extends Model
     /**
      * @description The region ID of the bastion host for which you want to change the port of the host.
      *
-     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

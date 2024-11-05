@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class databaseAccounts extends Model
 {
     /**
+     * @description The database account ID.
+     *
      * @example 6
      *
      * @var string
@@ -16,6 +18,8 @@ class databaseAccounts extends Model
     public $databaseAccountId;
 
     /**
+     * @description The name of the database account.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,8 @@ class databaseAccounts extends Model
     public $databaseAccountName;
 
     /**
+     * @description The ID of the database to which the database account belongs.
+     *
      * @example 70
      *
      * @var string
@@ -30,6 +36,11 @@ class databaseAccounts extends Model
     public $databaseId;
 
     /**
+     * @description Indicates whether the user is authorized to manage the database account. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +48,13 @@ class databaseAccounts extends Model
     public $isAuthorized;
 
     /**
+     * @description The protocol used by the database account. Valid values:
+     *
+     *   **MySQL**
+     *   **Oracle**
+     *   **PostgreSQL**
+     *   **SQLServer**
+     *
      * @example MySQL
      *
      * @var string

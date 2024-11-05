@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @description The return code that indicates whether the host is added to the network domain.
+     *
+     * > The code LICENSE_OUT_OF_LIMIT indicates that the network domain feature is not supported by the current Bastionhost edition.
      * @example OK
      *
      * @var string
@@ -16,6 +19,8 @@ class results extends Model
     public $code;
 
     /**
+     * @description The host ID.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +28,8 @@ class results extends Model
     public $hostId;
 
     /**
+     * @description The error message that is returned.
+     *
      * @var string
      */
     public $message;

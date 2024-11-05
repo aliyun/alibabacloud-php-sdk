@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListUsersRequest extends Model
 {
     /**
-     * @description The display name of the user to be queried. Only exact match is supported.
+     * @description The display name of the user that you want to query. Only exact match is supported.
      *
      * @example abc
      *
@@ -18,9 +18,9 @@ class ListUsersRequest extends Model
     public $displayName;
 
     /**
-     * @description The ID of the Bastionhost instance to which the users to be queried belong.
+     * @description The ID of the bastion host whose users you want to query.
      *
-     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the Bastionhost instance.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -28,7 +28,7 @@ class ListUsersRequest extends Model
     public $instanceId;
 
     /**
-     * @description The mobile number of the user to be queried. Only exact match is supported.
+     * @description The mobile phone number of the user that you want to query. Only exact match is supported.
      *
      * @example 1359999****
      *
@@ -37,7 +37,7 @@ class ListUsersRequest extends Model
     public $mobile;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -46,8 +46,7 @@ class ListUsersRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
-     *
+     * @description The number of entries per page.\\
      * >  We recommend that you do not leave this parameter empty.
      * @example 20
      *
@@ -56,9 +55,9 @@ class ListUsersRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the Bastionhost instance to which the users to be queried belong.
+     * @description The region ID of the bastion host whose users you want to query.
      *
-     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -66,10 +65,12 @@ class ListUsersRequest extends Model
     public $regionId;
 
     /**
-     * @description The source of the user to be queried. Valid values:
+     * @description The type of the user that you want to query. Valid values:
      *
-     *   **Local**: a local user
-     *   **Ram**: a RAM user
+     *   **Local**: a local user.
+     *   **Ram**: a Resource Access Management (RAM) user.
+     *   **AD**: an Active Directory (AD)-authenticated user.
+     *   **LDAP**: a Lightweight Directory Access Protocol (LDAP)-authenticated user.
      *
      * @example Local
      *
@@ -78,9 +79,9 @@ class ListUsersRequest extends Model
     public $source;
 
     /**
-     * @description The unique ID of the user to be queried. Only exact match is supported.
+     * @description The unique ID of the user that you want to query. Only exact match is supported.
      *
-     * >  This parameter uniquely identifies a RAM user of the Bastionhost instance. This parameter takes effect only when the **Source** parameter is set to **Ram**. You can call the [ListUsers](~~28684~~) operation to obtain the unique ID of the user from the **UserId** response parameter.
+     * >  This parameter uniquely identifies a RAM user of the bastion host. This parameter is valid if **Source** is set to **Ram**. You can call the [ListUsers](https://help.aliyun.com/document_detail/28684.html) operation in RAM to obtain the unique ID of the user from the **UserId** response parameter.
      * @example 122748924538****
      *
      * @var string
@@ -88,9 +89,9 @@ class ListUsersRequest extends Model
     public $sourceUserId;
 
     /**
-     * @description The ID of the user group to be queried.
+     * @description The ID of the user group to which the user you want to query belongs.
      *
-     * >  You can call the [ListUserGroups](~~204509~~) operation to query the ID of the user group.
+     * >  You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the user group ID.
      * @example 1
      *
      * @var string
@@ -98,7 +99,7 @@ class ListUsersRequest extends Model
     public $userGroupId;
 
     /**
-     * @description The logon name of the user to be queried. Only exact match is supported.
+     * @description The logon name of the user that you want to query. Only exact match is supported.
      *
      * @example abc
      *
@@ -107,11 +108,11 @@ class ListUsersRequest extends Model
     public $userName;
 
     /**
-     * @description The status of the user to be queried. Valid values:
+     * @description The state of the user that you want to query. Valid values:
      *
-     *   **Normal**: The user can access the Bastionhost instance.
-     *   **Frozen**: The user is locked and cannot access the Bastionhost instance.
-     *   **Expired**: The user has expired and cannot access the Bastionhost instance.
+     *   **Normal**: The user is in normal state.
+     *   **Frozen**: The user is locked.
+     *   **Expired**: The user has expired.
      *
      * @example Normal
      *

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class hostGroups extends Model
 {
     /**
+     * @description The asset accounts on which permissions are granted by using the authorization rule.
+     *
      * @var string[]
      */
     public $hostAccountNames;
 
     /**
+     * @description The ID of the asset group that the policy authorizes users to manage.
+     *
      * @example 7
      *
      * @var string

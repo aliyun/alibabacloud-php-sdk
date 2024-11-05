@@ -11,7 +11,7 @@ class LockUsersRequest extends Model
     /**
      * @description The ID of the bastion host to which the users to be locked belong.
      *
-     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -21,7 +21,7 @@ class LockUsersRequest extends Model
     /**
      * @description The region ID of the bastion host to which the users to be locked belong.
      *
-     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -31,7 +31,7 @@ class LockUsersRequest extends Model
     /**
      * @description The ID of the user to be locked. The value is a JSON string. You can add up to 100 user IDs. If you specify multiple IDs, separate the IDs with commas (,).
      *
-     * > You can call the [ListUsers](~~204522~~) operation to query the ID of the user.
+     * This parameter is required.
      * @example ["1","2","3"]
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class databaseAccount extends Model
 {
     /**
+     * @description The database account ID.
+     *
      * @example 9
      *
      * @var string
@@ -16,6 +18,8 @@ class databaseAccount extends Model
     public $databaseAccountId;
 
     /**
+     * @description The name of the database account.
+     *
      * @example uac
      *
      * @var string
@@ -23,6 +27,8 @@ class databaseAccount extends Model
     public $databaseAccountName;
 
     /**
+     * @description The database name. A value is returned for this parameter if the database engine is PostgreSQL or Oracle.
+     *
      * @example orcl
      *
      * @var string
@@ -30,6 +36,11 @@ class databaseAccount extends Model
     public $databaseSchema;
 
     /**
+     * @description Indicates whether the database account has a password.
+     * Valid values:
+     * true
+     * false
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +48,11 @@ class databaseAccount extends Model
     public $hasPassword;
 
     /**
+     * @description The logon attribute. A value is returned for this parameter if the database engine is Oracle. Valid values:
+     *
+     *   SERVICENAME
+     *   SID
+     *
      * @example SID
      *
      * @var string

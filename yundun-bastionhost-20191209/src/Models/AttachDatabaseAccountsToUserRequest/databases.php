@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class databases extends Model
 {
     /**
+     * @description An array that consists of database account IDs.
+     *
      * @var string[]
      */
     public $databaseAccountIds;
 
     /**
+     * @description The ID of the database that you want to authorize the user to manage.
+     *
      * @example 22
      *
      * @var string

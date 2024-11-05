@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CreateDatabaseRequest extends Model
 {
     /**
+     * @description The address type of the database to add. Valid values:
+     *
+     *   Public
+     *   Private
+     *
+     * This parameter is required.
      * @example Public
      *
      * @var string
@@ -16,6 +22,8 @@ class CreateDatabaseRequest extends Model
     public $activeAddressType;
 
     /**
+     * @description The remarks of the database to add. The remarks can be up to 500 characters in length.
+     *
      * @example cpp
      *
      * @var string
@@ -23,6 +31,8 @@ class CreateDatabaseRequest extends Model
     public $comment;
 
     /**
+     * @description The name of the database to add. This parameter is required if Source is set to **Local**.
+     *
      * @example Oracle
      *
      * @var string
@@ -30,6 +40,8 @@ class CreateDatabaseRequest extends Model
     public $databaseName;
 
     /**
+     * @description The port of the database. This parameter is required if Source is set to **Local**.
+     *
      * @example 5433
      *
      * @var int
@@ -37,6 +49,9 @@ class CreateDatabaseRequest extends Model
     public $databasePort;
 
     /**
+     * @description The internal IP address of the database. Specify an IPv4 address or a domain name.
+     *
+     * >  This parameter is required if ActiveAddressType is set to Private.
      * @example pgm-uf6o******
      *
      * @var string
@@ -44,6 +59,9 @@ class CreateDatabaseRequest extends Model
     public $databasePrivateAddress;
 
     /**
+     * @description The public IP address of the database. Specify an IPv4 address or a domain name.
+     *
+     * >  This parameter is required if ActiveAddressType is set to Public.
      * @example rm-uf65251k51******
      *
      * @var string
@@ -51,6 +69,14 @@ class CreateDatabaseRequest extends Model
     public $databasePublicAddress;
 
     /**
+     * @description The type of the database engine. Valid values:
+     *
+     *   **MySQL**
+     *   **Oracle**
+     *   **PostgreSQL**
+     *   **SQLServer**
+     *
+     * This parameter is required.
      * @example MySQL
      *
      * @var string
@@ -58,6 +84,9 @@ class CreateDatabaseRequest extends Model
     public $databaseType;
 
     /**
+     * @description The bastion host ID.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-7mz2g5hu20e
      *
      * @var string
@@ -65,6 +94,9 @@ class CreateDatabaseRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the network domain to which the database to add belongs.
+     *
+     * >  You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
      * @example 1
      *
      * @var string
@@ -72,6 +104,11 @@ class CreateDatabaseRequest extends Model
     public $networkDomainId;
 
     /**
+     * @description The endpoint type of the PolarDB database. This parameter is required if Source is set to PolarDB. Valid values:
+     *
+     *   Cluster
+     *   Primary
+     *
      * @example Cluster
      *
      * @var string
@@ -79,6 +116,9 @@ class CreateDatabaseRequest extends Model
     public $polarDBEndpointType;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-shanghai
      *
      * @var string
@@ -86,6 +126,13 @@ class CreateDatabaseRequest extends Model
     public $regionId;
 
     /**
+     * @description The type of the database to add. Valid values:
+     *
+     *   Local: on-premises database.
+     *   Rds: ApsaraDB RDS instance.
+     *   PolarDB: PolarDB cluster.
+     *
+     * This parameter is required.
      * @example Local
      *
      * @var string
@@ -93,6 +140,9 @@ class CreateDatabaseRequest extends Model
     public $source;
 
     /**
+     * @description The instance ID of the database to add.
+     *
+     * > This parameter is required if **Source** is set to **Rds** or **PolarDB**.
      * @example i-bp19ienyt0yax748****
      *
      * @var string
@@ -100,6 +150,9 @@ class CreateDatabaseRequest extends Model
     public $sourceInstanceId;
 
     /**
+     * @description The region ID of the database to add.
+     *
+     * >  This parameter is required if **Source** is set to **Rds** or **PolarDB**.
      * @example cn-shanghai
      *
      * @var string

@@ -18,7 +18,7 @@ class hostShareKeys extends Model
     public $hostAccountCount;
 
     /**
-     * @description The ID of the host account.
+     * @description The shared key ID.
      *
      * @example 10247
      *
@@ -36,7 +36,7 @@ class hostShareKeys extends Model
     public $hostShareKeyName;
 
     /**
-     * @description The time when the shared key was last modified.
+     * @description The time when the shared key was last modified. The value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1644806406
      *

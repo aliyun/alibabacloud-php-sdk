@@ -10,17 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceLDAPAuthServerResponseBody extends Model
 {
     /**
-     * @description Indicates whether SSL is supported. Valid values:
-     *
-     *   **true**: supported
-     *   **false**: not supported
+     * @description The settings of LDAP authentication.
      *
      * @var LDAP
      */
     public $LDAP;
 
     /**
-     * @description The settings of LDAP authentication.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 1C60E741-102D-5E8F-9710-B06D3F0183FE
      *

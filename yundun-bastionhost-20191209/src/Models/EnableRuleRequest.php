@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class EnableRuleRequest extends Model
 {
     /**
+     * @description The bastion host ID.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-78v1ghxxxxx
      *
      * @var string
@@ -16,6 +19,9 @@ class EnableRuleRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +29,9 @@ class EnableRuleRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the authorization rule that you want to enable.
+     *
+     * This parameter is required.
      * @example 3
      *
      * @var string

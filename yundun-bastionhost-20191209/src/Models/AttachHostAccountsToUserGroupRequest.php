@@ -11,7 +11,7 @@ class AttachHostAccountsToUserGroupRequest extends Model
     /**
      * @description The IDs of the host and host account that you want to authorize the user group to manage. You can specify up to 10 host IDs and up to 10 host account IDs for each host. You can specify only host IDs. In this case, the user group is authorized to manage only the specified hosts. For more information about this parameter, see the "Description of the Hosts parameter" section of this topic.
      *
-     * > You can call the [ListHosts](~~200665~~) operation to query the ID of the host and the [ListHostAccounts](~~204372~~) operation to query the ID of the host account.
+     * This parameter is required.
      * @example [ {"HostId":"1"}, {"HostId":"2","HostAccountIds":["1","2","3",...]}, {"HostId":"3","HostAccountIds":["4","5","6",...]}, {"HostId":"4","HostAccountIds":["9","8","7",...]} ... ]
      *
      * @var string
@@ -21,7 +21,7 @@ class AttachHostAccountsToUserGroupRequest extends Model
     /**
      * @description The ID of the bastion host in which you want to authorize the user group to manage the specified hosts and host accounts.
      *
-     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -31,7 +31,7 @@ class AttachHostAccountsToUserGroupRequest extends Model
     /**
      * @description The region ID of the bastion host in which you want to authorize the user group to manage the specified hosts and host accounts.
      *
-     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -41,7 +41,7 @@ class AttachHostAccountsToUserGroupRequest extends Model
     /**
      * @description The ID of the user group that you want to authorize to manage the specified hosts and host accounts.
      *
-     * > You can call the [ListUserGroups](~~204509~~) operation to query the ID of the user group.
+     * This parameter is required.
      * @example 1
      *
      * @var string

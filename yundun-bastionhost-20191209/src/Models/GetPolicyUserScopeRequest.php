@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetPolicyUserScopeRequest extends Model
 {
     /**
+     * @description The ID of the bastion host to which the control policy to query belongs.
+     *
+     * This parameter is required.
      * @example bastion-xxxx-xx
      *
      * @var string
@@ -16,6 +19,9 @@ class GetPolicyUserScopeRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the control policy that you want to query.
+     *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -23,6 +29,9 @@ class GetPolicyUserScopeRequest extends Model
     public $policyId;
 
     /**
+     * @description The region ID of the bastion host to which the control policy to query belongs.
+     *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

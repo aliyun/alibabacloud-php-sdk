@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class hosts extends Model
 {
     /**
+     * @description The host account IDs.
+     *
      * @var string[]
      */
     public $hostAccountIds;
 
     /**
+     * @description The host ID.
+     *
      * @example [{"HostId":"1"}]
      *
      * @var string

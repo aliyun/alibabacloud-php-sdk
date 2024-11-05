@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateHostGroupRequest extends Model
 {
     /**
-     * @description The description of the host group. The description can be up to 500 characters in length.
+     * @description The remarks of the asset group. The remarks can be up to 500 characters in length.
      *
      * @example Local host group.
      *
@@ -18,8 +18,9 @@ class CreateHostGroupRequest extends Model
     public $comment;
 
     /**
-     * @description The name of the host group. The name can be up to 128 characters in length.
+     * @description The name of the asset group. The name can be up to 128 characters in length.
      *
+     * This parameter is required.
      * @example HostGroup01
      *
      * @var string
@@ -27,9 +28,9 @@ class CreateHostGroupRequest extends Model
     public $hostGroupName;
 
     /**
-     * @description The ID of the bastion host on which you want to create a host group.
+     * @description The ID of the bastion host on which you want to create an asset group.
      *
-     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -37,9 +38,9 @@ class CreateHostGroupRequest extends Model
     public $instanceId;
 
     /**
-     * @description The region ID of the bastion host on which you want to create a host group.
+     * @description The region ID of the bastion host on which you want to create an asset group.
      *
-     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

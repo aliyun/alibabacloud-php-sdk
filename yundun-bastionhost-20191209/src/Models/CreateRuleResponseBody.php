@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRuleResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example BFA818E3-0A53-51F4-8DB5-AF2A62A6D042
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The authorization rule ID.
+     *
      * @example 1
      *
      * @var string

@@ -48,7 +48,7 @@ class results extends Model
     public $message;
 
     /**
-     * @description The ID of the group.
+     * @description The ID of the user group.
      *
      * @example 1
      *

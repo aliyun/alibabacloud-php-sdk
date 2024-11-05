@@ -11,6 +11,7 @@ class ConfigInstanceWhiteListRequest extends Model
     /**
      * @description The ID of the bastion host for which you want to configure a whitelist of public IP addresses.
      *
+     * This parameter is required.
      * @example bastionhost-cn-78v1gh****
      *
      * @var string
@@ -27,7 +28,7 @@ class ConfigInstanceWhiteListRequest extends Model
     public $regionId;
 
     /**
-     * @description The public IP addresses that you want to add to the whitelist.
+     * @description The IP address whitelist that you want to configure.
      *
      * @example 10.162.XX.XX
      *

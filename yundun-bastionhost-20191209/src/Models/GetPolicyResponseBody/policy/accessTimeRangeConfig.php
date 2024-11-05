@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class accessTimeRangeConfig extends Model
 {
     /**
+     * @description The details of the periods during which logons are allowed.
+     *
      * @var effectiveTime[]
      */
     public $effectiveTime;

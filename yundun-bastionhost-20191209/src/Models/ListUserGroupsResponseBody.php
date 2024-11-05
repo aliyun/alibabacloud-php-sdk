@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListUserGroupsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
      *
      * @var string
@@ -17,6 +19,8 @@ class ListUserGroupsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of user groups returned.
+     *
      * @example 1
      *
      * @var int
@@ -24,6 +28,8 @@ class ListUserGroupsResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The user groups returned.
+     *
      * @var userGroups[]
      */
     public $userGroups;

@@ -20,7 +20,7 @@ class ListHostAccountsForUserGroupRequest extends Model
     /**
      * @description The ID of the host to query.
      *
-     * > You can call the [ListHosts](~~200665~~) operation to query the ID of the host.
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -30,7 +30,7 @@ class ListHostAccountsForUserGroupRequest extends Model
     /**
      * @description The ID of the bastion host on which you want to query the host accounts to be managed by the specified user group on the specified host.
      *
-     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -47,7 +47,7 @@ class ListHostAccountsForUserGroupRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.\
+     * @description The number of entries to return on each page.\\
      * > We recommend that you do not leave this parameter empty.
      * @example 20
      *
@@ -58,7 +58,7 @@ class ListHostAccountsForUserGroupRequest extends Model
     /**
      * @description The region ID of the bastion host on which you want to query the host accounts to be managed by the specified user group on the specified host.
      *
-     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -68,7 +68,7 @@ class ListHostAccountsForUserGroupRequest extends Model
     /**
      * @description The ID of the user group for which you want to query authorized host accounts.
      *
-     * > You can call the [ListUserGroups](~~204509~~) operation to query the ID of the user group.
+     * This parameter is required.
      * @example 1
      *
      * @var string

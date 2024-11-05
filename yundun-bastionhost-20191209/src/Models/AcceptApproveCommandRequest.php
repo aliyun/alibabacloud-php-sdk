@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AcceptApproveCommandRequest extends Model
 {
     /**
+     * @description The ID of the command that you want to approve.
+     *
+     * This parameter is required.
      * @example 7
      *
      * @var string
@@ -16,6 +19,9 @@ class AcceptApproveCommandRequest extends Model
     public $commandId;
 
     /**
+     * @description The ID of the bastion host.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -23,6 +29,9 @@ class AcceptApproveCommandRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

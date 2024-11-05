@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AttachDatabaseAccountsToUserGroupResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 5D0EB759-CB0A-537D-A2CC-13A9854FA08D
      *
      * @var string
@@ -17,6 +19,8 @@ class AttachDatabaseAccountsToUserGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The result of the call.
+     *
      * @var results[]
      */
     public $results;

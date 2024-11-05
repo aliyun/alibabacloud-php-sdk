@@ -20,7 +20,7 @@ class results extends Model
      *
      * > Check whether the specified ID of the bastion host exists, whether the specified hosts exist, and whether the specified host IDs are valid. Then, call the operation again.
      *
-     *   **OBJECT\_AlREADY\_EXISTS**: The specified object on which you want to perform the operation already exists.
+     *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
      *
      * @example OK
      *

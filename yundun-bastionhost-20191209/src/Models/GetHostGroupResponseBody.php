@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetHostGroupResponseBody extends Model
 {
     /**
-     * @description The details of the host group returned.
+     * @description The returned detailed information about the asset group.
      *
      * @var hostGroup
      */

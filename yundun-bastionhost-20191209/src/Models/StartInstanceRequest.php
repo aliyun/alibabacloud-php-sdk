@@ -11,7 +11,7 @@ class StartInstanceRequest extends Model
     /**
      * @description The ID of the bastion host that you want to enable.
      *
-     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-78v1gh****
      *
      * @var string
@@ -30,6 +30,7 @@ class StartInstanceRequest extends Model
     /**
      * @description An array consisting of the IDs of security groups to which the bastion host is added.
      *
+     * This parameter is required.
      * @example sg-bp1aiupc4yjqgmm****
      *
      * @var string[]

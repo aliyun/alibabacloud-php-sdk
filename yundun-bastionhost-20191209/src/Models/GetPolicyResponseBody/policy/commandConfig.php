@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class commandConfig extends Model
 {
     /**
+     * @description The details of the command approval settings.
+     *
      * @var approval
      */
     public $approval;
 
     /**
+     * @description The details of the command control setting.
+     *
      * @var deny
      */
     public $deny;

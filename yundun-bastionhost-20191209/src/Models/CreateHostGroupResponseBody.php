@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateHostGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the host group.
+     * @description The asset group ID.
      *
      * @example 1
      *

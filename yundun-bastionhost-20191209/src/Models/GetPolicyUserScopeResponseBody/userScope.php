@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class userScope extends Model
 {
     /**
+     * @description The scope of users to whom the control policy applies.
+     *   If **All** is returned for this parameter, the control policy applies to all users.
+     *
+     *   If no value is returned for this parameter, the control policy applies to the assets specified in the return values of UserGroupIds and UserIds.
+     *
      * @example All
      *
      * @var string
@@ -16,11 +21,15 @@ class userScope extends Model
     public $scopeType;
 
     /**
+     * @description The user groups to which the control policy applies.
+     *
      * @var string[]
      */
     public $userGroupIds;
 
     /**
+     * @description The users to whom the control policy applies.
+     *
      * @var string[]
      */
     public $userIds;

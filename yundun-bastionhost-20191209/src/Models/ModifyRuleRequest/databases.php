@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class databases extends Model
 {
     /**
+     * @description The database account IDs.
+     *
      * @var string[]
      */
     public $databaseAccountIds;
 
     /**
+     * @description The database ID.
+     *
      * @example [
      * ]
      * @var string

@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class RDP extends Model
 {
     /**
+     * @description Specifies whether to enable downloading from the clipboard. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
+     * > If you do not specify this parameter, the default value Disable is used.
      * @example Enable
      *
      * @var string
@@ -16,6 +22,12 @@ class RDP extends Model
     public $clipboardDownload;
 
     /**
+     * @description Specifies whether to enable uploading from the clipboard. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
+     * > If you do not specify this parameter, the default value Disable is used.
      * @example Enable
      *
      * @var string
@@ -23,6 +35,12 @@ class RDP extends Model
     public $clipboardUpload;
 
     /**
+     * @description Specifies whether to enable driver mapping. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
+     * > If you do not specify this parameter, the default value Disable is used.
      * @example Enable
      *
      * @var string
@@ -30,6 +48,12 @@ class RDP extends Model
     public $diskRedirection;
 
     /**
+     * @description Specifies whether to enable keyboard operation recording. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
+     * > If you do not specify this parameter, the default value Disable is used.
      * @example Enable
      *
      * @var string

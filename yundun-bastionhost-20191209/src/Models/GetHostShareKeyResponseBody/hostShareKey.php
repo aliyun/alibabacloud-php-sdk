@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class hostShareKey extends Model
 {
     /**
-     * @description The fingerprint of the private key.
+     * @description The ID of the shared key.
      *
      * @example 10427
      *
@@ -18,6 +18,8 @@ class hostShareKey extends Model
     public $hostShareKeyId;
 
     /**
+     * @description The name of the shared key.
+     *
      * @example name
      *
      * @var string
@@ -25,6 +27,8 @@ class hostShareKey extends Model
     public $hostShareKeyName;
 
     /**
+     * @description The time when the information about the shared key was last modified. The value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1644287246
      *
      * @var int
@@ -32,6 +36,8 @@ class hostShareKey extends Model
     public $lastModifyKeyAt;
 
     /**
+     * @description The fingerprint of the private key.
+     *
      * @example ***
      *
      * @var string

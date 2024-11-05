@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateDatabaseAccountRequest extends Model
 {
     /**
+     * @description The username of the database account to be created. The username can be up to 128 characters in length.
+     *
+     * This parameter is required.
      * @example root
      *
      * @var string
@@ -16,6 +19,9 @@ class CreateDatabaseAccountRequest extends Model
     public $databaseAccountName;
 
     /**
+     * @description The ID of the database for which you want to create a database account.
+     *
+     * This parameter is required.
      * @example 3
      *
      * @var string
@@ -23,6 +29,8 @@ class CreateDatabaseAccountRequest extends Model
     public $databaseId;
 
     /**
+     * @description The name of the database. This parameter is required for PostgreSQL and Oracle databases.
+     *
      * @example orcl
      *
      * @var string
@@ -30,6 +38,9 @@ class CreateDatabaseAccountRequest extends Model
     public $databaseSchema;
 
     /**
+     * @description The ID of the bastion host for which you want to create a database account.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-5yd34ol020a
      *
      * @var string
@@ -37,6 +48,11 @@ class CreateDatabaseAccountRequest extends Model
     public $instanceId;
 
     /**
+     * @description The logon attribute. This parameter is required for Oracle databases. Valid values:
+     *
+     *   SERVICENAME
+     *   SID
+     *
      * @example SID
      *
      * @var string
@@ -44,6 +60,8 @@ class CreateDatabaseAccountRequest extends Model
     public $loginAttribute;
 
     /**
+     * @description The password of the database account to be created.
+     *
      * @example MCQ******
      *
      * @var string
@@ -51,6 +69,9 @@ class CreateDatabaseAccountRequest extends Model
     public $password;
 
     /**
+     * @description The region ID of the bastion host for which you want to create a database account.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-shanghai
      *
      * @var string

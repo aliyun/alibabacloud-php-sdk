@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class AttachDatabaseAccountsToUserRequest extends Model
 {
     /**
+     * @description An array that consists of database objects.
+     *
+     * >  You can specify up to 10 databases and 10 database accounts. The database accounts are not required. If you do not specify a database account, the user is authorized to manage only the databases.
      * @var databases[]
      */
     public $databases;
 
     /**
+     * @description The ID of the bastion host whose user you want to grant permissions.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-wwo36qbv601
      *
      * @var string
@@ -22,6 +28,9 @@ class AttachDatabaseAccountsToUserRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -29,6 +38,9 @@ class AttachDatabaseAccountsToUserRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the user to be authorized.
+     *
+     * This parameter is required.
      * @example 1
      *
      * @var string

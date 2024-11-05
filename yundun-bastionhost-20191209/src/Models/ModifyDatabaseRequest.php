@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyDatabaseRequest extends Model
 {
     /**
+     * @description The new address type of the database. Valid values:
+     *
+     *   **Public**
+     *   **Private**
+     *
      * @example Public
      *
      * @var string
@@ -16,6 +21,8 @@ class ModifyDatabaseRequest extends Model
     public $activeAddressType;
 
     /**
+     * @description The new remarks of the database.
+     *
      * @example tttttttt
      *
      * @var string
@@ -23,6 +30,9 @@ class ModifyDatabaseRequest extends Model
     public $comment;
 
     /**
+     * @description The ID of the database to modify.
+     *
+     * This parameter is required.
      * @example 11
      *
      * @var string
@@ -30,6 +40,8 @@ class ModifyDatabaseRequest extends Model
     public $databaseId;
 
     /**
+     * @description The new name of the database.
+     *
      * @example pgsql
      *
      * @var string
@@ -37,6 +49,8 @@ class ModifyDatabaseRequest extends Model
     public $databaseName;
 
     /**
+     * @description The new port of the database.
+     *
      * @example 5433
      *
      * @var string
@@ -44,6 +58,8 @@ class ModifyDatabaseRequest extends Model
     public $databasePort;
 
     /**
+     * @description The new internal address of the database. Specify an IPv4 address or a domain name.
+     *
      * @example pc-bp169******
      *
      * @var string
@@ -51,6 +67,8 @@ class ModifyDatabaseRequest extends Model
     public $databasePrivateAddress;
 
     /**
+     * @description The new public address of the database. Specify an IPv4 address or a domain name.
+     *
      * @example pgm-uf6c******
      *
      * @var string
@@ -58,6 +76,9 @@ class ModifyDatabaseRequest extends Model
     public $databasePublicAddress;
 
     /**
+     * @description The ID of the bastion host that manages the database to modify.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-72137xe5n01
      *
      * @var string
@@ -65,6 +86,9 @@ class ModifyDatabaseRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the new network domain for the database.
+     *
+     * >  You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
      * @example 2
      *
      * @var string
@@ -72,6 +96,9 @@ class ModifyDatabaseRequest extends Model
     public $networkDomainId;
 
     /**
+     * @description The region ID of the bastion host that manages the database to modify.
+     *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -79,6 +106,9 @@ class ModifyDatabaseRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the ApsaraDB for RDS instance or PolarDB cluster to modify.
+     *
+     * > This parameter is required if **Source** is set to **Rds** or **PolarDB**.
      * @example i-wz99nexqd62z3bvuvpz5
      *
      * @var string

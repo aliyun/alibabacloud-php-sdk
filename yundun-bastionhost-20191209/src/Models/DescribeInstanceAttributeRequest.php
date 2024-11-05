@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAttributeRequest extends Model
 {
     /**
+     * @description The ID of the Bastionhost instance.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-78v1ghxxxxx
      *
      * @var string
@@ -16,6 +19,8 @@ class DescribeInstanceAttributeRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string

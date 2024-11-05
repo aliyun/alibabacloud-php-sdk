@@ -105,7 +105,7 @@ class AD extends Model
     public $port;
 
     /**
-     * @description The address of the LDAP server.
+     * @description The address of the AD server.
      *
      * @example 192.168.XX.XX
      *
@@ -114,7 +114,7 @@ class AD extends Model
     public $server;
 
     /**
-     * @description The address of the secondary LDAP server.
+     * @description The address of the secondary AD server.
      *
      * @example 192.168.XX.XX
      *

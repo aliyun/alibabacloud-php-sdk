@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class hostAccounts extends Model
 {
     /**
+     * @description Indicates whether a password is configured for the host account.
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -17,6 +22,8 @@ class hostAccounts extends Model
     public $hasPassword;
 
     /**
+     * @description The host account ID.
+     *
      * @example 1
      *
      * @var string
@@ -24,6 +31,8 @@ class hostAccounts extends Model
     public $hostAccountId;
 
     /**
+     * @description The host account name.
+     *
      * @example root
      *
      * @var string
@@ -31,6 +40,8 @@ class hostAccounts extends Model
     public $hostAccountName;
 
     /**
+     * @description The host ID.
+     *
      * @example １
      *
      * @var string
@@ -38,6 +49,8 @@ class hostAccounts extends Model
     public $hostId;
 
     /**
+     * @description The ID of the shared key that is associated with the host.
+     *
      * @example 3
      *
      * @var string
@@ -45,6 +58,8 @@ class hostAccounts extends Model
     public $hostShareKeyId;
 
     /**
+     * @description The fingerprint of the private key for the host account.
+     *
      * @example fe:ca:37:42:30:00:9d:95:e6:73:e5:b0:32:0a:**:**
      *
      * @var string
@@ -52,6 +67,11 @@ class hostAccounts extends Model
     public $privateKeyFingerprint;
 
     /**
+     * @description The protocol that is used by the host account.
+     *
+     *   **SSH**
+     *   **RDP**
+     *
      * @example SSH
      *
      * @var string
@@ -59,6 +79,8 @@ class hostAccounts extends Model
     public $protocolName;
 
     /**
+     * @description Indicates whether the Secure File Transfer Protocol (SFTP) channels or the SSH channels are enabled for the host account that uses the SSH protocol.
+     *
      * @var SSHConfig
      */
     public $SSHConfig;

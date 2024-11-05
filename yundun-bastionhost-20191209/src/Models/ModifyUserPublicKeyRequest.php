@@ -18,9 +18,9 @@ class ModifyUserPublicKeyRequest extends Model
     public $comment;
 
     /**
-     * @description The ID of the bastion host that is used to modify the public key of the user.
+     * @description The ID of the bastion host on which you want to modify the public key of a user.
      *
-     * > You can call the [describeinstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-nif236pmc1u
      *
      * @var string
@@ -30,7 +30,7 @@ class ModifyUserPublicKeyRequest extends Model
     /**
      * @description The new public key.
      *
-     * > The public key must be encoded in Base64.
+     * >  Specify a Base64-encoded string.
      * @example c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUhVcjY4UENFYWFzZjFYRVpNYTVsMlNBQytHV3FpeXVsRVpndkV4dmlPM28gcm9vdEA5NjBkMmNhOTcwYjU=
      *
      * @var string
@@ -40,6 +40,7 @@ class ModifyUserPublicKeyRequest extends Model
     /**
      * @description The ID of the public key that you want to modify.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var string
@@ -58,7 +59,7 @@ class ModifyUserPublicKeyRequest extends Model
     /**
      * @description The region ID of the bastion host that is used to modify the public key of the user.
      *
-     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

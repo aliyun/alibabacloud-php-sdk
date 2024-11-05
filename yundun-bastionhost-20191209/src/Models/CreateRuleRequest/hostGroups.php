@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class hostGroups extends Model
 {
     /**
+     * @description An array that consists of asset account names.
+     *
      * @var string[]
      */
     public $hostAccountNames;
 
     /**
+     * @description The asset group ID.
+     *
      * @example [{"HostGroupId":"1"}]
      *
      * @var string

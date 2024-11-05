@@ -11,11 +11,17 @@ use AlibabaCloud\Tea\Model;
 class commandConfig extends Model
 {
     /**
+     * @description The command approval settings.
+     *
+     * > A command approval policy is used to approve the commands that are excluded from a whitelist or blacklist specified in a command control policy. The command control policy takes precedence over the command approval policy in validation.
      * @var approval
      */
     public $approval;
 
     /**
+     * @description The command control settings.
+     *
+     * This parameter is required.
      * @var deny
      */
     public $deny;

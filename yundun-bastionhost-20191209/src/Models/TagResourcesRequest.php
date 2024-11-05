@@ -12,7 +12,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The region ID of the bastion hosts to which you want to create and add tags.
      *
-     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -22,7 +22,7 @@ class TagResourcesRequest extends Model
     /**
      * @description An array that consists of IDs of bastion hosts.
      *
-     * > You can call the [DescribeInstances](~~153281~~) operation to query IDs of bastion hosts.
+     * This parameter is required.
      * @example bastionhost-cn-78v1gc****
      *
      * @var string[]
@@ -33,6 +33,8 @@ class TagResourcesRequest extends Model
      * @description The type of the resource.
      *
      * Set the value to **INSTANCE**, which indicates that the resource is a bastion host.
+     *
+     * This parameter is required.
      * @example INSTANCE
      *
      * @var string
@@ -40,7 +42,7 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description An array that consists of tags.
+     * @description The tags.
      *
      * @var tag[]
      */

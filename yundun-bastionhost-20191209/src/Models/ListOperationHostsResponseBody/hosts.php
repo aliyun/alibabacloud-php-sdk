@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class hosts extends Model
 {
     /**
+     * @description The address type of the host. Valid values:
+     *
+     *   **Public**
+     *   **Private**
+     *
      * @example Public
      *
      * @var string
@@ -16,6 +21,8 @@ class hosts extends Model
     public $activeAddressType;
 
     /**
+     * @description The remarks of the host.
+     *
      * @example comment
      *
      * @var string
@@ -23,6 +30,8 @@ class hosts extends Model
     public $comment;
 
     /**
+     * @description The host ID.
+     *
      * @example 1
      *
      * @var string
@@ -30,6 +39,8 @@ class hosts extends Model
     public $hostId;
 
     /**
+     * @description The host name.
+     *
      * @example host1
      *
      * @var string
@@ -37,6 +48,8 @@ class hosts extends Model
     public $hostName;
 
     /**
+     * @description The private IP address of the host.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -44,6 +57,8 @@ class hosts extends Model
     public $hostPrivateAddress;
 
     /**
+     * @description The public IP address of the host.
+     *
      * @example 10.158.XX.XX
      *
      * @var string
@@ -51,6 +66,11 @@ class hosts extends Model
     public $hostPublicAddress;
 
     /**
+     * @description The host OS.
+     *
+     *   **Linux**
+     *   **Windows**
+     *
      * @example Linux
      *
      * @var string
@@ -58,6 +78,11 @@ class hosts extends Model
     public $OSType;
 
     /**
+     * @description The host type. Valid values:
+     *
+     *   **Local**: on-premises host.
+     *   **Ecs**: Elastic Compute Service (ECS) instance.
+     *
      * @example Local
      *
      * @var string
@@ -65,6 +90,8 @@ class hosts extends Model
     public $source;
 
     /**
+     * @description The ECS instance ID.
+     *
      * @example i-bp19ienyt0yax748****
      *
      * @var string
@@ -72,6 +99,11 @@ class hosts extends Model
     public $sourceInstanceId;
 
     /**
+     * @description The host status. Valid values:
+     *
+     *   **Normal**
+     *   **Release**
+     *
      * @example Normal
      *
      * @var string

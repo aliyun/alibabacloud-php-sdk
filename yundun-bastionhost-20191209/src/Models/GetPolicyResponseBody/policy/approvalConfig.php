@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class approvalConfig extends Model
 {
     /**
+     * @description Indicates whether O\\&M approval is enabled in the control policy. Valid values:
+     *
+     *   **On**: O\\&M approval is enabled.
+     *   **Off**: O\\&M approval is disabled.
+     *
      * @example Off
      *
      * @var string

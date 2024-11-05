@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class databases extends Model
 {
     /**
+     * @description The address type of the database. Valid values:
+     *
+     * **Public**
+     * **Private**
+     *
      * @example Public
      *
      * @var string
@@ -16,6 +21,8 @@ class databases extends Model
     public $activeAddressType;
 
     /**
+     * @description The remarks of the database.
+     *
      * @example comment
      *
      * @var string
@@ -23,6 +30,8 @@ class databases extends Model
     public $comment;
 
     /**
+     * @description The database ID.
+     *
      * @example 9
      *
      * @var string
@@ -30,6 +39,8 @@ class databases extends Model
     public $databaseId;
 
     /**
+     * @description The name of the database.
+     *
      * @example MySQL0
      *
      * @var string
@@ -37,6 +48,8 @@ class databases extends Model
     public $databaseName;
 
     /**
+     * @description The port of the database.
+     *
      * @example 3306
      *
      * @var int
@@ -44,6 +57,8 @@ class databases extends Model
     public $databasePort;
 
     /**
+     * @description The internal address of the database. The value is a domain name or an IP address.
+     *
      * @example rm-wz973w7******
      *
      * @var string
@@ -51,6 +66,8 @@ class databases extends Model
     public $databasePrivateAddress;
 
     /**
+     * @description The public address of the database. The value is a domain name or an IP address.
+     *
      * @example rm-uf65n2******
      *
      * @var string
@@ -58,6 +75,12 @@ class databases extends Model
     public $databasePublicAddress;
 
     /**
+     * @description The database engine. Valid values:
+     *   **MySQL**
+     *   **Oracle**
+     *   **PostgreSQL**
+     *   **SQLServer**
+     *
      * @example MySQL
      *
      * @var string
@@ -65,6 +88,8 @@ class databases extends Model
     public $databaseType;
 
     /**
+     * @description The ID of the network domain where the database resides.
+     *
      * @example 8
      *
      * @var string
@@ -72,6 +97,12 @@ class databases extends Model
     public $networkDomainId;
 
     /**
+     * @description The type of the database. Valid values:
+     *
+     * **Local**: on-premises database.
+     * **Rds**: ApsaraDB for RDS instance.
+     * **PolarDB**: PolarDB cluster
+     *
      * @example Local
      *
      * @var string
@@ -79,6 +110,8 @@ class databases extends Model
     public $source;
 
     /**
+     * @description The ID of the ApsaraDB for RDS instance or PolarDB cluster.
+     * > No value is returned for this parameter if **Source** is set to **Local**.
      * @example i-wz9ejupczf41******
      *
      * @var string
@@ -86,6 +119,8 @@ class databases extends Model
     public $sourceInstanceId;
 
     /**
+     * @description The region ID of the ApsaraDB for RDS instance or PolarDB cluster.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -93,6 +128,11 @@ class databases extends Model
     public $sourceInstanceRegionId;
 
     /**
+     * @description The status of the database. Valid values:
+     *
+     * **Normal**
+     * **Release**
+     *
      * @example Normal
      *
      * @var string

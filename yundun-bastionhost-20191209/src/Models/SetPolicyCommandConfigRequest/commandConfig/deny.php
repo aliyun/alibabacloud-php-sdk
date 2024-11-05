@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class deny extends Model
 {
     /**
+     * @description The type of command control. Valid values:
+     *
+     *   **black**: blacklist mode.
+     *   **white**: whitelist mode.
+     *
+     * This parameter is required.
      * @example white
      *
      * @var string
@@ -16,6 +22,9 @@ class deny extends Model
     public $aclType;
 
     /**
+     * @description The commands to be controlled.
+     *
+     * > This parameter is required if AclType is set to white.
      * @var string[]
      */
     public $commands;

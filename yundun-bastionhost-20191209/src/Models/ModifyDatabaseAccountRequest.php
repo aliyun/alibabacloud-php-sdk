@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDatabaseAccountRequest extends Model
 {
     /**
+     * @description The ID of the database account to modify.
+     *
+     * This parameter is required.
      * @example 2
      *
      * @var string
@@ -16,6 +19,8 @@ class ModifyDatabaseAccountRequest extends Model
     public $databaseAccountId;
 
     /**
+     * @description The new username of the database account. The username can be up to 128 characters in length.
+     *
      * @example aaa
      *
      * @var string
@@ -23,6 +28,8 @@ class ModifyDatabaseAccountRequest extends Model
     public $databaseAccountName;
 
     /**
+     * @description The new name of the database. This parameter is required if the database engine is PostgreSQL or Oracle.
+     *
      * @example orcl
      *
      * @var string
@@ -30,6 +37,9 @@ class ModifyDatabaseAccountRequest extends Model
     public $databaseSchema;
 
     /**
+     * @description The ID of the bastion host that manages the database account to modify.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-zpr2zyqx603
      *
      * @var string
@@ -37,6 +47,8 @@ class ModifyDatabaseAccountRequest extends Model
     public $instanceId;
 
     /**
+     * @description The new password of the database account.
+     *
      * @example 14SZ!******
      *
      * @var string
@@ -44,6 +56,9 @@ class ModifyDatabaseAccountRequest extends Model
     public $password;
 
     /**
+     * @description The region ID of the bastion host that manages the database account to modify.
+     *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

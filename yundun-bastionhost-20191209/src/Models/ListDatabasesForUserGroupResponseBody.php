@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListDatabasesForUserGroupResponseBody extends Model
 {
     /**
+     * @description The databases returned.
+     *
      * @var databases[]
      */
     public $databases;
 
     /**
+     * @description The request ID.
+     *
      * @example EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
      *
      * @var string
@@ -22,6 +26,8 @@ class ListDatabasesForUserGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of databases returned.
+     *
      * @example 15
      *
      * @var int

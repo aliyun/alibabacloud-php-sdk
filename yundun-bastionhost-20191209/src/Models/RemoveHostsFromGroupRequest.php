@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RemoveHostsFromGroupRequest extends Model
 {
     /**
-     * @description The ID of the host group from which you want to remove hosts.
+     * @description The ID of the asset group from which you want to remove hosts.
      *
-     * >  You can call the [ListHostGroups](~~201307~~) operation to query the ID of the host group.
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -19,9 +19,9 @@ class RemoveHostsFromGroupRequest extends Model
     public $hostGroupId;
 
     /**
-     * @description The ID of the host that you want to remove from the host group. The value is a JSON string. You can add up to 100 host IDs.
+     * @description The IDs of the hosts that you want to remove from the host group. Specify a JSON string. You can specify up to 100 host IDs.
      *
-     * >  You can call the [ListHosts](~~200665~~) operation to query the IDs of hosts.
+     * This parameter is required.
      * @example ["1","2","3"]
      *
      * @var string
@@ -29,9 +29,9 @@ class RemoveHostsFromGroupRequest extends Model
     public $hostIds;
 
     /**
-     * @description The ID of the bastion host for which you want to remove hosts from the host group.
+     * @description The ID of the bastion host whose asset group you want to manage.
      *
-     * >  You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -39,9 +39,9 @@ class RemoveHostsFromGroupRequest extends Model
     public $instanceId;
 
     /**
-     * @description The region ID of the bastion host for which you want to remove hosts from the host group.
+     * @description The region ID of the bastion host whose asset group you want to manage.
      *
-     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

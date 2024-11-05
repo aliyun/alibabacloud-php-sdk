@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class users extends Model
 {
     /**
+     * @description The ID of the authorized user.
+     *
      * @example 3
      *
      * @var string

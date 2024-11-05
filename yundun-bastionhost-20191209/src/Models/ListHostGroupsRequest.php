@@ -18,9 +18,9 @@ class ListHostGroupsRequest extends Model
     public $hostGroupName;
 
     /**
-     * @description The ID of the bastion host in which you want to query the host group.
+     * @description The ID of the bastion host to query.
      *
-     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -28,7 +28,7 @@ class ListHostGroupsRequest extends Model
     public $instanceId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -37,8 +37,9 @@ class ListHostGroupsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.\
-     * > We recommend that you do not leave this parameter empty.
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     *
+     * >  We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var string
@@ -48,7 +49,7 @@ class ListHostGroupsRequest extends Model
     /**
      * @description The region ID of the bastion host in which you want to query the host group.
      *
-     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

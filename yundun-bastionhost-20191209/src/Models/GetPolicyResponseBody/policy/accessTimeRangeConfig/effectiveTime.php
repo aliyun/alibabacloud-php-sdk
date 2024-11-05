@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class effectiveTime extends Model
 {
     /**
+     * @description The days of a week on which logons are allowed.
+     *
      * @var string[]
      */
     public $days;
 
     /**
+     * @description The time periods during which logons are allowed.
+     *
      * @var string[]
      */
     public $hours;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DetachDatabaseAccountsFromUserResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 79D7E114-CB52-5695-AB15-12776C308387
      *
      * @var string
@@ -17,6 +19,8 @@ class DetachDatabaseAccountsFromUserResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The result of the call.
+     *
      * @var results[]
      */
     public $results;

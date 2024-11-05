@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class proxies extends Model
 {
     /**
+     * @description The new IP address of the proxy server.
+     *
      * @example 114.21**.**
      *
      * @var string
@@ -16,6 +18,11 @@ class proxies extends Model
     public $address;
 
     /**
+     * @description The node type of the proxy server to modify. Valid values:
+     *
+     *   **Master**: primary proxy server.
+     *   **Slave**: secondary proxy server.
+     *
      * @example Slave
      *
      * @var string
@@ -23,6 +30,8 @@ class proxies extends Model
     public $nodeType;
 
     /**
+     * @description The new password of the proxy server account.
+     *
      * @example ***
      *
      * @var string
@@ -30,6 +39,8 @@ class proxies extends Model
     public $password;
 
     /**
+     * @description The new port of the proxy server.
+     *
      * @example 22
      *
      * @var int
@@ -37,6 +48,12 @@ class proxies extends Model
     public $port;
 
     /**
+     * @description The new proxy mode. Valid values:
+     *
+     *   **SSHProxy**
+     *   **HTTPProxy**
+     *   **Socks5Proxy**
+     *
      * @example HTTPProxy
      *
      * @var string
@@ -44,6 +61,8 @@ class proxies extends Model
     public $proxyType;
 
     /**
+     * @description The new username of the proxy server account.
+     *
      * @example test
      *
      * @var string

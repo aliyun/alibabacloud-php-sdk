@@ -14,6 +14,7 @@ class CreateHostRequest extends Model
      *   **Public**: public endpoint
      *   **Private**: internal endpoint
      *
+     * This parameter is required.
      * @example Public
      *
      * @var string
@@ -32,6 +33,7 @@ class CreateHostRequest extends Model
     /**
      * @description The name of the host that you want to create. The name can be up to 128 characters in length.
      *
+     * This parameter is required.
      * @example host01
      *
      * @var string
@@ -61,7 +63,7 @@ class CreateHostRequest extends Model
     /**
      * @description The ID of the bastion host in which you want to create the host.
      *
-     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -79,8 +81,9 @@ class CreateHostRequest extends Model
     public $instanceRegionId;
 
     /**
-     * @description The ID of the network domain to which the host belongs.
+     * @description The ID of the network domain to which the host to be imported belongs.
      *
+     * > You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
      * @example 1
      *
      * @var string
@@ -93,6 +96,7 @@ class CreateHostRequest extends Model
      *   **Linux**
      *   **Windows**
      *
+     * This parameter is required.
      * @example Linux
      *
      * @var string
@@ -100,9 +104,9 @@ class CreateHostRequest extends Model
     public $OSType;
 
     /**
-     * @description The region ID of the bastion host in which you want to create the host.
+     * @description The region ID of the bastion host to which you want to import the host.
      *
-     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * > For information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -116,6 +120,7 @@ class CreateHostRequest extends Model
      *   **Ecs**: an Elastic Compute Service (ECS) instance
      *   **Rds**: a host in an ApsaraDB MyBase dedicated cluster
      *
+     * This parameter is required.
      * @example Local
      *
      * @var string

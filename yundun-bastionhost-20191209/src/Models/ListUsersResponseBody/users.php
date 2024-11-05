@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class users extends Model
 {
     /**
-     * @description The description of the user.
+     * @description The remarks of the user.
      *
      * @example comment
      *
@@ -27,7 +27,7 @@ class users extends Model
     public $displayName;
 
     /**
-     * @description The end of the validity period of the user. The value is a UNIX timestamp. Unit: seconds.
+     * @description The end time of the validity period of the user. The value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1672502400
      *
@@ -36,7 +36,7 @@ class users extends Model
     public $effectiveEndTime;
 
     /**
-     * @description The beginning of the validity period of the user. The value is a UNIX timestamp. Unit: seconds.
+     * @description The start time of the validity period of the user. The value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1669630029
      *
@@ -54,17 +54,31 @@ class users extends Model
     public $email;
 
     /**
+     * @description This parameter is required if LanguageStatus is set to Custom. Valid values:
+     *
+     *   **zh-cn**: simplified Chinese.
+     *   **en**: English.
+     *
+     * @example en
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @description Indicates whether notifications are sent in the language specified in the global settings or a custom language.
+     *
+     *   **Global**
+     *   **Custom**
+     *
+     * @example Custom
+     *
      * @var string
      */
     public $languageStatus;
 
     /**
-     * @description The mobile number of the user.
+     * @description The mobile phone number of the user.
      *
      * @example 1359999****
      *
@@ -73,27 +87,27 @@ class users extends Model
     public $mobile;
 
     /**
-     * @description The country where the mobile number of the user is registered. Valid values:
+     * @description The location where the mobile phone number of the user is registered. Valid values:
      *
-     *   **CN**: the Chinese mainland, whose country calling code is +86
-     *   **HK**: Hong Kong (China), whose country calling code is +852
-     *   **MO**: Macau (China), whose country calling code is +853
-     *   **TW**: Taiwan (China), whose country calling code is +886
-     *   **RU**: Russia, whose country calling code is +7
-     *   **SG**: Singapore, whose country calling code is +65
-     *   **MY**: Malaysia, whose country calling code is +60
-     *   **ID**: Indonesia, whose country calling code is +62
-     *   **DE**: Germany, whose country calling code is +49
-     *   **AU**: Australia, whose country calling code is +61
-     *   **US**: United States, whose country calling code is +1
-     *   **AE**: United Arab Emirates, whose country calling code is +971
-     *   **JP**: Japan, whose country calling code is +81
-     *   **GB**: United Kingdom, whose country calling code is +44
-     *   **IN**: India, whose country calling code is +91
-     *   **KR**: South Korea, whose country calling code is +82
-     *   **PH**: Philippines, whose country calling code is +63
-     *   **CH**: Switzerland, whose country calling code is +41
-     *   **SE**: Sweden, whose country calling code is +46
+     *   **CN**: the Chinese mainland, whose international dialing code is +86.
+     *   **HK**: Hong Kong (China), whose international dialing code is +852.
+     *   **MO**: Macao (China), whose international dialing code is +853.
+     *   **TW**: Taiwan (China), whose international dialing code is +886.
+     *   **RU**: Russia, whose international dialing code is +7.
+     *   **SG**: Singapore, whose international dialing code is +65.
+     *   **MY**: Malaysia, whose international dialing code is +60.
+     *   **ID**: Indonesia, whose international dialing code is +62.
+     *   **DE**: Germany, whose international dialing code is +49.
+     *   **AU**: Australia, whose international dialing code is +61.
+     *   **US**: US, whose international dialing code is +1.
+     *   **AE**: United Arab Emirates, whose international dialing code is +971.
+     *   **JP:** Japan, whose international dialing code is +81.
+     *   **GB**: UK, whose international dialing code is +44.
+     *   **IN**: India, whose international dialing code is +91.
+     *   **KR**: Republic of Korea, whose international dialing code is +82.
+     *   **PH**: Philippines, whose international dialing code is +63.
+     *   **CH**: Switzerland, whose international dialing code is +41.
+     *   **SE**: Sweden, whose international dialing code is +46.
      *
      * @example CN
      *
@@ -102,9 +116,11 @@ class users extends Model
     public $mobileCountryCode;
 
     /**
-     * @description Specifies whether password reset is required upon the next logon. Valid values:
+     * @description Indicates whether password reset is required upon the next logon. Valid values:
      *
-     * - false: no
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -112,10 +128,12 @@ class users extends Model
     public $needResetPassword;
 
     /**
-     * @description The source of the user. Valid values:
+     * @description The type of the user. Valid values:
      *
-     *   **Local**: a local user
-     *   **Ram**: a RAM user
+     *   **Local**: a local user.
+     *   **Ram**: a RAM user.
+     *   **AD**: an AD-authenticated user.
+     *   **LDAP**: an LDAP-authenticated user.
      *
      * @example Local
      *
@@ -126,7 +144,7 @@ class users extends Model
     /**
      * @description The unique ID of the user.
      *
-     * >  This parameter uniquely identifies a RAM user of the Bastionhost instance. A value is returned for this parameter if the **Source** parameter is set to **Ram**. No value is returned for this parameter if the **Source** parameter is set to **Local**.
+     * >  This parameter uniquely identifies a RAM user of the bastion host. A value is returned for this parameter if **Source** is set to **Ram**. No value is returned for this parameter if **Source** is set to **Local**.
      * @example 122748924538****
      *
      * @var string
@@ -134,18 +152,18 @@ class users extends Model
     public $sourceUserId;
 
     /**
-     * @description The two-factor authentication method.
+     * @description An array of the enabled two-factor authentication methods.
      *
      * @var string[]
      */
     public $twoFactorMethods;
 
     /**
-     * @description The two-factor authentication status of the user. Valid values:
+     * @description Indicates whether two-factor authentication is enabled for the user. Valid values:
      *
-     *   **Global:** follows the global settings
-     *   **Disable:** disables two-factor authentication
-     *   **Enable:** enable two-factor authentication and follows settings of the single user
+     *   **Global**: The global setting applies.
+     *   **Disable**: Two-factor authentication is disabled.
+     *   **Enable**: Two-factor authentication is enabled. The user-specific setting for the authentication method applies.
      *
      * @example Enable
      *
@@ -154,7 +172,7 @@ class users extends Model
     public $twoFactorStatus;
 
     /**
-     * @description The ID of the user.
+     * @description The user ID.
      *
      * @example 1
      *
@@ -172,7 +190,7 @@ class users extends Model
     public $userName;
 
     /**
-     * @description The statuses of the user.
+     * @description An array that lists the states of users.
      *
      * @var string[]
      */

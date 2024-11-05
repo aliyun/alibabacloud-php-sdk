@@ -11,6 +11,7 @@ class MoveResourceGroupRequest extends Model
     /**
      * @description The region ID of the bastion host.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -20,7 +21,7 @@ class MoveResourceGroupRequest extends Model
     /**
      * @description The ID of the resource group to which the bastion host is moved.
      *
-     * > You can call the [DescribeInstances](~~153281~~) operation to query the resource group ID of the bastion host.
+     * This parameter is required.
      * @example rg-aekznp3oyo****
      *
      * @var string
@@ -30,7 +31,7 @@ class MoveResourceGroupRequest extends Model
     /**
      * @description The ID of the bastion host for which you want to change the resource group.
      *
-     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-78v1gh****
      *
      * @var string
@@ -40,6 +41,7 @@ class MoveResourceGroupRequest extends Model
     /**
      * @description The type of the resource. Set the value to **INSTANCE**, which indicates that the resource is a bastion host.
      *
+     * This parameter is required.
      * @example INSTANCE
      *
      * @var string

@@ -11,7 +11,7 @@ class ports extends Model
     /**
      * @description The custom port.
      *
-     * >  You can change only the SSH and RDP ports. If O\&M ports are not specified, the value of the StandardPort parameter is returned.
+     * > Only the SSH and RDP ports can be changed. If no custom O\\&M port is specified for the bastion host, the value of StandardPort is returned.
      * @example 600xx
      *
      * @var int
@@ -21,9 +21,9 @@ class ports extends Model
     /**
      * @description The standard port of the bastion host. Valid values:
      *
-     *   **SSH**: 60022
-     *   **RDP**: 63389
-     *   **HTTPS**: 443
+     *   **SSH**: 60022.
+     *   **RDP**: 63389.
+     *   **HTTPS**: 443.
      *
      * @example 60022
      *

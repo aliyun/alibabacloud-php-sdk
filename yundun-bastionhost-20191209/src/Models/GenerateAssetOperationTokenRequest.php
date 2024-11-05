@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GenerateAssetOperationTokenRequest extends Model
 {
     /**
+     * @description The ID of the account whose assets the O\\&M token takes effect.
+     *
+     * >  You must specify at least one of the following parameters: AssetAccountId and AssetAccountName. If you specify both parameters, AssetAccountId takes precedence.
      * @example 2
      *
      * @var string
@@ -16,6 +19,9 @@ class GenerateAssetOperationTokenRequest extends Model
     public $assetAccountId;
 
     /**
+     * @description The name of the host account. If you use a custom account, enter a real account name.
+     *
+     * >  When both AssetAccountId and AssetAccountName are specified, AssetAccountId takes precedence.
      * @example root
      *
      * @var string
@@ -23,6 +29,8 @@ class GenerateAssetOperationTokenRequest extends Model
     public $assetAccountName;
 
     /**
+     * @description The Base64-encoded password. This parameter is required if you want to apply for an O\\&M token for a custom account.
+     *
      * @example dGVzdHBhc3N3b3Jk
      *
      * @var string
@@ -30,6 +38,15 @@ class GenerateAssetOperationTokenRequest extends Model
     public $assetAccountPassword;
 
     /**
+     * @description The name of the protocol. Valid values:
+     *
+     *   SSH
+     *   RDP
+     *   Oracle
+     *   PostgreSQL
+     *   MySQL
+     *   SQLServer
+     *
      * @example SSH
      *
      * @var string
@@ -37,6 +54,9 @@ class GenerateAssetOperationTokenRequest extends Model
     public $assetAccountProtocolName;
 
     /**
+     * @description The ID of the asset for which you want to apply for an O\\&M token.
+     *
+     * This parameter is required.
      * @example 11
      *
      * @var string
@@ -44,6 +64,12 @@ class GenerateAssetOperationTokenRequest extends Model
     public $assetId;
 
     /**
+     * @description The type of the asset for which you want to apply for an O\\&M token. Valid values:
+     *
+     *   **Host**
+     *   **Database**
+     *
+     * This parameter is required.
      * @example Host
      *
      * @var string
@@ -51,6 +77,14 @@ class GenerateAssetOperationTokenRequest extends Model
     public $assetType;
 
     /**
+     * @var string
+     */
+    public $databaseSchema;
+
+    /**
+     * @description The ID of the bastion host for which you want to apply an O\\&M token.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -58,11 +92,29 @@ class GenerateAssetOperationTokenRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $loginAttribute;
+
+    /**
+     * @var string
+     */
+    public $operationMode;
+
+    /**
+     * @description The region ID of the bastion host.
+     *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $ssoClient;
     protected $_name = [
         'assetAccountId'           => 'AssetAccountId',
         'assetAccountName'         => 'AssetAccountName',
@@ -70,8 +122,12 @@ class GenerateAssetOperationTokenRequest extends Model
         'assetAccountProtocolName' => 'AssetAccountProtocolName',
         'assetId'                  => 'AssetId',
         'assetType'                => 'AssetType',
+        'databaseSchema'           => 'DatabaseSchema',
         'instanceId'               => 'InstanceId',
+        'loginAttribute'           => 'LoginAttribute',
+        'operationMode'            => 'OperationMode',
         'regionId'                 => 'RegionId',
+        'ssoClient'                => 'SsoClient',
     ];
 
     public function validate()
@@ -99,11 +155,23 @@ class GenerateAssetOperationTokenRequest extends Model
         if (null !== $this->assetType) {
             $res['AssetType'] = $this->assetType;
         }
+        if (null !== $this->databaseSchema) {
+            $res['DatabaseSchema'] = $this->databaseSchema;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->loginAttribute) {
+            $res['LoginAttribute'] = $this->loginAttribute;
+        }
+        if (null !== $this->operationMode) {
+            $res['OperationMode'] = $this->operationMode;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->ssoClient) {
+            $res['SsoClient'] = $this->ssoClient;
         }
 
         return $res;
@@ -135,11 +203,23 @@ class GenerateAssetOperationTokenRequest extends Model
         if (isset($map['AssetType'])) {
             $model->assetType = $map['AssetType'];
         }
+        if (isset($map['DatabaseSchema'])) {
+            $model->databaseSchema = $map['DatabaseSchema'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['LoginAttribute'])) {
+            $model->loginAttribute = $map['LoginAttribute'];
+        }
+        if (isset($map['OperationMode'])) {
+            $model->operationMode = $map['OperationMode'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SsoClient'])) {
+            $model->ssoClient = $map['SsoClient'];
         }
 
         return $model;

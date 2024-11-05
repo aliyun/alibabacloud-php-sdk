@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
-     * @description The description of the bastion host.
+     * @description The remarks of the bastion host.
      *
      * @example Test API
      *
@@ -36,7 +36,7 @@ class instances extends Model
     public $imageVersion;
 
     /**
-     * @description The ID of the bastion host.
+     * @description The bastion host ID.
      *
      * @example bastionhost-cn-78v1gh****
      *
@@ -62,7 +62,7 @@ class instances extends Model
     public $instanceStatus;
 
     /**
-     * @description The public O\&M address of the bastion host.
+     * @description The public O\\&M address of the bastion host.
      *
      * @example drawvxalwb-public.bastionhost.aliyuncs.com
      *
@@ -71,7 +71,7 @@ class instances extends Model
     public $internetEndpoint;
 
     /**
-     * @description The private O\&M address of the bastion host.
+     * @description The private O\\&M address of the bastion host.
      *
      * @example drawvxalwb.bastionhost.aliyuncs.com
      *
@@ -82,8 +82,8 @@ class instances extends Model
     /**
      * @description Indicates whether the bastion host runs an earlier version. Valid values:
      *
-     *   **true**: indicates that the bastion host runs V2 or V3.1.
-     *   **false**:indicates that the bastion host runs V3.2.
+     *   **true**: The bastion host runs V2 or V3.1.
+     *   **false**: The bastion host runs V3.2.
      *
      * @example false
      *
@@ -103,8 +103,8 @@ class instances extends Model
     /**
      * @description The edition of the bastion host. Valid values:
      *
-     *   **cloudbastion**: Basic
-     *   **cloudbastion_ha**: Enterprise
+     *   **cloudbastion**: Basic Edition.
+     *   **cloudbastion_ha**: Enterprise Edition.
      *
      * @example cloudbastion_ha
      *
@@ -115,8 +115,8 @@ class instances extends Model
     /**
      * @description Indicates whether the bastion host can be accessed from the Internet. Valid values:
      *
-     *   **true**: The bastion host can be accessed from the Internet.
-     *   **false**: The bastion host cannot be accessed from the Internet.
+     *   **true**
+     *   **false**
      *
      * @example true
      *

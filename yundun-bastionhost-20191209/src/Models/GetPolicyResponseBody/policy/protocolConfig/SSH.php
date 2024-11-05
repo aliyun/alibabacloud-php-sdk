@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SSH extends Model
 {
     /**
+     * @description Indicates whether remote command execution is enabled. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
      * @example Enable
      *
      * @var string
@@ -16,6 +21,11 @@ class SSH extends Model
     public $execCommand;
 
     /**
+     * @description Indicates whether the SFTP channel option is enabled. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
      * @example Enable
      *
      * @var string
@@ -23,6 +33,11 @@ class SSH extends Model
     public $SFTPChannel;
 
     /**
+     * @description Indicates whether file downloading is enabled in SFTP-based O\\&M. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
      * @example Enable
      *
      * @var string
@@ -30,6 +45,11 @@ class SSH extends Model
     public $SFTPDownloadFile;
 
     /**
+     * @description Indicates whether folder creation is enabled in SFTP-based O\\&M. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
      * @example Enable
      *
      * @var string
@@ -37,6 +57,11 @@ class SSH extends Model
     public $SFTPMkdir;
 
     /**
+     * @description Indicates whether file deletion is enabled in SFTP-based O\\&M. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
      * @example Enable
      *
      * @var string
@@ -44,6 +69,11 @@ class SSH extends Model
     public $SFTPRemoveFile;
 
     /**
+     * @description Indicates whether file renaming is enabled in SFTP-based O\\&M. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
      * @example Enable
      *
      * @var string
@@ -51,6 +81,11 @@ class SSH extends Model
     public $SFTPRenameFile;
 
     /**
+     * @description Indicates whether folder deletion is enabled in SFTP-based O\\&M. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
      * @example Enable
      *
      * @var string
@@ -58,6 +93,11 @@ class SSH extends Model
     public $SFTPRmdir;
 
     /**
+     * @description Indicates whether file uploading is enabled in SFTP-based O\\&M. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
      * @example Enable
      *
      * @var string
@@ -65,6 +105,11 @@ class SSH extends Model
     public $SFTPUploadFile;
 
     /**
+     * @description Indicates whether the SSH channel option is enabled. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
      * @example Enable
      *
      * @var string
@@ -72,6 +117,11 @@ class SSH extends Model
     public $SSHChannel;
 
     /**
+     * @description Indicates whether X11 forwarding is enabled. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
      * @example Enable
      *
      * @var string

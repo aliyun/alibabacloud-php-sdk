@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class hostGroups extends Model
 {
     /**
-     * @description ListHostGroupsForUser
+     * @description The remarks of the host group.
      *
      * @example comment
      *
@@ -18,7 +18,7 @@ class hostGroups extends Model
     public $comment;
 
     /**
-     * @description WB662865
+     * @description The host group ID.
      *
      * @example １
      *
@@ -27,6 +27,8 @@ class hostGroups extends Model
     public $hostGroupId;
 
     /**
+     * @description The name of the host group.
+     *
      * @example group
      *
      * @var string

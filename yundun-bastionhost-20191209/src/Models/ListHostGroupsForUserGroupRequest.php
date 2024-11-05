@@ -20,7 +20,7 @@ class ListHostGroupsForUserGroupRequest extends Model
     /**
      * @description The ID of the bastion host to which the user group belongs.
      *
-     * > You can call the [DescribeInstances](~~153281~~) operation to query the ID of the bastion host.
+     * This parameter is required.
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -49,7 +49,7 @@ class ListHostGroupsForUserGroupRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.\
+     * @description The number of entries to return on each page.\\
      * > We recommend that you do not leave this parameter empty.
      * @example 20
      *
@@ -60,7 +60,7 @@ class ListHostGroupsForUserGroupRequest extends Model
     /**
      * @description The region ID of the bastion host to which the user group belongs.
      *
-     * > For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -70,7 +70,7 @@ class ListHostGroupsForUserGroupRequest extends Model
     /**
      * @description The ID of the user group.
      *
-     * > You can call the [ListUserGroups](~~204509~~) operation to query the ID of the user group.
+     * This parameter is required.
      * @example 1
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListOperationDatabasesRequest extends Model
 {
     /**
+     * @description The address of the database.
+     *
      * @example 10.167.66.167
      *
      * @var string
@@ -16,6 +18,8 @@ class ListOperationDatabasesRequest extends Model
     public $databaseAddress;
 
     /**
+     * @description The name of the database instance. The system supports exact search.
+     *
      * @example aaa
      *
      * @var string
@@ -23,6 +27,13 @@ class ListOperationDatabasesRequest extends Model
     public $databaseName;
 
     /**
+     * @description The type of the database. Valid values:
+     *
+     *   **MySQL**
+     *   **SQLServer**
+     *   **Oracle**
+     *   **PostgreSQL**
+     *
      * @example MySQL
      *
      * @var string
@@ -30,6 +41,9 @@ class ListOperationDatabasesRequest extends Model
     public $databaseType;
 
     /**
+     * @description The bastion host ID.
+     *
+     * This parameter is required.
      * @example bastionhost-cn-tl32wloo90y
      *
      * @var string
@@ -37,6 +51,8 @@ class ListOperationDatabasesRequest extends Model
     public $instanceId;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var string
@@ -44,6 +60,8 @@ class ListOperationDatabasesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.\\
+     * >  We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var string
@@ -51,6 +69,9 @@ class ListOperationDatabasesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the bastion host.
+     *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-shanghai
      *
      * @var string
@@ -58,6 +79,12 @@ class ListOperationDatabasesRequest extends Model
     public $regionId;
 
     /**
+     * @description The source of the database instance. Valid values:
+     *
+     *   **Local**
+     *   **Rds**
+     *   **PolarDB**
+     *
      * @example Local
      *
      * @var string
@@ -65,6 +92,8 @@ class ListOperationDatabasesRequest extends Model
     public $source;
 
     /**
+     * @description The ID of the ApsaraDB RDS instance. The system supports exact search.
+     *
      * @example i-bp19ienyt0yax748****
      *
      * @var string
@@ -72,6 +101,11 @@ class ListOperationDatabasesRequest extends Model
     public $sourceInstanceId;
 
     /**
+     * @description The instance state.
+     *
+     *   **Normal**
+     *   **RemoteRelease**
+     *
      * @example Normal
      *
      * @var string
