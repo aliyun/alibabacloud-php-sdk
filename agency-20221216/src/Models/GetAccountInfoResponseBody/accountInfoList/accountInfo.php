@@ -45,6 +45,11 @@ class accountInfo extends Model
     public $cid;
 
     /**
+     * @var int
+     */
+    public $customerAccountType;
+
+    /**
      * @description customer manager
      *
      * @example abc
@@ -52,6 +57,11 @@ class accountInfo extends Model
      * @var string
      */
     public $customerBd;
+
+    /**
+     * @var int
+     */
+    public $customerEnterpriseCertified;
 
     /**
      * @description The account have Shutdown-delay Privilege, After Shutdown-delay Credit is ran out, Alibaba Cloud will take over resources and keep the instance for 15 days. In addition, the instance will be released if Sub Account failed to pay the bill within these 15 days.
@@ -99,6 +109,11 @@ class accountInfo extends Model
     public $newBuyStatus;
 
     /**
+     * @var string
+     */
+    public $registerCountryCode;
+
+    /**
      * @description Valid mobile number of Distribution Customer.
      *
      * @example Alibaba Cloud Login name of Distribution Customer.
@@ -125,19 +140,22 @@ class accountInfo extends Model
      */
     public $uid;
     protected $_name = [
-        'accountNickname'        => 'AccountNickname',
-        'aliyunId'               => 'AliyunId',
-        'associationSuccessTime' => 'AssociationSuccessTime',
-        'cid'                    => 'Cid',
-        'customerBd'             => 'CustomerBd',
-        'delayAmount'            => 'DelayAmount',
-        'delayStatus'            => 'DelayStatus',
-        'email'                  => 'Email',
-        'mobile'                 => 'Mobile',
-        'newBuyStatus'           => 'NewBuyStatus',
-        'remark'                 => 'Remark',
-        'subAccountType'         => 'SubAccountType',
-        'uid'                    => 'Uid',
+        'accountNickname'             => 'AccountNickname',
+        'aliyunId'                    => 'AliyunId',
+        'associationSuccessTime'      => 'AssociationSuccessTime',
+        'cid'                         => 'Cid',
+        'customerAccountType'         => 'CustomerAccountType',
+        'customerBd'                  => 'CustomerBd',
+        'customerEnterpriseCertified' => 'CustomerEnterpriseCertified',
+        'delayAmount'                 => 'DelayAmount',
+        'delayStatus'                 => 'DelayStatus',
+        'email'                       => 'Email',
+        'mobile'                      => 'Mobile',
+        'newBuyStatus'                => 'NewBuyStatus',
+        'registerCountryCode'         => 'RegisterCountryCode',
+        'remark'                      => 'Remark',
+        'subAccountType'              => 'SubAccountType',
+        'uid'                         => 'Uid',
     ];
 
     public function validate()
@@ -159,8 +177,14 @@ class accountInfo extends Model
         if (null !== $this->cid) {
             $res['Cid'] = $this->cid;
         }
+        if (null !== $this->customerAccountType) {
+            $res['CustomerAccountType'] = $this->customerAccountType;
+        }
         if (null !== $this->customerBd) {
             $res['CustomerBd'] = $this->customerBd;
+        }
+        if (null !== $this->customerEnterpriseCertified) {
+            $res['CustomerEnterpriseCertified'] = $this->customerEnterpriseCertified;
         }
         if (null !== $this->delayAmount) {
             $res['DelayAmount'] = $this->delayAmount;
@@ -176,6 +200,9 @@ class accountInfo extends Model
         }
         if (null !== $this->newBuyStatus) {
             $res['NewBuyStatus'] = $this->newBuyStatus;
+        }
+        if (null !== $this->registerCountryCode) {
+            $res['RegisterCountryCode'] = $this->registerCountryCode;
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
@@ -210,8 +237,14 @@ class accountInfo extends Model
         if (isset($map['Cid'])) {
             $model->cid = $map['Cid'];
         }
+        if (isset($map['CustomerAccountType'])) {
+            $model->customerAccountType = $map['CustomerAccountType'];
+        }
         if (isset($map['CustomerBd'])) {
             $model->customerBd = $map['CustomerBd'];
+        }
+        if (isset($map['CustomerEnterpriseCertified'])) {
+            $model->customerEnterpriseCertified = $map['CustomerEnterpriseCertified'];
         }
         if (isset($map['DelayAmount'])) {
             $model->delayAmount = $map['DelayAmount'];
@@ -227,6 +260,9 @@ class accountInfo extends Model
         }
         if (isset($map['NewBuyStatus'])) {
             $model->newBuyStatus = $map['NewBuyStatus'];
+        }
+        if (isset($map['RegisterCountryCode'])) {
+            $model->registerCountryCode = $map['RegisterCountryCode'];
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
