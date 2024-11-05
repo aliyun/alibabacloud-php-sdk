@@ -89,17 +89,17 @@ class ScaleOutClusterRequest extends Model
     public $runtime;
 
     /**
-     * @description The labels that you want to add to nodes. You must add labels based on the following rules:
+     * @description The tags that you want to add to nodes. When you add labels to a node, the following rules apply:
      *
      *   A label is a case-sensitive key-value pair. You can add up to 20 labels.
-     *   When you add a label, you must specify a unique key but you can leave the value empty. A key cannot exceed 64 characters in length and a value cannot exceed 128 characters in length. Keys and values cannot start with aliyun, acs:, https://, or http://. For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
+     *   When you add a tag, you must specify a unique key but you can leave the value empty. A key cannot exceed 64 characters in length and a value cannot exceed 128 characters in length. Keys and values cannot start with aliyun, acs:, https://, or http://. For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
      *
      * @var Tag[]
      */
     public $tags;
 
     /**
-     * @description The taints that you want to add to nodes. Taints can be used together with tolerations to avoid scheduling pods to specified nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
+     * @description The taints that you want to add to nodes. Taints can be used together with tolerations to prevent pods from being scheduled to specific nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
      *
      * @var Taint[]
      */
@@ -126,7 +126,7 @@ class ScaleOutClusterRequest extends Model
      * @description Specifies whether to enable auto-renewal for worker nodes. This parameter takes effect and is required only if `worker_instance_charge_type` is set to `PrePaid`. Valid values:
      *
      *   `true`: enables auto-renewal.
-     *   `false`: does not enable auto-renewal.
+     *   `false`: disables auto-renewal.
      *
      * Default value: `true`.
      * @example true
@@ -158,7 +158,7 @@ class ScaleOutClusterRequest extends Model
      *   `PrePaid`: subscription.
      *   `PostPaid`: pay-as-you-go.
      *
-     * Default value: `PostPaid`.
+     * Default value: `PostPaid`
      * @example PrePaid
      *
      * @var string
@@ -176,7 +176,7 @@ class ScaleOutClusterRequest extends Model
     /**
      * @description The subscription duration of worker nodes. This parameter takes effect and is required only if `worker_instance_charge_type` is set to `PrePaid`.
      *
-     * Default value: 1.
+     * Default value: 1
      * @example 1
      *
      * @var int

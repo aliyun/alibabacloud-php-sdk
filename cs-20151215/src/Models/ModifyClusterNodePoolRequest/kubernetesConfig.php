@@ -24,7 +24,7 @@ class kubernetesConfig extends Model
     public $cmsEnabled;
 
     /**
-     * @description The CPU management policy of nodes in the node pool. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later:
+     * @description The CPU management policy of nodes. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later:
      *
      *   `static`: allows pods with specific resource characteristics on the node to be granted with enhanced CPU affinity and exclusivity.
      *   `none`: specifies that the default CPU affinity is used.
@@ -47,6 +47,10 @@ class kubernetesConfig extends Model
     public $labels;
 
     /**
+     * @description The user-defined script that is executed before nodes are initialized. For more information, see [Prepare user data](https://help.aliyun.com/document_detail/49121.html).
+     *
+     * @example IyEvdXNyL2Jpbi9iYXNoCmVjaG8gIkhlbGxvIEFDSyEi
+     *
      * @var string
      */
     public $preUserData;
@@ -86,7 +90,7 @@ class kubernetesConfig extends Model
     public $unschedulable;
 
     /**
-     * @description The user data of the node pool. For more information, see [Prepare user data](https://help.aliyun.com/document_detail/49121.html).
+     * @description The user-defined script that is executed after nodes are initialized. For more information, see [Prepare user data](https://help.aliyun.com/document_detail/49121.html).
      *
      * @example IyEvdXNyL2Jpbi9iYXNoCmVjaG8gIkhlbGxvIEFDSyEi
      *

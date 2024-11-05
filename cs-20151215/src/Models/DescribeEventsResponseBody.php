@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventsResponseBody extends Model
 {
     /**
-     * @description The details of the event.
+     * @description The details of the events.
      *
      * @var events[]
      */

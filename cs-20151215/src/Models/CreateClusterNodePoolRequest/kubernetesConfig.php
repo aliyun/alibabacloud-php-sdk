@@ -24,7 +24,7 @@ class kubernetesConfig extends Model
     public $cmsEnabled;
 
     /**
-     * @description The CPU management policy of nodes in the node pool. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later:
+     * @description The CPU management policy of nodes. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later:
      *
      *   `static`: allows pods with specific resource characteristics on the node to be granted with enhanced CPU affinity and exclusivity.
      *   `none`: specifies that the default CPU affinity is used.
@@ -37,14 +37,14 @@ class kubernetesConfig extends Model
     public $cpuPolicy;
 
     /**
-     * @description The labels that you want to add to nodes in the cluster.
+     * @description The labels that you want to add to the nodes in the cluster.
      *
      * @var Tag[]
      */
     public $labels;
 
     /**
-     * @description The custom node name. A custom node name consists of a prefix, a node IP address, and a suffix.
+     * @description A custom node name consists of a prefix, a node IP address, and a suffix.
      *
      *   The prefix and the suffix can contain multiple parts that are separated by periods (.). Each part can contain lowercase letters, digits, and hyphens (-). A custom node name must start and end with a digit or lowercase letter.
      *   The node IP address in a custom node name is the private IP address of the node.
@@ -57,12 +57,16 @@ class kubernetesConfig extends Model
     public $nodeNameMode;
 
     /**
+     * @description The user-defined data of nodes. You can specify custom scripts that are automatically executed before the nodes are initialized.
+     *
+     * @example dGhpcyBpcyBhIGV4YW1wbGU
+     *
      * @var string
      */
     public $preUserData;
 
     /**
-     * @description The name of the container runtime. The following types of runtime are supported by Container Service for Kubernetes (ACK):
+     * @description The name of the container runtime. The following types of runtime are supported by ACK:
      *
      *   containerd: containerd is the recommended runtime and supports all Kubernetes versions.
      *   Sandboxed-Container.runv: The Sandbox-Container runtime provides improved isolation and supports Kubernetes 1.24 and earlier.
@@ -101,7 +105,7 @@ class kubernetesConfig extends Model
     public $unschedulable;
 
     /**
-     * @description The user data on the node.
+     * @description The user-defined data of nodes. You can specify custom scripts that are automatically executed after the nodes are initialized.
      *
      * @example dGhpcyBpcyBhIGV4YW1wbGU=
      *

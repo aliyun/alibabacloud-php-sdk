@@ -13,7 +13,7 @@ class autoScaling extends Model
      *
      **
      *
-     **Important** This parameter is deprecated. Use internet_charge_type and internet_max_bandwidth_out.
+     **Important** This parameter is deprecated. Use the internet_charge_type and internet_max_bandwidth_out parameters instead.
      *
      * @example 5
      *
@@ -33,7 +33,7 @@ class autoScaling extends Model
      *
      **
      *
-     **Important** This parameter is deprecated. Use internet_charge_type and internet_max_bandwidth_out.
+     **Important** This parameter is deprecated. Use the internet_charge_type and internet_max_bandwidth_out parameters instead.
      *
      * @example PayByBandwidth
      *
@@ -66,7 +66,7 @@ class autoScaling extends Model
      *
      **
      *
-     **Important** This parameter is deprecated. Use internet_charge_type and internet_max_bandwidth_out.
+     **Important** This parameter is deprecated. Use the internet_charge_type and internet_max_bandwidth_out parameters instead.
      *
      * @example true
      *

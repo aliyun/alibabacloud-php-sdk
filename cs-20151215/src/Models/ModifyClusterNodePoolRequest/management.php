@@ -33,7 +33,7 @@ class management extends Model
     public $autoRepairPolicy;
 
     /**
-     * @description Specifies whether to enable auto update. Valid values:
+     * @description Indicates whether auto update is enabled. Valid values:
      *
      *   `true`: enables auto update.
      *   `false`: disables auto update.

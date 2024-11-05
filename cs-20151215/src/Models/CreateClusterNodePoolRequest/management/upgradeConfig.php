@@ -16,7 +16,7 @@ class upgradeConfig extends Model
      *
      **
      *
-     **Caution** This parameter is deprecated. Use the preceding auto_upgrade parameter.
+     **Caution** This parameter is deprecated. Use the preceding auto_upgrade parameter instead.
      *
      * @example false
      *
@@ -27,9 +27,9 @@ class upgradeConfig extends Model
     public $autoUpgrade;
 
     /**
-     * @description The maximum number of unavailable nodes. Valid values: 1 to 1000.
+     * @description The maximum number of nodes that can be in the Unavailable state. Valid values: 1 to 1000.
      *
-     * Default value: 1
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -37,7 +37,7 @@ class upgradeConfig extends Model
     public $maxUnavailable;
 
     /**
-     * @description The number of additional nodes that are temporarily added to the node pool during an auto update.
+     * @description The number of additional nodes.
      *
      * @example 0
      *

@@ -810,9 +810,9 @@ class CS extends OpenApiClient
     /**
      * @summary You can call the CleanUserPermissions operation to delete the kubeconfig files of the specified users and revoke the relevant Role-Based Access Control (RBAC) permissions. This API operation is suitable for scenarios where employees have resigned or the accounts of employees are locked.
      *  *
-     * @description >- To call this operation, make sure that you have the AliyunCSFullAccess permissions.
-     * >- You cannot revoke the permissions of an Alibaba Cloud account.
-     * >- You cannot revoke the permissions of the account that you use to call this operation.
+     * @description > - To call this operation, make sure that you have the AliyunCSFullAccess permission.
+     * > - You cannot revoke the permissions of an Alibaba Cloud account.
+     * > - You cannot revoke the permissions of the account that you use to call this operation.
      *  *
      * @param string                      $Uid
      * @param CleanUserPermissionsRequest $tmpReq  CleanUserPermissionsRequest
@@ -858,9 +858,9 @@ class CS extends OpenApiClient
     /**
      * @summary You can call the CleanUserPermissions operation to delete the kubeconfig files of the specified users and revoke the relevant Role-Based Access Control (RBAC) permissions. This API operation is suitable for scenarios where employees have resigned or the accounts of employees are locked.
      *  *
-     * @description >- To call this operation, make sure that you have the AliyunCSFullAccess permissions.
-     * >- You cannot revoke the permissions of an Alibaba Cloud account.
-     * >- You cannot revoke the permissions of the account that you use to call this operation.
+     * @description > - To call this operation, make sure that you have the AliyunCSFullAccess permission.
+     * > - You cannot revoke the permissions of an Alibaba Cloud account.
+     * > - You cannot revoke the permissions of the account that you use to call this operation.
      *  *
      * @param string                      $Uid
      * @param CleanUserPermissionsRequest $request CleanUserPermissionsRequest
@@ -1376,7 +1376,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a node pool for a Container Service for Kubernetes (ACK) cluster. You can use node pools to facilitate node management. For example, you can schedule, configure, or maintain nodes by node pool, and enable auto scaling for a node pool. We recommend that you use a managed node pool, which can help automate specific O\\&M tasks for nodes, such as Common Vulnerabilities and Exposures (CVE) patching and node repair. This reduces your O\\&M workload.
+     * @summary Creates a node pool for a Container Service for Kubernetes (ACK) cluster. You can use node pools to facilitate node management. For example, you can schedule, configure, or maintain nodes by node pool, and enable auto scaling for a node pool. We recommend that you use a managed node pool, which can help automate specific O\\\\\\&M tasks for nodes, such as Common Vulnerabilities and Exposures (CVE) patching and node repair. This reduces your O\\\\\\&M workload.
      *  *
      * @param string                       $ClusterId
      * @param CreateClusterNodePoolRequest $request   CreateClusterNodePoolRequest
@@ -1395,11 +1395,17 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->count)) {
             $body['count'] = $request->count;
         }
+        if (!Utils::isUnset($request->hostNetwork)) {
+            $body['host_network'] = $request->hostNetwork;
+        }
         if (!Utils::isUnset($request->interconnectConfig)) {
             $body['interconnect_config'] = $request->interconnectConfig;
         }
         if (!Utils::isUnset($request->interconnectMode)) {
             $body['interconnect_mode'] = $request->interconnectMode;
+        }
+        if (!Utils::isUnset($request->intranet)) {
+            $body['intranet'] = $request->intranet;
         }
         if (!Utils::isUnset($request->kubernetesConfig)) {
             $body['kubernetes_config'] = $request->kubernetesConfig;
@@ -1442,7 +1448,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a node pool for a Container Service for Kubernetes (ACK) cluster. You can use node pools to facilitate node management. For example, you can schedule, configure, or maintain nodes by node pool, and enable auto scaling for a node pool. We recommend that you use a managed node pool, which can help automate specific O\\&M tasks for nodes, such as Common Vulnerabilities and Exposures (CVE) patching and node repair. This reduces your O\\&M workload.
+     * @summary Creates a node pool for a Container Service for Kubernetes (ACK) cluster. You can use node pools to facilitate node management. For example, you can schedule, configure, or maintain nodes by node pool, and enable auto scaling for a node pool. We recommend that you use a managed node pool, which can help automate specific O\\\\\\&M tasks for nodes, such as Common Vulnerabilities and Exposures (CVE) patching and node repair. This reduces your O\\\\\\&M workload.
      *  *
      * @param string                       $ClusterId
      * @param CreateClusterNodePoolRequest $request   CreateClusterNodePoolRequest
@@ -2983,7 +2989,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary Queries node pools in a Container Service for Kubernetes (ACK) cluster.
+     * @summary Queries the information about all node pools in a cluster.
      *  *
      * @param string                          $ClusterId
      * @param DescribeClusterNodePoolsRequest $request   DescribeClusterNodePoolsRequest
@@ -3019,7 +3025,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary Queries node pools in a Container Service for Kubernetes (ACK) cluster.
+     * @summary Queries the information about all node pools in a cluster.
      *  *
      * @param string                          $ClusterId
      * @param DescribeClusterNodePoolsRequest $request   DescribeClusterNodePoolsRequest
@@ -3035,7 +3041,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary You can call the DescribeClusterNodes operation to query the details about all nodes in a cluster by cluster ID.
+     * @summary null
      *  *
      * @param string                      $ClusterId
      * @param DescribeClusterNodesRequest $request   DescribeClusterNodesRequest
@@ -3083,7 +3089,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary You can call the DescribeClusterNodes operation to query the details about all nodes in a cluster by cluster ID.
+     * @summary null
      *  *
      * @param string                      $ClusterId
      * @param DescribeClusterNodesRequest $request   DescribeClusterNodesRequest
@@ -3698,7 +3704,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary Queries detailed information about a type of events, including the severity level, status, and start time of each event. Events are generated when clusters are created, modified, and updated, node pools are created and scaled out, and components are installed.
+     * @summary Queries the detailed information about a type of events, including the severity level, status, and time. Events are generated when clusters are created, modified, and updated, node pools are created and scaled out, and components are installed.
      *  *
      * @param DescribeEventsRequest $request DescribeEventsRequest
      * @param string[]              $headers map
@@ -3742,7 +3748,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary Queries detailed information about a type of events, including the severity level, status, and start time of each event. Events are generated when clusters are created, modified, and updated, node pools are created and scaled out, and components are installed.
+     * @summary Queries the detailed information about a type of events, including the severity level, status, and time. Events are generated when clusters are created, modified, and updated, node pools are created and scaled out, and components are installed.
      *  *
      * @param DescribeEventsRequest $request DescribeEventsRequest
      *
@@ -3938,7 +3944,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the policies for a Container Service for Kubernetes (ACK) cluster. Container security policies for ACK clusters offer a variety of built-in policies, including cis-k8s, infra, k8s-general, and PodSecurityPolicy. You can use these policies to ensure the security of containers running in a production environment.
+     * @summary Queries a list of security policies. Container Service for Kubernetes (ACK) clusters offer a variety of built-in container security policies, such as Compliance, Infra, K8s-general, and pod security policy (PSP). You can use these policies to ensure the security of containers running in a production environment.
      *  *
      * @param string[]       $headers map
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -3966,7 +3972,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the policies for a Container Service for Kubernetes (ACK) cluster. Container security policies for ACK clusters offer a variety of built-in policies, including cis-k8s, infra, k8s-general, and PodSecurityPolicy. You can use these policies to ensure the security of containers running in a production environment.
+     * @summary Queries a list of security policies. Container Service for Kubernetes (ACK) clusters offer a variety of built-in container security policies, such as Compliance, Infra, K8s-general, and pod security policy (PSP). You can use these policies to ensure the security of containers running in a production environment.
      *  *
      * @return DescribePoliciesResponse DescribePoliciesResponse
      */
@@ -4813,6 +4819,8 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the GetClusterAuditProject operation to query the Simple Log Service (SLS) project that stores the audit logs of the API server of a cluster.
+     *  *
      * @param string         $clusterid
      * @param string[]       $headers   map
      * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
@@ -4840,6 +4848,8 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the GetClusterAuditProject operation to query the Simple Log Service (SLS) project that stores the audit logs of the API server of a cluster.
+     *  *
      * @param string $clusterid
      *
      * @return GetClusterAuditProjectResponse GetClusterAuditProjectResponse
@@ -5107,8 +5117,7 @@ class CS extends OpenApiClient
      * @summary Updates the role-based access control (RBAC) permissions of a Resource Access Management (RAM) user or RAM role. By default, you do not have the RBAC permissions on a Container Service for Kubernetes (ACK) cluster if you are not the cluster owner or you are not using an Alibaba Cloud account. You can call this operation to specify the resources that can be accessed, permission scope, and predefined roles. This helps you better manage the access control on resources in ACK clusters.
      *  *
      * @description **Precautions**:
-     * *   Make sure that you have attached a RAM policy that has at least the read-only permissions on the cluster to the RAM user or RAM role in the RAM console. Otherwise, the `ErrorRamPolicyConfig` error code is returned when you call the operation. For more information about how to authorize a RAM user by attaching RAM policies, see [Create a custom RAM policy](https://help.aliyun.com/document_detail/86485.html).
-     * *   If you use a RAM user to call the operation, make sure that the RAM user has the permissions to modify the permissions of other RAM users or RAM roles. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` error code is returned when you call the operation. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](https://help.aliyun.com/document_detail/119035.html).
+     * *   If you use a Resource Access Management (RAM) user to call the operation, make sure that the RAM user has the permissions to modify the permissions of other RAM users or RAM roles. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` error code is returned after you call the operation. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](https://help.aliyun.com/document_detail/119035.html).
      * *   If you update full permissions, the existing permissions of the RAM user or RAM role on the cluster are overwritten. You must specify all the permissions that you want to grant to the RAM user or RAM role in the request parameters when you call the operation.
      *  *
      * @param string                  $uid
@@ -5144,8 +5153,7 @@ class CS extends OpenApiClient
      * @summary Updates the role-based access control (RBAC) permissions of a Resource Access Management (RAM) user or RAM role. By default, you do not have the RBAC permissions on a Container Service for Kubernetes (ACK) cluster if you are not the cluster owner or you are not using an Alibaba Cloud account. You can call this operation to specify the resources that can be accessed, permission scope, and predefined roles. This helps you better manage the access control on resources in ACK clusters.
      *  *
      * @description **Precautions**:
-     * *   Make sure that you have attached a RAM policy that has at least the read-only permissions on the cluster to the RAM user or RAM role in the RAM console. Otherwise, the `ErrorRamPolicyConfig` error code is returned when you call the operation. For more information about how to authorize a RAM user by attaching RAM policies, see [Create a custom RAM policy](https://help.aliyun.com/document_detail/86485.html).
-     * *   If you use a RAM user to call the operation, make sure that the RAM user has the permissions to modify the permissions of other RAM users or RAM roles. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` error code is returned when you call the operation. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](https://help.aliyun.com/document_detail/119035.html).
+     * *   If you use a Resource Access Management (RAM) user to call the operation, make sure that the RAM user has the permissions to modify the permissions of other RAM users or RAM roles. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` error code is returned after you call the operation. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](https://help.aliyun.com/document_detail/119035.html).
      * *   If you update full permissions, the existing permissions of the RAM user or RAM role on the cluster are overwritten. You must specify all the permissions that you want to grant to the RAM user or RAM role in the request parameters when you call the operation.
      *  *
      * @param string                  $uid
@@ -6498,7 +6506,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary Fixes issues on abnormal nodes in a node pool to ensure that the nodes can run as normal.
+     * @summary Repairs a node pool.
      *  *
      * @param string                       $clusterId
      * @param string                       $nodepoolId
@@ -6541,7 +6549,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary Fixes issues on abnormal nodes in a node pool to ensure that the nodes can run as normal.
+     * @summary Repairs a node pool.
      *  *
      * @param string                       $clusterId
      * @param string                       $nodepoolId
@@ -6612,7 +6620,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary You can call the ResumeTask operation to resume a task.
+     * @summary Resumes a task.
      *  *
      * @param string         $taskId
      * @param string[]       $headers map
@@ -6641,7 +6649,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary You can call the ResumeTask operation to resume a task.
+     * @summary Resumes a task.
      *  *
      * @param string $taskId
      *
@@ -6924,7 +6932,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary You can call the ScaleClusterNodePool operation to scale out a node pool by node pool ID.
+     * @summary Scales out a node pool.
      *  *
      * @param string                      $ClusterId
      * @param string                      $NodepoolId
@@ -6961,7 +6969,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary You can call the ScaleClusterNodePool operation to scale out a node pool by node pool ID.
+     * @summary Scales out a node pool.
      *  *
      * @param string                      $ClusterId
      * @param string                      $NodepoolId

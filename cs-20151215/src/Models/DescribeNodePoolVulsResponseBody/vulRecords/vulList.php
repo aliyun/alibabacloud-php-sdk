@@ -51,6 +51,8 @@ class vulList extends Model
     /**
      * @description Indicates whether a restart is required.
      *
+     * @example false
+     *
      * @var bool
      */
     public $needReboot;

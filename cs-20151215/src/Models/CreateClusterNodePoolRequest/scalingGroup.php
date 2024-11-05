@@ -37,7 +37,7 @@ class scalingGroup extends Model
     public $autoRenewPeriod;
 
     /**
-     * @description This parameter is deprecated. Use security_hardening_os instead.
+     * @description This parameter is deprecated. Use the security_hardening_os parameter instead.
      *
      * @example false
      *
@@ -60,7 +60,7 @@ class scalingGroup extends Model
     public $compensateWithOnDemand;
 
     /**
-     * @description The configurations of the data disks that are mounted to nodes in the node pool.
+     * @description The configurations of the data disks that are attached to nodes in the node pool.
      *
      * @var DataDisk[]
      */
@@ -85,7 +85,7 @@ class scalingGroup extends Model
     public $desiredSize;
 
     /**
-     * @description The custom image ID. By default, the image provided by ACK is used.
+     * @description The custom image ID. By default, the image provided by Container Service for Kubernetes (ACK) is used.
      *
      * @example aliyun_2_1903_x64_20G_alibase_20200529.vhd
      *
@@ -126,7 +126,7 @@ class scalingGroup extends Model
     public $instanceChargeType;
 
     /**
-     * @description The instance attributes.
+     * @description The instance properties.
      *
      * @var InstancePatterns[]
      */
@@ -181,7 +181,7 @@ class scalingGroup extends Model
     public $loginAsNonRoot;
 
     /**
-     * @description The password for SSH logon. You must specify this parameter or `key_pair`. The password must be 8 to 30 characters in length, and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+     * @description The password for SSH logon. You must specify this parameter or the `key_pair` parameter. The password must be 8 to 30 characters in length, and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
      *
      * @example Hello1234
      *
@@ -194,13 +194,13 @@ class scalingGroup extends Model
      *
      *   `PRIORITY`: ECS instances are scaled based on the value of VSwitchIds.N. If an ECS instance cannot be created in the zone where the vSwitch that has the highest priority resides, the system creates the ECS instance in the zone where the vSwitch that has the next highest priority resides.
      *
-     *   `COST_OPTIMIZED`: ECS instances are created based on the vCPU unit price in ascending order. Preemptible instances are preferably created when preemptible instance types are specified in the scaling configurations. You can set `CompensateWithOnDemand` to specify whether to automatically create pay-as-you-go instances when preemptible instances cannot be created due to insufficient inventory.
+     *   `COST_OPTIMIZED`: ECS instances are created based on the vCPU unit price in ascending order. Preemptible instances are preferably created if preemptible instance types are specified in the scaling configurations. You can set the `CompensateWithOnDemand` parameter to specify whether to automatically create pay-as-you-go instances when preemptible instances cannot be created due to insufficient inventory.
      *
      **
      *
-     **Note** `COST_OPTIMIZED` is valid only when multiple instance types are specified or at least one preemptible instance type is specified.
+     **Note** `COST_OPTIMIZED` takes effect only when multiple instance types are specified or at least one preemptible instance type is specified.
      *
-     *   `BALANCE`: ECS instances are evenly distributed across multiple zones specified by the scaling group. If ECS instances become imbalanced among multiple zones due to insufficient inventory, you can call the [RebalanceInstances](https://help.aliyun.com/document_detail/71516.html) operation of Auto Scaling to evenly distribute the ECS instances among zones.
+     *   `BALANCE`: ECS instances are evenly distributed across multiple zones for the scaling group. If ECS instances become imbalanced among multiple zones due to insufficient inventory, you can call the [RebalanceInstances](https://help.aliyun.com/document_detail/71516.html) operation of Auto Scaling to evenly distribute the ECS instances among zones.
      *
      * Default value: `PRIORITY`.
      * @example COST_OPTIMIZED
@@ -210,7 +210,7 @@ class scalingGroup extends Model
     public $multiAzPolicy;
 
     /**
-     * @description The minimum number of pay-as-you-go instances that must be kept in the scaling group. Valid values: 0 to 1000. If the number of pay-as-you-go instances is smaller than the value of this parameter, Auto Scaling preferably creates pay-as-you-go instances.
+     * @description The minimum number of pay-as-you-go instances that must be kept in the scaling group. Valid values: 0 to 1000. If the number of pay-as-you-go instances is less than the value of this parameter, the system preferably creates pay-as-you-go instances.
      *
      * @example 0
      *
@@ -253,7 +253,7 @@ class scalingGroup extends Model
     public $periodUnit;
 
     /**
-     * @description The OS distribution that is used. Valid values:
+     * @description The operating system distribution. Valid values:
      *
      *   `CentOS`
      *   `AliyunLinux`
@@ -277,7 +277,7 @@ class scalingGroup extends Model
     public $privatePoolOptions;
 
     /**
-     * @description The name of the worker Resource Access Management (RAM) role.
+     * @description The name of the worker RAM role.
      *
      *   If you do not specify this parameter, the default worker RAM role created by the cluster is used.
      *   The specified RAM role must be a **regular service role** and the **Select Trusted Service** parameter must be set to **Elastic Compute Service**. For more information, see [Create a normal service role](https://help.aliyun.com/document_detail/116800.html). If the specified RAM role is not the default worker RAM role created by the cluster, the name of the RAM role cannot start with `KubernetesMasterRole-` or `KubernetesWorkerRole-`.
@@ -299,7 +299,7 @@ class scalingGroup extends Model
     /**
      * @description The scaling mode of the scaling group. Valid values:
      *
-     *   `release`: the standard mode. ECS instances are created and released based on resource usage.
+     *   `release`: the standard mode. ECS instances are created and released based on the resource usage.
      *   `recycle`: the swift mode. ECS instances are created, stopped, or started during scaling events. This reduces the time required for the next scale-out event. When the instance is stopped, you are charged only for the storage service. This does not apply to ECS instances that are attached with local disks.
      *
      * Default value: `release`.
@@ -339,7 +339,7 @@ class scalingGroup extends Model
     public $securityHardeningOs;
 
     /**
-     * @description Specifies whether to enable MLPS Security Hardening. You can enable MLPS Security Hardening only when Alibaba Cloud Linux 2 or Alibaba Cloud Linux 3 is installed on nodes. Alibaba Cloud provides standards for baseline checks and a scanner to ensure the compliance of Alibaba Cloud Linux 2 and Alibaba Cloud Linux 3 images with the level 3 standards of MLPS 2.0.
+     * @description Specifies whether to enable MLPS Security Hardening. You can enable security hardening based on Multi-Level Protection Scheme (MLPS) only when Alibaba Cloud Linux 2 or Alibaba Cloud Linux 3 is installed on nodes. Alibaba Cloud provides standards for baseline checks and a scanner to ensure the compliance of Alibaba Cloud Linux 2 and Alibaba Cloud Linux 3 images with the level 3 standards of MLPS 2.0.
      *
      * @example false
      *
@@ -357,10 +357,10 @@ class scalingGroup extends Model
     public $spotInstancePools;
 
     /**
-     * @description Specifies whether to supplement preemptible instances. If you set this parameter to true, when the scaling group receives a system message indicating that a preemptible instance is to be reclaimed, the scaling group creates a new instance to replace this instance. Valid values:
+     * @description Specifies whether to enable the supplementation of preemptible instances. If you set this parameter to true, when the scaling group receives a system message indicating that a preemptible instance is to be reclaimed, the scaling group attempts to create a new instance to replace this instance. Valid values:
      *
-     *   `true`: supplements preemptible instances.
-     *   `false`: does not supplement preemptible instances.
+     *   `true`: enables the supplementation of preemptible instances.
+     *   `false`: disables the supplementation of preemptible instances.
      *
      * @example false
      *
@@ -379,10 +379,10 @@ class scalingGroup extends Model
      * @description The bidding policy of preemptible instances. Valid values:
      *
      *   `NoSpot`: non-preemptible.
-     *   `SpotWithPriceLimit`: specifies the highest bid.
+     *   `SpotWithPriceLimit`: specifies the highest bid for the preemptible instance.
      *   `SpotAsPriceGo`: automatically submits bids based on the up-to-date market price.
      *
-     * For more information, see [Preemptible instances](https://help.aliyun.com/document_detail/165053.html).
+     * For more information, see [Use preemptible instances](https://help.aliyun.com/document_detail/165053.html).
      * @example NoSpot
      *
      * @var string
@@ -403,7 +403,7 @@ class scalingGroup extends Model
     public $systemDiskBurstingEnabled;
 
     /**
-     * @description The system disk types. The system creates system disks of a disk type with a lower priority if the disk type with a higher priority is unavailable. Valid values:
+     * @description The categories of the system disk for nodes. The system attempts to create system disks of a disk category with a lower priority if the disk category with a higher priority is unavailable. Valid values: Valid values:
      *
      *   `cloud`: basic disk.
      *   `cloud_efficiency`: ultra disk.
@@ -417,7 +417,7 @@ class scalingGroup extends Model
     public $systemDiskCategories;
 
     /**
-     * @description The system disk type. Valid values:
+     * @description The category of the system disk for nodes. Valid values:
      *
      *   `cloud`: basic disk.
      *   `cloud_efficiency`: ultra disk.
@@ -478,7 +478,7 @@ class scalingGroup extends Model
     /**
      * @description The preset read/write IOPS of the system disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS} Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}.
      *
-     * This parameter is available only when `SystemDiskCategory` is set to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+     * This parameter is supported only when `SystemDiskCategory` is set to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * @example 1000
      *
      * @var int
@@ -498,7 +498,7 @@ class scalingGroup extends Model
     /**
      * @description The labels that you want to add only to ECS instances.
      *
-     * The label key must be unique and cannot exceed 128 characters in length. The label key and value cannot start with aliyun or acs: and cannot contain https:// or http://.
+     * The label key must be unique and cannot exceed 128 characters in length. The label key and value cannot start with aliyun or acs: or contain https:// or http://.
      * @var tags[]
      */
     public $tags;

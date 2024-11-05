@@ -51,7 +51,7 @@ class UpgradeClusterNodepoolRequest extends Model
     public $runtimeType;
 
     /**
-     * @description The version of the container runtime that is used by the nodes. You can call the [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) operation to query the runtime version information returned in the runtime parameter.
+     * @description The version of the container runtime that is used by the nodes. You can call the [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) operation to query the runtime version returned in the runtime parameter.
      *
      * @example 1.5.10
      *

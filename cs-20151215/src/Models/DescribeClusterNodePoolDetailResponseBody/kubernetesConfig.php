@@ -58,6 +58,8 @@ class kubernetesConfig extends Model
     public $nodeNameMode;
 
     /**
+     * @description The custom script to be executed before nodes in the node pool are initialized. For more information, see [Generate user-defined data](https://help.aliyun.com/document_detail/49121.html).
+     *
      * @var string
      */
     public $preUserData;
@@ -97,7 +99,7 @@ class kubernetesConfig extends Model
     public $unschedulable;
 
     /**
-     * @description The user data of the node pool. For more information, see [Generate user data](https://help.aliyun.com/document_detail/49121.html).
+     * @description The custom script to be executed after nodes in the node pool are initialized. For more information, see [Generate user-defined data](https://help.aliyun.com/document_detail/49121.html).
      *
      * @example IyEvYmluL3NoCmVjaG8gIkhlbGxvIEFDSyEi
      *

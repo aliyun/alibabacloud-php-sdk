@@ -19,12 +19,12 @@ class workerDataDisks extends Model
     public $category;
 
     /**
-     * @description Specifies whether to encrypt the data disk. Valid values:
+     * @description Specifies whether to encrypt the data disks. Valid values:
      *
      *   `true`: encrypts the data disk.
      *   `false`: does not encrypt the data disk.
      *
-     * Default value: `false`.
+     * Default value: `false`
      * @example true
      *
      * @var string

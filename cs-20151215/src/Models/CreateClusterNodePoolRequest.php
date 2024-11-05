@@ -24,7 +24,7 @@ class CreateClusterNodePoolRequest extends Model
     public $autoScaling;
 
     /**
-     * @description This parameter is deprecated. Use desired_size instead.
+     * @description This parameter is deprecated. Use the desired_size parameter instead.
      *
      * The number of nodes in the node pool.
      * @example 1
@@ -34,6 +34,11 @@ class CreateClusterNodePoolRequest extends Model
      * @var int
      */
     public $count;
+
+    /**
+     * @var bool
+     */
+    public $hostNetwork;
 
     /**
      * @description This parameter is deprecated.
@@ -46,16 +51,21 @@ class CreateClusterNodePoolRequest extends Model
     public $interconnectConfig;
 
     /**
-     * @description The network type of the edge node pool. This parameter takes effect only if you set the `type` of the node pool to `edge`. Valid values:
+     * @description The network type of the edge node pool. This parameter takes effect only when the `type` of the node pool is set to `edge`. Valid values:
      *
-     *   `basic`: basic
-     *   `private`: dedicated Only Kubernetes 1.22 and later support this value.
+     *   `basic`: basic.
+     *   `private`: dedicated. Only clusters that run Kubernetes 1.22 and later support this value.
      *
      * @example basic
      *
      * @var string
      */
     public $interconnectMode;
+
+    /**
+     * @var bool
+     */
+    public $intranet;
 
     /**
      * @description The configurations of the cluster.
@@ -115,8 +125,10 @@ class CreateClusterNodePoolRequest extends Model
     protected $_name = [
         'autoScaling'        => 'auto_scaling',
         'count'              => 'count',
+        'hostNetwork'        => 'host_network',
         'interconnectConfig' => 'interconnect_config',
         'interconnectMode'   => 'interconnect_mode',
+        'intranet'           => 'intranet',
         'kubernetesConfig'   => 'kubernetes_config',
         'management'         => 'management',
         'maxNodes'           => 'max_nodes',
@@ -139,11 +151,17 @@ class CreateClusterNodePoolRequest extends Model
         if (null !== $this->count) {
             $res['count'] = $this->count;
         }
+        if (null !== $this->hostNetwork) {
+            $res['host_network'] = $this->hostNetwork;
+        }
         if (null !== $this->interconnectConfig) {
             $res['interconnect_config'] = null !== $this->interconnectConfig ? $this->interconnectConfig->toMap() : null;
         }
         if (null !== $this->interconnectMode) {
             $res['interconnect_mode'] = $this->interconnectMode;
+        }
+        if (null !== $this->intranet) {
+            $res['intranet'] = $this->intranet;
         }
         if (null !== $this->kubernetesConfig) {
             $res['kubernetes_config'] = null !== $this->kubernetesConfig ? $this->kubernetesConfig->toMap() : null;
@@ -184,11 +202,17 @@ class CreateClusterNodePoolRequest extends Model
         if (isset($map['count'])) {
             $model->count = $map['count'];
         }
+        if (isset($map['host_network'])) {
+            $model->hostNetwork = $map['host_network'];
+        }
         if (isset($map['interconnect_config'])) {
             $model->interconnectConfig = interconnectConfig::fromMap($map['interconnect_config']);
         }
         if (isset($map['interconnect_mode'])) {
             $model->interconnectMode = $map['interconnect_mode'];
+        }
+        if (isset($map['intranet'])) {
+            $model->intranet = $map['intranet'];
         }
         if (isset($map['kubernetes_config'])) {
             $model->kubernetesConfig = kubernetesConfig::fromMap($map['kubernetes_config']);

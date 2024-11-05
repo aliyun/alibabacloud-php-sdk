@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class clusterAutoUpgrade extends Model
 {
     /**
+     * @description Cluster auto-upgrade frequency. Possible values:
+     *
+     * - rapid
+     * @example patch
+     *
      * @var string
      */
     public $channel;
 
     /**
+     * @description Whether to enable automatic cluster upgrades.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enabled;

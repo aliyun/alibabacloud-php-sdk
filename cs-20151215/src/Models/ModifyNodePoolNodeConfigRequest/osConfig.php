@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class osConfig extends Model
 {
     /**
+     * @description sysctl parameter configuration
+     *
      * @var mixed[]
      */
     public $sysctl;

@@ -38,7 +38,7 @@ class autoScaling extends Model
      * @description Specifies whether to enable auto scaling. Valid values:
      *
      *   `true`: enables auto scaling for the node pool.
-     *   `false`: disables auto scaling for the node pool. If you set this parameter to false, other parameters in the `auto_scaling` section do not take effect.
+     *   `false`: disables auto scaling for the node pool. If you set this parameter to false, other parameters in `auto_scaling` do not take effect.
      *
      * Default value: `false`.
      * @example true
@@ -81,7 +81,7 @@ class autoScaling extends Model
     public $minInstances;
 
     /**
-     * @description The instance types that can be used for the auto scaling of the node pool. Valid values:
+     * @description The instance type that is used for auto scaling. Valid values:
      *
      *   `cpu`: regular instance.
      *   `gpu`: GPU-accelerated instance.

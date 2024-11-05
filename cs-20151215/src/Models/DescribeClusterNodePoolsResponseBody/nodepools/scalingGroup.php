@@ -114,7 +114,7 @@ class scalingGroup extends Model
     public $instanceChargeType;
 
     /**
-     * @description Instance attributes
+     * @description The attributes of an instance.
      *
      * @var InstancePatterns[]
      */
@@ -386,7 +386,7 @@ class scalingGroup extends Model
     public $systemDiskBurstingEnabled;
 
     /**
-     * @description The system disk types. The system attempts to create system disks from a disk type with a lower priority when the disk type with a higher priority is unavailable. Valid values: cloud: disk cloud_efficiency: utra disk cloud_ssd: standard SSD cloud_essd: Enterprise SSD (ESSD)
+     * @description The types of system disks. The system attempts to create system disks of a disk type with a lower priority if the disk type with a higher priority is unavailable. Valid values: Valid values: cloud (basic disk), cloud_efficiency (ultra disk), cloud_ssd (standard SSD), cloud_essd (Enterprise SSD).
      *
      * @var string[]
      */
@@ -405,7 +405,7 @@ class scalingGroup extends Model
     public $systemDiskCategory;
 
     /**
-     * @description The algorithm that you want to use to encrypt the system disk. Set the value to aes-256.
+     * @description The encryption algorithm that is used to encrypt the system disk. The value is aes-256.
      *
      * @example aes-256
      *
@@ -463,7 +463,7 @@ class scalingGroup extends Model
     public $systemDiskSize;
 
     /**
-     * @description The tag that you want to add only to ECS instances.
+     * @description The labels that you want to add only to Elastic Compute Service (ECS) instances.
      *
      * The tag key must be unique and cannot exceed 128 characters in length. The tag key and value must not start with aliyun or acs: or contain https:// or http://.
      * @var Tag[]

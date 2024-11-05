@@ -35,10 +35,10 @@ class DescribeKubernetesVersionMetadataRequest extends Model
     /**
      * @description The query mode. Valid values:
      *
-     *   `supported`: queries all supported versions.
-     *   `creatable`: queries only versions that allow you to create clusters.
+     *   `supported`: queries all supported Kubernetes versions.
+     *   `creatable`: queries only Kubernetes versions of clusters that you can create.
      *
-     * Default value: creatable.
+     * If you do not specify a query mode, Kubernetes versions of clusters that you can create are returned.
      * @example supported
      *
      * @var string

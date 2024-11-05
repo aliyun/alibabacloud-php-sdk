@@ -42,9 +42,9 @@ class states extends Model
     public $clusterId;
 
     /**
-     * @description The cluster name.
+     * @description The name of the cluster.
      *
-     * The name must be 1 to 63 characters in length, and can contain digits, letters, and hyphens (-). The name cannot start with a hyphen (-).
+     * The name must be 1 to 63 characters in length, and can contain digits, underscores (_), and hyphens (-). The name must start with a letter or number.
      * @example cluster-demo
      *
      * @var string
@@ -60,8 +60,6 @@ class states extends Model
      *   `updating`: The cluster is being upgraded.
      *   `updating_failed`: The cluster failed to be updated.
      *   `scaling`: The cluster is being scaled.
-     *   `waiting`: The cluster is waiting for connection requests.
-     *   `disconnected`: The cluster is disconnected.
      *   `stopped`: The cluster is stopped.
      *   `deleting`: The cluster is being deleted.
      *   `deleted`: The cluster is deleted.

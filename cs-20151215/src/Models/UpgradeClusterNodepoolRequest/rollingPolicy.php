@@ -18,7 +18,7 @@ class rollingPolicy extends Model
     public $batchInterval;
 
     /**
-     * @description The maximum number of unavailable nodes.
+     * @description The maximum number of nodes per batch.
      *
      * @example 3
      *

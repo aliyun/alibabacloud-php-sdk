@@ -48,7 +48,7 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The list of labels that you want to query. You can specify at most 20 labels.
+     * @description The labels that you want to query. You can specify up to 20 labels.
      *
      * @example [{\\"key\\":\\"env\\",\\"value\\",\\"dev\\"},{\\"key\\":\\"dev\\", \\"value\\":\\"IT\\"}]
      *

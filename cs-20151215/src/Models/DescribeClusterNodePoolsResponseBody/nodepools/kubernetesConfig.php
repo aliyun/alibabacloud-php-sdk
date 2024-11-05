@@ -35,7 +35,7 @@ class kubernetesConfig extends Model
     public $cpuPolicy;
 
     /**
-     * @description The labels that you want to add to the nodes in the cluster. You must add labels based on the following rules:
+     * @description The labels that are added to the nodes in the cluster. You must add labels based on the following rules:
      *
      *   A label is a case-sensitive key-value pair. You can add up to 20 labels.
      *   The key must be unique and can be up to 64 characters in length. The value can be empty and can be up to 128 characters in length. Keys and values cannot start with `aliyun`, `acs:`, `https://`, or `http://`. For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
@@ -58,6 +58,10 @@ class kubernetesConfig extends Model
     public $nodeNameMode;
 
     /**
+     * @description The user-defined script that is executed before nodes are initialized. For more information, see [Generate user-defined data](https://help.aliyun.com/document_detail/49121.html).
+     *
+     * @example IyEvYmluL3NoCmVjaG8gIkhlbGxvIEFD
+     *
      * @var string
      */
     public $preUserData;
@@ -81,7 +85,7 @@ class kubernetesConfig extends Model
     public $runtimeVersion;
 
     /**
-     * @description The taints of the nodes in the node pool. Taints can be used together with tolerations to prevent pods from being scheduled to specified nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
+     * @description The taints of the nodes in the node pool. Taints can be used together with tolerations to prevent pods from being scheduled to specific nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
      *
      * @var Taint[]
      */
@@ -97,7 +101,7 @@ class kubernetesConfig extends Model
     public $unschedulable;
 
     /**
-     * @description The user data of the node pool. For more information, see [Generate user-defined data](https://help.aliyun.com/document_detail/49121.html).
+     * @description The user-defined script that is executed after nodes are initialized. For more information, see [Generate user-defined data](https://help.aliyun.com/document_detail/49121.html).
      *
      * @example IyEvYmluL3NoCmVjaG8gIkhlbGxvIEFD****
      *

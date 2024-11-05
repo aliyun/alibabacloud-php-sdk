@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CleanUserPermissionsResponseBody extends Model
 {
     /**
-     * @description 请求ID。
+     * @description The request ID.
      *
      * @example 687C5BAA-D103-4993-884B-C35E4314****
      *
@@ -18,7 +18,7 @@ class CleanUserPermissionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 任务ID
+     * @description The task ID.
      *
      * @example clean-user-permissions-2085266204********-6694c16e6ae07***********
      *

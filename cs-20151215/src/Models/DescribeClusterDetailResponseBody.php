@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterDetailResponseBody extends Model
 {
     /**
+     * @description The on-premises domain name of the cluster.
+     *
      * @example cluster.local
      *
      * @var string
@@ -49,6 +51,8 @@ class DescribeClusterDetailResponseBody extends Model
     public $clusterType;
 
     /**
+     * @description The CIDR block of the pod.
+     *
      * @example 172.20.0.0/16
      *
      * @var string
@@ -95,6 +99,8 @@ class DescribeClusterDetailResponseBody extends Model
     public $dockerVersion;
 
     /**
+     * @description The ID of the Server Load Balancer (SLB) instance that is created for the Ingress of the cluster.
+     *
      * @example lb-2zehc05z3b8dwiifh****
      *
      * @var string
@@ -111,6 +117,11 @@ class DescribeClusterDetailResponseBody extends Model
     public $initVersion;
 
     /**
+     * @description The IP protocol stack of the cluster. Valid values:
+     *
+     *   ipv4: creates a cluster that supports only the IPv4 protocol stack.
+     *   dual: creates a cluster that supports IPv4/IPv6 dual-stack.
+     *
      * @example ipv4
      *
      * @var string
@@ -153,6 +164,8 @@ class DescribeClusterDetailResponseBody extends Model
     public $name;
 
     /**
+     * @description The network type of the cluster. Example: Virtual Private Cloud (VPC).
+     *
      * @example vpc
      *
      * @var string
@@ -160,6 +173,8 @@ class DescribeClusterDetailResponseBody extends Model
     public $networkMode;
 
     /**
+     * @description The Kubernetes version to which the cluster can be updated.
+     *
      * @example 1.18.8-aliyun.1
      *
      * @var string
@@ -167,6 +182,8 @@ class DescribeClusterDetailResponseBody extends Model
     public $nextVersion;
 
     /**
+     * @description The number of the IP addresses of the node.
+     *
      * @example 26
      *
      * @var string
@@ -174,18 +191,26 @@ class DescribeClusterDetailResponseBody extends Model
     public $nodeCidrMask;
 
     /**
+     * @description The automatic O\\&M policy of the cluster.
+     *
      * @var operationPolicy
      */
     public $operationPolicy;
 
     /**
-     * @description The ROS parameters of the cluster.
+     * @description The Resource Orchestration Service (ROS) parameters of the cluster.
      *
      * @var string[]
      */
     public $parameters;
 
     /**
+     * @description Indicates whether Alibaba Cloud DNS PrivateZone (PrivateZone) is enabled for the cluster. Valid values:
+     *
+     *   `true`: PrivateZone is enabled.
+     *   `false`: PrivateZone is dislabled.
+     *
+     * Default value: false
      * @example false
      *
      * @var bool
@@ -207,6 +232,8 @@ class DescribeClusterDetailResponseBody extends Model
     public $profile;
 
     /**
+     * @description The proxy mode. Valid values: ipvs and iptables.
+     *
      * @example ipvs
      *
      * @var string
@@ -241,8 +268,9 @@ class DescribeClusterDetailResponseBody extends Model
     public $securityGroupId;
 
     /**
-     * @description This parameter is required.
+     * @description The CIDR block of the Service.
      *
+     * This parameter is required.
      * @example 172.21.0.0/20
      *
      * @var string
@@ -287,7 +315,7 @@ class DescribeClusterDetailResponseBody extends Model
      *   172.16-31.0.0/12-16
      *   192.168.0.0/16
      *
-     * For more information, see [Plan CIDR blocks for an ACK cluster](https://help.aliyun.com/document_detail/186964.html).
+     * For more information about the network planning of ACK clusters, see [Plan CIDR blocks for an ACK cluster](https://help.aliyun.com/document_detail/186964.html).
      * @example 172.20.0.0/16
      *
      * @deprecated
@@ -304,6 +332,8 @@ class DescribeClusterDetailResponseBody extends Model
     public $tags;
 
     /**
+     * @description The time zone.
+     *
      * @example Asia/Shanghai
      *
      * @var string
@@ -329,7 +359,7 @@ class DescribeClusterDetailResponseBody extends Model
     public $vpcId;
 
     /**
-     * @description The IDs of the vSwitches. You can select one to three vSwitches when you create a cluster. We recommend that you select vSwitches in different zones to ensure high availability.
+     * @description The IDs of the vSwitches. You can select one to three vSwitches when you create a cluster. To ensure the high availability of the cluster, we recommend that you select vSwitches in different zones.
      *
      * @example vsw-2zete8s4qocqg0mf6****,vsw-2zete8s4qocqg0mf6****
      *
@@ -340,6 +370,8 @@ class DescribeClusterDetailResponseBody extends Model
     public $vswitchId;
 
     /**
+     * @description The vSwitch for the control plane of the cluster.
+     *
      * @var string[]
      */
     public $vswitchIds;
@@ -354,6 +386,8 @@ class DescribeClusterDetailResponseBody extends Model
     public $workerRamRoleName;
 
     /**
+     * @description The ID of the zone within the region where the cluster is located.
+     *
      * @example cn-beijing-a
      *
      * @var string

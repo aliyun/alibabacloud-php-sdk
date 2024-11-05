@@ -19,7 +19,7 @@ class workerDataDisks extends Model
     public $autoSnapshotPolicyId;
 
     /**
-     * @description The data disk type.
+     * @description The type of the data disk.
      *
      * @example cloud_essd
      *
@@ -28,7 +28,7 @@ class workerDataDisks extends Model
     public $category;
 
     /**
-     * @description Specifies whether to encrypt the data disk. Valid values:
+     * @description Specifies whether to encrypt the data disks. Valid values:
      *
      *   `true`: encrypts the data disk.
      *   `false`: does not encrypt the data disk.
@@ -41,7 +41,7 @@ class workerDataDisks extends Model
     public $encrypted;
 
     /**
-     * @description The data disk size. Valid values: 40 to 32767.
+     * @description The size of the data disk. Valid values: 40 to 32767.
      *
      * @example 120
      *

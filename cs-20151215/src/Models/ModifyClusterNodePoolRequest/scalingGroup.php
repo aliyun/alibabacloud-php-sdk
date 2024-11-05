@@ -39,7 +39,7 @@ class scalingGroup extends Model
     /**
      * @description Specifies whether to automatically create pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created due to reasons such as the cost or insufficient inventory. This parameter takes effect only when you set `multi_az_policy` to `COST_OPTIMIZED`. Valid values:
      *
-     *   `true`: automatically creates pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created
+     *   `true`: automatically creates pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created.
      *   `false`: does not create pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created.
      *
      * @example true
@@ -120,10 +120,10 @@ class scalingGroup extends Model
     public $instanceTypes;
 
     /**
-     * @description The billing method of the public IP address. Valid values:
+     * @description The metering method of the public IP address. Valid values:
      *
      *   `PayByBandwidth`: pay-by-bandwidth.
-     *   `PayByTraffic`: pay-by-data-transfer.
+     *   `PayByTraffic`: pay-by-data-transfer
      *
      * @example PayByBandwidth
      *
@@ -141,7 +141,7 @@ class scalingGroup extends Model
     public $internetMaxBandwidthOut;
 
     /**
-     * @description The name of the key pair. You must specify this parameter or the `login_password` parameter. You must specify the `key_pair` parameter if the node pool is a managed node pool.
+     * @description The name of the key pair. You must specify this parameter or `login_password`. You must specify the `key_pair` parameter if the node pool is a managed node pool.
      *
      * @example pro-nodepool
      *
@@ -150,7 +150,7 @@ class scalingGroup extends Model
     public $keyPair;
 
     /**
-     * @description The password for SSH logon. You must specify this parameter or the `key_pair` parameter. The password must be 8 to 30 characters in length, and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+     * @description The password for SSH logon. You must specify this parameter or `key_pair`. The password must be 8 to 30 characters in length, and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
      *
      * @example Hello1234
      *
@@ -233,14 +233,14 @@ class scalingGroup extends Model
     public $platform;
 
     /**
-     * @description The configurations of the private node pool.
+     * @description The configuration of the private node pool.
      *
      * @var privatePoolOptions
      */
     public $privatePoolOptions;
 
     /**
-     * @description A list of ApsaraDB RDS instances.
+     * @description The ApsaraDB RDS instances.
      *
      * @var string[]
      */
@@ -317,10 +317,10 @@ class scalingGroup extends Model
     public $systemDiskCategories;
 
     /**
-     * @description The type of the system disk. Valid values:
+     * @description The type of system disk. Valid values:
      *
      *   `cloud_efficiency`: ultra disk.
-     *   `cloud_ssd`: standard SSD.
+     *   `cloud_ssd`: standard SSD
      *
      * Default value: `cloud_ssd`.
      * @example cloud_efficiency
@@ -330,7 +330,7 @@ class scalingGroup extends Model
     public $systemDiskCategory;
 
     /**
-     * @description The encryption algorithm that is used by the system disk. Set the value to aes-256.
+     * @description The encryption algorithm that is used by the system disk. The value is aes-256.
      *
      * @example aes-256
      *
@@ -339,7 +339,7 @@ class scalingGroup extends Model
     public $systemDiskEncryptAlgorithm;
 
     /**
-     * @description Specifies whether to encrypt the system disk. Valid values: true: encrypts the system disk. false: does not encrypt the system disk.
+     * @description Indicates whether the system disk is encrypted. Valid values: true: encrypts the system disk. false: does not encrypt the system disk.
      *
      * @example false
      *
@@ -385,7 +385,7 @@ class scalingGroup extends Model
     public $systemDiskSize;
 
     /**
-     * @description The labels that you want to add only to ECS instances.
+     * @description The tags that you want to add only to ECS instances.
      *
      * The label key must be unique and cannot exceed 128 characters in length. The label key and value cannot start with aliyun or acs: or contain https:// or http://.
      * @var Tag[]

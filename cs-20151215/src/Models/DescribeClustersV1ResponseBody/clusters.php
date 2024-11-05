@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class clusters extends Model
 {
     /**
+     * @description The domain name of the cluster.
+     *
      * @example cluster.local
      *
      * @var string
@@ -51,6 +53,8 @@ class clusters extends Model
     public $clusterType;
 
     /**
+     * @description The pod CIDR block.
+     *
      * @example 172.20.0.0/16
      *
      * @var string
@@ -117,6 +121,11 @@ class clusters extends Model
     public $initVersion;
 
     /**
+     * @description The IP stack of the cluster. Valid values:
+     *
+     *   ipv4: The cluster is an IPv4 cluster.
+     *   dual: The cluster is a dual-stack cluster.
+     *
      * @example ipv4
      *
      * @var string
@@ -182,6 +191,8 @@ class clusters extends Model
     public $nextVersion;
 
     /**
+     * @description The automatic O\\&M policy of the cluster.
+     *
      * @var operationPolicy
      */
     public $operationPolicy;
@@ -213,6 +224,8 @@ class clusters extends Model
     public $profile;
 
     /**
+     * @description The kube-proxy mode. Valid values: ipvs and iptables.
+     *
      * @example ipvs
      *
      * @var string
@@ -247,8 +260,9 @@ class clusters extends Model
     public $securityGroupId;
 
     /**
-     * @description This parameter is required.
+     * @description The Service CIDR block.
      *
+     * This parameter is required.
      * @example 172.21.0.0/20
      *
      * @var string
@@ -256,7 +270,7 @@ class clusters extends Model
     public $serviceCidr;
 
     /**
-     * @description The number of nodes in the cluster, including master nodes and worker nodes.
+     * @description The number of nodes in the cluster, including control planes and worker nodes.
      *
      * @example 5
      *
@@ -291,7 +305,7 @@ class clusters extends Model
      *   172.16-31.0.0/12-16
      *   192.168.0.0/16
      *
-     * For more information about the network planning of ACK clusters, see [Plan CIDR blocks for an ACK cluster](https://help.aliyun.com/document_detail/86500.html).
+     * For more information about the network planning of Container Service for Kubernetes (ACK) clusters, see [Plan CIDR blocks for an ACK cluster](https://help.aliyun.com/document_detail/86500.html).
      * @example 172.21.0.0/16
      *
      * @deprecated
@@ -308,6 +322,8 @@ class clusters extends Model
     public $tags;
 
     /**
+     * @description The time zone.
+     *
      * @example Asia/Shanghai
      *
      * @var string
@@ -333,7 +349,7 @@ class clusters extends Model
     public $vpcId;
 
     /**
-     * @description The IDs of the vSwitches. You can select one to three vSwitches when you create a cluster. We recommend that you select vSwitches in different zones to ensure high availability.
+     * @description The IDs of the vSwitches. You can select one to three vSwitches when you create a cluster. To ensure the high availability of the cluster, we recommend that you select vSwitches in different zones.
      *
      * @example vsw-2vc41xuumx5z2rdma****,vsw-2vc41xuumx5z2rdma****
      *
@@ -344,6 +360,8 @@ class clusters extends Model
     public $vswitchId;
 
     /**
+     * @description The vSwitches of the control planes.
+     *
      * @var string[]
      */
     public $vswitchIds;

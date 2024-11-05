@@ -25,6 +25,11 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
     public $autoScaling;
 
     /**
+     * @var bool
+     */
+    public $hostNetwork;
+
+    /**
      * @description The network configuration of the edge node pool. This parameter takes effect only for edge node pools.
      *
      * @var interconnectConfig
@@ -41,7 +46,12 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
     public $interconnectMode;
 
     /**
-     * @description The configuration of the cluster where the node pool is deployed.
+     * @var bool
+     */
+    public $intranet;
+
+    /**
+     * @description The configurations of the cluster in which the node pool is deployed.
      *
      * @var kubernetesConfig
      */
@@ -99,8 +109,10 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
     public $teeConfig;
     protected $_name = [
         'autoScaling'        => 'auto_scaling',
+        'hostNetwork'        => 'host_network',
         'interconnectConfig' => 'interconnect_config',
         'interconnectMode'   => 'interconnect_mode',
+        'intranet'           => 'intranet',
         'kubernetesConfig'   => 'kubernetes_config',
         'management'         => 'management',
         'maxNodes'           => 'max_nodes',
@@ -121,11 +133,17 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
         if (null !== $this->autoScaling) {
             $res['auto_scaling'] = null !== $this->autoScaling ? $this->autoScaling->toMap() : null;
         }
+        if (null !== $this->hostNetwork) {
+            $res['host_network'] = $this->hostNetwork;
+        }
         if (null !== $this->interconnectConfig) {
             $res['interconnect_config'] = null !== $this->interconnectConfig ? $this->interconnectConfig->toMap() : null;
         }
         if (null !== $this->interconnectMode) {
             $res['interconnect_mode'] = $this->interconnectMode;
+        }
+        if (null !== $this->intranet) {
+            $res['intranet'] = $this->intranet;
         }
         if (null !== $this->kubernetesConfig) {
             $res['kubernetes_config'] = null !== $this->kubernetesConfig ? $this->kubernetesConfig->toMap() : null;
@@ -166,11 +184,17 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
         if (isset($map['auto_scaling'])) {
             $model->autoScaling = autoScaling::fromMap($map['auto_scaling']);
         }
+        if (isset($map['host_network'])) {
+            $model->hostNetwork = $map['host_network'];
+        }
         if (isset($map['interconnect_config'])) {
             $model->interconnectConfig = interconnectConfig::fromMap($map['interconnect_config']);
         }
         if (isset($map['interconnect_mode'])) {
             $model->interconnectMode = $map['interconnect_mode'];
+        }
+        if (isset($map['intranet'])) {
+            $model->intranet = $map['intranet'];
         }
         if (isset($map['kubernetes_config'])) {
             $model->kubernetesConfig = kubernetesConfig::fromMap($map['kubernetes_config']);

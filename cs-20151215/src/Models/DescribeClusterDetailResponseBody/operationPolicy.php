@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class operationPolicy extends Model
 {
     /**
+     * @description The configurations of auto cluster update.
+     *
      * @var clusterAutoUpgrade
      */
     public $clusterAutoUpgrade;

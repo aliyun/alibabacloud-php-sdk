@@ -9,7 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The severity level of the event.
+     * @description The severity level of the event. Valid values:
+     *
+     *   info
+     *   warning
+     *   error
      *
      * @example info
      *

@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetClusterAuditProjectResponseBody extends Model
 {
     /**
-     * @description Indicates whether the cluster auditing feature is enabled for the cluster. `true`: The cluster auditing feature is enabled for the cluster. `false`: The cluster auditing feature is disabled for the cluster.
+     * @description Indicates whether the cluster auditing feature is enabled for the cluster.
+     *
+     * `true`: The cluster auditing feature is enabled for the cluster.
+     * `false`: The cluster auditing feature is disabled for the cluster.
      *
      * @example true
      *

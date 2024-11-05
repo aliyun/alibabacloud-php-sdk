@@ -18,7 +18,7 @@ class spotPriceLimit extends Model
     public $instanceType;
 
     /**
-     * @description The price cap of a preemptible instance.
+     * @description The price cap of a preemptible instance of the type.
      *
      * @example 0.39
      *

@@ -23,9 +23,9 @@ class autoVulFixPolicy extends Model
     /**
      * @description The severity levels of CVEs that can be automatically patched. Separate multiple levels with commas (,). Example: `asap,later`. Valid values:
      *
-     *   `asap`: high.
-     *   `later`: medium.
-     *   `nntf`: low.
+     *   `asap`: high severity.
+     *   `later`: medium severity.
+     *   `nntf`: low severity.
      *
      * If `auto_vul_fix` is set to true, the default value of this parameter is `asap`.
      * @example asap,nntf
