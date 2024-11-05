@@ -37,11 +37,17 @@ class UploadPublicKeyRequest extends Model
      * @var string
      */
     public $keyName;
+
+    /**
+     * @var string
+     */
+    public $keyType;
     protected $_name = [
         'content'     => 'Content',
         'description' => 'Description',
         'keyGroup'    => 'KeyGroup',
         'keyName'     => 'KeyName',
+        'keyType'     => 'KeyType',
     ];
 
     public function validate()
@@ -62,6 +68,9 @@ class UploadPublicKeyRequest extends Model
         }
         if (null !== $this->keyName) {
             $res['KeyName'] = $this->keyName;
+        }
+        if (null !== $this->keyType) {
+            $res['KeyType'] = $this->keyType;
         }
 
         return $res;
@@ -86,6 +95,9 @@ class UploadPublicKeyRequest extends Model
         }
         if (isset($map['KeyName'])) {
             $model->keyName = $map['KeyName'];
+        }
+        if (isset($map['KeyType'])) {
+            $model->keyType = $map['KeyType'];
         }
 
         return $model;

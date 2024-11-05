@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class loginInfo extends Model
 {
     /**
+     * @var int
+     */
+    public $adbLoginPort;
+
+    /**
      * @example 12.10.4.10
      *
      * @var string
@@ -22,6 +27,7 @@ class loginInfo extends Model
      */
     public $loginPort;
     protected $_name = [
+        'adbLoginPort'  => 'AdbLoginPort',
         'loginHostname' => 'LoginHostname',
         'loginPort'     => 'LoginPort',
     ];
@@ -33,6 +39,9 @@ class loginInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->adbLoginPort) {
+            $res['AdbLoginPort'] = $this->adbLoginPort;
+        }
         if (null !== $this->loginHostname) {
             $res['LoginHostname'] = $this->loginHostname;
         }
@@ -51,6 +60,9 @@ class loginInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdbLoginPort'])) {
+            $model->adbLoginPort = $map['AdbLoginPort'];
+        }
         if (isset($map['LoginHostname'])) {
             $model->loginHostname = $map['LoginHostname'];
         }

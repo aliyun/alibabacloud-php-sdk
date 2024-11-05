@@ -35,6 +35,11 @@ class publicKeys extends Model
     public $keyName;
 
     /**
+     * @var string
+     */
+    public $keyType;
+
+    /**
      * @example 2024-06-11T14:26:48+08:00
      *
      * @var string
@@ -45,6 +50,7 @@ class publicKeys extends Model
         'description' => 'Description',
         'keyGroup'    => 'KeyGroup',
         'keyName'     => 'KeyName',
+        'keyType'     => 'KeyType',
         'uploadTime'  => 'UploadTime',
     ];
 
@@ -66,6 +72,9 @@ class publicKeys extends Model
         }
         if (null !== $this->keyName) {
             $res['KeyName'] = $this->keyName;
+        }
+        if (null !== $this->keyType) {
+            $res['KeyType'] = $this->keyType;
         }
         if (null !== $this->uploadTime) {
             $res['UploadTime'] = $this->uploadTime;
@@ -93,6 +102,9 @@ class publicKeys extends Model
         }
         if (isset($map['KeyName'])) {
             $model->keyName = $map['KeyName'];
+        }
+        if (isset($map['KeyType'])) {
+            $model->keyType = $map['KeyType'];
         }
         if (isset($map['UploadTime'])) {
             $model->uploadTime = $map['UploadTime'];

@@ -6,26 +6,14 @@ namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListPublicKeysRequest extends Model
+class ListRenderingInstanceGatewayRequest extends Model
 {
     /**
-     * @example g-test
+     * @example render-xxx
      *
      * @var string
      */
-    public $keyGroup;
-
-    /**
-     * @example mykey
-     *
-     * @var string
-     */
-    public $keyName;
-
-    /**
-     * @var string
-     */
-    public $keyType;
+    public $gatewayInstanceId;
 
     /**
      * @example 1
@@ -40,12 +28,18 @@ class ListPublicKeysRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @example render-9f8c57355d224ad7beaf95e145f22111
+     *
+     * @var string
+     */
+    public $renderingInstanceId;
     protected $_name = [
-        'keyGroup'   => 'KeyGroup',
-        'keyName'    => 'KeyName',
-        'keyType'    => 'KeyType',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'gatewayInstanceId'   => 'GatewayInstanceId',
+        'pageNumber'          => 'PageNumber',
+        'pageSize'            => 'PageSize',
+        'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
     public function validate()
@@ -55,20 +49,17 @@ class ListPublicKeysRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->keyGroup) {
-            $res['KeyGroup'] = $this->keyGroup;
-        }
-        if (null !== $this->keyName) {
-            $res['KeyName'] = $this->keyName;
-        }
-        if (null !== $this->keyType) {
-            $res['KeyType'] = $this->keyType;
+        if (null !== $this->gatewayInstanceId) {
+            $res['GatewayInstanceId'] = $this->gatewayInstanceId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->renderingInstanceId) {
+            $res['RenderingInstanceId'] = $this->renderingInstanceId;
         }
 
         return $res;
@@ -77,25 +68,22 @@ class ListPublicKeysRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListPublicKeysRequest
+     * @return ListRenderingInstanceGatewayRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['KeyGroup'])) {
-            $model->keyGroup = $map['KeyGroup'];
-        }
-        if (isset($map['KeyName'])) {
-            $model->keyName = $map['KeyName'];
-        }
-        if (isset($map['KeyType'])) {
-            $model->keyType = $map['KeyType'];
+        if (isset($map['GatewayInstanceId'])) {
+            $model->gatewayInstanceId = $map['GatewayInstanceId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RenderingInstanceId'])) {
+            $model->renderingInstanceId = $map['RenderingInstanceId'];
         }
 
         return $model;

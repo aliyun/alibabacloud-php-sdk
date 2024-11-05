@@ -70,6 +70,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\CreateGroupRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateGroupResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateParentPlatformRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateParentPlatformResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateRenderingInstanceGatewayRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateRenderingInstanceGatewayResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateRenderingInstanceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateRenderingInstanceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateRenderingInstanceShrinkRequest;
@@ -98,6 +100,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DeletePublicKeyResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteRenderingInstanceConfigurationRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteRenderingInstanceConfigurationResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteRenderingInstanceConfigurationShrinkRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteRenderingInstanceGatewayRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteRenderingInstanceGatewayResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteTemplateRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteTemplateResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteVsPullStreamInfoConfigRequest;
@@ -235,6 +239,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\ListFilesRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListFilesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListPublicKeysRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListPublicKeysResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListRenderingInstanceGatewayRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListRenderingInstanceGatewayResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListRenderingInstancesRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListRenderingInstancesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ManageLoginRequest;
@@ -2236,6 +2242,56 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @summary 创建自定义网关
+     *  *
+     * @param CreateRenderingInstanceGatewayRequest $request CreateRenderingInstanceGatewayRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateRenderingInstanceGatewayResponse CreateRenderingInstanceGatewayResponse
+     */
+    public function createRenderingInstanceGatewayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->gatewayInstanceId)) {
+            $query['GatewayInstanceId'] = $request->gatewayInstanceId;
+        }
+        if (!Utils::isUnset($request->renderingInstanceId)) {
+            $query['RenderingInstanceId'] = $request->renderingInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRenderingInstanceGateway',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRenderingInstanceGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建自定义网关
+     *  *
+     * @param CreateRenderingInstanceGatewayRequest $request CreateRenderingInstanceGatewayRequest
+     *
+     * @return CreateRenderingInstanceGatewayResponse CreateRenderingInstanceGatewayResponse
+     */
+    public function createRenderingInstanceGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRenderingInstanceGatewayWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateStreamSnapshotRequest $request CreateStreamSnapshotRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -2862,6 +2918,53 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRenderingInstanceConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除自定义网关
+     *  *
+     * @param DeleteRenderingInstanceGatewayRequest $request DeleteRenderingInstanceGatewayRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteRenderingInstanceGatewayResponse DeleteRenderingInstanceGatewayResponse
+     */
+    public function deleteRenderingInstanceGatewayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->renderingInstanceId)) {
+            $query['RenderingInstanceId'] = $request->renderingInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRenderingInstanceGateway',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRenderingInstanceGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除自定义网关
+     *  *
+     * @param DeleteRenderingInstanceGatewayRequest $request DeleteRenderingInstanceGatewayRequest
+     *
+     * @return DeleteRenderingInstanceGatewayResponse DeleteRenderingInstanceGatewayResponse
+     */
+    public function deleteRenderingInstanceGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRenderingInstanceGatewayWithOptions($request, $runtime);
     }
 
     /**
@@ -6505,6 +6608,62 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @summary 查询自定义网关
+     *  *
+     * @param ListRenderingInstanceGatewayRequest $request ListRenderingInstanceGatewayRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListRenderingInstanceGatewayResponse ListRenderingInstanceGatewayResponse
+     */
+    public function listRenderingInstanceGatewayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->gatewayInstanceId)) {
+            $query['GatewayInstanceId'] = $request->gatewayInstanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->renderingInstanceId)) {
+            $query['RenderingInstanceId'] = $request->renderingInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRenderingInstanceGateway',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRenderingInstanceGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询自定义网关
+     *  *
+     * @param ListRenderingInstanceGatewayRequest $request ListRenderingInstanceGatewayRequest
+     *
+     * @return ListRenderingInstanceGatewayResponse ListRenderingInstanceGatewayResponse
+     */
+    public function listRenderingInstanceGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRenderingInstanceGatewayWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 查询所有云渲染实例信息，支持分页查询。
      *  *
      * @param ListRenderingInstancesRequest $request ListRenderingInstancesRequest
@@ -9168,6 +9327,9 @@ class Vs extends OpenApiClient
         }
         if (!Utils::isUnset($request->keyName)) {
             $query['KeyName'] = $request->keyName;
+        }
+        if (!Utils::isUnset($request->keyType)) {
+            $query['KeyType'] = $request->keyType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
