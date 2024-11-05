@@ -120,6 +120,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSMCertificateListResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSSLCertificateListRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSSLCertificateListResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSubListResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnTypesRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnTypesResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnUserBillHistoryRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnUserBillHistoryResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnUserBillPredictionRequest;
@@ -261,6 +263,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeTagResourcesRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeTagResourcesResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeTopDomainsByFlowRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeTopDomainsByFlowResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeUserCdnStatusRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeUserCdnStatusResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeUserCertificateExpireCountResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeUserConfigsRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeUserConfigsResponse;
@@ -295,6 +299,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainSchdmByPropertyRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainSchdmByPropertyResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnServiceRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnServiceResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyRealtimeLogDeliveryRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyRealtimeLogDeliveryResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\OpenCdnServiceRequest;
@@ -3755,6 +3761,55 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCdnSubListWithOptions($runtime);
+    }
+
+    /**
+     * @param DescribeCdnTypesRequest $request DescribeCdnTypesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCdnTypesResponse DescribeCdnTypesResponse
+     */
+    public function describeCdnTypesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnTypes',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCdnTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCdnTypesRequest $request DescribeCdnTypesRequest
+     *
+     * @return DescribeCdnTypesResponse DescribeCdnTypesResponse
+     */
+    public function describeCdnTypes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCdnTypesWithOptions($request, $runtime);
     }
 
     /**
@@ -8350,6 +8405,52 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeUserCdnStatusRequest $request DescribeUserCdnStatusRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeUserCdnStatusResponse DescribeUserCdnStatusResponse
+     */
+    public function describeUserCdnStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserCdnStatus',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUserCdnStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUserCdnStatusRequest $request DescribeUserCdnStatusRequest
+     *
+     * @return DescribeUserCdnStatusResponse DescribeUserCdnStatusResponse
+     */
+    public function describeUserCdnStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserCdnStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the number of domain names whose SSL certificates are about to expire or have already expired.
      *  *
      * @description > You can call this operation up to 100 times per second per account.
@@ -9358,6 +9459,59 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyCdnDomainSchdmByPropertyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Changes the metering method of Alibaba Cloud CDN.
+     *  *
+     * @param ModifyCdnServiceRequest $request ModifyCdnServiceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyCdnServiceResponse ModifyCdnServiceResponse
+     */
+    public function modifyCdnServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->internetChargeType)) {
+            $query['InternetChargeType'] = $request->internetChargeType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyCdnService',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyCdnServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Changes the metering method of Alibaba Cloud CDN.
+     *  *
+     * @param ModifyCdnServiceRequest $request ModifyCdnServiceRequest
+     *
+     * @return ModifyCdnServiceResponse ModifyCdnServiceResponse
+     */
+    public function modifyCdnService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCdnServiceWithOptions($request, $runtime);
     }
 
     /**
