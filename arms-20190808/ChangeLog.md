@@ -1,3 +1,7 @@
+2024-11-05 Version: 7.2.0
+- Support API DescribeAddonMetrics.
+
+
 2024-10-17 Version: 7.1.5
 - Update API GetRumExceptionStack: update response param.
 - Update API GetStack: add param SpanID.

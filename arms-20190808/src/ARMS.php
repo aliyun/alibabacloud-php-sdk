@@ -179,6 +179,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteTraceAppResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteTraceAppShrinkRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteWebhookContactRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteWebhookContactResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeAddonMetricsRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeAddonMetricsResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeAddonReleaseRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeAddonReleaseResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeContactGroupsRequest;
@@ -5616,6 +5618,65 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteWebhookContactWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Example Query metric details about an Addon.
+     *  *
+     * @param DescribeAddonMetricsRequest $request DescribeAddonMetricsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAddonMetricsResponse DescribeAddonMetricsResponse
+     */
+    public function describeAddonMetricsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addonVersion)) {
+            $query['AddonVersion'] = $request->addonVersion;
+        }
+        if (!Utils::isUnset($request->aliyunLang)) {
+            $query['AliyunLang'] = $request->aliyunLang;
+        }
+        if (!Utils::isUnset($request->environmentType)) {
+            $query['EnvironmentType'] = $request->environmentType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAddonMetrics',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAddonMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Example Query metric details about an Addon.
+     *  *
+     * @param DescribeAddonMetricsRequest $request DescribeAddonMetricsRequest
+     *
+     * @return DescribeAddonMetricsResponse DescribeAddonMetricsResponse
+     */
+    public function describeAddonMetrics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAddonMetricsWithOptions($request, $runtime);
     }
 
     /**
