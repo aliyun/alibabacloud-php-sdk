@@ -37,6 +37,11 @@ class SubmitIProductionJobRequest extends Model
     /**
      * @var string
      */
+    public $modelId;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -68,6 +73,7 @@ class SubmitIProductionJobRequest extends Model
         'functionName'   => 'FunctionName',
         'input'          => 'Input',
         'jobParams'      => 'JobParams',
+        'modelId'        => 'ModelId',
         'name'           => 'Name',
         'output'         => 'Output',
         'scheduleConfig' => 'ScheduleConfig',
@@ -90,6 +96,9 @@ class SubmitIProductionJobRequest extends Model
         }
         if (null !== $this->jobParams) {
             $res['JobParams'] = $this->jobParams;
+        }
+        if (null !== $this->modelId) {
+            $res['ModelId'] = $this->modelId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -126,6 +135,9 @@ class SubmitIProductionJobRequest extends Model
         }
         if (isset($map['JobParams'])) {
             $model->jobParams = $map['JobParams'];
+        }
+        if (isset($map['ModelId'])) {
+            $model->modelId = $map['ModelId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

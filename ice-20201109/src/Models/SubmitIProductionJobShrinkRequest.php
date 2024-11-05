@@ -34,6 +34,11 @@ class SubmitIProductionJobShrinkRequest extends Model
     /**
      * @var string
      */
+    public $modelId;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -65,6 +70,7 @@ class SubmitIProductionJobShrinkRequest extends Model
         'functionName'         => 'FunctionName',
         'inputShrink'          => 'Input',
         'jobParams'            => 'JobParams',
+        'modelId'              => 'ModelId',
         'name'                 => 'Name',
         'outputShrink'         => 'Output',
         'scheduleConfigShrink' => 'ScheduleConfig',
@@ -87,6 +93,9 @@ class SubmitIProductionJobShrinkRequest extends Model
         }
         if (null !== $this->jobParams) {
             $res['JobParams'] = $this->jobParams;
+        }
+        if (null !== $this->modelId) {
+            $res['ModelId'] = $this->modelId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -123,6 +132,9 @@ class SubmitIProductionJobShrinkRequest extends Model
         }
         if (isset($map['JobParams'])) {
             $model->jobParams = $map['JobParams'];
+        }
+        if (isset($map['ModelId'])) {
+            $model->modelId = $map['ModelId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

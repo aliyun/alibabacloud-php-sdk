@@ -10352,6 +10352,9 @@ class ICE extends OpenApiClient
         if (!Utils::isUnset($request->jobParams)) {
             $query['JobParams'] = $request->jobParams;
         }
+        if (!Utils::isUnset($request->modelId)) {
+            $query['ModelId'] = $request->modelId;
+        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
