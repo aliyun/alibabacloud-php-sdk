@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class serverLoadBalancerMonitorData extends Model
 {
     /**
+     * @description The total number of requests.
+     *
      * @example 20
      *
      * @var int
@@ -16,6 +18,8 @@ class serverLoadBalancerMonitorData extends Model
     public $acc;
 
     /**
+     * @description The business time of the log. Logs are collected every minute.
+     *
      * @example 2024-05-16 15:00:00
      *
      * @var string
@@ -23,6 +27,8 @@ class serverLoadBalancerMonitorData extends Model
     public $bizTime;
 
     /**
+     * @description The ID of the node to which the ELB instance belongs.
+     *
      * @example cn-fuzhou-7
      *
      * @var string
@@ -30,6 +36,8 @@ class serverLoadBalancerMonitorData extends Model
     public $ensRegionId;
 
     /**
+     * @description The ID of the ELB instance.
+     *
      * @example lb-5rcvo1n1t3hykfhhjwjgqp****
      *
      * @var string
@@ -37,6 +45,8 @@ class serverLoadBalancerMonitorData extends Model
     public $loadBalancerId;
 
     /**
+     * @description The name of the ELB instance.
+     *
      * @example esk-edge-service-lb-8377****
      *
      * @var string
@@ -44,6 +54,8 @@ class serverLoadBalancerMonitorData extends Model
     public $loadBalancerName;
 
     /**
+     * @description The specification of the ELB instance.
+     *
      * @example elb.s2.medium
      *
      * @var string
@@ -51,6 +63,8 @@ class serverLoadBalancerMonitorData extends Model
     public $loadBalancerSpec;
 
     /**
+     * @description The request protocol, such as http, https, or tcp.
+     *
      * @example tcp
      *
      * @var string
@@ -58,6 +72,8 @@ class serverLoadBalancerMonitorData extends Model
     public $proto;
 
     /**
+     * @description The number of requests with HTTP 2xx status code returned.
+     *
      * @example 10
      *
      * @var int
@@ -65,6 +81,8 @@ class serverLoadBalancerMonitorData extends Model
     public $reqs2xx;
 
     /**
+     * @description The number of requests with HTTP 3xx status code returned.
+     *
      * @example 0
      *
      * @var int
@@ -72,6 +90,8 @@ class serverLoadBalancerMonitorData extends Model
     public $reqs3xx;
 
     /**
+     * @description The number of requests with HTTP 4xx status code returned.
+     *
      * @example 0
      *
      * @var int
@@ -79,6 +99,8 @@ class serverLoadBalancerMonitorData extends Model
     public $reqs4xx;
 
     /**
+     * @description The number of requests with HTTP 5xx status code returned.
+     *
      * @example 10
      *
      * @var int
@@ -86,6 +108,8 @@ class serverLoadBalancerMonitorData extends Model
     public $reqs5xx;
 
     /**
+     * @description The average response time. Unit: milliseconds.
+     *
      * @example 1037
      *
      * @var int
@@ -93,6 +117,8 @@ class serverLoadBalancerMonitorData extends Model
     public $rtAvg;
 
     /**
+     * @description The VIP of the instance.
+     *
      * @example 10.0****
      *
      * @var string
@@ -100,6 +126,8 @@ class serverLoadBalancerMonitorData extends Model
     public $vip;
 
     /**
+     * @description The ID of the tunnel.
+     *
      * @example 52497
      *
      * @var int
@@ -107,6 +135,8 @@ class serverLoadBalancerMonitorData extends Model
     public $vni;
 
     /**
+     * @description The VIP port, such as 80, 8080, or 443.
+     *
      * @example 80
      *
      * @var int

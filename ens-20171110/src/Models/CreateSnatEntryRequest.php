@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateSnatEntryRequest extends Model
 {
     /**
+     * @description The timeout period for idle connections. Valid values: **1** to **86400**. Unit: seconds.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $idleTimeout;

@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class haVips extends Model
 {
     /**
+     * @description The elastic IP addresses (EIPs) that are associated with the HAVIP.
+     *
      * @var associatedEipAddresses[]
      */
     public $associatedEipAddresses;
 
     /**
+     * @description The information about instances that are associated with the HAVIP.
+     *
      * @var associatedInstances[]
      */
     public $associatedInstances;
 
     /**
+     * @description The time when the HAVIP was created.
+     *
      * @example 2023-03-29T11:17:38Z
      *
      * @var string
@@ -28,6 +34,8 @@ class haVips extends Model
     public $creationTime;
 
     /**
+     * @description The description of the HAVIP.
+     *
      * @example test
      *
      * @var string
@@ -35,6 +43,8 @@ class haVips extends Model
     public $description;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-guiyang-14
      *
      * @var string
@@ -42,6 +52,8 @@ class haVips extends Model
     public $ensRegionId;
 
     /**
+     * @description The ID of the HAVIP.
+     *
      * @example havip-52y28****
      *
      * @var string
@@ -49,6 +61,8 @@ class haVips extends Model
     public $haVipId;
 
     /**
+     * @description The IP address of the HAVIP.
+     *
      * @example 192.XX.XX.5
      *
      * @var string
@@ -56,6 +70,8 @@ class haVips extends Model
     public $ipAddress;
 
     /**
+     * @description The name of the HAVIP.
+     *
      * @example test
      *
      * @var string
@@ -63,6 +79,8 @@ class haVips extends Model
     public $name;
 
     /**
+     * @description The ID of the network.
+     *
      * @example n-5wtkyrk****
      *
      * @var string
@@ -70,6 +88,13 @@ class haVips extends Model
     public $networkId;
 
     /**
+     * @description The status of the HAVIP. Valid values:
+     *
+     *   Creating
+     *   Available
+     *   InUse
+     *   Deleting
+     *
      * @example Available
      *
      * @var string
@@ -77,6 +102,8 @@ class haVips extends Model
     public $status;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vsw-5yc8d****
      *
      * @var string

@@ -48,6 +48,8 @@ class networkInterfaceSet extends Model
     public $instanceId;
 
     /**
+     * @description The IPv6 addresses of the ENIs.
+     *
      * @var ipv6Sets
      */
     public $ipv6Sets;

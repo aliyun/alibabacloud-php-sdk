@@ -1001,7 +1001,17 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 调用AssociateHaVip接口将高可用VIP绑定到同地域的云产品实例上。
+     * @summary Associates a high-availability virtual IP address (HAVIP) with an Edge Node Service (ENS) instance or elastic network interface (ENI).
+     *  *
+     * @description When you call this operation to associate an HAVIP, take note of the following items:
+     * *   An HAVIP immediately takes effect after it is associated. You do not need to restart the ENS instance. However, you need to associate the HAVIP with the ENI of the ENS instance.
+     * *   The HAVIP and ENS instance must belong to the same vSwitch.
+     * *   The ENS instance must be in the Running or Stopped state.
+     * *   The HAVIP must be in the Available or InUse state.
+     * *   AssociateHaVip is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the DescribeHaVips operation to query the status of an HAVIP:
+     *     *   If the HAVIP is in the Associating state, the HAVIP is being associated.
+     *     <!---->
+     *     *   If the HAVIP is in the InUse state, the HAVIP is associated.
      *  *
      * @param AssociateHaVipRequest $request AssociateHaVipRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -1040,7 +1050,17 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 调用AssociateHaVip接口将高可用VIP绑定到同地域的云产品实例上。
+     * @summary Associates a high-availability virtual IP address (HAVIP) with an Edge Node Service (ENS) instance or elastic network interface (ENI).
+     *  *
+     * @description When you call this operation to associate an HAVIP, take note of the following items:
+     * *   An HAVIP immediately takes effect after it is associated. You do not need to restart the ENS instance. However, you need to associate the HAVIP with the ENI of the ENS instance.
+     * *   The HAVIP and ENS instance must belong to the same vSwitch.
+     * *   The ENS instance must be in the Running or Stopped state.
+     * *   The HAVIP must be in the Available or InUse state.
+     * *   AssociateHaVip is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the DescribeHaVips operation to query the status of an HAVIP:
+     *     *   If the HAVIP is in the Associating state, the HAVIP is being associated.
+     *     <!---->
+     *     *   If the HAVIP is in the InUse state, the HAVIP is associated.
      *  *
      * @param AssociateHaVipRequest $request AssociateHaVipRequest
      *
@@ -1554,6 +1574,9 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->ensRegionId)) {
             $query['EnsRegionId'] = $request->ensRegionId;
         }
+        if (!Utils::isUnset($request->environmentVar)) {
+            $query['EnvironmentVar'] = $request->environmentVar;
+        }
         if (!Utils::isUnset($request->frequency)) {
             $query['Frequency'] = $request->frequency;
         }
@@ -1726,7 +1749,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 创建边缘容器集群
+     * @summary Creates a Container Service for Kubernetes (ACK) edge cluster.
+     *  *
+     * @description *   You can call this operation up to 10 times per second per account.
+     * *   Creating a cluster is an asynchronous operation. After this operation returns the response, it takes 10 to 20 minutes to initialize the cluster. You can call the DescribeCluster operation to query the cluster status. After you create a cluster, you can call the DescribeClusterKubeConfig operation to obtain the cluster certificate.
      *  *
      * @param CreateClusterRequest $request CreateClusterRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -1762,7 +1788,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 创建边缘容器集群
+     * @summary Creates a Container Service for Kubernetes (ACK) edge cluster.
+     *  *
+     * @description *   You can call this operation up to 10 times per second per account.
+     * *   Creating a cluster is an asynchronous operation. After this operation returns the response, it takes 10 to 20 minutes to initialize the cluster. You can call the DescribeCluster operation to query the cluster status. After you create a cluster, you can call the DescribeClusterKubeConfig operation to obtain the cluster certificate.
      *  *
      * @param CreateClusterRequest $request CreateClusterRequest
      *
@@ -4239,7 +4268,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a Network Attached Storage (NAS) file system.
+     * @summary Deletes a File Storage NAS file system.
      *  *
      * @param DeleteFileSystemRequest $request DeleteFileSystemRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -4269,7 +4298,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a Network Attached Storage (NAS) file system.
+     * @summary Deletes a File Storage NAS file system.
      *  *
      * @param DeleteFileSystemRequest $request DeleteFileSystemRequest
      *
@@ -5734,7 +5763,9 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 查询边缘容器集群
+     * @summary Queries Container Service for Kubernetes (ACK) edge clusters.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
      *  *
      * @param DescribeClusterRequest $request DescribeClusterRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -5767,7 +5798,9 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 查询边缘容器集群
+     * @summary Queries Container Service for Kubernetes (ACK) edge clusters.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
      *  *
      * @param DescribeClusterRequest $request DescribeClusterRequest
      *
@@ -5781,7 +5814,9 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 查询边缘容器集群证书
+     * @summary Queries the certificate of a Container Service for Kubernetes (ACK) edge cluster.
+     *  *
+     * @description *   The maximum number of times that each user can call this operation per second is 100.
      *  *
      * @param DescribeClusterKubeConfigRequest $request DescribeClusterKubeConfigRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -5814,7 +5849,9 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 查询边缘容器集群证书
+     * @summary Queries the certificate of a Container Service for Kubernetes (ACK) edge cluster.
+     *  *
+     * @description *   The maximum number of times that each user can call this operation per second is 100.
      *  *
      * @param DescribeClusterKubeConfigRequest $request DescribeClusterKubeConfigRequest
      *
@@ -7535,7 +7572,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 查询高可用VIP
+     * @summary Queries high-availability virtual IP addresses (HAVIPs).
      *  *
      * @param DescribeHaVipsRequest $request DescribeHaVipsRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -7565,7 +7602,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 查询高可用VIP
+     * @summary Queries high-availability virtual IP addresses (HAVIPs).
      *  *
      * @param DescribeHaVipsRequest $request DescribeHaVipsRequest
      *
@@ -8353,7 +8390,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary LB监听级监控数据查询
+     * @summary Queries monitoring data of an edge load balancer (ELB) instance.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
      *  *
      * @param DescribeLoadBalancerListenMonitorRequest $request DescribeLoadBalancerListenMonitorRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
@@ -8383,7 +8423,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary LB监听级监控数据查询
+     * @summary Queries monitoring data of an edge load balancer (ELB) instance.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
      *  *
      * @param DescribeLoadBalancerListenMonitorRequest $request DescribeLoadBalancerListenMonitorRequest
      *
@@ -8397,7 +8440,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 调用DescribeLoadBalancerListeners查询负载均衡实例监听列表。
+     * @summary Queries listeners of Edge Load Balancer (ELB) instances.
      *  *
      * @param DescribeLoadBalancerListenersRequest $request DescribeLoadBalancerListenersRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -8436,7 +8479,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary 调用DescribeLoadBalancerListeners查询负载均衡实例监听列表。
+     * @summary Queries listeners of Edge Load Balancer (ELB) instances.
      *  *
      * @param DescribeLoadBalancerListenersRequest $request DescribeLoadBalancerListenersRequest
      *
@@ -9870,7 +9913,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary ESLB实例监听级监控数据
+     * @summary Queries the monitoring data of an edge load balancer (ELB) instance based on the listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
      *  *
      * @param DescribeServerLoadBalancerListenMonitorRequest $request DescribeServerLoadBalancerListenMonitorRequest
      * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
@@ -9900,7 +9946,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary ESLB实例监听级监控数据
+     * @summary Queries the monitoring data of an edge load balancer (ELB) instance based on the listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
      *  *
      * @param DescribeServerLoadBalancerListenMonitorRequest $request DescribeServerLoadBalancerListenMonitorRequest
      *
@@ -9914,7 +9963,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary ESLB实例请求监控数据
+     * @summary Queries the request monitoring data of an edge load balancer (ELB) instance.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
      *  *
      * @param DescribeServerLoadBalancerMonitorRequest $request DescribeServerLoadBalancerMonitorRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
@@ -9944,7 +9996,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary ESLB实例请求监控数据
+     * @summary Queries the request monitoring data of an edge load balancer (ELB) instance.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
      *  *
      * @param DescribeServerLoadBalancerMonitorRequest $request DescribeServerLoadBalancerMonitorRequest
      *
@@ -14076,9 +14131,9 @@ class Ens extends OpenApiClient
      *  *
      * @description When you call this operation, take note of the following items:
      * *   The disk must be in the In Use (In_Use) or Unattached (Available) state.
-     * *   The instance to which the disk is attached must be in the Stopped (Stopped) state. You can call the **StopInstance** operation to stop an instance.
-     * *   The snapshot specified by the SnapshotId parameter must be created from the disk specified by the DiskId parameter.
-     * *   When you call the **DescribeInstance** operation to query instance information, if the response contains `{"OperationLocks": {"LockReason" : "security"}}` for an instance, the instance is locked for security reasons and you cannot perform operations on the instance.
+     * *   The instance to which the disk is attached must be in the Stopped (Stopped) state. You can call the [StopInstance](~~StopInstance~~) operation to stop an instance.
+     * *   The specified snapshot must be created from the disk specified by the DiskId parameter.
+     * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query information about an ENS instance by calling the [DescribeInstances](~~DescribeInstances~~) operation, the instance is locked for security reasons and no operations are allowed on the instance.
      *  *
      * @param ResetDiskRequest $request ResetDiskRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -14118,9 +14173,9 @@ class Ens extends OpenApiClient
      *  *
      * @description When you call this operation, take note of the following items:
      * *   The disk must be in the In Use (In_Use) or Unattached (Available) state.
-     * *   The instance to which the disk is attached must be in the Stopped (Stopped) state. You can call the **StopInstance** operation to stop an instance.
-     * *   The snapshot specified by the SnapshotId parameter must be created from the disk specified by the DiskId parameter.
-     * *   When you call the **DescribeInstance** operation to query instance information, if the response contains `{"OperationLocks": {"LockReason" : "security"}}` for an instance, the instance is locked for security reasons and you cannot perform operations on the instance.
+     * *   The instance to which the disk is attached must be in the Stopped (Stopped) state. You can call the [StopInstance](~~StopInstance~~) operation to stop an instance.
+     * *   The specified snapshot must be created from the disk specified by the DiskId parameter.
+     * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query information about an ENS instance by calling the [DescribeInstances](~~DescribeInstances~~) operation, the instance is locked for security reasons and no operations are allowed on the instance.
      *  *
      * @param ResetDiskRequest $request ResetDiskRequest
      *
@@ -16054,7 +16109,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from specific Edge Node Service (ENS) resources. After a tag is removed from a resource, the tag is automatically deleted if it is not added to other resources.
+     * @summary Removes tags from resources.
      *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -16096,7 +16151,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from specific Edge Node Service (ENS) resources. After a tag is removed from a resource, the tag is automatically deleted if it is not added to other resources.
+     * @summary Removes tags from resources.
      *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *

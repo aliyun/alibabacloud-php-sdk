@@ -18,7 +18,7 @@ class TagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The type of resource. Set the value to instance.
+     * @description The type of the resource. Set the value to instance.
      *
      * This parameter is required.
      * @example instance

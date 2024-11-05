@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class associatedEipAddresses extends Model
 {
     /**
+     * @description The EIP.
+     *
      * @example 47.XX.XX.40
      *
      * @var string
@@ -16,6 +18,8 @@ class associatedEipAddresses extends Model
     public $eip;
 
     /**
+     * @description The ID of the EIP.
+     *
      * @example eip-5p1wz****
      *
      * @var string

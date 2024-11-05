@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class loadBalancerMonitorListenData extends Model
 {
     /**
+     * @description The number of active connections.
+     *
      * @example 80285
      *
      * @var string
@@ -16,6 +18,8 @@ class loadBalancerMonitorListenData extends Model
     public $actConns;
 
     /**
+     * @description The business time.
+     *
      * @example 2024-01-15 16:03:00
      *
      * @var string
@@ -23,6 +27,8 @@ class loadBalancerMonitorListenData extends Model
     public $bizTime;
 
     /**
+     * @description The number of new connections.
+     *
      * @example 37150
      *
      * @var string
@@ -30,6 +36,8 @@ class loadBalancerMonitorListenData extends Model
     public $conns;
 
     /**
+     * @description The number of dropped connections.
+     *
      * @example 10
      *
      * @var string
@@ -37,6 +45,8 @@ class loadBalancerMonitorListenData extends Model
     public $dropConns;
 
     /**
+     * @description The ID of the node to which the ELB instance belongs.
+     *
      * @example cn-dongguan-9
      *
      * @var string
@@ -44,6 +54,8 @@ class loadBalancerMonitorListenData extends Model
     public $ensRegionId;
 
     /**
+     * @description The number of inactive connections.
+     *
      * @example 16322
      *
      * @var string
@@ -51,6 +63,8 @@ class loadBalancerMonitorListenData extends Model
     public $inActConns;
 
     /**
+     * @description The inbound traffic.
+     *
      * @example 67532
      *
      * @var string
@@ -58,6 +72,8 @@ class loadBalancerMonitorListenData extends Model
     public $inBytes;
 
     /**
+     * @description The dropped inbound traffic.
+     *
      * @example 324
      *
      * @var string
@@ -65,6 +81,8 @@ class loadBalancerMonitorListenData extends Model
     public $inDropBytes;
 
     /**
+     * @description The number of dropped inbound packets.
+     *
      * @example 27
      *
      * @var string
@@ -72,6 +90,8 @@ class loadBalancerMonitorListenData extends Model
     public $inDropPkts;
 
     /**
+     * @description The number of inbound packets.
+     *
      * @example 12
      *
      * @var string
@@ -79,6 +99,8 @@ class loadBalancerMonitorListenData extends Model
     public $inPkts;
 
     /**
+     * @description The number of unavailable servers that are attached to the monitored ELB instance.
+     *
      * @example 0
      *
      * @var string
@@ -86,6 +108,8 @@ class loadBalancerMonitorListenData extends Model
     public $inValidRsNum;
 
     /**
+     * @description The ID of the ELB instance.
+     *
      * @example lb-5q73cv04zeyh43lh74lp4****
      *
      * @var string
@@ -93,6 +117,8 @@ class loadBalancerMonitorListenData extends Model
     public $loadBalancerId;
 
     /**
+     * @description The outbound traffic.
+     *
      * @example 5155487
      *
      * @var string
@@ -100,6 +126,8 @@ class loadBalancerMonitorListenData extends Model
     public $outBytes;
 
     /**
+     * @description The dropped outbound traffic.
+     *
      * @example 0
      *
      * @var string
@@ -107,6 +135,8 @@ class loadBalancerMonitorListenData extends Model
     public $outDropBytes;
 
     /**
+     * @description The number of dropped outbound packets.
+     *
      * @example 76
      *
      * @var string
@@ -114,6 +144,8 @@ class loadBalancerMonitorListenData extends Model
     public $outDropPkts;
 
     /**
+     * @description The number of outbound packets.
+     *
      * @example 34
      *
      * @var string
@@ -121,6 +153,8 @@ class loadBalancerMonitorListenData extends Model
     public $outPkts;
 
     /**
+     * @description The network protocol.
+     *
      * @example tcp
      *
      * @var string
@@ -128,6 +162,8 @@ class loadBalancerMonitorListenData extends Model
     public $proto;
 
     /**
+     * @description The VIP port of the ELB instance.
+     *
      * @example 80
      *
      * @var string
@@ -135,6 +171,8 @@ class loadBalancerMonitorListenData extends Model
     public $VPort;
 
     /**
+     * @description The number of available servers that are attached to the monitored ELB instance.
+     *
      * @example 2
      *
      * @var string
@@ -142,6 +180,8 @@ class loadBalancerMonitorListenData extends Model
     public $validRsNum;
 
     /**
+     * @description The VIP of the instance.
+     *
      * @example 10.8.*.*
      *
      * @var string
@@ -149,6 +189,8 @@ class loadBalancerMonitorListenData extends Model
     public $vip;
 
     /**
+     * @description The ID of the tunnel.
+     *
      * @example 53284
      *
      * @var string

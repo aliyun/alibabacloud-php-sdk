@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerListenMonitorResponseBody extends Model
 {
     /**
+     * @description The TCP/UDP monitoring data of the ELB instance.
+     *
      * @var loadBalancerMonitorListenData[]
      */
     public $loadBalancerMonitorListenData;

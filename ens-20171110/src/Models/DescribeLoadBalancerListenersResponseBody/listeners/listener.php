@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class listener extends Model
 {
     /**
+     * @description The timestamp when the listener was created.
+     *
      * @example 2022-08-15T08:42:57Z
      *
      * @var string
@@ -16,6 +18,8 @@ class listener extends Model
     public $createTime;
 
     /**
+     * @description The description of the listener.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,8 @@ class listener extends Model
     public $description;
 
     /**
+     * @description The listener port that is used for HTTP-to-HTTPS redirection.
+     *
      * @example 443
      *
      * @var string
@@ -30,6 +36,11 @@ class listener extends Model
     public $forwardPort;
 
     /**
+     * @description Indicates whether HTTP-to-HTTPS redirection is enabled for the listener. Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
      * @example off
      *
      * @var string
@@ -37,6 +48,8 @@ class listener extends Model
     public $listenerForward;
 
     /**
+     * @description The listening port.
+     *
      * @example 8080
      *
      * @var string
@@ -44,6 +57,8 @@ class listener extends Model
     public $listenerPort;
 
     /**
+     * @description The ID of the ELB instance.
+     *
      * @example lb-51a5fhou****
      *
      * @var string
@@ -51,6 +66,13 @@ class listener extends Model
     public $loadBalancerId;
 
     /**
+     * @description The network transmission protocol that is used by the listener.
+     *
+     *   **tcp**
+     *   **udp**
+     *   **http**
+     *   **https**
+     *
      * @example tcp
      *
      * @var string
@@ -58,6 +80,11 @@ class listener extends Model
     public $protocol;
 
     /**
+     * @description The status of the listener. Valid values:
+     *
+     *   **running**
+     *   **stopped**
+     *
      * @example running
      *
      * @var string

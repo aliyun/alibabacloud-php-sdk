@@ -31,6 +31,15 @@ class UntagResourcesRequest extends Model
     /**
      * @description The type of the resource.
      *
+     * Valid values:
+     *
+     *   instance
+     *   eip
+     *   disk
+     *   network
+     *   natgateway
+     *   vswitch
+     *
      * This parameter is required.
      * @example instance
      *

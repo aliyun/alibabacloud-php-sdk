@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeServerLoadBalancerMonitorResponseBody extends Model
 {
     /**
-     * @description Id of the request。
+     * @description The ID of the request.
      *
      * @example AAE90880-4970-4D81-A534-A6C0F3631F74
      *
@@ -19,6 +19,8 @@ class DescribeServerLoadBalancerMonitorResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The array of the monitoring data.
+     *
      * @var serverLoadBalancerMonitorData[]
      */
     public $serverLoadBalancerMonitorData;

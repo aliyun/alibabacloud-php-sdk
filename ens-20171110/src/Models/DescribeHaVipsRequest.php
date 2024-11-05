@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeHaVipsRequest extends Model
 {
     /**
+     * @description The ID of the region.
+     *
      * @example cn-beijing-cmcc
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeHaVipsRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The IP address of the HAVIP.
+     *
      * @example 10.5.XX.XX
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeHaVipsRequest extends Model
     public $haVipAddress;
 
     /**
+     * @description The ID of the HAVIP.
+     *
      * @example havip-5p14t****
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeHaVipsRequest extends Model
     public $haVipId;
 
     /**
+     * @description The name of the HAVIP.
+     *
      * @example test
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeHaVipsRequest extends Model
     public $name;
 
     /**
+     * @description The ID of the network.
+     *
      * @example n-57gqcdfvx6n****
      *
      * @var string
@@ -44,6 +54,8 @@ class DescribeHaVipsRequest extends Model
     public $networkId;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var string
@@ -51,6 +63,8 @@ class DescribeHaVipsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var string
@@ -58,6 +72,13 @@ class DescribeHaVipsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The status of the HAVIP. Valid values:
+     *
+     *   Creating
+     *   Available
+     *   InUse
+     *   Deleting
+     *
      * @example Available
      *
      * @var string
@@ -65,6 +86,8 @@ class DescribeHaVipsRequest extends Model
     public $status;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vsw-5****
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerListenMonitorRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The end of the time range to query.
      *
+     * This parameter is required.
      * @example 2024-01-30 08:00:00
      *
      * @var string
@@ -18,8 +19,9 @@ class DescribeLoadBalancerListenMonitorRequest extends Model
     public $endTime;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the ELB instance.
      *
+     * This parameter is required.
      * @example lb-5q73cv04zeyh43lh74lp4****
      *
      * @var string
@@ -27,6 +29,8 @@ class DescribeLoadBalancerListenMonitorRequest extends Model
     public $loadBalancerId;
 
     /**
+     * @description The network protocol, such as tcp or udp.
+     *
      * @example tcp
      *
      * @var string
@@ -34,8 +38,9 @@ class DescribeLoadBalancerListenMonitorRequest extends Model
     public $proto;
 
     /**
-     * @description This parameter is required.
+     * @description The beginning of the time range to query.
      *
+     * This parameter is required.
      * @example 2024-01-15 16:00:00
      *
      * @var string
@@ -43,8 +48,9 @@ class DescribeLoadBalancerListenMonitorRequest extends Model
     public $startTime;
 
     /**
-     * @description This parameter is required.
+     * @description The virtual IP address (VIP) port of the ELB instance.
      *
+     * This parameter is required.
      * @example 80
      *
      * @var string

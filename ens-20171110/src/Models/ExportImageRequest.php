@@ -36,11 +36,7 @@ class ExportImageRequest extends Model
     public $OSSPrefix;
 
     /**
-     * @description The ID of the region.
-     *
-     * Valid values:
-     *
-     *   cn-beijing
+     * @description The region ID.
      *
      * This parameter is required.
      * @example cn-beijing

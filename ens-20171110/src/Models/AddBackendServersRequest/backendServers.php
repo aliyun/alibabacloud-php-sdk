@@ -11,7 +11,7 @@ class backendServers extends Model
     /**
      * @description The IP address of the backend server.
      *
-     * @example 192.168.0.1
+     * @example 192.168.X.X
      *
      * @var string
      */
@@ -27,7 +27,7 @@ class backendServers extends Model
     public $port;
 
     /**
-     * @description The ID of the ENS instance.
+     * @description The ID of the backend server.
      *
      * This parameter is required.
      * @example i-5uf6dwyzch3wly790****
@@ -39,8 +39,8 @@ class backendServers extends Model
     /**
      * @description The type of the backend server. Valid values:
      *
-     *   **ens**: ENS instance.
-     *   **eni**: ENI.
+     *   **ens**: ENS instance
+     *   **eni**: elastic network interface (ENI)
      *
      * @example ens
      *

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerListenersResponseBody extends Model
 {
     /**
+     * @description The listeners of the ELB instance.
+     *
      * @var listeners
      */
     public $listeners;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeLoadBalancerListenersResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeLoadBalancerListenersResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example F3B261DD-3858-4D3C-877D-303ADF374600
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeLoadBalancerListenersResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries.
+     *
      * @example 49
      *
      * @var int

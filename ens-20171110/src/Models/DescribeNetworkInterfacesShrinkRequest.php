@@ -27,6 +27,8 @@ class DescribeNetworkInterfacesShrinkRequest extends Model
     public $instanceId;
 
     /**
+     * @description IPv6 addresses N of the ENI. You can specify multiple IPv6 addresses. Valid values of N: 1 to 100.
+     *
      * @var string
      */
     public $ipv6AddressShrink;
@@ -111,7 +113,7 @@ class DescribeNetworkInterfacesShrinkRequest extends Model
     public $status;
 
     /**
-     * @description The type of the ENI. Valid Values:
+     * @description The type of the ENI. Valid values:
      *
      *   Primary: primary ENI.
      *   Secondary: secondary ENI.

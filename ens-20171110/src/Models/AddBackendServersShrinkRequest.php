@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddBackendServersShrinkRequest extends Model
 {
     /**
-     * @description The list of backend servers that you want to add. You can add at most 20 backend servers.
+     * @description The list of backend servers that you want to add to the Edge Load Balancer (ELB) instance. You can add up to 20 backend servers at a time.
      *
      * This parameter is required.
      * @var string

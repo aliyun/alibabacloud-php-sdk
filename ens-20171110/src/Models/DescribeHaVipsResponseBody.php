@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeHaVipsResponseBody extends Model
 {
     /**
+     * @description Details of the HAVIPs.
+     *
      * @var haVips[]
      */
     public $haVips;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeHaVipsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeHaVipsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example AAE90880-4970-4D81-A534-A6C0F3631F74
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeHaVipsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 49
      *
      * @var string

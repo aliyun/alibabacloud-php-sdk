@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterRequest extends Model
 {
     /**
+     * @description The version of the cluster.
+     *
      * @example 1.18.8
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateClusterRequest extends Model
     public $clusterVersion;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example mycluster-1
      *
      * @var string

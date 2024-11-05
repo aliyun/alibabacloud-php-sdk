@@ -11,10 +11,10 @@ class RevokeSecurityGroupRequest extends Model
     /**
      * @description The transport layer protocol. The value of this parameter is case-sensitive. Valid values:
      *
-     *   tcp: TCP.
-     *   udp: UDP.
-     *   icmp: ICMP.
-     *   gre: GRE.
+     *   tcp
+     *   udp
+     *   icmp
+     *   gre
      *   all: all protocols.
      *
      * This parameter is required.
@@ -28,7 +28,7 @@ class RevokeSecurityGroupRequest extends Model
      * @description The authorization policy. Valid values:
      *
      *   accept: allows access. This is the default value.
-     *   drop: denies access and returns no responses.
+     *   drop: denies access and does not return responses.
      *
      * @example accept
      *
@@ -52,7 +52,7 @@ class RevokeSecurityGroupRequest extends Model
     public $portRange;
 
     /**
-     * @description The priority of security group rule N. Valid values: **1** to **100**. Default value: **1**.
+     * @description The priority of the security group rule. Valid values: **1** to **100**. Default value: **1**.
      *
      * @example 1
      *

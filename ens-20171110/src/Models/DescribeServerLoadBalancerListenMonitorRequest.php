@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeServerLoadBalancerListenMonitorRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The end of the time range to query. The maximum range between StartTime and EndTime is 24 hours.
      *
+     * This parameter is required.
      * @example 2024-05-16 16:00:00
      *
      * @var string
@@ -18,8 +19,9 @@ class DescribeServerLoadBalancerListenMonitorRequest extends Model
     public $endTime;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the ELB instance.
      *
+     * This parameter is required.
      * @example lb-5rcvo1n1t3hykfhhjwjgqp****
      *
      * @var string
@@ -27,6 +29,8 @@ class DescribeServerLoadBalancerListenMonitorRequest extends Model
     public $loadBalancerId;
 
     /**
+     * @description The request protocol, such as http, https, or tcp.
+     *
      * @example tcp
      *
      * @var string
@@ -34,8 +38,9 @@ class DescribeServerLoadBalancerListenMonitorRequest extends Model
     public $proto;
 
     /**
-     * @description This parameter is required.
+     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format.
      *
+     * This parameter is required.
      * @example 2024-05-16 15:00:00
      *
      * @var string
@@ -43,6 +48,8 @@ class DescribeServerLoadBalancerListenMonitorRequest extends Model
     public $startTime;
 
     /**
+     * @description The virtual IP address (VIP) port, such as 80, 8080, or 443.
+     *
      * @example 80
      *
      * @var string

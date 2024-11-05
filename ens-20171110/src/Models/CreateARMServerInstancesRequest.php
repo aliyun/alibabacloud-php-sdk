@@ -53,6 +53,11 @@ class CreateARMServerInstancesRequest extends Model
     public $ensRegionId;
 
     /**
+     * @var string
+     */
+    public $environmentVar;
+
+    /**
      * @description The refresh rate. Unit: Hz. Valid values: 30 and 60.
      *
      * @example 30
@@ -203,21 +208,22 @@ class CreateARMServerInstancesRequest extends Model
      */
     public $serverType;
     protected $_name = [
-        'amount'        => 'Amount',
-        'autoRenew'     => 'AutoRenew',
-        'autoUseCoupon' => 'AutoUseCoupon',
-        'ensRegionId'   => 'EnsRegionId',
-        'frequency'     => 'Frequency',
-        'imageId'       => 'ImageId',
-        'instanceType'  => 'InstanceType',
-        'keyPairName'   => 'KeyPairName',
-        'nameSpace'     => 'NameSpace',
-        'payType'       => 'PayType',
-        'period'        => 'Period',
-        'periodUnit'    => 'PeriodUnit',
-        'resolution'    => 'Resolution',
-        'serverName'    => 'ServerName',
-        'serverType'    => 'ServerType',
+        'amount'         => 'Amount',
+        'autoRenew'      => 'AutoRenew',
+        'autoUseCoupon'  => 'AutoUseCoupon',
+        'ensRegionId'    => 'EnsRegionId',
+        'environmentVar' => 'EnvironmentVar',
+        'frequency'      => 'Frequency',
+        'imageId'        => 'ImageId',
+        'instanceType'   => 'InstanceType',
+        'keyPairName'    => 'KeyPairName',
+        'nameSpace'      => 'NameSpace',
+        'payType'        => 'PayType',
+        'period'         => 'Period',
+        'periodUnit'     => 'PeriodUnit',
+        'resolution'     => 'Resolution',
+        'serverName'     => 'ServerName',
+        'serverType'     => 'ServerType',
     ];
 
     public function validate()
@@ -238,6 +244,9 @@ class CreateARMServerInstancesRequest extends Model
         }
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
+        }
+        if (null !== $this->environmentVar) {
+            $res['EnvironmentVar'] = $this->environmentVar;
         }
         if (null !== $this->frequency) {
             $res['Frequency'] = $this->frequency;
@@ -295,6 +304,9 @@ class CreateARMServerInstancesRequest extends Model
         }
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
+        }
+        if (isset($map['EnvironmentVar'])) {
+            $model->environmentVar = $map['EnvironmentVar'];
         }
         if (isset($map['Frequency'])) {
             $model->frequency = $map['Frequency'];

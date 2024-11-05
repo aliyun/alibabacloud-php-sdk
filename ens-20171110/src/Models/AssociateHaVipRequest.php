@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AssociateHaVipRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the HAVIP.
      *
+     * This parameter is required.
      * @example havip-5p14t****
      *
      * @var string
@@ -18,8 +19,9 @@ class AssociateHaVipRequest extends Model
     public $haVipId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example i-50c4****
      *
      * @var string
@@ -27,6 +29,11 @@ class AssociateHaVipRequest extends Model
     public $instanceId;
 
     /**
+     * @description The type of the instance to be associated with the HAVIP. Valid values:
+     *
+     *   EnsInstance (default): ENS instance.
+     *   NetworkInterface: ENI. If you want to associate the HAVIP with an ENI, this parameter is required.
+     *
      * @example EnsInstance
      *
      * @var string

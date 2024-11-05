@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ipv6Set extends Model
 {
     /**
+     * @description The IPv6 address of the ENI.
+     *
+     * @example 2605:340:cdb1:XXXX:XXXX:XXXX:XXXX:e2d6
+     *
      * @var string
      */
     public $ipv6Address;

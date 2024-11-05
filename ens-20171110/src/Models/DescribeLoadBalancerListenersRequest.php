@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerListenersRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the ELB instance.
      *
+     * This parameter is required.
      * @example lb-5s7crik3yo3p5****
      *
      * @var string
@@ -18,6 +19,8 @@ class DescribeLoadBalancerListenersRequest extends Model
     public $loadBalancerId;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -25,6 +28,8 @@ class DescribeLoadBalancerListenersRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int

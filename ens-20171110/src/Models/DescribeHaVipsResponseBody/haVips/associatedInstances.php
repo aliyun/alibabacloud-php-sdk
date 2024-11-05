@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class associatedInstances extends Model
 {
     /**
+     * @description The time when the instance was created.
+     *
      * @example 2023-01-05T07:09:28Z
      *
      * @var string
@@ -16,6 +18,8 @@ class associatedInstances extends Model
     public $creationTime;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example i-51p****
      *
      * @var string
@@ -23,6 +27,11 @@ class associatedInstances extends Model
     public $instanceId;
 
     /**
+     * @description The type of the instance that is associated with the HAVIP. Valid values:
+     *
+     *   EnsInstance: ENS instance
+     *   NetworkInterface: elastic network interface (ENI)
+     *
      * @example EnsInstance
      *
      * @var string
@@ -30,6 +39,8 @@ class associatedInstances extends Model
     public $instanceType;
 
     /**
+     * @description The private IP address of the instance that is associated with the HAVIP. Valid values:
+     *
      * @example 192.XX.XX.9
      *
      * @var string
@@ -37,6 +48,12 @@ class associatedInstances extends Model
     public $ipAddress;
 
     /**
+     * @description The association status of the HAVIP. Valid values:
+     *
+     *   Associating
+     *   InUse
+     *   Unassociating
+     *
      * @example InUse
      *
      * @var string
