@@ -37,7 +37,7 @@ class ListSessionClustersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The SQL computes.
+     * @description The list of sessions.
      *
      * @var sessionClusters[]
      */

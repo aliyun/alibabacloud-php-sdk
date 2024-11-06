@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class sessionClusters extends Model
 {
     /**
-     * @description The SQL Compute configurations, which are equivalent to the configurations of the Spark job.
+     * @description The session configurations, which are equivalent to the configurations of the Spark job.
      *
      * @var applicationConfigs[]
      */
@@ -27,13 +27,15 @@ class sessionClusters extends Model
     public $autoStartConfiguration;
 
     /**
-     * @description The automatic termination configurations.
+     * @description The configurations of automatic termination.
      *
      * @var autoStopConfiguration
      */
     public $autoStopConfiguration;
 
     /**
+     * @description The version of the Spark engine.
+     *
      * @var string
      */
     public $displayReleaseVersion;
@@ -44,22 +46,40 @@ class sessionClusters extends Model
     public $domain;
 
     /**
+     * @description The ID of the job that is associated with the session.
+     *
+     * @example TSK-xxxxxxxxx
+     *
      * @var string
      */
     public $draftId;
 
     /**
+     * @description Indicates whether the Fusion engine is used for acceleration.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $fusion;
 
     /**
+     * @description The session type.
+     *
+     * Valid values:
+     *
+     *   NOTEBOOK
+     *   THRIFT
+     *   SQL
+     *
+     * @example SQL
+     *
      * @var string
      */
     public $kind;
 
     /**
-     * @description The name of the SQL Compute.
+     * @description The name of the session.
      *
      * @example adhoc_query
      *
@@ -68,7 +88,7 @@ class sessionClusters extends Model
     public $name;
 
     /**
-     * @description The name of the queue on which the SQL Compute runs.
+     * @description The name of the queue that is used to run the session.
      *
      * @example dev_queue
      *
@@ -77,12 +97,16 @@ class sessionClusters extends Model
     public $queueName;
 
     /**
+     * @description The version of EMR Serverless Spark.
+     *
+     * @example esr-2.1
+     *
      * @var string
      */
     public $releaseVersion;
 
     /**
-     * @description The SQL Compute ID.
+     * @description The session ID.
      *
      * @example sc-123131
      *
@@ -91,7 +115,7 @@ class sessionClusters extends Model
     public $sessionClusterId;
 
     /**
-     * @description The status of the SQL Compute.
+     * @description The status of the session.
      *
      * @example Running
      *
@@ -100,7 +124,7 @@ class sessionClusters extends Model
     public $state;
 
     /**
-     * @description The details of the last status change of the SQL Compute.
+     * @description The details of the most recent status change of the session.
      *
      * @var stateChangeReason
      */
@@ -125,6 +149,10 @@ class sessionClusters extends Model
     public $userName;
 
     /**
+     * @description The Spark UI of the session.
+     *
+     * @example http://spark-ui-xxxx
+     *
      * @var string
      */
     public $webUI;

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListSessionClustersRequest extends Model
 {
     /**
+     * @description The session type.
+     *
+     * Valid values:
+     *
+     *   NOTEBOOK
+     *   THRIFT
+     *   SQL
+     *
+     * @example SQL
+     *
      * @var string
      */
     public $kind;

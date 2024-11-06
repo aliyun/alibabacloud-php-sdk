@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class StopSessionClusterResponseBody extends Model
 {
     /**
-     * @description 请求ID。
+     * @description The request ID.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
      *
@@ -18,7 +18,7 @@ class StopSessionClusterResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Workspace Id。
+     * @description The workspace ID.
      *
      * @example w-******
      *

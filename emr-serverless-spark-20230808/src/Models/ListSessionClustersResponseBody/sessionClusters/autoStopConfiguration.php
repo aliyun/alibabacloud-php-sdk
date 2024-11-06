@@ -18,7 +18,7 @@ class autoStopConfiguration extends Model
     public $enable;
 
     /**
-     * @description The idle timeout period. The SQL Compute is automatically terminated if the idle timeout period is exceeded.
+     * @description The idle timeout period. The session is automatically terminated when the idle timeout period is exceeded.
      *
      * @example 45
      *

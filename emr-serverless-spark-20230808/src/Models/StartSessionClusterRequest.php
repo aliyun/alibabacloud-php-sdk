@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartSessionClusterRequest extends Model
 {
     /**
+     * @description The queue name.
+     *
      * @example root_queue
      *
      * @var string
@@ -16,6 +18,8 @@ class StartSessionClusterRequest extends Model
     public $queueName;
 
     /**
+     * @description The session ID.
+     *
      * @example sc-xxxxxxxxxxx
      *
      * @var string
@@ -23,6 +27,8 @@ class StartSessionClusterRequest extends Model
     public $sessionClusterId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

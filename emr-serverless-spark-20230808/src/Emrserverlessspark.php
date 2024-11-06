@@ -21,6 +21,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GrantRoleToUsersRespons
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobRunsRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobRunsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobRunsShrinkRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLogContentsRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLogContentsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListReleaseVersionsRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListReleaseVersionsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListSessionClustersRequest;
@@ -523,6 +525,67 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * @summary 获取日志内容
+     *  *
+     * @param string                 $workspaceId
+     * @param ListLogContentsRequest $request     ListLogContentsRequest
+     * @param string[]               $headers     map
+     * @param RuntimeOptions         $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return ListLogContentsResponse ListLogContentsResponse
+     */
+    public function listLogContentsWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileName)) {
+            $query['fileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->length)) {
+            $query['length'] = $request->length;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $query['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['regionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLogContents',
+            'version'     => '2023-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/workspaces/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/action/listLogContents',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListLogContentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取日志内容
+     *  *
+     * @param string                 $workspaceId
+     * @param ListLogContentsRequest $request     ListLogContentsRequest
+     *
+     * @return ListLogContentsResponse ListLogContentsResponse
+     */
+    public function listLogContents($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listLogContentsWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary Queries the list of published versions of E-MapReduce (EMR) Serverless Spark.
      *  *
      * @param ListReleaseVersionsRequest $request ListReleaseVersionsRequest
@@ -585,7 +648,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 查询run列表
+     * @summary Queries a list of sessions.
      *  *
      * @param string                     $workspaceId
      * @param ListSessionClustersRequest $request     ListSessionClustersRequest
@@ -636,7 +699,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 查询run列表
+     * @summary Queries a list of sessions.
      *  *
      * @param string                     $workspaceId
      * @param ListSessionClustersRequest $request     ListSessionClustersRequest
@@ -859,7 +922,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 启动session集群
+     * @summary Starts a session.
      *  *
      * @param string                     $workspaceId
      * @param StartSessionClusterRequest $request     StartSessionClusterRequest
@@ -903,7 +966,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 启动session集群
+     * @summary Starts a session.
      *  *
      * @param string                     $workspaceId
      * @param StartSessionClusterRequest $request     StartSessionClusterRequest
@@ -919,7 +982,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 启动session集群
+     * @summary Stops a session.
      *  *
      * @param string                    $workspaceId
      * @param StopSessionClusterRequest $request     StopSessionClusterRequest
@@ -963,7 +1026,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 启动session集群
+     * @summary Stops a session.
      *  *
      * @param string                    $workspaceId
      * @param StopSessionClusterRequest $request     StopSessionClusterRequest

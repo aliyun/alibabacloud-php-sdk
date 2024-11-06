@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StopSessionClusterRequest extends Model
 {
     /**
+     * @description The queue name.
+     *
      * @example root_queue
      *
      * @var string
@@ -16,6 +18,8 @@ class StopSessionClusterRequest extends Model
     public $queueName;
 
     /**
+     * @description The session ID.
+     *
      * @example sc-xxxxxxxxxxxx
      *
      * @var string
@@ -23,6 +27,8 @@ class StopSessionClusterRequest extends Model
     public $sessionClusterId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
