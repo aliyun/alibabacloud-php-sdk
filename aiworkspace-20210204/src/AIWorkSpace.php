@@ -78,6 +78,7 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetModelResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetModelVersionResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetPermissionRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetPermissionResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetPermissionShrinkRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetRunRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetRunResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetWorkspaceRequest;
@@ -2572,21 +2573,29 @@ class AIWorkSpace extends OpenApiClient
      *  *
      * @param string               $WorkspaceId
      * @param string               $PermissionCode
-     * @param GetPermissionRequest $request        GetPermissionRequest
+     * @param GetPermissionRequest $tmpReq         GetPermissionRequest
      * @param string[]             $headers        map
      * @param RuntimeOptions       $runtime        runtime options for this request RuntimeOptions
      *
      * @return GetPermissionResponse GetPermissionResponse
      */
-    public function getPermissionWithOptions($WorkspaceId, $PermissionCode, $request, $headers, $runtime)
+    public function getPermissionWithOptions($WorkspaceId, $PermissionCode, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new GetPermissionShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->labels)) {
+            $request->labelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->labels, 'Labels', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->accessibility)) {
             $query['Accessibility'] = $request->accessibility;
         }
         if (!Utils::isUnset($request->creator)) {
             $query['Creator'] = $request->creator;
+        }
+        if (!Utils::isUnset($request->labelsShrink)) {
+            $query['Labels'] = $request->labelsShrink;
         }
         if (!Utils::isUnset($request->option)) {
             $query['Option'] = $request->option;

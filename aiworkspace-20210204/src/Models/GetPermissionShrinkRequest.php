@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetPermissionRequest extends Model
+class GetPermissionShrinkRequest extends Model
 {
     /**
      * @example PUBLIC
@@ -23,9 +23,9 @@ class GetPermissionRequest extends Model
     public $creator;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $labels;
+    public $labelsShrink;
 
     /**
      * @var string
@@ -39,7 +39,7 @@ class GetPermissionRequest extends Model
     protected $_name = [
         'accessibility' => 'Accessibility',
         'creator'       => 'Creator',
-        'labels'        => 'Labels',
+        'labelsShrink'  => 'Labels',
         'option'        => 'Option',
         'resource'      => 'Resource',
     ];
@@ -57,8 +57,8 @@ class GetPermissionRequest extends Model
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
         }
-        if (null !== $this->labels) {
-            $res['Labels'] = $this->labels;
+        if (null !== $this->labelsShrink) {
+            $res['Labels'] = $this->labelsShrink;
         }
         if (null !== $this->option) {
             $res['Option'] = $this->option;
@@ -73,7 +73,7 @@ class GetPermissionRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetPermissionRequest
+     * @return GetPermissionShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -85,7 +85,7 @@ class GetPermissionRequest extends Model
             $model->creator = $map['Creator'];
         }
         if (isset($map['Labels'])) {
-            $model->labels = $map['Labels'];
+            $model->labelsShrink = $map['Labels'];
         }
         if (isset($map['Option'])) {
             $model->option = $map['Option'];
