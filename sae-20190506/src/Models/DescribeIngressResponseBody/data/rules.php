@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeIngressResponseBody\data;
 
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeIngressResponseBody\data\rules\ruleActions;
 use AlibabaCloud\Tea\Model;
 
 class rules extends Model
@@ -73,6 +74,11 @@ class rules extends Model
      * @var string
      */
     public $rewritePath;
+
+    /**
+     * @var ruleActions[]
+     */
+    public $ruleActions;
     protected $_name = [
         'appId'           => 'AppId',
         'appName'         => 'AppName',
@@ -81,6 +87,7 @@ class rules extends Model
         'domain'          => 'Domain',
         'path'            => 'Path',
         'rewritePath'     => 'RewritePath',
+        'ruleActions'     => 'RuleActions',
     ];
 
     public function validate()
@@ -110,6 +117,15 @@ class rules extends Model
         }
         if (null !== $this->rewritePath) {
             $res['RewritePath'] = $this->rewritePath;
+        }
+        if (null !== $this->ruleActions) {
+            $res['RuleActions'] = [];
+            if (null !== $this->ruleActions && \is_array($this->ruleActions)) {
+                $n = 0;
+                foreach ($this->ruleActions as $item) {
+                    $res['RuleActions'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -143,6 +159,15 @@ class rules extends Model
         }
         if (isset($map['RewritePath'])) {
             $model->rewritePath = $map['RewritePath'];
+        }
+        if (isset($map['RuleActions'])) {
+            if (!empty($map['RuleActions'])) {
+                $model->ruleActions = [];
+                $n                  = 0;
+                foreach ($map['RuleActions'] as $item) {
+                    $model->ruleActions[$n++] = null !== $item ? ruleActions::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

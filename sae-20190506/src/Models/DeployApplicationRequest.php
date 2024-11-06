@@ -115,6 +115,8 @@ class DeployApplicationRequest extends Model
     public $configMapMountDesc;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $cpu;
@@ -304,6 +306,8 @@ class DeployApplicationRequest extends Model
     public $liveness;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $memory;
@@ -322,6 +326,8 @@ class DeployApplicationRequest extends Model
     public $microRegistration;
 
     /**
+     * @example {\\"instanceId\\":\\"mse-cn-zvp2bh6h70r\\",\\"namespace\\":\\"4c0aa74f-57cb-423c-b6af-5d9f2d0e3dbd\\"}
+     *
      * @var string
      */
     public $microRegistrationConfig;
@@ -386,7 +392,7 @@ class DeployApplicationRequest extends Model
     public $nasConfigs;
 
     /**
-     * @description The ID of the Apsara File Storage NAS file system. After the application is created, you may want to call other operations to manage the application. If you do not want to change the NAS configurations in these subsequent operations, you can omit the **NasId** parameter in the requests. If you want to unmount the NAS file system, you must set the **NasId** values in the subsequent requests to an empty string ("").
+     * @description The ID of the File Storage NAS file system. After the application is created, you may want to call other operations to manage the application. If you do not want to change the NAS configurations in these subsequent operations, you can omit the **NasId** parameter in the requests. If you want to unmount the NAS file system, you must set the **NasId** values in the subsequent requests to an empty string ("").
      *
      * @example 10d3b4****
      *
@@ -552,16 +558,22 @@ class DeployApplicationRequest extends Model
     public $readiness;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $replicas;
 
     /**
+     * @example sg-wz969ngg2e49q5i4****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example {\\"alicloud.service.tag\\":\\"g1\\"}
+     *
      * @var string
      */
     public $serviceTags;
@@ -648,6 +660,8 @@ class DeployApplicationRequest extends Model
     public $updateStrategy;
 
     /**
+     * @example vsw-bp12mw1f8k3jgygk9****
+     *
      * @var string
      */
     public $vSwitchId;
