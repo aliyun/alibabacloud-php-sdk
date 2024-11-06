@@ -488,11 +488,20 @@ class QuanMiaoLightApp extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->customLimitation)) {
+            $body['customLimitation'] = $request->customLimitation;
+        }
         if (!Utils::isUnset($request->customPrompt)) {
             $body['customPrompt'] = $request->customPrompt;
         }
+        if (!Utils::isUnset($request->inputExample)) {
+            $body['inputExample'] = $request->inputExample;
+        }
         if (!Utils::isUnset($request->modelId)) {
             $body['modelId'] = $request->modelId;
+        }
+        if (!Utils::isUnset($request->outputExample)) {
+            $body['outputExample'] = $request->outputExample;
         }
         if (!Utils::isUnset($request->sourceMaterial)) {
             $body['sourceMaterial'] = $request->sourceMaterial;

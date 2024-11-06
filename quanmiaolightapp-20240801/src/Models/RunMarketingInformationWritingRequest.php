@@ -11,7 +11,17 @@ class RunMarketingInformationWritingRequest extends Model
     /**
      * @var string
      */
+    public $customLimitation;
+
+    /**
+     * @var string
+     */
     public $customPrompt;
+
+    /**
+     * @var string
+     */
+    public $inputExample;
 
     /**
      * @example qwen-max
@@ -23,6 +33,11 @@ class RunMarketingInformationWritingRequest extends Model
     /**
      * @var string
      */
+    public $outputExample;
+
+    /**
+     * @var string
+     */
     public $sourceMaterial;
 
     /**
@@ -30,10 +45,13 @@ class RunMarketingInformationWritingRequest extends Model
      */
     public $writingType;
     protected $_name = [
-        'customPrompt'   => 'customPrompt',
-        'modelId'        => 'modelId',
-        'sourceMaterial' => 'sourceMaterial',
-        'writingType'    => 'writingType',
+        'customLimitation' => 'customLimitation',
+        'customPrompt'     => 'customPrompt',
+        'inputExample'     => 'inputExample',
+        'modelId'          => 'modelId',
+        'outputExample'    => 'outputExample',
+        'sourceMaterial'   => 'sourceMaterial',
+        'writingType'      => 'writingType',
     ];
 
     public function validate()
@@ -43,11 +61,20 @@ class RunMarketingInformationWritingRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->customLimitation) {
+            $res['customLimitation'] = $this->customLimitation;
+        }
         if (null !== $this->customPrompt) {
             $res['customPrompt'] = $this->customPrompt;
         }
+        if (null !== $this->inputExample) {
+            $res['inputExample'] = $this->inputExample;
+        }
         if (null !== $this->modelId) {
             $res['modelId'] = $this->modelId;
+        }
+        if (null !== $this->outputExample) {
+            $res['outputExample'] = $this->outputExample;
         }
         if (null !== $this->sourceMaterial) {
             $res['sourceMaterial'] = $this->sourceMaterial;
@@ -67,11 +94,20 @@ class RunMarketingInformationWritingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['customLimitation'])) {
+            $model->customLimitation = $map['customLimitation'];
+        }
         if (isset($map['customPrompt'])) {
             $model->customPrompt = $map['customPrompt'];
         }
+        if (isset($map['inputExample'])) {
+            $model->inputExample = $map['inputExample'];
+        }
         if (isset($map['modelId'])) {
             $model->modelId = $map['modelId'];
+        }
+        if (isset($map['outputExample'])) {
+            $model->outputExample = $map['outputExample'];
         }
         if (isset($map['sourceMaterial'])) {
             $model->sourceMaterial = $map['sourceMaterial'];
