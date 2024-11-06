@@ -26,7 +26,6 @@ class CreateDcdnSLSRealTimeLogDeliveryRequest extends Model
      *
      *   cn: China
      *   sg: Singapore
-     *   in: India
      *   eu: Europe
      *   us: United States
      *

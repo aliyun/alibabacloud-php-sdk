@@ -366,6 +366,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserLogserviceStatusResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfShrinkRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\GetDcdnKvDetailRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\GetDcdnKvDetailResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\GetDcdnKvRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\GetDcdnKvResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\GetDcdnKvStatusRequest;
@@ -11691,6 +11693,50 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @summary 查询KV对的值以及TTL信息
+     *  *
+     * @param GetDcdnKvDetailRequest $request GetDcdnKvDetailRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDcdnKvDetailResponse GetDcdnKvDetailResponse
+     */
+    public function getDcdnKvDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDcdnKvDetail',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDcdnKvDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询KV对的值以及TTL信息
+     *  *
+     * @param GetDcdnKvDetailRequest $request GetDcdnKvDetailRequest
+     *
+     * @return GetDcdnKvDetailResponse GetDcdnKvDetailResponse
+     */
+    public function getDcdnKvDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDcdnKvDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the KV status by key value.
      *  *
      * @param GetDcdnKvStatusRequest $request GetDcdnKvStatusRequest
@@ -12236,6 +12282,9 @@ class Dcdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->queryHashkey)) {
+            $query['QueryHashkey'] = $request->queryHashkey;
         }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
