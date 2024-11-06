@@ -6,14 +6,34 @@ namespace AlibabaCloud\SDK\IQS\V20240712;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\IQS\V20240712\Models\BicyclingDirectionNovaRequest;
+use AlibabaCloud\SDK\IQS\V20240712\Models\BicyclingDirectionNovaResponse;
 use AlibabaCloud\SDK\IQS\V20240712\Models\CommonQueryBySceneRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\CommonQueryBySceneResponse;
+use AlibabaCloud\SDK\IQS\V20240712\Models\DrivingDirectionNovaRequest;
+use AlibabaCloud\SDK\IQS\V20240712\Models\DrivingDirectionNovaResponse;
+use AlibabaCloud\SDK\IQS\V20240712\Models\ElectrobikeDirectionNovaRequest;
+use AlibabaCloud\SDK\IQS\V20240712\Models\ElectrobikeDirectionNovaResponse;
+use AlibabaCloud\SDK\IQS\V20240712\Models\GeoCodeRequest;
+use AlibabaCloud\SDK\IQS\V20240712\Models\GeoCodeResponse;
+use AlibabaCloud\SDK\IQS\V20240712\Models\NearbySearchNovaRequest;
+use AlibabaCloud\SDK\IQS\V20240712\Models\NearbySearchNovaResponse;
+use AlibabaCloud\SDK\IQS\V20240712\Models\NearbySearchRequest;
+use AlibabaCloud\SDK\IQS\V20240712\Models\NearbySearchResponse;
+use AlibabaCloud\SDK\IQS\V20240712\Models\PlaceSearchNovaRequest;
+use AlibabaCloud\SDK\IQS\V20240712\Models\PlaceSearchNovaResponse;
+use AlibabaCloud\SDK\IQS\V20240712\Models\PlaceSearchRequest;
+use AlibabaCloud\SDK\IQS\V20240712\Models\PlaceSearchResponse;
 use AlibabaCloud\SDK\IQS\V20240712\Models\QueryAttractionsRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\QueryAttractionsResponse;
 use AlibabaCloud\SDK\IQS\V20240712\Models\QueryHotelsRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\QueryHotelsResponse;
 use AlibabaCloud\SDK\IQS\V20240712\Models\QueryRestaurantsRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\QueryRestaurantsResponse;
+use AlibabaCloud\SDK\IQS\V20240712\Models\RgeoCodeRequest;
+use AlibabaCloud\SDK\IQS\V20240712\Models\RgeoCodeResponse;
+use AlibabaCloud\SDK\IQS\V20240712\Models\WalkingDirectionNovaRequest;
+use AlibabaCloud\SDK\IQS\V20240712\Models\WalkingDirectionNovaResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -51,6 +71,65 @@ class IQS extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 根据起终点坐标检索符合条件的骑行路线规划方案
+     *  *
+     * @param BicyclingDirectionNovaRequest $request BicyclingDirectionNovaRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BicyclingDirectionNovaResponse BicyclingDirectionNovaResponse
+     */
+    public function bicyclingDirectionNovaWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->destinationLatitude)) {
+            $query['destinationLatitude'] = $request->destinationLatitude;
+        }
+        if (!Utils::isUnset($request->destinationLongitude)) {
+            $query['destinationLongitude'] = $request->destinationLongitude;
+        }
+        if (!Utils::isUnset($request->originLatitude)) {
+            $query['originLatitude'] = $request->originLatitude;
+        }
+        if (!Utils::isUnset($request->originLongitude)) {
+            $query['originLongitude'] = $request->originLongitude;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BicyclingDirectionNova',
+            'version'     => '2024-07-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ipaas/v2/direction/bicycling',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return BicyclingDirectionNovaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据起终点坐标检索符合条件的骑行路线规划方案
+     *  *
+     * @param BicyclingDirectionNovaRequest $request BicyclingDirectionNovaRequest
+     *
+     * @return BicyclingDirectionNovaResponse BicyclingDirectionNovaResponse
+     */
+    public function bicyclingDirectionNova($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->bicyclingDirectionNovaWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -97,6 +176,437 @@ class IQS extends OpenApiClient
         $headers = [];
 
         return $this->commonQueryBySceneWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 根据起终点坐标检索符合条件的驾车路线规划方案
+     *  *
+     * @param DrivingDirectionNovaRequest $request DrivingDirectionNovaRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DrivingDirectionNovaResponse DrivingDirectionNovaResponse
+     */
+    public function drivingDirectionNovaWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->destinationLatitude)) {
+            $query['destinationLatitude'] = $request->destinationLatitude;
+        }
+        if (!Utils::isUnset($request->destinationLongitude)) {
+            $query['destinationLongitude'] = $request->destinationLongitude;
+        }
+        if (!Utils::isUnset($request->originLatitude)) {
+            $query['originLatitude'] = $request->originLatitude;
+        }
+        if (!Utils::isUnset($request->originLongitude)) {
+            $query['originLongitude'] = $request->originLongitude;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DrivingDirectionNova',
+            'version'     => '2024-07-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ipaas/v2/direction/driving',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DrivingDirectionNovaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据起终点坐标检索符合条件的驾车路线规划方案
+     *  *
+     * @param DrivingDirectionNovaRequest $request DrivingDirectionNovaRequest
+     *
+     * @return DrivingDirectionNovaResponse DrivingDirectionNovaResponse
+     */
+    public function drivingDirectionNova($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->drivingDirectionNovaWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 电动车路线规划方案V2
+     *  *
+     * @param ElectrobikeDirectionNovaRequest $request ElectrobikeDirectionNovaRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ElectrobikeDirectionNovaResponse ElectrobikeDirectionNovaResponse
+     */
+    public function electrobikeDirectionNovaWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->destinationLatitude)) {
+            $query['destinationLatitude'] = $request->destinationLatitude;
+        }
+        if (!Utils::isUnset($request->destinationLongitude)) {
+            $query['destinationLongitude'] = $request->destinationLongitude;
+        }
+        if (!Utils::isUnset($request->originLatitude)) {
+            $query['originLatitude'] = $request->originLatitude;
+        }
+        if (!Utils::isUnset($request->originLongitude)) {
+            $query['originLongitude'] = $request->originLongitude;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ElectrobikeDirectionNova',
+            'version'     => '2024-07-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ipaas/v2/direction/electrobike',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ElectrobikeDirectionNovaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 电动车路线规划方案V2
+     *  *
+     * @param ElectrobikeDirectionNovaRequest $request ElectrobikeDirectionNovaRequest
+     *
+     * @return ElectrobikeDirectionNovaResponse ElectrobikeDirectionNovaResponse
+     */
+    public function electrobikeDirectionNova($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->electrobikeDirectionNovaWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 地理编码，将详细的结构化地址转换为高德经纬度坐标
+     *  *
+     * @param GeoCodeRequest $request GeoCodeRequest
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GeoCodeResponse GeoCodeResponse
+     */
+    public function geoCodeWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->address)) {
+            $query['address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->city)) {
+            $query['city'] = $request->city;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GeoCode',
+            'version'     => '2024-07-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ipaas/v1/geocode/geo',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GeoCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 地理编码，将详细的结构化地址转换为高德经纬度坐标
+     *  *
+     * @param GeoCodeRequest $request GeoCodeRequest
+     *
+     * @return GeoCodeResponse GeoCodeResponse
+     */
+    public function geoCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->geoCodeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 通过经纬度查询附近的地点
+     *  *
+     * @param NearbySearchRequest $request NearbySearchRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return NearbySearchResponse NearbySearchResponse
+     */
+    public function nearbySearchWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keywords)) {
+            $query['keywords'] = $request->keywords;
+        }
+        if (!Utils::isUnset($request->latitude)) {
+            $query['latitude'] = $request->latitude;
+        }
+        if (!Utils::isUnset($request->longitude)) {
+            $query['longitude'] = $request->longitude;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->radius)) {
+            $query['radius'] = $request->radius;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->types)) {
+            $query['types'] = $request->types;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'NearbySearch',
+            'version'     => '2024-07-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ipaas/v1/pois/nearby',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return NearbySearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 通过经纬度查询附近的地点
+     *  *
+     * @param NearbySearchRequest $request NearbySearchRequest
+     *
+     * @return NearbySearchResponse NearbySearchResponse
+     */
+    public function nearbySearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->nearbySearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 通过经纬度查询附近的地点
+     *  *
+     * @param NearbySearchNovaRequest $request NearbySearchNovaRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return NearbySearchNovaResponse NearbySearchNovaResponse
+     */
+    public function nearbySearchNovaWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keywords)) {
+            $query['keywords'] = $request->keywords;
+        }
+        if (!Utils::isUnset($request->latitude)) {
+            $query['latitude'] = $request->latitude;
+        }
+        if (!Utils::isUnset($request->longitude)) {
+            $query['longitude'] = $request->longitude;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->radius)) {
+            $query['radius'] = $request->radius;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->types)) {
+            $query['types'] = $request->types;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'NearbySearchNova',
+            'version'     => '2024-07-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ipaas/v2/pois/nearby',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return NearbySearchNovaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 通过经纬度查询附近的地点
+     *  *
+     * @param NearbySearchNovaRequest $request NearbySearchNovaRequest
+     *
+     * @return NearbySearchNovaResponse NearbySearchNovaResponse
+     */
+    public function nearbySearchNova($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->nearbySearchNovaWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 通过关键词搜索地点
+     *  *
+     * @param PlaceSearchRequest $request PlaceSearchRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return PlaceSearchResponse PlaceSearchResponse
+     */
+    public function placeSearchWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keywords)) {
+            $query['keywords'] = $request->keywords;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->types)) {
+            $query['types'] = $request->types;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PlaceSearch',
+            'version'     => '2024-07-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ipaas/v1/pois/place',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return PlaceSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 通过关键词搜索地点
+     *  *
+     * @param PlaceSearchRequest $request PlaceSearchRequest
+     *
+     * @return PlaceSearchResponse PlaceSearchResponse
+     */
+    public function placeSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->placeSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 通过关键词搜索地点
+     *  *
+     * @param PlaceSearchNovaRequest $request PlaceSearchNovaRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return PlaceSearchNovaResponse PlaceSearchNovaResponse
+     */
+    public function placeSearchNovaWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keywords)) {
+            $query['keywords'] = $request->keywords;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->types)) {
+            $query['types'] = $request->types;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PlaceSearchNova',
+            'version'     => '2024-07-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ipaas/v2/pois/place',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return PlaceSearchNovaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 通过关键词搜索地点
+     *  *
+     * @param PlaceSearchNovaRequest $request PlaceSearchNovaRequest
+     *
+     * @return PlaceSearchNovaResponse PlaceSearchNovaResponse
+     */
+    public function placeSearchNova($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->placeSearchNovaWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -235,5 +745,117 @@ class IQS extends OpenApiClient
         $headers = [];
 
         return $this->queryRestaurantsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 逆地理编码，将经纬度转换为详细结构化的地址信息
+     *  *
+     * @param RgeoCodeRequest $request RgeoCodeRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RgeoCodeResponse RgeoCodeResponse
+     */
+    public function rgeoCodeWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->latitude)) {
+            $query['latitude'] = $request->latitude;
+        }
+        if (!Utils::isUnset($request->longitude)) {
+            $query['longitude'] = $request->longitude;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RgeoCode',
+            'version'     => '2024-07-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ipaas/v1/geocode/regeo',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RgeoCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 逆地理编码，将经纬度转换为详细结构化的地址信息
+     *  *
+     * @param RgeoCodeRequest $request RgeoCodeRequest
+     *
+     * @return RgeoCodeResponse RgeoCodeResponse
+     */
+    public function rgeoCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->rgeoCodeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 根据起终点坐标检索符合条件的步行路线规划方案
+     *  *
+     * @param WalkingDirectionNovaRequest $request WalkingDirectionNovaRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return WalkingDirectionNovaResponse WalkingDirectionNovaResponse
+     */
+    public function walkingDirectionNovaWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->destinationLatitude)) {
+            $query['destinationLatitude'] = $request->destinationLatitude;
+        }
+        if (!Utils::isUnset($request->destinationLongitude)) {
+            $query['destinationLongitude'] = $request->destinationLongitude;
+        }
+        if (!Utils::isUnset($request->originLatitude)) {
+            $query['originLatitude'] = $request->originLatitude;
+        }
+        if (!Utils::isUnset($request->originLongitude)) {
+            $query['originLongitude'] = $request->originLongitude;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'WalkingDirectionNova',
+            'version'     => '2024-07-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ipaas/v2/direction/walking',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return WalkingDirectionNovaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据起终点坐标检索符合条件的步行路线规划方案
+     *  *
+     * @param WalkingDirectionNovaRequest $request WalkingDirectionNovaRequest
+     *
+     * @return WalkingDirectionNovaResponse WalkingDirectionNovaResponse
+     */
+    public function walkingDirectionNova($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->walkingDirectionNovaWithOptions($request, $headers, $runtime);
     }
 }
