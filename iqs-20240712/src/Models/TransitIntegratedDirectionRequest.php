@@ -2,17 +2,16 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\IQS\V20240712\Models\DrivingDirectionNovaResponseBody;
+namespace AlibabaCloud\SDK\IQS\V20240712\Models;
 
-use AlibabaCloud\SDK\IQS\V20240712\Models\DrivingDirectionNovaResponseBody\data\paths;
 use AlibabaCloud\Tea\Model;
 
-class data extends Model
+class TransitIntegratedDirectionRequest extends Model
 {
     /**
      * @var string
      */
-    public $count;
+    public $destinationCity;
 
     /**
      * @example 40.345456
@@ -29,6 +28,11 @@ class data extends Model
     public $destinationLongitude;
 
     /**
+     * @var string
+     */
+    public $originCity;
+
+    /**
      * @example 39.995197
      *
      * @var string
@@ -36,31 +40,18 @@ class data extends Model
     public $originLatitude;
 
     /**
-     * @example 117.466485
+     * @example 116.466485
      *
      * @var string
      */
     public $originLongitude;
-
-    /**
-     * @var paths[]
-     */
-    public $paths;
-
-    /**
-     * @example 20
-     *
-     * @var string
-     */
-    public $taxiCost;
     protected $_name = [
-        'count'                => 'count',
+        'destinationCity'      => 'destinationCity',
         'destinationLatitude'  => 'destinationLatitude',
         'destinationLongitude' => 'destinationLongitude',
+        'originCity'           => 'originCity',
         'originLatitude'       => 'originLatitude',
         'originLongitude'      => 'originLongitude',
-        'paths'                => 'paths',
-        'taxiCost'             => 'taxiCost',
     ];
 
     public function validate()
@@ -70,8 +61,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->count) {
-            $res['count'] = $this->count;
+        if (null !== $this->destinationCity) {
+            $res['destinationCity'] = $this->destinationCity;
         }
         if (null !== $this->destinationLatitude) {
             $res['destinationLatitude'] = $this->destinationLatitude;
@@ -79,23 +70,14 @@ class data extends Model
         if (null !== $this->destinationLongitude) {
             $res['destinationLongitude'] = $this->destinationLongitude;
         }
+        if (null !== $this->originCity) {
+            $res['originCity'] = $this->originCity;
+        }
         if (null !== $this->originLatitude) {
             $res['originLatitude'] = $this->originLatitude;
         }
         if (null !== $this->originLongitude) {
             $res['originLongitude'] = $this->originLongitude;
-        }
-        if (null !== $this->paths) {
-            $res['paths'] = [];
-            if (null !== $this->paths && \is_array($this->paths)) {
-                $n = 0;
-                foreach ($this->paths as $item) {
-                    $res['paths'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->taxiCost) {
-            $res['taxiCost'] = $this->taxiCost;
         }
 
         return $res;
@@ -104,13 +86,13 @@ class data extends Model
     /**
      * @param array $map
      *
-     * @return data
+     * @return TransitIntegratedDirectionRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['count'])) {
-            $model->count = $map['count'];
+        if (isset($map['destinationCity'])) {
+            $model->destinationCity = $map['destinationCity'];
         }
         if (isset($map['destinationLatitude'])) {
             $model->destinationLatitude = $map['destinationLatitude'];
@@ -118,23 +100,14 @@ class data extends Model
         if (isset($map['destinationLongitude'])) {
             $model->destinationLongitude = $map['destinationLongitude'];
         }
+        if (isset($map['originCity'])) {
+            $model->originCity = $map['originCity'];
+        }
         if (isset($map['originLatitude'])) {
             $model->originLatitude = $map['originLatitude'];
         }
         if (isset($map['originLongitude'])) {
             $model->originLongitude = $map['originLongitude'];
-        }
-        if (isset($map['paths'])) {
-            if (!empty($map['paths'])) {
-                $model->paths = [];
-                $n            = 0;
-                foreach ($map['paths'] as $item) {
-                    $model->paths[$n++] = null !== $item ? paths::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['taxiCost'])) {
-            $model->taxiCost = $map['taxiCost'];
         }
 
         return $model;

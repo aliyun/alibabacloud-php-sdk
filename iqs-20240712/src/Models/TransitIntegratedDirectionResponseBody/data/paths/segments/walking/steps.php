@@ -2,9 +2,10 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\IQS\V20240712\Models\BicyclingDirectionNovaResponseBody\data\paths;
+namespace AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody\data\paths\segments\walking;
 
-use AlibabaCloud\SDK\IQS\V20240712\Models\BicyclingDirectionNovaResponseBody\data\paths\steps\cost;
+use AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody\data\paths\segments\walking\steps\cost;
+use AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody\data\paths\segments\walking\steps\polyline;
 use AlibabaCloud\Tea\Model;
 
 class steps extends Model
@@ -25,7 +26,7 @@ class steps extends Model
     public $orientation;
 
     /**
-     * @var string
+     * @var polyline
      */
     public $polyline;
 
@@ -35,8 +36,6 @@ class steps extends Model
     public $roadName;
 
     /**
-     * @example 3000
-     *
      * @var string
      */
     public $stepDistanceMeter;
@@ -66,7 +65,7 @@ class steps extends Model
             $res['orientation'] = $this->orientation;
         }
         if (null !== $this->polyline) {
-            $res['polyline'] = $this->polyline;
+            $res['polyline'] = null !== $this->polyline ? $this->polyline->toMap() : null;
         }
         if (null !== $this->roadName) {
             $res['roadName'] = $this->roadName;
@@ -96,7 +95,7 @@ class steps extends Model
             $model->orientation = $map['orientation'];
         }
         if (isset($map['polyline'])) {
-            $model->polyline = $map['polyline'];
+            $model->polyline = polyline::fromMap($map['polyline']);
         }
         if (isset($map['roadName'])) {
             $model->roadName = $map['roadName'];

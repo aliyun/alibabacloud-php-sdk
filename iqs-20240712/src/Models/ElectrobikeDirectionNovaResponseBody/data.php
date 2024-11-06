@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $count;
+
+    /**
      * @example 40.345456
      *
      * @var string
@@ -49,6 +54,7 @@ class data extends Model
      */
     public $taxiCost;
     protected $_name = [
+        'count'                => 'count',
         'destinationLatitude'  => 'destinationLatitude',
         'destinationLongitude' => 'destinationLongitude',
         'originLatitude'       => 'originLatitude',
@@ -64,6 +70,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->count) {
+            $res['count'] = $this->count;
+        }
         if (null !== $this->destinationLatitude) {
             $res['destinationLatitude'] = $this->destinationLatitude;
         }
@@ -100,6 +109,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['count'])) {
+            $model->count = $map['count'];
+        }
         if (isset($map['destinationLatitude'])) {
             $model->destinationLatitude = $map['destinationLatitude'];
         }

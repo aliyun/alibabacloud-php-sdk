@@ -32,6 +32,8 @@ use AlibabaCloud\SDK\IQS\V20240712\Models\QueryRestaurantsRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\QueryRestaurantsResponse;
 use AlibabaCloud\SDK\IQS\V20240712\Models\RgeoCodeRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\RgeoCodeResponse;
+use AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionRequest;
+use AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponse;
 use AlibabaCloud\SDK\IQS\V20240712\Models\WalkingDirectionNovaRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\WalkingDirectionNovaResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -191,6 +193,9 @@ class IQS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->carType)) {
+            $query['carType'] = $request->carType;
+        }
         if (!Utils::isUnset($request->destinationLatitude)) {
             $query['destinationLatitude'] = $request->destinationLatitude;
         }
@@ -202,6 +207,9 @@ class IQS extends OpenApiClient
         }
         if (!Utils::isUnset($request->originLongitude)) {
             $query['originLongitude'] = $request->originLongitude;
+        }
+        if (!Utils::isUnset($request->plate)) {
+            $query['plate'] = $request->plate;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -798,6 +806,71 @@ class IQS extends OpenApiClient
         $headers = [];
 
         return $this->rgeoCodeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 公共交通路线规划方案
+     *  *
+     * @param TransitIntegratedDirectionRequest $request TransitIntegratedDirectionRequest
+     * @param string[]                          $headers map
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TransitIntegratedDirectionResponse TransitIntegratedDirectionResponse
+     */
+    public function transitIntegratedDirectionWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->destinationCity)) {
+            $query['destinationCity'] = $request->destinationCity;
+        }
+        if (!Utils::isUnset($request->destinationLatitude)) {
+            $query['destinationLatitude'] = $request->destinationLatitude;
+        }
+        if (!Utils::isUnset($request->destinationLongitude)) {
+            $query['destinationLongitude'] = $request->destinationLongitude;
+        }
+        if (!Utils::isUnset($request->originCity)) {
+            $query['originCity'] = $request->originCity;
+        }
+        if (!Utils::isUnset($request->originLatitude)) {
+            $query['originLatitude'] = $request->originLatitude;
+        }
+        if (!Utils::isUnset($request->originLongitude)) {
+            $query['originLongitude'] = $request->originLongitude;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TransitIntegratedDirection',
+            'version'     => '2024-07-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ipaas/v2/direction/transit/integrated',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return TransitIntegratedDirectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 公共交通路线规划方案
+     *  *
+     * @param TransitIntegratedDirectionRequest $request TransitIntegratedDirectionRequest
+     *
+     * @return TransitIntegratedDirectionResponse TransitIntegratedDirectionResponse
+     */
+    public function transitIntegratedDirection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->transitIntegratedDirectionWithOptions($request, $headers, $runtime);
     }
 
     /**

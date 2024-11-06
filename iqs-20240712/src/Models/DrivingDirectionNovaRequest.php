@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DrivingDirectionNovaRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $carType;
+
+    /**
      * @example 43.345456
      *
      * @var string
@@ -35,11 +40,18 @@ class DrivingDirectionNovaRequest extends Model
      * @var string
      */
     public $originLongitude;
+
+    /**
+     * @var string
+     */
+    public $plate;
     protected $_name = [
+        'carType'              => 'carType',
         'destinationLatitude'  => 'destinationLatitude',
         'destinationLongitude' => 'destinationLongitude',
         'originLatitude'       => 'originLatitude',
         'originLongitude'      => 'originLongitude',
+        'plate'                => 'plate',
     ];
 
     public function validate()
@@ -49,6 +61,9 @@ class DrivingDirectionNovaRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->carType) {
+            $res['carType'] = $this->carType;
+        }
         if (null !== $this->destinationLatitude) {
             $res['destinationLatitude'] = $this->destinationLatitude;
         }
@@ -60,6 +75,9 @@ class DrivingDirectionNovaRequest extends Model
         }
         if (null !== $this->originLongitude) {
             $res['originLongitude'] = $this->originLongitude;
+        }
+        if (null !== $this->plate) {
+            $res['plate'] = $this->plate;
         }
 
         return $res;
@@ -73,6 +91,9 @@ class DrivingDirectionNovaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['carType'])) {
+            $model->carType = $map['carType'];
+        }
         if (isset($map['destinationLatitude'])) {
             $model->destinationLatitude = $map['destinationLatitude'];
         }
@@ -84,6 +105,9 @@ class DrivingDirectionNovaRequest extends Model
         }
         if (isset($map['originLongitude'])) {
             $model->originLongitude = $map['originLongitude'];
+        }
+        if (isset($map['plate'])) {
+            $model->plate = $map['plate'];
         }
 
         return $model;

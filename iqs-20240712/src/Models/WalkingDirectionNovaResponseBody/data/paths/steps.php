@@ -27,6 +27,11 @@ class steps extends Model
     /**
      * @var string
      */
+    public $polyline;
+
+    /**
+     * @var string
+     */
     public $roadName;
 
     /**
@@ -39,6 +44,7 @@ class steps extends Model
         'cost'              => 'cost',
         'instruction'       => 'instruction',
         'orientation'       => 'orientation',
+        'polyline'          => 'polyline',
         'roadName'          => 'roadName',
         'stepDistanceMeter' => 'stepDistanceMeter',
     ];
@@ -58,6 +64,9 @@ class steps extends Model
         }
         if (null !== $this->orientation) {
             $res['orientation'] = $this->orientation;
+        }
+        if (null !== $this->polyline) {
+            $res['polyline'] = $this->polyline;
         }
         if (null !== $this->roadName) {
             $res['roadName'] = $this->roadName;
@@ -85,6 +94,9 @@ class steps extends Model
         }
         if (isset($map['orientation'])) {
             $model->orientation = $map['orientation'];
+        }
+        if (isset($map['polyline'])) {
+            $model->polyline = $map['polyline'];
         }
         if (isset($map['roadName'])) {
             $model->roadName = $map['roadName'];

@@ -2,20 +2,28 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\IQS\V20240712\Models\DrivingDirectionNovaResponseBody;
+namespace AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody;
 
-use AlibabaCloud\SDK\IQS\V20240712\Models\DrivingDirectionNovaResponseBody\data\paths;
+use AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody\data\cost;
+use AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody\data\paths;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @var cost
+     */
+    public $cost;
+
+    /**
+     * @example 5
+     *
      * @var string
      */
     public $count;
 
     /**
-     * @example 40.345456
+     * @example 39.995197
      *
      * @var string
      */
@@ -29,6 +37,13 @@ class data extends Model
     public $destinationLongitude;
 
     /**
+     * @example 445
+     *
+     * @var string
+     */
+    public $distanceMeter;
+
+    /**
      * @example 39.995197
      *
      * @var string
@@ -36,7 +51,7 @@ class data extends Model
     public $originLatitude;
 
     /**
-     * @example 117.466485
+     * @example 116.466485
      *
      * @var string
      */
@@ -46,21 +61,15 @@ class data extends Model
      * @var paths[]
      */
     public $paths;
-
-    /**
-     * @example 20
-     *
-     * @var string
-     */
-    public $taxiCost;
     protected $_name = [
+        'cost'                 => 'cost',
         'count'                => 'count',
         'destinationLatitude'  => 'destinationLatitude',
         'destinationLongitude' => 'destinationLongitude',
+        'distanceMeter'        => 'distanceMeter',
         'originLatitude'       => 'originLatitude',
         'originLongitude'      => 'originLongitude',
         'paths'                => 'paths',
-        'taxiCost'             => 'taxiCost',
     ];
 
     public function validate()
@@ -70,6 +79,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cost) {
+            $res['cost'] = null !== $this->cost ? $this->cost->toMap() : null;
+        }
         if (null !== $this->count) {
             $res['count'] = $this->count;
         }
@@ -78,6 +90,9 @@ class data extends Model
         }
         if (null !== $this->destinationLongitude) {
             $res['destinationLongitude'] = $this->destinationLongitude;
+        }
+        if (null !== $this->distanceMeter) {
+            $res['distanceMeter'] = $this->distanceMeter;
         }
         if (null !== $this->originLatitude) {
             $res['originLatitude'] = $this->originLatitude;
@@ -94,9 +109,6 @@ class data extends Model
                 }
             }
         }
-        if (null !== $this->taxiCost) {
-            $res['taxiCost'] = $this->taxiCost;
-        }
 
         return $res;
     }
@@ -109,6 +121,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['cost'])) {
+            $model->cost = cost::fromMap($map['cost']);
+        }
         if (isset($map['count'])) {
             $model->count = $map['count'];
         }
@@ -117,6 +132,9 @@ class data extends Model
         }
         if (isset($map['destinationLongitude'])) {
             $model->destinationLongitude = $map['destinationLongitude'];
+        }
+        if (isset($map['distanceMeter'])) {
+            $model->distanceMeter = $map['distanceMeter'];
         }
         if (isset($map['originLatitude'])) {
             $model->originLatitude = $map['originLatitude'];
@@ -132,9 +150,6 @@ class data extends Model
                     $model->paths[$n++] = null !== $item ? paths::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['taxiCost'])) {
-            $model->taxiCost = $map['taxiCost'];
         }
 
         return $model;
