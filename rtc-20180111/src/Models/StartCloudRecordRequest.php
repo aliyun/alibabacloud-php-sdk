@@ -4,9 +4,11 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\backgrounds;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\clockWidgets;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\images;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\panes;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\regionColor;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\storageConfig;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\texts;
 use AlibabaCloud\Tea\Model;
@@ -22,6 +24,11 @@ class StartCloudRecordRequest extends Model
      * @var string
      */
     public $appId;
+
+    /**
+     * @var backgrounds[]
+     */
+    public $backgrounds;
 
     /**
      * @description channelName
@@ -58,6 +65,11 @@ class StartCloudRecordRequest extends Model
     public $panes;
 
     /**
+     * @var regionColor
+     */
+    public $regionColor;
+
+    /**
      * @description storageConfig
      *
      * This parameter is required.
@@ -90,11 +102,13 @@ class StartCloudRecordRequest extends Model
     public $texts;
     protected $_name = [
         'appId'         => 'AppId',
+        'backgrounds'   => 'Backgrounds',
         'channelId'     => 'ChannelId',
         'clockWidgets'  => 'ClockWidgets',
         'cropMode'      => 'CropMode',
         'images'        => 'Images',
         'panes'         => 'Panes',
+        'regionColor'   => 'RegionColor',
         'storageConfig' => 'StorageConfig',
         'taskId'        => 'TaskId',
         'templateId'    => 'TemplateId',
@@ -110,6 +124,15 @@ class StartCloudRecordRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->backgrounds) {
+            $res['Backgrounds'] = [];
+            if (null !== $this->backgrounds && \is_array($this->backgrounds)) {
+                $n = 0;
+                foreach ($this->backgrounds as $item) {
+                    $res['Backgrounds'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
@@ -144,6 +167,9 @@ class StartCloudRecordRequest extends Model
                 }
             }
         }
+        if (null !== $this->regionColor) {
+            $res['RegionColor'] = null !== $this->regionColor ? $this->regionColor->toMap() : null;
+        }
         if (null !== $this->storageConfig) {
             $res['StorageConfig'] = null !== $this->storageConfig ? $this->storageConfig->toMap() : null;
         }
@@ -177,6 +203,15 @@ class StartCloudRecordRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+        if (isset($map['Backgrounds'])) {
+            if (!empty($map['Backgrounds'])) {
+                $model->backgrounds = [];
+                $n                  = 0;
+                foreach ($map['Backgrounds'] as $item) {
+                    $model->backgrounds[$n++] = null !== $item ? backgrounds::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
@@ -209,6 +244,9 @@ class StartCloudRecordRequest extends Model
                     $model->panes[$n++] = null !== $item ? panes::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RegionColor'])) {
+            $model->regionColor = regionColor::fromMap($map['RegionColor']);
         }
         if (isset($map['StorageConfig'])) {
             $model->storageConfig = storageConfig::fromMap($map['StorageConfig']);

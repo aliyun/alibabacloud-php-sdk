@@ -8,6 +8,9 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\AddRecordTemplateRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\AddRecordTemplateResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppLayoutRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppLayoutResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppLayoutShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppRecordTemplateRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppRecordTemplateResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppRecordTemplateShrinkRequest;
@@ -20,6 +23,9 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateEventSubscribeRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateEventSubscribeResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateMPULayoutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateMPULayoutResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppLayoutRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppLayoutResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppLayoutShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppRecordTemplateRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppRecordTemplateResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppRecordTemplateShrinkRequest;
@@ -153,6 +159,9 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\GetMPUTaskStatusRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\GetMPUTaskStatusResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppCallbackStatusRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppCallbackStatusResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppLayoutRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppLayoutResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppLayoutShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppLiveStreamStatusRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppLiveStreamStatusResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppRecordStatusRequest;
@@ -345,6 +354,64 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addRecordTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 新增app自定义布局
+     *  *
+     * @param CreateAppLayoutRequest $tmpReq  CreateAppLayoutRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateAppLayoutResponse CreateAppLayoutResponse
+     */
+    public function createAppLayoutWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateAppLayoutShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->layout)) {
+            $request->layoutShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->layout, 'Layout', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->layoutShrink)) {
+            $query['Layout'] = $request->layoutShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAppLayout',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAppLayoutResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新增app自定义布局
+     *  *
+     * @param CreateAppLayoutRequest $request CreateAppLayoutRequest
+     *
+     * @return CreateAppLayoutResponse CreateAppLayoutResponse
+     */
+    public function createAppLayout($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAppLayoutWithOptions($request, $runtime);
     }
 
     /**
@@ -644,6 +711,64 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createMPULayoutWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除app自定义布局
+     *  *
+     * @param DeleteAppLayoutRequest $tmpReq  DeleteAppLayoutRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteAppLayoutResponse DeleteAppLayoutResponse
+     */
+    public function deleteAppLayoutWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteAppLayoutShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->layout)) {
+            $request->layoutShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->layout, 'Layout', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->layoutShrink)) {
+            $query['Layout'] = $request->layoutShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAppLayout',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAppLayoutResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除app自定义布局
+     *  *
+     * @param DeleteAppLayoutRequest $request DeleteAppLayoutRequest
+     *
+     * @return DeleteAppLayoutResponse DeleteAppLayoutResponse
+     */
+    public function deleteAppLayout($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAppLayoutWithOptions($request, $runtime);
     }
 
     /**
@@ -4167,6 +4292,64 @@ class Rtc extends OpenApiClient
     }
 
     /**
+     * @summary 修改app自定义布局
+     *  *
+     * @param ModifyAppLayoutRequest $tmpReq  ModifyAppLayoutRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyAppLayoutResponse ModifyAppLayoutResponse
+     */
+    public function modifyAppLayoutWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyAppLayoutShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->layout)) {
+            $request->layoutShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->layout, 'Layout', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->layoutShrink)) {
+            $query['Layout'] = $request->layoutShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAppLayout',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyAppLayoutResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改app自定义布局
+     *  *
+     * @param ModifyAppLayoutRequest $request ModifyAppLayoutRequest
+     *
+     * @return ModifyAppLayoutResponse ModifyAppLayoutResponse
+     */
+    public function modifyAppLayout($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAppLayoutWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 修改应用旁路开关
      *  *
      * @param ModifyAppLiveStreamStatusRequest $request ModifyAppLiveStreamStatusRequest
@@ -4670,6 +4853,9 @@ class Rtc extends OpenApiClient
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
         }
+        if (!Utils::isUnset($request->backgrounds)) {
+            $query['Backgrounds'] = $request->backgrounds;
+        }
         if (!Utils::isUnset($request->channelId)) {
             $query['ChannelId'] = $request->channelId;
         }
@@ -4684,6 +4870,9 @@ class Rtc extends OpenApiClient
         }
         if (!Utils::isUnset($request->panes)) {
             $query['Panes'] = $request->panes;
+        }
+        if (!Utils::isUnset($request->regionColor)) {
+            $query['RegionColor'] = $request->regionColor;
         }
         if (!Utils::isUnset($request->storageConfig)) {
             $query['StorageConfig'] = $request->storageConfig;
@@ -4978,6 +5167,9 @@ class Rtc extends OpenApiClient
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
         }
+        if (!Utils::isUnset($request->backgrounds)) {
+            $query['Backgrounds'] = $request->backgrounds;
+        }
         if (!Utils::isUnset($request->channelId)) {
             $query['ChannelId'] = $request->channelId;
         }
@@ -4992,6 +5184,9 @@ class Rtc extends OpenApiClient
         }
         if (!Utils::isUnset($request->panes)) {
             $query['Panes'] = $request->panes;
+        }
+        if (!Utils::isUnset($request->regionColor)) {
+            $query['RegionColor'] = $request->regionColor;
         }
         if (!Utils::isUnset($request->taskId)) {
             $query['TaskId'] = $request->taskId;
@@ -5428,6 +5623,9 @@ class Rtc extends OpenApiClient
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
         }
+        if (!Utils::isUnset($request->backgrounds)) {
+            $query['Backgrounds'] = $request->backgrounds;
+        }
         if (!Utils::isUnset($request->channelId)) {
             $query['ChannelId'] = $request->channelId;
         }
@@ -5789,6 +5987,9 @@ class Rtc extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->backgrounds)) {
+            $query['Backgrounds'] = $request->backgrounds;
         }
         if (!Utils::isUnset($request->channelId)) {
             $query['ChannelId'] = $request->channelId;

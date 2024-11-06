@@ -4,9 +4,11 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\backgrounds;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\clockWidgets;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\images;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\panes;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\regionColor;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\texts;
 use AlibabaCloud\Tea\Model;
 
@@ -20,6 +22,11 @@ class StartStreamingOutRequest extends Model
      * @var string
      */
     public $appId;
+
+    /**
+     * @var backgrounds[]
+     */
+    public $backgrounds;
 
     /**
      * @description This parameter is required.
@@ -53,6 +60,11 @@ class StartStreamingOutRequest extends Model
     public $panes;
 
     /**
+     * @var regionColor
+     */
+    public $regionColor;
+
+    /**
      * @example 123
      *
      * @var string
@@ -83,11 +95,13 @@ class StartStreamingOutRequest extends Model
     public $url;
     protected $_name = [
         'appId'        => 'AppId',
+        'backgrounds'  => 'Backgrounds',
         'channelId'    => 'ChannelId',
         'clockWidgets' => 'ClockWidgets',
         'cropMode'     => 'CropMode',
         'images'       => 'Images',
         'panes'        => 'Panes',
+        'regionColor'  => 'RegionColor',
         'taskId'       => 'TaskId',
         'templateId'   => 'TemplateId',
         'texts'        => 'Texts',
@@ -103,6 +117,15 @@ class StartStreamingOutRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->backgrounds) {
+            $res['Backgrounds'] = [];
+            if (null !== $this->backgrounds && \is_array($this->backgrounds)) {
+                $n = 0;
+                foreach ($this->backgrounds as $item) {
+                    $res['Backgrounds'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
@@ -137,6 +160,9 @@ class StartStreamingOutRequest extends Model
                 }
             }
         }
+        if (null !== $this->regionColor) {
+            $res['RegionColor'] = null !== $this->regionColor ? $this->regionColor->toMap() : null;
+        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -170,6 +196,15 @@ class StartStreamingOutRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+        if (isset($map['Backgrounds'])) {
+            if (!empty($map['Backgrounds'])) {
+                $model->backgrounds = [];
+                $n                  = 0;
+                foreach ($map['Backgrounds'] as $item) {
+                    $model->backgrounds[$n++] = null !== $item ? backgrounds::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
@@ -202,6 +237,9 @@ class StartStreamingOutRequest extends Model
                     $model->panes[$n++] = null !== $item ? panes::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RegionColor'])) {
+            $model->regionColor = regionColor::fromMap($map['RegionColor']);
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

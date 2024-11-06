@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutRequest\backgrounds;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutRequest\clockWidgets;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutRequest\images;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutRequest\panes;
@@ -20,6 +21,11 @@ class UpdateStreamingOutRequest extends Model
      * @var string
      */
     public $appId;
+
+    /**
+     * @var backgrounds[]
+     */
+    public $backgrounds;
 
     /**
      * @description This parameter is required.
@@ -69,6 +75,7 @@ class UpdateStreamingOutRequest extends Model
     public $texts;
     protected $_name = [
         'appId'        => 'AppId',
+        'backgrounds'  => 'Backgrounds',
         'channelId'    => 'ChannelId',
         'clockWidgets' => 'ClockWidgets',
         'images'       => 'Images',
@@ -87,6 +94,15 @@ class UpdateStreamingOutRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->backgrounds) {
+            $res['Backgrounds'] = [];
+            if (null !== $this->backgrounds && \is_array($this->backgrounds)) {
+                $n = 0;
+                foreach ($this->backgrounds as $item) {
+                    $res['Backgrounds'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
@@ -147,6 +163,15 @@ class UpdateStreamingOutRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['Backgrounds'])) {
+            if (!empty($map['Backgrounds'])) {
+                $model->backgrounds = [];
+                $n                  = 0;
+                foreach ($map['Backgrounds'] as $item) {
+                    $model->backgrounds[$n++] = null !== $item ? backgrounds::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
