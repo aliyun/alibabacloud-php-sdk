@@ -233,6 +233,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsResourceUsageRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsResourceUsageResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsRouteEntryListRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsRouteEntryListResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsRouteTablesRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsRouteTablesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlAvailableResourceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlAvailableResourceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlRequest;
@@ -6891,6 +6893,65 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeEnsRouteEntryListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries route tables.
+     *  *
+     * @param DescribeEnsRouteTablesRequest $request DescribeEnsRouteTablesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeEnsRouteTablesResponse DescribeEnsRouteTablesResponse
+     */
+    public function describeEnsRouteTablesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ensRegionId)) {
+            $query['EnsRegionId'] = $request->ensRegionId;
+        }
+        if (!Utils::isUnset($request->networkId)) {
+            $query['NetworkId'] = $request->networkId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->routeTableId)) {
+            $query['RouteTableId'] = $request->routeTableId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEnsRouteTables',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEnsRouteTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries route tables.
+     *  *
+     * @param DescribeEnsRouteTablesRequest $request DescribeEnsRouteTablesRequest
+     *
+     * @return DescribeEnsRouteTablesResponse DescribeEnsRouteTablesResponse
+     */
+    public function describeEnsRouteTables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEnsRouteTablesWithOptions($request, $runtime);
     }
 
     /**

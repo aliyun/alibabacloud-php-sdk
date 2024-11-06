@@ -1,3 +1,7 @@
+2024-11-06 Version: 6.2.0
+- Support API DescribeEnsRouteTables.
+
+
 2024-11-05 Version: 6.1.1
 - Update API CreateARMServerInstances: add param EnvironmentVar.
 - Update API CreateEnsRouteEntry: update param NextHopType.
