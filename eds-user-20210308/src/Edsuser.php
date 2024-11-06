@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\BatchSetDesktopManagerRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\BatchSetDesktopManagerResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\ChangeUserPasswordRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\ChangeUserPasswordResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CheckUsedPropertyRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CheckUsedPropertyResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CheckUsedPropertyValueRequest;
@@ -145,6 +147,56 @@ class Edsuser extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchSetDesktopManagerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 管理员修改用户密码
+     *  *
+     * @param ChangeUserPasswordRequest $request ChangeUserPasswordRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ChangeUserPasswordResponse ChangeUserPasswordResponse
+     */
+    public function changeUserPasswordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endUserId)) {
+            $body['EndUserId'] = $request->endUserId;
+        }
+        if (!Utils::isUnset($request->newPassword)) {
+            $body['NewPassword'] = $request->newPassword;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeUserPassword',
+            'version'     => '2021-03-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChangeUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 管理员修改用户密码
+     *  *
+     * @param ChangeUserPasswordRequest $request ChangeUserPasswordRequest
+     *
+     * @return ChangeUserPasswordResponse ChangeUserPasswordResponse
+     */
+    public function changeUserPassword($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeUserPasswordWithOptions($request, $runtime);
     }
 
     /**
@@ -907,12 +959,17 @@ class Edsuser extends OpenApiClient
     public function lockUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->logoutSession)) {
+            $query['LogoutSession'] = $request->logoutSession;
+        }
         $body = [];
         if (!Utils::isUnset($request->users)) {
             $body['Users'] = $request->users;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'LockUsers',
