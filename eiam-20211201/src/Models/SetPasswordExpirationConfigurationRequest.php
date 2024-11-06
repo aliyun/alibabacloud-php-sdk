@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SetPasswordExpirationConfigurationRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $effectiveAuthenticationSourceIds;
+
+    /**
      * @description The instance ID.
      *
      * This parameter is required.
@@ -92,6 +97,7 @@ class SetPasswordExpirationConfigurationRequest extends Model
      */
     public $passwordValidMaxDay;
     protected $_name = [
+        'effectiveAuthenticationSourceIds'       => 'EffectiveAuthenticationSourceIds',
         'instanceId'                             => 'InstanceId',
         'passwordExpirationAction'               => 'PasswordExpirationAction',
         'passwordExpirationNotificationChannels' => 'PasswordExpirationNotificationChannels',
@@ -109,6 +115,9 @@ class SetPasswordExpirationConfigurationRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->effectiveAuthenticationSourceIds) {
+            $res['EffectiveAuthenticationSourceIds'] = $this->effectiveAuthenticationSourceIds;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -145,6 +154,11 @@ class SetPasswordExpirationConfigurationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EffectiveAuthenticationSourceIds'])) {
+            if (!empty($map['EffectiveAuthenticationSourceIds'])) {
+                $model->effectiveAuthenticationSourceIds = $map['EffectiveAuthenticationSourceIds'];
+            }
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

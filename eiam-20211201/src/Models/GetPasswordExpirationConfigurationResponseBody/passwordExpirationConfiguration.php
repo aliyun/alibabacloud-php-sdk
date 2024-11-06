@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class passwordExpirationConfiguration extends Model
 {
     /**
+     * @var string[]
+     */
+    public $effectiveAuthenticationSourceIds;
+
+    /**
      * @description The action to take when a password expires. Valid values:
      *
      *   forbid_login: Prohibit the user from using the password to log on to IDaaS.
@@ -81,6 +86,7 @@ class passwordExpirationConfiguration extends Model
      */
     public $passwordValidMaxDay;
     protected $_name = [
+        'effectiveAuthenticationSourceIds'       => 'EffectiveAuthenticationSourceIds',
         'passwordExpirationAction'               => 'PasswordExpirationAction',
         'passwordExpirationNotificationChannels' => 'PasswordExpirationNotificationChannels',
         'passwordExpirationNotificationDuration' => 'PasswordExpirationNotificationDuration',
@@ -97,6 +103,9 @@ class passwordExpirationConfiguration extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->effectiveAuthenticationSourceIds) {
+            $res['EffectiveAuthenticationSourceIds'] = $this->effectiveAuthenticationSourceIds;
+        }
         if (null !== $this->passwordExpirationAction) {
             $res['PasswordExpirationAction'] = $this->passwordExpirationAction;
         }
@@ -130,6 +139,11 @@ class passwordExpirationConfiguration extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EffectiveAuthenticationSourceIds'])) {
+            if (!empty($map['EffectiveAuthenticationSourceIds'])) {
+                $model->effectiveAuthenticationSourceIds = $map['EffectiveAuthenticationSourceIds'];
+            }
+        }
         if (isset($map['PasswordExpirationAction'])) {
             $model->passwordExpirationAction = $map['PasswordExpirationAction'];
         }

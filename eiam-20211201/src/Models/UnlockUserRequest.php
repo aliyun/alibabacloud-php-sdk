@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UnlockUserRequest extends Model
 {
     /**
-     * @description IDaaS EIAM实例的ID。
+     * @description The instance ID.
      *
      * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -19,10 +19,10 @@ class UnlockUserRequest extends Model
     public $instanceId;
 
     /**
-     * @description 账户ID
+     * @description The account ID.
      *
      * This parameter is required.
-     * @example u_001
+     * @example user_d6sbsuumeta4h66ec3il7yxxxx
      *
      * @var string
      */

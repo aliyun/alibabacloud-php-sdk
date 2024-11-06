@@ -5502,6 +5502,9 @@ class Eiam extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->effectiveAuthenticationSourceIds)) {
+            $query['EffectiveAuthenticationSourceIds'] = $request->effectiveAuthenticationSourceIds;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -5724,7 +5727,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 解锁账户
+     * @summary Unlocks an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) that is locked.
      *  *
      * @param UnlockUserRequest $request UnlockUserRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -5760,7 +5763,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 解锁账户
+     * @summary Unlocks an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) that is locked.
      *  *
      * @param UnlockUserRequest $request UnlockUserRequest
      *
