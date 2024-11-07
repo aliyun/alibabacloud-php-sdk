@@ -56,7 +56,7 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsResponse;
-use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceCategoriesResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsShrinkRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstancesRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstancesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceSharedAccountsRequest;
@@ -332,10 +332,16 @@ class ComputeNestSupplier extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new CreateArtifactShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->artifactBuildProperty)) {
+            $request->artifactBuildPropertyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->artifactBuildProperty, 'ArtifactBuildProperty', 'json');
+        }
         if (!Utils::isUnset($tmpReq->artifactProperty)) {
             $request->artifactPropertyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->artifactProperty, 'ArtifactProperty', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->artifactBuildPropertyShrink)) {
+            $query['ArtifactBuildProperty'] = $request->artifactBuildPropertyShrink;
+        }
         if (!Utils::isUnset($request->artifactId)) {
             $query['ArtifactId'] = $request->artifactId;
         }
@@ -1475,17 +1481,25 @@ class ComputeNestSupplier extends OpenApiClient
     /**
      * @summary Queries the version information about a deployment package.
      *  *
-     * @param ListArtifactVersionsRequest $request ListArtifactVersionsRequest
+     * @param ListArtifactVersionsRequest $tmpReq  ListArtifactVersionsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
      * @return ListArtifactVersionsResponse ListArtifactVersionsResponse
      */
-    public function listArtifactVersionsWithOptions($request, $runtime)
+    public function listArtifactVersionsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListArtifactVersionsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->filters)) {
+            $request->filtersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filters, 'Filters', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->artifactId)) {
             $query['ArtifactId'] = $request->artifactId;
+        }
+        if (!Utils::isUnset($request->filtersShrink)) {
+            $query['Filters'] = $request->filtersShrink;
         }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
@@ -1582,43 +1596,6 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listArtifactsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 查询服务分类
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
-     *
-     * @return ListServiceCategoriesResponse ListServiceCategoriesResponse
-     */
-    public function listServiceCategoriesWithOptions($runtime)
-    {
-        $req    = new OpenApiRequest([]);
-        $params = new Params([
-            'action'      => 'ListServiceCategories',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListServiceCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 查询服务分类
-     *  *
-     * @return ListServiceCategoriesResponse ListServiceCategoriesResponse
-     */
-    public function listServiceCategories()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listServiceCategoriesWithOptions($runtime);
     }
 
     /**
@@ -2075,7 +2052,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * @summary 商家拒绝服务使用请求
+     * @summary Reject service usage.
      *  *
      * @param RejectServiceUsageRequest $request RejectServiceUsageRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -2120,7 +2097,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * @summary 商家拒绝服务使用请求
+     * @summary Reject service usage.
      *  *
      * @param RejectServiceUsageRequest $request RejectServiceUsageRequest
      *
@@ -2411,10 +2388,16 @@ class ComputeNestSupplier extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new UpdateArtifactShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->artifactBuildProperty)) {
+            $request->artifactBuildPropertyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->artifactBuildProperty, 'ArtifactBuildProperty', 'json');
+        }
         if (!Utils::isUnset($tmpReq->artifactProperty)) {
             $request->artifactPropertyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->artifactProperty, 'ArtifactProperty', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->artifactBuildPropertyShrink)) {
+            $query['ArtifactBuildProperty'] = $request->artifactBuildPropertyShrink;
+        }
         if (!Utils::isUnset($request->artifactId)) {
             $query['ArtifactId'] = $request->artifactId;
         }

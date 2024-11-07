@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RejectServiceUsageRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example 10CM943JP0EN9D51H
      *
      * @var string
@@ -16,13 +18,18 @@ class RejectServiceUsageRequest extends Model
     public $clientToken;
 
     /**
+     * @description Reject comments.
+     *
+     * @example Thanks for your application, please add your industry information.
+     *
      * @var string
      */
     public $comments;
 
     /**
-     * @description This parameter is required.
+     * @description The service ID.
      *
+     * This parameter is required.
      * @example service-2117508c874c41xxxxxx
      *
      * @var string
@@ -30,6 +37,11 @@ class RejectServiceUsageRequest extends Model
     public $serviceId;
 
     /**
+     * @description The share type of the service. Default value: SharedAccount. Valid values:
+     *
+     *   SharedAccount: The service is shared by multiple accounts.
+     *   Reseller: The service is distributed.
+     *
      * @example SharedAccount
      *
      * @var int
@@ -37,8 +49,9 @@ class RejectServiceUsageRequest extends Model
     public $type;
 
     /**
-     * @description This parameter is required.
+     * @description User ali uid.
      *
+     * This parameter is required.
      * @example 1563457855xxxxxx
      *
      * @var int

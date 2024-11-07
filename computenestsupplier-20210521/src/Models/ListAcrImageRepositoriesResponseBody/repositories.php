@@ -43,11 +43,17 @@ class repositories extends Model
      * @var string
      */
     public $repoName;
+
+    /**
+     * @var string
+     */
+    public $repoType;
     protected $_name = [
         'createTime'   => 'CreateTime',
         'modifiedTime' => 'ModifiedTime',
         'repoId'       => 'RepoId',
         'repoName'     => 'RepoName',
+        'repoType'     => 'RepoType',
     ];
 
     public function validate()
@@ -68,6 +74,9 @@ class repositories extends Model
         }
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
+        }
+        if (null !== $this->repoType) {
+            $res['RepoType'] = $this->repoType;
         }
 
         return $res;
@@ -92,6 +101,9 @@ class repositories extends Model
         }
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];
+        }
+        if (isset($map['RepoType'])) {
+            $model->repoType = $map['RepoType'];
         }
 
         return $model;

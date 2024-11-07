@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateArtifactResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $artifactBuildProperty;
+
+    /**
      * @description The ID of the deployment package.
      *
      * @example artifact-eea08d1e2d3a43aexxxx
@@ -105,16 +110,17 @@ class UpdateArtifactResponseBody extends Model
      */
     public $versionName;
     protected $_name = [
-        'artifactId'       => 'ArtifactId',
-        'artifactProperty' => 'ArtifactProperty',
-        'artifactType'     => 'ArtifactType',
-        'artifactVersion'  => 'ArtifactVersion',
-        'description'      => 'Description',
-        'gmtModified'      => 'GmtModified',
-        'requestId'        => 'RequestId',
-        'status'           => 'Status',
-        'supportRegionIds' => 'SupportRegionIds',
-        'versionName'      => 'VersionName',
+        'artifactBuildProperty' => 'ArtifactBuildProperty',
+        'artifactId'            => 'ArtifactId',
+        'artifactProperty'      => 'ArtifactProperty',
+        'artifactType'          => 'ArtifactType',
+        'artifactVersion'       => 'ArtifactVersion',
+        'description'           => 'Description',
+        'gmtModified'           => 'GmtModified',
+        'requestId'             => 'RequestId',
+        'status'                => 'Status',
+        'supportRegionIds'      => 'SupportRegionIds',
+        'versionName'           => 'VersionName',
     ];
 
     public function validate()
@@ -124,6 +130,9 @@ class UpdateArtifactResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->artifactBuildProperty) {
+            $res['ArtifactBuildProperty'] = $this->artifactBuildProperty;
+        }
         if (null !== $this->artifactId) {
             $res['ArtifactId'] = $this->artifactId;
         }
@@ -166,6 +175,9 @@ class UpdateArtifactResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArtifactBuildProperty'])) {
+            $model->artifactBuildProperty = $map['ArtifactBuildProperty'];
+        }
         if (isset($map['ArtifactId'])) {
             $model->artifactId = $map['ArtifactId'];
         }

@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class artifacts extends Model
 {
     /**
+     * @description The build properties of the artifact, utilized for hosting and building the deployment package.
+     *
+     * @example "{\\"RegionId\\":\\"xxx\\", \\"SourceImageId\\":\\"xxx\\", \\"\\":\\"xxx\\", \\"CommandType\\":\\"xxx\\", \\"CommandContent\\":\\"xxx\\"}"
+     *
+     * @var string
+     */
+    public $artifactBuildProperty;
+
+    /**
      * @description The ID of the deployment package.
      *
      * @example artifact-eea08d1e2d3a43aexxxx
@@ -117,6 +126,15 @@ class artifacts extends Model
     public $status;
 
     /**
+     * @description The description of the deployment package.
+     *
+     * @example "/usr/local/share/aliyun-assist/work/script/t-hz04zm90y6og0sg.sh: line 1: pip: command not found"
+     *
+     * @var string
+     */
+    public $statusDetail;
+
+    /**
      * @description The ID of the region that supports the deployment package.
      *
      * @example [
@@ -134,19 +152,21 @@ class artifacts extends Model
      */
     public $versionName;
     protected $_name = [
-        'artifactId'          => 'ArtifactId',
-        'artifactProperty'    => 'ArtifactProperty',
-        'artifactType'        => 'ArtifactType',
-        'artifactVersion'     => 'ArtifactVersion',
-        'gmtCreate'           => 'GmtCreate',
-        'gmtModified'         => 'GmtModified',
-        'imageDelivery'       => 'ImageDelivery',
-        'progress'            => 'Progress',
-        'resultFile'          => 'ResultFile',
-        'securityAuditResult' => 'SecurityAuditResult',
-        'status'              => 'Status',
-        'supportRegionIds'    => 'SupportRegionIds',
-        'versionName'         => 'VersionName',
+        'artifactBuildProperty' => 'ArtifactBuildProperty',
+        'artifactId'            => 'ArtifactId',
+        'artifactProperty'      => 'ArtifactProperty',
+        'artifactType'          => 'ArtifactType',
+        'artifactVersion'       => 'ArtifactVersion',
+        'gmtCreate'             => 'GmtCreate',
+        'gmtModified'           => 'GmtModified',
+        'imageDelivery'         => 'ImageDelivery',
+        'progress'              => 'Progress',
+        'resultFile'            => 'ResultFile',
+        'securityAuditResult'   => 'SecurityAuditResult',
+        'status'                => 'Status',
+        'statusDetail'          => 'StatusDetail',
+        'supportRegionIds'      => 'SupportRegionIds',
+        'versionName'           => 'VersionName',
     ];
 
     public function validate()
@@ -156,6 +176,9 @@ class artifacts extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->artifactBuildProperty) {
+            $res['ArtifactBuildProperty'] = $this->artifactBuildProperty;
+        }
         if (null !== $this->artifactId) {
             $res['ArtifactId'] = $this->artifactId;
         }
@@ -189,6 +212,9 @@ class artifacts extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+        if (null !== $this->statusDetail) {
+            $res['StatusDetail'] = $this->statusDetail;
+        }
         if (null !== $this->supportRegionIds) {
             $res['SupportRegionIds'] = $this->supportRegionIds;
         }
@@ -207,6 +233,9 @@ class artifacts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArtifactBuildProperty'])) {
+            $model->artifactBuildProperty = $map['ArtifactBuildProperty'];
+        }
         if (isset($map['ArtifactId'])) {
             $model->artifactId = $map['ArtifactId'];
         }
@@ -239,6 +268,9 @@ class artifacts extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['StatusDetail'])) {
+            $model->statusDetail = $map['StatusDetail'];
         }
         if (isset($map['SupportRegionIds'])) {
             $model->supportRegionIds = $map['SupportRegionIds'];

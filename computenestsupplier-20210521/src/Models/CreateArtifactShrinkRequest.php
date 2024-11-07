@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class CreateArtifactShrinkRequest extends Model
 {
     /**
+     * @description The build properties of the artifact, utilized for hosting and building the deployment package.
+     *
+     * @var string
+     */
+    public $artifactBuildPropertyShrink;
+
+    /**
      * @description The ID of the deployment package.
      *
      * @example artifact-eea08d1e2d3a43aexxxx
@@ -92,15 +99,16 @@ class CreateArtifactShrinkRequest extends Model
      */
     public $versionName;
     protected $_name = [
-        'artifactId'             => 'ArtifactId',
-        'artifactPropertyShrink' => 'ArtifactProperty',
-        'artifactType'           => 'ArtifactType',
-        'description'            => 'Description',
-        'name'                   => 'Name',
-        'resourceGroupId'        => 'ResourceGroupId',
-        'supportRegionIds'       => 'SupportRegionIds',
-        'tag'                    => 'Tag',
-        'versionName'            => 'VersionName',
+        'artifactBuildPropertyShrink' => 'ArtifactBuildProperty',
+        'artifactId'                  => 'ArtifactId',
+        'artifactPropertyShrink'      => 'ArtifactProperty',
+        'artifactType'                => 'ArtifactType',
+        'description'                 => 'Description',
+        'name'                        => 'Name',
+        'resourceGroupId'             => 'ResourceGroupId',
+        'supportRegionIds'            => 'SupportRegionIds',
+        'tag'                         => 'Tag',
+        'versionName'                 => 'VersionName',
     ];
 
     public function validate()
@@ -110,6 +118,9 @@ class CreateArtifactShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->artifactBuildPropertyShrink) {
+            $res['ArtifactBuildProperty'] = $this->artifactBuildPropertyShrink;
+        }
         if (null !== $this->artifactId) {
             $res['ArtifactId'] = $this->artifactId;
         }
@@ -155,6 +166,9 @@ class CreateArtifactShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArtifactBuildProperty'])) {
+            $model->artifactBuildPropertyShrink = $map['ArtifactBuildProperty'];
+        }
         if (isset($map['ArtifactId'])) {
             $model->artifactId = $map['ArtifactId'];
         }

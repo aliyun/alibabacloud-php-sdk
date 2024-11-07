@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateArtifactRequest\artifactBuildProperty;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateArtifactRequest\artifactProperty;
 use AlibabaCloud\Tea\Model;
 
 class UpdateArtifactRequest extends Model
 {
+    /**
+     * @var artifactBuildProperty
+     */
+    public $artifactBuildProperty;
+
     /**
      * @description The ID of the deployment package.
      *
@@ -53,11 +59,12 @@ class UpdateArtifactRequest extends Model
      */
     public $versionName;
     protected $_name = [
-        'artifactId'       => 'ArtifactId',
-        'artifactProperty' => 'ArtifactProperty',
-        'description'      => 'Description',
-        'supportRegionIds' => 'SupportRegionIds',
-        'versionName'      => 'VersionName',
+        'artifactBuildProperty' => 'ArtifactBuildProperty',
+        'artifactId'            => 'ArtifactId',
+        'artifactProperty'      => 'ArtifactProperty',
+        'description'           => 'Description',
+        'supportRegionIds'      => 'SupportRegionIds',
+        'versionName'           => 'VersionName',
     ];
 
     public function validate()
@@ -67,6 +74,9 @@ class UpdateArtifactRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->artifactBuildProperty) {
+            $res['ArtifactBuildProperty'] = null !== $this->artifactBuildProperty ? $this->artifactBuildProperty->toMap() : null;
+        }
         if (null !== $this->artifactId) {
             $res['ArtifactId'] = $this->artifactId;
         }
@@ -94,6 +104,9 @@ class UpdateArtifactRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArtifactBuildProperty'])) {
+            $model->artifactBuildProperty = artifactBuildProperty::fromMap($map['ArtifactBuildProperty']);
+        }
         if (isset($map['ArtifactId'])) {
             $model->artifactId = $map['ArtifactId'];
         }

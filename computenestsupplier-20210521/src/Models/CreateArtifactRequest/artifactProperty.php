@@ -78,6 +78,11 @@ class artifactProperty extends Model
     public $repoName;
 
     /**
+     * @var string
+     */
+    public $repoType;
+
+    /**
      * @description The script content.
      *
      * >  This parameter is available only if the deployment package is a script.
@@ -113,6 +118,7 @@ class artifactProperty extends Model
         'regionId'           => 'RegionId',
         'repoId'             => 'RepoId',
         'repoName'           => 'RepoName',
+        'repoType'           => 'RepoType',
         'scriptMetadata'     => 'ScriptMetadata',
         'tag'                => 'Tag',
         'url'                => 'Url',
@@ -145,6 +151,9 @@ class artifactProperty extends Model
         }
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
+        }
+        if (null !== $this->repoType) {
+            $res['RepoType'] = $this->repoType;
         }
         if (null !== $this->scriptMetadata) {
             $res['ScriptMetadata'] = $this->scriptMetadata;
@@ -187,6 +196,9 @@ class artifactProperty extends Model
         }
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];
+        }
+        if (isset($map['RepoType'])) {
+            $model->repoType = $map['RepoType'];
         }
         if (isset($map['ScriptMetadata'])) {
             $model->scriptMetadata = $map['ScriptMetadata'];

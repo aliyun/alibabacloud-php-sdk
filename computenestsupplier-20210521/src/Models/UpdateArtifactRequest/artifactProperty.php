@@ -59,6 +59,21 @@ class artifactProperty extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $repoId;
+
+    /**
+     * @var string
+     */
+    public $repoName;
+
+    /**
+     * @var string
+     */
+    public $repoType;
+
+    /**
      * @description The script content of the deployment package.
      *
      * >  This parameter is available only if the deployment package is a script.
@@ -67,6 +82,11 @@ class artifactProperty extends Model
      * @var string
      */
     public $scriptMetadata;
+
+    /**
+     * @var string
+     */
+    public $tag;
 
     /**
      * @description The URL of the deployment package object.
@@ -84,7 +104,11 @@ class artifactProperty extends Model
         'fileScriptMetadata' => 'FileScriptMetadata',
         'imageId'            => 'ImageId',
         'regionId'           => 'RegionId',
+        'repoId'             => 'RepoId',
+        'repoName'           => 'RepoName',
+        'repoType'           => 'RepoType',
         'scriptMetadata'     => 'ScriptMetadata',
+        'tag'                => 'Tag',
         'url'                => 'Url',
     ];
 
@@ -110,8 +134,20 @@ class artifactProperty extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->repoId) {
+            $res['RepoId'] = $this->repoId;
+        }
+        if (null !== $this->repoName) {
+            $res['RepoName'] = $this->repoName;
+        }
+        if (null !== $this->repoType) {
+            $res['RepoType'] = $this->repoType;
+        }
         if (null !== $this->scriptMetadata) {
             $res['ScriptMetadata'] = $this->scriptMetadata;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
@@ -143,8 +179,20 @@ class artifactProperty extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['RepoId'])) {
+            $model->repoId = $map['RepoId'];
+        }
+        if (isset($map['RepoName'])) {
+            $model->repoName = $map['RepoName'];
+        }
+        if (isset($map['RepoType'])) {
+            $model->repoType = $map['RepoType'];
+        }
         if (isset($map['ScriptMetadata'])) {
             $model->scriptMetadata = $map['ScriptMetadata'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];

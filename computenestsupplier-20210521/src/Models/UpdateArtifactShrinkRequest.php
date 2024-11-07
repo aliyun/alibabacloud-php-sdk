@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateArtifactShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $artifactBuildPropertyShrink;
+
+    /**
      * @description The ID of the deployment package.
      *
      * This parameter is required.
@@ -52,11 +57,12 @@ class UpdateArtifactShrinkRequest extends Model
      */
     public $versionName;
     protected $_name = [
-        'artifactId'             => 'ArtifactId',
-        'artifactPropertyShrink' => 'ArtifactProperty',
-        'description'            => 'Description',
-        'supportRegionIds'       => 'SupportRegionIds',
-        'versionName'            => 'VersionName',
+        'artifactBuildPropertyShrink' => 'ArtifactBuildProperty',
+        'artifactId'                  => 'ArtifactId',
+        'artifactPropertyShrink'      => 'ArtifactProperty',
+        'description'                 => 'Description',
+        'supportRegionIds'            => 'SupportRegionIds',
+        'versionName'                 => 'VersionName',
     ];
 
     public function validate()
@@ -66,6 +72,9 @@ class UpdateArtifactShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->artifactBuildPropertyShrink) {
+            $res['ArtifactBuildProperty'] = $this->artifactBuildPropertyShrink;
+        }
         if (null !== $this->artifactId) {
             $res['ArtifactId'] = $this->artifactId;
         }
@@ -93,6 +102,9 @@ class UpdateArtifactShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArtifactBuildProperty'])) {
+            $model->artifactBuildPropertyShrink = $map['ArtifactBuildProperty'];
+        }
         if (isset($map['ArtifactId'])) {
             $model->artifactId = $map['ArtifactId'];
         }

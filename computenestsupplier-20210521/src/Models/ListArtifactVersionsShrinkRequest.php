@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsRequest\filters;
 use AlibabaCloud\Tea\Model;
 
-class ListArtifactVersionsRequest extends Model
+class ListArtifactVersionsShrinkRequest extends Model
 {
     /**
      * @description The ID of the deployment package.
@@ -22,9 +21,9 @@ class ListArtifactVersionsRequest extends Model
     /**
      * @description The filter.
      *
-     * @var filters[]
+     * @var string
      */
-    public $filters;
+    public $filtersShrink;
 
     /**
      * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
@@ -44,10 +43,10 @@ class ListArtifactVersionsRequest extends Model
      */
     public $nextToken;
     protected $_name = [
-        'artifactId' => 'ArtifactId',
-        'filters'    => 'Filters',
-        'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
+        'artifactId'    => 'ArtifactId',
+        'filtersShrink' => 'Filters',
+        'maxResults'    => 'MaxResults',
+        'nextToken'     => 'NextToken',
     ];
 
     public function validate()
@@ -60,14 +59,8 @@ class ListArtifactVersionsRequest extends Model
         if (null !== $this->artifactId) {
             $res['ArtifactId'] = $this->artifactId;
         }
-        if (null !== $this->filters) {
-            $res['Filters'] = [];
-            if (null !== $this->filters && \is_array($this->filters)) {
-                $n = 0;
-                foreach ($this->filters as $item) {
-                    $res['Filters'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->filtersShrink) {
+            $res['Filters'] = $this->filtersShrink;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -82,7 +75,7 @@ class ListArtifactVersionsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListArtifactVersionsRequest
+     * @return ListArtifactVersionsShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -91,13 +84,7 @@ class ListArtifactVersionsRequest extends Model
             $model->artifactId = $map['ArtifactId'];
         }
         if (isset($map['Filters'])) {
-            if (!empty($map['Filters'])) {
-                $model->filters = [];
-                $n              = 0;
-                foreach ($map['Filters'] as $item) {
-                    $model->filters[$n++] = null !== $item ? filters::fromMap($item) : $item;
-                }
-            }
+            $model->filtersShrink = $map['Filters'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

@@ -4,12 +4,20 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateArtifactRequest\artifactBuildProperty;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateArtifactRequest\artifactProperty;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateArtifactRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateArtifactRequest extends Model
 {
+    /**
+     * @description The build properties of the artifact, utilized for hosting and building the deployment package.
+     *
+     * @var artifactBuildProperty
+     */
+    public $artifactBuildProperty;
+
     /**
      * @description The ID of the deployment package.
      *
@@ -93,15 +101,16 @@ class CreateArtifactRequest extends Model
      */
     public $versionName;
     protected $_name = [
-        'artifactId'       => 'ArtifactId',
-        'artifactProperty' => 'ArtifactProperty',
-        'artifactType'     => 'ArtifactType',
-        'description'      => 'Description',
-        'name'             => 'Name',
-        'resourceGroupId'  => 'ResourceGroupId',
-        'supportRegionIds' => 'SupportRegionIds',
-        'tag'              => 'Tag',
-        'versionName'      => 'VersionName',
+        'artifactBuildProperty' => 'ArtifactBuildProperty',
+        'artifactId'            => 'ArtifactId',
+        'artifactProperty'      => 'ArtifactProperty',
+        'artifactType'          => 'ArtifactType',
+        'description'           => 'Description',
+        'name'                  => 'Name',
+        'resourceGroupId'       => 'ResourceGroupId',
+        'supportRegionIds'      => 'SupportRegionIds',
+        'tag'                   => 'Tag',
+        'versionName'           => 'VersionName',
     ];
 
     public function validate()
@@ -111,6 +120,9 @@ class CreateArtifactRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->artifactBuildProperty) {
+            $res['ArtifactBuildProperty'] = null !== $this->artifactBuildProperty ? $this->artifactBuildProperty->toMap() : null;
+        }
         if (null !== $this->artifactId) {
             $res['ArtifactId'] = $this->artifactId;
         }
@@ -156,6 +168,9 @@ class CreateArtifactRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArtifactBuildProperty'])) {
+            $model->artifactBuildProperty = artifactBuildProperty::fromMap($map['ArtifactBuildProperty']);
+        }
         if (isset($map['ArtifactId'])) {
             $model->artifactId = $map['ArtifactId'];
         }
