@@ -127,6 +127,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\RemoveImageResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\RemoveMemberRoleResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\SetExperimentLabelsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\SetExperimentLabelsResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateCodeSourceRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateCodeSourceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateDatasetRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateDatasetResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateDatasetVersionRequest;
@@ -4328,6 +4330,79 @@ class AIWorkSpace extends OpenApiClient
         $headers = [];
 
         return $this->setExperimentLabelsWithOptions($ExperimentId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新代码配置
+     *  *
+     * @param string                  $CodeSourceId
+     * @param UpdateCodeSourceRequest $request      UpdateCodeSourceRequest
+     * @param string[]                $headers      map
+     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCodeSourceResponse UpdateCodeSourceResponse
+     */
+    public function updateCodeSourceWithOptions($CodeSourceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->codeBranch)) {
+            $body['CodeBranch'] = $request->codeBranch;
+        }
+        if (!Utils::isUnset($request->codeCommit)) {
+            $body['CodeCommit'] = $request->codeCommit;
+        }
+        if (!Utils::isUnset($request->codeRepo)) {
+            $body['CodeRepo'] = $request->codeRepo;
+        }
+        if (!Utils::isUnset($request->codeRepoAccessToken)) {
+            $body['CodeRepoAccessToken'] = $request->codeRepoAccessToken;
+        }
+        if (!Utils::isUnset($request->codeRepoUserName)) {
+            $body['CodeRepoUserName'] = $request->codeRepoUserName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $body['DisplayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->mountPath)) {
+            $body['MountPath'] = $request->mountPath;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCodeSource',
+            'version'     => '2021-02-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/codesources/' . OpenApiUtilClient::getEncodeParam($CodeSourceId) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCodeSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新代码配置
+     *  *
+     * @param string                  $CodeSourceId
+     * @param UpdateCodeSourceRequest $request      UpdateCodeSourceRequest
+     *
+     * @return UpdateCodeSourceResponse UpdateCodeSourceResponse
+     */
+    public function updateCodeSource($CodeSourceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateCodeSourceWithOptions($CodeSourceId, $request, $headers, $runtime);
     }
 
     /**
