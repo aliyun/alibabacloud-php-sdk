@@ -85,6 +85,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterResourcesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterResourcesResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersForRegionRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersForRegionResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersV1Request;
@@ -101,6 +103,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeEdgeMachineModelsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeEdgeMachinesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeEdgeMachinesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeEdgeMachineTunnelConfigDetailResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeEventsForRegionRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeEventsForRegionResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeEventsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeEventsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeExternalAgentRequest;
@@ -3439,6 +3443,76 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary 查询指定地域内全部集群列表
+     *  *
+     * @param string                           $regionId
+     * @param DescribeClustersForRegionRequest $request  DescribeClustersForRegionRequest
+     * @param string[]                         $headers  map
+     * @param RuntimeOptions                   $runtime  runtime options for this request RuntimeOptions
+     *
+     * @return DescribeClustersForRegionResponse DescribeClustersForRegionResponse
+     */
+    public function describeClustersForRegionWithOptions($regionId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['cluster_id'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->clusterSpec)) {
+            $query['cluster_spec'] = $request->clusterSpec;
+        }
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['cluster_type'] = $request->clusterType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['page_number'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->profile)) {
+            $query['profile'] = $request->profile;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClustersForRegion',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/regions/' . OpenApiUtilClient::getEncodeParam($regionId) . '/clusters',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeClustersForRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询指定地域内全部集群列表
+     *  *
+     * @param string                           $regionId
+     * @param DescribeClustersForRegionRequest $request  DescribeClustersForRegionRequest
+     *
+     * @return DescribeClustersForRegionResponse DescribeClustersForRegionResponse
+     */
+    public function describeClustersForRegion($regionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeClustersForRegionWithOptions($regionId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary Queries the details about Container Service for Kubernetes (ACK) clusters of specified types or specifications within an account.
      *  *
      * @param DescribeClustersV1Request $request DescribeClustersV1Request
@@ -3760,6 +3834,64 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->describeEventsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询指定地域内全部事件列表
+     *  *
+     * @param string                         $regionId
+     * @param DescribeEventsForRegionRequest $request  DescribeEventsForRegionRequest
+     * @param string[]                       $headers  map
+     * @param RuntimeOptions                 $runtime  runtime options for this request RuntimeOptions
+     *
+     * @return DescribeEventsForRegionResponse DescribeEventsForRegionResponse
+     */
+    public function describeEventsForRegionWithOptions($regionId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['cluster_id'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['page_number'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEventsForRegion',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/regions/' . OpenApiUtilClient::getEncodeParam($regionId) . '/events',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEventsForRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询指定地域内全部事件列表
+     *  *
+     * @param string                         $regionId
+     * @param DescribeEventsForRegionRequest $request  DescribeEventsForRegionRequest
+     *
+     * @return DescribeEventsForRegionResponse DescribeEventsForRegionResponse
+     */
+    public function describeEventsForRegion($regionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeEventsForRegionWithOptions($regionId, $request, $headers, $runtime);
     }
 
     /**
