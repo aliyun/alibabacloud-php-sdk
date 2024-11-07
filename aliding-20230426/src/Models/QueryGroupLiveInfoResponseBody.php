@@ -61,6 +61,11 @@ class QueryGroupLiveInfoResponseBody extends Model
     public $playbackDuration;
 
     /**
+     * @var string
+     */
+    public $replayUrl;
+
+    /**
      * @description requestId
      *
      * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
@@ -122,6 +127,7 @@ class QueryGroupLiveInfoResponseBody extends Model
         'livePlayUrl'      => 'livePlayUrl',
         'liveStatus'       => 'liveStatus',
         'playbackDuration' => 'playbackDuration',
+        'replayUrl'        => 'replayUrl',
         'requestId'        => 'requestId',
         'staffId'          => 'staffId',
         'startTime'        => 'startTime',
@@ -162,6 +168,9 @@ class QueryGroupLiveInfoResponseBody extends Model
         }
         if (null !== $this->playbackDuration) {
             $res['playbackDuration'] = $this->playbackDuration;
+        }
+        if (null !== $this->replayUrl) {
+            $res['replayUrl'] = $this->replayUrl;
         }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
@@ -222,6 +231,9 @@ class QueryGroupLiveInfoResponseBody extends Model
         }
         if (isset($map['playbackDuration'])) {
             $model->playbackDuration = $map['playbackDuration'];
+        }
+        if (isset($map['replayUrl'])) {
+            $model->replayUrl = $map['replayUrl'];
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
