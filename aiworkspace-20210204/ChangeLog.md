@@ -2,6 +2,10 @@
 - Support API UpdateCodeSource.
 
 
+2024-11-07 Version: 3.1.0
+- Support API UpdateCodeSource.
+
+
 2024-11-06 Version: 3.0.1
 - Update API GetPermission: add param Labels.
 
