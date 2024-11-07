@@ -36,6 +36,11 @@ class variables extends Model
     public $defaultValue;
 
     /**
+     * @var string
+     */
+    public $options;
+
+    /**
      * @description The value of the variable.
      *
      * @example ${name}
@@ -47,6 +52,7 @@ class variables extends Model
         'attribute'    => 'Attribute',
         'dataType'     => 'DataType',
         'defaultValue' => 'DefaultValue',
+        'options'      => 'Options',
         'variable'     => 'Variable',
     ];
 
@@ -65,6 +71,9 @@ class variables extends Model
         }
         if (null !== $this->defaultValue) {
             $res['DefaultValue'] = $this->defaultValue;
+        }
+        if (null !== $this->options) {
+            $res['Options'] = $this->options;
         }
         if (null !== $this->variable) {
             $res['Variable'] = $this->variable;
@@ -89,6 +98,9 @@ class variables extends Model
         }
         if (isset($map['DefaultValue'])) {
             $model->defaultValue = $map['DefaultValue'];
+        }
+        if (isset($map['Options'])) {
+            $model->options = $map['Options'];
         }
         if (isset($map['Variable'])) {
             $model->variable = $map['Variable'];
