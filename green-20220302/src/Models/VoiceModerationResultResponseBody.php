@@ -35,7 +35,7 @@ class VoiceModerationResultResponseBody extends Model
     public $message;
 
     /**
-     * @description The request ID.
+     * @description Id of the request
      *
      * @example 2881AD4F-638B-52A3-BA20-F74C5B1CEAE3
      *

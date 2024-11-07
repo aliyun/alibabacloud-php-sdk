@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\publicFigure;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\recognition;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\textInImage;
+use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\vlContent;
 use AlibabaCloud\Tea\Model;
 
 class ext extends Model
@@ -63,6 +64,11 @@ class ext extends Model
      * @var textInImage
      */
     public $textInImage;
+
+    /**
+     * @var vlContent
+     */
+    public $vlContent;
     protected $_name = [
         'customImage'  => 'CustomImage',
         'faceData'     => 'FaceData',
@@ -71,6 +77,7 @@ class ext extends Model
         'publicFigure' => 'PublicFigure',
         'recognition'  => 'Recognition',
         'textInImage'  => 'TextInImage',
+        'vlContent'    => 'VlContent',
     ];
 
     public function validate()
@@ -136,6 +143,9 @@ class ext extends Model
         }
         if (null !== $this->textInImage) {
             $res['TextInImage'] = null !== $this->textInImage ? $this->textInImage->toMap() : null;
+        }
+        if (null !== $this->vlContent) {
+            $res['VlContent'] = null !== $this->vlContent ? $this->vlContent->toMap() : null;
         }
 
         return $res;
@@ -205,6 +215,9 @@ class ext extends Model
         }
         if (isset($map['TextInImage'])) {
             $model->textInImage = textInImage::fromMap($map['TextInImage']);
+        }
+        if (isset($map['VlContent'])) {
+            $model->vlContent = vlContent::fromMap($map['VlContent']);
         }
 
         return $model;

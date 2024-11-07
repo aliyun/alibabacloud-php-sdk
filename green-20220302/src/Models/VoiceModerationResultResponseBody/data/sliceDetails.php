@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sliceDetails extends Model
 {
     /**
-     * @description The end time of the text after audio-to-text conversion. Unit: seconds.
+     * @description The end time of the audio segment in seconds.
      *
      * @example 10
      *
@@ -27,7 +27,7 @@ class sliceDetails extends Model
     public $endTimestamp;
 
     /**
-     * @description A reserved parameter.
+     * @description Extended fields.
      *
      * @example {\\"riskTips\\":\\"sexuality_Suggestive\\",\\"riskWords\\":\\"pxxxxy\\"}
      *
@@ -45,7 +45,7 @@ class sliceDetails extends Model
     public $labels;
 
     /**
-     * @description Reserved field.
+     * @description Reserved parameter.
      *
      * @example {}
      *
@@ -54,12 +54,16 @@ class sliceDetails extends Model
     public $originAlgoResult;
 
     /**
+     * @description Risk Level.
+     *
+     * @example high
+     *
      * @var string
      */
     public $riskLevel;
 
     /**
-     * @description The risk details that are hit.
+     * @description The details of the risky content.
      *
      * @example sexuality_Suggestive
      *
@@ -68,7 +72,7 @@ class sliceDetails extends Model
     public $riskTips;
 
     /**
-     * @description The risk words that are hit.
+     * @description The term hit by the risky content.
      *
      * @example AAA,BBB,CCC
      *
@@ -77,7 +81,7 @@ class sliceDetails extends Model
     public $riskWords;
 
     /**
-     * @description Risk score, default range 0-99.
+     * @description The risk score. Default range: 0 to 99.
      *
      * @example 87.01
      *
@@ -86,7 +90,7 @@ class sliceDetails extends Model
     public $score;
 
     /**
-     * @description The start time of the text after audio-to-text conversion. Unit: seconds.
+     * @description The start time of the audio segment in seconds.
      *
      * @example 0
      *
@@ -104,7 +108,7 @@ class sliceDetails extends Model
     public $startTimestamp;
 
     /**
-     * @description The text converted from voice.
+     * @description The text converted from the audio segment.
      *
      * @example Disgusting
      *
@@ -113,7 +117,7 @@ class sliceDetails extends Model
     public $text;
 
     /**
-     * @description The temporary access address of the audio segment. The validity period of the URL is 30 minutes. You must prepare another URL to store the audio segment at the earliest opportunity.
+     * @description The temporary URL of the audio segment.
      *
      * @example https://aliyundoc.com
      *

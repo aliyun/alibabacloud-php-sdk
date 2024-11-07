@@ -906,7 +906,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 语音检测结果获取接口
+     * @summary Obtains the moderation results of a Voice Moderation 2.0 task.
      *  *
      * @param VoiceModerationResultRequest $request VoiceModerationResultRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -942,7 +942,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @summary 语音检测结果获取接口
+     * @summary Obtains the moderation results of a Voice Moderation 2.0 task.
      *  *
      * @param VoiceModerationResultRequest $request VoiceModerationResultRequest
      *

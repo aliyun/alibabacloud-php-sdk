@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class VoiceModerationResultRequest extends Model
 {
     /**
-     * @description The type of the moderation service.
+     * @description The type of the moderation service. Valid values: nickname_detection: user nickname
      *
      * @example nickname_detection
      *
@@ -18,8 +18,9 @@ class VoiceModerationResultRequest extends Model
     public $service;
 
     /**
-     * @description The parameters required by the moderation service. The value is a JSON string.
+     * @description The parameters of API requests that are sent from API Gateway to the backend service.
      *
+     * For more information, see [ServiceParameter](https://help.aliyun.com/document_detail/43988.html).
      * @example {"taskId":"xxxxx-xxxx"}
      *
      * @var string

@@ -28,12 +28,16 @@ class data extends Model
     public $liveId;
 
     /**
+     * @description Risk Level.
+     *
+     * @example high
+     *
      * @var string
      */
     public $riskLevel;
 
     /**
-     * @description The details about the audio segments.
+     * @description The moderation results of audio segments.
      *
      * @var sliceDetails[]
      */
@@ -49,7 +53,7 @@ class data extends Model
     public $taskId;
 
     /**
-     * @description The URL of the moderation object.
+     * @description The URL of the moderated content.
      *
      * @example https://aliyundoc.com
      *
