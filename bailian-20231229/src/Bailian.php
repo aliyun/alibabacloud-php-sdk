@@ -257,7 +257,7 @@ class Bailian extends OpenApiClient
      *  *
      * @description *   This operation returns an HTTP URL that can be used to upload an unstructured document (the lease) and parameters required for the upload. Structured documents are not supported.
      * *   The HTTP URL returned by this operation is valid only for minutes. Upload the document before the URL expires.
-     * *   After you apply for a lease and upload a document, the document is stored in a temporary storage space for 12 hours. Call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) interface in time to import the document to the [Data Management](https://bailian.console.aliyun.com/#/data-center) page.
+     * *   After you apply for a lease and upload a document, the document is stored in a temporary storage space for 12 hours.
      * *   This interface is not idempotent.
      *  *
      * @param string                      $CategoryId
@@ -305,7 +305,7 @@ class Bailian extends OpenApiClient
      *  *
      * @description *   This operation returns an HTTP URL that can be used to upload an unstructured document (the lease) and parameters required for the upload. Structured documents are not supported.
      * *   The HTTP URL returned by this operation is valid only for minutes. Upload the document before the URL expires.
-     * *   After you apply for a lease and upload a document, the document is stored in a temporary storage space for 12 hours. Call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) interface in time to import the document to the [Data Management](https://bailian.console.aliyun.com/#/data-center) page.
+     * *   After you apply for a lease and upload a document, the document is stored in a temporary storage space for 12 hours.
      * *   This interface is not idempotent.
      *  *
      * @param string                      $CategoryId
@@ -391,8 +391,8 @@ class Bailian extends OpenApiClient
     /**
      * @summary Creates an unstructured knowledge base and imports one or more parsed documents into the knowledge base. You cannot create a structured knowledge base by calling an API operation. Use the console instead.
      *  *
-     * @description 1.  You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. To upload documents, call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation.
-     * 2.  This operation only initializes a knowledge base creation job. You must also call the [SubmitIndexJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to complete the job.
+     * @description 1.  You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
+     * 2.  This operation only initializes a knowledge base creation job. You must also call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to complete the job.
      * 3.  This interface is not idempotent.
      *  *
      * @param string             $WorkspaceId
@@ -418,6 +418,9 @@ class Bailian extends OpenApiClient
         }
         if (!Utils::isUnset($tmpReq->documentIds)) {
             $request->documentIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documentIds, 'DocumentIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->metaExtractColumns)) {
+            $request->metaExtractColumnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->metaExtractColumns, 'metaExtractColumns', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->categoryIdsShrink)) {
@@ -471,6 +474,9 @@ class Bailian extends OpenApiClient
         if (!Utils::isUnset($request->structureType)) {
             $query['StructureType'] = $request->structureType;
         }
+        if (!Utils::isUnset($request->metaExtractColumnsShrink)) {
+            $query['metaExtractColumns'] = $request->metaExtractColumnsShrink;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -493,8 +499,8 @@ class Bailian extends OpenApiClient
     /**
      * @summary Creates an unstructured knowledge base and imports one or more parsed documents into the knowledge base. You cannot create a structured knowledge base by calling an API operation. Use the console instead.
      *  *
-     * @description 1.  You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. To upload documents, call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation.
-     * 2.  This operation only initializes a knowledge base creation job. You must also call the [SubmitIndexJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to complete the job.
+     * @description 1.  You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
+     * 2.  This operation only initializes a knowledge base creation job. You must also call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to complete the job.
      * 3.  This interface is not idempotent.
      *  *
      * @param string             $WorkspaceId
@@ -809,7 +815,7 @@ class Bailian extends OpenApiClient
      * @summary Deletes a specified knowledge base permanently.
      *  *
      * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
-     * *   If a knowledge base is being called by an application, disassociate the knowledge base before you can delete it. To disassociate the knowledge base, you must use the console. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base).
+     * *   If a knowledge base is being called by an application, disassociate the knowledge base before you can delete it. To disassociate the knowledge base, you must use the console. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base).
      * *   After you delete a knowledge base, it cannot be recovered. We recommend that you proceed with caution.
      * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
      * *   This interface is idempotent.
@@ -851,7 +857,7 @@ class Bailian extends OpenApiClient
      * @summary Deletes a specified knowledge base permanently.
      *  *
      * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
-     * *   If a knowledge base is being called by an application, disassociate the knowledge base before you can delete it. To disassociate the knowledge base, you must use the console. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base).
+     * *   If a knowledge base is being called by an application, disassociate the knowledge base before you can delete it. To disassociate the knowledge base, you must use the console. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base).
      * *   After you delete a knowledge base, it cannot be recovered. We recommend that you proceed with caution.
      * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
      * *   This interface is idempotent.
@@ -873,8 +879,8 @@ class Bailian extends OpenApiClient
      * @summary Deletes one or more documents from a specified unstructured knowledge base permanently.
      *  *
      * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
-     * *   Only documents with the INSERT_ERROR and FINISH states can be deleted. To query the status of documents in a specified knowledge base, call the [ListIndexDocuments](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-listindexdocuments) operation.
-     * *   After you delete a document, it cannot be recovered and the [Retrieve](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-retrieve) operation cannot query information about the document. We recommend that you proceed with caution.
+     * *   Only documents with the INSERT_ERROR and FINISH states can be deleted. To query the status of documents in a specified knowledge base, call the [ListIndexDocuments](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-listindexdocuments) operation.
+     * *   After you delete a document, it cannot be recovered and the [Retrieve](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-retrieve) operation cannot query information about the document. We recommend that you proceed with caution.
      * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
      * *   This interface is idempotent.
      *  *
@@ -923,8 +929,8 @@ class Bailian extends OpenApiClient
      * @summary Deletes one or more documents from a specified unstructured knowledge base permanently.
      *  *
      * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
-     * *   Only documents with the INSERT_ERROR and FINISH states can be deleted. To query the status of documents in a specified knowledge base, call the [ListIndexDocuments](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-listindexdocuments) operation.
-     * *   After you delete a document, it cannot be recovered and the [Retrieve](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-retrieve) operation cannot query information about the document. We recommend that you proceed with caution.
+     * *   Only documents with the INSERT_ERROR and FINISH states can be deleted. To query the status of documents in a specified knowledge base, call the [ListIndexDocuments](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-listindexdocuments) operation.
+     * *   After you delete a document, it cannot be recovered and the [Retrieve](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-retrieve) operation cannot query information about the document. We recommend that you proceed with caution.
      * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
      * *   This interface is idempotent.
      *  *
@@ -1085,7 +1091,6 @@ class Bailian extends OpenApiClient
      * @summary Queries the details of an unstructured document.
      *  *
      * @description Before you call this API, make sure that your document is uploaded to the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page of Alibaba Cloud Model Studio.
-     * *   If you upload the document by calling an API, make sure that you have called the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation to obtain `FileId`.
      * *   You can also call this operation to query unstructured documents that you upload on the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page.
      * *   This operation is idempotent.
      * **Throttling:** Make sure that the interval between the two queries is at least 15 seconds. Otherwise, you may trigger system throttling. If throttling is triggered, try again later.
@@ -1121,7 +1126,6 @@ class Bailian extends OpenApiClient
      * @summary Queries the details of an unstructured document.
      *  *
      * @description Before you call this API, make sure that your document is uploaded to the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page of Alibaba Cloud Model Studio.
-     * *   If you upload the document by calling an API, make sure that you have called the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation to obtain `FileId`.
      * *   You can also call this operation to query unstructured documents that you upload on the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page.
      * *   This operation is idempotent.
      * **Throttling:** Make sure that the interval between the two queries is at least 15 seconds. Otherwise, you may trigger system throttling. If throttling is triggered, try again later.
@@ -1142,7 +1146,7 @@ class Bailian extends OpenApiClient
     /**
      * @summary Queries the current status of a specified knowledge base creation or add document job.
      *  *
-     * @description 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.
+     * @description 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.
      * 2.  We recommend that you call this operation at intervals of more than 5 seconds.
      * 3.  This interface is idempotent.
      *  *
@@ -1191,7 +1195,7 @@ class Bailian extends OpenApiClient
     /**
      * @summary Queries the current status of a specified knowledge base creation or add document job.
      *  *
-     * @description 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.
+     * @description 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.
      * 2.  We recommend that you call this operation at intervals of more than 5 seconds.
      * 3.  This interface is idempotent.
      *  *
@@ -2059,9 +2063,9 @@ class Bailian extends OpenApiClient
     /**
      * @summary Adds parsed documents to an unstructured knowledge base.
      *  *
-     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
-     * *   Before you call this operation, call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation to upload the documents to Model Studio.
-     * *   After you call this operation, you can call the [GetIndexJobStatus](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation to query the status of the job. More than 20 calls to the GetIndexJobStatus operation per minute may trigger throttling.
+     * @description *   You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
+     * *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * *   After you call this operation, you can call the [GetIndexJobStatus](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation to query the status of the job. More than 20 calls to the GetIndexJobStatus operation per minute may trigger throttling.
      * *   Execution takes a period of time after this operation is called. Do not make new request before the request is returned. This interface is not idempotent.
      *  *
      * @param string                            $WorkspaceId
@@ -2117,9 +2121,9 @@ class Bailian extends OpenApiClient
     /**
      * @summary Adds parsed documents to an unstructured knowledge base.
      *  *
-     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
-     * *   Before you call this operation, call the [AddFile](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addfile) operation to upload the documents to Model Studio.
-     * *   After you call this operation, you can call the [GetIndexJobStatus](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation to query the status of the job. More than 20 calls to the GetIndexJobStatus operation per minute may trigger throttling.
+     * @description *   You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
+     * *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * *   After you call this operation, you can call the [GetIndexJobStatus](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation to query the status of the job. More than 20 calls to the GetIndexJobStatus operation per minute may trigger throttling.
      * *   Execution takes a period of time after this operation is called. Do not make new request before the request is returned. This interface is not idempotent.
      *  *
      * @param string                            $WorkspaceId
@@ -2138,9 +2142,9 @@ class Bailian extends OpenApiClient
     /**
      * @summary Submits a specified CreateIndex job to complete knowledge base creation.
      *  *
-     * @description 1.  Before you call this operation, you must call the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation and obtain the `IndexId`.
+     * @description 1.  Before you call this operation, you must call the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation and obtain the `IndexId`.
      * 2.  Execution takes a period of time after this operation is called. Do not make new request before the request is returned.
-     * 3.  If you want to query the execution status of the job after you call this operation, call the [GetIndexJobStatus](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation.
+     * 3.  If you want to query the execution status of the job after you call this operation, call the [GetIndexJobStatus](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation.
      * 4.  This interface is not idempotent.
      *  *
      * @param string                $WorkspaceId
@@ -2179,9 +2183,9 @@ class Bailian extends OpenApiClient
     /**
      * @summary Submits a specified CreateIndex job to complete knowledge base creation.
      *  *
-     * @description 1.  Before you call this operation, you must call the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation and obtain the `IndexId`.
+     * @description 1.  Before you call this operation, you must call the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation and obtain the `IndexId`.
      * 2.  Execution takes a period of time after this operation is called. Do not make new request before the request is returned.
-     * 3.  If you want to query the execution status of the job after you call this operation, call the [GetIndexJobStatus](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation.
+     * 3.  If you want to query the execution status of the job after you call this operation, call the [GetIndexJobStatus](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation.
      * 4.  This interface is not idempotent.
      *  *
      * @param string                $WorkspaceId

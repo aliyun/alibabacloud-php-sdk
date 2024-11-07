@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class rerank extends Model
 {
     /**
-     * @description The name of the rank model. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+     * @description The name of the rank model. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
      *
      *   gte-rerank-hybrid: Recommended official model.
      *   gte-rerank

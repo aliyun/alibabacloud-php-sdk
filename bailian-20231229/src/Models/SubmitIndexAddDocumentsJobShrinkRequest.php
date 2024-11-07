@@ -23,7 +23,7 @@ class SubmitIndexAddDocumentsJobShrinkRequest extends Model
     public $documentIdsShrink;
 
     /**
-     * @description The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+     * @description The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
      *
      * This parameter is required.
      * @example 79c0aly8zw
@@ -33,7 +33,7 @@ class SubmitIndexAddDocumentsJobShrinkRequest extends Model
     public $indexId;
 
     /**
-     * @description The data type of [Data Management](https://bailian.console.aliyun.com/#/data-center). For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+     * @description The data type of [Data Management](https://bailian.console.aliyun.com/#/data-center). For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
      *
      *   DATA_CENTER_CATEGORY: The category type. Import all documents from one or more categories in Data Center.
      *   DATA_CENTER_FILE: The document type. Import one or more documents from Data Center.

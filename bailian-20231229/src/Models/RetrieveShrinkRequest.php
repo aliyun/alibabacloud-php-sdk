@@ -19,7 +19,7 @@ class RetrieveShrinkRequest extends Model
     public $denseSimilarityTopK;
 
     /**
-     * @description Specifies whether to enable reranking. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+     * @description Specifies whether to enable reranking. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
      *
      *   true
      *   false
@@ -32,7 +32,7 @@ class RetrieveShrinkRequest extends Model
     public $enableReranking;
 
     /**
-     * @description Specifies whether to enable multi-round conversation rewriting. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values:
+     * @description Specifies whether to enable multi-round conversation rewriting. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
      *
      *   true
      *   false
@@ -50,7 +50,7 @@ class RetrieveShrinkRequest extends Model
     public $imagesShrink;
 
     /**
-     * @description The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
+     * @description The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
      *
      * This parameter is required.
      * @example 5pwe0m2g6t
@@ -74,7 +74,7 @@ class RetrieveShrinkRequest extends Model
     public $rerankShrink;
 
     /**
-     * @description Similarity Threshold The lowest similarity score of chunks that can be returned. This parameter is used to filter text chunks returned by the rank model. For more information, see [Create a knowledge base](https://help.aliyun.com/zh/model-studio/user-guide/rag-knowledge-base). Valid values: [0.01-1.00]. The priority of this parameter is greater than the similarity threshold configured for the knowledge base.
+     * @description Similarity Threshold The lowest similarity score of chunks that can be returned. This parameter is used to filter text chunks returned by the rank model. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values: [0.01-1.00]. The priority of this parameter is greater than the similarity threshold configured for the knowledge base.
      *
      * By default, this parameter is left empty. In this case, the similarity threshold of the knowledge base is used.
      * @example 0.20
