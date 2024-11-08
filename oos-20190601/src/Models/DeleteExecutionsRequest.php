@@ -19,6 +19,10 @@ class DeleteExecutionsRequest extends Model
     public $executionIds;
 
     /**
+     * @description Whether to force delete the running task, the default value is false.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $force;

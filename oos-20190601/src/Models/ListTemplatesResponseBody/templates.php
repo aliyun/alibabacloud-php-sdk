@@ -201,6 +201,11 @@ class templates extends Model
      * @var string
      */
     public $updatedDate;
+
+    /**
+     * @var string
+     */
+    public $versionName;
     protected $_name = [
         'category'            => 'Category',
         'constraints'         => 'Constraints',
@@ -223,6 +228,7 @@ class templates extends Model
         'totalExecutionCount' => 'TotalExecutionCount',
         'updatedBy'           => 'UpdatedBy',
         'updatedDate'         => 'UpdatedDate',
+        'versionName'         => 'VersionName',
     ];
 
     public function validate()
@@ -294,6 +300,9 @@ class templates extends Model
         }
         if (null !== $this->updatedDate) {
             $res['UpdatedDate'] = $this->updatedDate;
+        }
+        if (null !== $this->versionName) {
+            $res['VersionName'] = $this->versionName;
         }
 
         return $res;
@@ -369,6 +378,9 @@ class templates extends Model
         }
         if (isset($map['UpdatedDate'])) {
             $model->updatedDate = $map['UpdatedDate'];
+        }
+        if (isset($map['VersionName'])) {
+            $model->versionName = $map['VersionName'];
         }
 
         return $model;

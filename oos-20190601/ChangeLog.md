@@ -1,3 +1,9 @@
+2024-11-08 Version: 2.3.2
+- Update API ListGitRepositories: add param OrgId.
+- Update API ListGitRepositories: update response param.
+- Update API ListTemplates: update response param.
+
+
 2024-08-16 Version: 2.3.1
 - Update API DeleteExecutions: add param Force.
 - Update API GetApplicationGroup: update response param.

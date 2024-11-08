@@ -2941,6 +2941,9 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->orgId)) {
+            $query['OrgId'] = $request->orgId;
+        }
         if (!Utils::isUnset($request->orgName)) {
             $query['OrgName'] = $request->orgName;
         }
@@ -4916,7 +4919,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @summary Updates an execution.
+     * @summary Update executions that are in Running or Waiting status.
      *  *
      * @param UpdateExecutionRequest $request UpdateExecutionRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -4967,7 +4970,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @summary Updates an execution.
+     * @summary Update executions that are in Running or Waiting status.
      *  *
      * @param UpdateExecutionRequest $request UpdateExecutionRequest
      *

@@ -16,6 +16,11 @@ class ListGitRepositoriesRequest extends Model
     /**
      * @var string
      */
+    public $orgId;
+
+    /**
+     * @var string
+     */
     public $orgName;
 
     /**
@@ -48,6 +53,7 @@ class ListGitRepositoriesRequest extends Model
     public $regionId;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'orgId'       => 'OrgId',
         'orgName'     => 'OrgName',
         'owner'       => 'Owner',
         'pageNumber'  => 'PageNumber',
@@ -65,6 +71,9 @@ class ListGitRepositoriesRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->orgId) {
+            $res['OrgId'] = $this->orgId;
         }
         if (null !== $this->orgName) {
             $res['OrgName'] = $this->orgName;
@@ -98,6 +107,9 @@ class ListGitRepositoriesRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OrgId'])) {
+            $model->orgId = $map['OrgId'];
         }
         if (isset($map['OrgName'])) {
             $model->orgName = $map['OrgName'];

@@ -27,11 +27,17 @@ class gitRepos extends Model
      * @var bool
      */
     public $isPrivate;
+
+    /**
+     * @var int
+     */
+    public $repoId;
     protected $_name = [
         'description' => 'Description',
         'fullName'    => 'FullName',
         'htmlUrl'     => 'HtmlUrl',
         'isPrivate'   => 'IsPrivate',
+        'repoId'      => 'RepoId',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class gitRepos extends Model
         }
         if (null !== $this->isPrivate) {
             $res['IsPrivate'] = $this->isPrivate;
+        }
+        if (null !== $this->repoId) {
+            $res['RepoId'] = $this->repoId;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class gitRepos extends Model
         }
         if (isset($map['IsPrivate'])) {
             $model->isPrivate = $map['IsPrivate'];
+        }
+        if (isset($map['RepoId'])) {
+            $model->repoId = $map['RepoId'];
         }
 
         return $model;
