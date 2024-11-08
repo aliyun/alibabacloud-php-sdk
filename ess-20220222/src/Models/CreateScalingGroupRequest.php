@@ -438,6 +438,16 @@ class CreateScalingGroupRequest extends Model
     public $spotInstanceRemedy;
 
     /**
+     * @description The period of time required by the ECS instance to enter the Stopped state. Unit: seconds. Valid values: 30 to 240.
+     *
+     * >
+     *
+     *   This parameter takes effect only if you set ScalingPolicy to release.
+     *
+     *   If you specify this parameter, the system will wait for the ECS instance to enter the Stopped state for the specified period of time before continuing with the scale-in operation, regardless of the status of the ECS instance.
+     *
+     *   If you do not specify this parameter, the system will wait for the ECS instance to stop before continuing with the scale-in operation. If the ECS instance is not successfully stopped, the scale-in process will be rolled back and considered failed.
+     *
      * @example 60
      *
      * @var int

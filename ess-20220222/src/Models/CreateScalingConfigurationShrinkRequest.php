@@ -153,6 +153,16 @@ class CreateScalingConfigurationShrinkRequest extends Model
     public $hpcClusterId;
 
     /**
+     * @var string
+     */
+    public $httpEndpoint;
+
+    /**
+     * @var string
+     */
+    public $httpTokens;
+
+    /**
      * @description The name of the image family. If you specify this parameter, the most recent custom images that are available in the specified image family are returned. You can use the images to create instances. If you specify ImageId, you cannot specify ImageFamily.
      *
      * @example hangzhou-daily-update
@@ -568,6 +578,8 @@ class CreateScalingConfigurationShrinkRequest extends Model
         'deploymentSetId'             => 'DeploymentSetId',
         'hostName'                    => 'HostName',
         'hpcClusterId'                => 'HpcClusterId',
+        'httpEndpoint'                => 'HttpEndpoint',
+        'httpTokens'                  => 'HttpTokens',
         'imageFamily'                 => 'ImageFamily',
         'imageId'                     => 'ImageId',
         'imageName'                   => 'ImageName',
@@ -676,6 +688,12 @@ class CreateScalingConfigurationShrinkRequest extends Model
         }
         if (null !== $this->hpcClusterId) {
             $res['HpcClusterId'] = $this->hpcClusterId;
+        }
+        if (null !== $this->httpEndpoint) {
+            $res['HttpEndpoint'] = $this->httpEndpoint;
+        }
+        if (null !== $this->httpTokens) {
+            $res['HttpTokens'] = $this->httpTokens;
         }
         if (null !== $this->imageFamily) {
             $res['ImageFamily'] = $this->imageFamily;
@@ -898,6 +916,12 @@ class CreateScalingConfigurationShrinkRequest extends Model
         }
         if (isset($map['HpcClusterId'])) {
             $model->hpcClusterId = $map['HpcClusterId'];
+        }
+        if (isset($map['HttpEndpoint'])) {
+            $model->httpEndpoint = $map['HttpEndpoint'];
+        }
+        if (isset($map['HttpTokens'])) {
+            $model->httpTokens = $map['HttpTokens'];
         }
         if (isset($map['ImageFamily'])) {
             $model->imageFamily = $map['ImageFamily'];

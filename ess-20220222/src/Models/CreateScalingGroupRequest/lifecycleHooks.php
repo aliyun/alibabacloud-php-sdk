@@ -11,7 +11,7 @@ class lifecycleHooks extends Model
     /**
      * @description The action that Auto Scaling performs when the lifecycle hook times out. Valid values:
      *
-     *   CONTINUE: Auto Scaling continues to respond to a scale-in or scale-out request.
+     *   CONTINUE: Auto Scaling continues to respond to the scaling request.
      *   ABANDON: Auto Scaling releases ECS instances that are created during scale-out events, or removes ECS instances from the scaling group during scale-in events.
      *
      * Default value: CONTINUE.
@@ -54,15 +54,15 @@ class lifecycleHooks extends Model
     public $lifecycleTransition;
 
     /**
-     * @description The identifier of the notification recipient party when the lifecycle hook takes effect. You can specify a Message Service (MNS) topic or queue as the notification recipient party. Specify the value in the acs:ess:{region}:{account-id}:{resource-relative-id} format.
+     * @description The Alibaba Cloud Resource Name (ARN) of the notification recipient party. You can specify a Simple Message Queue (SMQ, formerly MNS) topic or queue as the recipient party. The value is in the acs:ess:{region}:{account-id}:{resource-relative-id} format.
      *
      *   region: the region ID of the scaling group
      *   account-id: the ID of your Alibaba Cloud account.
      *
      * Examples:
      *
-     *   MNS queue: acs:ess:{region}:{account-id}:queue/{queuename}
-     *   MNS topic: acs:ess:{region}:{account-id}:topic/{topicname}
+     *   SMQ queue: acs:ess:{region}:{account-id}:queue/{queuename}
+     *   SMQ topic: acs:ess:{region}:{account-id}:topic/{topicname}
      *
      * @example acs:ess:cn-hangzhou:1111111111:queue/queue2
      *
@@ -71,7 +71,7 @@ class lifecycleHooks extends Model
     public $notificationArn;
 
     /**
-     * @description The fixed string that you want to include in a notification. When a lifecycle hook takes effect, Auto Scaling sends a notification. The fixed string can contain up to 4,096 characters in length. When Auto Scaling sends a notification to the recipient party, it includes predefined notification metadata into the notification. This helps in managing and labeling notifications of different categories. notificationmetadata takes effect only if you specify notificationarn.
+     * @description The fixed string that you want to include in notifications. When a lifecycle hook takes effect, Auto Scaling sends a notification. The fixed string can contain up to 4,096 characters in length. When Auto Scaling sends a notification to the recipient party, it includes predefined notification metadata into the notification. This helps in managing and labeling notifications of different categories. NotificationMetadata takes effect only if you specify NotificationArn.
      *
      * @example Test
      *

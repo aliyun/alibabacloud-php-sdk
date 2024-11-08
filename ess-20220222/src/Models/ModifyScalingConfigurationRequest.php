@@ -148,6 +148,16 @@ class ModifyScalingConfigurationRequest extends Model
     public $hpcClusterId;
 
     /**
+     * @var string
+     */
+    public $httpEndpoint;
+
+    /**
+     * @var string
+     */
+    public $httpTokens;
+
+    /**
      * @description The name of the image family. If you specify this parameter, the latest custom images that are available in the specified image family are returned. Then, you can use the images to create instances. If you specify ImageId, you cannot specify ImageFamily.
      *
      * @example hangzhou-daily-update
@@ -227,6 +237,11 @@ class ModifyScalingConfigurationRequest extends Model
      * @var string
      */
     public $internetChargeType;
+
+    /**
+     * @var int
+     */
+    public $internetMaxBandwidthIn;
 
     /**
      * @description The maximum outbound public bandwidth. Unit: Mbit/s. Valid values:
@@ -540,6 +555,8 @@ class ModifyScalingConfigurationRequest extends Model
         'deploymentSetId'           => 'DeploymentSetId',
         'hostName'                  => 'HostName',
         'hpcClusterId'              => 'HpcClusterId',
+        'httpEndpoint'              => 'HttpEndpoint',
+        'httpTokens'                => 'HttpTokens',
         'imageFamily'               => 'ImageFamily',
         'imageId'                   => 'ImageId',
         'imageName'                 => 'ImageName',
@@ -549,6 +566,7 @@ class ModifyScalingConfigurationRequest extends Model
         'instanceTypeOverrides'     => 'InstanceTypeOverrides',
         'instanceTypes'             => 'InstanceTypes',
         'internetChargeType'        => 'InternetChargeType',
+        'internetMaxBandwidthIn'    => 'InternetMaxBandwidthIn',
         'internetMaxBandwidthOut'   => 'InternetMaxBandwidthOut',
         'ioOptimized'               => 'IoOptimized',
         'ipv6AddressCount'          => 'Ipv6AddressCount',
@@ -644,6 +662,12 @@ class ModifyScalingConfigurationRequest extends Model
         if (null !== $this->hpcClusterId) {
             $res['HpcClusterId'] = $this->hpcClusterId;
         }
+        if (null !== $this->httpEndpoint) {
+            $res['HttpEndpoint'] = $this->httpEndpoint;
+        }
+        if (null !== $this->httpTokens) {
+            $res['HttpTokens'] = $this->httpTokens;
+        }
         if (null !== $this->imageFamily) {
             $res['ImageFamily'] = $this->imageFamily;
         }
@@ -682,6 +706,9 @@ class ModifyScalingConfigurationRequest extends Model
         }
         if (null !== $this->internetChargeType) {
             $res['InternetChargeType'] = $this->internetChargeType;
+        }
+        if (null !== $this->internetMaxBandwidthIn) {
+            $res['InternetMaxBandwidthIn'] = $this->internetMaxBandwidthIn;
         }
         if (null !== $this->internetMaxBandwidthOut) {
             $res['InternetMaxBandwidthOut'] = $this->internetMaxBandwidthOut;
@@ -857,6 +884,12 @@ class ModifyScalingConfigurationRequest extends Model
         if (isset($map['HpcClusterId'])) {
             $model->hpcClusterId = $map['HpcClusterId'];
         }
+        if (isset($map['HttpEndpoint'])) {
+            $model->httpEndpoint = $map['HttpEndpoint'];
+        }
+        if (isset($map['HttpTokens'])) {
+            $model->httpTokens = $map['HttpTokens'];
+        }
         if (isset($map['ImageFamily'])) {
             $model->imageFamily = $map['ImageFamily'];
         }
@@ -897,6 +930,9 @@ class ModifyScalingConfigurationRequest extends Model
         }
         if (isset($map['InternetChargeType'])) {
             $model->internetChargeType = $map['InternetChargeType'];
+        }
+        if (isset($map['InternetMaxBandwidthIn'])) {
+            $model->internetMaxBandwidthIn = $map['InternetMaxBandwidthIn'];
         }
         if (isset($map['InternetMaxBandwidthOut'])) {
             $model->internetMaxBandwidthOut = $map['InternetMaxBandwidthOut'];

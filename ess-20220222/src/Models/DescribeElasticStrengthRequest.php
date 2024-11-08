@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticStrengthRequest extends Model
 {
     /**
+     * @description The instance types. The instance types specified by this parameter overwrite the instance types specified in the scaling configuration.
+     *
      * @var string[]
      */
     public $instanceTypes;
 
     /**
+     * @description The preemption policy that you want to apply to pay-as-you-go instances. The preemption policy specified by this parameter overwrites the preemption policy specified in the scaling configuration. Valid values:
+     *
+     *   NoSpot: The instances are created as regular pay-as-you-go instances.
+     *   SpotWithPriceLimit: The instances are created as preemptible instances that have a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instances are created as preemptible instances for which the market price at the time of purchase is automatically used as the bidding price.
+     *
+     * Default value: NoSpot.
      * @example NoSpot
      *
      * @var string
@@ -21,8 +30,9 @@ class DescribeElasticStrengthRequest extends Model
     public $priorityStrategy;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the scaling group.
      *
+     * This parameter is required.
      * @example cn-qingdao
      *
      * @var string
@@ -30,6 +40,8 @@ class DescribeElasticStrengthRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the scaling group.
+     *
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string
@@ -37,11 +49,20 @@ class DescribeElasticStrengthRequest extends Model
     public $scalingGroupId;
 
     /**
+     * @description The IDs of the scaling groups that you want to query.
+     *
      * @var string[]
      */
     public $scalingGroupIds;
 
     /**
+     * @description The categories of the system disks. The categories of the system disks specified by this parameter overwrite the categories of the system disks specified in the scaling configuration. Valid values:
+     *
+     *   cloud: basic disk.
+     *   cloud_efficiency: ultra disk.
+     *   cloud_ssd: standard SSD.
+     *   cloud_essd: Enterprise SSD (ESSD).
+     *
      * @var string[]
      */
     public $systemDiskCategories;

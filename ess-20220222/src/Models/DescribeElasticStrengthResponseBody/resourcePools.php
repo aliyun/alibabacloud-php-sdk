@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourcePools extends Model
 {
     /**
+     * @description The error code returned when the scaling strength is the weakest.
+     *
      * @example IMG_NOT_SUPPORTED
      *
      * @var string
@@ -16,6 +18,8 @@ class resourcePools extends Model
     public $code;
 
     /**
+     * @description The instance type of the resource pool.
+     *
      * @example ecs.c7t.xlarge
      *
      * @var string
@@ -23,6 +27,8 @@ class resourcePools extends Model
     public $instanceType;
 
     /**
+     * @description The error message returned when the scaling strength is the weakest.
+     *
      * @example The instanceType does not support the image in the configuration.
      *
      * @var string
@@ -30,6 +36,8 @@ class resourcePools extends Model
     public $msg;
 
     /**
+     * @description The scaling strength of the resource pool.
+     *
      * @example 0.6
      *
      * @var float
@@ -37,11 +45,15 @@ class resourcePools extends Model
     public $strength;
 
     /**
+     * @description The IDs of the vSwitches in the zones of the resource pool.
+     *
      * @var string[]
      */
     public $vSwitchIds;
 
     /**
+     * @description The zone ID of the resource pool.
+     *
      * @example cn-hangzhou-g
      *
      * @var string

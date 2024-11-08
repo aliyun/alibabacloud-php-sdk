@@ -509,6 +509,8 @@ class scalingGroups extends Model
     public $standbyCapacity;
 
     /**
+     * @description The period of time that is required by the Elastic Compute Service (ECS) instance to enter the Stopped state during the scale-in process. Unit: seconds.
+     *
      * @example 60
      *
      * @var int

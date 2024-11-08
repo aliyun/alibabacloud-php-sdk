@@ -137,6 +137,16 @@ class scalingConfigurations extends Model
     public $hpcClusterId;
 
     /**
+     * @var string
+     */
+    public $httpEndpoint;
+
+    /**
+     * @var string
+     */
+    public $httpTokens;
+
+    /**
      * @description The name of the image family. You can specify this parameter to obtain the latest available images in the current image family for instance creation. If you specify ImageId, you cannot specify `ImageFamily`.
      *
      * @example hangzhou-daily-update
@@ -217,7 +227,7 @@ class scalingConfigurations extends Model
     public $instanceName;
 
     /**
-     * @description The information about the intelligent configuration settings, which determine the available instance types.
+     * @description The intelligent configuration settings, which determine the available instance types.
      *
      * @var instancePatternInfos[]
      */
@@ -449,7 +459,7 @@ class scalingConfigurations extends Model
     public $securityGroupIds;
 
     /**
-     * @description The security options.
+     * @description 安全选项。
      *
      * @var securityOptions
      */
@@ -697,6 +707,8 @@ class scalingConfigurations extends Model
         'deploymentSetId'                  => 'DeploymentSetId',
         'hostName'                         => 'HostName',
         'hpcClusterId'                     => 'HpcClusterId',
+        'httpEndpoint'                     => 'HttpEndpoint',
+        'httpTokens'                       => 'HttpTokens',
         'imageFamily'                      => 'ImageFamily',
         'imageId'                          => 'ImageId',
         'imageName'                        => 'ImageName',
@@ -811,6 +823,12 @@ class scalingConfigurations extends Model
         }
         if (null !== $this->hpcClusterId) {
             $res['HpcClusterId'] = $this->hpcClusterId;
+        }
+        if (null !== $this->httpEndpoint) {
+            $res['HttpEndpoint'] = $this->httpEndpoint;
+        }
+        if (null !== $this->httpTokens) {
+            $res['HttpTokens'] = $this->httpTokens;
         }
         if (null !== $this->imageFamily) {
             $res['ImageFamily'] = $this->imageFamily;
@@ -1069,6 +1087,12 @@ class scalingConfigurations extends Model
         }
         if (isset($map['HpcClusterId'])) {
             $model->hpcClusterId = $map['HpcClusterId'];
+        }
+        if (isset($map['HttpEndpoint'])) {
+            $model->httpEndpoint = $map['HttpEndpoint'];
+        }
+        if (isset($map['HttpTokens'])) {
+            $model->httpTokens = $map['HttpTokens'];
         }
         if (isset($map['ImageFamily'])) {
             $model->imageFamily = $map['ImageFamily'];

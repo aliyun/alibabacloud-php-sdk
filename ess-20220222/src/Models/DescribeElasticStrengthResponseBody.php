@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticStrengthResponseBody extends Model
 {
     /**
+     * @description The scaling strength models.
+     *
      * @var elasticStrengthModels[]
      */
     public $elasticStrengthModels;
 
     /**
+     * @description The request ID.
+     *
      * @example 73469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
      * @var string
@@ -23,11 +27,15 @@ class DescribeElasticStrengthResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The resource pools.
+     *
      * @var resourcePools[]
      */
     public $resourcePools;
 
     /**
+     * @description The scaling strength of the scaling group. Each combination of instance type + zone is scored from 0 to 1 based on its availability, with 0 being the weakest scaling strength and 1 being the strongest. The scaling strength of the scaling group is measured by the combined scores of all the combinations of instance type + zone.
+     *
      * @example 1.5
      *
      * @var float

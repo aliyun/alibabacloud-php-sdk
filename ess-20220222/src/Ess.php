@@ -1708,6 +1708,12 @@ class Ess extends OpenApiClient
         if (!Utils::isUnset($request->hpcClusterId)) {
             $query['HpcClusterId'] = $request->hpcClusterId;
         }
+        if (!Utils::isUnset($request->httpEndpoint)) {
+            $query['HttpEndpoint'] = $request->httpEndpoint;
+        }
+        if (!Utils::isUnset($request->httpTokens)) {
+            $query['HttpTokens'] = $request->httpTokens;
+        }
         if (!Utils::isUnset($request->imageFamily)) {
             $query['ImageFamily'] = $request->imageFamily;
         }
@@ -6183,6 +6189,12 @@ class Ess extends OpenApiClient
         if (!Utils::isUnset($request->hpcClusterId)) {
             $query['HpcClusterId'] = $request->hpcClusterId;
         }
+        if (!Utils::isUnset($request->httpEndpoint)) {
+            $query['HttpEndpoint'] = $request->httpEndpoint;
+        }
+        if (!Utils::isUnset($request->httpTokens)) {
+            $query['HttpTokens'] = $request->httpTokens;
+        }
         if (!Utils::isUnset($request->imageFamily)) {
             $query['ImageFamily'] = $request->imageFamily;
         }
@@ -6209,6 +6221,9 @@ class Ess extends OpenApiClient
         }
         if (!Utils::isUnset($request->internetChargeType)) {
             $query['InternetChargeType'] = $request->internetChargeType;
+        }
+        if (!Utils::isUnset($request->internetMaxBandwidthIn)) {
+            $query['InternetMaxBandwidthIn'] = $request->internetMaxBandwidthIn;
         }
         if (!Utils::isUnset($request->internetMaxBandwidthOut)) {
             $query['InternetMaxBandwidthOut'] = $request->internetMaxBandwidthOut;
