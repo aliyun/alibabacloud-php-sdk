@@ -55,6 +55,8 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\InvokePluginRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\InvokePluginResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\PreviewDocumentRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\PreviewDocumentResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\RebuildTaskRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\RebuildTaskResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RecallDocumentRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RecallDocumentResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RecognizeIntentionRequest;
@@ -1617,6 +1619,58 @@ class DianJin extends OpenApiClient
         $headers = [];
 
         return $this->reIndexWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 重建任务
+     *  *
+     * @param string             $workspaceId
+     * @param RebuildTaskRequest $request     RebuildTaskRequest
+     * @param string[]           $headers     map
+     * @param RuntimeOptions     $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return RebuildTaskResponse RebuildTaskResponse
+     */
+    public function rebuildTaskWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->taskIds)) {
+            $body['taskIds'] = $request->taskIds;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RebuildTask',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/api/task/rebuild',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RebuildTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 重建任务
+     *  *
+     * @param string             $workspaceId
+     * @param RebuildTaskRequest $request     RebuildTaskRequest
+     *
+     * @return RebuildTaskResponse RebuildTaskResponse
+     */
+    public function rebuildTask($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->rebuildTaskWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
