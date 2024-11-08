@@ -426,6 +426,11 @@ class data extends Model
     public $nasId;
 
     /**
+     * @var string
+     */
+    public $oidcRoleName;
+
+    /**
      * @description The AccessKey ID that is used to read data from and write data to Object Storage Service (OSS) buckets.
      *
      * @example xxxxxx
@@ -790,6 +795,7 @@ class data extends Model
         'namespaceId'                   => 'NamespaceId',
         'nasConfigs'                    => 'NasConfigs',
         'nasId'                         => 'NasId',
+        'oidcRoleName'                  => 'OidcRoleName',
         'ossAkId'                       => 'OssAkId',
         'ossAkSecret'                   => 'OssAkSecret',
         'ossMountDescs'                 => 'OssMountDescs',
@@ -961,6 +967,9 @@ class data extends Model
         }
         if (null !== $this->nasId) {
             $res['NasId'] = $this->nasId;
+        }
+        if (null !== $this->oidcRoleName) {
+            $res['OidcRoleName'] = $this->oidcRoleName;
         }
         if (null !== $this->ossAkId) {
             $res['OssAkId'] = $this->ossAkId;
@@ -1210,6 +1219,9 @@ class data extends Model
         }
         if (isset($map['NasId'])) {
             $model->nasId = $map['NasId'];
+        }
+        if (isset($map['OidcRoleName'])) {
+            $model->oidcRoleName = $map['OidcRoleName'];
         }
         if (isset($map['OssAkId'])) {
             $model->ossAkId = $map['OssAkId'];

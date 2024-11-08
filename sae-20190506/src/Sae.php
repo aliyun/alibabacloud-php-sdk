@@ -718,6 +718,9 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->nasId)) {
             $query['NasId'] = $request->nasId;
         }
+        if (!Utils::isUnset($request->oidcRoleName)) {
+            $query['OidcRoleName'] = $request->oidcRoleName;
+        }
         if (!Utils::isUnset($request->packageType)) {
             $query['PackageType'] = $request->packageType;
         }
@@ -2324,6 +2327,9 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->nasId)) {
             $query['NasId'] = $request->nasId;
+        }
+        if (!Utils::isUnset($request->oidcRoleName)) {
+            $query['OidcRoleName'] = $request->oidcRoleName;
         }
         if (!Utils::isUnset($request->packageType)) {
             $query['PackageType'] = $request->packageType;
