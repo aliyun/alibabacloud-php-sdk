@@ -1,3 +1,7 @@
+2024-11-08 Version: 4.2.2
+- Update API DescribeDBClusterPerformance: update response param.
+
+
 2024-11-05 Version: 4.2.1
 - Update API DescribeDBClusterShardNumber: update response param.
 

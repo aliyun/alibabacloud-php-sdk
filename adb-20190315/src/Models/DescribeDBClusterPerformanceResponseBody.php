@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterPerformanceResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
      * @description The cluster ID.
      *
      * @example am-************
@@ -52,11 +57,12 @@ class DescribeDBClusterPerformanceResponseBody extends Model
      */
     public $startTime;
     protected $_name = [
-        'DBClusterId'  => 'DBClusterId',
-        'endTime'      => 'EndTime',
-        'performances' => 'Performances',
-        'requestId'    => 'RequestId',
-        'startTime'    => 'StartTime',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'DBClusterId'        => 'DBClusterId',
+        'endTime'            => 'EndTime',
+        'performances'       => 'Performances',
+        'requestId'          => 'RequestId',
+        'startTime'          => 'StartTime',
     ];
 
     public function validate()
@@ -66,6 +72,9 @@ class DescribeDBClusterPerformanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
@@ -99,6 +108,9 @@ class DescribeDBClusterPerformanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
