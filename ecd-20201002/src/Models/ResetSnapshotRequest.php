@@ -18,6 +18,11 @@ class ResetSnapshotRequest extends Model
     public $clientId;
 
     /**
+     * @var string
+     */
+    public $desktopId;
+
+    /**
      * @description This parameter is required.
      *
      * @example v1fdef51b727aa91d6c881658978508114d3f5680fa99a66b2a631d17d5bb4860cccf1173be24d77d5ef1423c83aea****
@@ -52,6 +57,7 @@ class ResetSnapshotRequest extends Model
     public $snapshotId;
     protected $_name = [
         'clientId'   => 'ClientId',
+        'desktopId'  => 'DesktopId',
         'loginToken' => 'LoginToken',
         'regionId'   => 'RegionId',
         'sessionId'  => 'SessionId',
@@ -67,6 +73,9 @@ class ResetSnapshotRequest extends Model
         $res = [];
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
+        }
+        if (null !== $this->desktopId) {
+            $res['DesktopId'] = $this->desktopId;
         }
         if (null !== $this->loginToken) {
             $res['LoginToken'] = $this->loginToken;
@@ -94,6 +103,9 @@ class ResetSnapshotRequest extends Model
         $model = new self();
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
+        }
+        if (isset($map['DesktopId'])) {
+            $model->desktopId = $map['DesktopId'];
         }
         if (isset($map['LoginToken'])) {
             $model->loginToken = $map['LoginToken'];

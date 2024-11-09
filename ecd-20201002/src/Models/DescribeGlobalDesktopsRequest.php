@@ -60,6 +60,11 @@ class DescribeGlobalDesktopsRequest extends Model
     public $keyword;
 
     /**
+     * @var string
+     */
+    public $language;
+
+    /**
      * @example cn-hangzhou
      *
      * @var string
@@ -152,6 +157,7 @@ class DescribeGlobalDesktopsRequest extends Model
         'desktopStatus'     => 'DesktopStatus',
         'directoryId'       => 'DirectoryId',
         'keyword'           => 'Keyword',
+        'language'          => 'Language',
         'loginRegionId'     => 'LoginRegionId',
         'loginToken'        => 'LoginToken',
         'maxResults'        => 'MaxResults',
@@ -193,6 +199,9 @@ class DescribeGlobalDesktopsRequest extends Model
         }
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
+        }
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
         }
         if (null !== $this->loginRegionId) {
             $res['LoginRegionId'] = $this->loginRegionId;
@@ -264,6 +273,9 @@ class DescribeGlobalDesktopsRequest extends Model
         }
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
+        }
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
         }
         if (isset($map['LoginRegionId'])) {
             $model->loginRegionId = $map['LoginRegionId'];

@@ -68,7 +68,6 @@ use AlibabaCloud\SDK\Ecd\V20201002\Models\VerifyCredentialRequest;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\VerifyCredentialResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
-use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -78,10 +77,8 @@ class Ecd extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_productId    = 'ecd';
-        $gatewayClient       = new Client();
-        $this->_spi          = $gatewayClient;
-        $this->_endpointRule = 'regional';
+        $this->_signatureAlgorithm = 'v2';
+        $this->_endpointRule       = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ecd', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -157,7 +154,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ApproveFotaUpdateResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return ApproveFotaUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -223,7 +220,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ChangePasswordResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return ChangePasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -281,7 +278,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DeleteFingerPrintTemplateResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return DeleteFingerPrintTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -330,7 +327,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DescribeDirectoriesResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return DescribeDirectoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -382,7 +379,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DescribeFingerPrintTemplatesResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return DescribeFingerPrintTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -427,6 +424,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->keyword)) {
             $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
         }
         if (!Utils::isUnset($request->loginRegionId)) {
             $query['LoginRegionId'] = $request->loginRegionId;
@@ -479,7 +479,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DescribeGlobalDesktopsResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return DescribeGlobalDesktopsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -528,7 +528,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DescribeOfficeSitesResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return DescribeOfficeSitesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -574,7 +574,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -640,7 +640,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DescribeSnapshotsResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return DescribeSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -703,7 +703,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return EncryptPasswordResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return EncryptPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -760,7 +760,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetCloudDriveServiceMountTokenResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return GetCloudDriveServiceMountTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -844,7 +844,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetConnectionTicketResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return GetConnectionTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -940,7 +940,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetLoginTokenResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return GetLoginTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -993,7 +993,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return IsKeepAliveResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return IsKeepAliveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1046,7 +1046,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return QueryEdsAgentReportConfigResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return QueryEdsAgentReportConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1120,7 +1120,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return RebootDesktopsResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return RebootDesktopsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1183,7 +1183,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return RefreshLoginTokenResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return RefreshLoginTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1237,7 +1237,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ReportEdsAgentInfoResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return ReportEdsAgentInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1297,7 +1297,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ReportSessionStatusResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return ReportSessionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1358,7 +1358,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ResetPasswordResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return ResetPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1388,6 +1388,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->clientId)) {
             $query['ClientId'] = $request->clientId;
         }
+        if (!Utils::isUnset($request->desktopId)) {
+            $query['DesktopId'] = $request->desktopId;
+        }
         if (!Utils::isUnset($request->loginToken)) {
             $query['LoginToken'] = $request->loginToken;
         }
@@ -1415,7 +1418,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ResetSnapshotResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return ResetSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1481,7 +1484,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return SendTokenCodeResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return SendTokenCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1551,7 +1554,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return SetFingerPrintTemplateResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return SetFingerPrintTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1612,7 +1615,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return SetFingerPrintTemplateDescriptionResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return SetFingerPrintTemplateDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1683,7 +1686,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return StartDesktopsResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return StartDesktopsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1751,7 +1754,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return StartRecordContentResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return StartRecordContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1822,7 +1825,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return StopDesktopsResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return StopDesktopsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1887,7 +1890,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return StopRecordContentResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return StopRecordContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1950,7 +1953,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return UnbindUserDesktopResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return UnbindUserDesktopResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2016,7 +2019,7 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return VerifyCredentialResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return VerifyCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

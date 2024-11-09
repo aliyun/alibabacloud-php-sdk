@@ -194,6 +194,11 @@ class desktops extends Model
     public $os;
 
     /**
+     * @var string
+     */
+    public $osDescription;
+
+    /**
      * @example Windows
      *
      * @var string
@@ -290,6 +295,7 @@ class desktops extends Model
         'networkInterfaceIp' => 'NetworkInterfaceIp',
         'officeSiteId'       => 'OfficeSiteId',
         'os'                 => 'Os',
+        'osDescription'      => 'OsDescription',
         'osType'             => 'OsType',
         'platform'           => 'Platform',
         'policyGroupId'      => 'PolicyGroupId',
@@ -411,6 +417,9 @@ class desktops extends Model
         }
         if (null !== $this->os) {
             $res['Os'] = $this->os;
+        }
+        if (null !== $this->osDescription) {
+            $res['OsDescription'] = $this->osDescription;
         }
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
@@ -568,6 +577,9 @@ class desktops extends Model
         }
         if (isset($map['Os'])) {
             $model->os = $map['Os'];
+        }
+        if (isset($map['OsDescription'])) {
+            $model->osDescription = $map['OsDescription'];
         }
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
