@@ -197,6 +197,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSubscribedCalendarRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSubscribedCalendarResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSubscribedCalendarShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSubscribedCalendarShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTicketHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTicketRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTicketResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTicketShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTicketShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTodoTaskHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTodoTaskRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTodoTaskResponse;
@@ -4305,6 +4310,106 @@ class Aliding extends OpenApiClient
         $headers = new CreateSubscribedCalendarHeaders([]);
 
         return $this->createSubscribedCalendarWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建工单
+     *  *
+     * @param CreateTicketRequest $tmpReq    CreateTicketRequest
+     * @param CreateTicketHeaders $tmpHeader CreateTicketHeaders
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return CreateTicketResponse CreateTicketResponse
+     */
+    public function createTicketWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateTicketShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new CreateTicketShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->notify)) {
+            $request->notifyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notify, 'Notify', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->processorUserIds)) {
+            $request->processorUserIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->processorUserIds, 'ProcessorUserIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sceneContext)) {
+            $request->sceneContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sceneContext, 'SceneContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->customFields)) {
+            $body['CustomFields'] = $request->customFields;
+        }
+        if (!Utils::isUnset($request->notifyShrink)) {
+            $body['Notify'] = $request->notifyShrink;
+        }
+        if (!Utils::isUnset($request->openTeamId)) {
+            $body['OpenTeamId'] = $request->openTeamId;
+        }
+        if (!Utils::isUnset($request->openTemplateBizId)) {
+            $body['OpenTemplateBizId'] = $request->openTemplateBizId;
+        }
+        if (!Utils::isUnset($request->processorUserIdsShrink)) {
+            $body['ProcessorUserIds'] = $request->processorUserIdsShrink;
+        }
+        if (!Utils::isUnset($request->scene)) {
+            $body['Scene'] = $request->scene;
+        }
+        if (!Utils::isUnset($request->sceneContextShrink)) {
+            $body['SceneContext'] = $request->sceneContextShrink;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $body['Title'] = $request->title;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTicket',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/ticket/createTicket',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建工单
+     *  *
+     * @param CreateTicketRequest $request CreateTicketRequest
+     *
+     * @return CreateTicketResponse CreateTicketResponse
+     */
+    public function createTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateTicketHeaders([]);
+
+        return $this->createTicketWithOptions($request, $headers, $runtime);
     }
 
     /**
