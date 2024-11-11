@@ -30,6 +30,11 @@ class SendByAliasShrinkRequest extends Model
     /**
      * @var string
      */
+    public $androidShortPayloadShrink;
+
+    /**
+     * @var string
+     */
     public $channelPropertiesShrink;
 
     /**
@@ -76,18 +81,19 @@ class SendByAliasShrinkRequest extends Model
      */
     public $callbackParams;
     protected $_name = [
-        'alias'                   => 'Alias',
-        'aliasType'               => 'AliasType',
-        'androidPayloadShrink'    => 'AndroidPayload',
-        'channelPropertiesShrink' => 'ChannelProperties',
-        'description'             => 'Description',
-        'iosPayloadShrink'        => 'IosPayload',
-        'policyShrink'            => 'Policy',
-        'productionMode'          => 'ProductionMode',
-        'receiptType'             => 'ReceiptType',
-        'receiptUrl'              => 'ReceiptUrl',
-        'thirdPartyId'            => 'ThirdPartyId',
-        'callbackParams'          => 'callbackParams',
+        'alias'                     => 'Alias',
+        'aliasType'                 => 'AliasType',
+        'androidPayloadShrink'      => 'AndroidPayload',
+        'androidShortPayloadShrink' => 'AndroidShortPayload',
+        'channelPropertiesShrink'   => 'ChannelProperties',
+        'description'               => 'Description',
+        'iosPayloadShrink'          => 'IosPayload',
+        'policyShrink'              => 'Policy',
+        'productionMode'            => 'ProductionMode',
+        'receiptType'               => 'ReceiptType',
+        'receiptUrl'                => 'ReceiptUrl',
+        'thirdPartyId'              => 'ThirdPartyId',
+        'callbackParams'            => 'callbackParams',
     ];
 
     public function validate()
@@ -105,6 +111,9 @@ class SendByAliasShrinkRequest extends Model
         }
         if (null !== $this->androidPayloadShrink) {
             $res['AndroidPayload'] = $this->androidPayloadShrink;
+        }
+        if (null !== $this->androidShortPayloadShrink) {
+            $res['AndroidShortPayload'] = $this->androidShortPayloadShrink;
         }
         if (null !== $this->channelPropertiesShrink) {
             $res['ChannelProperties'] = $this->channelPropertiesShrink;
@@ -153,6 +162,9 @@ class SendByAliasShrinkRequest extends Model
         }
         if (isset($map['AndroidPayload'])) {
             $model->androidPayloadShrink = $map['AndroidPayload'];
+        }
+        if (isset($map['AndroidShortPayload'])) {
+            $model->androidShortPayloadShrink = $map['AndroidShortPayload'];
         }
         if (isset($map['ChannelProperties'])) {
             $model->channelPropertiesShrink = $map['ChannelProperties'];

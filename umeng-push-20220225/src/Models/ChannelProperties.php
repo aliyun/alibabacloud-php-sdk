@@ -67,6 +67,11 @@ class ChannelProperties extends Model
     /**
      * @var string
      */
+    public $vivoPushMode;
+
+    /**
+     * @var string
+     */
     public $xiaomiChannelId;
     protected $_name = [
         'channelActivity'         => 'channelActivity',
@@ -79,6 +84,7 @@ class ChannelProperties extends Model
         'useHuaweiMessage'        => 'useHuaweiMessage',
         'vivoAddBadge'            => 'vivoAddBadge',
         'vivoCategory'            => 'vivoCategory',
+        'vivoPushMode'            => 'vivoPushMode',
         'xiaomiChannelId'         => 'xiaomiChannelId',
     ];
 
@@ -118,6 +124,9 @@ class ChannelProperties extends Model
         }
         if (null !== $this->vivoCategory) {
             $res['vivoCategory'] = $this->vivoCategory;
+        }
+        if (null !== $this->vivoPushMode) {
+            $res['vivoPushMode'] = $this->vivoPushMode;
         }
         if (null !== $this->xiaomiChannelId) {
             $res['xiaomiChannelId'] = $this->xiaomiChannelId;
@@ -163,6 +172,9 @@ class ChannelProperties extends Model
         }
         if (isset($map['vivoCategory'])) {
             $model->vivoCategory = $map['vivoCategory'];
+        }
+        if (isset($map['vivoPushMode'])) {
+            $model->vivoPushMode = $map['vivoPushMode'];
         }
         if (isset($map['xiaomiChannelId'])) {
             $model->xiaomiChannelId = $map['xiaomiChannelId'];

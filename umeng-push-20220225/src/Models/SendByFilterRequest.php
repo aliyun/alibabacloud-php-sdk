@@ -14,6 +14,11 @@ class SendByFilterRequest extends Model
     public $androidPayload;
 
     /**
+     * @var AndroidShortPayload
+     */
+    public $androidShortPayload;
+
+    /**
      * @var ChannelProperties
      */
     public $channelProperties;
@@ -69,17 +74,18 @@ class SendByFilterRequest extends Model
      */
     public $callbackParams;
     protected $_name = [
-        'androidPayload'    => 'AndroidPayload',
-        'channelProperties' => 'ChannelProperties',
-        'description'       => 'Description',
-        'filter'            => 'Filter',
-        'iosPayload'        => 'IosPayload',
-        'policy'            => 'Policy',
-        'productionMode'    => 'ProductionMode',
-        'receiptType'       => 'ReceiptType',
-        'receiptUrl'        => 'ReceiptUrl',
-        'thirdPartyId'      => 'ThirdPartyId',
-        'callbackParams'    => 'callbackParams',
+        'androidPayload'      => 'AndroidPayload',
+        'androidShortPayload' => 'AndroidShortPayload',
+        'channelProperties'   => 'ChannelProperties',
+        'description'         => 'Description',
+        'filter'              => 'Filter',
+        'iosPayload'          => 'IosPayload',
+        'policy'              => 'Policy',
+        'productionMode'      => 'ProductionMode',
+        'receiptType'         => 'ReceiptType',
+        'receiptUrl'          => 'ReceiptUrl',
+        'thirdPartyId'        => 'ThirdPartyId',
+        'callbackParams'      => 'callbackParams',
     ];
 
     public function validate()
@@ -91,6 +97,9 @@ class SendByFilterRequest extends Model
         $res = [];
         if (null !== $this->androidPayload) {
             $res['AndroidPayload'] = null !== $this->androidPayload ? $this->androidPayload->toMap() : null;
+        }
+        if (null !== $this->androidShortPayload) {
+            $res['AndroidShortPayload'] = null !== $this->androidShortPayload ? $this->androidShortPayload->toMap() : null;
         }
         if (null !== $this->channelProperties) {
             $res['ChannelProperties'] = null !== $this->channelProperties ? $this->channelProperties->toMap() : null;
@@ -136,6 +145,9 @@ class SendByFilterRequest extends Model
         $model = new self();
         if (isset($map['AndroidPayload'])) {
             $model->androidPayload = AndroidPayload::fromMap($map['AndroidPayload']);
+        }
+        if (isset($map['AndroidShortPayload'])) {
+            $model->androidShortPayload = AndroidShortPayload::fromMap($map['AndroidShortPayload']);
         }
         if (isset($map['ChannelProperties'])) {
             $model->channelProperties = ChannelProperties::fromMap($map['ChannelProperties']);

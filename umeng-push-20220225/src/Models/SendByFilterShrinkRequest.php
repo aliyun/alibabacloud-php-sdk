@@ -14,6 +14,11 @@ class SendByFilterShrinkRequest extends Model
     public $androidPayloadShrink;
 
     /**
+     * @var AndroidShortPayload
+     */
+    public $androidShortPayload;
+
+    /**
      * @var string
      */
     public $channelPropertiesShrink;
@@ -70,6 +75,7 @@ class SendByFilterShrinkRequest extends Model
     public $callbackParams;
     protected $_name = [
         'androidPayloadShrink'    => 'AndroidPayload',
+        'androidShortPayload'     => 'AndroidShortPayload',
         'channelPropertiesShrink' => 'ChannelProperties',
         'description'             => 'Description',
         'filter'                  => 'Filter',
@@ -91,6 +97,9 @@ class SendByFilterShrinkRequest extends Model
         $res = [];
         if (null !== $this->androidPayloadShrink) {
             $res['AndroidPayload'] = $this->androidPayloadShrink;
+        }
+        if (null !== $this->androidShortPayload) {
+            $res['AndroidShortPayload'] = null !== $this->androidShortPayload ? $this->androidShortPayload->toMap() : null;
         }
         if (null !== $this->channelPropertiesShrink) {
             $res['ChannelProperties'] = $this->channelPropertiesShrink;
@@ -136,6 +145,9 @@ class SendByFilterShrinkRequest extends Model
         $model = new self();
         if (isset($map['AndroidPayload'])) {
             $model->androidPayloadShrink = $map['AndroidPayload'];
+        }
+        if (isset($map['AndroidShortPayload'])) {
+            $model->androidShortPayload = AndroidShortPayload::fromMap($map['AndroidShortPayload']);
         }
         if (isset($map['ChannelProperties'])) {
             $model->channelPropertiesShrink = $map['ChannelProperties'];

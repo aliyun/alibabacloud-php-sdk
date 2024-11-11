@@ -186,6 +186,9 @@ class Umengpush extends OpenApiClient
         if (!Utils::isUnset($tmpReq->androidPayload)) {
             $request->androidPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->androidPayload, 'AndroidPayload', 'json');
         }
+        if (!Utils::isUnset($tmpReq->androidShortPayload)) {
+            $request->androidShortPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->androidShortPayload, 'AndroidShortPayload', 'json');
+        }
         if (!Utils::isUnset($tmpReq->channelProperties)) {
             $request->channelPropertiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->channelProperties, 'ChannelProperties', 'json');
         }
@@ -204,6 +207,9 @@ class Umengpush extends OpenApiClient
         }
         if (!Utils::isUnset($request->androidPayloadShrink)) {
             $body['AndroidPayload'] = $request->androidPayloadShrink;
+        }
+        if (!Utils::isUnset($request->androidShortPayloadShrink)) {
+            $body['AndroidShortPayload'] = $request->androidShortPayloadShrink;
         }
         if (!Utils::isUnset($request->channelPropertiesShrink)) {
             $body['ChannelProperties'] = $request->channelPropertiesShrink;
@@ -283,6 +289,9 @@ class Umengpush extends OpenApiClient
         if (!Utils::isUnset($tmpReq->androidPayload)) {
             $request->androidPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->androidPayload, 'AndroidPayload', 'json');
         }
+        if (!Utils::isUnset($tmpReq->androidShortPayload)) {
+            $request->androidShortPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->androidShortPayload, 'AndroidShortPayload', 'json');
+        }
         if (!Utils::isUnset($tmpReq->channelProperties)) {
             $request->channelPropertiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->channelProperties, 'ChannelProperties', 'json');
         }
@@ -298,6 +307,9 @@ class Umengpush extends OpenApiClient
         }
         if (!Utils::isUnset($request->androidPayloadShrink)) {
             $body['AndroidPayload'] = $request->androidPayloadShrink;
+        }
+        if (!Utils::isUnset($request->androidShortPayloadShrink)) {
+            $body['AndroidShortPayload'] = $request->androidShortPayloadShrink;
         }
         if (!Utils::isUnset($request->channelPropertiesShrink)) {
             $body['ChannelProperties'] = $request->channelPropertiesShrink;
@@ -380,6 +392,9 @@ class Umengpush extends OpenApiClient
         if (!Utils::isUnset($tmpReq->androidPayload)) {
             $request->androidPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->androidPayload, 'AndroidPayload', 'json');
         }
+        if (!Utils::isUnset($tmpReq->androidShortPayload)) {
+            $request->androidShortPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->androidShortPayload, 'AndroidShortPayload', 'json');
+        }
         if (!Utils::isUnset($tmpReq->channelProperties)) {
             $request->channelPropertiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->channelProperties, 'ChannelProperties', 'json');
         }
@@ -392,6 +407,9 @@ class Umengpush extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->androidPayloadShrink)) {
             $body['AndroidPayload'] = $request->androidPayloadShrink;
+        }
+        if (!Utils::isUnset($request->androidShortPayloadShrink)) {
+            $body['AndroidShortPayload'] = $request->androidShortPayloadShrink;
         }
         if (!Utils::isUnset($request->channelPropertiesShrink)) {
             $body['ChannelProperties'] = $request->channelPropertiesShrink;
@@ -471,6 +489,9 @@ class Umengpush extends OpenApiClient
         if (!Utils::isUnset($tmpReq->androidPayload)) {
             $request->androidPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->androidPayload, 'AndroidPayload', 'json');
         }
+        if (!Utils::isUnset($tmpReq->androidShortPayload)) {
+            $request->androidShortPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->androidShortPayload, 'AndroidShortPayload', 'json');
+        }
         if (!Utils::isUnset($tmpReq->channelProperties)) {
             $request->channelPropertiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->channelProperties, 'ChannelProperties', 'json');
         }
@@ -483,6 +504,9 @@ class Umengpush extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->androidPayloadShrink)) {
             $body['AndroidPayload'] = $request->androidPayloadShrink;
+        }
+        if (!Utils::isUnset($request->androidShortPayloadShrink)) {
+            $body['AndroidShortPayload'] = $request->androidShortPayloadShrink;
         }
         if (!Utils::isUnset($request->channelPropertiesShrink)) {
             $body['ChannelProperties'] = $request->channelPropertiesShrink;
@@ -565,6 +589,9 @@ class Umengpush extends OpenApiClient
         if (!Utils::isUnset($tmpReq->androidPayload)) {
             $request->androidPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->androidPayload, 'AndroidPayload', 'json');
         }
+        if (!Utils::isUnset($tmpReq->androidShortPayload)) {
+            $request->androidShortPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->androidShortPayload, 'AndroidShortPayload', 'json');
+        }
         if (!Utils::isUnset($tmpReq->channelProperties)) {
             $request->channelPropertiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->channelProperties, 'ChannelProperties', 'json');
         }
@@ -577,6 +604,9 @@ class Umengpush extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->androidPayloadShrink)) {
             $body['AndroidPayload'] = $request->androidPayloadShrink;
+        }
+        if (!Utils::isUnset($request->androidShortPayloadShrink)) {
+            $body['AndroidShortPayload'] = $request->androidShortPayloadShrink;
         }
         if (!Utils::isUnset($request->channelPropertiesShrink)) {
             $body['ChannelProperties'] = $request->channelPropertiesShrink;
@@ -671,6 +701,9 @@ class Umengpush extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->androidPayloadShrink)) {
             $body['AndroidPayload'] = $request->androidPayloadShrink;
+        }
+        if (!Utils::isUnset($request->androidShortPayload)) {
+            $body['AndroidShortPayload'] = $request->androidShortPayload;
         }
         if (!Utils::isUnset($request->channelPropertiesShrink)) {
             $body['ChannelProperties'] = $request->channelPropertiesShrink;
