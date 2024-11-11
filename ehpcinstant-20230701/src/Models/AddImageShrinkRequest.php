@@ -19,6 +19,11 @@ class AddImageShrinkRequest extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $imageType;
+
+    /**
      * @example V1.0
      *
      * @var string
@@ -41,6 +46,7 @@ class AddImageShrinkRequest extends Model
     protected $_name = [
         'containerImageSpecShrink' => 'ContainerImageSpec',
         'description'              => 'Description',
+        'imageType'                => 'ImageType',
         'imageVersion'             => 'ImageVersion',
         'name'                     => 'Name',
         'VMImageSpecShrink'        => 'VMImageSpec',
@@ -58,6 +64,9 @@ class AddImageShrinkRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->imageType) {
+            $res['ImageType'] = $this->imageType;
         }
         if (null !== $this->imageVersion) {
             $res['ImageVersion'] = $this->imageVersion;
@@ -85,6 +94,9 @@ class AddImageShrinkRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['ImageType'])) {
+            $model->imageType = $map['ImageType'];
         }
         if (isset($map['ImageVersion'])) {
             $model->imageVersion = $map['ImageVersion'];

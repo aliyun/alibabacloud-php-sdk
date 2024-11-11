@@ -26,6 +26,11 @@ class filter extends Model
     public $jobName;
 
     /**
+     * @var string[]
+     */
+    public $status;
+
+    /**
      * @example 1703819914
      *
      * @var int
@@ -42,6 +47,7 @@ class filter extends Model
         'executorIds'       => 'ExecutorIds',
         'ipAddresses'       => 'IpAddresses',
         'jobName'           => 'JobName',
+        'status'            => 'Status',
         'timeCreatedAfter'  => 'TimeCreatedAfter',
         'timeCreatedBefore' => 'TimeCreatedBefore',
     ];
@@ -61,6 +67,9 @@ class filter extends Model
         }
         if (null !== $this->jobName) {
             $res['JobName'] = $this->jobName;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->timeCreatedAfter) {
             $res['TimeCreatedAfter'] = $this->timeCreatedAfter;
@@ -92,6 +101,11 @@ class filter extends Model
         }
         if (isset($map['JobName'])) {
             $model->jobName = $map['JobName'];
+        }
+        if (isset($map['Status'])) {
+            if (!empty($map['Status'])) {
+                $model->status = $map['Status'];
+            }
         }
         if (isset($map['TimeCreatedAfter'])) {
             $model->timeCreatedAfter = $map['TimeCreatedAfter'];

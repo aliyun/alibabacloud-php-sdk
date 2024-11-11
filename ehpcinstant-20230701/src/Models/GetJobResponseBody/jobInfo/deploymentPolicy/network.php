@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class network extends Model
 {
     /**
+     * @var bool
+     */
+    public $enableExternalIpAddress;
+
+    /**
      * @var string[]
      */
     public $vswitch;
     protected $_name = [
-        'vswitch' => 'Vswitch',
+        'enableExternalIpAddress' => 'EnableExternalIpAddress',
+        'vswitch'                 => 'Vswitch',
     ];
 
     public function validate()
@@ -23,6 +29,9 @@ class network extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->enableExternalIpAddress) {
+            $res['EnableExternalIpAddress'] = $this->enableExternalIpAddress;
+        }
         if (null !== $this->vswitch) {
             $res['Vswitch'] = $this->vswitch;
         }
@@ -38,6 +47,9 @@ class network extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableExternalIpAddress'])) {
+            $model->enableExternalIpAddress = $map['EnableExternalIpAddress'];
+        }
         if (isset($map['Vswitch'])) {
             if (!empty($map['Vswitch'])) {
                 $model->vswitch = $map['Vswitch'];

@@ -4,6 +4,8 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListExecutorsResponseBody;
 
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListExecutorsResponseBody\executors\resource;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListExecutorsResponseBody\executors\tags;
 use AlibabaCloud\Tea\Model;
 
 class executors extends Model
@@ -39,6 +41,11 @@ class executors extends Model
     /**
      * @var string[]
      */
+    public $externalIpAddress;
+
+    /**
+     * @var string[]
+     */
     public $hostName;
 
     /**
@@ -66,6 +73,21 @@ class executors extends Model
     public $jobName;
 
     /**
+     * @var resource
+     */
+    public $resource;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
      * @example Running
      *
      * @var string
@@ -80,24 +102,46 @@ class executors extends Model
     public $statusReason;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @example task0
      *
      * @var string
      */
     public $taskName;
+
+    /**
+     * @var bool
+     */
+    public $taskSustainable;
+
+    /**
+     * @var string
+     */
+    public $vswitchId;
     protected $_name = [
-        'arrayIndex'   => 'ArrayIndex',
-        'createTime'   => 'CreateTime',
-        'endTime'      => 'EndTime',
-        'executorId'   => 'ExecutorId',
-        'hostName'     => 'HostName',
-        'image'        => 'Image',
-        'ipAddress'    => 'IpAddress',
-        'jobId'        => 'JobId',
-        'jobName'      => 'JobName',
-        'status'       => 'Status',
-        'statusReason' => 'StatusReason',
-        'taskName'     => 'TaskName',
+        'arrayIndex'        => 'ArrayIndex',
+        'createTime'        => 'CreateTime',
+        'endTime'           => 'EndTime',
+        'executorId'        => 'ExecutorId',
+        'externalIpAddress' => 'ExternalIpAddress',
+        'hostName'          => 'HostName',
+        'image'             => 'Image',
+        'ipAddress'         => 'IpAddress',
+        'jobId'             => 'JobId',
+        'jobName'           => 'JobName',
+        'resource'          => 'Resource',
+        'resourceType'      => 'ResourceType',
+        'startTime'         => 'StartTime',
+        'status'            => 'Status',
+        'statusReason'      => 'StatusReason',
+        'tags'              => 'Tags',
+        'taskName'          => 'TaskName',
+        'taskSustainable'   => 'TaskSustainable',
+        'vswitchId'         => 'VswitchId',
     ];
 
     public function validate()
@@ -119,6 +163,9 @@ class executors extends Model
         if (null !== $this->executorId) {
             $res['ExecutorId'] = $this->executorId;
         }
+        if (null !== $this->externalIpAddress) {
+            $res['ExternalIpAddress'] = $this->externalIpAddress;
+        }
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
         }
@@ -134,14 +181,38 @@ class executors extends Model
         if (null !== $this->jobName) {
             $res['JobName'] = $this->jobName;
         }
+        if (null !== $this->resource) {
+            $res['Resource'] = null !== $this->resource ? $this->resource->toMap() : null;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->statusReason) {
             $res['StatusReason'] = $this->statusReason;
         }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
+        }
+        if (null !== $this->taskSustainable) {
+            $res['TaskSustainable'] = $this->taskSustainable;
+        }
+        if (null !== $this->vswitchId) {
+            $res['VswitchId'] = $this->vswitchId;
         }
 
         return $res;
@@ -167,6 +238,11 @@ class executors extends Model
         if (isset($map['ExecutorId'])) {
             $model->executorId = $map['ExecutorId'];
         }
+        if (isset($map['ExternalIpAddress'])) {
+            if (!empty($map['ExternalIpAddress'])) {
+                $model->externalIpAddress = $map['ExternalIpAddress'];
+            }
+        }
         if (isset($map['HostName'])) {
             if (!empty($map['HostName'])) {
                 $model->hostName = $map['HostName'];
@@ -186,14 +262,38 @@ class executors extends Model
         if (isset($map['JobName'])) {
             $model->jobName = $map['JobName'];
         }
+        if (isset($map['Resource'])) {
+            $model->resource = resource::fromMap($map['Resource']);
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['StatusReason'])) {
             $model->statusReason = $map['StatusReason'];
         }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
+        }
+        if (isset($map['TaskSustainable'])) {
+            $model->taskSustainable = $map['TaskSustainable'];
+        }
+        if (isset($map['VswitchId'])) {
+            $model->vswitchId = $map['VswitchId'];
         }
 
         return $model;

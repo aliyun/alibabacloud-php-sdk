@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListJobsResponseBody;
 
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListJobsResponseBody\jobList\tags;
 use AlibabaCloud\Tea\Model;
 
 class jobList extends Model
@@ -72,6 +73,11 @@ class jobList extends Model
     public $status;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @example 1
      *
      * @var int
@@ -94,6 +100,7 @@ class jobList extends Model
         'ownerUid'        => 'OwnerUid',
         'startTime'       => 'StartTime',
         'status'          => 'Status',
+        'tags'            => 'Tags',
         'taskCount'       => 'TaskCount',
         'taskSustainable' => 'TaskSustainable',
     ];
@@ -131,6 +138,15 @@ class jobList extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->taskCount) {
             $res['TaskCount'] = $this->taskCount;
@@ -176,6 +192,15 @@ class jobList extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TaskCount'])) {
             $model->taskCount = $map['TaskCount'];

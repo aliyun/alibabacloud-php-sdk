@@ -16,8 +16,14 @@ class RemoveImageRequest extends Model
      * @var string
      */
     public $imageId;
+
+    /**
+     * @var string
+     */
+    public $imageType;
     protected $_name = [
-        'imageId' => 'ImageId',
+        'imageId'   => 'ImageId',
+        'imageType' => 'ImageType',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class RemoveImageRequest extends Model
         $res = [];
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->imageType) {
+            $res['ImageType'] = $this->imageType;
         }
 
         return $res;
@@ -44,6 +53,9 @@ class RemoveImageRequest extends Model
         $model = new self();
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['ImageType'])) {
+            $model->imageType = $map['ImageType'];
         }
 
         return $model;

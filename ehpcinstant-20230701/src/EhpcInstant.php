@@ -36,8 +36,14 @@ use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListJobExecutorsResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListJobsRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListJobsResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListJobsShrinkRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\RemoveImageRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\RemoveImageResponse;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UnTagResourcesRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UnTagResourcesResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -102,6 +108,9 @@ class EhpcInstant extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->imageType)) {
+            $query['ImageType'] = $request->imageType;
         }
         if (!Utils::isUnset($request->imageVersion)) {
             $query['ImageVersion'] = $request->imageVersion;
@@ -737,6 +746,65 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
+     * @summary 查询一个或多个资源已经绑定的标签列表
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTagResourcesResponse ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResult)) {
+            $query['MaxResult'] = $request->maxResult;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2023-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询一个或多个资源已经绑定的标签列表
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     *
+     * @return ListTagResourcesResponse ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 移除托管侧镜像信息。
      *  *
      * @param RemoveImageRequest $request RemoveImageRequest
@@ -750,6 +818,9 @@ class EhpcInstant extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->imageId)) {
             $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->imageType)) {
+            $query['ImageType'] = $request->imageType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -781,5 +852,114 @@ class EhpcInstant extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 为指定的资源列表统一创建并绑定标签
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TagResourcesResponse TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2023-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 为指定的资源列表统一创建并绑定标签
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     *
+     * @return TagResourcesResponse TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 为指定的ECS资源列表统一解绑标签
+     *  *
+     * @param UnTagResourcesRequest $request UnTagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UnTagResourcesResponse UnTagResourcesResponse
+     */
+    public function unTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnTagResources',
+            'version'     => '2023-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 为指定的ECS资源列表统一解绑标签
+     *  *
+     * @param UnTagResourcesRequest $request UnTagResourcesRequest
+     *
+     * @return UnTagResourcesResponse UnTagResourcesResponse
+     */
+    public function unTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unTagResourcesWithOptions($request, $runtime);
     }
 }

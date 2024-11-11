@@ -21,6 +21,11 @@ class AddImageRequest extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $imageType;
+
+    /**
      * @example V1.0
      *
      * @var string
@@ -43,6 +48,7 @@ class AddImageRequest extends Model
     protected $_name = [
         'containerImageSpec' => 'ContainerImageSpec',
         'description'        => 'Description',
+        'imageType'          => 'ImageType',
         'imageVersion'       => 'ImageVersion',
         'name'               => 'Name',
         'VMImageSpec'        => 'VMImageSpec',
@@ -60,6 +66,9 @@ class AddImageRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->imageType) {
+            $res['ImageType'] = $this->imageType;
         }
         if (null !== $this->imageVersion) {
             $res['ImageVersion'] = $this->imageVersion;
@@ -87,6 +96,9 @@ class AddImageRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['ImageType'])) {
+            $model->imageType = $map['ImageType'];
         }
         if (isset($map['ImageVersion'])) {
             $model->imageVersion = $map['ImageVersion'];

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListJobExecutorsResponseBody;
 
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListJobExecutorsResponseBody\executors\tags;
 use AlibabaCloud\Tea\Model;
 
 class executors extends Model
@@ -37,12 +38,22 @@ class executors extends Model
     /**
      * @var string[]
      */
+    public $externalIpAddress;
+
+    /**
+     * @var string[]
+     */
     public $hostName;
 
     /**
      * @var string[]
      */
     public $ipAddress;
+
+    /**
+     * @var string
+     */
+    public $startTime;
 
     /**
      * @example Running
@@ -57,15 +68,23 @@ class executors extends Model
      * @var string
      */
     public $statusReason;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
-        'arrayIndex'   => 'ArrayIndex',
-        'createTime'   => 'CreateTime',
-        'endTime'      => 'EndTime',
-        'executorId'   => 'ExecutorId',
-        'hostName'     => 'HostName',
-        'ipAddress'    => 'IpAddress',
-        'status'       => 'Status',
-        'statusReason' => 'StatusReason',
+        'arrayIndex'        => 'ArrayIndex',
+        'createTime'        => 'CreateTime',
+        'endTime'           => 'EndTime',
+        'executorId'        => 'ExecutorId',
+        'externalIpAddress' => 'ExternalIpAddress',
+        'hostName'          => 'HostName',
+        'ipAddress'         => 'IpAddress',
+        'startTime'         => 'StartTime',
+        'status'            => 'Status',
+        'statusReason'      => 'StatusReason',
+        'tags'              => 'Tags',
     ];
 
     public function validate()
@@ -87,17 +106,32 @@ class executors extends Model
         if (null !== $this->executorId) {
             $res['ExecutorId'] = $this->executorId;
         }
+        if (null !== $this->externalIpAddress) {
+            $res['ExternalIpAddress'] = $this->externalIpAddress;
+        }
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
         }
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
         }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->statusReason) {
             $res['StatusReason'] = $this->statusReason;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -123,6 +157,11 @@ class executors extends Model
         if (isset($map['ExecutorId'])) {
             $model->executorId = $map['ExecutorId'];
         }
+        if (isset($map['ExternalIpAddress'])) {
+            if (!empty($map['ExternalIpAddress'])) {
+                $model->externalIpAddress = $map['ExternalIpAddress'];
+            }
+        }
         if (isset($map['HostName'])) {
             if (!empty($map['HostName'])) {
                 $model->hostName = $map['HostName'];
@@ -133,11 +172,23 @@ class executors extends Model
                 $model->ipAddress = $map['IpAddress'];
             }
         }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['StatusReason'])) {
             $model->statusReason = $map['StatusReason'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -2,34 +2,39 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest;
+namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models;
 
-use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\deploymentPolicy\network;
-use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\deploymentPolicy\tag;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\TagResourcesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
-class deploymentPolicy extends Model
+class TagResourcesRequest extends Model
 {
     /**
-     * @example Dedicated
+     * @description This parameter is required.
+     *
+     * @var string[]
+     */
+    public $resourceId;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example Job
      *
      * @var string
      */
-    public $allocationSpec;
+    public $resourceType;
 
     /**
-     * @var network
-     */
-    public $network;
-
-    /**
+     * @description This parameter is required.
+     *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'allocationSpec' => 'AllocationSpec',
-        'network'        => 'Network',
-        'tag'            => 'Tag',
+        'resourceId'   => 'ResourceId',
+        'resourceType' => 'ResourceType',
+        'tag'          => 'Tag',
     ];
 
     public function validate()
@@ -39,11 +44,11 @@ class deploymentPolicy extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->allocationSpec) {
-            $res['AllocationSpec'] = $this->allocationSpec;
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
-        if (null !== $this->network) {
-            $res['Network'] = null !== $this->network ? $this->network->toMap() : null;
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -61,16 +66,18 @@ class deploymentPolicy extends Model
     /**
      * @param array $map
      *
-     * @return deploymentPolicy
+     * @return TagResourcesRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AllocationSpec'])) {
-            $model->allocationSpec = $map['AllocationSpec'];
+        if (isset($map['ResourceId'])) {
+            if (!empty($map['ResourceId'])) {
+                $model->resourceId = $map['ResourceId'];
+            }
         }
-        if (isset($map['Network'])) {
-            $model->network = network::fromMap($map['Network']);
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
