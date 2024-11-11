@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class meteringEntityExtraInfos extends Model
 {
     /**
-     * @description The ID of the entity.
+     * @description The description of the service.
      *
      * @example cmgj0006xxxx-Memory-1
      *
@@ -18,7 +18,7 @@ class meteringEntityExtraInfos extends Model
     public $entityId;
 
     /**
-     * @description Metric Name, filled in when Type is ComputeNestBill or ComputeNestPrometheus
+     * @description Metering Item Configuration Information (Cloud Marketplace - Pay-As-You-Go Use)
      *
      * @example VirtualCpu/ecs.InstanceType
      *
@@ -27,7 +27,7 @@ class meteringEntityExtraInfos extends Model
     public $metricName;
 
     /**
-     * @description Custom prometheus query
+     * @description The service details.
      *
      * @example avg_over_time(sum(rate(container_cpu_usage_seconds_total{namespace=~"ALIYUN::StackName"}[2m]))[1h:10s])
      *
@@ -36,12 +36,7 @@ class meteringEntityExtraInfos extends Model
     public $promql;
 
     /**
-     * @description Type, value：
-     *
-     * **Custom**
-     * **ComputeNestBill**
-     * **ComputeNestPrometheus**
-     * **ComputeNestTime**
+     * @description Product Specifications and Template/specification mapping Relationships (Cloud Marketplace - Pay-As-You-Go Use)
      *
      * @example Custom
      *

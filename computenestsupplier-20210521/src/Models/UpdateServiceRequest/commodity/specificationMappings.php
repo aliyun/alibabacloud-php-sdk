@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class specificationMappings extends Model
 {
     /**
-     * @description Specification code.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example yuncode5767800001
      *
@@ -18,18 +18,23 @@ class specificationMappings extends Model
     public $specificationCode;
 
     /**
-     * @description The package name.
+     * @description 套餐名称
      *
-     * @example packageOne
+     * @example Type, value：
+     *
+     * **Custom**
+     * **ComputeNestBill**
+     * **ComputeNestPrometheus**
+     * **ComputeNestTime**
      *
      * @var string
      */
     public $specificationName;
 
     /**
-     * @description The template name.
+     * @description 模板名称
      *
-     * @example TemplaceName
+     * @example Product Specifications and Template/specification mapping Relationships (Cloud Marketplace - Subscription/Permanent Use)
      *
      * @var string
      */

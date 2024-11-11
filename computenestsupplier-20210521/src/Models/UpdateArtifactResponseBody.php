@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateArtifactResponseBody extends Model
 {
     /**
+     * @description The build properties of the artifact, utilized for hosting and building the deployment package.
+     *
+     * @example "{\\"RegionId\\":\\"xxx\\", \\"SourceImageId\\":\\"xxx\\", \\"\\":\\"xxx\\", \\"CommandType\\":\\"xxx\\", \\"CommandContent\\":\\"xxx\\"}"
+     *
      * @var string
      */
     public $artifactBuildProperty;

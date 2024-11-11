@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateArtifactRequest extends Model
 {
     /**
+     * @description The build properties of the artifact, utilized for hosting and building the deployment package.
+     *
      * @var artifactBuildProperty
      */
     public $artifactBuildProperty;

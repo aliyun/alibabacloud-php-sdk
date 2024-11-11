@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateArtifactShrinkRequest extends Model
 {
     /**
+     * @description The build properties of the artifact, utilized for hosting and building the deployment package.
+     *
      * @var string
      */
     public $artifactBuildPropertyShrink;

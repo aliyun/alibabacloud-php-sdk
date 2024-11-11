@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class updateOption extends Model
 {
     /**
-     * @description Is need to update the artifacts
-     *
-     * @example true
-     *
      * @var bool
      */
     public $updateArtifact;
 
     /**
-     * @description The options for update the service. Valid values:
-     * - PARAMETERS
-     * @example PARAMETERS
-     *
      * @var string
      */
     public $updateFrom;

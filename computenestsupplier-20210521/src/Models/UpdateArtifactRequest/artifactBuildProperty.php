@@ -9,21 +9,45 @@ use AlibabaCloud\Tea\Model;
 class artifactBuildProperty extends Model
 {
     /**
+     * @description The command content.
+     *
+     * >  This parameter is available only if the deployment package is a ecs image type.
+     * @example echo "start run command"
+     *
      * @var string
      */
     public $commandContent;
 
     /**
+     * @description The command type. Valid values:
+     *
+     *   RunBatScript: batch command, applicable to Windows instances.
+     *   RunPowerShellScript: PowerShell command, applicable to Windows instances.
+     *   RunShellScript: shell command, applicable to Linux instances.
+     *
+     * >  This parameter is available only if the deployment package is a ecs image type.
+     * @example RunShellScript
+     *
      * @var string
      */
     public $commandType;
 
     /**
+     * @description The region ID where the source mirror image is located.
+     *
+     * >  This parameter is available only if the deployment package is a ecs image type.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The source image id. Supported Types:
+     *
+     * >  This parameter is available only if the deployment package is a ecs image type.
+     * @example Image ID：m-t4nhenrdc38pe4*****
+     * OOS Common Parameter Name：aliyun/services/computenest/images/aliyun_3_2104_python_3_11
      * @var string
      */
     public $sourceImageId;

@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\commodity;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\complianceMetadata;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\serviceDocumentInfos;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\serviceInfos;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\statistic;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\tags;
@@ -318,6 +319,11 @@ class GetServiceResponseBody extends Model
     public $serviceDocUrl;
 
     /**
+     * @var serviceDocumentInfos[]
+     */
+    public $serviceDocumentInfos;
+
+    /**
      * @description The service ID.
      *
      * @example service-70a3b15bb62643xxxxxx
@@ -598,6 +604,7 @@ class GetServiceResponseBody extends Model
         'serviceAuditDocumentUrl'     => 'ServiceAuditDocumentUrl',
         'serviceDiscoverable'         => 'ServiceDiscoverable',
         'serviceDocUrl'               => 'ServiceDocUrl',
+        'serviceDocumentInfos'        => 'ServiceDocumentInfos',
         'serviceId'                   => 'ServiceId',
         'serviceInfos'                => 'ServiceInfos',
         'serviceProductUrl'           => 'ServiceProductUrl',
@@ -724,6 +731,15 @@ class GetServiceResponseBody extends Model
         }
         if (null !== $this->serviceDocUrl) {
             $res['ServiceDocUrl'] = $this->serviceDocUrl;
+        }
+        if (null !== $this->serviceDocumentInfos) {
+            $res['ServiceDocumentInfos'] = [];
+            if (null !== $this->serviceDocumentInfos && \is_array($this->serviceDocumentInfos)) {
+                $n = 0;
+                foreach ($this->serviceDocumentInfos as $item) {
+                    $res['ServiceDocumentInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
@@ -916,6 +932,15 @@ class GetServiceResponseBody extends Model
         }
         if (isset($map['ServiceDocUrl'])) {
             $model->serviceDocUrl = $map['ServiceDocUrl'];
+        }
+        if (isset($map['ServiceDocumentInfos'])) {
+            if (!empty($map['ServiceDocumentInfos'])) {
+                $model->serviceDocumentInfos = [];
+                $n                           = 0;
+                foreach ($map['ServiceDocumentInfos'] as $item) {
+                    $model->serviceDocumentInfos[$n++] = null !== $item ? serviceDocumentInfos::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
