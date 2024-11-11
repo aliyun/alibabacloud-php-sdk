@@ -118,6 +118,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\EnableTicketTemplateRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\EnableTicketTemplateResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\EndConferenceRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\EndConferenceResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ExportContactFlowRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ExportContactFlowResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ExportCustomCallTaggingRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ExportCustomCallTaggingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ExportDoNotCallNumbersRequest;
@@ -206,6 +208,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\HoldCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\HoldCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ImportAdminsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ImportAdminsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ImportContactFlowRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ImportContactFlowResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ImportCorpNumbersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ImportCorpNumbersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ImportCustomCallTaggingRequest;
@@ -3448,6 +3452,55 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param ExportContactFlowRequest $request ExportContactFlowRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExportContactFlowResponse ExportContactFlowResponse
+     */
+    public function exportContactFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->flowId)) {
+            $body['FlowId'] = $request->flowId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $body['RequestId'] = $request->requestId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportContactFlow',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportContactFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ExportContactFlowRequest $request ExportContactFlowRequest
+     *
+     * @return ExportContactFlowResponse ExportContactFlowResponse
+     */
+    public function exportContactFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportContactFlowWithOptions($request, $runtime);
+    }
+
+    /**
      * @deprecated openAPI ExportCustomCallTagging is deprecated, please use CCC::2020-07-01::ExportCustomCallTaggings instead
      *  *
      * @summary 导出全部呼入号码标签
@@ -5583,6 +5636,55 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->importAdminsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ImportContactFlowRequest $request ImportContactFlowRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ImportContactFlowResponse ImportContactFlowResponse
+     */
+    public function importContactFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->flowPackageData)) {
+            $body['FlowPackageData'] = $request->flowPackageData;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $body['RequestId'] = $request->requestId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportContactFlow',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImportContactFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ImportContactFlowRequest $request ImportContactFlowRequest
+     *
+     * @return ImportContactFlowResponse ImportContactFlowResponse
+     */
+    public function importContactFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importContactFlowWithOptions($request, $runtime);
     }
 
     /**
