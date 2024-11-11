@@ -30,6 +30,8 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\CompleteLifecycleActionRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CompleteLifecycleActionResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateAlarmRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateAlarmResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\CreateDiagnoseReportRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\CreateDiagnoseReportResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateEciScalingConfigurationRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateEciScalingConfigurationResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateLifecycleHookRequest;
@@ -67,6 +69,8 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeAlarmsRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeAlarmsResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeAlertConfigurationRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeAlertConfigurationResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeDiagnoseReportsRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeDiagnoseReportsResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationDetailRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationDetailResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationsRequest;
@@ -97,6 +101,8 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupDetailRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupDetailResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupDiagnoseDetailsRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupDiagnoseDetailsResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingInstancesRequest;
@@ -1291,6 +1297,50 @@ class Ess extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAlarmWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary CreateDiagnoseReport
+     *  *
+     * @param CreateDiagnoseReportRequest $request CreateDiagnoseReportRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDiagnoseReportResponse CreateDiagnoseReportResponse
+     */
+    public function createDiagnoseReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDiagnoseReport',
+            'version'     => '2022-02-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDiagnoseReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary CreateDiagnoseReport
+     *  *
+     * @param CreateDiagnoseReportRequest $request CreateDiagnoseReportRequest
+     *
+     * @return CreateDiagnoseReportResponse CreateDiagnoseReportResponse
+     */
+    public function createDiagnoseReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDiagnoseReportWithOptions($request, $runtime);
     }
 
     /**
@@ -3101,6 +3151,50 @@ class Ess extends OpenApiClient
     }
 
     /**
+     * @summary DescribeDiagnoseReports
+     *  *
+     * @param DescribeDiagnoseReportsRequest $request DescribeDiagnoseReportsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDiagnoseReportsResponse DescribeDiagnoseReportsResponse
+     */
+    public function describeDiagnoseReportsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDiagnoseReports',
+            'version'     => '2022-02-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDiagnoseReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary DescribeDiagnoseReports
+     *  *
+     * @param DescribeDiagnoseReportsRequest $request DescribeDiagnoseReportsRequest
+     *
+     * @return DescribeDiagnoseReportsResponse DescribeDiagnoseReportsResponse
+     */
+    public function describeDiagnoseReports($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDiagnoseReportsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the details of a scaling configuration. You can query a scaling configuration by its ID to learn about its details such as the temporary storage size, number of IPv6 addresses, and bandwidth of the elastic IP address (EIP). The scaling configuration details can be obtained as a YAML file.
      *  *
      * @param DescribeEciScalingConfigurationDetailRequest $request DescribeEciScalingConfigurationDetailRequest
@@ -4028,6 +4122,50 @@ class Ess extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeScalingGroupDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary DescribeScalingGroupDiagnoseDetails
+     *  *
+     * @param DescribeScalingGroupDiagnoseDetailsRequest $request DescribeScalingGroupDiagnoseDetailsRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeScalingGroupDiagnoseDetailsResponse DescribeScalingGroupDiagnoseDetailsResponse
+     */
+    public function describeScalingGroupDiagnoseDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScalingGroupDiagnoseDetails',
+            'version'     => '2022-02-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeScalingGroupDiagnoseDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary DescribeScalingGroupDiagnoseDetails
+     *  *
+     * @param DescribeScalingGroupDiagnoseDetailsRequest $request DescribeScalingGroupDiagnoseDetailsRequest
+     *
+     * @return DescribeScalingGroupDiagnoseDetailsResponse DescribeScalingGroupDiagnoseDetailsResponse
+     */
+    public function describeScalingGroupDiagnoseDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeScalingGroupDiagnoseDetailsWithOptions($request, $runtime);
     }
 
     /**
