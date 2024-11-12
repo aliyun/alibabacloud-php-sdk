@@ -290,6 +290,11 @@ class DescribePatternTypesRequest extends Model
      * @var string[]
      */
     public $vSwitchId;
+
+    /**
+     * @var string[]
+     */
+    public $zoneId;
     protected $_name = [
         'architecture'                       => 'Architecture',
         'burstablePerformance'               => 'BurstablePerformance',
@@ -320,6 +325,7 @@ class DescribePatternTypesRequest extends Model
         'regionId'                           => 'RegionId',
         'spotStrategy'                       => 'SpotStrategy',
         'vSwitchId'                          => 'VSwitchId',
+        'zoneId'                             => 'ZoneId',
     ];
 
     public function validate()
@@ -415,6 +421,9 @@ class DescribePatternTypesRequest extends Model
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -533,6 +542,11 @@ class DescribePatternTypesRequest extends Model
         if (isset($map['VSwitchId'])) {
             if (!empty($map['VSwitchId'])) {
                 $model->vSwitchId = $map['VSwitchId'];
+            }
+        }
+        if (isset($map['ZoneId'])) {
+            if (!empty($map['ZoneId'])) {
+                $model->zoneId = $map['ZoneId'];
             }
         }
 
