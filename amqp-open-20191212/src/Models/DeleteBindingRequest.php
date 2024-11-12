@@ -11,7 +11,6 @@ class DeleteBindingRequest extends Model
     /**
      * @description The binding key.
      *
-     * This parameter is required.
      * @example .test.
      *
      * @var string

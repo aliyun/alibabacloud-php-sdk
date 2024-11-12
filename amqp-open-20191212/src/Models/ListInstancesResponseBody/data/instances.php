@@ -143,6 +143,11 @@ class instances extends Model
     public $publicEndpoint;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The instance status. Valid values:
      *
      *   DEPLOYING: The instance is being deployed.
@@ -196,6 +201,7 @@ class instances extends Model
         'orderType'         => 'OrderType',
         'privateEndpoint'   => 'PrivateEndpoint',
         'publicEndpoint'    => 'PublicEndpoint',
+        'resourceGroupId'   => 'ResourceGroupId',
         'status'            => 'Status',
         'storageSize'       => 'StorageSize',
         'supportEIP'        => 'SupportEIP',
@@ -250,6 +256,9 @@ class instances extends Model
         }
         if (null !== $this->publicEndpoint) {
             $res['PublicEndpoint'] = $this->publicEndpoint;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -322,6 +331,9 @@ class instances extends Model
         }
         if (isset($map['PublicEndpoint'])) {
             $model->publicEndpoint = $map['PublicEndpoint'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

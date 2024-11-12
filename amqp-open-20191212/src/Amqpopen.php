@@ -289,7 +289,9 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @summary 创建实例-基于 openAPI 构建南天门购买工单信息数据
+     * @summary Creates an ApsaraMQ for RabbitMQ instance.
+     *  *
+     * @description **Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/606747.html) of ApsaraMQ for RabbitMQ.
      *  *
      * @param CreateInstanceRequest $request CreateInstanceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -342,6 +344,9 @@ class Amqpopen extends OpenApiClient
         if (!Utils::isUnset($request->renewalDurationUnit)) {
             $query['RenewalDurationUnit'] = $request->renewalDurationUnit;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->serverlessChargeType)) {
             $query['ServerlessChargeType'] = $request->serverlessChargeType;
         }
@@ -376,7 +381,9 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @summary 创建实例-基于 openAPI 构建南天门购买工单信息数据
+     * @summary Creates an ApsaraMQ for RabbitMQ instance.
+     *  *
+     * @description **Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/606747.html) of ApsaraMQ for RabbitMQ.
      *  *
      * @param CreateInstanceRequest $request CreateInstanceRequest
      *

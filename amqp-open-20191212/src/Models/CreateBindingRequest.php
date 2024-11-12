@@ -35,7 +35,6 @@ class CreateBindingRequest extends Model
      *   The binding key cannot start or end with a period (.). If a binding key starts with a number sign (#) or an asterisk (\\*), the number sign (#) or asterisk (\\*) must be followed by a period (.). If the binding key ends with a number sign (#) or an asterisk (\\*), the number sign (#) or asterisk (\\*) must be preceded by a period (.). If a number sign (#) or an asterisk (\\*) is used in the middle of a binding key, the number sign (#) or asterisk (\\*) must be preceded and followed by a period (.).
      *   The binding key must be 1 to 255 characters in length.
      *
-     * This parameter is required.
      * @example .test
      *
      * @var string

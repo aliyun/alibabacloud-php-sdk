@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceRequest extends Model
 {
     /**
+     * @description Specifies whether to enable auto-renewal. Valid values:
+     *
+     *   true: enables auto-renewal.
+     *   false: disables auto-renewal. If you select this value, you must manually renew the instance.
+     *
      * @example AutoRenewal
      *
      * @var bool
@@ -16,6 +21,9 @@ class CreateInstanceRequest extends Model
     public $autoRenew;
 
     /**
+     * @description The auto-renewal duration. Unit: months.
+     *
+     * >  This parameter takes effect only if you set AutoRenew to true. Default value: 1.
      * @example 1
      *
      * @var int
@@ -23,6 +31,8 @@ class CreateInstanceRequest extends Model
     public $autoRenewPeriod;
 
     /**
+     * @description The client token.
+     *
      * @example c2c5d1274axxxxxxxx
      *
      * @var string
@@ -30,11 +40,21 @@ class CreateInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @description The instance name. We recommend that you specify a name that does not exceed 64 characters in length.
+     *
+     * @example amqp-xxxxx
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The instance edition. Valid values:
+     *
+     *   professional: Professional Edition
+     *   enterprise: Enterprise Edition
+     *   vip: Enterprise Platinum Edition
+     *
      * @example professional
      *
      * @var string
@@ -42,6 +62,8 @@ class CreateInstanceRequest extends Model
     public $instanceType;
 
     /**
+     * @description The maximum number of connections that can be established to the instance. Configure this parameter based on the values provided on the [ApsaraMQ for RocketMQ buy page](https://common-buy.aliyun.com/?commodityCode=ons_onsproxy_pre).
+     *
      * @example 50000
      *
      * @var int
@@ -49,6 +71,8 @@ class CreateInstanceRequest extends Model
     public $maxConnections;
 
     /**
+     * @description The maximum number of EIP-based TPS on the instance. Configure this parameter based on the values provided on the [ApsaraMQ for RocketMQ buy page](https://common-buy.aliyun.com/?commodityCode=ons_onsproxy_pre).
+     *
      * @example 128
      *
      * @var int
@@ -56,6 +80,8 @@ class CreateInstanceRequest extends Model
     public $maxEipTps;
 
     /**
+     * @description The maximum number of virtual private cloud (VPC)-based transactions per second (TPS) on the instance. Configure this parameter based on the values provided on the [ApsaraMQ for RocketMQ buy page](https://common-buy.aliyun.com/?commodityCode=ons_onsproxy_pre).
+     *
      * @example 1000
      *
      * @var int
@@ -63,8 +89,11 @@ class CreateInstanceRequest extends Model
     public $maxPrivateTps;
 
     /**
-     * @description This parameter is required.
+     * @description The billing method. Valid value:
      *
+     *   Subscription
+     *
+     * This parameter is required.
      * @example Subscription
      *
      * @var string
@@ -72,6 +101,9 @@ class CreateInstanceRequest extends Model
     public $paymentType;
 
     /**
+     * @description The subscription period. The unit of the subscription period is specified by periodCycle.
+     *
+     * >  This parameter takes effect only if you set PaymentType to Subscription. Default value: 1.
      * @example 1
      *
      * @var int
@@ -79,6 +111,12 @@ class CreateInstanceRequest extends Model
     public $period;
 
     /**
+     * @description The unit of the subscription period. Valid values:
+     *
+     *   Month
+     *   Year
+     *
+     * >  This parameter takes effect only if you set PaymentType to Subscription. Default value: Month.
      * @example Month
      *
      * @var string
@@ -86,6 +124,12 @@ class CreateInstanceRequest extends Model
     public $periodCycle;
 
     /**
+     * @description The number of queues. Valid values:
+     *
+     *   Professional Edition: 50 to 1000. The number of queues must increase in increments of 5.
+     *   Enterprise Edition: 200 to 6000. The number of queues must increase in increments of 100.
+     *   Enterprise Platinum Edition: 10000 to 80000. The number of queues must increase in increments of 100.
+     *
      * @example 1000
      *
      * @var int
@@ -93,18 +137,31 @@ class CreateInstanceRequest extends Model
     public $queueCapacity;
 
     /**
-     * @description autoRenew和renewStatus都是续费方式，当两个同时填写时，以renewStatus为准
+     * @description The renewal status. This parameter is the same as AutoRenew. You can configure one of these parameters. Valid value:
+     * > If you configure both this parameter and AutoRenew, the value of this parameter is used.
+     * @example false
      *
      * @var string
      */
     public $renewStatus;
 
     /**
+     * @description The unit of the auto-renewal period. Valid values:
+     * - Year
+     * @example Month
+     *
      * @var string
      */
     public $renewalDurationUnit;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description The billing method of the pay-as-you-go instance. Valid values:
+     * - onDemand: You are charged based on your actual usage
      * @example onDemand
      *
      * @var string
@@ -112,6 +169,14 @@ class CreateInstanceRequest extends Model
     public $serverlessChargeType;
 
     /**
+     * @description The storage capacity. Unit: GB. Valid values:
+     *
+     *   Professional Edition and Enterprise Edition instances: Set this parameter to 0.
+     *
+     * >  The value 0 specifies that storage space is available for Professional Edition and Enterprise Edition instances, but no storage fees are generated.
+     *
+     *   Platinum Edition instances: Set the value to m × 100, where m ranges from 7 to 28.
+     *
      * @example 7
      *
      * @var int
@@ -119,6 +184,11 @@ class CreateInstanceRequest extends Model
     public $storageSize;
 
     /**
+     * @description Specifies whether elastic IP addresses (EIPs) are supported. Valid values:
+     *
+     *   True
+     *   False
+     *
      * @example true
      *
      * @var bool
@@ -126,6 +196,17 @@ class CreateInstanceRequest extends Model
     public $supportEip;
 
     /**
+     * @description Specifies whether to enable the message trace feature. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * >
+     *
+     *   Enterprise Platinum Edition instances allow you to retain message traces for 15 days free of charge. If you use an Enterprise Platinum Edition instance, you can set this parameter only to true and TracingStorageTime only to 15.
+     *
+     *   For instances of other editions, you can set this parameter to true or false.
+     *
      * @example true
      *
      * @var bool
@@ -133,6 +214,13 @@ class CreateInstanceRequest extends Model
     public $supportTracing;
 
     /**
+     * @description The retention period of messages. Unit: days. Valid values:
+     *
+     *   3
+     *   7
+     *   15
+     *
+     * >  This parameter takes effect only if you set SupportTracing to true.
      * @example 3
      *
      * @var int
@@ -153,6 +241,7 @@ class CreateInstanceRequest extends Model
         'queueCapacity'        => 'QueueCapacity',
         'renewStatus'          => 'RenewStatus',
         'renewalDurationUnit'  => 'RenewalDurationUnit',
+        'resourceGroupId'      => 'ResourceGroupId',
         'serverlessChargeType' => 'ServerlessChargeType',
         'storageSize'          => 'StorageSize',
         'supportEip'           => 'SupportEip',
@@ -208,6 +297,9 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->renewalDurationUnit) {
             $res['RenewalDurationUnit'] = $this->renewalDurationUnit;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->serverlessChargeType) {
             $res['ServerlessChargeType'] = $this->serverlessChargeType;
@@ -277,6 +369,9 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['RenewalDurationUnit'])) {
             $model->renewalDurationUnit = $map['RenewalDurationUnit'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ServerlessChargeType'])) {
             $model->serverlessChargeType = $map['ServerlessChargeType'];

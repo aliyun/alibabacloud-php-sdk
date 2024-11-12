@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. The status code 200 indicates that the request is successful.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateInstanceResponseBody extends Model
     public $code;
 
     /**
+     * @description The ID of the created instance.
+     *
      * @example amqp-cn-xxxxx
      *
      * @var mixed
@@ -23,6 +27,8 @@ class CreateInstanceResponseBody extends Model
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example xxx failed,xxxx
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateInstanceResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID. You can use the ID to troubleshoot issues. This parameter is a common parameter.
+     *
      * @example CCBB1225-C392-480E-8C7F-D09AB2CD2***
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool
