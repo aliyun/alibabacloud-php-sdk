@@ -101,7 +101,7 @@ class DescribeDataCheckTableDetailsResponseBody extends Model
     public $success;
 
     /**
-     * @description The details of the data verification result.
+     * @description The details of data verification results.
      *
      * @var tableDetails[]
      */

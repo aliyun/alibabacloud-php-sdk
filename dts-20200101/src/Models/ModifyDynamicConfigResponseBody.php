@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDynamicConfigResponseBody extends Model
 {
     /**
+     * @description The error code. This parameter will be removed in the future.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,9 @@ class ModifyDynamicConfigResponseBody extends Model
     public $code;
 
     /**
+     * @description The dynamic part in the error message. This parameter is used to replace the \\*\\*%s\\*\\* variable in the **ErrMessage** parameter.
+     *
+     * >  If the value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** value is invalid.
      * @example DtsJobId
      *
      * @var string
@@ -23,6 +28,8 @@ class ModifyDynamicConfigResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The error code returned if the request fails.
+     *
      * @example InternalError
      *
      * @var string
@@ -30,6 +37,8 @@ class ModifyDynamicConfigResponseBody extends Model
     public $errCode;
 
     /**
+     * @description The error message returned if the request fails.
+     *
      * @example The request processing has failed due to some unknown error.
      *
      * @var string
@@ -37,6 +46,8 @@ class ModifyDynamicConfigResponseBody extends Model
     public $errMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -44,6 +55,8 @@ class ModifyDynamicConfigResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example 8D81829D-1BBD-5CE8-BE75-1CAD5750****
      *
      * @var string
@@ -51,6 +64,8 @@ class ModifyDynamicConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

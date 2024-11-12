@@ -29,6 +29,8 @@ class dataSynchronizationStatus extends Model
     /**
      * @description The error message returned if incremental data migration failed.
      *
+     * @example The task has failed for too long and cannot be restored
+     *
      * @var string
      */
     public $errorMessage;

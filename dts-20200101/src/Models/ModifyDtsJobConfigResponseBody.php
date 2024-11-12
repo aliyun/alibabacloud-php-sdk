@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDtsJobConfigResponseBody extends Model
 {
     /**
+     * @description request ID
+     *
      * @example 068FA72F-4800-4A54-90BB-94806068****
      *
      * @var string

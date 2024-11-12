@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ShieldPrecheckRequest extends Model
 {
     /**
-     * @description The ID of the data migration or data synchronization instance. You can call the **DescribeMigrationJobs** or DescribeSynchronizationJobs operation to query the instance ID.
+     * @description The ID of the change tracking instance. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
+     *
+     * >  You must specify at least one of the **DtsInstanceId** and **DtsJobId** parameters.
      *
      * This parameter is required.
      * @example dtsi76118o3w92****
@@ -46,6 +48,10 @@ class ShieldPrecheckRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;

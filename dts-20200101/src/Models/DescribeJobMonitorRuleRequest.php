@@ -28,6 +28,10 @@ class DescribeJobMonitorRuleRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-acfmzydi675xfea
+     *
      * @var string
      */
     public $resourceGroupId;

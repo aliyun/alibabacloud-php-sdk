@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDtsJobNameResponseBody extends Model
 {
     /**
-     * @description The error code. This parameter will be removed in the future.
+     * @description The error code. This parameter is going to be removed in the future.
      *
      * @example 200
      *
@@ -18,9 +18,9 @@ class ModifyDtsJobNameResponseBody extends Model
     public $code;
 
     /**
-     * @description The dynamic part in the error message. The value of this parameter is used to replace the **%s** variable in the value of the **ErrMessage** parameter.
+     * @description The dynamic part in the error message. This parameter is used to replace the \\*\\*%s\\*\\* variable in the value of **ErrMessage**.
      *
-     * >  For example, if the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+     * >  If the return value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the return value of **DynamicMessage** is **DtsJobId**, the specified value of **DtsJobId** in the request is invalid.
      * @example DtsJobId
      *
      * @var string
@@ -28,7 +28,7 @@ class ModifyDtsJobNameResponseBody extends Model
     public $dynamicMessage;
 
     /**
-     * @description The error code returned if the call failed.
+     * @description The error code returned if the request failed.
      *
      * @example InternalError
      *
@@ -46,7 +46,7 @@ class ModifyDtsJobNameResponseBody extends Model
     public $errMessage;
 
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -55,7 +55,7 @@ class ModifyDtsJobNameResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 8C498360-7892-433C-847A-BA71A850****
      *

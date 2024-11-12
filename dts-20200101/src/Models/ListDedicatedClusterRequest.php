@@ -75,6 +75,10 @@ class ListDedicatedClusterRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-acfntftbiobqyky
+     *
      * @var string
      */
     public $resourceGroupId;

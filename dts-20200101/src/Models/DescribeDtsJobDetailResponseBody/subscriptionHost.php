@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class subscriptionHost extends Model
 {
     /**
-     * @description The endpoint of the change tracking instance.
+     * @description The private endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
      *
      * @example dts-cn-****-internal.aliyuncs.com:18002
      *
@@ -18,10 +18,7 @@ class subscriptionHost extends Model
     public $privateHost;
 
     /**
-     * @description Indicates whether schema migration or schema synchronization is performed. Valid values:
-     *
-     *   **true**: Schema migration or schema synchronization is performed.
-     *   **false**: Schema migration or schema synchronization is not performed.
+     * @description The public endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
      *
      * @example dts-cn-****.aliyuncs.com:18001
      *
@@ -30,10 +27,7 @@ class subscriptionHost extends Model
     public $publicHost;
 
     /**
-     * @description Indicates whether incremental data migration or synchronization is performed. Valid values:
-     *
-     *   **true**: Incremental data migration or synchronization is performed.
-     *   **false**: Incremental data migration or synchronization is not performed.
+     * @description The VPC endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
      *
      * @example dts-cn-****-vpc.aliyuncs.com:18003
      *

@@ -9,12 +9,19 @@ use AlibabaCloud\Tea\Model;
 class destinationEndpoint extends Model
 {
     /**
+     * @description Indicates whether the password can be modified. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $canModifyPassword;
 
     /**
-     * @description The connection settings of the destination instance.
+     * @description The name of the database to which the objects are migrated in the destination instance.
      *
      * @example dtstestdata
      *
@@ -23,7 +30,7 @@ class destinationEndpoint extends Model
     public $databaseName;
 
     /**
-     * @description The database service port of the destination instance.
+     * @description The database engine of the destination instance.
      *
      * @example MySQL
      *
@@ -32,7 +39,7 @@ class destinationEndpoint extends Model
     public $engineName;
 
     /**
-     * @description The name of the database that contains the migrated objects in the destination instance.
+     * @description The destination instance ID.
      *
      * @example rm-bp1imrtn6fq7h****
      *
@@ -41,7 +48,7 @@ class destinationEndpoint extends Model
     public $instanceID;
 
     /**
-     * @description The IP address of the destination instance.
+     * @description The type of the destination instance.
      *
      * @example RDS
      *
@@ -50,18 +57,18 @@ class destinationEndpoint extends Model
     public $instanceType;
 
     /**
-     * @description The SID of the Oracle database.
+     * @description The endpoint of the destination instance.
      *
-     * >  This parameter is returned only if the **EngineName** parameter of the destination instance is set to **Oracle** and the Oracle database is deployed in a non-RAC architecture.
-     * @example 172.16.88.***
+     * @example 172.16.XX.XX
      *
      * @var string
      */
     public $ip;
 
     /**
-     * @description The username of the account that is used to connect to the source database.
+     * @description The SID of the Oracle database.
      *
+     * > This parameter is returned only if the return value of **EngineName** of the destination instance is **Oracle** and the Oracle database is deployed in a non-RAC architecture.
      * @example testsid
      *
      * @var string
@@ -69,7 +76,7 @@ class destinationEndpoint extends Model
     public $oracleSID;
 
     /**
-     * @description The ID of the region in which the destination instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+     * @description The database service port of the destination instance.
      *
      * @example 3306
      *
@@ -78,12 +85,7 @@ class destinationEndpoint extends Model
     public $port;
 
     /**
-     * @description Indicates whether SSL encryption is enabled. Valid values:
-     *
-     *   **DISABLE**: SSL encryption is disabled.
-     *   **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled, and the CA certificate is uploaded.
-     *   **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for the connection to an AWS MongoDB Altas database.
-     *   **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to encrypt the connection to a Kafka cluster.
+     * @description The ID of the region in which the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *
@@ -92,7 +94,12 @@ class destinationEndpoint extends Model
     public $region;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the source ApsaraDB RDS instance belongs.
+     * @description Indicates whether SSL encryption is enabled. Valid values:
+     *
+     *   **DISABLE**: SSL encryption is disabled.
+     *   **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled and the CA certificate is uploaded.
+     *   **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for the connection to an AWS MongoDB Altas database.
+     *   **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to encrypt the connection to a Kafka cluster.
      *
      * @example DISABLE
      *
@@ -101,7 +108,7 @@ class destinationEndpoint extends Model
     public $sslSolutionEnum;
 
     /**
-     * @description The ID of the destination instance.
+     * @description The database account of the destination instance.
      *
      * @example dtstest
      *

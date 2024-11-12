@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class SwitchPhysicalDtsJobToCloudResponseBody extends Model
 {
     /**
+     * @description Dynamic error code, this parameter will be deprecated.
+     *
+     * @example 403
+     *
      * @var string
      */
     public $dynamicCode;
 
     /**
+     * @description Dynamic error message used to replace the **%s** in the **ErrMessage** return parameter.  > If **ErrMessage** returns **The Value of Input Parameter %s is not valid**, and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+     *
+     * @example DtsJobId
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @description Error code returned when the call fails.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description Returns the corresponding error message when an invocation error occurs.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description Status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description request ID.
+     *
+     * @example 659304E3-D44E-5EFA-BDE3-60015E30403B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Whether the request was successful.
+     *
+     * @example True
+     *
      * @var bool
      */
     public $success;

@@ -9,12 +9,9 @@ use AlibabaCloud\Tea\Model;
 class destinationEndpoint extends Model
 {
     /**
-     * @description The name of the destination database or the authentication database.
+     * @description The region ID of the destination database.
      *
-     * >
-     *   You must specify the database name only if the **DestinationEndpoint.EngineName** parameter is set to **PostgreSQL**, **DRDS**, or **MongoDB**.
-     *   If the **DestinationEndpoint.EngineName** parameter is set to **PostgreSQL** or **DRDS**, specify the name of the destination database. If the DestinationEndpoint.EngineName parameter is set to **MongoDB**, specify the name of the authentication database.
-     *
+     * >  If the **DestinationEndpoint.InstanceType** parameter is set to **LocalInstance**, you can enter **cn-hangzhou** or the ID of the region closest to the self-managed database. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      * @example dtstestdatabase
      *
      * @var string
@@ -22,9 +19,9 @@ class destinationEndpoint extends Model
     public $dataBaseName;
 
     /**
-     * @description The engine type of the destination database. Valid values: **MySQL**, **DRDS**, **SQLServer**, **PostgreSQL**, **PPAS**, **MongoDB**, **Redis**, **POLARDB**, and **polardb_pg**.
+     * @description The authorized RAM role of the source instance. You must specify the RAM role only if the source instance and the destination instance belong to different Alibaba Cloud accounts. You can use the RAM role to allow the Alibaba Cloud account that owns the destination instance to access the source instance.
      *
-     * >  You must specify the engine type only if the **DestinationEndpoint.InstanceType** parameter is set to **RDS**, **POLARDB**, **ECS**, **LocalInstance**, or **Express**.
+     * >  For information about the permissions and authorization methods of the RAM role, see [Configure RAM authorization for cross-account data migration and synchronization](https://help.aliyun.com/document_detail/48468.html).
      * @example MySQL
      *
      * @var string
@@ -32,9 +29,9 @@ class destinationEndpoint extends Model
     public $engineName;
 
     /**
-     * @description The endpoint of the destination database.
+     * @description The ID of the instance that hosts the destination database.
      *
-     * >  You must specify the endpoint only if the **DestinationEndpoint.InstanceType** parameter is set to **LocalInstance** or **Express**.
+     * >  You must specify the instance ID only if the **DestinationEndpoint.InstanceType** parameter is set to **RDS**, **ECS**, **MongoDB**, **Redis**, **DRDS**, **PetaData**, **OceanBase**, **POLARDB**, **PolarDB_o**, **AnalyticDB**, or **Greenplum**. For example, if the DestinationEndpoint.InstanceType parameter is set to **ECS**, you must specify the ID of the ECS instance.
      * @example 172.16.88.***
      *
      * @var string
@@ -42,14 +39,53 @@ class destinationEndpoint extends Model
     public $IP;
 
     /**
-     * @description The ID of the instance that hosts the destination database.
+     * @description The ID of the Alibaba Cloud account to which the source instance belongs.
      *
-     * >  You must specify the instance ID only if the **DestinationEndpoint.InstanceType** parameter is set to **RDS**, **ECS**, **MongoDB**, **Redis**, **DRDS**, **PetaData**, **OceanBase**, **POLARDB**, **PolarDB_o**, **AnalyticDB**, or **Greenplum**. For example, if the DestinationEndpoint.InstanceType parameter is set to **ECS**, you must specify the ID of the ECS instance.
+     * >  You must specify this parameter only when you configure data migration across different Alibaba Cloud accounts.
      * @example rm-bp1r46452ai50****
      *
      * @var string
      */
     public $instanceID;
+
+    /**
+     * @description The password of the source database account.
+     *
+     * This parameter is required.
+     * @example RDS
+     *
+     * @var string
+     */
+    public $instanceType;
+
+    /**
+     * @description The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet special requirements, for example, whether to automatically start a precheck. For more information, see [MigrationReserved](https://help.aliyun.com/document_detail/176470.html).
+     *
+     * @example testsid
+     *
+     * @var string
+     */
+    public $oracleSID;
+
+    /**
+     * @description The service port number of the destination database.
+     *
+     * >  You must specify the service port number only if the **DestinationEndpoint.InstanceType** parameter is set to **ECS**, **LocalInstance**, or **Express**.
+     * @example Test123456
+     *
+     * @var string
+     */
+    public $password;
+
+    /**
+     * @description The engine type of the destination database. Valid values: **MySQL**, **DRDS**, **SQLServer**, **PostgreSQL**, **PPAS**, **MongoDB**, **Redis**, **POLARDB**, and **polardb_pg**.
+     *
+     * >  You must specify the engine type only if the **DestinationEndpoint.InstanceType** parameter is set to **RDS**, **POLARDB**, **ECS**, **LocalInstance**, or **Express**.
+     * @example 3306
+     *
+     * @var string
+     */
+    public $port;
 
     /**
      * @description The instance type of the destination database. Valid values:
@@ -66,46 +102,6 @@ class destinationEndpoint extends Model
      *   **AnalyticDB**: AnalyticDB for MySQL cluster V3.0 or V2.0
      *   **Greenplum**: AnalyticDB for PostgreSQL instance
      *
-     * This parameter is required.
-     * @example RDS
-     *
-     * @var string
-     */
-    public $instanceType;
-
-    /**
-     * @description The SID of the Oracle database.
-     *
-     * >  You must specify this parameter only if the **DestinationEndpoint.EngineName** parameter is set to **Oracle** and the **Oracle** database is deployed in a non-RAC architecture.
-     * @example testsid
-     *
-     * @var string
-     */
-    public $oracleSID;
-
-    /**
-     * @description The password of the destination database account.
-     *
-     * @example Test123456
-     *
-     * @var string
-     */
-    public $password;
-
-    /**
-     * @description The service port number of the destination database.
-     *
-     * >  You must specify the service port number only if the **DestinationEndpoint.InstanceType** parameter is set to **ECS**, **LocalInstance**, or **Express**.
-     * @example 3306
-     *
-     * @var string
-     */
-    public $port;
-
-    /**
-     * @description The region ID of the destination database.
-     *
-     * >  If the **DestinationEndpoint.InstanceType** parameter is set to **LocalInstance**, you can enter **cn-hangzhou** or the ID of the region closest to the self-managed database. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -113,9 +109,9 @@ class destinationEndpoint extends Model
     public $region;
 
     /**
-     * @description The database account of the destination database.
+     * @description The endpoint of the destination database.
      *
-     * >  The permissions that are required for database accounts vary with the migration scenario. For more information, see [Overview of data migration scenarios](https://help.aliyun.com/document_detail/26618.html).
+     * >  You must specify the endpoint only if the **DestinationEndpoint.InstanceType** parameter is set to **LocalInstance** or **Express**.
      * @example dtstestaccount
      *
      * @var string

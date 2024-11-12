@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class dataInitializationDetail extends Model
 {
     /**
-     * @description The name of the database to which the migration object in the destination instance belongs.
+     * @description The status of full data migration. Valid values:
      *
+     * - **NotStarted**: Full data migration is not started.
+     * - **Migrating**: Full data migration is in progress.
+     * - **Failed**: Full data migration failed.
+     * - **Finished**: Full data migration is completed.
      * @example dtstestdata
      *
      * @var string
@@ -18,7 +22,7 @@ class dataInitializationDetail extends Model
     public $destinationOwnerDBName;
 
     /**
-     * @description The error message returned if full data migration failed.
+     * @description The page number of the returned page.
      *
      * @example java.lang.NumberFormatException: For input string: ""
      *
@@ -27,7 +31,7 @@ class dataInitializationDetail extends Model
     public $errorMessage;
 
     /**
-     * @description The number of records that have been migrated.
+     * @description The details of full data migration.
      *
      * @example 200001
      *
@@ -36,7 +40,7 @@ class dataInitializationDetail extends Model
     public $finishRowNum;
 
     /**
-     * @description The time taken by full data migration.
+     * @description The name of the database to which the migration object in the source instance belongs.
      *
      * @example 0.0
      *
@@ -45,7 +49,7 @@ class dataInitializationDetail extends Model
     public $migrationTime;
 
     /**
-     * @description The name of the database to which the migration object in the source instance belongs.
+     * @description Indicates whether the call was successful.
      *
      * @example dtstestdata
      *
@@ -54,12 +58,8 @@ class dataInitializationDetail extends Model
     public $sourceOwnerDBName;
 
     /**
-     * @description The status of full data migration. Valid values:
+     * @description The total number of entries that are returned.
      *
-     * - **NotStarted**: Full data migration is not started.
-     * - **Migrating**: Full data migration is in progress.
-     * - **Failed**: Full data migration failed.
-     * - **Finished**: Full data migration is completed.
      * @example Finished
      *
      * @var string
@@ -67,7 +67,7 @@ class dataInitializationDetail extends Model
     public $status;
 
     /**
-     * @description The table name.
+     * @description The error message returned if the call failed.
      *
      * @example customer
      *
@@ -76,7 +76,7 @@ class dataInitializationDetail extends Model
     public $tableName;
 
     /**
-     * @description The total number of records that are supposed to be migrated by the task.
+     * @description The table name.
      *
      * @example 201477
      *

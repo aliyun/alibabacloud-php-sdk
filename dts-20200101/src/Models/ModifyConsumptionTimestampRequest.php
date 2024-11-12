@@ -38,12 +38,16 @@ class ModifyConsumptionTimestampRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The ID of the change tracking instance. You can call the **DescribeSubscriptionInstances** operation to query the instance ID.
+     * @description The ID of the change tracking instance. You can call the DescribeSubscriptionInstances operation to query the instance ID.
      *
      * This parameter is required.
      * @example dtsg2m10r1x15a****

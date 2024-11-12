@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateReverseDtsJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the synchronization or migration task, which can be queried by calling [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html).
      *
+     * This parameter is required.
      * @example n99m9jx822k****
      *
      * @var string
@@ -18,16 +19,28 @@ class CreateReverseDtsJobRequest extends Model
     public $dtsJobId;
 
     /**
+     * @description Resource GroupId
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description Shard Password
+     *
+     * @example DTStest****
+     *
      * @var string
      */
     public $shardPassword;
 
     /**
+     * @description Shard User name
+     *
+     * @example dtstest
+     *
      * @var string
      */
     public $shardUsername;

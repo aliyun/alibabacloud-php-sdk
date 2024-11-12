@@ -209,6 +209,10 @@ class dtsJobList extends Model
     public $dtsJobName;
 
     /**
+     * @description The DTS Units (DUs) usage of a task in a DTS dedicated cluster.
+     *
+     * @example 12.0%
+     *
      * @var string
      */
     public $duRealUsage;
@@ -293,6 +297,11 @@ class dtsJobList extends Model
     public $jobType;
 
     /**
+     * @description Upper limit of DU.
+     *
+     * > Only supported by Serverless instances.
+     * @example 16
+     *
      * @var float
      */
     public $maxDu;
@@ -368,6 +377,11 @@ class dtsJobList extends Model
     public $migrationMode;
 
     /**
+     * @description Lower limit of DU.
+     *
+     * > Only supported by Serverless instances.
+     * @example 1
+     *
      * @var float
      */
     public $minDu;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ConfigureMigrationJobResponseBody extends Model
 {
     /**
-     * @description The error code returned if the call failed.
+     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
      *
      * @example InternalError
      *
@@ -18,7 +18,7 @@ class ConfigureMigrationJobResponseBody extends Model
     public $errCode;
 
     /**
-     * @description The error message returned if the call failed.
+     * @description The ID of the request.
      *
      * @example The request processing has failed due to some unknown error.
      *
@@ -27,7 +27,7 @@ class ConfigureMigrationJobResponseBody extends Model
     public $errMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The start offset of incremental data migration. The value is a UNIX timestamp. Unit: seconds.
      *
      * @example 40E35BD9-002E-4D63-9BE5-FBA48833****
      *
@@ -36,8 +36,9 @@ class ConfigureMigrationJobResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful.
+     * @description The SID of the Oracle database.
      *
+     * >  You must specify this parameter only if the **DestinationEndpoint.EngineName** parameter is set to **Oracle** and the **Oracle** database is deployed in a non-RAC architecture.
      * @example true
      *
      * @var string

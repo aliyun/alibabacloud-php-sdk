@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class performance extends Model
 {
     /**
-     * @description The precheck progress. Unit: %.
+     * @description The data traffic that is synchronized per second. Unit: MB/s.
      *
      * @example 1
      *
@@ -18,10 +18,7 @@ class performance extends Model
     public $FLOW;
 
     /**
-     * @description The precheck result. Valid values:
-     *
-     *   **Success**: The task passed the precheck.
-     *   **Failed**: The task failed to pass the precheck.
+     * @description The number of times SQL statements are synchronized per second, including BEGIN, COMMIT, DML, and DDL statements. DML statements include INSERT, DELETE, and UPDATE.
      *
      * @example 100
      *

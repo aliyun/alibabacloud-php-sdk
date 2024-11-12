@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataCheckTableDiffDetailsResponseBody extends Model
 {
     /**
+     * @description The name of the source database to which the table that contains inconsistent data belongs.
+     *
      * @example db_dtstest
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeDataCheckTableDiffDetailsResponseBody extends Model
     public $dbName;
 
     /**
+     * @description The number of data rows that contain inconsistent data.
+     *
      * @example 1
      *
      * @var int
@@ -24,11 +28,16 @@ class DescribeDataCheckTableDiffDetailsResponseBody extends Model
     public $diffCount;
 
     /**
+     * @description The information about the inconsistent data.
+     *
      * @var diffDetails[]
      */
     public $diffDetails;
 
     /**
+     * @description The dynamic part in the error message. This parameter is used to replace the \\*\\*%s\\*\\* variable in the **ErrMessage** parameter.
+     *
+     * > For example, if the value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the value of the **DynamicMessage** parameter is **Type**, the specified **Type** parameter is invalid.
      * @example Type
      *
      * @var string
@@ -36,6 +45,8 @@ class DescribeDataCheckTableDiffDetailsResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example InvalidParameter
      *
      * @var string
@@ -43,6 +54,8 @@ class DescribeDataCheckTableDiffDetailsResponseBody extends Model
     public $errCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example The value of the parameter tbName is invalid.
      *
      * @var string
@@ -50,6 +63,8 @@ class DescribeDataCheckTableDiffDetailsResponseBody extends Model
     public $errMessage;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -57,6 +72,8 @@ class DescribeDataCheckTableDiffDetailsResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The instance ID.
+     *
      * @example dtsog8q1z3tc9t****"
      *
      * @var string
@@ -64,6 +81,8 @@ class DescribeDataCheckTableDiffDetailsResponseBody extends Model
     public $instanceId;
 
     /**
+     * @description The request ID.
+     *
      * @example 621BB4F8-3016-4FAA-8D5A-5D3163CC****
      *
      * @var string
@@ -71,6 +90,8 @@ class DescribeDataCheckTableDiffDetailsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool
@@ -78,6 +99,8 @@ class DescribeDataCheckTableDiffDetailsResponseBody extends Model
     public $success;
 
     /**
+     * @description The name of the table that contains inconsistent data in the source database.
+     *
      * @example test_person
      *
      * @var string

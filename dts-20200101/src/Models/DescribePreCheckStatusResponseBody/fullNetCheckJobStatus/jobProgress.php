@@ -10,126 +10,224 @@ use AlibabaCloud\Tea\Model;
 class jobProgress extends Model
 {
     /**
+     * @description The specific project start time, formatted as <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC time).
+     *
+     * @example 2022-03-30T03:36:11.000+00:00
+     *
      * @var string
      */
     public $bootTime;
 
     /**
+     * @description Whether DTS supports skipping a project after it fails. Return values: * **true**: Yes * **false**: No
+     *
+     * @example false
+     *
      * @var bool
      */
     public $canSkip;
 
     /**
+     * @description The number of currently running tasks.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $current;
 
     /**
+     * @description The DDL operation to be executed.
+     *
+     * @example CREATE TABLE ****
+     *
      * @var string
      */
     public $ddlSql;
 
     /**
+     * @description Task delay time
+     *
+     * @example 0
+     *
      * @var int
      */
     public $delaySeconds;
 
     /**
+     * @description Name of the database to which the migration objects in the target instance belong.
+     *
+     * @example dest
+     *
      * @var string
      */
     public $destSchema;
 
     /**
+     * @description This parameter will be deprecated.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $diffRow;
 
     /**
+     * @description Details of the error when a specific project fails.
+     *
+     * @example CHECK__ERROR_SAME_OBJ_DETAIL
+     *
      * @var string
      */
     public $errDetail;
 
     /**
+     * @description Error message prompt when a specific project encounters an error.
+     *
+     * @example ODPS project does not exist odps.`huijin
+     *
      * @var string
      */
     public $errMsg;
 
     /**
+     * @description Task completion time, formatted as yyyy-MM-ddTHH:mm:ssZ (UTC time).
+     *
+     * @example 2022-03-31T03:36:11.000+00:00
+     *
      * @var string
      */
     public $finishTime;
 
     /**
+     * @description The ID of the record in the metadata database.
+     *
+     * @example 922305811766881****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description Whether to directly ignore this specific item and move to the next one. Return values:
+     * - **N**: No. - **Y**: Yes.
+     * @example N
+     *
      * @var string
      */
     public $ignoreFlag;
 
     /**
+     * @description Specific project name.
+     *
+     * @example CHECK_CONN_SRC
+     *
      * @var string
      */
     public $item;
 
     /**
+     * @description Task ID.
+     *
+     * @example l3m1213ye7l****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description Error execution log information.
+     *
      * @var logs[]
      */
     public $logs;
 
     /**
+     * @description Specific project name.
+     *
+     * @example CHECK_CONN_SRC_DETAIL
+     *
      * @var string
      */
     public $names;
 
     /**
+     * @description Project number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $orderNum;
 
     /**
+     * @description This parameter will be deprecated.
+     *
+     * @example demo
+     *
      * @var string
      */
     public $parentObj;
 
     /**
+     * @description The corresponding remediation method when the pre-check fails.
+     *
+     * @example CHECK__ERROR_SAME_OBJ_REPAIR
+     *
      * @var string
      */
     public $repairMethod;
 
     /**
+     * @description After this specific item fails, do you set to skip this item. Return values: * **true**: Yes * **false**: No
+     *
+     * @example false
+     *
      * @var bool
      */
     public $skip;
 
     /**
+     * @description Name of the database to which the migration objects in the source instance belong.
+     *
+     * @example dtstestdata
+     *
      * @var string
      */
     public $sourceSchema;
 
     /**
+     * @description Check result, the return value is: - **Failed**: Failure. - **Success**: Completed.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description Progress of sub-projects under a specific project. > If it returns <b>[]</b>, it indicates there are no sub-projects.
+     *
+     * @example []
+     *
      * @var string
      */
     public $sub;
 
     /**
+     * @description Name of the target object
+     *
+     * @example order
+     *
      * @var string
      */
     public $targetNames;
 
     /**
+     * @description The total number of projects.
+     *
+     * @example 11
+     *
      * @var int
      */
     public $total;

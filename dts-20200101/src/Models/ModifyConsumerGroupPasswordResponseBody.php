@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyConsumerGroupPasswordResponseBody extends Model
 {
     /**
-     * @description The error code returned if the call failed.
+     * @description The current password of the consumer group.
      *
      * @example InternalError
      *
@@ -18,7 +18,7 @@ class ModifyConsumerGroupPasswordResponseBody extends Model
     public $errCode;
 
     /**
-     * @description The error message returned if the call failed.
+     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
      *
      * @example The request processing has failed due to some unknown error.
      *
@@ -27,7 +27,7 @@ class ModifyConsumerGroupPasswordResponseBody extends Model
     public $errMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The username of the consumer group. You can call the [DescribeConsumerGroup](https://help.aliyun.com/document_detail/122886.html) operation to query the username.
      *
      * @example A06B5CFF-9576-4BC1-BE62-A3D43E1F****
      *
@@ -36,7 +36,10 @@ class ModifyConsumerGroupPasswordResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful.
+     * @description The new password of the consumer group.
+     *
+     *   A password must contain two or more of the following characters: uppercase letters, lowercase letters, digits, and special characters.
+     *   A password must be 8 to 32 characters in length.
      *
      * @example true
      *

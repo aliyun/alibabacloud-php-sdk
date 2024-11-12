@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description The database name that is used in the destination instance.
+     * @description The tag key.
      *
      * @example testkey1
      *
@@ -18,7 +18,7 @@ class tags extends Model
     public $key;
 
     /**
-     * @description The name of the synchronized database.
+     * @description The tag value that corresponds to the tag key.
      *
      * @example testvalue1
      *

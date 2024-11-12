@@ -10,12 +10,12 @@ use AlibabaCloud\Tea\Model;
 class subDistributedJobStatus extends Model
 {
     /**
-     * @description The task code that indicates the subtask type. Valid values:
+     * @description The task code that indicates the type of the subtask. Valid values:
      *
-     *   **01**: precheck
-     *   **02**: schema migration or initial schema synchronization
-     *   **03**: full data migration or initial full data synchronization
-     *   **04**: incremental data migration or synchronization
+     *   **01**: precheck.
+     *   **02**: schema migration or initial schema synchronization.
+     *   **03**: full data migration or initial full data synchronization.
+     *   **04**: incremental data migration or synchronization.
      *
      * @example 02
      *
@@ -33,7 +33,7 @@ class subDistributedJobStatus extends Model
     public $errorItem;
 
     /**
-     * @description The ID of the subtask.
+     * @description The subtask ID.
      *
      * @example n0gm1682j6563np
      *
@@ -51,7 +51,7 @@ class subDistributedJobStatus extends Model
     public $jobName;
 
     /**
-     * @description The list of subtasks and the progress of each subtask.
+     * @description The subtasks and the progress of each subtask.
      *
      * @var jobProgress[]
      */
@@ -75,7 +75,7 @@ class subDistributedJobStatus extends Model
     public $state;
 
     /**
-     * @description The total number of returned entries.
+     * @description The total number of entries that are returned.
      *
      * @example 11
      *

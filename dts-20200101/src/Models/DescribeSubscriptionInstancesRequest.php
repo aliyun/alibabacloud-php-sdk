@@ -60,6 +60,10 @@ class DescribeSubscriptionInstancesRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-aekz4us4iruleja
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -68,11 +72,15 @@ class DescribeSubscriptionInstancesRequest extends Model
      * @description The name of the change tracking instance.
      *
      * >  If you specify this parameter, DTS returns all the change tracking instances that match the specified name.
+     * @example MySQL订阅
+     *
      * @var string
      */
     public $subscriptionInstanceName;
 
     /**
+     * @description Tags of the data migration instance, used as a filter. When this is not empty, only instances with this tag will be returned.
+     *
      * @var tag[]
      */
     public $tag;

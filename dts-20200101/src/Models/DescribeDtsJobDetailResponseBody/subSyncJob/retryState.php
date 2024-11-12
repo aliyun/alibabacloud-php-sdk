@@ -9,43 +9,80 @@ use AlibabaCloud\Tea\Model;
 class retryState extends Model
 {
     /**
+     * @description The error message returned.
+     *
+     * @example CHECK__ERROR_SAME_OBJ
+     *
      * @var string
      */
     public $errMsg;
 
     /**
+     * @description The task ID.
+     *
+     * @example ta7w132u12h****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description The maximum duration of a retry. Unit: seconds.
+     *
+     * @example 7200
+     *
      * @var int
      */
     public $maxRetryTime;
 
     /**
+     * @description The progress of the instance when DTS performs retries.
+     *
+     * @example 03
+     *
      * @var string
      */
     public $module;
 
     /**
+     * @description The number of retries.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $retryCount;
 
     /**
-     * @description srcDB/destDB/metaDB/dstore
+     * @description The object on which the retries are performed. Valid values:
+     *
+     *   **srcDB**: the source database.
+     *   **destDB**: the destination database.
+     *   **inner_module**: an internal module of DTS.
+     *
+     * @example srcDB
      *
      * @var string
      */
     public $retryTarget;
 
     /**
+     * @description The time that has elapsed from the point in time when the first retry starts. Unit: seconds.
+     *
+     * @example 3600
+     *
      * @var int
      */
     public $retryTime;
 
     /**
+     * @description Indicates whether the task is being retried. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $retrying;

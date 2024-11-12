@@ -12,22 +12,27 @@ use AlibabaCloud\Tea\Model;
 class DescribeMigrationJobDetailResponseBody extends Model
 {
     /**
-     * @description The details of full data migration.
+     * @description The maximum number of data migration instances that can be displayed on one page.
      *
      * @var dataInitializationDetailList
      */
     public $dataInitializationDetailList;
 
     /**
-     * @description The details of incremental data migration.
+     * @description The error message returned if full data migration failed.
      *
      * @var dataSynchronizationDetailList
      */
     public $dataSynchronizationDetailList;
 
     /**
-     * @description The error code returned if the call failed.
+     * @description Specifies whether to query the details of incremental data migration. Valid values:
      *
+     *   **true**: yes
+     *
+     *   **false**: no
+     *
+     * > Default value: **false**
      * @example InternalError
      *
      * @var string
@@ -35,7 +40,7 @@ class DescribeMigrationJobDetailResponseBody extends Model
     public $errCode;
 
     /**
-     * @description The error message returned if the call failed.
+     * @description The ID of the request.
      *
      * @example The request processing has failed due to some unknown error.
      *
@@ -44,7 +49,7 @@ class DescribeMigrationJobDetailResponseBody extends Model
     public $errMessage;
 
     /**
-     * @description The page number of the returned page.
+     * @description The error code returned if the call failed.
      *
      * @example 1
      *
@@ -53,7 +58,7 @@ class DescribeMigrationJobDetailResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The maximum number of data migration instances that can be displayed on one page.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example 30
      *
@@ -62,8 +67,13 @@ class DescribeMigrationJobDetailResponseBody extends Model
     public $pageRecordCount;
 
     /**
-     * @description The ID of the request.
+     * @description Specifies whether to query the details of full data migration. Valid values:
      *
+     *   **true**: yes
+     *
+     *   **false**: no
+     *
+     * > Default value: **false**
      * @example 0AE3CD0B-4148-426F-A90E-952467CC****
      *
      * @var string
@@ -71,14 +81,14 @@ class DescribeMigrationJobDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details of schema migration.
+     * @description The name of the database to which the migration object in the source instance belongs.
      *
      * @var structureInitializationDetailList
      */
     public $structureInitializationDetailList;
 
     /**
-     * @description Indicates whether the call was successful.
+     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
      *
      * @example true
      *
@@ -87,7 +97,7 @@ class DescribeMigrationJobDetailResponseBody extends Model
     public $success;
 
     /**
-     * @description The total number of entries that are returned.
+     * @description Resource group ID.
      *
      * @example 1
      *

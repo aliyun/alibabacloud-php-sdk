@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class migrationMode extends Model
 {
     /**
-     * @description The database account of the destination instance.
+     * @description Indicates whether data transformation is performed. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -18,7 +21,10 @@ class migrationMode extends Model
     public $dataExtractTransformLoad;
 
     /**
-     * @description The database engine of the destination instance.
+     * @description Indicates whether full data migration or initial full data synchronization is performed. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -27,7 +33,10 @@ class migrationMode extends Model
     public $dataInitialization;
 
     /**
-     * @description The migration types or synchronization types.
+     * @description Indicates whether incremental data migration or synchronization is performed. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -36,10 +45,10 @@ class migrationMode extends Model
     public $dataSynchronization;
 
     /**
-     * @description Indicates whether data transformation is performed. Valid values:
+     * @description Indicates whether schema migration or initial schema synchronization is performed. Valid values:
      *
-     *   **true**: Data transformation is performed.
-     *   **false**: Data transformation is not performed.
+     *   **true**
+     *   **false**
      *
      * @example true
      *

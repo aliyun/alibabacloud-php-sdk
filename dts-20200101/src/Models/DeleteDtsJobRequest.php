@@ -28,6 +28,14 @@ class DeleteDtsJobRequest extends Model
     public $dtsJobId;
 
     /**
+     * @description The type of the Data Transmission Service (DTS) task. Valid values:
+     *
+     *   **MIGRATION**: data migration task
+     *   **SYNC**: data synchronization task
+     *   **SUBSCRIBE**: change tracking task
+     *
+     * @example MIGRATION
+     *
      * @var string
      */
     public $jobType;
@@ -42,6 +50,10 @@ class DeleteDtsJobRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-aek26lwshijfk3q
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -56,6 +68,10 @@ class DeleteDtsJobRequest extends Model
     public $synchronizationDirection;
 
     /**
+     * @description Whether it is a seamless integration (Zero-ETL) task, the value can be:
+     * - **false**: No. - **true**: Yes.
+     * @example true
+     *
      * @var bool
      */
     public $zeroEtlJob;

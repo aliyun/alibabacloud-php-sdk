@@ -30,11 +30,17 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The instance ID for data migration, synchronization, and subscription, which can be obtained by calling [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html).  > - N indicates the Nth instance ID being passed. For example, ResourceId.0 represents the first instance ID; ResourceId.1 represents the second instance ID. Up to 50 instance IDs can be queried simultaneously. - At least one of this parameter and **Tag.N.Key** must be provided.
+     *
      * @example dtsntk10k6r12v****
      *
      * @var string[]
@@ -52,6 +58,8 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The value corresponding to the tag key.
+     *
      * @var tag[]
      */
     public $tag;

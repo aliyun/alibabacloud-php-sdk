@@ -28,6 +28,10 @@ class StartSynchronizationJobRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -39,8 +43,10 @@ class StartSynchronizationJobRequest extends Model
      *   **Reverse**
      *
      * >
-     *   Default value: **Forward**.
-     *   You can set this parameter to **Reverse** to start the reverse synchronization task only when the topology is two-way synchronization.
+     *
+     *   The default value is **Forward**.
+     *
+     *   You can set this parameter to **Reverse** to start the reverse synchronization task only if the topology is two-way synchronization.
      *
      * @example Forward
      *

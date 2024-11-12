@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class dataSynchronizationStatus extends Model
 {
     /**
-     * @description The connection settings of the destination instance.
+     * @description The synchronization latency.
      *
+     * >  This parameter is no longer available.
      * @example 0
      *
      * @var string
@@ -18,15 +19,19 @@ class dataSynchronizationStatus extends Model
     public $delay;
 
     /**
-     * @description The endpoint of the destination instance.
+     * @description The error message returned if incremental data synchronization failed.
+     *
+     * >  This parameter is no longer available.
+     * @example The task has failed for too long and cannot be restored
      *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description The ID of the destination instance.
+     * @description The progress of incremental data synchronization. Unit: %.
      *
+     * >  This parameter is no longer available.
      * @example 100
      *
      * @var string
@@ -34,7 +39,7 @@ class dataSynchronizationStatus extends Model
     public $percent;
 
     /**
-     * @description The error message returned if incremental data synchronization failed.
+     * @description The status of incremental data synchronization.
      *
      * >  This parameter is no longer available.
      * @example Finished

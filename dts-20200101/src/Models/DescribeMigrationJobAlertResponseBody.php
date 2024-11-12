@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeMigrationJobAlertResponseBody extends Model
 {
     /**
-     * @description The mobile phone numbers that receive latency-related alerts.
+     * @description Phone number of the contact for delay alarm.
      *
      * @example 1361234****,1371234****
      *
@@ -18,11 +18,8 @@ class DescribeMigrationJobAlertResponseBody extends Model
     public $delayAlertPhone;
 
     /**
-     * @description Indicates whether task latency is monitored. Valid values:
-     *
-     *   **enable**: yes
-     *   **disable**: no
-     *
+     * @description Whether to monitor the delay status, return values:
+     * - **enable**: Yes. - **disable**: No.
      * @example enable
      *
      * @var string
@@ -30,16 +27,16 @@ class DescribeMigrationJobAlertResponseBody extends Model
     public $delayAlertStatus;
 
     /**
-     * @description The threshold for triggering latency alerts. Unit: seconds.
+     * @description The threshold for triggering a delayed alarm, in seconds.
      *
-     * @example 10
+     * @example 0
      *
      * @var string
      */
     public $delayOverSeconds;
 
     /**
-     * @description The error code returned if the call failed.
+     * @description Error code returned when the call fails.
      *
      * @example InternalError
      *
@@ -48,7 +45,7 @@ class DescribeMigrationJobAlertResponseBody extends Model
     public $errCode;
 
     /**
-     * @description The error message returned if the call failed.
+     * @description Indicates whether the call was successful.
      *
      * @example The request processing has failed due to some unknown error.
      *
@@ -57,7 +54,7 @@ class DescribeMigrationJobAlertResponseBody extends Model
     public $errMessage;
 
     /**
-     * @description The mobile phone numbers that receive status-related alerts.
+     * @description Phone number of the contact for abnormal alarm notifications
      *
      * @example 1361234****,1371234****
      *
@@ -66,11 +63,8 @@ class DescribeMigrationJobAlertResponseBody extends Model
     public $errorAlertPhone;
 
     /**
-     * @description Indicates whether task status is monitored. Valid values:
-     *
-     *   **enable**: yes
-     *   **disable**: no
-     *
+     * @description Whether to monitor for abnormal status, return values:
+     * - **enable**: Yes. - **disable**: No.
      * @example enable
      *
      * @var string
@@ -78,18 +72,18 @@ class DescribeMigrationJobAlertResponseBody extends Model
     public $errorAlertStatus;
 
     /**
-     * @description The ID of the data migration instance.
+     * @description Data migration instance ID.
      *
-     * @example lb9113qq11n****
+     * @example dtslb9113qq11n****
      *
      * @var string
      */
     public $migrationJobId;
 
     /**
-     * @description The name of the data migration task.
+     * @description Name of the data migration task.
      *
-     * @example PolarDB MySQL_to_RDS MySQL
+     * @example zwy-test5
      *
      * @var string
      */
@@ -98,14 +92,14 @@ class DescribeMigrationJobAlertResponseBody extends Model
     /**
      * @description The ID of the request.
      *
-     * @example 210ec21916055187057342533d****
+     * @example CFB89C51-6F03-519C-A921-AAE28D50AEFB
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful.
+     * @description Whether the request was successful.
      *
      * @example true
      *

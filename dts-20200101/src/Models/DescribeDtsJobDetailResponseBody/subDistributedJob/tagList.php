@@ -9,70 +9,126 @@ use AlibabaCloud\Tea\Model;
 class tagList extends Model
 {
     /**
+     * @description The Alibaba Cloud account ID.
+     *
+     * @example 191448876515****
+     *
      * @var int
      */
     public $aliUid;
 
     /**
+     * @description The operator of the tag.
+     *
+     * @example 191448876515****
+     *
      * @var int
      */
     public $creator;
 
     /**
+     * @description The time when the task was created.
+     *
+     * @example 2022-03-16T08:01:19Z
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The time when the task was modified.
+     *
+     * @example 2022-03-16T08:01:19Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description The primary key of the table.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $id;
 
     /**
-     * @description region_id
+     * @description The ID of the region in which the DTS task resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+     *
+     * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description dts instance id
+     * @description The ID of the data migration, data synchronization, or change tracking instance.
+     *
+     * @example dtsnjuc14kp12u****
      *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The resource type.
+     *
+     * @example ALIYUN::DTS::INSTANCE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description Indicates whether the tag is visible. Valid values:
+     *
+     *   **0**: The tag is public.
+     *   **1**: The tag is private.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $scope;
 
     /**
+     * @description The ID of the region in which the DTS task resides.
+     *
+     * > In most cases, the ID of the region in which the destination instance resides is returned.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $srcRegion;
 
     /**
+     * @description The type of the tag. Valid values:
+     *
+     *   **System**: The tag was created by the system.
+     *   **Custom**: The tag was created by a user.
+     *
+     * > By default, if the parameter is left empty, custom tags and system tags are returned.
+     * @example System
+     *
      * @var string
      */
     public $tagCategory;
 
     /**
+     * @description The tag key.
+     *
+     * @example key1
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The tag value.
+     *
+     * @example value1
+     *
      * @var string
      */
     public $tagValue;

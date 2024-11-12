@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ConfigureSubscriptionInstanceResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request failed.
+     * @description The error code returned if the request fails.
      *
      * @example InternalError
      *
@@ -18,7 +18,7 @@ class ConfigureSubscriptionInstanceResponseBody extends Model
     public $errCode;
 
     /**
-     * @description The error message returned if the request failed.
+     * @description The error message returned if the request fails.
      *
      * @example The request processing has failed due to some unknown error.
      *

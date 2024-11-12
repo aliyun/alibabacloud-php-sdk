@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class migrationMode extends Model
 {
     /**
-     * @description Specifies whether to perform full data migration. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
+     * @description The database account of the destination database.
      *
      * This parameter is required.
      * @example true
@@ -22,10 +19,7 @@ class migrationMode extends Model
     public $dataIntialization;
 
     /**
-     * @description Specifies whether to perform incremental data migration. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
+     * @description The password of the destination database account.
      *
      * This parameter is required.
      * @example true
@@ -35,10 +29,11 @@ class migrationMode extends Model
     public $dataSynchronization;
 
     /**
-     * @description Specifies whether to perform schema migration. Valid values:
+     * @description The name of the destination database or the authentication database.
      *
-     *   **true**: yes
-     *   **false**: no
+     * >
+     *   You must specify the database name only if the **DestinationEndpoint.EngineName** parameter is set to **PostgreSQL**, **DRDS**, or **MongoDB**.
+     *   If the **DestinationEndpoint.EngineName** parameter is set to **PostgreSQL** or **DRDS**, specify the name of the destination database. If the DestinationEndpoint.EngineName parameter is set to **MongoDB**, specify the name of the authentication database.
      *
      * This parameter is required.
      * @example true

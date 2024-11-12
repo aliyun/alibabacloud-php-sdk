@@ -27,8 +27,9 @@ class ConfigureMigrationJobRequest extends Model
     public $sourceEndpoint;
 
     /**
-     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+     * @description The objects that you want to migrate. The value is a JSON string and can contain regular expressions.
      *
+     * For more information, see [MigrationObject](https://help.aliyun.com/document_detail/141227.html).
      * @example 12323344****
      *
      * @var string
@@ -36,8 +37,12 @@ class ConfigureMigrationJobRequest extends Model
     public $accountId;
 
     /**
-     * @description The start offset of incremental data migration. The value is a UNIX timestamp. Unit: seconds.
+     * @description Specifies whether to perform incremental data migration. Valid values:
      *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * >  For more information about databases that support incremental data migration, see [Supported databases and migration types](https://help.aliyun.com/document_detail/26618.html).
      * @example 111
      *
      * @var string
@@ -45,17 +50,17 @@ class ConfigureMigrationJobRequest extends Model
     public $checkpoint;
 
     /**
-     * @description The ID of the data migration instance. You can call the **DescribeMigrationJobs** operation to query the instance ID.
+     * @description system
      *
      * This parameter is required.
-     * @example dtsl3m1213ye7l****
+     * @example The operation that you want to perform. Set the value to **ConfigureMigrationJob**.
      *
      * @var string
      */
     public $migrationJobId;
 
     /**
-     * @description The name of the data migration task. The name can be up to 32 characters in length. We recommend that you specify an informative name to identify the task. You do not need to use a unique task name.
+     * @description The ID of the region where the data migration instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * This parameter is required.
      * @example MySQL_TO_RDS
@@ -65,7 +70,10 @@ class ConfigureMigrationJobRequest extends Model
     public $migrationJobName;
 
     /**
-     * @description The objects that you want to migrate. The value is a JSON string and can contain regular expressions.
+     * @description Specifies whether to perform schema migration. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
      *
      * This parameter is required.
      * @example [{"DBName":"dtstestdata","TableIncludes":[{"TableName":"customer"}]}]
@@ -75,8 +83,12 @@ class ConfigureMigrationJobRequest extends Model
     public $migrationObject;
 
     /**
-     * @description The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet special requirements, for example, whether to automatically start a precheck. For more information, see [MigrationReserved](https://help.aliyun.com/document_detail/176470.html).
+     * @description Specifies whether to perform full data migration. Valid values:
      *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * >  For more information about databases that support full data migration, see [Supported databases and migration types](https://help.aliyun.com/document_detail/26618.html).
      * @example {     "autoStartModulesAfterConfig": "none",     "targetTableMode": 2 }
      *
      * @var string
@@ -89,9 +101,6 @@ class ConfigureMigrationJobRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the data migration instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
-     *
-     * >  The region ID of the data migration instance is the same as that of the destination database.
      * @example cn-hangzhou
      *
      * @var string
@@ -99,6 +108,10 @@ class ConfigureMigrationJobRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource GroupId
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;

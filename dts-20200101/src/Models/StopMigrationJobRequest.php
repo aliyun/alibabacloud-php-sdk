@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class StopMigrationJobRequest extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+     * @description The IDoftheAlibabaCloudaccount. Youdonotneed to specify this parameter because this parameter will be removed in the future.
      *
      * @example 12323344****
      *
@@ -47,6 +47,10 @@ class StopMigrationJobRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;

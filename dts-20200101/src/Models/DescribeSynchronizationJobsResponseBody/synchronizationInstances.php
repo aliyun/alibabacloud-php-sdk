@@ -18,7 +18,7 @@ use AlibabaCloud\Tea\Model;
 class synchronizationInstances extends Model
 {
     /**
-     * @description The specification of the data synchronization instance.
+     * @description The time when the data synchronization task was created. The time is displayed in the *yyyy-MM-dd* *HH:mm:ss*.0 format (UTC+8).
      *
      * @example 2021-06-28 17:34:53.0
      *
@@ -27,7 +27,10 @@ class synchronizationInstances extends Model
     public $createTime;
 
     /**
-     * @description The synchronization latency, in seconds.
+     * @description Indicates whether full data synchronization is performed. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
      *
      * @example true
      *
@@ -36,22 +39,22 @@ class synchronizationInstances extends Model
     public $dataInitialization;
 
     /**
-     * @description The error message returned if full data synchronization failed.
+     * @description The status of full data synchronization.
      *
      * @var dataInitializationStatus
      */
     public $dataInitializationStatus;
 
     /**
-     * @description The progress of incremental data synchronization. Unit: %.
+     * @description The status of incremental data synchronization.
      *
-     * >  This parameter is no longer available.
+     * >  This parameter and its sub-parameters are no longer available.
      * @var dataSynchronizationStatus
      */
     public $dataSynchronizationStatus;
 
     /**
-     * @description The time when the data synchronization task was created. The time is displayed in the *yyyy-MM-dd* *HH:mm:ss*.0 format (UTC+8).
+     * @description The synchronization latency, in seconds.
      *
      * @example 0
      *
@@ -60,17 +63,14 @@ class synchronizationInstances extends Model
     public $delay;
 
     /**
-     * @description The type of the destination instance.
+     * @description The connection settings of the destination instance.
      *
      * @var destinationEndpoint
      */
     public $destinationEndpoint;
 
     /**
-     * @description The billing method of the data synchronization instance. Valid values:
-     *
-     *   **PrePaid**: subscription
-     *   **PostPaid**: pay-as-you-go
+     * @description The error message returned if data synchronization failed.
      *
      * @example DTS-070211: Connect Source DB failed. cause by [com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException:Could not create connection to database server. Attempted reconnect 3 times. Giving up.][com.mysql.jdbc.exceptions.jdbc4.CommunicationsException:Communications link failure\\n\\nThe last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.][java.net.ConnectException:Connection timed out (Connection timed out)] About more information in [https://yq.aliyun.com/articles/499178].
      *
@@ -79,11 +79,9 @@ class synchronizationInstances extends Model
     public $errorMessage;
 
     /**
-     * @description Indicates whether schema synchronization is performed. Valid values:
+     * @description The time when the data synchronization instance expires. The time is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format in UTC.
      *
-     *   **true**: yes
-     *   **false**: no
-     *
+     * >  This parameter is returned only if the return value of the **PayType** parameter is **PrePaid**.
      * @example 2021-07-07T16:00:00Z
      *
      * @var string
@@ -91,7 +89,7 @@ class synchronizationInstances extends Model
     public $expireTime;
 
     /**
-     * @description The time when the data synchronization task was created. The time is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format in UTC.
+     * @description The time when the instance was created. The time is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format in UTC.
      *
      * @example 2021-06-28T09:36:32Z
      *
@@ -100,7 +98,7 @@ class synchronizationInstances extends Model
     public $instanceCreateTime;
 
     /**
-     * @description The tag value that corresponds to the tag key.
+     * @description The time when the data synchronization task was created. The time is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format in UTC.
      *
      * @example 2021-06-28T09:34:53Z
      *
@@ -109,7 +107,10 @@ class synchronizationInstances extends Model
     public $jobCreateTime;
 
     /**
-     * @description The time when the instance was created. The time is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format in UTC.
+     * @description The billing method of the data synchronization instance. Valid values:
+     *
+     *   **PrePaid**: subscription
+     *   **PostPaid**: pay-as-you-go
      *
      * @example PrePaid
      *
@@ -118,28 +119,39 @@ class synchronizationInstances extends Model
     public $payType;
 
     /**
-     * @description The precheck status.
+     * @description The performance of the data synchronization instance.
      *
      * @var performance
      */
     public $performance;
 
     /**
-     * @description The result of each precheck item.
+     * @description The precheck status.
      *
      * @var precheckStatus
      */
     public $precheckStatus;
 
     /**
-     * @description The type of the source instance.
+     * @description The connection settings of the source instance.
      *
      * @var sourceEndpoint
      */
     public $sourceEndpoint;
 
     /**
-     * @description The error message returned if data synchronization failed.
+     * @description The status of the data synchronization task. Valid values:
+     *
+     *   **NotStarted**: The task is not started.
+     *   **Prechecking**: The task is being prechecked.
+     *   **PrecheckFailed**: The task failed to pass the precheck.
+     *   **Initializing**: The task is performing initial synchronization.
+     *   **InitializeFailed**: Initial synchronization failed.
+     *   **Synchronizing**: The task is synchronizing data.
+     *   **Failed**: The task failed to synchronize data.
+     *   **Suspending**: The task is paused.
+     *   **Modifying**: The objects in the task are being modified.
+     *   **Finished**: The task is completed.
      *
      * @example synchronizing
      *
@@ -148,7 +160,10 @@ class synchronizationInstances extends Model
     public $status;
 
     /**
-     * @description The ID of the data synchronization instance.
+     * @description Indicates whether schema synchronization is performed. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
      *
      * @example true
      *
@@ -157,14 +172,17 @@ class synchronizationInstances extends Model
     public $structureInitialization;
 
     /**
-     * @description The error message returned if schema synchronization failed.
+     * @description The status of schema synchronization.
      *
      * @var structureInitializationStatus
      */
     public $structureInitializationStatus;
 
     /**
-     * @description The tag key.
+     * @description The synchronization direction. Valid values:
+     *
+     *   **Forward**
+     *   **Reverse**
      *
      * @example Forward
      *
@@ -173,10 +191,7 @@ class synchronizationInstances extends Model
     public $synchronizationDirection;
 
     /**
-     * @description The synchronization direction. Valid values:
-     *
-     *   **Forward**
-     *   **Reverse**
+     * @description The specification of the data synchronization instance.
      *
      * @example large
      *
@@ -185,7 +200,7 @@ class synchronizationInstances extends Model
     public $synchronizationJobClass;
 
     /**
-     * @description The collection of tags.
+     * @description The ID of the data synchronization instance.
      *
      * @example dtsexjk1alb116****
      *
@@ -194,22 +209,23 @@ class synchronizationInstances extends Model
     public $synchronizationJobId;
 
     /**
-     * @description The time when the data synchronization instance expires. The time is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format in UTC.
+     * @description The name of the data synchronization task.
      *
-     * >  This parameter is returned only if the return value of the **PayType** parameter is **PrePaid**.
+     * @example dtstest
+     *
      * @var string
      */
     public $synchronizationJobName;
 
     /**
-     * @description The source tables that are excluded from the data synchronization task.
+     * @description The objects that are synchronized by the task.
      *
      * @var synchronizationObjects[]
      */
     public $synchronizationObjects;
 
     /**
-     * @description The objects that are synchronized by the task.
+     * @description The collection of tags.
      *
      * @var tags[]
      */

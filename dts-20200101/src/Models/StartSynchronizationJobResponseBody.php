@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class StartSynchronizationJobResponseBody extends Model
 {
     /**
-     * @description The error code returned if the call failed.
+     * @description The error code returned if the request failed.
      *
      * @example InternalError
      *
@@ -18,7 +18,7 @@ class StartSynchronizationJobResponseBody extends Model
     public $errCode;
 
     /**
-     * @description The error message returned if the call failed.
+     * @description The error message returned if the request failed.
      *
      * @example The request processing has failed due to some unknown error.
      *
@@ -27,7 +27,7 @@ class StartSynchronizationJobResponseBody extends Model
     public $errMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example FDC111B1-ACBF-457D-9656-247FDEE9****
      *
@@ -36,7 +36,10 @@ class StartSynchronizationJobResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example true
      *

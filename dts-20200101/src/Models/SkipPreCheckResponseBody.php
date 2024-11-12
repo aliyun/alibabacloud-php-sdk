@@ -18,9 +18,9 @@ class SkipPreCheckResponseBody extends Model
     public $code;
 
     /**
-     * @description The dynamic part in the error message. This parameter is used to replace the **%s** variable in the **ErrMessage** parameter.
+     * @description The dynamic part in the error message. This parameter is used to replace %s in ErrMessage.
      *
-     * >  If the specified **JobId** parameter is invalid, **The Value of Input Parameter %s is not valid** is returned for **ErrMessage** and **JobId** is returned for **DynamicMessage**.
+     * > If JobId is invalid, JobId is returned for DynamicMessage, and the following message is returned for ErrMessage: The Value of Input Parameter %s is not valid.
      * @example JobId
      *
      * @var string
@@ -37,7 +37,7 @@ class SkipPreCheckResponseBody extends Model
     public $errCode;
 
     /**
-     * @description The error message returned if the call failed.
+     * @description The error message returned if the request failed.
      *
      * @example The Value of Input Parameter %s is not valid.
      *
@@ -46,7 +46,7 @@ class SkipPreCheckResponseBody extends Model
     public $errMessage;
 
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status codes returned.
      *
      * @example 200
      *
@@ -55,16 +55,16 @@ class SkipPreCheckResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the DTS task on which the precheck is performed.
+     * @description The precheck task ID.
      *
-     * @example kyri3z9w29a****
+     * @example b4my3zg929a****
      *
      * @var string
      */
     public $migrationJobId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 8C498360-7892-433C-847A-BA71A850****
      *
@@ -73,7 +73,7 @@ class SkipPreCheckResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the precheck task.
+     * @description The precheck task ID.
      *
      * @example b4my3zg929a****
      *
@@ -91,7 +91,7 @@ class SkipPreCheckResponseBody extends Model
     public $skipItems;
 
     /**
-     * @description The name of the precheck item.
+     * @description The precheck item name.
      *
      * @example CHECK_SAME_OBJ_DETAIL
      *
@@ -100,7 +100,7 @@ class SkipPreCheckResponseBody extends Model
     public $skipNames;
 
     /**
-     * @description Indicates whether the call is successful.
+     * @description Indicates whether the request is successful.
      *
      * @example true
      *

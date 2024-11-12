@@ -50,6 +50,10 @@ class DescribeDataCheckTableDetailsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-aekz4us4iruleja
+     *
      * @var string
      */
     public $resourceGroupId;

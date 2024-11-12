@@ -10,21 +10,40 @@ use AlibabaCloud\Tea\Model;
 class precheckStatus extends Model
 {
     /**
+     * @description The result of each precheck item.
+     *
      * @var detail[]
      */
     public $detail;
 
     /**
+     * @description The error message returned if the task failed.
+     *
+     * @example DTS-070211: Connect Source DB failed. cause by ****
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The precheck progress. Unit: percentage.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $percent;
 
     /**
+     * @description The precheck state. Valid values:
+     *
+     *   **NotStarted**: The task is not started.
+     *   **Prechecking**: The task is in precheck.
+     *   **PrecheckFailed**: The task failed to pass the precheck.
+     *   **Finished**: The task is complete.
+     *
+     * @example Finished
+     *
      * @var string
      */
     public $status;

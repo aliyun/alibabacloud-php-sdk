@@ -199,6 +199,11 @@ class reverseJob extends Model
     public $incDataCheckStatus;
 
     /**
+     * @description Upper limit of DU.
+     *
+     * > Only supported by Serverless instances.
+     * @example 16
+     *
      * @var float
      */
     public $maxDu;
@@ -220,6 +225,11 @@ class reverseJob extends Model
     public $migrationMode;
 
     /**
+     * @description Lower limit of DU.
+     *
+     * > Only supported by Serverless instances.
+     * @example 1
+     *
      * @var float
      */
     public $minDu;

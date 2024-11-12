@@ -11,7 +11,7 @@ class subscriptionInstance extends Model
     /**
      * @description The ID of the VPC in which the change tracking instance is deployed.
      *
-     * >  This parameter is required only when the **SubscriptionInstanceNetworkType** parameter is set to **vpc**.
+     * > This parameter is available and required only if the **SubscriptionInstanceNetworkType** parameter is set to **vpc**.
      * @example vpc-bp1vwnn14rqpyiczj****
      *
      * @var string
@@ -21,7 +21,7 @@ class subscriptionInstance extends Model
     /**
      * @description The ID of the vSwitch in the specified VPC.
      *
-     * >  This parameter is required only when the **SubscriptionInstanceNetworkType** parameter is set to **vpc**.
+     * > This parameter is available and required only if the **SubscriptionInstanceNetworkType** parameter is set to **vpc**.
      * @example vsw-bp10df3mxae6lpmku****
      *
      * @var string

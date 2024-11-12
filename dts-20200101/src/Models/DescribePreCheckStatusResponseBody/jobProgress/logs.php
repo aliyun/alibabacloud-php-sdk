@@ -18,7 +18,7 @@ class logs extends Model
     public $errData;
 
     /**
-     * @description The error message returned when an error occurs on the subtask.
+     * @description The error message that is returned when an error occurs on the subtask.
      *
      * @example DTS-1020042 Execute sql error sql: Table \\"customer\\" already exists
      *

@@ -41,11 +41,19 @@ class DescribeConsumerGroupRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region where the change tracking instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-aekz4us4iruleja
+     *
      * @var string
      */
     public $resourceGroupId;

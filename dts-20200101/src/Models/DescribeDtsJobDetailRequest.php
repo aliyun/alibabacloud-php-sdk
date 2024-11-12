@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDtsJobDetailRequest extends Model
 {
     /**
-     * @description DescribeDtsJobDetail
+     * @description The ID of the data migration, data synchronization, or change tracking instance.
      *
      * @example dtsta7w132u12h****
      *
@@ -18,27 +18,7 @@ class DescribeDtsJobDetailRequest extends Model
     public $dtsInstanceID;
 
     /**
-     * @description The state of the data migration or data synchronization task.
-     *
-     * Valid values for a data migration task:
-     *
-     *   **NotStarted**: The migration is not started.
-     *   **Migrating**: The migration is in progress.
-     *   **Failed**: The migration failed.
-     *   **Finished**: The migration is complete.
-     *
-     * Valid values for a data synchronization task:
-     *
-     *   **NotStarted**: The task is not started.
-     *   **Prechecking**: The task is in precheck.
-     *   **PrecheckFailed**: The task failed to pass the precheck.
-     *   **Initializing**: The task is performing initial synchronization.
-     *   **InitializeFailed**: Initial synchronization failed.
-     *   **Synchronizing**: The task is in progress.
-     *   **Failed**: The task failed to synchronize data.
-     *   **Suspending**: The task is paused.
-     *   **Modifying**: The objects in the task are being modified.
-     *   **Finished**: The task is complete.
+     * @description The ID of the data migration, data synchronization, or change tracking task.
      *
      * @example ta7w132u12h****
      *
@@ -47,7 +27,7 @@ class DescribeDtsJobDetailRequest extends Model
     public $dtsJobId;
 
     /**
-     * @description The ID of the data migration, data synchronization, or change tracking task.
+     * @description The ID of the region in which the Data Transmission Service (DTS) instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *
@@ -56,19 +36,33 @@ class DescribeDtsJobDetailRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @example 默认为false，返回最近的一个同步子任务
+     * @description Specifies whether to return the information about all data synchronization subtasks. Default value: **false**. A value of false indicates that the system returns only the information about a data synchronization subtask that is running or was most recently run.
+     *
+     * @example false
      *
      * @var bool
      */
     public $syncSubJobHistory;
 
     /**
-     * @description Queries the details of a data migration, data synchronization, or change tracking task.
+     * @description The synchronization direction. Valid values:
+     *
+     *   **Forward**
+     *   **Reverse**
+     *
+     * >
+     *
+     *   The default value is **Forward**.
+     *   The value **Reverse** takes effect only if the topology of the data synchronization instance is two-way synchronization.
      *
      * @example Forward
      *
@@ -77,6 +71,13 @@ class DescribeDtsJobDetailRequest extends Model
     public $synchronizationDirection;
 
     /**
+     * @description Specifies whether to query only zero-extract, transform, load (ETL) integration tasks. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $zeroEtlJob;

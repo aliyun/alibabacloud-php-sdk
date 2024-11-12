@@ -31,11 +31,19 @@ class DeleteDtsJobsRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-aekz4us4iruleja
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description Is it ZeroETL task
+     *
+     * @example true
+     *
      * @var bool
      */
     public $zeroEtlJob;

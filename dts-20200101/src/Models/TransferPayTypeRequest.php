@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class TransferPayTypeRequest extends Model
 {
     /**
+     * @description Specifies whether to automatically renew the DTS instance when it expires. Valid values:
+     *
+     *   **false**: does not automatically renew the DTS instance when it expires. This is the default value.
+     *   **true**: automatically renews the DTS instance when it expires.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoPay;
@@ -27,14 +34,10 @@ class TransferPayTypeRequest extends Model
     public $buyCount;
 
     /**
-     * @description The billing method that you want to use. Valid values:
+     * @description The new billing method. Valid values:
      *
-     *   **PrePaid**: subscription
-     *   **PostPaid**: pay-as-you-go
-     *
-     * >
-     *   The billing method of subscription instances cannot be changed to pay-as-you-go. To prevent resource waste, determine whether you need to change the billing method of your resources.
-     *   If you do not need to change the billing method, specify the current billing method.
+     *   **PrePaid**: subscription.
+     *   **PostPaid**: pay-as-you-go.
      *
      * This parameter is required.
      * @example PostPaid
@@ -54,11 +57,21 @@ class TransferPayTypeRequest extends Model
     public $dtsJobId;
 
     /**
+     * @description The maximum number of DUs in a serverless instance. Valid values: 2, 4, 8, and 16.
+     *
+     * >  This feature is not supported. Do not specify this parameter.
+     * @example 16
+     *
      * @var int
      */
     public $maxDu;
 
     /**
+     * @description The minimum number of DTS Units (DUs) in a serverless instance. Valid values: 1, 2, 4, 8, and 16.
+     *
+     * >  This feature is not supported. Do not specify this parameter.
+     * @example 1
+     *
      * @var int
      */
     public $minDu;
@@ -86,6 +99,10 @@ class TransferPayTypeRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;

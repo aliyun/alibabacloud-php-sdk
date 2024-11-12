@@ -23,9 +23,10 @@ class CreateDtsInstanceRequest extends Model
     /**
      * @description Specifies whether to automatically start the task after the DTS instance is purchased. Valid values:
      *
-     *   **false**: does not automatically start the task after the DTS instance is purchased. This is the default value.
-     *   **true**: automatically starts the task after the DTS instance is purchased.
+     *   **false** (default)
+     *   **true**
      *
+     * >  This parameter can be set to **true** and take effect only if you specify a valid value for **JobId**.
      * @example false
      *
      * @var bool
@@ -33,7 +34,7 @@ class CreateDtsInstanceRequest extends Model
     public $autoStart;
 
     /**
-     * @description The specifications of the extract, transform, and load (ETL) instance. The unit is compute unit (CU). One CU is equal to 1 vCPU and 4 GB of memory. The value of this parameter must be an integer greater than or equal to 2.
+     * @description The specification of the extract, transform, and load (ETL) instance. The unit is compute unit (CU). One CU is equal to 1 vCPU and 4 GB of memory. The value of this parameter must be an integer greater than or equal to 2.
      *
      * @example 5
      *
@@ -42,9 +43,9 @@ class CreateDtsInstanceRequest extends Model
     public $computeUnit;
 
     /**
-     * @description The number of private custom ApsaraDB RDS instances in a PolarDB-X instance. Default value: **1**.
+     * @description The number of custom ApsaraDB RDS instances in the PolarDB-X instance. Default value: **1**.
      *
-     * >  You must specify this parameter only if the **SourceEndpointEngineName** parameter is set to **drds**.
+     * >  This parameter is required only if **SourceEndpointEngineName** is set to **drds**.
      * @example 3
      *
      * @var int
@@ -97,6 +98,10 @@ class CreateDtsInstanceRequest extends Model
     public $destinationRegion;
 
     /**
+     * @description The region ID of the DTS instance. Set this parameter to the value of **RegionId**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $dtsRegion;
@@ -146,11 +151,21 @@ class CreateDtsInstanceRequest extends Model
     public $jobId;
 
     /**
+     * @description Upper limit of DU.
+     *
+     * > Only supported by Serverless instances.
+     * @example 16
+     *
      * @var float
      */
     public $maxDu;
 
     /**
+     * @description Lower limit of DU.
+     *
+     * > Only supported by Serverless instances.
+     * @example 1
+     *
      * @var float
      */
     public $minDu;
@@ -181,7 +196,7 @@ class CreateDtsInstanceRequest extends Model
     /**
      * @description The number of DTS instances that you want to purchase.
      *
-     * >  Only a single instance can be purchased each time.
+     * >  You can purchase only one DTS instance each time you call this operation.
      * @example 1
      *
      * @var int
@@ -282,12 +297,14 @@ class CreateDtsInstanceRequest extends Model
     /**
      * @description The subscription duration.
      *
-     *   Valid values if the **Period** parameter is set to **Month**: 1, 2, 3, 4, 5, 6, 7, 8, and 9.
+     *   Valid values if **Period** is set to **Month**: 1, 2, 3, 4, 5, 6, 7, 8, and 9.
+     *   Valid values if **Period** is set to **Year**: 1, 2, 3, and 5.
      *
-     *   Valid values if the **Period** parameter is set to **Year**: 1, 2, 3, and 5.
+     * >
      *
-     * > *   You must specify this parameter only if the **PayType** parameter is set to **PrePaid**.
-     *   You can set the **Period** parameter to specify the unit of the subscription duration.
+     *   This parameter is valid and required only if **PayType** is set to **PrePaid**.
+     *
+     *   You can configure **Period** to specify the unit of the subscription duration.
      *
      * @example 5
      *

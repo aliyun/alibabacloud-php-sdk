@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SuspendDtsJobResponseBody extends Model
 {
     /**
-     * @description The dynamic error code. This parameter will be removed in the future.
+     * @description The dynamic error code. This parameter is going to be removed in the future.
      *
      * @example 403
      *
@@ -18,9 +18,9 @@ class SuspendDtsJobResponseBody extends Model
     public $dynamicCode;
 
     /**
-     * @description The dynamic part in the error message. This parameter is used to replace the **%s** variable in the **ErrMessage** parameter.
+     * @description The dynamic part in the error message. This parameter is used to replace the \\*\\*%s\\*\\* variable in the value of **ErrMessage**.
      *
-     * >  If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+     * >  If the return value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the return value of **DynamicMessage** is **DtsJobId**, the specified value of **DtsJobId** in the request is invalid.
      * @example DtsJobId
      *
      * @var string
@@ -28,7 +28,7 @@ class SuspendDtsJobResponseBody extends Model
     public $dynamicMessage;
 
     /**
-     * @description The error code returned if the call failed.
+     * @description The error code returned if the request failed.
      *
      * @example InternalError
      *
@@ -37,7 +37,7 @@ class SuspendDtsJobResponseBody extends Model
     public $errCode;
 
     /**
-     * @description The error message returned if the call failed.
+     * @description The error message returned if the request failed.
      *
      * @example The Value of Input Parameter %s is not valid.
      *
@@ -46,7 +46,7 @@ class SuspendDtsJobResponseBody extends Model
     public $errMessage;
 
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -55,7 +55,7 @@ class SuspendDtsJobResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 01B6F25-21E7-4484-99D5-3EF2625C****
      *
@@ -64,7 +64,7 @@ class SuspendDtsJobResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

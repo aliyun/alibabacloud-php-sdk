@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDtsJobEndpointResponseBody extends Model
 {
     /**
+     * @description Error code returned when the call fails.
+     *
      * @example DTS.Msg.InvalidEndpoint
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyDtsJobEndpointResponseBody extends Model
     public $errCode;
 
     /**
+     * @description Error message returned when the call fails.
+     *
      * @example The endpoint is invalid.
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyDtsJobEndpointResponseBody extends Model
     public $errMessage;
 
     /**
+     * @description Status code.
+     *
      * @example 200
      *
      * @var string
@@ -30,6 +36,8 @@ class ModifyDtsJobEndpointResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description request ID
+     *
      * @example 3FA98DF2-2F81-51FF-8A38-AA5112DD****
      *
      * @var string
@@ -37,6 +45,8 @@ class ModifyDtsJobEndpointResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Whether the request was successful.
+     *
      * @example true
      *
      * @var bool

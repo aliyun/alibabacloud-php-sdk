@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDtsJobsResponseBody extends Model
 {
     /**
-     * @description The list of DTS tasks and the details of each task.
+     * @description The Data Transmission Service (DTS) tasks and the details of each task.
      *
      * @var dtsJobList[]
      */

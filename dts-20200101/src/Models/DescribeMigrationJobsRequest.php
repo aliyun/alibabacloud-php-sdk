@@ -22,6 +22,8 @@ class DescribeMigrationJobsRequest extends Model
      * @description The name of the data migration task.
      *
      * >  Fuzzy match is supported.
+     * @example MySQL迁移
+     *
      * @var string
      */
     public $migrationJobName;
@@ -59,11 +61,17 @@ class DescribeMigrationJobsRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The tag of the data migration instance, used as a filter. When this is not empty, only the instance tasks with this tag will be returned.
+     *
      * @var tag[]
      */
     public $tag;

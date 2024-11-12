@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tableExcludes extends Model
 {
     /**
-     * @description The status of full data synchronization.
+     * @description The name of the excluded table.
      *
      * @example order
      *

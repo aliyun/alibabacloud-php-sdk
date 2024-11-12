@@ -10,16 +10,15 @@ use AlibabaCloud\Tea\Model;
 class precheckStatus extends Model
 {
     /**
-     * @description The name of the precheck item.
+     * @description The result of each precheck item.
      *
      * @var detail[]
      */
     public $detail;
 
     /**
-     * @description The error message returned if the task failed to pass the precheck.
+     * @description The precheck progress. Unit: %.
      *
-     * >  This parameter is returned only if the return value of the **CheckStatus** parameter is **Failed**.
      * @example 100
      *
      * @var string

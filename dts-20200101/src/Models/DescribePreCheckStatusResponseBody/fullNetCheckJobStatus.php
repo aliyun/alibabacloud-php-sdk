@@ -10,71 +10,125 @@ use AlibabaCloud\Tea\Model;
 class fullNetCheckJobStatus extends Model
 {
     /**
+     * @description Task code, **01** represents pre-check.
+     *
+     * @example 01
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description ID of the region to which the target network segment belongs.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $destRegion;
 
     /**
+     * @description Destination network segment.
+     *
+     * @example 100.104.XX.XXX/XX
+     *
      * @var string
      */
     public $destRegionCidr;
 
     /**
+     * @description The access method of the target instance, with return values as follows: - **ALIYUN**: Access method is **cloud instance**. - **OTHER**: Access method is **public IP**. - **ECS**: Access method is **ECS self-built database**. - **EXPRESS**: Access method is **Express Connect / VPN Gateway / Smart Gateway**. - **CEN**: Access method is **Cloud Enterprise Network (CEN)**. - **DG**: Access method is **Database Gateway (DG)**.
+     *
+     * @example CEN
+     *
      * @var string
      */
     public $destinationEndpointType;
 
     /**
+     * @description Number of pre-check failed items
+     *
+     * @example 0
+     *
      * @var int
      */
     public $errorItem;
 
     /**
+     * @description The region ID of the instance\\"s running node.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $hostRegion;
 
     /**
+     * @description Task ID.
+     *
+     * @example l3m1213ye7l****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description Task name.
+     *
+     * @example dts.step.fullnetcheck
+     *
      * @var string
      */
     public $jobName;
 
     /**
+     * @description A list of specific items for the task and their execution progress.
+     *
      * @var jobProgress[]
      */
     public $jobProgress;
 
     /**
+     * @description The access method of the source instance, with return values as follows: - **ALIYUN**: Access method is **cloud instance**. - **OTHER**: Access method is **public IP**. - **ECS**: Access method is **ECS self-built database**. - **EXPRESS**: Access method is **dedicated line/VPN gateway/smart gateway**. - **CEN**: Access method is **Cloud Enterprise Network CEN**. - **DG**: Access method is **Database Gateway DG**.
+     *
+     * @example CEN
+     *
      * @var string
      */
     public $sourceEndpointType;
 
     /**
+     * @description ID of the region to which the source network segment belongs.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $srcRegion;
 
     /**
+     * @description Source network segment.
+     *
+     * @example 100.104.XX.XXX/XX
+     *
      * @var string
      */
     public $srcRegionCidr;
 
     /**
+     * @description Check result, the return value is: - **Failed**: Failure. - **Success**: Completed.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description Total number of items in the project.
+     *
+     * @example 11
+     *
      * @var int
      */
     public $total;

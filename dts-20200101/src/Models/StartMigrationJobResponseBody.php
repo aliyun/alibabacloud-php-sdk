@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class StartMigrationJobResponseBody extends Model
 {
     /**
-     * @description The error code returned if the call failed.
+     * @description The error code returned if the request failed.
      *
      * @example InternalError
      *
@@ -27,7 +27,7 @@ class StartMigrationJobResponseBody extends Model
     public $errMessage;
 
     /**
-     * @description The ID of the request.
+     * @description Request ID.
      *
      * @example FDC111B1-ACBF-457D-9656-247FDEE9****
      *
@@ -36,7 +36,7 @@ class StartMigrationJobResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

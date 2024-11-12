@@ -18,7 +18,7 @@ class SuspendDtsJobRequest extends Model
     public $dtsInstanceId;
 
     /**
-     * @description The ID of the data migration, data synchronization, or change tracking task.
+     * @description The ID of the Data Transmission Service (DTS) task. The DTS task can be a data migration, data synchronization, or change tracking task.
      *
      * >  You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to obtain the task ID.
      * @example l3m1213ye7l****
@@ -28,7 +28,7 @@ class SuspendDtsJobRequest extends Model
     public $dtsJobId;
 
     /**
-     * @description The ID of the region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+     * @description The ID of the region in which the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *
@@ -37,6 +37,10 @@ class SuspendDtsJobRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -44,12 +48,14 @@ class SuspendDtsJobRequest extends Model
     /**
      * @description The synchronization direction. Valid values:
      *
-     *   **Forward**: Data is synchronized from the source database to the destination database.
-     *   **Reverse**: Data is synchronized from the destination database to the source database.
+     *   **Forward**
+     *   **Reverse**
      *
      * >
-     *   Default value: **Forward**.
-     *   You can set this parameter to **Reverse** to pause the reverse synchronization task only if the topology is two-way synchronization.
+     *
+     *   The default value is **Forward**.
+     *
+     *   You can set this parameter to **Reverse** only if the topology is two-way synchronization.
      *
      * @example Forward
      *
@@ -58,6 +64,10 @@ class SuspendDtsJobRequest extends Model
     public $synchronizationDirection;
 
     /**
+     * @description Whether it is a seamless integration (Zero-ETL) task, the value can be:
+     * - **false**: No. - **true**: Yes.
+     * @example true
+     *
      * @var bool
      */
     public $zeroEtlJob;

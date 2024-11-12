@@ -19,7 +19,7 @@ class SkipPreCheckRequest extends Model
     public $dtsJobId;
 
     /**
-     * @description The ID of the precheck task. You can call the **DescribePreCheckStatus** operation to query the task ID.
+     * @description The precheck task ID. You can call the **DescribePreCheckStatus** operation to query the task ID.
      *
      * @example b4my3zg929a****
      *
@@ -28,7 +28,7 @@ class SkipPreCheckRequest extends Model
     public $jobId;
 
     /**
-     * @description The region ID of the DTS instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+     * @description The region ID of the DTS instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *
@@ -37,6 +37,10 @@ class SkipPreCheckRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -44,8 +48,8 @@ class SkipPreCheckRequest extends Model
     /**
      * @description Specifies whether to skip the precheck item. Valid values:
      *
-     *   **true**: skips the precheck item.
-     *   **false**: does not skip the precheck item.
+     *   **true**
+     *   **false**
      *
      * This parameter is required.
      * @example true
@@ -57,42 +61,32 @@ class SkipPreCheckRequest extends Model
     /**
      * @description The shortened name of the precheck item. Valid values:
      *
-     *   **CHECK_SAME_OBJ**: object name conflict
+     *   **["CHECK_SAME_OBJ"]**: object name conflict.
+     *   **["CHECK_SAME_USER"]**: username conflict.
+     *   **["CHECK_SRC"]**: source database version.
+     *   **["CHECK_TOPOLOGY"]**: topology. For more information about the topologies supported by Data Transmission Service (DTS), see [Synchronization topologies](https://help.aliyun.com/document_detail/124115.html).
+     *   **["CHECK_SERVER_ID"]**: the server ID of the source database.
+     *   **["CHECK_DEST_TABLE_EMPTY"]**: existence of objects in the destination database.
      *
-     *   **CHECK_SAME_USER**: multiple usernames for one instance
-     *
-     *   **CHECK_SRC**: source database version
-     *
-     *   **CHECK_TOPOLOGY**: topology type
-     *
-     * > For more information about the topologies supported by DTS, see [Synchronization topologies](https://help.aliyun.com/document_detail/124115.html).
-     *
-     *   **CHECK_SERVER_ID**: the server ID of the source database
-     *
-     * >  Separate multiple shortened names with commas (,).
-     * @example CHECK_SAME_OBJ
+     * > Separate multiple item names with commas (,). Example: **["CHECK_SRC","CHECK_SAME_OBJ"]**.
+     * @example ["CHECK_SAME_OBJ"]
      *
      * @var string
      */
     public $skipPreCheckItems;
 
     /**
-     * @description The name of the precheck item. This parameter corresponds to the **SkipPreCheckItems** parameter. Valid values:
+     * @description The precheck item name. This parameter corresponds to **SkipPreCheckItems**. Valid values:
      *
-     *   **CHECK_SAME_OBJ_DETAIL**: object name conflict
+     *   **["CHECK_SAME_OBJ_DETAIL"]**: object name conflict.
+     *   **["CHECK_SAME_USER_DETAIL"]**: username conflict.
+     *   **["CHECK_SRC_DETAIL"]**: source database version.
+     *   **["CHECK_TOPOLOGY_DETAIL"]**: topology. For more information about the topologies supported by DTS, see [Synchronization topologies](https://help.aliyun.com/document_detail/124115.html).
+     *   **["CHECK_SERVER_ID_DETAIL"]**: the server ID of the source database.
+     *   **["CHECK_DEST_TABLE_EMPTY_DETAIL"]**: empty tables in the destination database.
      *
-     *   **CHECK_SAME_USER_DETAIL**: multiple usernames for one instance
-     *
-     *   **CHECK_SRC_DETAIL**: source database version
-     *
-     *   **CHECK_TOPOLOGY_DETAIL**: topology type
-     *
-     * > For more information about the topologies supported by DTS, see [Synchronization topologies](https://help.aliyun.com/document_detail/124115.html).
-     *
-     *   **CHECK_SERVER_ID_DETAIL**: the server ID of the source database
-     *
-     * >  Separate multiple item names with commas (,).
-     * @example CHECK_SAME_OBJ_DETAIL
+     * > Separate multiple item names with commas (,). Example: **["CHECK_SRC_DETAIL","CHECK_SAME_OBJ_DETAIL"]**.
+     * @example ["CHECK_SAME_OBJ_DETAIL"]
      *
      * @var string
      */

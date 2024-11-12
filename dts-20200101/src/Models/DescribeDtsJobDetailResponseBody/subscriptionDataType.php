@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class subscriptionDataType extends Model
 {
     /**
-     * @description The private endpoint of the change tracking instance in the `<Address>:<Port number>` format.
+     * @description Indicates whether DDL statements are tracked. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -18,7 +21,10 @@ class subscriptionDataType extends Model
     public $ddl;
 
     /**
-     * @description The public endpoint of the change tracking instance in the `<Address>:<Port number>` format.
+     * @description Indicates whether DML statements are tracked. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example true
      *

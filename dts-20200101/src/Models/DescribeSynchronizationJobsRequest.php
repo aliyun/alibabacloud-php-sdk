@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSynchronizationJobsRequest extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
      *
      * @example 12323344****
      *
@@ -19,11 +19,7 @@ class DescribeSynchronizationJobsRequest extends Model
     public $accountId;
 
     /**
-     * @description The tag value. You can call the [ListTagResources](https://help.aliyun.com/document_detail/191187.html) operation to query the tag value.
-     *
-     * >
-     *   N specifies the serial number of the tag. For example, Tag.1.Value specifies the value of the first tag and Tag.2.Value specifies the value of the second tag. You can specify 1 to 20 tag values at a time.
-     *   This parameter can be an empty string.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
      *
@@ -37,7 +33,7 @@ class DescribeSynchronizationJobsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+     * @description The number of the page to return. The value must be an integer that is greater than **0** and does not exceed the maximum value of the Integer data type. Default value: **1**.
      *
      * @example 1
      *
@@ -46,7 +42,7 @@ class DescribeSynchronizationJobsRequest extends Model
     public $pageNum;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @description The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
      *
      * @example 30
      *
@@ -55,9 +51,8 @@ class DescribeSynchronizationJobsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The name of the data synchronization task.
+     * @description The ID of the region where the data synchronization instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
-     * >  Fuzzy matching is supported.
      * @example cn-hangzhou
      *
      * @var string
@@ -65,9 +60,23 @@ class DescribeSynchronizationJobsRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @description The name of the data synchronization task.
+     *
+     * >  Fuzzy matching is supported.
+     * @example dtstest
+     *
+     * @var string
+     */
+    public $synchronizationJobName;
 
     /**
      * @description The tag key. You can call the [ListTagResources](https://help.aliyun.com/document_detail/191187.html) operation to query the tag key.
@@ -76,11 +85,6 @@ class DescribeSynchronizationJobsRequest extends Model
      *   N specifies the serial number of the tag. For example, Tag.1.Key specifies the key of the first tag and Tag.2.Key specifies the key of the second tag. You can specify 1 to 20 tag keys at a time.
      *   This parameter cannot be an empty string.
      *
-     * @var string
-     */
-    public $synchronizationJobName;
-
-    /**
      * @var tag[]
      */
     public $tag;

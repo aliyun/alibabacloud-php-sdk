@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class WhiteIpListResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $destIpList;
+
+    /**
+     * @description The dynamic error code. This parameter will be removed in the future.
+     *
      * @example 403
      *
      * @var string
@@ -16,7 +23,7 @@ class WhiteIpListResponseBody extends Model
     public $dynamicCode;
 
     /**
-     * @description The dynamic error code. This parameter will be removed in the future.
+     * @description The dynamic error message. This parameter will be removed in the future.
      *
      * @example Type
      *
@@ -73,6 +80,11 @@ class WhiteIpListResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $srcIpList;
+
+    /**
      * @description The error message returned if the call failed.
      *
      * @example true
@@ -81,6 +93,7 @@ class WhiteIpListResponseBody extends Model
      */
     public $success;
     protected $_name = [
+        'destIpList'     => 'DestIpList',
         'dynamicCode'    => 'DynamicCode',
         'dynamicMessage' => 'DynamicMessage',
         'errCode'        => 'ErrCode',
@@ -88,6 +101,7 @@ class WhiteIpListResponseBody extends Model
         'httpStatusCode' => 'HttpStatusCode',
         'ipList'         => 'IpList',
         'requestId'      => 'RequestId',
+        'srcIpList'      => 'SrcIpList',
         'success'        => 'Success',
     ];
 
@@ -98,6 +112,9 @@ class WhiteIpListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->destIpList) {
+            $res['DestIpList'] = $this->destIpList;
+        }
         if (null !== $this->dynamicCode) {
             $res['DynamicCode'] = $this->dynamicCode;
         }
@@ -119,6 +136,9 @@ class WhiteIpListResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->srcIpList) {
+            $res['SrcIpList'] = $this->srcIpList;
+        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -134,6 +154,9 @@ class WhiteIpListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DestIpList'])) {
+            $model->destIpList = $map['DestIpList'];
+        }
         if (isset($map['DynamicCode'])) {
             $model->dynamicCode = $map['DynamicCode'];
         }
@@ -154,6 +177,9 @@ class WhiteIpListResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SrcIpList'])) {
+            $model->srcIpList = $map['SrcIpList'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

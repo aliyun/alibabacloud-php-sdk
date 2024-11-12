@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
-     * @description The ID of the region where the data migration, data synchronization, or change tracking instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+     * @description The region ID of the Data Transmission Service (DTS) instances. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -20,13 +20,18 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description This parameter is required.
+     * @description The IDs of the data migration, data synchronization, or change tracking instances. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance IDs.
      *
+     * This parameter is required.
      * @example dtsntk10k6r12v****
      *
      * @var string[]
@@ -34,7 +39,7 @@ class TagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The resource type. Valid value: **ALIYUN::DTS::INSTANCE**.
+     * @description The resource type. Set the value to **ALIYUN::DTS::INSTANCE**.
      *
      * @example ALIYUN::DTS::INSTANCE
      *
@@ -43,8 +48,9 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description This parameter is required.
+     * @description The tags to be added to the instances.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

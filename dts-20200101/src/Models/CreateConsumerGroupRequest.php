@@ -21,6 +21,8 @@ class CreateConsumerGroupRequest extends Model
      * @description The name of the consumer group. The name cannot exceed 128 characters in length. We recommend that you use an informative name for easy identification.
      *
      * This parameter is required.
+     * @example 测试订阅组
+     *
      * @var string
      */
     public $consumerGroupName;
@@ -57,11 +59,19 @@ class CreateConsumerGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the change tracking instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;

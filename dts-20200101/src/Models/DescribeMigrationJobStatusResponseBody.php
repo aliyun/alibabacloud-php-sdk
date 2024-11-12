@@ -75,6 +75,8 @@ class DescribeMigrationJobStatusResponseBody extends Model
     /**
      * @description The name of the data migration task.
      *
+     * @example MySQL migration
+     *
      * @var string
      */
     public $migrationJobName;

@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CreateJobMonitorRuleRequest extends Model
 {
     /**
-     * @description The threshold for triggering latency alerts.
+     * @description The threshold for triggering an alert.
      *
-     *   If the **Type** parameter is set to **delay**, the threshold must be an integer. You can set the threshold based on your requirements. To prevent jitters caused by network and database overloads, we recommend that you set the threshold to more than 10 seconds. Unit: seconds.
-     *   If the **Type** parameter is set to **full_timeout**, the threshold must be an integer. Unit: hours.
+     *   If **Type** is set to **delay**, the threshold must be an integer in units of seconds. You can specify the threshold based on your business requirements. To prevent jitters caused by network and database overloads, we recommend that you set the threshold to more than 10 seconds.
+     *   If **Type** is set to **full_timeout**, the threshold must be an integer in units of hours.
      *
-     * >  This parameter is required if the **Type** parameter is set to **delay** or **full_timeout** and the **State** parameter is set to **Y**.
+     * > This parameter is required if **Type** is set to **delay** or **full_timeout** and **State** is set to **Y**.
      * @example 11
      *
      * @var int
@@ -43,7 +43,7 @@ class CreateJobMonitorRuleRequest extends Model
     /**
      * @description The statistical period of the incremental data verification task. Unit: minutes.
      *
-     * >  Valid values: 1, 3, 5, and 30.
+     * > Valid values: 1, 3, 5, and 30.
      * @example 5
      *
      * @var int
@@ -54,8 +54,10 @@ class CreateJobMonitorRuleRequest extends Model
      * @description The mobile numbers that receive alert notifications. Separate multiple mobile numbers with commas (,).
      *
      * >
+     *
      *   This parameter is available only for users of the China site (aliyun.com). Only mobile numbers in the Chinese mainland are supported. You can specify up to 10 mobile numbers.
-     *   Users of the international site (alibabacloud.com) cannot receive alerts by using mobile phones, but can [configure alert rules for DTS tasks in the CloudMonitor console](https://help.aliyun.com/document_detail/175876.html).
+     *
+     *   Users of the international site (alibabacloud.com) cannot receive notifications on alerts by using mobile numbers, but can configure alert rules for DTS tasks in the CloudMonitor console. For more information, see [Configure alert rules for DTS tasks in the CloudMonitor console](https://help.aliyun.com/document_detail/175876.html).
      *
      * @example 1361234****,1371234****
      *
@@ -64,7 +66,7 @@ class CreateJobMonitorRuleRequest extends Model
     public $phone;
 
     /**
-     * @description The region ID of the DTS instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+     * @description The region ID of the DTS instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *
@@ -73,6 +75,10 @@ class CreateJobMonitorRuleRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;

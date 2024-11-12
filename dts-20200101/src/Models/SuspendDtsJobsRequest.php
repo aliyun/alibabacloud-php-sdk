@@ -32,11 +32,19 @@ class SuspendDtsJobsRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource GroupId
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description Whether it is a seamless integration (Zero-ETL) task, the value can be:
+     * - **false**: No. - **true**: Yes.
+     * @example true
+     *
      * @var bool
      */
     public $zeroEtlJob;

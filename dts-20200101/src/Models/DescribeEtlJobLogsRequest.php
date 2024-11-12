@@ -28,6 +28,10 @@ class DescribeEtlJobLogsRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource GroupId
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;

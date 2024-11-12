@@ -20,6 +20,8 @@ class dataSynchronization extends Model
     /**
      * @description The error message returned if incremental data migration failed.
      *
+     * @example Open: open \\\\\\\\?\\\\F:\\\\KINGDEE BACK\\\\AIS20221025151008_Data.mdf: The process cannot access the file because it is being used by another process.
+     *
      * @var string
      */
     public $errorMessage;

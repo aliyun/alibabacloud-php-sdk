@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ShieldPrecheckResponseBody extends Model
 {
     /**
-     * @description The error code returned if the call failed.
+     * @description The error code returned if the request failed.
      *
      * @example InternalError
      *

@@ -27,11 +27,19 @@ class ResetDtsJobRequest extends Model
     public $dtsJobId;
 
     /**
+     * @description The region where the DTS instance is located. For more information, see [List of Supported Regions](https://help.aliyun.com/document_detail/141033.html).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-aekzn4iqlbsm7hy
+     *
      * @var string
      */
     public $resourceGroupId;

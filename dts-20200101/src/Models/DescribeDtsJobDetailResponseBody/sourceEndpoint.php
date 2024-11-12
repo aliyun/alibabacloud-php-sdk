@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sourceEndpoint extends Model
 {
     /**
-     * @description The database engine of the source instance.
+     * @description The ID of the Alibaba Cloud account to which the source instance belongs.
      *
      * @example 140692647406****
      *
@@ -18,12 +18,19 @@ class sourceEndpoint extends Model
     public $aliyunUid;
 
     /**
+     * @description Indicates whether the password can be modified. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $canModifyPassword;
 
     /**
-     * @description The database service port of the source instance.
+     * @description The name of the database from which the objects are migrated in the source instance.
      *
      * @example dtstestdata
      *
@@ -32,7 +39,7 @@ class sourceEndpoint extends Model
     public $databaseName;
 
     /**
-     * @description The name of the RAM role configured for the Alibaba Cloud account that owns the source instance.
+     * @description The database engine of the source instance.
      *
      * @example MySQL
      *
@@ -41,9 +48,8 @@ class sourceEndpoint extends Model
     public $engineName;
 
     /**
-     * @description The system ID (SID) of the Oracle database.
+     * @description The source instance ID.
      *
-     * >  This parameter is returned only if the **EngineName** parameter of the source instance is set to **Oracle** and the Oracle database is deployed in a non-RAC architecture.
      * @example rm-bp1162kryivb8****
      *
      * @var string
@@ -51,7 +57,7 @@ class sourceEndpoint extends Model
     public $instanceID;
 
     /**
-     * @description The IP address of the source instance.
+     * @description The type of the source instance.
      *
      * @example RDS
      *
@@ -60,7 +66,7 @@ class sourceEndpoint extends Model
     public $instanceType;
 
     /**
-     * @description The connection settings of the source instance.
+     * @description The endpoint of the source instance.
      *
      * @example 172.16.88.***
      *
@@ -69,11 +75,9 @@ class sourceEndpoint extends Model
     public $ip;
 
     /**
-     * @description The synchronization direction. Valid values:
+     * @description The system ID (SID) of the Oracle database.
      *
-     *   **Forward**: Data is synchronized from the source database to the destination database.
-     *   **Reverse**: Data is synchronized from the destination database to the source database.
-     *
+     * > This parameter is returned only if the return value of **EngineName** of the source instance is **Oracle** and the Oracle database is deployed in a non-Real Application Cluster (RAC) architecture.
      * @example testsid
      *
      * @var string
@@ -81,7 +85,7 @@ class sourceEndpoint extends Model
     public $oracleSID;
 
     /**
-     * @description The ID of the source instance.
+     * @description The database service port of the source instance.
      *
      * @example 3306
      *
@@ -90,7 +94,7 @@ class sourceEndpoint extends Model
     public $port;
 
     /**
-     * @description The type of the source instance.
+     * @description The ID of the region in which the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *
@@ -99,12 +103,7 @@ class sourceEndpoint extends Model
     public $region;
 
     /**
-     * @description Indicates whether SSL encryption is enabled. Valid values:
-     *
-     *   **DISABLE**: SSL encryption is disabled.
-     *   **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled, and the CA certificate is uploaded.
-     *   **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for the connection to an AWS MongoDB Altas database.
-     *   **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to encrypt the connection to a Kafka cluster.
+     * @description The name of the Resource Access Management (RAM) role configured for the Alibaba Cloud account to which the source instance belongs.
      *
      * @example ram-for-dts
      *
@@ -113,12 +112,13 @@ class sourceEndpoint extends Model
     public $roleName;
 
     /**
-     * @description The synchronization direction. Valid values:
+     * @description Indicates whether SSL encryption is enabled. Valid values:
      *
-     *   **Forward**: Data is synchronized from the source database to the destination database.
-     *   **Reverse**: Data is synchronized from the destination database to the source database.
+     *   **DISABLE**: SSL encryption is disabled.
+     *   **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled and the CA certificate is uploaded.
+     *   **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for the connection to an AWS MongoDB Altas database.
+     *   **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to encrypt the connection to a Kafka cluster.
      *
-     * >  This parameter is returned only if the topology of the data synchronization instance is two-way synchronization.
      * @example DISABLE
      *
      * @var string
@@ -126,7 +126,7 @@ class sourceEndpoint extends Model
     public $sslSolutionEnum;
 
     /**
-     * @description The ID of the region in which the source instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+     * @description The database account of the source instance.
      *
      * @example dtstest
      *

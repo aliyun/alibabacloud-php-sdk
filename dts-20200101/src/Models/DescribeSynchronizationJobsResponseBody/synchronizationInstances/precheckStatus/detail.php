@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class detail extends Model
 {
     /**
-     * @description The method to fix the precheck failure.
+     * @description The precheck result. Valid values:
      *
-     * >  This parameter is returned only if the return value of the **CheckStatus** parameter is **Failed**.
+     *   **Success**: The task passed the precheck.
+     *   **Failed**: The task failed to pass the precheck.
+     *
      * @example Success
      *
      * @var string
@@ -19,8 +21,9 @@ class detail extends Model
     public $checkStatus;
 
     /**
-     * @description The connection settings of the source instance.
+     * @description The error message returned if the task failed to pass the precheck.
      *
+     * >  This parameter is returned only if the return value of the **CheckStatus** parameter is **Failed**.
      * @example Original error: Access denied for user \\"dtstest\\"@\\"100.104.***.**\\" (using password: YES)
      *
      * @var string
@@ -28,7 +31,7 @@ class detail extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the source instance.
+     * @description The name of the precheck item.
      *
      * @example CHECK_CONN_SRC
      *
@@ -37,8 +40,9 @@ class detail extends Model
     public $itemName;
 
     /**
-     * @description The endpoint of the source instance.
+     * @description The method to fix the precheck failure.
      *
+     * >  This parameter is returned only if the return value of the **CheckStatus** parameter is **Failed**.
      * @example CHECK_ERROR_DEST_CONN_REPAIR2
      *
      * @var string

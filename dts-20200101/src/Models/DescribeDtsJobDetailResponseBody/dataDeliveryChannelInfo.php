@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class dataDeliveryChannelInfo extends Model
 {
     /**
+     * @description The number of partitions of the destination topic.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $partitionNum;
 
     /**
+     * @description The public endpoint of the data shipping channel.
+     *
+     * @example dts-****.aliyuncs.com:18***
+     *
      * @var string
      */
     public $publicDproxyUrl;
 
     /**
+     * @description The region in which the data shipping channel resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The destination topic of the data shipping instance.
+     *
+     * @example cn_hangzhou_******_data_delivery_version2
+     *
      * @var string
      */
     public $topic;
 
     /**
+     * @description The VPC endpoint of the data shipping channel.
+     *
+     * @example dts-****.aliyuncs.com:18***
+     *
      * @var string
      */
     public $vpcDproxyUrl;

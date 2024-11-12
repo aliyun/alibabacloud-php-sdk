@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDtsJobDedicatedClusterResponseBody extends Model
 {
     /**
+     * @description The error code returned by the backend service.
+     *
      * @example 500
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyDtsJobDedicatedClusterResponseBody extends Model
     public $code;
 
     /**
+     * @description The dynamic part in the error message. This parameter is used to replace %s in **ErrMessage**.
+     *
      * @example Type
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyDtsJobDedicatedClusterResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example InternalError
      *
      * @var string
@@ -30,6 +36,8 @@ class ModifyDtsJobDedicatedClusterResponseBody extends Model
     public $errCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example The Value of Input Parameter %s is not valid.
      *
      * @var string
@@ -37,6 +45,8 @@ class ModifyDtsJobDedicatedClusterResponseBody extends Model
     public $errMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -44,6 +54,8 @@ class ModifyDtsJobDedicatedClusterResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example 621BB4F8-3016-4FAA-8D5A-5D3163CC****
      *
      * @var string
@@ -51,6 +63,8 @@ class ModifyDtsJobDedicatedClusterResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

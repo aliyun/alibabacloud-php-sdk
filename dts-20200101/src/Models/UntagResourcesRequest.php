@@ -35,13 +35,18 @@ class UntagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the data migration, synchronization, and subscription instances, which can be queried by calling the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) API. > N indicates the Nth instance ID to be passed. For example, ResourceId.0 represents passing the first instance ID; ResourceId.1 represents passing the second instance ID. You can unbind tags for 1 to 50 instances simultaneously.
      *
+     * This parameter is required.
      * @example dtsntk10k6r12v****
      *
      * @var string[]
@@ -58,6 +63,8 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description Tag key. > - N indicates the position of the tag key being passed. For example, TagKey.0 represents the first tag key; TagKey.1 represents the second tag key. Up to 20 tag keys can be unbound simultaneously. - Empty strings are not allowed. - At least one of **All** or this parameter must be provided. - If both **All** and this parameter are provided, only this parameter will take effect.
+     *
      * @example testkey1
      *
      * @var string[]

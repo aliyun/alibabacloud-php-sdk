@@ -48,7 +48,7 @@ class jobProgress extends Model
     /**
      * @description The latency of incremental data migration or synchronization.
      *
-     * >  For data migration tasks, the unit of this parameter is milliseconds. For data synchronization tasks, the unit of this parameter is seconds.
+     * > If you query data migration tasks, the unit of this parameter is milliseconds. If you query data synchronization tasks, the unit of this parameter is seconds.
      * @example 0
      *
      * @var int
@@ -101,7 +101,7 @@ class jobProgress extends Model
     public $finishTime;
 
     /**
-     * @description The ID recorded in the metadatabase.
+     * @description The ID of the entry in the metadatabase.
      *
      * @example 5632
      *
@@ -112,8 +112,8 @@ class jobProgress extends Model
     /**
      * @description Indicates whether DTS ignores the subtask and proceeds with the next subtask. Valid values:
      *
-     *   **N**: no
-     *   **Y**: yes
+     *   **N**: no.
+     *   **Y**: yes.
      *
      * @example N
      *
@@ -131,7 +131,7 @@ class jobProgress extends Model
     public $item;
 
     /**
-     * @description The ID of the subtask.
+     * @description The subtask ID.
      *
      * @example fj1c33ro168****
      *
@@ -185,8 +185,8 @@ class jobProgress extends Model
     /**
      * @description Indicates whether the subtask is ignored if it fails. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -222,7 +222,7 @@ class jobProgress extends Model
     /**
      * @description The sub-item progress of the subtask.
      *
-     * >  If **[]** is returned, the subtask has no sub-items.
+     * > If \\*\\*[]\\*\\* is returned, the subtask has no sub-items.
      * @example []
      *
      * @var string
@@ -239,7 +239,7 @@ class jobProgress extends Model
     public $targetNames;
 
     /**
-     * @description The total number of subtasks.
+     * @description The total number of sub-items of the subtask.
      *
      * @example 1
      *

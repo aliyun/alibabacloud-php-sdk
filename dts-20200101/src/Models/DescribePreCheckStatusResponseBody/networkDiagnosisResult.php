@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class networkDiagnosisResult extends Model
 {
     /**
+     * @description Network diagnostic report
+     *
      * @var diagnosis[]
      */
     public $diagnosis;
 
     /**
+     * @description Diagnose model version.
+     *
+     * @example network-v0.2
+     *
      * @var string
      */
     public $modelVersion;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDtsJobConfigRequest extends Model
 {
     /**
+     * @description DTS job ID, which can be queried by calling [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html).
+     *
      * @example lxsn87r328d****
      *
      * @var string
@@ -21,6 +23,8 @@ class ModifyDtsJobConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @description The parameters that you want to modify. Specify a JSON string. For more information, see [Parameters](https://help.aliyun.com/document_detail/2536412.html).
+     *
      * @example [{\\"module\\":\\"07\\",\\"name\\":\\"sink.connection.idle.second\\",\\"value\\":60},{\\"module\\":\\"07\\",\\"name\\":\\"sink.batch.size.maximum\\",\\"value\\":64}]
      *
      * @var string
@@ -28,6 +32,8 @@ class ModifyDtsJobConfigRequest extends Model
     public $parameters;
 
     /**
+     * @description The region where the instance is located. For more details, see [List of Supported Regions](https://help.aliyun.com/document_detail/141033.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -35,6 +41,10 @@ class ModifyDtsJobConfigRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;

@@ -51,6 +51,10 @@ class SummaryJobDetailRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-aek25bwhtt22cjq
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -84,6 +88,10 @@ class SummaryJobDetailRequest extends Model
     public $synchronizationDirection;
 
     /**
+     * @description Whether it is a seamless integration (Zero-ETL) task, the value can be:
+     * - **false**: No. - **true**: Yes.
+     * @example true
+     *
      * @var bool
      */
     public $zeroEtlJob;

@@ -237,6 +237,8 @@ class DescribeSynchronizationJobStatusResponseBody extends Model
     /**
      * @description The name of the data synchronization task.
      *
+     * @example dtstest
+     *
      * @var string
      */
     public $synchronizationJobName;

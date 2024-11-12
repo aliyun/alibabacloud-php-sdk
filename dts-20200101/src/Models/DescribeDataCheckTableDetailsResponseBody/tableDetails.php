@@ -27,12 +27,13 @@ class tableDetails extends Model
     public $diffCount;
 
     /**
-     * @description 任务运行出错时，返回报错信息的错误编码。
+     * @description The error code returned if the data verification task failed. Valid values:
      *
-     * - **1**：无主键表数量超过限制。
-     * - **2**：差异数据超过300行。
-     * - **3**：待查询的表不存在。
-     * - **4**：查询数据的SQL语法错误。
+     *   **1**: The number of tables that do not contain primary keys exceeds the limit.
+     *   **2**: The number of data rows that contain inconsistent data exceeds 300.
+     *   **3**: One or more tables to be verified do not exist.
+     *   **4**: The SQL statements used for verifying data contain a syntax error.
+     *
      * @example 1
      *
      * @var int
@@ -49,7 +50,7 @@ class tableDetails extends Model
     public $finishCount;
 
     /**
-     * @description The auto-increment primary key that is used to identify a data record in a verification result.
+     * @description The auto-increment primary key that is used to identify the data in a verification result.
      *
      * @example 167401241974****
      *
@@ -76,11 +77,11 @@ class tableDetails extends Model
     public $sourceTbName;
 
     /**
-     * @description The status of the data verification result. Valid values:
+     * @description The status of data verification results. Valid values:
      *
      *   **0**: The data verification task was complete.
-     *   **2**: The data verification task was initialized.
-     *   **3**: The data verification task was running.
+     *   **2**: The data verification task was being initialized.
+     *   **3**: The data verification task was in progress.
      *   **5**: The data verification task failed.
      *
      * @example 0

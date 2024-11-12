@@ -12,6 +12,8 @@ class CreateConsumerChannelRequest extends Model
      * @description The name of the consumer group. The name can be up to 128 characters in length. We recommend that you use an informative name for easy identification.
      *
      * This parameter is required.
+     * @example 订阅组A
+     *
      * @var string
      */
     public $consumerGroupName;
@@ -73,6 +75,10 @@ class CreateConsumerChannelRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-aek2zx4uizich7y
+     *
      * @var string
      */
     public $resourceGroupId;

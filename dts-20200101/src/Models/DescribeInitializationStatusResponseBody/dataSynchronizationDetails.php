@@ -20,6 +20,8 @@ class dataSynchronizationDetails extends Model
     /**
      * @description The error message returned if incremental data synchronization failed.
      *
+     * @example The task has failed for too long and cannot be repaired
+     *
      * @var string
      */
     public $errorMessage;

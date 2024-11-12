@@ -9,81 +9,113 @@ use AlibabaCloud\Tea\Model;
 class checkJobs extends Model
 {
     /**
+     * @example POSTPAY
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example 1111****
+     *
      * @var int
      */
     public $checkPoint;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $checkType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $diffCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $diffSum;
 
     /**
+     * @example dtsz8tc99sy2158b36
+     *
      * @var string
      */
     public $dtsInstanceID;
 
     /**
+     * @example n08o6si4q338b1x
+     *
      * @var string
      */
     public $dtsJobId;
 
     /**
+     * @example 15094
+     *
      * @var int
      */
     public $finishCount;
 
     /**
+     * @example c3d12dii27t632g
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example SMALL
+     *
      * @var string
      */
     public $instanceClass;
 
     /**
+     * @example dtstest
+     *
      * @var string
      */
     public $jobName;
 
     /**
+     * @example as0e1ks426bq3z0
+     *
      * @var string
      */
     public $jobStepId;
 
     /**
+     * @example ****
+     *
      * @var string
      */
     public $parentJobType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 159
+     *
      * @var int
      */
     public $totalCount;

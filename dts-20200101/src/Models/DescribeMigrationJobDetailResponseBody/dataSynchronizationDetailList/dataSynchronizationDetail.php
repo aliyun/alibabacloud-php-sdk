@@ -9,7 +9,12 @@ use AlibabaCloud\Tea\Model;
 class dataSynchronizationDetail extends Model
 {
     /**
-     * @description The name of the database to which the migration object in the destination instance belongs.
+     * @description The status of incremental data migration. Valid values:
+     *
+     *   **NotStarted**: Incremental data migration is not started.
+     *   **Migrating**: Incremental data migration is in progress.
+     *   **Failed**: Incremental data migration failed.
+     *   **Finished**: Incremental data migration is completed.
      *
      * @example dtstestdata
      *
@@ -18,14 +23,16 @@ class dataSynchronizationDetail extends Model
     public $destinationOwnerDBName;
 
     /**
-     * @description The error message returned if incremental data migration failed.
+     * @description The total number of records that are supposed to be migrated by the task.
+     *
+     * @example The details of incremental data migration.
      *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description The name of the database to which the migration object in the source instance belongs.
+     * @description The time taken by full data migration.
      *
      * @example dtstestdata
      *
@@ -34,12 +41,7 @@ class dataSynchronizationDetail extends Model
     public $sourceOwnerDBName;
 
     /**
-     * @description The status of incremental data migration. Valid values:
-     *
-     *   **NotStarted**: Incremental data migration is not started.
-     *   **Migrating**: Incremental data migration is in progress.
-     *   **Failed**: Incremental data migration failed.
-     *   **Finished**: Incremental data migration is completed.
+     * @description The number of records that have been migrated.
      *
      * @example Migrating
      *
@@ -48,7 +50,7 @@ class dataSynchronizationDetail extends Model
     public $status;
 
     /**
-     * @description The table name.
+     * @description The name of the database to which the migration object in the destination instance belongs.
      *
      * @example customer
      *

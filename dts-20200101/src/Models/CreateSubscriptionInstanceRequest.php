@@ -73,11 +73,19 @@ class CreateSubscriptionInstanceRequest extends Model
     public $region;
 
     /**
+     * @description The region ID of the change tracking instance. You do not need to specify this parameter because this parameter will be removed in the future.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;

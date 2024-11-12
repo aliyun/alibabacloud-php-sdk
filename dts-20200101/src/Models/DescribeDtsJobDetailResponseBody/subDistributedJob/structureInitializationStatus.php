@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class structureInitializationStatus extends Model
 {
     /**
+     * @description Error message.
+     *
+     * @example DTS-070211: Connect Source DB failed. cause by ****
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description Whether to display upgrade specifications, return value:
+     * - False: No.
+     * @example true
+     *
      * @var bool
      */
     public $needUpgrade;
 
     /**
+     * @description Initialization progress of library table structure, measured in percentage.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $percent;
 
     /**
+     * @description The number of tables that have completed library table structure initialization.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @description The initialization status of the library table structure includes:
+     * - Finished: Initialization completed.
+     * @example Finished
+     *
      * @var string
      */
     public $status;

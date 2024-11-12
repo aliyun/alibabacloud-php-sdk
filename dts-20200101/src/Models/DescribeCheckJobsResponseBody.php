@@ -15,51 +15,71 @@ class DescribeCheckJobsResponseBody extends Model
     public $checkJobs;
 
     /**
+     * @example 403
+     *
      * @var string
      */
     public $dynamicCode;
 
     /**
+     * @example present environment is not support,so skip.
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @example FC1D920B-AB89-52A9-AA5F-AA724C4205E8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalRecordCount;

@@ -77,6 +77,8 @@ class migrationJob extends Model
     /**
      * @description The name of the data migration task.
      *
+     * @example dtstest
+     *
      * @var string
      */
     public $migrationJobName;

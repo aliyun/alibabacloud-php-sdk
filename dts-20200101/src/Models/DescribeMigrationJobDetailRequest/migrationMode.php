@@ -9,13 +9,8 @@ use AlibabaCloud\Tea\Model;
 class migrationMode extends Model
 {
     /**
-     * @description Specifies whether to query the details of full data migration. Valid values:
+     * @description The ID of the region where the data migration instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
-     *   **true**: yes
-     *
-     *   **false**: no
-     *
-     * > Default value: **false**
      * @example true
      *
      * @var bool
@@ -23,13 +18,8 @@ class migrationMode extends Model
     public $dataInitialization;
 
     /**
-     * @description Specifies whether to query the details of incremental data migration. Valid values:
+     * @description The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
      *
-     *   **true**: yes
-     *
-     *   **false**: no
-     *
-     * > Default value: **false**
      * @example true
      *
      * @var bool
@@ -37,13 +27,8 @@ class migrationMode extends Model
     public $dataSynchronization;
 
     /**
-     * @description Specifies whether to query the details of schema migration. Valid values:
+     * @description When you call this operation, the data migration task must be in the Migrating, Failed, Paused, or Finished state.
      *
-     *   **true**: yes
-     *
-     *   **false**: no
-     *
-     * > Default value: **false**
      * @example true
      *
      * @var bool

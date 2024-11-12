@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckJobsRequest extends Model
 {
     /**
+     * @example z9p104ib23***
+     *
      * @var string
      */
     public $checkJobId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $checkType;
 
     /**
+     * @example dtsz9p104ib23e972e
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example zwy_test
+     *
      * @var string
      */
     public $jobName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;

@@ -80,6 +80,10 @@ class ConfigureSynchronizationJobRequest extends Model
     public $regionId;
 
     /**
+     * @description 资源组ID。
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -129,6 +133,8 @@ class ConfigureSynchronizationJobRequest extends Model
      * @description The name of the data synchronization task.
      *
      * >  We recommend that you specify an informative name for easy identification. You do not need to use a unique task name.
+     * @example MySQL同步
+     *
      * @var string
      */
     public $synchronizationJobName;

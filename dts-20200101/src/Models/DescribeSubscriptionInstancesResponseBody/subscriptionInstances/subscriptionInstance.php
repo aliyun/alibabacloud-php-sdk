@@ -147,6 +147,8 @@ class subscriptionInstance extends Model
     /**
      * @description The name of the change tracking instance.
      *
+     * @example dtstest
+     *
      * @var string
      */
     public $subscriptionInstanceName;

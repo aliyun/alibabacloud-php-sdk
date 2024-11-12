@@ -20,6 +20,8 @@ class consumerChannels extends Model
     /**
      * @description The name of the consumer group.
      *
+     * @example consumergrouptest
+     *
      * @var string
      */
     public $consumerGroupName;

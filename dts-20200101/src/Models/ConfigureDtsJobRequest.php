@@ -50,8 +50,9 @@ class ConfigureDtsJobRequest extends Model
     public $dataSynchronization;
 
     /**
-     * @description The start offset of incremental data migration or synchronization. The value is a UNIX timestamp. Unit: seconds.
+     * @description The objects to be migrated or synchronized. Specify a JSON string. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
      *
+     * >  The value can be up to 10 MB in size.
      * @example {"dtstest":{"name":"dtstest","all":true}}
      *
      * @var string
@@ -92,12 +93,9 @@ class ConfigureDtsJobRequest extends Model
     public $delayPhone;
 
     /**
-     * @description The mobile numbers that receive status-related alerts. Separate multiple mobile numbers with commas (,).
+     * @description The threshold for triggering latency-related alerts. Unit: seconds. The value must be an integer. You can specify this parameter based on your business requirements. To prevent unstable latency caused by network and database workloads, we recommend that you set this parameter to more than 10 seconds.
      *
-     * >
-     *   This parameter is available only for China site (aliyun.com) users. Only mobile numbers in the Chinese mainland are supported. Up to 10 mobile numbers can be specified.
-     *   International site (alibabacloud.com) users cannot receive alerts by using mobile phones, but can [set alert rules for DTS tasks in the CloudMonitor console](https://help.aliyun.com/document_detail/175876.html).
-     *
+     * >  You must specify this parameter if **DelayNotice** is set to **true**.
      * @example 10
      *
      * @var int
@@ -105,29 +103,62 @@ class ConfigureDtsJobRequest extends Model
     public $delayRuleTime;
 
     /**
+     * @description The path of the CA certificate when the target library is securely connected via SSL.
+     * >This feature is currently not supported, please do not pass in this parameter.
+     * @example ****
+     *
      * @var string
      */
     public $destCaCertificateOssUrl;
 
     /**
+     * @description The key of the CA certificate when the target library is securely connected via SSL.
+     * >This feature is currently not supported, please do not pass in this parameter.
+     * @example ****
+     *
      * @var string
      */
     public $destCaCertificatePassword;
 
     /**
+     * @description The path to the client certificate that is used if the connection to the destination database is encrypted by using the SSL protocol.
+     *
+     * >  This feature is not supported. Do not specify this parameter.
+     * @example ****
+     *
      * @var string
      */
     public $destClientCertOssUrl;
 
     /**
+     * @description The path to the private key of the client certificate that is used if the connection to the destination database is encrypted by using the SSL protocol.
+     *
+     * >  This feature is not supported. Do not specify this parameter.
+     * @example ****
+     *
      * @var string
      */
     public $destClientKeyOssUrl;
 
     /**
+     * @description The password of the private key of the client certificate that is used if the connection to the destination database is encrypted by using the SSL protocol.
+     *
+     * >  This feature is not supported. Do not specify this parameter.
+     * @example ****
+     *
      * @var string
      */
     public $destClientPassword;
+
+    /**
+     * @var string
+     */
+    public $destPrimaryVswId;
+
+    /**
+     * @var string
+     */
+    public $destSecondaryVswId;
 
     /**
      * @description The password of the destination database account.
@@ -156,7 +187,7 @@ class ConfigureDtsJobRequest extends Model
      *   If the destination instance is a PolarDB for Oracle cluster, an AnalyticDB for PostgreSQL instance, a PostgreSQL database, a MaxCompute project, or a MongoDB database, this parameter is available and required.
      *   If the destination instance is a MaxCompute project, you must specify the ID of the MaxCompute project.
      *
-     * @example 172.16.\*\*.***
+     * @example ``172.16.**.**``*
      *
      * @var string
      */
@@ -219,6 +250,11 @@ class ConfigureDtsJobRequest extends Model
     public $destinationEndpointOracleSID;
 
     /**
+     * @description The Alibaba Cloud account ID to which the target RDS MySQL instance belongs.
+     *
+     * - Passing in this parameter means performing data migration or synchronization across Alibaba Cloud accounts, and you also need to pass in the Destination Endpoint Role parameter.
+     * @example 140692647406****
+     *
      * @var string
      */
     public $destinationEndpointOwnerID;
@@ -260,6 +296,10 @@ class ConfigureDtsJobRequest extends Model
     public $destinationEndpointRegion;
 
     /**
+     * @description The role name configured for the cloud account to which the target instance belongs.
+     * >When performing data migration or synchronization across Alibaba Cloud accounts, this parameter must be passed in. For the required permissions and authorization methods for this role, please refer to how to configure RAM authorization during data migration or synchronization across Alibaba Cloud accounts.
+     * @example ram-for-dts
+     *
      * @var string
      */
     public $destinationEndpointRole;
@@ -286,6 +326,10 @@ class ConfigureDtsJobRequest extends Model
     public $disasterRecoveryJob;
 
     /**
+     * @description The environment label of the DTS instance has a value of:
+     * - Online: Online
+     * @example normal
+     *
      * @var string
      */
     public $dtsBisLabel;
@@ -383,11 +427,21 @@ class ConfigureDtsJobRequest extends Model
     public $jobType;
 
     /**
+     * @description Upper limit of DU.
+     *
+     * > Only supported by Serverless instances.
+     * @example 16
+     *
      * @var float
      */
     public $maxDu;
 
     /**
+     * @description Lower limit of DU.
+     *
+     * > Only supported by Serverless instances.
+     * @example 1
+     *
      * @var float
      */
     public $minDu;
@@ -417,6 +471,10 @@ class ConfigureDtsJobRequest extends Model
     public $reserve;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -444,7 +502,7 @@ class ConfigureDtsJobRequest extends Model
      * @description The system ID (SID) of the Oracle database.
      *
      * >  If the **SourceEndpointEngineName** parameter is set to **ORACLE** and the **Oracle** database is deployed in an architecture that is not a Real Application Cluster (RAC), this parameter is available and required.
-     * @example 172.16.\*\*.***
+     * @example ``172.16.**.**``*
      *
      * @var string
      */
@@ -602,36 +660,73 @@ class ConfigureDtsJobRequest extends Model
     public $sourceEndpointUserName;
 
     /**
-     * @description 数据投递链路交换机实例id
+     * @description Data delivery link switch instance ID.
+     *
+     * @example vsw-bp10df3mxae6lpmku****
      *
      * @var string
      */
     public $sourceEndpointVSwitchID;
 
     /**
+     * @description The path of the certificate authority (CA) certificate that is used if the connection to the source database is encrypted by using the SSL protocol.
+     *
+     * >  This feature is not supported. Do not specify this parameter.
+     * @example ****
+     *
      * @var string
      */
     public $srcCaCertificateOssUrl;
 
     /**
+     * @description The key of the CA certificate that is used if the connection to the source database is encrypted by using the SSL protocol.
+     *
+     * >  This feature is not supported. Do not specify this parameter.
+     * @example ****
+     *
      * @var string
      */
     public $srcCaCertificatePassword;
 
     /**
+     * @description The path to the client certificate that is used if the connection to the source database is encrypted by using the SSL protocol.
+     *
+     * >  This feature is not supported. Do not specify this parameter.
+     * @example ****
+     *
      * @var string
      */
     public $srcClientCertOssUrl;
 
     /**
+     * @description The path to the private key of the client certificate that is used if the connection to the source database is encrypted by using the SSL protocol.
+     *
+     * >  This feature is not supported. Do not specify this parameter.
+     * @example ****
+     *
      * @var string
      */
     public $srcClientKeyOssUrl;
 
     /**
+     * @description The password of the private key of the client certificate that is used if the connection to the source database is encrypted by using the SSL protocol.
+     *
+     * >  This feature is not supported. Do not specify this parameter.
+     * @example ****
+     *
      * @var string
      */
     public $srcClientPassword;
+
+    /**
+     * @var string
+     */
+    public $srcPrimaryVswId;
+
+    /**
+     * @var string
+     */
+    public $srcSecondaryVswId;
 
     /**
      * @description Specifies whether to perform incremental data migration or synchronization. Default value: false. Valid values:
@@ -670,6 +765,8 @@ class ConfigureDtsJobRequest extends Model
         'destClientCertOssUrl'            => 'DestClientCertOssUrl',
         'destClientKeyOssUrl'             => 'DestClientKeyOssUrl',
         'destClientPassword'              => 'DestClientPassword',
+        'destPrimaryVswId'                => 'DestPrimaryVswId',
+        'destSecondaryVswId'              => 'DestSecondaryVswId',
         'destinationEndpointDataBaseName' => 'DestinationEndpointDataBaseName',
         'destinationEndpointEngineName'   => 'DestinationEndpointEngineName',
         'destinationEndpointIP'           => 'DestinationEndpointIP',
@@ -715,6 +812,8 @@ class ConfigureDtsJobRequest extends Model
         'srcClientCertOssUrl'             => 'SrcClientCertOssUrl',
         'srcClientKeyOssUrl'              => 'SrcClientKeyOssUrl',
         'srcClientPassword'               => 'SrcClientPassword',
+        'srcPrimaryVswId'                 => 'SrcPrimaryVswId',
+        'srcSecondaryVswId'               => 'SrcSecondaryVswId',
         'structureInitialization'         => 'StructureInitialization',
         'synchronizationDirection'        => 'SynchronizationDirection',
     ];
@@ -767,6 +866,12 @@ class ConfigureDtsJobRequest extends Model
         }
         if (null !== $this->destClientPassword) {
             $res['DestClientPassword'] = $this->destClientPassword;
+        }
+        if (null !== $this->destPrimaryVswId) {
+            $res['DestPrimaryVswId'] = $this->destPrimaryVswId;
+        }
+        if (null !== $this->destSecondaryVswId) {
+            $res['DestSecondaryVswId'] = $this->destSecondaryVswId;
         }
         if (null !== $this->destinationEndpointDataBaseName) {
             $res['DestinationEndpointDataBaseName'] = $this->destinationEndpointDataBaseName;
@@ -903,6 +1008,12 @@ class ConfigureDtsJobRequest extends Model
         if (null !== $this->srcClientPassword) {
             $res['SrcClientPassword'] = $this->srcClientPassword;
         }
+        if (null !== $this->srcPrimaryVswId) {
+            $res['SrcPrimaryVswId'] = $this->srcPrimaryVswId;
+        }
+        if (null !== $this->srcSecondaryVswId) {
+            $res['SrcSecondaryVswId'] = $this->srcSecondaryVswId;
+        }
         if (null !== $this->structureInitialization) {
             $res['StructureInitialization'] = $this->structureInitialization;
         }
@@ -962,6 +1073,12 @@ class ConfigureDtsJobRequest extends Model
         }
         if (isset($map['DestClientPassword'])) {
             $model->destClientPassword = $map['DestClientPassword'];
+        }
+        if (isset($map['DestPrimaryVswId'])) {
+            $model->destPrimaryVswId = $map['DestPrimaryVswId'];
+        }
+        if (isset($map['DestSecondaryVswId'])) {
+            $model->destSecondaryVswId = $map['DestSecondaryVswId'];
         }
         if (isset($map['DestinationEndpointDataBaseName'])) {
             $model->destinationEndpointDataBaseName = $map['DestinationEndpointDataBaseName'];
@@ -1097,6 +1214,12 @@ class ConfigureDtsJobRequest extends Model
         }
         if (isset($map['SrcClientPassword'])) {
             $model->srcClientPassword = $map['SrcClientPassword'];
+        }
+        if (isset($map['SrcPrimaryVswId'])) {
+            $model->srcPrimaryVswId = $map['SrcPrimaryVswId'];
+        }
+        if (isset($map['SrcSecondaryVswId'])) {
+            $model->srcSecondaryVswId = $map['SrcSecondaryVswId'];
         }
         if (isset($map['StructureInitialization'])) {
             $model->structureInitialization = $map['StructureInitialization'];

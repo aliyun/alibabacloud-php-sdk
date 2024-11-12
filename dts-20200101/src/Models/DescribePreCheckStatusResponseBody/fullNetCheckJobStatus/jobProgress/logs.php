@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class logs extends Model
 {
     /**
+     * @description Error record.
+     *
+     * @example CREATE TABLE `dtstestdata`.`customer` ****
+     *
      * @var string
      */
     public $errData;
 
     /**
+     * @description Specific error message.
+     *
+     * @example get metric list fail
+     *
      * @var string
      */
     public $errMsg;
 
     /**
+     * @description Type of error.
+     *
+     * @example ForeignKey
+     *
      * @var string
      */
     public $errType;
 
     /**
+     * @description The level of the log.
+     *
+     * @example INFO
+     *
      * @var string
      */
     public $logLevel;

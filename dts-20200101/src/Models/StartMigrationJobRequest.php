@@ -38,6 +38,10 @@ class StartMigrationJobRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-aekz4us4iruleja
+     *
      * @var string
      */
     public $resourceGroupId;

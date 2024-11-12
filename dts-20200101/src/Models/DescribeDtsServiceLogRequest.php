@@ -66,6 +66,10 @@ class DescribeDtsServiceLogRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -108,6 +112,10 @@ class DescribeDtsServiceLogRequest extends Model
     public $subJobType;
 
     /**
+     * @description Whether it is a seamless integration (Zero-ETL) task, the value can be: - **true**: Yes. - **false**: No.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $zeroEtlJob;

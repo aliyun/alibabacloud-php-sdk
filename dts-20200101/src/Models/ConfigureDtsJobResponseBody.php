@@ -36,6 +36,8 @@ class ConfigureDtsJobResponseBody extends Model
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
      * @example The request processing has failed due to some unknown error.
      *
      * @var string
@@ -61,6 +63,8 @@ class ConfigureDtsJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
      * @example true
      *
      * @var string

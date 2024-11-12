@@ -11,8 +11,8 @@ class RenewInstanceRequest extends Model
     /**
      * @description The subscription duration of the DTS instance after renewal. Default value: 1.
      *
-     *   If the **Period** parameter is set to **Year**, the valid values are **1 to 5**.
-     *   If the **Period** parameter is set to **Month**, the valid values are **1 to 60**.
+     *   If **Period** is set to **Year**, the valid values are **1 to 5**.
+     *   If **Period** is set to **Month**, the valid values are **1 to 60**.
      *
      * @example 1
      *
@@ -21,7 +21,7 @@ class RenewInstanceRequest extends Model
     public $buyCount;
 
     /**
-     * @description The billing method of the DTS instance. Set the value to **PREPAY**, which indicates the subscription billing method.
+     * @description The billing method of the DTS instance. Set the value to **PREPAY**, which specifies the subscription billing method.
      *
      * This parameter is required.
      * @example PREPAY
@@ -43,8 +43,8 @@ class RenewInstanceRequest extends Model
     /**
      * @description The billing cycle of the DTS instance after renewal. Valid values:
      *
-     *   **Year**: annual subscription.
-     *   **Month**: monthly subscription. This is the default value.
+     *   **Year**
+     *   **Month** (default)
      *
      * @example Month
      *
@@ -53,7 +53,7 @@ class RenewInstanceRequest extends Model
     public $period;
 
     /**
-     * @description The region ID of the DTS instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+     * @description The region ID of the DTS instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *
@@ -62,6 +62,10 @@ class RenewInstanceRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;

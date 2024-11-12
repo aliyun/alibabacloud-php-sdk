@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataInitializationStatus extends Model
 {
     /**
-     * @description The status of incremental data synchronization.
+     * @description The error message returned if full data synchronization failed.
      *
-     * >  This parameter is no longer available.
      * @example java.lang.NumberFormatException: For input string: ""
      *
      * @var string
@@ -19,9 +18,8 @@ class dataInitializationStatus extends Model
     public $errorMessage;
 
     /**
-     * @description The status of incremental data synchronization.
+     * @description The progress of full data synchronization. Unit: %.
      *
-     * >  This parameter and its sub-parameters are no longer available.
      * @example 100
      *
      * @var string
@@ -29,9 +27,8 @@ class dataInitializationStatus extends Model
     public $percent;
 
     /**
-     * @description The synchronization latency.
+     * @description The number of records that have been synchronized during full data synchronization.
      *
-     * >  This parameter is no longer available.
      * @example 200001
      *
      * @var string
@@ -39,7 +36,12 @@ class dataInitializationStatus extends Model
     public $progress;
 
     /**
-     * @description The number of records that have been synchronized during full data synchronization.
+     * @description The status of full data synchronization. Valid values:
+     *
+     *   **NotStarted**: Full data synchronization is not started.
+     *   **Migrating**: Full data synchronization is in progress.
+     *   **Failed**: Full data synchronization failed.
+     *   **Finished**: Full data synchronization is completed.
      *
      * @example Finished
      *

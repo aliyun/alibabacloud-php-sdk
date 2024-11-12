@@ -21,8 +21,8 @@ class jobProgress extends Model
     /**
      * @description Indicates whether the subtask can be ignored if it fails. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -94,7 +94,7 @@ class jobProgress extends Model
     public $errMsg;
 
     /**
-     * @description The time when the instance was created. The time is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format in UTC.
+     * @description The time when the subtask was complete. The time is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format in UTC.
      *
      * @example 2022-03-31T03:36:11.000+00:00
      *
@@ -114,8 +114,8 @@ class jobProgress extends Model
     /**
      * @description Indicates whether DTS ignores the subtask and proceeds with the next subtask. Valid values:
      *
-     *   **N**: no
-     *   **Y**: yes
+     *   **N**: no.
+     *   **Y**: yes.
      *
      * @example N
      *
@@ -133,7 +133,7 @@ class jobProgress extends Model
     public $item;
 
     /**
-     * @description The ID of the subtask.
+     * @description The subtask ID.
      *
      * @example l3m1213ye7l****
      *
@@ -176,7 +176,7 @@ class jobProgress extends Model
     public $parentObj;
 
     /**
-     * @description The method used to fix a precheck failure.
+     * @description The method to fix a precheck failure.
      *
      * @example CHECK__ERROR_SAME_OBJ_REPAIR
      *
@@ -185,10 +185,10 @@ class jobProgress extends Model
     public $repairMethod;
 
     /**
-     * @description Indicates whether the subtask was skipped. Valid values:
+     * @description Indicates whether the subtask was ignored. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example True
      *
@@ -225,7 +225,7 @@ class jobProgress extends Model
     /**
      * @description The sub-item progress of the subtask.
      *
-     * >  If **[]** is returned, the subtask has no sub-items.
+     * > If \\*\\*[]\\*\\* is returned, the subtask has no sub-item.
      * @example []
      *
      * @var string

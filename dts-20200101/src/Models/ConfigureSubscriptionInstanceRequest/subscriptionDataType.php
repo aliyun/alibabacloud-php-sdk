@@ -25,7 +25,7 @@ class subscriptionDataType extends Model
      * @description Specifies whether to track DML statements. Default value: true. Valid values:
      *
      *   **true**: tracks DML statements.
-     *   **false**: does not tack DML statements.
+     *   **false**: does not track DML statements.
      *
      * This parameter is required.
      * @example true

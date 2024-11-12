@@ -18,6 +18,10 @@ class DescribeDtsJobsRequest extends Model
     public $dedicatedClusterId;
 
     /**
+     * @description The type of the source database instance.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $destProductType;
@@ -62,11 +66,19 @@ class DescribeDtsJobsRequest extends Model
     public $groupId;
 
     /**
+     * @description The ID of the source or target database instance corresponding to the request parameter **InstanceType**.
+     *
+     * @example rm-bp1966yuut4w3****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The type of the source or target database instance.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $instanceType;
@@ -116,7 +128,7 @@ class DescribeDtsJobsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. The value must be an integer that is greater than **0** and does not exceed the maximum value of the Integer data type. Default value: **1**.
+     * @description The page number. Pages start from page **1**. Default value: **1**.
      *
      * @example 1
      *
@@ -125,7 +137,7 @@ class DescribeDtsJobsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
+     * @description The number of entries per page. Valid values: **20**, **30**, **50**, and **100**. Default value: **20**.
      *
      * @example 30
      *
@@ -153,7 +165,46 @@ class DescribeDtsJobsRequest extends Model
     public $region;
 
     /**
-     * @description This parameter is discontinued.
+     * @description This parameter is deprecated.
+     *
+     * Valid values:
+     *
+     *   cn-hangzhou
+     *   cn-shanghai
+     *   cn-beijing
+     *   cn-guangzhou
+     *   cn-shenzhen
+     *   cn-chengdu
+     *   cn-heyuan
+     *   cn-hongkong
+     *   cn-qingdao
+     *   cn-zhangbei
+     *   cn-zhangjiakou
+     *   us-east-1
+     *   us-west-1
+     *   cn-hangzhou-finance
+     *   cn-shanghai-finance
+     *   cn-shanghai-finance-1
+     *   cn-shenzhen-finance
+     *   cn-shenzhen-finance-1
+     *   cn-beijing-finance-1
+     *   cn-huhehaote
+     *   cn-north-2-gov-1
+     *   eu-central-1
+     *   eu-west-1
+     *   me-central-1
+     *   me-east-1
+     *   ap-northeast-1
+     *   ap-northeast-2
+     *   ap-southeast-1
+     *   ap-southeast-2
+     *   ap-southeast-3
+     *   ap-southeast-5
+     *   ap-southeast-6
+     *   ap-southeast-7
+     *   cn-wulanchabu
+     *   cn-zhengzhou-jva
+     *   cn-wuhan-lr
      *
      * @example cn-hangzhou
      *
@@ -171,6 +222,10 @@ class DescribeDtsJobsRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The type of the destination database instance.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $srcProductType;
@@ -271,6 +326,10 @@ class DescribeDtsJobsRequest extends Model
     public $withoutDbList;
 
     /**
+     * @description Whether it is a seamless integration (Zero-ETL) task, the value can be:
+     * - **false**: No. - **true**: Yes.
+     * @example false
+     *
      * @var bool
      */
     public $zeroEtlJob;

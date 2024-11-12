@@ -21,10 +21,10 @@ class DescribePreCheckStatusRequest extends Model
     /**
      * @description The task code that specifies the type of the DTS subtask. Valid values:
      *
-     *   **01**: precheck
-     *   **02**: schema migration or initial schema synchronization
-     *   **03**: full data migration or initial full data synchronization
-     *   **04**: incremental data migration or synchronization
+     *   **01**: precheck.
+     *   **02**: schema migration or initial schema synchronization.
+     *   **03**: full data migration or initial full data synchronization.
+     *   **04**: incremental data migration or synchronization.
      *
      * This parameter is required.
      * @example 01
@@ -43,7 +43,7 @@ class DescribePreCheckStatusRequest extends Model
     public $name;
 
     /**
-     * @description The number of the page to return. The value must be an integer that is greater than **0** and does not exceed the maximum value of the Integer data type. Default value: **1**.
+     * @description The page number. Pages start from page 1. Default value: **1**.
      *
      * @example 1
      *
@@ -52,7 +52,7 @@ class DescribePreCheckStatusRequest extends Model
     public $pageNo;
 
     /**
-     * @description The number of entries to return on each page. Default value: **20**.
+     * @description The number of entries per page. Default value: **20**.
      *
      * @example 30
      *
@@ -61,7 +61,7 @@ class DescribePreCheckStatusRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the DTS instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+     * @description The ID of the region in which the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-beijing
      *
@@ -70,6 +70,10 @@ class DescribePreCheckStatusRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-aekz4us4iruleja
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -86,8 +90,8 @@ class DescribePreCheckStatusRequest extends Model
     /**
      * @description The type of schema definition. Valid values:
      *
-     *   **before**: schema migration or initial schema synchronization
-     *   **after**: DDL operations performed during incremental data migration or synchronization
+     *   **before**: schema migration or initial schema synchronization.
+     *   **after**: DDL operations performed during incremental data migration or synchronization.
      *
      * @example before
      *
@@ -96,6 +100,10 @@ class DescribePreCheckStatusRequest extends Model
     public $structType;
 
     /**
+     * @description Whether it is a seamless integration (Zero-ETL) task, the value can be:
+     * - **false**: No. - **true**: Yes.
+     * @example false
+     *
      * @var bool
      */
     public $zeroEtlJob;

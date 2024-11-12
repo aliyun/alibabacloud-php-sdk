@@ -21,6 +21,8 @@ class ModifyConsumerChannelRequest extends Model
     /**
      * @description The name of the consumer group. The name cannot exceed 128 characters in length. We recommend that you use an informative name for easy identification.
      *
+     * @example dtstest
+     *
      * @var string
      */
     public $consumerGroupName;
@@ -80,6 +82,10 @@ class ModifyConsumerChannelRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;

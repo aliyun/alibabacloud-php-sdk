@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class subscriptionDataType extends Model
 {
     /**
+     * @description Indicates whether DDL statements are tracked. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $ddl;
 
     /**
+     * @description Indicates whether DML statements are tracked. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dml;

@@ -27,11 +27,19 @@ class StopDtsJobRequest extends Model
     public $dtsJobId;
 
     /**
+     * @description The region ID of the Data Transmission Service (DTS) instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+     *
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-aekznwnajjh4d3a
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -53,6 +61,10 @@ class StopDtsJobRequest extends Model
     public $synchronizationDirection;
 
     /**
+     * @description Whether it is a seamless integration (Zero-ETL) task, the value can be:
+     * - **false**: No. - **true**: Yes.
+     * @example true
+     *
      * @var bool
      */
     public $zeroEtlJob;

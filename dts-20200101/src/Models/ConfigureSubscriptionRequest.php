@@ -73,6 +73,10 @@ class ConfigureSubscriptionRequest extends Model
     public $delayRuleTime;
 
     /**
+     * @description Environment label of the DTS instance, with values:
+     * - **normal**: **general** - **online**: **production**
+     * @example normal
+     *
      * @var string
      */
     public $dtsBisLabel;
@@ -99,6 +103,8 @@ class ConfigureSubscriptionRequest extends Model
      * @description The name of the change tracking task.
      *
      * This parameter is required.
+     * @example for_test
+     *
      * @var string
      */
     public $dtsJobName;
@@ -129,11 +135,19 @@ class ConfigureSubscriptionRequest extends Model
     public $errorPhone;
 
     /**
+     * @description The DU upper limit of the Serverless instance, with values being: 2, 4, 8, 16.
+     * Currently, this feature is not supported, please do not pass in parameters.
+     * @example 16
+     *
      * @var float
      */
     public $maxDu;
 
     /**
+     * @description The lower limit of DU for Serverless instances, with values being: 1, 2, 4, 8, 16.
+     * This feature is currently not supported, please do not pass in parameters.
+     * @example 1
+     *
      * @var float
      */
     public $minDu;
@@ -158,12 +172,16 @@ class ConfigureSubscriptionRequest extends Model
     public $reserve;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The name of the source database.
+     * @description Name of the database to be subscribed.
      *
      * @example dtstestdata
      *
@@ -289,26 +307,51 @@ class ConfigureSubscriptionRequest extends Model
     public $sourceEndpointUserName;
 
     /**
+     * @description The path of the certificate authority (CA) certificate that is used if the connection to the source database is encrypted by using the SSL protocol.
+     *
+     * >  This feature is not supported. Do not specify this parameter.
+     * @example ****
+     *
      * @var string
      */
     public $srcCaCertificateOssUrl;
 
     /**
+     * @description The key of the CA certificate that is used if the connection to the source database is encrypted by using the SSL protocol.
+     *
+     * >  This feature is not supported. Do not specify this parameter.
+     * @example ****
+     *
      * @var string
      */
     public $srcCaCertificatePassword;
 
     /**
+     * @description The path to the client certificate that is used if the connection to the source database is encrypted by using the SSL protocol.
+     *
+     * >  This feature is not supported. Do not specify this parameter.
+     * @example ****
+     *
      * @var string
      */
     public $srcClientCertOssUrl;
 
     /**
+     * @description The path to the private key of the client certificate that is used if the connection to the source database is encrypted by using the SSL protocol.
+     *
+     * >  This feature is not supported. Do not specify this parameter.
+     * @example ****
+     *
      * @var string
      */
     public $srcClientKeyOssUrl;
 
     /**
+     * @description The password of the private key of the client certificate that is used if the connection to the source database is encrypted by using the SSL protocol.
+     *
+     * >  This feature is not supported. Do not specify this parameter.
+     * @example ****
+     *
      * @var string
      */
     public $srcClientPassword;

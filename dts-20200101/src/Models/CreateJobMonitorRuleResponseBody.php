@@ -27,9 +27,9 @@ class CreateJobMonitorRuleResponseBody extends Model
     public $dtsJobId;
 
     /**
-     * @description The dynamic part in the error message. The value of this parameter is used to replace the **%s** variable in the value of the **ErrMessage** parameter.
+     * @description The dynamic part in the error message. The value of this parameter is used to replace the \\*\\*%s\\*\\* variable in the value of **ErrMessage**.
      *
-     * >  For example, if the specified **DtsJobId** parameter is invalid, **The Value of Input Parameter %s is not valid** is returned for **ErrMessage** and **DtsJobId** is returned for **DynamicMessage**.
+     * > If the return value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the return value of **DynamicMessage** is **DtsJobId**, the specified value of **DtsJobId** is invalid.
      * @example DtsJobId
      *
      * @var string
@@ -37,7 +37,7 @@ class CreateJobMonitorRuleResponseBody extends Model
     public $dynamicMessage;
 
     /**
-     * @description The error code returned if the call failed.
+     * @description The error code returned if the request failed.
      *
      * @example 403
      *
@@ -64,7 +64,7 @@ class CreateJobMonitorRuleResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 8C498360-7892-433C-847A-BA71A850****
      *
@@ -75,8 +75,8 @@ class CreateJobMonitorRuleResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
+     *   **true**
+     *   **false**
      *
      * @example true
      *

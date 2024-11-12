@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesResponseBody extends Model
 {
     /**
-     * @description The error code returned if the call failed.
+     * @description The error code returned if the request failed.
      *
      * @example InternalError
      *
@@ -18,7 +18,7 @@ class TagResourcesResponseBody extends Model
     public $errCode;
 
     /**
-     * @description The error message returned if the call failed.
+     * @description The error message returned if the request failed.
      *
      * @example The request processing has failed due to some unknown error.
      *
@@ -27,7 +27,7 @@ class TagResourcesResponseBody extends Model
     public $errMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 755D7B84-6813-42B0-BC9D-2699CFEA****
      *
@@ -36,7 +36,7 @@ class TagResourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

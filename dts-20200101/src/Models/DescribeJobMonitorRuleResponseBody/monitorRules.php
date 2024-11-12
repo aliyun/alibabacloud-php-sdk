@@ -21,21 +21,37 @@ class monitorRules extends Model
     public $delayRuleTime;
 
     /**
+     * @description Task ID.
+     *
+     * @example bi6e22ay243****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description The task type of the DTS instance, with values: - **normal**: Migration or synchronization task. - **full_check**: Associated full check task. - **etl_check**: Associated incremental check task.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $jobType;
 
     /**
+     * @description Alarm threshold.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $noticeValue;
 
     /**
+     * @description The statistical period for incremental validation tasks, in minutes.
+     * > Currently supported values are 1 minute, 5 minutes, 10 minutes, and 30 minutes.
+     * @example 5
+     *
      * @var int
      */
     public $period;
@@ -62,6 +78,10 @@ class monitorRules extends Model
     public $state;
 
     /**
+     * @description The number of cycles for the incremental validation task.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $times;

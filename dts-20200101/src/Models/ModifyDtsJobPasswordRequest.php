@@ -9,9 +9,18 @@ use AlibabaCloud\Tea\Model;
 class ModifyDtsJobPasswordRequest extends Model
 {
     /**
-     * @description The ID of the data migration, data synchronization, or change tracking task.
+     * @description The ID of the data migration, data synchronization, or change tracking instance.
      *
-     * This parameter is required.
+     * >  You can call the [DescribeMigrationJobs](https://help.aliyun.com/document_detail/208139.html), [DescribeSubscriptionInstances](https://help.aliyun.com/document_detail/49442.html), or [DescribeSynchronizationJobs](https://help.aliyun.com/document_detail/49454.html) operation to query the instance ID
+     * @example dtsl3m1213ye7l****
+     *
+     * @var string
+     */
+    public $dtsInstanceId;
+
+    /**
+     * @description The ID of the DTS task. The DTS task can be a data migration, data synchronization, or change tracking task.
+     *
      * @example l3m1213ye7l****
      *
      * @var string
@@ -19,12 +28,12 @@ class ModifyDtsJobPasswordRequest extends Model
     public $dtsJobId;
 
     /**
-     * @description Specifies the database to which the password belongs. Valid values:
+     * @description The database to which the password belongs. Valid values:
      *
-     *   **src**: source database
-     *   **dest**: destination database
+     *   **src**: source database.
+     *   **dest**: destination database.
      *
-     * >  This parameter must be specified.
+     * >  This parameter is required.
      * @example src
      *
      * @var string
@@ -32,9 +41,9 @@ class ModifyDtsJobPasswordRequest extends Model
     public $endpoint;
 
     /**
-     * @description The new password of the account.
+     * @description The new password.
      *
-     * >  This parameter must be specified and cannot be the same as the current password.
+     * >  This parameter is required and cannot be set to a value that is the same as the current password.
      * @example Test123456
      *
      * @var string
@@ -51,14 +60,27 @@ class ModifyDtsJobPasswordRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description Synchronization direction, with values:
+     * - **Forward** (default): Forward. - **Reverse**: Reverse.
+     * @example Forward
+     *
+     * @var string
+     */
+    public $synchronizationDirection;
+
+    /**
      * @description The account of the source or destination database.
      *
-     * >  This parameter must be specified.
+     * >  This parameter is required.
      * @example dtstest
      *
      * @var string
@@ -66,17 +88,23 @@ class ModifyDtsJobPasswordRequest extends Model
     public $userName;
 
     /**
+     * @description Whether it is a seamless integration (Zero-ETL) task, the value can be:
+     * - **false**: No. - **true**: Yes.
+     * @example false
+     *
      * @var bool
      */
     public $zeroEtlJob;
     protected $_name = [
-        'dtsJobId'        => 'DtsJobId',
-        'endpoint'        => 'Endpoint',
-        'password'        => 'Password',
-        'regionId'        => 'RegionId',
-        'resourceGroupId' => 'ResourceGroupId',
-        'userName'        => 'UserName',
-        'zeroEtlJob'      => 'ZeroEtlJob',
+        'dtsInstanceId'            => 'DtsInstanceId',
+        'dtsJobId'                 => 'DtsJobId',
+        'endpoint'                 => 'Endpoint',
+        'password'                 => 'Password',
+        'regionId'                 => 'RegionId',
+        'resourceGroupId'          => 'ResourceGroupId',
+        'synchronizationDirection' => 'SynchronizationDirection',
+        'userName'                 => 'UserName',
+        'zeroEtlJob'               => 'ZeroEtlJob',
     ];
 
     public function validate()
@@ -86,6 +114,9 @@ class ModifyDtsJobPasswordRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dtsInstanceId) {
+            $res['DtsInstanceId'] = $this->dtsInstanceId;
+        }
         if (null !== $this->dtsJobId) {
             $res['DtsJobId'] = $this->dtsJobId;
         }
@@ -100,6 +131,9 @@ class ModifyDtsJobPasswordRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->synchronizationDirection) {
+            $res['SynchronizationDirection'] = $this->synchronizationDirection;
         }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
@@ -119,6 +153,9 @@ class ModifyDtsJobPasswordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DtsInstanceId'])) {
+            $model->dtsInstanceId = $map['DtsInstanceId'];
+        }
         if (isset($map['DtsJobId'])) {
             $model->dtsJobId = $map['DtsJobId'];
         }
@@ -133,6 +170,9 @@ class ModifyDtsJobPasswordRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SynchronizationDirection'])) {
+            $model->synchronizationDirection = $map['SynchronizationDirection'];
         }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];

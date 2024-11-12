@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateReverseDtsJobResponseBody extends Model
 {
     /**
+     * @description The ID of the instance corresponding to the generated reverse task.
+     *
      * @example dtsor1f9kr822l****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateReverseDtsJobResponseBody extends Model
     public $dtsInstanceId;
 
     /**
+     * @description The ID of the generated reverse synchronization task.
+     *
      * @example n99m9jx822k****
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateReverseDtsJobResponseBody extends Model
     public $dtsJobId;
 
     /**
+     * @description Error code returned when the call fails.
+     *
      * @example InternalError
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateReverseDtsJobResponseBody extends Model
     public $errCode;
 
     /**
+     * @description Error message returned when the call fails.
+     *
      * @example The Value of Input Parameter %s is not valid.
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateReverseDtsJobResponseBody extends Model
     public $errMessage;
 
     /**
+     * @description Status code.
+     *
      * @example 200
      *
      * @var string
@@ -44,6 +54,8 @@ class CreateReverseDtsJobResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description Request ID.
+     *
      * @example 621BB4F8-3016-4FAA-8D5A-5D3163CC****
      *
      * @var string
@@ -51,6 +63,8 @@ class CreateReverseDtsJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Whether the request was successful.
+     *
      * @example true
      *
      * @var string

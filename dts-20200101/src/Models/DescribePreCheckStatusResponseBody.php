@@ -14,17 +14,19 @@ use AlibabaCloud\Tea\Model;
 class DescribePreCheckStatusResponseBody extends Model
 {
     /**
+     * @description Display list of evaluation tasks
+     *
      * @var analysisJobProgress[]
      */
     public $analysisJobProgress;
 
     /**
-     * @description The task code that indicates the subtask type. Valid values:
+     * @description The task code that indicates the type of the subtask. Valid values:
      *
-     *   **01**: precheck
-     *   **02**: schema migration or initial schema synchronization
-     *   **03**: full data migration or initial full data synchronization
-     *   **04**: incremental data migration or synchronization
+     *   **01**: precheck.
+     *   **02**: schema migration or initial schema synchronization.
+     *   **03**: full data migration or initial full data synchronization.
+     *   **04**: incremental data migration or synchronization.
      *
      * @example 01
      *
@@ -33,6 +35,10 @@ class DescribePreCheckStatusResponseBody extends Model
     public $code;
 
     /**
+     * @description Number of failed evaluation items
+     *
+     * @example 0
+     *
      * @var int
      */
     public $errorAnalysisItem;
@@ -47,12 +53,14 @@ class DescribePreCheckStatusResponseBody extends Model
     public $errorItem;
 
     /**
+     * @description Network-wide inspection results.
+     *
      * @var fullNetCheckJobStatus[]
      */
     public $fullNetCheckJobStatus;
 
     /**
-     * @description The HTTP status code.
+     * @description The status code that is returned.
      *
      * @example 200
      *
@@ -72,24 +80,28 @@ class DescribePreCheckStatusResponseBody extends Model
     /**
      * @description The name of the subtask.
      *
+     * @example dtstest
+     *
      * @var string
      */
     public $jobName;
 
     /**
-     * @description The list of subtasks and the progress of each subtask.
+     * @description The subtasks and the progress of each subtask.
      *
      * @var jobProgress[]
      */
     public $jobProgress;
 
     /**
+     * @description Network diagnosis result
+     *
      * @var networkDiagnosisResult
      */
     public $networkDiagnosisResult;
 
     /**
-     * @description The number of the page returned. The value is an integer that is greater than **0** and does not exceed the maximum value of the Integer data type. Default value: **1**.
+     * @description The page number. Pages start from page 1. Default value: **1**.
      *
      * @example 1
      *
@@ -98,7 +110,7 @@ class DescribePreCheckStatusResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 20
      *
@@ -107,7 +119,7 @@ class DescribePreCheckStatusResponseBody extends Model
     public $pageRecordCount;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C096FA97-B6BA-4575-899D-61E12B59****
      *
@@ -133,14 +145,14 @@ class DescribePreCheckStatusResponseBody extends Model
     public $state;
 
     /**
-     * @description The state of the distributed subtask.
+     * @description The information about the distributed subtasks.
      *
      * @var subDistributedJobStatus[]
      */
     public $subDistributedJobStatus;
 
     /**
-     * @description Indicates whether the request was successful.
+     * @description Indicates whether the request is successful.
      *
      * @example true
      *
@@ -158,7 +170,7 @@ class DescribePreCheckStatusResponseBody extends Model
     public $total;
 
     /**
-     * @description The total number of returned records.
+     * @description The total number of entries that are returned.
      *
      * @example 100
      *
