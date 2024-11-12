@@ -18,6 +18,11 @@ class unprotectedResource extends Model
     public $count;
 
     /**
+     * @var string[]
+     */
+    public $ecrList;
+
+    /**
      * @description The unprotected peer transit routers.
      *
      * @var string[]
@@ -46,6 +51,7 @@ class unprotectedResource extends Model
     public $vpnList;
     protected $_name = [
         'count'      => 'Count',
+        'ecrList'    => 'EcrList',
         'peerTrList' => 'PeerTrList',
         'vbrList'    => 'VbrList',
         'vpcList'    => 'VpcList',
@@ -61,6 +67,9 @@ class unprotectedResource extends Model
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->ecrList) {
+            $res['EcrList'] = $this->ecrList;
         }
         if (null !== $this->peerTrList) {
             $res['PeerTrList'] = $this->peerTrList;
@@ -88,6 +97,11 @@ class unprotectedResource extends Model
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['EcrList'])) {
+            if (!empty($map['EcrList'])) {
+                $model->ecrList = $map['EcrList'];
+            }
         }
         if (isset($map['PeerTrList'])) {
             if (!empty($map['PeerTrList'])) {

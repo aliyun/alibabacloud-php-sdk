@@ -69,6 +69,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetRiskListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetRiskListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetStatisticRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetStatisticResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeCfwRiskLevelSummaryRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeCfwRiskLevelSummaryResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeControlPolicyRequest;
@@ -2415,6 +2417,59 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAssetRiskListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取资产统计信息
+     *  *
+     * @param DescribeAssetStatisticRequest $request DescribeAssetStatisticRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAssetStatisticResponse DescribeAssetStatisticResponse
+     */
+    public function describeAssetStatisticWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAssetStatistic',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAssetStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取资产统计信息
+     *  *
+     * @param DescribeAssetStatisticRequest $request DescribeAssetStatisticRequest
+     *
+     * @return DescribeAssetStatisticResponse DescribeAssetStatisticResponse
+     */
+    public function describeAssetStatistic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAssetStatisticWithOptions($request, $runtime);
     }
 
     /**
@@ -7147,9 +7202,9 @@ class Cloudfw extends OpenApiClient
     /**
      * @summary Enables firewalls for specific assets.
      *  *
-     * @description You can call the PutEnableFwSwitch operation to enable a firewall. After you enable a firewall, traffic passes through Cloud Firewall.
-     * ## Limits
-     * You can call this operation up to 5 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     * @description You can call this operation to enable a firewall. After you enable a firewall, traffic passes through Cloud Firewall.
+     * ## [](#qps-)Limits
+     * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *  *
      * @param PutEnableFwSwitchRequest $request PutEnableFwSwitchRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -7196,9 +7251,9 @@ class Cloudfw extends OpenApiClient
     /**
      * @summary Enables firewalls for specific assets.
      *  *
-     * @description You can call the PutEnableFwSwitch operation to enable a firewall. After you enable a firewall, traffic passes through Cloud Firewall.
-     * ## Limits
-     * You can call this operation up to 5 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     * @description You can call this operation to enable a firewall. After you enable a firewall, traffic passes through Cloud Firewall.
+     * ## [](#qps-)Limits
+     * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *  *
      * @param PutEnableFwSwitchRequest $request PutEnableFwSwitchRequest
      *

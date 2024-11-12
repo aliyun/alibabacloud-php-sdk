@@ -49,7 +49,7 @@ class DescribeNatFirewallListRequest extends Model
     /**
      * @description The number of entries per page.
      *
-     * Maximum value: 50.
+     * Default value: **10**.**** Maximum value: **50**.
      * @example 10
      *
      * @var int

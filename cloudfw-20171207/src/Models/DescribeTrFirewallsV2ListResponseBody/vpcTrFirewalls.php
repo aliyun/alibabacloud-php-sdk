@@ -30,6 +30,11 @@ class vpcTrFirewalls extends Model
     public $cenName;
 
     /**
+     * @var string
+     */
+    public $cloudFirewallVpcOrderType;
+
+    /**
      * @description The instance ID of the VPC firewall.
      *
      * @example vfw-tr-99bc4f0fc88b4d00****
@@ -162,21 +167,22 @@ class vpcTrFirewalls extends Model
      */
     public $vpcFirewallName;
     protected $_name = [
-        'cenId'                => 'CenId',
-        'cenName'              => 'CenName',
-        'firewallId'           => 'FirewallId',
-        'firewallSwitchStatus' => 'FirewallSwitchStatus',
-        'ipsConfig'            => 'IpsConfig',
-        'ownerId'              => 'OwnerId',
-        'precheckStatus'       => 'PrecheckStatus',
-        'protectedResource'    => 'ProtectedResource',
-        'regionNo'             => 'RegionNo',
-        'regionStatus'         => 'RegionStatus',
-        'resultCode'           => 'ResultCode',
-        'routeMode'            => 'RouteMode',
-        'transitRouterId'      => 'TransitRouterId',
-        'unprotectedResource'  => 'UnprotectedResource',
-        'vpcFirewallName'      => 'VpcFirewallName',
+        'cenId'                     => 'CenId',
+        'cenName'                   => 'CenName',
+        'cloudFirewallVpcOrderType' => 'CloudFirewallVpcOrderType',
+        'firewallId'                => 'FirewallId',
+        'firewallSwitchStatus'      => 'FirewallSwitchStatus',
+        'ipsConfig'                 => 'IpsConfig',
+        'ownerId'                   => 'OwnerId',
+        'precheckStatus'            => 'PrecheckStatus',
+        'protectedResource'         => 'ProtectedResource',
+        'regionNo'                  => 'RegionNo',
+        'regionStatus'              => 'RegionStatus',
+        'resultCode'                => 'ResultCode',
+        'routeMode'                 => 'RouteMode',
+        'transitRouterId'           => 'TransitRouterId',
+        'unprotectedResource'       => 'UnprotectedResource',
+        'vpcFirewallName'           => 'VpcFirewallName',
     ];
 
     public function validate()
@@ -191,6 +197,9 @@ class vpcTrFirewalls extends Model
         }
         if (null !== $this->cenName) {
             $res['CenName'] = $this->cenName;
+        }
+        if (null !== $this->cloudFirewallVpcOrderType) {
+            $res['CloudFirewallVpcOrderType'] = $this->cloudFirewallVpcOrderType;
         }
         if (null !== $this->firewallId) {
             $res['FirewallId'] = $this->firewallId;
@@ -248,6 +257,9 @@ class vpcTrFirewalls extends Model
         }
         if (isset($map['CenName'])) {
             $model->cenName = $map['CenName'];
+        }
+        if (isset($map['CloudFirewallVpcOrderType'])) {
+            $model->cloudFirewallVpcOrderType = $map['CloudFirewallVpcOrderType'];
         }
         if (isset($map['FirewallId'])) {
             $model->firewallId = $map['FirewallId'];
