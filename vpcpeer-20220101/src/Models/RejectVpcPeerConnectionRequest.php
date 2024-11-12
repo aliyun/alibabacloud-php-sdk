@@ -35,6 +35,7 @@ class RejectVpcPeerConnectionRequest extends Model
     /**
      * @description The ID of the VPC peering connection to be rejected by the acceptor VPC.
      *
+     * This parameter is required.
      * @example pcc-lnk0m24khwvtkm0****
      *
      * @var string

@@ -54,6 +54,7 @@ class ModifyVpcPeerConnectionRequest extends Model
     /**
      * @description The ID of the VPC peering connection whose name or description you want to modify.
      *
+     * This parameter is required.
      * @example pcc-lnk0m24khwvtkm****
      *
      * @var string

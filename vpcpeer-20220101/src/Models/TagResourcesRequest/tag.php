@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The key of the tag. You must enter at least one tag key and at most 20 tag keys. The tag key cannot be an empty string.
+     * @description The tag key. You must specify at least one tag key and at most 20 tag keys. The tag key cannot be an empty string.
      *
-     * The key cannot exceed 64 characters in length, and can contain digits, periods (.), underscores (\_), and hyphens (-). The key must start with a letter but cannot start with `aliyun` or `acs:`. The key cannot contain `http://` or `https://`.
+     * The tag key can be up to 128 characters in length. It cannot start with `acs:` or `aliyun` and cannot contain `http://` or `https://`.
      * @example FinanceDept
      *
      * @var string
@@ -19,9 +19,9 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The value of the tag. You must enter at least one tag value and at most 20 tag values. It can be an empty string.
+     * @description The tag value. You must specify at least one tag value and can specify at most 20 tag values. The tag value can be an empty string.
      *
-     * The tag value cannot exceed 128 characters in length, and can contain digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter but cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+     * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
      * @example FinanceJoshua
      *
      * @var string

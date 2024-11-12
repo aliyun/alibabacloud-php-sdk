@@ -24,7 +24,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The region ID of the resource to which you want to create and add tags.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -34,6 +34,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The IDs of resources.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -41,6 +42,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The type of the resource. Set the value to **PeerConnection**, which specifies a VPC peering connection.
      *
+     * This parameter is required.
      * @example PeerConnection
      *
      * @var string
@@ -50,6 +52,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The tags.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

@@ -35,6 +35,7 @@ class AcceptVpcPeerConnectionRequest extends Model
     /**
      * @description The ID of the VPC peering connection to be accepted by the accepter VPC.
      *
+     * This parameter is required.
      * @example pcc-guzvyqlj0n6e10****
      *
      * @var string
@@ -44,7 +45,7 @@ class AcceptVpcPeerConnectionRequest extends Model
     /**
      * @description The ID of the resource group.
      *
-     * For more information about resource groups, see [What is a resource group?](~~94475~~)
+     * For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/94475.html)
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string

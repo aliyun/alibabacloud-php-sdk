@@ -37,14 +37,12 @@ class GetVpcPeerConnectionAttributeResponseBody extends Model
     public $acceptingVpc;
 
     /**
-     * @description The bandwidth of the VPC peering connection. Unit: Mbit/s. The value must be an integer greater than 0.
-     *
-     * >  If the value is set to **-1**, it indicates that no limit is imposed on the bandwidth.
+     * @description The bandwidth of the VPC peering connection. Unit: Mbit /s. The value is an integer greater than 0.
      *
      * Default value:
      *
-     *   The default bandwidth of an inter-region VPC peering connection is **1024** Mbit/s.
-     *   The default bandwidth of an intra-region VPC peering connection is **-1** Mbit/s.
+     *   The default bandwidth value of an inter-region VPC peering connection is 1,024 Mbit/s.
+     *   The default bandwidth value of an intra-region VPC peering connection is -1 Mbit/s, which indicates that the bandwidth is unlimited.
      *
      * @example 1024
      *
@@ -53,7 +51,7 @@ class GetVpcPeerConnectionAttributeResponseBody extends Model
     public $bandwidth;
 
     /**
-     * @description The business status of the VPC peering connection. Valid values:
+     * @description The status of the VPC peering connection. Valid values:
      *
      *   **Normal**
      *   **FinancialLocked**
@@ -74,7 +72,7 @@ class GetVpcPeerConnectionAttributeResponseBody extends Model
     public $description;
 
     /**
-     * @description The time when the VPC peering connection was created. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format in UTC.
+     * @description The time when the VPC peering connection was created. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ss` format. The time is displayed in UTC.
      *
      * @example 2022-04-24T09:02:36Z
      *
@@ -85,7 +83,7 @@ class GetVpcPeerConnectionAttributeResponseBody extends Model
     /**
      * @description The expiration time of the VPC peering connection.
      *
-     * The expiration time is returned only when the **Status** of the VPC peering connection is **Accepting** or **Expired**. Otherwise, **null** is returned.
+     * A valid expiration time is returned only when the **Status** of the VPC peering connection is **Accepting** or **Expired**. Otherwise, **null** is returned.
      * @example 2022-05-01T09:02:36Z
      *
      * @var string
@@ -93,7 +91,7 @@ class GetVpcPeerConnectionAttributeResponseBody extends Model
     public $gmtExpired;
 
     /**
-     * @description The time when the VPC peering connection was modified. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format in UTC.
+     * @description The time when the VPC peering connection was modified. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ss` format. The time is displayed in UTC.
      *
      * @example 2022-04-24T19:20:45Z
      *
@@ -167,7 +165,7 @@ class GetVpcPeerConnectionAttributeResponseBody extends Model
      *   **Deleting**
      *   **Deleted**
      *
-     * For more information about the status of VPC peering connections, see [Overview of VPC peering connections](~~418507~~).
+     * For more information about the status of VPC peering connections, see [Overview](https://help.aliyun.com/document_detail/418507.html).
      * @example Activated
      *
      * @var string

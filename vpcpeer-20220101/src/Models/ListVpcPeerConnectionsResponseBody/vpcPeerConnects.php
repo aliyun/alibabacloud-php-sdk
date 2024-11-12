@@ -156,7 +156,7 @@ class vpcPeerConnects extends Model
      *   **Deleting**
      *   **Deleted**
      *
-     * For more information about the status of VPC peering connections, see [Overview of VPC peering connections](~~418507~~).
+     * For more information about the status of VPC peering connections, see [Overview of VPC peering connections](https://help.aliyun.com/document_detail/418507.html).
      * @example Activated
      *
      * @var string

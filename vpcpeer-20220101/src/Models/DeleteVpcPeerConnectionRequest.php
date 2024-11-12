@@ -47,6 +47,7 @@ class DeleteVpcPeerConnectionRequest extends Model
     /**
      * @description The ID of the VPC peering connection that you want to delete.
      *
+     * This parameter is required.
      * @example pcc-lnk0m24khwvtkm****
      *
      * @var string

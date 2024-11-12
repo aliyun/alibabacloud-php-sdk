@@ -15,6 +15,8 @@ class CreateVpcPeerConnectionRequest extends Model
      *   To create a VPC peering connection between your Alibaba Cloud account and another Alibaba Cloud account, enter the ID of the peer Alibaba Cloud account.
      *
      * >  If the accepter is a RAM user, set **AcceptingAliUid** to the ID of the Alibaba Cloud account that created the RAM user.
+     *
+     * This parameter is required.
      * @example 1210123456123456
      *
      * @var int
@@ -27,6 +29,7 @@ class CreateVpcPeerConnectionRequest extends Model
      *   To create an intra-region VPC peering connection, enter a region ID that is the same as that of the requester VPC.
      *   To create an inter-region VPC peering connection, enter a region ID that is different from that of the requester VPC.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -36,6 +39,7 @@ class CreateVpcPeerConnectionRequest extends Model
     /**
      * @description The ID of the accepter VPC.
      *
+     * This parameter is required.
      * @example vpc-bp1vzjkp2q1xgnind****
      *
      * @var string
@@ -88,7 +92,7 @@ class CreateVpcPeerConnectionRequest extends Model
     /**
      * @description The name of the VPC peering connection.
      *
-     * The name must be 2 to 128 characters in length, and can contain digits, underscores (\_), and hyphens (-). It must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain digits, underscores (_), and hyphens (-). It must start with a letter.
      * @example vpcpeer
      *
      * @var string
@@ -98,7 +102,7 @@ class CreateVpcPeerConnectionRequest extends Model
     /**
      * @description The ID of the region where you want to create a VPC peering connection.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -108,7 +112,7 @@ class CreateVpcPeerConnectionRequest extends Model
     /**
      * @description The ID of the resource group.
      *
-     * For more information about resource groups, see [Resource groups](~~94475~~).
+     * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.html).
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string
@@ -118,6 +122,7 @@ class CreateVpcPeerConnectionRequest extends Model
     /**
      * @description The ID of the requester VPC.
      *
+     * This parameter is required.
      * @example vpc-bp1gsk7h12ew7oegk****
      *
      * @var string

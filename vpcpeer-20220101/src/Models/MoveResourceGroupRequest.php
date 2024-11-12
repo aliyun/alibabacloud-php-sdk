@@ -11,7 +11,7 @@ class MoveResourceGroupRequest extends Model
     /**
      * @description The ID of the new resource group.
      *
-     * >  You can use resource groups to manage resources owned by your Alibaba Cloud account. Resource groups simplify the resource and permission management of your Alibaba Cloud account. For more information, see [What is resource management?](~~94475~~).
+     * This parameter is required.
      * @example rg-acfm3peow3k****
      *
      * @var string
@@ -19,9 +19,9 @@ class MoveResourceGroupRequest extends Model
     public $newResourceGroupId;
 
     /**
-     * @description The ID of the region to which the resource belongs.
+     * @description The region ID of the resource.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -31,6 +31,7 @@ class MoveResourceGroupRequest extends Model
     /**
      * @description The ID of the VPC peering connection.
      *
+     * This parameter is required.
      * @example pcc-gu32s92f9ytsk9****
      *
      * @var string
@@ -40,6 +41,7 @@ class MoveResourceGroupRequest extends Model
     /**
      * @description The resource type. Set the value to **PeerConnection**, which specifies a VPC peering connection.
      *
+     * This parameter is required.
      * @example PeerConnection
      *
      * @var string

@@ -35,7 +35,7 @@ class UnTagResourcesRequest extends Model
     /**
      * @description The region ID of the tag.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -45,6 +45,7 @@ class UnTagResourcesRequest extends Model
     /**
      * @description The IDs of resources.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -52,6 +53,7 @@ class UnTagResourcesRequest extends Model
     /**
      * @description The type of the resource. Set the value to **PeerConnection**, which specifies a VPC peering connection.
      *
+     * This parameter is required.
      * @example PeerConnection
      *
      * @var string
@@ -59,8 +61,9 @@ class UnTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tags.
+     * @description The key of the tag that you want to remove. You can specify at most 20 tag keys. It can be an empty string.
      *
+     * It can be up to 128 characters in length. It cannot start with `acs:` or `aliyun` and cannot contain `http://` or `https://`.
      * @var string[]
      */
     public $tagKey;

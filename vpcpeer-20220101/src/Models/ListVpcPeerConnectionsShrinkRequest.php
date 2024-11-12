@@ -51,7 +51,7 @@ class ListVpcPeerConnectionsShrinkRequest extends Model
     /**
      * @description The ID of the region where you want to query VPC peering connections.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -61,7 +61,7 @@ class ListVpcPeerConnectionsShrinkRequest extends Model
     /**
      * @description The ID of the resource group.
      *
-     * For more information about resource groups, see [What is a resource group?](~~94475~~)
+     * For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/94475.html)
      * @example rg-acfm2ggeub5uf3y
      *
      * @var string
@@ -69,7 +69,7 @@ class ListVpcPeerConnectionsShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The tags.
+     * @description The tag list.
      *
      * @var tags[]
      */

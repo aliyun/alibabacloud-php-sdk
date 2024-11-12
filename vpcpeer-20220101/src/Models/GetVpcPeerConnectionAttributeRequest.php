@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetVpcPeerConnectionAttributeRequest extends Model
 {
     /**
-     * @description The ID of the VPC peering connection that you want to query.
+     * @description The ID of the VPC peering connection.
      *
+     * This parameter is required.
      * @example pcc-lnk0m24khwvtkm****
      *
      * @var string
