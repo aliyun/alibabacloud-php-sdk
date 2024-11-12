@@ -10,17 +10,23 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @description The collection of regions.
+     *
      * @var regions
      */
     public $regions;
+
+    /**
+     * @description The ID of the request.
+     *
+     * @example BDDB1954-002B-4249-B2DF-2CDDA0259668
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'regions'   => 'Regions',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +36,11 @@ class DescribeRegionsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->regions) {
             $res['Regions'] = null !== $this->regions ? $this->regions->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +54,11 @@ class DescribeRegionsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Regions'])) {
             $model->regions = regions::fromMap($map['Regions']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Hitsdb\V20170601;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Hitsdb\V20170601\Models\CreateHiTSDBInstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20170601\Models\CreateHiTSDBInstanceResponse;
 use AlibabaCloud\SDK\Hitsdb\V20170601\Models\DeleteHiTSDBInstanceRequest;
@@ -34,6 +35,7 @@ use AlibabaCloud\SDK\Hitsdb\V20170601\Models\SwitchHiTSDBInstancePublicNetRespon
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Hitsdb extends OpenApiClient
@@ -42,55 +44,6 @@ class Hitsdb extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'cn-qingdao'                  => 'hitsdb.aliyuncs.com',
-            'cn-beijing'                  => 'hitsdb.aliyuncs.com',
-            'cn-hangzhou'                 => 'hitsdb.aliyuncs.com',
-            'cn-shanghai'                 => 'hitsdb.aliyuncs.com',
-            'cn-shenzhen'                 => 'hitsdb.aliyuncs.com',
-            'cn-hongkong'                 => 'hitsdb.aliyuncs.com',
-            'ap-southeast-1'              => 'hitsdb.aliyuncs.com',
-            'us-west-1'                   => 'hitsdb.aliyuncs.com',
-            'us-east-1'                   => 'hitsdb.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'hitsdb.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'hitsdb.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'hitsdb.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'hitsdb.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'hitsdb.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'hitsdb.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'hitsdb.aliyuncs.com',
-            'cn-chengdu'                  => 'hitsdb.aliyuncs.com',
-            'cn-edge-1'                   => 'hitsdb.aliyuncs.com',
-            'cn-fujian'                   => 'hitsdb.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'hitsdb.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'hitsdb.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'hitsdb.aliyuncs.com',
-            'cn-hangzhou-internal-prod-1' => 'hitsdb.aliyuncs.com',
-            'cn-hangzhou-internal-test-1' => 'hitsdb.aliyuncs.com',
-            'cn-hangzhou-internal-test-2' => 'hitsdb.aliyuncs.com',
-            'cn-hangzhou-internal-test-3' => 'hitsdb.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'hitsdb.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'hitsdb.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'hitsdb.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'hitsdb.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'hitsdb.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'hitsdb.aliyuncs.com',
-            'cn-shanghai-inner'           => 'hitsdb.aliyuncs.com',
-            'cn-shanghai-internal-test-1' => 'hitsdb.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'hitsdb.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'hitsdb.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'hitsdb.aliyuncs.com',
-            'cn-wuhan'                    => 'hitsdb.aliyuncs.com',
-            'cn-wulanchabu'               => 'hitsdb.aliyuncs.com',
-            'cn-yushanfang'               => 'hitsdb.aliyuncs.com',
-            'cn-zhangbei'                 => 'hitsdb.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'hitsdb.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'hitsdb.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'hitsdb.aliyuncs.com',
-            'eu-west-1-oxs'               => 'hitsdb.aliyuncs.com',
-            'me-east-1'                   => 'hitsdb.aliyuncs.com',
-            'rus-west-1-pop'              => 'hitsdb.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('hitsdb', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -119,25 +72,88 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param CreateHiTSDBInstanceRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param CreateHiTSDBInstanceRequest $request CreateHiTSDBInstanceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateHiTSDBInstanceResponse
+     * @return CreateHiTSDBInstanceResponse CreateHiTSDBInstanceResponse
      */
     public function createHiTSDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->diskCategory)) {
+            $query['DiskCategory'] = $request->diskCategory;
+        }
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->instanceAlias)) {
+            $query['InstanceAlias'] = $request->instanceAlias;
+        }
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
+        }
+        if (!Utils::isUnset($request->instanceStorage)) {
+            $query['InstanceStorage'] = $request->instanceStorage;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
+        }
+        if (!Utils::isUnset($request->pricingCycle)) {
+            $query['PricingCycle'] = $request->pricingCycle;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->VPCId)) {
+            $query['VPCId'] = $request->VPCId;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateHiTSDBInstance',
+            'version'     => '2017-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateHiTSDBInstanceResponse::fromMap($this->doRPCRequest('CreateHiTSDBInstance', '2017-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateHiTSDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateHiTSDBInstanceRequest $request
+     * @param CreateHiTSDBInstanceRequest $request CreateHiTSDBInstanceRequest
      *
-     * @return CreateHiTSDBInstanceResponse
+     * @return CreateHiTSDBInstanceResponse CreateHiTSDBInstanceResponse
      */
     public function createHiTSDBInstance($request)
     {
@@ -147,25 +163,59 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteHiTSDBInstanceRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Deletes a Time Series Database (TSDB) instance.
+     *  *
+     * @param DeleteHiTSDBInstanceRequest $request DeleteHiTSDBInstanceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteHiTSDBInstanceResponse
+     * @return DeleteHiTSDBInstanceResponse DeleteHiTSDBInstanceResponse
      */
     public function deleteHiTSDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteHiTSDBInstance',
+            'version'     => '2017-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteHiTSDBInstanceResponse::fromMap($this->doRPCRequest('DeleteHiTSDBInstance', '2017-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteHiTSDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteHiTSDBInstanceRequest $request
+     * @summary Deletes a Time Series Database (TSDB) instance.
+     *  *
+     * @param DeleteHiTSDBInstanceRequest $request DeleteHiTSDBInstanceRequest
      *
-     * @return DeleteHiTSDBInstanceResponse
+     * @return DeleteHiTSDBInstanceResponse DeleteHiTSDBInstanceResponse
      */
     public function deleteHiTSDBInstance($request)
     {
@@ -175,25 +225,59 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeHiTSDBInstanceRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the details about a Time Series Database (TSDB) instance.
+     *  *
+     * @param DescribeHiTSDBInstanceRequest $request DescribeHiTSDBInstanceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHiTSDBInstanceResponse
+     * @return DescribeHiTSDBInstanceResponse DescribeHiTSDBInstanceResponse
      */
     public function describeHiTSDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHiTSDBInstance',
+            'version'     => '2017-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeHiTSDBInstanceResponse::fromMap($this->doRPCRequest('DescribeHiTSDBInstance', '2017-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeHiTSDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeHiTSDBInstanceRequest $request
+     * @summary Queries the details about a Time Series Database (TSDB) instance.
+     *  *
+     * @param DescribeHiTSDBInstanceRequest $request DescribeHiTSDBInstanceRequest
      *
-     * @return DescribeHiTSDBInstanceResponse
+     * @return DescribeHiTSDBInstanceResponse DescribeHiTSDBInstanceResponse
      */
     public function describeHiTSDBInstance($request)
     {
@@ -203,25 +287,67 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeHiTSDBInstanceListRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeHiTSDBInstanceListRequest $request DescribeHiTSDBInstanceListRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHiTSDBInstanceListResponse
+     * @return DescribeHiTSDBInstanceListResponse DescribeHiTSDBInstanceListResponse
      */
     public function describeHiTSDBInstanceListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->engineType)) {
+            $query['EngineType'] = $request->engineType;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryStr)) {
+            $query['QueryStr'] = $request->queryStr;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->statusList)) {
+            $query['StatusList'] = $request->statusList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHiTSDBInstanceList',
+            'version'     => '2017-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeHiTSDBInstanceListResponse::fromMap($this->doRPCRequest('DescribeHiTSDBInstanceList', '2017-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeHiTSDBInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeHiTSDBInstanceListRequest $request
+     * @param DescribeHiTSDBInstanceListRequest $request DescribeHiTSDBInstanceListRequest
      *
-     * @return DescribeHiTSDBInstanceListResponse
+     * @return DescribeHiTSDBInstanceListResponse DescribeHiTSDBInstanceListResponse
      */
     public function describeHiTSDBInstanceList($request)
     {
@@ -231,25 +357,58 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeHiTSDBInstanceSecurityIpListRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @param DescribeHiTSDBInstanceSecurityIpListRequest $request DescribeHiTSDBInstanceSecurityIpListRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHiTSDBInstanceSecurityIpListResponse
+     * @return DescribeHiTSDBInstanceSecurityIpListResponse DescribeHiTSDBInstanceSecurityIpListResponse
      */
     public function describeHiTSDBInstanceSecurityIpListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHiTSDBInstanceSecurityIpList',
+            'version'     => '2017-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeHiTSDBInstanceSecurityIpListResponse::fromMap($this->doRPCRequest('DescribeHiTSDBInstanceSecurityIpList', '2017-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeHiTSDBInstanceSecurityIpListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeHiTSDBInstanceSecurityIpListRequest $request
+     * @param DescribeHiTSDBInstanceSecurityIpListRequest $request DescribeHiTSDBInstanceSecurityIpListRequest
      *
-     * @return DescribeHiTSDBInstanceSecurityIpListResponse
+     * @return DescribeHiTSDBInstanceSecurityIpListResponse DescribeHiTSDBInstanceSecurityIpListResponse
      */
     public function describeHiTSDBInstanceSecurityIpList($request)
     {
@@ -259,25 +418,59 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the regions in which Time Series Database (TSDB) instances can be deployed.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRegions',
+            'version'     => '2017-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2017-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @summary Queries the regions in which Time Series Database (TSDB) instances can be deployed.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -287,25 +480,55 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeZonesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param DescribeZonesRequest $request DescribeZonesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZonesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeZones',
+            'version'     => '2017-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeZonesResponse::fromMap($this->doRPCRequest('DescribeZones', '2017-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeZonesRequest $request
+     * @param DescribeZonesRequest $request DescribeZonesRequest
      *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZones($request)
     {
@@ -315,25 +538,61 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyHiTSDBInstanceClassRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param ModifyHiTSDBInstanceClassRequest $request ModifyHiTSDBInstanceClassRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyHiTSDBInstanceClassResponse
+     * @return ModifyHiTSDBInstanceClassResponse ModifyHiTSDBInstanceClassResponse
      */
     public function modifyHiTSDBInstanceClassWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceStorage)) {
+            $query['InstanceStorage'] = $request->instanceStorage;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyHiTSDBInstanceClass',
+            'version'     => '2017-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyHiTSDBInstanceClassResponse::fromMap($this->doRPCRequest('ModifyHiTSDBInstanceClass', '2017-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyHiTSDBInstanceClassResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyHiTSDBInstanceClassRequest $request
+     * @param ModifyHiTSDBInstanceClassRequest $request ModifyHiTSDBInstanceClassRequest
      *
-     * @return ModifyHiTSDBInstanceClassResponse
+     * @return ModifyHiTSDBInstanceClassResponse ModifyHiTSDBInstanceClassResponse
      */
     public function modifyHiTSDBInstanceClass($request)
     {
@@ -343,25 +602,61 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyHiTSDBInstanceSecurityIpListRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @param ModifyHiTSDBInstanceSecurityIpListRequest $request ModifyHiTSDBInstanceSecurityIpListRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyHiTSDBInstanceSecurityIpListResponse
+     * @return ModifyHiTSDBInstanceSecurityIpListResponse ModifyHiTSDBInstanceSecurityIpListResponse
      */
     public function modifyHiTSDBInstanceSecurityIpListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityIpList)) {
+            $query['SecurityIpList'] = $request->securityIpList;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyHiTSDBInstanceSecurityIpList',
+            'version'     => '2017-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyHiTSDBInstanceSecurityIpListResponse::fromMap($this->doRPCRequest('ModifyHiTSDBInstanceSecurityIpList', '2017-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyHiTSDBInstanceSecurityIpListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyHiTSDBInstanceSecurityIpListRequest $request
+     * @param ModifyHiTSDBInstanceSecurityIpListRequest $request ModifyHiTSDBInstanceSecurityIpListRequest
      *
-     * @return ModifyHiTSDBInstanceSecurityIpListResponse
+     * @return ModifyHiTSDBInstanceSecurityIpListResponse ModifyHiTSDBInstanceSecurityIpListResponse
      */
     public function modifyHiTSDBInstanceSecurityIpList($request)
     {
@@ -371,25 +666,62 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param RenameHiTSDBInstanceAliasRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Invoke RenameHiTSDBInstanceAlias to modify the instance alias.
+     *  *
+     * @param RenameHiTSDBInstanceAliasRequest $request RenameHiTSDBInstanceAliasRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenameHiTSDBInstanceAliasResponse
+     * @return RenameHiTSDBInstanceAliasResponse RenameHiTSDBInstanceAliasResponse
      */
     public function renameHiTSDBInstanceAliasWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceAlias)) {
+            $query['InstanceAlias'] = $request->instanceAlias;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RenameHiTSDBInstanceAlias',
+            'version'     => '2017-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RenameHiTSDBInstanceAliasResponse::fromMap($this->doRPCRequest('RenameHiTSDBInstanceAlias', '2017-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RenameHiTSDBInstanceAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RenameHiTSDBInstanceAliasRequest $request
+     * @summary Invoke RenameHiTSDBInstanceAlias to modify the instance alias.
+     *  *
+     * @param RenameHiTSDBInstanceAliasRequest $request RenameHiTSDBInstanceAliasRequest
      *
-     * @return RenameHiTSDBInstanceAliasResponse
+     * @return RenameHiTSDBInstanceAliasResponse RenameHiTSDBInstanceAliasResponse
      */
     public function renameHiTSDBInstanceAlias($request)
     {
@@ -399,25 +731,64 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param RenewTSDBInstanceRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param RenewTSDBInstanceRequest $request RenewTSDBInstanceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenewTSDBInstanceResponse
+     * @return RenewTSDBInstanceResponse RenewTSDBInstanceResponse
      */
     public function renewTSDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pricingCycle)) {
+            $query['PricingCycle'] = $request->pricingCycle;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RenewTSDBInstance',
+            'version'     => '2017-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RenewTSDBInstanceResponse::fromMap($this->doRPCRequest('RenewTSDBInstance', '2017-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RenewTSDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RenewTSDBInstanceRequest $request
+     * @param RenewTSDBInstanceRequest $request RenewTSDBInstanceRequest
      *
-     * @return RenewTSDBInstanceResponse
+     * @return RenewTSDBInstanceResponse RenewTSDBInstanceResponse
      */
     public function renewTSDBInstance($request)
     {
@@ -427,25 +798,59 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param RestartHiTSDBInstanceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Restarts a Time Series Database (TSDB) instance.
+     *  *
+     * @param RestartHiTSDBInstanceRequest $request RestartHiTSDBInstanceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestartHiTSDBInstanceResponse
+     * @return RestartHiTSDBInstanceResponse RestartHiTSDBInstanceResponse
      */
     public function restartHiTSDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RestartHiTSDBInstance',
+            'version'     => '2017-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RestartHiTSDBInstanceResponse::fromMap($this->doRPCRequest('RestartHiTSDBInstance', '2017-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RestartHiTSDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RestartHiTSDBInstanceRequest $request
+     * @summary Restarts a Time Series Database (TSDB) instance.
+     *  *
+     * @param RestartHiTSDBInstanceRequest $request RestartHiTSDBInstanceRequest
      *
-     * @return RestartHiTSDBInstanceResponse
+     * @return RestartHiTSDBInstanceResponse RestartHiTSDBInstanceResponse
      */
     public function restartHiTSDBInstance($request)
     {
@@ -455,25 +860,62 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param SwitchHiTSDBInstancePublicNetRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Switches the Internet connection status of a Time Series Database (TSDB) instance.
+     *  *
+     * @param SwitchHiTSDBInstancePublicNetRequest $request SwitchHiTSDBInstancePublicNetRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return SwitchHiTSDBInstancePublicNetResponse
+     * @return SwitchHiTSDBInstancePublicNetResponse SwitchHiTSDBInstancePublicNetResponse
      */
     public function switchHiTSDBInstancePublicNetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->switchAction)) {
+            $query['SwitchAction'] = $request->switchAction;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SwitchHiTSDBInstancePublicNet',
+            'version'     => '2017-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SwitchHiTSDBInstancePublicNetResponse::fromMap($this->doRPCRequest('SwitchHiTSDBInstancePublicNet', '2017-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SwitchHiTSDBInstancePublicNetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SwitchHiTSDBInstancePublicNetRequest $request
+     * @summary Switches the Internet connection status of a Time Series Database (TSDB) instance.
+     *  *
+     * @param SwitchHiTSDBInstancePublicNetRequest $request SwitchHiTSDBInstancePublicNetRequest
      *
-     * @return SwitchHiTSDBInstancePublicNetResponse
+     * @return SwitchHiTSDBInstancePublicNetResponse SwitchHiTSDBInstancePublicNetResponse
      */
     public function switchHiTSDBInstancePublicNet($request)
     {

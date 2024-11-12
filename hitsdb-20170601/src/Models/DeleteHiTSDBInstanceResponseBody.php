@@ -11,9 +11,19 @@ class DeleteHiTSDBInstanceResponseBody extends Model
     /**
      * @var string
      */
+    public $accessDeniedDetail;
+
+    /**
+     * @description The ID of the request.
+     *
+     * @example 1556DCB0-043A-4444-8BD9-CF4A68E7EE64
+     *
+     * @var string
+     */
     public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -23,6 +33,9 @@ class DeleteHiTSDBInstanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -38,6 +51,9 @@ class DeleteHiTSDBInstanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

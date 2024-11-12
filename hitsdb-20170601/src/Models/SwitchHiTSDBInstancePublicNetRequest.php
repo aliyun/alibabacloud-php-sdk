@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class SwitchHiTSDBInstancePublicNetRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * This parameter is required.
+     * @example ts-ufxxxxxxxxxxxxxx
+     *
      * @var string
      */
-    public $securityToken;
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -31,24 +41,25 @@ class SwitchHiTSDBInstancePublicNetRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $securityToken;
 
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
+     * @description *   **1**: enables access to the instance from the Internet.
+     *   **0**: disables access to the instance from the Internet.
+     *
+     * This parameter is required.
+     * @example 1
+     *
      * @var int
      */
     public $switchAction;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'instanceId'           => 'InstanceId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'instanceId'           => 'InstanceId',
+        'securityToken'        => 'SecurityToken',
         'switchAction'         => 'SwitchAction',
     ];
 
@@ -59,8 +70,11 @@ class SwitchHiTSDBInstancePublicNetRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -71,11 +85,8 @@ class SwitchHiTSDBInstancePublicNetRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->switchAction) {
             $res['SwitchAction'] = $this->switchAction;
@@ -92,8 +103,11 @@ class SwitchHiTSDBInstancePublicNetRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -104,11 +118,8 @@ class SwitchHiTSDBInstancePublicNetRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['SwitchAction'])) {
             $model->switchAction = $map['SwitchAction'];

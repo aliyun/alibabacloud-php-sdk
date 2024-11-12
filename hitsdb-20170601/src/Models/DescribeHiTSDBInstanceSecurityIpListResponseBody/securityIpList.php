@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class securityIpList extends Model
 {
     /**
+     * @description auditing
+     *
+     * @example 0.0.0.0/0
+     *
      * @var string
      */
     public $ip;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeZonesResponseBody extends Model
 {
     /**
+     * @description The list of available zones.
+     *
+     * @example F67BFFF3-F5C2-45B5-9C28-6E4A1E51449B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the zone.
+     *
      * @var zoneList
      */
     public $zoneList;

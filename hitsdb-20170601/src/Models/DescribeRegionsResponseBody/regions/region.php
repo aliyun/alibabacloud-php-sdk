@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class region extends Model
 {
     /**
+     * @description The name of the region.
+     *
+     * @example China (Hangzhou)
+     *
      * @var string
      */
     public $localName;
 
     /**
+     * @description The endpoint of the region.
+     *
+     * @example hitsdb.aliyuncs.com
+     *
      * @var string
      */
     public $regionEndpoint;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

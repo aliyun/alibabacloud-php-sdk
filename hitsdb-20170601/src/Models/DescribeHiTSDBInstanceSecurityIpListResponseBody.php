@@ -12,15 +12,27 @@ class DescribeHiTSDBInstanceSecurityIpListResponseBody extends Model
     /**
      * @var string
      */
+    public $accessDeniedDetail;
+
+    /**
+     * @description The IP address whitelist of the instance.
+     *
+     * @example F2DFDC0B-FE4F-4696-9FD1-2EFDEE8D6C7C
+     *
+     * @var string
+     */
     public $requestId;
 
     /**
+     * @description The IP address in the whitelist.
+     *
      * @var securityIpList[]
      */
     public $securityIpList;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'securityIpList' => 'SecurityIpList',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'requestId'          => 'RequestId',
+        'securityIpList'     => 'SecurityIpList',
     ];
 
     public function validate()
@@ -30,6 +42,9 @@ class DescribeHiTSDBInstanceSecurityIpListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -54,6 +69,9 @@ class DescribeHiTSDBInstanceSecurityIpListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

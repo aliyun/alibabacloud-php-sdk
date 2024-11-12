@@ -9,9 +9,39 @@ use AlibabaCloud\Tea\Model;
 class ModifyHiTSDBInstanceClassRequest extends Model
 {
     /**
+     * @description The storage capacity of the instance. Unit: GB.
+     *
+     * This parameter is required.
+     * @example tsdb.1x.basic
+     *
      * @var string
      */
-    public $securityToken;
+    public $instanceClass;
+
+    /**
+     * @description The type of the instance.
+     *
+     * This parameter is required.
+     * @example ts-xxxxxxxxxxxxxxxxx
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @description The ID of the request.
+     *
+     * This parameter is required.
+     * @example 500
+     *
+     * @var string
+     */
+    public $instanceStorage;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -31,37 +61,16 @@ class ModifyHiTSDBInstanceClassRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $appKey;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $instanceClass;
-
-    /**
-     * @var string
-     */
-    public $instanceStorage;
+    public $securityToken;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'instanceClass'        => 'InstanceClass',
+        'instanceId'           => 'InstanceId',
+        'instanceStorage'      => 'InstanceStorage',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'appKey'               => 'AppKey',
-        'instanceId'           => 'InstanceId',
-        'instanceClass'        => 'InstanceClass',
-        'instanceStorage'      => 'InstanceStorage',
+        'securityToken'        => 'SecurityToken',
     ];
 
     public function validate()
@@ -71,8 +80,17 @@ class ModifyHiTSDBInstanceClassRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->instanceClass) {
+            $res['InstanceClass'] = $this->instanceClass;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceStorage) {
+            $res['InstanceStorage'] = $this->instanceStorage;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -83,20 +101,8 @@ class ModifyHiTSDBInstanceClassRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->appKey) {
-            $res['AppKey'] = $this->appKey;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->instanceClass) {
-            $res['InstanceClass'] = $this->instanceClass;
-        }
-        if (null !== $this->instanceStorage) {
-            $res['InstanceStorage'] = $this->instanceStorage;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -110,8 +116,17 @@ class ModifyHiTSDBInstanceClassRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['InstanceClass'])) {
+            $model->instanceClass = $map['InstanceClass'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceStorage'])) {
+            $model->instanceStorage = $map['InstanceStorage'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -122,20 +137,8 @@ class ModifyHiTSDBInstanceClassRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['AppKey'])) {
-            $model->appKey = $map['AppKey'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['InstanceClass'])) {
-            $model->instanceClass = $map['InstanceClass'];
-        }
-        if (isset($map['InstanceStorage'])) {
-            $model->instanceStorage = $map['InstanceStorage'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

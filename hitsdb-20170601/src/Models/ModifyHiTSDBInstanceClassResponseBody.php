@@ -11,9 +11,19 @@ class ModifyHiTSDBInstanceClassResponseBody extends Model
     /**
      * @var string
      */
+    public $accessDeniedDetail;
+
+    /**
+     * @description Modifies the type of a Time Series Database (TSDB) instance.
+     *
+     * @example 57540985-3C11-4588-96FD-93413C6282EF
+     *
+     * @var string
+     */
     public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -23,6 +33,9 @@ class ModifyHiTSDBInstanceClassResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -38,6 +51,9 @@ class ModifyHiTSDBInstanceClassResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
