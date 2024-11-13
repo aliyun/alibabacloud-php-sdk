@@ -41,6 +41,11 @@ class UpdatePublicTemplateRequest extends Model
      * @var string
      */
     public $templateName;
+
+    /**
+     * @var string
+     */
+    public $versionName;
     protected $_name = [
         'category'     => 'Category',
         'content'      => 'Content',
@@ -48,6 +53,7 @@ class UpdatePublicTemplateRequest extends Model
         'publisher'    => 'Publisher',
         'regionId'     => 'RegionId',
         'templateName' => 'TemplateName',
+        'versionName'  => 'VersionName',
     ];
 
     public function validate()
@@ -74,6 +80,9 @@ class UpdatePublicTemplateRequest extends Model
         }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
+        }
+        if (null !== $this->versionName) {
+            $res['VersionName'] = $this->versionName;
         }
 
         return $res;
@@ -104,6 +113,9 @@ class UpdatePublicTemplateRequest extends Model
         }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
+        }
+        if (isset($map['VersionName'])) {
+            $model->versionName = $map['VersionName'];
         }
 
         return $model;

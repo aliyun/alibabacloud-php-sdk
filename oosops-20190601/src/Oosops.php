@@ -391,6 +391,9 @@ class Oosops extends OpenApiClient
         if (!Utils::isUnset($request->templateName)) {
             $query['TemplateName'] = $request->templateName;
         }
+        if (!Utils::isUnset($request->versionName)) {
+            $query['VersionName'] = $request->versionName;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2501,6 +2504,9 @@ class Oosops extends OpenApiClient
         }
         if (!Utils::isUnset($request->templateName)) {
             $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->versionName)) {
+            $query['VersionName'] = $request->versionName;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
