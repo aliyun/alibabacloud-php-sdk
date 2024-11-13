@@ -43,7 +43,17 @@ class ChannelProperties extends Model
     /**
      * @var string
      */
+    public $oppoCategory;
+
+    /**
+     * @var string
+     */
     public $oppoChannelId;
+
+    /**
+     * @var string
+     */
+    public $oppoNotifyLevel;
 
     /**
      * @example "true" ,默认为"false"，可不填
@@ -80,7 +90,9 @@ class ChannelProperties extends Model
         'huaweiChannelImportance' => 'huaweiChannelImportance',
         'huaweiMessageUrgency'    => 'huaweiMessageUrgency',
         'mainActivity'            => 'mainActivity',
+        'oppoCategory'            => 'oppoCategory',
         'oppoChannelId'           => 'oppoChannelId',
+        'oppoNotifyLevel'         => 'oppoNotifyLevel',
         'useHuaweiMessage'        => 'useHuaweiMessage',
         'vivoAddBadge'            => 'vivoAddBadge',
         'vivoCategory'            => 'vivoCategory',
@@ -113,8 +125,14 @@ class ChannelProperties extends Model
         if (null !== $this->mainActivity) {
             $res['mainActivity'] = $this->mainActivity;
         }
+        if (null !== $this->oppoCategory) {
+            $res['oppoCategory'] = $this->oppoCategory;
+        }
         if (null !== $this->oppoChannelId) {
             $res['oppoChannelId'] = $this->oppoChannelId;
+        }
+        if (null !== $this->oppoNotifyLevel) {
+            $res['oppoNotifyLevel'] = $this->oppoNotifyLevel;
         }
         if (null !== $this->useHuaweiMessage) {
             $res['useHuaweiMessage'] = $this->useHuaweiMessage;
@@ -161,8 +179,14 @@ class ChannelProperties extends Model
         if (isset($map['mainActivity'])) {
             $model->mainActivity = $map['mainActivity'];
         }
+        if (isset($map['oppoCategory'])) {
+            $model->oppoCategory = $map['oppoCategory'];
+        }
         if (isset($map['oppoChannelId'])) {
             $model->oppoChannelId = $map['oppoChannelId'];
+        }
+        if (isset($map['oppoNotifyLevel'])) {
+            $model->oppoNotifyLevel = $map['oppoNotifyLevel'];
         }
         if (isset($map['useHuaweiMessage'])) {
             $model->useHuaweiMessage = $map['useHuaweiMessage'];
