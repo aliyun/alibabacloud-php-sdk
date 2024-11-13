@@ -104,6 +104,16 @@ class pushTask extends Model
     public $androidMessageHuaweiUrgency;
 
     /**
+     * @var string
+     */
+    public $androidMessageOppoCategory;
+
+    /**
+     * @var int
+     */
+    public $androidMessageOppoNotifyLevel;
+
+    /**
      * @example TODO
      *
      * @var string
@@ -607,6 +617,8 @@ class pushTask extends Model
         'androidInboxBody'                 => 'AndroidInboxBody',
         'androidMessageHuaweiCategory'     => 'AndroidMessageHuaweiCategory',
         'androidMessageHuaweiUrgency'      => 'AndroidMessageHuaweiUrgency',
+        'androidMessageOppoCategory'       => 'AndroidMessageOppoCategory',
+        'androidMessageOppoNotifyLevel'    => 'AndroidMessageOppoNotifyLevel',
         'androidMessageVivoCategory'       => 'AndroidMessageVivoCategory',
         'androidMusic'                     => 'AndroidMusic',
         'androidNotificationBarPriority'   => 'AndroidNotificationBarPriority',
@@ -735,6 +747,12 @@ class pushTask extends Model
         }
         if (null !== $this->androidMessageHuaweiUrgency) {
             $res['AndroidMessageHuaweiUrgency'] = $this->androidMessageHuaweiUrgency;
+        }
+        if (null !== $this->androidMessageOppoCategory) {
+            $res['AndroidMessageOppoCategory'] = $this->androidMessageOppoCategory;
+        }
+        if (null !== $this->androidMessageOppoNotifyLevel) {
+            $res['AndroidMessageOppoNotifyLevel'] = $this->androidMessageOppoNotifyLevel;
         }
         if (null !== $this->androidMessageVivoCategory) {
             $res['AndroidMessageVivoCategory'] = $this->androidMessageVivoCategory;
@@ -1017,6 +1035,12 @@ class pushTask extends Model
         }
         if (isset($map['AndroidMessageHuaweiUrgency'])) {
             $model->androidMessageHuaweiUrgency = $map['AndroidMessageHuaweiUrgency'];
+        }
+        if (isset($map['AndroidMessageOppoCategory'])) {
+            $model->androidMessageOppoCategory = $map['AndroidMessageOppoCategory'];
+        }
+        if (isset($map['AndroidMessageOppoNotifyLevel'])) {
+            $model->androidMessageOppoNotifyLevel = $map['AndroidMessageOppoNotifyLevel'];
         }
         if (isset($map['AndroidMessageVivoCategory'])) {
             $model->androidMessageVivoCategory = $map['AndroidMessageVivoCategory'];

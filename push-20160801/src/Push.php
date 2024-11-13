@@ -832,6 +832,12 @@ class Push extends OpenApiClient
         if (!Utils::isUnset($request->androidMessageHuaweiUrgency)) {
             $query['AndroidMessageHuaweiUrgency'] = $request->androidMessageHuaweiUrgency;
         }
+        if (!Utils::isUnset($request->androidMessageOppoCategory)) {
+            $query['AndroidMessageOppoCategory'] = $request->androidMessageOppoCategory;
+        }
+        if (!Utils::isUnset($request->androidMessageOppoNotifyLevel)) {
+            $query['AndroidMessageOppoNotifyLevel'] = $request->androidMessageOppoNotifyLevel;
+        }
         if (!Utils::isUnset($request->androidMessageVivoCategory)) {
             $query['AndroidMessageVivoCategory'] = $request->androidMessageVivoCategory;
         }
