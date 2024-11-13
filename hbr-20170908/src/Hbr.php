@@ -197,7 +197,6 @@ class Hbr extends OpenApiClient
         $this->_endpointRule       = 'regional';
         $this->_endpointMap        = [
             'ap-northeast-2-pop'          => 'hbr.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'hbr.aliyuncs.com',
             'cn-beijing-finance-pop'      => 'hbr.aliyuncs.com',
             'cn-beijing-gov-1'            => 'hbr.aliyuncs.com',
             'cn-beijing-nu16-b01'         => 'hbr.aliyuncs.com',
@@ -221,7 +220,6 @@ class Hbr extends OpenApiClient
             'cn-shenzhen-st4-d01'         => 'hbr.aliyuncs.com',
             'cn-shenzhen-su18-b01'        => 'hbr.aliyuncs.com',
             'cn-wuhan'                    => 'hbr.aliyuncs.com',
-            'cn-wulanchabu'               => 'hbr.aliyuncs.com',
             'cn-yushanfang'               => 'hbr.aliyuncs.com',
             'cn-zhangbei'                 => 'hbr.aliyuncs.com',
             'cn-zhangbei-na61-b01'        => 'hbr.aliyuncs.com',
@@ -419,7 +417,7 @@ class Hbr extends OpenApiClient
     /**
      * @summary Changes the resource group to which an instance belongs.
      *  *
-     * @description *   In Cloud Backup, you can use resource groups to manage resources such as backup vaults, backup clients, and SAP HANA instances.
+     * @description *   In the Cloud Backup console, you can use resource groups to manage resources such as backup vaults, Cloud Backup clients, and SAP HANA instances.
      * *   A resource is a cloud service entity that you create on Alibaba Cloud, such as an Elastic Compute Service (ECS) instance, a backup vault, or an SAP HANA instance.
      * *   You can sort resources owned by your Alibaba Cloud account into various resource groups. Resource groups facilitate resource management among multiple projects or applications within your Alibaba Cloud account and simplify permission management.
      *  *
@@ -462,7 +460,7 @@ class Hbr extends OpenApiClient
     /**
      * @summary Changes the resource group to which an instance belongs.
      *  *
-     * @description *   In Cloud Backup, you can use resource groups to manage resources such as backup vaults, backup clients, and SAP HANA instances.
+     * @description *   In the Cloud Backup console, you can use resource groups to manage resources such as backup vaults, Cloud Backup clients, and SAP HANA instances.
      * *   A resource is a cloud service entity that you create on Alibaba Cloud, such as an Elastic Compute Service (ECS) instance, a backup vault, or an SAP HANA instance.
      * *   You can sort resources owned by your Alibaba Cloud account into various resource groups. Resource groups facilitate resource management among multiple projects or applications within your Alibaba Cloud account and simplify permission management.
      *  *
@@ -793,7 +791,7 @@ class Hbr extends OpenApiClient
     /**
      * @summary Installs one or more HBR clients on specified instances.
      *  *
-     * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of Hybrid Backup Recovery (HBR). For more information, see [Billable items and billing methods](https://help.aliyun.com/document_detail/89062.html).
+     * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of Cloud Backup. For more information, see [Billing methods and billable items](https://help.aliyun.com/document_detail/89062.html).
      *  *
      * @param CreateClientsRequest $request CreateClientsRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -849,7 +847,7 @@ class Hbr extends OpenApiClient
     /**
      * @summary Installs one or more HBR clients on specified instances.
      *  *
-     * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of Hybrid Backup Recovery (HBR). For more information, see [Billable items and billing methods](https://help.aliyun.com/document_detail/89062.html).
+     * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of Cloud Backup. For more information, see [Billing methods and billable items](https://help.aliyun.com/document_detail/89062.html).
      *  *
      * @param CreateClientsRequest $request CreateClientsRequest
      *
@@ -943,7 +941,7 @@ class Hbr extends OpenApiClient
     /**
      * @summary Registers an SAP HANA instance.
      *  *
-     * @description To register an SAP HANA instance, you must configure the connection parameters of the SAP HANA instance. After the SAP HANA instance is registered, Cloud Backup installs a Cloud Backup client on the Elastic Compute Service (ECS) instance that hosts the SAP HANA instance.
+     * @description To register an SAP HANA instance, you must configure the SAP HANA connection information. After the SAP HANA instance is registered, Cloud Backup installs a backup client on the node of the SAP HANA instance.
      *  *
      * @param CreateHanaInstanceRequest $request CreateHanaInstanceRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -1020,7 +1018,7 @@ class Hbr extends OpenApiClient
     /**
      * @summary Registers an SAP HANA instance.
      *  *
-     * @description To register an SAP HANA instance, you must configure the connection parameters of the SAP HANA instance. After the SAP HANA instance is registered, Cloud Backup installs a Cloud Backup client on the Elastic Compute Service (ECS) instance that hosts the SAP HANA instance.
+     * @description To register an SAP HANA instance, you must configure the SAP HANA connection information. After the SAP HANA instance is registered, Cloud Backup installs a backup client on the node of the SAP HANA instance.
      *  *
      * @param CreateHanaInstanceRequest $request CreateHanaInstanceRequest
      *
@@ -4322,7 +4320,7 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @summary Activates Hybrid Backup Recovery (HBR).
+     * @summary Activates Cloud Backup.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -4347,7 +4345,7 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @summary Activates Hybrid Backup Recovery (HBR).
+     * @summary Activates Cloud Backup.
      *  *
      * @return OpenHbrServiceResponse OpenHbrServiceResponse
      */

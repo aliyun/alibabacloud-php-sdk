@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GenerateRamPolicyRequest extends Model
 {
     /**
-     * @description The type of the policy that you want to generate. Valid values:
+     * @description The type of policy that you want to generate. Valid values:
      *
-     *   custom: custom policy
-     *   system: system policy
+     *   BACKUP: the permission to back up data to a backup vault
+     *   RESTORE: the permission to restore data from a backup vault
      *
      * This parameter is required.
      * @example system

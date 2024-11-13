@@ -52,9 +52,9 @@ class SearchHistoricalSnapshotsShrinkRequest extends Model
      *   The following fields are supported:
      *
      *   VaultId: specifies the ID of the backup vault. This field is required.
-     *   InstanceId: specifies the ID of the ECS instance. If the SourceType parameter is set to ECS_FILE, this field is required.
-     *   Bucket: specifies the ID of the OSS bucket. If the SourceType parameter is set to OSS, this field is required.
-     *   FileSystemId: specifies the ID of the NAS file system. If the SourceType parameter is set to NAS, this field is required.
+     *   InstanceId: specifies the ID of the Elastic Compute Service (ECS) instance. If the SourceType parameter is set to ECS_FILE, this field is required.
+     *   Bucket: specifies the name of the Object Storage Service (OSS) bucket. If the SourceType parameter is set to OSS, this field is required.
+     *   FileSystemId: specifies the ID of the Apsara File Storage NAS (NAS) file system. If the SourceType parameter is set to NAS, this field is required.
      *   CreateTime: specifies the time when the NAS file system was created. If the SourceType parameter is set to NAS, this field is required.
      *   CompleteTime: specifies the time when the backup snapshot was completed.
      *   PlanId: the ID of a backup plan.

@@ -112,6 +112,8 @@ class CreateBackupPlanShrinkRequest extends Model
     public $detailShrink;
 
     /**
+     * @description Specifies whether to disable the plan by default.
+     *
      * @example true
      *
      * @var bool

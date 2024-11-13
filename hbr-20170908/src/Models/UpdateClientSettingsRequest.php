@@ -43,7 +43,7 @@ class UpdateClientSettingsRequest extends Model
     /**
      * @description The proxy configuration on the data plane. Valid values:
      *
-     *   **DISABLE**: No proxy is used.
+     *   **DISABLE**: The proxy is not used.
      *   **USE_CONTROL_PROXY** (default): The configuration is the same as that on the control plane.
      *   **CUSTOM**: The configuration is customized (HTTP).
      *

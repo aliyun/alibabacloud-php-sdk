@@ -28,8 +28,8 @@ class policyBindingList extends Model
     /**
      * @description Specifies whether to back up and restore data within the same Alibaba Cloud account or across Alibaba Cloud accounts. Default value: SELF_ACCOUNT. Valid values:
      *
-     *   **SELF_ACCOUNT**: Data is backed up within the same Alibaba Cloud account.
-     *   **CROSS_ACCOUNT**: Data is backed up across Alibaba Cloud accounts.
+     *   **SELF_ACCOUNT**: backs up data within the same Alibaba Cloud account.
+     *   **CROSS_ACCOUNT**: backs up data across Alibaba Cloud accounts.
      *
      * @example SELF_ACCOUNT
      *
@@ -47,7 +47,7 @@ class policyBindingList extends Model
     public $crossAccountUserId;
 
     /**
-     * @description The ID of the data source. The meaning of this parameter depends on the **SourceType** parameter.
+     * @description The ID of the data source. The meaning of this parameter depends on the **SourceType** parameter. Valid values:
      *
      *   **UDM_ECS**: the ID of the Elastic Compute Service (ECS) instance
      *   **OSS**: the name of the Object Storage Service (OSS) bucket
@@ -55,6 +55,7 @@ class policyBindingList extends Model
      *   **COMMON_NAS**: the ID of the on-premises NAS file system
      *   **ECS_FILE**: the ID of the ECS instance
      *   **File**: the ID of the Cloud Backup client
+     *   **COMMON_FILE_SYSTEM**: the ID of the Cloud Parallel File Storage (CPFS) backup data source
      *
      * @example i-bp1************dl8
      *
@@ -63,8 +64,11 @@ class policyBindingList extends Model
     public $dataSourceId;
 
     /**
-     * @description 策略对该数据源是否暂停生效。
-     * - false：未暂停
+     * @description Specifies whether to disable the backup policy for the data source. Valid values:
+     *
+     *   true: disables the backup policy for the data source
+     *   false: enables the backup policy for the data source
+     *
      * @example true
      *
      * @var string
@@ -72,7 +76,7 @@ class policyBindingList extends Model
     public $disabled;
 
     /**
-     * @description 仅当**SourceType**取值为**ECS_FILE**或**File**时，需要配置该参数。表示不需要进行备份的文件类型，该类型的所有文件都不备份。最多支持255个字符。
+     * @description This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the type of files that do not need to be backed up. No files of the specified type are backed up. The value can be up to 255 characters in length.
      *
      * @example [\\"*.doc\\",\\"*.xltm\\"]
      *
@@ -81,7 +85,7 @@ class policyBindingList extends Model
     public $exclude;
 
     /**
-     * @description 仅当**SourceType**取值为**ECS_FILE**或**File**时，需要配置该参数。表示要进行备份的文件类型，这些类型的所有文件都备份。最多支持255个字符。
+     * @description This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the type of files to be backed up. All files of the specified type are backed up. The value can be up to 255 characters in length.
      *
      * @example [\\"*.doc\\",\\"*.xltm\\"]
      *
@@ -99,7 +103,8 @@ class policyBindingList extends Model
     public $policyBindingDescription;
 
     /**
-     * @description The prefix of the path to the folder that you want to back up. By default, the entire OSS bucket is backed up. This parameter is required only if you set the SourceType parameter to **OSS**.
+     * @description *   If the SourceType parameter is set to **OSS**, set the Source parameter to the prefix of the path to the folder that you want to back up. If you do not specify the Source parameter, the entire bucket (root directory) is backed up.
+     *   If the SourceType parameter is set to **ECS_FILE** or **File**, set the Source parameter to the path to the files that you want to back up. If you do not specify the Source parameter, all paths backed up.
      *
      * @example backup/
      *
@@ -112,10 +117,11 @@ class policyBindingList extends Model
      *
      *   **UDM_ECS**: ECS instance
      *   **OSS**: OSS bucket
-     *   **NAS**: Apsara File Storage NAS file system
+     *   **NAS**: NAS file system
      *   **COMMON_NAS**: on-premises NAS file system
-     *   **ECS_FILE**: ECS files
-     *   **File**: on-premises files
+     *   **ECS_FILE**: ECS file
+     *   **File**: on-premises file
+     *   **COMMON_FILE_SYSTEM**: CPFS file system
      *
      * @example UDM_ECS
      *
@@ -124,11 +130,12 @@ class policyBindingList extends Model
     public $sourceType;
 
     /**
-     * @description 仅当**SourceType**取值为**ECS_FILE**或**File**时，需要配置该参数。表示备份流量控制。格式为`{start}{end}{bandwidth}`。多个流量控制配置使用分隔，并且配置时间不允许有重叠。
+     * @description This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the throttling rules. Format: `{start}{end}{bandwidth}`. Separate multiple throttling rules with vertical bars (|). The time ranges of the throttling rules cannot overlap.
      *
-     * - **start**：起始小时。
-     * - **end**：结束小时。
-     * - **bandwidth**：限制速率，单位KB/s。
+     *   **start**: the start hour.
+     *   **end**: the end hour.
+     *   **bandwidth**: the bandwidth. Unit: KB/s.
+     *
      * @example 0:24:1024
      *
      * @var string

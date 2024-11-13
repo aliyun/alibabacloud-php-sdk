@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteUdmDiskRequest extends Model
 {
     /**
+     * @description The disk ID.
+     *
      * @example d-bp15************xy70
      *
      * @var string

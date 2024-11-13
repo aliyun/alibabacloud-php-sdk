@@ -27,6 +27,18 @@ class CreatePolicyV2ShrinkRequest extends Model
     public $policyName;
 
     /**
+     * @description The policy type. Valid values:
+     *
+     *   **STANDARD**: the general backup policy. This type of policy applies to backups other than Elastic Compute Service (ECS) instance backup.
+     *   **UDM_ECS_ONLY**: This type of policy applies only to ECS instance backup.
+     *
+     * If the policy type is not specified, Cloud Backup automatically sets the policy type based on whether the backup vault is specified in the rules of the policy:
+     *
+     *   If the backup vault is specified, Cloud Backup sets the policy type to **STANDARD**.
+     *   If the backup vault is not specified, Cloud Backup sets the policy type to **UDM_ECS_ONLY**.
+     *
+     * @example STANDARD
+     *
      * @var string
      */
     public $policyType;

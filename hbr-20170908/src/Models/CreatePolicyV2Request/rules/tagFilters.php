@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class tagFilters extends Model
 {
     /**
+     * @example env
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example EQUAL
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @example prod
+     *
      * @var string
      */
     public $value;

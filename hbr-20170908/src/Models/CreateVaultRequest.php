@@ -59,7 +59,7 @@ class CreateVaultRequest extends Model
     public $vaultRegionId;
 
     /**
-     * @description The storage type of the backup vault. Valid value: **STANDARD**, which indicates standard storage.
+     * @description The storage class of the backup vault. Valid value: **STANDARD**, which indicates standard storage.
      *
      * @example STANDARD
      *
@@ -68,7 +68,7 @@ class CreateVaultRequest extends Model
     public $vaultStorageClass;
 
     /**
-     * @description The type of the backup vault. Valid value
+     * @description The type of the backup vault. Valid values:
      *
      *   **STANDARD**: standard backup vault
      *   **OTS_BACKUP**: backup vault for Tablestore

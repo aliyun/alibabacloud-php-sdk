@@ -14,6 +14,8 @@ use AlibabaCloud\Tea\Model;
 class advancedOptions extends Model
 {
     /**
+     * @description The advanced options for large-scale file system backup.
+     *
      * @var commonFileSystemDetail
      */
     public $commonFileSystemDetail;

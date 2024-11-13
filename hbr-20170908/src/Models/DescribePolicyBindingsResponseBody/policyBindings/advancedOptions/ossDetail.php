@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ossDetail extends Model
 {
     /**
+     * @var bool
+     */
+    public $ignoreArchiveObject;
+
+    /**
      * @description Indicates whether the system deletes the inventory lists when a backup is completed. This parameter is valid only when OSS inventories are used. Valid values:
      *
      *   **NO_CLEANUP**: Inventory lists are not deleted.
@@ -33,6 +38,7 @@ class ossDetail extends Model
      */
     public $inventoryId;
     protected $_name = [
+        'ignoreArchiveObject'    => 'IgnoreArchiveObject',
         'inventoryCleanupPolicy' => 'InventoryCleanupPolicy',
         'inventoryId'            => 'InventoryId',
     ];
@@ -44,6 +50,9 @@ class ossDetail extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ignoreArchiveObject) {
+            $res['IgnoreArchiveObject'] = $this->ignoreArchiveObject;
+        }
         if (null !== $this->inventoryCleanupPolicy) {
             $res['InventoryCleanupPolicy'] = $this->inventoryCleanupPolicy;
         }
@@ -62,6 +71,9 @@ class ossDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IgnoreArchiveObject'])) {
+            $model->ignoreArchiveObject = $map['IgnoreArchiveObject'];
+        }
         if (isset($map['InventoryCleanupPolicy'])) {
             $model->inventoryCleanupPolicy = $map['InventoryCleanupPolicy'];
         }

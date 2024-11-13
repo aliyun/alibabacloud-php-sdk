@@ -44,6 +44,11 @@ class rules extends Model
     public $dataSourceFilters;
 
     /**
+     * @var bool
+     */
+    public $immutable;
+
+    /**
      * @description Specifies whether to enable the feature of keeping at least one backup version. Valid values:
      *
      *   0: The feature is disabled.
@@ -126,6 +131,7 @@ class rules extends Model
         'backupType'          => 'BackupType',
         'coldArchiveDays'     => 'ColdArchiveDays',
         'dataSourceFilters'   => 'DataSourceFilters',
+        'immutable'           => 'Immutable',
         'keepLatestSnapshots' => 'KeepLatestSnapshots',
         'replicationRegionId' => 'ReplicationRegionId',
         'retention'           => 'Retention',
@@ -160,6 +166,9 @@ class rules extends Model
                     $res['DataSourceFilters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->immutable) {
+            $res['Immutable'] = $this->immutable;
         }
         if (null !== $this->keepLatestSnapshots) {
             $res['KeepLatestSnapshots'] = $this->keepLatestSnapshots;
@@ -226,6 +235,9 @@ class rules extends Model
                     $model->dataSourceFilters[$n++] = null !== $item ? dataSourceFilters::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Immutable'])) {
+            $model->immutable = $map['Immutable'];
         }
         if (isset($map['KeepLatestSnapshots'])) {
             $model->keepLatestSnapshots = $map['KeepLatestSnapshots'];

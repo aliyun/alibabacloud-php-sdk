@@ -14,6 +14,8 @@ class dataSourceFilters extends Model
     public $dataSourceIds;
 
     /**
+     * @example UDM_ECS
+     *
      * @var string
      */
     public $sourceType;

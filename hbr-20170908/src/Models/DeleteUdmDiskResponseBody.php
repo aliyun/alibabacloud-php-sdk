@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteUdmDiskResponseBody extends Model
 {
     /**
+     * @description The response code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteUdmDiskResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
+     *
      * @example successful
      *
      * @var string
@@ -32,6 +36,11 @@ class DeleteUdmDiskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

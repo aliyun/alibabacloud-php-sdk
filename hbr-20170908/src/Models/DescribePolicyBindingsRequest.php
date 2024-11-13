@@ -20,6 +20,9 @@ class DescribePolicyBindingsRequest extends Model
     public $filters;
 
     /**
+     * @description The number of results for each query.
+     *
+     * Valid values: 10 to 100. Default value: 10.
      * @example 10
      *
      * @var int

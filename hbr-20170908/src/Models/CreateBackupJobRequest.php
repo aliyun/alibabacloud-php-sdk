@@ -78,6 +78,33 @@ class CreateBackupJobRequest extends Model
     public $crossAccountUserId;
 
     /**
+     * @description The details about ECS instance backup. The value is a JSON string.
+     *
+     *   doCopy: specifies whether to enable remote replication.
+     *
+     *   destinationRegionId: the destination region for remote replication.
+     *
+     *   destinationRetention: the retention period of the backup point for remote replication.
+     *
+     *   diskIdList: the IDs of the disks that are to be backed up. If this parameter is left empty, all disks are backed up.
+     *
+     *   snapshotGroup: specifies whether to use a snapshot-consistent group. This parameter is valid only if all disks of the ECS instance are Enterprise SSDs (ESSDs).
+     *
+     *   appConsistent: specifies whether to use the application-consistent backup feature. This parameter must be used with the preScriptPath and postScriptPath parameters.
+     *
+     *   preScriptPath: the path to the pre-freeze scripts.
+     *
+     *   postScriptPath: the path to the post-thaw scripts.
+     *
+     *   enableWriters: This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies whether to create application-consistent snapshots.
+     *
+     *   true (default): creates application-consistent snapshots.
+     *   false: creates file system-consistent snapshots.
+     *
+     *   enableFsFreeze: This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies whether to enable Linux fsfreeze to put file systems into the read-only state before application-consistent snapshots are created. Default value: true.
+     *
+     *   timeoutSeconds: This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies the I/O freeze timeout period. Default value: 30. Unit: seconds.
+     *
      * @example {
      * }
      * @var mixed[]
@@ -112,7 +139,7 @@ class CreateBackupJobRequest extends Model
     public $initiatedByAck;
 
     /**
-     * @description This parameter is required only if you set the **SourceType** parameter to **UDM_ECS**. This parameter specifies the ID of the ECS instance.
+     * @description This parameter is required only if you set the **SourceType** parameter to **UDM_ECS**. This parameter specifies the ID of the Elastic Compute Service (ECS) instance.
      *
      * @example i-bp1xxxxxxxxxxxxxxysm
      *

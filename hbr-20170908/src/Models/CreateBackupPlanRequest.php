@@ -112,6 +112,8 @@ class CreateBackupPlanRequest extends Model
     public $detail;
 
     /**
+     * @description Specifies whether to disable the plan by default.
+     *
      * @example true
      *
      * @var bool

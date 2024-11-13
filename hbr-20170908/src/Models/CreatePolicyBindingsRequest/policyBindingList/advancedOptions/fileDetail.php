@@ -11,8 +11,8 @@ class fileDetail extends Model
     /**
      * @description Specifies whether to use an advanced policy. Valid values:
      *
-     *   **true**
-     *   **false**
+     *   **true**: uses the advanced policy.
+     *   **false**: does not use the advanced policy.
      *
      * @example true
      *
@@ -23,8 +23,8 @@ class fileDetail extends Model
     /**
      * @description Specifies whether to enable the Volume Shadow Copy Service (VSS) feature. Valid values:
      *
-     *   **true**
-     *   **false**
+     *   **true**: enables the feature.
+     *   **false**: disables the feature.
      *
      * @example true
      *

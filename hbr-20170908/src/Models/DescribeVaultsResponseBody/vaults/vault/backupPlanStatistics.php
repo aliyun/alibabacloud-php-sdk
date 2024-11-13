@@ -18,6 +18,8 @@ class backupPlanStatistics extends Model
     public $archive;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $commonFileSystem;

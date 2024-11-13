@@ -55,6 +55,13 @@ class policies extends Model
     public $policyName;
 
     /**
+     * @description The policy type. Valid values:
+     *
+     *   **STANDARD**: the general backup policy. This type of policy applies to backups other than Elastic Compute Service (ECS) instance backup.
+     *   **UDM_ECS_ONLY**: the ECS instance backup policy. This type of policy applies only to ECS instance backup.
+     *
+     * @example STANDARD
+     *
      * @var string
      */
     public $policyType;

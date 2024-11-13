@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class commonFileSystemDetail extends Model
 {
     /**
+     * @description The size of backup shards (the number of files).
+     *
      * @example 100000
      *
      * @var int
@@ -16,6 +18,11 @@ class commonFileSystemDetail extends Model
     public $fetchSliceSize;
 
     /**
+     * @description Specifies whether the system performs full backup if incremental backup fails. Valid values:
+     *
+     *   **true**: The system performs full backup if incremental backup fails.
+     *   **false**: The system does not perform full backup if incremental backup fails.
+     *
      * @example true
      *
      * @var bool

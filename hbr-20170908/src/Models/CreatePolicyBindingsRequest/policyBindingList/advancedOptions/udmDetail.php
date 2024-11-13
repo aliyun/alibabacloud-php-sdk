@@ -18,7 +18,7 @@ class udmDetail extends Model
     public $appConsistent;
 
     /**
-     * @description The IDs of the disks that need to be protected. If all disks need to be protected, leave this parameter empty.
+     * @description The IDs of the disks that need to be protected. If all disks need to be protected, this parameter is empty.
      *
      * @var string[]
      */
@@ -72,7 +72,7 @@ class udmDetail extends Model
     public $preScriptPath;
 
     /**
-     * @description This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies the name of the RAM role that is required to create application-consistent snapshots.
+     * @description This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies the name of the Resource Access Management (RAM) role that is required to create application-consistent snapshots.
      *
      * @example AliyunECSInstanceForHbrRole
      *
@@ -81,7 +81,7 @@ class udmDetail extends Model
     public $ramRoleName;
 
     /**
-     * @description Specifies whether to create a snapshot-consistent group. You can create a snapshot-consistent group only if all disks are enhanced SSDs (ESSDs).
+     * @description Specifies whether to create a snapshot-consistent group. You can create a snapshot-consistent group only if all disks are Enterprise SSDs (ESSDs).
      *
      * @example true
      *

@@ -43,7 +43,7 @@ class DeleteBackupPlanRequest extends Model
     public $sourceType;
 
     /**
-     * @description The ID of the backup vault.
+     * @description The ID of the backup vault. This parameter is required if the SourceType parameter is not set to UDM_ECS.
      *
      * @example v-*********************
      *

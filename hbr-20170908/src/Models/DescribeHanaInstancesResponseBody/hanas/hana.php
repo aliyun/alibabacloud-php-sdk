@@ -37,10 +37,11 @@ class hana extends Model
     public $crossAccountRoleName;
 
     /**
-     * @description The backup type. Valid values:
+     * @description Specifies whether data is backed up within the same Alibaba Cloud account or across Alibaba Cloud accounts. Valid values:
      *
-     * - **SELF_ACCOUNT**: Data is backed up within the same Alibaba Cloud account.
-     * - **CROSS_ACCOUNT**: Data is backed up across Alibaba Cloud accounts.
+     *   **SELF_ACCOUNT**: Data is backed up within the same Alibaba Cloud account.
+     *   **CROSS_ACCOUNT**: Data is backed up across Alibaba Cloud accounts.
+     *
      * @example CROSS_ACCOUNT
      *
      * @var string

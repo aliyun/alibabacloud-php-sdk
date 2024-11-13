@@ -18,11 +18,15 @@ class CreateReplicationVaultRequest extends Model
     public $description;
 
     /**
+     * @example HBR_PRIVATE
+     *
      * @var string
      */
     public $encryptType;
 
     /**
+     * @example alias/test
+     *
      * @var string
      */
     public $kmsKeyId;

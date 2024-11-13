@@ -18,6 +18,8 @@ class commonNasDetail extends Model
     public $clientId;
 
     /**
+     * @description The ID of the client group.
+     *
      * @example cl-000gkcofngi04j6k680a
      *
      * @var string
