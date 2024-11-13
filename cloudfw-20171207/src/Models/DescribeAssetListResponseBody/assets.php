@@ -78,6 +78,11 @@ class assets extends Model
     public $ipVersion;
 
     /**
+     * @var int
+     */
+    public $last7DayOutTrafficBytes;
+
+    /**
      * @description The UID of the member.
      *
      * @example 258039427902****
@@ -200,6 +205,11 @@ class assets extends Model
     public $riskLevel;
 
     /**
+     * @var string
+     */
+    public $sensitiveDataStatus;
+
+    /**
      * @description The status of the security group policy. Valid values:
      *
      *   **pass**: applied
@@ -242,27 +252,29 @@ class assets extends Model
      */
     public $type;
     protected $_name = [
-        'aliUid'             => 'AliUid',
-        'bindInstanceId'     => 'BindInstanceId',
-        'bindInstanceName'   => 'BindInstanceName',
-        'createTimeStamp'    => 'CreateTimeStamp',
-        'internetAddress'    => 'InternetAddress',
-        'intranetAddress'    => 'IntranetAddress',
-        'ipVersion'          => 'IpVersion',
-        'memberUid'          => 'MemberUid',
-        'name'               => 'Name',
-        'newResourceTag'     => 'NewResourceTag',
-        'note'               => 'Note',
-        'protectStatus'      => 'ProtectStatus',
-        'regionID'           => 'RegionID',
-        'regionStatus'       => 'RegionStatus',
-        'resourceInstanceId' => 'ResourceInstanceId',
-        'resourceType'       => 'ResourceType',
-        'riskLevel'          => 'RiskLevel',
-        'sgStatus'           => 'SgStatus',
-        'sgStatusTime'       => 'SgStatusTime',
-        'syncStatus'         => 'SyncStatus',
-        'type'               => 'Type',
+        'aliUid'                  => 'AliUid',
+        'bindInstanceId'          => 'BindInstanceId',
+        'bindInstanceName'        => 'BindInstanceName',
+        'createTimeStamp'         => 'CreateTimeStamp',
+        'internetAddress'         => 'InternetAddress',
+        'intranetAddress'         => 'IntranetAddress',
+        'ipVersion'               => 'IpVersion',
+        'last7DayOutTrafficBytes' => 'Last7DayOutTrafficBytes',
+        'memberUid'               => 'MemberUid',
+        'name'                    => 'Name',
+        'newResourceTag'          => 'NewResourceTag',
+        'note'                    => 'Note',
+        'protectStatus'           => 'ProtectStatus',
+        'regionID'                => 'RegionID',
+        'regionStatus'            => 'RegionStatus',
+        'resourceInstanceId'      => 'ResourceInstanceId',
+        'resourceType'            => 'ResourceType',
+        'riskLevel'               => 'RiskLevel',
+        'sensitiveDataStatus'     => 'SensitiveDataStatus',
+        'sgStatus'                => 'SgStatus',
+        'sgStatusTime'            => 'SgStatusTime',
+        'syncStatus'              => 'SyncStatus',
+        'type'                    => 'Type',
     ];
 
     public function validate()
@@ -293,6 +305,9 @@ class assets extends Model
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
         }
+        if (null !== $this->last7DayOutTrafficBytes) {
+            $res['Last7DayOutTrafficBytes'] = $this->last7DayOutTrafficBytes;
+        }
         if (null !== $this->memberUid) {
             $res['MemberUid'] = $this->memberUid;
         }
@@ -322,6 +337,9 @@ class assets extends Model
         }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
+        }
+        if (null !== $this->sensitiveDataStatus) {
+            $res['SensitiveDataStatus'] = $this->sensitiveDataStatus;
         }
         if (null !== $this->sgStatus) {
             $res['SgStatus'] = $this->sgStatus;
@@ -368,6 +386,9 @@ class assets extends Model
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
         }
+        if (isset($map['Last7DayOutTrafficBytes'])) {
+            $model->last7DayOutTrafficBytes = $map['Last7DayOutTrafficBytes'];
+        }
         if (isset($map['MemberUid'])) {
             $model->memberUid = $map['MemberUid'];
         }
@@ -397,6 +418,9 @@ class assets extends Model
         }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
+        }
+        if (isset($map['SensitiveDataStatus'])) {
+            $model->sensitiveDataStatus = $map['SensitiveDataStatus'];
         }
         if (isset($map['SgStatus'])) {
             $model->sgStatus = $map['SgStatus'];

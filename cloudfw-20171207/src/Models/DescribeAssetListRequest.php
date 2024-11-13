@@ -65,6 +65,11 @@ class DescribeAssetListRequest extends Model
     public $newResourceTag;
 
     /**
+     * @var string
+     */
+    public $outStatistic;
+
+    /**
      * @description The number of entries per page. Valid values: 1 to 50.
      *
      * This parameter is required.
@@ -113,6 +118,11 @@ class DescribeAssetListRequest extends Model
      * @var string
      */
     public $searchItem;
+
+    /**
+     * @var string
+     */
+    public $sensitiveStatus;
 
     /**
      * @description The status of the security group policy. Valid values:
@@ -164,19 +174,21 @@ class DescribeAssetListRequest extends Model
      */
     public $userType;
     protected $_name = [
-        'currentPage'    => 'CurrentPage',
-        'ipVersion'      => 'IpVersion',
-        'lang'           => 'Lang',
-        'memberUid'      => 'MemberUid',
-        'newResourceTag' => 'NewResourceTag',
-        'pageSize'       => 'PageSize',
-        'regionNo'       => 'RegionNo',
-        'resourceType'   => 'ResourceType',
-        'searchItem'     => 'SearchItem',
-        'sgStatus'       => 'SgStatus',
-        'status'         => 'Status',
-        'type'           => 'Type',
-        'userType'       => 'UserType',
+        'currentPage'     => 'CurrentPage',
+        'ipVersion'       => 'IpVersion',
+        'lang'            => 'Lang',
+        'memberUid'       => 'MemberUid',
+        'newResourceTag'  => 'NewResourceTag',
+        'outStatistic'    => 'OutStatistic',
+        'pageSize'        => 'PageSize',
+        'regionNo'        => 'RegionNo',
+        'resourceType'    => 'ResourceType',
+        'searchItem'      => 'SearchItem',
+        'sensitiveStatus' => 'SensitiveStatus',
+        'sgStatus'        => 'SgStatus',
+        'status'          => 'Status',
+        'type'            => 'Type',
+        'userType'        => 'UserType',
     ];
 
     public function validate()
@@ -201,6 +213,9 @@ class DescribeAssetListRequest extends Model
         if (null !== $this->newResourceTag) {
             $res['NewResourceTag'] = $this->newResourceTag;
         }
+        if (null !== $this->outStatistic) {
+            $res['OutStatistic'] = $this->outStatistic;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -212,6 +227,9 @@ class DescribeAssetListRequest extends Model
         }
         if (null !== $this->searchItem) {
             $res['SearchItem'] = $this->searchItem;
+        }
+        if (null !== $this->sensitiveStatus) {
+            $res['SensitiveStatus'] = $this->sensitiveStatus;
         }
         if (null !== $this->sgStatus) {
             $res['SgStatus'] = $this->sgStatus;
@@ -252,6 +270,9 @@ class DescribeAssetListRequest extends Model
         if (isset($map['NewResourceTag'])) {
             $model->newResourceTag = $map['NewResourceTag'];
         }
+        if (isset($map['OutStatistic'])) {
+            $model->outStatistic = $map['OutStatistic'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -263,6 +284,9 @@ class DescribeAssetListRequest extends Model
         }
         if (isset($map['SearchItem'])) {
             $model->searchItem = $map['SearchItem'];
+        }
+        if (isset($map['SensitiveStatus'])) {
+            $model->sensitiveStatus = $map['SensitiveStatus'];
         }
         if (isset($map['SgStatus'])) {
             $model->sgStatus = $map['SgStatus'];

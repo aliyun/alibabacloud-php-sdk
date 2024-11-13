@@ -2303,6 +2303,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->newResourceTag)) {
             $query['NewResourceTag'] = $request->newResourceTag;
         }
+        if (!Utils::isUnset($request->outStatistic)) {
+            $query['OutStatistic'] = $request->outStatistic;
+        }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
@@ -2314,6 +2317,9 @@ class Cloudfw extends OpenApiClient
         }
         if (!Utils::isUnset($request->searchItem)) {
             $query['SearchItem'] = $request->searchItem;
+        }
+        if (!Utils::isUnset($request->sensitiveStatus)) {
+            $query['SensitiveStatus'] = $request->sensitiveStatus;
         }
         if (!Utils::isUnset($request->sgStatus)) {
             $query['SgStatus'] = $request->sgStatus;
