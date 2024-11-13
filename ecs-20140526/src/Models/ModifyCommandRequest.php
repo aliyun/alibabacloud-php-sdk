@@ -37,7 +37,7 @@ class ModifyCommandRequest extends Model
     public $description;
 
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
+     * @description The launcher for script execution. The value cannot exceed 1 KB in length.
      *
      * @example python3 -u {{ACS::ScriptFileName|Ext(".py")}}
      *

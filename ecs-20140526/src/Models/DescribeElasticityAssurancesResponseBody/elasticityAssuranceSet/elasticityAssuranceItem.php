@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class elasticityAssuranceItem extends Model
 {
     /**
-     * @description The information about the allocated resources.
+     * @description Details of the allocated resources.
      *
      * @var allocatedResources
      */
@@ -27,6 +27,8 @@ class elasticityAssuranceItem extends Model
     public $description;
 
     /**
+     * @description >  This parameter is not publicly available.
+     *
      * @example e114477596854834
      *
      * @var string

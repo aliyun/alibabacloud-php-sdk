@@ -89,7 +89,6 @@ class CreateCommandRequest extends Model
     /**
      * @description The launcher for script execution. The value cannot exceed 1 KB in length.
      *
-     * >  This parameter is not publicly available.
      * @example python3 -u {{ACS::ScriptFileName|Ext(".py")}}
      *
      * @var string

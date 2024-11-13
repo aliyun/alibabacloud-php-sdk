@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class allocatedResource extends Model
 {
     /**
+     * @description >  This parameter is not publicly available.
+     *
      * @example 5
      *
      * @var int
@@ -17,6 +19,8 @@ class allocatedResource extends Model
     public $availableAmount;
 
     /**
+     * @description >  This parameter is not publicly available.
+     *
      * @var elasticityAssuranceUsages
      */
     public $elasticityAssuranceUsages;

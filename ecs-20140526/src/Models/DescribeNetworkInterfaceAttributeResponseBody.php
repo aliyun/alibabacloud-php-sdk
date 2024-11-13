@@ -152,12 +152,12 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $networkInterfaceTrafficConfig;
 
     /**
-     * @description The communication model of the ENI. Valid values:
+     * @description The communication mode of the ENI. Valid values:
      *
      *   Standard: The TCP communication mode is used.
-     *   HighPerformance: The Elastic RDMA Interface (ERI) is enabled and the remote direct memory access (RDMA) communication mode is used.
+     *   HighPerformance: The Elastic RDMA Interface (ERI) feature is enabled and the remote direct memory access (RDMA) communication mode is used.
      *
-     * >  This parameter can have a value of HighPerformance only when the ENI is attached to a c7re RDMA-enhanced instance that resides in Beijing Zone K.
+     * >  This parameter can have a value of HighPerformance only when the ENI is attached to a c7re RDMA-enhanced instance.
      * @example Standard
      *
      * @var string

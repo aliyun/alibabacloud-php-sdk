@@ -17,6 +17,11 @@ class DescribeInstanceHistoryEventsResponseBody extends Model
     public $instanceSystemEventSet;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @description The page number.
      *
      * @example 1
@@ -53,6 +58,7 @@ class DescribeInstanceHistoryEventsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'instanceSystemEventSet' => 'InstanceSystemEventSet',
+        'nextToken'              => 'NextToken',
         'pageNumber'             => 'PageNumber',
         'pageSize'               => 'PageSize',
         'requestId'              => 'RequestId',
@@ -68,6 +74,9 @@ class DescribeInstanceHistoryEventsResponseBody extends Model
         $res = [];
         if (null !== $this->instanceSystemEventSet) {
             $res['InstanceSystemEventSet'] = null !== $this->instanceSystemEventSet ? $this->instanceSystemEventSet->toMap() : null;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -95,6 +104,9 @@ class DescribeInstanceHistoryEventsResponseBody extends Model
         $model = new self();
         if (isset($map['InstanceSystemEventSet'])) {
             $model->instanceSystemEventSet = instanceSystemEventSet::fromMap($map['InstanceSystemEventSet']);
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

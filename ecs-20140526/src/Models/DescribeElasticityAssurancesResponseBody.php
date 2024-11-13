@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticityAssurancesResponseBody extends Model
 {
     /**
-     * @description The information about the elasticity assurances.
+     * @description Details about the elasticity assurances.
      *
      * @var elasticityAssuranceSet
      */

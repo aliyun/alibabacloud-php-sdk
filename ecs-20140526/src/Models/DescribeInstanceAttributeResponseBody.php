@@ -208,7 +208,10 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $internetMaxBandwidthOut;
 
     /**
-     * @description Indicates whether the instance is I/O optimized.
+     * @description Indicates whether the ECS instance is I/O optimized. Valid values:
+     *
+     *   optimized: The ECS instance is I/O optimized.
+     *   none: The ECS instance is not I/O optimized.
      *
      * @example true
      *

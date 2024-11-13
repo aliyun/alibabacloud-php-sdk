@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceVncPasswdRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The ID of the ECS instance.
      *
      * This parameter is required.
      * @example i-bp67acfmxazb4ph****
@@ -49,7 +49,7 @@ class ModifyInstanceVncPasswdRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The new VNC password of the instance.
+     * @description The new VNC password of the ECS instance.
      *
      * This parameter is required.
      * @example Ecs123

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class elasticityAssuranceUsage extends Model
 {
     /**
+     * @description >  This parameter is not publicly available.
+     *
      * @example 1144775968548340
      *
      * @var string
@@ -16,6 +18,8 @@ class elasticityAssuranceUsage extends Model
     public $accountId;
 
     /**
+     * @description >  This parameter is not publicly available.
+     *
      * @example name
      *
      * @var string
@@ -23,6 +27,8 @@ class elasticityAssuranceUsage extends Model
     public $serviceName;
 
     /**
+     * @description >  This parameter is not publicly available.
+     *
      * @example 1
      *
      * @var int

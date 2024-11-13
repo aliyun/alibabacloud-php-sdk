@@ -142,6 +142,10 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
     public $securityGroupId;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $sourceDestCheck;
