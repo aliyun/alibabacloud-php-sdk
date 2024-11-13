@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models;
 
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAXBCallResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
 class BindAXBCallResponseBody extends Model
@@ -16,15 +17,6 @@ class BindAXBCallResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
-     * @description 绑定关系ID
-     *
-     * @example 476567566
-     *
-     * @var string
-     */
-    public $bindId;
-
-    /**
      * @description 返回状态码 0000表示成功 其他表示失败
      *
      * @example 0000
@@ -32,6 +24,11 @@ class BindAXBCallResponseBody extends Model
      * @var string
      */
     public $code;
+
+    /**
+     * @var data
+     */
+    public $data;
 
     /**
      * @description 返回信息
@@ -52,8 +49,8 @@ class BindAXBCallResponseBody extends Model
     public $success;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'bindId'             => 'BindId',
         'code'               => 'Code',
+        'data'               => 'Data',
         'message'            => 'Message',
         'success'            => 'Success',
     ];
@@ -68,11 +65,11 @@ class BindAXBCallResponseBody extends Model
         if (null !== $this->accessDeniedDetail) {
             $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
         }
-        if (null !== $this->bindId) {
-            $res['BindId'] = $this->bindId;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -95,11 +92,11 @@ class BindAXBCallResponseBody extends Model
         if (isset($map['AccessDeniedDetail'])) {
             $model->accessDeniedDetail = $map['AccessDeniedDetail'];
         }
-        if (isset($map['BindId'])) {
-            $model->bindId = $map['BindId'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

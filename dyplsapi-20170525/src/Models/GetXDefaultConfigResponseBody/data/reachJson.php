@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetXDefaultConfigResponseBody;
+namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetXDefaultConfigResponseBody\data;
 
 use AlibabaCloud\Tea\Model;
 
@@ -20,7 +20,7 @@ class reachJson extends Model
     /**
      * @description 通话状态 1:通话振铃 2:接通前 3:接通后 4:通话结束 5:已接通6:未接通
      *
-     * @example 3
+     * @example 1
      *
      * @var string
      */

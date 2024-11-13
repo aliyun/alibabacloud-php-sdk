@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models;
 
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\ConfigXResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
 class ConfigXResponseBody extends Model
@@ -16,8 +17,6 @@ class ConfigXResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
-     * @description 返回状态码 0000表示成功 其他表示失败
-     *
      * @example 0000
      *
      * @var string
@@ -25,17 +24,21 @@ class ConfigXResponseBody extends Model
     public $code;
 
     /**
-     * @description 返回信息
-     *
-     * @example 成功
-     *
+     * @var data
+     */
+    public $data;
+
+    /**
      * @var string
      */
     public $message;
 
     /**
-     * @description 返回是否成功 true  表示成功 false表示失败
-     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @example true
      *
      * @var bool
@@ -44,7 +47,9 @@ class ConfigXResponseBody extends Model
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
         'code'               => 'Code',
+        'data'               => 'Data',
         'message'            => 'Message',
+        'requestId'          => 'RequestId',
         'success'            => 'Success',
     ];
 
@@ -61,8 +66,14 @@ class ConfigXResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -85,8 +96,14 @@ class ConfigXResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

@@ -2,16 +2,16 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetXConfigResponseBody;
+namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetXDefaultConfigResponseBody\data;
 
 use AlibabaCloud\Tea\Model;
 
-class sequenceCalls extends Model
+class sequenceCall extends Model
 {
     /**
      * @description 顺振提示音放音编号，格式如callNoPlayCode
      *
-     * @example 01
+     * @example 示例值
      *
      * @var string
      */
@@ -20,7 +20,7 @@ class sequenceCalls extends Model
     /**
      * @description 顺振被叫号码
      *
-     * @example 18*******33
+     * @example 示例值示例值示例值
      *
      * @var string
      */
@@ -29,7 +29,7 @@ class sequenceCalls extends Model
     /**
      * @description 接通后主被叫放音编号，格式如calledPlayCode
      *
-     * @example 02
+     * @example 示例值示例值示例值
      *
      * @var string
      */
@@ -63,7 +63,7 @@ class sequenceCalls extends Model
     /**
      * @param array $map
      *
-     * @return sequenceCalls
+     * @return sequenceCall
      */
     public static function fromMap($map = [])
     {

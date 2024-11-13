@@ -2,20 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models;
+namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models\ConfigXResponseBody;
 
-use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\ListXTelephonesResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class ListXTelephonesResponseBody extends Model
+class data extends Model
 {
-    /**
-     * @example 0
-     *
-     * @var string
-     */
-    public $accessDeniedDetail;
-
     /**
      * @description 返回状态码 0000表示成功 其他表示失败
      *
@@ -24,11 +16,6 @@ class ListXTelephonesResponseBody extends Model
      * @var string
      */
     public $code;
-
-    /**
-     * @var data
-     */
-    public $data;
 
     /**
      * @description 返回信息
@@ -48,11 +35,9 @@ class ListXTelephonesResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'accessDeniedDetail' => 'AccessDeniedDetail',
-        'code'               => 'Code',
-        'data'               => 'Data',
-        'message'            => 'Message',
-        'success'            => 'Success',
+        'code'    => 'Code',
+        'message' => 'Message',
+        'success' => 'Success',
     ];
 
     public function validate()
@@ -62,14 +47,8 @@ class ListXTelephonesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accessDeniedDetail) {
-            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -84,19 +63,13 @@ class ListXTelephonesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListXTelephonesResponseBody
+     * @return data
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccessDeniedDetail'])) {
-            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models;
 
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreateSmsSignResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
 class CreateSmsSignResponseBody extends Model
@@ -16,15 +17,6 @@ class CreateSmsSignResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
-     * @description 短信接收者号码签名串(加到短信内容中供解析真实被叫号码)
-     *
-     * @example sign*****466
-     *
-     * @var string
-     */
-    public $calledNoSign;
-
-    /**
      * @description 返回状态码 0000表示成功 其他表示失败
      *
      * @example 0000
@@ -32,6 +24,11 @@ class CreateSmsSignResponseBody extends Model
      * @var string
      */
     public $code;
+
+    /**
+     * @var data
+     */
+    public $data;
 
     /**
      * @description 返回信息
@@ -52,8 +49,8 @@ class CreateSmsSignResponseBody extends Model
     public $success;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'calledNoSign'       => 'CalledNoSign',
         'code'               => 'Code',
+        'data'               => 'Data',
         'message'            => 'Message',
         'success'            => 'Success',
     ];
@@ -68,11 +65,11 @@ class CreateSmsSignResponseBody extends Model
         if (null !== $this->accessDeniedDetail) {
             $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
         }
-        if (null !== $this->calledNoSign) {
-            $res['CalledNoSign'] = $this->calledNoSign;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -95,11 +92,11 @@ class CreateSmsSignResponseBody extends Model
         if (isset($map['AccessDeniedDetail'])) {
             $model->accessDeniedDetail = $map['AccessDeniedDetail'];
         }
-        if (isset($map['CalledNoSign'])) {
-            $model->calledNoSign = $map['CalledNoSign'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
