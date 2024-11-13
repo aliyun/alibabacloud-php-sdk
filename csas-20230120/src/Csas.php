@@ -127,6 +127,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessApplicationRe
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessPolicyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserApplicationsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserApplicationsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserDevicesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserDevicesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsForPrivateAccessPolicyRequest;
@@ -135,6 +137,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsForRegistrationPolicyRe
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsForRegistrationPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserPrivateAccessPoliciesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserPrivateAccessPoliciesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUsersRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUsersResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\LookupWmInfoMappingRequest;
@@ -3222,6 +3226,50 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * @summary 列表查询用户应用权限
+     *  *
+     * @param ListUserApplicationsRequest $request ListUserApplicationsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListUserApplicationsResponse ListUserApplicationsResponse
+     */
+    public function listUserApplicationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUserApplications',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListUserApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 列表查询用户应用权限
+     *  *
+     * @param ListUserApplicationsRequest $request ListUserApplicationsRequest
+     *
+     * @return ListUserApplicationsResponse ListUserApplicationsResponse
+     */
+    public function listUserApplications($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUserApplicationsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 批量查询用户设备列表
      *  *
      * @param ListUserDevicesRequest $request ListUserDevicesRequest
@@ -3395,6 +3443,50 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listUserGroupsForRegistrationPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 列表查询用户零信任策略
+     *  *
+     * @param ListUserPrivateAccessPoliciesRequest $request ListUserPrivateAccessPoliciesRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListUserPrivateAccessPoliciesResponse ListUserPrivateAccessPoliciesResponse
+     */
+    public function listUserPrivateAccessPoliciesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUserPrivateAccessPolicies',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListUserPrivateAccessPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 列表查询用户零信任策略
+     *  *
+     * @param ListUserPrivateAccessPoliciesRequest $request ListUserPrivateAccessPoliciesRequest
+     *
+     * @return ListUserPrivateAccessPoliciesResponse ListUserPrivateAccessPoliciesResponse
+     */
+    public function listUserPrivateAccessPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUserPrivateAccessPoliciesWithOptions($request, $runtime);
     }
 
     /**
