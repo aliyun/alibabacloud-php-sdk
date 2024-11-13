@@ -36,6 +36,14 @@ class ListPolicyRequest extends Model
     public $pageSize;
 
     /**
+     * @description The service type. Valid values:
+     *
+     *   **ecs**: Elastic Compute Service (ECS).
+     *   **slb**: Server Load Balancer (SLB).
+     *   **eip**: Elastic IP Address (EIP).
+     *   **gf-eip**: EIP with Anti-DDoS (Enhanced) enabled.
+     *
+     * >  This parameter is available only if Type is set to `default`.
      * @example ecs
      *
      * @var string
@@ -45,6 +53,7 @@ class ListPolicyRequest extends Model
     /**
      * @description The type of the policy. Valid values:
      *
+     *   **default**: the default mitigation policy.
      *   **l3**: IP-specific mitigation policies.
      *   **l4**: port-specific mitigation policies.
      *

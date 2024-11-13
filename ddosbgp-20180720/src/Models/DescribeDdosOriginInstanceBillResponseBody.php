@@ -6,12 +6,20 @@ namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeDdosOriginInstanceBillResponseBody\flowList;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeDdosOriginInstanceBillResponseBody\ipCountOrFunctionList;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeDdosOriginInstanceBillResponseBody\monthlySummaryList;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeDdosOriginInstanceBillResponseBody\standardAssetsFlowList;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDdosOriginInstanceBillResponseBody extends Model
 {
     /**
+     * @description The asset status.
+     *
+     *   **0**: No asset is added to the instance for protection.
+     *   **1**: Assets are added to the instance for protection.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $assetStatus;
@@ -72,16 +80,21 @@ class DescribeDdosOriginInstanceBillResponseBody extends Model
     /**
      * @description The IP address distribution. The JSON struct contains the following fields:
      *
-     *   **eipCnIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled in the Chinese mainland
-     *   **eipOvIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland
-     *   **standardAssetsCnIpCount**: the number of IP addresses of regular Alibaba Cloud services in the Chinese mainland
-     *   **standardAssetsOvIpCount**: the number of IP addresses of regular Alibaba Cloud services outside the Chinese mainland
+     *   **eipCnIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled in the Chinese mainland.
+     *   **eipOvIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland.
+     *   **standardAssetsCnIpCount**: the number of IP addresses of regular Alibaba Cloud services in the Chinese mainland.
+     *   **standardAssetsOvIpCount**: the number of IP addresses of regular Alibaba Cloud services outside the Chinese mainland.
      *
      * @example {\\"eipCnIpCount\\":6,\\"eipOvIpCount\\":17,\\"standardAssetsCnIpCount\\":2,\\"standardAssetsOvIpCount\\":0}
      *
      * @var string
      */
     public $ipInfo;
+
+    /**
+     * @var monthlySummaryList[]
+     */
+    public $monthlySummaryList;
 
     /**
      * @description The request ID.
@@ -165,6 +178,7 @@ class DescribeDdosOriginInstanceBillResponseBody extends Model
         'ipCount'                   => 'IpCount',
         'ipCountOrFunctionList'     => 'IpCountOrFunctionList',
         'ipInfo'                    => 'IpInfo',
+        'monthlySummaryList'        => 'MonthlySummaryList',
         'requestId'                 => 'RequestId',
         'standardAssetsFlowList'    => 'StandardAssetsFlowList',
         'standardAssetsFlowRegion'  => 'StandardAssetsFlowRegion',
@@ -217,6 +231,15 @@ class DescribeDdosOriginInstanceBillResponseBody extends Model
         }
         if (null !== $this->ipInfo) {
             $res['IpInfo'] = $this->ipInfo;
+        }
+        if (null !== $this->monthlySummaryList) {
+            $res['MonthlySummaryList'] = [];
+            if (null !== $this->monthlySummaryList && \is_array($this->monthlySummaryList)) {
+                $n = 0;
+                foreach ($this->monthlySummaryList as $item) {
+                    $res['MonthlySummaryList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -295,6 +318,15 @@ class DescribeDdosOriginInstanceBillResponseBody extends Model
         }
         if (isset($map['IpInfo'])) {
             $model->ipInfo = $map['IpInfo'];
+        }
+        if (isset($map['MonthlySummaryList'])) {
+            if (!empty($map['MonthlySummaryList'])) {
+                $model->monthlySummaryList = [];
+                $n                         = 0;
+                foreach ($map['MonthlySummaryList'] as $item) {
+                    $model->monthlySummaryList[$n++] = null !== $item ? monthlySummaryList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

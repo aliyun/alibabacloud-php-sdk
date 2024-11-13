@@ -43,7 +43,7 @@ class ModifyPolicyRequest extends Model
     public $actionType;
 
     /**
-     * @description The content of the policy.
+     * @description The policy content.
      *
      * @var content
      */

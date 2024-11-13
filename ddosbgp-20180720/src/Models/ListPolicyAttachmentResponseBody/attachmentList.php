@@ -45,6 +45,10 @@ class attachmentList extends Model
     public $policyName;
 
     /**
+     * @description The description of the policy.
+     *
+     * @example test
+     *
      * @var string
      */
     public $policyRemark;

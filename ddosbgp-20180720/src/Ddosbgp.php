@@ -166,7 +166,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Adds IP addresses to an Anti-DDoS Origin Enterprise instance.
+     * @summary Adds IP addresses to an Anti-DDoS Origin instance.
      *  *
      * @param AddIpRequest   $request AddIpRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -208,7 +208,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Adds IP addresses to an Anti-DDoS Origin Enterprise instance.
+     * @summary Adds IP addresses to an Anti-DDoS Origin instance.
      *  *
      * @param AddIpRequest $request AddIpRequest
      *
@@ -769,7 +769,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Removes specific IP addresses from an Anti-DDoS Origin Enterprise instance.
+     * @summary Removes specific IP addresses from an Anti-DDoS Origin instance.
      *  *
      * @description The Anti-DDoS Origin Enterprise instance no longer protects the IP addresses that are removed.
      *  *
@@ -813,7 +813,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Removes specific IP addresses from an Anti-DDoS Origin Enterprise instance.
+     * @summary Removes specific IP addresses from an Anti-DDoS Origin instance.
      *  *
      * @description The Anti-DDoS Origin Enterprise instance no longer protects the IP addresses that are removed.
      *  *
@@ -1386,6 +1386,8 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
+     * @summary Queries the specifications of a specific Anti-DDoS Origin instance.
+     *  *
      * @param DescribeInstanceSpecsRequest $request DescribeInstanceSpecsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -1423,6 +1425,8 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
+     * @summary Queries the specifications of a specific Anti-DDoS Origin instance.
+     *  *
      * @param DescribeInstanceSpecsRequest $request DescribeInstanceSpecsRequest
      *
      * @return DescribeInstanceSpecsResponse DescribeInstanceSpecsResponse
@@ -1806,7 +1810,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the regions of cloud assets that are supported by an Anti-DDoS Origin instance.
+     * @summary Queries the regions of assets that can be protected by Anti-DDoS Origin Enterprise in a specific region.
      *  *
      * @param DescribeRegionsRequest $request DescribeRegionsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -1842,7 +1846,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the regions of cloud assets that are supported by an Anti-DDoS Origin instance.
+     * @summary Queries the regions of assets that can be protected by Anti-DDoS Origin Enterprise in a specific region.
      *  *
      * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *

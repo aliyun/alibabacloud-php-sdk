@@ -31,6 +31,8 @@ class DescribeInstanceListRequest extends Model
     public $instanceType;
 
     /**
+     * @description The mitigation plan of the Anti-DDoS Origin instance.
+     *
      * @var string[]
      */
     public $instanceTypeList;
@@ -128,6 +130,8 @@ class DescribeInstanceListRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tags that are added to the Anti-DDoS Origin instance.
+     *
      * @var tag[]
      */
     public $tag;

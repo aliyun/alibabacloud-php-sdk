@@ -41,9 +41,9 @@ class sourceBlockList extends Model
     /**
      * @description The type of the source rate limit. Valid values:
      *
-     *   **3**: the PPS limit on source IP addresses.
+     *   **3**: the pps limit on source IP addresses.
      *   **4**: the bandwidth limit on source IP addresses.
-     *   **5**: the PPS limit on source SYN packets.
+     *   **5**: the pps limit on source SYN packets.
      *   **6**: the bandwidth limit on source SYN packets.
      *
      * This parameter is required.

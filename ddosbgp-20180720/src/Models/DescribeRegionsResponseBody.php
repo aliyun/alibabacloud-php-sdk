@@ -19,14 +19,14 @@ class DescribeRegionsResponseBody extends Model
     public $code;
 
     /**
-     * @description The information about regions of the cloud assets that are supported by the Anti-DDoS Origin instance. The information includes region IDs and names.
+     * @description The information about the regions of cloud assets that can be protected by Anti-DDoS Origin. The information includes region IDs and names.
      *
      * @var regions[]
      */
     public $regions;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example F7CA8B4E-FB15-4336-A351-8DC29D66EA82
      *
@@ -35,10 +35,10 @@ class DescribeRegionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   **true**: The request is successful.
-     *   **false**: The request failed.
+     *   **true**
+     *   **false**
      *
      * @example true
      *

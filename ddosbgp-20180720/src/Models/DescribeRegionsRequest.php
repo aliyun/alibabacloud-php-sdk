@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsRequest extends Model
 {
     /**
-     * @description The region ID to query. The default value is **cn-hangzhou**, which indicates that the regions of cloud assets that are supported by an Anti-DDoS Origin instance in the China (Hangzhou) region are queried.
+     * @description The ID of the region. The default value is **cn-hangzhou**. If the default value is used, the regions of cloud assets that can be protected by Anti-DDoS Origin in the China (Hangzhou) region are queried.
      *
-     * For more information about the IDs of other regions, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     * If you want to specify another value for **RegionId**, see [Regions and Zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -19,9 +19,9 @@ class DescribeRegionsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+     * @description The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management. This parameter is empty by default, which indicates that the Anti-DDoS Origin instance belongs to the default resource group.
      *
-     * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
+     * For information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
      * @example rg-acfm2pz25js****
      *
      * @var string

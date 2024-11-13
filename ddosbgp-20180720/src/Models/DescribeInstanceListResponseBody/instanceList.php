@@ -41,8 +41,10 @@ class instanceList extends Model
     /**
      * @description The type of the instance.
      *
-     *   **ddos_ddosorigin_public_cn**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the China site (aliyun.com)
-     *   **ddos_ddosorigin_public_intl**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the International site (alibabacloud.com)
+     *   **ddos_ddosorigin_public_cn**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the China site (aliyun.com).
+     *   **ddos_ddosorigin_public_intl**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the International site (alibabacloud.com).
+     *
+     * @example ddos_ddosorigin_public_cn
      *
      * @var string
      */
@@ -55,6 +57,8 @@ class instanceList extends Model
      *   **2**: The instance supports public IP addresses in regions in the Chinese mainland.
      *   **3**: The instance supports public IP addresses in regions outside the Chinese mainland.
      *   **4**: The instance supports public IP addresses in a region in or outside the Chinese mainland.
+     *
+     * @example 1
      *
      * @var int
      */

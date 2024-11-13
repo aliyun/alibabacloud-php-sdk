@@ -27,11 +27,22 @@ class packConfig extends Model
     public $bindIpCount;
 
     /**
+     * @description The burstable clean bandwidth. Unit: Mbit/s.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $elasticBwMbps;
 
     /**
+     * @description The metering method of burstable clean bandwidth. Valid values:
+     *
+     *   **month**: the monthly 95th percentile metering method.
+     *   **day**: the daily 95th percentile metering method.
+     *
+     * @example day
+     *
      * @var string
      */
     public $elasticBwMode;
@@ -73,7 +84,7 @@ class packConfig extends Model
     public $normalBandwidth;
 
     /**
-     * @description The burstable protection bandwidth of the Anti-DDoS Origin Enterprise instance. Unit: Gbit/s.
+     * @description The burstable protection bandwidth of the Anti-DDoS Origin instance. Unit: Gbit/s.
      *
      * @example 300
      *
@@ -82,7 +93,7 @@ class packConfig extends Model
     public $packAdvThre;
 
     /**
-     * @description The basic protection bandwidth of the Anti-DDoS Origin Enterprise instance. Unit: Gbit/s.
+     * @description The basic protection bandwidth of the Anti-DDoS Origin instance. Unit: Gbit/s.
      *
      * @example 20
      *

@@ -38,7 +38,7 @@ class portRuleList extends Model
     public $id;
 
     /**
-     * @description The action triggered if the rule is matched. Valid value:
+     * @description The action triggered if the rule is matched. Valid values:
      *
      *   **drop**: The traffic is discarded.
      *

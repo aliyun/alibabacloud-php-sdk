@@ -18,7 +18,7 @@ class sourceLimit extends Model
     public $bps;
 
     /**
-     * @description The packets per second (PPS) limit on source IP addresses.
+     * @description The packets per second (pps) limit on source IP addresses.
      *
      * @example 64
      *
@@ -36,7 +36,7 @@ class sourceLimit extends Model
     public $synBps;
 
     /**
-     * @description The PPS limit on source SYN packets.
+     * @description The pps limit on source SYN packets.
      *
      * @example 64
      *

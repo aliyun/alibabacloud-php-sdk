@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyPolicyContentRequest extends Model
 {
     /**
-     * @description The content of the policy.
+     * @description The policy content.
      *
      * @var content
      */

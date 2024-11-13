@@ -37,12 +37,18 @@ class instanceSpecs extends Model
     public $defenseTimesPercent;
 
     /**
+     * @description Indicates whether the instance is downgraded. Valid value:
+     *
+     *   **8**: The instance is downgraded due to excessive bandwidth usage.
+     *
+     * @example 8
+     *
      * @var int
      */
     public $downgradeStatus;
 
     /**
-     * @description The region ID of the Anti-DDoS Origin Enterprise instance.
+     * @description The ID of the Anti-DDoS Origin instance.
      *
      * @example ddosbgp-cn-n6w1r7nz****
      *
@@ -63,16 +69,16 @@ class instanceSpecs extends Model
     public $isFullDefenseMode;
 
     /**
-     * @description The configurations of the Anti-DDoS Origin Enterprise instance, including the number of protected IP addresses and protection bandwidth.
+     * @description The configurations of the Anti-DDoS Origin instance, including the number of protected IP addresses and protection bandwidth.
      *
      * @var packConfig
      */
     public $packConfig;
 
     /**
-     * @description The region ID of the Anti-DDoS Origin Enterprise instance.
+     * @description The region ID of the Anti-DDoS Origin instance.
      *
-     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the name of the region.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the name of the region.
      * @example cn-hangzhou
      *
      * @var string

@@ -44,6 +44,8 @@ class policyList extends Model
     public $name;
 
     /**
+     * @description The remarks of the policy.
+     *
      * @example test
      *
      * @var string
@@ -53,6 +55,7 @@ class policyList extends Model
     /**
      * @description The type of the policy. Valid values:
      *
+     *   **default**: the default mitigation policy.
      *   **l3**: IP-specific mitigation policies.
      *   **l4**: port-specific mitigation policies.
      *

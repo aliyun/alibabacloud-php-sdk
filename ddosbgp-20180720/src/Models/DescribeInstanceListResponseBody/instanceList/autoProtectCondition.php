@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class autoProtectCondition extends Model
 {
     /**
+     * @description The events that trigger automatic association.
+     *
      * @var string[]
      */
     public $events;

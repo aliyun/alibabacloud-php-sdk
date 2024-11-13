@@ -91,7 +91,7 @@ class fingerPrintRuleList extends Model
     public $payloadBytes;
 
     /**
-     * @description The type of the protocol. Valid value:
+     * @description The type of the protocol. Valid values:
      *
      *   **tcp**
      *   **udp**
