@@ -338,11 +338,6 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\StartScheduledPreloadExecutionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\StartScheduledPreloadExecutionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\StopScheduledPreloadExecutionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\StopScheduledPreloadExecutionResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\TransformExpressionToMatchRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\TransformExpressionToMatchResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\TransformMatchToExpressionRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\TransformMatchToExpressionResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\TransformMatchToExpressionShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCustomScenePolicyRequest;
@@ -7395,6 +7390,9 @@ class ESA extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->protectionLevel)) {
+            $query['ProtectionLevel'] = $request->protectionLevel;
+        }
         if (!Utils::isUnset($request->queryArgsShrink)) {
             $query['QueryArgs'] = $request->queryArgsShrink;
         }
@@ -7639,6 +7637,9 @@ class ESA extends OpenApiClient
         }
         if (!Utils::isUnset($request->queryArgsShrink)) {
             $query['QueryArgs'] = $request->queryArgsShrink;
+        }
+        if (!Utils::isUnset($request->siteId)) {
+            $query['SiteId'] = $request->siteId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -8740,121 +8741,6 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopScheduledPreloadExecutionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 将表达式转换为匹配项
-     *  *
-     * @param TransformExpressionToMatchRequest $request TransformExpressionToMatchRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
-     *
-     * @return TransformExpressionToMatchResponse TransformExpressionToMatchResponse
-     */
-    public function transformExpressionToMatchWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->expression)) {
-            $body['Expression'] = $request->expression;
-        }
-        if (!Utils::isUnset($request->phase)) {
-            $body['Phase'] = $request->phase;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'TransformExpressionToMatch',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return TransformExpressionToMatchResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 将表达式转换为匹配项
-     *  *
-     * @param TransformExpressionToMatchRequest $request TransformExpressionToMatchRequest
-     *
-     * @return TransformExpressionToMatchResponse TransformExpressionToMatchResponse
-     */
-    public function transformExpressionToMatch($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->transformExpressionToMatchWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 将匹配项转换为表达式
-     *  *
-     * @param TransformMatchToExpressionRequest $tmpReq  TransformMatchToExpressionRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
-     *
-     * @return TransformMatchToExpressionResponse TransformMatchToExpressionResponse
-     */
-    public function transformMatchToExpressionWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new TransformMatchToExpressionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->match)) {
-            $request->matchShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->match, 'Match', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->matchShrink)) {
-            $body['Match'] = $request->matchShrink;
-        }
-        if (!Utils::isUnset($request->phase)) {
-            $body['Phase'] = $request->phase;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'TransformMatchToExpression',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return TransformMatchToExpressionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 将匹配项转换为表达式
-     *  *
-     * @param TransformMatchToExpressionRequest $request TransformMatchToExpressionRequest
-     *
-     * @return TransformMatchToExpressionResponse TransformMatchToExpressionResponse
-     */
-    public function transformMatchToExpression($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->transformMatchToExpressionWithOptions($request, $runtime);
     }
 
     /**

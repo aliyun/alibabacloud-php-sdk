@@ -20,9 +20,15 @@ class ListWafTemplateRulesRequest extends Model
      * @var queryArgs
      */
     public $queryArgs;
+
+    /**
+     * @var int
+     */
+    public $siteId;
     protected $_name = [
         'phase'     => 'Phase',
         'queryArgs' => 'QueryArgs',
+        'siteId'    => 'SiteId',
     ];
 
     public function validate()
@@ -37,6 +43,9 @@ class ListWafTemplateRulesRequest extends Model
         }
         if (null !== $this->queryArgs) {
             $res['QueryArgs'] = null !== $this->queryArgs ? $this->queryArgs->toMap() : null;
+        }
+        if (null !== $this->siteId) {
+            $res['SiteId'] = $this->siteId;
         }
 
         return $res;
@@ -55,6 +64,9 @@ class ListWafTemplateRulesRequest extends Model
         }
         if (isset($map['QueryArgs'])) {
             $model->queryArgs = queryArgs::fromMap($map['QueryArgs']);
+        }
+        if (isset($map['SiteId'])) {
+            $model->siteId = $map['SiteId'];
         }
 
         return $model;

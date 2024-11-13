@@ -23,13 +23,6 @@ class queryArgs extends Model
     public $idNameLike;
 
     /**
-     * @example 1
-     *
-     * @var int
-     */
-    public $protectionLevel;
-
-    /**
      * @var int[]
      */
     public $protectionLevels;
@@ -43,7 +36,6 @@ class queryArgs extends Model
     protected $_name = [
         'action'           => 'Action',
         'idNameLike'       => 'IdNameLike',
-        'protectionLevel'  => 'ProtectionLevel',
         'protectionLevels' => 'ProtectionLevels',
         'status'           => 'Status',
     ];
@@ -60,9 +52,6 @@ class queryArgs extends Model
         }
         if (null !== $this->idNameLike) {
             $res['IdNameLike'] = $this->idNameLike;
-        }
-        if (null !== $this->protectionLevel) {
-            $res['ProtectionLevel'] = $this->protectionLevel;
         }
         if (null !== $this->protectionLevels) {
             $res['ProtectionLevels'] = $this->protectionLevels;
@@ -87,9 +76,6 @@ class queryArgs extends Model
         }
         if (isset($map['IdNameLike'])) {
             $model->idNameLike = $map['IdNameLike'];
-        }
-        if (isset($map['ProtectionLevel'])) {
-            $model->protectionLevel = $map['ProtectionLevel'];
         }
         if (isset($map['ProtectionLevels'])) {
             if (!empty($map['ProtectionLevels'])) {

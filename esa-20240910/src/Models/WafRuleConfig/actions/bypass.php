@@ -11,6 +11,11 @@ class bypass extends Model
     /**
      * @var int[]
      */
+    public $customRules;
+
+    /**
+     * @var int[]
+     */
     public $regularRules;
 
     /**
@@ -28,6 +33,7 @@ class bypass extends Model
      */
     public $tags;
     protected $_name = [
+        'customRules'  => 'CustomRules',
         'regularRules' => 'RegularRules',
         'regularTypes' => 'RegularTypes',
         'skip'         => 'Skip',
@@ -41,6 +47,9 @@ class bypass extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->customRules) {
+            $res['CustomRules'] = $this->customRules;
+        }
         if (null !== $this->regularRules) {
             $res['RegularRules'] = $this->regularRules;
         }
@@ -65,6 +74,11 @@ class bypass extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomRules'])) {
+            if (!empty($map['CustomRules'])) {
+                $model->customRules = $map['CustomRules'];
+            }
+        }
         if (isset($map['RegularRules'])) {
             if (!empty($map['RegularRules'])) {
                 $model->regularRules = $map['RegularRules'];

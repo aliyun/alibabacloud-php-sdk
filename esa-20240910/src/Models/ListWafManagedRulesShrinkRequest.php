@@ -48,6 +48,11 @@ class ListWafManagedRulesShrinkRequest extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $protectionLevel;
+
+    /**
      * @var string
      */
     public $queryArgsShrink;
@@ -66,6 +71,7 @@ class ListWafManagedRulesShrinkRequest extends Model
         'language'        => 'Language',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
+        'protectionLevel' => 'ProtectionLevel',
         'queryArgsShrink' => 'QueryArgs',
         'siteId'          => 'SiteId',
     ];
@@ -91,6 +97,9 @@ class ListWafManagedRulesShrinkRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->protectionLevel) {
+            $res['ProtectionLevel'] = $this->protectionLevel;
         }
         if (null !== $this->queryArgsShrink) {
             $res['QueryArgs'] = $this->queryArgsShrink;
@@ -124,6 +133,9 @@ class ListWafManagedRulesShrinkRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProtectionLevel'])) {
+            $model->protectionLevel = $map['ProtectionLevel'];
         }
         if (isset($map['QueryArgs'])) {
             $model->queryArgsShrink = $map['QueryArgs'];

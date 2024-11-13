@@ -19,9 +19,15 @@ class ListWafTemplateRulesShrinkRequest extends Model
      * @var string
      */
     public $queryArgsShrink;
+
+    /**
+     * @var int
+     */
+    public $siteId;
     protected $_name = [
         'phase'           => 'Phase',
         'queryArgsShrink' => 'QueryArgs',
+        'siteId'          => 'SiteId',
     ];
 
     public function validate()
@@ -36,6 +42,9 @@ class ListWafTemplateRulesShrinkRequest extends Model
         }
         if (null !== $this->queryArgsShrink) {
             $res['QueryArgs'] = $this->queryArgsShrink;
+        }
+        if (null !== $this->siteId) {
+            $res['SiteId'] = $this->siteId;
         }
 
         return $res;
@@ -54,6 +63,9 @@ class ListWafTemplateRulesShrinkRequest extends Model
         }
         if (isset($map['QueryArgs'])) {
             $model->queryArgsShrink = $map['QueryArgs'];
+        }
+        if (isset($map['SiteId'])) {
+            $model->siteId = $map['SiteId'];
         }
 
         return $model;

@@ -52,13 +52,6 @@ class containers extends Model
     public $postStart;
 
     /**
-     * @example sh start.sh
-     *
-     * @var string
-     */
-    public $preStart;
-
-    /**
      * @example sh stop.sh
      *
      * @var string
@@ -90,7 +83,6 @@ class containers extends Model
         'image'        => 'Image',
         'name'         => 'Name',
         'postStart'    => 'PostStart',
-        'preStart'     => 'PreStart',
         'preStop'      => 'PreStop',
         'probeContent' => 'ProbeContent',
         'probeType'    => 'ProbeType',
@@ -121,9 +113,6 @@ class containers extends Model
         }
         if (null !== $this->postStart) {
             $res['PostStart'] = $this->postStart;
-        }
-        if (null !== $this->preStart) {
-            $res['PreStart'] = $this->preStart;
         }
         if (null !== $this->preStop) {
             $res['PreStop'] = $this->preStop;
@@ -166,9 +155,6 @@ class containers extends Model
         }
         if (isset($map['PostStart'])) {
             $model->postStart = $map['PostStart'];
-        }
-        if (isset($map['PreStart'])) {
-            $model->preStart = $map['PreStart'];
         }
         if (isset($map['PreStop'])) {
             $model->preStop = $map['PreStop'];

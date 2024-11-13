@@ -49,6 +49,11 @@ class ListWafManagedRulesRequest extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $protectionLevel;
+
+    /**
      * @var queryArgs
      */
     public $queryArgs;
@@ -62,13 +67,14 @@ class ListWafManagedRulesRequest extends Model
      */
     public $siteId;
     protected $_name = [
-        'attackType' => 'AttackType',
-        'id'         => 'Id',
-        'language'   => 'Language',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'queryArgs'  => 'QueryArgs',
-        'siteId'     => 'SiteId',
+        'attackType'      => 'AttackType',
+        'id'              => 'Id',
+        'language'        => 'Language',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'protectionLevel' => 'ProtectionLevel',
+        'queryArgs'       => 'QueryArgs',
+        'siteId'          => 'SiteId',
     ];
 
     public function validate()
@@ -92,6 +98,9 @@ class ListWafManagedRulesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->protectionLevel) {
+            $res['ProtectionLevel'] = $this->protectionLevel;
         }
         if (null !== $this->queryArgs) {
             $res['QueryArgs'] = null !== $this->queryArgs ? $this->queryArgs->toMap() : null;
@@ -125,6 +134,9 @@ class ListWafManagedRulesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProtectionLevel'])) {
+            $model->protectionLevel = $map['ProtectionLevel'];
         }
         if (isset($map['QueryArgs'])) {
             $model->queryArgs = queryArgs::fromMap($map['QueryArgs']);

@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\BatchCreateRecordsRequest;
 
+use AlibabaCloud\SDK\ESA\V20240910\Models\BatchCreateRecordsRequest\recordList\authConf;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchCreateRecordsRequest\recordList\data;
 use AlibabaCloud\Tea\Model;
 
 class recordList extends Model
 {
+    /**
+     * @var authConf
+     */
+    public $authConf;
+
     /**
      * @example web
      *
@@ -68,6 +74,7 @@ class recordList extends Model
      */
     public $type;
     protected $_name = [
+        'authConf'   => 'AuthConf',
         'bizName'    => 'BizName',
         'data'       => 'Data',
         'proxied'    => 'Proxied',
@@ -84,6 +91,9 @@ class recordList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->authConf) {
+            $res['AuthConf'] = null !== $this->authConf ? $this->authConf->toMap() : null;
+        }
         if (null !== $this->bizName) {
             $res['BizName'] = $this->bizName;
         }
@@ -117,6 +127,9 @@ class recordList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthConf'])) {
+            $model->authConf = authConf::fromMap($map['AuthConf']);
+        }
         if (isset($map['BizName'])) {
             $model->bizName = $map['BizName'];
         }

@@ -12,11 +12,15 @@ class CreateWaitingRoomRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example __aliwaitingroom_example
+     *
      * @var string
      */
     public $cookieName;
 
     /**
+     * @example Hello%20world!
+     *
      * @var string
      */
     public $customPageHtml;
@@ -27,12 +31,16 @@ class CreateWaitingRoomRequest extends Model
     public $description;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $disableSessionRenewalEnable;
 
     /**
      * @description This parameter is required.
+     *
+     * @example on
      *
      * @var string
      */
@@ -46,17 +54,23 @@ class CreateWaitingRoomRequest extends Model
     public $hostNameAndPath;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $jsonResponseEnable;
 
     /**
+     * @example enus
+     *
      * @var string
      */
     public $language;
 
     /**
      * @description This parameter is required.
+     *
+     * @example waitingroom_example
      *
      * @var string
      */
@@ -65,17 +79,23 @@ class CreateWaitingRoomRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example 200
+     *
      * @var string
      */
     public $newUsersPerMinute;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $queueAllEnable;
 
     /**
      * @description This parameter is required.
+     *
+     * @example fifo
      *
      * @var string
      */
@@ -84,12 +104,16 @@ class CreateWaitingRoomRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example 200
+     *
      * @var string
      */
     public $queuingStatusCode;
 
     /**
      * @description This parameter is required.
+     *
+     * @example 5
      *
      * @var string
      */
@@ -98,6 +122,8 @@ class CreateWaitingRoomRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example 1234567890123
+     *
      * @var int
      */
     public $siteId;
@@ -105,12 +131,16 @@ class CreateWaitingRoomRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example 300
+     *
      * @var string
      */
     public $totalActiveUsers;
 
     /**
      * @description This parameter is required.
+     *
+     * @example default
      *
      * @var string
      */

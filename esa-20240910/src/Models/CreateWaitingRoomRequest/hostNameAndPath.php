@@ -11,6 +11,8 @@ class hostNameAndPath extends Model
     /**
      * @description This parameter is required.
      *
+     * @example example.com
+     *
      * @var string
      */
     public $domain;
@@ -18,12 +20,16 @@ class hostNameAndPath extends Model
     /**
      * @description This parameter is required.
      *
+     * @example /test
+     *
      * @var string
      */
     public $path;
 
     /**
      * @description This parameter is required.
+     *
+     * @example test.
      *
      * @var string
      */
