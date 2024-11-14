@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskReplicaGroupsResponseBody extends Model
 {
     /**
-     * @description The query token returned in this call.
+     * @description A pagination token.
      *
      * @example AAAAAdDWBF2****
      *
@@ -19,7 +19,7 @@ class DescribeDiskReplicaGroupsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class DescribeDiskReplicaGroupsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -37,14 +37,14 @@ class DescribeDiskReplicaGroupsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description Details about the replication pair-consistent groups.
+     * @description The information about the replication pair-consistent groups.
      *
      * @var replicaGroups[]
      */
     public $replicaGroups;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example AAA478A0-BEE6-1D42-BEB6-A9CFEAD6****
      *

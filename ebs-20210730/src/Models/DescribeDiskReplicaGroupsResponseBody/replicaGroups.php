@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class replicaGroups extends Model
 {
     /**
-     * @description The bandwidth value. Unit: Mbit/s. This parameter is unavailable and has a system-preset value.
+     * @description The bandwidth value. Unit: Kbit/s. This parameter is not publicly available and has a system-preset value.
      *
      * @example 0
      *
@@ -64,14 +64,14 @@ class replicaGroups extends Model
     public $lastRecoverPoint;
 
     /**
-     * @description The IDs of the replications pairs that belong to the replication pair-consistent group.
+     * @description The IDs of replication pairs that belong to the replication pair-consistent group.
      *
      * @var int[][]
      */
     public $pairIds;
 
     /**
-     * @description The number of replications pairs that belong to the replication pair-consistent group.
+     * @description The number of replication pairs that belong to the replication pair-consistent group.
      *
      * @example 2
      *
@@ -107,7 +107,7 @@ class replicaGroups extends Model
     public $RPO;
 
     /**
-     * @description The ID of the replication pair-consistent group.
+     * @description The IDs of the replication pair-consistent groups.
      *
      * @example pg-myreplica****
      *
@@ -116,7 +116,7 @@ class replicaGroups extends Model
     public $replicaGroupId;
 
     /**
-     * @description The ID of the resource group to which the replication group belongs.
+     * @description The ID of the resource group to which the replication pair-consistent group belongs.
      *
      * @example rg-aek2a*******
      *
@@ -125,7 +125,7 @@ class replicaGroups extends Model
     public $resourceGroupId;
 
     /**
-     * @description The type of the site from which the information of the replication pair and replication pair-consistent group is obtained. Valid values:
+     * @description The type of the site from which the information about the replication pairs and replication pair-consistent group was obtained. Valid values:
      *
      *   production: primary site
      *   backup: secondary site
@@ -173,26 +173,26 @@ class replicaGroups extends Model
     public $standbyZone;
 
     /**
-     * @description The state of the replication pair-consistent group. Valid values:
+     * @description The status of the replication pair-consistent group. Valid values:
      *
      *   invalid: The replication pair-consistent group is invalid, which indicates that abnormal replication pairs are present in the replication pair-consistent group.
      *   creating: The replication pair-consistent group is being created.
-     *   created: The replication pair-consistent group is created.
-     *   create_failed: The replication pair-consistent group cannot be created.
-     *   manual_syncing: Data is being manually synchronized between the disks in the replication pair-consistent group. The first time data is being manually synchronized between the disks in a replication pair-consistent group, the replication pair-consistent group is in this state.
-     *   syncing: Data is being synchronized between the disks in the replication pair-consistent group. While data is being asynchronously replicated from the primary disks to the secondary disks not for the first time, the replication pair-consistent group is in this state.
-     *   normal: The replication pair-consistent group is working as expected. When the system finishes replicating data from the primary disks to the secondary disks within the current replication cycle, the replication pair-consistent group enters this state.
-     *   stopping: The replication pair-consistent group is being stopped.
-     *   stopped: The replication pair-consistent group is stopped.
-     *   stop_failed: The replication pair-consistent group cannot be stopped.
-     *   failovering: A failover is being performed.
-     *   failovered: A failover is performed.
-     *   failover_failed: A failover cannot be performed.
-     *   reprotecting: A reverse replication is being performed.
-     *   reprotect_failed: A reverse replication cannot be performed.
-     *   deleting: The replication pair-consistent group is being deleted.
-     *   delete_failed: The replication pair-consistent group cannot be deleted.
-     *   deleted: The replication pair-consistent group is deleted.
+     *   created: The replication pair-consistent group was created.
+     *   create_failed: The replication pair-consistent group failed to be created.
+     *   manual_syncing: Data was being manually synchronized between the disks in the replication pair-consistent group. When data was being manually synchronized for the first time, the replication pair is in this state.
+     *   syncing: Data was being synchronized between the disks. When data is being asynchronously replicated from the primary disk to the secondary disk again in subsequent operations, the replication pair is in this state.
+     *   normal: The replication pair was working as expected. When the system finishes replicating data from the primary disk to the secondary disk within the current replication cycle, the replication pair enters this state.
+     *   stopping: The replication pair was being stopped.
+     *   stopped: The replication pair was stopped.
+     *   stop_failed: The replication pair failed to be stopped.
+     *   failovering: A failover was being performed.
+     *   failovered: A failover was performed.
+     *   failover_failed: A failover failed to be performed.
+     *   reprotecting: A reverse replication was being performed.
+     *   reprotect_failed: A reverse replication failed to be performed.
+     *   deleting: The replication pair was being deleted.
+     *   delete_failed: The replication pair failed to be deleted.
+     *   deleted: The replication pair was deleted.
      *
      * @example created
      *
@@ -201,7 +201,7 @@ class replicaGroups extends Model
     public $status;
 
     /**
-     * @description The tags of the replication pair.
+     * @description The tags of the replication pair-consistent group.
      *
      * @var tags[]
      */

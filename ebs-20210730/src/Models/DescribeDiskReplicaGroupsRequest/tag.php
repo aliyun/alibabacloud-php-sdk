@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The key of tag N of the replication group.
+     * @description The key of tag N of the replication pair-consistent group.
      *
      * @example tag-key
      *
@@ -18,7 +18,7 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The value of tag N to add to the replication group.
+     * @description The value of tag N of the replication pair-consistent group.
      *
      * @example tag-value
      *

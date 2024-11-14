@@ -31,8 +31,6 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaPairResponse;
-use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskRequest;
-use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteEnterpriseSnapshotPolicyRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteEnterpriseSnapshotPolicyResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDedicatedBlockStorageClusterDisksRequest;
@@ -51,8 +49,6 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairProgressRequest
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairProgressResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairsRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairsResponse;
-use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDisksRequest;
-use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDisksResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeEnterpriseSnapshotPolicyRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeEnterpriseSnapshotPolicyResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeEventsRequest;
@@ -74,8 +70,10 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaPairResponse;
-use AlibabaCloud\SDK\Ebs\V20210730\Models\GetDiskRequest;
-use AlibabaCloud\SDK\Ebs\V20210730\Models\GetDiskResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\GetReportRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\GetReportResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\ListReportsRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\ListReportsResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyDedicatedBlockStorageClusterAttributeRequest;
@@ -921,56 +919,6 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @description Currently, this API is only available for use with ACS resource hosting and is not yet open for direct invocation.
-     *  *
-     * @param DeleteDiskRequest $request DeleteDiskRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DeleteDiskResponse DeleteDiskResponse
-     */
-    public function deleteDiskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->diskId)) {
-            $query['DiskId'] = $request->diskId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteDisk',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteDiskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @description Currently, this API is only available for use with ACS resource hosting and is not yet open for direct invocation.
-     *  *
-     * @param DeleteDiskRequest $request DeleteDiskRequest
-     *
-     * @return DeleteDiskResponse DeleteDiskResponse
-     */
-    public function deleteDisk($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteDiskWithOptions($request, $runtime);
-    }
-
-    /**
      * @summary Deletes a replication pair-consistent group.
      *  *
      * @description ## [](#)Usage notes
@@ -1529,10 +1477,11 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of one or more replication pair-consistent groups in a specific region.
+     * @summary Queries the details of replication pair-consistent groups in a specific region.
      *  *
-     * @description To perform a paged query, set the MaxResults and NextToken parameters.
-     * During a paged query, when you call the DescribeDiskReplicaGroups operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDiskReplicaGroups operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+     * @description ## [](#)Usage notes
+     * To perform a paged query, specify the MaxResults and NextToken parameters.
+     * During a paged query, when you call the DescribeDiskReplicaGroups operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDiskReplicaGroups operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
      *  *
      * @param DescribeDiskReplicaGroupsRequest $request DescribeDiskReplicaGroupsRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -1592,10 +1541,11 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of one or more replication pair-consistent groups in a specific region.
+     * @summary Queries the details of replication pair-consistent groups in a specific region.
      *  *
-     * @description To perform a paged query, set the MaxResults and NextToken parameters.
-     * During a paged query, when you call the DescribeDiskReplicaGroups operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDiskReplicaGroups operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+     * @description ## [](#)Usage notes
+     * To perform a paged query, specify the MaxResults and NextToken parameters.
+     * During a paged query, when you call the DescribeDiskReplicaGroups operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDiskReplicaGroups operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
      *  *
      * @param DescribeDiskReplicaGroupsRequest $request DescribeDiskReplicaGroupsRequest
      *
@@ -1659,7 +1609,7 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about replication pairs in a region.
+     * @summary Queries information about replication pairs in a specific region.
      *  *
      * @description ## [](#)Usage notes
      * *   For information about the regions in which async replication is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
@@ -1727,7 +1677,7 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about replication pairs in a region.
+     * @summary Queries information about replication pairs in a specific region.
      *  *
      * @description ## [](#)Usage notes
      * *   For information about the regions in which async replication is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
@@ -1743,82 +1693,6 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDiskReplicaPairsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDisksRequest $request DescribeDisksRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DescribeDisksResponse DescribeDisksResponse
-     */
-    public function describeDisksWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
-        }
-        if (!Utils::isUnset($request->diskIds)) {
-            $query['DiskIds'] = $request->diskIds;
-        }
-        if (!Utils::isUnset($request->diskName)) {
-            $query['DiskName'] = $request->diskName;
-        }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
-        }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDisks',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeDisksResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDisksRequest $request DescribeDisksRequest
-     *
-     * @return DescribeDisksResponse DescribeDisksResponse
-     */
-    public function describeDisks($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDisksWithOptions($request, $runtime);
     }
 
     /**
@@ -2083,6 +1957,9 @@ class Ebs extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->aggreOps)) {
+            $query['AggreOps'] = $request->aggreOps;
+        }
         if (!Utils::isUnset($request->dimensions)) {
             $query['Dimensions'] = $request->dimensions;
         }
@@ -2501,26 +2378,36 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @param GetDiskRequest $request GetDiskRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @summary Centralized Role: Obtain User Usage Report with reportId
+     *  *
+     * @param GetReportRequest $request GetReportRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDiskResponse GetDiskResponse
+     * @return GetReportResponse GetReportResponse
      */
-    public function getDiskWithOptions($request, $runtime)
+    public function getReportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->diskId)) {
-            $query['DiskId'] = $request->diskId;
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
         }
+        if (!Utils::isUnset($request->reportType)) {
+            $query['ReportType'] = $request->reportType;
+        }
+        $body = [];
         if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->reportId)) {
+            $body['ReportId'] = $request->reportId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDisk',
+            'action'      => 'GetReport',
             'version'     => '2021-07-30',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -2531,19 +2418,85 @@ class Ebs extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetDiskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetDiskRequest $request GetDiskRequest
+     * @summary Centralized Role: Obtain User Usage Report with reportId
+     *  *
+     * @param GetReportRequest $request GetReportRequest
      *
-     * @return GetDiskResponse GetDiskResponse
+     * @return GetReportResponse GetReportResponse
      */
-    public function getDisk($request)
+    public function getReport($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getDiskWithOptions($request, $runtime);
+        return $this->getReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Centralized Role: Query Historical Reports
+     *  *
+     * @param ListReportsRequest $request ListReportsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListReportsResponse ListReportsResponse
+     */
+    public function listReportsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appName)) {
+            $body['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListReports',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Centralized Role: Query Historical Reports
+     *  *
+     * @param ListReportsRequest $request ListReportsRequest
+     *
+     * @return ListReportsResponse ListReportsResponse
+     */
+    public function listReports($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listReportsWithOptions($request, $runtime);
     }
 
     /**

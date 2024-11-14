@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedBlockStorageClustersResponseBody extends Model
 {
     /**
-     * @description The queried dedicated block storage clusters.
+     * @description Details about the dedicated block storage clusters.
      *
      * @var dedicatedBlockStorageClusters[]
      */

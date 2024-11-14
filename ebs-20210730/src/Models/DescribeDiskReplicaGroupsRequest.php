@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskReplicaGroupsRequest extends Model
 {
     /**
-     * @description The IDs of replication pair-consistent groups. You can specify the IDs of one or more replication pair-consistent groups. Separate the IDs with commas (,).
+     * @description The IDs of the replication pair-consistent groups. You can specify the IDs of one or more replication pair-consistent groups. Separate the IDs with commas (,).
      *
-     * This parameter is empty by default, which indicates that all replication pair-consistent groups in the specified region are queried.
+     * This parameter is empty by default, which indicates that all replication pair-consistent groups in the specified region are queried. You can specify up to the IDs of 100 replication pair-consistent groups.
      * @example AAAAAdDWBF2****
      *
      * @var string
@@ -20,7 +20,7 @@ class DescribeDiskReplicaGroupsRequest extends Model
     public $groupIds;
 
     /**
-     * @description The maximum number of entries to return on each page. Valid values: 1 to 500.
+     * @description The maximum number of entries per page. You can use this parameter together with NextToken.
      *
      * Default value: 10.
      * @example 10
@@ -30,12 +30,16 @@ class DescribeDiskReplicaGroupsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The name of the replication pair-consistent group. You can perform a fuzzy search.
+     *
+     * @example pg-name***
+     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The query token. Set the value to the NextToken value returned in the previous call to the DescribeDiskReplicaGroups operation. Leave this parameter empty the first time you call this operation. When NextToken is specified, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken. If you specify NextToken, the PageSize and PageNumber request parameters do not take effect, and the TotalCount response parameter is invalid.
      *
      * @example AAAAAdDWBF2****
      *
@@ -53,9 +57,8 @@ class DescribeDiskReplicaGroupsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries to return on each page. Valid values: 1 to 100.
      *
-     * Valid values: 1 to 100.
      * @example 10
      *
      * @var int
@@ -63,7 +66,7 @@ class DescribeDiskReplicaGroupsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the replication pair-consistent group.
+     * @description The ID of the region to which the replication pair-consistent group belongs.
      *
      * This parameter is required.
      * @example cn-beijing
@@ -73,7 +76,7 @@ class DescribeDiskReplicaGroupsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the replication group belongs.
+     * @description The ID of the resource group to which the replication pair-consistent group belongs.
      *
      * @example rg-aekz*****
      *
@@ -84,9 +87,9 @@ class DescribeDiskReplicaGroupsRequest extends Model
     /**
      * @description The type of the site from which the information of replication pair-consistent groups is retrieved. This parameter is used for scenarios where data is replicated across zones in replication pairs.
      *
-     *   If the Site parameter is not specified, information such as the state of replication pair-consistent groups at the primary site is queried and returned.
+     *   If this parameter is not specified, information such as the status of replication pair-consistent groups at the primary site is queried and returned.
      *
-     *   Otherwise, information such as the state of replication pair-consistent groups at the site specified by the Site parameter is queried and returned. Valid values:
+     *   Otherwise, information such as the state of replication pairs at the site specified by the Site parameter is queried and returned. Valid values:
      *
      *   production: primary site
      *   backup: secondary site
@@ -98,7 +101,7 @@ class DescribeDiskReplicaGroupsRequest extends Model
     public $site;
 
     /**
-     * @description The resource tags. You can specify up to 20 tags.
+     * @description The tags to add to the replication pair-consistent group. You can specify up to 20 tags.
      *
      * @var tag[]
      */

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricDataRequest extends Model
 {
     /**
+     * @description Aggregation method in time dimension. Valid values:
+     *
+     * - MIN
+     * @example SUM
+     *
+     * @var string
+     */
+    public $aggreOps;
+
+    /**
      * @description The dimension map in the JSON format. A dimension is a key-value pair. Valid dimension key: diskId.
      *
      * @example {"diskId":["d-bp14xxxx","d-bp11xxxx"]}
@@ -74,6 +84,7 @@ class DescribeMetricDataRequest extends Model
      */
     public $startTime;
     protected $_name = [
+        'aggreOps'   => 'AggreOps',
         'dimensions' => 'Dimensions',
         'endTime'    => 'EndTime',
         'metricName' => 'MetricName',
@@ -89,6 +100,9 @@ class DescribeMetricDataRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aggreOps) {
+            $res['AggreOps'] = $this->aggreOps;
+        }
         if (null !== $this->dimensions) {
             $res['Dimensions'] = $this->dimensions;
         }
@@ -119,6 +133,9 @@ class DescribeMetricDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AggreOps'])) {
+            $model->aggreOps = $map['AggreOps'];
+        }
         if (isset($map['Dimensions'])) {
             $model->dimensions = $map['Dimensions'];
         }

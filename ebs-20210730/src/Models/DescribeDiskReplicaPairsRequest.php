@@ -20,6 +20,10 @@ class DescribeDiskReplicaPairsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The name of the replication pair. Fuzzy search is supported.
+     *
+     * @example name***
+     *
      * @var string
      */
     public $name;

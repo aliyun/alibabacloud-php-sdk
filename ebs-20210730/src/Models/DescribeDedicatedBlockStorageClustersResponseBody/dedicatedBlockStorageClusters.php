@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class dedicatedBlockStorageClusters extends Model
 {
     /**
-     * @description The unique ID (UID) of the Alibaba Cloud account.
+     * @description The user ID.
      *
      * @example 12345601234560***
      *
@@ -38,7 +38,7 @@ class dedicatedBlockStorageClusters extends Model
     public $createTime;
 
     /**
-     * @description The storage capacity of the dedicated block storage cluster.
+     * @description Details about the storage capacity of the dedicated block storage cluster.
      *
      * @var dedicatedBlockStorageClusterCapacity
      */
@@ -72,7 +72,7 @@ class dedicatedBlockStorageClusters extends Model
     public $description;
 
     /**
-     * @description The dedicated block storage cluster enable thin provison.
+     * @description Indicates whether Thin Provision is enabled.
      *
      * @example true
      *
@@ -97,7 +97,7 @@ class dedicatedBlockStorageClusters extends Model
      *   PL2
      *   PL3
      *
-     * >  This parameter takes effect only if Category is set to cloud_essd.
+     * >  This parameter is valid only when the SupportedCategory value is cloud_essd.
      * @example PL0
      *
      * @var string
@@ -114,7 +114,7 @@ class dedicatedBlockStorageClusters extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the dedicated block storage cluster belongs.
+     * @description The ID of the resource group to which the dedicated block storage cluster belongs. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to obtain the ID of the resource group.
      *
      * @example rg-aekzsoux****
      *
@@ -123,7 +123,7 @@ class dedicatedBlockStorageClusters extends Model
     public $resourceGroupId;
 
     /**
-     * @description Oversold ratio of cluster space capacity for creating disk.
+     * @description The capacity oversold ratio.
      *
      * @example 1.2
      *
@@ -146,7 +146,7 @@ class dedicatedBlockStorageClusters extends Model
     public $status;
 
     /**
-     * @description StorageDomain.
+     * @description StorageDomain
      *
      * @example StorageDomain
      *

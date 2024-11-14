@@ -54,7 +54,7 @@ class dedicatedBlockStorageClusterCapacity extends Model
     public $clusterDeliveryCapacity;
 
     /**
-     * @description The to-be-delivered capacity of the dedicated block storage cluster. Unit: GB.
+     * @description The capacity to be delivered for the dedicated block storage cluster. Unit: GiB.
      *
      * @example 0
      *
@@ -90,7 +90,7 @@ class dedicatedBlockStorageClusterCapacity extends Model
     public $totalSpaceCapacity;
 
     /**
-     * @description The used capacity of the dedicated block storage cluster. Unit: GB.
+     * @description The used capacity of the dedicated block storage cluster. Unit: GiB.
      *
      * @example 1440
      *
