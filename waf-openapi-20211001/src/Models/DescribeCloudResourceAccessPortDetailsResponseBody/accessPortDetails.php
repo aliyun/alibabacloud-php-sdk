@@ -11,11 +11,19 @@ use AlibabaCloud\Tea\Model;
 class accessPortDetails extends Model
 {
     /**
+     * @description The certificates that are associated with the ports of cloud services.
+     *
      * @var certificates[]
      */
     public $certificates;
 
     /**
+     * @description The type of the cipher suites. Valid values:
+     *
+     *   **1**: all cipher suites.
+     *   **2**: strong cipher suites.
+     *   **99**: custom cipher suites.
+     *
      * @example 1
      *
      * @var int
@@ -23,11 +31,18 @@ class accessPortDetails extends Model
     public $cipherSuite;
 
     /**
+     * @description The custom cipher suites that you want to add. This parameter is available only if you set **CipherSuite** to **99**.
+     *
      * @var string[]
      */
     public $customCiphers;
 
     /**
+     * @description Indicates whether to support TLS 1.3. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -35,6 +50,11 @@ class accessPortDetails extends Model
     public $enableTLSv3;
 
     /**
+     * @description Indicates whether to enable HTTP/2. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example True
      *
      * @var bool
@@ -42,6 +62,11 @@ class accessPortDetails extends Model
     public $http2Enabled;
 
     /**
+     * @description Indicates whether to enable the persistent connection feature. Valid values:
+     *
+     *   **true** (default)
+     *   **false:**
+     *
      * @example true
      *
      * @var bool
@@ -49,6 +74,9 @@ class accessPortDetails extends Model
     public $keepalive;
 
     /**
+     * @description The number of reused persistent connections. Valid values: 60 to 1000.
+     *
+     * >  This parameter specifies the number of requests that reuse persistent connections after you enable the persistent connection feature.
      * @example 1000
      *
      * @var int
@@ -56,6 +84,9 @@ class accessPortDetails extends Model
     public $keepaliveRequests;
 
     /**
+     * @description The timeout period for idle persistent connections. Valid values: 10 to 3600. Default value: 15. Unit: seconds.
+     *
+     * >  If no new requests are initiated over the idle persistent connection within the specified timeout period, the connection is closed.
      * @example 10
      *
      * @var int
@@ -63,11 +94,16 @@ class accessPortDetails extends Model
     public $keepaliveTimeout;
 
     /**
+     * @description The custom header field that you want to use to label requests that are processed by WAF.
+     *
+     * >  This parameter is returned only when the traffic marking feature is enabled for the domain name.
      * @var logHeaders[]
      */
     public $logHeaders;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the resource belongs.
+     *
      * @example 123
      *
      * @var string
@@ -75,6 +111,8 @@ class accessPortDetails extends Model
     public $ownerUserId;
 
     /**
+     * @description The port of the cloud service that is added to WAF.
+     *
      * @example 443
      *
      * @var int
@@ -82,6 +120,11 @@ class accessPortDetails extends Model
     public $port;
 
     /**
+     * @description The type of the protocol. Valid values:
+     *
+     *   **http**
+     *   **https**
+     *
      * @example https
      *
      * @var string
@@ -89,6 +132,8 @@ class accessPortDetails extends Model
     public $protocol;
 
     /**
+     * @description The timeout period for read connections. Unit: seconds. Valid values: 1 to 3600.
+     *
      * @example 5
      *
      * @var int
@@ -96,6 +141,13 @@ class accessPortDetails extends Model
     public $readTimeout;
 
     /**
+     * @description The status of the domain name. Valid values:
+     *
+     *   **1**: indicates that the port is available.
+     *   **2**: indicates that the port is being created.
+     *   **3**: indicates that the port is being modified.
+     *   **4**: indicates that the port is being released.
+     *
      * @example 1
      *
      * @var int
@@ -103,6 +155,12 @@ class accessPortDetails extends Model
     public $status;
 
     /**
+     * @description The version of the Transport Layer Security (TLS) protocol. Valid values:
+     *
+     *   **tlsv1**
+     *   **tlsv1.1**
+     *   **tlsv1.2**
+     *
      * @example tlsv1
      *
      * @var string
@@ -110,6 +168,8 @@ class accessPortDetails extends Model
     public $TLSVersion;
 
     /**
+     * @description The timeout period for write connections. Unit: seconds. Valid values: 1 to 3600.
+     *
      * @example 1
      *
      * @var int
@@ -117,6 +177,12 @@ class accessPortDetails extends Model
     public $writeTimeout;
 
     /**
+     * @description The method that WAF uses to obtain the originating IP address of a client. Valid values:
+     *
+     *   **0**: No Layer 7 proxies are deployed in front of WAF.
+     *   **1**: WAF reads the first value of the X-Forwarded-For (XFF) header field as the originating IP address of the client.
+     *   **2**: WAF reads the value of a custom header field as the originating IP address of the client.
+     *
      * @example 0
      *
      * @var int
@@ -124,11 +190,19 @@ class accessPortDetails extends Model
     public $xffHeaderMode;
 
     /**
+     * @description The custom header field that is used to obtain the originating IP address of a client. Specify the value in the ["header1","header2",...] format.
+     *
+     * >  This parameter is required only if you set **XffHeaderMode** to 2.
      * @var string[]
      */
     public $xffHeaders;
 
     /**
+     * @description Indicates whether to use the X-Forward-For-Proto header to identify the protocol used by WAF to forward requests to the origin server. Valid values:
+     *
+     *   **true** (default)
+     *   **false**
+     *
      * @example true
      *
      * @var bool

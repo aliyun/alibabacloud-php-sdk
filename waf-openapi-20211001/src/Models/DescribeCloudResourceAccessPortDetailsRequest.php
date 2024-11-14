@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudResourceAccessPortDetailsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the WAF instance.
      *
+     * This parameter is required.
      * @example waf-cn-tl32ast****
      *
      * @var string
@@ -18,6 +19,8 @@ class DescribeCloudResourceAccessPortDetailsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -25,6 +28,8 @@ class DescribeCloudResourceAccessPortDetailsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -32,6 +37,8 @@ class DescribeCloudResourceAccessPortDetailsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The port of the cloud service that is added to WAF.
+     *
      * @example 443
      *
      * @var string
@@ -39,6 +46,11 @@ class DescribeCloudResourceAccessPortDetailsRequest extends Model
     public $port;
 
     /**
+     * @description The type of the protocol. Valid values:
+     *
+     *   **http**
+     *   **https**
+     *
      * @example https
      *
      * @var string
@@ -46,6 +58,11 @@ class DescribeCloudResourceAccessPortDetailsRequest extends Model
     public $protocol;
 
     /**
+     * @description The region in which the WAF instance is deployed. Valid values:
+     *
+     *   **cn-hangzhou**: the Chinese mainland.
+     *   **ap-southeast-1**: outside the Chinese mainland.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -53,8 +70,9 @@ class DescribeCloudResourceAccessPortDetailsRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID of the resource.
      *
+     * This parameter is required.
      * @example lb-2zeugkfj81jvo****4tqm
      *
      * @var string
@@ -62,6 +80,8 @@ class DescribeCloudResourceAccessPortDetailsRequest extends Model
     public $resourceInstanceId;
 
     /**
+     * @description The ID of the Alibaba Cloud resource group.
+     *
      * @example rg-acfm***q
      *
      * @var string
@@ -69,6 +89,12 @@ class DescribeCloudResourceAccessPortDetailsRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
+     * @description The cloud service. Valid values:
+     *
+     *   **clb4**: Layer 4 CLB.
+     *   **clb7**: Layer 7 CLB.
+     *   **ecs**: ECS.
+     *
      * @example clb7
      *
      * @var string

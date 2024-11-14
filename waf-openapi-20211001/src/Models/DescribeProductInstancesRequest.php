@@ -67,11 +67,19 @@ class DescribeProductInstancesRequest extends Model
     public $resourceInstanceId;
 
     /**
+     * @description The IP address of the instance that is added to WAF.
+     *
+     * @example 1.X.X.1
+     *
      * @var string
      */
     public $resourceInstanceIp;
 
     /**
+     * @description The name of the instance that is added to WAF.
+     *
+     * @example demoInstanceName
+     *
      * @var string
      */
     public $resourceInstanceName;

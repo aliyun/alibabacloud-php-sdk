@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ChangeResourceGroupRequest extends Model
 {
     /**
+     * @description The ID of the new resource group. You can view the available resource groups in the Resource Management console.
+     *
+     * This parameter is required.
      * @example rg-aek2mcq***
      *
      * @var string
@@ -16,6 +19,11 @@ class ChangeResourceGroupRequest extends Model
     public $newResourceGroupId;
 
     /**
+     * @description The region in which the WAF instance is deployed. Valid values:
+     *
+     *   **cn-hangzhou**: Chinese mainland.
+     *   **ap-southeast-1**: outside the Chinese mainland.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +31,9 @@ class ChangeResourceGroupRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the protected object in Web Application Firewall (WAF) that you want to manage.
+     *
+     * This parameter is required.
      * @example demo.aliyun.com-waf
      *
      * @var string
@@ -30,6 +41,8 @@ class ChangeResourceGroupRequest extends Model
     public $resourceId;
 
     /**
+     * @description The ID of the Alibaba Cloud resource group.
+     *
      * @example rg-acfm***q
      *
      * @var string
@@ -37,6 +50,9 @@ class ChangeResourceGroupRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
+     * @description The resource type. The value is fixed as defenseresource.
+     *
+     * This parameter is required.
      * @example defenseresource
      *
      * @var string

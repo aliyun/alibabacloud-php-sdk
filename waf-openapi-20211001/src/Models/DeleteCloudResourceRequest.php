@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteCloudResourceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the WAF instance.
      *
+     * This parameter is required.
      * @example waf_v2_public_cn-***
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteCloudResourceRequest extends Model
     public $instanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The port of the resource that is added to WAF.
      *
+     * This parameter is required.
      * @example 443
      *
      * @var int
@@ -27,8 +29,12 @@ class DeleteCloudResourceRequest extends Model
     public $port;
 
     /**
-     * @description This parameter is required.
+     * @description The region in which the WAF instance is deployed. Valid values:
      *
+     *   **cn-hangzhou**: the Chinese mainland.
+     *   **ap-southeast-1**: outside the Chinese mainland.
+     *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -36,8 +42,9 @@ class DeleteCloudResourceRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example lb-bp1*****jqnnqk5uj2p
      *
      * @var string
@@ -45,6 +52,8 @@ class DeleteCloudResourceRequest extends Model
     public $resourceInstanceId;
 
     /**
+     * @description The ID of the Alibaba Cloud resource group.
+     *
      * @example rg-acfm***q
      *
      * @var string
@@ -52,8 +61,13 @@ class DeleteCloudResourceRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
-     * @description This parameter is required.
+     * @description The cloud service. Valid values:
      *
+     *   **clb4**: Layer 4 CLB.
+     *   **clb7**: Layer 7 CLB.
+     *   **ecs**: ECS.
+     *
+     * This parameter is required.
      * @example clb7
      *
      * @var string

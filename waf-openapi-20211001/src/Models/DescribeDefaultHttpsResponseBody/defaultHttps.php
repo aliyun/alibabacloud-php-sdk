@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class defaultHttps extends Model
 {
     /**
+     * @description The certificate ID.
+     *
      * @example 123-cn-hangzhou
      *
      * @var string
@@ -16,6 +18,12 @@ class defaultHttps extends Model
     public $certId;
 
     /**
+     * @description The type of the cipher suites. Valid values:
+     *
+     *   **1**: all cipher suites.
+     *   **2**: strong cipher suites.
+     *   **99**: custom cipher suites.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +31,8 @@ class defaultHttps extends Model
     public $cipherSuite;
 
     /**
+     * @description The custom cipher suite.
+     *
      * @example ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384
      *
      * @var string
@@ -30,6 +40,11 @@ class defaultHttps extends Model
     public $customCiphers;
 
     /**
+     * @description Indicates whether TLS 1.3 is supported. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +52,12 @@ class defaultHttps extends Model
     public $enableTLSv3;
 
     /**
+     * @description The version of the TLS protocol. Valid values:
+     *
+     *   **tlsv1**
+     *   **tlsv1.1**
+     *   **tlsv1.2**
+     *
      * @example tlsv1
      *
      * @var string

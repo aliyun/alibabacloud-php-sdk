@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDefaultHttpsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 276D7566-31C9-4192-9DD1-***
      *
      * @var string

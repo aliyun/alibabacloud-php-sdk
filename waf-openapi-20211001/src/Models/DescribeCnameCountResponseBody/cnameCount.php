@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cnameCount extends Model
 {
     /**
+     * @description The number of domain names that are added to WAF in CNAME record mode.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class cnameCount extends Model
     public $cname;
 
     /**
+     * @description The number of domain names that are added to WAF in hybrid cloud reverse proxy mode.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class cnameCount extends Model
     public $hybridCloudCname;
 
     /**
+     * @description The total number of domain names that are added to WAF in CNAME record mode and hybrid cloud reverse proxy mode.
+     *
      * @example 1
      *
      * @var int

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudResourceAccessedPortsResponseBody extends Model
 {
     /**
+     * @description The HTTP ports.
+     *
      * @var int[]
      */
     public $http;
 
     /**
+     * @description The HTTPS ports.
+     *
      * @var int[]
      */
     public $https;
 
     /**
+     * @description The request ID.
+     *
      * @example C1823E96-EF4B-5BD2-9E02-1D18****3ED8
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeCnameCountResponseBody extends Model
 {
     /**
+     * @description The information about the number of domain names that are added to WAF in CNAME record mode and hybrid cloud reverse proxy mode.
+     *
      * @var cnameCount
      */
     public $cnameCount;
 
     /**
+     * @description The ID of the request.
+     *
      * @example F35F45B0-5D6B-4238-BE02-A62D****E840
      *
      * @var string

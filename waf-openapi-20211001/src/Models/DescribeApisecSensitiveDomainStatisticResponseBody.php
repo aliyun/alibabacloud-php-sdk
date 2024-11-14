@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisecSensitiveDomainStatisticResponseBody extends Model
 {
     /**
+     * @description The response parameters.
+     *
      * @var data[]
      */
     public $data;
@@ -24,6 +26,8 @@ class DescribeApisecSensitiveDomainStatisticResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 27
      *
      * @var int

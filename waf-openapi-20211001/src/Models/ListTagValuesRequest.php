@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListTagValuesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @description The tag key.
      *
      * This parameter is required.
@@ -41,6 +48,11 @@ class ListTagValuesRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceManagerResourceGroupId;
+
+    /**
      * @description The type of the resource. Set the value to ALIYUN::WAF::DEFENSERESOURCE.
      *
      * This parameter is required.
@@ -50,10 +62,12 @@ class ListTagValuesRequest extends Model
      */
     public $resourceType;
     protected $_name = [
-        'key'          => 'Key',
-        'nextToken'    => 'NextToken',
-        'regionId'     => 'RegionId',
-        'resourceType' => 'ResourceType',
+        'instanceId'                     => 'InstanceId',
+        'key'                            => 'Key',
+        'nextToken'                      => 'NextToken',
+        'regionId'                       => 'RegionId',
+        'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
+        'resourceType'                   => 'ResourceType',
     ];
 
     public function validate()
@@ -63,6 +77,9 @@ class ListTagValuesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
@@ -71,6 +88,9 @@ class ListTagValuesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceManagerResourceGroupId) {
+            $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
@@ -87,6 +107,9 @@ class ListTagValuesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
@@ -95,6 +118,9 @@ class ListTagValuesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceManagerResourceGroupId'])) {
+            $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];

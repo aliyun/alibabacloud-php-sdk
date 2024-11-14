@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCloudResourceResponseBody extends Model
 {
     /**
+     * @description The ID of the resource that is added to WAF. The ID is automatically generated.
+     *
      * @example lb-***
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateCloudResourceResponseBody extends Model
     public $cloudResourceId;
 
     /**
+     * @description The request ID.
+     *
      * @example 66A98669-ER12-WE34-23PO-301469*****E
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class logHeaders extends Model
 {
     /**
+     * @description The key of the custom header field.
+     *
      * @example key1
      *
      * @var string
@@ -16,6 +18,8 @@ class logHeaders extends Model
     public $key;
 
     /**
+     * @description The value of the custom header field.
+     *
      * @example value1
      *
      * @var string

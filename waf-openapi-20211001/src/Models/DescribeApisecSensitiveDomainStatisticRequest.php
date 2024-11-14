@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisecSensitiveDomainStatisticRequest extends Model
 {
     /**
+     * @description The ID of the hybrid cloud cluster.
+     *
      * @example 428
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeApisecSensitiveDomainStatisticRequest extends Model
     public $clusterId;
 
     /**
+     * @description The end of the time range to query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
+     *
      * @example 1686895256
      *
      * @var int
@@ -23,8 +27,9 @@ class DescribeApisecSensitiveDomainStatisticRequest extends Model
     public $endTime;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the Web Application Firewall (WAF) instance.
      *
+     * This parameter is required.
      * @example waf_cdnsdf3****
      *
      * @var string
@@ -32,6 +37,11 @@ class DescribeApisecSensitiveDomainStatisticRequest extends Model
     public $instanceId;
 
     /**
+     * @description The sorting order.
+     *
+     *   asc: ascending order.
+     *   desc: descending order.
+     *
      * @example desc
      *
      * @var string
@@ -39,6 +49,8 @@ class DescribeApisecSensitiveDomainStatisticRequest extends Model
     public $orderWay;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -46,6 +58,8 @@ class DescribeApisecSensitiveDomainStatisticRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -53,13 +67,11 @@ class DescribeApisecSensitiveDomainStatisticRequest extends Model
     public $pageSize;
 
     /**
-     * @example cn
+     * @description The region in which the WAF instance is deployed. Valid values:
      *
-     * @var string
-     */
-    public $region;
-
-    /**
+     *   **cn-hangzhou**: Chinese mainland.
+     *   **ap-southeast-1**: outside the Chinese mainland.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -67,6 +79,8 @@ class DescribeApisecSensitiveDomainStatisticRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the Alibaba Cloud resource group.
+     *
      * @example rg-acfm***q
      *
      * @var string
@@ -74,6 +88,8 @@ class DescribeApisecSensitiveDomainStatisticRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
+     * @description The beginning of the time range to query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
+     *
      * @example 1668496310
      *
      * @var int
@@ -81,6 +97,11 @@ class DescribeApisecSensitiveDomainStatisticRequest extends Model
     public $startTime;
 
     /**
+     * @description The sensitive data type.
+     *
+     *   request: sensitive data in requests.
+     *   response: sensitive data in responses.
+     *
      * @example request
      *
      * @var string
@@ -93,7 +114,6 @@ class DescribeApisecSensitiveDomainStatisticRequest extends Model
         'orderWay'                       => 'OrderWay',
         'pageNumber'                     => 'PageNumber',
         'pageSize'                       => 'PageSize',
-        'region'                         => 'Region',
         'regionId'                       => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
         'startTime'                      => 'StartTime',
@@ -124,9 +144,6 @@ class DescribeApisecSensitiveDomainStatisticRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -169,9 +186,6 @@ class DescribeApisecSensitiveDomainStatisticRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

@@ -11,8 +11,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyCloudResourceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the WAF instance.
      *
+     * This parameter is required.
      * @example waf_v3prepaid_public_cn-***
      *
      * @var string
@@ -20,20 +21,27 @@ class ModifyCloudResourceRequest extends Model
     public $instanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The configurations of the listeners.
      *
+     * This parameter is required.
      * @var listen
      */
     public $listen;
 
     /**
+     * @description The configurations of the forwarding rule.
+     *
      * @var redirect
      */
     public $redirect;
 
     /**
-     * @description This parameter is required.
+     * @description The region in which the WAF instance is deployed. Valid values:
      *
+     *   **cn-hangzhou**: the Chinese mainland.
+     *   **ap-southeast-1**: outside the Chinese mainland.
+     *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -41,6 +49,8 @@ class ModifyCloudResourceRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the Alibaba Cloud resource group.
+     *
      * @example rg-acfm***q
      *
      * @var string

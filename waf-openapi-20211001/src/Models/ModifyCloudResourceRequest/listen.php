@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class listen extends Model
 {
     /**
+     * @description An array of certificates.
+     *
      * @var certificates[]
      */
     public $certificates;
 
     /**
+     * @description The type of the cipher suites that you want to add. This parameter is available only if you specify **HttpsPorts**. Valid values:
+     *
+     *   **1**: all cipher suites.
+     *   **2**: strong cipher suites. You can set the parameter to this value only if you set **TLSVersion** to **tlsv1.2**.
+     *   **99**: custom cipher suites.
+     *
      * @example 1
      *
      * @var int
@@ -22,11 +30,18 @@ class listen extends Model
     public $cipherSuite;
 
     /**
+     * @description An array of custom cipher suites.
+     *
      * @var string[]
      */
     public $customCiphers;
 
     /**
+     * @description Specifies whether to support TLS 1.3. This parameter is available only if you specify **HttpsPorts**. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -34,6 +49,11 @@ class listen extends Model
     public $enableTLSv3;
 
     /**
+     * @description Specifies whether to enable HTTP/2. This parameter is available only if you specify **HttpsPorts**. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
      * @example true
      *
      * @var bool
@@ -41,8 +61,9 @@ class listen extends Model
     public $http2Enabled;
 
     /**
-     * @description This parameter is required.
+     * @description The port of the resource that you want to add to WAF.
      *
+     * This parameter is required.
      * @example 80
      *
      * @var int
@@ -50,8 +71,12 @@ class listen extends Model
     public $port;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the protocol. Valid values:
      *
+     *   **http**
+     *   **https**
+     *
+     * This parameter is required.
      * @example http
      *
      * @var string
@@ -59,8 +84,9 @@ class listen extends Model
     public $protocol;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the resource.
      *
+     * This parameter is required.
      * @example lb-***
      *
      * @var string
@@ -68,8 +94,13 @@ class listen extends Model
     public $resourceInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The cloud service. Valid values:
      *
+     *   **clb4**: Layer 4 Classic Load Balancer (CLB).
+     *   **clb7**: Layer 7 CLB.
+     *   **ecs**: Elastic Compute Service (ECS).
+     *
+     * This parameter is required.
      * @example clb7
      *
      * @var string
@@ -77,6 +108,12 @@ class listen extends Model
     public $resourceProduct;
 
     /**
+     * @description The Transport Layer Security (TLS) version. This parameter is available only if you specify **HttpsPorts**. Valid values:
+     *
+     *   **tlsv1**
+     *   **tlsv1.1**
+     *   **tlsv1.2**
+     *
      * @example tlsv1.2
      *
      * @var string

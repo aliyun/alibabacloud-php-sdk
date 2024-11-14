@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of active assets.
+     *
      * @example 60
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $assetActive;
 
     /**
+     * @description The total number of assets.
+     *
      * @example 80
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $assetCount;
 
     /**
+     * @description The number of deactivated assets.
+     *
      * @example 20
      *
      * @var int
@@ -30,6 +36,8 @@ class data extends Model
     public $assetOffline;
 
     /**
+     * @description The timestamp. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1683600042
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of APIs that are involved.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $apiCount;
 
     /**
+     * @description The number of sites that are involved.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $domainCount;
 
     /**
+     * @description The code of the sensitive data.
+     *
      * @example 10
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $sensitiveCode;
 
     /**
+     * @description The sensitivity level of the sensitive data.
+     *
      * @example L3
      *
      * @var string
@@ -37,6 +45,10 @@ class data extends Model
     public $sensitiveLevel;
 
     /**
+     * @description The name of the sensitive data.
+     *
+     * @example 1002
+     *
      * @var string
      */
     public $sensitiveName;

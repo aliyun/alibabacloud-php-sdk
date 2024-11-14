@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCnameCountRequest extends Model
 {
     /**
+     * @description The ID of the WAF instance.
+     *
+     * This parameter is required.
      * @example waf_v3prepaid_public_cn-***
      *
      * @var string
@@ -16,6 +19,11 @@ class DescribeCnameCountRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region in which the WAF instance is deployed. Valid values:
+     *
+     *   **cn-hangzhou**: the Chinese mainland.
+     *   **ap-southeast-1**: outside the Chinese mainland.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +31,8 @@ class DescribeCnameCountRequest extends Model
     public $regionId;
 
     /**
+     * @description 阿里云资源组ID。
+     *
      * @example rg-acfm***q
      *
      * @var string

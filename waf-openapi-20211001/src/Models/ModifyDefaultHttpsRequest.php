@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDefaultHttpsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the certificate.
      *
+     * This parameter is required.
      * @example 123-cn-hangzhou
      *
      * @var string
@@ -18,6 +19,12 @@ class ModifyDefaultHttpsRequest extends Model
     public $certId;
 
     /**
+     * @description The type of the cipher suites. Valid values:
+     *
+     *   **1**: all cipher suites.
+     *   **2**: strong cipher suites.
+     *   **99**: custom cipher suites.
+     *
      * @example 0
      *
      * @var int
@@ -25,11 +32,18 @@ class ModifyDefaultHttpsRequest extends Model
     public $cipherSuite;
 
     /**
+     * @description The custom cipher suites that you want to add. This parameter is available only if you set **CipherSuite** to **99**.
+     *
      * @var string[]
      */
     public $customCiphers;
 
     /**
+     * @description Specifies whether to support TLS 1.3. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -37,8 +51,9 @@ class ModifyDefaultHttpsRequest extends Model
     public $enableTLSv3;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the Web Application Firewall (WAF) instance.
      *
+     * This parameter is required.
      * @example waf_v2_public_cn-***
      *
      * @var string
@@ -46,6 +61,11 @@ class ModifyDefaultHttpsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region in which the WAF instance is deployed. Valid values:
+     *
+     *   **cn-hangzhou**: the Chinese mainland.
+     *   **ap-southeast-1**: outside the Chinese mainland.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -53,6 +73,8 @@ class ModifyDefaultHttpsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the Alibaba Cloud resource group.
+     *
      * @example rg-acfm***q
      *
      * @var string
@@ -60,8 +82,13 @@ class ModifyDefaultHttpsRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
-     * @description This parameter is required.
+     * @description The version of the TLS protocol. Valid values:
      *
+     *   **tlsv1**
+     *   **tlsv1.1**
+     *   **tlsv1.2**
+     *
+     * This parameter is required.
      * @example tlsv1
      *
      * @var string

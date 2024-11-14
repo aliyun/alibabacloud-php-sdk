@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudResourceAccessPortDetailsResponseBody extends Model
 {
     /**
+     * @description The details of the ports of cloud services that are added to WAF.
+     *
      * @var accessPortDetails[]
      */
     public $accessPortDetails;
 
     /**
+     * @description The request ID.
+     *
      * @example 2EFCFE18-78F8-5079-B312-07***48B
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeCloudResourceAccessPortDetailsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 10
      *
      * @var int

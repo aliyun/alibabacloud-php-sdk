@@ -30,7 +30,7 @@ class DescribeVisitUasRequest extends Model
     /**
      * @description The region where the WAF instance resides. Valid values:
      *
-     *   **cn-hangzhou:** the Chinese mainland
+     *   **cn-hangzhou:** the Chinese mainland.
      *   **ap-southeast-1:** outside the Chinese mainland.
      *
      * @example cn-hangzhou
@@ -49,6 +49,11 @@ class DescribeVisitUasRequest extends Model
     public $resource;
 
     /**
+     * @var string
+     */
+    public $resourceManagerResourceGroupId;
+
+    /**
      * @description The beginning of the time range to query. Unit: seconds.
      *
      * This parameter is required.
@@ -58,11 +63,12 @@ class DescribeVisitUasRequest extends Model
      */
     public $startTimestamp;
     protected $_name = [
-        'endTimestamp'   => 'EndTimestamp',
-        'instanceId'     => 'InstanceId',
-        'regionId'       => 'RegionId',
-        'resource'       => 'Resource',
-        'startTimestamp' => 'StartTimestamp',
+        'endTimestamp'                   => 'EndTimestamp',
+        'instanceId'                     => 'InstanceId',
+        'regionId'                       => 'RegionId',
+        'resource'                       => 'Resource',
+        'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
+        'startTimestamp'                 => 'StartTimestamp',
     ];
 
     public function validate()
@@ -83,6 +89,9 @@ class DescribeVisitUasRequest extends Model
         }
         if (null !== $this->resource) {
             $res['Resource'] = $this->resource;
+        }
+        if (null !== $this->resourceManagerResourceGroupId) {
+            $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
         }
         if (null !== $this->startTimestamp) {
             $res['StartTimestamp'] = $this->startTimestamp;
@@ -110,6 +119,9 @@ class DescribeVisitUasRequest extends Model
         }
         if (isset($map['Resource'])) {
             $model->resource = $map['Resource'];
+        }
+        if (isset($map['ResourceManagerResourceGroupId'])) {
+            $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
         }
         if (isset($map['StartTimestamp'])) {
             $model->startTimestamp = $map['StartTimestamp'];

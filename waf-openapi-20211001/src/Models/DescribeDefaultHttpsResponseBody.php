@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDefaultHttpsResponseBody extends Model
 {
     /**
+     * @description The default SSL and TLS settings.
+     *
      * @var defaultHttps
      */
     public $defaultHttps;
 
     /**
+     * @description The request ID.
+     *
      * @example F35F45B0-5D6B-4238-BE02-A62D****E840
      *
      * @var string

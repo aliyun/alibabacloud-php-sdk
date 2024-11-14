@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ClearMajorProtectionBlackIpRequ
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ClearMajorProtectionBlackIpResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CopyDefenseTemplateRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CopyDefenseTemplateResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateApiExportRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateApiExportResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateCloudResourceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateCloudResourceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateCloudResourceShrinkRequest;
@@ -34,10 +36,10 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreatePostpaidInstanceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreatePostpaidInstanceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateSM2CertRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateSM2CertResponse;
-use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteApisecAbnormalRequest;
-use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteApisecAbnormalResponse;
-use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteApisecEventRequest;
-use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteApisecEventResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteApisecAbnormalsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteApisecAbnormalsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteApisecEventsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteApisecEventsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteCloudResourceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteCloudResourceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseResourceGroupRequest;
@@ -54,20 +56,42 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMemberAccountRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMemberAccountResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAccountDelegatedStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAccountDelegatedStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApiExportsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApiExportsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecAbnormalDomainStatisticRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecAbnormalDomainStatisticResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecAbnormalsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecAbnormalsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecApiResourcesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecApiResourcesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecAssetTrendRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecAssetTrendResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecEventDomainStatisticRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecEventDomainStatisticResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecEventsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecEventsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecLogDeliveriesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecLogDeliveriesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecMatchedHostsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecMatchedHostsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecProtectionGroupsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecProtectionGroupsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecProtectionResourcesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecProtectionResourcesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecRulesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecRulesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecSensitiveDomainStatisticRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecSensitiveDomainStatisticResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecSlsLogStoresRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecSlsLogStoresResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecSlsProjectsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecSlsProjectsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecStatisticsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecStatisticsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecSuggestionsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecSuggestionsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecUserOperationsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecUserOperationsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertDetailRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertDetailResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertsRequest;
@@ -120,6 +144,14 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFlowTopResourceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFlowTopResourceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFlowTopUrlRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFlowTopUrlResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFreeUserAssetCountRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFreeUserAssetCountResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFreeUserEventCountRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFreeUserEventCountResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFreeUserEventsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFreeUserEventsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFreeUserEventTypesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFreeUserEventTypesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudClusterRuleRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudClusterRuleResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudClustersRequest;
@@ -174,6 +206,22 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopUaRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopUaResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopUrlRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopUrlResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSensitiveApiStatisticRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSensitiveApiStatisticResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSensitiveDetectionResultRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSensitiveDetectionResultResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSensitiveOutboundDistributionRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSensitiveOutboundDistributionResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSensitiveOutboundStatisticRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSensitiveOutboundStatisticResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSensitiveOutboundTrendRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSensitiveOutboundTrendResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSensitiveRequestLogRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSensitiveRequestLogResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSensitiveRequestsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSensitiveRequestsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSensitiveStatisticRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSensitiveStatisticResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSlsAuthStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSlsAuthStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSlsLogStoreRequest;
@@ -184,6 +232,18 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeTemplateResourceCountRe
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeTemplateResourceCountResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeTemplateResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeTemplateResourcesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserAbnormalTrendRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserAbnormalTrendResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserAbnormalTypeRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserAbnormalTypeResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserApiRequestRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserApiRequestResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserAssetRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserAssetResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserEventTrendRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserEventTrendResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserEventTypeRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserEventTypeResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserSlsLogRegionsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserSlsLogRegionsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserWafLogStatusRequest;
@@ -200,10 +260,20 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ListTagValuesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ListTagValuesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecAbnormalsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecAbnormalsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecApiResourceRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecApiResourceResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecEventsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecEventsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecLogDeliveryRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecLogDeliveryResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecLogDeliveryStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecLogDeliveryStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecModuleStatusRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecModuleStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecStatusRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyCloudResourceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyCloudResourceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyCloudResourceShrinkRequest;
@@ -326,7 +396,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary ChangeResourceGroup
+     * @summary Changes the resource group to which a protected object belongs.
      *  *
      * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -371,7 +441,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary ChangeResourceGroup
+     * @summary Changes the resource group to which a protected object belongs.
      *  *
      * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
@@ -500,7 +570,75 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 接入云产品资源
+     * @summary Creates a data export task in the API security module.
+     *  *
+     * @param CreateApiExportRequest $request CreateApiExportRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateApiExportResponse CreateApiExportResponse
+     */
+    public function createApiExportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->param)) {
+            $query['Param'] = $request->param;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateApiExport',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateApiExportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Creates a data export task in the API security module.
+     *  *
+     * @param CreateApiExportRequest $request CreateApiExportRequest
+     *
+     * @return CreateApiExportResponse CreateApiExportResponse
+     */
+    public function createApiExport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createApiExportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Adds a service to Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
      *  *
      * @param CreateCloudResourceRequest $tmpReq  CreateCloudResourceRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -556,7 +694,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 接入云产品资源
+     * @summary Adds a service to Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
      *  *
      * @param CreateCloudResourceRequest $request CreateCloudResourceRequest
      *
@@ -655,14 +793,16 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
             $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->rules)) {
-            $query['Rules'] = $request->rules;
-        }
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;
         }
+        $body = [];
+        if (!Utils::isUnset($request->rules)) {
+            $body['Rules'] = $request->rules;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateDefenseRule',
@@ -1161,28 +1301,25 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 删除API安全风险
+     * @summary Deletes multiple risks detected by the API security module at a time.
      *  *
-     * @param DeleteApisecAbnormalRequest $request DeleteApisecAbnormalRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param DeleteApisecAbnormalsRequest $request DeleteApisecAbnormalsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteApisecAbnormalResponse DeleteApisecAbnormalResponse
+     * @return DeleteApisecAbnormalsResponse DeleteApisecAbnormalsResponse
      */
-    public function deleteApisecAbnormalWithOptions($request, $runtime)
+    public function deleteApisecAbnormalsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->abnormalId)) {
-            $query['AbnormalId'] = $request->abnormalId;
+        if (!Utils::isUnset($request->abnormalIds)) {
+            $query['AbnormalIds'] = $request->abnormalIds;
         }
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -1194,7 +1331,7 @@ class Wafopenapi extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteApisecAbnormal',
+            'action'      => 'DeleteApisecAbnormals',
             'version'     => '2021-10-01',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -1205,46 +1342,43 @@ class Wafopenapi extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DeleteApisecAbnormalResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteApisecAbnormalsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除API安全风险
+     * @summary Deletes multiple risks detected by the API security module at a time.
      *  *
-     * @param DeleteApisecAbnormalRequest $request DeleteApisecAbnormalRequest
+     * @param DeleteApisecAbnormalsRequest $request DeleteApisecAbnormalsRequest
      *
-     * @return DeleteApisecAbnormalResponse DeleteApisecAbnormalResponse
+     * @return DeleteApisecAbnormalsResponse DeleteApisecAbnormalsResponse
      */
-    public function deleteApisecAbnormal($request)
+    public function deleteApisecAbnormals($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteApisecAbnormalWithOptions($request, $runtime);
+        return $this->deleteApisecAbnormalsWithOptions($request, $runtime);
     }
 
     /**
-     * @summary 删除API安全事件
+     * @summary Deletes multiple security events detected by the API security module at a time.
      *  *
-     * @param DeleteApisecEventRequest $request DeleteApisecEventRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param DeleteApisecEventsRequest $request DeleteApisecEventsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteApisecEventResponse DeleteApisecEventResponse
+     * @return DeleteApisecEventsResponse DeleteApisecEventsResponse
      */
-    public function deleteApisecEventWithOptions($request, $runtime)
+    public function deleteApisecEventsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->eventId)) {
-            $query['EventId'] = $request->eventId;
+        if (!Utils::isUnset($request->eventIds)) {
+            $query['EventIds'] = $request->eventIds;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -1256,7 +1390,7 @@ class Wafopenapi extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteApisecEvent',
+            'action'      => 'DeleteApisecEvents',
             'version'     => '2021-10-01',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -1267,25 +1401,25 @@ class Wafopenapi extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DeleteApisecEventResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteApisecEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除API安全事件
+     * @summary Deletes multiple security events detected by the API security module at a time.
      *  *
-     * @param DeleteApisecEventRequest $request DeleteApisecEventRequest
+     * @param DeleteApisecEventsRequest $request DeleteApisecEventsRequest
      *
-     * @return DeleteApisecEventResponse DeleteApisecEventResponse
+     * @return DeleteApisecEventsResponse DeleteApisecEventsResponse
      */
-    public function deleteApisecEvent($request)
+    public function deleteApisecEvents($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteApisecEventWithOptions($request, $runtime);
+        return $this->deleteApisecEventsWithOptions($request, $runtime);
     }
 
     /**
-     * @summary 删除云产品资源
+     * @summary Removes a service from Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
      *  *
      * @param DeleteCloudResourceRequest $request DeleteCloudResourceRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -1333,7 +1467,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 删除云产品资源
+     * @summary Removes a service from Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
      *  *
      * @param DeleteCloudResourceRequest $request DeleteCloudResourceRequest
      *
@@ -1751,7 +1885,69 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询API安全风险站点统计
+     * @summary Queries the list of data export tasks in the API security module.
+     *  *
+     * @param DescribeApiExportsRequest $request DescribeApiExportsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApiExportsResponse DescribeApiExportsResponse
+     */
+    public function describeApiExportsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApiExports',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApiExportsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the list of data export tasks in the API security module.
+     *  *
+     * @param DescribeApiExportsRequest $request DescribeApiExportsRequest
+     *
+     * @return DescribeApiExportsResponse DescribeApiExportsResponse
+     */
+    public function describeApiExports($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApiExportsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the statistics on domain names on which risks are detected by the API security module.
      *  *
      * @param DescribeApisecAbnormalDomainStatisticRequest $request DescribeApisecAbnormalDomainStatisticRequest
      * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
@@ -1779,9 +1975,6 @@ class Wafopenapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -1811,7 +2004,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询API安全风险站点统计
+     * @summary Queries the statistics on domain names on which risks are detected by the API security module.
      *  *
      * @param DescribeApisecAbnormalDomainStatisticRequest $request DescribeApisecAbnormalDomainStatisticRequest
      *
@@ -1825,7 +2018,221 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询API安全资产趋势图
+     * @summary Queries the list of API security risks.
+     *  *
+     * @param DescribeApisecAbnormalsRequest $request DescribeApisecAbnormalsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApisecAbnormalsResponse DescribeApisecAbnormalsResponse
+     */
+    public function describeApisecAbnormalsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->abnormalId)) {
+            $query['AbnormalId'] = $request->abnormalId;
+        }
+        if (!Utils::isUnset($request->abnormalLevel)) {
+            $query['AbnormalLevel'] = $request->abnormalLevel;
+        }
+        if (!Utils::isUnset($request->abnormalTag)) {
+            $query['AbnormalTag'] = $request->abnormalTag;
+        }
+        if (!Utils::isUnset($request->apiFormat)) {
+            $query['ApiFormat'] = $request->apiFormat;
+        }
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->apiTag)) {
+            $query['ApiTag'] = $request->apiTag;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->matchedHost)) {
+            $query['MatchedHost'] = $request->matchedHost;
+        }
+        if (!Utils::isUnset($request->orderKey)) {
+            $query['OrderKey'] = $request->orderKey;
+        }
+        if (!Utils::isUnset($request->orderWay)) {
+            $query['OrderWay'] = $request->orderWay;
+        }
+        if (!Utils::isUnset($request->origin)) {
+            $query['Origin'] = $request->origin;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->userStatus)) {
+            $query['UserStatus'] = $request->userStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApisecAbnormals',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApisecAbnormalsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the list of API security risks.
+     *  *
+     * @param DescribeApisecAbnormalsRequest $request DescribeApisecAbnormalsRequest
+     *
+     * @return DescribeApisecAbnormalsResponse DescribeApisecAbnormalsResponse
+     */
+    public function describeApisecAbnormals($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApisecAbnormalsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries API assets in the API security module.
+     *  *
+     * @param DescribeApisecApiResourcesRequest $request DescribeApisecApiResourcesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApisecApiResourcesResponse DescribeApisecApiResourcesResponse
+     */
+    public function describeApisecApiResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiFormat)) {
+            $query['ApiFormat'] = $request->apiFormat;
+        }
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->apiMethod)) {
+            $query['ApiMethod'] = $request->apiMethod;
+        }
+        if (!Utils::isUnset($request->apiStatus)) {
+            $query['ApiStatus'] = $request->apiStatus;
+        }
+        if (!Utils::isUnset($request->apiTag)) {
+            $query['ApiTag'] = $request->apiTag;
+        }
+        if (!Utils::isUnset($request->apiType)) {
+            $query['ApiType'] = $request->apiType;
+        }
+        if (!Utils::isUnset($request->authFlag)) {
+            $query['AuthFlag'] = $request->authFlag;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->follow)) {
+            $query['Follow'] = $request->follow;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->matchedHost)) {
+            $query['MatchedHost'] = $request->matchedHost;
+        }
+        if (!Utils::isUnset($request->note)) {
+            $query['Note'] = $request->note;
+        }
+        if (!Utils::isUnset($request->orderKey)) {
+            $query['OrderKey'] = $request->orderKey;
+        }
+        if (!Utils::isUnset($request->orderWay)) {
+            $query['OrderWay'] = $request->orderWay;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->requestSensitiveType)) {
+            $query['RequestSensitiveType'] = $request->requestSensitiveType;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->sensitiveLevel)) {
+            $query['SensitiveLevel'] = $request->sensitiveLevel;
+        }
+        if (!Utils::isUnset($request->sensitiveType)) {
+            $query['SensitiveType'] = $request->sensitiveType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApisecApiResources',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApisecApiResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries API assets in the API security module.
+     *  *
+     * @param DescribeApisecApiResourcesRequest $request DescribeApisecApiResourcesRequest
+     *
+     * @return DescribeApisecApiResourcesResponse DescribeApisecApiResourcesResponse
+     */
+    public function describeApisecApiResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApisecApiResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the asset trends in the API security module.
      *  *
      * @param DescribeApisecAssetTrendRequest $request DescribeApisecAssetTrendRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -1844,9 +2251,6 @@ class Wafopenapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -1876,7 +2280,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询API安全资产趋势图
+     * @summary Queries the asset trends in the API security module.
      *  *
      * @param DescribeApisecAssetTrendRequest $request DescribeApisecAssetTrendRequest
      *
@@ -1890,7 +2294,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询API安全事件站点统计
+     * @summary Queries the statistics on domain names on which security events are detected by the API security module.
      *  *
      * @param DescribeApisecEventDomainStatisticRequest $request DescribeApisecEventDomainStatisticRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
@@ -1918,9 +2322,6 @@ class Wafopenapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -1950,7 +2351,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询API安全事件站点统计
+     * @summary Queries the statistics on domain names on which security events are detected by the API security module.
      *  *
      * @param DescribeApisecEventDomainStatisticRequest $request DescribeApisecEventDomainStatisticRequest
      *
@@ -1961,6 +2362,110 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeApisecEventDomainStatisticWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries API security events.
+     *  *
+     * @param DescribeApisecEventsRequest $request DescribeApisecEventsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApisecEventsResponse DescribeApisecEventsResponse
+     */
+    public function describeApisecEventsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiFormat)) {
+            $query['ApiFormat'] = $request->apiFormat;
+        }
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->apiTag)) {
+            $query['ApiTag'] = $request->apiTag;
+        }
+        if (!Utils::isUnset($request->attackIp)) {
+            $query['AttackIp'] = $request->attackIp;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->endTs)) {
+            $query['EndTs'] = $request->endTs;
+        }
+        if (!Utils::isUnset($request->eventId)) {
+            $query['EventId'] = $request->eventId;
+        }
+        if (!Utils::isUnset($request->eventLevel)) {
+            $query['EventLevel'] = $request->eventLevel;
+        }
+        if (!Utils::isUnset($request->eventTag)) {
+            $query['EventTag'] = $request->eventTag;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->matchedHost)) {
+            $query['MatchedHost'] = $request->matchedHost;
+        }
+        if (!Utils::isUnset($request->orderKey)) {
+            $query['OrderKey'] = $request->orderKey;
+        }
+        if (!Utils::isUnset($request->orderWay)) {
+            $query['OrderWay'] = $request->orderWay;
+        }
+        if (!Utils::isUnset($request->origin)) {
+            $query['Origin'] = $request->origin;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTs)) {
+            $query['StartTs'] = $request->startTs;
+        }
+        if (!Utils::isUnset($request->userStatus)) {
+            $query['UserStatus'] = $request->userStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApisecEvents',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApisecEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries API security events.
+     *  *
+     * @param DescribeApisecEventsRequest $request DescribeApisecEventsRequest
+     *
+     * @return DescribeApisecEventsResponse DescribeApisecEventsResponse
+     */
+    public function describeApisecEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApisecEventsWithOptions($request, $runtime);
     }
 
     /**
@@ -2017,7 +2522,279 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询API安全敏感数据类型统计
+     * @summary Queries the list of domain names detected in the API security module.
+     *  *
+     * @param DescribeApisecMatchedHostsRequest $request DescribeApisecMatchedHostsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApisecMatchedHostsResponse DescribeApisecMatchedHostsResponse
+     */
+    public function describeApisecMatchedHostsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->matchedHost)) {
+            $query['MatchedHost'] = $request->matchedHost;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApisecMatchedHosts',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApisecMatchedHostsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the list of domain names detected in the API security module.
+     *  *
+     * @param DescribeApisecMatchedHostsRequest $request DescribeApisecMatchedHostsRequest
+     *
+     * @return DescribeApisecMatchedHostsResponse DescribeApisecMatchedHostsResponse
+     */
+    public function describeApisecMatchedHosts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApisecMatchedHostsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the list of protected object groups to which API security policies are applied.
+     *  *
+     * @param DescribeApisecProtectionGroupsRequest $request DescribeApisecProtectionGroupsRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApisecProtectionGroupsResponse DescribeApisecProtectionGroupsResponse
+     */
+    public function describeApisecProtectionGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apisecStatus)) {
+            $query['ApisecStatus'] = $request->apisecStatus;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroup)) {
+            $query['ResourceGroup'] = $request->resourceGroup;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApisecProtectionGroups',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApisecProtectionGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the list of protected object groups to which API security policies are applied.
+     *  *
+     * @param DescribeApisecProtectionGroupsRequest $request DescribeApisecProtectionGroupsRequest
+     *
+     * @return DescribeApisecProtectionGroupsResponse DescribeApisecProtectionGroupsResponse
+     */
+    public function describeApisecProtectionGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApisecProtectionGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the list of protected objects to which API security policies are applied.
+     *  *
+     * @param DescribeApisecProtectionResourcesRequest $request DescribeApisecProtectionResourcesRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApisecProtectionResourcesResponse DescribeApisecProtectionResourcesResponse
+     */
+    public function describeApisecProtectionResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apisecStatus)) {
+            $query['ApisecStatus'] = $request->apisecStatus;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApisecProtectionResources',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApisecProtectionResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the list of protected objects to which API security policies are applied.
+     *  *
+     * @param DescribeApisecProtectionResourcesRequest $request DescribeApisecProtectionResourcesRequest
+     *
+     * @return DescribeApisecProtectionResourcesResponse DescribeApisecProtectionResourcesResponse
+     */
+    public function describeApisecProtectionResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApisecProtectionResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the policies configured in the API security module.
+     *  *
+     * @param DescribeApisecRulesRequest $request DescribeApisecRulesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApisecRulesResponse DescribeApisecRulesResponse
+     */
+    public function describeApisecRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $query['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->origin)) {
+            $query['Origin'] = $request->origin;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApisecRules',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApisecRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the policies configured in the API security module.
+     *  *
+     * @param DescribeApisecRulesRequest $request DescribeApisecRulesRequest
+     *
+     * @return DescribeApisecRulesResponse DescribeApisecRulesResponse
+     */
+    public function describeApisecRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApisecRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the statistics on domain names on which sensitive data is detected by the API security module.
      *  *
      * @param DescribeApisecSensitiveDomainStatisticRequest $request DescribeApisecSensitiveDomainStatisticRequest
      * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
@@ -2045,9 +2822,6 @@ class Wafopenapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -2080,7 +2854,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询API安全敏感数据类型统计
+     * @summary Queries the statistics on domain names on which sensitive data is detected by the API security module.
      *  *
      * @param DescribeApisecSensitiveDomainStatisticRequest $request DescribeApisecSensitiveDomainStatisticRequest
      *
@@ -2209,6 +2983,186 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @summary Queries the statistics of API security-related risks and events.
+     *  *
+     * @param DescribeApisecStatisticsRequest $request DescribeApisecStatisticsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApisecStatisticsResponse DescribeApisecStatisticsResponse
+     */
+    public function describeApisecStatisticsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApisecStatistics',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApisecStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the statistics of API security-related risks and events.
+     *  *
+     * @param DescribeApisecStatisticsRequest $request DescribeApisecStatisticsRequest
+     *
+     * @return DescribeApisecStatisticsResponse DescribeApisecStatisticsResponse
+     */
+    public function describeApisecStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApisecStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the protection suggestions for APIs.
+     *  *
+     * @param DescribeApisecSuggestionsRequest $request DescribeApisecSuggestionsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApisecSuggestionsResponse DescribeApisecSuggestionsResponse
+     */
+    public function describeApisecSuggestionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApisecSuggestions',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApisecSuggestionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the protection suggestions for APIs.
+     *  *
+     * @param DescribeApisecSuggestionsRequest $request DescribeApisecSuggestionsRequest
+     *
+     * @return DescribeApisecSuggestionsResponse DescribeApisecSuggestionsResponse
+     */
+    public function describeApisecSuggestions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApisecSuggestionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries user operation records in the API security module.
+     *  *
+     * @param DescribeApisecUserOperationsRequest $request DescribeApisecUserOperationsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApisecUserOperationsResponse DescribeApisecUserOperationsResponse
+     */
+    public function describeApisecUserOperationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->objectId)) {
+            $query['ObjectId'] = $request->objectId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApisecUserOperations',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApisecUserOperationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries user operation records in the API security module.
+     *  *
+     * @param DescribeApisecUserOperationsRequest $request DescribeApisecUserOperationsRequest
+     *
+     * @return DescribeApisecUserOperationsResponse DescribeApisecUserOperationsResponse
+     */
+    public function describeApisecUserOperations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApisecUserOperationsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the details of a certificate, such as the certificate name, expiration time, issuance time, and associated domain name.
      *  *
      * @param DescribeCertDetailRequest $request DescribeCertDetailRequest
@@ -2330,7 +3284,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询云产品的端口详情
+     * @summary Queries a port of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
      *  *
      * @param DescribeCloudResourceAccessPortDetailsRequest $request DescribeCloudResourceAccessPortDetailsRequest
      * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
@@ -2387,7 +3341,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询云产品的端口详情
+     * @summary Queries a port of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
      *  *
      * @param DescribeCloudResourceAccessPortDetailsRequest $request DescribeCloudResourceAccessPortDetailsRequest
      *
@@ -2401,7 +3355,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询已接入云产品的端口列表
+     * @summary Queries the ports of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
      *  *
      * @param DescribeCloudResourceAccessedPortsRequest $request DescribeCloudResourceAccessedPortsRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
@@ -2443,7 +3397,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询已接入云产品的端口列表
+     * @summary Queries the ports of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
      *  *
      * @param DescribeCloudResourceAccessedPortsRequest $request DescribeCloudResourceAccessedPortsRequest
      *
@@ -2543,7 +3497,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询Cname接入的数量
+     * @summary Queries the total number of domain names that are added to Web Application Firewall (WAF) in CNAME record mode and hybrid cloud reverse proxy mode.
      *  *
      * @param DescribeCnameCountRequest $request DescribeCnameCountRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -2582,7 +3536,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询Cname接入的数量
+     * @summary Queries the total number of domain names that are added to Web Application Firewall (WAF) in CNAME record mode and hybrid cloud reverse proxy mode.
      *  *
      * @param DescribeCnameCountRequest $request DescribeCnameCountRequest
      *
@@ -2649,7 +3603,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询默认HTTPS配置
+     * @summary Queries the default SSL and Transport Layer Security (TLS) settings.
      *  *
      * @param DescribeDefaultHttpsRequest $request DescribeDefaultHttpsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -2688,7 +3642,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询默认HTTPS配置
+     * @summary Queries the default SSL and Transport Layer Security (TLS) settings.
      *  *
      * @param DescribeDefaultHttpsRequest $request DescribeDefaultHttpsRequest
      *
@@ -3821,6 +4775,218 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @summary Queries the asset statistics provided by basic detection in the API security module.
+     *  *
+     * @param DescribeFreeUserAssetCountRequest $request DescribeFreeUserAssetCountRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeFreeUserAssetCountResponse DescribeFreeUserAssetCountResponse
+     */
+    public function describeFreeUserAssetCountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFreeUserAssetCount',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeFreeUserAssetCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the asset statistics provided by basic detection in the API security module.
+     *  *
+     * @param DescribeFreeUserAssetCountRequest $request DescribeFreeUserAssetCountRequest
+     *
+     * @return DescribeFreeUserAssetCountResponse DescribeFreeUserAssetCountResponse
+     */
+    public function describeFreeUserAssetCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFreeUserAssetCountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the statistics of security events that are detected by using the basic detection feature of the API security module.
+     *  *
+     * @param DescribeFreeUserEventCountRequest $request DescribeFreeUserEventCountRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeFreeUserEventCountResponse DescribeFreeUserEventCountResponse
+     */
+    public function describeFreeUserEventCountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFreeUserEventCount',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeFreeUserEventCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the statistics of security events that are detected by using the basic detection feature of the API security module.
+     *  *
+     * @param DescribeFreeUserEventCountRequest $request DescribeFreeUserEventCountRequest
+     *
+     * @return DescribeFreeUserEventCountResponse DescribeFreeUserEventCountResponse
+     */
+    public function describeFreeUserEventCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFreeUserEventCountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the types of security events on which basic detection is performed in the API security module.
+     *  *
+     * @param DescribeFreeUserEventTypesRequest $request DescribeFreeUserEventTypesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeFreeUserEventTypesResponse DescribeFreeUserEventTypesResponse
+     */
+    public function describeFreeUserEventTypesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFreeUserEventTypes',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeFreeUserEventTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the types of security events on which basic detection is performed in the API security module.
+     *  *
+     * @param DescribeFreeUserEventTypesRequest $request DescribeFreeUserEventTypesRequest
+     *
+     * @return DescribeFreeUserEventTypesResponse DescribeFreeUserEventTypesResponse
+     */
+    public function describeFreeUserEventTypes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFreeUserEventTypesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the list of security events on which basic detection is performed in the API security module.
+     *  *
+     * @param DescribeFreeUserEventsRequest $request DescribeFreeUserEventsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeFreeUserEventsResponse DescribeFreeUserEventsResponse
+     */
+    public function describeFreeUserEventsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFreeUserEvents',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeFreeUserEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the list of security events on which basic detection is performed in the API security module.
+     *  *
+     * @param DescribeFreeUserEventsRequest $request DescribeFreeUserEventsRequest
+     *
+     * @return DescribeFreeUserEventsResponse DescribeFreeUserEventsResponse
+     */
+    public function describeFreeUserEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFreeUserEventsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Obtains the rule information about a hybrid cloud cluster.
      *  *
      * @param DescribeHybridCloudClusterRuleRequest $request DescribeHybridCloudClusterRuleRequest
@@ -3865,7 +5031,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询混合云集群列表
+     * @summary Queries a list of hybrid cloud clusters.
      *  *
      * @param DescribeHybridCloudClustersRequest $request DescribeHybridCloudClustersRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -3904,7 +5070,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询混合云集群列表
+     * @summary Queries a list of hybrid cloud clusters.
      *  *
      * @param DescribeHybridCloudClustersRequest $request DescribeHybridCloudClustersRequest
      *
@@ -4921,6 +6087,9 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
             $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+        if (!Utils::isUnset($request->resourceProduct)) {
+            $query['ResourceProduct'] = $request->resourceProduct;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5305,6 +6474,9 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->resource)) {
             $query['Resource'] = $request->resource;
         }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
         if (!Utils::isUnset($request->startTimestamp)) {
             $query['StartTimestamp'] = $request->startTimestamp;
         }
@@ -5465,6 +6637,577 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRuleHitsTopUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the personal information-related APIs and domain names.
+     *  *
+     * @param DescribeSensitiveApiStatisticRequest $request DescribeSensitiveApiStatisticRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSensitiveApiStatisticResponse DescribeSensitiveApiStatisticResponse
+     */
+    public function describeSensitiveApiStatisticWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->matchedHost)) {
+            $query['MatchedHost'] = $request->matchedHost;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSensitiveApiStatistic',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSensitiveApiStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the personal information-related APIs and domain names.
+     *  *
+     * @param DescribeSensitiveApiStatisticRequest $request DescribeSensitiveApiStatisticRequest
+     *
+     * @return DescribeSensitiveApiStatisticResponse DescribeSensitiveApiStatisticResponse
+     */
+    public function describeSensitiveApiStatistic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSensitiveApiStatisticWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the compliance check results of API security.
+     *  *
+     * @param DescribeSensitiveDetectionResultRequest $request DescribeSensitiveDetectionResultRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSensitiveDetectionResultResponse DescribeSensitiveDetectionResultResponse
+     */
+    public function describeSensitiveDetectionResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSensitiveDetectionResult',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSensitiveDetectionResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the compliance check results of API security.
+     *  *
+     * @param DescribeSensitiveDetectionResultRequest $request DescribeSensitiveDetectionResultRequest
+     *
+     * @return DescribeSensitiveDetectionResultResponse DescribeSensitiveDetectionResultResponse
+     */
+    public function describeSensitiveDetectionResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSensitiveDetectionResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the traffic distribution of personal information records involved in cross-border data transfer.
+     *  *
+     * @param DescribeSensitiveOutboundDistributionRequest $request DescribeSensitiveOutboundDistributionRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSensitiveOutboundDistributionResponse DescribeSensitiveOutboundDistributionResponse
+     */
+    public function describeSensitiveOutboundDistributionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSensitiveOutboundDistribution',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSensitiveOutboundDistributionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the traffic distribution of personal information records involved in cross-border data transfer.
+     *  *
+     * @param DescribeSensitiveOutboundDistributionRequest $request DescribeSensitiveOutboundDistributionRequest
+     *
+     * @return DescribeSensitiveOutboundDistributionResponse DescribeSensitiveOutboundDistributionResponse
+     */
+    public function describeSensitiveOutboundDistribution($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSensitiveOutboundDistributionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the data types of personal information involved in cross-border data transfer.
+     *  *
+     * @param DescribeSensitiveOutboundStatisticRequest $request DescribeSensitiveOutboundStatisticRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSensitiveOutboundStatisticResponse DescribeSensitiveOutboundStatisticResponse
+     */
+    public function describeSensitiveOutboundStatisticWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->detectionResult)) {
+            $query['DetectionResult'] = $request->detectionResult;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->orderKey)) {
+            $query['OrderKey'] = $request->orderKey;
+        }
+        if (!Utils::isUnset($request->orderWay)) {
+            $query['OrderWay'] = $request->orderWay;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->sensitiveCode)) {
+            $query['SensitiveCode'] = $request->sensitiveCode;
+        }
+        if (!Utils::isUnset($request->sensitiveLevel)) {
+            $query['SensitiveLevel'] = $request->sensitiveLevel;
+        }
+        if (!Utils::isUnset($request->sensitiveType)) {
+            $query['SensitiveType'] = $request->sensitiveType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSensitiveOutboundStatistic',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSensitiveOutboundStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the data types of personal information involved in cross-border data transfer.
+     *  *
+     * @param DescribeSensitiveOutboundStatisticRequest $request DescribeSensitiveOutboundStatisticRequest
+     *
+     * @return DescribeSensitiveOutboundStatisticResponse DescribeSensitiveOutboundStatisticResponse
+     */
+    public function describeSensitiveOutboundStatistic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSensitiveOutboundStatisticWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the trends of cross-border data transfer of personal information.
+     *  *
+     * @param DescribeSensitiveOutboundTrendRequest $request DescribeSensitiveOutboundTrendRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSensitiveOutboundTrendResponse DescribeSensitiveOutboundTrendResponse
+     */
+    public function describeSensitiveOutboundTrendWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSensitiveOutboundTrend',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSensitiveOutboundTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the trends of cross-border data transfer of personal information.
+     *  *
+     * @param DescribeSensitiveOutboundTrendRequest $request DescribeSensitiveOutboundTrendRequest
+     *
+     * @return DescribeSensitiveOutboundTrendResponse DescribeSensitiveOutboundTrendResponse
+     */
+    public function describeSensitiveOutboundTrend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSensitiveOutboundTrendWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the access logs of sensitive data.
+     *  *
+     * @param DescribeSensitiveRequestLogRequest $request DescribeSensitiveRequestLogRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSensitiveRequestLogResponse DescribeSensitiveRequestLogResponse
+     */
+    public function describeSensitiveRequestLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiFormat)) {
+            $query['ApiFormat'] = $request->apiFormat;
+        }
+        if (!Utils::isUnset($request->clientIP)) {
+            $query['ClientIP'] = $request->clientIP;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->matchedHost)) {
+            $query['MatchedHost'] = $request->matchedHost;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->sensitiveCode)) {
+            $query['SensitiveCode'] = $request->sensitiveCode;
+        }
+        if (!Utils::isUnset($request->sensitiveData)) {
+            $query['SensitiveData'] = $request->sensitiveData;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSensitiveRequestLog',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSensitiveRequestLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the access logs of sensitive data.
+     *  *
+     * @param DescribeSensitiveRequestLogRequest $request DescribeSensitiveRequestLogRequest
+     *
+     * @return DescribeSensitiveRequestLogResponse DescribeSensitiveRequestLogResponse
+     */
+    public function describeSensitiveRequestLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSensitiveRequestLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the tracing results of sensitive data.
+     *  *
+     * @param DescribeSensitiveRequestsRequest $request DescribeSensitiveRequestsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSensitiveRequestsResponse DescribeSensitiveRequestsResponse
+     */
+    public function describeSensitiveRequestsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->sensitiveCode)) {
+            $query['SensitiveCode'] = $request->sensitiveCode;
+        }
+        if (!Utils::isUnset($request->sensitiveData)) {
+            $query['SensitiveData'] = $request->sensitiveData;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSensitiveRequests',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSensitiveRequestsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the tracing results of sensitive data.
+     *  *
+     * @param DescribeSensitiveRequestsRequest $request DescribeSensitiveRequestsRequest
+     *
+     * @return DescribeSensitiveRequestsResponse DescribeSensitiveRequestsResponse
+     */
+    public function describeSensitiveRequests($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSensitiveRequestsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the sensitive data statistics of the tracing and auditing feature.
+     *  *
+     * @param DescribeSensitiveStatisticRequest $request DescribeSensitiveStatisticRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSensitiveStatisticResponse DescribeSensitiveStatisticResponse
+     */
+    public function describeSensitiveStatisticWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->statisticType)) {
+            $query['StatisticType'] = $request->statisticType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSensitiveStatistic',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSensitiveStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the sensitive data statistics of the tracing and auditing feature.
+     *  *
+     * @param DescribeSensitiveStatisticRequest $request DescribeSensitiveStatisticRequest
+     *
+     * @return DescribeSensitiveStatisticResponse DescribeSensitiveStatisticResponse
+     */
+    public function describeSensitiveStatistic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSensitiveStatisticWithOptions($request, $runtime);
     }
 
     /**
@@ -5742,6 +7485,372 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @summary Queries the trends of API security risks.
+     *  *
+     * @param DescribeUserAbnormalTrendRequest $request DescribeUserAbnormalTrendRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeUserAbnormalTrendResponse DescribeUserAbnormalTrendResponse
+     */
+    public function describeUserAbnormalTrendWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserAbnormalTrend',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUserAbnormalTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the trends of API security risks.
+     *  *
+     * @param DescribeUserAbnormalTrendRequest $request DescribeUserAbnormalTrendRequest
+     *
+     * @return DescribeUserAbnormalTrendResponse DescribeUserAbnormalTrendResponse
+     */
+    public function describeUserAbnormalTrend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserAbnormalTrendWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the types and statistics of risks in the API security module.
+     *  *
+     * @param DescribeUserAbnormalTypeRequest $request DescribeUserAbnormalTypeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeUserAbnormalTypeResponse DescribeUserAbnormalTypeResponse
+     */
+    public function describeUserAbnormalTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserAbnormalType',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUserAbnormalTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the types and statistics of risks in the API security module.
+     *  *
+     * @param DescribeUserAbnormalTypeRequest $request DescribeUserAbnormalTypeRequest
+     *
+     * @return DescribeUserAbnormalTypeResponse DescribeUserAbnormalTypeResponse
+     */
+    public function describeUserAbnormalType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserAbnormalTypeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the traffic statistics of an API.
+     *  *
+     * @param DescribeUserApiRequestRequest $request DescribeUserApiRequestRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeUserApiRequestResponse DescribeUserApiRequestResponse
+     */
+    public function describeUserApiRequestWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiFormat)) {
+            $query['ApiFormat'] = $request->apiFormat;
+        }
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserApiRequest',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUserApiRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the traffic statistics of an API.
+     *  *
+     * @param DescribeUserApiRequestRequest $request DescribeUserApiRequestRequest
+     *
+     * @return DescribeUserApiRequestResponse DescribeUserApiRequestResponse
+     */
+    public function describeUserApiRequest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserApiRequestWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the user asset statistics in the API security module.
+     *  *
+     * @param DescribeUserAssetRequest $request DescribeUserAssetRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeUserAssetResponse DescribeUserAssetResponse
+     */
+    public function describeUserAssetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataType)) {
+            $query['DataType'] = $request->dataType;
+        }
+        if (!Utils::isUnset($request->days)) {
+            $query['Days'] = $request->days;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserAsset',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUserAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the user asset statistics in the API security module.
+     *  *
+     * @param DescribeUserAssetRequest $request DescribeUserAssetRequest
+     *
+     * @return DescribeUserAssetResponse DescribeUserAssetResponse
+     */
+    public function describeUserAsset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserAssetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the trends of attacks detected by the API security module.
+     *  *
+     * @param DescribeUserEventTrendRequest $request DescribeUserEventTrendRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeUserEventTrendResponse DescribeUserEventTrendResponse
+     */
+    public function describeUserEventTrendWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserEventTrend',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUserEventTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the trends of attacks detected by the API security module.
+     *  *
+     * @param DescribeUserEventTrendRequest $request DescribeUserEventTrendRequest
+     *
+     * @return DescribeUserEventTrendResponse DescribeUserEventTrendResponse
+     */
+    public function describeUserEventTrend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserEventTrendWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the types and statistics of security events in the API security module.
+     *  *
+     * @param DescribeUserEventTypeRequest $request DescribeUserEventTypeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeUserEventTypeResponse DescribeUserEventTypeResponse
+     */
+    public function describeUserEventTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserEventType',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUserEventTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the types and statistics of security events in the API security module.
+     *  *
+     * @param DescribeUserEventTypeRequest $request DescribeUserEventTypeRequest
+     *
+     * @return DescribeUserEventTypeResponse DescribeUserEventTypeResponse
+     */
+    public function describeUserEventType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserEventTypeWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries available regions for log storage.
      *  *
      * @param DescribeUserSlsLogRegionsRequest $request DescribeUserSlsLogRegionsRequest
@@ -5932,6 +8041,9 @@ class Wafopenapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->resource)) {
             $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->startTimestamp)) {
             $query['StartTimestamp'] = $request->startTimestamp;
@@ -6148,6 +8260,9 @@ class Wafopenapi extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         if (!Utils::isUnset($request->key)) {
             $query['Key'] = $request->key;
         }
@@ -6156,6 +8271,9 @@ class Wafopenapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->resourceType)) {
             $query['ResourceType'] = $request->resourceType;
@@ -6190,6 +8308,201 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagValuesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Modifies the status of multiple risks detected by the API security module at a time.
+     *  *
+     * @param ModifyApisecAbnormalsRequest $request ModifyApisecAbnormalsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyApisecAbnormalsResponse ModifyApisecAbnormalsResponse
+     */
+    public function modifyApisecAbnormalsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->abnormalIds)) {
+            $query['AbnormalIds'] = $request->abnormalIds;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->note)) {
+            $query['Note'] = $request->note;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->userStatus)) {
+            $query['UserStatus'] = $request->userStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyApisecAbnormals',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyApisecAbnormalsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Modifies the status of multiple risks detected by the API security module at a time.
+     *  *
+     * @param ModifyApisecAbnormalsRequest $request ModifyApisecAbnormalsRequest
+     *
+     * @return ModifyApisecAbnormalsResponse ModifyApisecAbnormalsResponse
+     */
+    public function modifyApisecAbnormals($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyApisecAbnormalsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Modifies the annotations of APIs in the API security module.
+     *  *
+     * @param ModifyApisecApiResourceRequest $request ModifyApisecApiResourceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyApisecApiResourceResponse ModifyApisecApiResourceResponse
+     */
+    public function modifyApisecApiResourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->follow)) {
+            $query['Follow'] = $request->follow;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->note)) {
+            $query['Note'] = $request->note;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyApisecApiResource',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyApisecApiResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Modifies the annotations of APIs in the API security module.
+     *  *
+     * @param ModifyApisecApiResourceRequest $request ModifyApisecApiResourceRequest
+     *
+     * @return ModifyApisecApiResourceResponse ModifyApisecApiResourceResponse
+     */
+    public function modifyApisecApiResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyApisecApiResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Modifies the status of multiple security events detected by the API security module at a time.
+     *  *
+     * @param ModifyApisecEventsRequest $request ModifyApisecEventsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyApisecEventsResponse ModifyApisecEventsResponse
+     */
+    public function modifyApisecEventsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->eventIds)) {
+            $query['EventIds'] = $request->eventIds;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->note)) {
+            $query['Note'] = $request->note;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->userStatus)) {
+            $query['UserStatus'] = $request->userStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyApisecEvents',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyApisecEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Modifies the status of multiple security events detected by the API security module at a time.
+     *  *
+     * @param ModifyApisecEventsRequest $request ModifyApisecEventsRequest
+     *
+     * @return ModifyApisecEventsResponse ModifyApisecEventsResponse
+     */
+    public function modifyApisecEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyApisecEventsWithOptions($request, $runtime);
     }
 
     /**
@@ -6317,7 +8630,134 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 修改云产品资源
+     * @summary Changes the status of features in the API security module for protected objects or protected object groups.
+     *  *
+     * @param ModifyApisecModuleStatusRequest $request ModifyApisecModuleStatusRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyApisecModuleStatusResponse ModifyApisecModuleStatusResponse
+     */
+    public function modifyApisecModuleStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->reportStatus)) {
+            $query['ReportStatus'] = $request->reportStatus;
+        }
+        if (!Utils::isUnset($request->resourceGroups)) {
+            $query['ResourceGroups'] = $request->resourceGroups;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->resources)) {
+            $query['Resources'] = $request->resources;
+        }
+        if (!Utils::isUnset($request->traceStatus)) {
+            $query['TraceStatus'] = $request->traceStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyApisecModuleStatus',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyApisecModuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Changes the status of features in the API security module for protected objects or protected object groups.
+     *  *
+     * @param ModifyApisecModuleStatusRequest $request ModifyApisecModuleStatusRequest
+     *
+     * @return ModifyApisecModuleStatusResponse ModifyApisecModuleStatusResponse
+     */
+    public function modifyApisecModuleStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyApisecModuleStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Changes the status of the API security module for protected objects or protected object groups.
+     *  *
+     * @param ModifyApisecStatusRequest $request ModifyApisecStatusRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyApisecStatusResponse ModifyApisecStatusResponse
+     */
+    public function modifyApisecStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apisecStatus)) {
+            $query['ApisecStatus'] = $request->apisecStatus;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroups)) {
+            $query['ResourceGroups'] = $request->resourceGroups;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->resources)) {
+            $query['Resources'] = $request->resources;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyApisecStatus',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyApisecStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Changes the status of the API security module for protected objects or protected object groups.
+     *  *
+     * @param ModifyApisecStatusRequest $request ModifyApisecStatusRequest
+     *
+     * @return ModifyApisecStatusResponse ModifyApisecStatusResponse
+     */
+    public function modifyApisecStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyApisecStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Modifies the configurations of a service that is added to Web Application Firewall (WAF).
      *  *
      * @param ModifyCloudResourceRequest $tmpReq  ModifyCloudResourceRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -6370,7 +8810,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 修改云产品资源
+     * @summary Modifies the configurations of a service that is added to Web Application Firewall (WAF).
      *  *
      * @param ModifyCloudResourceRequest $request ModifyCloudResourceRequest
      *
@@ -6384,7 +8824,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 修改默认HTTPS配置
+     * @summary Modifies the default SSL and Transport Layer Security (TLS) settings.
      *  *
      * @param ModifyDefaultHttpsRequest $request ModifyDefaultHttpsRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -6438,7 +8878,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 修改默认HTTPS配置
+     * @summary Modifies the default SSL and Transport Layer Security (TLS) settings.
      *  *
      * @param ModifyDefaultHttpsRequest $request ModifyDefaultHttpsRequest
      *
@@ -6611,14 +9051,16 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
             $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->rules)) {
-            $query['Rules'] = $request->rules;
-        }
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;
         }
+        $body = [];
+        if (!Utils::isUnset($request->rules)) {
+            $body['Rules'] = $request->rules;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ModifyDefenseRule',

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisecAssetTrendRequest extends Model
 {
     /**
+     * @description The ID of the hybrid cloud cluster.
+     *
      * @example 590
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeApisecAssetTrendRequest extends Model
     public $clusterId;
 
     /**
+     * @description The end of the time range to query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
+     *
      * @example 1683183599
      *
      * @var int
@@ -23,8 +27,9 @@ class DescribeApisecAssetTrendRequest extends Model
     public $endTime;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the WAF instance.
      *
+     * This parameter is required.
      * @example waf_v2_public_cn-ww**b06
      *
      * @var string
@@ -32,13 +37,11 @@ class DescribeApisecAssetTrendRequest extends Model
     public $instanceId;
 
     /**
-     * @example cn
+     * @description The region in which the WAF instance is deployed. Valid values:
      *
-     * @var string
-     */
-    public $region;
-
-    /**
+     *   **cn-hangzhou**: Chinese mainland.
+     *   **ap-southeast-1**: outside the Chinese mainland.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -46,6 +49,8 @@ class DescribeApisecAssetTrendRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the Alibaba Cloud resource group.
+     *
      * @example rg-aek**7uq
      *
      * @var string
@@ -53,6 +58,8 @@ class DescribeApisecAssetTrendRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
+     * @description The beginning of the time range to query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
+     *
      * @example 1668496310
      *
      * @var int
@@ -62,7 +69,6 @@ class DescribeApisecAssetTrendRequest extends Model
         'clusterId'                      => 'ClusterId',
         'endTime'                        => 'EndTime',
         'instanceId'                     => 'InstanceId',
-        'region'                         => 'Region',
         'regionId'                       => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
         'startTime'                      => 'StartTime',
@@ -83,9 +89,6 @@ class DescribeApisecAssetTrendRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -116,9 +119,6 @@ class DescribeApisecAssetTrendRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

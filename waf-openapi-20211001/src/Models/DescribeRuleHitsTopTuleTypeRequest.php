@@ -49,6 +49,15 @@ class DescribeRuleHitsTopTuleTypeRequest extends Model
     public $resource;
 
     /**
+     * @description The ID of the Alibaba Cloud resource group.
+     *
+     * @example rg-aekzwwkpn****5i
+     *
+     * @var string
+     */
+    public $resourceManagerResourceGroupId;
+
+    /**
      * @description The start point of the time period for which to query. Unit: seconds.
      *
      * This parameter is required.
@@ -58,11 +67,12 @@ class DescribeRuleHitsTopTuleTypeRequest extends Model
      */
     public $startTimestamp;
     protected $_name = [
-        'endTimestamp'   => 'EndTimestamp',
-        'instanceId'     => 'InstanceId',
-        'regionId'       => 'RegionId',
-        'resource'       => 'Resource',
-        'startTimestamp' => 'StartTimestamp',
+        'endTimestamp'                   => 'EndTimestamp',
+        'instanceId'                     => 'InstanceId',
+        'regionId'                       => 'RegionId',
+        'resource'                       => 'Resource',
+        'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
+        'startTimestamp'                 => 'StartTimestamp',
     ];
 
     public function validate()
@@ -83,6 +93,9 @@ class DescribeRuleHitsTopTuleTypeRequest extends Model
         }
         if (null !== $this->resource) {
             $res['Resource'] = $this->resource;
+        }
+        if (null !== $this->resourceManagerResourceGroupId) {
+            $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
         }
         if (null !== $this->startTimestamp) {
             $res['StartTimestamp'] = $this->startTimestamp;
@@ -110,6 +123,9 @@ class DescribeRuleHitsTopTuleTypeRequest extends Model
         }
         if (isset($map['Resource'])) {
             $model->resource = $map['Resource'];
+        }
+        if (isset($map['ResourceManagerResourceGroupId'])) {
+            $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
         }
         if (isset($map['StartTimestamp'])) {
             $model->startTimestamp = $map['StartTimestamp'];

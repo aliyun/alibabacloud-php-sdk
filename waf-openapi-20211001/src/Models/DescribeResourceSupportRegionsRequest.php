@@ -38,10 +38,16 @@ class DescribeResourceSupportRegionsRequest extends Model
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $resourceProduct;
     protected $_name = [
         'instanceId'                     => 'InstanceId',
         'regionId'                       => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
+        'resourceProduct'                => 'ResourceProduct',
     ];
 
     public function validate()
@@ -59,6 +65,9 @@ class DescribeResourceSupportRegionsRequest extends Model
         }
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
+        }
+        if (null !== $this->resourceProduct) {
+            $res['ResourceProduct'] = $this->resourceProduct;
         }
 
         return $res;
@@ -80,6 +89,9 @@ class DescribeResourceSupportRegionsRequest extends Model
         }
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
+        }
+        if (isset($map['ResourceProduct'])) {
+            $model->resourceProduct = $map['ResourceProduct'];
         }
 
         return $model;

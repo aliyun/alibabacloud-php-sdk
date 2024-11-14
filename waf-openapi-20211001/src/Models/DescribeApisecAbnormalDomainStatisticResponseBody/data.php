@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of APIs.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $apiCount;
 
     /**
+     * @description The domain name.
+     *
      * @example ba.aliyun.com
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $domain;
 
     /**
+     * @description The number of high-level risks.
+     *
      * @example 12
      *
      * @var int
@@ -30,6 +36,8 @@ class data extends Model
     public $high;
 
     /**
+     * @description The number of low-level risks.
+     *
      * @example 4
      *
      * @var int
@@ -37,6 +45,8 @@ class data extends Model
     public $low;
 
     /**
+     * @description The number of medium-level risks.
+     *
      * @example 9
      *
      * @var int

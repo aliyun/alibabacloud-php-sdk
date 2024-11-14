@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class clusterInfos extends Model
 {
     /**
+     * @description The network access mode. Valid values:
+     *
+     *   **internet**: Internet access.
+     *   **vpc**: internal network access by using Express Connect circuits.
+     *
      * @example internet
      *
      * @var string
@@ -16,6 +21,12 @@ class clusterInfos extends Model
     public $accessMode;
 
     /**
+     * @description The region where the virtual private cloud (VPC) resides. Valid values:
+     *
+     *   **cn-hangzhou**: China (Hangzhou).
+     *   **cn-beiijng**: China (Beijing).
+     *   **cn-shanghai**: China (Shanghai).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,11 +34,15 @@ class clusterInfos extends Model
     public $accessRegion;
 
     /**
+     * @description The name of the cluster.
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The ID of the hybrid cloud cluster resource.
+     *
      * @example hdbc-cluster-t1****a
      *
      * @var string
@@ -35,6 +50,8 @@ class clusterInfos extends Model
     public $clusterResourceId;
 
     /**
+     * @description The HTTP ports. The value is a string. If multiple ports are returned, the value is in the **port1,port2,port3** format.
+     *
      * @example 80,8080
      *
      * @var string
@@ -42,6 +59,8 @@ class clusterInfos extends Model
     public $httpPorts;
 
     /**
+     * @description The HTTPS ports. The value is a string. If multiple ports are returned, the value is in the **port1,port2,port3** format.
+     *
      * @example 443,8443
      *
      * @var string
@@ -49,6 +68,8 @@ class clusterInfos extends Model
     public $httpsPorts;
 
     /**
+     * @description The ID of the cluster.
+     *
      * @example 524**8
      *
      * @var int
@@ -56,6 +77,8 @@ class clusterInfos extends Model
     public $id;
 
     /**
+     * @description The number of protection nodes that can be added to the cluster.
+     *
      * @example 1
      *
      * @var int
@@ -63,6 +86,11 @@ class clusterInfos extends Model
     public $protectionServerCount;
 
     /**
+     * @description The status of the proxy gateway. Valid values:
+     *
+     *   **on**: enabled.
+     *   **off**: disabled.
+     *
      * @example off
      *
      * @var string
@@ -70,6 +98,11 @@ class clusterInfos extends Model
     public $proxyStatus;
 
     /**
+     * @description The type of the cluster. Valid values:
+     *
+     *   **cname**: reverse proxy cluster.
+     *   **service**: SDK-based traffic mirroring cluster.
+     *
      * @example cname
      *
      * @var string
@@ -77,11 +110,15 @@ class clusterInfos extends Model
     public $proxyType;
 
     /**
+     * @description The remarks about the cluster.
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The configurations of the rule.
+     *
      * @example {"enable":true,"param":{"breaker":{"duration":1,"failed":1,"recent_failed":1},"disable_protect":false,"max_request_body_len":1,"timeout":1}}
      *
      * @var string
@@ -89,6 +126,11 @@ class clusterInfos extends Model
     public $ruleConfig;
 
     /**
+     * @description The status of manual bypass. Valid values:
+     *
+     *   **on**: enabled.
+     *   **off**: disabled.
+     *
      * @example off
      *
      * @var string
@@ -96,6 +138,10 @@ class clusterInfos extends Model
     public $ruleStatus;
 
     /**
+     * @description The type of the rule. Valid value:
+     *
+     *   **bypass**: Requests are allowed without security checks.
+     *
      * @example bypass
      *
      * @var string

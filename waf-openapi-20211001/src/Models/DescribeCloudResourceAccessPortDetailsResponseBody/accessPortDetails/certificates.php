@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class certificates extends Model
 {
     /**
+     * @description The type of the HTTPS certificate. Valid values:
+     *
+     *   **default**: default certificate.
+     *   **extension**: additional certificate.
+     *
      * @example default
      *
      * @var string
@@ -16,6 +21,8 @@ class certificates extends Model
     public $appliedType;
 
     /**
+     * @description The ID of the certificate.
+     *
      * @example 123-cn-hangzhou
      *
      * @var string
@@ -23,6 +30,8 @@ class certificates extends Model
     public $certificateId;
 
     /**
+     * @description The name of the certificate.
+     *
      * @example cert-name1
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudResourceAccessedPortsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the WAF instance.
      *
+     * This parameter is required.
      * @example waf-cn-tl32ast****
      *
      * @var string
@@ -18,6 +19,11 @@ class DescribeCloudResourceAccessedPortsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region in which the WAF instance is deployed. Valid values:
+     *
+     *   **cn-hangzhou**: the Chinese mainland.
+     *   **ap-southeast-1**: outside the Chinese mainland.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -25,8 +31,9 @@ class DescribeCloudResourceAccessedPortsRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID of the resource.
      *
+     * This parameter is required.
      * @example lb-bp1*****jqnnqk5uj2p
      *
      * @var string
@@ -34,6 +41,8 @@ class DescribeCloudResourceAccessedPortsRequest extends Model
     public $resourceInstanceId;
 
     /**
+     * @description The ID of the Alibaba Cloud resource group.
+     *
      * @example rg-aekzwwkpn****5i
      *
      * @var string
