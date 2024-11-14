@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models;
 
-use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateDBInstanceRequest\tag;
 use AlibabaCloud\Tea\Model;
 
-class CreateDBInstanceRequest extends Model
+class CreateDBInstanceShrinkRequest extends Model
 {
     /**
      * @description This parameter is required.
@@ -111,9 +110,9 @@ class CreateDBInstanceRequest extends Model
     public $securityIPList;
 
     /**
-     * @var tag[]
+     * @var string
      */
-    public $tag;
+    public $tagShrink;
 
     /**
      * @example 1
@@ -163,7 +162,7 @@ class CreateDBInstanceRequest extends Model
         'resourceGroupId'       => 'ResourceGroupId',
         'resourceOwnerId'       => 'ResourceOwnerId',
         'securityIPList'        => 'SecurityIPList',
-        'tag'                   => 'Tag',
+        'tagShrink'             => 'Tag',
         'usedTime'              => 'UsedTime',
         'vSwitchId'             => 'VSwitchId',
         'vpcId'                 => 'VpcId',
@@ -216,14 +215,8 @@ class CreateDBInstanceRequest extends Model
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
         }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->tagShrink) {
+            $res['Tag'] = $this->tagShrink;
         }
         if (null !== $this->usedTime) {
             $res['UsedTime'] = $this->usedTime;
@@ -244,7 +237,7 @@ class CreateDBInstanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateDBInstanceRequest
+     * @return CreateDBInstanceShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -289,13 +282,7 @@ class CreateDBInstanceRequest extends Model
             $model->securityIPList = $map['SecurityIPList'];
         }
         if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
-            }
+            $model->tagShrink = $map['Tag'];
         }
         if (isset($map['UsedTime'])) {
             $model->usedTime = $map['UsedTime'];

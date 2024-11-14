@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The edition of the instance. Default value: basic.
+     *
      * @example basic
      *
      * @var string
@@ -17,6 +19,11 @@ class items extends Model
     public $category;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   **Postpaid**: pay-as-you-go.
+     *   **Prepaid**: subscription.
+     *
      * @example PrePaid
      *
      * @var string
@@ -24,6 +31,8 @@ class items extends Model
     public $chargeType;
 
     /**
+     * @description The total number of clusters.
+     *
      * @example 1
      *
      * @var int
@@ -31,6 +40,8 @@ class items extends Model
     public $clusterCount;
 
     /**
+     * @description The instance ID.
+     *
      * @example selectdb-cn-7213cjv****
      *
      * @var string
@@ -38,11 +49,15 @@ class items extends Model
     public $DBInstanceId;
 
     /**
+     * @description The description of the instance.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The database engine of the instance.
+     *
      * @example selectdb
      *
      * @var string
@@ -50,6 +65,8 @@ class items extends Model
     public $engine;
 
     /**
+     * @description The database engine version of the instance.
+     *
      * @example 2.4
      *
      * @var string
@@ -57,6 +74,9 @@ class items extends Model
     public $engineVersion;
 
     /**
+     * @description The time when the cluster expires.
+     *
+     * >  A specific value is returned only for subscription clusters whose billing method is **Prepaid**. For pay-as-you-go clusters whose billing method is **Postpaid**, no value is returned.
      * @example 2024-03-29T03:47:05Z
      *
      * @var string
@@ -64,6 +84,8 @@ class items extends Model
     public $expireTime;
 
     /**
+     * @description The time when the task was created. The time is displayed in UTC.
+     *
      * @example 2023-08-12T04:14Z
      *
      * @var string
@@ -71,6 +93,8 @@ class items extends Model
     public $gmtCreated;
 
     /**
+     * @description The time when the task was last modified. The time is displayed in UTC.
+     *
      * @example 2023-08-12T19:05Z
      *
      * @var string
@@ -78,6 +102,8 @@ class items extends Model
     public $gmtModified;
 
     /**
+     * @description The type of the instance.
+     *
      * @example Instance
      *
      * @var string
@@ -85,6 +111,11 @@ class items extends Model
     public $instanceUsedType;
 
     /**
+     * @description Indicates whether the instance is deleted. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -92,6 +123,8 @@ class items extends Model
     public $isDeleted;
 
     /**
+     * @description The lock mode of the instance.
+     *
      * @example 0
      *
      * @var int
@@ -99,6 +132,8 @@ class items extends Model
     public $lockMode;
 
     /**
+     * @description The reason why the instance is locked.
+     *
      * @example nolock
      *
      * @var string
@@ -106,26 +141,36 @@ class items extends Model
     public $lockReason;
 
     /**
+     * @description The end timestamp of the maintenance window.
+     *
      * @var string
      */
     public $maintainEndTimeStr;
 
     /**
+     * @description The end time of the instance maintenance window.
+     *
      * @var string
      */
     public $maintainEndtime;
 
     /**
+     * @description The start timestamp of the maintenance window.
+     *
      * @var string
      */
     public $maintainStartTimeStr;
 
     /**
+     * @description The start time of the instance maintenance window.
+     *
      * @var string
      */
     public $maintainStarttime;
 
     /**
+     * @description The storage capacity of the instance. Unit: GB.
+     *
      * @example 200
      *
      * @var int
@@ -133,11 +178,15 @@ class items extends Model
     public $objectStoreSize;
 
     /**
+     * @description The time when the instance was created.
+     *
      * @var string
      */
     public $parentInstance;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -145,6 +194,8 @@ class items extends Model
     public $regionId;
 
     /**
+     * @description The number of CPU cores of the instance.
+     *
      * @example 8
      *
      * @var int
@@ -152,11 +203,15 @@ class items extends Model
     public $resourceCpu;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The memory capacity of the instance.
+     *
      * @example 64
      *
      * @var int
@@ -164,6 +219,8 @@ class items extends Model
     public $resourceMemory;
 
     /**
+     * @description The maximum number of RCUs.
+     *
      * @example 0
      *
      * @var int
@@ -171,6 +228,8 @@ class items extends Model
     public $scaleMax;
 
     /**
+     * @description The minimum number of RDS capacity units (RCUs).
+     *
      * @example 0
      *
      * @var int
@@ -178,11 +237,22 @@ class items extends Model
     public $scaleMin;
 
     /**
+     * @description This parameter is not returned.
+     *
      * @var int
      */
     public $scaleReplica;
 
     /**
+     * @description The state of the instance. Valid values:
+     *
+     *   **CREATING**: The instance is being created.
+     *   **ACTIVATION**: The instance is running.
+     *   **RESOURCE_CHANGING**: The resource configuration of the instance is being changed.
+     *   **ORDER_PREPARING**: The order is being confirmed.
+     *   **READONLY_RESOURCE_CHANGING**: The resource configuration of the instance is being changed and the instance is write-locked.
+     *   **DELETING**: The instance is being deleted.
+     *
      * @example ACTIVATION
      *
      * @var string
@@ -190,6 +260,8 @@ class items extends Model
     public $status;
 
     /**
+     * @description The cache size.
+     *
      * @example 100
      *
      * @var int
@@ -197,6 +269,8 @@ class items extends Model
     public $storageSize;
 
     /**
+     * @description The storage type of the instance.
+     *
      * @example cloud_essd
      *
      * @var string
@@ -204,27 +278,35 @@ class items extends Model
     public $storageType;
 
     /**
+     * @description The details about each tag returned.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The ID of the cluster that is monitored by Managed Service for Prometheus.
+     *
      * @var string
      */
     public $tenantClusterId;
 
     /**
+     * @description The token that is used to access Managed Service for Prometheus.
+     *
      * @var string
      */
     public $tenantToken;
 
     /**
+     * @description The ID of the account that uses Managed Service for Prometheus.
+     *
      * @var string
      */
     public $tenantUserId;
 
     /**
-     * @description VPC ID。
+     * @description The virtual private cloud (VPC) ID.
      *
      * @example vpc-bp175iuvg8nxqraf2****
      *
@@ -233,6 +315,8 @@ class items extends Model
     public $vpcId;
 
     /**
+     * @description The vSwitch ID.
+     *
      * @example vsw-bp1gzt31twhlo0sa5****
      *
      * @var string
@@ -240,6 +324,8 @@ class items extends Model
     public $vswitchId;
 
     /**
+     * @description The zone ID.
+     *
      * @example cn-hangzhou-i
      *
      * @var string
@@ -247,6 +333,8 @@ class items extends Model
     public $zoneId;
 
     /**
+     * @description The connection string of the instance.
+     *
      * @var string
      */
     public $connectionString;

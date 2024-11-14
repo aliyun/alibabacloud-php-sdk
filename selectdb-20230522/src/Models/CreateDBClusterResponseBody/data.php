@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example selectdb-cn-1ls3sg0po0****
+     *
+     * @var string
+     */
+    public $clusterId;
+
+    /**
      * @example selectdb-cn-7213cjv****
      *
      * @var string
@@ -22,6 +29,7 @@ class data extends Model
      */
     public $orderId;
     protected $_name = [
+        'clusterId'    => 'ClusterId',
         'DBInstanceId' => 'DBInstanceId',
         'orderId'      => 'OrderId',
     ];
@@ -33,6 +41,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
@@ -51,6 +62,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }

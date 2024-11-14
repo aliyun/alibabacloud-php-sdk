@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example selectdb-cn-7213c8y****-be
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $DBClusterId;
 
     /**
+     * @description The instance ID.
+     *
      * @example selectdb-cn-7213cjv****
      *
      * @var string

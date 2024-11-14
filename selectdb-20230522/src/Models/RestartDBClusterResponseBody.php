@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class RestartDBClusterResponseBody extends Model
 {
     /**
+     * @description The information returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example BD0D0B17-C145-5B91-BFC2-6791927EE973
      *
      * @var string

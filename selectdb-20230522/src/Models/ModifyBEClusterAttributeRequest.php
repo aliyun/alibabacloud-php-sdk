@@ -27,8 +27,16 @@ class ModifyBEClusterAttributeRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The cluster parameter to be modified.
      *
+     *   Valid values:****
+     *
+     * <!---->
+     *
+     *   MaintainTime
+     *   DBInstanceDescription
+     *
+     * This parameter is required.
      * @example DBInstanceDescription
      *
      * @var string
@@ -50,8 +58,9 @@ class ModifyBEClusterAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description This parameter is required.
+     * @description The modfied cluster name.
      *
+     * This parameter is required.
      * @example testdb
      *
      * @var string

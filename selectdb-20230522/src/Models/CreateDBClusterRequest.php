@@ -87,15 +87,6 @@ class CreateDBClusterRequest extends Model
     public $regionId;
 
     /**
-     * @description 代表资源组的资源属性字段
-     *
-     * @example rg-4690g37929****
-     *
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
      * @var int
      */
     public $resourceOwnerId;
@@ -144,7 +135,6 @@ class CreateDBClusterRequest extends Model
         'engineVersion'        => 'EngineVersion',
         'period'               => 'Period',
         'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'usedTime'             => 'UsedTime',
         'vSwitchId'            => 'VSwitchId',
@@ -185,9 +175,6 @@ class CreateDBClusterRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
@@ -242,9 +229,6 @@ class CreateDBClusterRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];

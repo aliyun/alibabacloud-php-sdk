@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityIPListRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example selectdb-cn-7213cjv****
      *
      * @var string
@@ -18,8 +19,9 @@ class ModifySecurityIPListRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the whitelist. Default value: **Default**.
      *
+     * This parameter is required.
      * @example default
      *
      * @var string
@@ -27,8 +29,13 @@ class ModifySecurityIPListRequest extends Model
     public $groupName;
 
     /**
-     * @description This parameter is required.
+     * @description The mode in which you want to modify the whitelist. Valid values:
      *
+     *   **0**: overwrites the IP addresses in the whitelist.
+     *   **1**: adds IP addresses to the whitelist.
+     *   **2**: removes IP addresses from the whitelist.
+     *
+     * This parameter is required.
      * @example 0
      *
      * @var string
@@ -36,8 +43,9 @@ class ModifySecurityIPListRequest extends Model
     public $modifyMode;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -50,8 +58,9 @@ class ModifySecurityIPListRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description This parameter is required.
+     * @description The IP addresses in the whitelist of the instance. Separate multiple IP addresses with commas (,).
      *
+     * This parameter is required.
      * @example 127.0.XX.XX,127.2.XX.XX
      *
      * @var string

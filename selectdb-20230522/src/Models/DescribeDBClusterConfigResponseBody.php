@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterConfigResponseBody extends Model
 {
     /**
+     * @description The details about the access denial. This parameter is returned only if Resource Access Management (RAM) authentication failed.
+     *
      * @example failed
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribeDBClusterConfigResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
+     * @description The information returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The dynamic code. This parameter is not returned.
+     *
      * @example 0
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeDBClusterConfigResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic message. This parameter is not returned.
+     *
      * @example An error occurred while processing your request.
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeDBClusterConfigResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The request ID.
+     *
      * @example ADF42B18-43FD-5100-83A9-BE81AB70C863
      *
      * @var string

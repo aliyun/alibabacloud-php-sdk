@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AllocateInstancePublicConnectionResponseBody extends Model
 {
     /**
+     * @description The name of the instance.
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The request ID.
+     *
      * @example 5ED62C81-9948-5612-81E1-EA3853752306
      *
      * @var string
@@ -21,6 +25,8 @@ class AllocateInstancePublicConnectionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
      * @example 498115273
      *
      * @var int

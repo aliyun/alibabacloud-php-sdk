@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class portList extends Model
 {
     /**
+     * @description The port that is used to connect to the BE cluster.
+     *
+     * @example MySQLPort/HttpPort
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The protocol of the port.
+     *
+     * @example 9030/8080
+     *
      * @var string
      */
     public $protocol;

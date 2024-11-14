@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The currency.
+     *
      * @example CNY
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $currency;
 
     /**
+     * @description The amount of money.
+     *
      * @example 1.76
      *
      * @var string

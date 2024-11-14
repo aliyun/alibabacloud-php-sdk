@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceNetInfoResponseBody extends Model
 {
     /**
+     * @description The network information about the backend (BE) clusters.
+     *
      * @var DBClustersNetInfos[]
      */
     public $DBClustersNetInfos;
 
     /**
+     * @description The network information about the instance.
+     *
      * @var DBInstanceNetInfos[]
      */
     public $DBInstanceNetInfos;
 
     /**
+     * @description The request ID.
+     *
      * @example ADF42B18-43FD-5100-83A9-BE81AB70C863
      *
      * @var string

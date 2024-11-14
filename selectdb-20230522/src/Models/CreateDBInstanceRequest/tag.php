@@ -2,28 +2,28 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstancesResponseBody\items;
+namespace AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateDBInstanceRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class tags extends Model
+class tag extends Model
 {
     /**
      * @example testKey
      *
      * @var string
      */
-    public $tagKey;
+    public $key;
 
     /**
      * @example testValue
      *
      * @var string
      */
-    public $tagValue;
+    public $value;
     protected $_name = [
-        'tagKey'   => 'TagKey',
-        'tagValue' => 'TagValue',
+        'key'   => 'Key',
+        'value' => 'Value',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class tags extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tagKey) {
-            $res['TagKey'] = $this->tagKey;
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
         }
-        if (null !== $this->tagValue) {
-            $res['TagValue'] = $this->tagValue;
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -46,16 +46,16 @@ class tags extends Model
     /**
      * @param array $map
      *
-     * @return tags
+     * @return tag
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TagKey'])) {
-            $model->tagKey = $map['TagKey'];
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
         }
-        if (isset($map['TagValue'])) {
-            $model->tagValue = $map['TagValue'];
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

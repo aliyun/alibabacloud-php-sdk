@@ -17,11 +17,15 @@ class DescribeDBClusterConfigChangeLogsResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The dynamic code. This parameter is not returned.
+     *
      * @example 0
      *
      * @var string
@@ -29,6 +33,8 @@ class DescribeDBClusterConfigChangeLogsResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic message. This parameter is not returned.
+     *
      * @example An error occurred while processing your request.
      *
      * @var string

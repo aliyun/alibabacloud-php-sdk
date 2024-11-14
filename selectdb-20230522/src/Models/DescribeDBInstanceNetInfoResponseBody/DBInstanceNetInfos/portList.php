@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class portList extends Model
 {
     /**
+     * @description The port that is used to connect to the instance.
+     *
      * @example MySQLPort
      *
      * @var int
@@ -16,6 +18,11 @@ class portList extends Model
     public $port;
 
     /**
+     * @description The protocol of the port. Valid values:
+     *
+     *   **HttpPort**: HTTP port.
+     *   **MySQLPort**: MySQL port.
+     *
      * @example 9030
      *
      * @var string

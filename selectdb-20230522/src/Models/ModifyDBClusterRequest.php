@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterRequest extends Model
 {
     /**
+     * @example 200
+     *
+     * @var string
+     */
+    public $cacheSize;
+
+    /**
      * @description This parameter is required.
      *
      * @example selectdb.2xlarge
@@ -36,6 +43,8 @@ class ModifyDBClusterRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The database engine of the instance. Set the value to selectdb.
+     *
      * @example selectdb
      *
      * @var string
@@ -56,6 +65,7 @@ class ModifyDBClusterRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'cacheSize'       => 'CacheSize',
         'DBClusterClass'  => 'DBClusterClass',
         'DBClusterId'     => 'DBClusterId',
         'DBInstanceId'    => 'DBInstanceId',
@@ -71,6 +81,9 @@ class ModifyDBClusterRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cacheSize) {
+            $res['CacheSize'] = $this->cacheSize;
+        }
         if (null !== $this->DBClusterClass) {
             $res['DBClusterClass'] = $this->DBClusterClass;
         }
@@ -101,6 +114,9 @@ class ModifyDBClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CacheSize'])) {
+            $model->cacheSize = $map['CacheSize'];
+        }
         if (isset($map['DBClusterClass'])) {
             $model->DBClusterClass = $map['DBClusterClass'];
         }

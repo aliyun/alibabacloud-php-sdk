@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceNetInfos extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example selectdb-cn-****-be
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The connection string of the instance.
+     *
      * @example selectdb-cn-h033cnd****-fe.selectdbfe.pre.rds.aliyuncs.com
      *
      * @var string
@@ -22,6 +28,8 @@ class DBInstanceNetInfos extends Model
     public $connectionString;
 
     /**
+     * @description The IP address of the instance.
+     *
      * @example 172.16.XX.XX
      *
      * @var string
@@ -29,6 +37,11 @@ class DBInstanceNetInfos extends Model
     public $ip;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   **VPC**: indicates a virtual private cloud (VPC)-connected instance.
+     *   **PUBLIC**: indicates an Internet-connected instance.
+     *
      * @example VPC
      *
      * @var string
@@ -36,11 +49,18 @@ class DBInstanceNetInfos extends Model
     public $netType;
 
     /**
+     * @description The ports.
+     *
      * @var portList[]
      */
     public $portList;
 
     /**
+     * @description Indicates whether the network information is visible to users. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -48,7 +68,7 @@ class DBInstanceNetInfos extends Model
     public $userVisible;
 
     /**
-     * @description VPC ID。
+     * @description The VPC ID.
      *
      * @example vpc-wz90scxq6ods388ft****
      *
@@ -57,6 +77,8 @@ class DBInstanceNetInfos extends Model
     public $vpcId;
 
     /**
+     * @description The ID of the VPC-connected instance.
+     *
      * @example selectdb-cn-h033cnd****-fe-20230816101006
      *
      * @var string
@@ -64,6 +86,8 @@ class DBInstanceNetInfos extends Model
     public $vpcInstanceId;
 
     /**
+     * @description The vSwitch ID.
+     *
      * @example vsw-uf6mlqti065rer6m0****
      *
      * @var string

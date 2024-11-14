@@ -10,21 +10,37 @@ use AlibabaCloud\Tea\Model;
 class DBClustersNetInfos extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example selectdb-cn-****-be
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The connection string of the BE cluster.
+     *
+     * @example selectdb-cn-****-fe.selectdbfe.pre.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The IP address of the BE cluster.
+     *
+     * @example 8.131.***.***
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The network type of the BE cluster.
+     *
+     * @example VPC/PUBLIC
+     *
      * @var string
      */
     public $netType;
@@ -35,21 +51,37 @@ class DBClustersNetInfos extends Model
     public $portList;
 
     /**
+     * @description Indicates whether the network information is visible to users.
+     *
+     * @example true/false
+     *
      * @var bool
      */
     public $userVisible;
 
     /**
+     * @description VPC ID
+     *
+     * @example vpc-****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The VPC ID.
+     *
+     * @example selectdb-cn-****-fe-20230816101006
+     *
      * @var string
      */
     public $vpcInstanceId;
 
     /**
+     * @description The vSwitch ID.
+     *
+     * @example vsw-****
+     *
      * @var string
      */
     public $vswitchId;

@@ -16,12 +16,15 @@ use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateDBClusterRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateDBClusterResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateDBInstanceRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateDBInstanceResponse;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateDBInstanceShrinkRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateServiceLinkedRoleForSelectDBRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateServiceLinkedRoleForSelectDBResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteDBClusterRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteDBClusterResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteDBInstanceRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteDBInstanceResponse;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeAllDBInstanceClassRequest;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeAllDBInstanceClassResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBClusterConfigChangeLogsRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBClusterConfigChangeLogsResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBClusterConfigRequest;
@@ -32,6 +35,7 @@ use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstanceNetInfoRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstanceNetInfoResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstancesRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstancesResponse;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstancesShrinkRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeSecurityIPListRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeSecurityIPListResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\GetCreateBEClusterInquiryRequest;
@@ -100,7 +104,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 申请公网地址
+     * @summary Applies for a public endpoint for an ApsaraDB for SelectDB instance.
      *  *
      * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -145,7 +149,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 申请公网地址
+     * @summary Applies for a public endpoint for an ApsaraDB for SelectDB instance.
      *  *
      * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
      *
@@ -304,7 +308,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary SelectDB实例下创建集群
+     * @summary Creates a cluster in an ApsaraDB for SelectDB instance. Note: You can create only pay-as-you-go clusters in a pay-as-you-go instance.
      *  *
      * @param CreateDBClusterRequest $request CreateDBClusterRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -358,9 +362,6 @@ class Selectdb extends OpenApiClient
         if (!Utils::isUnset($request->DBInstanceId)) {
             $body['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
             'body'  => OpenApiUtilClient::parseToMap($body),
@@ -381,7 +382,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary SelectDB实例下创建集群
+     * @summary Creates a cluster in an ApsaraDB for SelectDB instance. Note: You can create only pay-as-you-go clusters in a pay-as-you-go instance.
      *  *
      * @param CreateDBClusterRequest $request CreateDBClusterRequest
      *
@@ -397,14 +398,19 @@ class Selectdb extends OpenApiClient
     /**
      * @summary 创建SelectDB实例
      *  *
-     * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
+     * @param CreateDBInstanceRequest $tmpReq  CreateDBInstanceRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
      * @return CreateDBInstanceResponse CreateDBInstanceResponse
      */
-    public function createDBInstanceWithOptions($request, $runtime)
+    public function createDBInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateDBInstanceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->cacheSize)) {
             $query['CacheSize'] = $request->cacheSize;
@@ -441,6 +447,9 @@ class Selectdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityIPList)) {
             $query['SecurityIPList'] = $request->securityIPList;
+        }
+        if (!Utils::isUnset($request->tagShrink)) {
+            $query['Tag'] = $request->tagShrink;
         }
         if (!Utils::isUnset($request->usedTime)) {
             $query['UsedTime'] = $request->usedTime;
@@ -492,7 +501,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 创建服务关联角色
+     * @summary Creates a service-linked role for ApsaraDB for SelectDB.
      *  *
      * @param CreateServiceLinkedRoleForSelectDBRequest $request CreateServiceLinkedRoleForSelectDBRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
@@ -528,7 +537,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 创建服务关联角色
+     * @summary Creates a service-linked role for ApsaraDB for SelectDB.
      *  *
      * @param CreateServiceLinkedRoleForSelectDBRequest $request CreateServiceLinkedRoleForSelectDBRequest
      *
@@ -658,7 +667,57 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 查看集群配置
+     * @summary 获取所有实例规格信息
+     *  *
+     * @param DescribeAllDBInstanceClassRequest $request DescribeAllDBInstanceClassRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAllDBInstanceClassResponse DescribeAllDBInstanceClassResponse
+     */
+    public function describeAllDBInstanceClassWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAllDBInstanceClass',
+            'version'     => '2023-05-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAllDBInstanceClassResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取所有实例规格信息
+     *  *
+     * @param DescribeAllDBInstanceClassRequest $request DescribeAllDBInstanceClassRequest
+     *
+     * @return DescribeAllDBInstanceClassResponse DescribeAllDBInstanceClassResponse
+     */
+    public function describeAllDBInstanceClass($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAllDBInstanceClassWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the configuration information about a cluster in an ApsaraDB for SelectDB instance.
      *  *
      * @param DescribeDBClusterConfigRequest $request DescribeDBClusterConfigRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -700,7 +759,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 查看集群配置
+     * @summary Queries the configuration information about a cluster in an ApsaraDB for SelectDB instance.
      *  *
      * @param DescribeDBClusterConfigRequest $request DescribeDBClusterConfigRequest
      *
@@ -714,7 +773,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 查看集群配置变更记录
+     * @summary Queries the configuration change logs of a cluster in an ApsaraDB for SelectDB instance.
      *  *
      * @param DescribeDBClusterConfigChangeLogsRequest $request DescribeDBClusterConfigChangeLogsRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
@@ -762,7 +821,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 查看集群配置变更记录
+     * @summary Queries the configuration change logs of a cluster in an ApsaraDB for SelectDB instance.
      *  *
      * @param DescribeDBClusterConfigChangeLogsRequest $request DescribeDBClusterConfigChangeLogsRequest
      *
@@ -776,7 +835,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例详情
+     * @summary Queries the details about an ApsaraDB for SelectDB instance.
      *  *
      * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -815,7 +874,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例详情
+     * @summary Queries the details about an ApsaraDB for SelectDB instance.
      *  *
      * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
      *
@@ -829,7 +888,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例网络链接
+     * @summary Queries the network information about an ApsaraDB for SelectDB instance.
      *  *
      * @param DescribeDBInstanceNetInfoRequest $request DescribeDBInstanceNetInfoRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -868,7 +927,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例网络链接
+     * @summary Queries the network information about an ApsaraDB for SelectDB instance.
      *  *
      * @param DescribeDBInstanceNetInfoRequest $request DescribeDBInstanceNetInfoRequest
      *
@@ -882,16 +941,21 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例列表
+     * @summary Queries the information about ApsaraDB for SelectDB instances.
      *  *
-     * @param DescribeDBInstancesRequest $request DescribeDBInstancesRequest
+     * @param DescribeDBInstancesRequest $tmpReq  DescribeDBInstancesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
      * @return DescribeDBInstancesResponse DescribeDBInstancesResponse
      */
-    public function describeDBInstancesWithOptions($request, $runtime)
+    public function describeDBInstancesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new DescribeDBInstancesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->DBInstanceDescription)) {
             $query['DBInstanceDescription'] = $request->DBInstanceDescription;
@@ -917,6 +981,9 @@ class Selectdb extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->tagShrink)) {
+            $query['Tag'] = $request->tagShrink;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -936,7 +1003,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例列表
+     * @summary Queries the information about ApsaraDB for SelectDB instances.
      *  *
      * @param DescribeDBInstancesRequest $request DescribeDBInstancesRequest
      *
@@ -950,7 +1017,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 查看白名单
+     * @summary Queries the IP addresses in the whitelists of an ApsaraDB for SelectDB instance.
      *  *
      * @param DescribeSecurityIPListRequest $request DescribeSecurityIPListRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -989,7 +1056,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 查看白名单
+     * @summary Queries the IP addresses in the whitelists of an ApsaraDB for SelectDB instance.
      *  *
      * @param DescribeSecurityIPListRequest $request DescribeSecurityIPListRequest
      *
@@ -1003,7 +1070,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 新建集群询价
+     * @summary Queries the pricing for creating a cluster in an ApsaraDB for SelectDB instance.
      *  *
      * @param GetCreateBEClusterInquiryRequest $request GetCreateBEClusterInquiryRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -1033,7 +1100,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 新建集群询价
+     * @summary Queries the pricing for creating a cluster in an ApsaraDB for SelectDB instance.
      *  *
      * @param GetCreateBEClusterInquiryRequest $request GetCreateBEClusterInquiryRequest
      *
@@ -1047,7 +1114,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 集群变配询价
+     * @summary Queries the pricing for changing the specifications of a cluster in an ApsaraDB for SelectDB instance.
      *  *
      * @param GetModifyBEClusterInquiryRequest $request GetModifyBEClusterInquiryRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -1077,7 +1144,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 集群变配询价
+     * @summary Queries the pricing for changing the specifications of a cluster in an ApsaraDB for SelectDB instance.
      *  *
      * @param GetModifyBEClusterInquiryRequest $request GetModifyBEClusterInquiryRequest
      *
@@ -1164,6 +1231,9 @@ class Selectdb extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->cacheSize)) {
+            $query['CacheSize'] = $request->cacheSize;
+        }
         if (!Utils::isUnset($request->DBClusterClass)) {
             $query['DBClusterClass'] = $request->DBClusterClass;
         }
@@ -1215,7 +1285,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 修改集群配置
+     * @summary Modifies the configurations of a cluster in an ApsaraDB for SelectDB instance.
      *  *
      * @param ModifyDBClusterConfigRequest $request ModifyDBClusterConfigRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -1263,7 +1333,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 修改集群配置
+     * @summary Modifies the configurations of a cluster in an ApsaraDB for SelectDB instance.
      *  *
      * @param ModifyDBClusterConfigRequest $request ModifyDBClusterConfigRequest
      *
@@ -1277,7 +1347,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 修改实例属性
+     * @summary Modifies the maintenance window or description of an ApsaraDB for SelectDB instance.
      *  *
      * @param ModifyDBInstanceAttributeRequest $request ModifyDBInstanceAttributeRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -1322,7 +1392,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 修改实例属性
+     * @summary Modifies the maintenance window or description of an ApsaraDB for SelectDB instance.
      *  *
      * @param ModifyDBInstanceAttributeRequest $request ModifyDBInstanceAttributeRequest
      *
@@ -1336,7 +1406,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 变更白名单
+     * @summary Modifies the IP addresses in a whitelist of an ApsaraDB for SelectDB instance.
      *  *
      * @param ModifySecurityIPListRequest $request ModifySecurityIPListRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -1346,8 +1416,26 @@ class Selectdb extends OpenApiClient
     public function modifySecurityIPListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->modifyMode)) {
+            $query['ModifyMode'] = $request->modifyMode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityIPList)) {
+            $query['SecurityIPList'] = $request->securityIPList;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1355,7 +1443,7 @@ class Selectdb extends OpenApiClient
             'version'     => '2023-05-22',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -1366,7 +1454,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 变更白名单
+     * @summary Modifies the IP addresses in a whitelist of an ApsaraDB for SelectDB instance.
      *  *
      * @param ModifySecurityIPListRequest $request ModifySecurityIPListRequest
      *
@@ -1380,7 +1468,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 释放公网地址
+     * @summary Releases the public endpoint of an ApsaraDB for SelectDB instance.
      *  *
      * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -1422,7 +1510,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 释放公网地址
+     * @summary Releases the public endpoint of an ApsaraDB for SelectDB instance.
      *  *
      * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
      *
@@ -1436,7 +1524,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 修改 Admin 账号的密码。
+     * @summary Resets the password of an account for an ApsaraDB for SelectDB instance.
      *  *
      * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -1466,7 +1554,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 修改 Admin 账号的密码。
+     * @summary Resets the password of an account for an ApsaraDB for SelectDB instance.
      *  *
      * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
      *
@@ -1480,7 +1568,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 重启BE集群
+     * @summary Restarts a cluster in an ApsaraDB for SelectDB instance.
      *  *
      * @param RestartDBClusterRequest $request RestartDBClusterRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -1527,7 +1615,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 重启BE集群
+     * @summary Restarts a cluster in an ApsaraDB for SelectDB instance.
      *  *
      * @param RestartDBClusterRequest $request RestartDBClusterRequest
      *
@@ -1607,8 +1695,20 @@ class Selectdb extends OpenApiClient
     public function stopBEClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1616,7 +1716,7 @@ class Selectdb extends OpenApiClient
             'version'     => '2023-05-22',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -1641,7 +1741,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 实例内核版本升级
+     * @summary Updates the database engine version of an ApsaraDB for SelectDB instance.
      *  *
      * @param UpgradeDBInstanceEngineVersionRequest $request UpgradeDBInstanceEngineVersionRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -1651,8 +1751,23 @@ class Selectdb extends OpenApiClient
     public function upgradeDBInstanceEngineVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->switchTimeMode)) {
+            $query['SwitchTimeMode'] = $request->switchTimeMode;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1660,7 +1775,7 @@ class Selectdb extends OpenApiClient
             'version'     => '2023-05-22',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -1671,7 +1786,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 实例内核版本升级
+     * @summary Updates the database engine version of an ApsaraDB for SelectDB instance.
      *  *
      * @param UpgradeDBInstanceEngineVersionRequest $request UpgradeDBInstanceEngineVersionRequest
      *

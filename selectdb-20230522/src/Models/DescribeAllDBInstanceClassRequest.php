@@ -6,22 +6,11 @@ namespace AlibabaCloud\SDK\Selectdb\V20230522\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDBInstanceAttributeRequest extends Model
+class DescribeAllDBInstanceClassRequest extends Model
 {
     /**
-     * @description The instance ID.
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     * @example selectdb-cn-7213cjv****
-     *
-     * @var string
-     */
-    public $DBInstanceId;
-
-    /**
-     * @description The region ID of the instance.
-     *
-     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -33,7 +22,6 @@ class DescribeDBInstanceAttributeRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBInstanceId'    => 'DBInstanceId',
         'regionId'        => 'RegionId',
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
@@ -45,9 +33,6 @@ class DescribeDBInstanceAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -61,14 +46,11 @@ class DescribeDBInstanceAttributeRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDBInstanceAttributeRequest
+     * @return DescribeAllDBInstanceClassRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

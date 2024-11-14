@@ -36,8 +36,9 @@ class DescribeDBClusterConfigChangeLogsRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The end of the time range to query.
      *
+     * This parameter is required.
      * @example 2023-05-08T15:59:59Z
      *
      * @var string
@@ -54,8 +55,9 @@ class DescribeDBClusterConfigChangeLogsRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The beginning of the time range to query.
      *
+     * This parameter is required.
      * @example 2023-04-25T09:48:23Z
      *
      * @var string

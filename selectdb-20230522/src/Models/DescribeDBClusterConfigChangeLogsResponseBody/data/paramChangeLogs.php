@@ -23,6 +23,8 @@ class paramChangeLogs extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the change log.
+     *
      * @example 617975
      *
      * @var int
@@ -30,6 +32,8 @@ class paramChangeLogs extends Model
     public $id;
 
     /**
+     * @description Indicates whether the modification has taken effect.
+     *
      * @example false
      *
      * @var bool
@@ -37,6 +41,8 @@ class paramChangeLogs extends Model
     public $isApplied;
 
     /**
+     * @description The parameter name.
+     *
      * @example cumulative_compaction_rounds_for_each_base_compaction_round
      *
      * @var string

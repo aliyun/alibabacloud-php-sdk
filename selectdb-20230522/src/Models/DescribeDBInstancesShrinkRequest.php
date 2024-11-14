@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models;
 
-use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstancesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
-class DescribeDBInstancesRequest extends Model
+class DescribeDBInstancesShrinkRequest extends Model
 {
     /**
      * @description The description of the instance.
@@ -88,9 +87,9 @@ class DescribeDBInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var tag[]
+     * @var string
      */
-    public $tag;
+    public $tagShrink;
     protected $_name = [
         'DBInstanceDescription' => 'DBInstanceDescription',
         'DBInstanceIds'         => 'DBInstanceIds',
@@ -100,7 +99,7 @@ class DescribeDBInstancesRequest extends Model
         'regionId'              => 'RegionId',
         'resourceGroupId'       => 'ResourceGroupId',
         'resourceOwnerId'       => 'ResourceOwnerId',
-        'tag'                   => 'Tag',
+        'tagShrink'             => 'Tag',
     ];
 
     public function validate()
@@ -134,14 +133,8 @@ class DescribeDBInstancesRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->tagShrink) {
+            $res['Tag'] = $this->tagShrink;
         }
 
         return $res;
@@ -150,7 +143,7 @@ class DescribeDBInstancesRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDBInstancesRequest
+     * @return DescribeDBInstancesShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -180,13 +173,7 @@ class DescribeDBInstancesRequest extends Model
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
-            }
+            $model->tagShrink = $map['Tag'];
         }
 
         return $model;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetModifyBEClusterInquiryRequest extends Model
 {
     /**
+     * @description The size of the elastic cache.
+     *
      * @example 200
      *
      * @var int
@@ -16,8 +18,14 @@ class GetModifyBEClusterInquiryRequest extends Model
     public $cacheSize;
 
     /**
-     * @description This parameter is required.
+     * @description The billing method.
      *
+     * Valid values:
+     *
+     *   PREPAY: subscription
+     *   POSTPAY: pay-as-you-go
+     *
+     * This parameter is required.
      * @example POSTPAY
      *
      * @var string
@@ -25,6 +33,8 @@ class GetModifyBEClusterInquiryRequest extends Model
     public $chargeType;
 
     /**
+     * @description The cluster ID.
+     *
      * @example selectdb-xxx-be
      *
      * @var string
@@ -32,8 +42,16 @@ class GetModifyBEClusterInquiryRequest extends Model
     public $clusterId;
 
     /**
-     * @description This parameter is required.
+     * @description The commodity code.
      *
+     * Valid values:
+     *
+     *   selectdb_pre_public_intl: subscription commodity on the international site (alibabacloud.com)
+     *   selectdb_go_public_cn: pay-as-you-go commodity on the China site (aliyun.com)
+     *   selectdb_go_public_intl: pay-as-you-go commodity on the international site (alibabacloud.com)
+     *   selectdb_pre_public_cn: subscription commodity on the China site (aliyun.com).
+     *
+     * This parameter is required.
      * @example selectdb_go_public_cn
      *
      * @var string
@@ -41,6 +59,8 @@ class GetModifyBEClusterInquiryRequest extends Model
     public $commodityCode;
 
     /**
+     * @description The number of elastic CPU cores.
+     *
      * @example 4
      *
      * @var int
@@ -48,8 +68,9 @@ class GetModifyBEClusterInquiryRequest extends Model
     public $computeSize;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example selectdb-cn-xxx
      *
      * @var string
@@ -57,6 +78,8 @@ class GetModifyBEClusterInquiryRequest extends Model
     public $dbInstanceId;
 
     /**
+     * @description The size of the reserved cache.
+     *
      * @example 200
      *
      * @var int
@@ -64,6 +87,8 @@ class GetModifyBEClusterInquiryRequest extends Model
     public $preCacheSize;
 
     /**
+     * @description The number of reserved CPU cores.
+     *
      * @example 4
      *
      * @var int
@@ -71,8 +96,17 @@ class GetModifyBEClusterInquiryRequest extends Model
     public $preComputeSize;
 
     /**
-     * @description This parameter is required.
+     * @description The billing cycle.
      *
+     * Valid values:
+     *
+     *   Month
+     *   Year
+     *   Minute
+     *   Hour
+     *   Day
+     *
+     * This parameter is required.
      * @example Hour
      *
      * @var string
@@ -80,8 +114,9 @@ class GetModifyBEClusterInquiryRequest extends Model
     public $pricingCycle;
 
     /**
-     * @description This parameter is required.
+     * @description The number of clusters whose specifications are to be changed.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -89,8 +124,9 @@ class GetModifyBEClusterInquiryRequest extends Model
     public $quantity;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string

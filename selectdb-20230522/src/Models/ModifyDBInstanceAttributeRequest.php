@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceAttributeRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example selectdb-cn-7213cjv****
      *
      * @var string
@@ -18,8 +19,12 @@ class ModifyDBInstanceAttributeRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The instance parameter to be modified. Valid values:
      *
+     *   **MaintainTime**: Modify the maintenance window of the instance in the hh:mm-hh:mm format.
+     *   **DBInstanceDescription**: Modify the description of the instance.
+     *
+     * This parameter is required.
      * @example DBInstanceDescription
      *
      * @var string
@@ -27,8 +32,9 @@ class ModifyDBInstanceAttributeRequest extends Model
     public $instanceAttributeType;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -41,8 +47,12 @@ class ModifyDBInstanceAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description This parameter is required.
+     * @description The new value of the instance parameter to be modified. Examples:
      *
+     *   If InstanceAttributeType is set to MaintainTime, you can set Value to 00:00-06:00.
+     *   If InstanceAttributeType is set to DBInstanceDescription, you can set Value to testdb.
+     *
+     * This parameter is required.
      * @example testdb01
      *
      * @var string

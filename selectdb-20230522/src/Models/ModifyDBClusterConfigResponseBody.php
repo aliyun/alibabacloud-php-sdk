@@ -22,6 +22,8 @@ class ModifyDBClusterConfigResponseBody extends Model
     public $data;
 
     /**
+     * @description The dynamic code. This parameter is not returned.
+     *
      * @example 0
      *
      * @var string
@@ -29,6 +31,8 @@ class ModifyDBClusterConfigResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic message. This parameter is not returned.
+     *
      * @example An error occurred while processing your request.
      *
      * @var string

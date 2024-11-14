@@ -31,11 +31,15 @@ class data extends Model
     public $dbInstanceName;
 
     /**
+     * @description The parameter change logs.
+     *
      * @var paramChangeLogs[]
      */
     public $paramChangeLogs;
 
     /**
+     * @description The task ID.
+     *
      * @example 107841167
      *
      * @var int

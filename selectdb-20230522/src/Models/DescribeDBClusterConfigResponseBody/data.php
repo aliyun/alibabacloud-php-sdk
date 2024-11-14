@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example selectdb-cn-wny3li00g02-be
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $dbClusterId;
 
     /**
+     * @description The numeric ID of the instance.
+     *
      * @example 6585
      *
      * @var string
@@ -24,6 +28,8 @@ class data extends Model
     public $dbInstanceId;
 
     /**
+     * @description The instance ID.
+     *
      * @example selectdb-cn-wny3li00g02
      *
      * @var string
@@ -31,11 +37,15 @@ class data extends Model
     public $dbInstanceName;
 
     /**
+     * @description The details about each parameter returned.
+     *
      * @var params[]
      */
     public $params;
 
     /**
+     * @description The task ID.
+     *
      * @example 107841167
      *
      * @var int

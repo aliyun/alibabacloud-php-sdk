@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DBClusterList extends Model
 {
     /**
+     * @description The cache size. Unit: GB.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class DBClusterList extends Model
     public $cacheStorageSizeGB;
 
     /**
+     * @description The cache type.
+     *
      * @example cloud_essd
      *
      * @var string
@@ -23,6 +27,11 @@ class DBClusterList extends Model
     public $cacheStorageType;
 
     /**
+     * @description The billing method of the cluster. Valid values:
+     *
+     *   **Postpaid**: pay-as-you-go.
+     *   **Prepaid**: subscription.
+     *
      * @example Prepaid
      *
      * @var string
@@ -30,6 +39,8 @@ class DBClusterList extends Model
     public $chargeType;
 
     /**
+     * @description The number of CPU cores.
+     *
      * @example 8
      *
      * @var int
@@ -37,6 +48,8 @@ class DBClusterList extends Model
     public $cpuCores;
 
     /**
+     * @description The time when the cluster was created.
+     *
      * @example 2023-08-14T09:24:13Z
      *
      * @var string
@@ -44,6 +57,16 @@ class DBClusterList extends Model
     public $createdTime;
 
     /**
+     * @description The specifications of the cluster. Valid values:
+     *
+     *   **selectdb.xlarge**: 4 CPU cores and 32 GB of memory.
+     *   **selectdb.2xlarge**: 8 CPU cores and 64 GB of memory.
+     *   **selectdb.4xlarge**: 16 CPU cores and 128 GB of memory.
+     *   **selectdb.8xlarge**: 32 CPU cores and 256 GB of memory.
+     *   **selectdb.16xlarge**: 64 CPU cores and 512 GB of memory.
+     *   **selectdb.24xlarge**: 96 CPU cores and 768 GB of memory.
+     *   **selectdb.32xlarge**: 128 CPU cores and 1,024 GB of memory.
+     *
      * @example selectdb.2xlarge
      *
      * @var string
@@ -51,6 +74,8 @@ class DBClusterList extends Model
     public $dbClusterClass;
 
     /**
+     * @description The ID of the cluster.
+     *
      * @example selectdb-cn-h033cjs****-be
      *
      * @var string
@@ -58,6 +83,8 @@ class DBClusterList extends Model
     public $dbClusterId;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example test01
      *
      * @var string
@@ -65,11 +92,15 @@ class DBClusterList extends Model
     public $dbClusterName;
 
     /**
+     * @description The instance name.
+     *
      * @var string
      */
     public $dbInstanceName;
 
     /**
+     * @description The memory size.
+     *
      * @example 64
      *
      * @var int
@@ -77,6 +108,17 @@ class DBClusterList extends Model
     public $memory;
 
     /**
+     * @description 修改时间。
+     *
+     * @example 2024-07-02T16:35:44+08:00
+     *
+     * @var string
+     */
+    public $modifiedTime;
+
+    /**
+     * @description The performance level.
+     *
      * @example PL1
      *
      * @var string
@@ -84,6 +126,8 @@ class DBClusterList extends Model
     public $performanceLevel;
 
     /**
+     * @description The time when the cluster started.
+     *
      * @example 2023-08-14T09:24:13Z
      *
      * @var string
@@ -91,6 +135,15 @@ class DBClusterList extends Model
     public $startTime;
 
     /**
+     * @description The state of the cluster. Valid values:
+     *
+     *   **CREATING**: The cluster is being created.
+     *   **ACTIVATION**: The cluster is running.
+     *   **RESOURCE_CHANGING**: The resource configuration of the cluster is being changed.
+     *   **ORDER_PREPARING**: The order is being confirmed.
+     *   **READONLY_RESOURCE_CHANGING**: The resource configuration of the cluster is being changed and the cluster is write-locked.
+     *   **DELETING**: The cluster is being deleted.
+     *
      * @example ACTIVATION
      *
      * @var string
@@ -107,6 +160,7 @@ class DBClusterList extends Model
         'dbClusterName'      => 'DbClusterName',
         'dbInstanceName'     => 'DbInstanceName',
         'memory'             => 'Memory',
+        'modifiedTime'       => 'ModifiedTime',
         'performanceLevel'   => 'PerformanceLevel',
         'startTime'          => 'StartTime',
         'status'             => 'Status',
@@ -148,6 +202,9 @@ class DBClusterList extends Model
         }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
+        }
+        if (null !== $this->modifiedTime) {
+            $res['ModifiedTime'] = $this->modifiedTime;
         }
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
@@ -199,6 +256,9 @@ class DBClusterList extends Model
         }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
+        }
+        if (isset($map['ModifiedTime'])) {
+            $model->modifiedTime = $map['ModifiedTime'];
         }
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];

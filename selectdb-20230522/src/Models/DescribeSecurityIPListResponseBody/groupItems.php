@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class groupItems extends Model
 {
     /**
+     * @description The IP address type. Valid values:
+     *
+     *   ipv4
+     *   ipv6 (not supported)
+     *
      * @example ipv4
      *
      * @var string
@@ -16,6 +21,8 @@ class groupItems extends Model
     public $aecurityIPType;
 
     /**
+     * @description The name of the whitelist.
+     *
      * @example group1
      *
      * @var string
@@ -23,6 +30,8 @@ class groupItems extends Model
     public $groupName;
 
     /**
+     * @description The tag of the whitelist.
+     *
      * @example ""
      *
      * @var string
@@ -30,6 +39,8 @@ class groupItems extends Model
     public $groupTag;
 
     /**
+     * @description The IP addresses in the whitelist. Multiple IP addresses are separated by commas (,).
+     *
      * @example 127.0.XX.XX
      *
      * @var string
@@ -37,6 +48,8 @@ class groupItems extends Model
     public $securityIPList;
 
     /**
+     * @description The network type of the whitelist.
+     *
      * @example mix
      *
      * @var string

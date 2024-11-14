@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityIPListResponseBody extends Model
 {
     /**
+     * @description The name of the instance.
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description The name of the whitelist.
+     *
      * @example group1
      *
      * @var string
@@ -21,6 +25,8 @@ class ModifySecurityIPListResponseBody extends Model
     public $groupName;
 
     /**
+     * @description The tag of the whitelist.
+     *
      * @example grouptag
      *
      * @var string
@@ -28,6 +34,8 @@ class ModifySecurityIPListResponseBody extends Model
     public $groupTag;
 
     /**
+     * @description The request ID.
+     *
      * @example 195F64C2-8F11-532B-A436-FC08A221D756
      *
      * @var string
@@ -35,6 +43,8 @@ class ModifySecurityIPListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The IP addresses in the whitelist of the instance. Multiple IP addresses are separated by commas (,).
+     *
      * @example 127.0.XX.XX,127.2.XX.XX
      *
      * @var string
@@ -42,6 +52,8 @@ class ModifySecurityIPListResponseBody extends Model
     public $securityIPList;
 
     /**
+     * @description The IP address type.
+     *
      * @example ipv4
      *
      * @var string
@@ -49,6 +61,8 @@ class ModifySecurityIPListResponseBody extends Model
     public $securityIPType;
 
     /**
+     * @description The task ID.
+     *
      * @example 479095561
      *
      * @var int
@@ -56,6 +70,8 @@ class ModifySecurityIPListResponseBody extends Model
     public $taskId;
 
     /**
+     * @description The network type of the whitelist.
+     *
      * @example mix
      *
      * @var string

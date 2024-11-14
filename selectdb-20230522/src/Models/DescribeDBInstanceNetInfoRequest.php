@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceNetInfoRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example selectdb-cn-7213cjv****
      *
      * @var string
@@ -18,8 +19,9 @@ class DescribeDBInstanceNetInfoRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

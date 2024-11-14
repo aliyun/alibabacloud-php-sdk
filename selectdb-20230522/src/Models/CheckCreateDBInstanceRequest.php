@@ -41,8 +41,17 @@ class CheckCreateDBInstanceRequest extends Model
     public $connectionString;
 
     /**
-     * @description This parameter is required.
+     * @description The specifications of the instance. Valid values:
      *
+     *   **selectdb.xlarge**: 4 CPU cores and 32 GB of memory.
+     *   **selectdb.2xlarge**: 8 CPU cores and 64 GB of memory.
+     *   **selectdb.4xlarge**: 16 CPU cores and 128 GB of memory.
+     *   **selectdb.8xlarge**: 32 CPU cores and 256 GB of memory.
+     *   **selectdb.16xlarge**: 64 CPU cores and 512 GB of memory.
+     *   **selectdb.24xlarge**: 96 CPU cores and 768 GB of memory.
+     *   **selectdb.32xlarge**: 128 CPU cores and 1,024 GB of memory.
+     *
+     * This parameter is required.
      * @example selectdb.xlarge
      *
      * @var string
@@ -62,8 +71,9 @@ class CheckCreateDBInstanceRequest extends Model
     public $engine;
 
     /**
-     * @description This parameter is required.
+     * @description The version of the database engine.
      *
+     * This parameter is required.
      * @example 2.4
      *
      * @var string
@@ -106,6 +116,12 @@ class CheckCreateDBInstanceRequest extends Model
     public $securityIPList;
 
     /**
+     * @description The subscription duration of the instance. Valid values:
+     *
+     *   If Period is set to Year, valid values of UsedTime are 1, 2, 3, 4, and 5.
+     *   If Period is set to Month, valid values of UsedTime are 1 to 12.
+     *
+     * >  This parameter takes effect and is required only if ChargeType is set to Prepaid.
      * @example 1
      *
      * @var int

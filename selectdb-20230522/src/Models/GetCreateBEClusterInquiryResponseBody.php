@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetCreateBEClusterInquiryResponseBody extends Model
 {
     /**
+     * @description The information returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 06758CAB-1204-5852-A471-29C87D5C1D0F
      *
      * @var string

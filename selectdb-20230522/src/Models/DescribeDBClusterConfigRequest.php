@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterConfigRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The configuration file to be modified.
      *
+     *   For a compute cluster, set the value to be.conf.
+     *   For a frontend (FE) cluster, set the value to fe.conf.
+     *
+     * This parameter is required.
      * @example be.conf
      *
      * @var string
@@ -18,8 +22,9 @@ class DescribeDBClusterConfigRequest extends Model
     public $configKey;
 
     /**
-     * @description This parameter is required.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example selectdb-cn-7213c8yvv09-be
      *
      * @var string
@@ -27,8 +32,9 @@ class DescribeDBClusterConfigRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example selectdb-cn-7213cjv****
      *
      * @var string
@@ -36,6 +42,8 @@ class DescribeDBClusterConfigRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

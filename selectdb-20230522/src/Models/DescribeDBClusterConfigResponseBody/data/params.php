@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class params extends Model
 {
     /**
+     * @description The comments on the parameter.
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The default value of the parameter.
+     *
      * @example 15
      *
      * @var string
@@ -21,6 +25,8 @@ class params extends Model
     public $defaultValue;
 
     /**
+     * @description Indicates whether the parameter immediately takes effect without requiring a restart.
+     *
      * @example true
      *
      * @var int
@@ -28,6 +34,8 @@ class params extends Model
     public $isDynamic;
 
     /**
+     * @description Indicates whether the parameter is modifiable.
+     *
      * @example true
      *
      * @var int
@@ -35,6 +43,8 @@ class params extends Model
     public $isUserModifiable;
 
     /**
+     * @description The name of the parameter.
+     *
      * @example doris_scanner_thread_pool_thread_num
      *
      * @var string
@@ -42,6 +52,8 @@ class params extends Model
     public $name;
 
     /**
+     * @description The value range of the parameter.
+     *
      * @example [0-20000]
      *
      * @var string
@@ -49,11 +61,15 @@ class params extends Model
     public $optional;
 
     /**
+     * @description The category of the parameter.
+     *
      * @var string
      */
     public $paramCategory;
 
     /**
+     * @description The current value of the parameter.
+     *
      * @example 10
      *
      * @var string
