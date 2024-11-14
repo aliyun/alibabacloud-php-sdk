@@ -8,12 +8,20 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\IQS\V20240712\Models\BicyclingDirectionNovaRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\BicyclingDirectionNovaResponse;
+use AlibabaCloud\SDK\IQS\V20240712\Models\BicyclingDirectionRequest;
+use AlibabaCloud\SDK\IQS\V20240712\Models\BicyclingDirectionResponse;
+use AlibabaCloud\SDK\IQS\V20240712\Models\CircleTrafficStatusRequest;
+use AlibabaCloud\SDK\IQS\V20240712\Models\CircleTrafficStatusResponse;
 use AlibabaCloud\SDK\IQS\V20240712\Models\CommonQueryBySceneRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\CommonQueryBySceneResponse;
 use AlibabaCloud\SDK\IQS\V20240712\Models\DrivingDirectionNovaRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\DrivingDirectionNovaResponse;
+use AlibabaCloud\SDK\IQS\V20240712\Models\DrivingDirectionRequest;
+use AlibabaCloud\SDK\IQS\V20240712\Models\DrivingDirectionResponse;
 use AlibabaCloud\SDK\IQS\V20240712\Models\ElectrobikeDirectionNovaRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\ElectrobikeDirectionNovaResponse;
+use AlibabaCloud\SDK\IQS\V20240712\Models\ElectrobikeDirectionRequest;
+use AlibabaCloud\SDK\IQS\V20240712\Models\ElectrobikeDirectionResponse;
 use AlibabaCloud\SDK\IQS\V20240712\Models\GeoCodeRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\GeoCodeResponse;
 use AlibabaCloud\SDK\IQS\V20240712\Models\NearbySearchNovaRequest;
@@ -30,12 +38,20 @@ use AlibabaCloud\SDK\IQS\V20240712\Models\QueryHotelsRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\QueryHotelsResponse;
 use AlibabaCloud\SDK\IQS\V20240712\Models\QueryRestaurantsRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\QueryRestaurantsResponse;
+use AlibabaCloud\SDK\IQS\V20240712\Models\RectangleTrafficStatusRequest;
+use AlibabaCloud\SDK\IQS\V20240712\Models\RectangleTrafficStatusResponse;
 use AlibabaCloud\SDK\IQS\V20240712\Models\RgeoCodeRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\RgeoCodeResponse;
+use AlibabaCloud\SDK\IQS\V20240712\Models\RoadTrafficStatusRequest;
+use AlibabaCloud\SDK\IQS\V20240712\Models\RoadTrafficStatusResponse;
+use AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionOldRequest;
+use AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionOldResponse;
 use AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponse;
 use AlibabaCloud\SDK\IQS\V20240712\Models\WalkingDirectionNovaRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\WalkingDirectionNovaResponse;
+use AlibabaCloud\SDK\IQS\V20240712\Models\WalkingDirectionRequest;
+use AlibabaCloud\SDK\IQS\V20240712\Models\WalkingDirectionResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -73,6 +89,65 @@ class IQS extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 根据起终点坐标检索符合条件的骑行路线规划方案
+     *  *
+     * @param BicyclingDirectionRequest $request BicyclingDirectionRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BicyclingDirectionResponse BicyclingDirectionResponse
+     */
+    public function bicyclingDirectionWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->destinationLatitude)) {
+            $query['destinationLatitude'] = $request->destinationLatitude;
+        }
+        if (!Utils::isUnset($request->destinationLongitude)) {
+            $query['destinationLongitude'] = $request->destinationLongitude;
+        }
+        if (!Utils::isUnset($request->originLatitude)) {
+            $query['originLatitude'] = $request->originLatitude;
+        }
+        if (!Utils::isUnset($request->originLongitude)) {
+            $query['originLongitude'] = $request->originLongitude;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BicyclingDirection',
+            'version'     => '2024-07-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ipaas/v1/direction/bicycling',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return BicyclingDirectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据起终点坐标检索符合条件的骑行路线规划方案
+     *  *
+     * @param BicyclingDirectionRequest $request BicyclingDirectionRequest
+     *
+     * @return BicyclingDirectionResponse BicyclingDirectionResponse
+     */
+    public function bicyclingDirection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->bicyclingDirectionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -135,6 +210,65 @@ class IQS extends OpenApiClient
     }
 
     /**
+     * @summary 实时查询圆形区域内的交通信息查询
+     *  *
+     * @param CircleTrafficStatusRequest $request CircleTrafficStatusRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CircleTrafficStatusResponse CircleTrafficStatusResponse
+     */
+    public function circleTrafficStatusWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->latitude)) {
+            $query['latitude'] = $request->latitude;
+        }
+        if (!Utils::isUnset($request->longitude)) {
+            $query['longitude'] = $request->longitude;
+        }
+        if (!Utils::isUnset($request->radius)) {
+            $query['radius'] = $request->radius;
+        }
+        if (!Utils::isUnset($request->roadLevel)) {
+            $query['roadLevel'] = $request->roadLevel;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CircleTrafficStatus',
+            'version'     => '2024-07-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ipaas/v1/traffic/status/circle',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CircleTrafficStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 实时查询圆形区域内的交通信息查询
+     *  *
+     * @param CircleTrafficStatusRequest $request CircleTrafficStatusRequest
+     *
+     * @return CircleTrafficStatusResponse CircleTrafficStatusResponse
+     */
+    public function circleTrafficStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->circleTrafficStatusWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 自然语言通用查询
      *  *
      * @param CommonQueryBySceneRequest $request CommonQueryBySceneRequest
@@ -178,6 +312,65 @@ class IQS extends OpenApiClient
         $headers = [];
 
         return $this->commonQueryBySceneWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 根据起终点坐标检索符合条件的驾车路线规划方案
+     *  *
+     * @param DrivingDirectionRequest $request DrivingDirectionRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DrivingDirectionResponse DrivingDirectionResponse
+     */
+    public function drivingDirectionWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->destinationLatitude)) {
+            $query['destinationLatitude'] = $request->destinationLatitude;
+        }
+        if (!Utils::isUnset($request->destinationLongitude)) {
+            $query['destinationLongitude'] = $request->destinationLongitude;
+        }
+        if (!Utils::isUnset($request->originLatitude)) {
+            $query['originLatitude'] = $request->originLatitude;
+        }
+        if (!Utils::isUnset($request->originLongitude)) {
+            $query['originLongitude'] = $request->originLongitude;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DrivingDirection',
+            'version'     => '2024-07-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ipaas/v1/direction/driving',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DrivingDirectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据起终点坐标检索符合条件的驾车路线规划方案
+     *  *
+     * @param DrivingDirectionRequest $request DrivingDirectionRequest
+     *
+     * @return DrivingDirectionResponse DrivingDirectionResponse
+     */
+    public function drivingDirection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->drivingDirectionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -243,6 +436,65 @@ class IQS extends OpenApiClient
         $headers = [];
 
         return $this->drivingDirectionNovaWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 根据起终点坐标检索符合条件的电动车路线规划方案
+     *  *
+     * @param ElectrobikeDirectionRequest $request ElectrobikeDirectionRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ElectrobikeDirectionResponse ElectrobikeDirectionResponse
+     */
+    public function electrobikeDirectionWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->destinationLatitude)) {
+            $query['destinationLatitude'] = $request->destinationLatitude;
+        }
+        if (!Utils::isUnset($request->destinationLongitude)) {
+            $query['destinationLongitude'] = $request->destinationLongitude;
+        }
+        if (!Utils::isUnset($request->originLatitude)) {
+            $query['originLatitude'] = $request->originLatitude;
+        }
+        if (!Utils::isUnset($request->originLongitude)) {
+            $query['originLongitude'] = $request->originLongitude;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ElectrobikeDirection',
+            'version'     => '2024-07-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ipaas/v1/direction/electrobike',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ElectrobikeDirectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据起终点坐标检索符合条件的电动车路线规划方案
+     *  *
+     * @param ElectrobikeDirectionRequest $request ElectrobikeDirectionRequest
+     *
+     * @return ElectrobikeDirectionResponse ElectrobikeDirectionResponse
+     */
+    public function electrobikeDirection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->electrobikeDirectionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -756,6 +1008,68 @@ class IQS extends OpenApiClient
     }
 
     /**
+     * @summary 实时查询矩形区域内的交通信息查询
+     *  *
+     * @param RectangleTrafficStatusRequest $request RectangleTrafficStatusRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RectangleTrafficStatusResponse RectangleTrafficStatusResponse
+     */
+    public function rectangleTrafficStatusWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lowerLeftLatitude)) {
+            $query['lowerLeftLatitude'] = $request->lowerLeftLatitude;
+        }
+        if (!Utils::isUnset($request->lowerLeftLongitude)) {
+            $query['lowerLeftLongitude'] = $request->lowerLeftLongitude;
+        }
+        if (!Utils::isUnset($request->roadLevel)) {
+            $query['roadLevel'] = $request->roadLevel;
+        }
+        if (!Utils::isUnset($request->upperRightLatitude)) {
+            $query['upperRightLatitude'] = $request->upperRightLatitude;
+        }
+        if (!Utils::isUnset($request->upperRightLongitude)) {
+            $query['upperRightLongitude'] = $request->upperRightLongitude;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RectangleTrafficStatus',
+            'version'     => '2024-07-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ipaas/v1/traffic/status/rectangle',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RectangleTrafficStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 实时查询矩形区域内的交通信息查询
+     *  *
+     * @param RectangleTrafficStatusRequest $request RectangleTrafficStatusRequest
+     *
+     * @return RectangleTrafficStatusResponse RectangleTrafficStatusResponse
+     */
+    public function rectangleTrafficStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->rectangleTrafficStatusWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 逆地理编码，将经纬度转换为详细结构化的地址信息
      *  *
      * @param RgeoCodeRequest $request RgeoCodeRequest
@@ -806,6 +1120,62 @@ class IQS extends OpenApiClient
         $headers = [];
 
         return $this->rgeoCodeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 实时查询指定线路的交通信息
+     *  *
+     * @param RoadTrafficStatusRequest $request RoadTrafficStatusRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RoadTrafficStatusResponse RoadTrafficStatusResponse
+     */
+    public function roadTrafficStatusWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->city)) {
+            $query['city'] = $request->city;
+        }
+        if (!Utils::isUnset($request->roadLevel)) {
+            $query['roadLevel'] = $request->roadLevel;
+        }
+        if (!Utils::isUnset($request->roadName)) {
+            $query['roadName'] = $request->roadName;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RoadTrafficStatus',
+            'version'     => '2024-07-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ipaas/v1/traffic/status/road',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RoadTrafficStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 实时查询指定线路的交通信息
+     *  *
+     * @param RoadTrafficStatusRequest $request RoadTrafficStatusRequest
+     *
+     * @return RoadTrafficStatusResponse RoadTrafficStatusResponse
+     */
+    public function roadTrafficStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->roadTrafficStatusWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -871,6 +1241,130 @@ class IQS extends OpenApiClient
         $headers = [];
 
         return $this->transitIntegratedDirectionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 根据起终点坐标检索符合条件的公共交通路线规划方案
+     *  *
+     * @param TransitIntegratedDirectionOldRequest $request TransitIntegratedDirectionOldRequest
+     * @param string[]                             $headers map
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TransitIntegratedDirectionOldResponse TransitIntegratedDirectionOldResponse
+     */
+    public function transitIntegratedDirectionOldWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->destinationCity)) {
+            $query['destinationCity'] = $request->destinationCity;
+        }
+        if (!Utils::isUnset($request->destinationLatitude)) {
+            $query['destinationLatitude'] = $request->destinationLatitude;
+        }
+        if (!Utils::isUnset($request->destinationLongitude)) {
+            $query['destinationLongitude'] = $request->destinationLongitude;
+        }
+        if (!Utils::isUnset($request->originCity)) {
+            $query['originCity'] = $request->originCity;
+        }
+        if (!Utils::isUnset($request->originLatitude)) {
+            $query['originLatitude'] = $request->originLatitude;
+        }
+        if (!Utils::isUnset($request->originLongitude)) {
+            $query['originLongitude'] = $request->originLongitude;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TransitIntegratedDirectionOld',
+            'version'     => '2024-07-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ipaas/v1/direction/transit/integrated',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return TransitIntegratedDirectionOldResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据起终点坐标检索符合条件的公共交通路线规划方案
+     *  *
+     * @param TransitIntegratedDirectionOldRequest $request TransitIntegratedDirectionOldRequest
+     *
+     * @return TransitIntegratedDirectionOldResponse TransitIntegratedDirectionOldResponse
+     */
+    public function transitIntegratedDirectionOld($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->transitIntegratedDirectionOldWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 根据起终点坐标检索符合条件的步行路线规划方案
+     *  *
+     * @param WalkingDirectionRequest $request WalkingDirectionRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return WalkingDirectionResponse WalkingDirectionResponse
+     */
+    public function walkingDirectionWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->destinationLatitude)) {
+            $query['destinationLatitude'] = $request->destinationLatitude;
+        }
+        if (!Utils::isUnset($request->destinationLongitude)) {
+            $query['destinationLongitude'] = $request->destinationLongitude;
+        }
+        if (!Utils::isUnset($request->originLatitude)) {
+            $query['originLatitude'] = $request->originLatitude;
+        }
+        if (!Utils::isUnset($request->originLongitude)) {
+            $query['originLongitude'] = $request->originLongitude;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'WalkingDirection',
+            'version'     => '2024-07-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ipaas/v1/direction/walking',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return WalkingDirectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据起终点坐标检索符合条件的步行路线规划方案
+     *  *
+     * @param WalkingDirectionRequest $request WalkingDirectionRequest
+     *
+     * @return WalkingDirectionResponse WalkingDirectionResponse
+     */
+    public function walkingDirection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->walkingDirectionWithOptions($request, $headers, $runtime);
     }
 
     /**
