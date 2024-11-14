@@ -13,14 +13,24 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchGetProjectTaskRes
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchGetProjectTaskShrinkRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CheckSessionRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CheckSessionResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CloseAICoachTaskSessionRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CloseAICoachTaskSessionResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CountTextRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CountTextResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAICoachTaskSessionRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAICoachTaskSessionResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateIllustrationTaskRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateIllustrationTaskResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateRealisticPortraitRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateRealisticPortraitResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateTextTaskRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateTextTaskResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\FinishAICoachTaskSessionRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\FinishAICoachTaskSessionResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachTaskSessionHistoryRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachTaskSessionHistoryResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachTaskSessionReportRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachTaskSessionReportResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetIllustrationResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetIllustrationTaskResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetOssUploadTokenRequest;
@@ -33,6 +43,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetTextTemplateRequest
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetTextTemplateResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\InteractTextRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\InteractTextResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachTaskPageRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachTaskPageResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAnchorRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAnchorResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAvatarProjectRequest;
@@ -275,6 +287,59 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
+     * @summary 学员关闭会话
+     *  *
+     * @param CloseAICoachTaskSessionRequest $request CloseAICoachTaskSessionRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CloseAICoachTaskSessionResponse CloseAICoachTaskSessionResponse
+     */
+    public function closeAICoachTaskSessionWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['sessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->uid)) {
+            $body['uid'] = $request->uid;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CloseAICoachTaskSession',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/aicoach/closeSession',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CloseAICoachTaskSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 学员关闭会话
+     *  *
+     * @param CloseAICoachTaskSessionRequest $request CloseAICoachTaskSessionRequest
+     *
+     * @return CloseAICoachTaskSessionResponse CloseAICoachTaskSessionResponse
+     */
+    public function closeAICoachTaskSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->closeAICoachTaskSessionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 文本数量统计
      *  *
      * @param CountTextRequest $request CountTextRequest
@@ -331,6 +396,59 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->countTextWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 学员开启对练会话
+     *  *
+     * @param CreateAICoachTaskSessionRequest $request CreateAICoachTaskSessionRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateAICoachTaskSessionResponse CreateAICoachTaskSessionResponse
+     */
+    public function createAICoachTaskSessionWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $body['taskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->uid)) {
+            $body['uid'] = $request->uid;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAICoachTaskSession',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/aicoach/startSession',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAICoachTaskSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 学员开启对练会话
+     *  *
+     * @param CreateAICoachTaskSessionRequest $request CreateAICoachTaskSessionRequest
+     *
+     * @return CreateAICoachTaskSessionResponse CreateAICoachTaskSessionResponse
+     */
+    public function createAICoachTaskSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAICoachTaskSessionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -514,6 +632,165 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->createTextTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 学员完成会话
+     *  *
+     * @param FinishAICoachTaskSessionRequest $request FinishAICoachTaskSessionRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return FinishAICoachTaskSessionResponse FinishAICoachTaskSessionResponse
+     */
+    public function finishAICoachTaskSessionWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['sessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->uid)) {
+            $body['uid'] = $request->uid;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'FinishAICoachTaskSession',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/aicoach/finishSession',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return FinishAICoachTaskSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 学员完成会话
+     *  *
+     * @param FinishAICoachTaskSessionRequest $request FinishAICoachTaskSessionRequest
+     *
+     * @return FinishAICoachTaskSessionResponse FinishAICoachTaskSessionResponse
+     */
+    public function finishAICoachTaskSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->finishAICoachTaskSessionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 学员查询会话历史
+     *  *
+     * @param GetAICoachTaskSessionHistoryRequest $request GetAICoachTaskSessionHistoryRequest
+     * @param string[]                            $headers map
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAICoachTaskSessionHistoryResponse GetAICoachTaskSessionHistoryResponse
+     */
+    public function getAICoachTaskSessionHistoryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sessionId)) {
+            $query['sessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->uid)) {
+            $query['uid'] = $request->uid;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAICoachTaskSessionHistory',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/aicoach/querySessionHistory',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAICoachTaskSessionHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 学员查询会话历史
+     *  *
+     * @param GetAICoachTaskSessionHistoryRequest $request GetAICoachTaskSessionHistoryRequest
+     *
+     * @return GetAICoachTaskSessionHistoryResponse GetAICoachTaskSessionHistoryResponse
+     */
+    public function getAICoachTaskSessionHistory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAICoachTaskSessionHistoryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 学员查询会话评测报告
+     *  *
+     * @param GetAICoachTaskSessionReportRequest $request GetAICoachTaskSessionReportRequest
+     * @param string[]                           $headers map
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAICoachTaskSessionReportResponse GetAICoachTaskSessionReportResponse
+     */
+    public function getAICoachTaskSessionReportWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sessionId)) {
+            $query['sessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->uid)) {
+            $query['uid'] = $request->uid;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAICoachTaskSessionReport',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/aicoach/queryTaskSessionReport',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAICoachTaskSessionReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 学员查询会话评测报告
+     *  *
+     * @param GetAICoachTaskSessionReportRequest $request GetAICoachTaskSessionReportRequest
+     *
+     * @return GetAICoachTaskSessionReportResponse GetAICoachTaskSessionReportResponse
+     */
+    public function getAICoachTaskSessionReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAICoachTaskSessionReportWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -906,6 +1183,68 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->interactTextWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询任务列表
+     *  *
+     * @param ListAICoachTaskPageRequest $request ListAICoachTaskPageRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAICoachTaskPageResponse ListAICoachTaskPageResponse
+     */
+    public function listAICoachTaskPageWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->studentId)) {
+            $query['studentId'] = $request->studentId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['taskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAICoachTaskPage',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/aicoach/listTaskPage',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAICoachTaskPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询任务列表
+     *  *
+     * @param ListAICoachTaskPageRequest $request ListAICoachTaskPageRequest
+     *
+     * @return ListAICoachTaskPageResponse ListAICoachTaskPageResponse
+     */
+    public function listAICoachTaskPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAICoachTaskPageWithOptions($request, $headers, $runtime);
     }
 
     /**

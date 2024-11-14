@@ -30,6 +30,11 @@ class Text extends Model
     /**
      * @var string
      */
+    public $errMsg;
+
+    /**
+     * @var string
+     */
     public $gmtCreate;
 
     /**
@@ -129,6 +134,7 @@ class Text extends Model
         'agentId'                => 'agentId',
         'agentName'              => 'agentName',
         'desc'                   => 'desc',
+        'errMsg'                 => 'errMsg',
         'gmtCreate'              => 'gmtCreate',
         'gmtModified'            => 'gmtModified',
         'illustrationTaskIdList' => 'illustrationTaskIdList',
@@ -161,6 +167,9 @@ class Text extends Model
         }
         if (null !== $this->desc) {
             $res['desc'] = $this->desc;
+        }
+        if (null !== $this->errMsg) {
+            $res['errMsg'] = $this->errMsg;
         }
         if (null !== $this->gmtCreate) {
             $res['gmtCreate'] = $this->gmtCreate;
@@ -227,6 +236,9 @@ class Text extends Model
         }
         if (isset($map['desc'])) {
             $model->desc = $map['desc'];
+        }
+        if (isset($map['errMsg'])) {
+            $model->errMsg = $map['errMsg'];
         }
         if (isset($map['gmtCreate'])) {
             $model->gmtCreate = $map['gmtCreate'];

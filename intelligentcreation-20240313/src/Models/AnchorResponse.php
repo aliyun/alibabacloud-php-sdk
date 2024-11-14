@@ -69,6 +69,11 @@ class AnchorResponse extends Model
     public $status;
 
     /**
+     * @var int
+     */
+    public $supportBgChange;
+
+    /**
      * @var string
      */
     public $useScene;
@@ -85,6 +90,7 @@ class AnchorResponse extends Model
         'gender'             => 'gender',
         'resourceTypeDesc'   => 'resourceTypeDesc',
         'status'             => 'status',
+        'supportBgChange'    => 'supportBgChange',
         'useScene'           => 'useScene',
     ];
 
@@ -130,6 +136,9 @@ class AnchorResponse extends Model
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+        if (null !== $this->supportBgChange) {
+            $res['supportBgChange'] = $this->supportBgChange;
         }
         if (null !== $this->useScene) {
             $res['useScene'] = $this->useScene;
@@ -181,6 +190,9 @@ class AnchorResponse extends Model
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+        if (isset($map['supportBgChange'])) {
+            $model->supportBgChange = $map['supportBgChange'];
         }
         if (isset($map['useScene'])) {
             $model->useScene = $map['useScene'];
