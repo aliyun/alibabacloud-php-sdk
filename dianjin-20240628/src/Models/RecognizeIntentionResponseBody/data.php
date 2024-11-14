@@ -28,6 +28,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $intentionScript;
+
+    /**
+     * @var string
+     */
     public $recommendIntention;
 
     /**
@@ -38,6 +43,7 @@ class data extends Model
         'analysisProcess'    => 'analysisProcess',
         'intentionCode'      => 'intentionCode',
         'intentionName'      => 'intentionName',
+        'intentionScript'    => 'intentionScript',
         'recommendIntention' => 'recommendIntention',
         'recommendScript'    => 'recommendScript',
     ];
@@ -57,6 +63,9 @@ class data extends Model
         }
         if (null !== $this->intentionName) {
             $res['intentionName'] = $this->intentionName;
+        }
+        if (null !== $this->intentionScript) {
+            $res['intentionScript'] = $this->intentionScript;
         }
         if (null !== $this->recommendIntention) {
             $res['recommendIntention'] = $this->recommendIntention;
@@ -84,6 +93,9 @@ class data extends Model
         }
         if (isset($map['intentionName'])) {
             $model->intentionName = $map['intentionName'];
+        }
+        if (isset($map['intentionScript'])) {
+            $model->intentionScript = $map['intentionScript'];
         }
         if (isset($map['recommendIntention'])) {
             $model->recommendIntention = $map['recommendIntention'];

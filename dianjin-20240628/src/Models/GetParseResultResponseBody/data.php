@@ -37,6 +37,11 @@ class data extends Model
     public $result;
 
     /**
+     * @var string
+     */
+    public $resultUrl;
+
+    /**
      * @example WaitRefresh
      *
      * @var string
@@ -47,6 +52,7 @@ class data extends Model
         'providerType' => 'providerType',
         'requestId'    => 'requestId',
         'result'       => 'result',
+        'resultUrl'    => 'resultUrl',
         'status'       => 'status',
     ];
 
@@ -68,6 +74,9 @@ class data extends Model
         }
         if (null !== $this->result) {
             $res['result'] = $this->result;
+        }
+        if (null !== $this->resultUrl) {
+            $res['resultUrl'] = $this->resultUrl;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -95,6 +104,9 @@ class data extends Model
         }
         if (isset($map['result'])) {
             $model->result = $map['result'];
+        }
+        if (isset($map['resultUrl'])) {
+            $model->resultUrl = $map['resultUrl'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

@@ -24,10 +24,16 @@ class intentionList extends Model
      * @var string
      */
     public $intentionCode;
+
+    /**
+     * @var string
+     */
+    public $intentionScript;
     protected $_name = [
-        'description'   => 'description',
-        'intention'     => 'intention',
-        'intentionCode' => 'intentionCode',
+        'description'     => 'description',
+        'intention'       => 'intention',
+        'intentionCode'   => 'intentionCode',
+        'intentionScript' => 'intentionScript',
     ];
 
     public function validate()
@@ -45,6 +51,9 @@ class intentionList extends Model
         }
         if (null !== $this->intentionCode) {
             $res['intentionCode'] = $this->intentionCode;
+        }
+        if (null !== $this->intentionScript) {
+            $res['intentionScript'] = $this->intentionScript;
         }
 
         return $res;
@@ -66,6 +75,9 @@ class intentionList extends Model
         }
         if (isset($map['intentionCode'])) {
             $model->intentionCode = $map['intentionCode'];
+        }
+        if (isset($map['intentionScript'])) {
+            $model->intentionScript = $map['intentionScript'];
         }
 
         return $model;

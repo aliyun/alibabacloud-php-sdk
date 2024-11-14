@@ -45,6 +45,11 @@ class RecognizeIntentionRequest extends Model
     public $hierarchicalIntentionList;
 
     /**
+     * @var string
+     */
+    public $intentionDomainCode;
+
+    /**
      * @var intentionList[]
      */
     public $intentionList;
@@ -68,6 +73,7 @@ class RecognizeIntentionRequest extends Model
         'conversation'              => 'conversation',
         'globalIntentionList'       => 'globalIntentionList',
         'hierarchicalIntentionList' => 'hierarchicalIntentionList',
+        'intentionDomainCode'       => 'intentionDomainCode',
         'intentionList'             => 'intentionList',
         'opType'                    => 'opType',
         'recommend'                 => 'recommend',
@@ -106,6 +112,9 @@ class RecognizeIntentionRequest extends Model
                     $res['hierarchicalIntentionList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->intentionDomainCode) {
+            $res['intentionDomainCode'] = $this->intentionDomainCode;
         }
         if (null !== $this->intentionList) {
             $res['intentionList'] = [];
@@ -160,6 +169,9 @@ class RecognizeIntentionRequest extends Model
                     $model->hierarchicalIntentionList[$n++] = null !== $item ? hierarchicalIntentionList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['intentionDomainCode'])) {
+            $model->intentionDomainCode = $map['intentionDomainCode'];
         }
         if (isset($map['intentionList'])) {
             if (!empty($map['intentionList'])) {

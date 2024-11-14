@@ -25,9 +25,15 @@ class GetParseResultRequest extends Model
      * @var string
      */
     public $libraryId;
+
+    /**
+     * @var bool
+     */
+    public $useUrlResult;
     protected $_name = [
-        'docId'     => 'docId',
-        'libraryId' => 'libraryId',
+        'docId'        => 'docId',
+        'libraryId'    => 'libraryId',
+        'useUrlResult' => 'useUrlResult',
     ];
 
     public function validate()
@@ -42,6 +48,9 @@ class GetParseResultRequest extends Model
         }
         if (null !== $this->libraryId) {
             $res['libraryId'] = $this->libraryId;
+        }
+        if (null !== $this->useUrlResult) {
+            $res['useUrlResult'] = $this->useUrlResult;
         }
 
         return $res;
@@ -60,6 +69,9 @@ class GetParseResultRequest extends Model
         }
         if (isset($map['libraryId'])) {
             $model->libraryId = $map['libraryId'];
+        }
+        if (isset($map['useUrlResult'])) {
+            $model->useUrlResult = $map['useUrlResult'];
         }
 
         return $model;

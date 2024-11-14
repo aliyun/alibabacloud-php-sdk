@@ -1219,6 +1219,9 @@ class DianJin extends OpenApiClient
         if (!Utils::isUnset($request->libraryId)) {
             $body['libraryId'] = $request->libraryId;
         }
+        if (!Utils::isUnset($request->useUrlResult)) {
+            $body['useUrlResult'] = $request->useUrlResult;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
@@ -1762,6 +1765,9 @@ class DianJin extends OpenApiClient
         }
         if (!Utils::isUnset($request->hierarchicalIntentionList)) {
             $body['hierarchicalIntentionList'] = $request->hierarchicalIntentionList;
+        }
+        if (!Utils::isUnset($request->intentionDomainCode)) {
+            $body['intentionDomainCode'] = $request->intentionDomainCode;
         }
         if (!Utils::isUnset($request->intentionList)) {
             $body['intentionList'] = $request->intentionList;
