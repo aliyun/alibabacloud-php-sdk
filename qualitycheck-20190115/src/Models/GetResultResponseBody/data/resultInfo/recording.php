@@ -49,6 +49,11 @@ class recording extends Model
     public $caller;
 
     /**
+     * @var string
+     */
+    public $customerName;
+
+    /**
      * @example XXXX
      *
      * @var string
@@ -204,6 +209,7 @@ class recording extends Model
         'callType'       => 'CallType',
         'callee'         => 'Callee',
         'caller'         => 'Caller',
+        'customerName'   => 'CustomerName',
         'dataSetName'    => 'DataSetName',
         'dialogueSize'   => 'DialogueSize',
         'duration'       => 'Duration',
@@ -252,6 +258,9 @@ class recording extends Model
         }
         if (null !== $this->caller) {
             $res['Caller'] = $this->caller;
+        }
+        if (null !== $this->customerName) {
+            $res['CustomerName'] = $this->customerName;
         }
         if (null !== $this->dataSetName) {
             $res['DataSetName'] = $this->dataSetName;
@@ -348,6 +357,9 @@ class recording extends Model
         }
         if (isset($map['Caller'])) {
             $model->caller = $map['Caller'];
+        }
+        if (isset($map['CustomerName'])) {
+            $model->customerName = $map['CustomerName'];
         }
         if (isset($map['DataSetName'])) {
             $model->dataSetName = $map['DataSetName'];

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateUserResponse extends Model
+class DeleteCheckTypeToSchemeResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class CreateUserResponse extends Model
     public $statusCode;
 
     /**
-     * @var CreateUserResponseBody
+     * @var DeleteCheckTypeToSchemeResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class CreateUserResponse extends Model
     /**
      * @param array $map
      *
-     * @return CreateUserResponse
+     * @return DeleteCheckTypeToSchemeResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class CreateUserResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = CreateUserResponseBody::fromMap($map['body']);
+            $model->body = DeleteCheckTypeToSchemeResponseBody::fromMap($map['body']);
         }
 
         return $model;

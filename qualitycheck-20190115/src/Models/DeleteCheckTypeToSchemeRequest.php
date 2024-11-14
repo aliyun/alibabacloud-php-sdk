@@ -6,17 +6,17 @@ namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class InsertSubScoreForApiRequest extends Model
+class DeleteCheckTypeToSchemeRequest extends Model
 {
     /**
-     * @description baseMeAgentId
+     * @example 123456
      *
      * @var int
      */
     public $baseMeAgentId;
 
     /**
-     * @description This parameter is required.
+     * @example {"schemeId":"1376","checkType":"4"}
      *
      * @var string
      */
@@ -46,7 +46,7 @@ class InsertSubScoreForApiRequest extends Model
     /**
      * @param array $map
      *
-     * @return InsertSubScoreForApiRequest
+     * @return DeleteCheckTypeToSchemeRequest
      */
     public static function fromMap($map = [])
     {

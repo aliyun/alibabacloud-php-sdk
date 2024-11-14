@@ -37,6 +37,11 @@ class data extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $initScore;
+
+    /**
      * @example xxx
      *
      * @var string
@@ -118,6 +123,7 @@ class data extends Model
         'createUserName'      => 'CreateUserName',
         'dataType'            => 'DataType',
         'description'         => 'Description',
+        'initScore'           => 'InitScore',
         'name'                => 'Name',
         'ruleIds'             => 'RuleIds',
         'ruleList'            => 'RuleList',
@@ -150,6 +156,9 @@ class data extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->initScore) {
+            $res['InitScore'] = $this->initScore;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -222,6 +231,9 @@ class data extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['InitScore'])) {
+            $model->initScore = $map['InitScore'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

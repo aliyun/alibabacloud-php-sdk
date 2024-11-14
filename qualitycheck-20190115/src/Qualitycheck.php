@@ -30,8 +30,6 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateSkillGroupConfigRequest
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateSkillGroupConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateTaskAssignRuleRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateTaskAssignRuleResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateUserRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateUserResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateWarningConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateWarningConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateWarningStrategyConfigRequest;
@@ -40,6 +38,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteAsrVocabRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteAsrVocabResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteBusinessCategoryRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteBusinessCategoryResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteCheckTypeToSchemeRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteCheckTypeToSchemeResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteCustomizationConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteCustomizationConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteDataSetRequest;
@@ -54,12 +54,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteRuleV4Request;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteRuleV4Response;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteSchemeTaskConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteSchemeTaskConfigResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteScoreForApiRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteScoreForApiResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteSkillGroupConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteSkillGroupConfigResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteSubScoreForApiRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteSubScoreForApiResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteTaskAssignRuleRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteTaskAssignRuleResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteWarningConfigRequest;
@@ -106,10 +102,6 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetWarningStrategyConfigReque
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetWarningStrategyConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\HandleComplaintRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\HandleComplaintResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\InsertScoreForApiRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\InsertScoreForApiResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\InsertSubScoreForApiRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\InsertSubScoreForApiResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\InvalidRuleRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\InvalidRuleResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListAsrVocabRequest;
@@ -174,12 +166,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateRuleV4Request;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateRuleV4Response;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateSchemeTaskConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateSchemeTaskConfigResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateScoreForApiRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateScoreForApiResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateSkillGroupConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateSkillGroupConfigResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateSubScoreForApiRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateSubScoreForApiResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateSyncQualityCheckDataRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateSyncQualityCheckDataResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateTaskAssignRuleRequest;
@@ -437,8 +425,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI AssignReviewerBySessionGroup is deprecated
+     *  *
      * @summary 会话组批量分配
      *  *
+     * Deprecated
+     *
      * @param AssignReviewerBySessionGroupRequest $request AssignReviewerBySessionGroupRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -473,8 +465,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI AssignReviewerBySessionGroup is deprecated
+     *  *
      * @summary 会话组批量分配
      *  *
+     * Deprecated
+     *
      * @param AssignReviewerBySessionGroupRequest $request AssignReviewerBySessionGroupRequest
      *
      * @return AssignReviewerBySessionGroupResponse AssignReviewerBySessionGroupResponse
@@ -825,60 +821,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI CreateUser is deprecated
-     *  *
-     * Deprecated
-     *
-     * @param CreateUserRequest $request CreateUserRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
-     *
-     * @return CreateUserResponse CreateUserResponse
-     */
-    public function createUserWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateUser',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated OpenAPI CreateUser is deprecated
-     *  *
-     * Deprecated
-     *
-     * @param CreateUserRequest $request CreateUserRequest
-     *
-     * @return CreateUserResponse CreateUserResponse
-     */
-    public function createUser($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createUserWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateWarningConfigRequest $request CreateWarningConfigRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -1113,6 +1055,56 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @summary 删除质检唯独
+     *  *
+     * @param DeleteCheckTypeToSchemeRequest $request DeleteCheckTypeToSchemeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteCheckTypeToSchemeResponse DeleteCheckTypeToSchemeResponse
+     */
+    public function deleteCheckTypeToSchemeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCheckTypeToScheme',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCheckTypeToSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除质检唯独
+     *  *
+     * @param DeleteCheckTypeToSchemeRequest $request DeleteCheckTypeToSchemeRequest
+     *
+     * @return DeleteCheckTypeToSchemeResponse DeleteCheckTypeToSchemeResponse
+     */
+    public function deleteCheckTypeToScheme($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCheckTypeToSchemeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteCustomizationConfigRequest $request DeleteCustomizationConfigRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -1159,6 +1151,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI DeleteDataSet is deprecated
+     *  *
+     * Deprecated
+     *
      * @param DeleteDataSetRequest $request DeleteDataSetRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -1193,6 +1189,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI DeleteDataSet is deprecated
+     *  *
+     * Deprecated
+     *
      * @param DeleteDataSetRequest $request DeleteDataSetRequest
      *
      * @return DeleteDataSetResponse DeleteDataSetResponse
@@ -1472,60 +1472,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DeleteScoreForApi is deprecated
-     *  *
-     * Deprecated
-     *
-     * @param DeleteScoreForApiRequest $request DeleteScoreForApiRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DeleteScoreForApiResponse DeleteScoreForApiResponse
-     */
-    public function deleteScoreForApiWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteScoreForApi',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteScoreForApiResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated OpenAPI DeleteScoreForApi is deprecated
-     *  *
-     * Deprecated
-     *
-     * @param DeleteScoreForApiRequest $request DeleteScoreForApiRequest
-     *
-     * @return DeleteScoreForApiResponse DeleteScoreForApiResponse
-     */
-    public function deleteScoreForApi($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteScoreForApiWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteSkillGroupConfigRequest $request DeleteSkillGroupConfigRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -1569,60 +1515,6 @@ class Qualitycheck extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSkillGroupConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @deprecated OpenAPI DeleteSubScoreForApi is deprecated
-     *  *
-     * Deprecated
-     *
-     * @param DeleteSubScoreForApiRequest $request DeleteSubScoreForApiRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DeleteSubScoreForApiResponse DeleteSubScoreForApiResponse
-     */
-    public function deleteSubScoreForApiWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteSubScoreForApi',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteSubScoreForApiResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated OpenAPI DeleteSubScoreForApi is deprecated
-     *  *
-     * Deprecated
-     *
-     * @param DeleteSubScoreForApiRequest $request DeleteSubScoreForApiRequest
-     *
-     * @return DeleteSubScoreForApiResponse DeleteSubScoreForApiResponse
-     */
-    public function deleteSubScoreForApi($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteSubScoreForApiWithOptions($request, $runtime);
     }
 
     /**
@@ -2779,114 +2671,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI InsertScoreForApi is deprecated
-     *  *
-     * Deprecated
-     *
-     * @param InsertScoreForApiRequest $request InsertScoreForApiRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
-     *
-     * @return InsertScoreForApiResponse InsertScoreForApiResponse
-     */
-    public function insertScoreForApiWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'InsertScoreForApi',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return InsertScoreForApiResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated OpenAPI InsertScoreForApi is deprecated
-     *  *
-     * Deprecated
-     *
-     * @param InsertScoreForApiRequest $request InsertScoreForApiRequest
-     *
-     * @return InsertScoreForApiResponse InsertScoreForApiResponse
-     */
-    public function insertScoreForApi($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->insertScoreForApiWithOptions($request, $runtime);
-    }
-
-    /**
-     * @deprecated OpenAPI InsertSubScoreForApi is deprecated
-     *  *
-     * Deprecated
-     *
-     * @param InsertSubScoreForApiRequest $request InsertSubScoreForApiRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
-     *
-     * @return InsertSubScoreForApiResponse InsertSubScoreForApiResponse
-     */
-    public function insertSubScoreForApiWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'InsertSubScoreForApi',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return InsertSubScoreForApiResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated OpenAPI InsertSubScoreForApi is deprecated
-     *  *
-     * Deprecated
-     *
-     * @param InsertSubScoreForApiRequest $request InsertSubScoreForApiRequest
-     *
-     * @return InsertSubScoreForApiResponse InsertSubScoreForApiResponse
-     */
-    public function insertSubScoreForApi($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->insertSubScoreForApiWithOptions($request, $runtime);
-    }
-
-    /**
      * @deprecated OpenAPI InvalidRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead.
      *  *
      * Deprecated
@@ -2987,8 +2771,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI ListDataSet is deprecated
+     *  *
      * @summary 获取数据集列表
      *  *
+     * Deprecated
+     *
      * @param ListDataSetRequest $request ListDataSetRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -3023,8 +2811,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI ListDataSet is deprecated
+     *  *
      * @summary 获取数据集列表
      *  *
+     * Deprecated
+     *
      * @param ListDataSetRequest $request ListDataSetRequest
      *
      * @return ListDataSetResponse ListDataSetResponse
@@ -3361,8 +3153,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI ListSessionGroup is deprecated
+     *  *
      * @summary 获取会话组列表
      *  *
+     * Deprecated
+     *
      * @param ListSessionGroupRequest $request ListSessionGroupRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -3397,8 +3193,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI ListSessionGroup is deprecated
+     *  *
      * @summary 获取会话组列表
      *  *
+     * Deprecated
+     *
      * @param ListSessionGroupRequest $request ListSessionGroupRequest
      *
      * @return ListSessionGroupResponse ListSessionGroupResponse
@@ -3695,8 +3495,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI RevertAssignedSessionGroup is deprecated
+     *  *
      * @summary 会话组批量回收
      *  *
+     * Deprecated
+     *
      * @param RevertAssignedSessionGroupRequest $request RevertAssignedSessionGroupRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -3731,8 +3535,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI RevertAssignedSessionGroup is deprecated
+     *  *
      * @summary 会话组批量回收
      *  *
+     * Deprecated
+     *
      * @param RevertAssignedSessionGroupRequest $request RevertAssignedSessionGroupRequest
      *
      * @return RevertAssignedSessionGroupResponse RevertAssignedSessionGroupResponse
@@ -3745,6 +3553,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI SaveConfigDataSet is deprecated
+     *  *
+     * Deprecated
+     *
      * @param SaveConfigDataSetRequest $request SaveConfigDataSetRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -3779,6 +3591,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI SaveConfigDataSet is deprecated
+     *  *
+     * Deprecated
+     *
      * @param SaveConfigDataSetRequest $request SaveConfigDataSetRequest
      *
      * @return SaveConfigDataSetResponse SaveConfigDataSetResponse
@@ -4545,60 +4361,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI UpdateScoreForApi is deprecated
-     *  *
-     * Deprecated
-     *
-     * @param UpdateScoreForApiRequest $request UpdateScoreForApiRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
-     *
-     * @return UpdateScoreForApiResponse UpdateScoreForApiResponse
-     */
-    public function updateScoreForApiWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateScoreForApi',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateScoreForApiResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated OpenAPI UpdateScoreForApi is deprecated
-     *  *
-     * Deprecated
-     *
-     * @param UpdateScoreForApiRequest $request UpdateScoreForApiRequest
-     *
-     * @return UpdateScoreForApiResponse UpdateScoreForApiResponse
-     */
-    public function updateScoreForApi($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateScoreForApiWithOptions($request, $runtime);
-    }
-
-    /**
      * @param UpdateSkillGroupConfigRequest $request UpdateSkillGroupConfigRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -4642,60 +4404,6 @@ class Qualitycheck extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateSkillGroupConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @deprecated OpenAPI UpdateSubScoreForApi is deprecated
-     *  *
-     * Deprecated
-     *
-     * @param UpdateSubScoreForApiRequest $request UpdateSubScoreForApiRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
-     *
-     * @return UpdateSubScoreForApiResponse UpdateSubScoreForApiResponse
-     */
-    public function updateSubScoreForApiWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateSubScoreForApi',
-            'version'     => '2019-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateSubScoreForApiResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated OpenAPI UpdateSubScoreForApi is deprecated
-     *  *
-     * Deprecated
-     *
-     * @param UpdateSubScoreForApiRequest $request UpdateSubScoreForApiRequest
-     *
-     * @return UpdateSubScoreForApiResponse UpdateSubScoreForApiResponse
-     */
-    public function updateSubScoreForApi($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateSubScoreForApiWithOptions($request, $runtime);
     }
 
     /**
