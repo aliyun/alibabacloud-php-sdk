@@ -38,6 +38,10 @@ use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\ChangeDetailListOfOrderNumRe
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\ChangeDetailListOfOrderNumResponse;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\ChangeDetailRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\ChangeDetailResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\CollectFlightLowestPriceHeaders;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\CollectFlightLowestPriceRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\CollectFlightLowestPriceResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\CollectFlightLowestPriceShrinkRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\EnrichHeaders;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\EnrichRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\EnrichResponse;
@@ -815,6 +819,71 @@ class AirticketOpen extends OpenApiClient
         $headers = new ChangeDetailListOfOrderNumHeaders([]);
 
         return $this->changeDetailListOfOrderNumWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 数据收集-低价航班信息
+     *  *
+     * @param CollectFlightLowestPriceRequest $tmpReq  CollectFlightLowestPriceRequest
+     * @param CollectFlightLowestPriceHeaders $headers CollectFlightLowestPriceHeaders
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CollectFlightLowestPriceResponse CollectFlightLowestPriceResponse
+     */
+    public function collectFlightLowestPriceWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CollectFlightLowestPriceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->lowestPriceFlightList)) {
+            $request->lowestPriceFlightListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lowestPriceFlightList, 'lowestPriceFlightList', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->lowestPriceFlightListShrink)) {
+            $body['lowestPriceFlightList'] = $request->lowestPriceFlightListShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsAirticketAccessToken)) {
+            $realHeaders['x-acs-airticket-access-token'] = Utils::toJSONString($headers->xAcsAirticketAccessToken);
+        }
+        if (!Utils::isUnset($headers->xAcsAirticketLanguage)) {
+            $realHeaders['x-acs-airticket-language'] = Utils::toJSONString($headers->xAcsAirticketLanguage);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CollectFlightLowestPrice',
+            'version'     => '2023-01-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/airticket/v1/data-collect/flight-lowest-price',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CollectFlightLowestPriceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 数据收集-低价航班信息
+     *  *
+     * @param CollectFlightLowestPriceRequest $request CollectFlightLowestPriceRequest
+     *
+     * @return CollectFlightLowestPriceResponse CollectFlightLowestPriceResponse
+     */
+    public function collectFlightLowestPrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CollectFlightLowestPriceHeaders([]);
+
+        return $this->collectFlightLowestPriceWithOptions($request, $headers, $runtime);
     }
 
     /**
