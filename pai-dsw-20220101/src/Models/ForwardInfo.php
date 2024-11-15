@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ForwardInfo extends Model
 {
     /**
+     * @var string[]
+     */
+    public $accessType;
+
+    /**
      * @example dsw-notebook
      *
      * @var string
@@ -30,6 +35,27 @@ class ForwardInfo extends Model
     public $enable;
 
     /**
+     * @example 10086
+     *
+     * @var string
+     */
+    public $externalPort;
+
+    /**
+     * @example 22
+     *
+     * @var string
+     */
+    public $forwardPort;
+
+    /**
+     * @example ssh
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
      * @example ngw-bp1uewa15k4iy5770****
      *
      * @var string
@@ -37,22 +63,18 @@ class ForwardInfo extends Model
     public $natGatewayId;
 
     /**
-     * @example 22
-     *
-     * @var string
-     */
-    public $port;
-
-    /**
      * @var string
      */
     public $SSHPublicKey;
     protected $_name = [
+        'accessType'      => 'AccessType',
         'containerName'   => 'ContainerName',
         'eipAllocationId' => 'EipAllocationId',
         'enable'          => 'Enable',
+        'externalPort'    => 'ExternalPort',
+        'forwardPort'     => 'ForwardPort',
+        'name'            => 'Name',
         'natGatewayId'    => 'NatGatewayId',
-        'port'            => 'Port',
         'SSHPublicKey'    => 'SSHPublicKey',
     ];
 
@@ -63,6 +85,9 @@ class ForwardInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessType) {
+            $res['AccessType'] = $this->accessType;
+        }
         if (null !== $this->containerName) {
             $res['ContainerName'] = $this->containerName;
         }
@@ -72,11 +97,17 @@ class ForwardInfo extends Model
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
+        if (null !== $this->externalPort) {
+            $res['ExternalPort'] = $this->externalPort;
+        }
+        if (null !== $this->forwardPort) {
+            $res['ForwardPort'] = $this->forwardPort;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
-        }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
         }
         if (null !== $this->SSHPublicKey) {
             $res['SSHPublicKey'] = $this->SSHPublicKey;
@@ -93,6 +124,11 @@ class ForwardInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessType'])) {
+            if (!empty($map['AccessType'])) {
+                $model->accessType = $map['AccessType'];
+            }
+        }
         if (isset($map['ContainerName'])) {
             $model->containerName = $map['ContainerName'];
         }
@@ -102,11 +138,17 @@ class ForwardInfo extends Model
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
+        if (isset($map['ExternalPort'])) {
+            $model->externalPort = $map['ExternalPort'];
+        }
+        if (isset($map['ForwardPort'])) {
+            $model->forwardPort = $map['ForwardPort'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
-        }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
         }
         if (isset($map['SSHPublicKey'])) {
             $model->SSHPublicKey = $map['SSHPublicKey'];
