@@ -1535,6 +1535,9 @@ class Ocrapi extends OpenApiClient
         if (!Utils::isUnset($request->needRotate)) {
             $query['NeedRotate'] = $request->needRotate;
         }
+        if (!Utils::isUnset($request->outputOricoord)) {
+            $query['OutputOricoord'] = $request->outputOricoord;
+        }
         if (!Utils::isUnset($request->subject)) {
             $query['Subject'] = $request->subject;
         }
