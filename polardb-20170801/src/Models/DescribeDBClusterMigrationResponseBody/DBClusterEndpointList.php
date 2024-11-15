@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DBClusterEndpointList extends Model
 {
     /**
-     * @description Details about the endpoints.
+     * @description The VPC ID.
      *
      * @var addressItems[]
      */
     public $addressItems;
 
     /**
-     * @description The ID of the endpoint.
+     * @description The expiration time of the replication between ApsaraDB RDS and PolarDB. The time is in the `YYYY-MM-DDThh:mm:ssZ` format. The time is displayed in UTC.
      *
      * @example pe-***********
      *
@@ -26,11 +26,7 @@ class DBClusterEndpointList extends Model
     public $DBEndpointId;
 
     /**
-     * @description The type of the endpoint. Valid values:
-     *
-     *   **Cluster**: the default cluster endpoint
-     *   **Primary**: the primary endpoint
-     *   **Custom**: the custom endpoint
+     * @description The ID of the cluster.
      *
      * @example Cluster
      *
@@ -39,10 +35,10 @@ class DBClusterEndpointList extends Model
     public $endpointType;
 
     /**
-     * @description The read/write mode. Valid values:
+     * @description The synchronization direction. Valid values:
      *
-     *   ReadWrite: receives and forwards read and write requests (automatic read-write splitting).
-     *   ReadOnly (default): receives and forwards read requests only.
+     *   **RDS2POLARDB**: Data is replicated from an ApsaraDB RDS instance to a PolarDB cluster.
+     *   **POLARDB2RDS**: Data is replicated from a PolarDB cluster to an ApsaraDB RDS instance.
      *
      * @example ReadOnly
      *

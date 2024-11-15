@@ -44,6 +44,11 @@ class DescribeBackupsResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $totalLevel2BackupSize;
+
+    /**
      * @description The total number of returned entries.
      *
      * @example 1
@@ -52,11 +57,12 @@ class DescribeBackupsResponseBody extends Model
      */
     public $totalRecordCount;
     protected $_name = [
-        'items'            => 'Items',
-        'pageNumber'       => 'PageNumber',
-        'pageRecordCount'  => 'PageRecordCount',
-        'requestId'        => 'RequestId',
-        'totalRecordCount' => 'TotalRecordCount',
+        'items'                 => 'Items',
+        'pageNumber'            => 'PageNumber',
+        'pageRecordCount'       => 'PageRecordCount',
+        'requestId'             => 'RequestId',
+        'totalLevel2BackupSize' => 'TotalLevel2BackupSize',
+        'totalRecordCount'      => 'TotalRecordCount',
     ];
 
     public function validate()
@@ -77,6 +83,9 @@ class DescribeBackupsResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalLevel2BackupSize) {
+            $res['TotalLevel2BackupSize'] = $this->totalLevel2BackupSize;
         }
         if (null !== $this->totalRecordCount) {
             $res['TotalRecordCount'] = $this->totalRecordCount;
@@ -104,6 +113,9 @@ class DescribeBackupsResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalLevel2BackupSize'])) {
+            $model->totalLevel2BackupSize = $map['TotalLevel2BackupSize'];
         }
         if (isset($map['TotalRecordCount'])) {
             $model->totalRecordCount = $map['TotalRecordCount'];

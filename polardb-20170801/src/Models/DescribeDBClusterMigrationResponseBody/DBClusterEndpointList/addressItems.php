@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class addressItems extends Model
 {
     /**
-     * @description The endpoint.
+     * @description Indicates whether SSL encryption is enabled. Valid values:
+     *
+     *   **Enabled**
+     *   **Disabled**
      *
      * @example pc-**************.rwlb.rds.aliyuncs.com
      *
@@ -18,7 +21,7 @@ class addressItems extends Model
     public $connectionString;
 
     /**
-     * @description The IP address of the endpoint.
+     * @description The description of a migration exception. If no exception occurs during the migration, an empty string is returned.
      *
      * @example 192.***.***.10
      *
@@ -27,11 +30,7 @@ class addressItems extends Model
     public $IPAddress;
 
     /**
-     * @description The network type of the endpoint. Valid values:
-     *
-     *   **Public**: the public endpoint
-     *   **Private**: the internal endpoint (VPC)
-     *   **Inner**: the internal endpoint (classic network)
+     * @description The ID of the endpoint.
      *
      * @example Private
      *
@@ -40,7 +39,11 @@ class addressItems extends Model
     public $netType;
 
     /**
-     * @description The port number.
+     * @description The type of the endpoint. Valid values:
+     *
+     *   **Cluster**: the default cluster endpoint
+     *   **Primary**: the primary endpoint
+     *   **Custom**: the custom endpoint
      *
      * @example 3306
      *
@@ -49,10 +52,7 @@ class addressItems extends Model
     public $port;
 
     /**
-     * @description Indicates whether SSL encryption is enabled. Valid values:
-     *
-     *   **Enabled**
-     *   **Disabled**
+     * @description The ID of the request.
      *
      * @example Enabled
      *
@@ -61,7 +61,10 @@ class addressItems extends Model
     public $SSLEnabled;
 
     /**
-     * @description The VPC ID.
+     * @description The read/write mode. Valid values:
+     *
+     *   ReadWrite: receives and forwards read and write requests (automatic read-write splitting).
+     *   ReadOnly (default): receives and forwards read requests only.
      *
      * @example vpc-**********
      *
@@ -70,7 +73,7 @@ class addressItems extends Model
     public $VPCId;
 
     /**
-     * @description The vSwitch ID.
+     * @description The IP address of the endpoint.
      *
      * @example vsw-**********
      *

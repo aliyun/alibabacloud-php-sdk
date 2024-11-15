@@ -28,7 +28,7 @@ class DescribeAutoRenewAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number. The value must be an integer that is larger than 0 and does not exceed the maximum value of the INTEGER data type. Default value: 1.
+     * @description The page number. The value must be an integer that is greater than 0. Default value: 1.
      *
      * @example 1
      *
@@ -37,7 +37,7 @@ class DescribeAutoRenewAttributeRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 30, 50, and 100. Default value: 30.
+     * @description The number of entries per page. Valid values: 30, 50, and 100. Default value: 30.
      *
      * @example 30
      *

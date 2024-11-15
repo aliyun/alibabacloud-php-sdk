@@ -79,6 +79,19 @@ class ModifyDBClusterRequest extends Model
     public $faultSimulateMode;
 
     /**
+     * @description Specifies whether to enable automatic IMCI-based query acceleration. IMCI is short for In-Memory Column Index. Valid values:
+     *
+     *   `ON`: enables automatic IMCI-based query acceleration.
+     *   `OFF`: disables automatic IMCI-based query acceleration.
+     *
+     * >
+     *
+     *   This parameter is supported only for PolarDB for MySQL clusters.
+     *
+     *   For information about the cluster version limits, see [Automatic IMCI-based query acceleration](https://help.aliyun.com/document_detail/2854119.html).
+     *
+     * @example OFF
+     *
      * @var string
      */
     public $imciAutoIndex;

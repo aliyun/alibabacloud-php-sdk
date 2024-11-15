@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateOrGetVirtualLicenseOrderResponseBody extends Model
 {
     /**
+     * @description The number of generated activation codes.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateOrGetVirtualLicenseOrderResponseBody extends Model
     public $activatedCodeCount;
 
     /**
+     * @description The maximum number of activation codes that you can apply for.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class CreateOrGetVirtualLicenseOrderResponseBody extends Model
     public $activationCodeQuota;
 
     /**
+     * @description The Alibaba Cloud order ID (including the virtual order ID).
+     *
      * @example 2233****445566
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateOrGetVirtualLicenseOrderResponseBody extends Model
     public $aliyunOrderId;
 
     /**
+     * @description Indicates whether activation codes can be generated without the system identifier.
+     *
      * @example false
      *
      * @var bool
@@ -37,6 +45,8 @@ class CreateOrGetVirtualLicenseOrderResponseBody extends Model
     public $allowEmptySystemIdentifier;
 
     /**
+     * @description The time when the order was created.
+     *
      * @example 2024-10-16 16:46:20
      *
      * @var string
@@ -44,6 +54,8 @@ class CreateOrGetVirtualLicenseOrderResponseBody extends Model
     public $gmtCreated;
 
     /**
+     * @description The time when the order was last updated.
+     *
      * @example 2024-10-16 16:46:20
      *
      * @var string
@@ -51,6 +63,8 @@ class CreateOrGetVirtualLicenseOrderResponseBody extends Model
     public $gmtModified;
 
     /**
+     * @description Indicates whether the order is a virtual order (virtual orders allow pre-generation of activation codes).
+     *
      * @example true
      *
      * @var bool
@@ -58,6 +72,8 @@ class CreateOrGetVirtualLicenseOrderResponseBody extends Model
     public $isVirtualOrder;
 
     /**
+     * @description Indicates whether the virtual order is frozen (activation codes cannot be generated for a frozen virtual order).
+     *
      * @example false
      *
      * @var bool
@@ -65,6 +81,8 @@ class CreateOrGetVirtualLicenseOrderResponseBody extends Model
     public $isVirtualOrderFrozen;
 
     /**
+     * @description The plan type.
+     *
      * @example pre_generation_long_term
      *
      * @var string
@@ -72,6 +90,8 @@ class CreateOrGetVirtualLicenseOrderResponseBody extends Model
     public $packageType;
 
     /**
+     * @description The validity period of the plan, which is one year (common) or thirty years (long-term).
+     *
      * @example 30 years
      *
      * @var string
@@ -79,6 +99,8 @@ class CreateOrGetVirtualLicenseOrderResponseBody extends Model
     public $packageValidity;
 
     /**
+     * @description The purchase channel.
+     *
      * @example aliyun_market
      *
      * @var string
@@ -86,7 +108,7 @@ class CreateOrGetVirtualLicenseOrderResponseBody extends Model
     public $purchaseChannel;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 45D24263-7E3A-4140-9472-************
      *
@@ -95,6 +117,8 @@ class CreateOrGetVirtualLicenseOrderResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the virtual order.
+     *
      * @example 2024********483
      *
      * @var string

@@ -59,6 +59,11 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $blktagUsed;
 
     /**
+     * @var string
+     */
+    public $burstingEnabled;
+
+    /**
      * @description [Product Series](https://help.aliyun.com/document_detail/183258.html), with values as follows:
      * **Normal**: Cluster Edition
      * **Basic**: Single Node
@@ -622,6 +627,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
         'architecture'                 => 'Architecture',
         'blktagTotal'                  => 'BlktagTotal',
         'blktagUsed'                   => 'BlktagUsed',
+        'burstingEnabled'              => 'BurstingEnabled',
         'category'                     => 'Category',
         'compressStorageMode'          => 'CompressStorageMode',
         'compressStorageUsed'          => 'CompressStorageUsed',
@@ -702,6 +708,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (null !== $this->blktagUsed) {
             $res['BlktagUsed'] = $this->blktagUsed;
+        }
+        if (null !== $this->burstingEnabled) {
+            $res['BurstingEnabled'] = $this->burstingEnabled;
         }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
@@ -912,6 +921,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (isset($map['BlktagUsed'])) {
             $model->blktagUsed = $map['BlktagUsed'];
+        }
+        if (isset($map['BurstingEnabled'])) {
+            $model->burstingEnabled = $map['BurstingEnabled'];
         }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];

@@ -55,8 +55,12 @@ class UpgradeDBClusterVersionRequest extends Model
     /**
      * @description The earliest start time to run the task that updates the kernel version of the cluster. Specify the time in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
      *
-     * > *   The earliest start time of the task can be a point in time within the next 24 hours. For example, if the current time is `2021-01-14T09:00:00Z`, you can specify a point in time between `2021-01-14T09:00:00Z` and `2021-01-15T09:00:00Z`.
-     * >*   If you do not specify this parameter, the kernel update task runs immediately after you submit the request.
+     * >
+     *
+     *   The earliest start time of the task can be a point in time within the next 72 hours. For example, if the current time is `2021-01-14T09:00:00Z`, you can specify a point in time from `2021-01-14T09:00:00Z` to `2021-01-17T09:00:00Z`.
+     *
+     *   If you do not specify this parameter, the kernel update task runs immediately after you submit the request.
+     *
      * @example 2021-01-14T09:00:00Z
      *
      * @var string

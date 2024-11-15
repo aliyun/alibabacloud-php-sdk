@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeAITaskStatusResponseBody extends Model
 {
     /**
+     * @description The name of the database account that is used to connect to the AI nodes in the cluster.
+     *
+     * @var string
+     */
+    public $accountName;
+
+    /**
      * @description The cluster ID.
      *
      * @example pc-xxxxxxxxxx
@@ -27,10 +34,10 @@ class DescribeAITaskStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The state of the PolarDB for AI feature. Valid values:
+     * @description The status of the PolarDB for AI feature. Valid values:
      *
-     *   **1**: The feature is enabled.
-     *   **2**: The feature is disabled.
+     *   **1**: enabled.
+     *   **2**: disabled.
      *
      * @example 1
      *
@@ -39,7 +46,7 @@ class DescribeAITaskStatusResponseBody extends Model
     public $status;
 
     /**
-     * @description The state description of the PolarDB for AI feature.
+     * @description The description of the status of the PolarDB for AI feature.
      *
      * @example Closed State
      *
@@ -47,6 +54,7 @@ class DescribeAITaskStatusResponseBody extends Model
      */
     public $statusName;
     protected $_name = [
+        'accountName' => 'AccountName',
         'DBClusterId' => 'DBClusterId',
         'requestId'   => 'RequestId',
         'status'      => 'Status',
@@ -60,6 +68,9 @@ class DescribeAITaskStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
+        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
@@ -84,6 +95,9 @@ class DescribeAITaskStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
+        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeActivationCodesResponseBody extends Model
 {
     /**
+     * @description The queried activation codes.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeActivationCodesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
      * @example 1
      *
      * @var int
@@ -29,7 +35,7 @@ class DescribeActivationCodesResponseBody extends Model
     public $pageRecordCount;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 65D7ACE6-4A61-4B6E-B357-8CB24A******
      *
@@ -38,6 +44,8 @@ class DescribeActivationCodesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

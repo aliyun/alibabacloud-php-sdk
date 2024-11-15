@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The time when the activation code takes effect.
+     *
      * @example 2024-10-16 16:46:20
      *
      * @var string
@@ -16,6 +18,8 @@ class items extends Model
     public $activateAt;
 
     /**
+     * @description The description of the activation code.
+     *
      * @example testCode
      *
      * @var string
@@ -23,6 +27,8 @@ class items extends Model
     public $description;
 
     /**
+     * @description The time when the activation code expires.
+     *
      * @example 2054-10-16 16:46:20
      *
      * @var string
@@ -30,6 +36,8 @@ class items extends Model
     public $expireAt;
 
     /**
+     * @description The time when the activation code was generated.
+     *
      * @example 2024-10-16 16:46:20
      *
      * @var string
@@ -37,6 +45,8 @@ class items extends Model
     public $gmtCreated;
 
     /**
+     * @description The time when the activation code was updated.
+     *
      * @example 2024-10-16 16:46:20
      *
      * @var string
@@ -44,6 +54,8 @@ class items extends Model
     public $gmtModified;
 
     /**
+     * @description The activation code ID.
+     *
      * @example 123
      *
      * @var int
@@ -51,6 +63,8 @@ class items extends Model
     public $id;
 
     /**
+     * @description The media access control (MAC) address used in the generation of the activation code.
+     *
      * @example 12:34:56:78:98:00
      *
      * @var string
@@ -58,6 +72,8 @@ class items extends Model
     public $macAddress;
 
     /**
+     * @description The name of the activation code.
+     *
      * @example testName
      *
      * @var string
@@ -65,6 +81,8 @@ class items extends Model
     public $name;
 
     /**
+     * @description The unique identifier of the database.
+     *
      * @example 1234567890123456
      *
      * @var string

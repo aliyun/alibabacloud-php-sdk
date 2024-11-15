@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterEndpointRequest extends Model
 {
     /**
-     * @description Specifies whether to automatically associate newly added nodes with the cluster endpoint. Default value: Disable. Valid values:
+     * @description Specifies whether to enable automatic association of newly added nodes with the cluster endpoint. Valid values:
      *
-     *   **Enable**
-     *   **Disable**
+     *   **Enable**: enables automatic association of newly added nodes with the cluster endpoint.
+     *   **Disable** (default): disables automatic association of newly added nodes with the cluster endpoint.
      *
      * @example Enable
      *
@@ -50,60 +50,74 @@ class ModifyDBClusterEndpointRequest extends Model
     public $DBEndpointId;
 
     /**
-     * @description The advanced configurations of the cluster endpoint, which are in the JSON format. You can specify the configurations of the following attributes: consistency level, transaction splitting, connection pool, and primary node accepts read requests.
+     * @description The advanced configurations of the cluster endpoint, which are in the JSON format. You can configure the consistency level, transaction splitting, and connection pool settings, and specify whether the primary node accepts read requests.
      *
-     *   Specifies the load balancing policy in the format of `{\\"LoadBalancePolicy\\":\\"Selected value\\"}`. Default value: 0. Valid values:
+     *   The load balancing policy. Format: `{\\"LoadBalancePolicy\\":\\"Load balancing policy\\"}`. Valid values:
      *
-     *   **0**: connections-based load balancing
+     *   **0** (default): connections-based load balancing
      *   **1**: active requests-based load balancing
      *
-     *   Specifies whether to enable the primary node accepts read requests feature in the format of `{\\"MasterAcceptReads\\":\\"Selected value\\"}`. Default value: on. Valid values:
+     *   Specifies whether to allow the primary node to accept read requests. Format: `{\\"MasterAcceptReads\\":\\"Specification about whether to allow the primary node to accept read requests\\"}`. Valid values:
      *
-     *   **on**
-     *   **off**
+     *   **on** (default): allows the primary node to accept read requests.
+     *   **off**: does not allow the primary node to accept read requests.
      *
-     *   Specifies whether to enable the transaction splitting feature in the format of `{\\"DistributedTransaction\\":\\"Selected value\\"}`. Default value: on. Valid values:
+     *   Specifies whether to enable the transaction splitting feature. Format: `{\\"DistributedTransaction\\":\\"Specification about whether to enable the transaction splitting feature\\"}`. Valid values:
      *
-     *   **on**
-     *   **off**
+     *   **on** (default): enables the transaction splitting feature.
+     *   **off**: disables the transaction splitting feature.
      *
-     *   Specifies the consistency level in the format of `{\\"ConsistLevel\\":\\"Selected value\\"}`. Default value: 1. Valid values:
+     *   The consistency level. Format: `{\\"ConsistLevel\\":\\"Consistency level\\"}`. Valid values:
      *
      *   **0**: eventual consistency (weak)
-     *   **1**: session consistency (medium)
+     *   **1** (default): session consistency (medium)
      *   **2**: global consistency (strong)
      *
-     *   Specifies the connection pool in the format of `{\\"ConnectionPersist\\":\\"Selected value\\"}`. Default value: off. Valid values:
+     *   The global consistency timeout. Format: `{\\"ConsistTimeout\\":\\"Global consistency timeout\\"}`. Valid values: 0 to 60,000. Default value: 20. Unit: ms.
      *
-     *   **off**: disables the connection pool.
+     *   The session consistency timeout. Format: `{\\"ConsistSessionTimeout\\":\\"Session consistency timeout\\"}`. Valid values: 0 to 60,000. Default value: 0. Unit: ms.
+     *
+     *   The global (or session) consistency timeout policy. Format: `{\\"ConsistTimeoutAction\\":\\"Consistency timeout policy\\"}`. Valid values:
+     *
+     *   **0** (default): PolarProxy sends read requests to the primary node.
+     *   **1**: PolarProxy returns the "wait replication complete timeout, please retry" error message to the application.
+     *
+     *   Specifies whether to enable the connection pool feature. Format: `{\\"ConnectionPersist\\":\\"Specification about whether to enable the connection pool feature\\"}`. Valid values:
+     *
+     *   **off** (default): disables the connection pool feature.
      *   **Session**: enables the session-level connection pool.
      *   **Transaction**: enables the transaction-level connection pool.
      *
-     *   Specifies whether to enable the parallel query feature in the format of `{\\"MaxParallelDegree\\":\\"Selected value\\"}`. Default value: off. Valid values:
+     *   Specifies whether to enable the parallel query feature. Format: `{\\"MaxParallelDegree\\":\\"Specification about whether to enable the parallel query feature\\"}`. Valid values:
      *
-     *   **on**
-     *   **off**
+     *   **on**: enables the parallel query feature.
+     *   **off** (default): disables the parallel query feature.
      *
-     *   Specifies whether to enable the automatic request distribution between row store and column store nodes feature in the format of `{\\"EnableHtapImci\\":\\"Selected value\\"}`. Default value: off. Valid values:
+     *   Specifies whether to enable the automatic request distribution among row store and column store nodes feature. Format: `{\\"EnableHtapImci\\":\\"Specification about whether to enable automatic request distribution among row store and column store nodes feature\\"}`. Valid values:
      *
-     *   **on**
-     *   **off**
+     *   **on**: enables the automatic request distribution among row store and column store nodes feature.
+     *   **off** (default): disables the automatic request distribution among row store and column store nodes feature.
      *
-     *   Specifies whether to enable the overload protection feature in the format of `{\\"EnableOverloadThrottle\\":\\"Selected value\\"}`. Default value: off. Valid values:
+     *   Specifies whether to enable the overload protection feature. Format: `{\\"EnableOverloadThrottle\\":\\"Specification about whether to enable the overload protection feature\\"}`. Valid values:
      *
-     *   **on**
-     *   **off**
+     *   **on**: enables the overload protection feature.
+     *   **off** (default): disables the overload protection feature.
      *
      * >
      *
-     *   You can specify the transaction splitting, primary node accepts read requests, connection pool, and overload protection features for a PolarDB for MySQL cluster only if ReadWriteMode is set to ReadWrite for the cluster endpoint.
+     *   You can configure the transaction splitting, connection pool, and overload protection settings, and specify whether the primary node accepts read requests settings for the cluster endpoint of a PolarDB for MySQL cluster only if ReadWriteMode of the cluster endpoint is set to Read and Write (Automatic Read/Write Splitting).
      *
-     *   If the read /write mode of a PolarDB for MySQL cluster is set to **Read-only**, the **Connection-based SLB** and **Active Request-based SLB** SLB policies are supported. The **Read-write (Automatic read /write splitting) **mode of the cluster supports** Active Request-based SLB** policy.
-     *   If ReadWriteMode is set to **ReadWrite** for the cluster endpoint of a PolarDB for MySQL cluster or if ReadWriteMode is set to **ReadOnly** and the load balancing policy is set to **active requests-based load balancing**, the automatic request distribution between row store and column store nodes feature is supported.
+     *   If ReadWriteMode of the cluster endpoint of a PolarDB for MySQL cluster is set to **Read-only**, you can specify the **Connections-based Load Balancing** or **Active Request-based Load Balancing** policy for the cluster endpoint. If ReadWriteMode of the cluster endpoint of a PolarDB for MySQL cluster is set to **Read/Write (Automatic Read/Write Splitting)**, you can specify only the **Active Request-based Load Balancing** policy for the cluster endpoint.
+     *
+     *   You can enable automatic request distribution among column store and row store nodes for the cluster endpoint of a PolarDB for MySQL cluster if ReadWriteMode of the cluster endpoint is set to **Read and Write (Automatic Read/Write Splitting)**, or if the ReadWriteMode of the cluster endpoint is set to **Read-only** and the load balancing policy is set to **Active requests-based load balancing**.
+     *
      *   Only PolarDB for MySQL supports global consistency.
-     *   If the **ReadWriteMode** parameter is set to **ReadOnly**, the consistency level must be **0**.
-     *   You can specify the consistency level, transaction splitting, connection pool, and primary node accepts read requests features at a time, such as `{\\"ConsistLevel\\":\\"1\\",\\"DistributedTransaction\\":\\"on\\",\\"ConnectionPersist\\":\\"Session\\",\\"MasterAcceptReads\\":\\"on\\"}`.
-     *   The transaction splitting settings are restricted by the consistency level settings. For example, if you set the consistency level to **0**, transaction splitting cannot be enabled. If you set the consistency level to **1** or **2**, transaction splitting can be enabled.
+     *
+     *   You can set the consistency level of the cluster endpoint of a PolarDB for MySQL cluster only to **0** if **ReadWriteMode** of the cluster endpoint is set to **ReadOnly**.
+     *
+     *   You can configure the settings for the consistency level, transaction splitting, and connection pool features, and specify whether the primary node accepts read requests settings at a time. Example: `{\\"ConsistLevel\\":\\"1\\",\\"DistributedTransaction\\":\\"on\\",\\"ConnectionPersist\\":\\"Session\\",\\"MasterAcceptReads\\":\\"on\\"}`.
+     *
+     *   The configuration for transaction splitting is limited by the configuration for the consistency level. For example, if you set the consistency level to **0**, you cannot enable transaction splitting. If you set the consistency level to **1** or **2**, you can enable transaction splitting.
      *
      * @example {"ConsistLevel":"1","DistributedTransaction":"on","MasterAcceptReads":"off","ConnectionPersist": "on"}
      *
@@ -144,11 +158,22 @@ class ModifyDBClusterEndpointRequest extends Model
     public $ownerId;
 
     /**
+     * @description Global consistency timeout policy. Valid values:
+     *
+     *   **0**: sends the request to the primary node.
+     *   **2**: downgrades the consistency level of a query to inconsistent read when a global consistent read in the query times out. No error message is returned to the client.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $polarSccTimeoutAction;
 
     /**
+     * @description Global consistency timeout.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $polarSccWaitTimeout;
@@ -176,6 +201,18 @@ class ModifyDBClusterEndpointRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies whether to enable the global consistency (high-performance mode) feature for the nodes. Valid values:
+     *
+     *   **ON**
+     *   **OFF**
+     *
+     * Valid values:
+     *
+     *   on
+     *   off
+     *
+     * @example on
+     *
      * @var string
      */
     public $sccMode;

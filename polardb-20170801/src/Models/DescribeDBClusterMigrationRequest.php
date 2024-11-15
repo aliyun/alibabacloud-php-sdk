@@ -9,7 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterMigrationRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The network type of the endpoint. Valid values:
+     *
+     *   **Public**: the public endpoint
+     *   **Private**: the internal endpoint (VPC)
+     *   **Inner**: the internal endpoint (classic network)
      *
      * This parameter is required.
      * @example pc-**************

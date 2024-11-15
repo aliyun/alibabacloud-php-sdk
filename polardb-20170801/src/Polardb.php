@@ -915,7 +915,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 生成轻量化版本激活码
+     * @summary Generates a lightweight license activation code.
      *  *
      * @param CreateActivationCodeRequest $request CreateActivationCodeRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -972,7 +972,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 生成轻量化版本激活码
+     * @summary Generates a lightweight license activation code.
      *  *
      * @param CreateActivationCodeRequest $request CreateActivationCodeRequest
      *
@@ -1148,6 +1148,9 @@ class Polardb extends OpenApiClient
         }
         if (!Utils::isUnset($request->backupRetentionPolicyOnClusterDeletion)) {
             $query['BackupRetentionPolicyOnClusterDeletion'] = $request->backupRetentionPolicyOnClusterDeletion;
+        }
+        if (!Utils::isUnset($request->burstingEnabled)) {
+            $query['BurstingEnabled'] = $request->burstingEnabled;
         }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
@@ -1924,7 +1927,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 创建或获取虚拟证书订单
+     * @summary Creates or obtains a virtual license order.
      *  *
      * @param CreateOrGetVirtualLicenseOrderRequest $request CreateOrGetVirtualLicenseOrderRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -1969,7 +1972,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 创建或获取虚拟证书订单
+     * @summary Creates or obtains a virtual license order.
      *  *
      * @param CreateOrGetVirtualLicenseOrderRequest $request CreateOrGetVirtualLicenseOrderRequest
      *
@@ -3161,7 +3164,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 查询激活码列表
+     * @summary Queries a list of activation codes.
      *  *
      * @param DescribeActivationCodesRequest $request DescribeActivationCodesRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -3212,7 +3215,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 查询激活码列表
+     * @summary Queries a list of activation codes.
      *  *
      * @param DescribeActivationCodesRequest $request DescribeActivationCodesRequest
      *
@@ -4098,10 +4101,9 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the migration status of PolarDB clusters.
+     * @summary The ID of the synchronous task.
      *  *
-     * @description *   You can call this operation to query the status of data migration from an ApsaraDB RDS instance to a PolarDB cluster. For more information, see [Upgrade ApsaraDB RDS for MySQL to PolarDB for MySQL with one click](https://help.aliyun.com/document_detail/121582.html).
-     * *   Before you call this operation, make sure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**.
+     * @description The ID of the request.
      *  *
      * @param DescribeDBClusterMigrationRequest $request DescribeDBClusterMigrationRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -4146,10 +4148,9 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the migration status of PolarDB clusters.
+     * @summary The ID of the synchronous task.
      *  *
-     * @description *   You can call this operation to query the status of data migration from an ApsaraDB RDS instance to a PolarDB cluster. For more information, see [Upgrade ApsaraDB RDS for MySQL to PolarDB for MySQL with one click](https://help.aliyun.com/document_detail/121582.html).
-     * *   Before you call this operation, make sure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**.
+     * @description The ID of the request.
      *  *
      * @param DescribeDBClusterMigrationRequest $request DescribeDBClusterMigrationRequest
      *
@@ -5707,7 +5708,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 查询License订单列表
+     * @summary Queries a list of license orders.
      *  *
      * @param DescribeLicenseOrdersRequest $request DescribeLicenseOrdersRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -5767,7 +5768,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 查询License订单列表
+     * @summary Queries a list of license orders.
      *  *
      * @param DescribeLicenseOrdersRequest $request DescribeLicenseOrdersRequest
      *
@@ -10771,7 +10772,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Temporarily changes the node configurations of a cluster.
+     * @summary Temporarily changes the node configurations.
      *  *
      * @param TempModifyDBNodeRequest $request TempModifyDBNodeRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -10831,7 +10832,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Temporarily changes the node configurations of a cluster.
+     * @summary Temporarily changes the node configurations.
      *  *
      * @param TempModifyDBNodeRequest $request TempModifyDBNodeRequest
      *

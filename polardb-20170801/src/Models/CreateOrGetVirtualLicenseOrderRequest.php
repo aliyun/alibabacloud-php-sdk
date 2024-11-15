@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateOrGetVirtualLicenseOrderRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The type of the engine. Valid values: PG, Oracle, and MySQL.
      *
+     * This parameter is required.
      * @example PG
      *
      * @var string

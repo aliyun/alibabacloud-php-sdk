@@ -11,9 +11,9 @@ class EvaluateRegionResourceRequest extends Model
     /**
      * @description The cluster link type. The backend randomly selects the default value. Valid values:
      *
-     *   **lvs** :Linux virtual server
-     *   **proxy**: proxy server
-     *   **dns**: domain name system
+     *   **lvs**: Linux virtual server.
+     *   **proxy**: proxy server.
+     *   **dns**: domain name system.
      *
      * @example lvs
      *
@@ -85,9 +85,9 @@ class EvaluateRegionResourceRequest extends Model
     public $dispenseMode;
 
     /**
-     * @description Specifies whether Maxscale is created. Default value: true. Valid values:
+     * @description Specifies whether to create Maxscale. Valid values:
      *
-     *   **true**
+     *   **true** (default)
      *   **false**
      *
      * This parameter is required.

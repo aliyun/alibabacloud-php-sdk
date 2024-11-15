@@ -136,6 +136,12 @@ class CreateAccountRequest extends Model
      *   **0 or unspecified**: does not grant required permissions.
      *   **1**: grants required permissions.
      *
+     * >
+     *
+     *   The parameter is valid only after you configure the `AccountPrivilege` parameter.
+     *
+     *   If you set the parameter to `1`, the current account is granted to the required permissions on all databases in the current cluster that are specified by the `AccountPrivilege` parameter.
+     *
      * @example 0
      *
      * @var string

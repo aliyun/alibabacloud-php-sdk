@@ -19,6 +19,10 @@ class CreateGlobalDatabaseNetworkRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description Specifies whether to create a global domain name.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableGlobalDomainName;

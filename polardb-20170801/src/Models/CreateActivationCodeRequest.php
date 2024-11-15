@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateActivationCodeRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The Alibaba Cloud order ID (including the virtual order ID).
      *
+     * This parameter is required.
      * @example 2233****445566
      *
      * @var string
@@ -18,6 +19,8 @@ class CreateActivationCodeRequest extends Model
     public $aliyunOrderId;
 
     /**
+     * @description The description of the activation code.
+     *
      * @example testCode
      *
      * @var string
@@ -25,8 +28,9 @@ class CreateActivationCodeRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
+     * @description The MAC address.
      *
+     * This parameter is required.
      * @example 12:34:56:78:98:00
      *
      * @var string
@@ -34,8 +38,9 @@ class CreateActivationCodeRequest extends Model
     public $macAddress;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the activation code. The name can contain only letters, digits, underscores (_), and hyphens (-). The activation code file downloaded from the console is named based on this name.
      *
+     * This parameter is required.
      * @example testName
      *
      * @var string
@@ -63,6 +68,8 @@ class CreateActivationCodeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The system identifier of the database. This parameter is required if you set AllowEmptySystemIdentifier to false.
+     *
      * @example 1234567890123456
      *
      * @var string

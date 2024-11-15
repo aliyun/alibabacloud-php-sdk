@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeActivationCodesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the Alibaba Cloud order. The value can be the ID of a virtual order.
      *
+     * This parameter is required.
      * @example 2233****445566
      *
      * @var string
@@ -28,6 +29,8 @@ class DescribeActivationCodesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -35,6 +38,8 @@ class DescribeActivationCodesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 30
      *
      * @var int

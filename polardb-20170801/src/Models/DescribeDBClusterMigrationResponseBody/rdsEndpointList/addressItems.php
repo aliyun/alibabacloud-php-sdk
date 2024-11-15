@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class addressItems extends Model
 {
     /**
-     * @description The endpoint.
+     * @description Indicates whether SSL encryption is enabled. Valid values:
+     *
+     *   **Enabled**
+     *   **Disabled**
      *
      * @example rm-***********.mysql.rds.aliyuncs.com
      *
@@ -18,7 +21,10 @@ class addressItems extends Model
     public $connectionString;
 
     /**
-     * @description The IP address of the endpoint.
+     * @description The type of the source database. Valid values:
+     *
+     *   **PolarDBMySQL**: The source database is a PolarDB for MySQL database when the major version of your PolarDB cluster is upgraded.
+     *   **RDS**: The source database is an ApsaraDB RDS database when data is migrated from ApsaraDB RDS to PolarDB for MySQL.
      *
      * @example 172.***.***.173
      *
@@ -27,11 +33,7 @@ class addressItems extends Model
     public $IPAddress;
 
     /**
-     * @description The network type of the endpoint. Valid values:
-     *
-     *   **Public**: the public endpoint
-     *   **Private**: the internal endpoint (VPC)
-     *   **Inner**: the internal endpoint (classic network)
+     * @description The ID of the endpoint.
      *
      * @example Private
      *
@@ -40,7 +42,10 @@ class addressItems extends Model
     public $netType;
 
     /**
-     * @description The port number.
+     * @description The type of the endpoint. Valid values:
+     *
+     *   **Normal**: the standard endpoint
+     *   **ReadWriteSplitting**: the read/write splitting endpoint
      *
      * @example 3306
      *
@@ -49,11 +54,6 @@ class addressItems extends Model
     public $port;
 
     /**
-     * @description Indicates whether SSL encryption is enabled. Valid values:
-     *
-     *   **Enabled**
-     *   **Disabled**
-     *
      * @example Enabled
      *
      * @var string
@@ -61,7 +61,7 @@ class addressItems extends Model
     public $SSLEnabled;
 
     /**
-     * @description The VPC ID.
+     * @description The instance type.
      *
      * @example vpc-************
      *
@@ -70,7 +70,7 @@ class addressItems extends Model
     public $VPCId;
 
     /**
-     * @description The vSwitch ID.
+     * @description The IP address of the endpoint.
      *
      * @example vsw-**************
      *

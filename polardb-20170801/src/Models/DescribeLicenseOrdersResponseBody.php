@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeLicenseOrdersResponseBody extends Model
 {
     /**
+     * @description The queried orders.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeLicenseOrdersResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
      * @example 12
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeLicenseOrdersResponseBody extends Model
     public $pageRecordCount;
 
     /**
+     * @description The request ID.
+     *
      * @example 34458CD3-33E0-4624-BFEF-840C15******
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeLicenseOrdersResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 50
      *
      * @var int

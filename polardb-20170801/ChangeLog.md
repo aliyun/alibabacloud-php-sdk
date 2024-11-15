@@ -1,3 +1,19 @@
+2024-11-15 Version: 5.2.1
+- Update API CreateDBCluster: add param BurstingEnabled.
+- Update API CreateDBCluster: update param DBNodeNum.
+- Update API DescribeAITaskStatus: update param AccessKeyId.
+- Update API DescribeAITaskStatus: update response param.
+- Update API DescribeBackups: update param AccessKeyId.
+- Update API DescribeBackups: update response param.
+- Update API DescribeCharacterSetName: update param AccessKeyId.
+- Update API DescribeClassList: update param AccessKeyId.
+- Update API DescribeClassList: update response param.
+- Update API DescribeDBClusterAttribute: update response param.
+- Update API DescribeDBClusterAvailableResources: update param AccessKeyId.
+- Update API EvaluateRegionResource: update param AccessKeyId.
+- Update API ModifyDBNodeHotReplicaMode: update param AccessKeyId.
+
+
 2024-10-25 Version: 5.2.0
 - Support API CreateActivationCode.
 - Support API CreateOrGetVirtualLicenseOrder.

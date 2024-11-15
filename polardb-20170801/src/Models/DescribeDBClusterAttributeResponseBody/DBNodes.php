@@ -45,6 +45,11 @@ class DBNodes extends Model
     public $DBNodeClass;
 
     /**
+     * @var string
+     */
+    public $DBNodeDescription;
+
+    /**
      * @description Node ID.
      *
      * @example pi-****************
@@ -250,6 +255,7 @@ class DBNodes extends Model
         'cpuCores'                => 'CpuCores',
         'creationTime'            => 'CreationTime',
         'DBNodeClass'             => 'DBNodeClass',
+        'DBNodeDescription'       => 'DBNodeDescription',
         'DBNodeId'                => 'DBNodeId',
         'DBNodeRole'              => 'DBNodeRole',
         'DBNodeStatus'            => 'DBNodeStatus',
@@ -290,6 +296,9 @@ class DBNodes extends Model
         }
         if (null !== $this->DBNodeClass) {
             $res['DBNodeClass'] = $this->DBNodeClass;
+        }
+        if (null !== $this->DBNodeDescription) {
+            $res['DBNodeDescription'] = $this->DBNodeDescription;
         }
         if (null !== $this->DBNodeId) {
             $res['DBNodeId'] = $this->DBNodeId;
@@ -374,6 +383,9 @@ class DBNodes extends Model
         }
         if (isset($map['DBNodeClass'])) {
             $model->DBNodeClass = $map['DBNodeClass'];
+        }
+        if (isset($map['DBNodeDescription'])) {
+            $model->DBNodeDescription = $map['DBNodeDescription'];
         }
         if (isset($map['DBNodeId'])) {
             $model->DBNodeId = $map['DBNodeId'];

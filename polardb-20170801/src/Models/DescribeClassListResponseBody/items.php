@@ -50,6 +50,11 @@ class items extends Model
     public $cpu;
 
     /**
+     * @var string
+     */
+    public $essdMaxStorageCapacity;
+
+    /**
      * @description The maximum number of concurrent connections in the cluster.
      *
      * @example 8000
@@ -113,6 +118,11 @@ class items extends Model
     public $pl3MaxIOPS;
 
     /**
+     * @var string
+     */
+    public $polarStoreMaxStorageCapacity;
+
+    /**
      * @description The maximum Input/output operations per second (IOPS) for PolarStore Level 4 (PSL4). Unit: operations per second.
      *
      * @example 48000
@@ -150,21 +160,23 @@ class items extends Model
      */
     public $referencePrice;
     protected $_name = [
-        'classCode'          => 'ClassCode',
-        'classGroup'         => 'ClassGroup',
-        'classTypeLevel'     => 'ClassTypeLevel',
-        'cpu'                => 'Cpu',
-        'maxConnections'     => 'MaxConnections',
-        'maxIOPS'            => 'MaxIOPS',
-        'maxStorageCapacity' => 'MaxStorageCapacity',
-        'memoryClass'        => 'MemoryClass',
-        'pl1MaxIOPS'         => 'Pl1MaxIOPS',
-        'pl2MaxIOPS'         => 'Pl2MaxIOPS',
-        'pl3MaxIOPS'         => 'Pl3MaxIOPS',
-        'psl4MaxIOPS'        => 'Psl4MaxIOPS',
-        'psl5MaxIOPS'        => 'Psl5MaxIOPS',
-        'referenceExtPrice'  => 'ReferenceExtPrice',
-        'referencePrice'     => 'ReferencePrice',
+        'classCode'                    => 'ClassCode',
+        'classGroup'                   => 'ClassGroup',
+        'classTypeLevel'               => 'ClassTypeLevel',
+        'cpu'                          => 'Cpu',
+        'essdMaxStorageCapacity'       => 'EssdMaxStorageCapacity',
+        'maxConnections'               => 'MaxConnections',
+        'maxIOPS'                      => 'MaxIOPS',
+        'maxStorageCapacity'           => 'MaxStorageCapacity',
+        'memoryClass'                  => 'MemoryClass',
+        'pl1MaxIOPS'                   => 'Pl1MaxIOPS',
+        'pl2MaxIOPS'                   => 'Pl2MaxIOPS',
+        'pl3MaxIOPS'                   => 'Pl3MaxIOPS',
+        'polarStoreMaxStorageCapacity' => 'PolarStoreMaxStorageCapacity',
+        'psl4MaxIOPS'                  => 'Psl4MaxIOPS',
+        'psl5MaxIOPS'                  => 'Psl5MaxIOPS',
+        'referenceExtPrice'            => 'ReferenceExtPrice',
+        'referencePrice'               => 'ReferencePrice',
     ];
 
     public function validate()
@@ -186,6 +198,9 @@ class items extends Model
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
+        if (null !== $this->essdMaxStorageCapacity) {
+            $res['EssdMaxStorageCapacity'] = $this->essdMaxStorageCapacity;
+        }
         if (null !== $this->maxConnections) {
             $res['MaxConnections'] = $this->maxConnections;
         }
@@ -206,6 +221,9 @@ class items extends Model
         }
         if (null !== $this->pl3MaxIOPS) {
             $res['Pl3MaxIOPS'] = $this->pl3MaxIOPS;
+        }
+        if (null !== $this->polarStoreMaxStorageCapacity) {
+            $res['PolarStoreMaxStorageCapacity'] = $this->polarStoreMaxStorageCapacity;
         }
         if (null !== $this->psl4MaxIOPS) {
             $res['Psl4MaxIOPS'] = $this->psl4MaxIOPS;
@@ -243,6 +261,9 @@ class items extends Model
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
+        if (isset($map['EssdMaxStorageCapacity'])) {
+            $model->essdMaxStorageCapacity = $map['EssdMaxStorageCapacity'];
+        }
         if (isset($map['MaxConnections'])) {
             $model->maxConnections = $map['MaxConnections'];
         }
@@ -263,6 +284,9 @@ class items extends Model
         }
         if (isset($map['Pl3MaxIOPS'])) {
             $model->pl3MaxIOPS = $map['Pl3MaxIOPS'];
+        }
+        if (isset($map['PolarStoreMaxStorageCapacity'])) {
+            $model->polarStoreMaxStorageCapacity = $map['PolarStoreMaxStorageCapacity'];
         }
         if (isset($map['Psl4MaxIOPS'])) {
             $model->psl4MaxIOPS = $map['Psl4MaxIOPS'];

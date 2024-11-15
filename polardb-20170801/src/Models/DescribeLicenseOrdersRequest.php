@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeLicenseOrdersRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud order. The value can be the ID of a virtual order.
+     *
      * @example 239618016570503
      *
      * @var string
@@ -26,6 +28,14 @@ class DescribeLicenseOrdersRequest extends Model
     public $ownerId;
 
     /**
+     * @description The type of the package. Valid values:
+     *
+     *   single_node_subscribe: Single-node Edition (Subscription).
+     *   single_node_long_term: Single-node Edition (Long-term).
+     *   primary_backup_subscribe: HA Edition (Subscription).
+     *   primary_backup_long_term: HA Edition (Long-term).
+     *   pre_generation_long_term: Pre-generated (Long-term).
+     *
      * @example single_node_subscribe
      *
      * @var string
@@ -33,6 +43,8 @@ class DescribeLicenseOrdersRequest extends Model
     public $packageType;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -40,6 +52,8 @@ class DescribeLicenseOrdersRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 30
      *
      * @var int
@@ -47,6 +61,8 @@ class DescribeLicenseOrdersRequest extends Model
     public $pageSize;
 
     /**
+     * @description The purchase channel. Valid values: aliyun_market and aliyun_public. aliyun_market specifies Alibaba Cloud Marketplace. aliyun_public specifies the PolarDB buy page.
+     *
      * @example aliyun_market
      *
      * @var string
@@ -64,6 +80,8 @@ class DescribeLicenseOrdersRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies whether to query only virtual orders.
+     *
      * @var bool
      */
     public $virtualOrder;
