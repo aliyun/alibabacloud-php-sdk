@@ -6,15 +6,17 @@ namespace AlibabaCloud\SDK\IQS\V20241111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GenericSearchRequest extends Model
+class AiSearchRequest extends Model
 {
     /**
+     * @example finance
+     *
      * @var string
      */
     public $industry;
 
     /**
-     * @example 1
+     * @example {\\"total_count\\": 6851, \\"page_number\\": 54, \\"page_size\\": 100}
      *
      * @var int
      */
@@ -28,6 +30,8 @@ class GenericSearchRequest extends Model
     public $query;
 
     /**
+     * @example 17dc8bcd-f34a-46d1-a7a3-0fa3d1ce3824
+     *
      * @var string
      */
     public $sessionId;
@@ -75,7 +79,7 @@ class GenericSearchRequest extends Model
     /**
      * @param array $map
      *
-     * @return GenericSearchRequest
+     * @return AiSearchRequest
      */
     public static function fromMap($map = [])
     {

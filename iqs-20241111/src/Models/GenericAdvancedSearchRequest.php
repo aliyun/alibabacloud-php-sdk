@@ -6,20 +6,8 @@ namespace AlibabaCloud\SDK\IQS\V20241111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GenericSearchRequest extends Model
+class GenericAdvancedSearchRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $industry;
-
-    /**
-     * @example 1
-     *
-     * @var int
-     */
-    public $page;
-
     /**
      * @description This parameter is required.
      *
@@ -28,6 +16,8 @@ class GenericSearchRequest extends Model
     public $query;
 
     /**
+     * @example job-4065bee3-e7aa-49fc-aad2-a8e3a7fd6acd
+     *
      * @var string
      */
     public $sessionId;
@@ -39,8 +29,6 @@ class GenericSearchRequest extends Model
      */
     public $timeRange;
     protected $_name = [
-        'industry'  => 'industry',
-        'page'      => 'page',
         'query'     => 'query',
         'sessionId' => 'sessionId',
         'timeRange' => 'timeRange',
@@ -53,12 +41,6 @@ class GenericSearchRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->industry) {
-            $res['industry'] = $this->industry;
-        }
-        if (null !== $this->page) {
-            $res['page'] = $this->page;
-        }
         if (null !== $this->query) {
             $res['query'] = $this->query;
         }
@@ -75,17 +57,11 @@ class GenericSearchRequest extends Model
     /**
      * @param array $map
      *
-     * @return GenericSearchRequest
+     * @return GenericAdvancedSearchRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['industry'])) {
-            $model->industry = $map['industry'];
-        }
-        if (isset($map['page'])) {
-            $model->page = $map['page'];
-        }
         if (isset($map['query'])) {
             $model->query = $map['query'];
         }

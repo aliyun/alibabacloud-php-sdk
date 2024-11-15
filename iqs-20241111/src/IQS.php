@@ -6,6 +6,10 @@ namespace AlibabaCloud\SDK\IQS\V20241111;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\IQS\V20241111\Models\AiSearchRequest;
+use AlibabaCloud\SDK\IQS\V20241111\Models\AiSearchResponse;
+use AlibabaCloud\SDK\IQS\V20241111\Models\GenericAdvancedSearchRequest;
+use AlibabaCloud\SDK\IQS\V20241111\Models\GenericAdvancedSearchResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GenericSearchRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GenericSearchResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -48,6 +52,124 @@ class IQS extends OpenApiClient
     }
 
     /**
+     * @summary AI搜索流式接口
+     *  *
+     * @param AiSearchRequest $request AiSearchRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AiSearchResponse AiSearchResponse
+     */
+    public function aiSearchWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->industry)) {
+            $query['industry'] = $request->industry;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $query['query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $query['sessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->timeRange)) {
+            $query['timeRange'] = $request->timeRange;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AiSearch',
+            'version'     => '2024-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/linked-retrieval/linked-retrieval-entry/v3/linkedRetrieval/commands/aiSearch',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return AiSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary AI搜索流式接口
+     *  *
+     * @param AiSearchRequest $request AiSearchRequest
+     *
+     * @return AiSearchResponse AiSearchResponse
+     */
+    public function aiSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->aiSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 增强版通用搜索
+     *  *
+     * @param GenericAdvancedSearchRequest $request GenericAdvancedSearchRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GenericAdvancedSearchResponse GenericAdvancedSearchResponse
+     */
+    public function genericAdvancedSearchWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->query)) {
+            $query['query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $query['sessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->timeRange)) {
+            $query['timeRange'] = $request->timeRange;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenericAdvancedSearch',
+            'version'     => '2024-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/linked-retrieval/linked-retrieval-entry/v2/linkedRetrieval/commands/genericAdvancedSearch',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenericAdvancedSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 增强版通用搜索
+     *  *
+     * @param GenericAdvancedSearchRequest $request GenericAdvancedSearchRequest
+     *
+     * @return GenericAdvancedSearchResponse GenericAdvancedSearchResponse
+     */
+    public function genericAdvancedSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->genericAdvancedSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 通用搜索
      *  *
      * @param GenericSearchRequest $request GenericSearchRequest
@@ -60,8 +182,17 @@ class IQS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->industry)) {
+            $query['industry'] = $request->industry;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
+        }
         if (!Utils::isUnset($request->query)) {
             $query['query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $query['sessionId'] = $request->sessionId;
         }
         if (!Utils::isUnset($request->timeRange)) {
             $query['timeRange'] = $request->timeRange;
