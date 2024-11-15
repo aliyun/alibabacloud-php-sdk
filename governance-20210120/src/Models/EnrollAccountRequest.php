@@ -111,6 +111,8 @@ class EnrollAccountRequest extends Model
     public $resellAccountType;
 
     /**
+     * @description The tags. You can specify up to 20 tags.
+     *
      * @var tag[]
      */
     public $tag;

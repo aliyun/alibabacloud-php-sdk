@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListEvaluationScoreHistoryResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example AC9BD94C-D20C-4D27-88D4-89E8D75C051B
      *
      * @var string
@@ -17,6 +19,8 @@ class ListEvaluationScoreHistoryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The historical scores.
+     *
      * @var scoreHistory
      */
     public $scoreHistory;

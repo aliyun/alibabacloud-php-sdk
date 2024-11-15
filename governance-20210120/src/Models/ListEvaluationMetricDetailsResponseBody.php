@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListEvaluationMetricDetailsResponseBody extends Model
 {
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
      * @example AAAAAGEaXR18y1rqykZHIqRuBejOqED4S3Xne33c7zbn****
      *
      * @var string
@@ -17,6 +19,8 @@ class ListEvaluationMetricDetailsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example AC9BD94C-D20C-4D27-88D4-89E8D75C****
      *
      * @var string
@@ -24,6 +28,8 @@ class ListEvaluationMetricDetailsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The details of the non-compliant resources.
+     *
      * @var resources[]
      */
     public $resources;

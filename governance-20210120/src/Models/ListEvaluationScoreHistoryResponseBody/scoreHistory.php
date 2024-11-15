@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class scoreHistory extends Model
 {
     /**
+     * @description The historical scores.
+     *
      * @var totalScoreHistory[]
      */
     public $totalScoreHistory;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @description 合规状态。取值：
+     * - PendingInclusion：已取消忽略未生效。
+     * @example NonCompliant
+     *
      * @var string
      */
     public $complianceType;
 
     /**
+     * @description The region ID of the resource.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -22,6 +28,9 @@ class resources extends Model
     public $regionId;
 
     /**
+     * @description The check results further analyzed by auxiliary decision-making.
+     *
+     * >  This parameter is returned only when the check item supports the auxiliary decision-making feature.
      * @example RecentUnloginRamUser
      *
      * @var string
@@ -29,6 +38,8 @@ class resources extends Model
     public $resourceClassification;
 
     /**
+     * @description The resource ID.
+     *
      * @example 26435103783237****
      *
      * @var string
@@ -36,11 +47,15 @@ class resources extends Model
     public $resourceId;
 
     /**
+     * @description The name of the resource.
+     *
      * @var string
      */
     public $resourceName;
 
     /**
+     * @description The ID of the Alibaba Cloud account that owns the resource.
+     *
      * @example 176618589410****
      *
      * @var int
@@ -48,11 +63,15 @@ class resources extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The attributes of the resource.
+     *
      * @var resourceProperties[]
      */
     public $resourceProperties;
 
     /**
+     * @description The type of the resource.
+     *
      * @example ACS::RAM::User
      *
      * @var string

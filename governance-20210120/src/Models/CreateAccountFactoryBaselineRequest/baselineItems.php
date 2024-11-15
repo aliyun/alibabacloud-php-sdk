@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class baselineItems extends Model
 {
     /**
+     * @description The configurations of the baseline item. The value of this parameter is a JSON string.
+     *
      * @example {\\"EnabledServices\\":[\\"CEN_TR\\",\\"CDT\\",\\"CMS\\",\\"KMS\\"]}
      *
      * @var string
@@ -16,6 +18,8 @@ class baselineItems extends Model
     public $config;
 
     /**
+     * @description The name of the baseline item.
+     *
      * @example ACS-BP_ACCOUNT_FACTORY_VPC
      *
      * @var string
@@ -23,6 +27,8 @@ class baselineItems extends Model
     public $name;
 
     /**
+     * @description The version of the baseline item.
+     *
      * @example 1.0
      *
      * @var string

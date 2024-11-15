@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListAccountFactoryBaselineItemsResponseBody extends Model
 {
     /**
+     * @description The baseline items.
+     *
      * @var baselineItems[]
      */
     public $baselineItems;
 
     /**
+     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+     *
      * @example AAAAACDGQdAEX3m42z3sQ+f3VTK2Xr2DzYbz/SAfc/zJRqod
      *
      * @var string
@@ -22,6 +26,8 @@ class ListAccountFactoryBaselineItemsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example B40D73D8-76AC-5D3C-AC63-4FC8AFCE6671
      *
      * @var string

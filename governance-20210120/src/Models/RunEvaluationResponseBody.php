@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RunEvaluationResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 2D3E2A3A-F2B8-578D-9659-3195F94A****
      *
      * @var string

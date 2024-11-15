@@ -35,6 +35,7 @@ use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationScoreHistoryReque
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationScoreHistoryResponse;
 use AlibabaCloud\SDK\Governance\V20210120\Models\RunEvaluationRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\RunEvaluationResponse;
+use AlibabaCloud\SDK\Governance\V20210120\Models\RunEvaluationShrinkRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\UpdateAccountFactoryBaselineRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\UpdateAccountFactoryBaselineResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -78,7 +79,10 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary 账号工厂批量注册账号
+     * @summary Applies an account baseline to multiple existing resource accounts at a time.
+     *  *
+     * @description You can call this operation to apply an account baseline to existing resource accounts.
+     * Accounts are enrolled in the account factory in asynchronous mode. After a resource account is created, an account baseline is applied to the account. You can call the [GetEnrolledAccount](https://help.aliyun.com/document_detail/609062.html) operation to query the details of the account enrolled in the account factory and check whether the account baseline is applied to the account.
      *  *
      * @param BatchEnrollAccountsRequest $request BatchEnrollAccountsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -120,7 +124,10 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary 账号工厂批量注册账号
+     * @summary Applies an account baseline to multiple existing resource accounts at a time.
+     *  *
+     * @description You can call this operation to apply an account baseline to existing resource accounts.
+     * Accounts are enrolled in the account factory in asynchronous mode. After a resource account is created, an account baseline is applied to the account. You can call the [GetEnrolledAccount](https://help.aliyun.com/document_detail/609062.html) operation to query the details of the account enrolled in the account factory and check whether the account baseline is applied to the account.
      *  *
      * @param BatchEnrollAccountsRequest $request BatchEnrollAccountsRequest
      *
@@ -134,7 +141,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary 创建账号工厂基线
+     * @summary Creates a baseline of the account factory.
      *  *
      * @param CreateAccountFactoryBaselineRequest $request CreateAccountFactoryBaselineRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -176,7 +183,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary 创建账号工厂基线
+     * @summary Creates a baseline of the account factory.
      *  *
      * @param CreateAccountFactoryBaselineRequest $request CreateAccountFactoryBaselineRequest
      *
@@ -190,7 +197,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary 删除账号工厂基线
+     * @summary Deletes an account factory baseline.
      *  *
      * @param DeleteAccountFactoryBaselineRequest $request DeleteAccountFactoryBaselineRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -226,7 +233,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary 删除账号工厂基线
+     * @summary Deletes an account factory baseline.
      *  *
      * @param DeleteAccountFactoryBaselineRequest $request DeleteAccountFactoryBaselineRequest
      *
@@ -425,7 +432,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary 获取账号工厂基线元素列表
+     * @summary Queries a list of baseline items that are supported by the account factory of Cloud Governance Center (CGC).
      *  *
      * @param ListAccountFactoryBaselineItemsRequest $request ListAccountFactoryBaselineItemsRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -473,7 +480,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary 获取账号工厂基线元素列表
+     * @summary Queries a list of baseline items that are supported by the account factory of Cloud Governance Center (CGC).
      *  *
      * @param ListAccountFactoryBaselineItemsRequest $request ListAccountFactoryBaselineItemsRequest
      *
@@ -593,7 +600,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary 查看治理检测定义
+     * @summary Queries all available information about check items in a governance maturity check, including the name, ID, description, stage, resource metadata, and fixing guide.
      *  *
      * @param ListEvaluationMetadataRequest $request ListEvaluationMetadataRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -629,7 +636,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary 查看治理检测定义
+     * @summary Queries all available information about check items in a governance maturity check, including the name, ID, description, stage, resource metadata, and fixing guide.
      *  *
      * @param ListEvaluationMetadataRequest $request ListEvaluationMetadataRequest
      *
@@ -643,7 +650,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary 获取云治理中心治理检测项结果详情
+     * @summary Queries the non-compliant resource information of a check item, including the name, ID, category, type, region, and related metadata of non-compliant resources.
      *  *
      * @param ListEvaluationMetricDetailsRequest $request ListEvaluationMetricDetailsRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -688,7 +695,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary 获取云治理中心治理检测项结果详情
+     * @summary Queries the non-compliant resource information of a check item, including the name, ID, category, type, region, and related metadata of non-compliant resources.
      *  *
      * @param ListEvaluationMetricDetailsRequest $request ListEvaluationMetricDetailsRequest
      *
@@ -752,7 +759,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary 查看治理检测定义
+     * @summary Queries the historical scores of a governance maturity check.
      *  *
      * @param ListEvaluationScoreHistoryRequest $request ListEvaluationScoreHistoryRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -794,7 +801,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary 查看治理检测定义
+     * @summary Queries the historical scores of a governance maturity check.
      *  *
      * @param ListEvaluationScoreHistoryRequest $request ListEvaluationScoreHistoryRequest
      *
@@ -808,19 +815,27 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary 运行云治理中心治理检测
+     * @summary Performs a governance maturity check.
      *  *
-     * @param RunEvaluationRequest $request RunEvaluationRequest
+     * @param RunEvaluationRequest $tmpReq  RunEvaluationRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
      * @return RunEvaluationResponse RunEvaluationResponse
      */
-    public function runEvaluationWithOptions($request, $runtime)
+    public function runEvaluationWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new RunEvaluationShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->metricIds)) {
+            $request->metricIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->metricIds, 'MetricIds', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->accountId)) {
             $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->metricIdsShrink)) {
+            $query['MetricIds'] = $request->metricIdsShrink;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -847,7 +862,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary 运行云治理中心治理检测
+     * @summary Performs a governance maturity check.
      *  *
      * @param RunEvaluationRequest $request RunEvaluationRequest
      *
@@ -861,7 +876,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary 更新账号工厂基线
+     * @summary Updates a baseline of the account factory.
      *  *
      * @param UpdateAccountFactoryBaselineRequest $request UpdateAccountFactoryBaselineRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -906,7 +921,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary 更新账号工厂基线
+     * @summary Updates a baseline of the account factory.
      *  *
      * @param UpdateAccountFactoryBaselineRequest $request UpdateAccountFactoryBaselineRequest
      *

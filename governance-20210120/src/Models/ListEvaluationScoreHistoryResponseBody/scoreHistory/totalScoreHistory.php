@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class totalScoreHistory extends Model
 {
     /**
+     * @description The time when the score was generated. The time is in UTC.
+     *
      * @example 2024-06-30T03:34:02Z
      *
      * @var string
@@ -16,6 +18,9 @@ class totalScoreHistory extends Model
     public $evaluationTime;
 
     /**
+     * @description The score.
+     *
+     * Valid values: 0 to 1.
      * @example 0.6753
      *
      * @var float

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListEvaluationMetricDetailsRequest extends Model
 {
     /**
+     * @description The account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
+     *
      * @example 103144549568****
      *
      * @var int
@@ -16,6 +18,9 @@ class ListEvaluationMetricDetailsRequest extends Model
     public $accountId;
 
     /**
+     * @description The ID of the check item.
+     *
+     * You can call the [ListEvaluationMetadata](https://help.aliyun.com/document_detail/2841889.html) operation to query the ID of the check item.
      * @example xfyve5****
      *
      * @var string
@@ -23,6 +28,8 @@ class ListEvaluationMetricDetailsRequest extends Model
     public $id;
 
     /**
+     * @description The maximum number of entries to return for a single request. Default value: 5.
+     *
      * @example 5
      *
      * @var int
@@ -30,6 +37,8 @@ class ListEvaluationMetricDetailsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example AAAAAGEaXR18y1rqykZHIqRuBejOqED4S3Xne33c7zbn****
      *
      * @var string
@@ -37,6 +46,8 @@ class ListEvaluationMetricDetailsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

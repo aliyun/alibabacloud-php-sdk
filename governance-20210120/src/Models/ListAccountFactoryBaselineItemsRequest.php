@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListAccountFactoryBaselineItemsRequest extends Model
 {
     /**
+     * @description The number of entries per page.
+     *
+     * Valid values: 1 to 100. Default value: 10
      * @example 10
      *
      * @var int
@@ -16,11 +19,15 @@ class ListAccountFactoryBaselineItemsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The names of the baseline items.
+     *
      * @var string[]
      */
     public $names;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+     *
      * @example AAAAACDGQdAEX3m42z3sQ+f3VTK2Xr2DzYbz/SAfc/zJRqod
      *
      * @var string
@@ -28,7 +35,7 @@ class ListAccountFactoryBaselineItemsRequest extends Model
     public $nextToken;
 
     /**
-     * @description RegionId
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -37,6 +44,8 @@ class ListAccountFactoryBaselineItemsRequest extends Model
     public $regionId;
 
     /**
+     * @description The type of the baseline items.
+     *
      * @example AccountFactory
      *
      * @var string
@@ -44,6 +53,8 @@ class ListAccountFactoryBaselineItemsRequest extends Model
     public $type;
 
     /**
+     * @description The versions of the baseline items.
+     *
      * @var string[]
      */
     public $versions;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class baselineItems extends Model
 {
     /**
+     * @description The dependency of the baseline item.
+     *
      * @var dependsOn[]
      */
     public $dependsOn;
 
     /**
+     * @description The description of the baseline item.
+     *
      * @example Notification.
      *
      * @var string
@@ -22,6 +26,8 @@ class baselineItems extends Model
     public $description;
 
     /**
+     * @description The name of the baseline item.
+     *
      * @example ACS-BP_ACCOUNT_FACTORY_ACCOUNT_NOTIFICATION
      *
      * @var string
@@ -29,6 +35,8 @@ class baselineItems extends Model
     public $name;
 
     /**
+     * @description The type of the baseline item.
+     *
      * @example AccountFactory
      *
      * @var string
@@ -36,6 +44,8 @@ class baselineItems extends Model
     public $type;
 
     /**
+     * @description The version of the baseline item.
+     *
      * @example 1.0
      *
      * @var string

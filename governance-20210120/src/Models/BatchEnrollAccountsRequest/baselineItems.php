@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class baselineItems extends Model
 {
     /**
+     * @description The configurations of the baseline item.
+     *
      * @example {\\"Notifications\\":[{\\"GroupKey\\":\\"account_msg\\",\\"Contacts\\":[{\\"Name\\":\\"aa\\"}],\\"PmsgStatus\\":1,\\"EmailStatus\\":1,\\"SmsStatus\\":1}]}
      *
      * @var string
@@ -16,6 +18,8 @@ class baselineItems extends Model
     public $config;
 
     /**
+     * @description The name of the baseline item.
+     *
      * @example ACS-BP_ACCOUNT_FACTORY_VPC
      *
      * @var string
@@ -23,6 +27,11 @@ class baselineItems extends Model
     public $name;
 
     /**
+     * @description Specifies whether to skip the baseline item. Valid values:
+     *
+     *   false
+     *   true
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +39,8 @@ class baselineItems extends Model
     public $skip;
 
     /**
+     * @description The version of the baseline item.
+     *
      * @example 1.0
      *
      * @var string

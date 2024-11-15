@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class remediationMetadata extends Model
 {
     /**
+     * @description The fixing items.
+     *
      * @var remediation[]
      */
     public $remediation;

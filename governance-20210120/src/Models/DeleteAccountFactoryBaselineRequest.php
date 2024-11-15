@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAccountFactoryBaselineRequest extends Model
 {
     /**
+     * @description The baseline ID.
+     *
      * @example afb-bp1durvn3lgqe28v****
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteAccountFactoryBaselineRequest extends Model
     public $baselineId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

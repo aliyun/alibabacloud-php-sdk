@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class actions extends Model
 {
     /**
+     * @description The fixing method.
+     *
+     * >  This parameter is returned only if the value of `RemediationType` is `Analysis`.
      * @example UnusedAccessKeyInRamUser
      *
      * @var string
@@ -17,26 +20,38 @@ class actions extends Model
     public $classification;
 
     /**
+     * @description The fixing cost.
+     *
      * @var string
      */
     public $costDescription;
 
     /**
+     * @description The description of the fixing item.
+     *
+     * >  This parameter is returned only if the value of `RemediationType` is `Analysis`.
      * @var string
      */
     public $description;
 
     /**
+     * @description The content of the fixing items.
+     *
      * @var guidance[]
      */
     public $guidance;
 
     /**
+     * @description The usage notes of the fixing item.
+     *
      * @var string
      */
     public $notice;
 
     /**
+     * @description The fixing suggestion.
+     *
+     * >  This parameter is returned only if the value of `RemediationType` is `Analysis`.
      * @var string
      */
     public $suggestion;

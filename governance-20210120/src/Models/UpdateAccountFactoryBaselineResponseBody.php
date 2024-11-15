@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateAccountFactoryBaselineResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example C18A891D-7B04-51A1-AAC6-201727A361CE
      *
      * @var string

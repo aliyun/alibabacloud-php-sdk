@@ -11,11 +11,16 @@ use AlibabaCloud\Tea\Model;
 class BatchEnrollAccountsRequest extends Model
 {
     /**
+     * @description The resource accounts.
+     *
      * @var accounts[]
      */
     public $accounts;
 
     /**
+     * @description The baseline ID.
+     *
+     * If this parameter is left empty, the default baseline is used.
      * @example afb-bp1durvn3lgqe28v****
      *
      * @var string
@@ -23,11 +28,16 @@ class BatchEnrollAccountsRequest extends Model
     public $baselineId;
 
     /**
+     * @description The baseline items.
+     *
+     * If this parameter is specified, the configurations of the baseline items are merged with the baseline applied to the specified account. The configurations of the same baseline items are subject to the configurations of this parameter. We recommend that you leave this parameter empty and configure the `BaselineId` parameter to specify an account baseline and apply the configurations of the account baseline to the account.
      * @var baselineItems[]
      */
     public $baselineItems;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

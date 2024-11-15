@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class ListEvaluationScoreHistoryRequest extends Model
 {
     /**
+     * @description The Alibaba Cloud account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
+     *
+     * @example 176618589410****
+     *
      * @var int
      */
     public $accountId;
 
     /**
+     * @description The end of the time range to query. Specify the time in the YYYY-MM-DD format.
+     *
+     * By default, the historical scores that were generated in the seven days before the current date are queried.
      * @example 2024-07-11
      *
      * @var string
@@ -21,6 +28,8 @@ class ListEvaluationScoreHistoryRequest extends Model
     public $endDate;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -28,6 +37,9 @@ class ListEvaluationScoreHistoryRequest extends Model
     public $regionId;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the YYYY-MM-DD format.
+     *
+     * You can query the historical scores within the previous 180 days.
      * @example 2024-06-11
      *
      * @var string

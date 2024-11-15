@@ -10,27 +10,38 @@ use AlibabaCloud\Tea\Model;
 class UpdateAccountFactoryBaselineRequest extends Model
 {
     /**
+     * @description The baseline ID.
+     *
+     * @example afb-bp1pq3emlkt27vsj****
+     *
      * @var string
      */
     public $baselineId;
 
     /**
+     * @description The baseline items.
+     *
+     * You can call the [ListAccountFactoryBaselineItems](~~ListAccountFactoryBaselineItems~~) operation to query a list of baseline items supported by the account factory in Cloud Governance Center.
      * @var baselineItems[]
      */
     public $baselineItems;
 
     /**
+     * @description The name of the baseline.
+     *
      * @var string
      */
     public $baselineName;
 
     /**
+     * @description The description of the baseline.
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @description RegionId
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

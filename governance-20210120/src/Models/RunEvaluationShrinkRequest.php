@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Governance\V20210120\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RunEvaluationRequest extends Model
+class RunEvaluationShrinkRequest extends Model
 {
     /**
      * @description The Alibaba Cloud account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
@@ -18,9 +18,9 @@ class RunEvaluationRequest extends Model
     public $accountId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $metricIds;
+    public $metricIdsShrink;
 
     /**
      * @description The region ID.
@@ -43,10 +43,10 @@ class RunEvaluationRequest extends Model
      */
     public $scope;
     protected $_name = [
-        'accountId' => 'AccountId',
-        'metricIds' => 'MetricIds',
-        'regionId'  => 'RegionId',
-        'scope'     => 'Scope',
+        'accountId'       => 'AccountId',
+        'metricIdsShrink' => 'MetricIds',
+        'regionId'        => 'RegionId',
+        'scope'           => 'Scope',
     ];
 
     public function validate()
@@ -59,8 +59,8 @@ class RunEvaluationRequest extends Model
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
-        if (null !== $this->metricIds) {
-            $res['MetricIds'] = $this->metricIds;
+        if (null !== $this->metricIdsShrink) {
+            $res['MetricIds'] = $this->metricIdsShrink;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -75,7 +75,7 @@ class RunEvaluationRequest extends Model
     /**
      * @param array $map
      *
-     * @return RunEvaluationRequest
+     * @return RunEvaluationShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -84,9 +84,7 @@ class RunEvaluationRequest extends Model
             $model->accountId = $map['AccountId'];
         }
         if (isset($map['MetricIds'])) {
-            if (!empty($map['MetricIds'])) {
-                $model->metricIds = $map['MetricIds'];
-            }
+            $model->metricIdsShrink = $map['MetricIds'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

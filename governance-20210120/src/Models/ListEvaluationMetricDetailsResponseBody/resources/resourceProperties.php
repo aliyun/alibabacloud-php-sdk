@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceProperties extends Model
 {
     /**
+     * @description The name of the resource attribute.
+     *
      * @example DisplayName
      *
      * @var string
@@ -16,6 +18,8 @@ class resourceProperties extends Model
     public $propertyName;
 
     /**
+     * @description The value of the resource attribute.
+     *
      * @var string
      */
     public $propertyValue;

@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class remediation extends Model
 {
     /**
+     * @description The fixing operations.
+     *
      * @var actions[]
      */
     public $actions;
 
     /**
+     * @description The type of the fixing method. Valid values:
+     *
+     *   Manual: manual fixing
+     *   QuickFix: quick fixing
+     *   Analysis: auxiliary decision-making
+     *
      * @example Manual
      *
      * @var string

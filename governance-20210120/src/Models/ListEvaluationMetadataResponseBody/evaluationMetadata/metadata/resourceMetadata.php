@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class resourceMetadata extends Model
 {
     /**
+     * @description The metadata of the resource properties.
+     *
      * @var resourcePropertyMetadata[]
      */
     public $resourcePropertyMetadata;

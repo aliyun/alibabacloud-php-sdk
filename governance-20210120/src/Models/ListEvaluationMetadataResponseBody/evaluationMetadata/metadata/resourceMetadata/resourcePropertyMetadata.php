@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class resourcePropertyMetadata extends Model
 {
     /**
+     * @description The display name of the resource property.
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description The name of the resource property.
+     *
      * @example AkLastUsedTime
      *
      * @var string
@@ -21,6 +25,8 @@ class resourcePropertyMetadata extends Model
     public $propertyName;
 
     /**
+     * @description The type of the resource property.
+     *
      * @example String
      *
      * @var string

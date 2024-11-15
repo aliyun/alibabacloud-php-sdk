@@ -47,8 +47,8 @@ class baselines extends Model
     /**
      * @description The type of the baseline. Valid values:
      *
-     *   System: default baseline
-     *   Custom: custom baseline
+     *   System: default baseline.
+     *   Custom: custom baseline.
      *
      * @example Custom
      *

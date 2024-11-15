@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dependsOn extends Model
 {
     /**
+     * @description The name of the baseline item.
+     *
      * @example ACS-BP_ACCOUNT_FACTORY_VPC
      *
      * @var string
@@ -16,6 +18,8 @@ class dependsOn extends Model
     public $name;
 
     /**
+     * @description The type of the baseline item.
+     *
      * @example AccountFactory
      *
      * @var string
@@ -23,6 +27,8 @@ class dependsOn extends Model
     public $type;
 
     /**
+     * @description The version of the baseline item.
+     *
      * @example 1.0
      *
      * @var string

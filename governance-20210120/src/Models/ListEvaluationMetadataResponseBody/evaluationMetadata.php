@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class evaluationMetadata extends Model
 {
     /**
+     * @description The metadata objects of a specific metadata type.
+     *
      * @var metadata[]
      */
     public $metadata;
 
     /**
+     * @description The type of the metadata. Valid values:
+     *
+     *   Metric: the check item
+     *
      * @example Metric
      *
      * @var string

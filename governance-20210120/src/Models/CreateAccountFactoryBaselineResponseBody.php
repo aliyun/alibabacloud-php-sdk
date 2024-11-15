@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateAccountFactoryBaselineResponseBody extends Model
 {
     /**
+     * @description The baseline ID.
+     *
+     * @example afb-bp1e6ixtiwupap8m****
+     *
      * @var string
      */
     public $baselineId;
 
     /**
+     * @description The request ID.
+     *
      * @example A5592E2E-0FC4-557C-B989-DF229B5EBE13
      *
      * @var string

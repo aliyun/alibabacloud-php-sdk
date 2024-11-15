@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListAccountFactoryBaselinesResponseBody extends Model
 {
     /**
-     * @description An array that consists of baselines.
+     * @description The baselines.
      *
      * @var baselines[]
      */

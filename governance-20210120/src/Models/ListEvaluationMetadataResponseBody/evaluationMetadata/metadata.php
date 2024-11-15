@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class metadata extends Model
 {
     /**
+     * @description The category of the check item.
+     *
      * @example Security
      *
      * @var string
@@ -18,16 +20,22 @@ class metadata extends Model
     public $category;
 
     /**
+     * @description The description of the check item.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The display name of the check item.
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description The ID of the metadata.
+     *
      * @example pxgtda****
      *
      * @var string
@@ -35,6 +43,8 @@ class metadata extends Model
     public $id;
 
     /**
+     * @description The governance level of the check item.
+     *
      * @example High
      *
      * @var string
@@ -42,16 +52,25 @@ class metadata extends Model
     public $recommendationLevel;
 
     /**
+     * @description The metadata of the fixing task.
+     *
      * @var remediationMetadata
      */
     public $remediationMetadata;
 
     /**
+     * @description The metadata of the checked resources.
+     *
      * @var resourceMetadata
      */
     public $resourceMetadata;
 
     /**
+     * @description The scope of the check item. Valid values:
+     *
+     *   Account: the check item in a single-account governance maturity check
+     *   ResourceDirectory: the check item in a multi-account governance maturity check
+     *
      * @example Account
      *
      * @var string
@@ -59,6 +78,11 @@ class metadata extends Model
     public $scope;
 
     /**
+     * @description The status of the check item. Valid values:
+     *
+     *   Released: The check item is released.
+     *   Beta: The check item is pre-released.
+     *
      * @example Released
      *
      * @var string

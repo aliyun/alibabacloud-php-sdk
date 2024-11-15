@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAccountFactoryBaselineResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 0F45D888-8C4D-55E5-ACA2-D1515159181D
      *
      * @var string

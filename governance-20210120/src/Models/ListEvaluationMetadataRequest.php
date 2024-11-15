@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListEvaluationMetadataRequest extends Model
 {
     /**
+     * @description The language. The information is returned in the specified language. Valid values:
+     *
+     *   en: English
+     *   zh: Chinese
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class ListEvaluationMetadataRequest extends Model
     public $language;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

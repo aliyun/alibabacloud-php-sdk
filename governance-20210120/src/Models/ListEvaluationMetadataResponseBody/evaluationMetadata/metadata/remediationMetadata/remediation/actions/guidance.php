@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class guidance extends Model
 {
     /**
+     * @description The display name of the fixing button.
+     *
      * @var string
      */
     public $buttonName;
 
     /**
+     * @description The navigation URL of the fixing button.
+     *
      * @example https://ram.console.aliyun.com/users
      *
      * @var string
@@ -21,11 +25,15 @@ class guidance extends Model
     public $buttonRef;
 
     /**
+     * @description The fixing procedure.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The title of the fixing procedure.
+     *
      * @var string
      */
     public $title;

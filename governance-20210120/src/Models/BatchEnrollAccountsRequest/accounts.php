@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class accounts extends Model
 {
     /**
+     * @description The account ID. This parameter is required.
+     *
      * @example 12868156179****
      *
      * @var int

@@ -19,8 +19,9 @@ class ListAccountFactoryBaselinesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
      *
+     * You do not need to specify this parameter for the first request.
      * @example AAAAALHWGpGoYCcYMxiFfmlhvh62Xr2DzYbz/SAfc*****
      *
      * @var string
@@ -28,7 +29,7 @@ class ListAccountFactoryBaselinesRequest extends Model
     public $nextToken;
 
     /**
-     * @description RegionId
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

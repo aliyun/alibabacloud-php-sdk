@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchEnrollAccountsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 16B208DD-86BD-5E7D-AC93-FFD44B6FBDF1
      *
      * @var string
