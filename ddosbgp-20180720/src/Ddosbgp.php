@@ -1589,6 +1589,9 @@ class Ddosbgp extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->opAction)) {
+            $query['OpAction'] = $request->opAction;
+        }
         if (!Utils::isUnset($request->orderBy)) {
             $query['OrderBy'] = $request->orderBy;
         }

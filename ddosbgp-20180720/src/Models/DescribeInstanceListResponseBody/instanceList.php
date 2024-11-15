@@ -65,6 +65,11 @@ class instanceList extends Model
     public $coverageType;
 
     /**
+     * @var int
+     */
+    public $debtStatus;
+
+    /**
      * @description The time when the instance expires. The value is a UNIX timestamp. Unit: milliseconds.
      *
      * @example 1640275200000
@@ -156,6 +161,7 @@ class instanceList extends Model
         'blackholdingCount'    => 'BlackholdingCount',
         'commodityType'        => 'CommodityType',
         'coverageType'         => 'CoverageType',
+        'debtStatus'           => 'DebtStatus',
         'expireTime'           => 'ExpireTime',
         'gmtCreate'            => 'GmtCreate',
         'instanceId'           => 'InstanceId',
@@ -187,6 +193,9 @@ class instanceList extends Model
         }
         if (null !== $this->coverageType) {
             $res['CoverageType'] = $this->coverageType;
+        }
+        if (null !== $this->debtStatus) {
+            $res['DebtStatus'] = $this->debtStatus;
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
@@ -238,6 +247,9 @@ class instanceList extends Model
         }
         if (isset($map['CoverageType'])) {
             $model->coverageType = $map['CoverageType'];
+        }
+        if (isset($map['DebtStatus'])) {
+            $model->debtStatus = $map['DebtStatus'];
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];

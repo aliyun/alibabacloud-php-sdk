@@ -39,6 +39,11 @@ class DescribeOpEntitiesRequest extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $opAction;
+
+    /**
      * @description The sorting method of operation logs. Set the value to **opdate**, which indicates sorting based on the operation time.
      *
      * @example opdate
@@ -103,6 +108,7 @@ class DescribeOpEntitiesRequest extends Model
         'currentPage'     => 'CurrentPage',
         'endTime'         => 'EndTime',
         'instanceId'      => 'InstanceId',
+        'opAction'        => 'OpAction',
         'orderBy'         => 'OrderBy',
         'orderDir'        => 'OrderDir',
         'pageSize'        => 'PageSize',
@@ -126,6 +132,9 @@ class DescribeOpEntitiesRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->opAction) {
+            $res['OpAction'] = $this->opAction;
         }
         if (null !== $this->orderBy) {
             $res['OrderBy'] = $this->orderBy;
@@ -165,6 +174,9 @@ class DescribeOpEntitiesRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OpAction'])) {
+            $model->opAction = $map['OpAction'];
         }
         if (isset($map['OrderBy'])) {
             $model->orderBy = $map['OrderBy'];
