@@ -14,26 +14,36 @@ class data extends Model
     public $breakCode;
 
     /**
+     * @example Yealink SIP-T23G 44.84.203.6
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example 8001****
+     *
      * @var string
      */
     public $extension;
 
     /**
+     * @example szpczf
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example job-330557290544431104
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example False
+     *
      * @var bool
      */
     public $outboundScenario;
@@ -44,16 +54,22 @@ class data extends Model
     public $signedSkillGroupIdList;
 
     /**
+     * @example sam@szpczf
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example Ready
+     *
      * @var string
      */
     public $userState;
 
     /**
+     * @example ON_SITE
+     *
      * @var string
      */
     public $workMode;

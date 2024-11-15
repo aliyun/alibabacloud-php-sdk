@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\SDK\CCC\V20200701\Models\ChangeVisibilityResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class ChangeVisibilityResponseBody extends Model
+class DeleteInstanceResponseBody extends Model
 {
     /**
      * @example OK
@@ -17,7 +16,9 @@ class ChangeVisibilityResponseBody extends Model
     public $code;
 
     /**
-     * @var data
+     * @example b7feb007-994a-497f-8934-2f0c6f89867c
+     *
+     * @var string
      */
     public $data;
 
@@ -29,8 +30,6 @@ class ChangeVisibilityResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @example Internal service issue. Detail:.
-     *
      * @var string
      */
     public $message;
@@ -41,7 +40,7 @@ class ChangeVisibilityResponseBody extends Model
     public $params;
 
     /**
-     * @example 24BE19E8-BF7D-4992-A35E-15EBA874F2E5
+     * @example EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
      *
      * @var string
      */
@@ -66,7 +65,7 @@ class ChangeVisibilityResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = $this->data;
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
@@ -87,7 +86,7 @@ class ChangeVisibilityResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ChangeVisibilityResponseBody
+     * @return DeleteInstanceResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -96,7 +95,7 @@ class ChangeVisibilityResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+            $model->data = $map['Data'];
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];

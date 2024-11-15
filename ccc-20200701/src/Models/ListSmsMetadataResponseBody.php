@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\SDK\CCC\V20200701\Models\ChangeVisibilityResponseBody\data;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListSmsMetadataResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class ChangeVisibilityResponseBody extends Model
+class ListSmsMetadataResponseBody extends Model
 {
     /**
      * @example OK
@@ -29,8 +29,6 @@ class ChangeVisibilityResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @example Internal service issue. Detail:.
-     *
      * @var string
      */
     public $message;
@@ -41,7 +39,7 @@ class ChangeVisibilityResponseBody extends Model
     public $params;
 
     /**
-     * @example 24BE19E8-BF7D-4992-A35E-15EBA874F2E5
+     * @example 8707EB29-BAED-4302-B999-40BA61877437
      *
      * @var string
      */
@@ -87,7 +85,7 @@ class ChangeVisibilityResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ChangeVisibilityResponseBody
+     * @return ListSmsMetadataResponseBody
      */
     public static function fromMap($map = [])
     {

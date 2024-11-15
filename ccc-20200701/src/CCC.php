@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\AddBlacklistCallTaggingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddCasesRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddCasesResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddCasesShrinkRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\AddFeedbackRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\AddFeedbackResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddNumbersToSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddNumbersToSkillGroupResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddPersonalNumbersToUserRequest;
@@ -96,6 +98,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteDocumentResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteDocumentsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteDocumentsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteDocumentsShrinkRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteInstanceRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteInstanceResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteSchemaPropertyRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteSchemaPropertyResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteSchemaRequest;
@@ -338,6 +342,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillGroupSummaryReportsSinceMidni
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillGroupSummaryReportsSinceMidnightResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillLevelsOfUserRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillLevelsOfUserResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListSmsMetadataRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListSmsMetadataResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListTicketsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListTicketsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListTicketTasksRequest;
@@ -756,6 +762,61 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addCasesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddFeedbackRequest $request AddFeedbackRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AddFeedbackResponse AddFeedbackResponse
+     */
+    public function addFeedbackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->feedback)) {
+            $query['Feedback'] = $request->feedback;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->rating)) {
+            $query['Rating'] = $request->rating;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddFeedback',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddFeedbackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddFeedbackRequest $request AddFeedbackRequest
+     *
+     * @return AddFeedbackResponse AddFeedbackResponse
+     */
+    public function addFeedback($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addFeedbackWithOptions($request, $runtime);
     }
 
     /**
@@ -2913,6 +2974,49 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDocumentsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteInstanceRequest $request DeleteInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteInstanceResponse DeleteInstanceResponse
+     */
+    public function deleteInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteInstance',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteInstanceRequest $request DeleteInstanceRequest
+     *
+     * @return DeleteInstanceResponse DeleteInstanceResponse
+     */
+    public function deleteInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -9367,6 +9471,58 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSkillLevelsOfUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSmsMetadataRequest $request ListSmsMetadataRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListSmsMetadataResponse ListSmsMetadataResponse
+     */
+    public function listSmsMetadataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->scenarioListJson)) {
+            $query['ScenarioListJson'] = $request->scenarioListJson;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSmsMetadata',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSmsMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSmsMetadataRequest $request ListSmsMetadataRequest
+     *
+     * @return ListSmsMetadataResponse ListSmsMetadataResponse
+     */
+    public function listSmsMetadata($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSmsMetadataWithOptions($request, $runtime);
     }
 
     /**
