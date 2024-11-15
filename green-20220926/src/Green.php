@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Green\V20220926;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Green\V20220926\Models\AddAnswerSampleRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\AddAnswerSampleResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\AddImageLibRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\AddImageLibResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\AddImages2LibRequest;
@@ -20,16 +22,28 @@ use AlibabaCloud\SDK\Green\V20220926\Models\CancelStockOssCheckTaskRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\CancelStockOssCheckTaskResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\CopyServiceConfigRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\CopyServiceConfigResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\CreateAnswerLibRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\CreateAnswerLibResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\CreateCallbackRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\CreateCallbackResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\CreatePreCheckRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\CreatePreCheckResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\CreatStockOssCheckTaskRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\CreatStockOssCheckTaskResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\DeleteAnswerLibRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\DeleteAnswerLibResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\DeleteAnswerSampleRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\DeleteAnswerSampleResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\DeleteCallbackRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\DeleteCallbackResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\DeleteImagesFromLibRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\DeleteImagesFromLibResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\DeleteKeywordLibRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\DeleteKeywordLibResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\DeleteKeywordRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\DeleteKeywordResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\ExportAnswerSampleRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\ExportAnswerSampleResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ExportCipStatsRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ExportCipStatsResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ExportKeywordRequest;
@@ -45,6 +59,8 @@ use AlibabaCloud\SDK\Green\V20220926\Models\ExportScanResultShrinkRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ExportTextScanResultRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ExportTextScanResultResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ExportTextScanResultShrinkRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetAnswerImportProgressRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetAnswerImportProgressResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetBackupBucketsListRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetBackupBucketsListResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetBackupConfigRequest;
@@ -57,6 +73,8 @@ use AlibabaCloud\SDK\Green\V20220926\Models\GetCipStatsRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetCipStatsResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetExecuteTimeRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetExecuteTimeResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetImageSceneLabelConfRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetImageSceneLabelConfResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetImageSceneLabelListConfRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetImageSceneLabelListConfResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetJobNameListRequest;
@@ -64,6 +82,8 @@ use AlibabaCloud\SDK\Green\V20220926\Models\GetJobNameListResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetJobNameListShrinkRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetKeywordImportResultRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetKeywordImportResultResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetKeywordLibRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetKeywordLibResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckStatRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckStatResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckStatusRequest;
@@ -89,6 +109,10 @@ use AlibabaCloud\SDK\Green\V20220926\Models\GetUploadInfoRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetUploadInfoResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetUserBuyStatusRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetUserBuyStatusResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\ListAnswerLibRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\ListAnswerLibResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\ListCallbackRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\ListCallbackResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ListImageLibRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ListImageLibResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ListImagesFromLibRequest;
@@ -104,8 +128,19 @@ use AlibabaCloud\SDK\Green\V20220926\Models\ListOssCheckResultResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ListOssCheckResultShrinkRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ListServiceConfigsRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ListServiceConfigsResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\ModifyAnswerLibRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\ModifyAnswerLibResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\ModifyCallbackRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\ModifyCallbackResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ModifyServiceInfoRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ModifyServiceInfoResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\QueryAnswerSampleByPageRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\QueryAnswerSampleByPageResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\QueryAnswerSampleByPageShrinkRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\QueryCallbackByPageRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\QueryCallbackByPageResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\QueryCallbackRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\QueryCallbackResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateBackupConfigRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateBackupConfigResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateImageLibFreeInspectionRequest;
@@ -176,6 +211,62 @@ class Green extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 添加代答样本
+     *  *
+     * @param AddAnswerSampleRequest $request AddAnswerSampleRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AddAnswerSampleResponse AddAnswerSampleResponse
+     */
+    public function addAnswerSampleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->libId)) {
+            $query['LibId'] = $request->libId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sampleObject)) {
+            $query['SampleObject'] = $request->sampleObject;
+        }
+        if (!Utils::isUnset($request->samples)) {
+            $query['Samples'] = $request->samples;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddAnswerSample',
+            'version'     => '2022-09-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddAnswerSampleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 添加代答样本
+     *  *
+     * @param AddAnswerSampleRequest $request AddAnswerSampleRequest
+     *
+     * @return AddAnswerSampleResponse AddAnswerSampleResponse
+     */
+    public function addAnswerSample($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addAnswerSampleWithOptions($request, $runtime);
     }
 
     /**
@@ -696,6 +787,128 @@ class Green extends OpenApiClient
     }
 
     /**
+     * @summary 创建代答库
+     *  *
+     * @param CreateAnswerLibRequest $request CreateAnswerLibRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateAnswerLibResponse CreateAnswerLibResponse
+     */
+    public function createAnswerLibWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->libName)) {
+            $body['LibName'] = $request->libName;
+        }
+        if (!Utils::isUnset($request->sampleBucket)) {
+            $body['SampleBucket'] = $request->sampleBucket;
+        }
+        if (!Utils::isUnset($request->sampleObject)) {
+            $body['SampleObject'] = $request->sampleObject;
+        }
+        if (!Utils::isUnset($request->samples)) {
+            $body['Samples'] = $request->samples;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAnswerLib',
+            'version'     => '2022-09-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAnswerLibResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建代答库
+     *  *
+     * @param CreateAnswerLibRequest $request CreateAnswerLibRequest
+     *
+     * @return CreateAnswerLibResponse CreateAnswerLibResponse
+     */
+    public function createAnswerLib($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAnswerLibWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 新建消息通知
+     *  *
+     * @param CreateCallbackRequest $request CreateCallbackRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateCallbackResponse CreateCallbackResponse
+     */
+    public function createCallbackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->cryptType)) {
+            $body['CryptType'] = $request->cryptType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $body['Scope'] = $request->scope;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCallback',
+            'version'     => '2022-09-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新建消息通知
+     *  *
+     * @param CreateCallbackRequest $request CreateCallbackRequest
+     *
+     * @return CreateCallbackResponse CreateCallbackResponse
+     */
+    public function createCallback($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCallbackWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 创建oss扫描任务前检查
      *  *
      * @param CreatePreCheckRequest $request CreatePreCheckRequest
@@ -781,6 +994,163 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createPreCheckWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除代答库
+     *  *
+     * @param DeleteAnswerLibRequest $request DeleteAnswerLibRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteAnswerLibResponse DeleteAnswerLibResponse
+     */
+    public function deleteAnswerLibWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->libId)) {
+            $query['LibId'] = $request->libId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAnswerLib',
+            'version'     => '2022-09-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAnswerLibResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除代答库
+     *  *
+     * @param DeleteAnswerLibRequest $request DeleteAnswerLibRequest
+     *
+     * @return DeleteAnswerLibResponse DeleteAnswerLibResponse
+     */
+    public function deleteAnswerLib($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAnswerLibWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除代答答案
+     *  *
+     * @param DeleteAnswerSampleRequest $request DeleteAnswerSampleRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteAnswerSampleResponse DeleteAnswerSampleResponse
+     */
+    public function deleteAnswerSampleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->ids)) {
+            $body['Ids'] = $request->ids;
+        }
+        if (!Utils::isUnset($request->libId)) {
+            $body['LibId'] = $request->libId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAnswerSample',
+            'version'     => '2022-09-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAnswerSampleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除代答答案
+     *  *
+     * @param DeleteAnswerSampleRequest $request DeleteAnswerSampleRequest
+     *
+     * @return DeleteAnswerSampleResponse DeleteAnswerSampleResponse
+     */
+    public function deleteAnswerSample($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAnswerSampleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除消息通知
+     *  *
+     * @param DeleteCallbackRequest $request DeleteCallbackRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteCallbackResponse DeleteCallbackResponse
+     */
+    public function deleteCallbackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCallback',
+            'version'     => '2022-09-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除消息通知
+     *  *
+     * @param DeleteCallbackRequest $request DeleteCallbackRequest
+     *
+     * @return DeleteCallbackResponse DeleteCallbackResponse
+     */
+    public function deleteCallback($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCallbackWithOptions($request, $runtime);
     }
 
     /**
@@ -946,6 +1316,58 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteKeywordLibWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 导出代答答案
+     *  *
+     * @param ExportAnswerSampleRequest $request ExportAnswerSampleRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExportAnswerSampleResponse ExportAnswerSampleResponse
+     */
+    public function exportAnswerSampleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->libId)) {
+            $body['LibId'] = $request->libId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportAnswerSample',
+            'version'     => '2022-09-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportAnswerSampleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 导出代答答案
+     *  *
+     * @param ExportAnswerSampleRequest $request ExportAnswerSampleRequest
+     *
+     * @return ExportAnswerSampleResponse ExportAnswerSampleResponse
+     */
+    public function exportAnswerSample($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportAnswerSampleWithOptions($request, $runtime);
     }
 
     /**
@@ -1342,6 +1764,56 @@ class Green extends OpenApiClient
     }
 
     /**
+     * @summary 获取代答样本导入进度
+     *  *
+     * @param GetAnswerImportProgressRequest $request GetAnswerImportProgressRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAnswerImportProgressResponse GetAnswerImportProgressResponse
+     */
+    public function getAnswerImportProgressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAnswerImportProgress',
+            'version'     => '2022-09-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAnswerImportProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取代答样本导入进度
+     *  *
+     * @param GetAnswerImportProgressRequest $request GetAnswerImportProgressRequest
+     *
+     * @return GetAnswerImportProgressResponse GetAnswerImportProgressResponse
+     */
+    public function getAnswerImportProgress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAnswerImportProgressWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 证据转存获取用户bucket列表
      *  *
      * @param GetBackupBucketsListRequest $request GetBackupBucketsListRequest
@@ -1652,6 +2124,53 @@ class Green extends OpenApiClient
     /**
      * @summary 获取图片规则标签信息
      *  *
+     * @param GetImageSceneLabelConfRequest $request GetImageSceneLabelConfRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetImageSceneLabelConfResponse GetImageSceneLabelConfResponse
+     */
+    public function getImageSceneLabelConfWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetImageSceneLabelConf',
+            'version'     => '2022-09-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetImageSceneLabelConfResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取图片规则标签信息
+     *  *
+     * @param GetImageSceneLabelConfRequest $request GetImageSceneLabelConfRequest
+     *
+     * @return GetImageSceneLabelConfResponse GetImageSceneLabelConfResponse
+     */
+    public function getImageSceneLabelConf($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getImageSceneLabelConfWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取图片规则标签信息
+     *  *
      * @param GetImageSceneLabelListConfRequest $request GetImageSceneLabelListConfRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -1813,6 +2332,58 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getKeywordImportResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 关键词库信息
+     *  *
+     * @param GetKeywordLibRequest $request GetKeywordLibRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetKeywordLibResponse GetKeywordLibResponse
+     */
+    public function getKeywordLibWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->libId)) {
+            $body['LibId'] = $request->libId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetKeywordLib',
+            'version'     => '2022-09-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetKeywordLibResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 关键词库信息
+     *  *
+     * @param GetKeywordLibRequest $request GetKeywordLibRequest
+     *
+     * @return GetKeywordLibResponse GetKeywordLibResponse
+     */
+    public function getKeywordLib($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getKeywordLibWithOptions($request, $runtime);
     }
 
     /**
@@ -2481,6 +3052,100 @@ class Green extends OpenApiClient
     }
 
     /**
+     * @summary 代答库列表
+     *  *
+     * @param ListAnswerLibRequest $request ListAnswerLibRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAnswerLibResponse ListAnswerLibResponse
+     */
+    public function listAnswerLibWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAnswerLib',
+            'version'     => '2022-09-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAnswerLibResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 代答库列表
+     *  *
+     * @param ListAnswerLibRequest $request ListAnswerLibRequest
+     *
+     * @return ListAnswerLibResponse ListAnswerLibResponse
+     */
+    public function listAnswerLib($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAnswerLibWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 消息通知列表
+     *  *
+     * @param ListCallbackRequest $request ListCallbackRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListCallbackResponse ListCallbackResponse
+     */
+    public function listCallbackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCallback',
+            'version'     => '2022-09-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 消息通知列表
+     *  *
+     * @param ListCallbackRequest $request ListCallbackRequest
+     *
+     * @return ListCallbackResponse ListCallbackResponse
+     */
+    public function listCallback($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCallbackWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 图库列表
      *  *
      * @param ListImageLibRequest $request ListImageLibRequest
@@ -2853,6 +3518,123 @@ class Green extends OpenApiClient
     }
 
     /**
+     * @summary 更新代答库
+     *  *
+     * @param ModifyAnswerLibRequest $request ModifyAnswerLibRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyAnswerLibResponse ModifyAnswerLibResponse
+     */
+    public function modifyAnswerLibWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->libId)) {
+            $query['LibId'] = $request->libId;
+        }
+        if (!Utils::isUnset($request->libName)) {
+            $query['LibName'] = $request->libName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAnswerLib',
+            'version'     => '2022-09-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyAnswerLibResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新代答库
+     *  *
+     * @param ModifyAnswerLibRequest $request ModifyAnswerLibRequest
+     *
+     * @return ModifyAnswerLibResponse ModifyAnswerLibResponse
+     */
+    public function modifyAnswerLib($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAnswerLibWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改消息通知
+     *  *
+     * @param ModifyCallbackRequest $request ModifyCallbackRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyCallbackResponse ModifyCallbackResponse
+     */
+    public function modifyCallbackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->cryptType)) {
+            $body['CryptType'] = $request->cryptType;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $body['Scope'] = $request->scope;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyCallback',
+            'version'     => '2022-09-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改消息通知
+     *  *
+     * @param ModifyCallbackRequest $request ModifyCallbackRequest
+     *
+     * @return ModifyCallbackResponse ModifyCallbackResponse
+     */
+    public function modifyCallback($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCallbackWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 编辑服务
      *  *
      * @param ModifyServiceInfoRequest $request ModifyServiceInfoRequest
@@ -2911,6 +3693,183 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyServiceInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 分页查询代答样本
+     *  *
+     * @param QueryAnswerSampleByPageRequest $tmpReq  QueryAnswerSampleByPageRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryAnswerSampleByPageResponse QueryAnswerSampleByPageResponse
+     */
+    public function queryAnswerSampleByPageWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryAnswerSampleByPageShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->sort)) {
+            $request->sortShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->answer)) {
+            $query['Answer'] = $request->answer;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->libId)) {
+            $query['LibId'] = $request->libId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sortShrink)) {
+            $query['Sort'] = $request->sortShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAnswerSampleByPage',
+            'version'     => '2022-09-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryAnswerSampleByPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 分页查询代答样本
+     *  *
+     * @param QueryAnswerSampleByPageRequest $request QueryAnswerSampleByPageRequest
+     *
+     * @return QueryAnswerSampleByPageResponse QueryAnswerSampleByPageResponse
+     */
+    public function queryAnswerSampleByPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAnswerSampleByPageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询单个回调配置
+     *  *
+     * @param QueryCallbackRequest $request QueryCallbackRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryCallbackResponse QueryCallbackResponse
+     */
+    public function queryCallbackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->checkForOss)) {
+            $body['CheckForOss'] = $request->checkForOss;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCallback',
+            'version'     => '2022-09-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询单个回调配置
+     *  *
+     * @param QueryCallbackRequest $request QueryCallbackRequest
+     *
+     * @return QueryCallbackResponse QueryCallbackResponse
+     */
+    public function queryCallback($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCallbackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 消息通知
+     *  *
+     * @param QueryCallbackByPageRequest $request QueryCallbackByPageRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryCallbackByPageResponse QueryCallbackByPageResponse
+     */
+    public function queryCallbackByPageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $body['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCallbackByPage',
+            'version'     => '2022-09-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryCallbackByPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 消息通知
+     *  *
+     * @param QueryCallbackByPageRequest $request QueryCallbackByPageRequest
+     *
+     * @return QueryCallbackByPageResponse QueryCallbackByPageResponse
+     */
+    public function queryCallbackByPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCallbackByPageWithOptions($request, $runtime);
     }
 
     /**
