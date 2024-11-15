@@ -63,6 +63,13 @@ class ChannelProperties extends Model
     public $useHuaweiMessage;
 
     /**
+     * @example true
+     *
+     * @var string
+     */
+    public $useHuaweiPlainMessage;
+
+    /**
      * @example "true",默认"false"
      *
      * @var string
@@ -94,6 +101,7 @@ class ChannelProperties extends Model
         'oppoChannelId'           => 'oppoChannelId',
         'oppoNotifyLevel'         => 'oppoNotifyLevel',
         'useHuaweiMessage'        => 'useHuaweiMessage',
+        'useHuaweiPlainMessage'   => 'useHuaweiPlainMessage',
         'vivoAddBadge'            => 'vivoAddBadge',
         'vivoCategory'            => 'vivoCategory',
         'vivoPushMode'            => 'vivoPushMode',
@@ -136,6 +144,9 @@ class ChannelProperties extends Model
         }
         if (null !== $this->useHuaweiMessage) {
             $res['useHuaweiMessage'] = $this->useHuaweiMessage;
+        }
+        if (null !== $this->useHuaweiPlainMessage) {
+            $res['useHuaweiPlainMessage'] = $this->useHuaweiPlainMessage;
         }
         if (null !== $this->vivoAddBadge) {
             $res['vivoAddBadge'] = $this->vivoAddBadge;
@@ -190,6 +201,9 @@ class ChannelProperties extends Model
         }
         if (isset($map['useHuaweiMessage'])) {
             $model->useHuaweiMessage = $map['useHuaweiMessage'];
+        }
+        if (isset($map['useHuaweiPlainMessage'])) {
+            $model->useHuaweiPlainMessage = $map['useHuaweiPlainMessage'];
         }
         if (isset($map['vivoAddBadge'])) {
             $model->vivoAddBadge = $map['vivoAddBadge'];
