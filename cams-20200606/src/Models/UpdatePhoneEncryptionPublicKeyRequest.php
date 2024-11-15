@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdatePhoneEncryptionPublicKeyRequest extends Model
 {
     /**
+     * @description SpaceId/instanceId of ISV sub clients.
+     *
      * @example 399382882
      *
      * @var string
@@ -16,8 +18,9 @@ class UpdatePhoneEncryptionPublicKeyRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description This parameter is required.
+     * @description Encrypt the public key.
      *
+     * This parameter is required.
      * @example -----BEGIN PUBLIC KEY-----
      * -----END PUBLIC KEY-----
      * @var string

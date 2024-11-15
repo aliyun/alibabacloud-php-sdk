@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class IsvGetAppIdResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * @example None
+     *
      * @var string
      */
     public $accessDeniedDetail;
@@ -35,6 +39,10 @@ class IsvGetAppIdResponseBody extends Model
     public $code;
 
     /**
+     * @description The ID of the configuration item.
+     *
+     * @example 28972951817****
+     *
      * @var string
      */
     public $configId;

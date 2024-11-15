@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class cardComponents extends Model
 {
     /**
-     * @description The card buttons.
+     * @description The buttons of the carousel card.
      *
      * @var buttons[]
      */
     public $buttons;
 
     /**
-     * @description The type of the header in the carousel template. The header can only be an image or a video. The headers of all cards must be the same.
+     * @description The type of the header in the carousel template. The header can only be an image or a video. The headers of all carousel cards must be the same. The type of the media resources that are included in the message. Valid values: IMGAGE and VIDEO.
      *
      * @example HEADER
      *
@@ -26,7 +26,7 @@ class cardComponents extends Model
     public $format;
 
     /**
-     * @description The card text.
+     * @description The text of the carousel card.
      *
      * @example Body
      *
@@ -35,7 +35,7 @@ class cardComponents extends Model
     public $text;
 
     /**
-     * @description The type of the component.
+     * @description The component type.
      *
      * @example HEADER
      *
@@ -44,7 +44,7 @@ class cardComponents extends Model
     public $type;
 
     /**
-     * @description The URL address.
+     * @description The URL.
      *
      * @example https://aliyun.com
      *

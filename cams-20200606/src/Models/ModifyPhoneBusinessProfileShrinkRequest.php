@@ -9,14 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ModifyPhoneBusinessProfileShrinkRequest extends Model
 {
     /**
-     * @example 关于
+     * @description The business information.
+     *
+     * @example business profile
      *
      * @var string
      */
     public $about;
 
     /**
-     * @description The space ID of the user under the independent software vendor (ISV) account.
+     * @description The address.
      *
      * @example The phone number.
      *
@@ -25,7 +27,7 @@ class ModifyPhoneBusinessProfileShrinkRequest extends Model
     public $address;
 
     /**
-     * @description Modifies the business information of the account to which a specified phone number is bound.
+     * @description The space ID of the RAM user within the independent software vendor (ISV) account.
      *
      * This parameter is required.
      * @example 293483938849****
@@ -35,7 +37,7 @@ class ModifyPhoneBusinessProfileShrinkRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The address.
+     * @description The description of the phone number.
      *
      * @example test
      *
@@ -44,7 +46,7 @@ class ModifyPhoneBusinessProfileShrinkRequest extends Model
     public $description;
 
     /**
-     * @description The description.
+     * @description The email address.
      *
      * @example aa@aliyun.com
      *
@@ -58,7 +60,7 @@ class ModifyPhoneBusinessProfileShrinkRequest extends Model
     public $ownerId;
 
     /**
-     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * @description The mobile phone number.
      *
      * This parameter is required.
      * @example 8613800001234
@@ -68,9 +70,8 @@ class ModifyPhoneBusinessProfileShrinkRequest extends Model
     public $phoneNumber;
 
     /**
-     * @description The industry.
+     * @description The URL of the profile picture.
      *
-     * > Enum: {OTHER, AUTO, BEAUTY, APPAREL, EDU, ENTERTAIN, EVENT_PLAN, FINANCE, GROCERY, GOVT, HOTEL, HEALTH, NONPROFIT, PROF_SERVICES, RETAIL, TRAVEL, RESTAURANT}
      * @example http://a.img
      *
      * @var string
@@ -88,8 +89,9 @@ class ModifyPhoneBusinessProfileShrinkRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Sichuan
+     * @description The industry.
      *
+     * >  Valid values: OTHER, AUTO, BEAUTY, APPAREL, EDU, ENTERTAIN, EVENT_PLAN, FINANCE, GROCERY, GOVT, HOTEL, HEALTH, NONPROFIT, PROF_SERVICES, RETAIL, TRAVEL, and RESTAURANT.
      * @example OTHER
      *
      * @var string
@@ -97,7 +99,7 @@ class ModifyPhoneBusinessProfileShrinkRequest extends Model
     public $vertical;
 
     /**
-     * @description The email address.
+     * @description The URLs of the websites.
      *
      * @var string
      */

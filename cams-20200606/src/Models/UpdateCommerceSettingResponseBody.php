@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateCommerceSettingResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * @example None
+     *
      * @var string
      */
     public $accessDeniedDetail;
@@ -44,6 +48,11 @@ class UpdateCommerceSettingResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

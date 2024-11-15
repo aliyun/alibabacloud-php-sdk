@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListPhoneMessageQrdlRequest extends Model
 {
     /**
+     * @description The space ID of the user within the independent software vendor (ISV) account.
+     *
      * @example 9383883
      *
      * @var string

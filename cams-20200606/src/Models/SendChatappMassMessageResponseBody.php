@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class SendChatappMassMessageResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * @example None
+     *
      * @var string
      */
     public $accessDeniedDetail;
@@ -26,7 +30,7 @@ class SendChatappMassMessageResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the group of messages.
+     * @description The ID of the message group.
      *
      * @example 890000010002****
      *

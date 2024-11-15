@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class cards extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The components of the carousel card.
      *
+     * This parameter is required.
      * @var cardComponents[]
      */
     public $cardComponents;

@@ -28,11 +28,15 @@ class data extends Model
     public $accountReviewStatus;
 
     /**
+     * @description WABA related information.
+     *
      * @var mixed[]
      */
     public $authInternationalRateEligibility;
 
     /**
+     * @description The ID of the business platform.
+     *
      * @example 19293988***
      *
      * @var string
@@ -40,6 +44,8 @@ class data extends Model
     public $businessId;
 
     /**
+     * @description The name of the business platform.
+     *
      * @example Alibaba
      *
      * @var string
@@ -83,7 +89,9 @@ class data extends Model
     public $name;
 
     /**
-     * @example 示例值示例值
+     * @description The start time when the authentication-international rate applies.
+     *
+     * @example "start_time":1721952000
      *
      * @var string
      */

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreatePhoneMessageQrdlResponseBody extends Model
 {
     /**
+     * @description If OK is returned, the request was successful.
+     *
      * @example OK
      *
      * @var string
@@ -24,6 +26,8 @@ class CreatePhoneMessageQrdlResponseBody extends Model
     public $data;
 
     /**
+     * @description The error message.
+     *
      * @example none
      *
      * @var string

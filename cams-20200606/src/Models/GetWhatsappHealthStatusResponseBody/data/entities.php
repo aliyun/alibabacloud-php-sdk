@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class entities extends Model
 {
     /**
+     * @description The Business Manager ID.
+     *
      * @example 3992****
      *
      * @var string
@@ -17,6 +19,8 @@ class entities extends Model
     public $businessId;
 
     /**
+     * @description Indicates whether the messages can be sent.
+     *
      * @example AVAILABLE
      *
      * @var string
@@ -24,6 +28,8 @@ class entities extends Model
     public $canSendMessage;
 
     /**
+     * @description The entity type.
+     *
      * @example PHONE_NUMBER
      *
      * @var string
@@ -31,11 +37,15 @@ class entities extends Model
     public $entityType;
 
     /**
+     * @description The reasons why the messages failed to be sent.
+     *
      * @var errors[]
      */
     public $errors;
 
     /**
+     * @description The template language.
+     *
      * @example en
      *
      * @var string
@@ -43,6 +53,8 @@ class entities extends Model
     public $language;
 
     /**
+     * @description The phone number to which the messages are sent.
+     *
      * @example 86138****
      *
      * @var string
@@ -50,6 +62,8 @@ class entities extends Model
     public $phoneNumber;
 
     /**
+     * @description The template code. This parameter is returned when the NodeType parameter is set to **template**.
+     *
      * @example 939928****
      *
      * @var string
@@ -57,6 +71,8 @@ class entities extends Model
     public $templateCode;
 
     /**
+     * @description The WABA ID. You can view the WABA ID in the Chat App Message Service console after you create the WABA.
+     *
      * @example 39939***
      *
      * @var string

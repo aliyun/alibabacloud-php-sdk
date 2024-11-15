@@ -11,6 +11,8 @@ class ChatappPhoneNumberDeregisterResponseBody extends Model
     /**
      * @description The details about the access denial.
      *
+     * @example None
+     *
      * @var string
      */
     public $accessDeniedDetail;
@@ -29,6 +31,8 @@ class ChatappPhoneNumberDeregisterResponseBody extends Model
 
     /**
      * @description The error message.
+     *
+     * @example None
      *
      * @var string
      */

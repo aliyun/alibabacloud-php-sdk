@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class components extends Model
 {
     /**
-     * @description The note indicating that customers cannot share verification codes with others. The note is displayed in the message body. This parameter is valid if Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to BODY in a WhatsApp message template.
+     * @description The note indicating that customers cannot share verification codes with others. The note is displayed in the message body. This parameter is valid if Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to BODY for a WhatsApp message template.
      *
      * @example false
      *
@@ -20,7 +20,17 @@ class components extends Model
     public $addSecretRecommendation;
 
     /**
-     * @description The buttons. Specify this parameter only if you set the Type sub-parameter of the Components parameter to **BUTTONS**. Before you specify this parameter, the format of the value must be changed from JSON to String.
+     * @description The buttons. This parameter is returned only if the Type sub-parameter of the Components parameter is set to **BUTTONS**.
+     *
+     * >  ####
+     *
+     *   A marketing or utility WhatsApp message template can contain up to 10 buttons.
+     *
+     *   A WhatsApp message template can contain only one phone call button.
+     *
+     *   A WhatsApp message template can contain up to two URL buttons.
+     *
+     *   In a WhatsApp message template, a quick reply button cannot be used together with a phone call button or a URL button.
      *
      * @var buttons[]
      */
@@ -43,7 +53,7 @@ class components extends Model
     public $cards;
 
     /**
-     * @description The validity period of the verification code in the WhatsApp authentication template. Unit: minutes. This parameter is valid only when Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to FOOTER in a WhatsApp message template. The validity period of the verification code is displayed in the footer.
+     * @description The validity period of the verification code in the WhatsApp authentication template. Unit: minutes. This parameter is valid only when Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to FOOTER for a WhatsApp message template. The validity period of the verification code is displayed in the footer.
      *
      * @example 5
      *
@@ -52,7 +62,7 @@ class components extends Model
     public $codeExpirationMinutes;
 
     /**
-     * @description The length of the video in the Viber message template. Valid values: 0 to 600. Unit: seconds.
+     * @description The length of the video in the Viber message template. Unit: seconds. Valid values: 0 to 600.
      *
      * @example 50
      *
@@ -151,20 +161,22 @@ class components extends Model
     public $thumbUrl;
 
     /**
-     * @description The type of the component. Valid values:
+     * @description The component type. Valid values:
      *
      *   **BODY**
      *   **HEADER**
      *   **FOOTER**
      *   **BUTTONS**
+     *   **CAROUSEL**
+     *   **LIMITED_TIME_OFFER**
      *
      * >
      *
-     *   The following limits apply to components in WhatsApp message templates: A **BODY** component cannot exceed 1,024 characters in length. A **HEADER** or **FOOTER** component cannot exceed 60 characters in length.
+     *   In a WhatsApp message template, a **Body** component cannot exceed 1,024 characters in length. A **HEADER** or **FOOTER** component cannot exceed 60 characters in length.
      *
-     *   **FOOTER** components are not supported in Viber message templates.
+     *   **FOOTER**, **CAROUSEL**, and **LIMITED_TIME_OFFER** components are not supported in Viber message templates.
      *
-     *   In a Viber message template, media resources such as images, videos, and documents are placed in the **HEADER** component. If a Viber message contains both text and an image, the image is placed below the text in the message received on a device.
+     *   In Viber message templates, media resources such as images, videos, and documents are placed in the **HEADER** component. If a Viber message contains text and an image, the image is placed below the text in the message received on a device.
      *
      * @example BODY
      *
@@ -182,7 +194,7 @@ class components extends Model
     public $url;
 
     /**
-     * @description Indicates whether the coupon code will expire in the limited-time offer template.
+     * @description Indicates whether the coupon code has an expiration time in the limited-time offer template.
      *
      * @example true
      *

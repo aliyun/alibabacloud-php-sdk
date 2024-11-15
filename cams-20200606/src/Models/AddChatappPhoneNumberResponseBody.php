@@ -9,17 +9,16 @@ use AlibabaCloud\Tea\Model;
 class AddChatappPhoneNumberResponseBody extends Model
 {
     /**
-     * @description The details about the access denial.
+     * @description com.alicom.access.oxs.client.channel.aliyun.flow.AyFlowExecuteService
+     *
+     * @example http://pop_access_slb_sgvpc/#vpc
      *
      * @var string
      */
     public $accessDeniedDetail;
 
     /**
-     * @description The response code.
-     *
-     *   The value OK indicates that the request was successful.
-     *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+     * @description The phone number.
      *
      * @example OK
      *
@@ -28,7 +27,7 @@ class AddChatappPhoneNumberResponseBody extends Model
     public $code;
 
     /**
-     * @description The error message.
+     * @description com.alicom.access.oxs.client.channel.aliyun.flow.dto.AyCommonApiRequest
      *
      * @example None
      *
@@ -37,7 +36,7 @@ class AddChatappPhoneNumberResponseBody extends Model
     public $message;
 
     /**
-     * @description The request ID.
+     * @description formData
      *
      * @example 90E63D28-E31D-1EB2-8939-A9486641****
      *
@@ -46,6 +45,8 @@ class AddChatappPhoneNumberResponseBody extends Model
     public $requestId;
 
     /**
+     * @description 13800000000
+     *
      * @example false
      *
      * @var bool

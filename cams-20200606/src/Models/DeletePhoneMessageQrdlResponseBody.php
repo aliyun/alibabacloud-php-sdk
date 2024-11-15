@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeletePhoneMessageQrdlResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+     *
      * @example OK
      *
      * @var string
@@ -16,6 +21,10 @@ class DeletePhoneMessageQrdlResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message.
+     *
+     * @example None
+     *
      * @var string
      */
     public $message;

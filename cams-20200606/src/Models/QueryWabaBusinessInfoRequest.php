@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class QueryWabaBusinessInfoRequest extends Model
 {
     /**
-     * @description The space ID of the user under the independent software vendor (ISV) account.
+     * @description The space ID of the RAM user within the independent software vendor (ISV) account.
      *
      * This parameter is required.
      * @example 293483938849493****
@@ -34,7 +34,7 @@ class QueryWabaBusinessInfoRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the WABA.
+     * @description The ID of the WhatsApp Business Account (WABA).
      *
      * This parameter is required.
      * @example 293848822333

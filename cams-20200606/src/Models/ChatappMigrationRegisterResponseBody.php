@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ChatappMigrationRegisterResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * @example None
+     *
      * @var string
      */
     public $accessDeniedDetail;
@@ -26,7 +30,7 @@ class ChatappMigrationRegisterResponseBody extends Model
     public $code;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example SUCCESS
      *

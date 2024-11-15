@@ -18,7 +18,16 @@ class phoneNumbers extends Model
     public $codeVerificationStatus;
 
     /**
-     * @description The maximum number of messages that can be sent to users by using the phone number.
+     * @description The number of phone numbers to which messages can be sent in a day.
+     *
+     * Valid values:
+     *
+     *   TIER_100K: 100,000
+     *   TIER_UNLIMITED: unlimited
+     *   TIER_250: 250
+     *   TIER_1K: 1,000
+     *   TIER_50: 50
+     *   TIER_10K: 10,000
      *
      * @example TIER_10
      *
@@ -54,12 +63,14 @@ class phoneNumbers extends Model
     public $phoneNumber;
 
     /**
-     * @description The quality rating of the phone number. Valid values:
+     * @description The quality rating of the phone number.
      *
-     *   **GREEN**
-     *   **YELLOW**
-     *   **RED**
-     *   **UNKNOWN**
+     * Valid values:
+     *
+     *   RED
+     *   YELLOW
+     *   UNKNOWN
+     *   GREEN
      *
      * @example GREEN
      *
@@ -68,19 +79,21 @@ class phoneNumbers extends Model
     public $qualityRating;
 
     /**
-     * @description The status of the phone number.
+     * @description The state of the phone number.
      *
-     *   PENDING
-     *   DELETED
+     * Valid values:
+     *
      *   MIGRATED
-     *   BANNED
-     *   RESTRICTED
-     *   RATE_LIMITED
      *   FLAGGED
-     *   CONNECTED
      *   DISCONNECTED
-     *   UNKNOWN
      *   UNVERIFIED
+     *   BANNED
+     *   RATE_LIMITED
+     *   PENDING
+     *   CONNECTED
+     *   UNKNOWN
+     *   DELETED
+     *   RESTRICTED
      *
      * @example CONNECTED
      *
@@ -98,7 +111,7 @@ class phoneNumbers extends Model
     public $statusCallbackUrl;
 
     /**
-     * @description The status report notification queue.
+     * @description The status report queue.
      *
      * @example Alicom-Queue-****-ChatAppStatus
      *

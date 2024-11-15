@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetConversationalAutomationRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The space ID of the RAM user within the independent software vendor (ISV) account or the instance ID of the customer of Alibaba Cloud.
      *
+     * This parameter is required.
      * @example cams-3ie***
      *
      * @var string
@@ -23,9 +24,10 @@ class GetConversationalAutomationRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The phone number of the enterprise.
      *
-     * @example 示例值示例值
+     * This parameter is required.
+     * @example 86130000***
      *
      * @var string
      */

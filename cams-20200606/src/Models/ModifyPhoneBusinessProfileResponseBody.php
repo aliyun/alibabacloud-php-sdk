@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyPhoneBusinessProfileResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * @example None
+     *
      * @var string
      */
     public $accessDeniedDetail;
@@ -41,6 +45,11 @@ class ModifyPhoneBusinessProfileResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

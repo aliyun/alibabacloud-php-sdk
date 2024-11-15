@@ -21,6 +21,8 @@ class GetPermissionByCodeResponseBody extends Model
     public $code;
 
     /**
+     * @description Error description information.
+     *
      * @example SUCCESS
      *
      * @var string

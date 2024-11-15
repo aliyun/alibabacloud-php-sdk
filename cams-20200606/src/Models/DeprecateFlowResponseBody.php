@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeprecateFlowResponseBody extends Model
 {
     /**
+     * @description The result returns OK as normal.
+     *
      * @example OK
      *
      * @var string
@@ -16,6 +18,8 @@ class DeprecateFlowResponseBody extends Model
     public $code;
 
     /**
+     * @description Error description information.
+     *
      * @example None
      *
      * @var string

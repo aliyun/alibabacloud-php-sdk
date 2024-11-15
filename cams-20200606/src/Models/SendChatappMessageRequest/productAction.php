@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class productAction extends Model
 {
     /**
-     * @description The products. Up to 30 products can be added. The products can be divided into up to 10 categories.
+     * @description The products. Up to 30 products and 10 categories can be added.
      *
      * @var sections[]
      */

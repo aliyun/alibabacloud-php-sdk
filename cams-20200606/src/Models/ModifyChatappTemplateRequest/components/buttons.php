@@ -19,6 +19,8 @@ class buttons extends Model
     public $autofillText;
 
     /**
+     * @description The coupon code. It can contain only letters and digits. You can set this parameter to a variable such as $(couponCode). Specify the value of couponCode when you send a message.
+     *
      * @example 120293
      *
      * @var string
@@ -26,6 +28,13 @@ class buttons extends Model
     public $couponCode;
 
     /**
+     * @description The Flow action.
+     *
+     * Valid values:
+     *
+     *   DATA_EXCHANGE
+     *   NAVIGATE
+     *
      * @example NAVIGATE
      *
      * @var string
@@ -33,14 +42,16 @@ class buttons extends Model
     public $flowAction;
 
     /**
-     * @example 28383872***
+     * @description The Flow ID.
+     *
+     * @example 664597077870605
      *
      * @var string
      */
     public $flowId;
 
     /**
-     * @description The unsubscribe button. This parameter is valid if Category is set to MARKETING and the Type sub-parameter of the Buttons parameter is set to QUICK_REPLY for a WhatsApp message template. After you configure message sending in the ChatApp Message Service console, marketing messages are not sent to customers if they click this button.
+     * @description The unsubscribe button. This parameter is valid if Category is set to MARKETING and the Type sub-parameter of the Buttons parameter is set to QUICK_REPLY for a WhatsApp message template. Marketing messages will not be sent to customers if you configure message sending in the Chat App Message Service console and the customers click this button.
      *
      * @example false
      *
@@ -49,7 +60,9 @@ class buttons extends Model
     public $isOptOut;
 
     /**
-     * @example SIGN_UP
+     * @description The first screen in the Flow. This parameter is required if FlowAction is set to NAVIGATE.
+     *
+     * @example DETAILS
      *
      * @var string
      */
@@ -87,6 +100,8 @@ class buttons extends Model
     public $signatureHash;
 
     /**
+     * @description List of supported apps.
+     *
      * @var supportedApps[]
      */
     public $supportedApps;
@@ -101,21 +116,17 @@ class buttons extends Model
     public $text;
 
     /**
-     * @description The type of the button. Valid values:
+     * @description The button type. Valid values:
      *
      *   **PHONE_NUMBER**: phone call button
      *   **URL**: URL button
      *   **QUICK_REPLY**: quick reply button
-     *   **COPY_CODE**: copy code button if Category is set to AUTHENTICATION
+     *   **COPY_CODE**: copy code button
      *   **ONE_TAP**: one-tap autofill button if Category is set to AUTHENTICATION
      *
      * >
      *
-     *   In a WhatsApp message template, a quick reply button cannot be used together with a phone call button or a URL button.
-     *
-     *   You can add a combination of two URL buttons or a combination of a URL button and a phone call button to a WhatsApp message template.
-     *
-     *   If Category is set to AUTHENTICATION for a WhatsApp message template, you can add only one button to the WhatsApp message template and you must set the Type sub-parameter of the Buttons parameter to COPY_CODE or ONE_TAP. If the Type sub-parameter of the Buttons parameter is set to COPY_CODE, the Text sub-parameter of the Buttons parameter is required. If the Type sub-parameter of the Buttons parameter is set to ONE_TAP, the Text, SignatureHash, PackageName, and AutofillText sub-parameters of the Buttons parameter are required. The value of Text is displayed if the desired app is not installed on the device. The value of Text indicates that you must manually copy the verification code.
+     *   If Category is set to AUTHENTICATION for a WhatsApp message template, you can add only one button to the WhatsApp message template and you must set the Type sub-parameter of the Buttons parameter to COPY_CODE or ONE_TAP. If Type is set to COPY_CODE, the Text sub-parameter of the Buttons parameter is required. If Type is set to ONE_TAP, the Text, SignatureHash, PackageName, and AutofillText sub-parameters of the Buttons parameter are required. The value of Text is displayed if the desired app is not installed on the device. The value of Text indicates that you must manually copy the verification code.
      *
      *   You can add only one button to a Viber message template, and you must set the Type sub-parameter of the Buttons parameter to URL.
      *
@@ -136,7 +147,7 @@ class buttons extends Model
     public $url;
 
     /**
-     * @description The type of the URL. Valid values:
+     * @description The URL type. Valid values:
      *
      *   **static**
      *   **dynamic**

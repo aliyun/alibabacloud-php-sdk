@@ -10,7 +10,11 @@ use AlibabaCloud\Tea\Model;
 class SendChatappMassMessageRequest extends Model
 {
     /**
-     * @description The channel type. Valid values: whatsapp, viber, and line.
+     * @description The type of the channel. Valid values:
+     *
+     *   **whatsapp**
+     *   **viber**
+     *   **line** (under development)
      *
      * This parameter is required.
      * @example whatsapp
@@ -29,8 +33,9 @@ class SendChatappMassMessageRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The ID of the WhatsApp Business account under the ISV account.
+     * @description The WhatsApp Business Account (WABA) ID of the RAM user within the independent software vendor (ISV) account.
      *
+     * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
      * @example 65921621816****
      *
      * @deprecated
@@ -40,7 +45,7 @@ class SendChatappMassMessageRequest extends Model
     public $custWabaId;
 
     /**
-     * @description The fallback content.
+     * @description The content of the fallback message.
      *
      * @example Fallback message
      *
@@ -49,6 +54,8 @@ class SendChatappMassMessageRequest extends Model
     public $fallBackContent;
 
     /**
+     * @description Specifies the period of time after which the fallback message is sent if the message receipt that indicates the message is delivered to clients is not received. If this parameter is left empty, the fallback message is sent only when the message fails to be sent or the message receipt that indicates the message is not delivered to clients is received. Unit: seconds. Valid values: 60 to 43200.
+     *
      * @example 120
      *
      * @var int
@@ -56,7 +63,7 @@ class SendChatappMassMessageRequest extends Model
     public $fallBackDuration;
 
     /**
-     * @description The ID of the fallback strategy.
+     * @description The ID of the fallback policy.
      *
      * @example S00001
      *
@@ -65,13 +72,10 @@ class SendChatappMassMessageRequest extends Model
     public $fallBackId;
 
     /**
-     * @description The fallback rule.
+     * @description The fallback rule. Valid values:
      *
-     * >  Valid values:
-     *
-     *   undelivered: A fallback is triggered if the WhatsApp message is not delivered to clients. When the WhatsApp message is being sent, the template parameters are verified. If the parameters fail to pass the verification, the message fails to be sent. Whether the template and phone number are prohibited is not verified. By default, this value is used when FallBackRule is left empty.
-     *
-     *   sentfailed: A fallback is triggered even if the template parameters including variables fail to pass the verification. If the channelType, type, messageType, to, and from parameters fail to pass the verification, a fallback is not triggered.
+     *   **undelivered**: A fallback is triggered if the message is not delivered to clients. When the message is being sent, the template parameters are verified. If the parameters fail to pass the verification, the message fails to be sent. Whether the template and phone number are prohibited is not verified. By default, this value is used when FallBackRule is left empty.
+     *   **sentFailed**: A fallback is triggered even if the template parameters including variables fail to pass the verification. If the channelType, type, messageType, to, and from parameters fail to pass the verification, a fallback is not triggered.
      *
      * @example undelivered
      *
@@ -80,7 +84,7 @@ class SendChatappMassMessageRequest extends Model
     public $fallBackRule;
 
     /**
-     * @description The phone number of the message sender.
+     * @description The mobile phone number of the message sender.
      *
      * This parameter is required.
      * @example 861387777****
@@ -90,7 +94,7 @@ class SendChatappMassMessageRequest extends Model
     public $from;
 
     /**
-     * @description The ISV verification code, which is used to verify whether the user is authorized by the ISV account.
+     * @description The ISV verification code. This parameter is used to verify whether the RAM user is authorized by the ISV account.
      *
      * @example skdi3kksloslikdkkdk
      *
@@ -99,7 +103,10 @@ class SendChatappMassMessageRequest extends Model
     public $isvCode;
 
     /**
-     * @description The message type when the ChannelType parameter is set to viber. Valid values: promotion and transaction.
+     * @description The type of the Viber message. Valid values:
+     *
+     *   **promotion**
+     *   **transaction**
      *
      * @example promotion
      *
@@ -118,7 +125,7 @@ class SendChatappMassMessageRequest extends Model
     public $language;
 
     /**
-     * @description The phone numbers to which the message is sent.
+     * @description The mobile phone numbers of the message receivers.
      *
      * This parameter is required.
      * @var senderList[]
@@ -135,7 +142,7 @@ class SendChatappMassMessageRequest extends Model
     public $tag;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example 100000001
      *
@@ -144,7 +151,7 @@ class SendChatappMassMessageRequest extends Model
     public $taskId;
 
     /**
-     * @description The encoding of the message template.
+     * @description The template code.
      *
      * @example 744c4b5c79c9432497a075bdfca36bf5
      *
@@ -153,6 +160,8 @@ class SendChatappMassMessageRequest extends Model
     public $templateCode;
 
     /**
+     * @description The name of the message template.
+     *
      * @example test_name
      *
      * @var string

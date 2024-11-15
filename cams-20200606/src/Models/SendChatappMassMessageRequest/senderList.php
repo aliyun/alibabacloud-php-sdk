@@ -11,12 +11,14 @@ use AlibabaCloud\Tea\Model;
 class senderList extends Model
 {
     /**
+     * @description The Flow action.
+     *
      * @var flowAction
      */
     public $flowAction;
 
     /**
-     * @description The payload.
+     * @description The payload of the button.
      *
      * @var string[]
      */
@@ -37,7 +39,7 @@ class senderList extends Model
     public $templateParams;
 
     /**
-     * @description The phone number to which the message is sent.
+     * @description The mobile phone number of the message receiver.
      *
      * This parameter is required.
      * @example 861388988****

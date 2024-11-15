@@ -18,7 +18,7 @@ class buttons extends Model
     public $phoneNumber;
 
     /**
-     * @description The button content.
+     * @description The button text.
      *
      * @example Button text
      *
@@ -36,7 +36,7 @@ class buttons extends Model
     public $type;
 
     /**
-     * @description The URL to be accessed when you click the URL button.
+     * @description The URL to which you are redirected when you click the URL button.
      *
      * @example https://aliyun.com
      *

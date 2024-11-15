@@ -10,12 +10,16 @@ use AlibabaCloud\Tea\Model;
 class BeeBotChatResponseBody extends Model
 {
     /**
+     * @description Access denied for detailed information.
+     *
+     * @example None
+     *
      * @var string
      */
     public $accessDeniedDetail;
 
     /**
-     * @description If OK is returned, the request is successful.
+     * @description The content of the text message.
      *
      * @example OK
      *
@@ -24,14 +28,14 @@ class BeeBotChatResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
+     * @description The list of the recommended knowledge. When AnswerType is set to Recommend, the list of the recommended knowledge is returned by the bot for this parameter.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The error message returned.
+     * @description Indicates whether the answer is in plain text or rich text.
      *
      * @example none
      *
@@ -40,7 +44,7 @@ class BeeBotChatResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The passthrough parameter.
      *
      * @example 90E63D28-E31D-1EB2-8939-A94866411B2O
      *

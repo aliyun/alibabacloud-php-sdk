@@ -19,6 +19,8 @@ class BeeBotAssociateRequest extends Model
     public $chatBotInstanceId;
 
     /**
+     * @description The space ID of the user within the independent software vendor (ISV) account.
+     *
      * @example 293483938849493
      *
      * @var string
@@ -62,7 +64,7 @@ class BeeBotAssociateRequest extends Model
     /**
      * @description The input of the visitor.
      *
-     * @example 你好
+     * @example hello
      *
      * @var string
      */

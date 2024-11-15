@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class GetChatappTemplateDetailResponseBody extends Model
 {
     /**
+     * @description Access denied details.
+     *
+     * @example None
+     *
      * @var string
      */
     public $accessDeniedDetail;

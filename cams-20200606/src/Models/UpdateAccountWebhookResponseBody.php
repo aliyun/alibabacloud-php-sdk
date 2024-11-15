@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateAccountWebhookResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * @example None
+     *
      * @var string
      */
     public $accessDeniedDetail;

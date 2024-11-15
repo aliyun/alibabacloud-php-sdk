@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The commands.
+     *
      * @var commands[]
      */
     public $commands;
 
     /**
+     * @description Indicates whether the welcoming message is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -22,6 +26,8 @@ class data extends Model
     public $enableWelcomeMessage;
 
     /**
+     * @description The phone number of the enterprise.
+     *
      * @example 86138****
      *
      * @var string
@@ -29,6 +35,8 @@ class data extends Model
     public $phoneNumber;
 
     /**
+     * @description The opening remarks.
+     *
      * @var string[]
      */
     public $prompts;

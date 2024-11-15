@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetFlowJSONAssestResponseBody extends Model
 {
     /**
+     * @description If OK is returned, the request was successful.
+     *
      * @example OK
      *
      * @var string
@@ -24,6 +26,10 @@ class GetFlowJSONAssestResponseBody extends Model
     public $data;
 
     /**
+     * @description Error description information.
+     *
+     * @example None
+     *
      * @var string
      */
     public $message;

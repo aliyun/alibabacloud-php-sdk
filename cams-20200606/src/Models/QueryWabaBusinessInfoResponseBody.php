@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class QueryWabaBusinessInfoResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * @example None
+     *
      * @var string
      */
     public $accessDeniedDetail;
@@ -52,6 +56,11 @@ class QueryWabaBusinessInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool

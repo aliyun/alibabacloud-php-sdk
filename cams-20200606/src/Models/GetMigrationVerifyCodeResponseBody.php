@@ -10,11 +10,20 @@ use AlibabaCloud\Tea\Model;
 class GetMigrationVerifyCodeResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * @example None
+     *
      * @var string
      */
     public $accessDeniedDetail;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     *   A value of OK indicates that the call is successful.
+     *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+     *
      * @example OK
      *
      * @var string
@@ -22,11 +31,15 @@ class GetMigrationVerifyCodeResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message.
+     *
      * @example None
      *
      * @var string
@@ -34,6 +47,8 @@ class GetMigrationVerifyCodeResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 90E63D28-E31D-1EB2-8939-A94866411B2O
      *
      * @var string

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the response message.
+     * @description The ID of the recommended knowledge.
      *
      * @example ab6be8af-cee4-40c3-9919-2ac7461d7d98
      *
@@ -19,14 +19,14 @@ class data extends Model
     public $messageId;
 
     /**
-     * @description The list of messages.
+     * @description The source of the recommended answer. When AnswerType is set to Recommend, a value is returned for this parameter.
      *
      * @var messages[]
      */
     public $messages;
 
     /**
-     * @description The ID of the session.
+     * @description The source of the recommended answer.
      *
      * @example 1234
      *

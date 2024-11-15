@@ -11,11 +11,11 @@ use AlibabaCloud\Tea\Model;
 class SendChatappMessageRequest extends Model
 {
     /**
-     * @description The type of the message channel. Valid values:
+     * @description The channel type. Valid values:
      *
      *   **whatsapp**
      *   **viber**
-     *   line. The feature that ChatAPP sends messages by using Line is under development.
+     *   **line** (under development)
      *
      * This parameter is required.
      * @example whatsapp
@@ -25,31 +25,31 @@ class SendChatappMessageRequest extends Model
     public $channelType;
 
     /**
-     * @description The content of the message.
+     * @description The message content.
      *
-     **Usage notes when you set the ChannelType parameter to whatsapp:**
+     **Notes on WhatsApp messages:**
      *
-     *   When you set the **MessageType** parameter to **text**, the **text** parameter is required and the **caption** parameter cannot be specified.
-     *   When you set the **MessageType** parameter to **image**, the **link** parameter is required.
-     *   When you set the **MessageType** parameter to **video**, the **link** parameter is required.
-     *   When you set the **MessageType** parameter to **audio**, the **link** parameter is required and the **caption** parameter is invalid.
-     *   When you set the **MessageType** parameter to **document**, the **link** and **fileName** parameters are required and the **caption** parameter is invalid.
-     *   When you set the **MessageType** parameter to **interactive**, the **type** and **action** parameters are required.
-     *   When you set the **MessageType** parameter to **contacts**, the **name** parameter is required.
-     *   When you set the **MessageType** parameter to **location**, the **longitude** and **latitude** parameters are required.
-     *   When you set the **MessageType** parameter to **sticker**, the **link** parameter is required, and the **caption** and **fileName** parameters are invalid.
-     *   When you set the **MessageType** parameter to **reaction**, the **messageId** and **emoji** parameters are required.
+     *   If you set **messageType** to **text**, you must specify **text** and must not specify **Caption**.
+     *   If you set **messageType** to **image**, you must specify **Link**.
+     *   If you set **messageType** to **video**, you must specify **Link**.
+     *   If you set **messageType** to **audio**, **Link** is required and **Caption** is invalid.
+     *   If you set **messageType** to **document**, **Link** and **FileName** are required and **Caption** is invalid.
+     *   If you set **messageType** to **interactive**, you must specify **type** and **action**.
+     *   If you set **messageType** to **contacts**, you must specify **name**.
+     *   If you set **messageType** to **location**, you must specify **longitude** and **latitude**.
+     *   If you set **messageType** to **sticker**, you must specify **Link**, and **Caption** and **FileName** are invalid.
+     *   If you set **messageType** to **reaction**, you must specify **messageId** and **emoji**.
      *
-     **Usage notes when you set the ChannelType parameter to viber:**
+     **Notes on Viber messages:**
      *
-     *   When you set the **MessageType** parameter to **text**, the **text** parameter is required.
-     *   When you set the **MessageType** parameter to **image**, the **link** parameter is required.
-     *   When you set the **MessageType** parameter to **video**, the **link**, **thumbnail**, **fileSize**, and **duration** parameters are required.
-     *   When you set the **MessageType** parameter to **document**, the **link**, **fileName**, and **fileType** parameters are required.
-     *   When you set the **MessageType** parameter to **text_button**, the **text**, **caption**, and **action** parameters are required.
-     *   When you set the **MessageType** parameter to **text_image_button**, the **text**, **link**, **caption**, and **action** parameters are required.
-     *   When you set the **MessageType** parameter to **text_video**, the **text**, **link**, **thumbnail**, **fileSize**, and **duration** parameters are required.
-     *   When you set the **MessageType** parameter to **text_video_button**, the **text**, **link**, **thumbnail**, **fileSize**, **duration**, and **caption** parameters are required. The **action** parameter is invalid.
+     *   If you set **messageType** to **text**, you must specify **text**.
+     *   If you set **messageType** to **image**, you must specify **link**.
+     *   If you set **messageType** to **video**, you must specify **link**, **thumbnail**, **fileSize**, and **duration**.
+     *   If you set **messageType** to **document**, you must specify **link**, **fileName**, and **fileType**.
+     *   If you set **messageType** to **text_button**, you must specify **text**, **caption**, and **action**.
+     *   If you set **messageType** to **text_image_button**, you must specify **text**, **link**, **caption**, and **action**.
+     *   If you set **messageType** to **text_video**, you must specify **text**, **link**, **thumbnail**, **fileSize**, and **duration**.
+     *   If you set **messageType** to **text_video_button**, you must specify **text**, **link**, **thumbnail**, **fileSize**, **duration**, and **caption**. In addition, you must not specify **action**.
      *
      * @example {\\"text\\": \\"hello whatsapp\\", \\"link\\": \\"\\", \\"caption\\": \\"\\", \\"fileName\\": \\"\\" }
      *
@@ -58,7 +58,7 @@ class SendChatappMessageRequest extends Model
     public $content;
 
     /**
-     * @description The ID of the message to reply to.
+     * @description The ID of the reply message.
      *
      * @example 61851ccb2f1365b16aee****
      *
@@ -76,8 +76,9 @@ class SendChatappMessageRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The ID of the WhatsApp account that you register.
+     * @description The WhatsApp Business Account (WABA) ID of the RAM user within the independent software vendor (ISV) account.
      *
+     * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
      * @example 65921621816****
      *
      * @deprecated
@@ -96,7 +97,7 @@ class SendChatappMessageRequest extends Model
     public $fallBackContent;
 
     /**
-     * @description Specifies the period of time after which the fallback Short Message Service (SMS) message is sent if the message receipt that indicates the message is delivered to customers is not received. If this parameter is left empty, the fallback SMS message is sent only when the **message fails to be sent** or **the message receipt that indicates the message is not delivered to customers** is received. Valid values: 60 to 43200. Unit: seconds.
+     * @description Specifies the period of time after which the fallback message is sent if the message receipt that indicates the message is delivered to clients is not received. If this parameter is left empty, the fallback message is sent only when the **message fails to be sent** or **the message receipt that indicates the message is not delivered to clients** is received. Unit: seconds. Valid values: 60 to 43200.
      *
      * @example 120
      *
@@ -105,7 +106,7 @@ class SendChatappMessageRequest extends Model
     public $fallBackDuration;
 
     /**
-     * @description The ID of the fallback strategy. You can create a fallback strategy and view the information in the console.
+     * @description The ID of the fallback policy. You can create a fallback policy and view the information in the Chat App Message Service console.
      *
      * @example S_000001
      *
@@ -114,9 +115,11 @@ class SendChatappMessageRequest extends Model
     public $fallBackId;
 
     /**
-     * @description 回落规则。
+     * @description The fallback rule. Valid values:
      *
-     * > 中国站此字段无效
+     *   **undelivered**: A fallback is triggered if the message is not delivered to clients. When the message is being sent, the template parameters are verified. If the parameters fail to pass the verification, the message fails to be sent. Whether the template and phone number are prohibited is not verified. By default, this value is used when FallBackRule is left empty.
+     *   **sentFailed**: A fallback is triggered even if the template parameters including variables fail to pass the verification. If the channelType, type, messageType, to, and from parameters fail to pass the verification, a fallback is not triggered.
+     *
      * @example undelivered
      *
      * @var string
@@ -124,14 +127,14 @@ class SendChatappMessageRequest extends Model
     public $fallBackRule;
 
     /**
-     * @description Flow发送数据
+     * @description The Flow action.
      *
      * @var flowAction
      */
     public $flowAction;
 
     /**
-     * @description The phone number of the message sender.
+     * @description The mobile phone number of the message sender.
      *
      * This parameter is required.
      * @example 1360000****
@@ -141,7 +144,7 @@ class SendChatappMessageRequest extends Model
     public $from;
 
     /**
-     * @description The independent software vendor (ISV) verification code, which is used to verify whether the user is authorized by the ISV account.
+     * @description The ISV verification code. This parameter is used to verify whether the RAM user is authorized by the ISV account.
      *
      * @example skdi3kksloslikdkkdk
      *
@@ -150,7 +153,10 @@ class SendChatappMessageRequest extends Model
     public $isvCode;
 
     /**
-     * @description The type of the Viber message. This parameter is required if you set the ChannelType parameter to viber. Valid values: promotion and transaction.
+     * @description The type of the Viber message. This parameter is required if ChannelType is set to viber. Valid values:
+     *
+     *   **promotion**
+     *   **transaction**
      *
      * @example promotion
      *
@@ -228,7 +234,7 @@ class SendChatappMessageRequest extends Model
     public $tag;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example 100000001
      *
@@ -246,6 +252,8 @@ class SendChatappMessageRequest extends Model
     public $templateCode;
 
     /**
+     * @description The name of the message template.
+     *
      * @example test_name
      *
      * @var string
@@ -260,7 +268,7 @@ class SendChatappMessageRequest extends Model
     public $templateParams;
 
     /**
-     * @description The phone number that receives the message.
+     * @description The mobile phone number of the message receiver.
      *
      * This parameter is required.
      * @example 1390000****
@@ -270,7 +278,7 @@ class SendChatappMessageRequest extends Model
     public $to;
 
     /**
-     * @description The tracking ID of the Viber message.
+     * @description The tracking data of the Viber message.
      *
      * @example tracking_id:123456
      *
@@ -288,10 +296,10 @@ class SendChatappMessageRequest extends Model
     public $ttl;
 
     /**
-     * @description The type of the message. Valid values:
+     * @description The message type. Valid values:
      *
-     *   **template**: a template message. A template message is sent based on a template that is created in the ChatAPP console and is approved. You can send template messages at any time based on your business requirements.
-     *   **message**: a custom message. You can send a custom message to a user only within 24 hours after you receive the last message from the user.
+     *   **template**: the template message. A template message is sent based on a template that is created and approved in the Chat App Message Service console. You can send template messages based on your business requirements.
+     *   **message**: the custom message. You can send a custom WhatsApp message to a user only within 24 hours after you receive the last message from the user. This limit does not apply to custom Viber messages.
      *
      * This parameter is required.
      * @example template

@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class GetChatappUploadAuthorizationResponseBody extends Model
 {
     /**
+     * @description Access denied for detailed information.
+     *
+     * @example None
+     *
      * @var string
      */
     public $accessDeniedDetail;
@@ -27,7 +31,7 @@ class GetChatappUploadAuthorizationResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
+     * @description The returned data.
      *
      * @var data
      */

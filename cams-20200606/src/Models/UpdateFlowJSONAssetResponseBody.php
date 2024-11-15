@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateFlowJSONAssetResponseBody extends Model
 {
     /**
+     * @description The result returns OK as normal.
+     *
      * @example OK
      *
      * @var string
@@ -24,6 +26,10 @@ class UpdateFlowJSONAssetResponseBody extends Model
     public $data;
 
     /**
+     * @description Error description information.
+     *
+     * @example None
+     *
      * @var string
      */
     public $message;

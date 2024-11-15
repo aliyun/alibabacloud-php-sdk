@@ -58,6 +58,8 @@ class GetChatappTemplateDetailRequest extends Model
     public $templateCode;
 
     /**
+     * @description Name of a template.
+     *
      * @example test_name
      *
      * @var string

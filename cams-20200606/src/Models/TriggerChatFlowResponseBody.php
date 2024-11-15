@@ -4,63 +4,59 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
-use AlibabaCloud\SDK\Cams\V20200606\Models\GetCommerceSettingResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class GetCommerceSettingResponseBody extends Model
+class TriggerChatFlowResponseBody extends Model
 {
     /**
-     * @description Access denied for detailed information.
+     * @description Details of access denial
      *
-     * @example None
+     * @example 无
      *
      * @var string
      */
     public $accessDeniedDetail;
 
     /**
-     * @description The response code.
+     * @description Status code.
      *
-     *   The value OK indicates that the request was successful.
-     *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
-     *
-     * @example OK
+     * @example 无
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description The returned data.
+     * @description Returned data.
      *
-     * @var data
+     * @example {}
+     *
+     * @var mixed[]
      */
     public $data;
 
     /**
-     * @description The error message.
+     * @description Error description message.
      *
-     * @example None
+     * @example 无
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The request ID.
+     * @description Request ID.
      *
-     * @example 90E63D28-E31D-1EB2-8939-A9486641****
+     * @example 无
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
+     * @description Whether the call was successful.
+     * - **true**: Call succeeded.
+     * - **false**: Call failed.
      * @example true
      *
      * @var bool
@@ -89,7 +85,7 @@ class GetCommerceSettingResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = $this->data;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -107,7 +103,7 @@ class GetCommerceSettingResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetCommerceSettingResponseBody
+     * @return TriggerChatFlowResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -119,7 +115,7 @@ class GetCommerceSettingResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+            $model->data = $map['Data'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class associate extends Model
 {
     /**
-     * @description The additional information.
+     * @description The metadata.
      *
      * @example {}
      *
@@ -18,7 +18,9 @@ class associate extends Model
     public $meta;
 
     /**
-     * @description The title of the associated question.
+     * @description The title of the related question.
+     *
+     * @example Policy on Withdrawal of Housing Provident Fund
      *
      * @var string
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class BeeBotChatShrinkRequest extends Model
 {
     /**
-     * @description The ID of the bot instance.
+     * @description Indicates whether the answer is in plain text or rich text.
      *
      * This parameter is required.
      * @example 1
@@ -19,6 +19,8 @@ class BeeBotChatShrinkRequest extends Model
     public $chatBotInstanceId;
 
     /**
+     * @description The metadata.
+     *
      * @example 293483938849493
      *
      * @var string
@@ -26,7 +28,7 @@ class BeeBotChatShrinkRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The name of the intent in the dialog flow. When this parameter is specified, the bot conducts a Q\\&A based on the intent.
+     * @description The source of the answer.
      *
      * @example intent
      *
@@ -35,7 +37,7 @@ class BeeBotChatShrinkRequest extends Model
     public $intentName;
 
     /**
-     * @description The ISV verification code, which is used to verify whether the user is authorized by the ISV account.
+     * @description The source of the answer.
      *
      * @example ksiekdki39ksks93939
      *
@@ -44,7 +46,7 @@ class BeeBotChatShrinkRequest extends Model
     public $isvCode;
 
     /**
-     * @description The ID of the knowledge title in the knowledge base.
+     * @description The hit statement.
      *
      * @example 1
      *
@@ -53,14 +55,14 @@ class BeeBotChatShrinkRequest extends Model
     public $knowledgeId;
 
     /**
-     * @description The list of codes for answers from different perspectives.
+     * @description Beijing
      *
      * @var string
      */
     public $perspectiveShrink;
 
     /**
-     * @description The ID of the visitor, which is used to identify users in the current session.
+     * @description The information about the slot.
      *
      * @example 861500000000
      *
@@ -69,7 +71,7 @@ class BeeBotChatShrinkRequest extends Model
     public $senderId;
 
     /**
-     * @description The nickname of the visitor in the current session.
+     * @description Beijing
      *
      * @example nick
      *
@@ -78,7 +80,7 @@ class BeeBotChatShrinkRequest extends Model
     public $senderNick;
 
     /**
-     * @description The ID of the session, which is used to identify the session and store context information of the session.
+     * @description The title of the related knowledge.
      *
      * @example en
      *
@@ -87,7 +89,7 @@ class BeeBotChatShrinkRequest extends Model
     public $sessionId;
 
     /**
-     * @description The input of the visitor.
+     * @description The title of the hit question.
      *
      * This parameter is required.
      * @example 659216218162179
@@ -97,7 +99,9 @@ class BeeBotChatShrinkRequest extends Model
     public $utterance;
 
     /**
-     * @description The user-defined parameter set in JSON format. You can specify user-defined parameters for conversation engines.
+     * @description The node name. When AnswerSource is set to BotFramework, a value is returned for this parameter.
+     *
+     * @example {\\"skills\\":\\"chat_search\\",\\"accessToken\\":\\"73f4d5c8e8c334d9b538890bca68ac9a\\",\\"senderStaffId\\":\\"1697204021326\\",\\"senderCorpId\\":\\"dingee291fb2828058b9\\"}
      *
      * @var string
      */

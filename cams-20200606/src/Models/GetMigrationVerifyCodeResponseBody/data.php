@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the number.
+     *
      * @example 82828893332
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $id;
 
     /**
+     * @description Phone number.
+     *
      * @example 8613800001234
      *
      * @var string

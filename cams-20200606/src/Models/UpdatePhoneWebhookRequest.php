@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdatePhoneWebhookRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description SpaceId for ISV sub clients.
      *
+     * This parameter is required.
      * @example 293483938849493****
      *
      * @var string
@@ -18,6 +19,10 @@ class UpdatePhoneWebhookRequest extends Model
     public $custSpaceId;
 
     /**
+     * @description Whether to use HTTP to receive receipts. Value:
+     *   Y: Yes.
+     *   N: No.
+     *
      * @example Y
      *
      * @var string
@@ -25,8 +30,9 @@ class UpdatePhoneWebhookRequest extends Model
     public $httpFlag;
 
     /**
-     * @description This parameter is required.
+     * @description phone number.
      *
+     * This parameter is required.
      * @example 8613800001234
      *
      * @var string
@@ -34,6 +40,10 @@ class UpdatePhoneWebhookRequest extends Model
     public $phoneNumber;
 
     /**
+     * @description Whether to use queue method to receive receipts. Value:
+     *   Y: Yes.
+     *   N: No.
+     *
      * @example N
      *
      * @var string
@@ -41,6 +51,8 @@ class UpdatePhoneWebhookRequest extends Model
     public $queueFlag;
 
     /**
+     * @description HTTP status report interface callback address.
+     *
      * @example http://www.aliyun.com
      *
      * @var string
@@ -48,6 +60,8 @@ class UpdatePhoneWebhookRequest extends Model
     public $statusCallbackUrl;
 
     /**
+     * @description HTTP upstream message interface callback address.
+     *
      * @example http://aliyun.com
      *
      * @var string

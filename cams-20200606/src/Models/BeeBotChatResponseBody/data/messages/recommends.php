@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class recommends extends Model
 {
     /**
-     * @description The source of the recommended answer.
+     * @description Clarify the identification of the source.
      *
      * @example KNOWLEDGE
      *
@@ -18,7 +18,7 @@ class recommends extends Model
     public $answerSource;
 
     /**
-     * @description The ID of the recommended knowledge.
+     * @description Clarify the knowledge ID.
      *
      * @example 4548
      *
@@ -27,7 +27,9 @@ class recommends extends Model
     public $knowledgeId;
 
     /**
-     * @description The title of the recommended knowledge. Valid values: the entity in graph-based question answering, the knowledge title in knowledge-based question answering, or the column value in table-based question answering.
+     * @description Clarify the content, which may be the entities of graph Q&A, the knowledge titles of knowledge Q&A, or the column values of table Q&A.
+     *
+     * @example Test plain text.
      *
      * @var string
      */

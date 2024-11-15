@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetMigrationVerifyCodeRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The space ID of the user under the independent software vendor (ISV) account.
      *
+     * This parameter is required.
      * @example 293483938849493
      *
      * @var string
@@ -18,8 +19,9 @@ class GetMigrationVerifyCodeRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description This parameter is required.
+     * @description The language.
      *
+     * This parameter is required.
      * @example zh_CN
      *
      * @var string
@@ -27,8 +29,9 @@ class GetMigrationVerifyCodeRequest extends Model
     public $locale;
 
     /**
-     * @description This parameter is required.
+     * @description The method to obtain the verification code. Valid values: SMS and VOICE.
      *
+     * This parameter is required.
      * @example sms
      *
      * @var string
@@ -36,8 +39,9 @@ class GetMigrationVerifyCodeRequest extends Model
     public $method;
 
     /**
-     * @description This parameter is required.
+     * @description Phone number.
      *
+     * This parameter is required.
      * @example 8613800001234
      *
      * @var string

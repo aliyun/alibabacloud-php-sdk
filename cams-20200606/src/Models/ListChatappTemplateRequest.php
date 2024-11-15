@@ -24,6 +24,8 @@ class ListChatappTemplateRequest extends Model
     public $auditStatus;
 
     /**
+     * @description Template encoding.
+     *
      * @example 838888822*****
      *
      * @var string

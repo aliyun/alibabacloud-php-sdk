@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteChatappTemplateRequest extends Model
 {
     /**
-     * @description The space ID of the user under the ISV account.
+     * @description The space ID of the RAM user within the ISV account.
      *
      * @example 28251486512358****
      *
@@ -18,7 +18,7 @@ class DeleteChatappTemplateRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The WhatsApp Business account (WABA) ID of the user within the independent software vendor (ISV) account.
+     * @description The WhatsApp Business Account (WABA) ID of the RAM user within the independent software vendor (ISV) account.
      *
      * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
      * @example 65921621816****
@@ -28,7 +28,7 @@ class DeleteChatappTemplateRequest extends Model
     public $custWabaId;
 
     /**
-     * @description The independent software vendor (ISV) verification code, which is used to verify whether the user is authorized by the ISV account.
+     * @description The ISV verification code. This parameter is used to verify whether the RAM user is authorized by the ISV account.
      *
      * @example skdi3kksloslikdkkdk
      *
@@ -37,6 +37,8 @@ class DeleteChatappTemplateRequest extends Model
     public $isvCode;
 
     /**
+     * @description The template language.
+     *
      * @example zh_CN
      *
      * @var string
@@ -59,7 +61,7 @@ class DeleteChatappTemplateRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The code of the message template.
+     * @description The template code.
      *
      * @example 744c4b5c79c9432497a075bdfca3****
      *
@@ -68,13 +70,17 @@ class DeleteChatappTemplateRequest extends Model
     public $templateCode;
 
     /**
-     * @example test
+     * @description The template name.
+     *
+     * @example test_name
      *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description The template type. This parameter is required if you delete a template in a language.
+     *
      * @example WHATSAPP
      *
      * @var string

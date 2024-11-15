@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The space ID of the user.
+     * @description The space ID of the user within the independent software vendor (ISV) account.
      *
      * @example C02029392939939
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $custSpaceId;
 
     /**
-     * @description The ID of the WhatsApp Business account.
+     * @description The ID of the WhatsApp Business Account (WABA).
      *
      * @example 2939828282
      *

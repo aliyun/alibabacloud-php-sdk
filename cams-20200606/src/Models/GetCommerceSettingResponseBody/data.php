@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description Indicates whether the shopping cart button is displayed.
+     * @description Indicates whether the shopping cart button is displayed. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example false
      *
@@ -18,7 +21,10 @@ class data extends Model
     public $cartEnable;
 
     /**
-     * @description Indicates whether the catalog button is displayed.
+     * @description Indicates whether the catalog button is displayed. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example false
      *

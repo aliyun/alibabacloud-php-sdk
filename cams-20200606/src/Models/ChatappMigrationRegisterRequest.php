@@ -9,20 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ChatappMigrationRegisterRequest extends Model
 {
     /**
-     * @description The space ID of the user under the independent software vendor (ISV) account.
+     * @description None
      *
      * This parameter is required.
-     * @example 293483938849493
+     * @example 29348393884****
      *
      * @var string
      */
     public $custSpaceId;
 
     /**
-     * @description The phone number.
+     * @description phone number.
      *
      * This parameter is required.
-     * @example 86138001234
+     * @example 8613800****
      *
      * @var string
      */

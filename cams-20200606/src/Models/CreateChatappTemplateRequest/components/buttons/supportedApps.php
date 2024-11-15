@@ -9,14 +9,18 @@ use AlibabaCloud\Tea\Model;
 class supportedApps extends Model
 {
     /**
-     * @example com.aliyun.pack.***
+     * @description The name of the Android application package. This parameter is required if you create an Android application.
+     *
+     * @example com.kuaidian.waimaistaff
      *
      * @var string
      */
     public $packageName;
 
     /**
-     * @example kdikie9398k
+     * @description WhatsApp template is required when Category is Authoritative and Button Type is ONE_TAP/ZERO-TAP, indicating the signature hash value of the WhatsApp application.
+     *
+     * @example ieid83kdiek
      *
      * @var string
      */

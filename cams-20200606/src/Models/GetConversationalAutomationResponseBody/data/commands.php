@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class commands extends Model
 {
     /**
+     * @description The description of the command.
+     *
      * @example description
      *
      * @var string
@@ -16,6 +18,8 @@ class commands extends Model
     public $commandDescription;
 
     /**
+     * @description The name of the command.
+     *
      * @example common1
      *
      * @var string

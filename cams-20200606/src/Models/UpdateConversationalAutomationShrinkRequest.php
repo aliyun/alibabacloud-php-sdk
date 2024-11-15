@@ -9,20 +9,25 @@ use AlibabaCloud\Tea\Model;
 class UpdateConversationalAutomationShrinkRequest extends Model
 {
     /**
+     * @description The commands.
+     *
      * @var string
      */
     public $commandsShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The space ID of the RAM user within the independent software vendor (ISV) account or the instance ID of the customer of Alibaba Cloud.
      *
-     * @example 示例值
+     * This parameter is required.
+     * @example 2993****
      *
      * @var string
      */
     public $custSpaceId;
 
     /**
+     * @description Specifies whether to enable the welcoming message.
+     *
      * @example true
      *
      * @var bool
@@ -35,8 +40,9 @@ class UpdateConversationalAutomationShrinkRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The phone number of the enterprise.
      *
+     * This parameter is required.
      * @example 86130000***
      *
      * @var string
@@ -44,6 +50,8 @@ class UpdateConversationalAutomationShrinkRequest extends Model
     public $phoneNumber;
 
     /**
+     * @description The opening remarks.
+     *
      * @var string
      */
     public $promptsShrink;

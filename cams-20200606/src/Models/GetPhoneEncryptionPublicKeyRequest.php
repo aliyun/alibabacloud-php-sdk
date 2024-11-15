@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetPhoneEncryptionPublicKeyRequest extends Model
 {
     /**
+     * @description The space ID of the user under the independent software vendor (ISV) account.
+     *
      * @example 393838848
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Deep link address.
+     *
      * @example https://wa.msg/
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $deepLinkUrl;
 
     /**
+     * @description Generate image types.
+     *
      * @example PNG
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $generateQrImage;
 
     /**
+     * @description Number.
+     *
      * @example 8613800
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $phoneNumber;
 
     /**
+     * @description Message content.
+     *
      * @example Hello
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $prefilledMessage;
 
     /**
+     * @description QR code address.
+     *
      * @example https://img.png
      *
      * @var string
@@ -44,6 +54,8 @@ class data extends Model
     public $qrImageUrl;
 
     /**
+     * @description QR code encoding.
+     *
      * @example DEDEE998
      *
      * @var string

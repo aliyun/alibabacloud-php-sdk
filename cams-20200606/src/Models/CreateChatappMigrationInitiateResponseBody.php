@@ -10,11 +10,20 @@ use AlibabaCloud\Tea\Model;
 class CreateChatappMigrationInitiateResponseBody extends Model
 {
     /**
+     * @description The information about the request denial..
+     *
+     * @example None
+     *
      * @var string
      */
     public $accessDeniedDetail;
 
     /**
+     * @description The response code.
+     *
+     *   A value of OK indicates that the request was successful.
+     *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/196974.html).
+     *
      * @example OK
      *
      * @var string
@@ -22,11 +31,15 @@ class CreateChatappMigrationInitiateResponseBody extends Model
     public $code;
 
     /**
+     * @description The response data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -34,6 +47,8 @@ class CreateChatappMigrationInitiateResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 90E63D28-E31D-1EB2-8939-A9486641****
      *
      * @var string

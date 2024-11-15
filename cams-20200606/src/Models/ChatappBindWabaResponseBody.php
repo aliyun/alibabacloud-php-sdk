@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class ChatappBindWabaResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * @example None
+     *
      * @var string
      */
     public $accessDeniedDetail;
@@ -27,7 +31,7 @@ class ChatappBindWabaResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
+     * @description The returned data.
      *
      * @var data
      */
@@ -52,6 +56,11 @@ class ChatappBindWabaResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

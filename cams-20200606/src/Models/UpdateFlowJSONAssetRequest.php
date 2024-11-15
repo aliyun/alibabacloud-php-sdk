@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateFlowJSONAssetRequest extends Model
 {
     /**
+     * @description SpaceId/instance ID of ISV sub customer.
+     *
      * @example 9399393
      *
      * @var string
@@ -16,8 +18,9 @@ class UpdateFlowJSONAssetRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description This parameter is required.
+     * @description JSON file generated according to Facebook flow rules.
      *
+     * This parameter is required.
      * @example https://aliyun/json.json
      *
      * @var string

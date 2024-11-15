@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class commands extends Model
 {
     /**
-     * @example 命令1
+     * @description The description of the command.
+     *
+     * @example Command 1.
      *
      * @var string
      */
     public $commandDescription;
 
     /**
+     * @description The command name.
+     *
      * @example test
      *
      * @var string

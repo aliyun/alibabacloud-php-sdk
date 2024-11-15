@@ -57,6 +57,8 @@ class listTemplate extends Model
     public $language;
 
     /**
+     * @description The time when the template was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1711006633000
      *
      * @var int

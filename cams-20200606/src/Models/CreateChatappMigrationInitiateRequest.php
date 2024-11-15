@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateChatappMigrationInitiateRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The code of the country or region.
      *
+     * This parameter is required.
      * @example 86
      *
      * @var string
@@ -18,8 +19,9 @@ class CreateChatappMigrationInitiateRequest extends Model
     public $countryCode;
 
     /**
-     * @description This parameter is required.
+     * @description The space ID of the user within the ISV account.
      *
+     * This parameter is required.
      * @example 293483938849493****
      *
      * @var string
@@ -27,8 +29,9 @@ class CreateChatappMigrationInitiateRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description This parameter is required.
+     * @description The mobile number without the country code or region code.
      *
+     * This parameter is required.
      * @example 13900001234
      *
      * @var string

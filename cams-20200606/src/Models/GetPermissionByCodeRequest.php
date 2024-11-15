@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetPermissionByCodeRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Authorize code information.
      *
+     * This parameter is required.
      * @example flow_001
      *
      * @var string

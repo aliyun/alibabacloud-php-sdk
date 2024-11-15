@@ -9,15 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteChatappTemplateResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * @example None
+     *
      * @var string
      */
     public $accessDeniedDetail;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The response code.
      *
-     *   A value of OK indicates that the call is successful.
-     *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+     *   The value OK indicates that the request was successful.
+     *   For more information about other response codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
      *
      * @example OK
      *
@@ -26,7 +30,7 @@ class DeleteChatappTemplateResponseBody extends Model
     public $code;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example User not authorized to operate on the specified resource.
      *
@@ -35,7 +39,7 @@ class DeleteChatappTemplateResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 90E63D28-E31D-1EB2-8939-A9486641****
      *
@@ -44,6 +48,11 @@ class DeleteChatappTemplateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

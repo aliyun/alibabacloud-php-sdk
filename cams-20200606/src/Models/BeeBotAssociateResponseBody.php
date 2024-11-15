@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class BeeBotAssociateResponseBody extends Model
 {
     /**
+     * @description The access denied for detailed information.
+     *
+     * @example None
+     *
      * @var string
      */
     public $accessDeniedDetail;

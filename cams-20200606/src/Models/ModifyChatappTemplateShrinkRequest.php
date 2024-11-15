@@ -103,6 +103,8 @@ class ModifyChatappTemplateShrinkRequest extends Model
     public $templateCode;
 
     /**
+     * @description Template name.
+     *
      * @example test_name
      *
      * @var string

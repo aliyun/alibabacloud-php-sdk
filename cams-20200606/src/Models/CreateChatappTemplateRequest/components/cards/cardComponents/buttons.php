@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class buttons extends Model
 {
     /**
+     * @description The phone number.
+     *
      * @example +8613800
      *
      * @var string
@@ -16,6 +18,8 @@ class buttons extends Model
     public $phoneNumber;
 
     /**
+     * @description The text of the button.
+     *
      * @example Call me
      *
      * @var string
@@ -23,8 +27,13 @@ class buttons extends Model
     public $text;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the button. Valid values:
      *
+     *   **PHONE_NUMBER**: phone call button
+     *   **URL**: URL button
+     *   **QUICK_REPLY**: quick reply button
+     *
+     * This parameter is required.
      * @example PHONE_NUMBER
      *
      * @var string
@@ -32,6 +41,8 @@ class buttons extends Model
     public $type;
 
     /**
+     * @description The URL to which you are redirected when you click the URL button.
+     *
      * @example https://alibaba.com/xx
      *
      * @var string
@@ -39,6 +50,11 @@ class buttons extends Model
     public $url;
 
     /**
+     * @description The type of the URL. Valid values:
+     *
+     *   **static**
+     *   **dynamic**
+     *
      * @example static
      *
      * @var string

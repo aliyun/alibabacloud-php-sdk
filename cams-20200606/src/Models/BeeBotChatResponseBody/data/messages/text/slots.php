@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class slots extends Model
 {
     /**
-     * @description Indicates whether the slot is hit.
+     * @description Whether it hits.
      *
      * @example false
      *
@@ -18,14 +18,16 @@ class slots extends Model
     public $hit;
 
     /**
-     * @description The name.
+     * @description Name.
+     *
+     * @example Check weather intentions. city
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description The original value.
+     * @description Original value.
      *
      * @example Beijing
      *
@@ -34,7 +36,7 @@ class slots extends Model
     public $origin;
 
     /**
-     * @description The specific value.
+     * @description Specific values.
      *
      * @example Beijing
      *

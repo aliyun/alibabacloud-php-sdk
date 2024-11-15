@@ -28,6 +28,8 @@ class CreateFlowResponseBody extends Model
     /**
      * @description The error message.
      *
+     * @example None
+     *
      * @var string
      */
     public $message;

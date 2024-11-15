@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class SubmitIsvCustomerTermsResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * @example /
+     *
      * @var string
      */
     public $accessDeniedDetail;

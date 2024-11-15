@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetWhatsappHealthStatusRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The space ID of the RAM user within the independent software vendor (ISV) account or the instance ID of the customer of Alibaba Cloud.
      *
+     * This parameter is required.
      * @example 2993****
      *
      * @var string
@@ -18,6 +19,8 @@ class GetWhatsappHealthStatusRequest extends Model
     public $custSpaceId;
 
     /**
+     * @description The template language.
+     *
      * @example en
      *
      * @var string
@@ -25,8 +28,15 @@ class GetWhatsappHealthStatusRequest extends Model
     public $language;
 
     /**
-     * @description This parameter is required.
+     * @description The node type.
      *
+     * Valid values:
+     *
+     *   template: message template
+     *   phone: phone number
+     *   waba: WhatsApp Business Account (WABA)
+     *
+     * This parameter is required.
      * @example waba
      *
      * @var string
@@ -39,6 +49,8 @@ class GetWhatsappHealthStatusRequest extends Model
     public $ownerId;
 
     /**
+     * @description The phone number of the enterprise.
+     *
      * @example 86138***
      *
      * @var string
@@ -56,6 +68,8 @@ class GetWhatsappHealthStatusRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The template code.
+     *
      * @example 399299***
      *
      * @var string

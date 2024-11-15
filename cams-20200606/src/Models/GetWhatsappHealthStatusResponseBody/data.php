@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the messages can be sent.
+     *
      * @example AVAILABLE
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $canSendMessage;
 
     /**
+     * @description The queried entities.
+     *
      * @var entities[]
      */
     public $entities;

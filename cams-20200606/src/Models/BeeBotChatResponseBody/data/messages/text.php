@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class text extends Model
 {
     /**
-     * @description The source of the answer.
+     * @description Distinguish answer types.
      *
      * @example BotFramework
      *
@@ -21,12 +21,14 @@ class text extends Model
     /**
      * @description The content of the text message.
      *
+     * @example May I ask where you want to check the weather?
+     *
      * @var string
      */
     public $content;
 
     /**
-     * @description Indicates whether the answer is in plain text or rich text.
+     * @description Indication of plain/rich text answers.
      *
      * @example PLAIN_TEXT
      *
@@ -35,49 +37,57 @@ class text extends Model
     public $contentType;
 
     /**
-     * @description The name of the dialog. When the AnswerSource parameter is set to BotFramework, the value of this parameter is returned.
+     * @description When AnswerSource is BotFramework, this field returns the name of the dialogue unit.
+     *
+     * @example Example: Checking Weather
      *
      * @var string
      */
     public $dialogName;
 
     /**
-     * @description The passthrough parameters are returned.
+     * @description This field returns transparent parameters.
      *
      * @var mixed[]
      */
     public $ext;
 
     /**
-     * @description When the AnswerSource parameter is set to BotFramework, the value of this parameter is returned.
+     * @description When AnswerSource is BotFramework, this field returns a transparent parameter.
      *
      * @var mixed[]
      */
     public $externalFlags;
 
     /**
-     * @description The hit text.
+     * @description Hit statement.
+     *
+     * @example Check the weather.
      *
      * @var string
      */
     public $hitStatement;
 
     /**
-     * @description The name of the intent. When the AnswerSource parameter is set to BotFramework, the value of this parameter is returned.
+     * @description When AnswerSource is BotFramework, this field returns the intent name.
+     *
+     * @example Check weather intention.
      *
      * @var string
      */
     public $intentName;
 
     /**
-     * @description The metadata.
+     * @description Metadata.
+     *
+     * @example [[{\\"columnName\\":\\"name\\",\\"stringValue\\":\\"wangshanshan\\"}]]
      *
      * @var string
      */
     public $metaData;
 
     /**
-     * @description The ID of the node. When the AnswerSource parameter is set to BotFramework, the value of this parameter is returned.
+     * @description When AnswerSource is BotFramework, this field returns the node ID.
      *
      * @example 1410-c7a72a78.__city
      *
@@ -86,21 +96,25 @@ class text extends Model
     public $nodeId;
 
     /**
-     * @description The name of the node. When the AnswerSource parameter is set to BotFramework, the value of this parameter is returned.
+     * @description When AnswerSource is BotFramework, this field returns the node name.
+     *
+     * @example Example: Checking Weather Check the weather and fill in the slots__ city
      *
      * @var string
      */
     public $nodeName;
 
     /**
-     * @description The list of slots.
+     * @description Slot information list.
      *
      * @var slots[]
      */
     public $slots;
 
     /**
-     * @description The title of the chitchat.
+     * @description Custom Chat Topic Title.
+     *
+     * @example greet.
      *
      * @var string
      */

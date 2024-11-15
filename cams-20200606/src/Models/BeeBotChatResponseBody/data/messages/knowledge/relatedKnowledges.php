@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class relatedKnowledges extends Model
 {
     /**
-     * @description The ID of the related knowledge.
+     * @description The ID of knowledge associated with knowledge.
      *
      * @example 735899
      *
@@ -18,7 +18,9 @@ class relatedKnowledges extends Model
     public $knowledgeId;
 
     /**
-     * @description The title of the related knowledge.
+     * @description The title of related knowledge.
+     *
+     * @example Withdrawal of housing provident fund.
      *
      * @var string
      */

@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class ListChatappTemplateResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * @example None
+     *
      * @var string
      */
     public $accessDeniedDetail;
@@ -27,7 +31,7 @@ class ListChatappTemplateResponseBody extends Model
     public $code;
 
     /**
-     * @description The message templates.
+     * @description The list of the templates.
      *
      * @var listTemplate[]
      */

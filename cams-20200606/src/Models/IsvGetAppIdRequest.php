@@ -9,14 +9,22 @@ use AlibabaCloud\Tea\Model;
 class IsvGetAppIdRequest extends Model
 {
     /**
-     * @description 权限
+     * @description The permission.
+     *
+     * Valid values:
+     *
+     *   whatsapp_business_messaging: sending permission on WhatsApp messages
+     *   ads_management: management permission on advertisements
+     *   catalog_management: management permission on catalogs
+     *
+     * @example catalog_management
      *
      * @var string
      */
     public $permissions;
 
     /**
-     * @description The type of the application. Set the value to WHATSAPP.
+     * @description The type of the app. Valid value: WHATSAPP.
      *
      * This parameter is required.
      * @example WHATSAPP

@@ -126,6 +126,9 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SubmitIsvCustomerTermsRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SubmitIsvCustomerTermsResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\TriggerChatFlowRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\TriggerChatFlowResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\TriggerChatFlowShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateAccountWebhookRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateAccountWebhookResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateCommerceSettingRequest;
@@ -183,8 +186,6 @@ class Cams extends OpenApiClient
     /**
      * @summary Adds a phone number for a WhatsApp Business account (WABA).
      *  *
-     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
      * @param AddChatappPhoneNumberRequest $request AddChatappPhoneNumberRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -238,8 +239,6 @@ class Cams extends OpenApiClient
 
     /**
      * @summary Adds a phone number for a WhatsApp Business account (WABA).
-     *  *
-     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *  *
      * @param AddChatappPhoneNumberRequest $request AddChatappPhoneNumberRequest
      *
@@ -329,7 +328,7 @@ class Cams extends OpenApiClient
     /**
      * @summary Conducts sessions with the bot based on its unique identifier (ID).
      *  *
-     * @description You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * @description The ID of the session.
      *  *
      * @param BeeBotChatRequest $tmpReq  BeeBotChatRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -402,7 +401,7 @@ class Cams extends OpenApiClient
     /**
      * @summary Conducts sessions with the bot based on its unique identifier (ID).
      *  *
-     * @description You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * @description The ID of the session.
      *  *
      * @param BeeBotChatRequest $request BeeBotChatRequest
      *
@@ -529,7 +528,7 @@ class Cams extends OpenApiClient
     /**
      * @summary Registers a phone number for migration.
      *  *
-     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * @description The space ID of the RAM user within the independent software vendor (ISV) account.
      *  *
      * @param ChatappMigrationRegisterRequest $request ChatappMigrationRegisterRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -567,7 +566,7 @@ class Cams extends OpenApiClient
     /**
      * @summary Registers a phone number for migration.
      *  *
-     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * @description The space ID of the RAM user within the independent software vendor (ISV) account.
      *  *
      * @param ChatappMigrationRegisterRequest $request ChatappMigrationRegisterRequest
      *
@@ -939,10 +938,11 @@ class Cams extends OpenApiClient
 
     /**
      * @summary The HTTP status code.
-     * \\\\*   Example: OK. This parameter indicates that the request is successful.
-     * \\\\*   Other values indicate that the request fails. For more information, see \\[Error codes]\\\\(https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
+     * \\\\\\\\*   Example: OK. This parameter indicates that the request is successful.
+     * \\\\\\\\*   Other values indicate that the request fails. For more information, see \\\\\\[Error codes]\\\\\\(https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
      *  *
-     * @description The error message.
+     * @description ### [](#qps-)QPS limit
+     * You can call this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *  *
      * @param CreateChatappTemplateRequest $tmpReq  CreateChatappTemplateRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -1014,10 +1014,11 @@ class Cams extends OpenApiClient
 
     /**
      * @summary The HTTP status code.
-     * \\\\*   Example: OK. This parameter indicates that the request is successful.
-     * \\\\*   Other values indicate that the request fails. For more information, see \\[Error codes]\\\\(https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
+     * \\\\\\\\*   Example: OK. This parameter indicates that the request is successful.
+     * \\\\\\\\*   Other values indicate that the request fails. For more information, see \\\\\\[Error codes]\\\\\\(https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
      *  *
-     * @description The error message.
+     * @description ### [](#qps-)QPS limit
+     * You can call this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *  *
      * @param CreateChatappTemplateRequest $request CreateChatappTemplateRequest
      *
@@ -1093,7 +1094,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 创建消息发送二维码
+     * @summary Creates a quick-response (QR) code that contains a message.
      *  *
      * @param CreatePhoneMessageQrdlRequest $request CreatePhoneMessageQrdlRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -1135,7 +1136,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 创建消息发送二维码
+     * @summary Creates a quick-response (QR) code that contains a message.
      *  *
      * @param CreatePhoneMessageQrdlRequest $request CreatePhoneMessageQrdlRequest
      *
@@ -1283,7 +1284,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 删除消息发送二维码
+     * @summary Deletes a quick-response (QR) code that contains a message.
      *  *
      * @param DeletePhoneMessageQrdlRequest $request DeletePhoneMessageQrdlRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -1322,7 +1323,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 删除消息发送二维码
+     * @summary Deletes a quick-response (QR) code that contains a message.
      *  *
      * @param DeletePhoneMessageQrdlRequest $request DeletePhoneMessageQrdlRequest
      *
@@ -1336,7 +1337,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 弃用Flow
+     * @summary Deprecates a Flow.
      *  *
      * @param DeprecateFlowRequest $request DeprecateFlowRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -1372,7 +1373,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 弃用Flow
+     * @summary Deprecates a Flow.
      *  *
      * @param DeprecateFlowRequest $request DeprecateFlowRequest
      *
@@ -1832,7 +1833,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 获取号码欢迎消息设置信息
+     * @summary Configures welcoming messages, opening remarks, and commands.
+     *  *
+     * @description ### [](#qps-)QPS limit
+     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * This operation will directly obtain data from Facebook, which sets an upper limit on the total number of calls for operations. We recommend that you take note of the limit when you call this operation.
      *  *
      * @param GetConversationalAutomationRequest $request GetConversationalAutomationRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -1877,7 +1882,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 获取号码欢迎消息设置信息
+     * @summary Configures welcoming messages, opening remarks, and commands.
+     *  *
+     * @description ### [](#qps-)QPS limit
+     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * This operation will directly obtain data from Facebook, which sets an upper limit on the total number of calls for operations. We recommend that you take note of the limit when you call this operation.
      *  *
      * @param GetConversationalAutomationRequest $request GetConversationalAutomationRequest
      *
@@ -1945,7 +1954,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 获取flow的JSON文件
+     * @summary Queries the JSON content of a Flow.
      *  *
      * @param GetFlowJSONAssestRequest $request GetFlowJSONAssestRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -1981,7 +1990,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 获取flow的JSON文件
+     * @summary Queries the JSON content of a Flow.
      *  *
      * @param GetFlowJSONAssestRequest $request GetFlowJSONAssestRequest
      *
@@ -2049,9 +2058,9 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary The phone number.
+     * @summary Obtain the verification code for the migration number.
      *  *
-     * @description The ID of the phone number.
+     * @description The single user QPS limit for this interface is 10 times per second. Exceeding the limit may result in restricted API calls, which may affect your business. Please make reasonable calls.
      *  *
      * @param GetMigrationVerifyCodeRequest $request GetMigrationVerifyCodeRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -2093,9 +2102,9 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary The phone number.
+     * @summary Obtain the verification code for the migration number.
      *  *
-     * @description The ID of the phone number.
+     * @description The single user QPS limit for this interface is 10 times per second. Exceeding the limit may result in restricted API calls, which may affect your business. Please make reasonable calls.
      *  *
      * @param GetMigrationVerifyCodeRequest $request GetMigrationVerifyCodeRequest
      *
@@ -2109,7 +2118,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 根据Code获取权限
+     * @summary Obtains permissions based on the authorization code obtained from embedded signup.
      *  *
      * @param GetPermissionByCodeRequest $tmpReq  GetPermissionByCodeRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -2153,7 +2162,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 根据Code获取权限
+     * @summary Obtains permissions based on the authorization code obtained from embedded signup.
      *  *
      * @param GetPermissionByCodeRequest $request GetPermissionByCodeRequest
      *
@@ -2167,7 +2176,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 获取号码的公钥
+     * @summary Queries the encryption public key of a phone number.
      *  *
      * @param GetPhoneEncryptionPublicKeyRequest $request GetPhoneEncryptionPublicKeyRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -2203,7 +2212,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 获取号码的公钥
+     * @summary Queries the encryption public key of a phone number.
      *  *
      * @param GetPhoneEncryptionPublicKeyRequest $request GetPhoneEncryptionPublicKeyRequest
      *
@@ -2388,7 +2397,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 获取whatsapp节点信息发送消息健康度
+     * @summary Queries the messaging health status of different types of nodes.
+     *  *
+     * @description ### [](#qps-)QPS limit
+     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * This operation will directly obtain data from Facebook, which sets an upper limit on the total number of calls for operations. We recommend that you take note of the limit when you call this operation.
      *  *
      * @param GetWhatsappHealthStatusRequest $request GetWhatsappHealthStatusRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -2445,7 +2458,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 获取whatsapp节点信息发送消息健康度
+     * @summary Queries the messaging health status of different types of nodes.
+     *  *
+     * @description ### [](#qps-)QPS limit
+     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * This operation will directly obtain data from Facebook, which sets an upper limit on the total number of calls for operations. We recommend that you take note of the limit when you call this operation.
      *  *
      * @param GetWhatsappHealthStatusRequest $request GetWhatsappHealthStatusRequest
      *
@@ -2657,7 +2674,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 查询消息发送二维码
+     * @summary Queries the information about a list of quick-response (QR) codes that contain messages.
      *  *
      * @param ListPhoneMessageQrdlRequest $request ListPhoneMessageQrdlRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -2693,7 +2710,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 查询消息发送二维码
+     * @summary Queries the information about a list of quick-response (QR) codes that contain messages.
      *  *
      * @param ListPhoneMessageQrdlRequest $request ListPhoneMessageQrdlRequest
      *
@@ -3653,7 +3670,8 @@ class Cams extends OpenApiClient
     /**
      * @summary Submits the agreement information for independent software vendor (ISV) customers.
      *  *
-     * @description You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * @description *   You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * *   After you call the [GetChatappUploadAuthorization](~~GetChatappUploadAuthorization~~) operation to obtain the authentication information for uploading the file to Object Storage Service (OSS), you can use the authentication information to upload the file to the OSS server. To upload the file, you can call the SDK provided by OSS. When you upload the file, set the value of the key to the value of `Dir + "/" + file name`, such as C200293990209/isvTerms.pdf. The value of Dir is obtained from the [GetChatappUploadAuthorization](~~GetChatappUploadAuthorization~~) operation. The value of IsvTerms is obtained from the PutObject operation.
      *  *
      * @param SubmitIsvCustomerTermsRequest $request SubmitIsvCustomerTermsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -3706,7 +3724,8 @@ class Cams extends OpenApiClient
     /**
      * @summary Submits the agreement information for independent software vendor (ISV) customers.
      *  *
-     * @description You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * @description *   You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * *   After you call the [GetChatappUploadAuthorization](~~GetChatappUploadAuthorization~~) operation to obtain the authentication information for uploading the file to Object Storage Service (OSS), you can use the authentication information to upload the file to the OSS server. To upload the file, you can call the SDK provided by OSS. When you upload the file, set the value of the key to the value of `Dir + "/" + file name`, such as C200293990209/isvTerms.pdf. The value of Dir is obtained from the [GetChatappUploadAuthorization](~~GetChatappUploadAuthorization~~) operation. The value of IsvTerms is obtained from the PutObject operation.
      *  *
      * @param SubmitIsvCustomerTermsRequest $request SubmitIsvCustomerTermsRequest
      *
@@ -3717,6 +3736,86 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitIsvCustomerTermsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Trigger an Online ChatFlow
+     *  *
+     * @description After triggering an online flow, if your flow contains components that incur costs for cloud products, such as message sending or function calls, please ensure you fully understand the billing methods and prices of the related products before using this interface.
+     *  *
+     * @param TriggerChatFlowRequest $tmpReq  TriggerChatFlowRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TriggerChatFlowResponse TriggerChatFlowResponse
+     */
+    public function triggerChatFlowWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new TriggerChatFlowShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->data)) {
+            $request->dataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->data, 'Data', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->claimTimeMillis)) {
+            $query['ClaimTimeMillis'] = $request->claimTimeMillis;
+        }
+        if (!Utils::isUnset($request->dataShrink)) {
+            $query['Data'] = $request->dataShrink;
+        }
+        if (!Utils::isUnset($request->discardTimeMillis)) {
+            $query['DiscardTimeMillis'] = $request->discardTimeMillis;
+        }
+        if (!Utils::isUnset($request->flowCode)) {
+            $query['FlowCode'] = $request->flowCode;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TriggerChatFlow',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TriggerChatFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Trigger an Online ChatFlow
+     *  *
+     * @description After triggering an online flow, if your flow contains components that incur costs for cloud products, such as message sending or function calls, please ensure you fully understand the billing methods and prices of the related products before using this interface.
+     *  *
+     * @param TriggerChatFlowRequest $request TriggerChatFlowRequest
+     *
+     * @return TriggerChatFlowResponse TriggerChatFlowResponse
+     */
+    public function triggerChatFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->triggerChatFlowWithOptions($request, $runtime);
     }
 
     /**
@@ -3849,7 +3948,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 更新号码欢迎消息、命令等属性
+     * @summary Modifies welcoming messages, opening remarks, and commands for a phone number.
+     *  *
+     * @description ### [](#qps-)QPS limit
+     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * This operation will directly obtain data from Facebook, which sets an upper limit on the total number of calls for operations. We recommend that you take note of the limit when you call this operation.
      *  *
      * @param UpdateConversationalAutomationRequest $tmpReq  UpdateConversationalAutomationRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -3911,7 +4014,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 更新号码欢迎消息、命令等属性
+     * @summary Modifies welcoming messages, opening remarks, and commands for a phone number.
+     *  *
+     * @description ### [](#qps-)QPS limit
+     * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * This operation will directly obtain data from Facebook, which sets an upper limit on the total number of calls for operations. We recommend that you take note of the limit when you call this operation.
      *  *
      * @param UpdateConversationalAutomationRequest $request UpdateConversationalAutomationRequest
      *
@@ -3925,7 +4032,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 更新flow的表单内容
+     * @summary Updates a Flow by using JSON content.
      *  *
      * @param UpdateFlowJSONAssetRequest $request UpdateFlowJSONAssetRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -3964,7 +4071,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 更新flow的表单内容
+     * @summary Updates a Flow by using JSON content.
      *  *
      * @param UpdateFlowJSONAssetRequest $request UpdateFlowJSONAssetRequest
      *
@@ -3978,7 +4085,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 更新号码的公钥
+     * @summary Updates the encryption public key of a phone number.
      *  *
      * @param UpdatePhoneEncryptionPublicKeyRequest $request UpdatePhoneEncryptionPublicKeyRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -4017,7 +4124,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 更新号码的公钥
+     * @summary Updates the encryption public key of a phone number.
      *  *
      * @param UpdatePhoneEncryptionPublicKeyRequest $request UpdatePhoneEncryptionPublicKeyRequest
      *
@@ -4031,7 +4138,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 修改消息发送二维码
+     * @summary Modifies a quick-response (QR) code that contains a message.
      *  *
      * @param UpdatePhoneMessageQrdlRequest $request UpdatePhoneMessageQrdlRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -4076,7 +4183,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * @summary 修改消息发送二维码
+     * @summary Modifies a quick-response (QR) code that contains a message.
      *  *
      * @param UpdatePhoneMessageQrdlRequest $request UpdatePhoneMessageQrdlRequest
      *
@@ -4091,8 +4198,8 @@ class Cams extends OpenApiClient
 
     /**
      * @summary The HTTP status code returned.
-     * *   A value of OK indicates that the call is successful.
-     * *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+     * \\*   A value of OK indicates that the call is successful.
+     * \\*   Other values indicate that the call fails. For more information, see [Error codes]\\(~~196974~~).
      *  *
      * @description The error message returned.
      *  *
@@ -4143,8 +4250,8 @@ class Cams extends OpenApiClient
 
     /**
      * @summary The HTTP status code returned.
-     * *   A value of OK indicates that the call is successful.
-     * *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+     * \\*   A value of OK indicates that the call is successful.
+     * \\*   Other values indicate that the call fails. For more information, see [Error codes]\\(~~196974~~).
      *  *
      * @description The error message returned.
      *  *

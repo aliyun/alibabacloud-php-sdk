@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateCommerceSettingRequest extends Model
 {
     /**
-     * @description Specifies whether to display the shopping cart button.
+     * @description Specifies whether to display the shopping cart button. Valid values:
+     *
+     *   true
+     *   false
      *
      * This parameter is required.
      * @example true
@@ -19,7 +22,10 @@ class UpdateCommerceSettingRequest extends Model
     public $cartEnable;
 
     /**
-     * @description Specifies whether to display the catalog button.
+     * @description Specifies whether to display the catalog button. Valid values:
+     *
+     *   true
+     *   false
      *
      * This parameter is required.
      * @example false

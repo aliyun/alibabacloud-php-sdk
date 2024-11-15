@@ -9,14 +9,18 @@ use AlibabaCloud\Tea\Model;
 class supportedApps extends Model
 {
     /**
-     * @example com.aliyun.pack.***
+     * @description The Whatsapp template is required when the Category is\\" Authorisation \\"and the Button Type is\\" ONE_TAP/ZERO-TAP\\", indicating the signature hash value of the Whatsapp call application.
+     *
+     * @example com.example.myapplication
      *
      * @var string
      */
     public $packageName;
 
     /**
-     * @example kdikie9398k
+     * @description The Whatsapp template is required when the Category is\\" Authorisation \\"and the Button Type is\\" ONE_TAP/ZERO-TAP\\", indicating the signature hash value of the Whatsapp call application.
+     *
+     * @example fk39kd93ks9
      *
      * @var string
      */

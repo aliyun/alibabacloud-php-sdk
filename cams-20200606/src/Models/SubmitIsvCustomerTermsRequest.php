@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SubmitIsvCustomerTermsRequest extends Model
 {
     /**
-     * @description The use scenario.
+     * @description The business scenario.
      *
      * This parameter is required.
      * @example Marketing products
@@ -19,7 +19,7 @@ class SubmitIsvCustomerTermsRequest extends Model
     public $businessDesc;
 
     /**
-     * @description The email address of your business.
+     * @description The enterprise mail.
      *
      * This parameter is required.
      * @example partner@aliyun.com
@@ -39,7 +39,7 @@ class SubmitIsvCustomerTermsRequest extends Model
     public $countryId;
 
     /**
-     * @description The display name of your business.
+     * @description The enterprise name.
      *
      * This parameter is required.
      * @example Aliyun
@@ -49,7 +49,7 @@ class SubmitIsvCustomerTermsRequest extends Model
     public $custName;
 
     /**
-     * @description The space ID of the user under the ISV account.
+     * @description The space ID of the user within the independent software vendor (ISV) account.
      *
      * This parameter is required.
      * @example 293483938849493
@@ -59,7 +59,7 @@ class SubmitIsvCustomerTermsRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The ISV or Client Agreement.
+     * @description The ISV or Client agreement.
      *
      * This parameter is required.
      * @example isvTerms.pdf
@@ -69,7 +69,7 @@ class SubmitIsvCustomerTermsRequest extends Model
     public $isvTerms;
 
     /**
-     * @description The address of your business.
+     * @description The enterprise address.
      *
      * This parameter is required.
      * @example Hangzhou

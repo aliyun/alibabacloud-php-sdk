@@ -36,7 +36,7 @@ class data extends Model
     public $bucketName;
 
     /**
-     * @description The directory to which a file is uploaded in OSS.
+     * @description The directory to which the file is uploaded in Object Storage Service (OSS).
      *
      * @example 1000102939
      *

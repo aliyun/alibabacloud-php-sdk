@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class errors extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example 141006
      *
      * @var string
@@ -16,6 +18,8 @@ class errors extends Model
     public $errorCode;
 
     /**
+     * @description The description of the error.
+     *
      * @example There is an error with the payment method.
      *
      * @var string
@@ -23,6 +27,8 @@ class errors extends Model
     public $errorDescription;
 
     /**
+     * @description The possible solution to the error.
+     *
      * @example There was an error with your payment method. Please add a new payment method to the account.
      *
      * @var string

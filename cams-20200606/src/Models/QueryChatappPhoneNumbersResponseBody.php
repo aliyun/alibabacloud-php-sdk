@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class QueryChatappPhoneNumbersResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * @example None
+     *
      * @var string
      */
     public $accessDeniedDetail;
@@ -36,7 +40,7 @@ class QueryChatappPhoneNumbersResponseBody extends Model
     public $message;
 
     /**
-     * @description The list of phone numbers.
+     * @description The phone numbers.
      *
      * @var phoneNumbers[]
      */

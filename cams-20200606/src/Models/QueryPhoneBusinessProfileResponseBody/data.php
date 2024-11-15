@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @example 关于
+     * @description Regarding.
+     *
+     * @example business profile
      *
      * @var string
      */
@@ -43,7 +45,7 @@ class data extends Model
     public $email;
 
     /**
-     * @description The URL of the profile picture.
+     * @description The profile picture.
      *
      * @example https://....img
      *
@@ -61,7 +63,7 @@ class data extends Model
     public $vertical;
 
     /**
-     * @description The websites.
+     * @description The website.
      *
      * @var string[]
      */

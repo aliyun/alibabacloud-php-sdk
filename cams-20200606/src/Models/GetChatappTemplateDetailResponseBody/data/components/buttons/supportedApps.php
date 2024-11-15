@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class supportedApps extends Model
 {
     /**
+     * @description The app package name.
+     *
+     * @example com.test
+     *
      * @var string
      */
     public $packageName;
 
     /**
+     * @description The app signing key hash.
+     *
+     * @example 29kdkeik939
+     *
      * @var string
      */
     public $signatureHash;

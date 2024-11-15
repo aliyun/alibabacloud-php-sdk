@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdatePhoneMessageQrdlRequest extends Model
 {
     /**
+     * @description SpaceId/instance ID of ISV sub customer.
+     *
      * @example 9383884
      *
      * @var string
@@ -16,8 +18,9 @@ class UpdatePhoneMessageQrdlRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description This parameter is required.
+     * @description Produce QR code image format.
      *
+     * This parameter is required.
      * @example PNG
      *
      * @var string
@@ -25,8 +28,9 @@ class UpdatePhoneMessageQrdlRequest extends Model
     public $generateQrImage;
 
     /**
-     * @description This parameter is required.
+     * @description Number, enter the country/region code+number.
      *
+     * This parameter is required.
      * @example 861380000
      *
      * @var string
@@ -34,8 +38,9 @@ class UpdatePhoneMessageQrdlRequest extends Model
     public $phoneNumber;
 
     /**
-     * @description This parameter is required.
+     * @description Message content.
      *
+     * This parameter is required.
      * @example Hello
      *
      * @var string
@@ -43,8 +48,9 @@ class UpdatePhoneMessageQrdlRequest extends Model
     public $prefilledMessage;
 
     /**
-     * @description This parameter is required.
+     * @description QR code encoding.
      *
+     * This parameter is required.
      * @example 29338838
      *
      * @var string

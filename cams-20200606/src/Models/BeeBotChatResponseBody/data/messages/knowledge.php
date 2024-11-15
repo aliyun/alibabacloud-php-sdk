@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class knowledge extends Model
 {
     /**
-     * @description The source of the answer.
+     * @description Distinguish answer types.
      *
      * @example KnowledgeBase
      *
@@ -19,21 +19,25 @@ class knowledge extends Model
     public $answerSource;
 
     /**
-     * @description The category of the knowledge.
+     * @description Knowledge category.
+     *
+     * @example provident fund.
      *
      * @var string
      */
     public $category;
 
     /**
-     * @description The content of the hit question.
+     * @description Hit the content of the problem.
+     *
+     * @example Provident fund withdrawal, please search for provident fund withdrawal on the homepage and submit the form for handling the matter.
      *
      * @var string
      */
     public $content;
 
     /**
-     * @description Indicates whether the answer is in plain text or rich text.
+     * @description Indication of plain/rich text answers.
      *
      * @example PLAIN_TEXT
      *
@@ -42,14 +46,16 @@ class knowledge extends Model
     public $contentType;
 
     /**
-     * @description The hit text.
+     * @description Hit statement.
+     *
+     * @example provident fund
      *
      * @var string
      */
     public $hitStatement;
 
     /**
-     * @description The ID of the hit question in the knowledge base.
+     * @description The ID of the hit problem in the knowledge base.
      *
      * @example 735898
      *
@@ -58,21 +64,25 @@ class knowledge extends Model
     public $id;
 
     /**
-     * @description The list of the related knowledge.
+     * @description Related knowledge list.
      *
      * @var relatedKnowledges[]
      */
     public $relatedKnowledges;
 
     /**
-     * @description The summary to the hit question.
+     * @description Introduction to hit problems.
+     *
+     * @example Withdrawal of housing provident fund
      *
      * @var string
      */
     public $summary;
 
     /**
-     * @description The title of the hit question.
+     * @description Hit the title of the problem.
+     *
+     * @example Withdrawal of housing provident fund.
      *
      * @var string
      */

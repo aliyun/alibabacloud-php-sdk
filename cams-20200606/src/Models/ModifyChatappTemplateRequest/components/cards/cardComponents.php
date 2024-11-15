@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class cardComponents extends Model
 {
     /**
+     * @description The buttons. Specify this parameter only if you set the Type sub-parameter of the CardComponents parameter to BUTTONS. A carousel card can contain up to two buttons.
+     *
      * @var buttons[]
      */
     public $buttons;
 
     /**
+     * @description The type of the media resource. This parameter is valid if the Type sub-parameter of the CardComponents parameter is set to HEADER. Valid values:
+     *
+     *   **IMAGE**
+     *   **VIDEO**
+     *
      * @example IMAGE
      *
      * @var string
@@ -22,6 +29,8 @@ class cardComponents extends Model
     public $format;
 
     /**
+     * @description The body content of the carousel card.
+     *
      * @example Who is the very powerful team
      *
      * @var string
@@ -29,8 +38,13 @@ class cardComponents extends Model
     public $text;
 
     /**
-     * @description This parameter is required.
+     * @description The component type. Valid values:
      *
+     *   **BODY**
+     *   **HEADER**
+     *   **BUTTONS**
+     *
+     * This parameter is required.
      * @example BODY
      *
      * @var string
@@ -38,6 +52,8 @@ class cardComponents extends Model
     public $type;
 
     /**
+     * @description The URL of the media resource.
+     *
      * @example https://alibaba.com/img.png
      *
      * @var string

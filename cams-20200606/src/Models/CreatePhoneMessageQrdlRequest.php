@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreatePhoneMessageQrdlRequest extends Model
 {
     /**
+     * @description The space ID of the RAM user within the independent software vendor (ISV) account.
+     *
      * @example 838833
      *
      * @var string
@@ -16,8 +18,9 @@ class CreatePhoneMessageQrdlRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description This parameter is required.
+     * @description Produce QR code image format.
      *
+     * This parameter is required.
      * @example PNG
      *
      * @var string
@@ -35,8 +38,9 @@ class CreatePhoneMessageQrdlRequest extends Model
     public $phoneNumber;
 
     /**
-     * @description This parameter is required.
+     * @description Message content.
      *
+     * This parameter is required.
      * @example Hello
      *
      * @var string

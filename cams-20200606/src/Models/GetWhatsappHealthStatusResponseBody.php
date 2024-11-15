@@ -10,11 +10,20 @@ use AlibabaCloud\Tea\Model;
 class GetWhatsappHealthStatusResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * @example None
+     *
      * @var string
      */
     public $accessDeniedDetail;
 
     /**
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   For more information about other response codes, see [Error codes](https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
+     *
      * @example OK
      *
      * @var string
@@ -22,25 +31,36 @@ class GetWhatsappHealthStatusResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
-     * @example 示例值
+     * @description The error message.
+     *
+     * @example None
      *
      * @var string
      */
     public $message;
 
     /**
-     * @example 示例值示例值
+     * @description The request ID.
+     *
+     * @example DAC72B08-3327-33EF-BEDC-8EC3E83A6575
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

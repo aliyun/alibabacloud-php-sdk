@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AddChatappPhoneNumberRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
+     * This parameter is required.
      * @example 86
      *
      * @var string
@@ -18,9 +19,10 @@ class AddChatappPhoneNumberRequest extends Model
     public $cc;
 
     /**
-     * @description This parameter is required.
+     * @description Adds a phone number for a WhatsApp Business account (WABA).
      *
-     * @example 939283893939
+     * This parameter is required.
+     * @example 93928389****
      *
      * @var string
      */
@@ -32,16 +34,21 @@ class AddChatappPhoneNumberRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description AddChatappPhoneNumber
      *
-     * @example 13800000000
+     * This parameter is required.
+     * @example 1380000****
      *
      * @var string
      */
     public $phoneNumber;
 
     /**
-     * @example 10202020
+     * @description cams:ChatappPhoneNumberRegister
+     *
+     * @example 1020****
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -58,8 +65,9 @@ class AddChatappPhoneNumberRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description This parameter is required.
+     * @description Private
      *
+     * This parameter is required.
      * @example Alibaba
      *
      * @var string
