@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSqlStatementReque
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSqlStatementResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetJobRunRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetJobRunResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetSessionClusterRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetSessionClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetSqlStatementRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetSqlStatementResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GrantRoleToUsersRequest;
@@ -311,6 +313,60 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->getJobRunWithOptions($workspaceId, $jobRunId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询SessionCluster集群
+     *  *
+     * @param string                   $workspaceId
+     * @param string                   $sessionClusterId
+     * @param GetSessionClusterRequest $request          GetSessionClusterRequest
+     * @param string[]                 $headers          map
+     * @param RuntimeOptions           $runtime          runtime options for this request RuntimeOptions
+     *
+     * @return GetSessionClusterResponse GetSessionClusterResponse
+     */
+    public function getSessionClusterWithOptions($workspaceId, $sessionClusterId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['regionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSessionCluster',
+            'version'     => '2023-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/workspaces/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/sessionClusters/' . OpenApiUtilClient::getEncodeParam($sessionClusterId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询SessionCluster集群
+     *  *
+     * @param string                   $workspaceId
+     * @param string                   $sessionClusterId
+     * @param GetSessionClusterRequest $request          GetSessionClusterRequest
+     *
+     * @return GetSessionClusterResponse GetSessionClusterResponse
+     */
+    public function getSessionCluster($workspaceId, $sessionClusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getSessionClusterWithOptions($workspaceId, $sessionClusterId, $request, $headers, $runtime);
     }
 
     /**
