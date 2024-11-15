@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListResponseBody
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListResponseBody\instanceList\instanceVO\confluentConfig;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListResponseBody\instanceList\instanceVO\tags;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListResponseBody\instanceList\instanceVO\upgradeServiceDetailInfo;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListResponseBody\instanceList\instanceVO\vSwitchIds;
 use AlibabaCloud\Tea\Model;
 
 class instanceVO extends Model
@@ -19,6 +20,16 @@ class instanceVO extends Model
      * @var string
      */
     public $allConfig;
+
+    /**
+     * @var bool
+     */
+    public $autoCreateGroupEnable;
+
+    /**
+     * @var bool
+     */
+    public $autoCreateTopicEnable;
 
     /**
      * @description The parameters that are returned for the ApsaraMQ for Confluent instance.
@@ -35,6 +46,11 @@ class instanceVO extends Model
      * @var int
      */
     public $createTime;
+
+    /**
+     * @var int
+     */
+    public $defaultPartitionNum;
 
     /**
      * @description The type of the network in which the instance is deployed. Valid values:
@@ -399,6 +415,11 @@ class instanceVO extends Model
     public $vSwitchId;
 
     /**
+     * @var vSwitchIds
+     */
+    public $vSwitchIds;
+
+    /**
      * @description The instance status. The valid values are consistent with the values displayed in the ApsaraMQ for Kafka console. This parameter is used in the new version of ApsaraMQ for Kafka.
      *
      * Valid values:
@@ -445,8 +466,11 @@ class instanceVO extends Model
     public $zoneId;
     protected $_name = [
         'allConfig'                 => 'AllConfig',
+        'autoCreateGroupEnable'     => 'AutoCreateGroupEnable',
+        'autoCreateTopicEnable'     => 'AutoCreateTopicEnable',
         'confluentConfig'           => 'ConfluentConfig',
         'createTime'                => 'CreateTime',
+        'defaultPartitionNum'       => 'DefaultPartitionNum',
         'deployType'                => 'DeployType',
         'diskSize'                  => 'DiskSize',
         'diskType'                  => 'DiskType',
@@ -482,6 +506,7 @@ class instanceVO extends Model
         'usedPartitionCount'        => 'UsedPartitionCount',
         'usedTopicCount'            => 'UsedTopicCount',
         'vSwitchId'                 => 'VSwitchId',
+        'vSwitchIds'                => 'VSwitchIds',
         'viewInstanceStatusCode'    => 'ViewInstanceStatusCode',
         'vpcId'                     => 'VpcId',
         'zoneId'                    => 'ZoneId',
@@ -497,11 +522,20 @@ class instanceVO extends Model
         if (null !== $this->allConfig) {
             $res['AllConfig'] = $this->allConfig;
         }
+        if (null !== $this->autoCreateGroupEnable) {
+            $res['AutoCreateGroupEnable'] = $this->autoCreateGroupEnable;
+        }
+        if (null !== $this->autoCreateTopicEnable) {
+            $res['AutoCreateTopicEnable'] = $this->autoCreateTopicEnable;
+        }
         if (null !== $this->confluentConfig) {
             $res['ConfluentConfig'] = null !== $this->confluentConfig ? $this->confluentConfig->toMap() : null;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->defaultPartitionNum) {
+            $res['DefaultPartitionNum'] = $this->defaultPartitionNum;
         }
         if (null !== $this->deployType) {
             $res['DeployType'] = $this->deployType;
@@ -608,6 +642,9 @@ class instanceVO extends Model
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+        if (null !== $this->vSwitchIds) {
+            $res['VSwitchIds'] = null !== $this->vSwitchIds ? $this->vSwitchIds->toMap() : null;
+        }
         if (null !== $this->viewInstanceStatusCode) {
             $res['ViewInstanceStatusCode'] = $this->viewInstanceStatusCode;
         }
@@ -632,11 +669,20 @@ class instanceVO extends Model
         if (isset($map['AllConfig'])) {
             $model->allConfig = $map['AllConfig'];
         }
+        if (isset($map['AutoCreateGroupEnable'])) {
+            $model->autoCreateGroupEnable = $map['AutoCreateGroupEnable'];
+        }
+        if (isset($map['AutoCreateTopicEnable'])) {
+            $model->autoCreateTopicEnable = $map['AutoCreateTopicEnable'];
+        }
         if (isset($map['ConfluentConfig'])) {
             $model->confluentConfig = confluentConfig::fromMap($map['ConfluentConfig']);
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['DefaultPartitionNum'])) {
+            $model->defaultPartitionNum = $map['DefaultPartitionNum'];
         }
         if (isset($map['DeployType'])) {
             $model->deployType = $map['DeployType'];
@@ -742,6 +788,9 @@ class instanceVO extends Model
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['VSwitchIds'])) {
+            $model->vSwitchIds = vSwitchIds::fromMap($map['VSwitchIds']);
         }
         if (isset($map['ViewInstanceStatusCode'])) {
             $model->viewInstanceStatusCode = $map['ViewInstanceStatusCode'];

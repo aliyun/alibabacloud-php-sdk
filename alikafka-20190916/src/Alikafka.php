@@ -59,6 +59,8 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetKafkaClientIpRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetKafkaClientIpResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetQuotaTipRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetQuotaTipResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicListRequest;
@@ -1717,6 +1719,71 @@ class Alikafka extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getInstanceListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取kafka客户端ip
+     *  *
+     * @param GetKafkaClientIpRequest $request GetKafkaClientIpRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetKafkaClientIpResponse GetKafkaClientIpResponse
+     */
+    public function getKafkaClientIpWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->group)) {
+            $query['Group'] = $request->group;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetKafkaClientIp',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetKafkaClientIpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取kafka客户端ip
+     *  *
+     * @param GetKafkaClientIpRequest $request GetKafkaClientIpRequest
+     *
+     * @return GetKafkaClientIpResponse GetKafkaClientIpResponse
+     */
+    public function getKafkaClientIp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getKafkaClientIpWithOptions($request, $runtime);
     }
 
     /**
