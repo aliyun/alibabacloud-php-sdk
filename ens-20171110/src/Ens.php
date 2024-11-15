@@ -67,6 +67,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\CreateFileSystemResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateFileSystemShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateForwardEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateForwardEntryResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateHaVipRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateHaVipResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateImageRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateImageResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateInstanceActiveOpsTaskRequest;
@@ -135,6 +137,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteFileSystemRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteFileSystemResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteForwardEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteForwardEntryResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteHaVipsRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteHaVipsResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteHaVipsShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteImageRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteImageResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteKeyPairsRequest;
@@ -2304,6 +2309,65 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @summary 创建高可用VIP
+     *  *
+     * @param CreateHaVipRequest $request CreateHaVipRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateHaVipResponse CreateHaVipResponse
+     */
+    public function createHaVipWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->amount)) {
+            $query['Amount'] = $request->amount;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->ipAddress)) {
+            $query['IpAddress'] = $request->ipAddress;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateHaVip',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateHaVipResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建高可用VIP
+     *  *
+     * @param CreateHaVipRequest $request CreateHaVipRequest
+     *
+     * @return CreateHaVipResponse CreateHaVipResponse
+     */
+    public function createHaVip($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createHaVipWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates an image from an instance.
      *  *
      * @param CreateImageRequest $request CreateImageRequest
@@ -4358,6 +4422,58 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteForwardEntryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除高可用VIP实例
+     *  *
+     * @param DeleteHaVipsRequest $tmpReq  DeleteHaVipsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteHaVipsResponse DeleteHaVipsResponse
+     */
+    public function deleteHaVipsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteHaVipsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->haVipIds)) {
+            $request->haVipIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->haVipIds, 'HaVipIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->haVipIdsShrink)) {
+            $query['HaVipIds'] = $request->haVipIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteHaVips',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteHaVipsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除高可用VIP实例
+     *  *
+     * @param DeleteHaVipsRequest $request DeleteHaVipsRequest
+     *
+     * @return DeleteHaVipsResponse DeleteHaVipsResponse
+     */
+    public function deleteHaVips($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteHaVipsWithOptions($request, $runtime);
     }
 
     /**

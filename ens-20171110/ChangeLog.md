@@ -1,3 +1,9 @@
+2024-11-15 Version: 6.3.0
+- Support API CreateHaVip.
+- Support API DeleteHaVips.
+- Update API PreloadRegionSDG: update param RedundantNum.
+
+
 2024-11-06 Version: 6.2.0
 - Support API DescribeEnsRouteTables.
 
