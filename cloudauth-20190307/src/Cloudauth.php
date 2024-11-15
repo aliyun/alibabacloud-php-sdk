@@ -30,6 +30,8 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteFaceVerifyResultRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteFaceVerifyResultResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeDeviceInfoRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeDeviceInfoResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeFaceGuardRiskRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeFaceGuardRiskResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeFaceVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeFaceVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeOssUploadTokenResponse;
@@ -946,6 +948,62 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDeviceInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 金融级人脸保镖服务
+     *  *
+     * @param DescribeFaceGuardRiskRequest $request DescribeFaceGuardRiskRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeFaceGuardRiskResponse DescribeFaceGuardRiskResponse
+     */
+    public function describeFaceGuardRiskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->deviceToken)) {
+            $query['DeviceToken'] = $request->deviceToken;
+        }
+        if (!Utils::isUnset($request->outerOrderNo)) {
+            $query['OuterOrderNo'] = $request->outerOrderNo;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFaceGuardRisk',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeFaceGuardRiskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 金融级人脸保镖服务
+     *  *
+     * @param DescribeFaceGuardRiskRequest $request DescribeFaceGuardRiskRequest
+     *
+     * @return DescribeFaceGuardRiskResponse DescribeFaceGuardRiskResponse
+     */
+    public function describeFaceGuardRisk($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFaceGuardRiskWithOptions($request, $runtime);
     }
 
     /**
