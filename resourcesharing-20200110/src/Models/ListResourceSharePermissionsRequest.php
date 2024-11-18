@@ -33,6 +33,7 @@ class ListResourceSharePermissionsRequest extends Model
      *   Self: the current account
      *   OtherAccounts: an account other than the current account
      *
+     * This parameter is required.
      * @example Self
      *
      * @var string
@@ -42,6 +43,7 @@ class ListResourceSharePermissionsRequest extends Model
     /**
      * @description The ID of the resource share.
      *
+     * This parameter is required.
      * @example rs-6GRmdD3X****
      *
      * @var string

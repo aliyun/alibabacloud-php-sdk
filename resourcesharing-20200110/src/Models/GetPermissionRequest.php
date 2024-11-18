@@ -11,6 +11,7 @@ class GetPermissionRequest extends Model
     /**
      * @description The name of the permission.
      *
+     * This parameter is required.
      * @example AliyunRSDefaultPermissionVSwitch
      *
      * @var string

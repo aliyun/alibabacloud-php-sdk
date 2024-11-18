@@ -23,6 +23,7 @@ class UpdateResourceShareRequest extends Model
     /**
      * @description The ID of the resource share.
      *
+     * This parameter is required.
      * @example rs-qSkW1HBY****
      *
      * @var string
@@ -32,7 +33,7 @@ class UpdateResourceShareRequest extends Model
     /**
      * @description The new name of the resource share.
      *
-     * The name can contain letters, digits, periods (.), underscores (\_), and hyphens (-).
+     * This parameter is required.
      * @example new
      *
      * @var string

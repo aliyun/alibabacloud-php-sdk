@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
-     * @description The ID of a shared resource.
+     * @description The ID of the shared resource.
      *
      * >  Resources.N.ResourceId and Resources.N.ResourceType must be used in pairs.
      * @example vsw-bp183p93qs667muql****

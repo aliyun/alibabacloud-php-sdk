@@ -20,8 +20,8 @@ class sharedTargets extends Model
     /**
      * @description Indicates whether the principal is outside the resource directory. Valid values:
      *
-     *   true: The principal is outside the resource directory.
-     *   false: The principal is in the resource directory.
+     *   true
+     *   false
      *
      * @example false
      *
@@ -51,6 +51,11 @@ class sharedTargets extends Model
     public $targetId;
 
     /**
+     * @description The properties of the principal, such as the time range within which the resource is shared.
+     *
+     * >  This parameter is returned only if the principal is an Alibaba Cloud service.
+     * @example {
+     * }
      * @var string
      */
     public $targetProperty;

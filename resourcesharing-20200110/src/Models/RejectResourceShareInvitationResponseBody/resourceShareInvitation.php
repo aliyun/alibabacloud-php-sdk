@@ -11,6 +11,7 @@ class resourceShareInvitation extends Model
     /**
      * @description The time when the invitation was created. The time is displayed in UTC.
      *
+     * This parameter is required.
      * @example 2022-09-02T07:07:30.809Z
      *
      * @var string
@@ -20,6 +21,7 @@ class resourceShareInvitation extends Model
     /**
      * @description The Alibaba Cloud account ID of the invitee.
      *
+     * This parameter is required.
      * @example 134254031178****
      *
      * @var string
@@ -29,6 +31,7 @@ class resourceShareInvitation extends Model
     /**
      * @description The ID of the resource share.
      *
+     * This parameter is required.
      * @example rs-JoA1Ayjm****
      *
      * @var string
@@ -38,6 +41,7 @@ class resourceShareInvitation extends Model
     /**
      * @description The ID of the invitation.
      *
+     * This parameter is required.
      * @example i-yyTWbkjHArYh****
      *
      * @var string
@@ -47,6 +51,7 @@ class resourceShareInvitation extends Model
     /**
      * @description The name of the resource share.
      *
+     * This parameter is required.
      * @example example
      *
      * @var string
@@ -56,6 +61,7 @@ class resourceShareInvitation extends Model
     /**
      * @description The Alibaba Cloud account ID of the inviter.
      *
+     * This parameter is required.
      * @example 151266687691****
      *
      * @var string
@@ -71,6 +77,7 @@ class resourceShareInvitation extends Model
      *   Rejected: The invitation is rejected.
      *   Expired: The invitation has expired.
      *
+     * This parameter is required.
      * @example Rejected
      *
      * @var string

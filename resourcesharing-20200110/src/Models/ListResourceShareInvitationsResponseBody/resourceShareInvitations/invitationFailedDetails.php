@@ -47,7 +47,7 @@ class invitationFailedDetails extends Model
     /**
      * @description The type of the shared resource.
      *
-     * For more information about the types of resources that can be shared, see [Services that work with Resource Sharing](~~450526~~).
+     * For more information about the types of resources that can be shared, see [Services that work with Resource Sharing](https://help.aliyun.com/document_detail/450526.html).
      * @example Snapshot
      *
      * @var string

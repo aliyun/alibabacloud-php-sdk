@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListResourceSharesResponseBody;
 
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListResourceSharesResponseBody\resourceShares\tags;
 use AlibabaCloud\Tea\Model;
 
 class resourceShares extends Model
@@ -28,6 +29,11 @@ class resourceShares extends Model
      * @var string
      */
     public $createTime;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @description The ID of the resource share.
@@ -72,6 +78,11 @@ class resourceShares extends Model
     public $resourceShareStatus;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @description The time when the resource share was updated.
      *
      * @example 2020-12-03T08:01:43.638Z
@@ -82,10 +93,12 @@ class resourceShares extends Model
     protected $_name = [
         'allowExternalTargets' => 'AllowExternalTargets',
         'createTime'           => 'CreateTime',
+        'resourceGroupId'      => 'ResourceGroupId',
         'resourceShareId'      => 'ResourceShareId',
         'resourceShareName'    => 'ResourceShareName',
         'resourceShareOwner'   => 'ResourceShareOwner',
         'resourceShareStatus'  => 'ResourceShareStatus',
+        'tags'                 => 'Tags',
         'updateTime'           => 'UpdateTime',
     ];
 
@@ -102,6 +115,9 @@ class resourceShares extends Model
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->resourceShareId) {
             $res['ResourceShareId'] = $this->resourceShareId;
         }
@@ -113,6 +129,15 @@ class resourceShares extends Model
         }
         if (null !== $this->resourceShareStatus) {
             $res['ResourceShareStatus'] = $this->resourceShareStatus;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
@@ -135,6 +160,9 @@ class resourceShares extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['ResourceShareId'])) {
             $model->resourceShareId = $map['ResourceShareId'];
         }
@@ -146,6 +174,15 @@ class resourceShares extends Model
         }
         if (isset($map['ResourceShareStatus'])) {
             $model->resourceShareStatus = $map['ResourceShareStatus'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];

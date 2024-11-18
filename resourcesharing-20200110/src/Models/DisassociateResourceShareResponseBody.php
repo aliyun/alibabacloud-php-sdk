@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DisassociateResourceShareResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 95230BC9-A8E8-4493-96BD-4F0C758E37F8
      *
@@ -19,7 +19,7 @@ class DisassociateResourceShareResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information of the entities that are associated with the resource share.
+     * @description The information about the entities that are associated with the resource share.
      *
      * @var resourceShareAssociations[]
      */

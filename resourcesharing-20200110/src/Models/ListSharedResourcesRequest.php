@@ -42,6 +42,7 @@ class ListSharedResourcesRequest extends Model
      *   Self: your account. If you set the value to Self, the resources you share with other accounts are queried.
      *   OtherAccounts: another account. If you set the value to OtherAccounts, the resources other accounts share with you are queried.
      *
+     * This parameter is required.
      * @example Self
      *
      * @var string
@@ -60,7 +61,7 @@ class ListSharedResourcesRequest extends Model
     /**
      * @description The type of the shared resources.
      *
-     * For more information about the types of resources that can be shared, see [Services that work with Resource Sharing](~~450526~~).
+     * For more information about the types of resources that can be shared, see [Services that work with Resource Sharing](https://help.aliyun.com/document_detail/450526.html).
      * @example VSwitch
      *
      * @var string

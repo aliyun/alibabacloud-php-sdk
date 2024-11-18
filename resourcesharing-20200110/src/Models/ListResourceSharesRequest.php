@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models;
 
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListResourceSharesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ListResourceSharesRequest extends Model
@@ -28,7 +29,7 @@ class ListResourceSharesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The name of the permission. For more information, see [Permission library](~~465474~~).
+     * @description The name of the permission. For more information, see [Permission library](https://help.aliyun.com/document_detail/465474.html).
      *
      * @example AliyunRSDefaultPermissionVSwitch
      *
@@ -37,11 +38,17 @@ class ListResourceSharesRequest extends Model
     public $permissionName;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The owner of the resource shares. Valid values:
      *
      *   Self: the current account
      *   OtherAccounts: an account other than the current account
      *
+     * This parameter is required.
      * @example Self
      *
      * @var string
@@ -80,14 +87,21 @@ class ListResourceSharesRequest extends Model
      * @var string
      */
     public $resourceShareStatus;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'maxResults'          => 'MaxResults',
         'nextToken'           => 'NextToken',
         'permissionName'      => 'PermissionName',
+        'resourceGroupId'     => 'ResourceGroupId',
         'resourceOwner'       => 'ResourceOwner',
         'resourceShareIds'    => 'ResourceShareIds',
         'resourceShareName'   => 'ResourceShareName',
         'resourceShareStatus' => 'ResourceShareStatus',
+        'tag'                 => 'Tag',
     ];
 
     public function validate()
@@ -106,6 +120,9 @@ class ListResourceSharesRequest extends Model
         if (null !== $this->permissionName) {
             $res['PermissionName'] = $this->permissionName;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->resourceOwner) {
             $res['ResourceOwner'] = $this->resourceOwner;
         }
@@ -117,6 +134,15 @@ class ListResourceSharesRequest extends Model
         }
         if (null !== $this->resourceShareStatus) {
             $res['ResourceShareStatus'] = $this->resourceShareStatus;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -139,6 +165,9 @@ class ListResourceSharesRequest extends Model
         if (isset($map['PermissionName'])) {
             $model->permissionName = $map['PermissionName'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['ResourceOwner'])) {
             $model->resourceOwner = $map['ResourceOwner'];
         }
@@ -152,6 +181,15 @@ class ListResourceSharesRequest extends Model
         }
         if (isset($map['ResourceShareStatus'])) {
             $model->resourceShareStatus = $map['ResourceShareStatus'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

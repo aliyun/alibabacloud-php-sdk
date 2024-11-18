@@ -78,7 +78,7 @@ class resourceShareAssociations extends Model
     /**
      * @description The type of the entity. The value of this parameter depends on the value of the AssociationType parameter:
      *
-     *   If the value of AssociationType is Resource, the value of this parameter is the type of the resource. For more information about the types of resources that can be shared, see [Services that work with Resource Sharing](~~450526~~).
+     *   If the value of AssociationType is Resource, the value of this parameter is the type of the resource. For more information about the types of resources that can be shared, see [Services that work with Resource Sharing](https://help.aliyun.com/document_detail/450526.html).
      *   If the value of AssociationType is Target, the value of this parameter is `Account`.
      *
      * @example VSwitch

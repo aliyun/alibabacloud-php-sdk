@@ -11,6 +11,7 @@ class DeleteResourceShareRequest extends Model
     /**
      * @description The ID of the resource share.
      *
+     * This parameter is required.
      * @example rs-qSkW1HBY****
      *
      * @var string

@@ -11,6 +11,7 @@ class AssociateResourceSharePermissionRequest extends Model
     /**
      * @description The name of the permission.
      *
+     * This parameter is required.
      * @example AliyunRSDefaultPermissionVSwitch
      *
      * @var string
@@ -32,6 +33,7 @@ class AssociateResourceSharePermissionRequest extends Model
     /**
      * @description The ID of the resource share.
      *
+     * This parameter is required.
      * @example rs-6GRmdD3X****
      *
      * @var string

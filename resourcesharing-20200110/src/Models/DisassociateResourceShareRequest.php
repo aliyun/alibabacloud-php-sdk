@@ -12,8 +12,8 @@ class DisassociateResourceShareRequest extends Model
     /**
      * @description The owner of the resource share. Valid values:
      *
-     *   Self: The resource share belongs to the current account. This is the default value. If you are the management account or a member of a resource directory and you want to remove resources or principals from a resource share, set this parameter to Self.
-     *   OtherAccounts: The resource share belongs to another account. If you are not the management account or a member of a resource directory and you want to exit a resource share, set this parameter to OtherAccounts.
+     *   Self: The resource share belongs to the current account. This is the default value. For resource sharing within a resource directory, if you are a resource owner and you want to disassociate resources or principals from a resource share, set this parameter to Self.
+     *   OtherAccounts: The resource share belongs to another account. For resource sharing outside a resource directory, if you are a principal and you want to exit a resource share, set this parameter to OtherAccounts.
      *
      * @example Self
      *
@@ -24,6 +24,7 @@ class DisassociateResourceShareRequest extends Model
     /**
      * @description The ID of the resource share.
      *
+     * This parameter is required.
      * @example rs-6GRmdD3X****
      *
      * @var string
@@ -31,14 +32,14 @@ class DisassociateResourceShareRequest extends Model
     public $resourceShareId;
 
     /**
-     * @description The shared resource.
+     * @description The information about the resources.
      *
      * @var resources[]
      */
     public $resources;
 
     /**
-     * @description The ID of a principal.
+     * @description The information about the principals.
      *
      * @example 172050525300****
      *

@@ -30,6 +30,7 @@ class ListResourceShareAssociationsRequest extends Model
      *   Resource
      *   Target
      *
+     * This parameter is required.
      * @example Resource
      *
      * @var string

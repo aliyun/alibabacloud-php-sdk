@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class AssociateResourceShareRequest extends Model
 {
     /**
-     * @description The information about the permissions. If you do not configure this parameter, the system automatically associates the default permission for the specified resource type with the resource share. For more information, see [Permission library](~~465474~~).
+     * @description The information about the permissions. If you do not configure this parameter, the system automatically associates the default permission for the specified resource type with the resource share. For more information, see [Permission library](https://help.aliyun.com/document_detail/465474.html).
      *
      * @var string[]
      */
@@ -20,6 +20,7 @@ class AssociateResourceShareRequest extends Model
     /**
      * @description The ID of the resource share.
      *
+     * This parameter is required.
      * @example rs-6GRmdD3X****
      *
      * @var string
@@ -34,6 +35,9 @@ class AssociateResourceShareRequest extends Model
     public $resources;
 
     /**
+     * @description The properties of the principal.
+     *
+     * >  This parameter is available only when you specify an Alibaba Cloud service as a principal.
      * @var targetProperties[]
      */
     public $targetProperties;

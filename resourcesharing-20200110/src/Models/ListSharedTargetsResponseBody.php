@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListSharedTargetsResponseBody extends Model
 {
     /**
-     * @description The `token` that is used to initiate the next request. If the response of the current request is truncated, you can use the token to initiate another request and obtain the remaining records.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
      *
      * @example TGlzdFJlc291cm****
      *
@@ -19,7 +19,7 @@ class ListSharedTargetsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 04677DCA-7C33-464B-8811-1B1DA3C3D197
      *

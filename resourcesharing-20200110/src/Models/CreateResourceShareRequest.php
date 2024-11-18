@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models;
 
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\CreateResourceShareRequest\resources;
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\CreateResourceShareRequest\tag;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\CreateResourceShareRequest\targetProperties;
 use AlibabaCloud\Tea\Model;
 
@@ -23,16 +24,21 @@ class CreateResourceShareRequest extends Model
     public $allowExternalTargets;
 
     /**
-     * @description The information about the permissions. If you do not configure this parameter, the system automatically associates the default permission for the specified resource type with the resource share. For more information, see [Permission library](~~465474~~).
+     * @description The information about the permissions. If you do not configure this parameter, the system automatically associates the default permission for the specified resource type with the resource share. For more information, see [Permission library](https://help.aliyun.com/document_detail/465474.html).
      *
      * @var string[]
      */
     public $permissionNames;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The name of the resource share.
      *
-     * The name can contain letters, digits, periods (.), underscores (\_), and hyphens (-).
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -47,6 +53,14 @@ class CreateResourceShareRequest extends Model
     public $resources;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
+     * @description The properties of the principal.
+     *
+     * >  This parameter is available only when you specify an Alibaba Cloud service as a principal.
      * @var targetProperties[]
      */
     public $targetProperties;
@@ -62,8 +76,10 @@ class CreateResourceShareRequest extends Model
     protected $_name = [
         'allowExternalTargets' => 'AllowExternalTargets',
         'permissionNames'      => 'PermissionNames',
+        'resourceGroupId'      => 'ResourceGroupId',
         'resourceShareName'    => 'ResourceShareName',
         'resources'            => 'Resources',
+        'tag'                  => 'Tag',
         'targetProperties'     => 'TargetProperties',
         'targets'              => 'Targets',
     ];
@@ -81,6 +97,9 @@ class CreateResourceShareRequest extends Model
         if (null !== $this->permissionNames) {
             $res['PermissionNames'] = $this->permissionNames;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->resourceShareName) {
             $res['ResourceShareName'] = $this->resourceShareName;
         }
@@ -90,6 +109,15 @@ class CreateResourceShareRequest extends Model
                 $n = 0;
                 foreach ($this->resources as $item) {
                     $res['Resources'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -125,6 +153,9 @@ class CreateResourceShareRequest extends Model
                 $model->permissionNames = $map['PermissionNames'];
             }
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['ResourceShareName'])) {
             $model->resourceShareName = $map['ResourceShareName'];
         }
@@ -134,6 +165,15 @@ class CreateResourceShareRequest extends Model
                 $n                = 0;
                 foreach ($map['Resources'] as $item) {
                     $model->resources[$n++] = null !== $item ? resources::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
         }

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DisassociateResourceSharePermissionRequest extends Model
 {
     /**
-     * @description The name of the permission. For more information, see [Permission library](~~465474~~).
+     * @description The name of the permission. For more information, see [Permission library](https://help.aliyun.com/document_detail/465474.html).
      *
+     * This parameter is required.
      * @example AliyunRSDefaultPermissionVSwitch
      *
      * @var string
@@ -20,6 +21,7 @@ class DisassociateResourceSharePermissionRequest extends Model
     /**
      * @description The ID of the resource share.
      *
+     * This parameter is required.
      * @example rs-6GRmdD3X****
      *
      * @var string

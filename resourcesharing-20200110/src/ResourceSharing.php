@@ -88,11 +88,13 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * ### [](#)
-     *   * *   A principal needs to accept or reject a resource sharing invitation only if the principal is not the management account or a member of a resource directory. If you share resources with an object in a resource directory, the system automatically accepts the resource sharing invitation for the object.
-     *   * *   A resource sharing invitation is valid for seven days. A principal must accept or reject the invitation within the validity period.
-     *   * This topic provides an example on how to call the API operation to accept the resource sharing invitation whose ID is `i-pMnItMX19fBJ****` in the `cn-hangzhou` region.
-     *   *
+     * @summary Accepts a resource sharing invitation.
+     *  *
+     * @description ### [](#)
+     * *   A principal needs to accept or reject a resource sharing invitation only if the principal is not the management account or a member of a resource directory. If you share resources with an object in a resource directory, the system automatically accepts the resource sharing invitation for the object.
+     * *   A resource sharing invitation is valid for seven days. A principal must accept or reject the invitation within the validity period.
+     * This topic provides an example on how to call the API operation to accept the resource sharing invitation whose ID is `i-pMnItMX19fBJ****` in the `cn-hangzhou` region.
+     *  *
      * @param AcceptResourceShareInvitationRequest $request AcceptResourceShareInvitationRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -124,11 +126,13 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * ### [](#)
-     *   * *   A principal needs to accept or reject a resource sharing invitation only if the principal is not the management account or a member of a resource directory. If you share resources with an object in a resource directory, the system automatically accepts the resource sharing invitation for the object.
-     *   * *   A resource sharing invitation is valid for seven days. A principal must accept or reject the invitation within the validity period.
-     *   * This topic provides an example on how to call the API operation to accept the resource sharing invitation whose ID is `i-pMnItMX19fBJ****` in the `cn-hangzhou` region.
-     *   *
+     * @summary Accepts a resource sharing invitation.
+     *  *
+     * @description ### [](#)
+     * *   A principal needs to accept or reject a resource sharing invitation only if the principal is not the management account or a member of a resource directory. If you share resources with an object in a resource directory, the system automatically accepts the resource sharing invitation for the object.
+     * *   A resource sharing invitation is valid for seven days. A principal must accept or reject the invitation within the validity period.
+     * This topic provides an example on how to call the API operation to accept the resource sharing invitation whose ID is `i-pMnItMX19fBJ****` in the `cn-hangzhou` region.
+     *  *
      * @param AcceptResourceShareInvitationRequest $request AcceptResourceShareInvitationRequest
      *
      * @return AcceptResourceShareInvitationResponse AcceptResourceShareInvitationResponse
@@ -141,8 +145,10 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to associate the vSwitch `vsw-bp183p93qs667muql****` and the member `172050525300****` with the resource share `rs-6GRmdD3X****` in the `cn-hangzhou` region. After the association, the vSwitch is shared with the member.
-     *   *
+     * @summary Associates resources or principals with a resource share.
+     *  *
+     * @description This topic provides an example on how to call the API operation to associate the vSwitch `vsw-bp183p93qs667muql****` and the member `172050525300****` with the resource share `rs-6GRmdD3X****` in the `cn-hangzhou` region. After the association, the vSwitch is shared with the member.
+     *  *
      * @param AssociateResourceShareRequest $request AssociateResourceShareRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -186,8 +192,10 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to associate the vSwitch `vsw-bp183p93qs667muql****` and the member `172050525300****` with the resource share `rs-6GRmdD3X****` in the `cn-hangzhou` region. After the association, the vSwitch is shared with the member.
-     *   *
+     * @summary Associates resources or principals with a resource share.
+     *  *
+     * @description This topic provides an example on how to call the API operation to associate the vSwitch `vsw-bp183p93qs667muql****` and the member `172050525300****` with the resource share `rs-6GRmdD3X****` in the `cn-hangzhou` region. After the association, the vSwitch is shared with the member.
+     *  *
      * @param AssociateResourceShareRequest $request AssociateResourceShareRequest
      *
      * @return AssociateResourceShareResponse AssociateResourceShareResponse
@@ -200,8 +208,10 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to associate the `AliyunRSDefaultPermissionVSwitch` permission with the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
-     *   *
+     * @summary Associates permissions with a resource share.
+     *  *
+     * @description This topic provides an example on how to call the API operation to associate the `AliyunRSDefaultPermissionVSwitch` permission with the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
+     *  *
      * @param AssociateResourceSharePermissionRequest $request AssociateResourceSharePermissionRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -239,8 +249,10 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to associate the `AliyunRSDefaultPermissionVSwitch` permission with the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
-     *   *
+     * @summary Associates permissions with a resource share.
+     *  *
+     * @description This topic provides an example on how to call the API operation to associate the `AliyunRSDefaultPermissionVSwitch` permission with the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
+     *  *
      * @param AssociateResourceSharePermissionRequest $request AssociateResourceSharePermissionRequest
      *
      * @return AssociateResourceSharePermissionResponse AssociateResourceSharePermissionResponse
@@ -253,10 +265,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Transfers a resource share from one resource group to another.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
@@ -290,9 +304,11 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
+     * @summary Transfers a resource share from one resource group to another.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -302,9 +318,11 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Checks the status of resource sharing within a resource directory.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckSharingWithResourceDirectoryStatusResponse
+     * @return CheckSharingWithResourceDirectoryStatusResponse CheckSharingWithResourceDirectoryStatusResponse
      */
     public function checkSharingWithResourceDirectoryStatusWithOptions($runtime)
     {
@@ -325,7 +343,9 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @return CheckSharingWithResourceDirectoryStatusResponse
+     * @summary Checks the status of resource sharing within a resource directory.
+     *  *
+     * @return CheckSharingWithResourceDirectoryStatusResponse CheckSharingWithResourceDirectoryStatusResponse
      */
     public function checkSharingWithResourceDirectoryStatus()
     {
@@ -335,9 +355,11 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * Resource Sharing allows you to share your resources with one or more accounts and access the resources shared by other accounts. For more information, see [Resource Sharing overview](~~160622~~).
-     *   * This topic provides an example on how to call the API operation to create a resource share named `test` in the `cn-hangzhou` region to share the vSwitch `vsw-bp183p93qs667muql****` with the member `172050525300****`. In this example, the management account of a resource directory is used to call this API operation.
-     *   *
+     * @summary Creates a resource share.
+     *  *
+     * @description Resource Sharing allows you to share your resources with one or more accounts and access the resources shared by other accounts. For more information, see [Resource Sharing overview](https://help.aliyun.com/document_detail/160622.html).
+     * This topic provides an example on how to call the API operation to create a resource share named `test` in the `cn-hangzhou` region to share the vSwitch `vsw-bp183p93qs667muql****` with the member `172050525300****` in a resource directory. In this example, the management account of the resource directory is used to call this API operation.
+     *  *
      * @param CreateResourceShareRequest $request CreateResourceShareRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -353,11 +375,17 @@ class ResourceSharing extends OpenApiClient
         if (!Utils::isUnset($request->permissionNames)) {
             $query['PermissionNames'] = $request->permissionNames;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceShareName)) {
             $query['ResourceShareName'] = $request->resourceShareName;
         }
         if (!Utils::isUnset($request->resources)) {
             $query['Resources'] = $request->resources;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->targetProperties)) {
             $query['TargetProperties'] = $request->targetProperties;
@@ -384,9 +412,11 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * Resource Sharing allows you to share your resources with one or more accounts and access the resources shared by other accounts. For more information, see [Resource Sharing overview](~~160622~~).
-     *   * This topic provides an example on how to call the API operation to create a resource share named `test` in the `cn-hangzhou` region to share the vSwitch `vsw-bp183p93qs667muql****` with the member `172050525300****`. In this example, the management account of a resource directory is used to call this API operation.
-     *   *
+     * @summary Creates a resource share.
+     *  *
+     * @description Resource Sharing allows you to share your resources with one or more accounts and access the resources shared by other accounts. For more information, see [Resource Sharing overview](https://help.aliyun.com/document_detail/160622.html).
+     * This topic provides an example on how to call the API operation to create a resource share named `test` in the `cn-hangzhou` region to share the vSwitch `vsw-bp183p93qs667muql****` with the member `172050525300****` in a resource directory. In this example, the management account of the resource directory is used to call this API operation.
+     *  *
      * @param CreateResourceShareRequest $request CreateResourceShareRequest
      *
      * @return CreateResourceShareResponse CreateResourceShareResponse
@@ -399,10 +429,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * After a resource share is deleted, all principals in the resource share can no longer access the resources in the resource share. However, the resources are not deleted with the resource share.
-     *   * A resource share that is deleted is in the `Deleted` state. The system deletes the record of the resource share within 48 hours to 96 hours.
-     *   * This topic provides an example on how to call the API operation to delete the resource share `rs-qSkW1HBY****` in the `cn-hangzhou` region.
-     *   *
+     * @summary 调用DeleteResourceShare删除共享单元。
+     *  *
+     * @description After a resource share is deleted, all principals in the resource share can no longer access the resources in the resource share. However, the resources are not deleted with the resource share.
+     * A resource share that is deleted is in the `Deleted` state. The system deletes the record of the resource share within 48 hours to 96 hours.
+     * This topic provides an example on how to call the API operation to delete the resource share `rs-qSkW1HBY****` in the `cn-hangzhou` region.
+     *  *
      * @param DeleteResourceShareRequest $request DeleteResourceShareRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -434,10 +466,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * After a resource share is deleted, all principals in the resource share can no longer access the resources in the resource share. However, the resources are not deleted with the resource share.
-     *   * A resource share that is deleted is in the `Deleted` state. The system deletes the record of the resource share within 48 hours to 96 hours.
-     *   * This topic provides an example on how to call the API operation to delete the resource share `rs-qSkW1HBY****` in the `cn-hangzhou` region.
-     *   *
+     * @summary 调用DeleteResourceShare删除共享单元。
+     *  *
+     * @description After a resource share is deleted, all principals in the resource share can no longer access the resources in the resource share. However, the resources are not deleted with the resource share.
+     * A resource share that is deleted is in the `Deleted` state. The system deletes the record of the resource share within 48 hours to 96 hours.
+     * This topic provides an example on how to call the API operation to delete the resource share `rs-qSkW1HBY****` in the `cn-hangzhou` region.
+     *  *
      * @param DeleteResourceShareRequest $request DeleteResourceShareRequest
      *
      * @return DeleteResourceShareResponse DeleteResourceShareResponse
@@ -450,10 +484,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the regions where the Resource Sharing service is available.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -481,9 +517,11 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @summary Queries the regions where the Resource Sharing service is available.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -493,10 +531,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * *   A resource owner can call this API operation to remove shared resources or principals from a resource share.
-     *   * *   If an Alibaba Cloud account that is not the management account or a member of a resource directory is added to a resource share as a principal, you can use the Alibaba Cloud account to call this API operation to exit the resource share. For more information, see [Exit a resource share](~~440614~~).
-     *   * This topic provides an example on how to use the management account of a resource directory to call the API operation to remove the member `172050525300****` from the resource share `rs-6GRmdD3X****` in the `cn-hangzhou` region. After the member is removed from the resource share, the member cannot share the resources in the resource share.
-     *   *
+     * @summary Disassociates resources or principals from a resource share.
+     *  *
+     * @description *   A resource owner can call this API operation to disassociate shared resources or principals from a resource share.
+     * *   If a principal does not belong to a resource directory, the principal can call this API operation to exit the resource share. For more information, see [Exit a resource share](https://help.aliyun.com/document_detail/440614.html).
+     * This topic provides an example on how to use the management account of a resource directory to call the API operation to disassociate the member `172050525300****` from the resource share `rs-6GRmdD3X****` in the `cn-hangzhou` region. After the member is disassociated from the resource share, the member cannot share the resources in the resource share.
+     *  *
      * @param DisassociateResourceShareRequest $request DisassociateResourceShareRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -537,10 +577,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * *   A resource owner can call this API operation to remove shared resources or principals from a resource share.
-     *   * *   If an Alibaba Cloud account that is not the management account or a member of a resource directory is added to a resource share as a principal, you can use the Alibaba Cloud account to call this API operation to exit the resource share. For more information, see [Exit a resource share](~~440614~~).
-     *   * This topic provides an example on how to use the management account of a resource directory to call the API operation to remove the member `172050525300****` from the resource share `rs-6GRmdD3X****` in the `cn-hangzhou` region. After the member is removed from the resource share, the member cannot share the resources in the resource share.
-     *   *
+     * @summary Disassociates resources or principals from a resource share.
+     *  *
+     * @description *   A resource owner can call this API operation to disassociate shared resources or principals from a resource share.
+     * *   If a principal does not belong to a resource directory, the principal can call this API operation to exit the resource share. For more information, see [Exit a resource share](https://help.aliyun.com/document_detail/440614.html).
+     * This topic provides an example on how to use the management account of a resource directory to call the API operation to disassociate the member `172050525300****` from the resource share `rs-6GRmdD3X****` in the `cn-hangzhou` region. After the member is disassociated from the resource share, the member cannot share the resources in the resource share.
+     *  *
      * @param DisassociateResourceShareRequest $request DisassociateResourceShareRequest
      *
      * @return DisassociateResourceShareResponse DisassociateResourceShareResponse
@@ -553,8 +595,10 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to disassociate the `AliyunRSDefaultPermissionVSwitch` permission from the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
-     *   *
+     * @summary Disassociates a permission from a resource share. You can disassociate a permission from a resource share only if the resource share does not contain resources of the type indicated by the permission.
+     *  *
+     * @description This topic provides an example on how to call the API operation to disassociate the `AliyunRSDefaultPermissionVSwitch` permission from the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
+     *  *
      * @param DisassociateResourceSharePermissionRequest $request DisassociateResourceSharePermissionRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
@@ -589,8 +633,10 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to disassociate the `AliyunRSDefaultPermissionVSwitch` permission from the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
-     *   *
+     * @summary Disassociates a permission from a resource share. You can disassociate a permission from a resource share only if the resource share does not contain resources of the type indicated by the permission.
+     *  *
+     * @description This topic provides an example on how to call the API operation to disassociate the `AliyunRSDefaultPermissionVSwitch` permission from the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
+     *  *
      * @param DisassociateResourceSharePermissionRequest $request DisassociateResourceSharePermissionRequest
      *
      * @return DisassociateResourceSharePermissionResponse DisassociateResourceSharePermissionResponse
@@ -603,9 +649,11 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * You can share your resources with all members in your resource directory, all members in a specific folder in your resource directory, or a specific member in your resource directory as a resource owner only after you enable resource sharing for your resource directory.
-     *   * You can call this API operation only by using the management account of your resource directory or a RAM user or RAM role to which the required permissions are granted within the management account.
-     *   *
+     * @summary Enables resource sharing for a resource directory.
+     *  *
+     * @description You can share your resources with all members in your resource directory, all members in a specific folder in your resource directory, or a specific member in your resource directory as a resource owner only after you enable resource sharing for your resource directory.
+     * You can call this API operation only by using the management account of your resource directory or a RAM user or RAM role to which the required permissions are granted within the management account.
+     *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
      * @return EnableSharingWithResourceDirectoryResponse EnableSharingWithResourceDirectoryResponse
@@ -629,9 +677,11 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * You can share your resources with all members in your resource directory, all members in a specific folder in your resource directory, or a specific member in your resource directory as a resource owner only after you enable resource sharing for your resource directory.
-     *   * You can call this API operation only by using the management account of your resource directory or a RAM user or RAM role to which the required permissions are granted within the management account.
-     *   *
+     * @summary Enables resource sharing for a resource directory.
+     *  *
+     * @description You can share your resources with all members in your resource directory, all members in a specific folder in your resource directory, or a specific member in your resource directory as a resource owner only after you enable resource sharing for your resource directory.
+     * You can call this API operation only by using the management account of your resource directory or a RAM user or RAM role to which the required permissions are granted within the management account.
+     *  *
      * @return EnableSharingWithResourceDirectoryResponse EnableSharingWithResourceDirectoryResponse
      */
     public function enableSharingWithResourceDirectory()
@@ -642,8 +692,10 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the information about the `AliyunRSDefaultPermissionVSwitch` permission whose version is `v1` in the `cn-hangzhou` region.
-     *   *
+     * @summary Queries the information about a permission.
+     *  *
+     * @description This topic provides an example on how to call the API operation to query the information about the `AliyunRSDefaultPermissionVSwitch` permission whose version is `v1` in the `cn-hangzhou` region.
+     *  *
      * @param GetPermissionRequest $request GetPermissionRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -678,8 +730,10 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the information about the `AliyunRSDefaultPermissionVSwitch` permission whose version is `v1` in the `cn-hangzhou` region.
-     *   *
+     * @summary Queries the information about a permission.
+     *  *
+     * @description This topic provides an example on how to call the API operation to query the information about the `AliyunRSDefaultPermissionVSwitch` permission whose version is `v1` in the `cn-hangzhou` region.
+     *  *
      * @param GetPermissionRequest $request GetPermissionRequest
      *
      * @return GetPermissionResponse GetPermissionResponse
@@ -692,8 +746,10 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the versions of the `AliyunRSDefaultPermissionVSwitch` permission in the `cn-hangzhou` region.
-     *   *
+     * @summary Queries the versions of a permission.
+     *  *
+     * @description This topic provides an example on how to call the API operation to query the versions of the `AliyunRSDefaultPermissionVSwitch` permission in the `cn-hangzhou` region.
+     *  *
      * @param ListPermissionVersionsRequest $request ListPermissionVersionsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -731,8 +787,10 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the versions of the `AliyunRSDefaultPermissionVSwitch` permission in the `cn-hangzhou` region.
-     *   *
+     * @summary Queries the versions of a permission.
+     *  *
+     * @description This topic provides an example on how to call the API operation to query the versions of the `AliyunRSDefaultPermissionVSwitch` permission in the `cn-hangzhou` region.
+     *  *
      * @param ListPermissionVersionsRequest $request ListPermissionVersionsRequest
      *
      * @return ListPermissionVersionsResponse ListPermissionVersionsResponse
@@ -745,8 +803,10 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the information about the default permission for the `VSwitch` resource type in the `cn-hangzhou` region.
-     *   *
+     * @summary Queries the information about the default permission.
+     *  *
+     * @description This topic provides an example on how to call the API operation to query the information about the default permission for the `VSwitch` resource type in the `cn-hangzhou` region.
+     *  *
      * @param ListPermissionsRequest $request ListPermissionsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -784,8 +844,10 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the information about the default permission for the `VSwitch` resource type in the `cn-hangzhou` region.
-     *   *
+     * @summary Queries the information about the default permission.
+     *  *
+     * @description This topic provides an example on how to call the API operation to query the information about the default permission for the `VSwitch` resource type in the `cn-hangzhou` region.
+     *  *
      * @param ListPermissionsRequest $request ListPermissionsRequest
      *
      * @return ListPermissionsResponse ListPermissionsResponse
@@ -798,10 +860,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the association records of the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows the following records:
-     *   * *   The resource `vsw-bp1upw03qyz8n7us9****` of the `VSwitch` type has been associated with the resource share `rs-6GRmdD3X****`. The resource is in the `Associated` state. This indicates that the resource is being shared.
-     *   * *   The resource `vsw-bp183p93qs667muql****` of the `VSwitch` type has been disassociated from the resource share `rs-6GRmdD3X****`. The resource is in the `Disassociated` state. This indicates that the sharing of the resource is stopped.
-     *   *
+     * @summary Queries the association records of resource shares.
+     *  *
+     * @description This topic provides an example on how to call the API operation to query the association records of the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows the following records:
+     * *   The resource `vsw-bp1upw03qyz8n7us9****` of the `VSwitch` type has been associated with the resource share `rs-6GRmdD3X****`. The resource is in the `Associated` state. This indicates that the resource is being shared.
+     * *   The resource `vsw-bp183p93qs667muql****` of the `VSwitch` type has been disassociated from the resource share `rs-6GRmdD3X****`. The resource is in the `Disassociated` state. This indicates that the sharing of the resource is stopped.
+     *  *
      * @param ListResourceShareAssociationsRequest $request ListResourceShareAssociationsRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -851,10 +915,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the association records of the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows the following records:
-     *   * *   The resource `vsw-bp1upw03qyz8n7us9****` of the `VSwitch` type has been associated with the resource share `rs-6GRmdD3X****`. The resource is in the `Associated` state. This indicates that the resource is being shared.
-     *   * *   The resource `vsw-bp183p93qs667muql****` of the `VSwitch` type has been disassociated from the resource share `rs-6GRmdD3X****`. The resource is in the `Disassociated` state. This indicates that the sharing of the resource is stopped.
-     *   *
+     * @summary Queries the association records of resource shares.
+     *  *
+     * @description This topic provides an example on how to call the API operation to query the association records of the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows the following records:
+     * *   The resource `vsw-bp1upw03qyz8n7us9****` of the `VSwitch` type has been associated with the resource share `rs-6GRmdD3X****`. The resource is in the `Associated` state. This indicates that the resource is being shared.
+     * *   The resource `vsw-bp183p93qs667muql****` of the `VSwitch` type has been disassociated from the resource share `rs-6GRmdD3X****`. The resource is in the `Disassociated` state. This indicates that the sharing of the resource is stopped.
+     *  *
      * @param ListResourceShareAssociationsRequest $request ListResourceShareAssociationsRequest
      *
      * @return ListResourceShareAssociationsResponse ListResourceShareAssociationsResponse
@@ -867,9 +933,11 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * ### [](#)
-     *   * This topic provides an example on how to call the API operation to query the resource sharing invitations that are received by the current account in the `cn-hangzhou` region. The response shows that one invitation is received by the current account and is waiting for confirmation.
-     *   *
+     * @summary Queries the resource sharing invitations that are received.
+     *  *
+     * @description ### [](#)
+     * This topic provides an example on how to call the API operation to query the resource sharing invitations that are received by the current account in the `cn-hangzhou` region. The response shows that one invitation is received by the current account and is waiting for confirmation.
+     *  *
      * @param ListResourceShareInvitationsRequest $request ListResourceShareInvitationsRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -910,9 +978,11 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * ### [](#)
-     *   * This topic provides an example on how to call the API operation to query the resource sharing invitations that are received by the current account in the `cn-hangzhou` region. The response shows that one invitation is received by the current account and is waiting for confirmation.
-     *   *
+     * @summary Queries the resource sharing invitations that are received.
+     *  *
+     * @description ### [](#)
+     * This topic provides an example on how to call the API operation to query the resource sharing invitations that are received by the current account in the `cn-hangzhou` region. The response shows that one invitation is received by the current account and is waiting for confirmation.
+     *  *
      * @param ListResourceShareInvitationsRequest $request ListResourceShareInvitationsRequest
      *
      * @return ListResourceShareInvitationsResponse ListResourceShareInvitationsResponse
@@ -925,8 +995,10 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the permissions that are associated with the resource share created by using the current Alibaba Cloud account in the `cn-hangzhou` region.
-     *   *
+     * @summary Queries the permissions that are associated with a resource share.
+     *  *
+     * @description This topic provides an example on how to call the API operation to query the permissions that are associated with the resource share created by using the current Alibaba Cloud account in the `cn-hangzhou` region.
+     *  *
      * @param ListResourceSharePermissionsRequest $request ListResourceSharePermissionsRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -967,8 +1039,10 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the permissions that are associated with the resource share created by using the current Alibaba Cloud account in the `cn-hangzhou` region.
-     *   *
+     * @summary Queries the permissions that are associated with a resource share.
+     *  *
+     * @description This topic provides an example on how to call the API operation to query the permissions that are associated with the resource share created by using the current Alibaba Cloud account in the `cn-hangzhou` region.
+     *  *
      * @param ListResourceSharePermissionsRequest $request ListResourceSharePermissionsRequest
      *
      * @return ListResourceSharePermissionsResponse ListResourceSharePermissionsResponse
@@ -981,10 +1055,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows that the following resource shares are created by using the account whose ID is `151266687691****`:
-     *   * *   `rs-hX9wC5jO****`, which is in the `Deleted` state
-     *   * *   `rs-PqysnzIj****`, which is in the `Active` state.
-     *   *
+     * @summary Queries resource shares.
+     *  *
+     * @description This topic provides an example on how to call the API operation to query the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows that the following resource shares are created by using the account whose ID is `151266687691****`:
+     * *   `rs-hX9wC5jO****`, which is in the `Deleted` state
+     * *   `rs-PqysnzIj****`, which is in the `Active` state
+     *  *
      * @param ListResourceSharesRequest $request ListResourceSharesRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -1003,6 +1079,9 @@ class ResourceSharing extends OpenApiClient
         if (!Utils::isUnset($request->permissionName)) {
             $query['PermissionName'] = $request->permissionName;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwner)) {
             $query['ResourceOwner'] = $request->resourceOwner;
         }
@@ -1014,6 +1093,9 @@ class ResourceSharing extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceShareStatus)) {
             $query['ResourceShareStatus'] = $request->resourceShareStatus;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1034,10 +1116,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows that the following resource shares are created by using the account whose ID is `151266687691****`:
-     *   * *   `rs-hX9wC5jO****`, which is in the `Deleted` state
-     *   * *   `rs-PqysnzIj****`, which is in the `Active` state.
-     *   *
+     * @summary Queries resource shares.
+     *  *
+     * @description This topic provides an example on how to call the API operation to query the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows that the following resource shares are created by using the account whose ID is `151266687691****`:
+     * *   `rs-hX9wC5jO****`, which is in the `Deleted` state
+     * *   `rs-PqysnzIj****`, which is in the `Active` state
+     *  *
      * @param ListResourceSharesRequest $request ListResourceSharesRequest
      *
      * @return ListResourceSharesResponse ListResourceSharesResponse
@@ -1050,8 +1134,10 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the resources that you share with other accounts in the `cn-hangzhou` region. The response shows that in the resource share `rs-6GRmdD3X****`, you share the `vsw-bp1upw03qyz8n7us9****` resource of the `VSwitch` type with other accounts.
-     *   *
+     * @summary Queries the resources you share with other accounts or the resources other accounts share with you.
+     *  *
+     * @description This topic provides an example on how to call the API operation to query the resources that you share with other accounts in the `cn-hangzhou` region. The response shows that in the resource share `rs-6GRmdD3X****`, you share the `vsw-bp1upw03qyz8n7us9****` resource of the `VSwitch` type with other accounts.
+     *  *
      * @param ListSharedResourcesRequest $request ListSharedResourcesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -1101,8 +1187,10 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the resources that you share with other accounts in the `cn-hangzhou` region. The response shows that in the resource share `rs-6GRmdD3X****`, you share the `vsw-bp1upw03qyz8n7us9****` resource of the `VSwitch` type with other accounts.
-     *   *
+     * @summary Queries the resources you share with other accounts or the resources other accounts share with you.
+     *  *
+     * @description This topic provides an example on how to call the API operation to query the resources that you share with other accounts in the `cn-hangzhou` region. The response shows that in the resource share `rs-6GRmdD3X****`, you share the `vsw-bp1upw03qyz8n7us9****` resource of the `VSwitch` type with other accounts.
+     *  *
      * @param ListSharedResourcesRequest $request ListSharedResourcesRequest
      *
      * @return ListSharedResourcesResponse ListSharedResourcesResponse
@@ -1115,10 +1203,11 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * If you are a resource owner, you can query the principals with which you share your resources.
-     *   * If you are a principal, you can query the resources that are shared with you.
-     *   * This topic provides an example on how to call the API operation to query the principals with which you share your resources in the `cn-hangzhou` region. The response shows that you share your resources with the principals `114240524784****` and `172050525300****`.
-     *   *
+     * @summary Queries principals.
+     *  *
+     * @description If you are a resource owner, you can query the principals with which you share your resources. If you are a principal, you can query the resources that are shared with you.
+     * This topic provides an example on how to call the API operation to query the principals with which you share your resources in the `cn-hangzhou` region. The response shows that you share your resources with the principals `114240524784****` and `172050525300****`.
+     *  *
      * @param ListSharedTargetsRequest $request ListSharedTargetsRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -1168,10 +1257,11 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * If you are a resource owner, you can query the principals with which you share your resources.
-     *   * If you are a principal, you can query the resources that are shared with you.
-     *   * This topic provides an example on how to call the API operation to query the principals with which you share your resources in the `cn-hangzhou` region. The response shows that you share your resources with the principals `114240524784****` and `172050525300****`.
-     *   *
+     * @summary Queries principals.
+     *  *
+     * @description If you are a resource owner, you can query the principals with which you share your resources. If you are a principal, you can query the resources that are shared with you.
+     * This topic provides an example on how to call the API operation to query the principals with which you share your resources in the `cn-hangzhou` region. The response shows that you share your resources with the principals `114240524784****` and `172050525300****`.
+     *  *
      * @param ListSharedTargetsRequest $request ListSharedTargetsRequest
      *
      * @return ListSharedTargetsResponse ListSharedTargetsResponse
@@ -1184,8 +1274,10 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to reject the resource sharing invitation `i-yyTWbkjHArYh****` in the `cn-hangzhou` region.
-     *   *
+     * @summary 拒绝组织外共享邀请
+     *  *
+     * @description This topic provides an example on how to call the API operation to reject the resource sharing invitation `i-yyTWbkjHArYh****` in the `cn-hangzhou` region.
+     *  *
      * @param RejectResourceShareInvitationRequest $request RejectResourceShareInvitationRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -1217,8 +1309,10 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to reject the resource sharing invitation `i-yyTWbkjHArYh****` in the `cn-hangzhou` region.
-     *   *
+     * @summary 拒绝组织外共享邀请
+     *  *
+     * @description This topic provides an example on how to call the API operation to reject the resource sharing invitation `i-yyTWbkjHArYh****` in the `cn-hangzhou` region.
+     *  *
      * @param RejectResourceShareInvitationRequest $request RejectResourceShareInvitationRequest
      *
      * @return RejectResourceShareInvitationResponse RejectResourceShareInvitationResponse
@@ -1231,9 +1325,11 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to change the name or resource sharing scope of a resource share.
-     *   * This topic provides an example on how to call the API operation to change the name of the resource share `rs-qSkW1HBY****` in the `cn-hangzhou` region from `test` to `new`.
-     *   *
+     * @summary 调用UpdateResourceShare修改共享单元基本信息。
+     *  *
+     * @description You can call this API operation to change the name or resource sharing scope of a resource share.
+     * This topic provides an example on how to call the API operation to change the name of the resource share `rs-qSkW1HBY****` in the `cn-hangzhou` region from `test` to `new`.
+     *  *
      * @param UpdateResourceShareRequest $request UpdateResourceShareRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -1271,9 +1367,11 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to change the name or resource sharing scope of a resource share.
-     *   * This topic provides an example on how to call the API operation to change the name of the resource share `rs-qSkW1HBY****` in the `cn-hangzhou` region from `test` to `new`.
-     *   *
+     * @summary 调用UpdateResourceShare修改共享单元基本信息。
+     *  *
+     * @description You can call this API operation to change the name or resource sharing scope of a resource share.
+     * This topic provides an example on how to call the API operation to change the name of the resource share `rs-qSkW1HBY****` in the `cn-hangzhou` region from `test` to `new`.
+     *  *
      * @param UpdateResourceShareRequest $request UpdateResourceShareRequest
      *
      * @return UpdateResourceShareResponse UpdateResourceShareResponse
