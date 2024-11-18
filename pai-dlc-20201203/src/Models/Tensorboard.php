@@ -14,11 +14,21 @@ class Tensorboard extends Model
     public $accessibility;
 
     /**
+     * @var int
+     */
+    public $cpu;
+
+    /**
      * @example datasource-test
      *
      * @var string
      */
     public $dataSourceId;
+
+    /**
+     * @var string
+     */
+    public $dataSourceType;
 
     /**
      * @example test
@@ -61,6 +71,21 @@ class Tensorboard extends Model
      * @var string
      */
     public $jobId;
+
+    /**
+     * @var int
+     */
+    public $maxRunningTimeMinutes;
+
+    /**
+     * @var int
+     */
+    public $memory;
+
+    /**
+     * @var string
+     */
+    public $options;
 
     /**
      * @var string
@@ -113,6 +138,11 @@ class Tensorboard extends Model
     public $summaryPath;
 
     /**
+     * @var string
+     */
+    public $summaryRelativePath;
+
+    /**
      * @var TensorboardDataSourceSpec[]
      */
     public $tensorboardDataSources;
@@ -137,6 +167,11 @@ class Tensorboard extends Model
     public $tensorboardUrl;
 
     /**
+     * @var string
+     */
+    public $token;
+
+    /**
      * @example lycxxxxx
      *
      * @var string
@@ -149,15 +184,25 @@ class Tensorboard extends Model
      * @var string
      */
     public $username;
+
+    /**
+     * @var string
+     */
+    public $workspaceid;
     protected $_name = [
         'accessibility'          => 'Accessibility',
+        'cpu'                    => 'Cpu',
         'dataSourceId'           => 'DataSourceId',
+        'dataSourceType'         => 'DataSourceType',
         'displayName'            => 'DisplayName',
         'duration'               => 'Duration',
         'gmtCreateTime'          => 'GmtCreateTime',
         'gmtFinishTime'          => 'GmtFinishTime',
         'gmtModifyTime'          => 'GmtModifyTime',
         'jobId'                  => 'JobId',
+        'maxRunningTimeMinutes'  => 'MaxRunningTimeMinutes',
+        'memory'                 => 'Memory',
+        'options'                => 'Options',
         'priority'               => 'Priority',
         'quotaId'                => 'QuotaId',
         'quotaName'              => 'QuotaName',
@@ -166,12 +211,15 @@ class Tensorboard extends Model
         'requestId'              => 'RequestId',
         'status'                 => 'Status',
         'summaryPath'            => 'SummaryPath',
+        'summaryRelativePath'    => 'SummaryRelativePath',
         'tensorboardDataSources' => 'TensorboardDataSources',
         'tensorboardId'          => 'TensorboardId',
         'tensorboardSpec'        => 'TensorboardSpec',
         'tensorboardUrl'         => 'TensorboardUrl',
+        'token'                  => 'Token',
         'userId'                 => 'UserId',
         'username'               => 'Username',
+        'workspaceid'            => 'Workspaceid',
     ];
 
     public function validate()
@@ -184,8 +232,14 @@ class Tensorboard extends Model
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
         }
+        if (null !== $this->cpu) {
+            $res['Cpu'] = $this->cpu;
+        }
         if (null !== $this->dataSourceId) {
             $res['DataSourceId'] = $this->dataSourceId;
+        }
+        if (null !== $this->dataSourceType) {
+            $res['DataSourceType'] = $this->dataSourceType;
         }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
@@ -204,6 +258,15 @@ class Tensorboard extends Model
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->maxRunningTimeMinutes) {
+            $res['MaxRunningTimeMinutes'] = $this->maxRunningTimeMinutes;
+        }
+        if (null !== $this->memory) {
+            $res['Memory'] = $this->memory;
+        }
+        if (null !== $this->options) {
+            $res['Options'] = $this->options;
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
@@ -229,6 +292,9 @@ class Tensorboard extends Model
         if (null !== $this->summaryPath) {
             $res['SummaryPath'] = $this->summaryPath;
         }
+        if (null !== $this->summaryRelativePath) {
+            $res['SummaryRelativePath'] = $this->summaryRelativePath;
+        }
         if (null !== $this->tensorboardDataSources) {
             $res['TensorboardDataSources'] = [];
             if (null !== $this->tensorboardDataSources && \is_array($this->tensorboardDataSources)) {
@@ -247,11 +313,17 @@ class Tensorboard extends Model
         if (null !== $this->tensorboardUrl) {
             $res['TensorboardUrl'] = $this->tensorboardUrl;
         }
+        if (null !== $this->token) {
+            $res['Token'] = $this->token;
+        }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
         if (null !== $this->username) {
             $res['Username'] = $this->username;
+        }
+        if (null !== $this->workspaceid) {
+            $res['Workspaceid'] = $this->workspaceid;
         }
 
         return $res;
@@ -268,8 +340,14 @@ class Tensorboard extends Model
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
         }
+        if (isset($map['Cpu'])) {
+            $model->cpu = $map['Cpu'];
+        }
         if (isset($map['DataSourceId'])) {
             $model->dataSourceId = $map['DataSourceId'];
+        }
+        if (isset($map['DataSourceType'])) {
+            $model->dataSourceType = $map['DataSourceType'];
         }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
@@ -288,6 +366,15 @@ class Tensorboard extends Model
         }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+        if (isset($map['MaxRunningTimeMinutes'])) {
+            $model->maxRunningTimeMinutes = $map['MaxRunningTimeMinutes'];
+        }
+        if (isset($map['Memory'])) {
+            $model->memory = $map['Memory'];
+        }
+        if (isset($map['Options'])) {
+            $model->options = $map['Options'];
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
@@ -313,6 +400,9 @@ class Tensorboard extends Model
         if (isset($map['SummaryPath'])) {
             $model->summaryPath = $map['SummaryPath'];
         }
+        if (isset($map['SummaryRelativePath'])) {
+            $model->summaryRelativePath = $map['SummaryRelativePath'];
+        }
         if (isset($map['TensorboardDataSources'])) {
             if (!empty($map['TensorboardDataSources'])) {
                 $model->tensorboardDataSources = [];
@@ -331,11 +421,17 @@ class Tensorboard extends Model
         if (isset($map['TensorboardUrl'])) {
             $model->tensorboardUrl = $map['TensorboardUrl'];
         }
+        if (isset($map['Token'])) {
+            $model->token = $map['Token'];
+        }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
+        }
+        if (isset($map['Workspaceid'])) {
+            $model->workspaceid = $map['Workspaceid'];
         }
 
         return $model;

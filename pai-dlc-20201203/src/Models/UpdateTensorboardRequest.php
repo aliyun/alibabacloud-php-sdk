@@ -21,6 +21,11 @@ class UpdateTensorboardRequest extends Model
     public $maxRunningTimeMinutes;
 
     /**
+     * @var string
+     */
+    public $priority;
+
+    /**
      * @example 380
      *
      * @var string
@@ -29,6 +34,7 @@ class UpdateTensorboardRequest extends Model
     protected $_name = [
         'accessibility'         => 'Accessibility',
         'maxRunningTimeMinutes' => 'MaxRunningTimeMinutes',
+        'priority'              => 'Priority',
         'workspaceId'           => 'WorkspaceId',
     ];
 
@@ -44,6 +50,9 @@ class UpdateTensorboardRequest extends Model
         }
         if (null !== $this->maxRunningTimeMinutes) {
             $res['MaxRunningTimeMinutes'] = $this->maxRunningTimeMinutes;
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
@@ -65,6 +74,9 @@ class UpdateTensorboardRequest extends Model
         }
         if (isset($map['MaxRunningTimeMinutes'])) {
             $model->maxRunningTimeMinutes = $map['MaxRunningTimeMinutes'];
+        }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];

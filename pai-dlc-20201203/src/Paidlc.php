@@ -1607,6 +1607,9 @@ class Paidlc extends OpenApiClient
         if (!Utils::isUnset($request->maxRunningTimeMinutes)) {
             $query['MaxRunningTimeMinutes'] = $request->maxRunningTimeMinutes;
         }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
         if (!Utils::isUnset($request->workspaceId)) {
             $query['WorkspaceId'] = $request->workspaceId;
         }
