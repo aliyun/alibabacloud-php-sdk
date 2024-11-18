@@ -53,6 +53,11 @@ class images extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $osTag;
+
+    /**
      * @example v1.0
      *
      * @var string
@@ -65,6 +70,7 @@ class images extends Model
         'imageId'     => 'ImageId',
         'imageType'   => 'ImageType',
         'name'        => 'Name',
+        'osTag'       => 'OsTag',
         'version'     => 'Version',
     ];
 
@@ -92,6 +98,9 @@ class images extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->osTag) {
+            $res['OsTag'] = $this->osTag;
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
@@ -125,6 +134,9 @@ class images extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['OsTag'])) {
+            $model->osTag = $map['OsTag'];
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
