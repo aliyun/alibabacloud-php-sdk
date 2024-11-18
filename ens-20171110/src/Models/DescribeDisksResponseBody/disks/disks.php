@@ -32,6 +32,16 @@ class disks extends Model
     public $creationTime;
 
     /**
+     * @var bool
+     */
+    public $deleteWithInstance;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @description The billing method of the cloud disk or local disk. Valid values:
      *
      *   **prepaid**: subscription.
@@ -182,22 +192,24 @@ class disks extends Model
      */
     public $type;
     protected $_name = [
-        'category'       => 'Category',
-        'creationTime'   => 'CreationTime',
-        'diskChargeType' => 'DiskChargeType',
-        'diskId'         => 'DiskId',
-        'diskName'       => 'DiskName',
-        'encrypted'      => 'Encrypted',
-        'encryptedKeyId' => 'EncryptedKeyId',
-        'ensRegionId'    => 'EnsRegionId',
-        'instanceId'     => 'InstanceId',
-        'instanceName'   => 'InstanceName',
-        'portable'       => 'Portable',
-        'serialId'       => 'SerialId',
-        'size'           => 'Size',
-        'snapshotId'     => 'SnapshotId',
-        'status'         => 'Status',
-        'type'           => 'Type',
+        'category'           => 'Category',
+        'creationTime'       => 'CreationTime',
+        'deleteWithInstance' => 'DeleteWithInstance',
+        'description'        => 'Description',
+        'diskChargeType'     => 'DiskChargeType',
+        'diskId'             => 'DiskId',
+        'diskName'           => 'DiskName',
+        'encrypted'          => 'Encrypted',
+        'encryptedKeyId'     => 'EncryptedKeyId',
+        'ensRegionId'        => 'EnsRegionId',
+        'instanceId'         => 'InstanceId',
+        'instanceName'       => 'InstanceName',
+        'portable'           => 'Portable',
+        'serialId'           => 'SerialId',
+        'size'               => 'Size',
+        'snapshotId'         => 'SnapshotId',
+        'status'             => 'Status',
+        'type'               => 'Type',
     ];
 
     public function validate()
@@ -212,6 +224,12 @@ class disks extends Model
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->deleteWithInstance) {
+            $res['DeleteWithInstance'] = $this->deleteWithInstance;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->diskChargeType) {
             $res['DiskChargeType'] = $this->diskChargeType;
@@ -272,6 +290,12 @@ class disks extends Model
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['DeleteWithInstance'])) {
+            $model->deleteWithInstance = $map['DeleteWithInstance'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['DiskChargeType'])) {
             $model->diskChargeType = $map['DiskChargeType'];

@@ -96,6 +96,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNetworkAclEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNetworkAclEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNetworkAclRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNetworkAclResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNetworkInterfaceRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNetworkInterfaceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNetworkInterfaceShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNetworkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNetworkResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateSDGRequest;
@@ -154,6 +157,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkAclEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkAclEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkAclRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkAclResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkInterfacesRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkInterfacesResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkInterfacesShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteObjectRequest;
@@ -3448,6 +3454,67 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @summary 创建弹性网卡
+     *  *
+     * @param CreateNetworkInterfaceRequest $tmpReq  CreateNetworkInterfaceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateNetworkInterfaceResponse CreateNetworkInterfaceResponse
+     */
+    public function createNetworkInterfaceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateNetworkInterfaceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->securityGroupIds)) {
+            $request->securityGroupIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->securityGroupIds, 'SecurityGroupIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->securityGroupIdsShrink)) {
+            $query['SecurityGroupIds'] = $request->securityGroupIdsShrink;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateNetworkInterface',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建弹性网卡
+     *  *
+     * @param CreateNetworkInterfaceRequest $request CreateNetworkInterfaceRequest
+     *
+     * @return CreateNetworkInterfaceResponse CreateNetworkInterfaceResponse
+     */
+    public function createNetworkInterface($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createNetworkInterfaceWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates a shared data group (SDG) on an Android in Container (AIC) instance.
      *  *
      * @description A SDG can be regarded as a data partition image of a virtual device. You can save a data partition of a virtual device as an SDG. A created SDG can be deployed in data partitions of other virtual devices to achieve rapid data distribution and application. The procedure for calling SDG-related API operations:
@@ -4881,6 +4948,58 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteNetworkAclEntryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除弹性网卡
+     *  *
+     * @param DeleteNetworkInterfacesRequest $tmpReq  DeleteNetworkInterfacesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteNetworkInterfacesResponse DeleteNetworkInterfacesResponse
+     */
+    public function deleteNetworkInterfacesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteNetworkInterfacesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->networkInterfaceIds)) {
+            $request->networkInterfaceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->networkInterfaceIds, 'NetworkInterfaceIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->networkInterfaceIdsShrink)) {
+            $query['NetworkInterfaceIds'] = $request->networkInterfaceIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteNetworkInterfaces',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteNetworkInterfacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除弹性网卡
+     *  *
+     * @param DeleteNetworkInterfacesRequest $request DeleteNetworkInterfacesRequest
+     *
+     * @return DeleteNetworkInterfacesResponse DeleteNetworkInterfacesResponse
+     */
+    public function deleteNetworkInterfaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNetworkInterfacesWithOptions($request, $runtime);
     }
 
     /**
