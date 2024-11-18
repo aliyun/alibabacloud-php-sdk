@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteHoloWarehouseResponseBody extends Model
 {
     /**
+     * @description Indicates whether the request was successful. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool
@@ -16,7 +18,7 @@ class DeleteHoloWarehouseResponseBody extends Model
     public $data;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 2A8DEF6E-067E-5DB0-BAE1-2894266E6C6A
      *

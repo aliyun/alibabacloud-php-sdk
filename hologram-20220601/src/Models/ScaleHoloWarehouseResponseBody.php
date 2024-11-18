@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ScaleHoloWarehouseResponseBody extends Model
 {
     /**
+     * @description Indicates whether the request was successful. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesRequest extends Model
 {
     /**
+     * @example standard
+     *
      * @var string
      */
     public $cmsInstanceType;

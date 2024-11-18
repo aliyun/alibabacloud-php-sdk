@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RenameHoloWarehouseRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The original name of the virtual warehouse.
      *
+     * This parameter is required.
      * @example my_warehouse
      *
      * @var string
@@ -18,8 +19,9 @@ class RenameHoloWarehouseRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The new name of the virtual warehouse.
      *
+     * This parameter is required.
      * @example new_name
      *
      * @var string

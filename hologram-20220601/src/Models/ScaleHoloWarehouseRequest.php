@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ScaleHoloWarehouseRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The specifications of the virtual warehouse. The number of vCPUs must be an integer multiple of 16.
      *
+     * This parameter is required.
      * @example 64
      *
      * @var int
@@ -18,8 +19,9 @@ class ScaleHoloWarehouseRequest extends Model
     public $cpu;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the virtual warehouse.
      *
+     * This parameter is required.
      * @example my_warehouse
      *
      * @var string

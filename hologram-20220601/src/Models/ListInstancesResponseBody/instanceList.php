@@ -152,6 +152,8 @@ class instanceList extends Model
     public $leaderInstanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -191,6 +193,8 @@ class instanceList extends Model
     public $version;
 
     /**
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

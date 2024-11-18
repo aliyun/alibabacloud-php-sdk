@@ -9,6 +9,17 @@ use AlibabaCloud\Tea\Model;
 class EnableHiveAccessResponseBody extends Model
 {
     /**
+     * @description The returned data.
+     *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool
@@ -16,6 +27,8 @@ class EnableHiveAccessResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example 404
      *
      * @var string
@@ -23,6 +36,8 @@ class EnableHiveAccessResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example Internal server error.
      *
      * @var string
@@ -30,6 +45,8 @@ class EnableHiveAccessResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var string
@@ -37,7 +54,7 @@ class EnableHiveAccessResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example EA8F0084-5831-5907-BB31-BD05D2617844
      *
@@ -46,6 +63,8 @@ class EnableHiveAccessResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

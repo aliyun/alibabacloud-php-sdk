@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DisableHiveAccessRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
      * @example cn-beijing
      *
      * @var string

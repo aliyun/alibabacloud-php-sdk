@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RebalanceHoloWarehouseRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the virtual warehouse.
      *
+     * This parameter is required.
      * @example test_oss
      *
      * @var string

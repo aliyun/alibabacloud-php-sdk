@@ -22,6 +22,8 @@ use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableHiveAccessRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableHiveAccessResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetWarehouseDetailResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListBackupDataRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListBackupDataResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListWarehousesResponse;
@@ -88,7 +90,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 更改资源组
+     * @summary Updates a resource group.
      *  *
      * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      * @param string[]                   $headers map
@@ -126,7 +128,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 更改资源组
+     * @summary Updates a resource group.
      *  *
      * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
@@ -141,7 +143,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 创建计算组
+     * @summary Creates a virtual warehouse.
      *  *
      * @param string                     $instanceId
      * @param CreateHoloWarehouseRequest $request    CreateHoloWarehouseRequest
@@ -180,7 +182,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 创建计算组
+     * @summary Creates a virtual warehouse.
      *  *
      * @param string                     $instanceId
      * @param CreateHoloWarehouseRequest $request    CreateHoloWarehouseRequest
@@ -340,7 +342,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 删除计算组
+     * @summary Deletes a virtual warehouse.
      *  *
      * @param string                     $instanceId
      * @param DeleteHoloWarehouseRequest $request    DeleteHoloWarehouseRequest
@@ -376,7 +378,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 删除计算组
+     * @summary Deletes a virtual warehouse.
      *  *
      * @param string                     $instanceId
      * @param DeleteHoloWarehouseRequest $request    DeleteHoloWarehouseRequest
@@ -454,7 +456,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 关闭数据湖加速
+     * @summary Disables data lake acceleration.
      *  *
      * @param string                   $instanceId
      * @param DisableHiveAccessRequest $request    DisableHiveAccessRequest
@@ -490,7 +492,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 关闭数据湖加速
+     * @summary Disables data lake acceleration.
      *  *
      * @param string                   $instanceId
      * @param DisableHiveAccessRequest $request    DisableHiveAccessRequest
@@ -506,7 +508,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 打开数据湖加速
+     * @summary Enables data lake acceleration.
      *  *
      * @param string                  $instanceId
      * @param EnableHiveAccessRequest $request    EnableHiveAccessRequest
@@ -542,7 +544,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 打开数据湖加速
+     * @summary Enables data lake acceleration.
      *  *
      * @param string                  $instanceId
      * @param EnableHiveAccessRequest $request    EnableHiveAccessRequest
@@ -646,6 +648,59 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @summary 获取备份列表
+     *  *
+     * @param ListBackupDataRequest $request ListBackupDataRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListBackupDataResponse ListBackupDataResponse
+     */
+    public function listBackupDataWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backupType)) {
+            $query['backupType'] = $request->backupType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['instanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBackupData',
+            'version'     => '2022-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/backups',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListBackupDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取备份列表
+     *  *
+     * @param ListBackupDataRequest $request ListBackupDataRequest
+     *
+     * @return ListBackupDataResponse ListBackupDataResponse
+     */
+    public function listBackupData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listBackupDataWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary Queries a list of instances.
      *  *
      * @param ListInstancesRequest $request ListInstancesRequest
@@ -746,7 +801,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 停止计算组
+     * @summary Triggers shard rebalancing for a virtual warehouse.
      *  *
      * @param string                        $instanceId
      * @param RebalanceHoloWarehouseRequest $request    RebalanceHoloWarehouseRequest
@@ -782,7 +837,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 停止计算组
+     * @summary Triggers shard rebalancing for a virtual warehouse.
      *  *
      * @param string                        $instanceId
      * @param RebalanceHoloWarehouseRequest $request    RebalanceHoloWarehouseRequest
@@ -798,7 +853,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 停止计算组
+     * @summary Renames a virtual warehouse.
      *  *
      * @param string                     $instanceId
      * @param RenameHoloWarehouseRequest $request    RenameHoloWarehouseRequest
@@ -837,7 +892,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 停止计算组
+     * @summary Renames a virtual warehouse.
      *  *
      * @param string                     $instanceId
      * @param RenameHoloWarehouseRequest $request    RenameHoloWarehouseRequest
@@ -918,7 +973,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 停止计算组
+     * @summary Restarts a virtual warehouse.
      *  *
      * @param string                      $instanceId
      * @param RestartHoloWarehouseRequest $request    RestartHoloWarehouseRequest
@@ -954,7 +1009,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 停止计算组
+     * @summary Restarts a virtual warehouse.
      *  *
      * @param string                      $instanceId
      * @param RestartHoloWarehouseRequest $request    RestartHoloWarehouseRequest
@@ -1014,7 +1069,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 停止计算组
+     * @summary Resumes a virtual warehouse.
      *  *
      * @param string                     $instanceId
      * @param ResumeHoloWarehouseRequest $request    ResumeHoloWarehouseRequest
@@ -1050,7 +1105,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 停止计算组
+     * @summary Resumes a virtual warehouse.
      *  *
      * @param string                     $instanceId
      * @param ResumeHoloWarehouseRequest $request    ResumeHoloWarehouseRequest
@@ -1110,7 +1165,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 停止计算组
+     * @summary Scales in or out a virtual warehouse.
      *  *
      * @param string                    $instanceId
      * @param ScaleHoloWarehouseRequest $request    ScaleHoloWarehouseRequest
@@ -1149,7 +1204,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 停止计算组
+     * @summary Scales in or out a virtual warehouse.
      *  *
      * @param string                    $instanceId
      * @param ScaleHoloWarehouseRequest $request    ScaleHoloWarehouseRequest
@@ -1284,7 +1339,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 停止计算组
+     * @summary Suspends a virtual warehouse.
      *  *
      * @param string                      $instanceId
      * @param SuspendHoloWarehouseRequest $request    SuspendHoloWarehouseRequest
@@ -1320,7 +1375,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 停止计算组
+     * @summary Suspends a virtual warehouse.
      *  *
      * @param string                      $instanceId
      * @param SuspendHoloWarehouseRequest $request    SuspendHoloWarehouseRequest
