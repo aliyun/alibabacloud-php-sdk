@@ -12,6 +12,11 @@ class qualityCheckList extends Model
     /**
      * @var string
      */
+    public $bizType;
+
+    /**
+     * @var string
+     */
     public $checkExplanation;
 
     /**
@@ -77,7 +82,13 @@ class qualityCheckList extends Model
      * @var string
      */
     public $ruleId;
+
+    /**
+     * @var string
+     */
+    public $ruleType;
     protected $_name = [
+        'bizType'          => 'bizType',
         'checkExplanation' => 'checkExplanation',
         'checkPassed'      => 'checkPassed',
         'checkProcess'     => 'checkProcess',
@@ -89,6 +100,7 @@ class qualityCheckList extends Model
         'qualityGroupId'   => 'qualityGroupId',
         'ruleDescription'  => 'ruleDescription',
         'ruleId'           => 'ruleId',
+        'ruleType'         => 'ruleType',
     ];
 
     public function validate()
@@ -98,6 +110,9 @@ class qualityCheckList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizType) {
+            $res['bizType'] = $this->bizType;
+        }
         if (null !== $this->checkExplanation) {
             $res['checkExplanation'] = $this->checkExplanation;
         }
@@ -137,6 +152,9 @@ class qualityCheckList extends Model
         if (null !== $this->ruleId) {
             $res['ruleId'] = $this->ruleId;
         }
+        if (null !== $this->ruleType) {
+            $res['ruleType'] = $this->ruleType;
+        }
 
         return $res;
     }
@@ -149,6 +167,9 @@ class qualityCheckList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['bizType'])) {
+            $model->bizType = $map['bizType'];
+        }
         if (isset($map['checkExplanation'])) {
             $model->checkExplanation = $map['checkExplanation'];
         }
@@ -187,6 +208,9 @@ class qualityCheckList extends Model
         }
         if (isset($map['ruleId'])) {
             $model->ruleId = $map['ruleId'];
+        }
+        if (isset($map['ruleType'])) {
+            $model->ruleType = $map['ruleType'];
         }
 
         return $model;
