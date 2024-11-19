@@ -9,41 +9,88 @@ use AlibabaCloud\Tea\Model;
 class associationFailedDetails extends Model
 {
     /**
+     * @description This parameter is deprecated. The OperationType parameter is used instead.
+     *
+     * @example None
+     *
      * @var string
      */
     public $associateType;
 
     /**
+     * @description The ID of the entity. The value of this parameter depends on the value of the AssociationType parameter:
+     *
+     *   If the value of AssociationType is Resource, the value of this parameter is the ID of the principal.
+     *   If the value of AssociationType is Target, the value of this parameter is the ID of the resource.
+     *
+     * @example 172050525300****
+     *
      * @var string
      */
     public $entityId;
 
     /**
+     * @description The type of the entity. The value of this parameter depends on the value of the AssociationType parameter:
+     *
+     *   If the value of AssociationType is Resource, the value of this parameter is the type of the resource. For information about the types of resources that can be shared, see Services that work with Resource Sharing.
+     *   If the value of AssociationType is Target, the value of this parameter is `ResourceDirectory`, `Folder`, `Account`, or `Service`.
+     *
+     * @example Account
+     *
      * @var string
      */
     public $entityType;
 
     /**
+     * @description The failure description.
+     *
+     * @example You cannot access the specified resource at this time.
+     *
      * @var string
      */
     public $failureDescription;
 
     /**
+     * @description The failure cause. Valid values:
+     *
+     *   Unavailable: The resource does not exist.
+     *   LimitExceeded: The number of principals for the resource exceeds the upper limit.
+     *   ZonalResourceInaccessible: The resource is unavailable in this region.
+     *   InternalError: An internal error occurred.
+     *   UnsupportedOperation: You cannot perform this operation.
+     *
+     * @example Unavailable
+     *
      * @var string
      */
     public $failureReason;
 
     /**
+     * @description The operation type. Valid values:
+     *
+     *   Associate
+     *   Disassociate
+     *
+     * @example Associate
+     *
      * @var string
      */
     public $operationType;
 
     /**
+     * @description This parameter is deprecated. The FailureReason parameter is used instead.
+     *
+     * @example None
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description This parameter is deprecated. The FailureDescription parameter is used instead.
+     *
+     * @example None
+     *
      * @var string
      */
     public $statusMessage;

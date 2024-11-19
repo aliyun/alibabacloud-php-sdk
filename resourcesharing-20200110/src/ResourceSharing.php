@@ -44,8 +44,14 @@ use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListSharedResourcesRequest
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListSharedResourcesResponse;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListSharedTargetsRequest;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListSharedTargetsResponse;
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\RejectResourceShareInvitationRequest;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\RejectResourceShareInvitationResponse;
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\UpdateResourceShareRequest;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\UpdateResourceShareResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -1274,6 +1280,65 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
+     * @summary 查询资源标签
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTagResourcesResponse ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2020-01-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询资源标签
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     *
+     * @return ListTagResourcesResponse ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 拒绝组织外共享邀请
      *  *
      * @description This topic provides an example on how to call the API operation to reject the resource sharing invitation `i-yyTWbkjHArYh****` in the `cn-hangzhou` region.
@@ -1322,6 +1387,121 @@ class ResourceSharing extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->rejectResourceShareInvitationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 资源打用户标签
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TagResourcesResponse TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2020-01-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 资源打用户标签
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     *
+     * @return TagResourcesResponse TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 资源去除用户标签
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UntagResourcesResponse UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2020-01-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 资源去除用户标签
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     *
+     * @return UntagResourcesResponse UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
     }
 
     /**

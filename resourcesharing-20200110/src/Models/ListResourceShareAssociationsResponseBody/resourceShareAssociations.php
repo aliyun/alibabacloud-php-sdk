@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class resourceShareAssociations extends Model
 {
     /**
+     * @description The information about the failure.
+     *
      * @var associationFailedDetails[]
      */
     public $associationFailedDetails;
@@ -66,7 +68,7 @@ class resourceShareAssociations extends Model
     /**
      * @description The ID of the entity. The value of this parameter depends on the value of the AssociationType parameter:
      *
-     *   If the value of `AssociationType` is `Resource`, the value of this parameter is the ID of the shared resource.
+     *   If the value of `AssociationType` is `Resource`, the value of this parameter is the ID of the resource.
      *   If the value of `AssociationType` is `Target`, the value of this parameter is the ID of the principal.
      *
      * @example vsw-bp1upw03qyz8n7us9****
@@ -78,7 +80,7 @@ class resourceShareAssociations extends Model
     /**
      * @description The type of the entity. The value of this parameter depends on the value of the AssociationType parameter:
      *
-     *   If the value of AssociationType is Resource, the value of this parameter is the type of the resource. For more information about the types of resources that can be shared, see [Services that work with Resource Sharing](https://help.aliyun.com/document_detail/450526.html).
+     *   If the value of AssociationType is Resource, the value of this parameter is the type of the resource. For information about the types of resources that can be shared, see [Services that work with Resource Sharing](https://help.aliyun.com/document_detail/450526.html).
      *   If the value of AssociationType is Target, the value of this parameter is `Account`.
      *
      * @example VSwitch
@@ -90,8 +92,8 @@ class resourceShareAssociations extends Model
     /**
      * @description Indicates whether the principal is outside the resource directory. Valid values:
      *
-     *   true: The principal is outside the resource directory.
-     *   false: The principal is in the resource directory.
+     *   true
+     *   false
      *
      * @example false
      *
@@ -118,6 +120,14 @@ class resourceShareAssociations extends Model
     public $resourceShareName;
 
     /**
+     * @description The properties of the principal, such as the time range within which the resource is shared. Valid values of `timeRangeType`:
+     *
+     *   timeRange: a specific time range
+     *   day: all day
+     *
+     * >  This parameter is returned only if the principal is an Alibaba Cloud service.
+     * @example {
+     * }
      * @var string
      */
     public $targetProperty;

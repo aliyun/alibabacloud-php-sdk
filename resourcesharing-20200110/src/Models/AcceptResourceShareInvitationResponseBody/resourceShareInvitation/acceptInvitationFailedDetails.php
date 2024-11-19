@@ -9,9 +9,7 @@ use AlibabaCloud\Tea\Model;
 class acceptInvitationFailedDetails extends Model
 {
     /**
-     * @description The type of the sharing operation. Valid values:
-     *
-     *   Associate
+     * @description This parameter is deprecated. The OperationType parameter is used instead.
      *
      * @example Associate
      *
@@ -20,16 +18,35 @@ class acceptInvitationFailedDetails extends Model
     public $associateType;
 
     /**
+     * @description The failure description.
+     *
+     * @example You cannot access the specified resource at this time.
+     *
      * @var string
      */
     public $failureDescription;
 
     /**
+     * @description The failure cause. Valid values:
+     *
+     *   Unavailable: The resource cannot be shared.
+     *   LimitExceeded: The number of shared resources within the Alibaba Cloud account exceeds the upper limit.
+     *   ZonalResourceInaccessible: The resource is unavailable in this region.
+     *   InternalError: An internal error occurred during the check.
+     *
+     * @example Unavailable
+     *
      * @var string
      */
     public $failureReason;
 
     /**
+     * @description The operation type. Valid values:
+     *
+     *   Associate
+     *
+     * @example Associate
+     *
      * @var string
      */
     public $operationType;
@@ -54,12 +71,7 @@ class acceptInvitationFailedDetails extends Model
     public $resourceType;
 
     /**
-     * @description The failure status. Valid values:
-     *
-     *   Unavailable: The resource cannot be shared.
-     *   LimitExceeded: The number of shared resources within the Alibaba Cloud account exceeds the upper limit.
-     *   ZonalResourceInaccessible: The resource is unavailable in this region.
-     *   InternalError: An internal error occurred during the check.
+     * @description This parameter is deprecated. The FailureReason parameter is used instead.
      *
      * @example Unavailable
      *
@@ -68,7 +80,7 @@ class acceptInvitationFailedDetails extends Model
     public $status;
 
     /**
-     * @description The failure cause.
+     * @description This parameter is deprecated. The FailureDescription parameter is used instead.
      *
      * @example You cannot access the specified resource at this time.
      *

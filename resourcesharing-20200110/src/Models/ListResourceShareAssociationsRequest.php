@@ -48,7 +48,7 @@ class ListResourceShareAssociationsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The `token` that is used to initiate the next request. If the response of the current request is truncated, you can use the token to initiate another request and obtain the remaining records.
+     * @description The `token` that is used to initiate the next request if the response of the current request is truncated. You can use the token to initiate another request and obtain the remaining records.
      *
      * @example TGlzdFJlc291cm****
      *
@@ -69,6 +69,7 @@ class ListResourceShareAssociationsRequest extends Model
     /**
      * @description The IDs of the resource shares.
      *
+     * Valid values of N: 1 to 5. This indicates that a maximum of five resource shares can be specified at a time.
      * @example rs-6GRmdD3X****
      *
      * @var string[]
