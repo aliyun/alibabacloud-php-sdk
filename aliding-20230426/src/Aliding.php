@@ -119,6 +119,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\CommitFileRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CommitFileResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CommitFileShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CommitFileShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateDeliveryPlanHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateDeliveryPlanRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateDeliveryPlanResponse;
@@ -336,6 +341,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetCorpTasksHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetCorpTasksRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetCorpTasksResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetCorpTasksShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDeptNoHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDeptNoRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDeptNoResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDeptNoShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDeptNoShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDocContentHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDocContentRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDocContentResponse;
@@ -477,6 +487,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOperationRecordsHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOperationRecordsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOperationRecordsResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOperationRecordsShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOrgLiveListHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOrgLiveListRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOrgLiveListResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOrgLiveListShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOrgLiveListShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetProcessDefinitionHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetProcessDefinitionRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetProcessDefinitionResponse;
@@ -888,6 +903,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\SetColumnsVisibilityRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SetColumnsVisibilityResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SetColumnsVisibilityShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SetColumnsVisibilityShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SetConferenceHostsHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SetConferenceHostsRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SetConferenceHostsResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SetConferenceHostsShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SetConferenceHostsShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SetRowsVisibilityHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SetRowsVisibilityRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SetRowsVisibilityResponse;
@@ -2849,6 +2869,94 @@ class Aliding extends OpenApiClient
         $headers = new CommitFileHeaders([]);
 
         return $this->commitFileWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建知识库节点副本
+     *  *
+     * @param CopyDentryRequest $tmpReq    CopyDentryRequest
+     * @param CopyDentryHeaders $tmpHeader CopyDentryHeaders
+     * @param RuntimeOptions    $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return CopyDentryResponse CopyDentryResponse
+     */
+    public function copyDentryWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CopyDentryShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new CopyDentryShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->dentryId)) {
+            $body['DentryId'] = $request->dentryId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        if (!Utils::isUnset($request->targetSpaceId)) {
+            $body['TargetSpaceId'] = $request->targetSpaceId;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->toNextDentryId)) {
+            $body['ToNextDentryId'] = $request->toNextDentryId;
+        }
+        if (!Utils::isUnset($request->toParentDentryId)) {
+            $body['ToParentDentryId'] = $request->toParentDentryId;
+        }
+        if (!Utils::isUnset($request->toPrevDentryId)) {
+            $body['ToPrevDentryId'] = $request->toPrevDentryId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CopyDentry',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v2/documents/copyDentry',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CopyDentryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建知识库节点副本
+     *  *
+     * @param CopyDentryRequest $request CopyDentryRequest
+     *
+     * @return CopyDentryResponse CopyDentryResponse
+     */
+    public function copyDentry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CopyDentryHeaders([]);
+
+        return $this->copyDentryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6629,6 +6737,72 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @param GetDeptNoRequest $tmpReq    GetDeptNoRequest
+     * @param GetDeptNoHeaders $tmpHeader GetDeptNoHeaders
+     * @param RuntimeOptions   $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetDeptNoResponse GetDeptNoResponse
+     */
+    public function getDeptNoWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetDeptNoShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetDeptNoShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->deptId)) {
+            $body['deptId'] = $request->deptId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDeptNo',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/aliding/v1/dept/getDeptNo',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDeptNoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDeptNoRequest $request GetDeptNoRequest
+     *
+     * @return GetDeptNoResponse GetDeptNoResponse
+     */
+    public function getDeptNo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetDeptNoHeaders([]);
+
+        return $this->getDeptNoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 委托权限获取文档内容
      *  *
      * @param GetDocContentRequest $tmpReq    GetDocContentRequest
@@ -9004,6 +9178,87 @@ class Aliding extends OpenApiClient
         $headers = new GetOperationRecordsHeaders([]);
 
         return $this->getOperationRecordsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetOrgLiveListRequest $tmpReq    GetOrgLiveListRequest
+     * @param GetOrgLiveListHeaders $tmpHeader GetOrgLiveListHeaders
+     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetOrgLiveListResponse GetOrgLiveListResponse
+     */
+    public function getOrgLiveListWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetOrgLiveListShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetOrgLiveListShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOrgLiveList',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/ysp/getOrgLiveList',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOrgLiveListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetOrgLiveListRequest $request GetOrgLiveListRequest
+     *
+     * @return GetOrgLiveListResponse GetOrgLiveListResponse
+     */
+    public function getOrgLiveList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetOrgLiveListHeaders([]);
+
+        return $this->getOrgLiveListWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -15661,6 +15916,85 @@ class Aliding extends OpenApiClient
         $headers = new SetColumnsVisibilityHeaders([]);
 
         return $this->setColumnsVisibilityWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 设置联席主持人
+     *  *
+     * @param SetConferenceHostsRequest $tmpReq    SetConferenceHostsRequest
+     * @param SetConferenceHostsHeaders $tmpHeader SetConferenceHostsHeaders
+     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return SetConferenceHostsResponse SetConferenceHostsResponse
+     */
+    public function setConferenceHostsWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SetConferenceHostsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new SetConferenceHostsShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->userIds)) {
+            $request->userIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userIds, 'UserIds', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->operationType)) {
+            $body['OperationType'] = $request->operationType;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->userIdsShrink)) {
+            $body['UserIds'] = $request->userIdsShrink;
+        }
+        if (!Utils::isUnset($request->conferenceId)) {
+            $body['conferenceId'] = $request->conferenceId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SetConferenceHosts',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/ysp/setConferenceHosts',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetConferenceHostsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 设置联席主持人
+     *  *
+     * @param SetConferenceHostsRequest $request SetConferenceHostsRequest
+     *
+     * @return SetConferenceHostsResponse SetConferenceHostsResponse
+     */
+    public function setConferenceHosts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new SetConferenceHostsHeaders([]);
+
+        return $this->setConferenceHostsWithOptions($request, $headers, $runtime);
     }
 
     /**

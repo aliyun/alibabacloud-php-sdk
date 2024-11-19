@@ -101,6 +101,11 @@ class result extends Model
      * @var int
      */
     public $roomStatus;
+
+    /**
+     * @var string
+     */
+    public $roomUnionId;
     protected $_name = [
         'corpId'                 => 'CorpId',
         'deviceUnionIds'         => 'DeviceUnionIds',
@@ -116,6 +121,7 @@ class result extends Model
         'roomPicture'            => 'RoomPicture',
         'roomStaffId'            => 'RoomStaffId',
         'roomStatus'             => 'RoomStatus',
+        'roomUnionId'            => 'RoomUnionId',
     ];
 
     public function validate()
@@ -172,6 +178,9 @@ class result extends Model
         }
         if (null !== $this->roomStatus) {
             $res['RoomStatus'] = $this->roomStatus;
+        }
+        if (null !== $this->roomUnionId) {
+            $res['RoomUnionId'] = $this->roomUnionId;
         }
 
         return $res;
@@ -234,6 +243,9 @@ class result extends Model
         }
         if (isset($map['RoomStatus'])) {
             $model->roomStatus = $map['RoomStatus'];
+        }
+        if (isset($map['RoomUnionId'])) {
+            $model->roomUnionId = $map['RoomUnionId'];
         }
 
         return $model;

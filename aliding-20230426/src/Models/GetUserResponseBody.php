@@ -222,6 +222,11 @@ class GetUserResponseBody extends Model
     public $unionEmpExt;
 
     /**
+     * @var string
+     */
+    public $unionid;
+
+    /**
      * @example zhangsan
      *
      * @var string
@@ -266,6 +271,7 @@ class GetUserResponseBody extends Model
         'telephone'                => 'telephone',
         'title'                    => 'title',
         'unionEmpExt'              => 'unionEmpExt',
+        'unionid'                  => 'unionid',
         'userid'                   => 'userid',
         'workPlace'                => 'workPlace',
     ];
@@ -387,6 +393,9 @@ class GetUserResponseBody extends Model
         }
         if (null !== $this->unionEmpExt) {
             $res['unionEmpExt'] = null !== $this->unionEmpExt ? $this->unionEmpExt->toMap() : null;
+        }
+        if (null !== $this->unionid) {
+            $res['unionid'] = $this->unionid;
         }
         if (null !== $this->userid) {
             $res['userid'] = $this->userid;
@@ -518,6 +527,9 @@ class GetUserResponseBody extends Model
         }
         if (isset($map['unionEmpExt'])) {
             $model->unionEmpExt = unionEmpExt::fromMap($map['unionEmpExt']);
+        }
+        if (isset($map['unionid'])) {
+            $model->unionid = $map['unionid'];
         }
         if (isset($map['userid'])) {
             $model->userid = $map['userid'];
