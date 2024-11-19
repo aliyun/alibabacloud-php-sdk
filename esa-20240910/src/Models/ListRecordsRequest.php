@@ -32,7 +32,7 @@ class ListRecordsRequest extends Model
     /**
      * @example true
      *
-     * @var string
+     * @var bool
      */
     public $proxied;
 

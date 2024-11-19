@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ACRImageInfo extends Model
 {
     /**
+     * @description The domain name of the Container Registry image.
+     *
      * @example 1500.***.net
      *
      * @var string
@@ -16,6 +18,8 @@ class ACRImageInfo extends Model
     public $domain;
 
     /**
+     * @description The ID of the Container Registry instance.
+     *
      * @example xcdn-9axbo****
      *
      * @var string
@@ -23,6 +27,8 @@ class ACRImageInfo extends Model
     public $instanceId;
 
     /**
+     * @description Specifies whether the image is an enterprise-level Container Registry image.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +36,8 @@ class ACRImageInfo extends Model
     public $isEnterpriseRegistry;
 
     /**
+     * @description The regions in which the Container Registry instance resides.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -37,6 +45,8 @@ class ACRImageInfo extends Model
     public $regionId;
 
     /**
+     * @description The ID of the image repository.
+     *
      * @example crr-h1ghghu60ct****
      *
      * @var string
@@ -44,6 +54,8 @@ class ACRImageInfo extends Model
     public $repoId;
 
     /**
+     * @description The name of the image repository.
+     *
      * @example test_71
      *
      * @var string
@@ -51,6 +63,8 @@ class ACRImageInfo extends Model
     public $repoName;
 
     /**
+     * @description The namespace to which the image repository belongs.
+     *
      * @example safeline
      *
      * @var string
@@ -58,6 +72,8 @@ class ACRImageInfo extends Model
     public $repoNamespace;
 
     /**
+     * @description The tag of the Container Registry image.
+     *
      * @example 3.40.2
      *
      * @var string
@@ -65,6 +81,8 @@ class ACRImageInfo extends Model
     public $tag;
 
     /**
+     * @description The URL of the Container Registry image tag.
+     *
      * @var string
      */
     public $tagUrl;

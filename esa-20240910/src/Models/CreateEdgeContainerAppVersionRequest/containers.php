@@ -11,28 +11,43 @@ use AlibabaCloud\Tea\Model;
 class containers extends Model
 {
     /**
+     * @description The information about the Container Registry image.
+     *
      * @var ACRImageInfo
      */
     public $ACRImageInfo;
 
     /**
+     * @description The arguments that are passed to the container startup command. Separate the parameters with spaces.
+     *
+     * @example -a
+     *
      * @var string
      */
     public $args;
 
     /**
+     * @description The command that is used to start the container. Separate the arguments with spaces.
+     *
+     * @example nginx
+     *
      * @var string
      */
     public $command;
 
     /**
+     * @description The environment variables. Separate the environment variables with commas (,).
+     *
+     * @example VITE_APP_TITLE=My App
+     *
      * @var string
      */
     public $envVariables;
 
     /**
-     * @description This parameter is required.
+     * @description The address of the image.
      *
+     * This parameter is required.
      * @example registry-vpc.cn-shenzhen.aliyuncs.com/lihe****h/ea****ts_serv****am:3.**
      *
      * @var string
@@ -40,8 +55,9 @@ class containers extends Model
     public $image;
 
     /**
-     * @description This parameter is required.
+     * @description Specifies whether the image is a Container Registry image.
      *
+     * This parameter is required.
      * @example false
      *
      * @var bool
@@ -49,8 +65,9 @@ class containers extends Model
     public $isACRImage;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the container. The name must be unique in the same container group.
      *
+     * This parameter is required.
      * @example lxg-demo-er
      *
      * @var string
@@ -58,38 +75,60 @@ class containers extends Model
     public $name;
 
     /**
+     * @description The command that is run before the container is started. Separate the arguments with spaces.
+     *
+     * @example sh poststart.sh "echo hello world"
+     *
      * @var string
      */
     public $postStart;
 
     /**
+     * @description The command that is run before the container is stopped. Separate the arguments with spaces.
+     *
+     * @example sh prestop.sh "echo hello world"
+     *
      * @var string
      */
     public $preStop;
 
     /**
-     * @description This parameter is required.
+     * @description The content of the container health probe.
      *
+     * This parameter is required.
      * @var probeContent
      */
     public $probeContent;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the probe. Valid values:
+     *
+     *   exec: the command type.
+     *   tcpSocket: the TCP probe type.
+     *   httpGet: the HTTP access type.
+     *
+     * This parameter is required.
+     * @example exec
      *
      * @var string
      */
     public $probeType;
 
     /**
-     * @description This parameter is required.
+     * @description The compute specification of the container. Valid values: 1C2G, 2C4G, 2C8G, 4C8G, 4C16G, 8C16G, and 8C32G.
+     *
+     * This parameter is required.
+     * @example 1C2G
      *
      * @var string
      */
     public $spec;
 
     /**
-     * @description This parameter is required.
+     * @description The storage capacity. Valid values: 0.5G, 10G, 20G, and 30G.
+     *
+     * This parameter is required.
+     * @example 0.5G
      *
      * @var string
      */

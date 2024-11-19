@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListClientCertificatesRequest extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListClientCertificatesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -23,8 +27,9 @@ class ListClientCertificatesRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The website ID.
      *
+     * This parameter is required.
      * @example 1234567890123
      *
      * @var int

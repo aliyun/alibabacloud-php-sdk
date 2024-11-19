@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateEdgeContainerAppVersionRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
      *
+     * This parameter is required.
      * @example app-88068867578379****
      *
      * @var string
@@ -19,8 +20,8 @@ class CreateEdgeContainerAppVersionRequest extends Model
     public $appId;
 
     /**
-     * @description This parameter is required.
-     *
+     * @description The container group to be deployed for this version, which contains information about images.\\
+     * This parameter is required.
      * @example [
      * ]
      * @var containers[]
@@ -28,8 +29,9 @@ class CreateEdgeContainerAppVersionRequest extends Model
     public $containers;
 
     /**
-     * @description This parameter is required.
+     * @description The version name, which must be 6 to 128 characters in length.
      *
+     * This parameter is required.
      * @example verson1
      *
      * @var string
@@ -37,6 +39,8 @@ class CreateEdgeContainerAppVersionRequest extends Model
     public $name;
 
     /**
+     * @description The description of the version.
+     *
      * @example test app
      *
      * @var string

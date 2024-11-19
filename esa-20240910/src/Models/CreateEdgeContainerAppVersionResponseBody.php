@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateEdgeContainerAppVersionResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateEdgeContainerAppVersionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the created version.
+     *
      * @example ver-87962637161651****
      *
      * @var string

@@ -150,7 +150,6 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeHttpDDoSAttackIntelligentProte
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeHttpDDoSAttackIntelligentProtectionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeHttpDDoSAttackProtectionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeHttpDDoSAttackProtectionResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeIPRangeListResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeKvAccountStatusResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribePreloadTasksRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribePreloadTasksResponse;
@@ -1611,7 +1610,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建边缘容器应用的版本
+     * @summary Creates a version for a containerized application. You can iterate the application based on the version.
      *  *
      * @param CreateEdgeContainerAppVersionRequest $tmpReq  CreateEdgeContainerAppVersionRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -1658,7 +1657,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建边缘容器应用的版本
+     * @summary Creates a version for a containerized application. You can iterate the application based on the version.
      *  *
      * @param CreateEdgeContainerAppVersionRequest $request CreateEdgeContainerAppVersionRequest
      *
@@ -4195,43 +4194,6 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询加速服务节点IP段列表
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DescribeIPRangeListResponse DescribeIPRangeListResponse
-     */
-    public function describeIPRangeListWithOptions($runtime)
-    {
-        $req    = new OpenApiRequest([]);
-        $params = new Params([
-            'action'      => 'DescribeIPRangeList',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeIPRangeListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 查询加速服务节点IP段列表
-     *  *
-     * @return DescribeIPRangeListResponse DescribeIPRangeListResponse
-     */
-    public function describeIPRangeList()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeIPRangeListWithOptions($runtime);
-    }
-
-    /**
      * @summary 查询账户的KV状态信
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -6207,7 +6169,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询站点下客户端证书列表
+     * @summary Queries client certificates configured for a website.
      *  *
      * @param ListClientCertificatesRequest $request ListClientCertificatesRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -6237,7 +6199,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询站点下客户端证书列表
+     * @summary Queries client certificates configured for a website.
      *  *
      * @param ListClientCertificatesRequest $request ListClientCertificatesRequest
      *

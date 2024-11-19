@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListClientCertificatesResponseBody extends Model
 {
     /**
+     * @description The page number returned.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListClientCertificatesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -24,6 +28,8 @@ class ListClientCertificatesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 15C66C7B-671A-4297-9187-2C4477247A74
      *
      * @var string
@@ -31,11 +37,15 @@ class ListClientCertificatesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The client certificates.
+     *
      * @var result[]
      */
     public $result;
 
     /**
+     * @description The website ID.
+     *
      * @example 1234567890123
      *
      * @var int
@@ -43,6 +53,8 @@ class ListClientCertificatesResponseBody extends Model
     public $siteId;
 
     /**
+     * @description The website name.
+     *
      * @example example.com
      *
      * @var string
@@ -50,6 +62,8 @@ class ListClientCertificatesResponseBody extends Model
     public $siteName;
 
     /**
+     * @description The total number of entries.
+     *
      * @example 5
      *
      * @var int
