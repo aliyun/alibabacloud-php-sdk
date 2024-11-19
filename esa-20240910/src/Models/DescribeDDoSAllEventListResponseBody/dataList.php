@@ -16,6 +16,11 @@ class dataList extends Model
     public $bps;
 
     /**
+     * @var string
+     */
+    public $coverage;
+
+    /**
      * @example 50
      *
      * @var int
@@ -35,6 +40,11 @@ class dataList extends Model
      * @var string
      */
     public $eventId;
+
+    /**
+     * @var string
+     */
+    public $eventResult;
 
     /**
      * @example web-cc
@@ -78,16 +88,18 @@ class dataList extends Model
      */
     public $targetId;
     protected $_name = [
-        'bps'       => 'Bps',
-        'cps'       => 'Cps',
-        'endTime'   => 'EndTime',
-        'eventId'   => 'EventId',
-        'eventType' => 'EventType',
-        'pps'       => 'Pps',
-        'qps'       => 'Qps',
-        'startTime' => 'StartTime',
-        'target'    => 'Target',
-        'targetId'  => 'TargetId',
+        'bps'         => 'Bps',
+        'coverage'    => 'Coverage',
+        'cps'         => 'Cps',
+        'endTime'     => 'EndTime',
+        'eventId'     => 'EventId',
+        'eventResult' => 'EventResult',
+        'eventType'   => 'EventType',
+        'pps'         => 'Pps',
+        'qps'         => 'Qps',
+        'startTime'   => 'StartTime',
+        'target'      => 'Target',
+        'targetId'    => 'TargetId',
     ];
 
     public function validate()
@@ -100,6 +112,9 @@ class dataList extends Model
         if (null !== $this->bps) {
             $res['Bps'] = $this->bps;
         }
+        if (null !== $this->coverage) {
+            $res['Coverage'] = $this->coverage;
+        }
         if (null !== $this->cps) {
             $res['Cps'] = $this->cps;
         }
@@ -108,6 +123,9 @@ class dataList extends Model
         }
         if (null !== $this->eventId) {
             $res['EventId'] = $this->eventId;
+        }
+        if (null !== $this->eventResult) {
+            $res['EventResult'] = $this->eventResult;
         }
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
@@ -142,6 +160,9 @@ class dataList extends Model
         if (isset($map['Bps'])) {
             $model->bps = $map['Bps'];
         }
+        if (isset($map['Coverage'])) {
+            $model->coverage = $map['Coverage'];
+        }
         if (isset($map['Cps'])) {
             $model->cps = $map['Cps'];
         }
@@ -150,6 +171,9 @@ class dataList extends Model
         }
         if (isset($map['EventId'])) {
             $model->eventId = $map['EventId'];
+        }
+        if (isset($map['EventResult'])) {
+            $model->eventResult = $map['EventResult'];
         }
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];
