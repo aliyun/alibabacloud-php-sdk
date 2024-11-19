@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cdnType extends Model
 {
     /**
+     * @description The description of the domain name type.
+     *
      * @example Download Acceleration
      *
      * @var string
@@ -16,6 +18,8 @@ class cdnType extends Model
     public $desc;
 
     /**
+     * @description The type of the domain name.
+     *
      * @example download
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserCdnStatusResponseBody extends Model
 {
     /**
+     * @description Indicates whetherAlibaba Cloud CDN is activated.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,11 @@ class DescribeUserCdnStatusResponseBody extends Model
     public $enabled;
 
     /**
+     * @description Indicates whether your account has overdue payments.
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +30,8 @@ class DescribeUserCdnStatusResponseBody extends Model
     public $inDebt;
 
     /**
+     * @description Indicates whether the grace period for your overdue payments expired.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +39,8 @@ class DescribeUserCdnStatusResponseBody extends Model
     public $inDebtOverdue;
 
     /**
+     * @description Indicates whether the service is available.
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +48,8 @@ class DescribeUserCdnStatusResponseBody extends Model
     public $onService;
 
     /**
+     * @description The request ID.
+     *
      * @example 39B1DC7F-9D25-5D54-8F02-6EE26A7F48CA
      *
      * @var string

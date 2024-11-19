@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class IPBlockInfo extends Model
 {
     /**
+     * @description The blocked IP address or CIDR block.
+     *
      * @example 1.XXX.XXX.0~1.XXX.XXX.255
      *
      * @var string
@@ -16,6 +18,8 @@ class IPBlockInfo extends Model
     public $blockIP;
 
     /**
+     * @description The delivery time.
+     *
      * @example 2023-04-24 18:49:37
      *
      * @var string
@@ -23,6 +27,11 @@ class IPBlockInfo extends Model
     public $deliverTime;
 
     /**
+     * @description The delivery status.
+     *
+     *   Success
+     *   Failed
+     *
      * @example Success
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnFullDomainsBlockIPHistoryRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The end time must be later than the start time.
      *
+     * This parameter is required.
      * @example 2023-04-24T19:00:00Z
      *
      * @var string
@@ -18,8 +19,9 @@ class DescribeCdnFullDomainsBlockIPHistoryRequest extends Model
     public $endTime;
 
     /**
-     * @description This parameter is required.
+     * @description The IP address or CIDR blocks to query.
      *
+     * This parameter is required.
      * @example 1.XXX.XXX.1,2.XXX.XXX.2
      *
      * @var string
@@ -27,8 +29,9 @@ class DescribeCdnFullDomainsBlockIPHistoryRequest extends Model
     public $IPList;
 
     /**
-     * @description This parameter is required.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
      *
+     * This parameter is required.
      * @example 2023-04-24T17:00:00Z
      *
      * @var string

@@ -140,6 +140,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnWafDomainRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnWafDomainResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCertificateInfoByIDRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCertificateInfoByIDResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCustomDomainSampleRateRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCustomDomainSampleRateResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCustomLogConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCustomLogConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainAverageResponseTimeRequest;
@@ -290,6 +292,7 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\ListFCTriggerResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ListRealtimeLogDeliveryDomainsRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ListRealtimeLogDeliveryDomainsResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ListRealtimeLogDeliveryInfosResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\ListRealtimeLogDeliveryResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ListUserCustomLogConfigResponse;
@@ -301,6 +304,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainSchdmByPropertyRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainSchdmByPropertyResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnServiceRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnServiceResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCustomDomainSampleRateRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCustomDomainSampleRateResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyRealtimeLogDeliveryRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyRealtimeLogDeliveryResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\OpenCdnServiceRequest;
@@ -3002,7 +3007,13 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @summary 获取海量封禁全量配置
+     * @summary You can call the DescribeCdnFullDomainsBlockIPConfig operation to query the configurations of full blocking.
+     *  *
+     * @description >
+     * *   To use this operation,[submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex).
+     * *   If you specify IP addresses or CIDR blocks, IP addresses that are effective and the corresponding expiration time are returned. If you do not specify IP addresses or CIDR blocks, all effective IP addresses and the corresponding expiration time are returned.
+     * *   The results are written to OSS and returned as OSS URLs. The content in OSS objects is in the format of IP address-Corresponding expiration time. The expiration time is in the YYYY-MM-DD hh:mm:ss format.
+     * *   You can share OSS URLs with others. The shared URLs are valid for three days.
      *  *
      * @param DescribeCdnFullDomainsBlockIPConfigRequest $request DescribeCdnFullDomainsBlockIPConfigRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
@@ -3035,7 +3046,13 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @summary 获取海量封禁全量配置
+     * @summary You can call the DescribeCdnFullDomainsBlockIPConfig operation to query the configurations of full blocking.
+     *  *
+     * @description >
+     * *   To use this operation,[submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex).
+     * *   If you specify IP addresses or CIDR blocks, IP addresses that are effective and the corresponding expiration time are returned. If you do not specify IP addresses or CIDR blocks, all effective IP addresses and the corresponding expiration time are returned.
+     * *   The results are written to OSS and returned as OSS URLs. The content in OSS objects is in the format of IP address-Corresponding expiration time. The expiration time is in the YYYY-MM-DD hh:mm:ss format.
+     * *   You can share OSS URLs with others. The shared URLs are valid for three days.
      *  *
      * @param DescribeCdnFullDomainsBlockIPConfigRequest $request DescribeCdnFullDomainsBlockIPConfigRequest
      *
@@ -3049,7 +3066,14 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户海量封禁历史
+     * @summary Queries the blocking history.
+     *  *
+     * @description >
+     * *   To use this operation, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex).
+     * *   For a specified IP addresses and time range, the time when the IP address was delivered to the edge and the corresponding result are returned.
+     * *   If a specified IP address or CIDR block has multiple blocking records in a specified time range, the records are sorted by delivery time in descending order.
+     * *   The maximum time range to query is 90 days.
+     * *   If no blocking record exists or delivery fails for the given IP address and time range, the delivery time is empty.
      *  *
      * @param DescribeCdnFullDomainsBlockIPHistoryRequest $request DescribeCdnFullDomainsBlockIPHistoryRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
@@ -3088,7 +3112,14 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户海量封禁历史
+     * @summary Queries the blocking history.
+     *  *
+     * @description >
+     * *   To use this operation, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex).
+     * *   For a specified IP addresses and time range, the time when the IP address was delivered to the edge and the corresponding result are returned.
+     * *   If a specified IP address or CIDR block has multiple blocking records in a specified time range, the records are sorted by delivery time in descending order.
+     * *   The maximum time range to query is 90 days.
+     * *   If no blocking record exists or delivery fails for the given IP address and time range, the delivery time is empty.
      *  *
      * @param DescribeCdnFullDomainsBlockIPHistoryRequest $request DescribeCdnFullDomainsBlockIPHistoryRequest
      *
@@ -3764,6 +3795,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @summary Queries the types of domain names.
+     *  *
      * @param DescribeCdnTypesRequest $request DescribeCdnTypesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -3801,6 +3834,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @summary Queries the types of domain names.
+     *  *
      * @param DescribeCdnTypesRequest $request DescribeCdnTypesRequest
      *
      * @return DescribeCdnTypesResponse DescribeCdnTypesResponse
@@ -4321,6 +4356,50 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCertificateInfoByIDWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary A客户定制查询域名采样率
+     *  *
+     * @param DescribeCustomDomainSampleRateRequest $request DescribeCustomDomainSampleRateRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCustomDomainSampleRateResponse DescribeCustomDomainSampleRateResponse
+     */
+    public function describeCustomDomainSampleRateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCustomDomainSampleRate',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCustomDomainSampleRateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary A客户定制查询域名采样率
+     *  *
+     * @param DescribeCustomDomainSampleRateRequest $request DescribeCustomDomainSampleRateRequest
+     *
+     * @return DescribeCustomDomainSampleRateResponse DescribeCustomDomainSampleRateResponse
+     */
+    public function describeCustomDomainSampleRate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCustomDomainSampleRateWithOptions($request, $runtime);
     }
 
     /**
@@ -8405,6 +8484,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @summary Queries the status of a user.
+     *  *
      * @param DescribeUserCdnStatusRequest $request DescribeUserCdnStatusRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -8439,6 +8520,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @summary Queries the status of a user.
+     *  *
      * @param DescribeUserCdnStatusRequest $request DescribeUserCdnStatusRequest
      *
      * @return DescribeUserCdnStatusResponse DescribeUserCdnStatusResponse
@@ -9086,6 +9169,47 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @summary Queries all real-time log delivery tasks within your Alibaba Cloud account.
+     *  *
+     * @description \\*\\* \\*\\*
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListRealtimeLogDeliveryResponse ListRealtimeLogDeliveryResponse
+     */
+    public function listRealtimeLogDeliveryWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListRealtimeLogDelivery',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries all real-time log delivery tasks within your Alibaba Cloud account.
+     *  *
+     * @description \\*\\* \\*\\*
+     *  *
+     * @return ListRealtimeLogDeliveryResponse ListRealtimeLogDeliveryResponse
+     */
+    public function listRealtimeLogDelivery()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRealtimeLogDeliveryWithOptions($runtime);
+    }
+
+    /**
      * @summary Queries all domain names that are associated with a specific real-time log delivery configuration record.
      *  *
      * @description > You can call this operation up to 100 times per second per account.
@@ -9515,6 +9639,62 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @summary A客户定制修改域名采样率接口
+     *  *
+     * @param ModifyCustomDomainSampleRateRequest $request ModifyCustomDomainSampleRateRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyCustomDomainSampleRateResponse ModifyCustomDomainSampleRateResponse
+     */
+    public function modifyCustomDomainSampleRateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->baseConfigID)) {
+            $body['BaseConfigID'] = $request->baseConfigID;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $body['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->sampleRate)) {
+            $body['SampleRate'] = $request->sampleRate;
+        }
+        if (!Utils::isUnset($request->sinkID)) {
+            $body['SinkID'] = $request->sinkID;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyCustomDomainSampleRate',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyCustomDomainSampleRateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary A客户定制修改域名采样率接口
+     *  *
+     * @param ModifyCustomDomainSampleRateRequest $request ModifyCustomDomainSampleRateRequest
+     *
+     * @return ModifyCustomDomainSampleRateResponse ModifyCustomDomainSampleRateResponse
+     */
+    public function modifyCustomDomainSampleRate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCustomDomainSampleRateWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Modifies the configurations of real-time log delivery for a specific domain name. Each domain name supports only one Logstore.
      *  *
      * @description > You can call this operation up to 100 times per second per account.
@@ -9762,7 +9942,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @summary 指定缓存tag刷新节点上的文件内容
+     * @summary Refreshes the cache based on cache tags that you configured.
      *  *
      * @param RefreshObjectCacheByCacheTagRequest $request RefreshObjectCacheByCacheTagRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -9801,7 +9981,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @summary 指定缓存tag刷新节点上的文件内容
+     * @summary Refreshes the cache based on cache tags that you configured.
      *  *
      * @param RefreshObjectCacheByCacheTagRequest $request RefreshObjectCacheByCacheTagRequest
      *
@@ -9840,23 +10020,25 @@ class Cdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->force)) {
-            $query['Force'] = $request->force;
-        }
-        if (!Utils::isUnset($request->objectPath)) {
-            $query['ObjectPath'] = $request->objectPath;
-        }
-        if (!Utils::isUnset($request->objectType)) {
-            $query['ObjectType'] = $request->objectType;
-        }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
         }
+        $body = [];
+        if (!Utils::isUnset($request->force)) {
+            $body['Force'] = $request->force;
+        }
+        if (!Utils::isUnset($request->objectPath)) {
+            $body['ObjectPath'] = $request->objectPath;
+        }
+        if (!Utils::isUnset($request->objectType)) {
+            $body['ObjectType'] = $request->objectType;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RefreshObjectCaches',
@@ -10207,7 +10389,11 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @summary 配置CDN上的海量封禁功能
+     * @summary Blocks or unblocks IP addresses from accessing domain names.
+     *  *
+     * @description >
+     * *   To use this operation, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex).
+     * *   This operation is suitable for blocking or unblocking a maximum of 1,000 IP addresses or CIDR blocks at a time.
      *  *
      * @param SetCdnFullDomainsBlockIPRequest $request SetCdnFullDomainsBlockIPRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -10249,7 +10435,11 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @summary 配置CDN上的海量封禁功能
+     * @summary Blocks or unblocks IP addresses from accessing domain names.
+     *  *
+     * @description >
+     * *   To use this operation, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex).
+     * *   This operation is suitable for blocking or unblocking a maximum of 1,000 IP addresses or CIDR blocks at a time.
      *  *
      * @param SetCdnFullDomainsBlockIPRequest $request SetCdnFullDomainsBlockIPRequest
      *

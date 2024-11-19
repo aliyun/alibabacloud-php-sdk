@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetCdnFullDomainsBlockIPResponseBody extends Model
 {
     /**
+     * @description The status code. The status code 0 indicates that the call is successful. If another status code is returned, the call fails.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class SetCdnFullDomainsBlockIPResponseBody extends Model
     public $code;
 
     /**
+     * @description The additional information returned. If the request was successful, OK is returned. If the request failed, an error message is returned.
+     *
      * @example OK
      *
      * @var string
@@ -23,6 +27,8 @@ class SetCdnFullDomainsBlockIPResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 23ACE7E2-2302-42E3-98F8-E5E697FD86C3
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetCdnFullDomainsBlockIPRequest extends Model
 {
     /**
+     * @description The duration for which IP addresses or CIDR blocks are blocked. Unit: seconds. The value **0** specifies that IP addresses or CIDR blocks are permanently blocked. This parameter is available only if you set **OperationType** to **block**.
+     *
      * @example 3000
      *
      * @var int
@@ -16,8 +18,9 @@ class SetCdnFullDomainsBlockIPRequest extends Model
     public $blockInterval;
 
     /**
-     * @description This parameter is required.
+     * @description The IP addresses that you want to block or unblock. Separate multiple IP addresses with commas (,). You can specify up to 1,000 IP addresses.
      *
+     * This parameter is required.
      * @example 1.XXX.XXX.1,2.XXX.XXX.2
      *
      * @var string
@@ -25,8 +28,12 @@ class SetCdnFullDomainsBlockIPRequest extends Model
     public $IPList;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the operation.
      *
+     *   block
+     *   unblock
+     *
+     * This parameter is required.
      * @example block
      *
      * @var string
@@ -34,6 +41,12 @@ class SetCdnFullDomainsBlockIPRequest extends Model
     public $operationType;
 
     /**
+     * @description The type of the blocking duration. This parameter is available only if you set **OperationType** to **block**. Valid values:
+     *
+     *   **cover**: The blocking duration that is specified in the request takes effect.
+     *   **uncover**: The longer one of the blocking duration that is specified in the request and the remaining blocking duration takes effect.
+     *   Default value: cover.
+     *
      * @example cover
      *
      * @var string

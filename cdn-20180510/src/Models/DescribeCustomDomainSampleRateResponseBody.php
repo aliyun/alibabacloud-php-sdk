@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnTypesResponseBody\cdnTypes;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCustomDomainSampleRateResponseBody\content;
 use AlibabaCloud\Tea\Model;
 
-class DescribeCdnTypesResponseBody extends Model
+class DescribeCustomDomainSampleRateResponseBody extends Model
 {
     /**
-     * @description The types of the domain names.
-     *
-     * @var cdnTypes
+     * @var content
      */
-    public $cdnTypes;
+    public $content;
 
     /**
-     * @description The request ID.
-     *
-     * @example BDA62CE4-3477-439A-B52E-D2D7C829D7C1
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'cdnTypes'  => 'CdnTypes',
+        'content'   => 'Content',
         'requestId' => 'RequestId',
     ];
 
@@ -36,8 +30,8 @@ class DescribeCdnTypesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->cdnTypes) {
-            $res['CdnTypes'] = null !== $this->cdnTypes ? $this->cdnTypes->toMap() : null;
+        if (null !== $this->content) {
+            $res['Content'] = null !== $this->content ? $this->content->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -49,13 +43,13 @@ class DescribeCdnTypesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeCdnTypesResponseBody
+     * @return DescribeCustomDomainSampleRateResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CdnTypes'])) {
-            $model->cdnTypes = cdnTypes::fromMap($map['CdnTypes']);
+        if (isset($map['Content'])) {
+            $model->content = content::fromMap($map['Content']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

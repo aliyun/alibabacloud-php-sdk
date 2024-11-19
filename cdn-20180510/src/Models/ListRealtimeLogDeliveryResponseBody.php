@@ -4,28 +4,28 @@
 
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
-use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnTypesResponseBody\cdnTypes;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\ListRealtimeLogDeliveryResponseBody\content;
 use AlibabaCloud\Tea\Model;
 
-class DescribeCdnTypesResponseBody extends Model
+class ListRealtimeLogDeliveryResponseBody extends Model
 {
     /**
-     * @description The types of the domain names.
+     * @description The logging information.
      *
-     * @var cdnTypes
+     * @var content
      */
-    public $cdnTypes;
+    public $content;
 
     /**
-     * @description The request ID.
+     * @description The ID of the request.
      *
-     * @example BDA62CE4-3477-439A-B52E-D2D7C829D7C1
+     * @example 30559C03-86C9-4EEC-B840-0DC5F5A2189B
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'cdnTypes'  => 'CdnTypes',
+        'content'   => 'Content',
         'requestId' => 'RequestId',
     ];
 
@@ -36,8 +36,8 @@ class DescribeCdnTypesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->cdnTypes) {
-            $res['CdnTypes'] = null !== $this->cdnTypes ? $this->cdnTypes->toMap() : null;
+        if (null !== $this->content) {
+            $res['Content'] = null !== $this->content ? $this->content->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -49,13 +49,13 @@ class DescribeCdnTypesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeCdnTypesResponseBody
+     * @return ListRealtimeLogDeliveryResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CdnTypes'])) {
-            $model->cdnTypes = cdnTypes::fromMap($map['CdnTypes']);
+        if (isset($map['Content'])) {
+            $model->content = content::fromMap($map['Content']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
