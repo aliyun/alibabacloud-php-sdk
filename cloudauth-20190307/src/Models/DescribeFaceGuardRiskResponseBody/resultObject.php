@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class resultObject extends Model
 {
     /**
-     * @example ROOT,VPN,HOOK
-     *
      * @var string
      */
-    public $riakTags;
+    public $certifyId;
 
     /**
      * @example {
@@ -21,9 +19,15 @@ class resultObject extends Model
      * @var string
      */
     public $riskExtends;
+
+    /**
+     * @var string
+     */
+    public $riskTags;
     protected $_name = [
-        'riakTags'    => 'RiakTags',
+        'certifyId'   => 'CertifyId',
         'riskExtends' => 'RiskExtends',
+        'riskTags'    => 'RiskTags',
     ];
 
     public function validate()
@@ -33,11 +37,14 @@ class resultObject extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->riakTags) {
-            $res['RiakTags'] = $this->riakTags;
+        if (null !== $this->certifyId) {
+            $res['CertifyId'] = $this->certifyId;
         }
         if (null !== $this->riskExtends) {
             $res['RiskExtends'] = $this->riskExtends;
+        }
+        if (null !== $this->riskTags) {
+            $res['RiskTags'] = $this->riskTags;
         }
 
         return $res;
@@ -51,11 +58,14 @@ class resultObject extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RiakTags'])) {
-            $model->riakTags = $map['RiakTags'];
+        if (isset($map['CertifyId'])) {
+            $model->certifyId = $map['CertifyId'];
         }
         if (isset($map['RiskExtends'])) {
             $model->riskExtends = $map['RiskExtends'];
+        }
+        if (isset($map['RiskTags'])) {
+            $model->riskTags = $map['RiskTags'];
         }
 
         return $model;
