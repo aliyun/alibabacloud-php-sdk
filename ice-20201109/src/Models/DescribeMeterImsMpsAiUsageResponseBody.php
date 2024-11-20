@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeMeterImsMpsAiUsageResponseBody extends Model
 {
     /**
+     * @description The usage statistics of IMS on AI processing of MPS.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 0622C702-41BE-467E-AF2E-883D4517962E
      *
      * @var string

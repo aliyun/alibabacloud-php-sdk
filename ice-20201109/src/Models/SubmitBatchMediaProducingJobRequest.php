@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitBatchMediaProducingJobRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
      * @example ****12e8864746a0a398****
      *
      * @var string
@@ -16,6 +18,8 @@ class SubmitBatchMediaProducingJobRequest extends Model
     public $clientToken;
 
     /**
+     * @description The editing configurations. For more information, see [EditingConfig](~~2692547#1be9bba03b7qu~~).
+     *
      * @example {
      * }
      * @var string
@@ -23,11 +27,15 @@ class SubmitBatchMediaProducingJobRequest extends Model
     public $editingConfig;
 
     /**
+     * @description The input configurations. For more information, see [InputConfig](~~2692547#2faed1559549n~~).
+     *
      * @var string
      */
     public $inputConfig;
 
     /**
+     * @description The output configurations. For more information, see [OutputConfig](~~2692547#447b928fcbuoa~~).
+     *
      * @example {
      * }
      * @var string
@@ -35,6 +43,8 @@ class SubmitBatchMediaProducingJobRequest extends Model
     public $outputConfig;
 
     /**
+     * @description The user-defined data, including the business and callback configurations. For more information, see [UserData](https://help.aliyun.com/document_detail/357745.html?spm=a2c4g.439285.0.i1#section-urj-v3f-0s1).
+     *
      * @var string
      */
     public $userData;

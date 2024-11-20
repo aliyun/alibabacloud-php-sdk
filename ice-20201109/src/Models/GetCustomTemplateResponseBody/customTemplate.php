@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class customTemplate extends Model
 {
     /**
+     * @description The time when the template was created.
+     *
      * @example 2022-01-01T10:00:00Z
      *
      * @var string
@@ -22,6 +24,8 @@ class customTemplate extends Model
     public $frontendHint;
 
     /**
+     * @description Indicates whether the template is the default template.
+     *
      * @example true
      *
      * @var bool
@@ -29,6 +33,8 @@ class customTemplate extends Model
     public $isDefault;
 
     /**
+     * @description The time when the template was last modified.
+     *
      * @example 2022-01-01T11:00:00Z
      *
      * @var string
@@ -36,6 +42,8 @@ class customTemplate extends Model
     public $modifiedTime;
 
     /**
+     * @description The template state.
+     *
      * @example Normal
      *
      * @var string
@@ -43,6 +51,8 @@ class customTemplate extends Model
     public $status;
 
     /**
+     * @description The subtype ID of the template.
+     *
      * @example 1
      *
      * @var int
@@ -50,6 +60,8 @@ class customTemplate extends Model
     public $subtype;
 
     /**
+     * @description The subtype name of the template.
+     *
      * @example Normal
      *
      * @var string
@@ -57,6 +69,8 @@ class customTemplate extends Model
     public $subtypeName;
 
     /**
+     * @description The template parameters.
+     *
      * @example {"Type":"Normal","FrameType":"normal","Time":0,"Count":10}
      *
      * @var string
@@ -64,6 +78,8 @@ class customTemplate extends Model
     public $templateConfig;
 
     /**
+     * @description The template ID.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -71,6 +87,8 @@ class customTemplate extends Model
     public $templateId;
 
     /**
+     * @description The template name.
+     *
      * @example 测试转码模板
      *
      * @var string
@@ -78,6 +96,8 @@ class customTemplate extends Model
     public $templateName;
 
     /**
+     * @description The type ID of the template.
+     *
      * @example 2
      *
      * @var int
@@ -85,6 +105,8 @@ class customTemplate extends Model
     public $type;
 
     /**
+     * @description The type name of the template.
+     *
      * @example SnapshotTemplate
      *
      * @var string

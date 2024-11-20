@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetPackageJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The job ID. You can obtain the job ID from the response parameters of the [SubmitPackageJob](https://help.aliyun.com/document_detail/461964.html) operation.
      *
+     * This parameter is required.
      * @example ab4802364a2e49208c99efab82dfa8e8
      *
      * @var string

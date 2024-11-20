@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCustomizedVoiceJobResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string
@@ -16,6 +18,11 @@ class DeleteCustomizedVoiceJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

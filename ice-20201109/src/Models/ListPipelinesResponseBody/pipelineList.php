@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class pipelineList extends Model
 {
     /**
+     * @description The time when the template was created.
+     *
      * @example 2022-07-12T16:17:54Z
      *
      * @var string
@@ -16,6 +18,8 @@ class pipelineList extends Model
     public $createTime;
 
     /**
+     * @description The time when the template was last modified.
+     *
      * @example 2022-07-12T16:17:54Z
      *
      * @var string
@@ -23,6 +27,8 @@ class pipelineList extends Model
     public $modifiedTime;
 
     /**
+     * @description The name of the MPS queue.
+     *
      * @example test-pipeline
      *
      * @var string
@@ -30,6 +36,8 @@ class pipelineList extends Model
     public $name;
 
     /**
+     * @description The ID of the MPS queue.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -37,6 +45,8 @@ class pipelineList extends Model
     public $pipelineId;
 
     /**
+     * @description The priority of the MPS queue.
+     *
      * @example 6
      *
      * @var int
@@ -44,6 +54,8 @@ class pipelineList extends Model
     public $priority;
 
     /**
+     * @description The type of the MPS queue.
+     *
      * @example Standard
      *
      * @var string
@@ -51,6 +63,13 @@ class pipelineList extends Model
     public $speed;
 
     /**
+     * @description The state of the MPS queue.
+     *
+     * Valid values:
+     *
+     *   Active
+     *   Paused
+     *
      * @example Active
      *
      * @var string

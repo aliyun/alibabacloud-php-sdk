@@ -61,7 +61,10 @@ class SubmitVideoTranslationJobRequest extends Model
     public $title;
 
     /**
-     * @description *   The user data.
+     * @description *   The user-defined data.
+     *   The data must be in the JSON format, and can be up to 512 characters in length.
+     *
+     * @example {"NotifyAddress":"http://xx.xx.xxx"}
      *
      * @var string
      */

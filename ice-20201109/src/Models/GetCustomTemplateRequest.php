@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCustomTemplateRequest extends Model
 {
     /**
+     * @description The template subtype.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class GetCustomTemplateRequest extends Model
     public $subtype;
 
     /**
+     * @description The template ID.
+     *
      * @example ****96e8864746a0b6f3****
      *
      * @var string
@@ -23,6 +27,8 @@ class GetCustomTemplateRequest extends Model
     public $templateId;
 
     /**
+     * @description The ID of the template type that is used to query the default template. This parameter is required if TemplateId is not specified.
+     *
      * @example 1
      *
      * @var int

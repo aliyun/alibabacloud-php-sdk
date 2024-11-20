@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCustomizedVoicesRequest extends Model
 {
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListCustomizedVoicesRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Default value: 10. Valid values: 1 to 100.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,15 @@ class ListCustomizedVoicesRequest extends Model
     public $pageSize;
 
     /**
+     * @description *   The voice type. Valid values:
+     *
+     *   Basic
+     *   Standard
+     *
+     *   If you do not specify this parameter, the default value Basic is used.
+     *
+     * @example Standard
+     *
      * @var string
      */
     public $type;

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class input extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The input file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
      *
+     * This parameter is required.
      * @example oss://bucket/object.mp4
      *
      * @var string
@@ -18,8 +19,9 @@ class input extends Model
     public $media;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the input file. Valid values:
      *
+     * This parameter is required.
      * @example Media
      *
      * @var string

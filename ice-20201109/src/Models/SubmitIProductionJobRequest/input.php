@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class input extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The input file. The file can be an OSS object or a media asset. You can specify the path of an OSS object in one of the following formats:
      *
+     * This parameter is required.
      * @example oss://bucket/object
      *
      * @var string
@@ -18,8 +19,12 @@ class input extends Model
     public $media;
 
     /**
-     * @description This parameter is required.
+     * @description The media type. Valid values:
      *
+     *   OSS: OSS object
+     *   Media: media asset
+     *
+     * This parameter is required.
      * @example OSS
      *
      * @var string

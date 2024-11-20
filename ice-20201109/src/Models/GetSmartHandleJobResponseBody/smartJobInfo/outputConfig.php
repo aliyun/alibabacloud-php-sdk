@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class outputConfig extends Model
 {
     /**
-     * @description OSS Bucket
+     * @description The OSS bucket.
      *
      * @example test-bucket
      *
@@ -18,7 +18,7 @@ class outputConfig extends Model
     public $bucket;
 
     /**
-     * @description OSS Object
+     * @description The OSS object.
      *
      * @example test-object
      *

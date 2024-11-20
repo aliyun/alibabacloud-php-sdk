@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ossFile extends Model
 {
     /**
-     * @description OSS Bucket
+     * @description The OSS bucket.
      *
      * @example test-bucket
      *
@@ -18,7 +18,7 @@ class ossFile extends Model
     public $bucket;
 
     /**
-     * @description OSS Location
+     * @description The OSS location.
      *
      * @example oss-cn-shanghai
      *
@@ -27,7 +27,7 @@ class ossFile extends Model
     public $location;
 
     /**
-     * @description OSS Object
+     * @description The OSS object.
      *
      * @example output-{Count}.jpg
      *

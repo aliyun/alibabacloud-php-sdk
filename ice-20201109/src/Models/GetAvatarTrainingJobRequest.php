@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetAvatarTrainingJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the digital human training job.
      *
+     * This parameter is required.
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string

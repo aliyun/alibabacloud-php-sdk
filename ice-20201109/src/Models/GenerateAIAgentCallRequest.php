@@ -30,6 +30,11 @@ class GenerateAIAgentCallRequest extends Model
     public $templateConfig;
 
     /**
+     * @var string
+     */
+    public $userData;
+
+    /**
      * @example 877ae632caae49b1afc81c2e8194ffb4
      *
      * @var string
@@ -39,6 +44,7 @@ class GenerateAIAgentCallRequest extends Model
         'AIAgentId'      => 'AIAgentId',
         'expire'         => 'Expire',
         'templateConfig' => 'TemplateConfig',
+        'userData'       => 'UserData',
         'userId'         => 'UserId',
     ];
 
@@ -57,6 +63,9 @@ class GenerateAIAgentCallRequest extends Model
         }
         if (null !== $this->templateConfig) {
             $res['TemplateConfig'] = null !== $this->templateConfig ? $this->templateConfig->toMap() : null;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -81,6 +90,9 @@ class GenerateAIAgentCallRequest extends Model
         }
         if (isset($map['TemplateConfig'])) {
             $model->templateConfig = AIAgentTemplateConfig::fromMap($map['TemplateConfig']);
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

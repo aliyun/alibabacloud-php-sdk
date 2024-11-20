@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListPackageJobsRequest extends Model
 {
     /**
+     * @description The end of the time range during which the jobs to be queried were created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2022-07-15T00:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class ListPackageJobsRequest extends Model
     public $endOfCreateTime;
 
     /**
+     * @description The job ID.
+     *
      * @example 7b38a5d86f1e47838927b6e7ccb11cbe
      *
      * @var string
@@ -23,6 +27,8 @@ class ListPackageJobsRequest extends Model
     public $jobId;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+     *
      * @example ab4802364a2e49208c99efab82dfa8e8
      *
      * @var string
@@ -30,6 +36,11 @@ class ListPackageJobsRequest extends Model
     public $nextPageToken;
 
     /**
+     * @description The order that you use to sort the query results. Valid values:
+     *
+     *   CreateTimeDesc: sorts the jobs by creation time in descending order.
+     *   CreateTimeAsc: sorts the jobs by creation time in ascending order.
+     *
      * @example CreateTimeDesc
      *
      * @var string
@@ -37,6 +48,8 @@ class ListPackageJobsRequest extends Model
     public $orderBy;
 
     /**
+     * @description The number of entries per page. Valid values: 0 to 100. Default value: 20.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +57,8 @@ class ListPackageJobsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The beginning of the time range during which the jobs to be queried were created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2022-07-01T00:00:00Z
      *
      * @var string
@@ -51,6 +66,12 @@ class ListPackageJobsRequest extends Model
     public $startOfCreateTime;
 
     /**
+     * @description The state of the job.
+     *
+     *   Init: The job is submitted.
+     *   Success: The job is successful.
+     *   Fail: The job failed.
+     *
      * @example Success
      *
      * @var string

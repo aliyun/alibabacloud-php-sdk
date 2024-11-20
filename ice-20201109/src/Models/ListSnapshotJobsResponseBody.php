@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListSnapshotJobsResponseBody extends Model
 {
     /**
+     * @description The list of jobs.
+     *
      * @var jobs[]
      */
     public $jobs;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -22,6 +26,8 @@ class ListSnapshotJobsResponseBody extends Model
     public $nextPageToken;
 
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string

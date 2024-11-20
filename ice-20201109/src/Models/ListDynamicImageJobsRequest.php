@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDynamicImageJobsRequest extends Model
 {
     /**
+     * @description The end of the time range during which the jobs to be queried were created.
+     *
      * @example 2022-07-14T00:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class ListDynamicImageJobsRequest extends Model
     public $endOfCreateTime;
 
     /**
+     * @description The job ID.
+     *
      * @example ****cdb3e74639973036bc84****
      *
      * @var string
@@ -23,6 +27,8 @@ class ListDynamicImageJobsRequest extends Model
     public $jobId;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example cdb3e74639973036bc84
      *
      * @var string
@@ -30,6 +36,9 @@ class ListDynamicImageJobsRequest extends Model
     public $nextPageToken;
 
     /**
+     * @description The order that you use to sort the query results. Valid values:
+     *
+     * 2.  CreateTimeDesc: sorts the jobs by creation time in descending order.
      * @example CreateTimeDesc
      *
      * @var string
@@ -37,6 +46,8 @@ class ListDynamicImageJobsRequest extends Model
     public $orderBy;
 
     /**
+     * @description The number of entries per page. Default value: 20. Maximum value: 100.
+     *
      * @example 20
      *
      * @var int
@@ -44,6 +55,8 @@ class ListDynamicImageJobsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The beginning of the time range during which the jobs to be queried were created.
+     *
      * @example 2022-07-12T00:00:00Z
      *
      * @var string
@@ -51,6 +64,14 @@ class ListDynamicImageJobsRequest extends Model
     public $startOfCreateTime;
 
     /**
+     * @description The state of the job.
+     *
+     * Valid values:
+     *
+     *   Init: The job is submitted.
+     *   Success: The job is successful.
+     *   Fail: The job failed.
+     *
      * @example Success
      *
      * @var string

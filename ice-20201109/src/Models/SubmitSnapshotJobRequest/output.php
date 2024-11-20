@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class output extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The output file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
      *
+     * This parameter is required.
      * @example oss://test-bucket/output-{Count}.jpg
      *
      * @var string
@@ -18,8 +19,9 @@ class output extends Model
     public $media;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the output file. Valid values:
      *
+     * This parameter is required.
      * @example OSS
      *
      * @var string

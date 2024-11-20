@@ -11,6 +11,20 @@ use AlibabaCloud\Tea\Model;
 class overwriteParams extends Model
 {
     /**
+     * @description The horizontal offset of the watermark relative to the output video. Default value: 0.
+     *
+     * The following value types are supported:
+     *
+     *   Integer: the pixel value of the horizontal offset.
+     *
+     *   Valid values: [8,4096].
+     *   Unit: pixels.
+     *
+     *   Decimal: the ratio of the horizontal offset to the width of the output video.
+     *
+     *   Valid values: (0,1).
+     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
+     *
      * @example 10
      *
      * @var string
@@ -18,6 +32,20 @@ class overwriteParams extends Model
     public $dx;
 
     /**
+     * @description The vertical offset of the watermark relative to the output video. Default value: 0.
+     *
+     * The following value types are supported:
+     *
+     *   Integer: the pixel value of the horizontal offset.
+     *
+     *   Valid values: [8,4096].
+     *   Unit: pixels.
+     *
+     *   Decimal: the ratio of the vertical offset to the height of the output video.
+     *
+     *   Valid values: (0,1).
+     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
+     *
      * @example 10
      *
      * @var string
@@ -25,11 +53,25 @@ class overwriteParams extends Model
     public $dy;
 
     /**
+     * @description The watermark image file.
+     *
      * @var file
      */
     public $file;
 
     /**
+     * @description The height of the watermark image in the output video. The following value types are supported:
+     *
+     *   Integer: the pixel value of the watermark height.
+     *
+     *   Valid values: [8,4096].
+     *   Unit: pixels.
+     *
+     *   Decimal: the ratio of the watermark height to the height of the output video.
+     *
+     *   Valid values: (0,1).
+     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
+     *
      * @example 32
      *
      * @var string
@@ -37,6 +79,11 @@ class overwriteParams extends Model
     public $height;
 
     /**
+     * @description The position of the watermark.
+     *
+     *   Valid values: TopRight, TopLeft, BottomRight, and BottomLeft.
+     *   Default value: TopRight.
+     *
      * @example TopLeft
      *
      * @var string
@@ -44,11 +91,25 @@ class overwriteParams extends Model
     public $referPos;
 
     /**
+     * @description The time settings of the dynamic watermark.
+     *
      * @var timeline
      */
     public $timeline;
 
     /**
+     * @description The width of the watermark in the output video. The following value types are supported:
+     *
+     *   Integer: the pixel value of the watermark width.
+     *
+     *   Valid values: [8,4096].
+     *   Unit: pixels.
+     *
+     *   Decimal: the ratio of the watermark width to the width of the output video.
+     *
+     *   Valid values: (0,1).
+     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
+     *
      * @example 32
      *
      * @var string

@@ -51,6 +51,11 @@ class config extends Model
      * @var string
      */
     public $voiceprintId;
+
+    /**
+     * @var int
+     */
+    public $volume;
     protected $_name = [
         'asrMaxSilence'        => 'AsrMaxSilence',
         'enableVoiceInterrupt' => 'EnableVoiceInterrupt',
@@ -60,6 +65,7 @@ class config extends Model
         'userOnlineTimeout'    => 'UserOnlineTimeout',
         'voiceId'              => 'VoiceId',
         'voiceprintId'         => 'VoiceprintId',
+        'volume'               => 'Volume',
     ];
 
     public function validate()
@@ -92,6 +98,9 @@ class config extends Model
         }
         if (null !== $this->voiceprintId) {
             $res['VoiceprintId'] = $this->voiceprintId;
+        }
+        if (null !== $this->volume) {
+            $res['Volume'] = $this->volume;
         }
 
         return $res;
@@ -128,6 +137,9 @@ class config extends Model
         }
         if (isset($map['VoiceprintId'])) {
             $model->voiceprintId = $map['VoiceprintId'];
+        }
+        if (isset($map['Volume'])) {
+            $model->volume = $map['Volume'];
         }
 
         return $model;

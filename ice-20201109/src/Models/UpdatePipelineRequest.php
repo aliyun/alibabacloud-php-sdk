@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdatePipelineRequest extends Model
 {
     /**
+     * @description The name of the MPS queue.
+     *
      * @example test-pipeline
      *
      * @var string
@@ -16,8 +18,9 @@ class UpdatePipelineRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the MPS queue.
      *
+     * This parameter is required.
      * @example ****d80e4e4044975745c14b****
      *
      * @var string
@@ -25,6 +28,8 @@ class UpdatePipelineRequest extends Model
     public $pipelineId;
 
     /**
+     * @description The priority of the MPS queue. Valid values: 1 to 10.
+     *
      * @example 6
      *
      * @var int
@@ -32,6 +37,13 @@ class UpdatePipelineRequest extends Model
     public $priority;
 
     /**
+     * @description The state of the MPS queue.
+     *
+     * Valid values:
+     *
+     *   Active
+     *   Paused
+     *
      * @example Paused
      *
      * @var string

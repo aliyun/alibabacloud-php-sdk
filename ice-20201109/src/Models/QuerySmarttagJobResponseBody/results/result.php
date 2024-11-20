@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The details of the analysis result. The value is a JSON string. For more information about the parameters of different result types, see the "Parameters of different result types" section of this topic.
+     *
      * @example {"title":"example-title-****"}
      *
      * @var string
@@ -16,6 +18,19 @@ class result extends Model
     public $data;
 
     /**
+     * @description The type of the analysis result.
+     *
+     *   The type of the analysis result based on Smart tagging V1.0. Valid values:
+     *
+     * 5.  NLP: the natural language processing (NLP)-based result. By default, this type of result is not returned.
+     *
+     *   The type of the analysis result based on Smart tagging V2.0. Valid values:
+     *
+     * 2.  Meta: the information about the video file, such as the title of the video. By default, this type of information is not returned.
+     *
+     *   The type of the analysis result based on Smart tagging V2.0-custom. Valid values:
+     *
+     * 2.  Meta: the information about the video file, such as the title of the video. By default, this type of information is not returned.
      * @example Meta
      *
      * @var string

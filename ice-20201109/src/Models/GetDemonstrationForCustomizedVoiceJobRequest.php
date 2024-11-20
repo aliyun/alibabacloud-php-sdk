@@ -9,8 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetDemonstrationForCustomizedVoiceJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The demonstration scenario.
      *
+     * Valid values:
+     *
+     *   **story**
+     *   **interaction**
+     *   **navigation**
+     *
+     * This parameter is required.
      * @example story
      *
      * @var string

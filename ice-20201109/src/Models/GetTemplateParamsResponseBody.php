@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateParamsResponseBody extends Model
 {
     /**
+     * @description The queried parameters.
+     *
      * @var paramList[]
      */
     public $paramList;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example ****2876-6263-4B75-8F2C-CD0F7FCF****
      *
@@ -24,6 +26,8 @@ class GetTemplateParamsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The template ID.
+     *
      * @example ******419c8741c1b4325f035b******
      *
      * @var string

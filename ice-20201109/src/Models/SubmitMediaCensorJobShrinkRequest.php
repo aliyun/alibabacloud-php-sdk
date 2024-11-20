@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SubmitMediaCensorJobShrinkRequest extends Model
 {
     /**
+     * @description The live comments of the video.
+     *
+     * >  If this parameter is specified, the system checks the live comments specified by this parameter instead of the live comments of the input file specified by Media.
      * @example hello world
      *
      * @var string
@@ -16,6 +19,9 @@ class SubmitMediaCensorJobShrinkRequest extends Model
     public $barrages;
 
     /**
+     * @description The Object Storage Service (OSS) objects that are used as the thumbnails. Specify the thumbnails in a JSON array. A maximum of five thumbnails are supported.
+     *
+     * >  If this parameter is specified, the system checks the thumbnails specified by this parameter instead of the thumbnails of the input file specified by **Media**.
      * @example [{"Bucket":"example-bucket-****","Location":"oss-cn-shanghai","Object":"example-****.jpeg","RoleArn":"acs:ram::1997018457688683:role/AliyunICEDefaultRole"}]
      *
      * @var string
@@ -23,6 +29,9 @@ class SubmitMediaCensorJobShrinkRequest extends Model
     public $coverImages;
 
     /**
+     * @description The video description, which can be up to 128 bytes in length.
+     *
+     * >  If this parameter is specified, the system checks the description specified by this parameter instead of the description of the input file specified by Media.
      * @example example description
      *
      * @var string
@@ -30,11 +39,15 @@ class SubmitMediaCensorJobShrinkRequest extends Model
     public $description;
 
     /**
+     * @description The information about the file to be moderated.
+     *
      * @var string
      */
     public $inputShrink;
 
     /**
+     * @description The callback URL. Simple Message Queue (SMQ, formerly MNS) and HTTP callbacks are supported.
+     *
      * @example mns://125340688170****.oss-cn-shanghai.aliyuncs.com/queues/example-pipeline
      *
      * @var string
@@ -42,6 +55,11 @@ class SubmitMediaCensorJobShrinkRequest extends Model
     public $notifyUrl;
 
     /**
+     * @description The output snapshots. The moderation job generates output snapshots and the result JSON file in the path corresponding to the input file.
+     *
+     *   File name format of output snapshots: oss://bucket/snapshot-{Count}.jpg. In the path, bucket indicates an OSS bucket that resides in the same region as the current project, and {Count} is the sequence number of the snapshot.
+     *   The detailed moderation results are stored in the {jobId}.output file in the same OSS folder as the output snapshots. For more information about the parameters in the output file, see [Output parameters of media moderation jobs](https://help.aliyun.com/document_detail/609211.html).
+     *
      * @example oss://sashimi-cn-shanghai/censor/snapshot-{Count}.jpg
      *
      * @var string
@@ -49,11 +67,15 @@ class SubmitMediaCensorJobShrinkRequest extends Model
     public $output;
 
     /**
+     * @description The scheduling configurations.
+     *
      * @var string
      */
     public $scheduleConfigShrink;
 
     /**
+     * @description The template ID. If this parameter is not specified, the default template is used for moderation.
+     *
      * @example S00000001-100060
      *
      * @var string
@@ -61,6 +83,9 @@ class SubmitMediaCensorJobShrinkRequest extends Model
     public $templateId;
 
     /**
+     * @description The video title, which can be up to 64 bytes in length.
+     *
+     * >  If this parameter is specified, the system checks the title specified by this parameter instead of the title of the input file specified by Media.
      * @example Hello World
      *
      * @var string
@@ -68,6 +93,8 @@ class SubmitMediaCensorJobShrinkRequest extends Model
     public $title;
 
     /**
+     * @description The user-defined data, which can be up to 128 bytes in length.
+     *
      * @example UserDatatestid-001-****
      *
      * @var string

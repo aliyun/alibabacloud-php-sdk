@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class templates extends Model
 {
     /**
-     * @description ClipsParam
+     * @description The clip parameters.
      *
      * @example {"Media1":"mediaId","Text1":"text"}
      *
@@ -18,6 +18,8 @@ class templates extends Model
     public $clipsParam;
 
     /**
+     * @description The template configurations.
+     *
      * @example 参考Timeline模板配置详解
      *
      * @var string
@@ -25,6 +27,8 @@ class templates extends Model
     public $config;
 
     /**
+     * @description The thumbnail URL.
+     *
      * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/cover.jpg
      *
      * @var string
@@ -32,6 +36,14 @@ class templates extends Model
     public $coverURL;
 
     /**
+     * @description The source from which the template was created.
+     *
+     * Valid values:
+     *
+     *   AliyunConsole
+     *   WebSDK
+     *   OpenAPI
+     *
      * @example OpenAPI
      *
      * @var string
@@ -39,6 +51,8 @@ class templates extends Model
     public $createSource;
 
     /**
+     * @description The time when the template was created.
+     *
      * @example 2020-12-26T04:11:10Z
      *
      * @var string
@@ -46,6 +60,14 @@ class templates extends Model
     public $creationTime;
 
     /**
+     * @description The source from which the template was modified.
+     *
+     * Valid values:
+     *
+     *   AliyunConsole
+     *   WebSDK
+     *   OpenAPI
+     *
      * @example OpenAPI
      *
      * @var string
@@ -53,6 +75,8 @@ class templates extends Model
     public $modifiedSource;
 
     /**
+     * @description The time when the template was last modified.
+     *
      * @example 2020-12-26T04:11:10Z
      *
      * @var string
@@ -60,6 +84,8 @@ class templates extends Model
     public $modifiedTime;
 
     /**
+     * @description The template name.
+     *
      * @example 视频添加水印模板
      *
      * @var string
@@ -67,6 +93,8 @@ class templates extends Model
     public $name;
 
     /**
+     * @description The preview media asset.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -74,6 +102,15 @@ class templates extends Model
     public $previewMedia;
 
     /**
+     * @description The state of the preview media asset.
+     *
+     * Valid values:
+     *
+     *   PrepareFail
+     *   Init
+     *   Normal
+     *   Preparing
+     *
      * @example Normal
      *
      * @var string
@@ -81,6 +118,17 @@ class templates extends Model
     public $previewMediaStatus;
 
     /**
+     * @description The template state.
+     *
+     * Valid values:
+     *
+     *   UploadFailed: Failed to upload the video.
+     *   ProcessFailed: Failed to process the advanced template.
+     *   Available: The template is available.
+     *   Uploading: The video is being uploaded.
+     *   Created: The template is created but not ready for use.
+     *   Processing: The advanced template is being processed.
+     *
      * @example Available
      *
      * @var string
@@ -88,6 +136,8 @@ class templates extends Model
     public $status;
 
     /**
+     * @description The template ID.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -95,6 +145,13 @@ class templates extends Model
     public $templateId;
 
     /**
+     * @description The template type.
+     *
+     * Valid values:
+     *
+     *   Timeline: regular template.
+     *   VETemplate: advanced template.
+     *
      * @example Timeline
      *
      * @var string

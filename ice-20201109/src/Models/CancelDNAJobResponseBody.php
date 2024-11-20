@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelDNAJobResponseBody extends Model
 {
     /**
+     * @description The job ID.
+     *
      * @example 2288c6ca184c0e47098a5b665e2a12****
      *
      * @var string
@@ -16,6 +18,8 @@ class CancelDNAJobResponseBody extends Model
     public $jobId;
 
     /**
+     * @description The request ID.
+     *
      * @example 25818875-5F78-4A13-BEF6-D7393642CA58
      *
      * @var string

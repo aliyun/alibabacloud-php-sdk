@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateCustomizedVoiceRequest extends Model
 {
     /**
+     * @description The media asset ID of the sample audio file.
+     *
      * @example ****4d5e829d498aaf966b119348****
      *
      * @var string
@@ -16,8 +18,9 @@ class UpdateCustomizedVoiceRequest extends Model
     public $demoAudioMediaId;
 
     /**
-     * @description This parameter is required.
+     * @description The voice ID.
      *
+     * This parameter is required.
      * @example xiaozhuan
      *
      * @var string

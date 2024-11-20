@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateDNADBResponseBody extends Model
 {
     /**
+     * @description The details of the media fingerprint library.
+     *
      * @var DBInfo
      */
     public $DBInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 25818875-5F78-4A13-BEF6-D7393642CA58
      *
      * @var string

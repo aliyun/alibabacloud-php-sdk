@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class QuerySmarttagJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the smart tagging job that you want to query. You can obtain the job ID from the response parameters of the SubmitSmarttagJob operation.
      *
+     * This parameter is required.
      * @example 88c6ca184c0e47098a5b665e2****
      *
      * @var string
@@ -18,6 +19,11 @@ class QuerySmarttagJobRequest extends Model
     public $jobId;
 
     /**
+     * @description The extra parameters that you want to query in the request. The value is a JSON string. Example: {"labelResultType":"auto"}. The value of labelResultType is of the STRING type. Valid values:
+     *
+     *   auto: machine tagging
+     *   hmi: tagging by human and machine
+     *
      * @example {"labelResultType":"auto"}
      *
      * @var string

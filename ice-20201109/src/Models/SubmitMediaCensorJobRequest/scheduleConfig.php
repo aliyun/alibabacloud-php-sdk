@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class scheduleConfig extends Model
 {
     /**
+     * @description The ID of the ApsaraVideo Media Processing (MPS) queue to which the job is submitted.
+     *
      * @example 5246b8d12a62433ab77845074039****
      *
      * @var string
@@ -16,6 +18,8 @@ class scheduleConfig extends Model
     public $pipelineId;
 
     /**
+     * @description The job priority. A larger value indicates a higher priority. Valid values: 1 to 10.
+     *
      * @example 6
      *
      * @var int

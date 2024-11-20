@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateCustomizedVoiceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 4E84BE44-58A7-****-****-FBEBEA16EF94
      *
      * @var string
@@ -16,6 +18,11 @@ class UpdateCustomizedVoiceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitLiveEditingJobResponseBody extends Model
 {
     /**
+     * @description The ID of the live editing job.
+     *
      * @example ****d80e4e4044975745c14b****
      *
      * @var string
@@ -16,6 +18,8 @@ class SubmitLiveEditingJobResponseBody extends Model
     public $jobId;
 
     /**
+     * @description The media asset ID of the output file.
+     *
      * @example ****c469e944b5a856828dc2****
      *
      * @var string
@@ -23,6 +27,8 @@ class SubmitLiveEditingJobResponseBody extends Model
     public $mediaId;
 
     /**
+     * @description The URL of the output file.
+     *
      * @example http://test-bucket.cn-shanghai.aliyuncs.com/test.mp4
      *
      * @var string
@@ -30,6 +36,8 @@ class SubmitLiveEditingJobResponseBody extends Model
     public $mediaURL;
 
     /**
+     * @description The ID of the live editing project.
+     *
      * @example ****fddd7748b58bf1d47e95****
      *
      * @var string
@@ -37,6 +45,8 @@ class SubmitLiveEditingJobResponseBody extends Model
     public $projectId;
 
     /**
+     * @description The request ID.
+     *
      * @example ****36-3C1E-4417-BDB2-1E034F****
      *
      * @var string
@@ -44,6 +54,8 @@ class SubmitLiveEditingJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The media asset ID of the output file in ApsaraVideo VOD if the output file is stored in ApsaraVideo VOD.
+     *
      * @example ****d7578s4h75ci945c14b****
      *
      * @var string

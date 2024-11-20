@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class workflowTask extends Model
 {
     /**
+     * @description The results for all nodes of the workflow task.
+     *
      * @var string
      */
     public $activityResults;
 
     /**
+     * @description The time when the task was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2023-01-04T02:05:17Z
      *
      * @var string
@@ -22,6 +26,8 @@ class workflowTask extends Model
     public $createTime;
 
     /**
+     * @description The time when the task was complete. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2023-01-04T02:06:19Z
      *
      * @var string
@@ -29,6 +35,16 @@ class workflowTask extends Model
     public $finishTime;
 
     /**
+     * @description The task state.
+     *
+     * Valid values:
+     *
+     *   Init: The task is being initialized.
+     *   Failed: The task failed.
+     *   Canceled: The task is canceled.
+     *   Processing: The task is in progress.
+     *   Succeed: The task is successful.
+     *
      * @example Succeed
      *
      * @var string
@@ -36,6 +52,8 @@ class workflowTask extends Model
     public $status;
 
     /**
+     * @description The ID of the workflow task.
+     *
      * @example ******4215e042b3966ca5441e******
      *
      * @var string
@@ -43,6 +61,8 @@ class workflowTask extends Model
     public $taskId;
 
     /**
+     * @description The input of the workflow task.
+     *
      * @example {
      * "Type": "Media",
      * "Media": "******30706071edbfe290b488******"
@@ -52,6 +72,8 @@ class workflowTask extends Model
     public $taskInput;
 
     /**
+     * @description The user-defined field that was specified when the workflow task was submitted.
+     *
      * @example {"NotifyAddress":"http://xx.xx.xxx"}
      *
      * @var string
@@ -59,6 +81,8 @@ class workflowTask extends Model
     public $userData;
 
     /**
+     * @description The workflow Information.
+     *
      * @var workflow
      */
     public $workflow;

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class overwriteParams extends Model
 {
     /**
+     * @description The position of the watermark on the x-axis.
+     *
      * @example 10
      *
      * @var string
@@ -18,6 +20,8 @@ class overwriteParams extends Model
     public $dx;
 
     /**
+     * @description The position of the watermark on the y-axis.
+     *
      * @example 10
      *
      * @var string
@@ -25,11 +29,15 @@ class overwriteParams extends Model
     public $dy;
 
     /**
+     * @description The watermark image file.
+     *
      * @var file
      */
     public $file;
 
     /**
+     * @description The height of the output video.
+     *
      * @example 32
      *
      * @var string
@@ -37,6 +45,8 @@ class overwriteParams extends Model
     public $height;
 
     /**
+     * @description The reference position of the watermark. Valid values: TopLeft, TopRight, BottomLeft, and BottomRight. Default value: TopLeft.
+     *
      * @example TopLeft
      *
      * @var string
@@ -44,11 +54,15 @@ class overwriteParams extends Model
     public $referPos;
 
     /**
+     * @description The timeline settings.
+     *
      * @var timeline
      */
     public $timeline;
 
     /**
+     * @description The width of the output video.
+     *
      * @example 32
      *
      * @var string

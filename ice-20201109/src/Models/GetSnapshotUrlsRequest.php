@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetSnapshotUrlsRequest extends Model
 {
     /**
+     * @description The job ID.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -16,6 +18,9 @@ class GetSnapshotUrlsRequest extends Model
     public $jobId;
 
     /**
+     * @description The order that you use to sort the query results. Valid values: Asc and Desc.
+     *
+     *
      * @example Asc
      *
      * @var string
@@ -23,6 +28,8 @@ class GetSnapshotUrlsRequest extends Model
     public $orderBy;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +37,8 @@ class GetSnapshotUrlsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 30. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +46,8 @@ class GetSnapshotUrlsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The authentication timeout period. Unit: seconds Default value: 3600. Maximum value: 129600 (36 hours).
+     *
      * @example 3600
      *
      * @var int

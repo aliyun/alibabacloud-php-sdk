@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetWorkflowTaskResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example ******0C-7870-15FE-B96F-8880BB******
      *
@@ -19,6 +19,8 @@ class GetWorkflowTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the workflow task.
+     *
      * @var workflowTask
      */
     public $workflowTask;

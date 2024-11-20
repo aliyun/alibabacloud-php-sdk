@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetDynamicImageJobResponseBody extends Model
 {
     /**
+     * @description The information about the snapshot job.
+     *
      * @var dynamicImageJob
      */
     public $dynamicImageJob;
 
     /**
+     * @description The request ID.
+     *
      * @example ******36-3C1E-4417-BDB2-1E034F******
      *
      * @var string

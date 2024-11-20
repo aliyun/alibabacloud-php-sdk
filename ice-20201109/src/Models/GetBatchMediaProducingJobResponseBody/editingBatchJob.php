@@ -10,16 +10,27 @@ use AlibabaCloud\Tea\Model;
 class editingBatchJob extends Model
 {
     /**
+     * @description The time when the job was complete.
+     *
+     * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @example 2024-06-13T08:57:07Z
+     *
      * @var string
      */
     public $completeTime;
 
     /**
+     * @description The time when the job was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2024-06-13T08:47:07Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The editing configurations. For more information, see [EditingConfig](~~2692547#1be9bba03b7qu~~).
+     *
      * @example {
      * }
      * @var string
@@ -27,6 +38,9 @@ class editingBatchJob extends Model
     public $editingConfig;
 
     /**
+     * @description The extended information. This parameter contains the following fields:
+     *
+     * ErrorMessage: the error message of the main job.
      * @example {
      * "ErrorCode": "InvalidMaterial.NotFound",
      * "ErrorMessage": "The specified clips id not found:[\\"****30d0b5e871eebb2ff7f6c75a****\\"]"
@@ -36,11 +50,15 @@ class editingBatchJob extends Model
     public $extend;
 
     /**
+     * @description The input configurations. For more information, see [InputConfig](~~2692547#2faed1559549n~~).
+     *
      * @var string
      */
     public $inputConfig;
 
     /**
+     * @description The job ID.
+     *
      * @example ****b6b2750d4308892ac3330238****
      *
      * @var string
@@ -53,11 +71,18 @@ class editingBatchJob extends Model
     public $jobType;
 
     /**
+     * @description The time when the job was last modified.
+     *
+     * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @example 2024-06-13T08:57:07Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @description The output configurations. For more information, see [OutputConfig](~~2692547#447b928fcbuoa~~).
+     *
      * @example {
      * }
      * @var string
@@ -65,6 +90,9 @@ class editingBatchJob extends Model
     public $outputConfig;
 
     /**
+     * @description The job state. Valid values:
+     *
+     * Finished: The job is complete.
      * @example Finished
      *
      * @var string
@@ -72,11 +100,15 @@ class editingBatchJob extends Model
     public $status;
 
     /**
+     * @description The quick video production subjobs.
+     *
      * @var subJobList[]
      */
     public $subJobList;
 
     /**
+     * @description The user-defined data, including the business and callback configurations. For more information, see [UserData](https://help.aliyun.com/document_detail/357745.html?spm=a2c4g.439285.0.i1#section-urj-v3f-0s1).
+     *
      * @example {"NotifyAddress":"http://xx.xx.xxx"}
      *
      * @var string

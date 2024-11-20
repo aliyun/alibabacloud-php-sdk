@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The duration of video editing.
+     *
      * @example 8722
      *
      * @var string
@@ -16,21 +18,35 @@ class data extends Model
     public $editingDuration;
 
     /**
+     * @description The duration of live editing.
+     *
+     * @example 2000
+     *
      * @var string
      */
     public $liveEditDuration;
 
     /**
+     * @description The duration of live stream recording.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $liveRecordDuration;
 
     /**
+     * @description The number of live stream snapshots.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $liveSnapshotCount;
 
     /**
+     * @description The duration of live stream transcoding.
+     *
      * @example 12356
      *
      * @var int
@@ -38,6 +54,8 @@ class data extends Model
     public $liveTranscodeDuration;
 
     /**
+     * @description The duration of AI processing.
+     *
      * @example 0
      *
      * @var int
@@ -45,6 +63,8 @@ class data extends Model
     public $mpsAiDuration;
 
     /**
+     * @description The duration of video-on-demand (VOD) transcoding.
+     *
      * @example 17337
      *
      * @var int
@@ -52,6 +72,8 @@ class data extends Model
     public $mpsTranscodeDuration;
 
     /**
+     * @description The duration of audio and video enhancement.
+     *
      * @example 300
      *
      * @var int

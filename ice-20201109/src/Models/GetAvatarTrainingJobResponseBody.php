@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetAvatarTrainingJobResponseBody extends Model
 {
     /**
+     * @description The data returned if the request was successful.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string
@@ -22,6 +26,8 @@ class GetAvatarTrainingJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

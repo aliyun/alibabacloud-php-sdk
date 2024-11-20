@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateRequest extends Model
 {
     /**
+     * @description Specifies whether to return the information about the associated materials. Default value: 0. Valid values: 0 and 1. A value of 1 specifies that the information about the associated materials is returned. This parameter is valid only for regular templates.
+     *
      * @example 0
      *
      * @var string
@@ -16,6 +18,8 @@ class GetTemplateRequest extends Model
     public $relatedMediaidFlag;
 
     /**
+     * @description The template ID.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string

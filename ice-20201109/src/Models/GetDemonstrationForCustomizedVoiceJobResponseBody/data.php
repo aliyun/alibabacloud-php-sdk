@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description A list of 20 text entries to be read and the corresponding sample audio.
+     *
      * @var demonstrationList[]
      */
     public $demonstrationList;

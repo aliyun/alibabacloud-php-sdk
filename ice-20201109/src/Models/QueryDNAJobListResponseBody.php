@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class QueryDNAJobListResponseBody extends Model
 {
     /**
+     * @description The queried media fingerprint analysis jobs.
+     *
      * @var jobList[]
      */
     public $jobList;
 
     /**
+     * @description The request ID.
+     *
      * @example 25818875-5F78-4A13-BEF6-D7393642CA58
      *
      * @var string

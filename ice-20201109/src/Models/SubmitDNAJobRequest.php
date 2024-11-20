@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitDNAJobRequest extends Model
 {
     /**
+     * @description The configurations of the media fingerprint analysis job. The value is a JSON object. If you specify this parameter, the template parameters are overwritten.
+     *
      * @example {"SaveType": "save","MediaType"":"video"}
      *
      * @var string
@@ -17,8 +19,9 @@ class SubmitDNAJobRequest extends Model
     public $config;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the media fingerprint library. If you do not specify this parameter, the default media fingerprint library is used. For more information about how to create a media fingerprint library, see [CreateDNADB](https://help.aliyun.com/document_detail/479275.html).
      *
+     * This parameter is required.
      * @example 2288c6ca184c0e47098a5b665e2a12****
      *
      * @var string
@@ -26,8 +29,9 @@ class SubmitDNAJobRequest extends Model
     public $DBId;
 
     /**
-     * @description This parameter is required.
+     * @description The input file for media fingerprint analysis.
      *
+     * This parameter is required.
      * @var input
      */
     public $input;
@@ -43,6 +47,8 @@ class SubmitDNAJobRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the ApsaraVideo Media Processing (MPS) queue to which the media fingerprint analysis job is submitted.
+     *
      * @example 5246b8d12a62433ab77845074039****
      *
      * @var string
@@ -50,8 +56,9 @@ class SubmitDNAJobRequest extends Model
     public $pipelineId;
 
     /**
-     * @description This parameter is required.
+     * @description The primary key of the video. You must make sure that each primary key is unique.
      *
+     * This parameter is required.
      * @example 3ca84a39a9024f19853b21be9cf9****
      *
      * @var string
@@ -69,6 +76,8 @@ class SubmitDNAJobRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The template ID.
+     *
      * @example S00000101-100060
      *
      * @var string
@@ -76,6 +85,8 @@ class SubmitDNAJobRequest extends Model
     public $templateId;
 
     /**
+     * @description The user-defined data. The data can be up to 128 bytes in length.
+     *
      * @example userData
      *
      * @var string

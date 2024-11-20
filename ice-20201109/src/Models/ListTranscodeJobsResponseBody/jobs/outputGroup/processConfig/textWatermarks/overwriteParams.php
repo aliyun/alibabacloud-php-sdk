@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class overwriteParams extends Model
 {
     /**
+     * @description Indicates whether the text size was adjusted based on the output video dimensions. true / false, default: false
+     *
      * @example false
      *
      * @var string
@@ -16,6 +18,8 @@ class overwriteParams extends Model
     public $adaptive;
 
     /**
+     * @description The border color.
+     *
      * @example #006400
      *
      * @var string
@@ -23,6 +27,8 @@ class overwriteParams extends Model
     public $borderColor;
 
     /**
+     * @description The border width.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +36,8 @@ class overwriteParams extends Model
     public $borderWidth;
 
     /**
+     * @description The watermark text. Base64 encoding is not required. The string must be encoded in UTF-8.
+     *
      * @example 测试水印
      *
      * @var string
@@ -37,6 +45,8 @@ class overwriteParams extends Model
     public $content;
 
     /**
+     * @description The transparency of the watermark.
+     *
      * @example 1.0
      *
      * @var string
@@ -44,6 +54,8 @@ class overwriteParams extends Model
     public $fontAlpha;
 
     /**
+     * @description The color of the text.
+     *
      * @example #006400
      *
      * @var string
@@ -51,6 +63,8 @@ class overwriteParams extends Model
     public $fontColor;
 
     /**
+     * @description The font of the text.
+     *
      * @example SimSun
      *
      * @var string
@@ -58,6 +72,8 @@ class overwriteParams extends Model
     public $fontName;
 
     /**
+     * @description The size of the text.
+     *
      * @example 16
      *
      * @var int
@@ -65,6 +81,8 @@ class overwriteParams extends Model
     public $fontSize;
 
     /**
+     * @description The distance of the watermark from the left edge.
+     *
      * @example 10
      *
      * @var string
@@ -72,6 +90,8 @@ class overwriteParams extends Model
     public $left;
 
     /**
+     * @description The distance of the watermark from the top edge.
+     *
      * @example 10
      *
      * @var string

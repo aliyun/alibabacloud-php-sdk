@@ -21,7 +21,7 @@ class UpdateEditingProjectRequest extends Model
     public $businessStatus;
 
     /**
-     * @description The material parameter corresponding to the template, in the JSON format. If TemplateId is specified, ClipsParam must also be specified. For more information<props="china">, see [Create and use a regular template](https://help.aliyun.com/document_detail/328557.html) and [Create and use an advanced template](https://help.aliyun.com/document_detail/291418.html).
+     * @description The material parameter corresponding to the template, in the JSON format. If TemplateId is specified, ClipsParam must also be specified.
      *
      * @var string
      */

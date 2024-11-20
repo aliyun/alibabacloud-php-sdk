@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class systemTemplateList extends Model
 {
     /**
+     * @description The template state.
+     *
      * @example Normal
      *
      * @var string
@@ -16,6 +18,8 @@ class systemTemplateList extends Model
     public $status;
 
     /**
+     * @description The subtype ID of the template.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class systemTemplateList extends Model
     public $subtype;
 
     /**
+     * @description The subtype name of the template.
+     *
      * @example Remux
      *
      * @var string
@@ -30,6 +36,8 @@ class systemTemplateList extends Model
     public $subtypeName;
 
     /**
+     * @description The template parameters.
+     *
      * @example {"Container":{"Format":"flv"},"Video":{},"Audio":{}}
      *
      * @var string
@@ -37,6 +45,8 @@ class systemTemplateList extends Model
     public $templateConfig;
 
     /**
+     * @description The template ID.
+     *
      * @example S00000001-000000
      *
      * @var string
@@ -44,6 +54,8 @@ class systemTemplateList extends Model
     public $templateId;
 
     /**
+     * @description The template name.
+     *
      * @example FLV-COPY
      *
      * @var string
@@ -51,6 +63,8 @@ class systemTemplateList extends Model
     public $templateName;
 
     /**
+     * @description The type ID of the template.
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +72,8 @@ class systemTemplateList extends Model
     public $type;
 
     /**
+     * @description The type name of the template.
+     *
      * @example TranscodeTemplate
      *
      * @var string

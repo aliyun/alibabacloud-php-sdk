@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the digital human training job.
+     *
      * @example ****29faef8144638ba42eb8e037****
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListTranscodeJobsResponseBody extends Model
 {
     /**
+     * @description The list of jobs.
+     *
      * @var jobs[]
      */
     public $jobs;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. The token of the next page is returned after you call this operation for the first time.
+     *
      * @example 019daf5780f74831b0e1a767c9f1c178
      *
      * @var string
@@ -22,6 +26,8 @@ class ListTranscodeJobsResponseBody extends Model
     public $nextPageToken;
 
     /**
+     * @description The request ID.
+     *
      * @example 31E30781-9495-5E2D-A84D-759B0A01E262
      *
      * @var string

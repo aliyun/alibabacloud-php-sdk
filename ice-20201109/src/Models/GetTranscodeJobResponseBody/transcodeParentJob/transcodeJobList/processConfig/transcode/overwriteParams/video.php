@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class video extends Model
 {
     /**
+     * @description The maximum adaptive bitrate (ABR). This parameter takes effect only for Narrowband HD 1.0.
+     *
+     *   Valid values: [10,50000].
+     *   Unit: Kbit/s.
+     *
      * @example 6000
      *
      * @var string
@@ -16,6 +21,11 @@ class video extends Model
     public $abrMax;
 
     /**
+     * @description The average bitrate of the video.
+     *
+     *   Valid values: [10,50000].
+     *   Unit: Kbit/s.
+     *
      * @example 3000
      *
      * @var string
@@ -23,6 +33,12 @@ class video extends Model
     public $bitrate;
 
     /**
+     * @description The buffer size.
+     *
+     *   Valid values: [1000,128000].
+     *   Default value: 6000.
+     *   Unit: Kbit/s.
+     *
      * @example 6000
      *
      * @var string
@@ -30,6 +46,8 @@ class video extends Model
     public $bufsize;
 
     /**
+     * @description The encoding format.
+     *
      * @example H.264
      *
      * @var string
@@ -37,6 +55,12 @@ class video extends Model
     public $codec;
 
     /**
+     * @description The constant rate factor.
+     *
+     *   Valid values: [0,51].
+     *   Default value: 23 if the encoding format is H.264, or 26 if the encoding format is H.265.
+     *
+     * If this parameter is specified, the value of Bitrate becomes invalid.
      * @example 23
      *
      * @var string
@@ -44,6 +68,11 @@ class video extends Model
     public $crf;
 
     /**
+     * @description The method of video cropping. Valid values:
+     *
+     *   border: automatically detects and removes black bars.
+     *   A value in the width:height:left:top format: crops the videos based on the custom settings.
+     *
      * @example 1280:800:0:140
      *
      * @var string
@@ -51,6 +80,11 @@ class video extends Model
     public $crop;
 
     /**
+     * @description The frame rate.
+     *
+     *   Valid values: (0,60]. The value is 60 if the frame rate of the input video exceeds 60.
+     *   Default value: the frame rate of the input video.
+     *
      * @example 25
      *
      * @var string
@@ -58,6 +92,11 @@ class video extends Model
     public $fps;
 
     /**
+     * @description The maximum number of frames between two keyframes.
+     *
+     *   Valid values: [1,1080000].
+     *   Default value: 250.
+     *
      * @example 250
      *
      * @var string
@@ -65,6 +104,12 @@ class video extends Model
     public $gop;
 
     /**
+     * @description The height of the output video.
+     *
+     *   Valid values: [128,4096].
+     *   Unit: pixels.
+     *
+     * Default value: the height of the input video.
      * @example 1080
      *
      * @var string
@@ -72,6 +117,8 @@ class video extends Model
     public $height;
 
     /**
+     * @description Indicates whether the auto-rotate screen feature is enabled.
+     *
      * @example false
      *
      * @var string
@@ -79,6 +126,11 @@ class video extends Model
     public $longShortMode;
 
     /**
+     * @description The maximum bitrate of the output video.
+     *
+     *   Valid values: [10,50000].
+     *   Unit: Kbit/s.
+     *
      * @example 9000
      *
      * @var string
@@ -86,6 +138,8 @@ class video extends Model
     public $maxrate;
 
     /**
+     * @description The black bars added to the video. Format: width:height:left:top.
+     *
      * @example 1280:800:0:140
      *
      * @var string
@@ -93,6 +147,8 @@ class video extends Model
     public $pad;
 
     /**
+     * @description The pixel format of the video. Valid values: standard pixel formats such as yuv420p and yuvj420p.
+     *
      * @example yuv420p
      *
      * @var string
@@ -100,6 +156,8 @@ class video extends Model
     public $pixFmt;
 
     /**
+     * @description The preset video algorithm. This parameter takes effect only if the encoding format is H.264. Valid values: veryfast, fast, medium, slow, and slower. Default value: medium.
+     *
      * @example medium
      *
      * @var string
@@ -107,6 +165,13 @@ class video extends Model
     public $preset;
 
     /**
+     * @description The encoding profile. Valid values: baseline, main, and high.
+     *
+     *   baseline: applicable to mobile devices.
+     *   main: applicable to standard-definition devices.
+     *   high: applicable to high-definition devices.
+     *
+     * Default value: high.
      * @example Main
      *
      * @var string
@@ -114,6 +179,8 @@ class video extends Model
     public $profile;
 
     /**
+     * @description Indicates whether the video was removed.
+     *
      * @example false
      *
      * @var string
@@ -121,6 +188,8 @@ class video extends Model
     public $remove;
 
     /**
+     * @description The scan mode. Valid values: interlaced and progressive.
+     *
      * @example progressive
      *
      * @var string
@@ -128,6 +197,12 @@ class video extends Model
     public $scanMode;
 
     /**
+     * @description The width of the output video.
+     *
+     *   Valid values: [128,4096].
+     *   Unit: pixels.
+     *
+     * Default value: the width of the input video.
      * @example 1920
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListMediaProducingJobsRequest extends Model
 {
     /**
+     * @description The end of the time range to query. The maximum time range between EndTime and StartTime cannot exceed 30 days. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2022-02-02T23:59:59Z
      *
      * @var string
@@ -16,6 +18,14 @@ class ListMediaProducingJobsRequest extends Model
     public $endTime;
 
     /**
+     * @description The job type.
+     *
+     * Valid values:
+     *
+     *   LiveEditingJob: live editing job.
+     *   EditingJob: regular template-based editing job
+     *   VETemplateJob: advanced template-based editing job.
+     *
      * @example EditingJob
      *
      * @var string
@@ -23,6 +33,8 @@ class ListMediaProducingJobsRequest extends Model
     public $jobType;
 
     /**
+     * @description The search keyword. For example, you can use a job ID as the keyword to search for jobs.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -30,6 +42,8 @@ class ListMediaProducingJobsRequest extends Model
     public $keyword;
 
     /**
+     * @description The ID of the quick video production job. If this parameter is specified, the subjobs of the quick video production job are queried.
+     *
      * @example ******8750b54e3c976a47da6f******
      *
      * @var string
@@ -37,6 +51,9 @@ class ListMediaProducingJobsRequest extends Model
     public $masterJobId;
 
     /**
+     * @description The maximum number of entries to return.
+     *
+     * Default value: 10. Valid values: 1 to 100.
      * @example 100
      *
      * @var int
@@ -44,6 +61,8 @@ class ListMediaProducingJobsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example 8EqYpQbZ6Eh7+Zz8DxVYoQ==
      *
      * @var string
@@ -51,11 +70,22 @@ class ListMediaProducingJobsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the online editing project.
+     *
+     * @example ******927cfb53d05b96c1bfe1******
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @description The sorting parameter. By default, the query results are sorted by creation time in descending order.
+     *
+     * Valid values:
+     *
+     *   CreationTime:Asc: sorted by creation time in ascending order.
+     *   CreationTime:Desc: sorted by creation time in descending order.
+     *
      * @example CreationTime:Desc
      *
      * @var string
@@ -63,6 +93,8 @@ class ListMediaProducingJobsRequest extends Model
     public $sortBy;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2017-01-11T12:00:00Z
      *
      * @var string
@@ -70,6 +102,15 @@ class ListMediaProducingJobsRequest extends Model
     public $startTime;
 
     /**
+     * @description The job state.
+     *
+     * Valid values:
+     *
+     *   Init: The job is initialized.
+     *   Failed: The job failed.
+     *   Success: The job is successful.
+     *   Processing: The job is in progress.
+     *
      * @example Success
      *
      * @var string

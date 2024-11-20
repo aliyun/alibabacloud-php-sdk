@@ -16,11 +16,15 @@ use AlibabaCloud\Tea\Model;
 class mediaCensorJobDetail extends Model
 {
     /**
+     * @description The moderation results of live comments.
+     *
      * @var barrageCensorResult
      */
     public $barrageCensorResult;
 
     /**
+     * @description The error code returned if the job failed. This parameter is not returned if the job is successful.
+     *
      * @example InvalidParameter.ResourceNotFound
      *
      * @var string
@@ -28,11 +32,15 @@ class mediaCensorJobDetail extends Model
     public $code;
 
     /**
+     * @description The moderation results of thumbnails.
+     *
      * @var coverImageCensorResults
      */
     public $coverImageCensorResults;
 
     /**
+     * @description The time when the content moderation job was created.
+     *
      * @example 2018-09-13T16:32:24Z
      *
      * @var string
@@ -40,11 +48,15 @@ class mediaCensorJobDetail extends Model
     public $creationTime;
 
     /**
+     * @description The moderation results of descriptions.
+     *
      * @var descCensorResult
      */
     public $descCensorResult;
 
     /**
+     * @description The time when the content moderation job was complete.
+     *
      * @example 2018-09-13T16:38:24Z
      *
      * @var string
@@ -52,11 +64,15 @@ class mediaCensorJobDetail extends Model
     public $finishTime;
 
     /**
+     * @description The information about the job input.
+     *
      * @var input
      */
     public $input;
 
     /**
+     * @description The ID of the content moderation job.
+     *
      * @example f8f166eea7a44e9bb0a4aecf9543****
      *
      * @var string
@@ -64,6 +80,8 @@ class mediaCensorJobDetail extends Model
     public $jobId;
 
     /**
+     * @description The error message returned if the job failed. This parameter is not returned if the job is successful.
+     *
      * @example The resource operated cannot be found
      *
      * @var string
@@ -71,6 +89,8 @@ class mediaCensorJobDetail extends Model
     public $message;
 
     /**
+     * @description The ID of the ApsaraVideo Media Processing (MPS) queue to which the job was submitted.
+     *
      * @example c5b30b7c0d0e4a0abde1d5f9e751****
      *
      * @var string
@@ -78,6 +98,8 @@ class mediaCensorJobDetail extends Model
     public $pipelineId;
 
     /**
+     * @description The job state.
+     *
      * @example Success
      *
      * @var string
@@ -85,6 +107,13 @@ class mediaCensorJobDetail extends Model
     public $state;
 
     /**
+     * @description The overall result of the content moderation job. Valid values:
+     *
+     *   **pass**: The content passes the moderation.
+     *   **review**: The content needs to be manually reviewed.
+     *   **block**: The content needs to be blocked.
+     *
+     * >  If the moderation result of any type of content is review, the overall result is review. If the moderation result of any type of content is block, the overall result is block.
      * @example block
      *
      * @var string
@@ -92,11 +121,15 @@ class mediaCensorJobDetail extends Model
     public $suggestion;
 
     /**
+     * @description The moderation results of titles.
+     *
      * @var titleCensorResult
      */
     public $titleCensorResult;
 
     /**
+     * @description The user-defined data.
+     *
      * @example example userdata ****
      *
      * @var string
@@ -104,11 +137,15 @@ class mediaCensorJobDetail extends Model
     public $userData;
 
     /**
+     * @description The moderation results of videos.
+     *
      * @var vensorCensorResult
      */
     public $vensorCensorResult;
 
     /**
+     * @description The video moderation configurations.
+     *
      * @var videoCensorConfig
      */
     public $videoCensorConfig;

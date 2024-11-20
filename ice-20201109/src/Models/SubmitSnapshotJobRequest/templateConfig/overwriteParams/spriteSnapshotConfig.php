@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class spriteSnapshotConfig extends Model
 {
     /**
+     * @description The height of a single snapshot before tiling. The default value is the height of the output snapshot.
+     *
      * @example 480
      *
      * @var int
@@ -16,6 +18,8 @@ class spriteSnapshotConfig extends Model
     public $cellHeight;
 
     /**
+     * @description The width of a single snapshot before tiling. The default value is the width of the output snapshot.
+     *
      * @example 720
      *
      * @var int
@@ -23,6 +27,8 @@ class spriteSnapshotConfig extends Model
     public $cellWidth;
 
     /**
+     * @description The background color.
+     *
      * @example #000000
      *
      * @var string
@@ -30,6 +36,8 @@ class spriteSnapshotConfig extends Model
     public $color;
 
     /**
+     * @description The number of columns that the image sprite contains.
+     *
      * @example 20
      *
      * @var int
@@ -37,6 +45,8 @@ class spriteSnapshotConfig extends Model
     public $columns;
 
     /**
+     * @description The number of rows that the image sprite contains.
+     *
      * @example 20
      *
      * @var int
@@ -44,6 +54,8 @@ class spriteSnapshotConfig extends Model
     public $lines;
 
     /**
+     * @description The width of the frame. Default value: 0. Unit: pixels.
+     *
      * @example 20
      *
      * @var int
@@ -51,6 +63,8 @@ class spriteSnapshotConfig extends Model
     public $margin;
 
     /**
+     * @description The spacing between two adjacent snapshots. Default value: 0. Unit: pixels.
+     *
      * @example 20
      *
      * @var int

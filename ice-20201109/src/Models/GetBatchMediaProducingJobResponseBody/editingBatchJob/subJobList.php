@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class subJobList extends Model
 {
     /**
+     * @description The error code that is returned if the subjob failed. This parameter is not returned if the subjob is successful.
+     *
      * @example InvalidMaterial.NotFound
      *
      * @var string
@@ -16,6 +18,8 @@ class subJobList extends Model
     public $errorCode;
 
     /**
+     * @description The error message that is returned if the subjob failed. This parameter is not returned if the subjob is successful.
+     *
      * @example The specified clips id not found:["****30d0b5e871eebb2ff7f6c75a****"]
      *
      * @var string
@@ -23,6 +27,8 @@ class subJobList extends Model
     public $errorMessage;
 
     /**
+     * @description The subjob ID.
+     *
      * @example ****8e81933d44e3ae69e2f81485****
      *
      * @var string
@@ -30,6 +36,8 @@ class subJobList extends Model
     public $jobId;
 
     /**
+     * @description The ID of the output media asset.
+     *
      * @example ****1470b11171ee9d19e7e6c66a****
      *
      * @var string
@@ -37,6 +45,8 @@ class subJobList extends Model
     public $mediaId;
 
     /**
+     * @description The URL of the output file.
+     *
      * @example http:/xxx.oss-cn-shanghai.aliyuncs.com/xxx_0.mp4
      *
      * @var string
@@ -44,11 +54,18 @@ class subJobList extends Model
     public $mediaURL;
 
     /**
+     * @description The ID of the online editing project.
+     *
+     * @example ****7cc47fe04eaa81bd853acb6a****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @description The subjob state. Valid values:
+     *
+     * Failed: The subjob failed.
      * @example Success
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListCustomTemplatesResponseBody extends Model
 {
     /**
+     * @description The queried templates.
+     *
      * @var customTemplateList[]
      */
     public $customTemplateList;
 
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string
@@ -22,6 +26,8 @@ class ListCustomTemplatesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of templates.
+     *
      * @example 20
      *
      * @var int

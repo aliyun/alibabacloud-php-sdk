@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class packageJobList extends Model
 {
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. The token of the next page is returned after you call this operation for the first time.
+     *
      * @example 019daf5780f74831b0e1a767c9f1c178
      *
      * @var string
@@ -17,6 +19,8 @@ class packageJobList extends Model
     public $nextPageToken;
 
     /**
+     * @description The list of packaging jobs.
+     *
      * @var packageJobs[]
      */
     public $packageJobs;

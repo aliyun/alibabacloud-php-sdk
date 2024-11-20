@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListAvatarTrainingJobsRequest extends Model
 {
     /**
+     * @description *   The page number.
+     *   Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +19,10 @@ class ListAvatarTrainingJobsRequest extends Model
     public $pageNo;
 
     /**
+     * @description *   The number of entries per page.
+     *   Default value: 10.
+     *   Valid values: 1 to 100.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +30,9 @@ class ListAvatarTrainingJobsRequest extends Model
     public $pageSize;
 
     /**
+     * @description *   The job state.
+     *   Valid values: Init, Queuing, Training, Success, and Fail.
+     *
      * @example Success
      *
      * @var string

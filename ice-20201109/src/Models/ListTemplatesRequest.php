@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListTemplatesRequest extends Model
 {
     /**
+     * @description The source from which the template was created.
+     *
+     * Valid values:
+     *
+     *   AliyunConsole
+     *   WebSDK
+     *   OpenAPI
+     *
      * @example OpenAPI
      *
      * @var string
@@ -16,6 +24,8 @@ class ListTemplatesRequest extends Model
     public $createSource;
 
     /**
+     * @description The search keyword. You can use the template ID or title as the keyword to search for templates.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -23,6 +33,8 @@ class ListTemplatesRequest extends Model
     public $keyword;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +42,8 @@ class ListTemplatesRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Default value: 20. Valid values: 1 to 100.
+     *
      * @example 20
      *
      * @var int
@@ -37,6 +51,13 @@ class ListTemplatesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The sorting parameter. By default, the query results are sorted by creation time in descending order.
+     *
+     * Valid values:
+     *
+     *   CreationTime:Asc: sorted by creation time in ascending order.
+     *   CreationTime:Desc: sorted by creation time in descending order.
+     *
      * @example CreationTime:Desc
      *
      * @var string
@@ -44,6 +65,17 @@ class ListTemplatesRequest extends Model
     public $sortType;
 
     /**
+     * @description The template state.
+     *
+     * Valid values:
+     *
+     *   UploadFailed: Failed to upload the video.
+     *   ProcessFailed: Failed to process the advanced template.
+     *   Available: The template is available.
+     *   Uploading: The video is being uploaded.
+     *   Created: The template is created but not ready for use.
+     *   Processing: The advanced template is being processed.
+     *
      * @example Available
      *
      * @var string
@@ -51,6 +83,13 @@ class ListTemplatesRequest extends Model
     public $status;
 
     /**
+     * @description The template type.
+     *
+     * Valid values:
+     *
+     *   Timeline
+     *   VETemplate
+     *
      * @example Timeline
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class outputMediaConfig extends Model
 {
     /**
+     * @description The bitrate of the output file. Unit: Kbit/s. You can leave this parameter empty. The default value is the maximum bitrate of the input materials.
+     *
      * @example 1000
      *
      * @var int
@@ -16,6 +18,8 @@ class outputMediaConfig extends Model
     public $bitrate;
 
     /**
+     * @description If OutputMediaTarget is set to vod-media, this parameter indicates the file name of the output file. The value contains the file name extension but not the path.
+     *
      * @example test.mp4
      *
      * @var string
@@ -23,6 +27,8 @@ class outputMediaConfig extends Model
     public $fileName;
 
     /**
+     * @description The height of the output file. You can leave this parameter empty. The default value is the maximum height of the input materials.
+     *
      * @example 480
      *
      * @var int
@@ -30,6 +36,8 @@ class outputMediaConfig extends Model
     public $height;
 
     /**
+     * @description The URL of the output file.
+     *
      * @example https://testice-testbucket.oss-cn-shanghai.aliyuncs.com/test.mp4
      *
      * @var string
@@ -37,6 +45,8 @@ class outputMediaConfig extends Model
     public $mediaURL;
 
     /**
+     * @description If OutputMediaTarget is set to vod-media, this parameter indicates the storage location of the media asset in ApsaraVideo VOD. The storage location is the path of the file in ApsaraVideo VOD, excluding the prefix http://. Example: outin-xxxxxx.oss-cn-shanghai.aliyuncs.com.
+     *
      * @example outin-xxxxxx.oss-cn-shanghai.aliyuncs.com
      *
      * @var string
@@ -44,6 +54,8 @@ class outputMediaConfig extends Model
     public $storageLocation;
 
     /**
+     * @description The ID of the VOD transcoding template group. If VOD transcoding is not required, set the value to VOD_NO_TRANSCODE.
+     *
      * @example VOD_NO_TRANSCODE
      *
      * @var string
@@ -51,6 +63,8 @@ class outputMediaConfig extends Model
     public $vodTemplateGroupId;
 
     /**
+     * @description The width of the output file. You can leave this parameter empty. The default value is the maximum width of the input materials.
+     *
      * @example 640
      *
      * @var int

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The queried personalized human voices.
+     *
      * @var customizedVoiceList[]
      */
     public $customizedVoiceList;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 41
      *
      * @var int

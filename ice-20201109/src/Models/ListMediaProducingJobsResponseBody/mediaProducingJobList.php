@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class mediaProducingJobList extends Model
 {
     /**
+     * @description The template material parameters.
+     *
+     * @example {"Text1":"text","Text0":"text","Media1":"mediaId","Media0":"mediaId"}
+     *
      * @var string
      */
     public $clipsParam;
 
     /**
+     * @description The response code.
+     *
      * @example Success
      *
      * @var string
@@ -21,6 +27,8 @@ class mediaProducingJobList extends Model
     public $code;
 
     /**
+     * @description The time when the job was complete. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2022-03-21T16:40:30Z
      *
      * @var string
@@ -28,6 +36,8 @@ class mediaProducingJobList extends Model
     public $completeTime;
 
     /**
+     * @description The time when the job was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2022-03-21T16:40:00Z
      *
      * @var string
@@ -35,6 +45,8 @@ class mediaProducingJobList extends Model
     public $createTime;
 
     /**
+     * @description The duration of the output file. Unit: seconds.
+     *
      * @example 15.5
      *
      * @var float
@@ -42,6 +54,8 @@ class mediaProducingJobList extends Model
     public $duration;
 
     /**
+     * @description The ID of the online editing job.
+     *
      * @example ******8750b54e3c976a47da6f******
      *
      * @var string
@@ -49,6 +63,8 @@ class mediaProducingJobList extends Model
     public $jobId;
 
     /**
+     * @description The media asset ID of the output file.
+     *
      * @example 0ce4ea70f52471edab61f7e7d6786302
      *
      * @var string
@@ -56,6 +72,8 @@ class mediaProducingJobList extends Model
     public $mediaId;
 
     /**
+     * @description The URL of the output file.
+     *
      * @example http://your-bucket.oss-cn-shanghai.aliyuncs.com/your-video.mp4
      *
      * @var string
@@ -63,11 +81,17 @@ class mediaProducingJobList extends Model
     public $mediaURL;
 
     /**
+     * @description The returned message. Note: Pay attention to this parameter if the job failed.
+     *
+     * @example The resource operated InputFile is bad
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The time when the job was last modified.
+     *
      * @example 2022-03-21T16:41:00Z
      *
      * @var string
@@ -75,6 +99,8 @@ class mediaProducingJobList extends Model
     public $modifiedTime;
 
     /**
+     * @description The ID of the online editing project.
+     *
      * @example ******faa3b542f5a6135217e3******
      *
      * @var string
@@ -82,6 +108,8 @@ class mediaProducingJobList extends Model
     public $projectId;
 
     /**
+     * @description The job state.
+     *
      * @example Sucess
      *
      * @var string
@@ -89,6 +117,8 @@ class mediaProducingJobList extends Model
     public $status;
 
     /**
+     * @description The ID of the online editing template.
+     *
      * @example cb786a39c5d44cecb23d8c864facffc1
      *
      * @var string
@@ -96,6 +126,10 @@ class mediaProducingJobList extends Model
     public $templateId;
 
     /**
+     * @description The user-defined data in the JSON format.
+     *
+     * @example {"key":"value"}
+     *
      * @var string
      */
     public $userData;

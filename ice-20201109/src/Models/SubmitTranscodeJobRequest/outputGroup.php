@@ -11,15 +11,17 @@ use AlibabaCloud\Tea\Model;
 class outputGroup extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The output file configuration.
      *
+     * This parameter is required.
      * @var output
      */
     public $output;
 
     /**
-     * @description This parameter is required.
+     * @description The job processing configuration.
      *
+     * This parameter is required.
      * @var processConfig
      */
     public $processConfig;

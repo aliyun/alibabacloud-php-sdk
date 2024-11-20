@@ -9,13 +9,16 @@ use AlibabaCloud\Tea\Model;
 class SubmitMediaInfoJobShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The input of the job.
      *
+     * This parameter is required.
      * @var string
      */
     public $inputShrink;
 
     /**
+     * @description The job name.
+     *
      * @example job-name
      *
      * @var string
@@ -23,11 +26,15 @@ class SubmitMediaInfoJobShrinkRequest extends Model
     public $name;
 
     /**
+     * @description The scheduling parameters.
+     *
      * @var string
      */
     public $scheduleConfigShrink;
 
     /**
+     * @description The user data.
+     *
      * @example user-data
      *
      * @var string

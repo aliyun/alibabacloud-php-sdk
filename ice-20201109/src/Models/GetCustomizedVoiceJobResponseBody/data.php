@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The information about the human voice cloning job.
+     *
      * @var customizedVoiceJob
      */
     public $customizedVoiceJob;

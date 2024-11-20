@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class customTemplateList extends Model
 {
     /**
+     * @description The time when the template was created.
+     *
      * @example 2022-07-12T16:17:54Z
      *
      * @var string
@@ -22,6 +24,13 @@ class customTemplateList extends Model
     public $frontendHint;
 
     /**
+     * @description Indicates whether the template is the default template.
+     *
+     * Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -29,6 +38,8 @@ class customTemplateList extends Model
     public $isDefault;
 
     /**
+     * @description The time when the template was last modified.
+     *
      * @example 2022-07-12T16:17:54Z
      *
      * @var string
@@ -36,6 +47,12 @@ class customTemplateList extends Model
     public $modifiedTime;
 
     /**
+     * @description The template state.
+     *
+     * Valid values:
+     *
+     *   Normal
+     *
      * @example Normal
      *
      * @var string
@@ -43,6 +60,8 @@ class customTemplateList extends Model
     public $status;
 
     /**
+     * @description The subtype ID of the template.
+     *
      * @example 2
      *
      * @var int
@@ -50,6 +69,8 @@ class customTemplateList extends Model
     public $subtype;
 
     /**
+     * @description The subtype name of the template.
+     *
      * @example AudioTranscode
      *
      * @var string
@@ -57,6 +78,8 @@ class customTemplateList extends Model
     public $subtypeName;
 
     /**
+     * @description The template parameters.
+     *
      * @example {"Container":{"Format":"mp3"},"Audio":{"Codec":"mp3","Bitrate":"64","Samplerate":"22050","Channels":"2"}}
      *
      * @var string
@@ -64,6 +87,8 @@ class customTemplateList extends Model
     public $templateConfig;
 
     /**
+     * @description The template ID.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -71,6 +96,8 @@ class customTemplateList extends Model
     public $templateId;
 
     /**
+     * @description The template name.
+     *
      * @example test-template
      *
      * @var string
@@ -78,6 +105,8 @@ class customTemplateList extends Model
     public $templateName;
 
     /**
+     * @description The type ID of the template.
+     *
      * @example 1
      *
      * @var int
@@ -85,6 +114,8 @@ class customTemplateList extends Model
     public $type;
 
     /**
+     * @description The type name of the template.
+     *
      * @example TranscodeTemplate
      *
      * @var string

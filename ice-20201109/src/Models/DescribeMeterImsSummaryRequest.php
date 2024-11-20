@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeMeterImsSummaryRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The end of the time range to query. The value is a 10-digit timestamp.
      *
+     * This parameter is required.
      * @example 1656995036
      *
      * @var int
@@ -18,6 +19,8 @@ class DescribeMeterImsSummaryRequest extends Model
     public $endTs;
 
     /**
+     * @description This parameter does not take effect. By default, the usage data of all regions is returned.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -25,8 +28,9 @@ class DescribeMeterImsSummaryRequest extends Model
     public $region;
 
     /**
-     * @description This parameter is required.
+     * @description The beginning of the time range to query. The value is a 10-digit timestamp.
      *
+     * This parameter is required.
      * @example 1654403036
      *
      * @var int

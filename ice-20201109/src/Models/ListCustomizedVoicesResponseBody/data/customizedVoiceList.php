@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class customizedVoiceList extends Model
 {
     /**
+     * @description The media asset ID of the sample audio file.
+     *
      * @example ****4d5e829d498aaf966b119348****
      *
      * @var string
@@ -16,6 +18,11 @@ class customizedVoiceList extends Model
     public $demoAudioMediaId;
 
     /**
+     * @description The gender. Valid values:
+     *
+     *   female
+     *   male
+     *
      * @example male
      *
      * @var string
@@ -23,6 +30,12 @@ class customizedVoiceList extends Model
     public $gender;
 
     /**
+     * @description The scenario. Valid values:
+     *
+     *   story
+     *   interaction
+     *   navigation
+     *
      * @example story
      *
      * @var string
@@ -30,16 +43,27 @@ class customizedVoiceList extends Model
     public $scenario;
 
     /**
+     * @description *   The voice type. Valid values:
+     *
+     *   Basic
+     *   Standard
+     *
+     * @example Standard
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The voice description.
+     *
      * @var string
      */
     public $voiceDesc;
 
     /**
+     * @description The voice ID.
+     *
      * @example xiaozhuan
      *
      * @var string
@@ -47,6 +71,8 @@ class customizedVoiceList extends Model
     public $voiceId;
 
     /**
+     * @description The voice name.
+     *
      * @var string
      */
     public $voiceName;

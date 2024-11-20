@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListSmartSysAvatarModelsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example ****63E8B7C7-4812-46AD-0FA56029AC86****
      *
      * @var string
@@ -17,11 +19,15 @@ class ListSmartSysAvatarModelsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The queried digital humans.
+     *
      * @var smartSysAvatarModelList[]
      */
     public $smartSysAvatarModelList;
 
     /**
+     * @description The total number of system digital human images returned.
+     *
      * @example 4
      *
      * @var int

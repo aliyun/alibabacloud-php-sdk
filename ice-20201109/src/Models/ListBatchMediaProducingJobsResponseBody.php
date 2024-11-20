@@ -10,11 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ListBatchMediaProducingJobsResponseBody extends Model
 {
     /**
+     * @description The queried quick video production jobs.
+     *
      * @var editingBatchJobList[]
      */
     public $editingBatchJobList;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100.
+     *
+     * Default value: 10.
      * @example 100
      *
      * @var int
@@ -22,6 +27,8 @@ class ListBatchMediaProducingJobsResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
      * @example 8EqYpQbZ6Eh7+Zz8DxVYoQ==
      *
      * @var string
@@ -29,7 +36,7 @@ class ListBatchMediaProducingJobsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example ******3B-0E1A-586A-AC29-742247******
      *

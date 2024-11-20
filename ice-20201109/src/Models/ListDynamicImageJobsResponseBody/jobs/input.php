@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class input extends Model
 {
     /**
+     * @description The input file. The file can be an OSS object or a media asset. The URL of an OSS object can be in one of the following formats:
+     *
+     * 2.  http(s)://bucket.oss-[regionId].aliyuncs.com/object In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
      * @example oss://bucket/object
      *
      * @var string
@@ -16,6 +19,9 @@ class input extends Model
     public $media;
 
     /**
+     * @description The type of the input file. Valid values:
+     *
+     *
      * @example OSS
      *
      * @var string

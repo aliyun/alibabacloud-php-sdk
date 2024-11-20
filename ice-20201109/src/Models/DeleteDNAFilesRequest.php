@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteDNAFilesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the media fingerprint library from which you want to delete files.
      *
+     * This parameter is required.
      * @example fb712a6890464059b1b2ea7c8647****
      *
      * @var string
@@ -28,8 +29,9 @@ class DeleteDNAFilesRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The primary key values of the files that you want to delete. Separate multiple values with commas (,). You can delete up to 50 files at a time.
      *
+     * This parameter is required.
      * @example 41e6536e4f2250e2e9bf26cdea19****
      *
      * @var string

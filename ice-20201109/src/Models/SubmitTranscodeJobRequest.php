@@ -12,18 +12,27 @@ use AlibabaCloud\Tea\Model;
 class SubmitTranscodeJobRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * @example ****12e8864746a0a398****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description This parameter is required.
+     * @description The input group of the job. An input of a single file indicates a transcoding job. An input of multiple files indicates an audio and video stream merge job.
+     *
+     * This parameter is required.
+     * @example job-name
      *
      * @var inputGroup[]
      */
     public $inputGroup;
 
     /**
+     * @description The job name.
+     *
      * @example job-name
      *
      * @var string
@@ -31,13 +40,18 @@ class SubmitTranscodeJobRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The output group of the job.
+     *
+     * This parameter is required.
+     * @example user-data
      *
      * @var outputGroup[]
      */
     public $outputGroup;
 
     /**
+     * @description The scheduling information about the job.
+     *
      * @example job-name
      *
      * @var scheduleConfig
@@ -45,6 +59,8 @@ class SubmitTranscodeJobRequest extends Model
     public $scheduleConfig;
 
     /**
+     * @description The custom settings. The value must be in the JSON format and can be up to 512 bytes in length. You can specify a [custom callback URL](https://help.aliyun.com/document_detail/451631.html).
+     *
      * @example user-data
      *
      * @var string

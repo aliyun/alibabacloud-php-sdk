@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeMeterImsSummaryResponseBody extends Model
 {
     /**
+     * @description The usage statistics of IMS.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example BEA98A0C-7870-15FE-B96F-8880BB600A2C
      *
      * @var string

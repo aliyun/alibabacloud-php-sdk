@@ -758,7 +758,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary AddTemplate
+     * @summary Creates a template.
+     *  *
+     * @description *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
+     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+     * *   After an advanced template is created, it enters the Processing state. In this case, the template is unavailable. The template can be used only when it is in the Available state. The time required for template processing varies based on the size of the template file. Generally, it ranges from 10 seconds to 5 minutes.
      *  *
      * @param AddTemplateRequest $request AddTemplateRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -814,7 +818,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary AddTemplate
+     * @summary Creates a template.
+     *  *
+     * @description *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
+     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+     * *   After an advanced template is created, it enters the Processing state. In this case, the template is unavailable. The template can be used only when it is in the Available state. The time required for template processing varies based on the size of the template file. Generally, it ranges from 10 seconds to 5 minutes.
      *  *
      * @param AddTemplateRequest $request AddTemplateRequest
      *
@@ -934,7 +942,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 取消DNA作业
+     * @summary Cancels a media fingerprint analysis job.
+     *  *
+     * @description *   You can cancel a media fingerprint analysis job only if the job is in the Queuing state.
+     * *   We recommend that you call the **UpdatePipeline** operation to set the status of the ApsaraVideo Media Processing (MPS) queue to Paused before you cancel a job. This suspends job scheduling in the MPS queue. After the job is canceled, you must set the status of the MPS queue back to Active so that the other jobs in the MPS queue can be scheduled.
      *  *
      * @param CancelDNAJobRequest $request CancelDNAJobRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -979,7 +990,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 取消DNA作业
+     * @summary Cancels a media fingerprint analysis job.
+     *  *
+     * @description *   You can cancel a media fingerprint analysis job only if the job is in the Queuing state.
+     * *   We recommend that you call the **UpdatePipeline** operation to set the status of the ApsaraVideo Media Processing (MPS) queue to Paused before you cancel a job. This suspends job scheduling in the MPS queue. After the job is canceled, you must set the status of the MPS queue back to Active so that the other jobs in the MPS queue can be scheduled.
      *  *
      * @param CancelDNAJobRequest $request CancelDNAJobRequest
      *
@@ -1040,7 +1054,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交人工审核
+     * @summary Submits manual review results for media assets.
      *  *
      * @param CreateAuditRequest $request CreateAuditRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -1073,7 +1087,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交人工审核
+     * @summary Submits manual review results for media assets.
      *  *
      * @param CreateAuditRequest $request CreateAuditRequest
      *
@@ -1087,7 +1101,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建数字人训练任务
+     * @summary Creates a digital human training job. You can configure the basic information of the digital human and the materials required for the training. Note: This operation is used to initialize the training job. It does not submit the training job. To submit the training job, call the SubmitAvatarTrainingJob operation.
      *  *
      * @param CreateAvatarTrainingJobRequest $request CreateAvatarTrainingJobRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -1138,7 +1152,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建数字人训练任务
+     * @summary Creates a digital human training job. You can configure the basic information of the digital human and the materials required for the training. Note: This operation is used to initialize the training job. It does not submit the training job. To submit the training job, call the SubmitAvatarTrainingJob operation.
      *  *
      * @param CreateAvatarTrainingJobRequest $request CreateAvatarTrainingJobRequest
      *
@@ -1152,7 +1166,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建媒体处理自定义模板
+     * @summary Creates a custom template.
      *  *
      * @param CreateCustomTemplateRequest $request CreateCustomTemplateRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -1194,7 +1208,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建媒体处理自定义模板
+     * @summary Creates a custom template.
      *  *
      * @param CreateCustomTemplateRequest $request CreateCustomTemplateRequest
      *
@@ -1208,7 +1222,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建人声克隆任务
+     * @summary Creates a human voice cloning job. You can configure the basic information of the human voice cloning job.
      *  *
      * @param CreateCustomizedVoiceJobRequest $request CreateCustomizedVoiceJobRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -1253,7 +1267,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建人声克隆任务
+     * @summary Creates a human voice cloning job. You can configure the basic information of the human voice cloning job.
      *  *
      * @param CreateCustomizedVoiceJobRequest $request CreateCustomizedVoiceJobRequest
      *
@@ -1267,7 +1281,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建指纹库
+     * @summary Creates media fingerprint libraries.
+     *  *
+     * @description *   You can create up to five media fingerprint libraries within an account. To increase the quota, submit a ticket. You can call the DeleteDNADB operation to delete the fingerprint libraries that you no longer need.
      *  *
      * @param CreateDNADBRequest $request CreateDNADBRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -1318,7 +1334,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建指纹库
+     * @summary Creates media fingerprint libraries.
+     *  *
+     * @description *   You can create up to five media fingerprint libraries within an account. To increase the quota, submit a ticket. You can call the DeleteDNADB operation to delete the fingerprint libraries that you no longer need.
      *  *
      * @param CreateDNADBRequest $request CreateDNADBRequest
      *
@@ -1577,7 +1595,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 添加用户管道配置
+     * @summary Creates an ApsaraVideo Media Processing (MPS) queue.
      *  *
      * @param CreatePipelineRequest $request CreatePipelineRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -1616,7 +1634,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 添加用户管道配置
+     * @summary Creates an ApsaraVideo Media Processing (MPS) queue.
      *  *
      * @param CreatePipelineRequest $request CreatePipelineRequest
      *
@@ -1885,7 +1903,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 解密KMS密钥DataKey
+     * @summary Decrypts the ciphertext specified by CiphertextBlob in the Key Management Service (KMS) data key.
      *  *
      * @param DecryptKMSDataKeyRequest $request DecryptKMSDataKeyRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -1918,7 +1936,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 解密KMS密钥DataKey
+     * @summary Decrypts the ciphertext specified by CiphertextBlob in the Key Management Service (KMS) data key.
      *  *
      * @param DecryptKMSDataKeyRequest $request DecryptKMSDataKeyRequest
      *
@@ -1932,7 +1950,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新数字人训练任务信息
+     * @summary Deletes a digital human training job that is in the Init or Fail state.
      *  *
      * @param DeleteAvatarTrainingJobRequest $request DeleteAvatarTrainingJobRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -1965,7 +1983,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新数字人训练任务信息
+     * @summary Deletes a digital human training job that is in the Init or Fail state.
      *  *
      * @param DeleteAvatarTrainingJobRequest $request DeleteAvatarTrainingJobRequest
      *
@@ -2030,7 +2048,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除媒体处理自定义模板
+     * @summary Deletes a custom template.
      *  *
      * @param DeleteCustomTemplateRequest $request DeleteCustomTemplateRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -2063,7 +2081,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除媒体处理自定义模板
+     * @summary Deletes a custom template.
      *  *
      * @param DeleteCustomTemplateRequest $request DeleteCustomTemplateRequest
      *
@@ -2077,7 +2095,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除用户的专属人声任务
+     * @summary Deletes a human voice cloning job that is not in the Training or Success state.
      *  *
      * @param DeleteCustomizedVoiceJobRequest $request DeleteCustomizedVoiceJobRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -2110,7 +2128,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除用户的专属人声任务
+     * @summary Deletes a human voice cloning job that is not in the Training or Success state.
      *  *
      * @param DeleteCustomizedVoiceJobRequest $request DeleteCustomizedVoiceJobRequest
      *
@@ -2124,7 +2142,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除DNA库
+     * @summary Deletes a media fingerprint library.
      *  *
      * @param DeleteDNADBRequest $request DeleteDNADBRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -2169,7 +2187,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除DNA库
+     * @summary Deletes a media fingerprint library.
      *  *
      * @param DeleteDNADBRequest $request DeleteDNADBRequest
      *
@@ -2183,7 +2201,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除DNA文件
+     * @summary Deletes files from a media fingerprint library.
      *  *
      * @param DeleteDNAFilesRequest $request DeleteDNAFilesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -2231,7 +2249,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除DNA文件
+     * @summary Deletes files from a media fingerprint library.
      *  *
      * @param DeleteDNAFilesRequest $request DeleteDNAFilesRequest
      *
@@ -2797,7 +2815,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除管道配置
+     * @summary Deletes an ApsaraVideo Media Processing (MPS) queue.
      *  *
      * @param DeletePipelineRequest $request DeletePipelineRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -2830,7 +2848,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除管道配置
+     * @summary Deletes an ApsaraVideo Media Processing (MPS) queue.
      *  *
      * @param DeletePipelineRequest $request DeletePipelineRequest
      *
@@ -2901,7 +2919,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary DeleteSmartJob
+     * @summary Deletes intelligent jobs based on job IDs.
      *  *
      * @param DeleteSmartJobRequest $request DeleteSmartJobRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -2934,7 +2952,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary DeleteSmartJob
+     * @summary Deletes intelligent jobs based on job IDs.
      *  *
      * @param DeleteSmartJobRequest $request DeleteSmartJobRequest
      *
@@ -2948,7 +2966,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary DeleteTemplate
+     * @summary Deletes templates.
+     *  *
+     * @description A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
+     * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
+     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
      *  *
      * @param DeleteTemplateRequest $request DeleteTemplateRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -2978,7 +3000,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary DeleteTemplate
+     * @summary Deletes templates.
+     *  *
+     * @description A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
+     * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
+     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
      *  *
      * @param DeleteTemplateRequest $request DeleteTemplateRequest
      *
@@ -3039,6 +3065,8 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Queries the usage statistics of Intelligent Media Services (IMS) on video-on-demand (VOD) editing. The maximum query range is 31 days. You can query data within the last 90 days.
+     *  *
      * @param DescribeMeterImsEditUsageRequest $request DescribeMeterImsEditUsageRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -3079,6 +3107,8 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Queries the usage statistics of Intelligent Media Services (IMS) on video-on-demand (VOD) editing. The maximum query range is 31 days. You can query data within the last 90 days.
+     *  *
      * @param DescribeMeterImsEditUsageRequest $request DescribeMeterImsEditUsageRequest
      *
      * @return DescribeMeterImsEditUsageResponse DescribeMeterImsEditUsageResponse
@@ -3091,6 +3121,8 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Queries the usage statistics of Intelligent Media Services (IMS) on ultra high definition (UHD) transcoding of ApsaraVideo Media Processing (MPS). The maximum query range is 31 days. You can query data within the last 90 days.
+     *  *
      * @param DescribeMeterImsMediaConvertUHDUsageRequest $request DescribeMeterImsMediaConvertUHDUsageRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
@@ -3131,6 +3163,8 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Queries the usage statistics of Intelligent Media Services (IMS) on ultra high definition (UHD) transcoding of ApsaraVideo Media Processing (MPS). The maximum query range is 31 days. You can query data within the last 90 days.
+     *  *
      * @param DescribeMeterImsMediaConvertUHDUsageRequest $request DescribeMeterImsMediaConvertUHDUsageRequest
      *
      * @return DescribeMeterImsMediaConvertUHDUsageResponse DescribeMeterImsMediaConvertUHDUsageResponse
@@ -3143,7 +3177,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 智能媒体服务点播转码用量
+     * @summary Queries the usage statistics of Intelligent Media Services (IMS) on video-on-demand (VOD) transcoding. The maximum query range is 31 days. You can query data within the last 90 days.
      *  *
      * @param DescribeMeterImsMediaConvertUsageRequest $request DescribeMeterImsMediaConvertUsageRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
@@ -3185,7 +3219,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 智能媒体服务点播转码用量
+     * @summary Queries the usage statistics of Intelligent Media Services (IMS) on video-on-demand (VOD) transcoding. The maximum query range is 31 days. You can query data within the last 90 days.
      *  *
      * @param DescribeMeterImsMediaConvertUsageRequest $request DescribeMeterImsMediaConvertUsageRequest
      *
@@ -3199,6 +3233,8 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Queries the usage statistics of Intelligent Media Services (IMS) on AI processing of ApsaraVideo Media Processing (MPS). The maximum query range is 31 days. You can query data within the last 90 days.
+     *  *
      * @param DescribeMeterImsMpsAiUsageRequest $request DescribeMeterImsMpsAiUsageRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -3239,6 +3275,8 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Queries the usage statistics of Intelligent Media Services (IMS) on AI processing of ApsaraVideo Media Processing (MPS). The maximum query range is 31 days. You can query data within the last 90 days.
+     *  *
      * @param DescribeMeterImsMpsAiUsageRequest $request DescribeMeterImsMpsAiUsageRequest
      *
      * @return DescribeMeterImsMpsAiUsageResponse DescribeMeterImsMpsAiUsageResponse
@@ -3251,6 +3289,8 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Queries the usage statistics of Intelligent Media Services (IMS). The maximum query range is 31 days. You can query data within the last 90 days.
+     *  *
      * @param DescribeMeterImsSummaryRequest $request DescribeMeterImsSummaryRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -3288,6 +3328,8 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Queries the usage statistics of Intelligent Media Services (IMS). The maximum query range is 31 days. You can query data within the last 90 days.
+     *  *
      * @param DescribeMeterImsSummaryRequest $request DescribeMeterImsSummaryRequest
      *
      * @return DescribeMeterImsSummaryResponse DescribeMeterImsSummaryResponse
@@ -3461,7 +3503,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 本接口用来检测用户的朗读是否有明显的发音错误、嘈杂的环境等
+     * @summary Checks whether the reading of users has issues, such as noticeable pronunciation errors or background noise. After the audio is checked on the cloud, the qualified audio is temporarily stored on the cloud for subsequent training. Do not skip this step.
      *  *
      * @param DetectAudioForCustomizedVoiceJobRequest $request DetectAudioForCustomizedVoiceJobRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -3500,7 +3542,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 本接口用来检测用户的朗读是否有明显的发音错误、嘈杂的环境等
+     * @summary Checks whether the reading of users has issues, such as noticeable pronunciation errors or background noise. After the audio is checked on the cloud, the qualified audio is temporarily stored on the cloud for subsequent training. Do not skip this step.
      *  *
      * @param DetectAudioForCustomizedVoiceJobRequest $request DetectAudioForCustomizedVoiceJobRequest
      *
@@ -3636,6 +3678,9 @@ class ICE extends OpenApiClient
         if (!Utils::isUnset($request->templateConfigShrink)) {
             $query['TemplateConfig'] = $request->templateConfigShrink;
         }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
         if (!Utils::isUnset($request->userId)) {
             $query['UserId'] = $request->userId;
         }
@@ -3672,7 +3717,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 生成KMS密钥DataKey
+     * @summary Generates a random Key Management Service (KMS) data key used for HTTP Live Streaming (HLS) encryption and transcoding of videos.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -3697,7 +3742,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 生成KMS密钥DataKey
+     * @summary Generates a random Key Management Service (KMS) data key used for HTTP Live Streaming (HLS) encryption and transcoding of videos.
      *  *
      * @return GenerateKMSDataKeyResponse GenerateKMSDataKeyResponse
      */
@@ -3709,7 +3754,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询单个数字人
+     * @summary Queries the information about a trained digital human.
      *  *
      * @param GetAvatarRequest $request GetAvatarRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -3742,7 +3787,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询单个数字人
+     * @summary Queries the information about a trained digital human.
      *  *
      * @param GetAvatarRequest $request GetAvatarRequest
      *
@@ -3756,7 +3801,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询单个数字人训练任务
+     * @summary Queries the information about a digital human training job.
      *  *
      * @param GetAvatarTrainingJobRequest $request GetAvatarTrainingJobRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -3789,7 +3834,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询单个数字人训练任务
+     * @summary Queries the information about a digital human training job.
      *  *
      * @param GetAvatarTrainingJobRequest $request GetAvatarTrainingJobRequest
      *
@@ -3803,7 +3848,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 一键成片-批量获取剪辑任务
+     * @summary Queries the information about a quick video production job, including the input parameters, job state, and the IDs and URLs of the output media assets. You can call this operation to query only quick video production jobs created within the past year.
      *  *
      * @param GetBatchMediaProducingJobRequest $request GetBatchMediaProducingJobRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -3836,7 +3881,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 一键成片-批量获取剪辑任务
+     * @summary Queries the information about a quick video production job, including the input parameters, job state, and the IDs and URLs of the output media assets. You can call this operation to query only quick video production jobs created within the past year.
      *  *
      * @param GetBatchMediaProducingJobRequest $request GetBatchMediaProducingJobRequest
      *
@@ -3950,7 +3995,36 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取单个媒体处理自定义模板
+     * @summary Queries the information about a custom template.
+     *  *
+     * @description You can call this operation to query the information about a template with the ID specified by the TemplateId parameter. You can also query the information about the default template. If TemplateId is specified, other parameters are ignored and the template whose ID is specified is queried. If TemplateId is not specified, the default template is queried based on other parameters. In this case, Type is required.
+     * Template types:
+     * 1.  1: transcoding template.
+     * 2.  2: snapshot template.
+     * 3.  3: animated image template.
+     * 4.  4\\. image watermark template.
+     * 5.  5: text watermark template.
+     * 6.  6: subtitle template.
+     * 7.  7: AI-assisted content moderation template.
+     * 8.  8: AI-assisted intelligent thumbnail template.
+     * 9.  9: AI-assisted intelligent erasure template.
+     * Subtypes of transcoding templates:
+     * 1.  1 (Normal): regular template.
+     * 2.  2 (AudioTranscode): audio transcoding template.
+     * 3.  3 (Remux): container format conversion template.
+     * 4.  4 (NarrowBandV1): Narrowband HD 1.0 template.
+     * 5.  5 (NarrowBandV2): Narrowband HD 2.0 template.
+     * Subtypes of snapshot templates:
+     * 1.  1 (Normal): regular template.
+     * 2.  2 (Sprite): sprite template.
+     * 3.  3 (WebVtt): WebVTT template.
+     * Subtypes of AI-assisted content moderation templates:
+     * 1.  1 (Video): video moderation template.
+     * 2.  2 (Audio): audio moderation template.
+     * 3.  3 (Image): image moderation template.
+     * Subtypes of AI-assisted intelligent erasure templates:
+     * 1.  1 (VideoDelogo): logo erasure template.
+     * 2.  2 (VideoDetext): subtitle erasure template.
      *  *
      * @param GetCustomTemplateRequest $request GetCustomTemplateRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -3989,7 +4063,36 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取单个媒体处理自定义模板
+     * @summary Queries the information about a custom template.
+     *  *
+     * @description You can call this operation to query the information about a template with the ID specified by the TemplateId parameter. You can also query the information about the default template. If TemplateId is specified, other parameters are ignored and the template whose ID is specified is queried. If TemplateId is not specified, the default template is queried based on other parameters. In this case, Type is required.
+     * Template types:
+     * 1.  1: transcoding template.
+     * 2.  2: snapshot template.
+     * 3.  3: animated image template.
+     * 4.  4\\. image watermark template.
+     * 5.  5: text watermark template.
+     * 6.  6: subtitle template.
+     * 7.  7: AI-assisted content moderation template.
+     * 8.  8: AI-assisted intelligent thumbnail template.
+     * 9.  9: AI-assisted intelligent erasure template.
+     * Subtypes of transcoding templates:
+     * 1.  1 (Normal): regular template.
+     * 2.  2 (AudioTranscode): audio transcoding template.
+     * 3.  3 (Remux): container format conversion template.
+     * 4.  4 (NarrowBandV1): Narrowband HD 1.0 template.
+     * 5.  5 (NarrowBandV2): Narrowband HD 2.0 template.
+     * Subtypes of snapshot templates:
+     * 1.  1 (Normal): regular template.
+     * 2.  2 (Sprite): sprite template.
+     * 3.  3 (WebVtt): WebVTT template.
+     * Subtypes of AI-assisted content moderation templates:
+     * 1.  1 (Video): video moderation template.
+     * 2.  2 (Audio): audio moderation template.
+     * 3.  3 (Image): image moderation template.
+     * Subtypes of AI-assisted intelligent erasure templates:
+     * 1.  1 (VideoDelogo): logo erasure template.
+     * 2.  2 (VideoDetext): subtitle erasure template.
      *  *
      * @param GetCustomTemplateRequest $request GetCustomTemplateRequest
      *
@@ -4003,7 +4106,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户的专属人声
+     * @summary Queries the information about a personalized human voice.
      *  *
      * @param GetCustomizedVoiceRequest $request GetCustomizedVoiceRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -4036,7 +4139,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户的专属人声
+     * @summary Queries the information about a personalized human voice.
      *  *
      * @param GetCustomizedVoiceRequest $request GetCustomizedVoiceRequest
      *
@@ -4050,7 +4153,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询单个人声克隆训练任务
+     * @summary Queries the information about a human voice cloning job.
      *  *
      * @param GetCustomizedVoiceJobRequest $request GetCustomizedVoiceJobRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -4083,7 +4186,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询单个人声克隆训练任务
+     * @summary Queries the information about a human voice cloning job.
      *  *
      * @param GetCustomizedVoiceJobRequest $request GetCustomizedVoiceJobRequest
      *
@@ -4134,7 +4237,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 通过本接口来获取需要给用户朗读的文本及示例音频
+     * @summary Queries the text to be read and sample audio for training a personalized human voice.
      *  *
      * @param GetDemonstrationForCustomizedVoiceJobRequest $request GetDemonstrationForCustomizedVoiceJobRequest
      * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
@@ -4167,7 +4270,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 通过本接口来获取需要给用户朗读的文本及示例音频
+     * @summary Queries the text to be read and sample audio for training a personalized human voice.
      *  *
      * @param GetDemonstrationForCustomizedVoiceJobRequest $request GetDemonstrationForCustomizedVoiceJobRequest
      *
@@ -4181,7 +4284,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询动图任务详情接口
+     * @summary Queries the information about an image animation job.
      *  *
      * @param GetDynamicImageJobRequest $request GetDynamicImageJobRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -4214,7 +4317,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询动图任务详情接口
+     * @summary Queries the information about an image animation job.
      *  *
      * @param GetDynamicImageJobRequest $request GetDynamicImageJobRequest
      *
@@ -4418,7 +4521,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取直播剪辑任务
+     * @summary Queries the information about a live editing job. The requested information includes the state, timeline, and template of the job, the ID and URL of the output file, and the configurations of the job. You can call this operation to query only live editing jobs created within the past year.
      *  *
      * @param GetLiveEditingJobRequest $request GetLiveEditingJobRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -4451,7 +4554,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取直播剪辑任务
+     * @summary Queries the information about a live editing job. The requested information includes the state, timeline, and template of the job, the ID and URL of the output file, and the configurations of the job. You can call this operation to query only live editing jobs created within the past year.
      *  *
      * @param GetLiveEditingJobRequest $request GetLiveEditingJobRequest
      *
@@ -4795,6 +4898,8 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about a media information analysis job.
+     *  *
      * @param GetMediaInfoJobRequest $request GetMediaInfoJobRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -4826,6 +4931,8 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about a media information analysis job.
+     *  *
      * @param GetMediaInfoJobRequest $request GetMediaInfoJobRequest
      *
      * @return GetMediaInfoJobResponse GetMediaInfoJobResponse
@@ -4888,7 +4995,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary GetMediaProducingJob
+     * @summary Queries the information about a media editing and production job. The requested information includes the state, timeline, template, and data of the job. You can call this operation to query only media editing and production jobs created within the past year.
      *  *
      * @param GetMediaProducingJobRequest $request GetMediaProducingJobRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -4918,7 +5025,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary GetMediaProducingJob
+     * @summary Queries the information about a media editing and production job. The requested information includes the state, timeline, template, and data of the job. You can call this operation to query only media editing and production jobs created within the past year.
      *  *
      * @param GetMediaProducingJobRequest $request GetMediaProducingJobRequest
      *
@@ -4932,7 +5039,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取单个打包任务信息
+     * @summary Queries the information about a packaging job.
      *  *
      * @param GetPackageJobRequest $request GetPackageJobRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -4965,7 +5072,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取单个打包任务信息
+     * @summary Queries the information about a packaging job.
      *  *
      * @param GetPackageJobRequest $request GetPackageJobRequest
      *
@@ -4979,7 +5086,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取单个管道配置
+     * @summary Queries the information about an ApsaraVideo Media Processing (MPS) queue.
      *  *
      * @param GetPipelineRequest $request GetPipelineRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -5012,7 +5119,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取单个管道配置
+     * @summary Queries the information about an ApsaraVideo Media Processing (MPS) queue.
      *  *
      * @param GetPipelineRequest $request GetPipelineRequest
      *
@@ -5127,7 +5234,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary GetSmartHandleJob
+     * @summary Queries the information about an intelligent job and the execution results of the job based the job ID. You can call this operation to query only intelligent jobs created within the past year.
      *  *
      * @param GetSmartHandleJobRequest $request GetSmartHandleJobRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -5160,7 +5267,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary GetSmartHandleJob
+     * @summary Queries the information about an intelligent job and the execution results of the job based the job ID. You can call this operation to query only intelligent jobs created within the past year.
      *  *
      * @param GetSmartHandleJobRequest $request GetSmartHandleJobRequest
      *
@@ -5174,7 +5281,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询单个截图任务
+     * @summary Queries the information about a snapshot job.
      *  *
      * @param GetSnapshotJobRequest $request GetSnapshotJobRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -5207,7 +5314,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询单个截图任务
+     * @summary Queries the information about a snapshot job.
      *  *
      * @param GetSnapshotJobRequest $request GetSnapshotJobRequest
      *
@@ -5221,7 +5328,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取截图文件URL
+     * @summary Queries the accessible URLs of the output images of a snapshot job.
      *  *
      * @param GetSnapshotUrlsRequest $request GetSnapshotUrlsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -5266,7 +5373,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取截图文件URL
+     * @summary Queries the accessible URLs of the output images of a snapshot job.
      *  *
      * @param GetSnapshotUrlsRequest $request GetSnapshotUrlsRequest
      *
@@ -5333,7 +5440,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取单个媒体处理系统模板
+     * @summary Queries the information about a system template.
      *  *
      * @param GetSystemTemplateRequest $request GetSystemTemplateRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -5366,7 +5473,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取单个媒体处理系统模板
+     * @summary Queries the information about a system template.
      *  *
      * @param GetSystemTemplateRequest $request GetSystemTemplateRequest
      *
@@ -5380,7 +5487,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary GetTemplate
+     * @summary Queries the information about a template based on the template ID. You can call this operation to query the information about an advanced template if the template is in the Available state.
+     *  *
+     * @description A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
+     * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
+     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
      *  *
      * @param GetTemplateRequest $request GetTemplateRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -5416,7 +5527,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary GetTemplate
+     * @summary Queries the information about a template based on the template ID. You can call this operation to query the information about an advanced template if the template is in the Available state.
+     *  *
+     * @description A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
+     * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
+     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
      *  *
      * @param GetTemplateRequest $request GetTemplateRequest
      *
@@ -5430,7 +5545,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取模板关联素材信息
+     * @summary Queries the URLs of materials associated with an advanced template for use by the advanced template editor. The URLs expire in 30 minutes. FileList is an array of materials that you want to query. If you do not specify this parameter, the URLs of all materials are returned. A maximum of 400 URLs can be returned.
      *  *
      * @param GetTemplateMaterialsRequest $request GetTemplateMaterialsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -5466,7 +5581,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取模板关联素材信息
+     * @summary Queries the URLs of materials associated with an advanced template for use by the advanced template editor. The URLs expire in 30 minutes. FileList is an array of materials that you want to query. If you do not specify this parameter, the URLs of all materials are returned. A maximum of 400 URLs can be returned.
      *  *
      * @param GetTemplateMaterialsRequest $request GetTemplateMaterialsRequest
      *
@@ -5480,7 +5595,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取模板参数信息
+     * @summary Queries the parameters for replaceable materials in a template, including the parameter names, default values, and material thumbnails. Only advanced templates are supported.
      *  *
      * @param GetTemplateParamsRequest $request GetTemplateParamsRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -5510,7 +5625,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取模板参数信息
+     * @summary Queries the parameters for replaceable materials in a template, including the parameter names, default values, and material thumbnails. Only advanced templates are supported.
      *  *
      * @param GetTemplateParamsRequest $request GetTemplateParamsRequest
      *
@@ -5524,6 +5639,8 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about a transcoding job.
+     *  *
      * @param GetTranscodeJobRequest $request GetTranscodeJobRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -5555,6 +5672,8 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about a transcoding job.
+     *  *
      * @param GetTranscodeJobRequest $request GetTranscodeJobRequest
      *
      * @return GetTranscodeJobResponse GetTranscodeJobResponse
@@ -5692,7 +5811,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取工作流任务
+     * @summary Queries the information about a workflow task by task ID, including the workflow ID and the status and result of the task. You can query only the workflow task data of the last year.
      *  *
      * @param GetWorkflowTaskRequest $request GetWorkflowTaskRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -5725,7 +5844,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取工作流任务
+     * @summary Queries the information about a workflow task by task ID, including the workflow ID and the status and result of the task. You can query only the workflow task data of the last year.
      *  *
      * @param GetWorkflowTaskRequest $request GetWorkflowTaskRequest
      *
@@ -5907,7 +6026,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询数字人训练任务列表，列出当前用户的所有数字人训练任务
+     * @summary Queries a list of digital human training jobs.
      *  *
      * @param ListAvatarTrainingJobsRequest $request ListAvatarTrainingJobsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -5946,7 +6065,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询数字人训练任务列表，列出当前用户的所有数字人训练任务
+     * @summary Queries a list of digital human training jobs.
      *  *
      * @param ListAvatarTrainingJobsRequest $request ListAvatarTrainingJobsRequest
      *
@@ -5960,7 +6079,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询数字人列表，列出当前用户的所有数字人
+     * @summary Queries a list of trained digital humans.
      *  *
      * @param ListAvatarsRequest $request ListAvatarsRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -5999,7 +6118,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询数字人列表，列出当前用户的所有数字人
+     * @summary Queries a list of trained digital humans.
      *  *
      * @param ListAvatarsRequest $request ListAvatarsRequest
      *
@@ -6013,7 +6132,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取一键成片任务列表
+     * @summary Queries a list of quick video production jobs based on conditions such as the job type and state.
      *  *
      * @param ListBatchMediaProducingJobsRequest $request ListBatchMediaProducingJobsRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -6067,7 +6186,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取一键成片任务列表
+     * @summary Queries a list of quick video production jobs based on conditions such as the job type and state.
      *  *
      * @param ListBatchMediaProducingJobsRequest $request ListBatchMediaProducingJobsRequest
      *
@@ -6081,7 +6200,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取媒体处理自定义模板列表
+     * @summary Queries a list of custom templates.
      *  *
      * @param ListCustomTemplatesRequest $request ListCustomTemplatesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -6132,7 +6251,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取媒体处理自定义模板列表
+     * @summary Queries a list of custom templates.
      *  *
      * @param ListCustomTemplatesRequest $request ListCustomTemplatesRequest
      *
@@ -6146,7 +6265,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询人声克隆训练任务列表，列出当前用户的所有人声克隆训练任务
+     * @summary Queries a list of human voice cloning jobs.
      *  *
      * @param ListCustomizedVoiceJobsRequest $request ListCustomizedVoiceJobsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -6185,7 +6304,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询人声克隆训练任务列表，列出当前用户的所有人声克隆训练任务
+     * @summary Queries a list of human voice cloning jobs.
      *  *
      * @param ListCustomizedVoiceJobsRequest $request ListCustomizedVoiceJobsRequest
      *
@@ -6199,7 +6318,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户的专属人声列表
+     * @summary Queries a list of personalized human voices.
      *  *
      * @param ListCustomizedVoicesRequest $request ListCustomizedVoicesRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -6238,7 +6357,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户的专属人声列表
+     * @summary Queries a list of personalized human voices.
      *  *
      * @param ListCustomizedVoicesRequest $request ListCustomizedVoicesRequest
      *
@@ -6252,7 +6371,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询DNA库
+     * @summary Queries a list of media fingerprint libraries.
      *  *
      * @param ListDNADBRequest $request ListDNADBRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -6297,7 +6416,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询DNA库
+     * @summary Queries a list of media fingerprint libraries.
      *  *
      * @param ListDNADBRequest $request ListDNADBRequest
      *
@@ -6311,7 +6430,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询DNA文件
+     * @summary Queries a list of files in a media fingerprint library.
+     *  *
+     * @description You can call this operation to query files in a media fingerprint library based on the library ID. The queried results can be paginated.
      *  *
      * @param ListDNAFilesRequest $request ListDNAFilesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -6362,7 +6483,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询DNA文件
+     * @summary Queries a list of files in a media fingerprint library.
+     *  *
+     * @description You can call this operation to query files in a media fingerprint library based on the library ID. The queried results can be paginated.
      *  *
      * @param ListDNAFilesRequest $request ListDNAFilesRequest
      *
@@ -6376,7 +6499,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询截图任务列表接口
+     * @summary Queries a list of image animation jobs.
      *  *
      * @param ListDynamicImageJobsRequest $request ListDynamicImageJobsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -6427,7 +6550,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询截图任务列表接口
+     * @summary Queries a list of image animation jobs.
      *  *
      * @param ListDynamicImageJobsRequest $request ListDynamicImageJobsRequest
      *
@@ -6990,6 +7113,8 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of media information analysis jobs.
+     *  *
      * @param ListMediaInfoJobsRequest $request ListMediaInfoJobsRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -7039,6 +7164,8 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of media information analysis jobs.
+     *  *
      * @param ListMediaInfoJobsRequest $request ListMediaInfoJobsRequest
      *
      * @return ListMediaInfoJobsResponse ListMediaInfoJobsResponse
@@ -7101,7 +7228,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 列出合成任务列表
+     * @summary Queries a list of media editing and production jobs that meet the specified conditions. You can query the jobs based on the job state and type.
      *  *
      * @param ListMediaProducingJobsRequest $request ListMediaProducingJobsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -7161,7 +7288,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 列出合成任务列表
+     * @summary Queries a list of media editing and production jobs that meet the specified conditions. You can query the jobs based on the job state and type.
      *  *
      * @param ListMediaProducingJobsRequest $request ListMediaProducingJobsRequest
      *
@@ -7175,7 +7302,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取打包任务列表
+     * @summary Queries a list of packaging jobs.
      *  *
      * @param ListPackageJobsRequest $request ListPackageJobsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -7226,7 +7353,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取打包任务列表
+     * @summary Queries a list of packaging jobs.
      *  *
      * @param ListPackageJobsRequest $request ListPackageJobsRequest
      *
@@ -7240,7 +7367,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取管道配置列表
+     * @summary Queries a list of ApsaraVideo Media Processing (MPS) queues.
      *  *
      * @param ListPipelinesRequest $request ListPipelinesRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -7273,7 +7400,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取管道配置列表
+     * @summary Queries a list of ApsaraVideo Media Processing (MPS) queues.
      *  *
      * @param ListPipelinesRequest $request ListPipelinesRequest
      *
@@ -7402,7 +7529,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary ListSmartJobs
+     * @summary Queries a list of intelligent jobs based on specified parameters.
      *  *
      * @param ListSmartJobsRequest $request ListSmartJobsRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -7432,7 +7559,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary ListSmartJobs
+     * @summary Queries a list of intelligent jobs based on specified parameters.
      *  *
      * @param ListSmartJobsRequest $request ListSmartJobsRequest
      *
@@ -7446,7 +7573,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 列出虚拟人官方模特配置
+     * @summary Queries a list of system digital humans. This operation supports paged queries.
      *  *
      * @param ListSmartSysAvatarModelsRequest $request ListSmartSysAvatarModelsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -7485,7 +7612,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 列出虚拟人官方模特配置
+     * @summary Queries a list of system digital humans. This operation supports paged queries.
      *  *
      * @param ListSmartSysAvatarModelsRequest $request ListSmartSysAvatarModelsRequest
      *
@@ -7499,7 +7626,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 列出智能语音发音人信息
+     * @summary Queries a list of speaker groups, including the name, gender, and sample audio of each speaker. The list is grouped by scenario.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -7524,7 +7651,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 列出智能语音发音人信息
+     * @summary Queries a list of speaker groups, including the name, gender, and sample audio of each speaker. The list is grouped by scenario.
      *  *
      * @return ListSmartVoiceGroupsResponse ListSmartVoiceGroupsResponse
      */
@@ -7536,7 +7663,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询截图任务列表接口
+     * @summary Queries a list of snapshot jobs.
      *  *
      * @param ListSnapshotJobsRequest $request ListSnapshotJobsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -7587,7 +7714,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询截图任务列表接口
+     * @summary Queries a list of snapshot jobs.
      *  *
      * @param ListSnapshotJobsRequest $request ListSnapshotJobsRequest
      *
@@ -7601,7 +7728,35 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取媒体处理系统模板列表
+     * @summary Queries a list of system templates.
+     *  *
+     * @description Template types:
+     * 1.  1: transcoding template.
+     * 2.  2: snapshot template.
+     * 3.  3: animated image template.
+     * 4.  4\\. image watermark template.
+     * 5.  5: text watermark template.
+     * 6.  6: subtitle template.
+     * 7.  7: AI-assisted content moderation template.
+     * 8.  8: AI-assisted intelligent thumbnail template.
+     * 9.  9: AI-assisted intelligent erasure template.
+     * Subtypes of transcoding templates:
+     * 1.  1 (Normal): regular template.
+     * 2.  2 (AudioTranscode): audio transcoding template.
+     * 3.  3 (Remux): container format conversion template.
+     * 4.  4 (NarrowBandV1): Narrowband HD 1.0 template.
+     * 5.  5 (NarrowBandV2): Narrowband HD 2.0 template.
+     * Subtypes of snapshot templates:
+     * 1.  1 (Normal): regular template.
+     * 2.  2 (Sprite): sprite template.
+     * 3.  3 (WebVtt): WebVTT template.
+     * Subtypes of AI-assisted content moderation templates:
+     * 1.  1 (Video): video moderation template.
+     * 2.  2 (Audio): audio moderation template.
+     * 3.  3 (Image): image moderation template.
+     * Subtypes of AI-assisted intelligent erasure templates:
+     * 1.  1 (VideoDelogo): logo erasure template.
+     * 2.  2 (VideoDetext): subtitle erasure template.
      *  *
      * @param ListSystemTemplatesRequest $request ListSystemTemplatesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -7652,7 +7807,35 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取媒体处理系统模板列表
+     * @summary Queries a list of system templates.
+     *  *
+     * @description Template types:
+     * 1.  1: transcoding template.
+     * 2.  2: snapshot template.
+     * 3.  3: animated image template.
+     * 4.  4\\. image watermark template.
+     * 5.  5: text watermark template.
+     * 6.  6: subtitle template.
+     * 7.  7: AI-assisted content moderation template.
+     * 8.  8: AI-assisted intelligent thumbnail template.
+     * 9.  9: AI-assisted intelligent erasure template.
+     * Subtypes of transcoding templates:
+     * 1.  1 (Normal): regular template.
+     * 2.  2 (AudioTranscode): audio transcoding template.
+     * 3.  3 (Remux): container format conversion template.
+     * 4.  4 (NarrowBandV1): Narrowband HD 1.0 template.
+     * 5.  5 (NarrowBandV2): Narrowband HD 2.0 template.
+     * Subtypes of snapshot templates:
+     * 1.  1 (Normal): regular template.
+     * 2.  2 (Sprite): sprite template.
+     * 3.  3 (WebVtt): WebVTT template.
+     * Subtypes of AI-assisted content moderation templates:
+     * 1.  1 (Video): video moderation template.
+     * 2.  2 (Audio): audio moderation template.
+     * 3.  3 (Image): image moderation template.
+     * Subtypes of AI-assisted intelligent erasure templates:
+     * 1.  1 (VideoDelogo): logo erasure template.
+     * 2.  2 (VideoDetext): subtitle erasure template.
      *  *
      * @param ListSystemTemplatesRequest $request ListSystemTemplatesRequest
      *
@@ -7666,7 +7849,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary ListTemplates
+     * @summary Queries a list of templates that meet the specified conditions. You can query templates based on information such as the template status and creation source.
+     *  *
+     * @description A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
+     * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
+     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
      *  *
      * @param ListTemplatesRequest $request ListTemplatesRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -7717,7 +7904,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary ListTemplates
+     * @summary Queries a list of templates that meet the specified conditions. You can query templates based on information such as the template status and creation source.
+     *  *
+     * @description A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
+     * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
+     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
      *  *
      * @param ListTemplatesRequest $request ListTemplatesRequest
      *
@@ -7731,6 +7922,8 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of transcoding jobs.
+     *  *
      * @param ListTranscodeJobsRequest $request ListTranscodeJobsRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -7780,6 +7973,8 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of transcoding jobs.
+     *  *
      * @param ListTranscodeJobsRequest $request ListTranscodeJobsRequest
      *
      * @return ListTranscodeJobsResponse ListTranscodeJobsResponse
@@ -7792,7 +7987,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询DNA作业
+     * @summary Queries a list of media fingerprint analysis jobs.
      *  *
      * @param QueryDNAJobListRequest $request QueryDNAJobListRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -7837,7 +8032,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询DNA作业
+     * @summary Queries a list of media fingerprint analysis jobs.
      *  *
      * @param QueryDNAJobListRequest $request QueryDNAJobListRequest
      *
@@ -7851,7 +8046,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询智能生产作业
+     * @summary Queries the status and result of an intelligent production job.
      *  *
      * @param QueryIProductionJobRequest $request QueryIProductionJobRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -7887,7 +8082,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询智能生产作业
+     * @summary Queries the status and result of an intelligent production job.
      *  *
      * @param QueryIProductionJobRequest $request QueryIProductionJobRequest
      *
@@ -7901,6 +8096,10 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about a content moderation job.
+     *  *
+     * @description In the content moderation results, the moderation results of the video are sorted in ascending order by time into a timeline. If the video is long, the content moderation results are paginated, and the first page is returned. You can call this operation again to query the remaining moderation results of the video.
+     *  *
      * @param QueryMediaCensorJobDetailRequest $request QueryMediaCensorJobDetailRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -7950,6 +8149,10 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about a content moderation job.
+     *  *
+     * @description In the content moderation results, the moderation results of the video are sorted in ascending order by time into a timeline. If the video is long, the content moderation results are paginated, and the first page is returned. You can call this operation again to query the remaining moderation results of the video.
+     *  *
      * @param QueryMediaCensorJobDetailRequest $request QueryMediaCensorJobDetailRequest
      *
      * @return QueryMediaCensorJobDetailResponse QueryMediaCensorJobDetailResponse
@@ -7962,6 +8165,10 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of content moderation jobs.
+     *  *
+     * @description You can call this operation to query only the content moderation jobs within the most recent three months.
+     *  *
      * @param QueryMediaCensorJobListRequest $request QueryMediaCensorJobListRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -8023,6 +8230,10 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of content moderation jobs.
+     *  *
+     * @description You can call this operation to query only the content moderation jobs within the most recent three months.
+     *  *
      * @param QueryMediaCensorJobListRequest $request QueryMediaCensorJobListRequest
      *
      * @return QueryMediaCensorJobListResponse QueryMediaCensorJobListResponse
@@ -8182,6 +8393,8 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about a smart tagging job.
+     *  *
      * @param QuerySmarttagJobRequest $request QuerySmarttagJobRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -8216,6 +8429,8 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about a smart tagging job.
+     *  *
      * @param QuerySmarttagJobRequest $request QuerySmarttagJobRequest
      *
      * @return QuerySmarttagJobResponse QuerySmarttagJobResponse
@@ -9234,7 +9449,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 设置默认媒体处理模板
+     * @summary Sets a custom template as the default template.
      *  *
      * @param SetDefaultCustomTemplateRequest $request SetDefaultCustomTemplateRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -9267,7 +9482,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 设置默认媒体处理模板
+     * @summary Sets a custom template as the default template.
      *  *
      * @param SetDefaultCustomTemplateRequest $request SetDefaultCustomTemplateRequest
      *
@@ -9586,7 +9801,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 启动工作流
+     * @summary Submits a workflow task. You can submit a workflow task to implement automated media processing based on a workflow template.
+     *  *
+     * @description *   Only media assets from Intelligent Media Services (IMS) or ApsaraVideo VOD can be used as the input of a workflow.
+     * *   When you submit a workflow task, you must specify a workflow template. You can create a workflow template in the [IMS console](https://ims.console.aliyun.com/settings/workflow/list) or use a preset workflow template.
      *  *
      * @param StartWorkflowRequest $request StartWorkflowRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -9625,7 +9843,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 启动工作流
+     * @summary Submits a workflow task. You can submit a workflow task to implement automated media processing based on a workflow template.
+     *  *
+     * @description *   Only media assets from Intelligent Media Services (IMS) or ApsaraVideo VOD can be used as the input of a workflow.
+     * *   When you submit a workflow task, you must specify a workflow template. You can create a workflow template in the [IMS console](https://ims.console.aliyun.com/settings/workflow/list) or use a preset workflow template.
      *  *
      * @param StartWorkflowRequest $request StartWorkflowRequest
      *
@@ -9733,7 +9954,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary SubmitASRJob
+     * @summary Submits an automatic speech recognition (ASR) job to extract the start and end time and the corresponding text information of a speech in a video.
      *  *
      * @param SubmitASRJobRequest $request SubmitASRJobRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -9781,7 +10002,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary SubmitASRJob
+     * @summary Submits an automatic speech recognition (ASR) job to extract the start and end time and the corresponding text information of a speech in a video.
      *  *
      * @param SubmitASRJobRequest $request SubmitASRJobRequest
      *
@@ -9795,7 +10016,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary SubmitAudioProduceJob
+     * @summary Submits an audio production job that converts text into an audio file.
      *  *
      * @param SubmitAudioProduceJobRequest $request SubmitAudioProduceJobRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -9846,7 +10067,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary SubmitAudioProduceJob
+     * @summary Submits an audio production job that converts text into an audio file.
      *  *
      * @param SubmitAudioProduceJobRequest $request SubmitAudioProduceJobRequest
      *
@@ -9860,7 +10081,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交数字人训练任务
+     * @summary Submits a digital human training job. You can call this operation to submit a job the first time or submit a job again with updated parameters if the training failed.
      *  *
      * @param SubmitAvatarTrainingJobRequest $request SubmitAvatarTrainingJobRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -9893,7 +10114,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交数字人训练任务
+     * @summary Submits a digital human training job. You can call this operation to submit a job the first time or submit a job again with updated parameters if the training failed.
      *  *
      * @param SubmitAvatarTrainingJobRequest $request SubmitAvatarTrainingJobRequest
      *
@@ -9969,7 +10190,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary SubmitBatchMediaProducingJob
+     * @summary Submits a quick video production job that intelligently edits multiple video, audio, and image assets to generate multiple videos at a time.
      *  *
      * @param SubmitBatchMediaProducingJobRequest $request SubmitBatchMediaProducingJobRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -10016,7 +10237,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary SubmitBatchMediaProducingJob
+     * @summary Submits a quick video production job that intelligently edits multiple video, audio, and image assets to generate multiple videos at a time.
      *  *
      * @param SubmitBatchMediaProducingJobRequest $request SubmitBatchMediaProducingJobRequest
      *
@@ -10030,7 +10251,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交人声克隆训练任务
+     * @summary Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
      *  *
      * @param SubmitCustomizedVoiceJobRequest $request SubmitCustomizedVoiceJobRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -10066,7 +10287,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交人声克隆训练任务
+     * @summary Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
      *  *
      * @param SubmitCustomizedVoiceJobRequest $request SubmitCustomizedVoiceJobRequest
      *
@@ -10080,7 +10301,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交DNA作业
+     * @summary Submits a media fingerprint analysis job.
+     *  *
+     * @description *   SubmitDNAJob is an asynchronous operation. After a request is sent, the system returns a request ID and a job ID and runs the task in the background.
+     * *   You can call this operation only in the China (Beijing), China (Hangzhou), and China (Shanghai) regions.
+     * *   You can submit a text fingerprint analysis job only in the China (Shanghai) region.
      *  *
      * @param SubmitDNAJobRequest $tmpReq  SubmitDNAJobRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -10148,7 +10373,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交DNA作业
+     * @summary Submits a media fingerprint analysis job.
+     *  *
+     * @description *   SubmitDNAJob is an asynchronous operation. After a request is sent, the system returns a request ID and a job ID and runs the task in the background.
+     * *   You can call this operation only in the China (Beijing), China (Hangzhou), and China (Shanghai) regions.
+     * *   You can submit a text fingerprint analysis job only in the China (Shanghai) region.
      *  *
      * @param SubmitDNAJobRequest $request SubmitDNAJobRequest
      *
@@ -10245,7 +10474,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交异步动图任务接口
+     * @summary Submits an image animation job.
      *  *
      * @param SubmitDynamicImageJobRequest $tmpReq  SubmitDynamicImageJobRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -10307,7 +10536,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交异步动图任务接口
+     * @summary Submits an image animation job.
      *  *
      * @param SubmitDynamicImageJobRequest $request SubmitDynamicImageJobRequest
      *
@@ -10321,7 +10550,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交智能生产作业
+     * @summary Submits an intelligent production job.
      *  *
      * @param SubmitIProductionJobRequest $tmpReq  SubmitIProductionJobRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -10389,7 +10618,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交智能生产作业
+     * @summary Submits an intelligent production job.
      *  *
      * @param SubmitIProductionJobRequest $request SubmitIProductionJobRequest
      *
@@ -10403,7 +10632,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交直播剪辑任务
+     * @summary Submits a live editing job to merge one or more live stream clips into one video. After a live editing job is submitted, the job is queued in the background for asynchronous processing. You can call the GeLiveEditingJob operation to query the state of the job based on the job ID. You can also call the GetMediaInfo operation to query the information about the generated media asset based on the media asset ID.
+     *  *
+     * @description Live editing is supported for live streams that are recorded and stored in Object Storage Service (OSS) and ApsaraVideo VOD. If multiple live streams are involved in a single job, only those recorded within the same application are supported for mixed editing. The streams must all be recorded either in OSS or ApsaraVideo VOD.
      *  *
      * @param SubmitLiveEditingJobRequest $request SubmitLiveEditingJobRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -10454,7 +10685,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交直播剪辑任务
+     * @summary Submits a live editing job to merge one or more live stream clips into one video. After a live editing job is submitted, the job is queued in the background for asynchronous processing. You can call the GeLiveEditingJob operation to query the state of the job based on the job ID. You can also call the GetMediaInfo operation to query the information about the generated media asset based on the media asset ID.
+     *  *
+     * @description Live editing is supported for live streams that are recorded and stored in Object Storage Service (OSS) and ApsaraVideo VOD. If multiple live streams are involved in a single job, only those recorded within the same application are supported for mixed editing. The streams must all be recorded either in OSS or ApsaraVideo VOD.
      *  *
      * @param SubmitLiveEditingJobRequest $request SubmitLiveEditingJobRequest
      *
@@ -10725,6 +10958,10 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Submits a content moderation job.
+     *  *
+     * @description The job that you submit by calling this operation is run in asynchronous mode. The job is added to an ApsaraVideo Media Processing (MPS) queue to be scheduled and run. You can call the [QueryMediaCensorJobDetail](https://help.aliyun.com/document_detail/444847.html) operation or configure an asynchronous notification to obtain the job results.
+     *  *
      * @param SubmitMediaCensorJobRequest $tmpReq  SubmitMediaCensorJobRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -10791,6 +11028,10 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Submits a content moderation job.
+     *  *
+     * @description The job that you submit by calling this operation is run in asynchronous mode. The job is added to an ApsaraVideo Media Processing (MPS) queue to be scheduled and run. You can call the [QueryMediaCensorJobDetail](https://help.aliyun.com/document_detail/444847.html) operation or configure an asynchronous notification to obtain the job results.
+     *  *
      * @param SubmitMediaCensorJobRequest $request SubmitMediaCensorJobRequest
      *
      * @return SubmitMediaCensorJobResponse SubmitMediaCensorJobResponse
@@ -10803,6 +11044,10 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Submits a media information analysis job in asynchronous mode.
+     *  *
+     * @description You can call this operation to analyze an input media file by using a callback mechanism or initiating subsequent queries. This operation is suitable for scenarios in which real-time performance is less critical and high concurrency is expected.
+     *  *
      * @param SubmitMediaInfoJobRequest $tmpReq  SubmitMediaInfoJobRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -10851,6 +11096,10 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Submits a media information analysis job in asynchronous mode.
+     *  *
+     * @description You can call this operation to analyze an input media file by using a callback mechanism or initiating subsequent queries. This operation is suitable for scenarios in which real-time performance is less critical and high concurrency is expected.
+     *  *
      * @param SubmitMediaInfoJobRequest $request SubmitMediaInfoJobRequest
      *
      * @return SubmitMediaInfoJobResponse SubmitMediaInfoJobResponse
@@ -10863,7 +11112,22 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary SubmitMediaProducingJob
+     * @summary Submits a media editing and production job. If you need to perform any form of post-production such as editing and production on video or audio materials, you can call this operation to automate the process.
+     *  *
+     * @description *   This operation returns only the submission result of a media editing and production job. When the submission result is returned, the job may still be in progress. After a media editing and production job is submitted, the job is queued in the background for asynchronous processing.
+     * *   The materials referenced in the timeline of an online editing project can be media assets in the media asset library or Object Storage Service (OSS) objects. External URLs or Alibaba Cloud Content Delivery Network (CDN) URLs are not supported. To use an OSS object as a material, you must set MediaUrl to an OSS URL, such as https://your-bucket.oss-region-name.aliyuncs.com/your-object.ext.
+     * *   After the production is complete, the output file is automatically registered as a media asset. The media asset first needs to be analyzed. After the media asset is analyzed, you can query the duration and resolution information based on the media asset ID.
+     * ## [](#)Limits
+     * *   The throttling threshold of this operation is 30 queries per second (QPS).
+     *     **
+     *     **Note** If the threshold is exceeded, a "Throttling.User" error is returned when you submit an editing job. For more information about how to resolve this issue, see the [FAQ](https://help.aliyun.com/document_detail/453484.html).
+     * *   You can create up to 100 video tracks, 100 image tracks, and 100 subtitle tracks in a project.
+     * *   The total size of material files cannot exceed 1 TB.
+     * *   The OSS buckets in which the materials reside and where the output media assets are stored must be in the same region as the region in which Intelligent Media Services (IMS) is activated.
+     * *   An output video must meet the following requirements:
+     *     *   Both the width and height must be at least 128 pixels.
+     *     *   Both the width and height cannot exceed 4,096 pixels.
+     *     *   The shorter side of the video cannot exceed 2,160 pixels.
      *  *
      * @param SubmitMediaProducingJobRequest $request SubmitMediaProducingJobRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -10931,7 +11195,22 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary SubmitMediaProducingJob
+     * @summary Submits a media editing and production job. If you need to perform any form of post-production such as editing and production on video or audio materials, you can call this operation to automate the process.
+     *  *
+     * @description *   This operation returns only the submission result of a media editing and production job. When the submission result is returned, the job may still be in progress. After a media editing and production job is submitted, the job is queued in the background for asynchronous processing.
+     * *   The materials referenced in the timeline of an online editing project can be media assets in the media asset library or Object Storage Service (OSS) objects. External URLs or Alibaba Cloud Content Delivery Network (CDN) URLs are not supported. To use an OSS object as a material, you must set MediaUrl to an OSS URL, such as https://your-bucket.oss-region-name.aliyuncs.com/your-object.ext.
+     * *   After the production is complete, the output file is automatically registered as a media asset. The media asset first needs to be analyzed. After the media asset is analyzed, you can query the duration and resolution information based on the media asset ID.
+     * ## [](#)Limits
+     * *   The throttling threshold of this operation is 30 queries per second (QPS).
+     *     **
+     *     **Note** If the threshold is exceeded, a "Throttling.User" error is returned when you submit an editing job. For more information about how to resolve this issue, see the [FAQ](https://help.aliyun.com/document_detail/453484.html).
+     * *   You can create up to 100 video tracks, 100 image tracks, and 100 subtitle tracks in a project.
+     * *   The total size of material files cannot exceed 1 TB.
+     * *   The OSS buckets in which the materials reside and where the output media assets are stored must be in the same region as the region in which Intelligent Media Services (IMS) is activated.
+     * *   An output video must meet the following requirements:
+     *     *   Both the width and height must be at least 128 pixels.
+     *     *   Both the width and height cannot exceed 4,096 pixels.
+     *     *   The shorter side of the video cannot exceed 2,160 pixels.
      *  *
      * @param SubmitMediaProducingJobRequest $request SubmitMediaProducingJobRequest
      *
@@ -10945,7 +11224,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交打包任务
+     * @summary Submits a packaging job.
      *  *
      * @param SubmitPackageJobRequest $tmpReq  SubmitPackageJobRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -11001,7 +11280,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交打包任务
+     * @summary Submits a packaging job.
      *  *
      * @param SubmitPackageJobRequest $request SubmitPackageJobRequest
      *
@@ -11015,6 +11294,10 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Submits a smart tagging job.
+     *  *
+     * @description Before you call this operation to submit a smart tagging job, you must add a smart tagging template and specify the analysis types that you want to use in the template. For more information, see CreateCustomTemplate. You can use the smart tagging feature only in the China (Beijing), China (Shanghai), and China (Hangzhou) regions. By default, an ApsaraVideo Media Processing (MPS) queue can process a maximum of two concurrent smart tagging jobs. If you need to process more concurrent smart tagging jobs, submit a ticket to contact Alibaba Cloud Technical Support for evaluation and configuration.
+     *  *
      * @param SubmitSmarttagJobRequest $tmpReq  SubmitSmarttagJobRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -11081,6 +11364,10 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Submits a smart tagging job.
+     *  *
+     * @description Before you call this operation to submit a smart tagging job, you must add a smart tagging template and specify the analysis types that you want to use in the template. For more information, see CreateCustomTemplate. You can use the smart tagging feature only in the China (Beijing), China (Shanghai), and China (Hangzhou) regions. By default, an ApsaraVideo Media Processing (MPS) queue can process a maximum of two concurrent smart tagging jobs. If you need to process more concurrent smart tagging jobs, submit a ticket to contact Alibaba Cloud Technical Support for evaluation and configuration.
+     *  *
      * @param SubmitSmarttagJobRequest $request SubmitSmarttagJobRequest
      *
      * @return SubmitSmarttagJobResponse SubmitSmarttagJobResponse
@@ -11093,7 +11380,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交异步截图任务
+     * @summary Submits a snapshot job.
      *  *
      * @param SubmitSnapshotJobRequest $tmpReq  SubmitSnapshotJobRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -11155,7 +11442,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交异步截图任务
+     * @summary Submits a snapshot job.
      *  *
      * @param SubmitSnapshotJobRequest $request SubmitSnapshotJobRequest
      *
@@ -11169,7 +11456,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 发起体育集锦任务
+     * @summary Submits a sports highlights job to generate a highlights video of an event based on event materials that contain commentary.
      *  *
      * @param SubmitSportsHighlightsJobRequest $request SubmitSportsHighlightsJobRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -11213,7 +11500,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 发起体育集锦任务
+     * @summary Submits a sports highlights job to generate a highlights video of an event based on event materials that contain commentary.
      *  *
      * @param SubmitSportsHighlightsJobRequest $request SubmitSportsHighlightsJobRequest
      *
@@ -11227,7 +11514,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交标准版人声克隆训练任务
+     * @summary Submits a standard human voice cloning job. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
      *  *
      * @param SubmitStandardCustomizedVoiceJobRequest $request SubmitStandardCustomizedVoiceJobRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -11272,7 +11559,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交标准版人声克隆训练任务
+     * @summary Submits a standard human voice cloning job. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
      *  *
      * @param SubmitStandardCustomizedVoiceJobRequest $request SubmitStandardCustomizedVoiceJobRequest
      *
@@ -11286,6 +11573,10 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Submits a media file in synchronous mode for media information analysis.
+     *  *
+     * @description You can call this operation to analyze an input media file in synchronous mode. This operation is suitable for scenarios that require high real-time performance and low concurrency. If it takes an extended period of time to obtain the media information about the input media file, the request may time out or the obtained information may be inaccurate. We recommend that you call the [SubmitMediaInfoJob](https://help.aliyun.com/document_detail/441222.html) operation to obtain media information.
+     *  *
      * @param SubmitSyncMediaInfoJobRequest $tmpReq  SubmitSyncMediaInfoJobRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -11334,6 +11625,10 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Submits a media file in synchronous mode for media information analysis.
+     *  *
+     * @description You can call this operation to analyze an input media file in synchronous mode. This operation is suitable for scenarios that require high real-time performance and low concurrency. If it takes an extended period of time to obtain the media information about the input media file, the request may time out or the obtained information may be inaccurate. We recommend that you call the [SubmitMediaInfoJob](https://help.aliyun.com/document_detail/441222.html) operation to obtain media information.
+     *  *
      * @param SubmitSyncMediaInfoJobRequest $request SubmitSyncMediaInfoJobRequest
      *
      * @return SubmitSyncMediaInfoJobResponse SubmitSyncMediaInfoJobResponse
@@ -11346,7 +11641,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交文本生成任务
+     * @summary Submits a text generation job to generate marketing copies based on keywords and the requirements for the word count and number of output copies. The word count of the output copies may differ from the specified word count. After the job is submitted, you can call the GetSmartHandleJob operation to obtain the job state and result based on the job ID.
      *  *
      * @param SubmitTextGenerateJobRequest $request SubmitTextGenerateJobRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -11391,7 +11686,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交文本生成任务
+     * @summary Submits a text generation job to generate marketing copies based on keywords and the requirements for the word count and number of output copies. The word count of the output copies may differ from the specified word count. After the job is submitted, you can call the GetSmartHandleJob operation to obtain the job state and result based on the job ID.
      *  *
      * @param SubmitTextGenerateJobRequest $request SubmitTextGenerateJobRequest
      *
@@ -11405,6 +11700,8 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Submits a transcoding job.
+     *  *
      * @param SubmitTranscodeJobRequest $tmpReq  SubmitTranscodeJobRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -11462,6 +11759,8 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary Submits a transcoding job.
+     *  *
      * @param SubmitTranscodeJobRequest $request SubmitTranscodeJobRequest
      *
      * @return SubmitTranscodeJobResponse SubmitTranscodeJobResponse
@@ -11474,7 +11773,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a video translation job. You can call this operation to translate the subtitle that appears in a video into the specified language. In the future, this operation will support voice translation and lip synchronization for spoken content.
+     * @summary Submits a video translation job. You can call this operation to translate subtitles in a video and audio to a specific language. Lip-sync adaptation will be supported in the future.
      *  *
      * @description After you call this operation to submit a video translation job, the system returns a job ID. You can call the GetSmartHandleJob operation based on the job ID to obtain the status and result information of the job.
      *  *
@@ -11527,7 +11826,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a video translation job. You can call this operation to translate the subtitle that appears in a video into the specified language. In the future, this operation will support voice translation and lip synchronization for spoken content.
+     * @summary Submits a video translation job. You can call this operation to translate subtitles in a video and audio to a specific language. Lip-sync adaptation will be supported in the future.
      *  *
      * @description After you call this operation to submit a video translation job, the system returns a job ID. You can call the GetSmartHandleJob operation based on the job ID to obtain the status and result information of the job.
      *  *
@@ -11601,7 +11900,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新数字人训练任务信息
+     * @summary Modifies a digital human training job. You can modify the basic information or update parameters such as Video and Transparent for retraining if the training failed.
      *  *
      * @param UpdateAvatarTrainingJobRequest $request UpdateAvatarTrainingJobRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -11652,7 +11951,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新数字人训练任务信息
+     * @summary Modifies a digital human training job. You can modify the basic information or update parameters such as Video and Transparent for retraining if the training failed.
      *  *
      * @param UpdateAvatarTrainingJobRequest $request UpdateAvatarTrainingJobRequest
      *
@@ -11720,7 +12019,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新媒体处理自定义模板
+     * @summary Updates a custom template.
      *  *
      * @param UpdateCustomTemplateRequest $request UpdateCustomTemplateRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -11759,7 +12058,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新媒体处理自定义模板
+     * @summary Updates a custom template.
      *  *
      * @param UpdateCustomTemplateRequest $request UpdateCustomTemplateRequest
      *
@@ -11773,7 +12072,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新用户的专属人声
+     * @summary Updates a personalized human voice. Only the media asset ID of the sample audio file can be modified.
      *  *
      * @param UpdateCustomizedVoiceRequest $request UpdateCustomizedVoiceRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -11809,7 +12108,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新用户的专属人声
+     * @summary Updates a personalized human voice. Only the media asset ID of the sample audio file can be modified.
      *  *
      * @param UpdateCustomizedVoiceRequest $request UpdateCustomizedVoiceRequest
      *
@@ -12325,7 +12624,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新管道配置
+     * @summary Updates the information about an ApsaraVideo Media Processing (MPS) queue.
      *  *
      * @param UpdatePipelineRequest $request UpdatePipelineRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -12367,7 +12666,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新管道配置
+     * @summary Updates the information about an ApsaraVideo Media Processing (MPS) queue.
      *  *
      * @param UpdatePipelineRequest $request UpdatePipelineRequest
      *
@@ -12436,7 +12735,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary UpdateTemplate
+     * @summary Modifies an online editing template. You can modify the template title and template configurations.
+     *  *
+     * @description *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
+     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
      *  *
      * @param UpdateTemplateRequest $request UpdateTemplateRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -12492,7 +12794,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary UpdateTemplate
+     * @summary Modifies an online editing template. You can modify the template title and template configurations.
+     *  *
+     * @description *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
+     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
      *  *
      * @param UpdateTemplateRequest $request UpdateTemplateRequest
      *

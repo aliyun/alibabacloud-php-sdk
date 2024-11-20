@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListMediaProducingJobsResponseBody extends Model
 {
     /**
+     * @description The maximum number of entries returned.
+     *
+     * Default value: 10. Valid values: 1 to 100.
      * @example 100
      *
      * @var string
@@ -17,11 +20,15 @@ class ListMediaProducingJobsResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The queried media editing and production jobs.
+     *
      * @var mediaProducingJobList[]
      */
     public $mediaProducingJobList;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
      * @example 8EqYpQbZ6Eh7+Zz8DxVYoQ==
      *
      * @var string
@@ -29,7 +36,7 @@ class ListMediaProducingJobsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example ******11-DB8D-4A9A-875B-275798******
      *

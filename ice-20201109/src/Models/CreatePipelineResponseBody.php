@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreatePipelineResponseBody extends Model
 {
     /**
+     * @description The information about the MPS queue.
+     *
      * @var pipeline
      */
     public $pipeline;
 
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string

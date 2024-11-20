@@ -9,13 +9,16 @@ use AlibabaCloud\Tea\Model;
 class QueryIProductionJobRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the intelligent production job.
      *
+     * This parameter is required.
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string

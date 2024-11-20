@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class transcodeParentJob extends Model
 {
     /**
+     * @description The time when the job was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2022-01-12T08:49:41Z
      *
      * @var string
@@ -20,6 +22,8 @@ class transcodeParentJob extends Model
     public $createTime;
 
     /**
+     * @description The time when the job was complete. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2022-01-12T08:49:41Z
      *
      * @var string
@@ -27,11 +31,15 @@ class transcodeParentJob extends Model
     public $finishTime;
 
     /**
+     * @description The input group of the job. An input of a single file indicates a transcoding job. An input of multiple files indicates an audio and video stream merge job.
+     *
      * @var inputGroup[]
      */
     public $inputGroup;
 
     /**
+     * @description The number of subjobs.
+     *
      * @example 1
      *
      * @var int
@@ -39,6 +47,8 @@ class transcodeParentJob extends Model
     public $jobCount;
 
     /**
+     * @description The job name.
+     *
      * @example transcode-job
      *
      * @var string
@@ -46,11 +56,15 @@ class transcodeParentJob extends Model
     public $name;
 
     /**
+     * @description The output group of the job.
+     *
      * @var outputGroup[]
      */
     public $outputGroup;
 
     /**
+     * @description The main job ID.
+     *
      * @example 8b2198504dd340b7b3c9842a74fc9baa
      *
      * @var string
@@ -58,6 +72,8 @@ class transcodeParentJob extends Model
     public $parentJobId;
 
     /**
+     * @description The completion percentage of the job.
+     *
      * @example 0
      *
      * @var int
@@ -65,6 +81,8 @@ class transcodeParentJob extends Model
     public $percent;
 
     /**
+     * @description The ID of the request that submitted the job.
+     *
      * @example 31E30781-9495-5E2D-A84D-759B0A01E262
      *
      * @var string
@@ -72,11 +90,15 @@ class transcodeParentJob extends Model
     public $requestId;
 
     /**
+     * @description The scheduling configuration of the job.
+     *
      * @var scheduleConfig
      */
     public $scheduleConfig;
 
     /**
+     * @description The state of the job. Success: At least one of the subjobs is successful. Fail: All subjobs failed.
+     *
      * @example Success
      *
      * @var string
@@ -84,6 +106,8 @@ class transcodeParentJob extends Model
     public $status;
 
     /**
+     * @description The time when the job was submitted. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2022-01-12T08:49:41Z
      *
      * @var string
@@ -91,11 +115,15 @@ class transcodeParentJob extends Model
     public $submitTime;
 
     /**
+     * @description The list of subjobs.
+     *
      * @var transcodeJobList[]
      */
     public $transcodeJobList;
 
     /**
+     * @description The source of the job. Valid values: API, WorkFlow, and Console.
+     *
      * @example API
      *
      * @var string
@@ -103,6 +131,8 @@ class transcodeParentJob extends Model
     public $triggerSource;
 
     /**
+     * @description The user data.
+     *
      * @example user-data
      *
      * @var string

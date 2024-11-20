@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class mediaProducingJob extends Model
 {
     /**
+     * @description The template parameters of the media editing and production job.
+     *
      * @example {"VideoArray":["****05512043f49f697f7425****","****05512043f49f697f7425****","****05512043f49f697f7425****"]}
      *
      * @var string
@@ -16,6 +18,9 @@ class mediaProducingJob extends Model
     public $clipsParam;
 
     /**
+     * @description The response code
+     *
+     * Note: Pay attention to this parameter if the job failed.
      * @example ExceededMaximumValue
      *
      * @var string
@@ -23,6 +28,9 @@ class mediaProducingJob extends Model
     public $code;
 
     /**
+     * @description The time when the media editing and production job was complete.
+     *
+     * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      * @example 2020-12-23T13:33:52Z
      *
      * @var string
@@ -30,6 +38,9 @@ class mediaProducingJob extends Model
     public $completeTime;
 
     /**
+     * @description The time when the media editing and production job was created.
+     *
+     * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      * @example 2020-12-23T13:33:40Z
      *
      * @var string
@@ -37,6 +48,9 @@ class mediaProducingJob extends Model
     public $createTime;
 
     /**
+     * @description The duration of the output file.
+     *
+     * Note: This parameter has a value if the job is successful and the output file is an audio or video file.
      * @example 30.500000
      *
      * @var float
@@ -44,6 +58,8 @@ class mediaProducingJob extends Model
     public $duration;
 
     /**
+     * @description The ID of the media editing and production job.
+     *
      * @example ****cdb3e74639973036bc84****
      *
      * @var string
@@ -51,6 +67,8 @@ class mediaProducingJob extends Model
     public $jobId;
 
     /**
+     * @description The media asset ID of the output file.
+     *
      * @example ****0cc6ba49eab379332c5b****
      *
      * @var string
@@ -58,6 +76,8 @@ class mediaProducingJob extends Model
     public $mediaId;
 
     /**
+     * @description The URL of the output file.
+     *
      * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example2.mp4
      *
      * @var string
@@ -65,6 +85,9 @@ class mediaProducingJob extends Model
     public $mediaURL;
 
     /**
+     * @description The returned message.
+     *
+     * Note: Pay attention to this parameter if the job failed.
      * @example The specified "Width_Height" has exceeded maximum value.
      *
      * @var string
@@ -72,6 +95,9 @@ class mediaProducingJob extends Model
     public $message;
 
     /**
+     * @description The time when the media editing and production job was last modified.
+     *
+     * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      * @example 2020-12-23T13:33:49Z
      *
      * @var string
@@ -79,6 +105,8 @@ class mediaProducingJob extends Model
     public $modifiedTime;
 
     /**
+     * @description The ID of the online editing project.
+     *
      * @example ****fddd7748b58bf1d47e95****
      *
      * @var string
@@ -86,6 +114,9 @@ class mediaProducingJob extends Model
     public $projectId;
 
     /**
+     * @description The state of the media editing and production job. Valid values:
+     *
+     * Failed
      * @example Failed
      *
      * @var string
@@ -93,11 +124,17 @@ class mediaProducingJob extends Model
     public $status;
 
     /**
+     * @description The materials of the media editing and production job if the job is a subjob of a quick video production job, including the broadcast text and title.
+     *
+     * @example {"Title": "Title", "SpeechText": "Broadcast text of a quick video production job"}
+     *
      * @var string
      */
     public $subJobMaterials;
 
     /**
+     * @description The ID of the template used by the media editing and production job.
+     *
      * @example ****6e76134d739cc3e85d3e****
      *
      * @var string
@@ -105,6 +142,8 @@ class mediaProducingJob extends Model
     public $templateId;
 
     /**
+     * @description The timeline of the media editing and production job.
+     *
      * @example {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****4d7cf14dc7b83b0e801c****"},{"MediaId":"****4d7cf14dc7b83b0e801c****"}]}]}
      *
      * @var string
@@ -112,11 +151,17 @@ class mediaProducingJob extends Model
     public $timeline;
 
     /**
+     * @description The user-defined data in the JSON format.
+     *
+     * @example {"NotifyAddress":"http://xx.xx.xxx","Key":"Valuexxx"}
+     *
      * @var string
      */
     public $userData;
 
     /**
+     * @description The media asset ID of the output file in ApsaraVideo VOD if the output file is stored in ApsaraVideo VOD.
+     *
      * @example ****332c5b0cc6ba49eab379****
      *
      * @var string

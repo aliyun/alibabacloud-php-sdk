@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitMediaProducingJobRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
      * @example ****12e8864746a0a398****
      *
      * @var string
@@ -16,16 +18,30 @@ class SubmitMediaProducingJobRequest extends Model
     public $clientToken;
 
     /**
+     * @description The material parameters of the template, in the JSON format. If TemplateId is specified, ClipsParam must also be specified. For more information, see [Create and use a regular template](https://help.aliyun.com/document_detail/328557.html) and [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+     *
      * @var string
      */
     public $clipsParam;
 
     /**
+     * @description The parameters for editing and production. For more information, see [EditingProduceConfig](https://help.aliyun.com/document_detail/357745.html#title-10z-t9u-n69).
+     *
+     * >  If no thumbnail is specified in EditingProduceConfig, the first frame of the video is used as the thumbnail.
+     *
+     *   AutoRegisterInputVodMedia: specifies whether to automatically register the ApsaraVideo VOD media assets in your timeline with IMS. Default value: true.
+     *   OutputWebmTransparentChannel: specifies whether the output video contains alpha channels. Default value: false.
+     *   CoverConfig: the custom thumbnail parameters.
+     *
+     * @example {
+     * }
      * @var string
      */
     public $editingProduceConfig;
 
     /**
+     * @description The metadata of the produced video, in the JSON format. For more information about the parameters, see [MediaMetadata](https://help.aliyun.com/document_detail/357745.html?spm=a2c4g.445712.0.0.49a716dbA8hgdz#97ff26d0e3c28).
+     *
      * @example {
      * }
      * @var string
@@ -33,8 +49,9 @@ class SubmitMediaProducingJobRequest extends Model
     public $mediaMetadata;
 
     /**
-     * @description This parameter is required.
+     * @description The configurations of the output file, in the JSON format. You can specify an OSS URL or a storage location in a storage bucket of ApsaraVideo VOD.
      *
+     * This parameter is required.
      * @example {"MediaURL":"https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4"}
      *
      * @var string
@@ -42,6 +59,12 @@ class SubmitMediaProducingJobRequest extends Model
     public $outputMediaConfig;
 
     /**
+     * @description The type of the output file. Valid values:
+     *
+     *   oss-object: OSS object in an OSS bucket.
+     *   vod-media: media asset in ApsaraVideo VOD.
+     *   S3: output file based on the Amazon Simple Storage Service (S3) protocol.
+     *
      * @example oss-object
      *
      * @var string
@@ -49,6 +72,9 @@ class SubmitMediaProducingJobRequest extends Model
     public $outputMediaTarget;
 
     /**
+     * @description The ID of the editing project.
+     *
+     * > : You must specify one of ProgectId, Timeline, and TempalteId and leave the other two parameters empty.
      * @example xxxxxfb2101cb318xxxxx
      *
      * @var string
@@ -56,11 +82,19 @@ class SubmitMediaProducingJobRequest extends Model
     public $projectId;
 
     /**
+     * @description The metadata of the editing project, in the JSON format. For more information about the parameters, see [ProjectMetadata](https://help.aliyun.com/document_detail/357745.html#title-yvp-81k-wff).
+     *
      * @var string
      */
     public $projectMetadata;
 
     /**
+     * @description The source of the editing and production request. Valid values:
+     *
+     *   OpenAPI
+     *   AliyunConsole
+     *   WebSDK
+     *
      * @example OPENAPI
      *
      * @var string
@@ -68,6 +102,9 @@ class SubmitMediaProducingJobRequest extends Model
     public $source;
 
     /**
+     * @description The template ID. The template is used to build a timeline with ease.
+     *
+     * > : You must specify one of ProgectId, Timeline, and TempalteId and leave the other two parameters empty. If TemplateId is specified, ClipsParam must also be specified.
      * @example ****96e8864746a0b6f3****
      *
      * @var string
@@ -80,6 +117,10 @@ class SubmitMediaProducingJobRequest extends Model
     public $timeline;
 
     /**
+     * @description The user-defined data in the JSON format, which can be up to 512 bytes in length. You can specify a custom callback URL. For more information, see [Configure a callback upon editing completion](https://help.aliyun.com/document_detail/451631.html).
+     *
+     * @example {"NotifyAddress":"https://xx.com/xx","RegisterMediaNotifyAddress":"https://xxx.com/xx"}
+     *
      * @var string
      */
     public $userData;

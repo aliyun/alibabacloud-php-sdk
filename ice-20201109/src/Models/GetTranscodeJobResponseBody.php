@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetTranscodeJobResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 9EDC30DC-0050-5459-B788-F761B2BE359B
      *
      * @var string

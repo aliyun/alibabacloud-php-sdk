@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitSportsHighlightsJobRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
      * @example ****12e8864746a0a398****
      *
      * @var string
@@ -16,11 +18,15 @@ class SubmitSportsHighlightsJobRequest extends Model
     public $clientToken;
 
     /**
+     * @description The input configurations.
+     *
      * @var string
      */
     public $inputConfig;
 
     /**
+     * @description The output configurations.
+     *
      * @example {
      * }
      * @var string
@@ -28,6 +34,8 @@ class SubmitSportsHighlightsJobRequest extends Model
     public $outputConfig;
 
     /**
+     * @description The user-defined data.
+     *
      * @var string
      */
     public $userData;

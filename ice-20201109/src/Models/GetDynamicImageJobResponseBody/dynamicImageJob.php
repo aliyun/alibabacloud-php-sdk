@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class dynamicImageJob extends Model
 {
     /**
+     * @description Error codes
+     *
      * @example ResourceNotFound
      *
      * @var string
@@ -18,6 +20,8 @@ class dynamicImageJob extends Model
     public $code;
 
     /**
+     * @description The time when the job was created.
+     *
      * @example 2022-07-12T16:17:54Z
      *
      * @var string
@@ -25,6 +29,8 @@ class dynamicImageJob extends Model
     public $createTime;
 
     /**
+     * @description The time when the job was complete.
+     *
      * @example 2022-07-12T16:30:54Z
      *
      * @var string
@@ -32,11 +38,15 @@ class dynamicImageJob extends Model
     public $finishTime;
 
     /**
+     * @description The input of the job.
+     *
      * @var input
      */
     public $input;
 
     /**
+     * @description The job ID.
+     *
      * @example ****d80e4e4044975745c14b****
      *
      * @var string
@@ -44,6 +54,8 @@ class dynamicImageJob extends Model
     public $jobId;
 
     /**
+     * @description The error message that is returned.
+     *
      * @example The specified resource for "CustomTemplate" could not be found.
      *
      * @var string
@@ -51,6 +63,8 @@ class dynamicImageJob extends Model
     public $message;
 
     /**
+     * @description The time when the job was last modified.
+     *
      * @example 2022-07-12T16:30:54Z
      *
      * @var string
@@ -58,6 +72,8 @@ class dynamicImageJob extends Model
     public $modifiedTime;
 
     /**
+     * @description The name of the job.
+     *
      * @example SampleJob
      *
      * @var string
@@ -65,11 +81,15 @@ class dynamicImageJob extends Model
     public $name;
 
     /**
+     * @description The output of the job.
+     *
      * @var output
      */
     public $output;
 
     /**
+     * @description The URL of the output animated image.
+     *
      * @example http://test-bucket.oss-cn-shanghai.aliyuncs.com/output.gif
      *
      * @var string
@@ -77,6 +97,8 @@ class dynamicImageJob extends Model
     public $outputUrl;
 
     /**
+     * @description The ID of the MPS queue to which the job was submitted.
+     *
      * @example ****d80e4e4044975745c14b****
      *
      * @var string
@@ -84,6 +106,14 @@ class dynamicImageJob extends Model
     public $pipelineId;
 
     /**
+     * @description The state of the job.
+     *
+     * Valid values:
+     *
+     *   Init: The job is submitted.
+     *   Success: The job is successful.
+     *   Fail: The job failed.
+     *
      * @example Success
      *
      * @var string
@@ -91,6 +121,8 @@ class dynamicImageJob extends Model
     public $status;
 
     /**
+     * @description The time when the job was submitted.
+     *
      * @example 2022-07-12T16:17:54Z
      *
      * @var string
@@ -98,6 +130,8 @@ class dynamicImageJob extends Model
     public $submitTime;
 
     /**
+     * @description The animation template configuration.
+     *
      * @example {"Format":"gif","Fps":5,"Height":1080,"Width":1920}
      *
      * @var string
@@ -105,6 +139,8 @@ class dynamicImageJob extends Model
     public $templateConfig;
 
     /**
+     * @description The template ID.
+     *
      * @example ****d80e4e4044975745c14b****
      *
      * @var string
@@ -112,6 +148,14 @@ class dynamicImageJob extends Model
     public $templateId;
 
     /**
+     * @description The request trigger source.
+     *
+     * Valid values:
+     *
+     *   Console
+     *   Workflow
+     *   API
+     *
      * @example API
      *
      * @var string
@@ -119,6 +163,8 @@ class dynamicImageJob extends Model
     public $triggerSource;
 
     /**
+     * @description The user-defined data.
+     *
      * @example {"sampleParam": "sampleValue"}
      *
      * @var string

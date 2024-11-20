@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class segment extends Model
 {
     /**
+     * @description The segment length.
+     *
      * @example 10
      *
      * @var string
@@ -16,6 +18,8 @@ class segment extends Model
     public $duration;
 
     /**
+     * @description The forced segmentation point in time.
+     *
      * @example 2,3
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class smartSysAvatarModelList extends Model
 {
     /**
+     * @description The ID of the digital human. The ID is required to submit a separate digital human rendering job or use the digital human image in an intelligent timeline.
+     *
      * @example yunqiao
      *
      * @var string
@@ -16,16 +18,24 @@ class smartSysAvatarModelList extends Model
     public $avatarId;
 
     /**
+     * @description The name of the digital human.
+     *
      * @var string
      */
     public $avatarName;
 
     /**
+     * @description The video bitrate.
+     *
+     * @example 4000
+     *
      * @var int
      */
     public $bitrate;
 
     /**
+     * @description The sample thumbnail URL of the digital human.
+     *
      * @example http://ice-pub-media.myalicdn.com/smart/avatarModel/coverDemo/yunqiao.mp4
      *
      * @var string
@@ -33,16 +43,26 @@ class smartSysAvatarModelList extends Model
     public $coverUrl;
 
     /**
+     * @description The video height.
+     *
+     * @example 1920
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @description Indicates whether portrait mask rendering is supported.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $outputMask;
 
     /**
+     * @description The sample video URL of the digital human.
+     *
      * @example http://ice-pub-media.myalicdn.com/smart/avatarModel/videoDemo/yunqiao.mp4
      *
      * @var string
@@ -50,6 +70,10 @@ class smartSysAvatarModelList extends Model
     public $videoUrl;
 
     /**
+     * @description The video width.
+     *
+     * @example 1080
+     *
      * @var int
      */
     public $width;

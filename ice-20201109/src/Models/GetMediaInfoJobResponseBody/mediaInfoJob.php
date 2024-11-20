@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class mediaInfoJob extends Model
 {
     /**
+     * @description Indicates whether asynchronous processing was performed.
+     *
      * @example true
      *
      * @var bool
@@ -19,6 +21,8 @@ class mediaInfoJob extends Model
     public $async;
 
     /**
+     * @description The time when the job was complete.
+     *
      * @example 2022-01-12T08:49:41Z
      *
      * @var string
@@ -26,11 +30,15 @@ class mediaInfoJob extends Model
     public $finishTime;
 
     /**
+     * @description The input of the job.
+     *
      * @var input
      */
     public $input;
 
     /**
+     * @description The job ID.
+     *
      * @example ab4802364a2e49208c99efab82dfa8e8
      *
      * @var string
@@ -38,11 +46,15 @@ class mediaInfoJob extends Model
     public $jobId;
 
     /**
+     * @description The details of the media information.
+     *
      * @var mediaInfoProperty
      */
     public $mediaInfoProperty;
 
     /**
+     * @description The job name.
+     *
      * @example job-name
      *
      * @var string
@@ -50,6 +62,8 @@ class mediaInfoJob extends Model
     public $name;
 
     /**
+     * @description The request ID.
+     *
      * @example 4879B9DE-E4B6-19DC-91F5-9D5F4DCE4168
      *
      * @var string
@@ -57,11 +71,15 @@ class mediaInfoJob extends Model
     public $requestId;
 
     /**
+     * @description The scheduling information.
+     *
      * @var scheduleConfig
      */
     public $scheduleConfig;
 
     /**
+     * @description The state of the job. Valid values: Init (the job is submitted), Success (the job is successful), and Fail (the job failed).
+     *
      * @example Init
      *
      * @var string
@@ -69,11 +87,15 @@ class mediaInfoJob extends Model
     public $status;
 
     /**
+     * @description The job submission information.
+     *
      * @var mixed[]
      */
     public $submitResultJson;
 
     /**
+     * @description The time when the job was submitted.
+     *
      * @example 2022-01-12T08:49:41Z
      *
      * @var string
@@ -81,6 +103,8 @@ class mediaInfoJob extends Model
     public $submitTime;
 
     /**
+     * @description The source of the job. Valid values: API, WorkFlow, and Console.
+     *
      * @example API
      *
      * @var string
@@ -88,6 +112,8 @@ class mediaInfoJob extends Model
     public $triggerSource;
 
     /**
+     * @description The user data.
+     *
      * @example user-data
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DetectAudioForCustomizedVoiceJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The sequence number of the recording file.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -18,8 +19,9 @@ class DetectAudioForCustomizedVoiceJobRequest extends Model
     public $audioRecordId;
 
     /**
-     * @description This parameter is required.
+     * @description The URL of the recording file.
      *
+     * This parameter is required.
      * @example https://your-bucket.oss-cn-hangzhou.aliyuncs.com/record1.wav
      *
      * @var string
@@ -27,8 +29,9 @@ class DetectAudioForCustomizedVoiceJobRequest extends Model
     public $recordUrl;
 
     /**
-     * @description This parameter is required.
+     * @description The voice ID.
      *
+     * This parameter is required.
      * @example xiaozhuan
      *
      * @var string

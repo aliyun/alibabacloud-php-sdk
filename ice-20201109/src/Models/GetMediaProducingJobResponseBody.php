@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetMediaProducingJobResponseBody extends Model
 {
     /**
+     * @description The information about the online editing project.
+     *
      * @var mediaProducingJob
      */
     public $mediaProducingJob;
 
     /**
+     * @description The request ID.
+     *
      * @example ****83B7-7F87-4792-BFE9-63CD2137****
      *
      * @var string

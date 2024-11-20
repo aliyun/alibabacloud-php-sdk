@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCustomTemplateResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteCustomTemplateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

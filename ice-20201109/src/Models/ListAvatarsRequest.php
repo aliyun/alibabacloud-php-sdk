@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListAvatarsRequest extends Model
 {
     /**
+     * @description *   The type of the digital human.
+     *   2DAvatar
+     *
      * @example 2DAvatar
      *
      * @var string
@@ -16,6 +19,9 @@ class ListAvatarsRequest extends Model
     public $avatarType;
 
     /**
+     * @description *   The page number.
+     *   Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +29,9 @@ class ListAvatarsRequest extends Model
     public $pageNo;
 
     /**
+     * @description *   The number of entries per page.
+     *   Default value: 10.
+     *
      * @example 10
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitMediaProducingJobResponseBody extends Model
 {
     /**
+     * @description The job ID.
+     *
      * @example ****d80e4e4044975745c14b****
      *
      * @var string
@@ -16,6 +18,8 @@ class SubmitMediaProducingJobResponseBody extends Model
     public $jobId;
 
     /**
+     * @description The media asset ID of the output file.
+     *
      * @example ****c469e944b5a856828dc2****
      *
      * @var string
@@ -23,6 +27,8 @@ class SubmitMediaProducingJobResponseBody extends Model
     public $mediaId;
 
     /**
+     * @description The ID of the editing project.
+     *
      * @example ****b4549d46c88681030f6e****
      *
      * @var string
@@ -30,6 +36,8 @@ class SubmitMediaProducingJobResponseBody extends Model
     public $projectId;
 
     /**
+     * @description The request ID.
+     *
      * @example ****36-3C1E-4417-BDB2-1E034F****
      *
      * @var string
@@ -37,6 +45,8 @@ class SubmitMediaProducingJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The media asset ID of the output file in ApsaraVideo VOD if the output file is stored in ApsaraVideo VOD.
+     *
      * @example ****d8s4h75ci975745c14b****
      *
      * @var string

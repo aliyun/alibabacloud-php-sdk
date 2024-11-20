@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class voiceGroups extends Model
 {
     /**
+     * @description The name of the speaker group.
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The speakers.
+     *
      * @var voiceList[]
      */
     public $voiceList;

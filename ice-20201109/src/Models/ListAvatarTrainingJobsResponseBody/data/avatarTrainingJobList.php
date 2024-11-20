@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class avatarTrainingJobList extends Model
 {
     /**
+     * @description The description of the digital human.
+     *
      * @var string
      */
     public $avatarDescription;
 
     /**
+     * @description The ID of the digital human.
+     *
      * @example Avatar-XXX
      *
      * @var string
@@ -21,11 +25,15 @@ class avatarTrainingJobList extends Model
     public $avatarId;
 
     /**
+     * @description The name of the digital human.
+     *
      * @var string
      */
     public $avatarName;
 
     /**
+     * @description The type of the digital human.
+     *
      * @example 2DAvatar
      *
      * @var string
@@ -33,6 +41,9 @@ class avatarTrainingJobList extends Model
     public $avatarType;
 
     /**
+     * @description *   The time when the job was created.
+     *   The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2020-12-23T13:33:40Z
      *
      * @var string
@@ -40,6 +51,9 @@ class avatarTrainingJobList extends Model
     public $createTime;
 
     /**
+     * @description *   The time when the first training was initiated.
+     *   The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2020-12-23T13:33:40Z
      *
      * @var string
@@ -47,6 +61,8 @@ class avatarTrainingJobList extends Model
     public $firstTrainingTime;
 
     /**
+     * @description The ID of the digital human training job.
+     *
      * @example *****aded114489ea02e0addf93*****
      *
      * @var string
@@ -54,6 +70,9 @@ class avatarTrainingJobList extends Model
     public $jobId;
 
     /**
+     * @description *   The time when the last training was initiated.
+     *   The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2020-12-23T13:33:40Z
      *
      * @var string
@@ -61,11 +80,15 @@ class avatarTrainingJobList extends Model
     public $lastTrainingTime;
 
     /**
+     * @description The status description.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The media asset ID of the portrait image.
+     *
      * @example *****aded114489ea02e0addf93*****
      *
      * @var string
@@ -73,6 +96,8 @@ class avatarTrainingJobList extends Model
     public $portrait;
 
     /**
+     * @description The state of the digital human training job.
+     *
      * @example Normal
      *
      * @var string

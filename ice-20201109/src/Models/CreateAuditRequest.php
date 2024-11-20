@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateAuditRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The review results. You can specify the results for a maximum of 20 videos at a time. The value must be converted to a string. For more information about the parameters in AuditContent, see the "AuditContent" section of this topic.
      *
+     * This parameter is required.
      * @example [
      * {
      * "MediaId": "93ab850b4f*****b54b6e91d24d81d4",

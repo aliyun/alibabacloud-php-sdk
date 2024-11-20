@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class subtitles extends Model
 {
     /**
+     * @description The parameters that are used to overwrite the corresponding parameters of the template.
+     *
      * @var overwriteParams
      */
     public $overwriteParams;
 
     /**
+     * @description The template ID.
+     *
      * @example 9547c6ad97cb4f2aaa29683ebd18d410
      *
      * @var string

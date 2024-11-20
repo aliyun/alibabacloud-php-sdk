@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class timeline extends Model
 {
     /**
+     * @description The duration of the stream. Valid values: the number of seconds or "ToEND".
+     *
      * @example ToEND
      *
      * @var string
@@ -16,6 +18,8 @@ class timeline extends Model
     public $duration;
 
     /**
+     * @description The beginning of the time range for which data was queried.
+     *
      * @example 00:00:05
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class workflow extends Model
 {
     /**
+     * @description The time when the workflow was created.
+     *
      * @example 2022-11-27T10:02:12Z
      *
      * @var string
@@ -16,6 +18,8 @@ class workflow extends Model
     public $createTime;
 
     /**
+     * @description The time when the workflow was last modified.
+     *
      * @example 2022-11-29T02:06:19Z
      *
      * @var string
@@ -23,11 +27,20 @@ class workflow extends Model
     public $modifiedTime;
 
     /**
+     * @description The workflow name.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The workflow state.
+     *
+     * Valid values:
+     *
+     *   Active
+     *   Inactive
+     *
      * @example Active
      *
      * @var string
@@ -35,6 +48,14 @@ class workflow extends Model
     public $status;
 
     /**
+     * @description The workflow type.
+     *
+     * Valid values:
+     *
+     *   Customize: custom workflow.
+     *   System: system workflow.
+     *   Common: user-created workflow.
+     *
      * @example Common
      *
      * @var string
@@ -42,6 +63,8 @@ class workflow extends Model
     public $type;
 
     /**
+     * @description The workflow ID.
+     *
      * @example ******63dca94c609de02ac0d1******
      *
      * @var string

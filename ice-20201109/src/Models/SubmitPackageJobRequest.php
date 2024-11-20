@@ -12,13 +12,16 @@ use AlibabaCloud\Tea\Model;
 class SubmitPackageJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The input of the job.
      *
+     * This parameter is required.
      * @var inputs[]
      */
     public $inputs;
 
     /**
+     * @description The name of the job.
+     *
      * @example job-name
      *
      * @var string
@@ -26,18 +29,23 @@ class SubmitPackageJobRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The output of the job.
      *
+     * This parameter is required.
      * @var output
      */
     public $output;
 
     /**
+     * @description The scheduling settings.
+     *
      * @var scheduleConfig
      */
     public $scheduleConfig;
 
     /**
+     * @description The user-defined data.
+     *
      * @example {"param": "value"}
      *
      * @var string

@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class liveEditingJob extends Model
 {
     /**
+     * @description The clips.
+     *
      * @example [{\\"StartTime\\": \\" 2021-06-21T08:01:00Z\\",  \\"EndTime\\": \\" 2021-06-21T08:03:00Z\\" }]
      *
      * @var string
@@ -19,6 +21,8 @@ class liveEditingJob extends Model
     public $clips;
 
     /**
+     * @description The response code. Note: Pay attention to this parameter if the job failed.
+     *
      * @example InvalidParameter
      *
      * @var string
@@ -26,6 +30,8 @@ class liveEditingJob extends Model
     public $code;
 
     /**
+     * @description The time when the live editing job was completed. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2020-12-23T13:33:52Z
      *
      * @var string
@@ -33,6 +39,8 @@ class liveEditingJob extends Model
     public $completeTime;
 
     /**
+     * @description The time when the live editing job was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2020-12-23T13:33:40Z
      *
      * @var string
@@ -40,6 +48,8 @@ class liveEditingJob extends Model
     public $creationTime;
 
     /**
+     * @description The ID of the live editing job.
+     *
      * @example ****cdb3e74639973036bc84****
      *
      * @var string
@@ -47,11 +57,15 @@ class liveEditingJob extends Model
     public $jobId;
 
     /**
+     * @description The live editing configurations.
+     *
      * @var liveStreamConfig
      */
     public $liveStreamConfig;
 
     /**
+     * @description The media asset ID of the output file.
+     *
      * @example ****0cc6ba49eab379332c5b****
      *
      * @var string
@@ -59,11 +73,15 @@ class liveEditingJob extends Model
     public $mediaId;
 
     /**
+     * @description The production configurations.
+     *
      * @var mediaProduceConfig
      */
     public $mediaProduceConfig;
 
     /**
+     * @description The URL of the output file.
+     *
      * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example2.mp4
      *
      * @var string
@@ -71,6 +89,8 @@ class liveEditingJob extends Model
     public $mediaURL;
 
     /**
+     * @description The returned message. Note: Pay attention to this parameter if the job failed.
+     *
      * @example The specific parameter LiveStreamConfig is not valid.
      *
      * @var string
@@ -78,6 +98,8 @@ class liveEditingJob extends Model
     public $message;
 
     /**
+     * @description The time when the live editing job was last modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2020-12-23T13:33:49Z
      *
      * @var string
@@ -85,11 +107,15 @@ class liveEditingJob extends Model
     public $modifiedTime;
 
     /**
+     * @description The storage configurations of the output file.
+     *
      * @var outputMediaConfig
      */
     public $outputMediaConfig;
 
     /**
+     * @description The ID of the live editing project.
+     *
      * @example ****fddd7748b58bf1d47e95****
      *
      * @var string
@@ -97,6 +123,8 @@ class liveEditingJob extends Model
     public $projectId;
 
     /**
+     * @description The state of the live editing job. Valid values: Init, Queuing, Processing, Success, and Failed.
+     *
      * @example Success
      *
      * @var string
@@ -104,6 +132,8 @@ class liveEditingJob extends Model
     public $status;
 
     /**
+     * @description The user-defined data.
+     *
      * @example {"key": "value\\"}
      *
      * @var string

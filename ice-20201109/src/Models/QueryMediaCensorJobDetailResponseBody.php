@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class QueryMediaCensorJobDetailResponseBody extends Model
 {
     /**
+     * @description The results of the content moderation job.
+     *
      * @var mediaCensorJobDetail
      */
     public $mediaCensorJobDetail;
 
     /**
+     * @description The request ID.
+     *
      * @example B42299E6-F71F-465F-8FE9-4FC2E3D3C2CA
      *
      * @var string

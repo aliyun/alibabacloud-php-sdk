@@ -10,13 +10,16 @@ use AlibabaCloud\Tea\Model;
 class templateConfig extends Model
 {
     /**
+     * @description The parameters that are used to overwrite the corresponding parameters.
+     *
      * @var overwriteParams
      */
     public $overwriteParams;
 
     /**
-     * @description This parameter is required.
+     * @description The template ID.
      *
+     * This parameter is required.
      * @example ****96e8864746a0b6f3****
      *
      * @var string

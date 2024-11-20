@@ -9,18 +9,25 @@ use AlibabaCloud\Tea\Model;
 class UpdateAvatarTrainingJobRequest extends Model
 {
     /**
+     * @description *   The description of the digital human.
+     *   The description can be up to 1,000 characters in length.
+     *
      * @var string
      */
     public $avatarDescription;
 
     /**
+     * @description *   The name of the digital human.
+     *   The name can be up to seven characters in length.
+     *
      * @var string
      */
     public $avatarName;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the digital human training job.
      *
+     * This parameter is required.
      * @example ****cdb3e74639973036bc84****
      *
      * @var string
@@ -28,6 +35,9 @@ class UpdateAvatarTrainingJobRequest extends Model
     public $jobId;
 
     /**
+     * @description *   The media asset ID of the portrait image.
+     *   The value must be 32 characters in length.
+     *
      * @example ****571c704445f9a0ee011406c2****
      *
      * @var string
@@ -35,6 +45,12 @@ class UpdateAvatarTrainingJobRequest extends Model
     public $portrait;
 
     /**
+     * @description *   The thumbnail URL.
+     *   After the digital human is trained, the thumbnail is uploaded to this URL.
+     *   The URL must be a valid public Object Storage Service (OSS) URL.
+     *   The URL can be up to 512 characters in length.
+     *   The URL cannot be updated after the digital human is trained.
+     *
      * @example https://your-bucket.oss-cn-hangzhou.aliyuncs.com/thumbnail.png
      *
      * @var string
@@ -42,6 +58,14 @@ class UpdateAvatarTrainingJobRequest extends Model
     public $thumbnail;
 
     /**
+     * @description *   Indicates whether the input video supports alpha channels.
+     *
+     *   You can modify this parameter only if the job is in the Init or Fail state.
+     *
+     **
+     *
+     **Note**: Make sure that the current settings are consistent with those of the submitted training video. Otherwise, the digital human may malfunction.
+     *
      * @example True
      *
      * @var bool
@@ -49,6 +73,12 @@ class UpdateAvatarTrainingJobRequest extends Model
     public $transparent;
 
     /**
+     * @description *   The ID of the video used for training.
+     *   The value must be 32 characters in length.
+     *   Supported formats: MP4, MOV, and WebM.
+     *   The duration of the video must be 5 to 15 minutes.
+     *   The resolution of the video must be 1920×1080 or 1080×1920.
+     *
      * @example ****571c704445f9a0ee011406c2****
      *
      * @var string

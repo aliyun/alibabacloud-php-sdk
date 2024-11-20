@@ -15,33 +15,44 @@ use AlibabaCloud\Tea\Model;
 class processConfig extends Model
 {
     /**
+     * @description The multi-input stream merge configuration.
+     *
      * @var combineConfigs[]
      */
     public $combineConfigs;
 
     /**
+     * @description The encryption settings.
+     *
      * @var encryption
      */
     public $encryption;
 
     /**
+     * @description The watermark configuration of an image.
+     *
      * @var imageWatermarks[]
      */
     public $imageWatermarks;
 
     /**
+     * @description The subtitle configuration.
+     *
      * @var subtitles[]
      */
     public $subtitles;
 
     /**
+     * @description The configurations of the text watermark.
+     *
      * @var textWatermarks[]
      */
     public $textWatermarks;
 
     /**
-     * @description This parameter is required.
+     * @description The transcoding configuration.
      *
+     * This parameter is required.
      * @var transcode
      */
     public $transcode;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateCustomTemplateRequest extends Model
 {
     /**
+     * @description The template name.
+     *
      * @example test-template
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateCustomTemplateRequest extends Model
     public $name;
 
     /**
+     * @description The [template parameters](https://help.aliyun.com/document_detail/448291.html).
+     *
      * @example {"param": "sample"}
      *
      * @var string
@@ -23,8 +27,9 @@ class UpdateCustomTemplateRequest extends Model
     public $templateConfig;
 
     /**
-     * @description This parameter is required.
+     * @description The template ID.
      *
+     * This parameter is required.
      * @example ****96e8864746a0b6f3****
      *
      * @var string

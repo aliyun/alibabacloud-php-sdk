@@ -10,13 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListSmartVoiceGroupsResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example 627B30EB-1D0A-5C6D-8467-431626E0FA10
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The queried speaker groups.
+     *
      * @var voiceGroups[]
      */
     public $voiceGroups;

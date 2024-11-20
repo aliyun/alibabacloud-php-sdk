@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class QueryMediaCensorJobListResponseBody extends Model
 {
     /**
+     * @description The queried content moderation jobs.
+     *
      * @var mediaCensorJobList
      */
     public $mediaCensorJobList;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. The value is 32-character UUID. If the returned query results cannot be displayed within one page, this parameter is returned. The value of this parameter is updated for each query.
+     *
      * @example 9b1a42bc6e8d46e6a1383b7e7f01****
      *
      * @var string
@@ -23,11 +27,15 @@ class QueryMediaCensorJobListResponseBody extends Model
     public $nextPageToken;
 
     /**
+     * @description The IDs of the jobs that do not exist. This parameter is not returned if all the specified jobs are found.
+     *
      * @var nonExistIds
      */
     public $nonExistIds;
 
     /**
+     * @description The request ID.
+     *
      * @example D1D5C080-8E2F-5030-8AB4-13092F17631B
      *
      * @var string

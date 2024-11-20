@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class timeline extends Model
 {
     /**
+     * @description The time range in which the watermark is displayed.
+     *
+     *   Valid values: integers and ToEND.
+     *   Default value: ToEND.
+     *
      * @example ToEND
      *
      * @var string
@@ -16,6 +21,12 @@ class timeline extends Model
     public $duration;
 
     /**
+     * @description The beginning of the time range in which the watermark is displayed.
+     *
+     *   Unit: seconds.
+     *   Value values: integers.
+     *   Default value: 0.
+     *
      * @example 00:00:05
      *
      * @var string

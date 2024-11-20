@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListSystemTemplatesRequest extends Model
 {
     /**
+     * @description The template name.
+     *
      * @example SampleTemplate
      *
      * @var string
@@ -16,6 +18,8 @@ class ListSystemTemplatesRequest extends Model
     public $name;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListSystemTemplatesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 20 Valid values: 1 to 100.
+     *
      * @example 20
      *
      * @var int
@@ -30,6 +36,8 @@ class ListSystemTemplatesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The template state. Valid values: Normal, Invisible, and All.
+     *
      * @example Normal
      *
      * @var string
@@ -37,6 +45,8 @@ class ListSystemTemplatesRequest extends Model
     public $status;
 
     /**
+     * @description The subtype ID of the template.
+     *
      * @example 1
      *
      * @var string
@@ -44,6 +54,8 @@ class ListSystemTemplatesRequest extends Model
     public $subtype;
 
     /**
+     * @description The template ID.
+     *
      * @example ****96e8864746a0b6f3****
      *
      * @var string
@@ -51,8 +63,9 @@ class ListSystemTemplatesRequest extends Model
     public $templateId;
 
     /**
-     * @description This parameter is required.
+     * @description The template type. Separate multiple types with commas (,).
      *
+     * This parameter is required.
      * @example 1,2
      *
      * @var string

@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class CreateDNADBRequest extends Model
 {
     /**
+     * @description The description of the media fingerprint library.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The model of the media fingerprint library. Valid values:
+     *
+     *   **Video**
+     *   **Audio**
+     *   **Image**
+     *   **Text** (supported only in the China (Shanghai) region)
+     *
      * @example Video
      *
      * @var string
@@ -21,8 +30,9 @@ class CreateDNADBRequest extends Model
     public $model;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the media fingerprint library.
      *
+     * This parameter is required.
      * @example example name
      *
      * @var string

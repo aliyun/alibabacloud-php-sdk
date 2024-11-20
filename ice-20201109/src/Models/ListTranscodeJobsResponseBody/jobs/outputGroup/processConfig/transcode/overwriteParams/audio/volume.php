@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class volume extends Model
 {
     /**
+     * @description The output volume.
+     *
      * @example -6
      *
      * @var string
@@ -16,6 +18,8 @@ class volume extends Model
     public $integratedLoudnessTarget;
 
     /**
+     * @description The volume range.
+     *
      * @example 8
      *
      * @var string
@@ -23,6 +27,8 @@ class volume extends Model
     public $loudnessRangeTarget;
 
     /**
+     * @description The volume adjustment method. Valid values:
+     *
      * @example auto
      *
      * @var string
@@ -30,6 +36,8 @@ class volume extends Model
     public $method;
 
     /**
+     * @description The peak volume.
+     *
      * @example -1
      *
      * @var string

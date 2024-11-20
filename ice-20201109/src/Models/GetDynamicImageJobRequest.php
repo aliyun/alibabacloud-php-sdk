@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDynamicImageJobRequest extends Model
 {
     /**
+     * @description The job ID.
+     *
      * @example ****d80e4e4044975745c14b****
      *
      * @var string

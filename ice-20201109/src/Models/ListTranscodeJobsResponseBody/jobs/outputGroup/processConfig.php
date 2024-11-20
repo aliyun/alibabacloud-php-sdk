@@ -15,36 +15,50 @@ use AlibabaCloud\Tea\Model;
 class processConfig extends Model
 {
     /**
+     * @description The multi-input stream merge configuration.
+     *
      * @var combineConfigs[]
      */
     public $combineConfigs;
 
     /**
+     * @description The encryption settings.
+     *
      * @var encryption
      */
     public $encryption;
 
     /**
+     * @description The watermark configuration for an image.
+     *
      * @var imageWatermarks[]
      */
     public $imageWatermarks;
 
     /**
+     * @description Indicates whether the tags of the input stream are inherited in the output stream. This parameter does not take effect when the input is not a media asset. Default value: false.
+     *
      * @var bool
      */
     public $isInheritTags;
 
     /**
+     * @description The subtitle configuration.
+     *
      * @var subtitles[]
      */
     public $subtitles;
 
     /**
+     * @description The configurations of the text watermarks.
+     *
      * @var textWatermarks[]
      */
     public $textWatermarks;
 
     /**
+     * @description The transcoding configuration.
+     *
      * @var transcode
      */
     public $transcode;

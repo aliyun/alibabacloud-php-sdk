@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class audioStreamInfoList extends Model
 {
     /**
+     * @description The bitrate.
+     *
      * @example 0.f
      *
      * @var string
@@ -16,6 +18,8 @@ class audioStreamInfoList extends Model
     public $bitrate;
 
     /**
+     * @description The sound channel layout.
+     *
      * @example stereo
      *
      * @var string
@@ -23,6 +27,8 @@ class audioStreamInfoList extends Model
     public $channelLayout;
 
     /**
+     * @description The number of sound channels.
+     *
      * @example 2
      *
      * @var string
@@ -30,6 +36,8 @@ class audioStreamInfoList extends Model
     public $channels;
 
     /**
+     * @description The name of the encoding format.
+     *
      * @example AAC (Advanced Audio Coding)
      *
      * @var string
@@ -37,6 +45,8 @@ class audioStreamInfoList extends Model
     public $codecLongName;
 
     /**
+     * @description The encoding format.
+     *
      * @example aac
      *
      * @var string
@@ -44,6 +54,8 @@ class audioStreamInfoList extends Model
     public $codecName;
 
     /**
+     * @description The encoder tag.
+     *
      * @example 0x000f
      *
      * @var string
@@ -51,6 +63,8 @@ class audioStreamInfoList extends Model
     public $codecTag;
 
     /**
+     * @description The name of the encoder tag.
+     *
      * @example [15][0][0][0]
      *
      * @var string
@@ -58,6 +72,8 @@ class audioStreamInfoList extends Model
     public $codecTagString;
 
     /**
+     * @description The time base of the encoder.
+     *
      * @example 1/44100
      *
      * @var string
@@ -65,6 +81,8 @@ class audioStreamInfoList extends Model
     public $codecTimeBase;
 
     /**
+     * @description The duration of the stream. Unit: seconds.
+     *
      * @example 403.039989
      *
      * @var string
@@ -72,6 +90,8 @@ class audioStreamInfoList extends Model
     public $duration;
 
     /**
+     * @description The sequence number of the stream.
+     *
      * @example 1
      *
      * @var string
@@ -79,6 +99,8 @@ class audioStreamInfoList extends Model
     public $index;
 
     /**
+     * @description The language of the stream.
+     *
      * @example cn
      *
      * @var string
@@ -86,6 +108,8 @@ class audioStreamInfoList extends Model
     public $lang;
 
     /**
+     * @description The sample format.
+     *
      * @example fltp
      *
      * @var string
@@ -93,6 +117,8 @@ class audioStreamInfoList extends Model
     public $sampleFmt;
 
     /**
+     * @description The sampling rate. Unit: Hz.
+     *
      * @example 44100
      *
      * @var string
@@ -100,6 +126,8 @@ class audioStreamInfoList extends Model
     public $sampleRate;
 
     /**
+     * @description The start time of the stream.
+     *
      * @example 1.473556
      *
      * @var string
@@ -107,6 +135,8 @@ class audioStreamInfoList extends Model
     public $startTime;
 
     /**
+     * @description The time base.
+     *
      * @example 1/90000
      *
      * @var string

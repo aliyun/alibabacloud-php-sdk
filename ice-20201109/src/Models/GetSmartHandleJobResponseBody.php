@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class GetSmartHandleJobResponseBody extends Model
 {
     /**
+     * @description The job ID.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -18,11 +20,15 @@ class GetSmartHandleJobResponseBody extends Model
     public $jobId;
 
     /**
+     * @description The job results.
+     *
      * @var jobResult
      */
     public $jobResult;
 
     /**
+     * @description The job results.
+     *
      * @example {}
      *
      * @var string
@@ -30,6 +36,8 @@ class GetSmartHandleJobResponseBody extends Model
     public $output;
 
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string
@@ -37,11 +45,22 @@ class GetSmartHandleJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the intelligent job.
+     *
      * @var smartJobInfo
      */
     public $smartJobInfo;
 
     /**
+     * @description The job state.
+     *
+     * Valid values:
+     *
+     *   Finished
+     *   Failed
+     *   Executing
+     *   Created
+     *
      * @example Finished
      *
      * @var string
@@ -49,6 +68,8 @@ class GetSmartHandleJobResponseBody extends Model
     public $state;
 
     /**
+     * @description The user-defined data in the JSON format.
+     *
      * @example {"user":"data"}
      *
      * @var string

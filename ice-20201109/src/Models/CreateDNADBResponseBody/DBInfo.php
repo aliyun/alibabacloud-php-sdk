@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DBInfo extends Model
 {
     /**
+     * @description The ID of the media fingerprint library. We recommend that you save this ID for subsequent calls of other operations.
+     *
      * @example 88c6ca184c0e47098a5b665e2a12****
      *
      * @var string
@@ -16,11 +18,15 @@ class DBInfo extends Model
     public $DBId;
 
     /**
+     * @description The description of the media fingerprint library.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The model of the media fingerprint library.
+     *
      * @example Video
      *
      * @var string
@@ -28,6 +34,8 @@ class DBInfo extends Model
     public $model;
 
     /**
+     * @description The name of the media fingerprint library.
+     *
      * @example example name
      *
      * @var string
@@ -35,6 +43,8 @@ class DBInfo extends Model
     public $name;
 
     /**
+     * @description The state of the media fingerprint library. After a media fingerprint library is created, it enters the offline state. After the media fingerprint library is processed at the backend, it enters the active state.
+     *
      * @example offline
      *
      * @var string

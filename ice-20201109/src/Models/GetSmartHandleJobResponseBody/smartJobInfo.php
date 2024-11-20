@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class smartJobInfo extends Model
 {
     /**
+     * @description The time when the job was created.
+     *
      * @example 2020-12-26T04:11:10Z
      *
      * @var string
@@ -18,6 +20,8 @@ class smartJobInfo extends Model
     public $createTime;
 
     /**
+     * @description The job description.
+     *
      * @example 测试描述
      *
      * @var string
@@ -25,11 +29,15 @@ class smartJobInfo extends Model
     public $description;
 
     /**
+     * @description The input configurations.
+     *
      * @var inputConfig
      */
     public $inputConfig;
 
     /**
+     * @description The job type.
+     *
      * @example ASR
      *
      * @var string
@@ -37,6 +45,8 @@ class smartJobInfo extends Model
     public $jobType;
 
     /**
+     * @description The time when the job was last modified.
+     *
      * @example 2020-12-26T04:11:10Z
      *
      * @var string
@@ -44,11 +54,15 @@ class smartJobInfo extends Model
     public $modifiedTime;
 
     /**
+     * @description The output configurations.
+     *
      * @var outputConfig
      */
     public $outputConfig;
 
     /**
+     * @description The job title.
+     *
      * @example 测试标题
      *
      * @var string
@@ -56,7 +70,7 @@ class smartJobInfo extends Model
     public $title;
 
     /**
-     * @description userid。
+     * @description The user ID.
      *
      * @example 1974526429******
      *

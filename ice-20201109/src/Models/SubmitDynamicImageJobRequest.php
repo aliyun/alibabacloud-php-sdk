@@ -13,13 +13,16 @@ use AlibabaCloud\Tea\Model;
 class SubmitDynamicImageJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The input of the job.
      *
+     * This parameter is required.
      * @var input
      */
     public $input;
 
     /**
+     * @description The name of the job.
+     *
      * @example SampleJob
      *
      * @var string
@@ -27,25 +30,31 @@ class SubmitDynamicImageJobRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The output of the job.
      *
+     * This parameter is required.
      * @var output
      */
     public $output;
 
     /**
+     * @description The scheduling settings.
+     *
      * @var scheduleConfig
      */
     public $scheduleConfig;
 
     /**
-     * @description This parameter is required.
+     * @description The snapshot template configuration.
      *
+     * This parameter is required.
      * @var templateConfig
      */
     public $templateConfig;
 
     /**
+     * @description The user-defined data.
+     *
      * @example {"SampleKey": "SampleValue"}
      *
      * @var string

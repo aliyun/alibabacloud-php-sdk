@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitSmarttagJobResponseBody extends Model
 {
     /**
+     * @description The ID of the smart tagging job. We recommend that you save this ID for subsequent calls of other operations.
+     *
      * @example ****d80e4e4044975745c14b****
      *
      * @var string
@@ -16,6 +18,8 @@ class SubmitSmarttagJobResponseBody extends Model
     public $jobId;
 
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string

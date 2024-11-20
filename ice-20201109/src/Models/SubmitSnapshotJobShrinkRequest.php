@@ -9,13 +9,16 @@ use AlibabaCloud\Tea\Model;
 class SubmitSnapshotJobShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The snapshot input.
      *
+     * This parameter is required.
      * @var string
      */
     public $inputShrink;
 
     /**
+     * @description The name of the job.
+     *
      * @example SampleJob
      *
      * @var string
@@ -23,25 +26,31 @@ class SubmitSnapshotJobShrinkRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The snapshot output.
      *
+     * This parameter is required.
      * @var string
      */
     public $outputShrink;
 
     /**
+     * @description The scheduling settings.
+     *
      * @var string
      */
     public $scheduleConfigShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The snapshot template configuration.
      *
+     * This parameter is required.
      * @var string
      */
     public $templateConfigShrink;
 
     /**
+     * @description The user-defined data.
+     *
      * @example {"test parameter": "test value"}
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDNADBResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 25818875-5F78-4A13-BEF6-D7393642CA58
      *
      * @var string

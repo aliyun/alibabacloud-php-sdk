@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class packageJob extends Model
 {
     /**
+     * @description The error code returned if the job fails.
+     *
      * @example InvalidParameter
      *
      * @var string
@@ -18,6 +20,8 @@ class packageJob extends Model
     public $code;
 
     /**
+     * @description The time when the job was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2022-09-08T11:34:05Z
      *
      * @var string
@@ -25,6 +29,8 @@ class packageJob extends Model
     public $createTime;
 
     /**
+     * @description The time when the job was complete. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2022-09-08T11:44:05Z
      *
      * @var string
@@ -32,11 +38,15 @@ class packageJob extends Model
     public $finishTime;
 
     /**
+     * @description The input of the job.
+     *
      * @var inputs[]
      */
     public $inputs;
 
     /**
+     * @description The job ID.
+     *
      * @example ab4802364a2e49208c99efab82dfa8e8
      *
      * @var string
@@ -44,6 +54,8 @@ class packageJob extends Model
     public $jobId;
 
     /**
+     * @description The error message that is returned.
+     *
      * @example Resource content bad.
      *
      * @var string
@@ -51,6 +63,8 @@ class packageJob extends Model
     public $message;
 
     /**
+     * @description The time when the job was last modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2022-09-08T11:44:05Z
      *
      * @var string
@@ -58,6 +72,8 @@ class packageJob extends Model
     public $modifiedTime;
 
     /**
+     * @description The name of the job.
+     *
      * @example job-name
      *
      * @var string
@@ -65,11 +81,15 @@ class packageJob extends Model
     public $name;
 
     /**
+     * @description The output of the job.
+     *
      * @var output
      */
     public $output;
 
     /**
+     * @description The URL of the output file.
+     *
      * @example http://bucket.oss-cn-shanghai.aliyuncs.com/output.m3u8
      *
      * @var string
@@ -77,6 +97,8 @@ class packageJob extends Model
     public $outputUrl;
 
     /**
+     * @description The ID of the MPS queue to which the job was submitted.
+     *
      * @example 36f3fee40aa047c0b067d0fb85edc12b
      *
      * @var string
@@ -84,6 +106,8 @@ class packageJob extends Model
     public $pipelineId;
 
     /**
+     * @description The priority of the job. Valid values: 1 to 10. The greater the value, the higher the priority.
+     *
      * @example 6
      *
      * @var int
@@ -91,6 +115,8 @@ class packageJob extends Model
     public $priority;
 
     /**
+     * @description The state of the job.
+     *
      * @example Init
      *
      * @var string
@@ -98,6 +124,8 @@ class packageJob extends Model
     public $status;
 
     /**
+     * @description The time when the job was submitted. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2022-09-08T11:34:05Z
      *
      * @var string
@@ -105,11 +133,21 @@ class packageJob extends Model
     public $submitTime;
 
     /**
+     * @description The source of the job. Valid values:
+     *
+     *   API
+     *   WorkFlow
+     *   Console
+     *
+     * @example API
+     *
      * @var string
      */
     public $triggerSource;
 
     /**
+     * @description The user-defined data.
+     *
      * @example {"param": "value"}
      *
      * @var string

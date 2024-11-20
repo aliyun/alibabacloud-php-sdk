@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class output extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The output file. The file can be an OSS object or a media asset. The URL of an OSS object can be in one of the following formats:
      *
+     *   oss://bucket/object
+     *   http(s)://bucket.oss-[regionId].aliyuncs.com/object
+     *
+     * This parameter is required.
      * @example ****96e8864746a0b6f3****
      *
      * @var string
@@ -18,8 +22,9 @@ class output extends Model
     public $media;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the output file. Valid values:
      *
+     * This parameter is required.
      * @example Media
      *
      * @var string

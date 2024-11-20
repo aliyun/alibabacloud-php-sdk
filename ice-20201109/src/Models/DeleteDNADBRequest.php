@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteDNADBRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the media fingerprint library that you want to delete.
      *
+     * This parameter is required.
      * @example fb712a6890464059b1b2ea7c8647****
      *
      * @var string

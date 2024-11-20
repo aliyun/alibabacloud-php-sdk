@@ -12,8 +12,23 @@ use AlibabaCloud\Tea\Model;
 class SubmitIProductionJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the algorithm that you want to use for the job. Valid values:
      *
+     *   **Cover**: This algorithm intelligently generates a thumbnail image for a video.
+     *   **VideoClip**: This algorithm intelligently generates a summary for a video.
+     *   **VideoDelogo**: This algorithm removes logos from a video.
+     *   **VideoDetext**: This algorithm removes captions from a video.
+     *   **CaptionExtraction**: This algorithm extracts captions from a video and generates the caption file.
+     *   **VideoGreenScreenMatting**: This algorithm performs green-screen image matting on a video and generates a new video.
+     *   **FaceBeauty**: This algorithm performs video retouching.
+     *   **VideoH2V**: This algorithm transforms a video from the landscape mode to the portrait mode.
+     *   **MusicSegmentDetect**: This algorithm detects the chorus of a song.
+     *   **AudioBeatDetection**: This algorithm detects rhythms.
+     *   **AudioQualityAssessment**: This algorithm assesses the audio quality.
+     *   **SpeechDenoise**: This algorithm performs noise reduction.
+     *   **AudioMixing**: This algorithm mixes audio streams.
+     *
+     * This parameter is required.
      * @example Cover
      *
      * @var string
@@ -21,13 +36,16 @@ class SubmitIProductionJobRequest extends Model
     public $functionName;
 
     /**
-     * @description This parameter is required.
+     * @description The input file. The file can be an Object Storage Service (OSS) object or a media asset.
      *
+     * This parameter is required.
      * @var input
      */
     public $input;
 
     /**
+     * @description The algorithm-specific parameters. The parameters are specified as JSON objects and vary based on the algorithm. For more information, see the "Parameters of JobParams" section of this topic.
+     *
      * @example {"Model":"gif"}
      *
      * @var string
@@ -40,23 +58,30 @@ class SubmitIProductionJobRequest extends Model
     public $modelId;
 
     /**
+     * @description The name of the intelligent production job. The name can be up to 100 characters in length.
+     *
      * @var string
      */
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The output file. The file can be an OSS object or a media asset.
      *
+     * This parameter is required.
      * @var output
      */
     public $output;
 
     /**
+     * @description The scheduling configuration.
+     *
      * @var scheduleConfig
      */
     public $scheduleConfig;
 
     /**
+     * @description The template ID.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -64,6 +89,8 @@ class SubmitIProductionJobRequest extends Model
     public $templateId;
 
     /**
+     * @description The user-defined data that is returned in the response. The value can be up to 1,024 bytes in length.
+     *
      * @example {"test":1}
      *
      * @var string

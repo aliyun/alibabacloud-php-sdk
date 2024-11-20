@@ -44,6 +44,11 @@ class avatarChat3D extends Model
     public $greeting;
 
     /**
+     * @var int
+     */
+    public $maxIdleTime;
+
+    /**
      * @var bool
      */
     public $useVoiceprint;
@@ -72,20 +77,27 @@ class avatarChat3D extends Model
      * @var int
      */
     public $volume;
+
+    /**
+     * @var string
+     */
+    public $workflowOverrideParams;
     protected $_name = [
-        'asrMaxSilence'        => 'AsrMaxSilence',
-        'avatarId'             => 'AvatarId',
-        'bailianAppParams'     => 'BailianAppParams',
-        'enablePushToTalk'     => 'EnablePushToTalk',
-        'enableVoiceInterrupt' => 'EnableVoiceInterrupt',
-        'gracefulShutdown'     => 'GracefulShutdown',
-        'greeting'             => 'Greeting',
-        'useVoiceprint'        => 'UseVoiceprint',
-        'userOfflineTimeout'   => 'UserOfflineTimeout',
-        'userOnlineTimeout'    => 'UserOnlineTimeout',
-        'voiceId'              => 'VoiceId',
-        'voiceprintId'         => 'VoiceprintId',
-        'volume'               => 'Volume',
+        'asrMaxSilence'          => 'AsrMaxSilence',
+        'avatarId'               => 'AvatarId',
+        'bailianAppParams'       => 'BailianAppParams',
+        'enablePushToTalk'       => 'EnablePushToTalk',
+        'enableVoiceInterrupt'   => 'EnableVoiceInterrupt',
+        'gracefulShutdown'       => 'GracefulShutdown',
+        'greeting'               => 'Greeting',
+        'maxIdleTime'            => 'MaxIdleTime',
+        'useVoiceprint'          => 'UseVoiceprint',
+        'userOfflineTimeout'     => 'UserOfflineTimeout',
+        'userOnlineTimeout'      => 'UserOnlineTimeout',
+        'voiceId'                => 'VoiceId',
+        'voiceprintId'           => 'VoiceprintId',
+        'volume'                 => 'Volume',
+        'workflowOverrideParams' => 'WorkflowOverrideParams',
     ];
 
     public function validate()
@@ -116,6 +128,9 @@ class avatarChat3D extends Model
         if (null !== $this->greeting) {
             $res['Greeting'] = $this->greeting;
         }
+        if (null !== $this->maxIdleTime) {
+            $res['MaxIdleTime'] = $this->maxIdleTime;
+        }
         if (null !== $this->useVoiceprint) {
             $res['UseVoiceprint'] = $this->useVoiceprint;
         }
@@ -133,6 +148,9 @@ class avatarChat3D extends Model
         }
         if (null !== $this->volume) {
             $res['Volume'] = $this->volume;
+        }
+        if (null !== $this->workflowOverrideParams) {
+            $res['WorkflowOverrideParams'] = $this->workflowOverrideParams;
         }
 
         return $res;
@@ -167,6 +185,9 @@ class avatarChat3D extends Model
         if (isset($map['Greeting'])) {
             $model->greeting = $map['Greeting'];
         }
+        if (isset($map['MaxIdleTime'])) {
+            $model->maxIdleTime = $map['MaxIdleTime'];
+        }
         if (isset($map['UseVoiceprint'])) {
             $model->useVoiceprint = $map['UseVoiceprint'];
         }
@@ -184,6 +205,9 @@ class avatarChat3D extends Model
         }
         if (isset($map['Volume'])) {
             $model->volume = $map['Volume'];
+        }
+        if (isset($map['WorkflowOverrideParams'])) {
+            $model->workflowOverrideParams = $map['WorkflowOverrideParams'];
         }
 
         return $model;

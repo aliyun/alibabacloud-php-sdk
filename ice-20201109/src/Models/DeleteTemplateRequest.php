@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteTemplateRequest extends Model
 {
     /**
+     * @description The IDs of the templates that you want to delete. Separate multiple IDs with commas (,).
+     *
      * @example ****20b48fb04483915d4f2cd8ac****,****20b48fb04483915d4f2cd8ac****
      *
      * @var string

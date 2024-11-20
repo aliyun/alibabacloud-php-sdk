@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetBatchMediaProducingJobResponseBody extends Model
 {
     /**
+     * @description The information about the quick video production job.
+     *
      * @var editingBatchJob
      */
     public $editingBatchJob;
 
     /**
+     * @description The request ID.
+     *
      * @example ****36-3C1E-4417-BDB2-1E034F****
      *
      * @var string

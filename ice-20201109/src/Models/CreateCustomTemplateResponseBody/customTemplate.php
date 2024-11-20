@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class customTemplate extends Model
 {
     /**
+     * @description The time when the template was created.
+     *
      * @example 2022-04-19T02:04:31Z
      *
      * @var string
@@ -16,6 +18,8 @@ class customTemplate extends Model
     public $createTime;
 
     /**
+     * @description Indicates whether the template is the default template.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class customTemplate extends Model
     public $isDefault;
 
     /**
+     * @description The time when the template was last modified.
+     *
      * @example 2022-04-19T02:04:31Z
      *
      * @var string
@@ -30,6 +36,8 @@ class customTemplate extends Model
     public $modifiedTime;
 
     /**
+     * @description The template state.
+     *
      * @example Normal
      *
      * @var string
@@ -37,6 +45,8 @@ class customTemplate extends Model
     public $status;
 
     /**
+     * @description The subtype name of the template.
+     *
      * @example Remux
      *
      * @var string
@@ -44,6 +54,8 @@ class customTemplate extends Model
     public $subtype;
 
     /**
+     * @description The template configurations.
+     *
      * @example {"Container":{"Format":"flv"},"Video":{},"Audio":{}}
      *
      * @var string
@@ -51,6 +63,8 @@ class customTemplate extends Model
     public $templateConfig;
 
     /**
+     * @description The template ID.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -58,6 +72,8 @@ class customTemplate extends Model
     public $templateId;
 
     /**
+     * @description The template name.
+     *
      * @example test-template
      *
      * @var string
@@ -65,6 +81,8 @@ class customTemplate extends Model
     public $templateName;
 
     /**
+     * @description The type ID of the template.
+     *
      * @example 1
      *
      * @var int
@@ -72,6 +90,8 @@ class customTemplate extends Model
     public $type;
 
     /**
+     * @description The type name of the template.
+     *
      * @example TranscodeTemplate
      *
      * @var string

@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class mediaInfoProperty extends Model
 {
     /**
+     * @description The information about the audio stream.
+     *
      * @var audioStreamInfoList[]
      */
     public $audioStreamInfoList;
 
     /**
+     * @description The basic file information.
+     *
      * @var fileBasicInfo
      */
     public $fileBasicInfo;
 
     /**
+     * @description The information about the video stream.
+     *
      * @var videoStreamInfoList[]
      */
     public $videoStreamInfoList;

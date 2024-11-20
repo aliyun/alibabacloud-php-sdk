@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class avatar extends Model
 {
     /**
+     * @description The description of the digital human.
+     *
      * @var string
      */
     public $avatarDescription;
 
     /**
+     * @description The ID of the digital human.
+     *
      * @example Avatar-XXXX
      *
      * @var string
@@ -21,11 +25,15 @@ class avatar extends Model
     public $avatarId;
 
     /**
+     * @description The name of the digital human.
+     *
      * @var string
      */
     public $avatarName;
 
     /**
+     * @description The type of the digital human.
+     *
      * @example 2DAvatar
      *
      * @var string
@@ -33,11 +41,17 @@ class avatar extends Model
     public $avatarType;
 
     /**
+     * @description The height of the digital human image in pixels.
+     *
+     * @example 1920
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @description The media asset ID of the portrait image.
+     *
      * @example ****571c704445f9a0ee011406c2****
      *
      * @var string
@@ -45,6 +59,8 @@ class avatar extends Model
     public $portrait;
 
     /**
+     * @description The thumbnail URL.
+     *
      * @example https://your-bucket.oss-cn-hangzhou.aliyuncs.com/thumbnail.png
      *
      * @var string
@@ -52,6 +68,8 @@ class avatar extends Model
     public $thumbnail;
 
     /**
+     * @description Indicates whether the digital human supports alpha channels.
+     *
      * @example true
      *
      * @var bool
@@ -59,6 +77,10 @@ class avatar extends Model
     public $transparent;
 
     /**
+     * @description The width of the digital human image in pixels.
+     *
+     * @example 1080
+     *
      * @var int
      */
     public $width;

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetAvatarRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description *   The ID of the digital human.
      *
+     * This parameter is required.
      * @example Avatar-XXXX
      *
      * @var string

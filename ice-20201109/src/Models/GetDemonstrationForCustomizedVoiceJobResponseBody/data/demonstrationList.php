@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class demonstrationList extends Model
 {
     /**
+     * @description The sequence number of the text, which corresponds to the AduioRecordId parameter to be passed during audio check.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,14 @@ class demonstrationList extends Model
     public $audioId;
 
     /**
+     * @description The URL of the sample audio.
+     *
+     *   The value is an Object Storage Service (OSS) URL.
+     *
+     **
+     *
+     **Note**: The URL expires in 12 hours.
+     *
      * @example http://bucket.oss-cn-shanghai.aliyuncs.com/1.wav
      *
      * @var string
@@ -23,6 +33,8 @@ class demonstrationList extends Model
     public $demoAudio;
 
     /**
+     * @description The text content to be read.
+     *
      * @var string
      */
     public $text;

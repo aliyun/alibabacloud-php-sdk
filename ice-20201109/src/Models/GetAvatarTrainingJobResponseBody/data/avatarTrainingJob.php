@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class avatarTrainingJob extends Model
 {
     /**
+     * @description The description of the digital human.
+     *
      * @var string
      */
     public $avatarDescription;
 
     /**
+     * @description The ID of the digital human.
+     *
      * @example Avatar-XXXX
      *
      * @var string
@@ -21,11 +25,15 @@ class avatarTrainingJob extends Model
     public $avatarId;
 
     /**
+     * @description The name of the digital human.
+     *
      * @var string
      */
     public $avatarName;
 
     /**
+     * @description The type of the digital human.
+     *
      * @example 2DAvatar
      *
      * @var string
@@ -33,6 +41,9 @@ class avatarTrainingJob extends Model
     public $avatarType;
 
     /**
+     * @description *   The time when the first training was initiated.
+     *   The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2020-12-23T13:33:40Z
      *
      * @var string
@@ -40,6 +51,8 @@ class avatarTrainingJob extends Model
     public $firstTrainingTime;
 
     /**
+     * @description The ID of the digital human training job.
+     *
      * @example ****55d86f7f4587943ce7734d6b****
      *
      * @var string
@@ -47,6 +60,9 @@ class avatarTrainingJob extends Model
     public $jobId;
 
     /**
+     * @description *   The time when the last training was initiated.
+     *   The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2020-12-23T13:33:40Z
      *
      * @var string
@@ -54,11 +70,15 @@ class avatarTrainingJob extends Model
     public $lastTrainingTime;
 
     /**
+     * @description The status description.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The media asset ID of the portrait image.
+     *
      * @example ****571c704445f9a0ee011406c2****
      *
      * @var string
@@ -66,6 +86,9 @@ class avatarTrainingJob extends Model
     public $portrait;
 
     /**
+     * @description *   The state of the digital human training job.
+     *   Valid values: Init, Queuing, Training, Success, and Fail.
+     *
      * @example Success
      *
      * @var string
@@ -73,6 +96,8 @@ class avatarTrainingJob extends Model
     public $status;
 
     /**
+     * @description The thumbnail URL.
+     *
      * @example https://your-bucket.oss-cn-hangzhou.aliyuncs.com/thumbnail.png
      *
      * @var string
@@ -80,6 +105,8 @@ class avatarTrainingJob extends Model
     public $thumbnail;
 
     /**
+     * @description Indicates whether the input video supports alpha channels.
+     *
      * @example true
      *
      * @var bool
@@ -87,6 +114,8 @@ class avatarTrainingJob extends Model
     public $transparent;
 
     /**
+     * @description The ID of the video used for training.
+     *
      * @example ****571c704445f9a0ee011406c2****
      *
      * @var string

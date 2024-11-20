@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class fileList extends Model
 {
     /**
+     * @description The Object Storage Service (OSS) information about the input file.
+     *
      * @var inputFile
      */
     public $inputFile;
 
     /**
+     * @description The primary key of the file.
+     *
      * @example ae0fd49c0840e14daf0d66a75b83****
      *
      * @var string

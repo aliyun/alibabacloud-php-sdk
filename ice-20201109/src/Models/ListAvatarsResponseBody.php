@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListAvatarsResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string
@@ -22,6 +26,11 @@ class ListAvatarsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

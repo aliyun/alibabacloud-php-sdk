@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class jobs extends Model
 {
     /**
+     * @description Indicates whether asynchronous processing was performed.
+     *
      * @example true
      *
      * @var bool
@@ -19,6 +21,8 @@ class jobs extends Model
     public $async;
 
     /**
+     * @description The time when the job was complete. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2022-01-12T08:49:41Z
      *
      * @var string
@@ -26,11 +30,15 @@ class jobs extends Model
     public $finishTime;
 
     /**
+     * @description The input of the job.
+     *
      * @var input
      */
     public $input;
 
     /**
+     * @description The job ID.
+     *
      * @example ab4802364a2e49208c99efab82dfa8e8
      *
      * @var string
@@ -38,11 +46,15 @@ class jobs extends Model
     public $jobId;
 
     /**
+     * @description The details of the media information.
+     *
      * @var mediaInfoProperty
      */
     public $mediaInfoProperty;
 
     /**
+     * @description The job name.
+     *
      * @example job-name
      *
      * @var string
@@ -50,6 +62,8 @@ class jobs extends Model
     public $name;
 
     /**
+     * @description The request ID.
+     *
      * @example 4879B9DE-E4B6-19DC-91F5-9D5F4DCE4168
      *
      * @var string
@@ -57,11 +71,19 @@ class jobs extends Model
     public $requestId;
 
     /**
+     * @description The scheduling information.
+     *
      * @var scheduleConfig
      */
     public $scheduleConfig;
 
     /**
+     * @description The state of the job. Valid values:
+     *
+     *   Init: The job is submitted.
+     *   Success: The job is successful.
+     *   Fail: The job failed.
+     *
      * @example Init
      *
      * @var string
@@ -69,11 +91,15 @@ class jobs extends Model
     public $status;
 
     /**
+     * @description The job submission information.
+     *
      * @var mixed[]
      */
     public $submitResultJson;
 
     /**
+     * @description The time when the job was submitted. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2022-01-12T08:49:41Z
      *
      * @var string
@@ -81,6 +107,12 @@ class jobs extends Model
     public $submitTime;
 
     /**
+     * @description The source of the job. Valid values:
+     *
+     *   API
+     *   WorkFlow
+     *   Console
+     *
      * @example API
      *
      * @var string
@@ -88,6 +120,8 @@ class jobs extends Model
     public $triggerSource;
 
     /**
+     * @description The user data.
+     *
      * @example user-data
      *
      * @var string

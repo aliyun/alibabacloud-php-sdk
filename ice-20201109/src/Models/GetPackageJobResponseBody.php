@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetPackageJobResponseBody extends Model
 {
     /**
+     * @description The information about the packaging job.
+     *
      * @var packageJob
      */
     public $packageJob;
 
     /**
+     * @description The request ID.
+     *
      * @example 31E30781-9495-5E2D-A84D-759B0A01E262
      *
      * @var string

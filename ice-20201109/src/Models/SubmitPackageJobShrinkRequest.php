@@ -9,13 +9,16 @@ use AlibabaCloud\Tea\Model;
 class SubmitPackageJobShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The input of the job.
      *
+     * This parameter is required.
      * @var string
      */
     public $inputsShrink;
 
     /**
+     * @description The name of the job.
+     *
      * @example job-name
      *
      * @var string
@@ -23,18 +26,23 @@ class SubmitPackageJobShrinkRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The output of the job.
      *
+     * This parameter is required.
      * @var string
      */
     public $outputShrink;
 
     /**
+     * @description The scheduling settings.
+     *
      * @var string
      */
     public $scheduleConfigShrink;
 
     /**
+     * @description The user-defined data.
+     *
      * @example {"param": "value"}
      *
      * @var string

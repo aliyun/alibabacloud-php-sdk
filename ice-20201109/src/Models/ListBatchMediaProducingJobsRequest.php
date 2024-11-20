@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListBatchMediaProducingJobsRequest extends Model
 {
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2023-06-05T15:59:59Z
      *
      * @var string
@@ -16,6 +18,8 @@ class ListBatchMediaProducingJobsRequest extends Model
     public $endTime;
 
     /**
+     * @description The ID of the quick video production job.
+     *
      * @example ****d80e4e4044975745c14b****
      *
      * @var string
@@ -23,6 +27,13 @@ class ListBatchMediaProducingJobsRequest extends Model
     public $jobId;
 
     /**
+     * @description The job type.
+     *
+     * Valid values:
+     *
+     *   Script: script-based editing job that mixes media assets.
+     *   Smart_Mix: intelligent editing job that mixes media assets.
+     *
      * @example Script
      *
      * @var string
@@ -30,6 +41,8 @@ class ListBatchMediaProducingJobsRequest extends Model
     public $jobType;
 
     /**
+     * @description The maximum number of entries to return.
+     *
      * @example 100
      *
      * @var int
@@ -37,6 +50,8 @@ class ListBatchMediaProducingJobsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example mRZkKAovub0xWVfH14he4Q==
      *
      * @var string
@@ -44,6 +59,12 @@ class ListBatchMediaProducingJobsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The sorting parameter. Valid values:
+     *
+     *   desc (default): sorted by creation time in descending order.
+     *   asc: sorted by creation time in ascending order.
+     *
+     *
      * @example desc
      *
      * @var string
@@ -51,6 +72,8 @@ class ListBatchMediaProducingJobsRequest extends Model
     public $sortBy;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2022-02-02T00:00:00Z
      *
      * @var string
@@ -58,6 +81,15 @@ class ListBatchMediaProducingJobsRequest extends Model
     public $startTime;
 
     /**
+     * @description The job state.
+     *
+     * Valid values:
+     *
+     *   Finished
+     *   Init
+     *   Failed
+     *   Processing
+     *
      * @example Finished
      *
      * @var string

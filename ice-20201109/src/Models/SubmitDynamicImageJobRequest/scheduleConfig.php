@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class scheduleConfig extends Model
 {
     /**
+     * @description The ID of the MPS queue to which the job was submitted.
+     *
      * @example ****96e8864746a0b6f3****
      *
      * @var string
@@ -16,6 +18,8 @@ class scheduleConfig extends Model
     public $pipelineId;
 
     /**
+     * @description The priority. Valid values: 1 to 10. Default value: 6. A greater value specifies a higher priority.
+     *
      * @example 6
      *
      * @var int

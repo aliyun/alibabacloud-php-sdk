@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class overwriteParams extends Model
 {
     /**
+     * @description The file encoding format.
+     *
      * @example UTF-8
      *
      * @var string
@@ -17,11 +19,15 @@ class overwriteParams extends Model
     public $charEnc;
 
     /**
+     * @description The subtitle file.
+     *
      * @var file
      */
     public $file;
 
     /**
+     * @description The format of the subtitle file.
+     *
      * @example vtt
      *
      * @var string

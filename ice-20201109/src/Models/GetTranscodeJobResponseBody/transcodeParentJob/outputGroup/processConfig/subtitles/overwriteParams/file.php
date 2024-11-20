@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class file extends Model
 {
     /**
+     * @description The media object.
+     *
+     *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+     *   If Type is set to Media, the ID of a media asset is returned.
+     *
      * @example oss://bucket/path/to/video.mp4
      *
      * @var string
@@ -16,6 +21,11 @@ class file extends Model
     public $media;
 
     /**
+     * @description The type of the media object. Valid values:
+     *
+     *   OSS: an OSS object.
+     *   Media: a media asset.
+     *
      * @example OSS
      *
      * @var string

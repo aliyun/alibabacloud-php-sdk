@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class systemTemplate extends Model
 {
     /**
+     * @description The template state.
+     *
      * @example Normal
      *
      * @var string
@@ -16,6 +18,8 @@ class systemTemplate extends Model
     public $status;
 
     /**
+     * @description The subtype ID of the template.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class systemTemplate extends Model
     public $subtype;
 
     /**
+     * @description The subtype name of the template.
+     *
      * @example Normal
      *
      * @var string
@@ -30,6 +36,8 @@ class systemTemplate extends Model
     public $subtypeName;
 
     /**
+     * @description The template parameters.
+     *
      * @example {"Container":{"Format":"m3u8"},"TransConfig":{"TransMode":"onepass"},"Video":{"Codec":"H.264","Maxrate":8000,"Preset":"medium","PixFmt":"yuv420p","Width":2048,"Bitrate":3500},"Audio":{"Codec":"aac","Bitrate":160,"Samplerate":44100,"Channels":2}}
      *
      * @var string
@@ -37,6 +45,8 @@ class systemTemplate extends Model
     public $templateConfig;
 
     /**
+     * @description The template ID.
+     *
      * @example S00000001-100060
      *
      * @var string
@@ -44,6 +54,8 @@ class systemTemplate extends Model
     public $templateId;
 
     /**
+     * @description The template name.
+     *
      * @example M3U8-2K
      *
      * @var string
@@ -51,6 +63,8 @@ class systemTemplate extends Model
     public $templateName;
 
     /**
+     * @description The type ID of the template.
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +72,8 @@ class systemTemplate extends Model
     public $type;
 
     /**
+     * @description The type name of the template.
+     *
      * @example TranscodeTemplate
      *
      * @var string

@@ -30,6 +30,11 @@ class GenerateAIAgentCallShrinkRequest extends Model
     public $templateConfigShrink;
 
     /**
+     * @var string
+     */
+    public $userData;
+
+    /**
      * @example 877ae632caae49b1afc81c2e8194ffb4
      *
      * @var string
@@ -39,6 +44,7 @@ class GenerateAIAgentCallShrinkRequest extends Model
         'AIAgentId'            => 'AIAgentId',
         'expire'               => 'Expire',
         'templateConfigShrink' => 'TemplateConfig',
+        'userData'             => 'UserData',
         'userId'               => 'UserId',
     ];
 
@@ -57,6 +63,9 @@ class GenerateAIAgentCallShrinkRequest extends Model
         }
         if (null !== $this->templateConfigShrink) {
             $res['TemplateConfig'] = $this->templateConfigShrink;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -81,6 +90,9 @@ class GenerateAIAgentCallShrinkRequest extends Model
         }
         if (isset($map['TemplateConfig'])) {
             $model->templateConfigShrink = $map['TemplateConfig'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

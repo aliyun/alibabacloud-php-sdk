@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class template extends Model
 {
     /**
+     * @description The template configurations.
+     *
      * @example 参见Timeline模板Config文档
      *
      * @var string
@@ -16,6 +18,8 @@ class template extends Model
     public $config;
 
     /**
+     * @description The URL of the template thumbnail.
+     *
      * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/cover.jpg
      *
      * @var string
@@ -23,6 +27,14 @@ class template extends Model
     public $coverUrl;
 
     /**
+     * @description The source from which the template was created.
+     *
+     * Valid values:
+     *
+     *   AliyunConsole
+     *   WebSDK
+     *   OpenAPI
+     *
      * @example OpenAPI
      *
      * @var string
@@ -30,6 +42,14 @@ class template extends Model
     public $createSource;
 
     /**
+     * @description The source from which the template was modified.
+     *
+     * Valid values:
+     *
+     *   AliyunConsole
+     *   WebSDK
+     *   OpenAPI
+     *
      * @example OpenAPI
      *
      * @var string
@@ -37,6 +57,8 @@ class template extends Model
     public $modifiedSource;
 
     /**
+     * @description The template name.
+     *
      * @example 视频添加水印模板
      *
      * @var string
@@ -44,6 +66,8 @@ class template extends Model
     public $name;
 
     /**
+     * @description The ID of the preview video.
+     *
      * @example ****01bf24bf41c78b2754cb3187****
      *
      * @var string
@@ -51,6 +75,17 @@ class template extends Model
     public $previewMedia;
 
     /**
+     * @description The template state.
+     *
+     * Valid values:
+     *
+     *   UploadFailed: Failed to upload the video.
+     *   ProcessFailed: Failed to process the advanced template.
+     *   Available: The template is available.
+     *   Uploading: The video is being uploaded.
+     *   Created: The template is created but not ready for use.
+     *   Processing: The advanced template is being processed.
+     *
      * @example Available
      *
      * @var string
@@ -58,6 +93,8 @@ class template extends Model
     public $status;
 
     /**
+     * @description The template ID.
+     *
      * @example ****01bf24bf41c78b2754cb3187****
      *
      * @var string
@@ -65,6 +102,13 @@ class template extends Model
     public $templateId;
 
     /**
+     * @description The template type.
+     *
+     * Valid values:
+     *
+     *   Timeline: regular template.
+     *   VETemplate: advanced template.
+     *
      * @example Timeline
      *
      * @var string

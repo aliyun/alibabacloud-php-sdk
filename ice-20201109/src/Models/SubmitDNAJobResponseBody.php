@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitDNAJobResponseBody extends Model
 {
     /**
+     * @description The ID of the media fingerprint analysis job. We recommend that you save this ID for subsequent calls of other operations.
+     *
      * @example 88c6ca184c0e47098a5b665e2****
      *
      * @var string
@@ -16,6 +18,8 @@ class SubmitDNAJobResponseBody extends Model
     public $jobId;
 
     /**
+     * @description The request ID.
+     *
      * @example 25818875-5F78-4A13-BEF6-D7393642CA58
      *
      * @var string

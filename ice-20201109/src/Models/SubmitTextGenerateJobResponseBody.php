@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitTextGenerateJobResponseBody extends Model
 {
     /**
+     * @description The job ID.
+     *
      * @example ****d80e4e4044975745c14b****
      *
      * @var string
@@ -16,7 +18,7 @@ class SubmitTextGenerateJobResponseBody extends Model
     public $jobId;
 
     /**
-     * @description Id of the request
+     * @description The request ID
      *
      * @example ******11-DB8D-4A9A-875B-275798******
      *

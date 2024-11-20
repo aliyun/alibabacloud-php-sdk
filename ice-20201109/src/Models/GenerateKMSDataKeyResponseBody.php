@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GenerateKMSDataKeyResponseBody extends Model
 {
     /**
+     * @description The information about the data key.
+     *
      * @var dataKey
      */
     public $dataKey;
 
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string

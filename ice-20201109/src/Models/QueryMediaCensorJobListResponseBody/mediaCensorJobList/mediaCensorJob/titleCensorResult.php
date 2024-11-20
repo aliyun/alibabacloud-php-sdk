@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class titleCensorResult extends Model
 {
     /**
+     * @description The label of the moderation result. Separate multiple labels with commas (,). Valid values:
+     *
+     *   **normal**: normal content.
+     *   **spam**: spam.
+     *   **ad**: ads.
+     *   **abuse**: abuse content.
+     *   **flood**: excessive junk content.
+     *   **contraband**: prohibited content.
+     *   **meaningless**: meaningless content.
+     *
      * @example meaningless
      *
      * @var string
@@ -16,6 +26,8 @@ class titleCensorResult extends Model
     public $label;
 
     /**
+     * @description The score. Valid values: 0 to 100.
+     *
      * @example 100
      *
      * @var string
@@ -23,6 +35,8 @@ class titleCensorResult extends Model
     public $rate;
 
     /**
+     * @description The moderation scenario. The value is **antispam**.
+     *
      * @example antispam
      *
      * @var string
@@ -30,6 +44,12 @@ class titleCensorResult extends Model
     public $scene;
 
     /**
+     * @description The recommended subsequent operation. Valid values:
+     *
+     *   **pass**: The content passes the moderation.
+     *   **review**: The content needs to be manually reviewed.
+     *   **block**: The content needs to be blocked.
+     *
      * @example block
      *
      * @var string

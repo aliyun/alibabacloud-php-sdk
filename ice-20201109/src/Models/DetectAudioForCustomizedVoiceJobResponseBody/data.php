@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the audio file passes the check. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,8 @@ class data extends Model
     public $pass;
 
     /**
+     * @description The reason returned if the audio file failed to pass the check.
+     *
      * @var string
      */
     public $reason;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class mediaProduceConfig extends Model
 {
     /**
+     * @description The editing mode. Default value: Accurate.
+     *
      * @example Accurate
      *
      * @var string

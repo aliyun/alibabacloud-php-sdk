@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomizedVoiceJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The gender. Valid values:
      *
+     *   female
+     *   male
+     *
+     * This parameter is required.
      * @example female
      *
      * @var string
@@ -18,8 +22,13 @@ class CreateCustomizedVoiceJobRequest extends Model
     public $gender;
 
     /**
-     * @description This parameter is required.
+     * @description The scenario. Valid values:
      *
+     *   story
+     *   interaction
+     *   navigation
+     *
+     * This parameter is required.
      * @example story
      *
      * @var string
@@ -27,13 +36,22 @@ class CreateCustomizedVoiceJobRequest extends Model
     public $scenario;
 
     /**
+     * @description The voice description.
+     *
+     *   The description can be up to 256 characters in length.
+     *
      * @var string
      */
     public $voiceDesc;
 
     /**
-     * @description This parameter is required.
+     * @description The voice ID. It can be the English name or Chinese Pinyin of the voice.
      *
+     *   The value must be a unique ID that is not used by other custom voices.
+     *   The ID can be up to 32 characters in length.
+     *   Only letters and digits are supported.
+     *
+     * This parameter is required.
      * @example xiaozhuan
      *
      * @var string
@@ -41,6 +59,10 @@ class CreateCustomizedVoiceJobRequest extends Model
     public $voiceId;
 
     /**
+     * @description The voice name.
+     *
+     *   The name can be up to 32 characters in length.
+     *
      * @var string
      */
     public $voiceName;

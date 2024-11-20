@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreatePipelineRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the MPS queue.
      *
+     * This parameter is required.
      * @example test-pipeline
      *
      * @var string
@@ -18,6 +19,8 @@ class CreatePipelineRequest extends Model
     public $name;
 
     /**
+     * @description The priority. Default value: 6. Valid values: 1 to 10. A greater value specifies a higher priority.
+     *
      * @example 6
      *
      * @var int
@@ -25,8 +28,9 @@ class CreatePipelineRequest extends Model
     public $priority;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the MPS queue. Valid values:
      *
+     * This parameter is required.
      * @example Standard
      *
      * @var string

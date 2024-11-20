@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class coverImageCensorResult extends Model
 {
     /**
+     * @description The OSS bucket in which the thumbnail is stored.
+     *
      * @example example-Bucket-****
      *
      * @var string
@@ -17,6 +19,8 @@ class coverImageCensorResult extends Model
     public $bucket;
 
     /**
+     * @description The OSS region in which the thumbnail resides.
+     *
      * @example oss-cn-shanghai
      *
      * @var string
@@ -24,6 +28,8 @@ class coverImageCensorResult extends Model
     public $location;
 
     /**
+     * @description The Object Storage Service (OSS) object that is used as the thumbnail.
+     *
      * @example test/ai/censor/v2/vme-****.jpg
      *
      * @var string
@@ -31,6 +37,8 @@ class coverImageCensorResult extends Model
     public $object;
 
     /**
+     * @description The moderation results.
+     *
      * @var results
      */
     public $results;

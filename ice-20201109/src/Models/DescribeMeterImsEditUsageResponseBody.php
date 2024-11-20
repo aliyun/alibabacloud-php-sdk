@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeMeterImsEditUsageResponseBody extends Model
 {
     /**
+     * @description The usage statistics of IMS on VOD editing.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 7F3AE2C6-5CC6-5712-BAC5-5A735A157687
      *
      * @var string

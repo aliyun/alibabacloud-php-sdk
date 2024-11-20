@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class paramList extends Model
 {
     /**
+     * @description The original subtitle content.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The thumbnail URL of the original material.
+     *
      * @var string
      */
     public $coverUrl;
 
     /**
+     * @description The parameter name.
+     *
      * @example video1
      *
      * @var string
@@ -26,11 +32,21 @@ class paramList extends Model
     public $key;
 
     /**
+     * @description The URL of the original material.
+     *
      * @var string
      */
     public $mediaUrl;
 
     /**
+     * @description The material type.
+     *
+     * Valid values:
+     *
+     *   Video
+     *   Text
+     *   Image
+     *
      * @example Image
      *
      * @var string

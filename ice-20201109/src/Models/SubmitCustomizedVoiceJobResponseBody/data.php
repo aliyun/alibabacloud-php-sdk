@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the human voice cloning job.
+     *
      * @example ****d718e2ff4f018ccf419a7b71****
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $jobId;
 
     /**
+     * @description The voice ID.
+     *
      * @example xiaozhuan
      *
      * @var string

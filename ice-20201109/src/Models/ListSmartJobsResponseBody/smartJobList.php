@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class smartJobList extends Model
 {
     /**
+     * @description The time when the job was created.
+     *
      * @example 2020-12-26T04:11:10Z
      *
      * @var string
@@ -18,6 +20,8 @@ class smartJobList extends Model
     public $createTime;
 
     /**
+     * @description The job description.
+     *
      * @example 测试描述
      *
      * @var string
@@ -25,6 +29,8 @@ class smartJobList extends Model
     public $description;
 
     /**
+     * @description The editing configurations.
+     *
      * @example {"AudioConfig":{},"InputConfig":""}
      *
      * @var string
@@ -32,11 +38,15 @@ class smartJobList extends Model
     public $editingConfig;
 
     /**
+     * @description The input configurations.
+     *
      * @var inputConfig
      */
     public $inputConfig;
 
     /**
+     * @description The job ID.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -44,6 +54,15 @@ class smartJobList extends Model
     public $jobId;
 
     /**
+     * @description The job state.
+     *
+     * Valid values:
+     *
+     *   Finished: The job is complete.
+     *   Failed: The job failed.
+     *   Executing: The job is in progress.
+     *   Created: The job is created.
+     *
      * @example Finished
      *
      * @var string
@@ -51,6 +70,14 @@ class smartJobList extends Model
     public $jobState;
 
     /**
+     * @description The job type.
+     *
+     * Valid values:
+     *
+     *   ASR: ASR job.
+     *   DynamicChart: dynamic chart job.
+     *   TextToSpeech: intelligent audio production job.
+     *
      * @example ASR
      *
      * @var string
@@ -58,6 +85,8 @@ class smartJobList extends Model
     public $jobType;
 
     /**
+     * @description The time when the job was last modified.
+     *
      * @example 2020-12-26T04:11:10Z
      *
      * @var string
@@ -65,11 +94,15 @@ class smartJobList extends Model
     public $modifiedTime;
 
     /**
+     * @description The output configurations.
+     *
      * @var outputConfig
      */
     public $outputConfig;
 
     /**
+     * @description The job title.
+     *
      * @example 测试标题
      *
      * @var string
@@ -77,6 +110,8 @@ class smartJobList extends Model
     public $title;
 
     /**
+     * @description The user-defined data.
+     *
      * @example {"user":"data"}
      *
      * @var string
@@ -84,6 +119,8 @@ class smartJobList extends Model
     public $userData;
 
     /**
+     * @description The user ID.
+     *
      * @example 1084506228******
      *
      * @var int

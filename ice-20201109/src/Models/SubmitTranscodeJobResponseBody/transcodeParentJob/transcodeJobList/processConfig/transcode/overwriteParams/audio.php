@@ -10,6 +10,12 @@ use AlibabaCloud\Tea\Model;
 class audio extends Model
 {
     /**
+     * @description The audio bitrate of the output file.
+     *
+     *   Valid values: [8,1000].
+     *   Unit: Kbit/s.
+     *   Default value: 128.
+     *
      * @example 128
      *
      * @var string
@@ -17,6 +23,8 @@ class audio extends Model
     public $bitrate;
 
     /**
+     * @description The number of sound channels. Default value: 2.
+     *
      * @example 2
      *
      * @var string
@@ -24,6 +32,8 @@ class audio extends Model
     public $channels;
 
     /**
+     * @description The audio codec. Valid values: AAC, MP3, VORBIS, and FLAC. Default value: AAC.
+     *
      * @example AAC
      *
      * @var string
@@ -31,6 +41,8 @@ class audio extends Model
     public $codec;
 
     /**
+     * @description The audio codec profile. If the Codec parameter is set to AAC, the valid values are aac_low, aac_he, aac_he_v2, aac_ld, and aac_eld.
+     *
      * @example aac_low
      *
      * @var string
@@ -38,6 +50,8 @@ class audio extends Model
     public $profile;
 
     /**
+     * @description Specifies whether to delete the audio stream.
+     *
      * @example false
      *
      * @var string
@@ -45,6 +59,12 @@ class audio extends Model
     public $remove;
 
     /**
+     * @description The sampling rate.
+     *
+     *   Default value: 44100.
+     *   Valid values: 22050, 32000, 44100, 48000, and 96000.
+     *   Unit: Hz.
+     *
      * @example 44100
      *
      * @var string
@@ -52,6 +72,8 @@ class audio extends Model
     public $samplerate;
 
     /**
+     * @description The volume configurations.
+     *
      * @var volume
      */
     public $volume;

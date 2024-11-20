@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetWorkflowTaskRequest extends Model
 {
     /**
+     * @description The ID of the workflow task.
+     *
      * @example ******4215e042b3966ca5441e******
      *
      * @var string

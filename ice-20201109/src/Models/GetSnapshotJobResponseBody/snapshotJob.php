@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class snapshotJob extends Model
 {
     /**
+     * @description Indicates whether the snapshots were captured in asynchronous mode. Default value: true.
+     *
      * @example true
      *
      * @var bool
@@ -18,6 +20,8 @@ class snapshotJob extends Model
     public $async;
 
     /**
+     * @description Error codes
+     *
      * @example ResourceNotFound
      *
      * @var string
@@ -25,6 +29,8 @@ class snapshotJob extends Model
     public $code;
 
     /**
+     * @description The number of snapshots.
+     *
      * @example 8
      *
      * @var int
@@ -32,6 +38,8 @@ class snapshotJob extends Model
     public $count;
 
     /**
+     * @description The time when the job was created.
+     *
      * @example 2022-07-12T16:17:54Z
      *
      * @var string
@@ -39,6 +47,8 @@ class snapshotJob extends Model
     public $createTime;
 
     /**
+     * @description The time when the job was complete.
+     *
      * @example 2022-07-12T16:30:54Z
      *
      * @var string
@@ -46,11 +56,15 @@ class snapshotJob extends Model
     public $finishTime;
 
     /**
+     * @description The input of the job.
+     *
      * @var input
      */
     public $input;
 
     /**
+     * @description The job ID.
+     *
      * @example ****d80e4e4044975745c14b****
      *
      * @var string
@@ -58,6 +72,8 @@ class snapshotJob extends Model
     public $jobId;
 
     /**
+     * @description The error message that is returned.
+     *
      * @example The specified resource for "Pipeline" could not be found.
      *
      * @var string
@@ -65,6 +81,8 @@ class snapshotJob extends Model
     public $message;
 
     /**
+     * @description The time when the job was last modified.
+     *
      * @example 2022-07-12T16:30:54Z
      *
      * @var string
@@ -72,16 +90,22 @@ class snapshotJob extends Model
     public $modifiedTime;
 
     /**
+     * @description The name of the job.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The output of the job.
+     *
      * @var output
      */
     public $output;
 
     /**
+     * @description The ID of the MPS queue to which the job was submitted.
+     *
      * @example ****d80e4e4044975745c14b****
      *
      * @var string
@@ -89,6 +113,14 @@ class snapshotJob extends Model
     public $pipelineId;
 
     /**
+     * @description The state of the job.
+     *
+     * Valid values:
+     *
+     *   Init: The job is submitted.
+     *   Success: The job is successful.
+     *   Fail: The job failed.
+     *
      * @example Success
      *
      * @var string
@@ -96,6 +128,8 @@ class snapshotJob extends Model
     public $status;
 
     /**
+     * @description The time when the job was submitted.
+     *
      * @example 2022-07-12T16:17:54Z
      *
      * @var string
@@ -103,6 +137,8 @@ class snapshotJob extends Model
     public $submitTime;
 
     /**
+     * @description The snapshot template configuration.
+     *
      * @example {"Type":"Normal","FrameType":"normal","Time":0,"Count":10}
      *
      * @var string
@@ -110,6 +146,8 @@ class snapshotJob extends Model
     public $templateConfig;
 
     /**
+     * @description The template ID.
+     *
      * @example ****d80e4e4044975745c14b****
      *
      * @var string
@@ -117,6 +155,14 @@ class snapshotJob extends Model
     public $templateId;
 
     /**
+     * @description The request trigger source.
+     *
+     * Valid values:
+     *
+     *   Console
+     *   Workflow
+     *   API
+     *
      * @example API
      *
      * @var string
@@ -124,6 +170,14 @@ class snapshotJob extends Model
     public $triggerSource;
 
     /**
+     * @description Snapshot types
+     *
+     * Valid values:
+     *
+     *   WebVtt
+     *   Sprite
+     *   Normal
+     *
      * @example Sprite
      *
      * @var string
@@ -131,6 +185,8 @@ class snapshotJob extends Model
     public $type;
 
     /**
+     * @description The user-defined parameters.
+     *
      * @example {"test parameter": "test value"}
      *
      * @var string

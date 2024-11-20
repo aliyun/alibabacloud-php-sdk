@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class fileBasicInfo extends Model
 {
     /**
+     * @description The video bitrate.
+     *
      * @example 888.563
      *
      * @var string
@@ -16,6 +18,8 @@ class fileBasicInfo extends Model
     public $bitrate;
 
     /**
+     * @description The duration of the video. Unit: seconds.
+     *
      * @example 403.039999
      *
      * @var string
@@ -23,6 +27,8 @@ class fileBasicInfo extends Model
     public $duration;
 
     /**
+     * @description The file name.
+     *
      * @example file.m3u8
      *
      * @var string
@@ -30,6 +36,8 @@ class fileBasicInfo extends Model
     public $fileName;
 
     /**
+     * @description The file size. Unit: bytes.
+     *
      * @example 31737
      *
      * @var string
@@ -37,6 +45,10 @@ class fileBasicInfo extends Model
     public $fileSize;
 
     /**
+     * @description The state of the file. Valid values:
+     *
+     *   Normal
+     *
      * @example Normal
      *
      * @var string
@@ -44,6 +56,8 @@ class fileBasicInfo extends Model
     public $fileStatus;
 
     /**
+     * @description The file type.
+     *
      * @example source_file
      *
      * @var string
@@ -51,6 +65,8 @@ class fileBasicInfo extends Model
     public $fileType;
 
     /**
+     * @description The URL of the file.
+     *
      * @example http://bucket.oss-cn-shanghai.aliyuncs.com/path/to/file.m3u8
      *
      * @var string
@@ -58,6 +74,8 @@ class fileBasicInfo extends Model
     public $fileUrl;
 
     /**
+     * @description The name of the video format.
+     *
      * @example hls,applehttp
      *
      * @var string
@@ -65,6 +83,8 @@ class fileBasicInfo extends Model
     public $formatName;
 
     /**
+     * @description The height of the output video.
+     *
      * @example 478
      *
      * @var string
@@ -72,6 +92,8 @@ class fileBasicInfo extends Model
     public $height;
 
     /**
+     * @description The ID of the media asset.
+     *
      * @example 999e68259c924f52a6be603cbb3f91cc
      *
      * @var string
@@ -79,6 +101,8 @@ class fileBasicInfo extends Model
     public $mediaId;
 
     /**
+     * @description The region in which the file resides.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -86,6 +110,8 @@ class fileBasicInfo extends Model
     public $region;
 
     /**
+     * @description The width of the output video.
+     *
      * @example 848
      *
      * @var string

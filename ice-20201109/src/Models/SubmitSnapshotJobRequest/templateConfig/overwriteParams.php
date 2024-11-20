@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class overwriteParams extends Model
 {
     /**
+     * @description The threshold that is used to filter out black frames for the first snapshot to be captured. This feature is available if you request the system to capture multiple snapshots.
+     *
      * @example 30
      *
      * @var int
@@ -17,6 +19,8 @@ class overwriteParams extends Model
     public $blackLevel;
 
     /**
+     * @description The number of snapshots.
+     *
      * @example 5
      *
      * @var int
@@ -24,6 +28,8 @@ class overwriteParams extends Model
     public $count;
 
     /**
+     * @description The type of the frame.
+     *
      * @example intra
      *
      * @var string
@@ -31,6 +37,8 @@ class overwriteParams extends Model
     public $frameType;
 
     /**
+     * @description The height of a captured snapshot.
+     *
      * @example 480
      *
      * @var int
@@ -38,6 +46,8 @@ class overwriteParams extends Model
     public $height;
 
     /**
+     * @description The interval at which snapshots are captured.
+     *
      * @example 10
      *
      * @var int
@@ -45,6 +55,8 @@ class overwriteParams extends Model
     public $interval;
 
     /**
+     * @description The WebVTT snapshot configuration that specifies whether to merge the output snapshots.
+     *
      * @example true
      *
      * @var bool
@@ -52,6 +64,8 @@ class overwriteParams extends Model
     public $isSptFrag;
 
     /**
+     * @description The color value threshold that determines whether a pixel is black.
+     *
      * @example 70
      *
      * @var int
@@ -59,11 +73,15 @@ class overwriteParams extends Model
     public $pixelBlackThreshold;
 
     /**
+     * @description The configuration of the sprite snapshot.
+     *
      * @var spriteSnapshotConfig
      */
     public $spriteSnapshotConfig;
 
     /**
+     * @description The point in time at which the system starts to capture snapshots in the input video.
+     *
      * @example 1000
      *
      * @var int
@@ -71,6 +89,8 @@ class overwriteParams extends Model
     public $time;
 
     /**
+     * @description The snapshot type. Valid values:
+     *
      * @example Sprite
      *
      * @var string
@@ -78,6 +98,8 @@ class overwriteParams extends Model
     public $type;
 
     /**
+     * @description The width of a captured snapshot.
+     *
      * @example 720
      *
      * @var int

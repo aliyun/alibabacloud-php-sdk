@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class customizedVoiceJob extends Model
 {
     /**
+     * @description The time when the job was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2023-06-07T02:27:08Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The gender. Valid values:
+     *
+     *   female
+     *   male
+     *
+     * @example female
+     *
      * @var string
      */
     public $gender;
 
     /**
+     * @description The ID of the human voice cloning job.
+     *
      * @example ****571c704445f9a0ee011406c2****
      *
      * @var string
@@ -26,16 +39,35 @@ class customizedVoiceJob extends Model
     public $jobId;
 
     /**
+     * @description The status description.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The scenario. Valid values:
+     *
+     *   story
+     *   interaction
+     *   navigation
+     *
+     * @example story
+     *
      * @var string
      */
     public $scenario;
 
     /**
+     * @description The job state. Valid values:
+     *
+     *   Initialization
+     *   AudioDetecting
+     *   PreTraining
+     *   Training
+     *   Success
+     *   Fail
+     *
      * @example Fail
      *
      * @var string
@@ -43,16 +75,29 @@ class customizedVoiceJob extends Model
     public $status;
 
     /**
+     * @description The type of the human voice cloning job. Valid values:
+     *
+     *   Basic
+     *   Standard
+     *
+     * @example Standard
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The voice description.
+     *
+     * @example This is an exclusive voice
+     *
      * @var string
      */
     public $voiceDesc;
 
     /**
+     * @description The voice ID.
+     *
      * @example xiaozhuan
      *
      * @var string
@@ -60,6 +105,10 @@ class customizedVoiceJob extends Model
     public $voiceId;
 
     /**
+     * @description The voice name.
+     *
+     * @example Xiaozhuan
+     *
      * @var string
      */
     public $voiceName;

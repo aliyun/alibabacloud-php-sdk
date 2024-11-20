@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class combineConfigs extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The audio stream index.
      *
+     * This parameter is required.
      * @example 0 或 exclude
      *
      * @var string
@@ -18,6 +19,8 @@ class combineConfigs extends Model
     public $audioIndex;
 
     /**
+     * @description The duration of the input stream. The default value is the duration of the video.
+     *
      * @example 20.0
      *
      * @var float
@@ -25,6 +28,8 @@ class combineConfigs extends Model
     public $duration;
 
     /**
+     * @description The start time of the input stream. Default value: 0.
+     *
      * @example 0.0
      *
      * @var float
@@ -32,8 +37,9 @@ class combineConfigs extends Model
     public $start;
 
     /**
-     * @description This parameter is required.
+     * @description The video stream index.
      *
+     * This parameter is required.
      * @example 0 或 exclude
      *
      * @var string

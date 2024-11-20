@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class editingBatchJobList extends Model
 {
     /**
+     * @description The time when the job was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2023-06-09T06:38:09Z
      *
      * @var string
@@ -16,6 +18,8 @@ class editingBatchJobList extends Model
     public $completeTime;
 
     /**
+     * @description The time when the job was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2023-06-09T06:36:48Z
      *
      * @var string
@@ -23,6 +27,8 @@ class editingBatchJobList extends Model
     public $createTime;
 
     /**
+     * @description The editing configurations. For more information, see [EditingConfig](~~2692547#1be9bba03b7qu~~).
+     *
      * @example {
      * }
      * @var string
@@ -30,16 +36,24 @@ class editingBatchJobList extends Model
     public $editingConfig;
 
     /**
+     * @description The extended information of the job.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $extend;
 
     /**
+     * @description The input configurations.
+     *
      * @var string
      */
     public $inputConfig;
 
     /**
+     * @description The ID of the quick video production job.
+     *
      * @example ******7ecbee4c6d9b8474498e******
      *
      * @var string
@@ -47,6 +61,13 @@ class editingBatchJobList extends Model
     public $jobId;
 
     /**
+     * @description The job type.
+     *
+     * Valid values:
+     *
+     *   Script: script-based editing job that mixes media assets.
+     *   Smart_Mix: intelligent editing job that mixes media assets.
+     *
      * @example Script
      *
      * @var string
@@ -54,6 +75,8 @@ class editingBatchJobList extends Model
     public $jobType;
 
     /**
+     * @description The time when the job was last modified.
+     *
      * @example 2023-06-09T06:37:58Z
      *
      * @var string
@@ -61,6 +84,8 @@ class editingBatchJobList extends Model
     public $modifiedTime;
 
     /**
+     * @description The output configurations. For more information, see [OutputConfig](~~2692547#447b928fcbuoa~~).
+     *
      * @example {
      * }
      * @var string
@@ -68,6 +93,15 @@ class editingBatchJobList extends Model
     public $outputConfig;
 
     /**
+     * @description The job state.
+     *
+     * Valid values:
+     *
+     *   Finished
+     *   Init
+     *   Failed
+     *   Processing
+     *
      * @example Finished
      *
      * @var string
@@ -75,6 +109,8 @@ class editingBatchJobList extends Model
     public $status;
 
     /**
+     * @description The user-defined data in the JSON format, which can be up to 512 bytes in length. You can specify a custom callback URL. For more information, see [Configure a callback upon editing completion](https://help.aliyun.com/zh/ims/use-cases/to-configure-a-callback-when-a-clip-completes).
+     *
      * @var string
      */
     public $userData;

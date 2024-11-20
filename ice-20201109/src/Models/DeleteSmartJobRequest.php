@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteSmartJobRequest extends Model
 {
     /**
+     * @description The IDs of the jobs to delete. Separate multiple IDs with commas (,).
+     *
      * @example ******b48fb04483915d4f2cd8******,******042d5e4db6866f6289d1******
      *
      * @var string

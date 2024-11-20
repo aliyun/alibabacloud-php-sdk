@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class QueryIProductionJobResponseBody extends Model
 {
     /**
+     * @description The time when the job was created.
+     *
      * @example 2022-07-07T07:16:11Z
      *
      * @var string
@@ -19,6 +21,8 @@ class QueryIProductionJobResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The time when the job was complete.
+     *
      * @example 2021-11-26T14:50:25Z
      *
      * @var string
@@ -26,6 +30,13 @@ class QueryIProductionJobResponseBody extends Model
     public $finishTime;
 
     /**
+     * @description The name of the algorithm that you want to use for the job. Valid values:
+     *
+     *   **Cover**: This algorithm intelligently generates a thumbnail image for a video.
+     *   **VideoClip**: This algorithm intelligently generates a summary for a video.
+     *   **VideoDelogo**: This algorithm removes logos from a video.
+     *   **VideoDetext**: This algorithm removes captions from a video.
+     *
      * @example Cover
      *
      * @var string
@@ -33,11 +44,15 @@ class QueryIProductionJobResponseBody extends Model
     public $functionName;
 
     /**
+     * @description The input file.
+     *
      * @var input
      */
     public $input;
 
     /**
+     * @description The ID of the intelligent production job.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -45,6 +60,8 @@ class QueryIProductionJobResponseBody extends Model
     public $jobId;
 
     /**
+     * @description The algorithm-specific parameters. The parameters are specified as JSON objects and vary based on the algorithm.
+     *
      * @example {"Model":"gif"}
      *
      * @var string
@@ -52,31 +69,43 @@ class QueryIProductionJobResponseBody extends Model
     public $jobParams;
 
     /**
+     * @description The name of the intelligent production job.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The output file.
+     *
      * @var output
      */
     public $output;
 
     /**
+     * @description The output files.
+     *
      * @var string[]
      */
     public $outputFiles;
 
     /**
+     * @description The URLs of the output files.
+     *
      * @var string[]
      */
     public $outputUrls;
 
     /**
+     * @description The ID of the request.
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The output of the algorithm. The output is in JSON format and varies based on the algorithm. For more information, see the "Parameters of Result" section of this topic.
+     *
      * @example {}
      *
      * @var string
@@ -84,11 +113,20 @@ class QueryIProductionJobResponseBody extends Model
     public $result;
 
     /**
+     * @description The scheduling configuration.
+     *
      * @var scheduleConfig
      */
     public $scheduleConfig;
 
     /**
+     * @description The status of the job. Valid values:
+     *
+     *   Queuing: The job is waiting in the queue.
+     *   Analysing: The job is in progress.
+     *   Fail: The job failed.
+     *   Success: The job was successful.
+     *
      * @example Success
      *
      * @var string
@@ -96,6 +134,8 @@ class QueryIProductionJobResponseBody extends Model
     public $status;
 
     /**
+     * @description The template ID.
+     *
      * @example ****96e8864746a0b6f3****
      *
      * @var string
@@ -103,6 +143,8 @@ class QueryIProductionJobResponseBody extends Model
     public $templateId;
 
     /**
+     * @description The user-defined data that is returned in the response.
+     *
      * @example {"test":1}
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetCustomizedVoiceJobResponseBody extends Model
 {
     /**
+     * @description The data returned if the request was successful.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example ****63E8B7C7-4812-46AD-0FA56029AC86****
      *
      * @var string
@@ -22,6 +26,11 @@ class GetCustomizedVoiceJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

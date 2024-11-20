@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class overwriteParams extends Model
 {
     /**
+     * @description Specifies whether to the font size based on the output video dimensions. true / false, default: false
+     *
      * @example false
      *
      * @var string
@@ -16,6 +18,8 @@ class overwriteParams extends Model
     public $adaptive;
 
     /**
+     * @description The outline color of the text watermark. Default value: black. For more information, see BorderColor.
+     *
      * @example #006400
      *
      * @var string
@@ -23,6 +27,11 @@ class overwriteParams extends Model
     public $borderColor;
 
     /**
+     * @description The outline width of the text watermark.
+     *
+     *   Default value: 0.
+     *   Valid values: (0,4096].
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +39,8 @@ class overwriteParams extends Model
     public $borderWidth;
 
     /**
+     * @description The watermark text. Base64 encoding is not required. The string must be encoded in UTF-8.
+     *
      * @example 测试水印
      *
      * @var string
@@ -37,6 +48,11 @@ class overwriteParams extends Model
     public $content;
 
     /**
+     * @description The transparency of the text.
+     *
+     *   Valid values: (0,1].
+     *   Default value: 1.
+     *
      * @example 1.0
      *
      * @var string
@@ -44,6 +60,8 @@ class overwriteParams extends Model
     public $fontAlpha;
 
     /**
+     * @description The color of the text.
+     *
      * @example #006400
      *
      * @var string
@@ -51,6 +69,8 @@ class overwriteParams extends Model
     public $fontColor;
 
     /**
+     * @description The font of the text. Default value: SimSun.
+     *
      * @example SimSun
      *
      * @var string
@@ -58,6 +78,11 @@ class overwriteParams extends Model
     public $fontName;
 
     /**
+     * @description The size of the text.
+     *
+     *   Default value: 16.
+     *   Valid values: (4,120).
+     *
      * @example 16
      *
      * @var int
@@ -65,6 +90,11 @@ class overwriteParams extends Model
     public $fontSize;
 
     /**
+     * @description The left margin of the text watermark.
+     *
+     *   Default value: 0.
+     *   Valid values: [0,4096].
+     *
      * @example 10
      *
      * @var string
@@ -72,6 +102,11 @@ class overwriteParams extends Model
     public $left;
 
     /**
+     * @description The top margin of the text.
+     *
+     *   Default value: 0.
+     *   Valid values: [0,4096].
+     *
      * @example 10
      *
      * @var string

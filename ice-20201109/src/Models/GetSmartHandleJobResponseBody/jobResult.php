@@ -9,16 +9,16 @@ use AlibabaCloud\Tea\Model;
 class jobResult extends Model
 {
     /**
-     * @description 智能分析结果
+     * @description The AI analysis result.
      *
-     * @example 拆条或智能标签信息
+     * @example Intelligent segmentation or tagging information
      *
      * @var string
      */
     public $aiResult;
 
     /**
-     * @description 媒资Id
+     * @description The ID of the media asset.
      *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
@@ -27,6 +27,10 @@ class jobResult extends Model
     public $mediaId;
 
     /**
+     * @description The token usage. This parameter is returned only for keyword-based text generation jobs.
+     *
+     * @example {"total_tokens":100}
+     *
      * @var string
      */
     public $usage;

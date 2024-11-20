@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The usage duration, in minutes.
+     *
      * @example 1.23
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $duration;
 
     /**
+     * @description The video profile.
+     *
      * @example 1080P
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $profile;
 
     /**
+     * @description The beginning time of usage. The value is a 10-digit timestamp.
+     *
      * @example 1656950400
      *
      * @var int

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The list of digital human training jobs.
+     *
      * @var avatarTrainingJobList[]
      */
     public $avatarTrainingJobList;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 3
      *
      * @var int

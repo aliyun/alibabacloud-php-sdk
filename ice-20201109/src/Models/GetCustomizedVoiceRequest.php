@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCustomizedVoiceRequest extends Model
 {
     /**
+     * @description The voice ID.
+     *
      * @example xiaozhuan
      *
      * @var string

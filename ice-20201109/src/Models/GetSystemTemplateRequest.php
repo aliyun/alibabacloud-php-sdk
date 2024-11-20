@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetSystemTemplateRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The template ID.
      *
+     * This parameter is required.
      * @example S00000001-100060
      *
      * @var string

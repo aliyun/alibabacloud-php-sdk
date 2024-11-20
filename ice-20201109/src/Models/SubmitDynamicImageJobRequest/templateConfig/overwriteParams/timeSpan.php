@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class timeSpan extends Model
 {
     /**
+     * @description The length of the clip.
+     *
+     *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
+     *   Valid values: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The length of the ending part of the original clip to be cropped out. If you specify this parameter, the Duration parameter becomes invalid.
+     *
+     *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
+     *   Valid values: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
+     *
      * @var string
      */
     public $end;
 
     /**
+     * @description The start point of the clip.
+     *
+     *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
+     *   Valid values: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
+     *
      * @var string
      */
     public $seek;

@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListSmartJobsRequest extends Model
 {
     /**
+     * @description The job state.
+     *
+     * Valid values:
+     *
+     *   Finished: The job is complete.
+     *   Failed: The job failed.
+     *   Executing: The job is in progress.
+     *   Created: The job is created.
+     *
      * @example Finished
      *
      * @var string
@@ -16,6 +25,15 @@ class ListSmartJobsRequest extends Model
     public $jobState;
 
     /**
+     * @description The job type.
+     *
+     * Valid values:
+     *
+     *   ASR: automatic speech recognition(job) job.
+     *   DynamicChart: dynamic chart job.
+     *   VideoTranslation: video translation job.
+     *   TextToSpeech: intelligent audio production job.
+     *
      * @example ASR
      *
      * @var string
@@ -23,6 +41,9 @@ class ListSmartJobsRequest extends Model
     public $jobType;
 
     /**
+     * @description The maximum number of entries to return.
+     *
+     * Default value: 10. Valid values: 1 to 100.
      * @example 10
      *
      * @var int
@@ -30,6 +51,8 @@ class ListSmartJobsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example ****73f33c91-d59383e8280b****
      *
      * @var string
@@ -37,6 +60,8 @@ class ListSmartJobsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +69,8 @@ class ListSmartJobsRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Default value: 10. Valid values: 1 to 100.
+     *
      * @example 10
      *
      * @var int
@@ -51,6 +78,13 @@ class ListSmartJobsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The sorting parameter. By default, the query results are sorted by creation time in descending order.
+     *
+     * Valid values:
+     *
+     *   CreationTime:Asc: sorted by creation time in ascending order.
+     *   CreationTime:Desc: sorted by creation time in descending order.
+     *
      * @example CreationTime:Desc
      *
      * @var string

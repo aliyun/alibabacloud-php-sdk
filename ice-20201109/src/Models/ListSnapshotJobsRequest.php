@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListSnapshotJobsRequest extends Model
 {
     /**
+     * @description The end of the time range during which the jobs to be queried were created.
+     *
      * @example 2022-07-14T00:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class ListSnapshotJobsRequest extends Model
     public $endOfCreateTime;
 
     /**
+     * @description The job ID.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -23,6 +27,8 @@ class ListSnapshotJobsRequest extends Model
     public $jobId;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -30,6 +36,13 @@ class ListSnapshotJobsRequest extends Model
     public $nextPageToken;
 
     /**
+     * @description The order that you use to sort the query results.
+     *
+     * Valid values:
+     *
+     *   CreateTimeDesc: sorts the jobs by creation time in descending order
+     *   CreateTimeAsc: sorts the jobs by creation time in ascending order.
+     *
      * @example CreateTimeDesc
      *
      * @var string
@@ -37,6 +50,8 @@ class ListSnapshotJobsRequest extends Model
     public $orderBy;
 
     /**
+     * @description The number of entries per page. Default value: 20. Maximum value: 100.
+     *
      * @example 20
      *
      * @var int
@@ -44,6 +59,8 @@ class ListSnapshotJobsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The beginning of the time range during which the jobs to be queried were created.
+     *
      * @example 2022-07-12T00:00:00Z
      *
      * @var string
@@ -51,6 +68,14 @@ class ListSnapshotJobsRequest extends Model
     public $startOfCreateTime;
 
     /**
+     * @description The state of the job.
+     *
+     * Valid values:
+     *
+     *   Init: The job is submitted.
+     *   Success: The job is successful.
+     *   Fail: The job failed.
+     *
      * @example Success
      *
      * @var string

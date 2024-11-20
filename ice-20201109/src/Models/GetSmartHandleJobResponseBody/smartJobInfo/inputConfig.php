@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class inputConfig extends Model
 {
     /**
+     * @description The OSS URL or the ID of the material in the media asset library.
+     *
      * @example oss://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4 或 ******11-DB8D-4A9A-875B-275798******
      *
      * @var string

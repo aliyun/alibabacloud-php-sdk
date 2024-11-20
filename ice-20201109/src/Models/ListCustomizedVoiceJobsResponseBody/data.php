@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The queried human voice cloning jobs.
+     *
      * @var customizedVoiceJobList[]
      */
     public $customizedVoiceJobList;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 271
      *
      * @var int

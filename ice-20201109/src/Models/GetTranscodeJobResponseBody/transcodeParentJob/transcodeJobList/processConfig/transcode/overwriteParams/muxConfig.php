@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class muxConfig extends Model
 {
     /**
+     * @description The segment settings.
+     *
      * @var segment
      */
     public $segment;

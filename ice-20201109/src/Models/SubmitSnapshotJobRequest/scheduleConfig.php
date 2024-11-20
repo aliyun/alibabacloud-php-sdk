@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class scheduleConfig extends Model
 {
     /**
+     * @description The ID of the ApsaraVideo Media Processing (MPS) queue that is used to run the job.
+     *
      * @example ****96e8864746a0b6f3****
      *
      * @var string

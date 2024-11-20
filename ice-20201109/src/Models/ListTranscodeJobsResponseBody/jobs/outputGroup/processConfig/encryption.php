@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class encryption extends Model
 {
     /**
+     * @description The ciphertext of HTTP Live Streaming (HLS) encryption.
+     *
      * @example MTYi00NDU0LTg5O****
      *
      * @var string
@@ -16,6 +18,8 @@ class encryption extends Model
     public $cipherText;
 
     /**
+     * @description The endpoint of the decryption service for HLS encryption.
+     *
      * @example https://sample.com/path?CipherText=MTYi00NDU0LTg5O****
      *
      * @var string
@@ -23,6 +27,8 @@ class encryption extends Model
     public $decryptKeyUri;
 
     /**
+     * @description The encryption type.
+     *
      * @example PrivateEncryption
      *
      * @var string

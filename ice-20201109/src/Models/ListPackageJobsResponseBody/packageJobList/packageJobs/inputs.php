@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class inputs extends Model
 {
     /**
+     * @description The information about the input stream file.
+     *
      * @var input
      */
     public $input;

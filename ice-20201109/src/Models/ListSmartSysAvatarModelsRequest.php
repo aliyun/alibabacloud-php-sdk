@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListSmartSysAvatarModelsRequest extends Model
 {
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListSmartSysAvatarModelsRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Default value: 10. Valid values: 1 to 100.
+     *
      * @example 10
      *
      * @var int

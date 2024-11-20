@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class SubmitCustomizedVoiceJobRequest extends Model
 {
     /**
+     * @description The URL of the sample audio file.
+     *
+     *   If this parameter is specified, a sample audio file is generated at the specified Object Storage Service (OSS) URL after the training is complete.
+     *
+     *   If this parameter is not specified, no sample audio file is generated.
+     *
+     **
+     *
+     **Note**: The URL must be a valid public OSS URL within your Alibaba Cloud account.
+     *
      * @example https://your-bucket.oss-cn-shanghai.aliyuncs.com/demo.MP3
      *
      * @var string
@@ -16,8 +26,9 @@ class SubmitCustomizedVoiceJobRequest extends Model
     public $demoAudioMediaURL;
 
     /**
-     * @description This parameter is required.
+     * @description The voice ID.
      *
+     * This parameter is required.
      * @example xiaozhuan
      *
      * @var string

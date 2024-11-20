@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class liveStreamConfig extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
      * @example app
      *
      * @var string
@@ -16,6 +18,8 @@ class liveStreamConfig extends Model
     public $appName;
 
     /**
+     * @description The domain name of the live stream.
+     *
      * @example domain.com
      *
      * @var string
@@ -23,6 +27,8 @@ class liveStreamConfig extends Model
     public $domainName;
 
     /**
+     * @description The name of the live stream.
+     *
      * @example streamName
      *
      * @var string

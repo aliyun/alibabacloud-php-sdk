@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class inputGroup extends Model
 {
     /**
+     * @description The URL of the media asset. This parameter is specified only when the media asset is transcoded.
+     *
+     * @example oss://bucket/path/to/video.mp4
+     *
      * @var string
      */
     public $inputUrl;
 
     /**
+     * @description The media object.
+     *
+     *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+     *   If Type is set to Media, the ID of a media asset is returned.
+     *
      * @example oss://bucket/path/to/video.mp4
      *
      * @var string
@@ -21,6 +30,11 @@ class inputGroup extends Model
     public $media;
 
     /**
+     * @description The type of the media object. Valid values:
+     *
+     *   OSS: an Object Storage Service (OSS) object.
+     *   Media: a media asset.
+     *
      * @example OSS
      *
      * @var string

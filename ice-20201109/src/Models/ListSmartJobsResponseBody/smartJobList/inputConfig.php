@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class inputConfig extends Model
 {
     /**
+     * @description The information about the input file.
+     *
      * @example oss://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
      *
      * @var string
@@ -16,6 +18,8 @@ class inputConfig extends Model
     public $inputFile;
 
     /**
+     * @description The keyword information.
+     *
      * @example 测试关键词
      *
      * @var string

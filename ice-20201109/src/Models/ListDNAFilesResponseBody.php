@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListDNAFilesResponseBody extends Model
 {
     /**
+     * @description The queried files.
+     *
      * @var fileList[]
      */
     public $fileList;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
      * @example ae0fd49c0840e14daf0d66a75b83****
      *
      * @var string
@@ -22,6 +26,8 @@ class ListDNAFilesResponseBody extends Model
     public $nextPageToken;
 
     /**
+     * @description The request ID.
+     *
      * @example 2AE89FA5-E620-56C7-9B80-75D09757385A
      *
      * @var string

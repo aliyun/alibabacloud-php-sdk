@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class jobs extends Model
 {
     /**
+     * @description Indicates whether the snapshots were captured in asynchronous mode.
+     *
      * @example true
      *
      * @var bool
@@ -18,6 +20,8 @@ class jobs extends Model
     public $async;
 
     /**
+     * @description The number of snapshots.
+     *
      * @example 10
      *
      * @var int
@@ -25,6 +29,8 @@ class jobs extends Model
     public $count;
 
     /**
+     * @description The time when the job was created.
+     *
      * @example 2022-07-12T16:17:54Z
      *
      * @var string
@@ -32,6 +38,8 @@ class jobs extends Model
     public $createTime;
 
     /**
+     * @description The time when the job was complete.
+     *
      * @example 2022-07-12T16:30:54Z
      *
      * @var string
@@ -39,11 +47,15 @@ class jobs extends Model
     public $finishTime;
 
     /**
+     * @description The input of the job.
+     *
      * @var input
      */
     public $input;
 
     /**
+     * @description The job ID.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -51,6 +63,8 @@ class jobs extends Model
     public $jobId;
 
     /**
+     * @description The time when the job was last modified.
+     *
      * @example 2022-07-12T16:30:54Z
      *
      * @var string
@@ -58,6 +72,8 @@ class jobs extends Model
     public $modifiedTime;
 
     /**
+     * @description The name of the job.
+     *
      * @example SampleJob
      *
      * @var string
@@ -65,11 +81,15 @@ class jobs extends Model
     public $name;
 
     /**
+     * @description The output of the job.
+     *
      * @var output
      */
     public $output;
 
     /**
+     * @description The ID of the MPS queue to which the job was submitted.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -77,6 +97,12 @@ class jobs extends Model
     public $pipelineId;
 
     /**
+     * @description The state of the job.
+     *
+     *   **Success**: The job is successful.
+     *   **Fail**: The job failed.
+     *   **Init**: The job is submitted.
+     *
      * @example Success
      *
      * @var string
@@ -84,6 +110,8 @@ class jobs extends Model
     public $status;
 
     /**
+     * @description The time when the job was submitted.
+     *
      * @example 2022-07-12T16:17:54Z
      *
      * @var string
@@ -91,6 +119,8 @@ class jobs extends Model
     public $submitTime;
 
     /**
+     * @description The template ID.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -98,6 +128,14 @@ class jobs extends Model
     public $templateId;
 
     /**
+     * @description The request trigger source.
+     *
+     * Valid values:
+     *
+     *   Console
+     *   Workflow
+     *   API
+     *
      * @example API
      *
      * @var string
@@ -105,6 +143,14 @@ class jobs extends Model
     public $triggerSource;
 
     /**
+     * @description The type of the job.
+     *
+     * Valid values:
+     *
+     *   WebVtt
+     *   Sprite
+     *   Normal
+     *
      * @example Sprite
      *
      * @var string
