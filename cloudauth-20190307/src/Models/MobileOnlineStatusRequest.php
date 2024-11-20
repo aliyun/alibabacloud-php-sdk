@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class MobileOnlineStatusRequest extends Model
 {
     /**
-     * @example 130********
-     *
      * @var string
      */
     public $mobile;
 
     /**
-     * @example normal
-     *
      * @var string
      */
     public $paramType;

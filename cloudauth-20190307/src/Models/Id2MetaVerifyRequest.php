@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class Id2MetaVerifyRequest extends Model
 {
     /**
-     * @example 412722198610274919
-     *
      * @var string
      */
     public $identifyNum;
 
     /**
-     * @example normal
-     *
      * @var string
      */
     public $paramType;

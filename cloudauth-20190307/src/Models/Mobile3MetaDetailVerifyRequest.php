@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class Mobile3MetaDetailVerifyRequest extends Model
 {
     /**
-     * @example 520181199902104631
-     *
      * @var string
      */
     public $identifyNum;
 
     /**
-     * @example 150000xxxx
-     *
      * @var string
      */
     public $mobile;
 
     /**
-     * @example normal
-     *
      * @var string
      */
     public $paramType;

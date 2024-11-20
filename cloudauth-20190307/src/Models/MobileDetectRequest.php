@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class MobileDetectRequest extends Model
 {
     /**
-     * @example 138********,156********
-     *
      * @var string
      */
     public $mobiles;
 
     /**
-     * @example normal
-     *
      * @var string
      */
     public $paramType;

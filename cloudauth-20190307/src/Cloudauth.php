@@ -1439,18 +1439,18 @@ class Cloudauth extends OpenApiClient
     public function id2MetaVerifyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
+        $body = [];
         if (!Utils::isUnset($request->identifyNum)) {
-            $query['IdentifyNum'] = $request->identifyNum;
+            $body['IdentifyNum'] = $request->identifyNum;
         }
         if (!Utils::isUnset($request->paramType)) {
-            $query['ParamType'] = $request->paramType;
+            $body['ParamType'] = $request->paramType;
         }
         if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+            $body['UserName'] = $request->userName;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'Id2MetaVerify',
@@ -1788,21 +1788,21 @@ class Cloudauth extends OpenApiClient
     public function mobile3MetaDetailVerifyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
+        $body = [];
         if (!Utils::isUnset($request->identifyNum)) {
-            $query['IdentifyNum'] = $request->identifyNum;
+            $body['IdentifyNum'] = $request->identifyNum;
         }
         if (!Utils::isUnset($request->mobile)) {
-            $query['Mobile'] = $request->mobile;
+            $body['Mobile'] = $request->mobile;
         }
         if (!Utils::isUnset($request->paramType)) {
-            $query['ParamType'] = $request->paramType;
+            $body['ParamType'] = $request->paramType;
         }
         if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+            $body['UserName'] = $request->userName;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'Mobile3MetaDetailVerify',
@@ -1844,21 +1844,21 @@ class Cloudauth extends OpenApiClient
     public function mobile3MetaSimpleVerifyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
+        $body = [];
         if (!Utils::isUnset($request->identifyNum)) {
-            $query['IdentifyNum'] = $request->identifyNum;
+            $body['IdentifyNum'] = $request->identifyNum;
         }
         if (!Utils::isUnset($request->mobile)) {
-            $query['Mobile'] = $request->mobile;
+            $body['Mobile'] = $request->mobile;
         }
         if (!Utils::isUnset($request->paramType)) {
-            $query['ParamType'] = $request->paramType;
+            $body['ParamType'] = $request->paramType;
         }
         if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+            $body['UserName'] = $request->userName;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'Mobile3MetaSimpleVerify',
@@ -1900,15 +1900,15 @@ class Cloudauth extends OpenApiClient
     public function mobileDetectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
+        $body = [];
         if (!Utils::isUnset($request->mobiles)) {
-            $query['Mobiles'] = $request->mobiles;
+            $body['Mobiles'] = $request->mobiles;
         }
         if (!Utils::isUnset($request->paramType)) {
-            $query['ParamType'] = $request->paramType;
+            $body['ParamType'] = $request->paramType;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'MobileDetect',
@@ -1950,15 +1950,15 @@ class Cloudauth extends OpenApiClient
     public function mobileOnlineStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
+        $body = [];
         if (!Utils::isUnset($request->mobile)) {
-            $query['Mobile'] = $request->mobile;
+            $body['Mobile'] = $request->mobile;
         }
         if (!Utils::isUnset($request->paramType)) {
-            $query['ParamType'] = $request->paramType;
+            $body['ParamType'] = $request->paramType;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'MobileOnlineStatus',
@@ -2000,15 +2000,15 @@ class Cloudauth extends OpenApiClient
     public function mobileOnlineTimeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
+        $body = [];
         if (!Utils::isUnset($request->mobile)) {
-            $query['Mobile'] = $request->mobile;
+            $body['Mobile'] = $request->mobile;
         }
         if (!Utils::isUnset($request->paramType)) {
-            $query['ParamType'] = $request->paramType;
+            $body['ParamType'] = $request->paramType;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'MobileOnlineTime',
