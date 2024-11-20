@@ -2578,7 +2578,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建等候室
+     * @summary Creates a waiting room for a website.
      *  *
      * @param CreateWaitingRoomRequest $tmpReq  CreateWaitingRoomRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -2664,7 +2664,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建等候室
+     * @summary Creates a waiting room for a website.
      *  *
      * @param CreateWaitingRoomRequest $request CreateWaitingRoomRequest
      *

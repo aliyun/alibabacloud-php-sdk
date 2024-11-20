@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateWaitingRoomRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the custom cookie.
      *
+     * This parameter is required.
      * @example __aliwaitingroom_example
      *
      * @var string
@@ -19,6 +20,8 @@ class CreateWaitingRoomRequest extends Model
     public $cookieName;
 
     /**
+     * @description The content of the custom waiting room page. You must specify this parameter if you set WaitingRoomType to custom. The content must be Base64-encoded.
+     *
      * @example Hello%20world!
      *
      * @var string
@@ -26,11 +29,18 @@ class CreateWaitingRoomRequest extends Model
     public $customPageHtml;
 
     /**
+     * @description The description of the waiting room.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Specifies whether to disable session renewal. Valid values:
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string
@@ -38,8 +48,12 @@ class CreateWaitingRoomRequest extends Model
     public $disableSessionRenewalEnable;
 
     /**
-     * @description This parameter is required.
+     * @description Specifies whether to enable the waiting room. Valid values:
      *
+     *   on
+     *   off
+     *
+     * This parameter is required.
      * @example on
      *
      * @var string
@@ -47,13 +61,19 @@ class CreateWaitingRoomRequest extends Model
     public $enable;
 
     /**
-     * @description This parameter is required.
+     * @description The hostname and path.
      *
+     * This parameter is required.
      * @var hostNameAndPath[]
      */
     public $hostNameAndPath;
 
     /**
+     * @description Specifies whether to enable JSON response. If you set this parameter to on, a JSON body is returned for requests to the waiting room with the header Accept: application/json. Valid values:
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string
@@ -61,6 +81,12 @@ class CreateWaitingRoomRequest extends Model
     public $jsonResponseEnable;
 
     /**
+     * @description The language of the waiting room page. You must specify this parameter if you set WaitingRoomType to default. Valid values:
+     *
+     *   enus: English.
+     *   zhcn: Simplified Chinese.
+     *   zhhk: Traditional Chinese.
+     *
      * @example enus
      *
      * @var string
@@ -68,8 +94,9 @@ class CreateWaitingRoomRequest extends Model
     public $language;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the waiting room.
      *
+     * This parameter is required.
      * @example waitingroom_example
      *
      * @var string
@@ -77,8 +104,9 @@ class CreateWaitingRoomRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The maximum number of new users per minute.
      *
+     * This parameter is required.
      * @example 200
      *
      * @var string
@@ -86,6 +114,11 @@ class CreateWaitingRoomRequest extends Model
     public $newUsersPerMinute;
 
     /**
+     * @description Specifies whether to queue all requests. Valid values:
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string
@@ -93,8 +126,14 @@ class CreateWaitingRoomRequest extends Model
     public $queueAllEnable;
 
     /**
-     * @description This parameter is required.
+     * @description The queuing method. Valid values:
      *
+     *   random: Users gain access to the origin randomly, regardless of the arrival time.
+     *   fifo: Users gain access to the origin in order of arrival.
+     *   passthrough: Users pass through the waiting room and go straight to the origin.
+     *   reject-all: Users are blocked from reaching the origin.
+     *
+     * This parameter is required.
      * @example fifo
      *
      * @var string
@@ -102,8 +141,13 @@ class CreateWaitingRoomRequest extends Model
     public $queuingMethod;
 
     /**
-     * @description This parameter is required.
+     * @description The HTTP status code to return while a user is in the queue. Valid values:
      *
+     *   200
+     *   202
+     *   429
+     *
+     * This parameter is required.
      * @example 200
      *
      * @var string
@@ -111,8 +155,9 @@ class CreateWaitingRoomRequest extends Model
     public $queuingStatusCode;
 
     /**
-     * @description This parameter is required.
+     * @description The maximum duration for which a session remains valid after a user leaves the origin. Unit: minutes.
      *
+     * This parameter is required.
      * @example 5
      *
      * @var string
@@ -120,8 +165,9 @@ class CreateWaitingRoomRequest extends Model
     public $sessionDuration;
 
     /**
-     * @description This parameter is required.
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
      *
+     * This parameter is required.
      * @example 1234567890123
      *
      * @var int
@@ -129,8 +175,9 @@ class CreateWaitingRoomRequest extends Model
     public $siteId;
 
     /**
-     * @description This parameter is required.
+     * @description The maximum number of active users.
      *
+     * This parameter is required.
      * @example 300
      *
      * @var string
@@ -138,8 +185,12 @@ class CreateWaitingRoomRequest extends Model
     public $totalActiveUsers;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the waiting room. Valid values:
      *
+     *   default
+     *   custom
+     *
+     * This parameter is required.
      * @example default
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class hostNameAndPath extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The domain name.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -18,8 +19,9 @@ class hostNameAndPath extends Model
     public $domain;
 
     /**
-     * @description This parameter is required.
+     * @description The path.
      *
+     * This parameter is required.
      * @example /test
      *
      * @var string
@@ -27,8 +29,9 @@ class hostNameAndPath extends Model
     public $path;
 
     /**
-     * @description This parameter is required.
+     * @description The subdomain.
      *
+     * This parameter is required.
      * @example test.
      *
      * @var string
