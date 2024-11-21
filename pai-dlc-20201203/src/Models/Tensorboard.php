@@ -188,7 +188,7 @@ class Tensorboard extends Model
     /**
      * @var string
      */
-    public $workspaceid;
+    public $workspaceId;
     protected $_name = [
         'accessibility'          => 'Accessibility',
         'cpu'                    => 'Cpu',
@@ -219,7 +219,7 @@ class Tensorboard extends Model
         'token'                  => 'Token',
         'userId'                 => 'UserId',
         'username'               => 'Username',
-        'workspaceid'            => 'Workspaceid',
+        'workspaceId'            => 'WorkspaceId',
     ];
 
     public function validate()
@@ -322,8 +322,8 @@ class Tensorboard extends Model
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
-        if (null !== $this->workspaceid) {
-            $res['Workspaceid'] = $this->workspaceid;
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -430,8 +430,8 @@ class Tensorboard extends Model
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
         }
-        if (isset($map['Workspaceid'])) {
-            $model->workspaceid = $map['Workspaceid'];
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

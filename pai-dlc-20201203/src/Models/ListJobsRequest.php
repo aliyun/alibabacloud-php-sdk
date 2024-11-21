@@ -70,6 +70,11 @@ class ListJobsRequest extends Model
     public $order;
 
     /**
+     * @var string
+     */
+    public $oversoldInfo;
+
+    /**
      * @example 1
      *
      * @var int
@@ -161,6 +166,7 @@ class ListJobsRequest extends Model
         'jobId'             => 'JobId',
         'jobType'           => 'JobType',
         'order'             => 'Order',
+        'oversoldInfo'      => 'OversoldInfo',
         'pageNumber'        => 'PageNumber',
         'pageSize'          => 'PageSize',
         'pipelineId'        => 'PipelineId',
@@ -209,6 +215,9 @@ class ListJobsRequest extends Model
         }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
+        }
+        if (null !== $this->oversoldInfo) {
+            $res['OversoldInfo'] = $this->oversoldInfo;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -287,6 +296,9 @@ class ListJobsRequest extends Model
         }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
+        }
+        if (isset($map['OversoldInfo'])) {
+            $model->oversoldInfo = $map['OversoldInfo'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

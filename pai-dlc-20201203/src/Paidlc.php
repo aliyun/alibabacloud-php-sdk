@@ -62,9 +62,8 @@ class Paidlc extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_signatureAlgorithm = 'v2';
-        $this->_endpointRule       = 'regional';
-        $this->_endpointMap        = [
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap  = [
             'ap-northeast-1'              => 'pai-dlc.aliyuncs.com',
             'ap-northeast-2-pop'          => 'pai-dlc.aliyuncs.com',
             'ap-south-1'                  => 'pai-dlc.aliyuncs.com',
@@ -1203,6 +1202,9 @@ class Paidlc extends OpenApiClient
         }
         if (!Utils::isUnset($request->order)) {
             $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->oversoldInfo)) {
+            $query['OversoldInfo'] = $request->oversoldInfo;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
