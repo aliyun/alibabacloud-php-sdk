@@ -46,6 +46,16 @@ class UpdateNacosGrayConfigRequest extends Model
     public $grayRule;
 
     /**
+     * @var string
+     */
+    public $grayRuleName;
+
+    /**
+     * @var int
+     */
+    public $grayRulePriority;
+
+    /**
      * @description This parameter is required.
      *
      * @example Tags
@@ -78,6 +88,11 @@ class UpdateNacosGrayConfigRequest extends Model
     public $namespaceId;
 
     /**
+     * @var string
+     */
+    public $opType;
+
+    /**
      * @example cn-hangzhou
      *
      * @var string
@@ -98,18 +113,21 @@ class UpdateNacosGrayConfigRequest extends Model
      */
     public $stopGray;
     protected $_name = [
-        'acceptLanguage' => 'AcceptLanguage',
-        'appName'        => 'AppName',
-        'content'        => 'Content',
-        'dataId'         => 'DataId',
-        'grayRule'       => 'GrayRule',
-        'grayType'       => 'GrayType',
-        'group'          => 'Group',
-        'instanceId'     => 'InstanceId',
-        'namespaceId'    => 'NamespaceId',
-        'regionId'       => 'RegionId',
-        'requestPars'    => 'RequestPars',
-        'stopGray'       => 'StopGray',
+        'acceptLanguage'   => 'AcceptLanguage',
+        'appName'          => 'AppName',
+        'content'          => 'Content',
+        'dataId'           => 'DataId',
+        'grayRule'         => 'GrayRule',
+        'grayRuleName'     => 'GrayRuleName',
+        'grayRulePriority' => 'GrayRulePriority',
+        'grayType'         => 'GrayType',
+        'group'            => 'Group',
+        'instanceId'       => 'InstanceId',
+        'namespaceId'      => 'NamespaceId',
+        'opType'           => 'OpType',
+        'regionId'         => 'RegionId',
+        'requestPars'      => 'RequestPars',
+        'stopGray'         => 'StopGray',
     ];
 
     public function validate()
@@ -134,6 +152,12 @@ class UpdateNacosGrayConfigRequest extends Model
         if (null !== $this->grayRule) {
             $res['GrayRule'] = $this->grayRule;
         }
+        if (null !== $this->grayRuleName) {
+            $res['GrayRuleName'] = $this->grayRuleName;
+        }
+        if (null !== $this->grayRulePriority) {
+            $res['GrayRulePriority'] = $this->grayRulePriority;
+        }
         if (null !== $this->grayType) {
             $res['GrayType'] = $this->grayType;
         }
@@ -145,6 +169,9 @@ class UpdateNacosGrayConfigRequest extends Model
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
+        }
+        if (null !== $this->opType) {
+            $res['OpType'] = $this->opType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -182,6 +209,12 @@ class UpdateNacosGrayConfigRequest extends Model
         if (isset($map['GrayRule'])) {
             $model->grayRule = $map['GrayRule'];
         }
+        if (isset($map['GrayRuleName'])) {
+            $model->grayRuleName = $map['GrayRuleName'];
+        }
+        if (isset($map['GrayRulePriority'])) {
+            $model->grayRulePriority = $map['GrayRulePriority'];
+        }
         if (isset($map['GrayType'])) {
             $model->grayType = $map['GrayType'];
         }
@@ -193,6 +226,9 @@ class UpdateNacosGrayConfigRequest extends Model
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
+        }
+        if (isset($map['OpType'])) {
+            $model->opType = $map['OpType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\GetNacosConfigResponseBody;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetNacosConfigResponseBody\configuration\grayVersions;
 use AlibabaCloud\Tea\Model;
 
 class configuration extends Model
@@ -63,6 +64,11 @@ class configuration extends Model
     public $encryptedDataKey;
 
     /**
+     * @var grayVersions[]
+     */
+    public $grayVersions;
+
+    /**
      * @description The name of the configuration group.
      *
      * @example test
@@ -104,6 +110,7 @@ class configuration extends Model
         'dataId'           => 'DataId',
         'desc'             => 'Desc',
         'encryptedDataKey' => 'EncryptedDataKey',
+        'grayVersions'     => 'GrayVersions',
         'group'            => 'Group',
         'md5'              => 'Md5',
         'tags'             => 'Tags',
@@ -134,6 +141,15 @@ class configuration extends Model
         }
         if (null !== $this->encryptedDataKey) {
             $res['EncryptedDataKey'] = $this->encryptedDataKey;
+        }
+        if (null !== $this->grayVersions) {
+            $res['GrayVersions'] = [];
+            if (null !== $this->grayVersions && \is_array($this->grayVersions)) {
+                $n = 0;
+                foreach ($this->grayVersions as $item) {
+                    $res['GrayVersions'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->group) {
             $res['Group'] = $this->group;
@@ -176,6 +192,15 @@ class configuration extends Model
         }
         if (isset($map['EncryptedDataKey'])) {
             $model->encryptedDataKey = $map['EncryptedDataKey'];
+        }
+        if (isset($map['GrayVersions'])) {
+            if (!empty($map['GrayVersions'])) {
+                $model->grayVersions = [];
+                $n                   = 0;
+                foreach ($map['GrayVersions'] as $item) {
+                    $model->grayVersions[$n++] = null !== $item ? grayVersions::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Group'])) {
             $model->group = $map['Group'];

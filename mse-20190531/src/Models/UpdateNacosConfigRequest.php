@@ -39,10 +39,6 @@ class UpdateNacosConfigRequest extends Model
     public $betaIps;
 
     /**
-     * @description The content of the configuration.
-     *
-     * @example attribute1=1221111\\r\\nattribute2=Chinese\\r\\nattribute3=abc11\\r\\nattribute4=1.00111
-     *
      * @var string
      */
     public $content;

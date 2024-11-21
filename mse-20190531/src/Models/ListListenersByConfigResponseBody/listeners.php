@@ -25,6 +25,16 @@ class listeners extends Model
     public $labels;
 
     /**
+     * @var string
+     */
+    public $matchRuleName;
+
+    /**
+     * @var string
+     */
+    public $matchRuleType;
+
+    /**
      * @description The verification string.
      *
      * @example 23sdfdf
@@ -51,11 +61,13 @@ class listeners extends Model
      */
     public $version;
     protected $_name = [
-        'ip'      => 'Ip',
-        'labels'  => 'Labels',
-        'md5'     => 'Md5',
-        'status'  => 'Status',
-        'version' => 'Version',
+        'ip'            => 'Ip',
+        'labels'        => 'Labels',
+        'matchRuleName' => 'MatchRuleName',
+        'matchRuleType' => 'MatchRuleType',
+        'md5'           => 'Md5',
+        'status'        => 'Status',
+        'version'       => 'Version',
     ];
 
     public function validate()
@@ -70,6 +82,12 @@ class listeners extends Model
         }
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
+        }
+        if (null !== $this->matchRuleName) {
+            $res['MatchRuleName'] = $this->matchRuleName;
+        }
+        if (null !== $this->matchRuleType) {
+            $res['MatchRuleType'] = $this->matchRuleType;
         }
         if (null !== $this->md5) {
             $res['Md5'] = $this->md5;
@@ -97,6 +115,12 @@ class listeners extends Model
         }
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
+        }
+        if (isset($map['MatchRuleName'])) {
+            $model->matchRuleName = $map['MatchRuleName'];
+        }
+        if (isset($map['MatchRuleType'])) {
+            $model->matchRuleType = $map['MatchRuleType'];
         }
         if (isset($map['Md5'])) {
             $model->md5 = $map['Md5'];

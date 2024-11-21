@@ -39,10 +39,6 @@ class CreateNacosConfigRequest extends Model
     public $betaIps;
 
     /**
-     * @description The content of the configuration.
-     *
-     * @example asdf
-     *
      * @var string
      */
     public $content;

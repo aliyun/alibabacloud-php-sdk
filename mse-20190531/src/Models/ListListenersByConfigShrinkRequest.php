@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByConfigRequest\extGrayRules;
 use AlibabaCloud\Tea\Model;
 
-class ListListenersByConfigRequest extends Model
+class ListListenersByConfigShrinkRequest extends Model
 {
     /**
      * @description The language of the response. Valid values:
@@ -32,9 +31,9 @@ class ListListenersByConfigRequest extends Model
     public $dataId;
 
     /**
-     * @var extGrayRules[]
+     * @var string
      */
-    public $extGrayRules;
+    public $extGrayRulesShrink;
 
     /**
      * @description The name of the group.
@@ -74,13 +73,13 @@ class ListListenersByConfigRequest extends Model
      */
     public $requestPars;
     protected $_name = [
-        'acceptLanguage' => 'AcceptLanguage',
-        'dataId'         => 'DataId',
-        'extGrayRules'   => 'ExtGrayRules',
-        'group'          => 'Group',
-        'instanceId'     => 'InstanceId',
-        'namespaceId'    => 'NamespaceId',
-        'requestPars'    => 'RequestPars',
+        'acceptLanguage'     => 'AcceptLanguage',
+        'dataId'             => 'DataId',
+        'extGrayRulesShrink' => 'ExtGrayRules',
+        'group'              => 'Group',
+        'instanceId'         => 'InstanceId',
+        'namespaceId'        => 'NamespaceId',
+        'requestPars'        => 'RequestPars',
     ];
 
     public function validate()
@@ -96,14 +95,8 @@ class ListListenersByConfigRequest extends Model
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
         }
-        if (null !== $this->extGrayRules) {
-            $res['ExtGrayRules'] = [];
-            if (null !== $this->extGrayRules && \is_array($this->extGrayRules)) {
-                $n = 0;
-                foreach ($this->extGrayRules as $item) {
-                    $res['ExtGrayRules'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->extGrayRulesShrink) {
+            $res['ExtGrayRules'] = $this->extGrayRulesShrink;
         }
         if (null !== $this->group) {
             $res['Group'] = $this->group;
@@ -124,7 +117,7 @@ class ListListenersByConfigRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListListenersByConfigRequest
+     * @return ListListenersByConfigShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -136,13 +129,7 @@ class ListListenersByConfigRequest extends Model
             $model->dataId = $map['DataId'];
         }
         if (isset($map['ExtGrayRules'])) {
-            if (!empty($map['ExtGrayRules'])) {
-                $model->extGrayRules = [];
-                $n                   = 0;
-                foreach ($map['ExtGrayRules'] as $item) {
-                    $model->extGrayRules[$n++] = null !== $item ? extGrayRules::fromMap($item) : $item;
-                }
-            }
+            $model->extGrayRulesShrink = $map['ExtGrayRules'];
         }
         if (isset($map['Group'])) {
             $model->group = $map['Group'];

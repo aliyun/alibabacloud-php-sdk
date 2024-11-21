@@ -309,6 +309,7 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListIsolationRulesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListIsolationRulesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByConfigResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByConfigShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByIpRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByIpResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListMigrationTaskRequest;
@@ -463,6 +464,9 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteWafStatusResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceCheckRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceCheckResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceCheckShrinkRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceTrafficPolicyRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceTrafficPolicyResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceTrafficPolicyShrinkRequest;
@@ -2987,9 +2991,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->betaIps)) {
             $query['BetaIps'] = $request->betaIps;
         }
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
-        }
         if (!Utils::isUnset($request->dataId)) {
             $query['DataId'] = $request->dataId;
         }
@@ -3011,8 +3012,13 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
         }
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateNacosConfig',
@@ -9637,20 +9643,28 @@ class Mse extends OpenApiClient
      *  *
      * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
      *  *
-     * @param ListListenersByConfigRequest $request ListListenersByConfigRequest
+     * @param ListListenersByConfigRequest $tmpReq  ListListenersByConfigRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
      * @return ListListenersByConfigResponse ListListenersByConfigResponse
      */
-    public function listListenersByConfigWithOptions($request, $runtime)
+    public function listListenersByConfigWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListListenersByConfigShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extGrayRules)) {
+            $request->extGrayRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extGrayRules, 'ExtGrayRules', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
         }
         if (!Utils::isUnset($request->dataId)) {
             $query['DataId'] = $request->dataId;
+        }
+        if (!Utils::isUnset($request->extGrayRulesShrink)) {
+            $query['ExtGrayRules'] = $request->extGrayRulesShrink;
         }
         if (!Utils::isUnset($request->group)) {
             $query['Group'] = $request->group;
@@ -14120,6 +14134,82 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @summary 更新服务
+     *  *
+     * @param UpdateGatewayServiceRequest $tmpReq  UpdateGatewayServiceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateGatewayServiceResponse UpdateGatewayServiceResponse
+     */
+    public function updateGatewayServiceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateGatewayServiceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ipList)) {
+            $request->ipListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ipList, 'IpList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayId)) {
+            $query['GatewayId'] = $request->gatewayId;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ipListShrink)) {
+            $query['IpList'] = $request->ipListShrink;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->servicePort)) {
+            $query['ServicePort'] = $request->servicePort;
+        }
+        if (!Utils::isUnset($request->serviceProtocol)) {
+            $query['ServiceProtocol'] = $request->serviceProtocol;
+        }
+        if (!Utils::isUnset($request->tlsSetting)) {
+            $query['TlsSetting'] = $request->tlsSetting;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGatewayService',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGatewayServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新服务
+     *  *
+     * @param UpdateGatewayServiceRequest $request UpdateGatewayServiceRequest
+     *
+     * @return UpdateGatewayServiceResponse UpdateGatewayServiceResponse
+     */
+    public function updateGatewayService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGatewayServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Updates the health check policy of a specified service in a cloud-native gateway.
      *  *
      * @param UpdateGatewayServiceCheckRequest $tmpReq  UpdateGatewayServiceCheckRequest
@@ -14749,9 +14839,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->betaIps)) {
             $query['BetaIps'] = $request->betaIps;
         }
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
-        }
         if (!Utils::isUnset($request->dataId)) {
             $query['DataId'] = $request->dataId;
         }
@@ -14779,8 +14866,13 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
         }
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateNacosConfig',
@@ -14840,6 +14932,12 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->grayRule)) {
             $query['GrayRule'] = $request->grayRule;
         }
+        if (!Utils::isUnset($request->grayRuleName)) {
+            $query['GrayRuleName'] = $request->grayRuleName;
+        }
+        if (!Utils::isUnset($request->grayRulePriority)) {
+            $query['GrayRulePriority'] = $request->grayRulePriority;
+        }
         if (!Utils::isUnset($request->grayType)) {
             $query['GrayType'] = $request->grayType;
         }
@@ -14851,6 +14949,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->opType)) {
+            $query['OpType'] = $request->opType;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
