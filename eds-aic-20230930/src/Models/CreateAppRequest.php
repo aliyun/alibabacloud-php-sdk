@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateAppRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $appName;

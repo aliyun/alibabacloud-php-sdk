@@ -50,6 +50,7 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeInvocationsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeInvocationsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeKeyPairsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeKeyPairsResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeSpecRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeSpecResponse;
@@ -63,8 +64,6 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\DowngradeAndroidInstanceGroupReques
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DowngradeAndroidInstanceGroupResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\FetchFileRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\FetchFileResponse;
-use AlibabaCloud\SDK\Edsaic\V20230930\Models\GetAdbSecureRequest;
-use AlibabaCloud\SDK\Edsaic\V20230930\Models\GetAdbSecureResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ImportKeyPairRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ImportKeyPairResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstallAppRequest;
@@ -94,8 +93,6 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunCommandRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunCommandResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\SendFileRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\SendFileResponse;
-use AlibabaCloud\SDK\Edsaic\V20230930\Models\SetAdbSecureRequest;
-use AlibabaCloud\SDK\Edsaic\V20230930\Models\SetAdbSecureResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\StartAndroidInstanceRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\StartAndroidInstanceResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\StopAndroidInstanceRequest;
@@ -271,6 +268,9 @@ class Edsaic extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->sourceAppList)) {
+            $query['SourceAppList'] = $request->sourceAppList;
         }
         if (!Utils::isUnset($request->sourceFilePathList)) {
             $query['SourceFilePathList'] = $request->sourceFilePathList;
@@ -1205,6 +1205,9 @@ class Edsaic extends OpenApiClient
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
+        if (!Utils::isUnset($request->statusList)) {
+            $query['StatusList'] = $request->statusList;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1402,13 +1405,21 @@ class Edsaic extends OpenApiClient
     /**
      * @summary 查询地域
      *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
      * @return DescribeRegionsResponse DescribeRegionsResponse
      */
-    public function describeRegionsWithOptions($runtime)
+    public function describeRegionsWithOptions($request, $runtime)
     {
-        $req    = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
         $params = new Params([
             'action'      => 'DescribeRegions',
             'version'     => '2023-09-30',
@@ -1427,13 +1438,15 @@ class Edsaic extends OpenApiClient
     /**
      * @summary 查询地域
      *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     *
      * @return DescribeRegionsResponse DescribeRegionsResponse
      */
-    public function describeRegions()
+    public function describeRegions($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeRegionsWithOptions($runtime);
+        return $this->describeRegionsWithOptions($request, $runtime);
     }
 
     /**
@@ -1773,49 +1786,6 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->fetchFileWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetAdbSecureRequest $request GetAdbSecureRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
-     *
-     * @return GetAdbSecureResponse GetAdbSecureResponse
-     */
-    public function getAdbSecureWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetAdbSecure',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetAdbSecureResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetAdbSecureRequest $request GetAdbSecureRequest
-     *
-     * @return GetAdbSecureResponse GetAdbSecureResponse
-     */
-    public function getAdbSecure($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getAdbSecureWithOptions($request, $runtime);
     }
 
     /**
@@ -2586,52 +2556,6 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sendFileWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SetAdbSecureRequest $request SetAdbSecureRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
-     *
-     * @return SetAdbSecureResponse SetAdbSecureResponse
-     */
-    public function setAdbSecureWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetAdbSecure',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SetAdbSecureResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SetAdbSecureRequest $request SetAdbSecureRequest
-     *
-     * @return SetAdbSecureResponse SetAdbSecureResponse
-     */
-    public function setAdbSecure($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setAdbSecureWithOptions($request, $runtime);
     }
 
     /**

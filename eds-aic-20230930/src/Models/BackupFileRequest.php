@@ -28,8 +28,11 @@ class BackupFileRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
-     *
+     * @var string[]
+     */
+    public $sourceAppList;
+
+    /**
      * @var string[]
      */
     public $sourceFilePathList;
@@ -51,6 +54,7 @@ class BackupFileRequest extends Model
         'androidInstanceIdList' => 'AndroidInstanceIdList',
         'backupFilePath'        => 'BackupFilePath',
         'description'           => 'Description',
+        'sourceAppList'         => 'SourceAppList',
         'sourceFilePathList'    => 'SourceFilePathList',
         'uploadEndpoint'        => 'UploadEndpoint',
         'uploadType'            => 'UploadType',
@@ -71,6 +75,9 @@ class BackupFileRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->sourceAppList) {
+            $res['SourceAppList'] = $this->sourceAppList;
         }
         if (null !== $this->sourceFilePathList) {
             $res['SourceFilePathList'] = $this->sourceFilePathList;
@@ -103,6 +110,11 @@ class BackupFileRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['SourceAppList'])) {
+            if (!empty($map['SourceAppList'])) {
+                $model->sourceAppList = $map['SourceAppList'];
+            }
         }
         if (isset($map['SourceFilePathList'])) {
             if (!empty($map['SourceFilePathList'])) {

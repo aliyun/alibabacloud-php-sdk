@@ -80,6 +80,11 @@ class DescribeBackupFilesRequest extends Model
      * @var string
      */
     public $startTime;
+
+    /**
+     * @var string[]
+     */
+    public $statusList;
     protected $_name = [
         'androidInstanceId'   => 'AndroidInstanceId',
         'androidInstanceName' => 'AndroidInstanceName',
@@ -92,6 +97,7 @@ class DescribeBackupFilesRequest extends Model
         'maxResults'          => 'MaxResults',
         'nextToken'           => 'NextToken',
         'startTime'           => 'StartTime',
+        'statusList'          => 'StatusList',
     ];
 
     public function validate()
@@ -133,6 +139,9 @@ class DescribeBackupFilesRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->statusList) {
+            $res['StatusList'] = $this->statusList;
         }
 
         return $res;
@@ -178,6 +187,11 @@ class DescribeBackupFilesRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['StatusList'])) {
+            if (!empty($map['StatusList'])) {
+                $model->statusList = $map['StatusList'];
+            }
         }
 
         return $model;

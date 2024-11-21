@@ -14,8 +14,14 @@ class regionModels extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $regionName;
     protected $_name = [
-        'regionId' => 'RegionId',
+        'regionId'   => 'RegionId',
+        'regionName' => 'RegionName',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class regionModels extends Model
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->regionName) {
+            $res['RegionName'] = $this->regionName;
         }
 
         return $res;
@@ -42,6 +51,9 @@ class regionModels extends Model
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RegionName'])) {
+            $model->regionName = $map['RegionName'];
         }
 
         return $model;

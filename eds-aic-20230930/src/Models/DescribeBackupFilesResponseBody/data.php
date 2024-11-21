@@ -82,6 +82,16 @@ class data extends Model
     public $instanceGroupId;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string[]
+     */
+    public $sourceAppInfoList;
+
+    /**
      * @var string[]
      */
     public $sourceFilePathList;
@@ -92,6 +102,11 @@ class data extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $taskId;
 
     /**
      * @example oss-cn-hangzhou.aliyuncs.com
@@ -118,8 +133,11 @@ class data extends Model
         'gmtCreated'          => 'GmtCreated',
         'gmtModified'         => 'GmtModified',
         'instanceGroupId'     => 'InstanceGroupId',
+        'regionId'            => 'RegionId',
+        'sourceAppInfoList'   => 'SourceAppInfoList',
         'sourceFilePathList'  => 'SourceFilePathList',
         'status'              => 'Status',
+        'taskId'              => 'TaskId',
         'uploadEndpoint'      => 'UploadEndpoint',
         'uploadType'          => 'UploadType',
     ];
@@ -164,11 +182,20 @@ class data extends Model
         if (null !== $this->instanceGroupId) {
             $res['InstanceGroupId'] = $this->instanceGroupId;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->sourceAppInfoList) {
+            $res['SourceAppInfoList'] = $this->sourceAppInfoList;
+        }
         if (null !== $this->sourceFilePathList) {
             $res['SourceFilePathList'] = $this->sourceFilePathList;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
         if (null !== $this->uploadEndpoint) {
             $res['UploadEndpoint'] = $this->uploadEndpoint;
@@ -221,6 +248,14 @@ class data extends Model
         if (isset($map['InstanceGroupId'])) {
             $model->instanceGroupId = $map['InstanceGroupId'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SourceAppInfoList'])) {
+            if (!empty($map['SourceAppInfoList'])) {
+                $model->sourceAppInfoList = $map['SourceAppInfoList'];
+            }
+        }
         if (isset($map['SourceFilePathList'])) {
             if (!empty($map['SourceFilePathList'])) {
                 $model->sourceFilePathList = $map['SourceFilePathList'];
@@ -228,6 +263,9 @@ class data extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
         if (isset($map['UploadEndpoint'])) {
             $model->uploadEndpoint = $map['UploadEndpoint'];

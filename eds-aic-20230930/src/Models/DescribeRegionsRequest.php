@@ -6,14 +6,14 @@ namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetAdbSecureRequest extends Model
+class DescribeRegionsRequest extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $instanceIds;
+    public $acceptLanguage;
     protected $_name = [
-        'instanceIds' => 'InstanceIds',
+        'acceptLanguage' => 'AcceptLanguage',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class GetAdbSecureRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
         }
 
         return $res;
@@ -33,15 +33,13 @@ class GetAdbSecureRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetAdbSecureRequest
+     * @return DescribeRegionsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceIds'])) {
-            if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
-            }
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
         }
 
         return $model;

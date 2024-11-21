@@ -11,9 +11,45 @@ class netRedirectPolicy extends Model
     /**
      * @var string
      */
+    public $customProxy;
+
+    /**
+     * @var string
+     */
+    public $hostAddr;
+
+    /**
+     * @var string
+     */
     public $netRedirect;
+
+    /**
+     * @var string
+     */
+    public $port;
+
+    /**
+     * @var string
+     */
+    public $proxyPassword;
+
+    /**
+     * @var string
+     */
+    public $proxyType;
+
+    /**
+     * @var string
+     */
+    public $proxyUserName;
     protected $_name = [
-        'netRedirect' => 'NetRedirect',
+        'customProxy'   => 'CustomProxy',
+        'hostAddr'      => 'HostAddr',
+        'netRedirect'   => 'NetRedirect',
+        'port'          => 'Port',
+        'proxyPassword' => 'ProxyPassword',
+        'proxyType'     => 'ProxyType',
+        'proxyUserName' => 'ProxyUserName',
     ];
 
     public function validate()
@@ -23,8 +59,26 @@ class netRedirectPolicy extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->customProxy) {
+            $res['CustomProxy'] = $this->customProxy;
+        }
+        if (null !== $this->hostAddr) {
+            $res['HostAddr'] = $this->hostAddr;
+        }
         if (null !== $this->netRedirect) {
             $res['NetRedirect'] = $this->netRedirect;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
+        }
+        if (null !== $this->proxyPassword) {
+            $res['ProxyPassword'] = $this->proxyPassword;
+        }
+        if (null !== $this->proxyType) {
+            $res['ProxyType'] = $this->proxyType;
+        }
+        if (null !== $this->proxyUserName) {
+            $res['ProxyUserName'] = $this->proxyUserName;
         }
 
         return $res;
@@ -38,8 +92,26 @@ class netRedirectPolicy extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomProxy'])) {
+            $model->customProxy = $map['CustomProxy'];
+        }
+        if (isset($map['HostAddr'])) {
+            $model->hostAddr = $map['HostAddr'];
+        }
         if (isset($map['NetRedirect'])) {
             $model->netRedirect = $map['NetRedirect'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
+        }
+        if (isset($map['ProxyPassword'])) {
+            $model->proxyPassword = $map['ProxyPassword'];
+        }
+        if (isset($map['ProxyType'])) {
+            $model->proxyType = $map['ProxyType'];
+        }
+        if (isset($map['ProxyUserName'])) {
+            $model->proxyUserName = $map['ProxyUserName'];
         }
 
         return $model;
