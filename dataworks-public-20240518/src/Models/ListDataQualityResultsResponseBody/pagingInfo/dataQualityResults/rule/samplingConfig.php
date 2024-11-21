@@ -9,7 +9,23 @@ use AlibabaCloud\Tea\Model;
 class samplingConfig extends Model
 {
     /**
-     * @description *
+     * @description The metrics used for sampling. Valid values:
+     *
+     *   Count: the number of rows in the table.
+     *   Min: the minimum value of the field.
+     *   Max: the maximum value of the field.
+     *   Avg: the average value of the field.
+     *   DistinctCount: the number of unique values of the field after deduplication.
+     *   DistinctPercent: the proportion of the number of unique values of the field after deduplication to the number of rows in the table.
+     *   DuplicatedCount: the number of duplicated values of the field.
+     *   DuplicatedPercent: the proportion of the number of duplicated values of the field to the number of rows in the table.
+     *   TableSize: the table size.
+     *   NullValueCount: the number of rows in which the field value is null.
+     *   NullValuePercent: the proportion of the number of rows in which the field value is null to the number of rows in the table.
+     *   GroupCount: the field value and the number of rows for each field value.
+     *   CountNotIn: the number of rows in which the field values are different from the referenced values that you specified in the rule.
+     *   CountDistinctNotIn: the number of unique values that are different from the referenced values that you specified in the rule after deduplication.
+     *   UserDefinedSql: indicates that data is sampled by executing custom SQL statements.
      *
      * @example COUNT
      *

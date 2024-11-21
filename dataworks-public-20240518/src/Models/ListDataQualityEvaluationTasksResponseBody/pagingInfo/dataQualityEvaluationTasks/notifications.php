@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class notifications extends Model
 {
     /**
+     * @description The trigger condition of the alert notification.
+     *
      * @example ${severity} == "High"
      *
      * @var string
@@ -16,6 +18,8 @@ class notifications extends Model
     public $condition;
 
     /**
+     * @description The configurations for the alert notification.
+     *
      * @var \AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityEvaluationTasksResponseBody\pagingInfo\dataQualityEvaluationTasks\notifications\notifications[]
      */
     public $notifications;

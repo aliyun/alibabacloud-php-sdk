@@ -16,14 +16,18 @@ class dependencies extends Model
     public $type;
 
     /**
-     * @example pre.odps_sql_demo_0
-     *
      * @var string
      */
-    public $upstream;
+    public $upstreamOutput;
+
+    /**
+     * @var string
+     */
+    public $upstreamTaskId;
     protected $_name = [
-        'type'     => 'Type',
-        'upstream' => 'Upstream',
+        'type'           => 'Type',
+        'upstreamOutput' => 'UpstreamOutput',
+        'upstreamTaskId' => 'UpstreamTaskId',
     ];
 
     public function validate()
@@ -36,8 +40,11 @@ class dependencies extends Model
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-        if (null !== $this->upstream) {
-            $res['Upstream'] = $this->upstream;
+        if (null !== $this->upstreamOutput) {
+            $res['UpstreamOutput'] = $this->upstreamOutput;
+        }
+        if (null !== $this->upstreamTaskId) {
+            $res['UpstreamTaskId'] = $this->upstreamTaskId;
         }
 
         return $res;
@@ -54,8 +61,11 @@ class dependencies extends Model
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-        if (isset($map['Upstream'])) {
-            $model->upstream = $map['Upstream'];
+        if (isset($map['UpstreamOutput'])) {
+            $model->upstreamOutput = $map['UpstreamOutput'];
+        }
+        if (isset($map['UpstreamTaskId'])) {
+            $model->upstreamTaskId = $map['UpstreamTaskId'];
         }
 
         return $model;

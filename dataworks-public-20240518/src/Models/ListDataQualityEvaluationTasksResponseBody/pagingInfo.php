@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class pagingInfo extends Model
 {
     /**
+     * @description The data quality monitoring tasks.
+     *
      * @var dataQualityEvaluationTasks[]
      */
     public $dataQualityEvaluationTasks;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var string
@@ -22,6 +26,8 @@ class pagingInfo extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var string
@@ -29,6 +35,8 @@ class pagingInfo extends Model
     public $pageSize;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 131
      *
      * @var string

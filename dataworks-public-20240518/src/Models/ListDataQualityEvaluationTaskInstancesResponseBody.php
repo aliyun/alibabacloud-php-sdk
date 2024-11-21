@@ -10,31 +10,21 @@ use AlibabaCloud\Tea\Model;
 class ListDataQualityEvaluationTaskInstancesResponseBody extends Model
 {
     /**
-     * @example 200
+     * @description The pagination information.
      *
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var string
-     */
-    public $message;
-
-    /**
      * @var pagingInfo
      */
     public $pagingInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 691CA452-D37A-4ED0-9441
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'       => 'Code',
-        'message'    => 'Message',
         'pagingInfo' => 'PagingInfo',
         'requestId'  => 'RequestId',
     ];
@@ -46,12 +36,6 @@ class ListDataQualityEvaluationTaskInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
         if (null !== $this->pagingInfo) {
             $res['PagingInfo'] = null !== $this->pagingInfo ? $this->pagingInfo->toMap() : null;
         }
@@ -70,12 +54,6 @@ class ListDataQualityEvaluationTaskInstancesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
         if (isset($map['PagingInfo'])) {
             $model->pagingInfo = pagingInfo::fromMap($map['PagingInfo']);
         }

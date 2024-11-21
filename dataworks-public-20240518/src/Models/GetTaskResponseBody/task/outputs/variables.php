@@ -16,13 +16,6 @@ class variables extends Model
     public $name;
 
     /**
-     * @example TaskContext
-     *
-     * @var string
-     */
-    public $scope;
-
-    /**
      * @example Constant
      *
      * @var string
@@ -37,7 +30,6 @@ class variables extends Model
     public $value;
     protected $_name = [
         'name'  => 'Name',
-        'scope' => 'Scope',
         'type'  => 'Type',
         'value' => 'Value',
     ];
@@ -51,9 +43,6 @@ class variables extends Model
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->scope) {
-            $res['Scope'] = $this->scope;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -75,9 +64,6 @@ class variables extends Model
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['Scope'])) {
-            $model->scope = $map['Scope'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

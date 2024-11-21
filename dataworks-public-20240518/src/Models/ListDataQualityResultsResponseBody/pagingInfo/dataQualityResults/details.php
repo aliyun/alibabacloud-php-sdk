@@ -23,10 +23,12 @@ class details extends Model
     public $referencedValue;
 
     /**
-     * @description *   ERROR
-     *   PASSED
-     *   WARNED
-     *   CRITICAL
+     * @description The comparison result between the value of CheckedValue and the threshold. Valid values:
+     *
+     *   Error
+     *   Passed
+     *   Warned
+     *   Critical
      *
      * @example PASSED
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDataQualityResultsRequest extends Model
 {
     /**
+     * @description The beginning of the time range to query.
+     *
      * @example 2024-05-01
      *
      * @var string
@@ -16,6 +18,8 @@ class ListDataQualityResultsRequest extends Model
     public $bizdateFrom;
 
     /**
+     * @description The end of the time range to query.
+     *
      * @example 2024-05-04
      *
      * @var string

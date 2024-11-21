@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataSource extends Model
 {
     /**
+     * @description The name of the data source.
+     *
      * @example mysql_test
      *
      * @var string

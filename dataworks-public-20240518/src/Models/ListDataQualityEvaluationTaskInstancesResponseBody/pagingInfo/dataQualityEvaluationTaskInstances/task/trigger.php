@@ -9,14 +9,16 @@ use AlibabaCloud\Tea\Model;
 class trigger extends Model
 {
     /**
-     * @description 具体指明哪些调度节点的实例执行成功后可以触发
+     * @description The IDs of the auto triggered nodes of which the instances are successfully run.
      *
      * @var int[]
      */
     public $taskIds;
 
     /**
-     * @description 何种事件可以触发质量校验任务执行
+     * @description The trigger condition of the task.
+     *
+     *   Valid values: ByScheduledTaskInstance. The value indicates that the task is triggered when the instance of an auto triggered node is successfully run.
      *
      * @example ByScheduledTaskInstance
      *

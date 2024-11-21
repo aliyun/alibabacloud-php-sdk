@@ -75,7 +75,7 @@ class DataQualityRule extends Model
     public $target;
 
     /**
-     * @example system::user_defined
+     * @example SYSTEM:user_defined_sql
      *
      * @var string
      */

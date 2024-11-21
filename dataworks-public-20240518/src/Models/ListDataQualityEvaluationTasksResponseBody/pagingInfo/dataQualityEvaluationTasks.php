@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class dataQualityEvaluationTasks extends Model
 {
     /**
+     * @description The description of the data quality monitoring task. The description can be up to 65,535 characters in length.
+     *
      * @example This is a daily run data quality evaluation plan
      *
      * @var string
@@ -20,11 +22,15 @@ class dataQualityEvaluationTasks extends Model
     public $description;
 
     /**
+     * @description The callback configurations of the task during the instance lifecycle. Blocking an auto triggered node is a type of callback event. Only this type is supported.
+     *
      * @var hooks[]
      */
     public $hooks;
 
     /**
+     * @description The ID of the data quality monitoring task.
+     *
      * @example 10001
      *
      * @var int
@@ -32,16 +38,22 @@ class dataQualityEvaluationTasks extends Model
     public $id;
 
     /**
+     * @description The name of the data quality monitoring task. The name can be up to 255 characters in length and can contain digits, letters, and punctuation marks.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The configurations for alert notifications.
+     *
      * @var notifications
      */
     public $notifications;
 
     /**
+     * @description The DataWorks workspace ID.
+     *
      * @example 100
      *
      * @var int
@@ -49,6 +61,8 @@ class dataQualityEvaluationTasks extends Model
     public $projectId;
 
     /**
+     * @description The configuration of the data source. The value of the queue field is default, and that of the sqlEngine field is SPARK-SQL. The value default indicates the YARN queue for E-MapReduce (EMR) tasks, and the value SPARK-SQL indicates the SQL engine that is used to collect EMR data.
+     *
      * @example { "queue": "default", "sqlEngine": "SPARK-SQL" }
      *
      * @var string
@@ -56,11 +70,15 @@ class dataQualityEvaluationTasks extends Model
     public $runtimeConf;
 
     /**
+     * @description The monitored object of the task.
+     *
      * @var target
      */
     public $target;
 
     /**
+     * @description The DataWorks tenant ID.
+     *
      * @example 10
      *
      * @var int
@@ -68,6 +86,8 @@ class dataQualityEvaluationTasks extends Model
     public $tenantId;
 
     /**
+     * @description The trigger configuration of the task.
+     *
      * @var trigger
      */
     public $trigger;

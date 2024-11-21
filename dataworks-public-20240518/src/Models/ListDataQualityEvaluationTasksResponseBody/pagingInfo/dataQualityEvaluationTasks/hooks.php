@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class hooks extends Model
 {
     /**
+     * @description The trigger configuration of the callback event.
+     *
      * @example ${severity} == "High" AND ${status} == "Critical"
      *
      * @var string
@@ -16,6 +18,10 @@ class hooks extends Model
     public $condition;
 
     /**
+     * @description The type of the callback event.
+     *
+     *   Valid values: BlockTaskInstance. The value indicates that an auto triggered node is blocked.
+     *
      * @example BlockTaskInstance
      *
      * @var string

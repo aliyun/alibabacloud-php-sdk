@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class thresholds extends Model
 {
     /**
+     * @description The threshold settings for critical alerts.
+     *
      * @var critical
      */
     public $critical;
 
     /**
+     * @description The expected threshold setting.
+     *
      * @var expected
      */
     public $expected;
 
     /**
+     * @description The threshold settings for normal alerts.
+     *
      * @var warned
      */
     public $warned;

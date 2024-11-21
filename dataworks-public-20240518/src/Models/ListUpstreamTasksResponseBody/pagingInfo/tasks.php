@@ -52,6 +52,11 @@ class tasks extends Model
     public $id;
 
     /**
+     * @var string
+     */
+    public $instanceMode;
+
+    /**
      * @example 1710239005403
      *
      * @var int
@@ -125,6 +130,11 @@ class tasks extends Model
     public $runtimeResource;
 
     /**
+     * @var string
+     */
+    public $stepType;
+
+    /**
      * @example 1
      *
      * @var int
@@ -163,6 +173,7 @@ class tasks extends Model
         'dataSource'      => 'DataSource',
         'description'     => 'Description',
         'id'              => 'Id',
+        'instanceMode'    => 'InstanceMode',
         'modifyTime'      => 'ModifyTime',
         'modifyUser'      => 'ModifyUser',
         'name'            => 'Name',
@@ -174,6 +185,7 @@ class tasks extends Model
         'rerunMode'       => 'RerunMode',
         'rerunTimes'      => 'RerunTimes',
         'runtimeResource' => 'RuntimeResource',
+        'stepType'        => 'StepType',
         'tenantId'        => 'TenantId',
         'timeout'         => 'Timeout',
         'trigger'         => 'Trigger',
@@ -205,6 +217,9 @@ class tasks extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->instanceMode) {
+            $res['InstanceMode'] = $this->instanceMode;
         }
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
@@ -238,6 +253,9 @@ class tasks extends Model
         }
         if (null !== $this->runtimeResource) {
             $res['RuntimeResource'] = null !== $this->runtimeResource ? $this->runtimeResource->toMap() : null;
+        }
+        if (null !== $this->stepType) {
+            $res['StepType'] = $this->stepType;
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
@@ -284,6 +302,9 @@ class tasks extends Model
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+        if (isset($map['InstanceMode'])) {
+            $model->instanceMode = $map['InstanceMode'];
+        }
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
         }
@@ -316,6 +337,9 @@ class tasks extends Model
         }
         if (isset($map['RuntimeResource'])) {
             $model->runtimeResource = runtimeResource::fromMap($map['RuntimeResource']);
+        }
+        if (isset($map['StepType'])) {
+            $model->stepType = $map['StepType'];
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];

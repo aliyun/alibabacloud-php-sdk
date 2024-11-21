@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class script extends Model
 {
     /**
+     * @description The script content.
+     *
      * @example echo "helloWorld"
      *
      * @var string
@@ -16,6 +18,8 @@ class script extends Model
     public $content;
 
     /**
+     * @description The script parameters.
+     *
      * @example para1=$bizdate
      *
      * @var string

@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class notifications extends Model
 {
     /**
-     * @description 告警接收人设置
+     * @description The alert recipients.
      *
      * @var nofiticationReceivers[]
      */
     public $nofiticationReceivers;
 
     /**
-     * @description 通知方式
+     * @description The alert notification methods.
      *
      * @var notificationChannels[]
      */

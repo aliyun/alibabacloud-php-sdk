@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class runtime extends Model
 {
     /**
+     * @description The host for running.
+     *
      * @example cn-shanghai.1.2
      *
      * @var string
@@ -16,6 +18,8 @@ class runtime extends Model
     public $gateway;
 
     /**
+     * @description The instance run ID.
+     *
      * @example T3_123
      *
      * @var string

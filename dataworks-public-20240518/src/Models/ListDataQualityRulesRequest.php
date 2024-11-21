@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDataQualityRulesRequest extends Model
 {
     /**
+     * @description The ID of the data quality monitoring task that is associated with the rule.
+     *
      * @example 10000
      *
      * @var int
@@ -16,6 +18,8 @@ class ListDataQualityRulesRequest extends Model
     public $dataQualityEvaluationTaskId;
 
     /**
+     * @description The name of the rule. Fuzzy match is supported.
+     *
      * @example unit_test
      *
      * @var string
@@ -23,6 +27,8 @@ class ListDataQualityRulesRequest extends Model
     public $name;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class ListDataQualityRulesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 200.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +45,8 @@ class ListDataQualityRulesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The DataWorks workspace ID.
+     *
      * @example 10002
      *
      * @var int
@@ -44,6 +54,8 @@ class ListDataQualityRulesRequest extends Model
     public $projectId;
 
     /**
+     * @description The ID of the table that is limited by the rule in Data Map.
+     *
      * @example odps.unit_test.tb_unit_test
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class inputs extends Model
 {
     /**
+     * @description The variables.
+     *
      * @var variables[]
      */
     public $variables;

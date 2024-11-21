@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListDataQualityEvaluationTasksRequest extends Model
 {
     /**
+     * @description The name of the data quality monitoring task. Fuzzy match is supported.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -21,6 +25,8 @@ class ListDataQualityEvaluationTasksRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -28,6 +34,8 @@ class ListDataQualityEvaluationTasksRequest extends Model
     public $pageSize;
 
     /**
+     * @description The DataWorks workspace ID.
+     *
      * @example 100
      *
      * @var int
@@ -35,6 +43,8 @@ class ListDataQualityEvaluationTasksRequest extends Model
     public $projectId;
 
     /**
+     * @description The ID of the table in Data Map.
+     *
      * @example odps.unit_test.tb_unit_test
      *
      * @var string

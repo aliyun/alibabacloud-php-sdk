@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GrantMemberProjectRolesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
      *
+     * This parameter is required.
      * @example 105149
      *
      * @var int
@@ -18,15 +19,17 @@ class GrantMemberProjectRolesRequest extends Model
     public $projectId;
 
     /**
-     * @description This parameter is required.
+     * @description The codes of the roles in the workspace. You can call the [ListProjectRoles](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-listprojectroles?spm=a2c4g.11186623.0.0.43841daeywTtF3) operation to query the codes of all roles in the workspace.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $roleCodes;
 
     /**
-     * @description This parameter is required.
+     * @description The IDs of the accounts used by the members in the workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console?spm=openapi-amp.newDocPublishment.0.0.51d7281fjgBRmo), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the IDs of the accounts used by the members in the workspace.
      *
+     * This parameter is required.
      * @example 123422344899
      *
      * @var string

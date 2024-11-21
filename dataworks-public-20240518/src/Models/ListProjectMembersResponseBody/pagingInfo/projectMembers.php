@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class projectMembers extends Model
 {
     /**
+     * @description The ID of the DataWorks workspace.
+     *
      * @example 62136
      *
      * @var int
@@ -17,11 +19,18 @@ class projectMembers extends Model
     public $projectId;
 
     /**
+     * @description The roles that are assigned to the member.
+     *
      * @var roles[]
      */
     public $roles;
 
     /**
+     * @description The status of the member. Valid values:
+     *
+     *   Normal
+     *   Forbidden
+     *
      * @example Normal
      *
      * @var string
@@ -29,6 +38,8 @@ class projectMembers extends Model
     public $status;
 
     /**
+     * @description The ID of the account used by the member.
+     *
      * @example 123422344899
      *
      * @var string

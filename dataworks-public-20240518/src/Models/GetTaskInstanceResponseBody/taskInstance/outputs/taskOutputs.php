@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class taskOutputs extends Model
 {
     /**
+     * @description The output identifier.
+     *
      * @example pre.odps_sql_demo_0
      *
      * @var string

@@ -100,9 +100,19 @@ class ListTaskInstancesRequest extends Model
     /**
      * @example ODPS_SQL
      *
-     * @var int
+     * @var string
      */
     public $taskType;
+
+    /**
+     * @var string
+     */
+    public $triggerRecurrence;
+
+    /**
+     * @var string
+     */
+    public $triggerType;
 
     /**
      * @example 1234
@@ -139,6 +149,8 @@ class ListTaskInstancesRequest extends Model
         'taskIds'              => 'TaskIds',
         'taskName'             => 'TaskName',
         'taskType'             => 'TaskType',
+        'triggerRecurrence'    => 'TriggerRecurrence',
+        'triggerType'          => 'TriggerType',
         'workflowId'           => 'WorkflowId',
         'workflowInstanceId'   => 'WorkflowInstanceId',
         'workflowInstanceType' => 'WorkflowInstanceType',
@@ -192,6 +204,12 @@ class ListTaskInstancesRequest extends Model
         }
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
+        }
+        if (null !== $this->triggerRecurrence) {
+            $res['TriggerRecurrence'] = $this->triggerRecurrence;
+        }
+        if (null !== $this->triggerType) {
+            $res['TriggerType'] = $this->triggerType;
         }
         if (null !== $this->workflowId) {
             $res['WorkflowId'] = $this->workflowId;
@@ -259,6 +277,12 @@ class ListTaskInstancesRequest extends Model
         }
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
+        }
+        if (isset($map['TriggerRecurrence'])) {
+            $model->triggerRecurrence = $map['TriggerRecurrence'];
+        }
+        if (isset($map['TriggerType'])) {
+            $model->triggerType = $map['TriggerType'];
         }
         if (isset($map['WorkflowId'])) {
             $model->workflowId = $map['WorkflowId'];

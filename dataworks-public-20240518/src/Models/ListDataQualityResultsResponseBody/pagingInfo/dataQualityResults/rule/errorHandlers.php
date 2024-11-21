@@ -16,7 +16,9 @@ class errorHandlers extends Model
     public $errorDataFilter;
 
     /**
-     * @description *   SAVE_ERROR_DATA
+     * @description The type of the operation. Valid values:
+     *
+     *   SaveErrorData
      *
      * @example SAVE_ERROR_DATA
      *

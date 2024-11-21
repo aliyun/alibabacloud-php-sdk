@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class outputs extends Model
 {
     /**
+     * @description The task outputs.
+     *
      * @var taskOutputs[]
      */
     public $taskOutputs;
 
     /**
+     * @description The variables.
+     *
      * @var variables[]
      */
     public $variables;

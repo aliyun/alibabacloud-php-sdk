@@ -22,12 +22,14 @@ class checkingConfig extends Model
     public $thresholds;
 
     /**
-     * @description *   FIXED
-     *   FLUCTATION
-     *   AUTO
-     *   AVERAGE
-     *   VARIANCE
-     *   FLUCTATION_DISCREATE
+     * @description The threshold calculation method. Valid values:
+     *
+     *   Fixed
+     *   Fluctation
+     *   FluctationDiscreate
+     *   Auto
+     *   Average
+     *   Variance
      *
      * @example FIXED
      *

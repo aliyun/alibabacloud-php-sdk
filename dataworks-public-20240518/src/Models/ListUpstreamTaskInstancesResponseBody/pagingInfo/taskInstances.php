@@ -87,6 +87,11 @@ class taskInstances extends Model
     public $owner;
 
     /**
+     * @var int
+     */
+    public $periodNumber;
+
+    /**
      * @example 1
      *
      * @var int
@@ -236,6 +241,7 @@ class taskInstances extends Model
         'modifyTime'           => 'ModifyTime',
         'modifyUser'           => 'ModifyUser',
         'owner'                => 'Owner',
+        'periodNumber'         => 'PeriodNumber',
         'priority'             => 'Priority',
         'projectEnv'           => 'ProjectEnv',
         'projectId'            => 'ProjectId',
@@ -298,6 +304,9 @@ class taskInstances extends Model
         }
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
+        }
+        if (null !== $this->periodNumber) {
+            $res['PeriodNumber'] = $this->periodNumber;
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
@@ -406,6 +415,9 @@ class taskInstances extends Model
         }
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
+        }
+        if (isset($map['PeriodNumber'])) {
+            $model->periodNumber = $map['PeriodNumber'];
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];

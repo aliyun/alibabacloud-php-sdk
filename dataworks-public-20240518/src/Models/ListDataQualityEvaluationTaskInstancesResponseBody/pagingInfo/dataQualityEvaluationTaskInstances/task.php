@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class task extends Model
 {
     /**
-     * @description 质量监控任务描述
+     * @description The description of the task.
      *
      * @example This is a daily run data quality evaluation plan.
      *
@@ -22,14 +22,14 @@ class task extends Model
     public $description;
 
     /**
-     * @description 数据质量校验任务实例生命周期中的回调设置，目前只支持一个阻塞调度任务的Hook
+     * @description The callback configurations of the task during the instance lifecycle. Blocking an auto triggered node is a type of callback event. Only this type is supported.
      *
      * @var hooks[]
      */
     public $hooks;
 
     /**
-     * @description 代表资源一级ID的资源属性字段
+     * @description The task ID.
      *
      * @example 10001
      *
@@ -38,7 +38,7 @@ class task extends Model
     public $id;
 
     /**
-     * @description 质量监控任务名称
+     * @description The name of the task.
      *
      * This parameter is required.
      * @var string
@@ -46,14 +46,14 @@ class task extends Model
     public $name;
 
     /**
-     * @description 数据质量校验任务通知订阅配置
+     * @description The configurations for alert notifications.
      *
      * @var notifications
      */
     public $notifications;
 
     /**
-     * @description 项目空间Id
+     * @description The workspace ID.
      *
      * @example 100
      *
@@ -62,7 +62,7 @@ class task extends Model
     public $projectId;
 
     /**
-     * @description 代表region的资源属性字段
+     * @description The region ID.
      *
      * @example cn-shanghai
      *
@@ -71,7 +71,7 @@ class task extends Model
     public $regionId;
 
     /**
-     * @description 使用数据源时的一些设置，目前只支持指定EMR的yarn队列、采集EMR表时把SQL引擎指定为SPARK-SQL
+     * @description The configuration of the data source. The value of the queue field is default, and that of the sqlEngine field is SPARK-SQL. The value default indicates the YARN queue for E-MapReduce (EMR) tasks, and the value SPARK-SQL indicates the SQL engine that is used to collect EMR data.
      *
      * @example { "queue": "default", "sqlEngine": "SPARK-SQL" }
      *
@@ -80,14 +80,14 @@ class task extends Model
     public $runtimeConf;
 
     /**
-     * @description 参看 DataQualityTarget示例	数据质量校验任务的监控对象，参考 DataQualityTarget
+     * @description The monitored object of the task.
      *
      * @var target
      */
     public $target;
 
     /**
-     * @description 租户Id
+     * @description The tenant ID.
      *
      * @example 10
      *
@@ -96,7 +96,7 @@ class task extends Model
     public $tenantId;
 
     /**
-     * @description 数据质量校验任务的触发配置
+     * @description The trigger configuration of the task.
      *
      * @var trigger
      */

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class dataQualityEvaluationTaskInstances extends Model
 {
     /**
+     * @description The time at which the instance was generated.
+     *
      * @example 1710239005403
      *
      * @var int
@@ -17,6 +19,8 @@ class dataQualityEvaluationTaskInstances extends Model
     public $createTime;
 
     /**
+     * @description The time at which the instance finished running.
+     *
      * @example 1710239005403
      *
      * @var int
@@ -24,6 +28,8 @@ class dataQualityEvaluationTaskInstances extends Model
     public $finishTime;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example 10001
      *
      * @var int
@@ -31,6 +37,8 @@ class dataQualityEvaluationTaskInstances extends Model
     public $id;
 
     /**
+     * @description The parameters configured for the instance.
+     *
      * @example {
      * }
      * @var string
@@ -38,6 +46,8 @@ class dataQualityEvaluationTaskInstances extends Model
     public $parameters;
 
     /**
+     * @description The DataWorks workspace ID.
+     *
      * @example 100
      *
      * @var int
@@ -45,6 +55,14 @@ class dataQualityEvaluationTaskInstances extends Model
     public $projectId;
 
     /**
+     * @description The status of the instance. Valid values:
+     *
+     *   Running
+     *   Error
+     *   Passed
+     *   Warned
+     *   Critical
+     *
      * @example Critical
      *
      * @var string
@@ -52,11 +70,15 @@ class dataQualityEvaluationTaskInstances extends Model
     public $status;
 
     /**
+     * @description The snapshot of the configurations for the task when the task starts.
+     *
      * @var task
      */
     public $task;
 
     /**
+     * @description The information about the trigger module of the instance.
+     *
      * @example {
      * }
      * @var string

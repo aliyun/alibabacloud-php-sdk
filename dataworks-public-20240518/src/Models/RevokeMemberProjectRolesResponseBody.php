@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RevokeMemberProjectRolesResponseBody extends Model
 {
     /**
+     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
+     *
      * @example 676271D6-53B4-57BE-89FA-72F7AE1418DF
      *
      * @var string

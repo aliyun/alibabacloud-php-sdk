@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class variables extends Model
 {
     /**
+     * @description The name of the variable.
+     *
      * @example Key1
      *
      * @var string
@@ -16,13 +18,13 @@ class variables extends Model
     public $name;
 
     /**
-     * @example TaskContext
+     * @description The type. Valid values:
      *
-     * @var string
-     */
-    public $scope;
-
-    /**
+     *   Constant: constant
+     *   PassThrough: node output
+     *   System: variable
+     *   NodeOutput: script output
+     *
      * @example Constant
      *
      * @var string
@@ -30,6 +32,8 @@ class variables extends Model
     public $type;
 
     /**
+     * @description The value of the variable.
+     *
      * @example Value1
      *
      * @var string
@@ -37,7 +41,6 @@ class variables extends Model
     public $value;
     protected $_name = [
         'name'  => 'Name',
-        'scope' => 'Scope',
         'type'  => 'Type',
         'value' => 'Value',
     ];
@@ -51,9 +54,6 @@ class variables extends Model
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->scope) {
-            $res['Scope'] = $this->scope;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -75,9 +75,6 @@ class variables extends Model
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['Scope'])) {
-            $model->scope = $map['Scope'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

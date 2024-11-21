@@ -9,13 +9,15 @@ use AlibabaCloud\Tea\Model;
 class target extends Model
 {
     /**
-     * @description *   MAX_COMPUTE
-     *   EMR
-     *   CDH
-     *   HOLOGRES
-     *   ANALYTICDB_FOR_POSTGRESQL
-     *   ANALYTICDB_FOR_MYSQL
-     *   STAR_ROCKS
+     * @description The type of the database to which the table belongs. Valid values:
+     *
+     *   maxcompute
+     *   emr
+     *   cdh
+     *   hologres
+     *   analyticdb_for_postgresql
+     *   analyticdb_for_mysql
+     *   starrocks
      *
      * @example MAX_COMPUTE
      *
@@ -38,7 +40,9 @@ class target extends Model
     public $tableGuid;
 
     /**
-     * @description *   TABLE
+     * @description The type of the monitored object. Valid values:
+     *
+     *   Table
      *
      * @example TABLE
      *

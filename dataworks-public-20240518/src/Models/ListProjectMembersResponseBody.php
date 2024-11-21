@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListProjectMembersResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pagingInfo
      */
     public $pagingInfo;
 
     /**
+     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
+     *
      * @example 9FBBBB1F-DD5E-5D8E-8F50-37F77460F056
      *
      * @var string

@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class expected extends Model
 {
     /**
+     * @description The comparison operator. Valid values:
+     *
+     *   \\>
+     *   \\>=
+     *   <
+     *   <=
+     *   !=
+     *   \\=
+     *
      * @example >
      *
      * @var string
@@ -16,6 +25,8 @@ class expected extends Model
     public $operator;
 
     /**
+     * @description The threshold value.
+     *
      * @example 100.0
      *
      * @var string

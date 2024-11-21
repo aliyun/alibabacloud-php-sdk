@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class rule extends Model
 {
     /**
+     * @description The check settings for sample data.
+     *
      * @var checkingConfig
      */
     public $checkingConfig;
@@ -32,6 +34,8 @@ class rule extends Model
     public $enabled;
 
     /**
+     * @description The operations that you can perform after the rule-based check fails.
+     *
      * @var errorHandlers[]
      */
     public $errorHandlers;
@@ -56,13 +60,17 @@ class rule extends Model
     public $projectId;
 
     /**
+     * @description The sampling settings.
+     *
      * @var samplingConfig
      */
     public $samplingConfig;
 
     /**
-     * @description *   HIGH
-     *   NORMAL
+     * @description The strength of the rule. Valid values:
+     *
+     *   High
+     *   Normal
      *
      * @example NORMAL
      *
@@ -71,6 +79,8 @@ class rule extends Model
     public $severity;
 
     /**
+     * @description The monitored object of the rule.
+     *
      * @var target
      */
     public $target;

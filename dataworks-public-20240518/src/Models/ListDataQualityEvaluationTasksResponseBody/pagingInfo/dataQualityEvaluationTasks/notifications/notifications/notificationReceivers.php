@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class notificationReceivers extends Model
 {
     /**
+     * @description The extended information in the JSON format. For example, the DingTalk chatbot can remind all members in a DingTalk group by using the at sign (@).
+     *
      * @example {"atAll":"true"}
      *
      * @var string
@@ -16,6 +18,14 @@ class notificationReceivers extends Model
     public $extension;
 
     /**
+     * @description The type of the alert recipient. Valid values:
+     *
+     *   AliUid: Alibaba Cloud account ID
+     *   WebhookUrl: URL of a custom webhook
+     *   DingdingUrl: DingTalk chatbot URL
+     *   FeishuUrl: Lark chatbot URL
+     *   WeixinUrl: WeCom chatbot URL
+     *
      * @example AliUid
      *
      * @var string
@@ -23,6 +33,8 @@ class notificationReceivers extends Model
     public $receiverType;
 
     /**
+     * @description The alert recipients.
+     *
      * @var string[]
      */
     public $receiverValues;

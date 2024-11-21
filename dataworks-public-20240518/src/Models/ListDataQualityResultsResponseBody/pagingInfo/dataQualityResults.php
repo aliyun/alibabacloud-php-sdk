@@ -18,6 +18,8 @@ class dataQualityResults extends Model
     public $createTime;
 
     /**
+     * @description The check details.
+     *
      * @var details[]
      */
     public $details;
@@ -30,6 +32,8 @@ class dataQualityResults extends Model
     public $id;
 
     /**
+     * @description The snapshot of the rule configuration when the check starts.
+     *
      * @var rule
      */
     public $rule;
@@ -42,11 +46,13 @@ class dataQualityResults extends Model
     public $sample;
 
     /**
-     * @description *   RUNNING
-     *   ERROR
-     *   PASSED
-     *   WARNED
-     *   CRITICAL
+     * @description The status of the check result. Valid values:
+     *
+     *   Running
+     *   Error
+     *   Passed
+     *   Warned
+     *   Critical
      *
      * @example PASSED
      *

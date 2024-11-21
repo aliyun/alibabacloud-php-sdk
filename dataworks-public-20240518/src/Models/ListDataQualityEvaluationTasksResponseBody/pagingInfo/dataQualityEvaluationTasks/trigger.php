@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class trigger extends Model
 {
     /**
+     * @description The IDs of the auto triggered nodes of which the instances are successfully run. This parameter takes effect only if the Type parameter is set to ByScheduledTaskInstance.
+     *
      * @var int[]
      */
     public $taskIds;
 
     /**
+     * @description The trigger condition of the task.
+     *
+     *   Valid values: ByScheduledTaskInstance. The value indicates that the task is triggered when the instance of an auto triggered node is successfully run.
+     *
      * @example ByScheduledTaskInstance
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class notificationChannels extends Model
 {
     /**
-     * @description 通知方式
+     * @description The alert notification methods.
      *
      * @var string[]
      */

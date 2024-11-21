@@ -68,6 +68,11 @@ class task extends Model
     public $inputs;
 
     /**
+     * @var string
+     */
+    public $instanceMode;
+
+    /**
      * @example 1710239005403
      *
      * @var int
@@ -201,6 +206,7 @@ class task extends Model
         'description'     => 'Description',
         'id'              => 'Id',
         'inputs'          => 'Inputs',
+        'instanceMode'    => 'InstanceMode',
         'modifyTime'      => 'ModifyTime',
         'modifyUser'      => 'ModifyUser',
         'name'            => 'Name',
@@ -259,6 +265,9 @@ class task extends Model
         }
         if (null !== $this->inputs) {
             $res['Inputs'] = null !== $this->inputs ? $this->inputs->toMap() : null;
+        }
+        if (null !== $this->instanceMode) {
+            $res['InstanceMode'] = $this->instanceMode;
         }
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
@@ -367,6 +376,9 @@ class task extends Model
         }
         if (isset($map['Inputs'])) {
             $model->inputs = inputs::fromMap($map['Inputs']);
+        }
+        if (isset($map['InstanceMode'])) {
+            $model->instanceMode = $map['InstanceMode'];
         }
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];

@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class notifications extends Model
 {
     /**
+     * @description The alert notification methods.
+     *
      * @var notificationChannels[]
      */
     public $notificationChannels;
 
     /**
+     * @description The alert recipients.
+     *
      * @var notificationReceivers[]
      */
     public $notificationReceivers;

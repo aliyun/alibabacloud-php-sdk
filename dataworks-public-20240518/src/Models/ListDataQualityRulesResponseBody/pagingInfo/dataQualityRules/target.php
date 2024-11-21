@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class target extends Model
 {
     /**
+     * @description The type of the database to which the table belongs. Valid values:
+     *
+     *   maxcompute
+     *   emr
+     *   cdh
+     *   hologres
+     *   analyticdb_for_postgresql
+     *   analyticdb_for_mysql
+     *   starrocks
+     *
      * @example maxcompute
      *
      * @var string
@@ -16,6 +26,8 @@ class target extends Model
     public $databaseType;
 
     /**
+     * @description The configuration of the partitioned table.
+     *
      * @example ds=$[yyyymmdd-1]
      *
      * @var string
@@ -23,6 +35,8 @@ class target extends Model
     public $partitionSpec;
 
     /**
+     * @description The ID of the table that is limited by the rule in Data Map.
+     *
      * @example odps.unit_test.tb_unit_test
      *
      * @var string
@@ -30,6 +44,10 @@ class target extends Model
     public $tableGuid;
 
     /**
+     * @description The type of the monitored object. Valid values:
+     *
+     *   Table
+     *
      * @example Table
      *
      * @var string

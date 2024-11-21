@@ -9,7 +9,15 @@ use AlibabaCloud\Tea\Model;
 class target extends Model
 {
     /**
-     * @description 表所属的数据库类型
+     * @description The type of the database to which the table belongs. Valid values:
+     *
+     *   maxcompute
+     *   emr
+     *   cdh
+     *   hologres
+     *   analyticdb_for_postgresql
+     *   analyticdb_for_mysql
+     *   starrocks
      *
      * @example maxcompute
      *
@@ -18,7 +26,7 @@ class target extends Model
     public $databaseType;
 
     /**
-     * @description 分区表的分区设置
+     * @description The configuration of the partitioned table.
      *
      * @example ds=$[yyyymmdd-1]
      *
@@ -27,7 +35,7 @@ class target extends Model
     public $partitionSpec;
 
     /**
-     * @description 表在数据地图中的唯一ID
+     * @description The ID of the table in Data Map.
      *
      * @example odps.unit_test.tb_unit_test
      *
@@ -36,7 +44,9 @@ class target extends Model
     public $tableGuid;
 
     /**
-     * @description 监控对象类型
+     * @description The type of the monitored object. Valid values:
+     *
+     *   Table
      *
      * @example Table
      *

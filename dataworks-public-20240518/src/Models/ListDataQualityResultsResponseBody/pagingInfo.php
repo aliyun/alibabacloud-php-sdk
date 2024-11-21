@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class pagingInfo extends Model
 {
     /**
+     * @description The data quality check results.
+     *
      * @var dataQualityResults[]
      */
     public $dataQualityResults;

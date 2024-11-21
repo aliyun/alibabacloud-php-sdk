@@ -13,11 +13,15 @@ use AlibabaCloud\Tea\Model;
 class dataQualityRules extends Model
 {
     /**
+     * @description The check settings for sample data.
+     *
      * @var checkingConfig
      */
     public $checkingConfig;
 
     /**
+     * @description The description of the rule. The description can be up to 500 characters in length.
+     *
      * @example this is a odps _sql task
      *
      * @var string
@@ -25,6 +29,8 @@ class dataQualityRules extends Model
     public $description;
 
     /**
+     * @description Indicates whether the rule is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -32,11 +38,15 @@ class dataQualityRules extends Model
     public $enabled;
 
     /**
+     * @description The operations that you can perform after the rule-based check fails.
+     *
      * @var errorHandlers[]
      */
     public $errorHandlers;
 
     /**
+     * @description The rule ID.
+     *
      * @example 22130
      *
      * @var int
@@ -44,11 +54,15 @@ class dataQualityRules extends Model
     public $id;
 
     /**
+     * @description The rule name.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The DataWorks workspace ID.
+     *
      * @example 100001
      *
      * @var int
@@ -56,11 +70,18 @@ class dataQualityRules extends Model
     public $projectId;
 
     /**
+     * @description The settings for sampling.
+     *
      * @var samplingConfig
      */
     public $samplingConfig;
 
     /**
+     * @description The strength of the rule. Valid values:
+     *
+     *   Normal
+     *   High
+     *
      * @example High
      *
      * @var string
@@ -68,11 +89,15 @@ class dataQualityRules extends Model
     public $severity;
 
     /**
+     * @description The monitored object of the rule.
+     *
      * @var target
      */
     public $target;
 
     /**
+     * @description The ID of the template used by the rule.
+     *
      * @example system::user_defined
      *
      * @var string
@@ -80,6 +105,8 @@ class dataQualityRules extends Model
     public $templateCode;
 
     /**
+     * @description The ID of the DataWorks tenant.
+     *
      * @example 100001
      *
      * @var int

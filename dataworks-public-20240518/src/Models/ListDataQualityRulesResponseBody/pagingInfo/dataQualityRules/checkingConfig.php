@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class checkingConfig extends Model
 {
     /**
+     * @description The method that is used to query the referenced samples. To obtain some types of thresholds, you need to query reference values. In this example, an expression is used to indicate the query method of referenced samples.
+     *
      * @example { "bizdate": [ "-1", "-7", "-1m" ] }
      *
      * @var string
@@ -17,11 +19,22 @@ class checkingConfig extends Model
     public $referencedSamplesFilter;
 
     /**
+     * @description The threshold settings.
+     *
      * @var thresholds
      */
     public $thresholds;
 
     /**
+     * @description The threshold calculation method. Valid values:
+     *
+     *   Fixed
+     *   Fluctation
+     *   FluctationDiscreate
+     *   Auto
+     *   Average
+     *   Variance
+     *
      * @example Fixed
      *
      * @var string

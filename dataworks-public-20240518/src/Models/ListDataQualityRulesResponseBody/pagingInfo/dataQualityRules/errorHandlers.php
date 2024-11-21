@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class errorHandlers extends Model
 {
     /**
+     * @description The SQL statement that is used to filter failed tasks. If the rule is defined by custom SQL statements, you must specify an SQL statement to filter failed tasks.
+     *
      * @example SELECT * FROM tb_api_log WHERE id IS NULL
      *
      * @var string
@@ -16,6 +18,10 @@ class errorHandlers extends Model
     public $errorDataFilter;
 
     /**
+     * @description The type of the operation. Valid values:
+     *
+     *   SaveErrorData
+     *
      * @example SaveErrorData
      *
      * @var string

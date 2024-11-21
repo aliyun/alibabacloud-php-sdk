@@ -12,6 +12,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AssociateProjectToResource
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AssociateProjectToResourceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CloneDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CloneDataSourceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAlertRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAlertRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAlertRuleShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataSourceSharedRuleRequest;
@@ -45,6 +48,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateRouteRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateRouteResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowDefinitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteAlertRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteAlertRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataSourceSharedRuleRequest;
@@ -77,6 +82,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromResou
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromResourceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecDeploymentStageRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecDeploymentStageResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAlertRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAlertRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDeploymentRequest;
@@ -118,6 +125,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GrantMemberProjectRolesRes
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GrantMemberProjectRolesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ImportWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ImportWorkflowDefinitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAlertRulesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAlertRulesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAlertRulesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityEvaluationTaskInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityEvaluationTaskInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityEvaluationTasksRequest;
@@ -231,6 +241,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SuspendTaskInstancesRespon
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SuspendTaskInstancesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\TriggerSchedulerTaskInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\TriggerSchedulerTaskInstanceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateAlertRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateAlertRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateAlertRuleShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIAlarmRuleRequest;
@@ -469,6 +482,73 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cloneDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建自定义监控报警规则
+     *  *
+     * @param CreateAlertRuleRequest $tmpReq  CreateAlertRuleRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateAlertRuleResponse CreateAlertRuleResponse
+     */
+    public function createAlertRuleWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateAlertRuleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->triggerCondition)) {
+            $request->triggerConditionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->triggerCondition, 'TriggerCondition', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->enabled)) {
+            $query['Enabled'] = $request->enabled;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $query['Notification'] = $request->notificationShrink;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $query['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->triggerConditionShrink)) {
+            $query['TriggerCondition'] = $request->triggerConditionShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAlertRule',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建自定义监控报警规则
+     *  *
+     * @param CreateAlertRuleRequest $request CreateAlertRuleRequest
+     *
+     * @return CreateAlertRuleResponse CreateAlertRuleResponse
+     */
+    public function createAlertRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAlertRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -1304,6 +1384,53 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary 删除自定义监控报警规则
+     *  *
+     * @param DeleteAlertRuleRequest $request DeleteAlertRuleRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteAlertRuleResponse DeleteAlertRuleResponse
+     */
+    public function deleteAlertRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAlertRule',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除自定义监控报警规则
+     *  *
+     * @param DeleteAlertRuleRequest $request DeleteAlertRuleRequest
+     *
+     * @return DeleteAlertRuleResponse DeleteAlertRuleResponse
+     */
+    public function deleteAlertRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAlertRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Deletes an alert rule configured for a synchronization task.
      *  *
      * @param DeleteDIAlarmRuleRequest $request DeleteDIAlarmRuleRequest
@@ -1685,7 +1812,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 移除工作空间成员
+     * @summary Removes a member from a workspace.
      *  *
      * @param DeleteProjectMemberRequest $request DeleteProjectMemberRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -1721,7 +1848,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 移除工作空间成员
+     * @summary Removes a member from a workspace.
      *  *
      * @param DeleteProjectMemberRequest $request DeleteProjectMemberRequest
      *
@@ -2091,6 +2218,50 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->execDeploymentStageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取自定义监控报警规则
+     *  *
+     * @param GetAlertRuleRequest $request GetAlertRuleRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAlertRuleResponse GetAlertRuleResponse
+     */
+    public function getAlertRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAlertRule',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取自定义监控报警规则
+     *  *
+     * @param GetAlertRuleRequest $request GetAlertRuleRequest
+     *
+     * @return GetAlertRuleResponse GetAlertRuleResponse
+     */
+    public function getAlertRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAlertRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -2496,7 +2667,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询工作空间成员详情
+     * @summary Queries the details about a member in a workspace.
      *  *
      * @param GetProjectMemberRequest $request GetProjectMemberRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -2532,7 +2703,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询工作空间成员详情
+     * @summary Queries the details about a member in a workspace.
      *  *
      * @param GetProjectMemberRequest $request GetProjectMemberRequest
      *
@@ -2768,6 +2939,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about an instance.
+     *  *
      * @param GetTaskInstanceRequest $request GetTaskInstanceRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -2796,6 +2969,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about an instance.
+     *  *
      * @param GetTaskInstanceRequest $request GetTaskInstanceRequest
      *
      * @return GetTaskInstanceResponse GetTaskInstanceResponse
@@ -2892,7 +3067,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 授予工作空间成员角色
+     * @summary Assigns roles to members in a workspace.
      *  *
      * @param GrantMemberProjectRolesRequest $tmpReq  GrantMemberProjectRolesRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -2936,7 +3111,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 授予工作空间成员角色
+     * @summary Assigns roles to members in a workspace.
      *  *
      * @param GrantMemberProjectRolesRequest $request GrantMemberProjectRolesRequest
      *
@@ -2997,6 +3172,79 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->importWorkflowDefinitionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 分页获取自定义监控报警规则
+     *  *
+     * @param ListAlertRulesRequest $tmpReq  ListAlertRulesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAlertRulesResponse ListAlertRulesResponse
+     */
+    public function listAlertRulesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListAlertRulesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->taskIds)) {
+            $request->taskIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskIds, 'TaskIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->types)) {
+            $request->typesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->types, 'Types', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $query['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->receiver)) {
+            $query['Receiver'] = $request->receiver;
+        }
+        if (!Utils::isUnset($request->taskIdsShrink)) {
+            $query['TaskIds'] = $request->taskIdsShrink;
+        }
+        if (!Utils::isUnset($request->typesShrink)) {
+            $query['Types'] = $request->typesShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAlertRules',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAlertRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 分页获取自定义监控报警规则
+     *  *
+     * @param ListAlertRulesRequest $request ListAlertRulesRequest
+     *
+     * @return ListAlertRulesResponse ListAlertRulesResponse
+     */
+    public function listAlertRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAlertRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -3225,7 +3473,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary ListDataQualityEvaluationTaskInstances
+     * @summary Queries a list of instances generated by a data quality monitoring task by page.
      *  *
      * @param ListDataQualityEvaluationTaskInstancesRequest $request ListDataQualityEvaluationTaskInstancesRequest
      * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
@@ -3255,7 +3503,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary ListDataQualityEvaluationTaskInstances
+     * @summary Queries a list of instances generated by a data quality monitoring task by page.
      *  *
      * @param ListDataQualityEvaluationTaskInstancesRequest $request ListDataQualityEvaluationTaskInstancesRequest
      *
@@ -3269,6 +3517,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of data quality monitoring tasks by page.
+     *  *
      * @param ListDataQualityEvaluationTasksRequest $request ListDataQualityEvaluationTasksRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -3297,6 +3547,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of data quality monitoring tasks by page.
+     *  *
      * @param ListDataQualityEvaluationTasksRequest $request ListDataQualityEvaluationTasksRequest
      *
      * @return ListDataQualityEvaluationTasksResponse ListDataQualityEvaluationTasksResponse
@@ -3349,7 +3601,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 质量监控规则分页查询
+     * @summary Queries a list of data quality monitoring rules by page.
      *  *
      * @param ListDataQualityRulesRequest $request ListDataQualityRulesRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -3379,7 +3631,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 质量监控规则分页查询
+     * @summary Queries a list of data quality monitoring rules by page.
      *  *
      * @param ListDataQualityRulesRequest $request ListDataQualityRulesRequest
      *
@@ -3786,7 +4038,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询工作空间成员详情
+     * @summary Queries details about members in a workspace.
      *  *
      * @param ListProjectMembersRequest $tmpReq  ListProjectMembersRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -3839,7 +4091,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询工作空间成员详情
+     * @summary Queries details about members in a workspace.
      *  *
      * @param ListProjectMembersRequest $request ListProjectMembersRequest
      *
@@ -4246,6 +4498,12 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->taskType)) {
             $body['TaskType'] = $request->taskType;
+        }
+        if (!Utils::isUnset($request->triggerRecurrence)) {
+            $body['TriggerRecurrence'] = $request->triggerRecurrence;
+        }
+        if (!Utils::isUnset($request->triggerType)) {
+            $body['TriggerType'] = $request->triggerType;
         }
         if (!Utils::isUnset($request->workflowId)) {
             $body['WorkflowId'] = $request->workflowId;
@@ -5109,7 +5367,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 撤销工作空间成员的角色
+     * @summary Revokes roles that are assigned to a member in a workspace.
      *  *
      * @param RevokeMemberProjectRolesRequest $tmpReq  RevokeMemberProjectRolesRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -5153,7 +5411,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 撤销工作空间成员的角色
+     * @summary Revokes roles that are assigned to a member in a workspace.
      *  *
      * @param RevokeMemberProjectRolesRequest $request RevokeMemberProjectRolesRequest
      *
@@ -5456,6 +5714,76 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->triggerSchedulerTaskInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建自定义监控报警规则
+     *  *
+     * @param UpdateAlertRuleRequest $tmpReq  UpdateAlertRuleRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateAlertRuleResponse UpdateAlertRuleResponse
+     */
+    public function updateAlertRuleWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateAlertRuleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->triggerCondition)) {
+            $request->triggerConditionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->triggerCondition, 'TriggerCondition', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->enabled)) {
+            $query['Enabled'] = $request->enabled;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $query['Notification'] = $request->notificationShrink;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $query['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->triggerConditionShrink)) {
+            $query['TriggerCondition'] = $request->triggerConditionShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAlertRule',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建自定义监控报警规则
+     *  *
+     * @param UpdateAlertRuleRequest $request UpdateAlertRuleRequest
+     *
+     * @return UpdateAlertRuleResponse UpdateAlertRuleResponse
+     */
+    public function updateAlertRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAlertRuleWithOptions($request, $runtime);
     }
 
     /**
