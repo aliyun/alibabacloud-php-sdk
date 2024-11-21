@@ -9,13 +9,18 @@ use AlibabaCloud\Tea\Model;
 class UpdateScheduledPreloadExecutionRequest extends Model
 {
     /**
+     * @description The end time of the prefetch plan.
+     *
+     * @example 2024-05-31T18:10:48.849+08:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the prefetch plan.
      *
+     * This parameter is required.
      * @example UpdateScheduledPreloadExecution
      *
      * @var string
@@ -23,16 +28,28 @@ class UpdateScheduledPreloadExecutionRequest extends Model
     public $id;
 
     /**
+     * @description The time interval between each batch execution. Unit: seconds.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @description The number of URLs prefetched in each batch.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $sliceLen;
 
     /**
+     * @description The start time of the prefetch plan.
+     *
+     * @example 2024-05-31T17:10:48.849+08:00
+     *
      * @var string
      */
     public $startTime;

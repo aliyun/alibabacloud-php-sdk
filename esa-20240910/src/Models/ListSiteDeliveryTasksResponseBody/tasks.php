@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
+     * @description The log category. Valid values:
+     *
+     *   dcdn_log_access_l1 (default): access logs.
+     *   dcdn_log_er: Edge Routine logs.
+     *   dcdn_log_waf: firewall logs.
+     *   dcdn_log_ipa: TCP/UDP proxy logs.
+     *
      * @example dcdn_log_access_l1
      *
      * @var string
@@ -16,6 +23,11 @@ class tasks extends Model
     public $businessType;
 
     /**
+     * @description The data center. Valid values:
+     *
+     *   cn: the Chinese mainland.
+     *   sg: outside the Chinese mainland.
+     *
      * @example cn
      *
      * @var string
@@ -23,6 +35,9 @@ class tasks extends Model
     public $dataCenter;
 
     /**
+     * @description The destination of the delivery. Valid values:
+     *
+     * 6.  aws3cmpt: S3-compatible storage service.
      * @example sls
      *
      * @var string
@@ -30,6 +45,11 @@ class tasks extends Model
     public $deliveryType;
 
     /**
+     * @description The status of the delivery task.
+     *
+     *   **online**
+     *   **offline**
+     *
      * @example online
      *
      * @var string
@@ -37,6 +57,8 @@ class tasks extends Model
     public $status;
 
     /**
+     * @description The name of the delivery task.
+     *
      * @example cdn-test-task
      *
      * @var string

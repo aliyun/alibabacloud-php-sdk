@@ -9,8 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ListWafManagedRulesShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The attack type. Valid values:
      *
+     *   SQL injection
+     *   Cross-site scripting
+     *   Code execution
+     *   CRLF
+     *   Local file inclusion
+     *   Remote file inclusion
+     *   webshell
+     *   Cross-site request forgery
+     *   Others
+     *   SEMA
+     *
+     * This parameter is required.
      * @example 11
      *
      * @var int
@@ -18,8 +30,9 @@ class ListWafManagedRulesShrinkRequest extends Model
     public $attackType;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the WAF rule, which can be obtained by calling the [ListWafRules](~~ListWafRules~~) operation.
      *
+     * This parameter is required.
      * @example 10000001
      *
      * @var int
@@ -27,6 +40,11 @@ class ListWafManagedRulesShrinkRequest extends Model
     public $id;
 
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   **en**: English.
+     *   **zh**: Chinese.
+     *
      * @example zh
      *
      * @var string
@@ -34,6 +52,8 @@ class ListWafManagedRulesShrinkRequest extends Model
     public $language;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -41,6 +61,8 @@ class ListWafManagedRulesShrinkRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -53,13 +75,16 @@ class ListWafManagedRulesShrinkRequest extends Model
     public $protectionLevel;
 
     /**
+     * @description The query conditions.
+     *
      * @var string
      */
     public $queryArgsShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

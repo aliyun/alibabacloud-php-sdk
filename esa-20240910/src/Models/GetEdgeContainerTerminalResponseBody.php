@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetEdgeContainerTerminalResponseBody extends Model
 {
     /**
+     * @description The cluster name.
+     *
      * @example c497b44c2a59f4ae0bd2826edc40a2c6e
      *
      * @var string
@@ -16,6 +18,8 @@ class GetEdgeContainerTerminalResponseBody extends Model
     public $cluster;
 
     /**
+     * @description The container name.
+     *
      * @example worker0
      *
      * @var string
@@ -23,6 +27,8 @@ class GetEdgeContainerTerminalResponseBody extends Model
     public $container;
 
     /**
+     * @description The name of the namespace.
+     *
      * @example ns1
      *
      * @var string
@@ -30,6 +36,8 @@ class GetEdgeContainerTerminalResponseBody extends Model
     public $namespace;
 
     /**
+     * @description The name of the container group.
+     *
      * @example 1775b9e0-8463-457e-89e8-fb7b6d125b2e
      *
      * @var string
@@ -37,7 +45,7 @@ class GetEdgeContainerTerminalResponseBody extends Model
     public $pod;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 9732E117-8A37-49FD-A36F-ABBB87556CA7
      *
@@ -46,6 +54,8 @@ class GetEdgeContainerTerminalResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The session ID.
+     *
      * @example af22f4xxxxxxxxxxxxxxxxxx
      *
      * @var string
@@ -53,6 +63,8 @@ class GetEdgeContainerTerminalResponseBody extends Model
     public $sessionId;
 
     /**
+     * @description The information about the shared token.
+     *
      * @example af22f4-xxxxx-xxxx-xxxx-xxxx
      *
      * @var string

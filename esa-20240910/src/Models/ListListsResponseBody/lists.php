@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class lists extends Model
 {
     /**
-     * @description 自定义响应页面描述
+     * @description The list description.
      *
      * @example a custom list
      *
@@ -18,6 +18,8 @@ class lists extends Model
     public $description;
 
     /**
+     * @description The ID of the custom list.[](~~2850217~~)
+     *
      * @example 40000001
      *
      * @var int
@@ -25,6 +27,8 @@ class lists extends Model
     public $id;
 
     /**
+     * @description The list type.
+     *
      * @example ip
      *
      * @var string
@@ -32,6 +36,8 @@ class lists extends Model
     public $kind;
 
     /**
+     * @description The length of the list information array, which indicates how many items the list contains.
+     *
      * @example 100
      *
      * @var int
@@ -39,6 +45,8 @@ class lists extends Model
     public $length;
 
     /**
+     * @description The list name.
+     *
      * @example example
      *
      * @var string
@@ -46,6 +54,8 @@ class lists extends Model
     public $name;
 
     /**
+     * @description The time when the list was last modified.
+     *
      * @example 2024-01-01T00:00:00Z
      *
      * @var string

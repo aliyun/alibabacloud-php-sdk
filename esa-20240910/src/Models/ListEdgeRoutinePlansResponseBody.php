@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListEdgeRoutinePlansResponseBody extends Model
 {
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListEdgeRoutinePlansResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 500.
+     *
      * @example 20
      *
      * @var int
@@ -24,12 +28,14 @@ class ListEdgeRoutinePlansResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The plans.
+     *
      * @var planInfo[]
      */
     public $planInfo;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
      *
@@ -38,6 +44,8 @@ class ListEdgeRoutinePlansResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 12
      *
      * @var int
@@ -45,6 +53,8 @@ class ListEdgeRoutinePlansResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The total number of pages returned.
+     *
      * @example 1
      *
      * @var int

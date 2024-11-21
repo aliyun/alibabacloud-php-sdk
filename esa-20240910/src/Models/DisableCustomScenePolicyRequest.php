@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DisableCustomScenePolicyRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The policy ID, which can be obtained by calling the [DescribeCustomScenePolicies](https://help.aliyun.com/document_detail/2850508.html) operation.
      *
+     * This parameter is required.
      * @example 100001
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
+     * @description The log category.
+     *
      * @example dcdn_log_er
      *
      * @var string
@@ -16,6 +18,9 @@ class tasks extends Model
     public $businessType;
 
     /**
+     * @description The data center. Valid values:
+     *
+     * 2.  sg: outside the Chinese mainland.
      * @example cn
      *
      * @var string
@@ -23,6 +28,8 @@ class tasks extends Model
     public $dataCenter;
 
     /**
+     * @description The delivery destination.
+     *
      * @example oss
      *
      * @var string
@@ -30,6 +37,8 @@ class tasks extends Model
     public $deliveryType;
 
     /**
+     * @description The status of the delivery task.
+     *
      * @example online
      *
      * @var string
@@ -37,6 +46,8 @@ class tasks extends Model
     public $status;
 
     /**
+     * @description The name of the delivery task.
+     *
      * @example testoss11
      *
      * @var string

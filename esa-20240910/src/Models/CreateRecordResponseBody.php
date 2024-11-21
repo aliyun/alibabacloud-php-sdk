@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRecordResponseBody extends Model
 {
     /**
+     * @description The record ID.
+     *
      * @example 1234567890123
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateRecordResponseBody extends Model
     public $recordId;
 
     /**
+     * @description The request ID.
+     *
      * @example F61CDR30-E83C-4FDA-BF73-9A94CDD44229
      *
      * @var string

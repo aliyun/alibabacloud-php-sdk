@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomScenePoliciesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The page number. Valid values: 1 to 100000.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -18,6 +19,8 @@ class DescribeCustomScenePoliciesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10. Valid values: 5, 10, and 20.
+     *
      * @example 10
      *
      * @var int
@@ -25,6 +28,8 @@ class DescribeCustomScenePoliciesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the policy, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) operation.
+     *
      * @example 1234****
      *
      * @var int

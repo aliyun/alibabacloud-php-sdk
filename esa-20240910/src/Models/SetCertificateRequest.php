@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetCertificateRequest extends Model
 {
     /**
+     * @description The certificate ID on Certificate Management Service.
+     *
      * @example 30000478
      *
      * @var int
@@ -16,6 +18,8 @@ class SetCertificateRequest extends Model
     public $casId;
 
     /**
+     * @description The certificate content.
+     *
      * @example -----BEGIN CERTIFICATE-----
      *
      * @var string
@@ -23,6 +27,8 @@ class SetCertificateRequest extends Model
     public $certificate;
 
     /**
+     * @description The certificate ID on ESA.
+     *
      * @example 30001303
      *
      * @var string
@@ -30,6 +36,8 @@ class SetCertificateRequest extends Model
     public $id;
 
     /**
+     * @description The certificate name.
+     *
      * @example yourCertName
      *
      * @var string
@@ -42,6 +50,8 @@ class SetCertificateRequest extends Model
     public $ownerId;
 
     /**
+     * @description The private key of the certificate.
+     *
      * @example -----BEGIN PRIVATE KEY-----
      *
      * @var string
@@ -49,6 +59,8 @@ class SetCertificateRequest extends Model
     public $privateKey;
 
     /**
+     * @description The region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -61,8 +73,9 @@ class SetCertificateRequest extends Model
     public $securityToken;
 
     /**
-     * @description This parameter is required.
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
      *
+     * This parameter is required.
      * @example 1234567890123
      *
      * @var int
@@ -70,8 +83,12 @@ class SetCertificateRequest extends Model
     public $siteId;
 
     /**
-     * @description This parameter is required.
+     * @description The certificate type. Valid values:
      *
+     *   cas: a certificate purchased by using Certificate Management Service.
+     *   upload: a custom certificate that you upload.
+     *
+     * This parameter is required.
      * @example cas
      *
      * @var string
@@ -79,6 +96,8 @@ class SetCertificateRequest extends Model
     public $type;
 
     /**
+     * @description Specifies whether to update the certificate.
+     *
      * @example true
      *
      * @var bool

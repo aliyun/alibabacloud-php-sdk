@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserDeliveryTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the delivery task.
      *
+     * This parameter is required.
      * @example test-project
      *
      * @var string

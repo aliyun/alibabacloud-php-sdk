@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteEdgeContainerAppVersionResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example b021e538-9dde-46ed-a1f2-9469da8f3e77
      *

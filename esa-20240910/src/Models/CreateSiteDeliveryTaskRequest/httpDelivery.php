@@ -12,61 +12,103 @@ use AlibabaCloud\Tea\Model;
 class httpDelivery extends Model
 {
     /**
+     * @description The compression method. By default, data is not compressed.
+     *
+     * @example gzip
+     *
      * @var string
      */
     public $compress;
 
     /**
+     * @description The address of the HTTP server.
+     *
+     * @example http://xxx.aliyun.com/v1/log/upload
+     *
      * @var string
      */
     public $destUrl;
 
     /**
+     * @description The custom headers.
+     *
      * @var HttpDeliveryHeaderParamValue[]
      */
     public $headerParam;
 
     /**
+     * @description The prefix of the log delivery package.
+     *
+     * @example cdnVersion:1.0
+     *
      * @var string
      */
     public $logBodyPrefix;
 
     /**
+     * @description The suffix of the log delivery package.
+     *
+     * @example cdnVersion:1.0
+     *
      * @var string
      */
     public $logBodySuffix;
 
     /**
+     * @description The maximum size of data for each delivery. Unit: MB.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $maxBatchMB;
 
     /**
+     * @description The maximum number of entries for each delivery.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $maxBatchSize;
 
     /**
+     * @description The maximum number of retries.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $maxRetry;
 
     /**
+     * @description The custom query parameters.
+     *
      * @var HttpDeliveryQueryParamValue[]
      */
     public $queryParam;
 
     /**
+     * @description Specifies whether to use server authentication.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $standardAuthOn;
 
     /**
+     * @description The authentication configurations.
+     *
      * @var standardAuthParam
      */
     public $standardAuthParam;
 
     /**
+     * @description The timeout period. Unit: seconds.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $transformTimeout;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class PurgeCachesShrinkRequest extends Model
 {
     /**
+     * @description The content to purge.
+     *
      * @var string
      */
     public $contentShrink;
 
     /**
+     * @description Specifies whether to purge cached resources for edge computing. For example, purge the resources cached by the CacheAPI operation of Edge Routine.
+     *
      * @example true
      *
      * @var bool
@@ -21,6 +25,12 @@ class PurgeCachesShrinkRequest extends Model
     public $edgeComputePurge;
 
     /**
+     * @description Specifies whether to purge resources in a directory if the resources requested are different from the resources on the origin server. Default value: false.
+     *
+     *   **true**: purges all resources in the directory.
+     *   **false**: purges only changed resources in the directory.
+     *
+     * >  This configuration takes effect for the following purge task types: directory, cachetag, ignoreParams, hostname, and purgeall.
      * @example true
      *
      * @var bool
@@ -28,6 +38,8 @@ class PurgeCachesShrinkRequest extends Model
     public $force;
 
     /**
+     * @description The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+     *
      * @example 123456789****
      *
      * @var int
@@ -35,8 +47,16 @@ class PurgeCachesShrinkRequest extends Model
     public $siteId;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the purge task. Valid values:
      *
+     *   **file** (default): purges the cache by file.
+     *   **cachetag**: purges the cache by cache tag.
+     *   **directory**: purges the cache by directory.
+     *   **ignoreParams**: purges the cache by URL with specific parameters ignored. This option ignores the question mark (?) and parameters after the question mark (?) in a request URL and purges the cache. After you call this operation with the request URL submitted, the system compares the submitted URL with the URL of the cached resource without specified parameters. If the URLs match, the POPs purge the cached resources.
+     *   **hostname**: purges the cache by hostname.
+     *   **purgeall**: purges all cache.
+     *
+     * This parameter is required.
      * @example file
      *
      * @var string

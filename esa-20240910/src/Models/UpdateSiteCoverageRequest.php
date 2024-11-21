@@ -9,8 +9,13 @@ use AlibabaCloud\Tea\Model;
 class UpdateSiteCoverageRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The desired service location. Valid values:
      *
+     *   **domestic**: the Chinese mainland
+     *   **global**: global
+     *   **overseas**: outside the Chinese mainland
+     *
+     * This parameter is required.
      * @example global
      *
      * @var string
@@ -18,8 +23,9 @@ class UpdateSiteCoverageRequest extends Model
     public $coverage;
 
     /**
-     * @description This parameter is required.
+     * @description The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
      *
+     * This parameter is required.
      * @example 1234567890123
      *
      * @var int

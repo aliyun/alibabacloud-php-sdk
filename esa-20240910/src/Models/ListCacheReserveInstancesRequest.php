@@ -9,31 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ListCacheReserveInstancesRequest extends Model
 {
     /**
+     * @description The ID of the cache reserve instance.
+     *
+     * @example sp-xcdn-96wblslz****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: **1 to 500**. Default value: **500**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The criterion by which you want to sort the queried instances. Valid values:
+     *
+     *   ExpireTime: sorts the instances by the time when the instances expire.
+     *   CreateTime: sorts the instances by the time when the instances were purchased.
+     *
+     * @example ExpireTime
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @description The order by which you want to sort the queried instances. Valid values:
+     *
+     *   asc: in ascending order.
+     *   desc: in descending order.
+     *
+     * @example desc
+     *
      * @var string
      */
     public $sortOrder;
 
     /**
+     * @description The status of the cache reserve instance. Valid values:
+     *
+     *   online: The instance is in service.
+     *   offline: The instance has expired within an allowable period. In this state, the plan is unavailable.
+     *   disable: The instance is released.
+     *   overdue: The instance is stopped due to overdue payments.
+     *
      * @example ListCacheReserveInstances
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateEdgeContainerAppRecordRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The application ID.
      *
+     * This parameter is required.
      * @example app-88068867578379****
      *
      * @var string
@@ -18,8 +19,9 @@ class CreateEdgeContainerAppRecordRequest extends Model
     public $appId;
 
     /**
-     * @description This parameter is required.
+     * @description The associated domain name.
      *
+     * This parameter is required.
      * @example a.example.com
      *
      * @var string
@@ -27,6 +29,8 @@ class CreateEdgeContainerAppRecordRequest extends Model
     public $recordName;
 
     /**
+     * @description The website ID.
+     *
      * @example 5407498413****
      *
      * @var int

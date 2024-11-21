@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class waitingRoomEvents extends Model
 {
     /**
+     * @description The content of the custom waiting room page. This parameter is returned when the waiting room type is set to custom. The content is URL-encoded.
+     *
      * @example html-yets-maqi1111
      *
      * @var string
@@ -16,6 +18,8 @@ class waitingRoomEvents extends Model
     public $customPageHtml;
 
     /**
+     * @description The event description.
+     *
      * @example terraform-example
      *
      * @var string
@@ -23,6 +27,11 @@ class waitingRoomEvents extends Model
     public $description;
 
     /**
+     * @description Indicates whether session renewal is disabled. Valid values:
+     *
+     *   on
+     *   off
+     *
      * @example off
      *
      * @var string
@@ -30,6 +39,11 @@ class waitingRoomEvents extends Model
     public $disableSessionRenewalEnable;
 
     /**
+     * @description The event status. Valid values:
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string
@@ -37,6 +51,8 @@ class waitingRoomEvents extends Model
     public $enable;
 
     /**
+     * @description The end time of the event. This value is a UNIX timestamp.
+     *
      * @example 1719814497
      *
      * @var string
@@ -44,6 +60,11 @@ class waitingRoomEvents extends Model
     public $endTime;
 
     /**
+     * @description Indicates whether JOSN response is enabled. If JSON response is enabled, a JSON body is returned for requests to the waiting room with the header Accept: application/json. Valid values:
+     *
+     *   on
+     *   off
+     *
      * @example off
      *
      * @var string
@@ -51,6 +72,12 @@ class waitingRoomEvents extends Model
     public $jsonResponseEnable;
 
     /**
+     * @description The language of the waiting room page. This parameter is returned when the waiting room type is set to default. Valid values:
+     *
+     *   enus: English.
+     *   zhcn: Simplified Chinese.
+     *   zhhk: Traditional Chinese.
+     *
      * @example zhcn
      *
      * @var string
@@ -58,11 +85,15 @@ class waitingRoomEvents extends Model
     public $language;
 
     /**
+     * @description The custom event name.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The maximum number of new users per minute.
+     *
      * @example 11
      *
      * @var string
@@ -70,6 +101,11 @@ class waitingRoomEvents extends Model
     public $newUsersPerMinute;
 
     /**
+     * @description Indicates whether pre-queuing is enabled. Valid values:
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string
@@ -77,6 +113,8 @@ class waitingRoomEvents extends Model
     public $preQueueEnable;
 
     /**
+     * @description The start time for pre-queuing. This value is a UNIX timestamp. This parameter is valid only when pre-queuing is enabled.
+     *
      * @example 1719814097
      *
      * @var string
@@ -84,6 +122,13 @@ class waitingRoomEvents extends Model
     public $preQueueStartTime;
 
     /**
+     * @description The queuing method. Valid values:
+     *
+     *   random: Users gain access to the origin randomly, regardless of the arrival time.
+     *   fifo: Users gain access to the origin in order of arrival.
+     *   passthrough: Users pass through the waiting room and go straight to the origin.
+     *   reject-all: Users are blocked from reaching the origin.
+     *
      * @example fifo
      *
      * @var string
@@ -91,6 +136,12 @@ class waitingRoomEvents extends Model
     public $queuingMethod;
 
     /**
+     * @description The HTTP status code to return while a user is in the queue. Valid values:
+     *
+     *   200
+     *   202
+     *   429
+     *
      * @example 200
      *
      * @var string
@@ -98,6 +149,11 @@ class waitingRoomEvents extends Model
     public $queuingStatusCode;
 
     /**
+     * @description Indicates whether random queuing is enabled. Valid values:
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string
@@ -105,6 +161,8 @@ class waitingRoomEvents extends Model
     public $randomPreQueueEnable;
 
     /**
+     * @description The maximum duration for which a session remains valid after a user leaves the origin. Unit: minutes.
+     *
      * @example 3
      *
      * @var string
@@ -112,6 +170,8 @@ class waitingRoomEvents extends Model
     public $sessionDuration;
 
     /**
+     * @description The start time of the event. This value is a UNIX timestamp.
+     *
      * @example 1719814398
      *
      * @var string
@@ -119,6 +179,8 @@ class waitingRoomEvents extends Model
     public $startTime;
 
     /**
+     * @description The maximum number of active users.
+     *
      * @example 22
      *
      * @var string
@@ -126,6 +188,8 @@ class waitingRoomEvents extends Model
     public $totalActiveUsers;
 
     /**
+     * @description The unique ID of the waiting room event.
+     *
      * @example 89677721098****
      *
      * @var int
@@ -133,6 +197,8 @@ class waitingRoomEvents extends Model
     public $waitingRoomEventId;
 
     /**
+     * @description The ID of the waiting room associated with the event.
+     *
      * @example 5c938a045c9ca46607163d34966****
      *
      * @var string
@@ -140,6 +206,11 @@ class waitingRoomEvents extends Model
     public $waitingRoomId;
 
     /**
+     * @description The type of the waiting room. Valid values:
+     *
+     *   default
+     *   custom
+     *
      * @example custom
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class waitingRoomRules extends Model
 {
     /**
+     * @description The rule content, which is a policy or conditional expression.
+     *
      * @example (http.request.uri.path.file_name eq \\"jpg\\")
      *
      * @var string
@@ -16,6 +18,11 @@ class waitingRoomRules extends Model
     public $rule;
 
     /**
+     * @description Indicates whether the rule is enabled. Valid values:
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string
@@ -23,6 +30,8 @@ class waitingRoomRules extends Model
     public $ruleEnable;
 
     /**
+     * @description The rule name.
+     *
      * @example ip
      *
      * @var string
@@ -30,6 +39,8 @@ class waitingRoomRules extends Model
     public $ruleName;
 
     /**
+     * @description The rule ID.
+     *
      * @example 37286782688****
      *
      * @var int

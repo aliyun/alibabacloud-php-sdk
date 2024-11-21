@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataList extends Model
 {
     /**
+     * @description The peak of volumetric attacks. Unit: bit/s.
+     *
      * @example 800
      *
      * @var int
@@ -21,6 +23,8 @@ class dataList extends Model
     public $coverage;
 
     /**
+     * @description The peak of connection flood attacks. Unit: connections per seconds (CPS).
+     *
      * @example 50
      *
      * @var int
@@ -28,6 +32,9 @@ class dataList extends Model
     public $cps;
 
     /**
+     * @description The time when the DDoS attack ends.
+     *
+     * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      * @example 2023-02-12T15:59:59Z
      *
      * @var string
@@ -35,6 +42,8 @@ class dataList extends Model
     public $endTime;
 
     /**
+     * @description The attack event ID.
+     *
      * @example web-cc_1
      *
      * @var string
@@ -47,6 +56,12 @@ class dataList extends Model
     public $eventResult;
 
     /**
+     * @description The type of DDoS attacks that was queried. Valid values:
+     *
+     *   **web-cc**: web resource exhaustion attacks.
+     *   **cc**: connection flood attacks.
+     *   **traffic**: volumetric attacks.
+     *
      * @example web-cc
      *
      * @var string
@@ -54,6 +69,8 @@ class dataList extends Model
     public $eventType;
 
     /**
+     * @description The peak of volumetric attacks. Unit: packets per second (PPS).
+     *
      * @example 12000
      *
      * @var int
@@ -61,6 +78,8 @@ class dataList extends Model
     public $pps;
 
     /**
+     * @description The peak QPS of web resource exhaustion attacks.
+     *
      * @example 7692
      *
      * @var int
@@ -68,6 +87,9 @@ class dataList extends Model
     public $qps;
 
     /**
+     * @description The time when the DDoS attack starts.
+     *
+     * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      * @example 2023-02-12T15:00:00Z
      *
      * @var string
@@ -75,6 +97,8 @@ class dataList extends Model
     public $startTime;
 
     /**
+     * @description The attack target.
+     *
      * @example example.com
      *
      * @var string
@@ -82,6 +106,8 @@ class dataList extends Model
     public $target;
 
     /**
+     * @description The ID of the web resource exhaustion attack target.
+     *
      * @example 000000000155****
      *
      * @var string

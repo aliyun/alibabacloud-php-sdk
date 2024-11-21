@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListKvsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the namespace that you specify when you call the [CreatevNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
      *
+     * This parameter is required.
      * @example test_namespace
      *
      * @var string
@@ -18,6 +19,8 @@ class ListKvsRequest extends Model
     public $namespace;
 
     /**
+     * @description The page number. The product of PageNumber and PageSize cannot exceed 50,000.
+     *
      * @example 10
      *
      * @var int
@@ -25,6 +28,8 @@ class ListKvsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 50. Maximum value: 100.
+     *
      * @example 50
      *
      * @var int
@@ -32,6 +37,8 @@ class ListKvsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The prefix to query.
+     *
      * @example prefix-
      *
      * @var string

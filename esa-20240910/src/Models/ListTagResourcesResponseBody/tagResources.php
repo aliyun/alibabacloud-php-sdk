@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tagResources extends Model
 {
     /**
+     * @description The resource ID.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class tagResources extends Model
     public $resourceId;
 
     /**
+     * @description The resource type.
+     *
      * @example site
      *
      * @var string
@@ -23,6 +27,8 @@ class tagResources extends Model
     public $resourceType;
 
     /**
+     * @description The tag key.
+     *
      * @example env
      *
      * @var string
@@ -30,6 +36,8 @@ class tagResources extends Model
     public $tagKey;
 
     /**
+     * @description The tag value.
+     *
      * @example value
      *
      * @var string

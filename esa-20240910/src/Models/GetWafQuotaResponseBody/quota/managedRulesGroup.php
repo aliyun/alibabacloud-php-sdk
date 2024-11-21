@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class managedRulesGroup extends Model
 {
     /**
+     * @description Indicates whether the WAF managed rule group is enabled.
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @description The maximum number of WAF managed rule groups.
+     *
      * @var WafQuotaInteger
      */
     public $numberTotal;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeletePageResponseBody extends Model
 {
     /**
+     * @description The ID of the custom error page.[](~~2850223~~)
+     *
      * @example 50000001
      *
      * @var int
@@ -16,7 +18,7 @@ class DeletePageResponseBody extends Model
     public $id;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 36af3fcc-43d0-441c-86b1-428951dc8225
      *

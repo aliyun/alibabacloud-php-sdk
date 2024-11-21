@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListWaitingRoomEventsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
      *
+     * This parameter is required.
      * @example 7096621098****
      *
      * @var int
@@ -18,6 +19,8 @@ class ListWaitingRoomEventsRequest extends Model
     public $siteId;
 
     /**
+     * @description The ID of the waiting room event. This parameter is optional. You can specify this parameter to query a specific waiting room event.
+     *
      * @example 89677721098****
      *
      * @var int
@@ -25,8 +28,9 @@ class ListWaitingRoomEventsRequest extends Model
     public $waitingRoomEventId;
 
     /**
-     * @description This parameter is required.
+     * @description The unique ID of the waiting room, which can be obtained by calling the [ListWaitingRooms](https://help.aliyun.com/document_detail/2850279.html) operation.
      *
+     * This parameter is required.
      * @example 6a51d5bc6460887abd129****
      *
      * @var string

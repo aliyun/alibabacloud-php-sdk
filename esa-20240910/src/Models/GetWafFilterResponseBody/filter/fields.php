@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class fields extends Model
 {
     /**
+     * @description The field for matched objects in the system.
+     *
      * @example http.request.headers
      *
      * @var string
@@ -18,6 +20,8 @@ class fields extends Model
     public $key;
 
     /**
+     * @description The label of the matched object.
+     *
      * @example Header
      *
      * @var string
@@ -25,21 +29,31 @@ class fields extends Model
     public $label;
 
     /**
+     * @description The logical conditions.
+     *
      * @var logics[]
      */
     public $logics;
 
     /**
+     * @description The selector, which defines how to select a matched object.
+     *
      * @var selector
      */
     public $selector;
 
     /**
+     * @description Indicates whether the matched object contains a subfield.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $sub;
 
     /**
+     * @description The tip on how to enter a subfield.
+     *
      * @example e.g. Content-Type
      *
      * @var string

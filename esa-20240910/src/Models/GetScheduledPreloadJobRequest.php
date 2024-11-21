@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetScheduledPreloadJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the scheduled prefetch task.
      *
+     * This parameter is required.
      * @example GetScheduledPreloadJob
      *
      * @var string

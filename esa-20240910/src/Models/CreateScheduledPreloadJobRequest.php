@@ -9,8 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CreateScheduledPreloadJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The method to submit URLs to be prefetched.
      *
+     * Valid values:
+     *
+     *   **textBox**
+     *   **oss**
+     *
+     * This parameter is required.
      * @example oss
      *
      * @var string
@@ -18,25 +24,39 @@ class CreateScheduledPreloadJobRequest extends Model
     public $insertWay;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the scheduled prefetch task.
+     *
+     * This parameter is required.
+     * @example example
      *
      * @var string
      */
     public $name;
 
     /**
+     * @description The URL of the OSS object that stores the URLs to be prefetched.
+     *
+     * @example https://xxxobject.oss-cn-reginon.aliyuncs.com/9d91_xxxxxxxxxxx_158bb6e0f97c477791209bb46bd599f7
+     *
      * @var string
      */
     public $ossUrl;
 
     /**
-     * @description This parameter is required.
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+     *
+     * This parameter is required.
+     * @example 190007158391808
      *
      * @var int
      */
     public $siteId;
 
     /**
+     * @description The URLs to be prefetched. This parameter is required if you set InsertWay to textBox.
+     *
+     * @example http://testurl.com/a.txt
+     * http://testurl.com/b.txt
      * @var string
      */
     public $urlList;

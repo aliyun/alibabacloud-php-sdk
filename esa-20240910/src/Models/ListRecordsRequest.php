@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ListRecordsRequest extends Model
 {
     /**
+     * @description The business scenario of the record for acceleration. Valid values:
+     *
+     *   **image_video**: video and image.
+     *   **api**: API.
+     *   **web**: web page.
+     *
      * @example web
      *
      * @var string
@@ -16,6 +22,8 @@ class ListRecordsRequest extends Model
     public $bizName;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +31,8 @@ class ListRecordsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: **500**.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +40,11 @@ class ListRecordsRequest extends Model
     public $pageSize;
 
     /**
+     * @description Filters by whether the record is proxied. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +52,13 @@ class ListRecordsRequest extends Model
     public $proxied;
 
     /**
+     * @description The match mode to search for the record name. Default value: exact. Valid values:
+     *
+     *   **prefix**: match by prefix.
+     *   **suffix**: match by suffix.
+     *   **exact**: exact match.
+     *   **fuzzy**: fuzzy match.
+     *
      * @example fuzzy
      *
      * @var string
@@ -44,6 +66,8 @@ class ListRecordsRequest extends Model
     public $recordMatchType;
 
     /**
+     * @description The record name. This parameter specifies a filter condition for the query.
+     *
      * @example www.example.com
      *
      * @var string
@@ -51,8 +75,9 @@ class ListRecordsRequest extends Model
     public $recordName;
 
     /**
-     * @description This parameter is required.
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
      *
+     * This parameter is required.
      * @example 1234567890123
      *
      * @var int
@@ -60,6 +85,14 @@ class ListRecordsRequest extends Model
     public $siteId;
 
     /**
+     * @description The origin type of the record. Only CNAME records can be filtered by using this field. Valid values:
+     *
+     *   **OSS**: OSS bucket.
+     *   **S3**: S3 bucket.
+     *   **LB**: load balancer.
+     *   **OP**: origin pool.
+     *   **Domain**: domain name.
+     *
      * @example OSS
      *
      * @var string
@@ -67,6 +100,8 @@ class ListRecordsRequest extends Model
     public $sourceType;
 
     /**
+     * @description The DNS record type.
+     *
      * @example CNAME
      *
      * @var string

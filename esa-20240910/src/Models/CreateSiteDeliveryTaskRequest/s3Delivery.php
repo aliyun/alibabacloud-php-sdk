@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class s3Delivery extends Model
 {
     /**
+     * @description The access key ID of your Amazon S3 account.
+     *
+     * @example LTAIKh***
+     *
      * @var string
      */
     public $accessKey;
 
     /**
+     * @description The directory in the bucket.
+     *
+     * @example logriver-test/log
+     *
      * @var string
      */
     public $bucketPath;
 
     /**
+     * @description The endpoint. This parameter is required when the S3Cmpt parameter is set to true.
+     *
+     * @example https://s3.oss-cn-hangzhou.aliyuncs.com
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @description The prefix of the path in which you want to store logs.
+     *
+     * @example logriver-test/log
+     *
      * @var string
      */
     public $prefixPath;
 
     /**
+     * @description The region ID of the service.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description Specifies whether the service is compatible with Amazon S3.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $s3Cmpt;
 
     /**
+     * @description The secret access key of your Amazon S3 account.
+     *
+     * @example LDSIKh***
+     *
      * @var string
      */
     public $secretKey;

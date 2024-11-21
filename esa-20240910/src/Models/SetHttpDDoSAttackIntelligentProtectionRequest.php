@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class SetHttpDDoSAttackIntelligentProtectionRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The mode of smart HTTP DDoS protection. Valid values:
      *
+     *   **observe**: alert.
+     *   **defense**: block.
+     *
+     * This parameter is required.
      * @example defense
      *
      * @var string
@@ -18,8 +22,14 @@ class SetHttpDDoSAttackIntelligentProtectionRequest extends Model
     public $aiMode;
 
     /**
-     * @description This parameter is required.
+     * @description The level of smart HTTP DDoS protection. Valid values:
      *
+     *   **level0**: very loose.
+     *   **level30**: loose.
+     *   **level60**: normal.
+     *   **level90**: strict.
+     *
+     * This parameter is required.
      * @example level60
      *
      * @var string
@@ -27,8 +37,9 @@ class SetHttpDDoSAttackIntelligentProtectionRequest extends Model
     public $aiTemplate;
 
     /**
-     * @description This parameter is required.
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
      *
+     * This parameter is required.
      * @example 123456****
      *
      * @var int

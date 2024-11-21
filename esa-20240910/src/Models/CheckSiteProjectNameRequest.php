@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CheckSiteProjectNameRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the real-time log delivery task.
      *
+     * This parameter is required.
      * @example user_log
      *
      * @var string
@@ -18,6 +19,8 @@ class CheckSiteProjectNameRequest extends Model
     public $projectName;
 
     /**
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+     *
      * @example 12312312213212
      *
      * @var int

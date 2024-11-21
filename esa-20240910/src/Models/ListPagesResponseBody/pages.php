@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class pages extends Model
 {
     /**
-     * @description 自定义响应页面内容BASE64编码
+     * @description The Base64-encoded content of the error page. The content type is specified by the Content-Type field.
      *
      * This parameter is required.
      * @example PGh0bWw+aGVsbG8gcGFnZTwvaHRtbD4=
@@ -19,7 +19,7 @@ class pages extends Model
     public $content;
 
     /**
-     * @description 自定义响应页面内容类型
+     * @description The Content-Type field in the HTTP header.
      *
      * This parameter is required.
      * @example text/html
@@ -29,7 +29,7 @@ class pages extends Model
     public $contentType;
 
     /**
-     * @description 自定义响应页面描述
+     * @description The description of the custom error page.
      *
      * @example a custom deny page
      *
@@ -38,6 +38,8 @@ class pages extends Model
     public $description;
 
     /**
+     * @description The ID of the custom error page.[](~~2850223~~)
+     *
      * @example 50000001
      *
      * @var int
@@ -45,6 +47,8 @@ class pages extends Model
     public $id;
 
     /**
+     * @description The type of the custom error page.
+     *
      * @example custom
      *
      * @var string
@@ -52,6 +56,8 @@ class pages extends Model
     public $kind;
 
     /**
+     * @description The name of the custom error page.
+     *
      * @example example
      *
      * @var string
@@ -59,6 +65,8 @@ class pages extends Model
     public $name;
 
     /**
+     * @description The time when the custom error page was last modified.
+     *
      * @example 2024-01-01T00:00:00Z
      *
      * @var string

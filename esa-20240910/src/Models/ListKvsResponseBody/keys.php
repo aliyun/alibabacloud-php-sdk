@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class keys extends Model
 {
     /**
+     * @description The key name.
+     *
      * @example Key1
      *
      * @var string
@@ -16,6 +18,8 @@ class keys extends Model
     public $name;
 
     /**
+     * @description The time when the key was last updated.
+     *
      * @example 2021-12-13T07:46:03Z
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceQuotasWithUsageRequest extends Model
 {
     /**
+     * @description The plan ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+     *
      * @example sp-xcdn-96wblslz****
      *
      * @var string
@@ -16,8 +18,19 @@ class ListInstanceQuotasWithUsageRequest extends Model
     public $instanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The quota names in the plan. Separate the quota names with commas (,). You can query up to 10 quota names at a time. Valid values:
      *
+     *   **customHttpCert**: the custom certificates.
+     *   **transition_rule**: the transform rules.
+     *   **waiting_room**: the waiting rooms.
+     *   **https|rule_quota**: the SSL/TLS rules.
+     *   **cache_rules|rule_quota**: the cache rules.
+     *   **configuration_rules|rule_quota**: the configuration rules.
+     *   **redirect_rules|rule_quota**: the redirect rules.
+     *   **compression_rules|rule_quota**: the compression rules.
+     *   **origin_rules|rule_quota**: the origin rules.
+     *
+     * This parameter is required.
      * @example customHttpCert
      *
      * @var string
@@ -25,6 +38,8 @@ class ListInstanceQuotasWithUsageRequest extends Model
     public $quotaNames;
 
     /**
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+     *
      * @example 1232223****
      *
      * @var int

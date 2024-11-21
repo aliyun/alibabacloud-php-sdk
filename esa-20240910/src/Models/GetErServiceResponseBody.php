@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetErServiceResponseBody extends Model
 {
     /**
+     * @description The billing mode. Valid values:
+     *
+     *   er_paymode: billed for customers on the China site.
+     *   er_freemode: free for customers on the China site.
+     *   er_paymodeintl: billed for customers on the International site.
+     *   err_freemodeintl: free for customers on the International site
+     *
      * @example er_paymode
      *
      * @var string
@@ -16,7 +23,7 @@ class GetErServiceResponseBody extends Model
     public $planName;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
      *
@@ -25,6 +32,12 @@ class GetErServiceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The service status. Valid values:
+     *
+     *   Creating
+     *   Running
+     *   NotOpened
+     *
      * @example Running
      *
      * @var string

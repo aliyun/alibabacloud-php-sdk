@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CheckSiteNameResponseBody extends Model
 {
     /**
+     * @description The description of the verification result. Valid values:
+     *
+     *   **success**: The verification is successful.
+     *   **Site.AlreadyExist**: The website domain name has already been added.
+     *   **Site.InvalidName**: Invalid website domain name.
+     *   **Site.SubSiteUnavailable**: Subdomains are not allowed.
+     *   **Site.InternalError**: An internal error occurs.
+     *
      * @example success
      *
      * @var string
@@ -16,6 +24,11 @@ class CheckSiteNameResponseBody extends Model
     public $description;
 
     /**
+     * @description Indicates whether a subdomain is specified. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -23,11 +36,18 @@ class CheckSiteNameResponseBody extends Model
     public $isSubSite;
 
     /**
+     * @description The verification message.
+     *
      * @var string
      */
     public $messeage;
 
     /**
+     * @description Indicates whether the verification passed.
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -35,6 +55,8 @@ class CheckSiteNameResponseBody extends Model
     public $passed;
 
     /**
+     * @description The request ID.
+     *
      * @example CB1A380B-09F0-41BB-280B-72F8FD6DA2FE
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteKvRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the key that you want to delete.
      *
+     * This parameter is required.
      * @example test_key
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteKvRequest extends Model
     public $key;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
      *
+     * This parameter is required.
      * @example test_namespace
      *
      * @var string

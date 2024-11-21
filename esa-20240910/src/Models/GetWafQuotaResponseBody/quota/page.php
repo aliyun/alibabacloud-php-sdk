@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class page extends Model
 {
     /**
+     * @description The quota information about custom error pages of all Content-Types.
+     *
      * @var QuotaPageContentTypesValue[]
      */
     public $contentTypes;
 
     /**
+     * @description Indicates whether custom error pages are enabled.
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @description The maximum number of custom error pages.
+     *
      * @var WafQuotaInteger
      */
     public $numberTotal;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateSiteDeliveryTaskResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 34DCBC8A-****-****-****-6DAA11D7DDBD
      *

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDDoSAllEventListRequest extends Model
 {
     /**
+     * @description The end of the time range to query.
+     *
+     * If you do not configure this parameter, the current time is used as the end of the time range to query.
      * @example 2023-02-22T15:59:59Z
      *
      * @var string
@@ -16,6 +19,13 @@ class DescribeDDoSAllEventListRequest extends Model
     public $endTime;
 
     /**
+     * @description The type of DDoS attacks to query. Valid values:
+     *
+     *   **web-cc**: web resource exhaustion attacks.
+     *   **cc**: connection flood attacks.
+     *   **traffic**: volumetric attacks.
+     *
+     * Default value: web-cc.
      * @example web-cc
      *
      * @var string
@@ -23,8 +33,9 @@ class DescribeDDoSAllEventListRequest extends Model
     public $eventType;
 
     /**
-     * @description This parameter is required.
+     * @description The page number. Valid values: **1** to **100000**.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -32,6 +43,8 @@ class DescribeDDoSAllEventListRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: **10**. Valid values: 5, 10, and 20.
+     *
      * @example 10
      *
      * @var int
@@ -39,8 +52,9 @@ class DescribeDDoSAllEventListRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
      *
+     * This parameter is required.
      * @example 7096621098****
      *
      * @var int
@@ -48,7 +62,7 @@ class DescribeDDoSAllEventListRequest extends Model
     public $siteId;
 
     /**
-     * @description A short description of struct
+     * @description The beginning of the time range to query.
      *
      * This parameter is required.
      * @example 2023-02-12T15:00:00Z

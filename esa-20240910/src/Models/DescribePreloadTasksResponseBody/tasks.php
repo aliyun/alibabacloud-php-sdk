@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
+     * @description The prefetched content.
+     *
      * @example http://a.com/1.jpg?b=2
      *
      * @var string
@@ -16,6 +18,8 @@ class tasks extends Model
     public $content;
 
     /**
+     * @description The time when the task was created.
+     *
      * @example 2023-03-28 14:28:57
      *
      * @var string
@@ -23,6 +27,12 @@ class tasks extends Model
     public $createTime;
 
     /**
+     * @description The error message returned upon a prefetch task failure. Valid values:
+     *
+     *   **Internal Error**
+     *   **Origin Timeout**
+     *   **Origin Return StatusCode 5XX**
+     *
      * @example Internal Error
      *
      * @var string
@@ -30,6 +40,8 @@ class tasks extends Model
     public $description;
 
     /**
+     * @description The progress of the task, in percentage.
+     *
      * @example 100%
      *
      * @var string
@@ -37,6 +49,12 @@ class tasks extends Model
     public $process;
 
     /**
+     * @description The task status.
+     *
+     *   **Complete**: The task is complete.
+     *   **Refreshing**: The task is in progress.
+     *   **Failed**: The task failed.
+     *
      * @example Complete
      *
      * @var string
@@ -44,6 +62,8 @@ class tasks extends Model
     public $status;
 
     /**
+     * @description The ID of the queried task.
+     *
      * @example 1597854579687428
      *
      * @var string

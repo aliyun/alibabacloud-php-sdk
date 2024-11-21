@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CreateSiteRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The DNS setup. Valid values:
      *
+     *   **NS**
+     *   **CNAME**
+     *
+     * This parameter is required.
      * @example NS
      *
      * @var string
@@ -18,8 +22,13 @@ class CreateSiteRequest extends Model
     public $accessType;
 
     /**
-     * @description This parameter is required.
+     * @description The service location. Valid values:
      *
+     *   **domestic**: the Chinese mainland
+     *   **global**: global
+     *   **overseas**: outside the Chinese mainland
+     *
+     * This parameter is required.
      * @example domestic
      *
      * @var string
@@ -27,8 +36,9 @@ class CreateSiteRequest extends Model
     public $coverage;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID, which can be obtained by calling the [ListUserRatePlanInstances](https://help.aliyun.com/document_detail/2852398.html) operation. Specify at least one of the instance ID and website ID. If you specify both of them, the instance ID is used.
      *
+     * This parameter is required.
      * @example dbaudit-cn-nwy349jdb03
      *
      * @var string
@@ -36,6 +46,8 @@ class CreateSiteRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the resource group. If you leave this parameter empty, the system uses the default resource group ID.
+     *
      * @example rg-acfmw4znnok****
      *
      * @var string
@@ -43,7 +55,7 @@ class CreateSiteRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description 记录名称
+     * @description The website name.
      *
      * This parameter is required.
      * @example CreateSite

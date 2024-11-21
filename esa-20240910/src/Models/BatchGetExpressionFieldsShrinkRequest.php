@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchGetExpressionFieldsShrinkRequest extends Model
 {
     /**
+     * @description The regular expressions.
+     *
      * @example http_bot
      *
      * @var string
@@ -16,6 +18,8 @@ class BatchGetExpressionFieldsShrinkRequest extends Model
     public $expressionsShrink;
 
     /**
+     * @description The WAF rule category.
+     *
      * @example http_bot
      *
      * @var string
@@ -23,6 +27,8 @@ class BatchGetExpressionFieldsShrinkRequest extends Model
     public $phase;
 
     /**
+     * @description The website ID.
+     *
      * @example 1
      *
      * @var int

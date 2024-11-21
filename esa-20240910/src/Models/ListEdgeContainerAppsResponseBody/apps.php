@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class apps extends Model
 {
     /**
+     * @description The application ID.
+     *
      * @example app-88068867578379****
      *
      * @var string
@@ -17,6 +19,8 @@ class apps extends Model
     public $appId;
 
     /**
+     * @description The time when the version was created.
+     *
      * @example 2022-12-01T16:16:27.418298794+08:00
      *
      * @var string
@@ -24,6 +28,8 @@ class apps extends Model
     public $createTime;
 
     /**
+     * @description The domain name associated with the application.
+     *
      * @example test.com
      *
      * @var string
@@ -31,6 +37,11 @@ class apps extends Model
     public $domainName;
 
     /**
+     * @description The type of the gateway. Valid values:
+     *
+     *   l7: Layer 7 gateway.
+     *   l4: Layer 4 gateway.
+     *
      * @example l7
      *
      * @var string
@@ -38,11 +49,15 @@ class apps extends Model
     public $gatewayType;
 
     /**
+     * @description The information about health checks.
+     *
      * @var healthCheck
      */
     public $healthCheck;
 
     /**
+     * @description The application name.
+     *
      * @example app-test
      *
      * @var string
@@ -50,11 +65,17 @@ class apps extends Model
     public $name;
 
     /**
+     * @description The progress of the application creation task in percentage.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $percentage;
 
     /**
+     * @description Indicates whether QUIC is enabled.
+     *
      * @example false
      *
      * @var string
@@ -62,6 +83,8 @@ class apps extends Model
     public $quicCid;
 
     /**
+     * @description The remarks.
+     *
      * @example test app
      *
      * @var string
@@ -69,6 +92,8 @@ class apps extends Model
     public $remarks;
 
     /**
+     * @description The server port. Valid values: 1 to 65535.
+     *
      * @example 80
      *
      * @var int
@@ -76,6 +101,12 @@ class apps extends Model
     public $servicePort;
 
     /**
+     * @description The status of the application. Valid values:
+     *
+     *   creating: The application is being created.
+     *   failed: The application failed to be created.
+     *   created: The application is created.
+     *
      * @example created
      *
      * @var string
@@ -83,6 +114,8 @@ class apps extends Model
     public $status;
 
     /**
+     * @description The backend port, which is also the service port of the application. Valid values: 1 to 65535.
+     *
      * @example 80
      *
      * @var int
@@ -90,6 +123,8 @@ class apps extends Model
     public $targetPort;
 
     /**
+     * @description The time when the application was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     *
      * @example 2023-11-15T12:11:02Z
      *
      * @var string
@@ -97,6 +132,8 @@ class apps extends Model
     public $updateTime;
 
     /**
+     * @description The number of versions of the application.
+     *
      * @example 10
      *
      * @var int

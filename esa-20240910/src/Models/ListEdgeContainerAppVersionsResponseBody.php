@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListEdgeContainerAppVersionsResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListEdgeContainerAppVersionsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class ListEdgeContainerAppVersionsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example F61CDR30-E83C-4FDA-BF73-9A94CDD44229
      *
      * @var string
@@ -31,6 +37,8 @@ class ListEdgeContainerAppVersionsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries.
+     *
      * @example 20
      *
      * @var int
@@ -38,6 +46,8 @@ class ListEdgeContainerAppVersionsResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The versions.
+     *
      * @var versions[]
      */
     public $versions;

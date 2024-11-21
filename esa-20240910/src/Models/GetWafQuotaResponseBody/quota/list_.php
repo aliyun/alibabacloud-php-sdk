@@ -11,26 +11,36 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description Indicates whether custom lists are enabled.
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @description The quota information about all item types in the custom lists.
+     *
      * @var QuotaListItemsValue[]
      */
     public $items;
 
     /**
+     * @description The maximum number of items in each custom list.
+     *
      * @var WafQuotaInteger
      */
     public $numberItemsPerList;
 
     /**
+     * @description The maximum number of items in all custom lists.
+     *
      * @var WafQuotaInteger
      */
     public $numberItemsTotal;
 
     /**
+     * @description The maximum number of custom lists.
+     *
      * @var WafQuotaInteger
      */
     public $numberTotal;

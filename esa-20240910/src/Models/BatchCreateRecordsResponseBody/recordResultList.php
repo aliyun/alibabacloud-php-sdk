@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class recordResultList extends Model
 {
     /**
+     * @description The records that failed to be created.
+     *
      * @var failed[]
      */
     public $failed;
 
     /**
+     * @description The records that have been created.
+     *
      * @var success[]
      */
     public $success;
 
     /**
+     * @description The total number of returned records.
+     *
      * @example 20
      *
      * @var int

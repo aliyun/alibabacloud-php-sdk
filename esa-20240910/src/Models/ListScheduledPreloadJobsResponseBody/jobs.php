@@ -9,71 +9,127 @@ use AlibabaCloud\Tea\Model;
 class jobs extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
+     * @example 15685865xxx14622
+     *
      * @var string
      */
     public $aliUid;
 
     /**
+     * @description The time when the task was created.
+     *
+     * @example 2024-06-01T08:53:13Z
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @description The domain names to be prefetched.
+     *
+     * @example testurl.com
+     *
      * @var string
      */
     public $domains;
 
     /**
+     * @description The error message that is returned.
+     *
+     * @example invalid domain:test.com
+     *
      * @var string
      */
     public $errorInfo;
 
     /**
+     * @description The URL of the OSS object that stores a list of URLs that failed the conditional check for prefetching.
+     *
+     * @example https://xxxobject.oss-cn-reginon.aliyuncs.com/9d91_xxxxxxxxxxx_158bb6e0f97c477791209bb46bd599f7
+     *
      * @var string
      */
     public $failedFileOss;
 
     /**
+     * @description The ID of the URL list file, which can be used during downloads.
+     *
+     * @example 665d3b48621bccf3fe29e1a7
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @description The ID of the prefetch task.
+     *
+     * @example 665d3af3621bccf3fe29e1a4
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The method to submit the URLs to be prefetched.
+     *
+     * @example oss
+     *
      * @var string
      */
     public $insertWay;
 
     /**
+     * @description The task name.
+     *
+     * @example example
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The website ID.
+     *
+     * @example 190007158391808
+     *
      * @var int
      */
     public $siteId;
 
     /**
+     * @description The number of submitted prefetch tasks.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $taskSubmitted;
 
     /**
+     * @description The task type. Valid values: refresh and preload.
+     *
+     * @example preload
+     *
      * @var string
      */
     public $taskType;
 
     /**
+     * @description The total number of URLs.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $urlCount;
 
     /**
+     * @description The number of submitted URLs.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $urlSubmitted;

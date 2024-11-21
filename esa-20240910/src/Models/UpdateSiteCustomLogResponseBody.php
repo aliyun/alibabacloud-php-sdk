@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateSiteCustomLogResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example ET5BF670-09D5-4D0B-BEBY-D96A2A528000
      *

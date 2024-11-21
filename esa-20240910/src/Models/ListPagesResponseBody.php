@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListPagesResponseBody extends Model
 {
     /**
+     * @description The page number returned.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListPagesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -24,12 +28,14 @@ class ListPagesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The custom error pages. Each element in the array contains error page-specific information.
+     *
      * @var pages[]
      */
     public $pages;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 36af3fcc-43d0-441c-86b1-428951dc8225
      *
@@ -38,6 +44,8 @@ class ListPagesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of custom error pages after filtering.
+     *
      * @example 10
      *
      * @var int
@@ -45,6 +53,8 @@ class ListPagesResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The number of custom error pages that you created.
+     *
      * @example 10
      *
      * @var int

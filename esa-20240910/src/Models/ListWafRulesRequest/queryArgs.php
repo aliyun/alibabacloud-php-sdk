@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class queryArgs extends Model
 {
     /**
+     * @description Specifies whether to sort the returned data in descending order.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $desc;
 
     /**
+     * @description The ID of a WAF rule for exact search.
+     *
      * @example 20000001
      *
      * @var int
@@ -21,6 +27,8 @@ class queryArgs extends Model
     public $id;
 
     /**
+     * @description The ID or name of a WAF rule for fuzzy search.
+     *
      * @example example
      *
      * @var string
@@ -28,6 +36,8 @@ class queryArgs extends Model
     public $idNameLike;
 
     /**
+     * @description The name of a WAF rule for fuzzy search.
+     *
      * @example example
      *
      * @var string
@@ -35,6 +45,8 @@ class queryArgs extends Model
     public $nameLike;
 
     /**
+     * @description The column by which you want to sort the returned data.
+     *
      * @example position
      *
      * @var string
@@ -42,6 +54,8 @@ class queryArgs extends Model
     public $orderBy;
 
     /**
+     * @description The ID of a WAF ruleset for exact search.
+     *
      * @example 10000001
      *
      * @var int
@@ -49,6 +63,8 @@ class queryArgs extends Model
     public $rulesetId;
 
     /**
+     * @description The status of a WAF rule for exact search.
+     *
      * @example on
      *
      * @var string

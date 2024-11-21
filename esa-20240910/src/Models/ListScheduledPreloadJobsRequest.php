@@ -9,23 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListScheduledPreloadJobsRequest extends Model
 {
     /**
+     * @description The end time for querying the task creation time range. Specify the timestamp in milliseconds.
+     *
+     * @example 1717225277000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The website ID.
      *
+     * This parameter is required.
      * @example ListScheduledPreloadJobs
      *
      * @var int
@@ -33,6 +46,10 @@ class ListScheduledPreloadJobsRequest extends Model
     public $siteId;
 
     /**
+     * @description The beginning of the task creation time range to query. Specify the timestamp in milliseconds.
+     *
+     * @example 1717225276000
+     *
      * @var int
      */
     public $startTime;

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListWaitingRoomsResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID, which is used to trace a call.
      *
      * @example CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
      *
@@ -19,6 +19,8 @@ class ListWaitingRoomsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The waiting rooms.
+     *
      * @var waitingRooms[]
      */
     public $waitingRooms;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @description The action that WAF performs on requests that match the managed rule.
+     *
      * @example deny
      *
      * @var string
@@ -16,6 +18,8 @@ class rules extends Model
     public $action;
 
     /**
+     * @description The ID of the managed rule.
+     *
      * @example 100001
      *
      * @var int
@@ -23,11 +27,15 @@ class rules extends Model
     public $id;
 
     /**
+     * @description The name of the managed rule.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The protection level of the managed rule.
+     *
      * @example 1
      *
      * @var int
@@ -35,6 +43,8 @@ class rules extends Model
     public $protectionLevel;
 
     /**
+     * @description The status of the protection rule.
+     *
      * @example on
      *
      * @var string

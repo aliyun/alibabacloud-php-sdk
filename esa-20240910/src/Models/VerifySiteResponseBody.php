@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class VerifySiteResponseBody extends Model
 {
     /**
+     * @description Indicates whether the verification passed. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class VerifySiteResponseBody extends Model
     public $passed;
 
     /**
+     * @description The request ID.
+     *
      * @example 65C66B7B-671A-8297-9187-2R5477247B76
      *
      * @var string

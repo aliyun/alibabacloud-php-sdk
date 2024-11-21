@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetSiteWafSettingsRequest extends Model
 {
     /**
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,10 @@ class GetSiteWafSettingsRequest extends Model
     public $siteId;
 
     /**
+     * @description The version of the website.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $siteVersion;

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class PublishEdgeContainerAppVersionShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The application ID.
      *
+     * This parameter is required.
      * @example app-88068867578379****
      *
      * @var string
@@ -18,11 +19,17 @@ class PublishEdgeContainerAppVersionShrinkRequest extends Model
     public $appId;
 
     /**
+     * @description Specifies whether to fully release the version. This parameter takes effect only when PublishType is set to region.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $fullRelease;
 
     /**
+     * @description The release percentage. Valid values: 1 to 100. Default value: 100.
+     *
      * @example 100
      *
      * @var int
@@ -30,8 +37,12 @@ class PublishEdgeContainerAppVersionShrinkRequest extends Model
     public $percentage;
 
     /**
-     * @description This parameter is required.
+     * @description The environment to which you want to release the version. Valid values:
      *
+     *   prod: the production environment.
+     *   staging: the staging environment.
+     *
+     * This parameter is required.
      * @example prod
      *
      * @var string
@@ -39,16 +50,28 @@ class PublishEdgeContainerAppVersionShrinkRequest extends Model
     public $publishEnv;
 
     /**
+     * @description Specifies how the version is released. Valid values:
+     *
+     *   percentage: releases the version by percentage.
+     *   region: releases the version by region.
+     *
+     * If you do not specify this parameter, the version is released by percentage by default.
+     * @example percentage
+     *
      * @var string
      */
     public $publishType;
 
     /**
+     * @description The regions to which the version is released.
+     *
      * @var string
      */
     public $regionsShrink;
 
     /**
+     * @description The remarks. This parameter is empty by default.
+     *
      * @example test publish app
      *
      * @var string
@@ -56,6 +79,9 @@ class PublishEdgeContainerAppVersionShrinkRequest extends Model
     public $remarks;
 
     /**
+     * @description The time when the application version starts to be released. If you do not specify this parameter, the current time is used by default.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2023-06-05T16:00:00Z
      *
      * @var string
@@ -63,8 +89,9 @@ class PublishEdgeContainerAppVersionShrinkRequest extends Model
     public $startTime;
 
     /**
-     * @description This parameter is required.
+     * @description The version ID.
      *
+     * This parameter is required.
      * @example ver-87962637161651****
      *
      * @var string

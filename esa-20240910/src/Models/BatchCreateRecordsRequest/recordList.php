@@ -16,6 +16,12 @@ class recordList extends Model
     public $authConf;
 
     /**
+     * @description The business scenario of the record for acceleration. Valid values:
+     *
+     *   **image_video**
+     *   **api**
+     *   **web**
+     *
      * @example web
      *
      * @var string
@@ -23,8 +29,9 @@ class recordList extends Model
     public $bizName;
 
     /**
-     * @description This parameter is required.
+     * @description The DNS information of the record. Enter fields based on the record type.
      *
+     * This parameter is required.
      * @example {
      * }
      * @var data
@@ -32,8 +39,12 @@ class recordList extends Model
     public $data;
 
     /**
-     * @description This parameter is required.
+     * @description Specifies whether to proxy the record. Only CNAME and A/AAAA records can be proxied. Valid values:
      *
+     *   **true**
+     *   **false**
+     *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -41,8 +52,9 @@ class recordList extends Model
     public $proxied;
 
     /**
-     * @description This parameter is required.
+     * @description The record name.
      *
+     * This parameter is required.
      * @example www.example.com
      *
      * @var string
@@ -50,6 +62,15 @@ class recordList extends Model
     public $recordName;
 
     /**
+     * @description The origin type for the CNAME record. This parameter is required when you add a CNAME record. Valid values:
+     *
+     *   **OSS**: OSS bucket.
+     *   **S3**: S3 bucket.
+     *   **LB**: load balancer.
+     *   **OP**: origin pool.
+     *   **Domain**: domain name.
+     *
+     * If you do not pass this parameter or if you leave its value empty, Domain is used by default.
      * @example OSS
      *
      * @var string
@@ -57,8 +78,9 @@ class recordList extends Model
     public $sourceType;
 
     /**
-     * @description This parameter is required.
+     * @description The TTL of the record. Unit: seconds. If the value is 1, the TTL of the record is determined by the system.
      *
+     * This parameter is required.
      * @example 60
      *
      * @var int
@@ -66,8 +88,9 @@ class recordList extends Model
     public $ttl;
 
     /**
-     * @description This parameter is required.
+     * @description The DNS type of the record.
      *
+     * This parameter is required.
      * @example A/AAAA
      *
      * @var string

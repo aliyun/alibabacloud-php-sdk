@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CheckSiteProjectNameResponseBody extends Model
 {
     /**
+     * @description Indicates whether the task name is valid. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class CheckSiteProjectNameResponseBody extends Model
     public $check;
 
     /**
+     * @description The result description.
+     *
      * @example project name pass the check
      *
      * @var string
@@ -23,6 +30,8 @@ class CheckSiteProjectNameResponseBody extends Model
     public $description;
 
     /**
+     * @description The name of the real-time log delivery task.
+     *
      * @example dcdn_waf_userAccount_log
      *
      * @var string
@@ -30,6 +39,8 @@ class CheckSiteProjectNameResponseBody extends Model
     public $projectName;
 
     /**
+     * @description The request ID.
+     *
      * @example 34DCBC8A-****-****-****-6DAA11D7DDBD
      *
      * @var string

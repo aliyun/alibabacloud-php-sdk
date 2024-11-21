@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @description The matched objects and related properties.
+     *
      * @var fields[]
      */
     public $fields;
 
     /**
+     * @description The WAF rule category.
+     *
      * @example http_bot
      *
      * @var string
@@ -22,6 +26,8 @@ class filter extends Model
     public $phase;
 
     /**
+     * @description The condition for matching incoming requests.
+     *
      * @example characteristics
      *
      * @var string
@@ -29,6 +35,8 @@ class filter extends Model
     public $target;
 
     /**
+     * @description The rule type.
+     *
      * @example http_custom_cc
      *
      * @var string

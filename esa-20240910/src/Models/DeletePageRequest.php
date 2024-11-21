@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeletePageRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the custom error page, which can be obtained by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation.
      *
+     * This parameter is required.
      * @example 50000001
      *
      * @var int

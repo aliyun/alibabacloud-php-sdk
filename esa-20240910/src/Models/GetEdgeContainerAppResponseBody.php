@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetEdgeContainerAppResponseBody extends Model
 {
     /**
+     * @description The basic information about the application.
+     *
      * @var app
      */
     public $app;
 
     /**
+     * @description The request ID.
+     *
      * @example 156A6B-677B1A-4297B7-9187B7-2B44792
      *
      * @var string

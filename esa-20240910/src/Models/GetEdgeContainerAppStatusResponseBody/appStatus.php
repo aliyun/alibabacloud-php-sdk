@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class appStatus extends Model
 {
     /**
+     * @description The base version of the application.
+     *
      * @example ver-123123123123****
      *
      * @var string
@@ -17,6 +19,13 @@ class appStatus extends Model
     public $baseLineVersion;
 
     /**
+     * @description The deployment status of the application.
+     *
+     *   **undeploy**: The application is not deployed.
+     *   **deploying**: The application is being deployed.
+     *   **deployed**: The application is deployed.
+     *   **undeploying**: The deployment is being canceled.
+     *
      * @example undeploy
      *
      * @var string
@@ -24,6 +33,8 @@ class appStatus extends Model
     public $deployStatus;
 
     /**
+     * @description The time when the application was deployed. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2024-07-25T05:58:05Z
      *
      * @var string
@@ -31,6 +42,8 @@ class appStatus extends Model
     public $deployTime;
 
     /**
+     * @description The release version of the application.
+     *
      * @example ver-123123123123****
      *
      * @var string
@@ -38,6 +51,8 @@ class appStatus extends Model
     public $deployedVersion;
 
     /**
+     * @description The expected release percentage of the application.
+     *
      * @example 50%
      *
      * @var int
@@ -45,11 +60,20 @@ class appStatus extends Model
     public $expectPercentage;
 
     /**
+     * @description Specifies whether to fully release the version. This parameter takes effect only when PublishType is set to region.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $fullRelease;
 
     /**
+     * @description The environment to which the application was released. Valid values:
+     *
+     *   **prod**: the production environment.
+     *   **staging**: the staging environment.
+     *
      * @example prod
      *
      * @var string
@@ -57,6 +81,8 @@ class appStatus extends Model
     public $publishEnv;
 
     /**
+     * @description The release percentage of the application.
+     *
      * @example 50%
      *
      * @var int
@@ -64,6 +90,13 @@ class appStatus extends Model
     public $publishPercentage;
 
     /**
+     * @description The release status of the application. Valid values:
+     *
+     *   **publishing**
+     *   **published**
+     *   **rollbacking**
+     *   **rollbacked**
+     *
      * @example pubishing
      *
      * @var string
@@ -71,6 +104,8 @@ class appStatus extends Model
     public $publishStatus;
 
     /**
+     * @description The time when the application was released. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2024-07-25T05:58:05Z
      *
      * @var string
@@ -78,11 +113,21 @@ class appStatus extends Model
     public $publishTime;
 
     /**
+     * @description Specifies how the version is released. Valid values:
+     *
+     *   percentage: releases the version by percentage.
+     *   region: releases the version by region.
+     *
+     * If you do not specify this parameter, the version is released by percentage by default.
+     * @example percentage
+     *
      * @var string
      */
     public $publishType;
 
     /**
+     * @description The release version of the application.
+     *
      * @example ver-123123123123****
      *
      * @var string
@@ -90,11 +135,15 @@ class appStatus extends Model
     public $publishingVersion;
 
     /**
+     * @description The regions to which the version is released.
+     *
      * @var regions
      */
     public $regions;
 
     /**
+     * @description The time when the last rollback was performed.
+     *
      * @example 2024-07-25T05:58:05Z
      *
      * @var string
@@ -102,6 +151,8 @@ class appStatus extends Model
     public $rollbackTime;
 
     /**
+     * @description The time when the application deployment was canceled. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2024-07-25T05:58:05Z
      *
      * @var string

@@ -9,52 +9,99 @@ use AlibabaCloud\Tea\Model;
 class UpdateRecordShrinkRequest extends Model
 {
     /**
+     * @description The origin authentication information of the CNAME record.
+     *
      * @var string
      */
     public $authConfShrink;
 
     /**
+     * @description The business scenario of the record for acceleration. Leave the parameter empty if your record is not proxied. Valid values:
+     *
+     *   **video_image**: video and image.
+     *   **api**: API.
+     *   **web**: web page.
+     *
+     * @example web
+     *
      * @var string
      */
     public $bizName;
 
     /**
+     * @description The comments of the record.
+     *
+     * @example This is a remark.
+     *
      * @var string
      */
     public $comment;
 
     /**
-     * @description This parameter is required.
+     * @description The DNS record information. The format of this field varies based on the record type. For more information, see [Add DNS records](https://www.alibabacloud.com/help/doc-detail/2708761.html).
      *
+     * This parameter is required.
+     * @example {
+     * }
      * @var string
      */
     public $dataShrink;
 
     /**
+     * @description The origin host policy. This policy takes effect when the record type is CNAME. You can set the policy in two modes:
+     *
+     *   **follow_hostname**: match the requested domain name.
+     *   **follow_origin_domain**: match the origin\\"s domain name.
+     *
+     * @example follow_origin_domain
+     *
      * @var string
      */
     public $hostPolicy;
 
     /**
-     * @description 是否代理加速
+     * @description Specifies whether to proxy the record. Only CNAME and A/AAAA records can be proxied. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
      *
      * @var bool
      */
     public $proxied;
 
     /**
-     * @description This parameter is required.
+     * @description The record ID, which can be obtained by calling [ListRecords](https://help.aliyun.com/document_detail/2850265.html).
+     *
+     * This parameter is required.
+     * @example 1234567890123
      *
      * @var int
      */
     public $recordId;
 
     /**
+     * @description The type of the origin for the CNAME record. This parameter is required when you add a CNAME record. Valid values:
+     *
+     *   **OSS** : OSS origin.
+     *   **S3** : S3 origin.
+     *   **LB**: Load Balancer origin.
+     *   **OP**: origin in an origin pool.
+     *   **Domain**: common domain name.
+     *
+     * If you leave the parameter empty or set its value as null, the default is Domain, which is common domain name.
+     * @example OSS
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @description The TTL of the record. Unit: seconds. The range is 30 to 86,400, or 1. If the value is 1, the TTL of the record is determined by the system.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $ttl;

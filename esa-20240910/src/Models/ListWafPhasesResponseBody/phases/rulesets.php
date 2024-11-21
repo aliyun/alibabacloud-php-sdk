@@ -11,21 +11,33 @@ use AlibabaCloud\Tea\Model;
 class rulesets extends Model
 {
     /**
+     * @description The ID of the WAF ruleset.[](~~2850233~~)
+     *
+     * @example 10000001
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the WAF ruleset.
+     *
+     * @example example
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The rule configurations in the WAF ruleset.
+     *
      * @var WafRuleConfig[]
      */
     public $rules;
 
     /**
+     * @description The configurations shared by the rules in the WAF ruleset.
+     *
      * @var WafBatchRuleShared
      */
     public $shared;

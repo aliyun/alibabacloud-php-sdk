@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListUserDeliveryTasksResponseBody extends Model
 {
     /**
+     * @description The page number returned.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListUserDeliveryTasksResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -24,7 +28,7 @@ class ListUserDeliveryTasksResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 1f94c47f-3a1a-4f69-8d6c-bfeee1b49aab
      *
@@ -33,11 +37,15 @@ class ListUserDeliveryTasksResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The delivery tasks.
+     *
      * @var tasks[]
      */
     public $tasks;
 
     /**
+     * @description The total number of delivery tasks.
+     *
      * @example 68
      *
      * @var int

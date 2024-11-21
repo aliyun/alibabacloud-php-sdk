@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetWafQuotaResponseBody extends Model
 {
     /**
+     * @description The quota information returned.
+     *
      * @var quota
      */
     public $quota;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 36af3fcc-43d0-441c-86b1-428951dc8225
      *

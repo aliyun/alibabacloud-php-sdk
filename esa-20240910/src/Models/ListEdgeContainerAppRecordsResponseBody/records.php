@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class records extends Model
 {
     /**
+     * @description The application ID.
+     *
      * @example app-88068867578379****
      *
      * @var string
@@ -16,6 +18,8 @@ class records extends Model
     public $appId;
 
     /**
+     * @description The CNAME of the associated domain name.
+     *
      * @example kdxceo****.yun****.com
      *
      * @var string
@@ -23,6 +27,8 @@ class records extends Model
     public $cname;
 
     /**
+     * @description The configuration ID of the associated domain name.
+     *
      * @example 27522948436****
      *
      * @var int
@@ -30,6 +36,8 @@ class records extends Model
     public $configId;
 
     /**
+     * @description The time when the domain name was added. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     *
      * @example 2023-12-24T02:01:11Z
      *
      * @var string
@@ -37,6 +45,8 @@ class records extends Model
     public $createTime;
 
     /**
+     * @description The record ID of the associated domain name.
+     *
      * @example 266****
      *
      * @var int
@@ -44,6 +54,8 @@ class records extends Model
     public $recordId;
 
     /**
+     * @description The associated domain name.
+     *
      * @example a.example.com
      *
      * @var string
@@ -51,6 +63,8 @@ class records extends Model
     public $recordName;
 
     /**
+     * @description The scheduling domain ID of the associated domain name.
+     *
      * @example 123456
      *
      * @var int
@@ -58,6 +72,8 @@ class records extends Model
     public $schemdId;
 
     /**
+     * @description The website ID.
+     *
      * @example 5407498413****
      *
      * @var int
@@ -65,6 +81,8 @@ class records extends Model
     public $siteId;
 
     /**
+     * @description The time when the scheduling domain ID or CNAME was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     *
      * @example 2021-12-22T08:32:02Z
      *
      * @var string

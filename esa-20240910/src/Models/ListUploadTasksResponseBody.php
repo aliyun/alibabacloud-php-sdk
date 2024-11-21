@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListUploadTasksResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example CB1A380B-09F0-41BB-A198-72F8FD6D****
      *
@@ -19,6 +19,8 @@ class ListUploadTasksResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The file upload tasks.
+     *
      * @var tasks[]
      */
     public $tasks;

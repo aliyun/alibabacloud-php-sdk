@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetWafRulesetRequest extends Model
 {
     /**
+     * @description The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) operation.
+     *
      * @example 10000001
      *
      * @var int
@@ -16,6 +18,8 @@ class GetWafRulesetRequest extends Model
     public $id;
 
     /**
+     * @description The WAF rule category of rulesets to query.
+     *
      * @example http_bot
      *
      * @var string
@@ -23,6 +27,8 @@ class GetWafRulesetRequest extends Model
     public $phase;
 
     /**
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+     *
      * @example 1
      *
      * @var int

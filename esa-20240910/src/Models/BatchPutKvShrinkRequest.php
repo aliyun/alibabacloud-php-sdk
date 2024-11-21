@@ -9,15 +9,17 @@ use AlibabaCloud\Tea\Model;
 class BatchPutKvShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The key-value pairs that you want to configure at a time. The total size can be up to 2 MB (2 × 1000 × 1000).
      *
+     * This parameter is required.
      * @var string
      */
     public $kvListShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
      *
+     * This parameter is required.
      * @example test_namespace
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ActivateClientCertificateResponseBody extends Model
 {
     /**
+     * @description The certificate ID.
+     *
      * @example babaded901474b9693acf530e0fb****
      *
      * @var string
@@ -16,6 +18,8 @@ class ActivateClientCertificateResponseBody extends Model
     public $id;
 
     /**
+     * @description The request ID.
+     *
      * @example 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
      *
      * @var string
@@ -23,6 +27,8 @@ class ActivateClientCertificateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The website ID.
+     *
      * @example 1234567890123
      *
      * @var int
@@ -30,6 +36,8 @@ class ActivateClientCertificateResponseBody extends Model
     public $siteId;
 
     /**
+     * @description The website name.
+     *
      * @example example.com
      *
      * @var string

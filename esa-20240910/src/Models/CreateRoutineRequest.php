@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRoutineRequest extends Model
 {
     /**
+     * @description The routine description.
+     *
      * @example the description of this routine
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateRoutineRequest extends Model
     public $description;
 
     /**
+     * @description The routine name, which must be unique in the same account.
+     *
      * @example test-routine1
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateRoutineRequest extends Model
     public $name;
 
     /**
+     * @description The specification of the routine.
+     *
      * @example 5ms
      *
      * @var string

@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ListSitesShrinkRequest extends Model
 {
     /**
+     * @description The DNS setup. Valid values:
+     *
+     *   **NS**
+     *   **CNAME**
+     *
+     * @example NS
+     *
      * @var string
      */
     public $accessType;
 
     /**
+     * @description The service location. Valid values:
+     *
+     *   **domestic**: the Chinese mainland
+     *   **global**: global
+     *   **overseas**: outside the Chinese mainland
+     *
+     * @example global
+     *
      * @var string
      */
     public $coverage;
 
     /**
+     * @description Specifies whether to query only websites on Enterprise plans. Valid values: **true and false**.
+     *
      * @example false
      *
      * @var bool
@@ -26,6 +43,8 @@ class ListSitesShrinkRequest extends Model
     public $onlyEnterprise;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -33,6 +52,8 @@ class ListSitesShrinkRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: **500**.
+     *
      * @example 20
      *
      * @var int
@@ -40,11 +61,22 @@ class ListSitesShrinkRequest extends Model
     public $pageSize;
 
     /**
+     * @description The plan type. Valid values:
+     *
+     *   **basicplan**: Entrance (coming soon)
+     *   **standardplan**: Pro
+     *   **advancedplan**: Premium
+     *   **enterpriseplan**: Enterprise
+     *
+     * @example basicplan
+     *
      * @var string
      */
     public $planSubscribeType;
 
     /**
+     * @description The ID of the resource group. This parameter specifies a filter condition for the query.
+     *
      * @example rg-aekzd3styujvyei
      *
      * @var string
@@ -52,6 +84,8 @@ class ListSitesShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The website name. This parameter specifies a filter condition for the query.
+     *
      * @example example.com
      *
      * @var string
@@ -59,6 +93,13 @@ class ListSitesShrinkRequest extends Model
     public $siteName;
 
     /**
+     * @description The match mode to search for the website name. Default value: exact. Valid values:
+     *
+     *   **prefix**: match by prefix.
+     *   **suffix**: match by suffix.
+     *   **exact**: exact match.
+     *   **fuzzy**: fuzzy match.
+     *
      * @example fuzzy
      *
      * @var string
@@ -66,6 +107,8 @@ class ListSitesShrinkRequest extends Model
     public $siteSearchType;
 
     /**
+     * @description The website status. This parameter specifies a filter condition for the query.
+     *
      * @example pending
      *
      * @var string
@@ -73,6 +116,8 @@ class ListSitesShrinkRequest extends Model
     public $status;
 
     /**
+     * @description The tag filtering rule.
+     *
      * @var string
      */
     public $tagFilterShrink;

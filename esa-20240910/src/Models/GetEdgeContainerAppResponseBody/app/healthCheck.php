@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class healthCheck extends Model
 {
     /**
+     * @description The number of consecutive failed health checks required for an application to be considered as unhealthy.
+     *
      * @example 5
      *
      * @var int
@@ -16,6 +18,8 @@ class healthCheck extends Model
     public $failTimes;
 
     /**
+     * @description The domain name that is used for health checks.
+     *
      * @example test.com
      *
      * @var string
@@ -23,6 +27,8 @@ class healthCheck extends Model
     public $host;
 
     /**
+     * @description The range of health check status codes that indicate successful health checks.
+     *
      * @example http_2xx
      *
      * @var string
@@ -30,6 +36,8 @@ class healthCheck extends Model
     public $httpCode;
 
     /**
+     * @description The interval between health checks. Unit: seconds.
+     *
      * @example 5
      *
      * @var int
@@ -37,6 +45,8 @@ class healthCheck extends Model
     public $interval;
 
     /**
+     * @description The HTTP method that the health check request uses.
+     *
      * @example HEAD
      *
      * @var string
@@ -44,6 +54,8 @@ class healthCheck extends Model
     public $method;
 
     /**
+     * @description The health check port.
+     *
      * @example 80
      *
      * @var int
@@ -51,6 +63,8 @@ class healthCheck extends Model
     public $port;
 
     /**
+     * @description The number of consecutive successful health checks required for an application to be considered as healthy.
+     *
      * @example 3
      *
      * @var int
@@ -58,6 +72,8 @@ class healthCheck extends Model
     public $succTimes;
 
     /**
+     * @description The timeout period of the health check. Unit: seconds.
+     *
      * @example 60
      *
      * @var int
@@ -65,6 +81,11 @@ class healthCheck extends Model
     public $timeout;
 
     /**
+     * @description The health check type. Valid values:
+     *
+     *   l7
+     *   l4
+     *
      * @example l7
      *
      * @var string
@@ -72,6 +93,8 @@ class healthCheck extends Model
     public $type;
 
     /**
+     * @description The health check URL.
+     *
      * @example /health_check
      *
      * @var string

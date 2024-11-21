@@ -10,6 +10,12 @@ use AlibabaCloud\Tea\Model;
 class failed extends Model
 {
     /**
+     * @description The business scenario of the record for acceleration. Valid values:
+     *
+     *   **image_video**
+     *   **api**
+     *   **web**
+     *
      * @example web
      *
      * @var string
@@ -17,6 +23,8 @@ class failed extends Model
     public $bizName;
 
     /**
+     * @description The DNS information about the record, which contains various types of record values and their related attributes.
+     *
      * @example {"value":"2.2.2.2"}
      *
      * @var data
@@ -24,11 +32,18 @@ class failed extends Model
     public $data;
 
     /**
+     * @description The result description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether the record is proxied. Only CNAME and A/AAAA records can be proxied. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -36,6 +51,8 @@ class failed extends Model
     public $proxied;
 
     /**
+     * @description The record ID.
+     *
      * @example 1234567890123
      *
      * @var int
@@ -43,6 +60,8 @@ class failed extends Model
     public $recordId;
 
     /**
+     * @description The record name.
+     *
      * @example a.example.com
      *
      * @var string
@@ -50,6 +69,8 @@ class failed extends Model
     public $recordName;
 
     /**
+     * @description The DNS type of the record, such as **A/AAAA, CNAME, and TXT**.
+     *
      * @example A/AAAA
      *
      * @var string
@@ -57,6 +78,14 @@ class failed extends Model
     public $recordType;
 
     /**
+     * @description The origin type of the CNAME record. This field is left empty for other types of records. The type of the origin server. Valid values:
+     *
+     *   **OSS**: OSS bucket.
+     *   **S3**: S3 bucket.
+     *   **LB**: load balancer.
+     *   **OP**: origin pool.
+     *   **Domain**: domain name.
+     *
      * @example OSS
      *
      * @var string
@@ -64,6 +93,8 @@ class failed extends Model
     public $sourceType;
 
     /**
+     * @description The TTL of the record. Unit: seconds. If the value is 1, the TTL of the record is determined by the system.
+     *
      * @example 60
      *
      * @var int

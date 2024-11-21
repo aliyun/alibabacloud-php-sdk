@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class records extends Model
 {
     /**
+     * @description The time when the record was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2023-12-24T02:01:11Z
      *
      * @var string
@@ -16,6 +18,8 @@ class records extends Model
     public $createTime;
 
     /**
+     * @description The CNAME. If you use CNAME setup when you add your website to ESA, the value is the CNAME that you configured.
+     *
      * @example a.example.com.cnamezone.com
      *
      * @var string
@@ -23,6 +27,8 @@ class records extends Model
     public $recordCname;
 
     /**
+     * @description The record name.
+     *
      * @example a.example.com
      *
      * @var string
@@ -30,6 +36,8 @@ class records extends Model
     public $recordName;
 
     /**
+     * @description The website ID.
+     *
      * @example 1234567890123
      *
      * @var int
@@ -37,6 +45,8 @@ class records extends Model
     public $siteId;
 
     /**
+     * @description The website name.
+     *
      * @example example.com
      *
      * @var string
@@ -44,6 +54,8 @@ class records extends Model
     public $siteName;
 
     /**
+     * @description The time when the record was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2021-12-22T08:32:02Z
      *
      * @var string

@@ -9,8 +9,14 @@ use AlibabaCloud\Tea\Model;
 class GetRealtimeDeliveryFieldRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The log category. Valid values:
      *
+     *   **dcdn_log_access_l1** (default): access logs.
+     *   **dcdn_log_er**: Edge Routine logs.
+     *   **dcdn_log_waf**: firewall logs.
+     *   **dcdn_log_ipa**: TCP/UDP proxy logs.
+     *
+     * This parameter is required.
      * @example dcdn_log_er
      *
      * @var string

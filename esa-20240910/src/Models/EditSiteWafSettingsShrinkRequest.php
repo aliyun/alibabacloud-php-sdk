@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class EditSiteWafSettingsShrinkRequest extends Model
 {
     /**
+     * @description The WAF configuration of the website in the JSON format.
+     *
      * @var string
      */
     public $settingsShrink;
 
     /**
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+     *
      * @example 1
      *
      * @var int
@@ -21,6 +25,10 @@ class EditSiteWafSettingsShrinkRequest extends Model
     public $siteId;
 
     /**
+     * @description The version of the website.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $siteVersion;

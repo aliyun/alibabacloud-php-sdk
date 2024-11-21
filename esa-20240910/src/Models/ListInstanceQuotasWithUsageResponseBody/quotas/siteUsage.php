@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class siteUsage extends Model
 {
     /**
+     * @description The website ID.
+     *
      * @example 34818329392****
      *
      * @var int
@@ -16,6 +18,8 @@ class siteUsage extends Model
     public $siteId;
 
     /**
+     * @description The website name.
+     *
      * @example test.top
      *
      * @var string
@@ -23,6 +27,8 @@ class siteUsage extends Model
     public $siteName;
 
     /**
+     * @description The quota usage of the website.
+     *
      * @example 1
      *
      * @var string

@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListRoutineCanaryAreasResponseBody extends Model
 {
     /**
+     * @description The regions for canary release.
+     *
      * @var string[]
      */
     public $canaryAreas;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
      *

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class standardAuthParam extends Model
 {
     /**
+     * @description The validity period of the signature.
+     *
+     * @example 300
+     *
      * @var int
      */
     public $expiredTime;
 
     /**
+     * @description The private key.
+     *
+     * @example xxxx
+     *
      * @var string
      */
     public $privateKey;
 
     /**
+     * @description The URL path.
+     *
+     * @example v1/log/upload
+     *
      * @var string
      */
     public $urlPath;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListSitesResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListSitesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of websites per page.
+     *
      * @example 20
      *
      * @var int
@@ -24,7 +28,7 @@ class ListSitesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
@@ -33,11 +37,15 @@ class ListSitesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The queried websites.
+     *
      * @var sites[]
      */
     public $sites;
 
     /**
+     * @description The total number of websites.
+     *
      * @example 40
      *
      * @var int

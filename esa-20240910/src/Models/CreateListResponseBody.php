@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateListResponseBody extends Model
 {
     /**
+     * @description The ID of the custom list.[](~~2850217~~)
+     *
      * @example 40000001
      *
      * @var int
@@ -16,7 +18,7 @@ class CreateListResponseBody extends Model
     public $id;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 36af3fcc-43d0-441c-86b1-428951dc8225
      *

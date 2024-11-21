@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class scenePolicy extends Model
 {
     /**
+     * @description Indicates whether scenario-specific policies are enabled.
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @description The maximum number of scenario-specific policies.
+     *
      * @var WafQuotaInteger
      */
     public $numberTotal;

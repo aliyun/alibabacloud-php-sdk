@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description 是否全部删除，只针对TagKey.N为空时有效
+     * @description Specifies whether to remove all tags. Valid values:
      *
+     *   **true**
+     *   **false**
+     *
+     * Default value: **false**.
      * @example false
      *
      * @var bool
@@ -23,7 +27,7 @@ class UntagResourcesRequest extends Model
     public $ownerId;
 
     /**
-     * @description 要创建并绑定标签的资源所在的地域ID。
+     * @description The ID of the region where the resources reside. Set the value to **cn-hangzhou**.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -33,7 +37,7 @@ class UntagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description 资源ID,最多 50个子项
+     * @description The ID of resource N. Valid values of N: **1** to **50**.
      *
      * This parameter is required.
      * @var string[]
@@ -41,8 +45,9 @@ class UntagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description This parameter is required.
+     * @description The resource type.
      *
+     * This parameter is required.
      * @example site
      *
      * @var string
@@ -55,6 +60,8 @@ class UntagResourcesRequest extends Model
     public $securityToken;
 
     /**
+     * @description The key of tag N to remove from the resource. Valid values of N: **1** to **20**.
+     *
      * @var string[]
      */
     public $tagKey;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class rulesets extends Model
 {
     /**
+     * @description The matched objects.
+     *
      * @var string[]
      */
     public $fields;
 
     /**
+     * @description The ID of the WAF ruleset.[](~~2850233~~)
+     *
      * @example 10000001
      *
      * @var int
@@ -21,6 +25,8 @@ class rulesets extends Model
     public $id;
 
     /**
+     * @description The ruleset name.
+     *
      * @example example
      *
      * @var string
@@ -28,6 +34,8 @@ class rulesets extends Model
     public $name;
 
     /**
+     * @description The WAF rule category.
+     *
      * @example http_bot
      *
      * @var string
@@ -35,6 +43,8 @@ class rulesets extends Model
     public $phase;
 
     /**
+     * @description The ruleset status.
+     *
      * @example on
      *
      * @var string
@@ -42,6 +52,8 @@ class rulesets extends Model
     public $status;
 
     /**
+     * @description The type of the protection target in the http_bot rule category.
+     *
      * @example web
      *
      * @var string
@@ -49,11 +61,15 @@ class rulesets extends Model
     public $target;
 
     /**
+     * @description The types of rules.
+     *
      * @var string[]
      */
     public $types;
 
     /**
+     * @description The time when the ruleset was last modified.
+     *
      * @example 2024-01-01T00:00:00Z
      *
      * @var string

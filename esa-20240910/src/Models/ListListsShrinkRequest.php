@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListListsShrinkRequest extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListListsShrinkRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,8 @@ class ListListsShrinkRequest extends Model
     public $pageSize;
 
     /**
+     * @description The query arguments in the JSON format, which contain filter conditions.
+     *
      * @example ListLists
      *
      * @var string

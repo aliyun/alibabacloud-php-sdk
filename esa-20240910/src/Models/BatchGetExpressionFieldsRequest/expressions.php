@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class expressions extends Model
 {
     /**
+     * @description The content of the regular expression.
+     *
      * @example ip.src eq 1.1.1.1
      *
      * @var string
@@ -16,6 +18,8 @@ class expressions extends Model
     public $expression;
 
     /**
+     * @description The ID of the regular expression.
+     *
      * @example 1
      *
      * @var int

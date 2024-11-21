@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListEdgeContainerRecordsRequest extends Model
 {
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListEdgeContainerRecordsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: **500**.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,13 @@ class ListEdgeContainerRecordsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The match mode to filter the record names:
+     *
+     *   **fuzzy**
+     *   **prefix**
+     *   **suffix**
+     *   **exact** (default)
+     *
      * @example fuzzy
      *
      * @var string
@@ -30,6 +41,8 @@ class ListEdgeContainerRecordsRequest extends Model
     public $recordMatchType;
 
     /**
+     * @description The record name.
+     *
      * @example a.example.com
      *
      * @var string
@@ -37,8 +50,9 @@ class ListEdgeContainerRecordsRequest extends Model
     public $recordName;
 
     /**
-     * @description This parameter is required.
+     * @description The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
      *
+     * This parameter is required.
      * @example 1234567890123
      *
      * @var int

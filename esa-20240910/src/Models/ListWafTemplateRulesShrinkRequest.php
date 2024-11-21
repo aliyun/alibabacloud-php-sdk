@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListWafTemplateRulesShrinkRequest extends Model
 {
     /**
+     * @description The WAF rule category, which is used to filter template rules of a specific category.
+     *
      * @example http_anti_scan
      *
      * @var string
@@ -16,11 +18,19 @@ class ListWafTemplateRulesShrinkRequest extends Model
     public $phase;
 
     /**
+     * @description The query parameter, which is used to filter template rules based on criteria such as the rule type.
+     *
+     * @example http_anti_scan
+     *
      * @var string
      */
     public $queryArgsShrink;
 
     /**
+     * @description 站点ID，可通过调用[ListSites](https://help.aliyun.com/document_detail/2850189.html)接口获取。
+     *
+     * @example 1
+     *
      * @var int
      */
     public $siteId;

@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class GetWafRuleResponseBody extends Model
 {
     /**
+     * @description The configuration of the rule.
+     *
      * @var WafRuleConfig
      */
     public $config;
 
     /**
-     * @description 自定义响应页面ID
+     * @description The ID of the WAF rule.[](~~2850237~~)
      *
      * @example 2000001
      *
@@ -23,7 +25,7 @@ class GetWafRuleResponseBody extends Model
     public $id;
 
     /**
-     * @description 自定义响应页面名称
+     * @description The rule name.
      *
      * This parameter is required.
      * @example example
@@ -33,7 +35,7 @@ class GetWafRuleResponseBody extends Model
     public $name;
 
     /**
-     * @description 自定义响应页面内容类型
+     * @description The WAF rule category.
      *
      * This parameter is required.
      * @example http_custom
@@ -43,6 +45,8 @@ class GetWafRuleResponseBody extends Model
     public $phase;
 
     /**
+     * @description The order of the rule in the ruleset.
+     *
      * @example 1
      *
      * @var int
@@ -50,7 +54,7 @@ class GetWafRuleResponseBody extends Model
     public $position;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 36af3fcc-43d0-441c-86b1-428951dc8225
      *
@@ -59,6 +63,8 @@ class GetWafRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the rule is enabled.
+     *
      * @example on
      *
      * @var string
@@ -66,6 +72,8 @@ class GetWafRuleResponseBody extends Model
     public $status;
 
     /**
+     * @description The time when the rule was last modified.
+     *
      * @example 2024-01-01T00:00:00Z
      *
      * @var string

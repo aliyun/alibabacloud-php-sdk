@@ -59,6 +59,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateKvNamespaceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateListRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateListResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateListShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateOriginProtectionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateOriginProtectionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreatePageRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreatePageResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRecordRequest;
@@ -110,6 +112,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteKvRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteKvResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteListRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteListResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteOriginProtectionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteOriginProtectionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeletePageRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeletePageResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRecordRequest;
@@ -188,6 +192,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetListRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetListResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginProtectionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginProtectionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetPageRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetPageResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetPurgeQuotaRequest;
@@ -346,6 +352,10 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateKvNamespaceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateListRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateListResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateListShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginProtectionIpWhiteListRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginProtectionIpWhiteListResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginProtectionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginProtectionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdatePageRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdatePageResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRecordRequest;
@@ -435,7 +445,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 激活客户端证书
+     * @summary Activates a client certificate.
      *  *
      * @param ActivateClientCertificateRequest $request ActivateClientCertificateRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -465,7 +475,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 激活客户端证书
+     * @summary Activates a client certificate.
      *  *
      * @param ActivateClientCertificateRequest $request ActivateClientCertificateRequest
      *
@@ -479,7 +489,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建记录
+     * @summary Adds DNS records of different record types at a time..
+     *  *
+     * @description This operation allows you to create or update multiple DNS records at a time. It is suitable for managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. The operation allows you to configure the priority, flag, tag, and weight for DNS records. In addition, for specific types of records, such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are also supported.
+     * Successful and failed records along with error messages are listed in the response.
      *  *
      * @param BatchCreateRecordsRequest $tmpReq  BatchCreateRecordsRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -520,7 +533,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建记录
+     * @summary Adds DNS records of different record types at a time..
+     *  *
+     * @description This operation allows you to create or update multiple DNS records at a time. It is suitable for managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. The operation allows you to configure the priority, flag, tag, and weight for DNS records. In addition, for specific types of records, such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are also supported.
+     * Successful and failed records along with error messages are listed in the response.
      *  *
      * @param BatchCreateRecordsRequest $request BatchCreateRecordsRequest
      *
@@ -534,7 +550,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 批量创建WAF规则
+     * @summary Creates multiple rules of a specific Web Application Firewall (WAF) rule category at a time. You can also configure shared settings for the rules.
      *  *
      * @param BatchCreateWafRulesRequest $tmpReq  BatchCreateWafRulesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -589,7 +605,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 批量创建WAF规则
+     * @summary Creates multiple rules of a specific Web Application Firewall (WAF) rule category at a time. You can also configure shared settings for the rules.
      *  *
      * @param BatchCreateWafRulesRequest $request BatchCreateWafRulesRequest
      *
@@ -603,7 +619,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 批量删除Namespace的key-value对
+     * @summary Deletes key-value pairs from a namespace at a time based on keys.
      *  *
      * @param BatchDeleteKvRequest $tmpReq  BatchDeleteKvRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -646,7 +662,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 批量删除Namespace的key-value对
+     * @summary Deletes key-value pairs from a namespace at a time based on keys.
      *  *
      * @param BatchDeleteKvRequest $request BatchDeleteKvRequest
      *
@@ -660,7 +676,43 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 批量删除Namespace下的KV队，支持大body的上传，上限100M
+     * @summary Deletes multiple key-value pairs from a namespace at a time based on specified keys. The request body can be up to 100 MB.
+     *  *
+     * @description This operation allows you to upload a larger request body than by using [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html). For small request bodies, we recommend that you use [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchDeleteKvWithHighCapacityAdvance to call the operation.
+     *     func TestBatchDeleteWithHighCapacity() error {
+     *     	// Initialize the configurations.
+     *     	cfg := new(openapi.Config)
+     *     	cfg.SetAccessKeyId("xxxxxxxxx")
+     *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
+     *     	cli, err := NewClient(cfg)
+     *     	if err != nil {
+     *     		return err
+     *     	}
+     *     	runtime := &util.RuntimeOptions{}
+     *     	// Construct a request for deleting key-value pairs at a time.
+     *     	namespace := "test_batch_put"
+     *     	rawReq := BatchDeleteKvRequest{
+     *     		Namespace: &namespace,
+     *     	}
+     *     	for i := 0; i < 10000; i++ {
+     *     		key := fmt.Sprintf("test_key_%d", i)
+     *     		rawReq.Keys = append(rawReq.Keys, &key)
+     *     	}
+     *     	payload, err := json.Marshal(rawReq)
+     *     	if err != nil {
+     *     		return err
+     *     	}
+     *     	// If the payload is greater than 2 MB, call the BatchDeleteKvWithHighCapacity operation for deletion.
+     *     	reqHighCapacity := BatchDeleteKvWithHighCapacityAdvanceRequest{
+     *     		Namespace: &namespace,
+     *     		UrlObject: bytes.NewReader(payload),
+     *     	}
+     *     	resp, err := cli.BatchDeleteKvWithHighCapacityAdvance(&reqHighCapacity, runtime)
+     *     	if err != nil {
+     *     		return err
+     *     	}
+     *     	return nil
+     *     }
      *  *
      * @param BatchDeleteKvWithHighCapacityRequest $request BatchDeleteKvWithHighCapacityRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -696,7 +748,43 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 批量删除Namespace下的KV队，支持大body的上传，上限100M
+     * @summary Deletes multiple key-value pairs from a namespace at a time based on specified keys. The request body can be up to 100 MB.
+     *  *
+     * @description This operation allows you to upload a larger request body than by using [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html). For small request bodies, we recommend that you use [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchDeleteKvWithHighCapacityAdvance to call the operation.
+     *     func TestBatchDeleteWithHighCapacity() error {
+     *     	// Initialize the configurations.
+     *     	cfg := new(openapi.Config)
+     *     	cfg.SetAccessKeyId("xxxxxxxxx")
+     *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
+     *     	cli, err := NewClient(cfg)
+     *     	if err != nil {
+     *     		return err
+     *     	}
+     *     	runtime := &util.RuntimeOptions{}
+     *     	// Construct a request for deleting key-value pairs at a time.
+     *     	namespace := "test_batch_put"
+     *     	rawReq := BatchDeleteKvRequest{
+     *     		Namespace: &namespace,
+     *     	}
+     *     	for i := 0; i < 10000; i++ {
+     *     		key := fmt.Sprintf("test_key_%d", i)
+     *     		rawReq.Keys = append(rawReq.Keys, &key)
+     *     	}
+     *     	payload, err := json.Marshal(rawReq)
+     *     	if err != nil {
+     *     		return err
+     *     	}
+     *     	// If the payload is greater than 2 MB, call the BatchDeleteKvWithHighCapacity operation for deletion.
+     *     	reqHighCapacity := BatchDeleteKvWithHighCapacityAdvanceRequest{
+     *     		Namespace: &namespace,
+     *     		UrlObject: bytes.NewReader(payload),
+     *     	}
+     *     	resp, err := cli.BatchDeleteKvWithHighCapacityAdvance(&reqHighCapacity, runtime)
+     *     	if err != nil {
+     *     		return err
+     *     	}
+     *     	return nil
+     *     }
      *  *
      * @param BatchDeleteKvWithHighCapacityRequest $request BatchDeleteKvWithHighCapacityRequest
      *
@@ -789,7 +877,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 批量获取表达式的匹配项
+     * @summary Batch queries the objects that match specific expressions.
      *  *
      * @param BatchGetExpressionFieldsRequest $tmpReq  BatchGetExpressionFieldsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -835,7 +923,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 批量获取表达式的匹配项
+     * @summary Batch queries the objects that match specific expressions.
      *  *
      * @param BatchGetExpressionFieldsRequest $request BatchGetExpressionFieldsRequest
      *
@@ -849,7 +937,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 批量设置Namespace的key-value对
+     * @summary Configures key-value pairs for a namespace at a time based on specified keys.
      *  *
      * @param BatchPutKvRequest $tmpReq  BatchPutKvRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -892,7 +980,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 批量设置Namespace的key-value对
+     * @summary Configures key-value pairs for a namespace at a time based on specified keys.
      *  *
      * @param BatchPutKvRequest $request BatchPutKvRequest
      *
@@ -906,7 +994,51 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 批量设置Namespace的key-value对，支持最大100M的请求体
+     * @summary Configures key-value pairs for a namespace at a time based on specified keys. The request body can be up to 100 MB.
+     *  *
+     * @description This operation allows you to upload a larger request body than by using [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html). For small request bodies, we recommend that you use [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchPutKvWithHighCapacityAdvance to call the operation.
+     *     func TestBatchPutKvWithHighCapacity() error {
+     *     	// Initialize the configurations.
+     *     	cfg := new(openapi.Config)
+     *     	cfg.SetAccessKeyId("xxxxxxxxx")
+     *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
+     *     	cli, err := NewClient(cfg)
+     *     	if err != nil {
+     *     		return err
+     *     	}
+     *     	runtime := &util.RuntimeOptions{}
+     *     	// Construct a request for uploading key-value pairs at a time.
+     *     	namespace := "test_batch_put"
+     *     	numKv := 10000
+     *     	kvList := make([]*BatchPutKvRequestKvList, numKv)
+     *     	test_value := strings.Repeat("a", 10*1024)
+     *     	for i := 0; i < numKv; i++ {
+     *     		key := fmt.Sprintf("test_key_%d", i)
+     *     		value := test_value
+     *     		kvList[i] = &BatchPutKvRequestKvList{
+     *     			Key:   &key,
+     *     			Value: &value,
+     *     		}
+     *     	}
+     *     	rawReq := BatchPutKvRequest{
+     *     		Namespace: &namespace,
+     *     		KvList:    kvList,
+     *     	}
+     *     	payload, err := json.Marshal(rawReq)
+     *     	if err != nil {
+     *     		return err
+     *     	}
+     *     	// If the payload is greater than 2 MB, call the BatchPutKvWithHighCapacity operation for upload.
+     *     	reqHighCapacity := BatchPutKvWithHighCapacityAdvanceRequest{
+     *     		Namespace: &namespace,
+     *     		UrlObject: bytes.NewReader(payload),
+     *     	}
+     *     	resp, err := cli.BatchPutKvWithHighCapacityAdvance(&reqHighCapacity, runtime)
+     *     	if err != nil {
+     *     		return err
+     *     	}
+     *     	return nil
+     *     }
      *  *
      * @param BatchPutKvWithHighCapacityRequest $request BatchPutKvWithHighCapacityRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -942,7 +1074,51 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 批量设置Namespace的key-value对，支持最大100M的请求体
+     * @summary Configures key-value pairs for a namespace at a time based on specified keys. The request body can be up to 100 MB.
+     *  *
+     * @description This operation allows you to upload a larger request body than by using [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html). For small request bodies, we recommend that you use [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchPutKvWithHighCapacityAdvance to call the operation.
+     *     func TestBatchPutKvWithHighCapacity() error {
+     *     	// Initialize the configurations.
+     *     	cfg := new(openapi.Config)
+     *     	cfg.SetAccessKeyId("xxxxxxxxx")
+     *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
+     *     	cli, err := NewClient(cfg)
+     *     	if err != nil {
+     *     		return err
+     *     	}
+     *     	runtime := &util.RuntimeOptions{}
+     *     	// Construct a request for uploading key-value pairs at a time.
+     *     	namespace := "test_batch_put"
+     *     	numKv := 10000
+     *     	kvList := make([]*BatchPutKvRequestKvList, numKv)
+     *     	test_value := strings.Repeat("a", 10*1024)
+     *     	for i := 0; i < numKv; i++ {
+     *     		key := fmt.Sprintf("test_key_%d", i)
+     *     		value := test_value
+     *     		kvList[i] = &BatchPutKvRequestKvList{
+     *     			Key:   &key,
+     *     			Value: &value,
+     *     		}
+     *     	}
+     *     	rawReq := BatchPutKvRequest{
+     *     		Namespace: &namespace,
+     *     		KvList:    kvList,
+     *     	}
+     *     	payload, err := json.Marshal(rawReq)
+     *     	if err != nil {
+     *     		return err
+     *     	}
+     *     	// If the payload is greater than 2 MB, call the BatchPutKvWithHighCapacity operation for upload.
+     *     	reqHighCapacity := BatchPutKvWithHighCapacityAdvanceRequest{
+     *     		Namespace: &namespace,
+     *     		UrlObject: bytes.NewReader(payload),
+     *     	}
+     *     	resp, err := cli.BatchPutKvWithHighCapacityAdvance(&reqHighCapacity, runtime)
+     *     	if err != nil {
+     *     		return err
+     *     	}
+     *     	return nil
+     *     }
      *  *
      * @param BatchPutKvWithHighCapacityRequest $request BatchPutKvWithHighCapacityRequest
      *
@@ -1035,7 +1211,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 批量修改WAF规则
+     * @summary Modifies multiple rules in a specific Web Application Firewall (WAF) ruleset at a time.
      *  *
      * @param BatchUpdateWafRulesRequest $tmpReq  BatchUpdateWafRulesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -1093,7 +1269,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 批量修改WAF规则
+     * @summary Modifies multiple rules in a specific Web Application Firewall (WAF) ruleset at a time.
      *  *
      * @param BatchUpdateWafRulesRequest $request BatchUpdateWafRulesRequest
      *
@@ -1107,7 +1283,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary URL封禁
+     * @summary Blocks URLs.
      *  *
      * @param BlockObjectRequest $tmpReq  BlockObjectRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -1157,7 +1333,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary URL封禁
+     * @summary Blocks URLs.
      *  *
      * @param BlockObjectRequest $request BlockObjectRequest
      *
@@ -1171,7 +1347,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 修改站点的企业资源组
+     * @summary Moves a website from one resource group to another.
      *  *
      * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -1213,7 +1389,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 修改站点的企业资源组
+     * @summary Moves a website from one resource group to another.
      *  *
      * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
@@ -1227,7 +1403,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 校验站点名称是否可用
+     * @summary Checks whether a specified website name is available.
      *  *
      * @param CheckSiteNameRequest $request CheckSiteNameRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -1260,7 +1436,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 校验站点名称是否可用
+     * @summary Checks whether a specified website name is available.
      *  *
      * @param CheckSiteNameRequest $request CheckSiteNameRequest
      *
@@ -1274,7 +1450,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 实时日志任务投递名检查
+     * @summary Checks the name of a real-time log delivery task.
      *  *
      * @param CheckSiteProjectNameRequest $request CheckSiteProjectNameRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -1304,7 +1480,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 实时日志任务投递名检查
+     * @summary Checks the name of a real-time log delivery task.
      *  *
      * @param CheckSiteProjectNameRequest $request CheckSiteProjectNameRequest
      *
@@ -1318,7 +1494,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 实时日志用户任务投递名检查
+     * @summary Checks the name of a real-time log delivery task by account.
      *  *
      * @param CheckUserProjectNameRequest $request CheckUserProjectNameRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -1348,7 +1524,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 实时日志用户任务投递名检查
+     * @summary Checks the name of a real-time log delivery task by account.
      *  *
      * @param CheckUserProjectNameRequest $request CheckUserProjectNameRequest
      *
@@ -1362,7 +1538,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 提交Routine测试版本代码
+     * @summary Commits the unstable code in the staging environment to generate an official code version.
      *  *
      * @param CommitRoutineStagingCodeRequest $request CommitRoutineStagingCodeRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -1398,7 +1574,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 提交Routine测试版本代码
+     * @summary Commits the unstable code in the staging environment to generate an official code version.
      *  *
      * @param CommitRoutineStagingCodeRequest $request CommitRoutineStagingCodeRequest
      *
@@ -1412,7 +1588,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建定制场景策略
+     * @summary Creates an account-level custom scenario policy. You can execute a policy after you associate the policy with a website.
      *  *
      * @param CreateCustomScenePolicyRequest $request CreateCustomScenePolicyRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -1457,7 +1633,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建定制场景策略
+     * @summary Creates an account-level custom scenario policy. You can execute a policy after you associate the policy with a website.
      *  *
      * @param CreateCustomScenePolicyRequest $request CreateCustomScenePolicyRequest
      *
@@ -1471,7 +1647,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建边缘容器的应用
+     * @summary Creates a containerized application. You can deploy and release a version of the application across points of presence (POPs).
      *  *
      * @param CreateEdgeContainerAppRequest $request CreateEdgeContainerAppRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -1543,7 +1719,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建边缘容器的应用
+     * @summary Creates a containerized application. You can deploy and release a version of the application across points of presence (POPs).
      *  *
      * @param CreateEdgeContainerAppRequest $request CreateEdgeContainerAppRequest
      *
@@ -1557,7 +1733,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建一个边缘容器应用的域名记录
+     * @summary Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
      *  *
      * @param CreateEdgeContainerAppRecordRequest $request CreateEdgeContainerAppRecordRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -1596,7 +1772,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建一个边缘容器应用的域名记录
+     * @summary Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
      *  *
      * @param CreateEdgeContainerAppRecordRequest $request CreateEdgeContainerAppRecordRequest
      *
@@ -1671,7 +1847,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 添加Namespace
+     * @summary Create a namespace in your Alibaba Cloud account.
      *  *
      * @param CreateKvNamespaceRequest $request CreateKvNamespaceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -1707,7 +1883,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 添加Namespace
+     * @summary Create a namespace in your Alibaba Cloud account.
      *  *
      * @param CreateKvNamespaceRequest $request CreateKvNamespaceRequest
      *
@@ -1721,7 +1897,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建自定义列表
+     * @summary Creates a list. Lists are used for the referencing of values in the rules engine to implement complex logic and control in security policies.
      *  *
      * @param CreateListRequest $tmpReq  CreateListRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -1768,7 +1944,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建自定义列表
+     * @summary Creates a list. Lists are used for the referencing of values in the rules engine to implement complex logic and control in security policies.
      *  *
      * @param CreateListRequest $request CreateListRequest
      *
@@ -1782,7 +1958,54 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 调用CreatePage创建自定义响应页面
+     * @summary 开启源站防护
+     *  *
+     * @param CreateOriginProtectionRequest $request CreateOriginProtectionRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateOriginProtectionResponse CreateOriginProtectionResponse
+     */
+    public function createOriginProtectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->siteId)) {
+            $query['SiteId'] = $request->siteId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOriginProtection',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateOriginProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 开启源站防护
+     *  *
+     * @param CreateOriginProtectionRequest $request CreateOriginProtectionRequest
+     *
+     * @return CreateOriginProtectionResponse CreateOriginProtectionResponse
+     */
+    public function createOriginProtection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOriginProtectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates a custom error page, which is displayed when a request is blocked by Web Application Firewall (WAF). You can configure the HTML content, page type, and description, and submit the Base64-encoded page content.
      *  *
      * @param CreatePageRequest $request CreatePageRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -1824,7 +2047,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 调用CreatePage创建自定义响应页面
+     * @summary Creates a custom error page, which is displayed when a request is blocked by Web Application Firewall (WAF). You can configure the HTML content, page type, and description, and submit the Base64-encoded page content.
      *  *
      * @param CreatePageRequest $request CreatePageRequest
      *
@@ -1838,7 +2061,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建记录
+     * @summary Creates a DNS record for a specific website.
      *  *
      * @param CreateRecordRequest $tmpReq  CreateRecordRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -1909,7 +2132,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建记录
+     * @summary Creates a DNS record for a specific website.
      *  *
      * @param CreateRecordRequest $request CreateRecordRequest
      *
@@ -1923,7 +2146,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建routine
+     * @summary Creates a routine.
      *  *
      * @param CreateRoutineRequest $request CreateRoutineRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -1962,7 +2185,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建routine
+     * @summary Creates a routine.
      *  *
      * @param CreateRoutineRequest $request CreateRoutineRequest
      *
@@ -1976,7 +2199,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 添加Routine关联域名
+     * @summary Adds a record to map a domain that is associated with a routine. This record is used to trigger the associated routine code.
      *  *
      * @param CreateRoutineRelatedRecordRequest $request CreateRoutineRelatedRecordRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -2015,7 +2238,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 添加Routine关联域名
+     * @summary Adds a record to map a domain that is associated with a routine. This record is used to trigger the associated routine code.
      *  *
      * @param CreateRoutineRelatedRecordRequest $request CreateRoutineRelatedRecordRequest
      *
@@ -2029,7 +2252,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 添加Routine关联路由
+     * @summary Adds a route to map a URL to a routine so that the routine can be triggered to respond to requests destined for the URL.
      *  *
      * @param CreateRoutineRelatedRouteRequest $request CreateRoutineRelatedRouteRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -2068,7 +2291,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 添加Routine关联路由
+     * @summary Adds a route to map a URL to a routine so that the routine can be triggered to respond to requests destined for the URL.
      *  *
      * @param CreateRoutineRelatedRouteRequest $request CreateRoutineRelatedRouteRequest
      *
@@ -2082,7 +2305,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 批量新增定时预热任务的计划
+     * @summary Creates scheduled prefetch plans.
      *  *
      * @param CreateScheduledPreloadExecutionsRequest $tmpReq  CreateScheduledPreloadExecutionsRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -2125,7 +2348,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 批量新增定时预热任务的计划
+     * @summary Creates scheduled prefetch plans.
      *  *
      * @param CreateScheduledPreloadExecutionsRequest $request CreateScheduledPreloadExecutionsRequest
      *
@@ -2139,7 +2362,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 新增定时预热任务
+     * @summary Adds a scheduled prefetch task.
      *  *
      * @param CreateScheduledPreloadJobRequest $request CreateScheduledPreloadJobRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -2184,7 +2407,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 新增定时预热任务
+     * @summary Adds a scheduled prefetch task.
      *  *
      * @param CreateScheduledPreloadJobRequest $request CreateScheduledPreloadJobRequest
      *
@@ -2198,7 +2421,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建站点
+     * @summary Adds a website.
+     *  *
+     * @description *   Make sure that you have an available plan before you add a website.
+     * *   Make sure that your website domain name has an ICP filing if the location you want to specify covers the Chinese mainland.
      *  *
      * @param CreateSiteRequest $request CreateSiteRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -2243,7 +2469,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建站点
+     * @summary Adds a website.
+     *  *
+     * @description *   Make sure that you have an available plan before you add a website.
+     * *   Make sure that your website domain name has an ICP filing if the location you want to specify covers the Chinese mainland.
      *  *
      * @param CreateSiteRequest $request CreateSiteRequest
      *
@@ -2257,7 +2486,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 新建自定义字段
+     * @summary Adds the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
+     *  *
+     * @description *   **Custom field limits**: The key name of a custom field can contain only letters, digits, underscores (_), and spaces. The key name cannot contain other characters. Otherwise, errors may occur.
+     * *   **Parameter passing**: Submit `SiteId`, `RequestHeaders`, `ResponseHeaders`, and `Cookies` by using `formData`. Each array element matches a custom field name.
+     * *   **(Required) SiteId**: Although `SiteId` is not marked as required in the Required column, you must specify a website ID by using this parameter when you can call this API operation.
      *  *
      * @param CreateSiteCustomLogRequest $tmpReq  CreateSiteCustomLogRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -2310,7 +2543,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 新建自定义字段
+     * @summary Adds the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
+     *  *
+     * @description *   **Custom field limits**: The key name of a custom field can contain only letters, digits, underscores (_), and spaces. The key name cannot contain other characters. Otherwise, errors may occur.
+     * *   **Parameter passing**: Submit `SiteId`, `RequestHeaders`, `ResponseHeaders`, and `Cookies` by using `formData`. Each array element matches a custom field name.
+     * *   **(Required) SiteId**: Although `SiteId` is not marked as required in the Required column, you must specify a website ID by using this parameter when you can call this API operation.
      *  *
      * @param CreateSiteCustomLogRequest $request CreateSiteCustomLogRequest
      *
@@ -2324,7 +2561,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 新建一个任务投递
+     * @summary Creates a real-time log delivery task.
      *  *
      * @param CreateSiteDeliveryTaskRequest $tmpReq  CreateSiteDeliveryTaskRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -2407,7 +2644,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 新建一个任务投递
+     * @summary Creates a real-time log delivery task.
      *  *
      * @param CreateSiteDeliveryTaskRequest $request CreateSiteDeliveryTaskRequest
      *
@@ -2421,7 +2658,17 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 新建一个用户粒度任务投递
+     * @summary Creates a log delivery task to ship logs to the specified destination.
+     *  *
+     * @description This API operation allows you to deliver logs to destinations such as Simple Log Service (SLS), HTTP servers, Object Storage Service (OSS), Amazon Simple Storage Service (S3), and Kafka. You can specify the task name, log fields to deliver, data center, discard rate, delivery type, and delivery details.
+     * *   **Field filtering**: Use the `FieldName` parameter to specify log fields to deliver.
+     * *   **Filtering rules**: Use the `FilterRules` parameter to pre-process and filter log data.
+     * *   **Diverse delivery destinations**: Logs can be delivered to different destinations. Configuration parameters vary with delivery destinations.
+     * ## [](#)Precautions
+     * *   Make sure that you have sufficient permissions to perform delivery tasks.
+     * *   If you enable encryption or authentication, properly configure corresponding parameters.
+     * *   Verify the syntax of `FilterRules` to make sure that filtering logic works as expected.
+     * *   Specify advanced settings such as the number of retries and timeout period based on your needs to have optimal delivery efficiency and stability.
      *  *
      * @param CreateUserDeliveryTaskRequest $tmpReq  CreateUserDeliveryTaskRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -2501,7 +2748,17 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 新建一个用户粒度任务投递
+     * @summary Creates a log delivery task to ship logs to the specified destination.
+     *  *
+     * @description This API operation allows you to deliver logs to destinations such as Simple Log Service (SLS), HTTP servers, Object Storage Service (OSS), Amazon Simple Storage Service (S3), and Kafka. You can specify the task name, log fields to deliver, data center, discard rate, delivery type, and delivery details.
+     * *   **Field filtering**: Use the `FieldName` parameter to specify log fields to deliver.
+     * *   **Filtering rules**: Use the `FilterRules` parameter to pre-process and filter log data.
+     * *   **Diverse delivery destinations**: Logs can be delivered to different destinations. Configuration parameters vary with delivery destinations.
+     * ## [](#)Precautions
+     * *   Make sure that you have sufficient permissions to perform delivery tasks.
+     * *   If you enable encryption or authentication, properly configure corresponding parameters.
+     * *   Verify the syntax of `FilterRules` to make sure that filtering logic works as expected.
+     * *   Specify advanced settings such as the number of retries and timeout period based on your needs to have optimal delivery efficiency and stability.
      *  *
      * @param CreateUserDeliveryTaskRequest $request CreateUserDeliveryTaskRequest
      *
@@ -2515,7 +2772,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建WAF规则
+     * @summary Creates a Web Application Firewall (WAF) rule. This allows you to configure fine-grained WAF settings to improve the security of your website or application.
      *  *
      * @param CreateWafRuleRequest $tmpReq  CreateWafRuleRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -2564,7 +2821,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建WAF规则
+     * @summary Creates a Web Application Firewall (WAF) rule. This allows you to configure fine-grained WAF settings to improve the security of your website or application.
      *  *
      * @param CreateWafRuleRequest $request CreateWafRuleRequest
      *
@@ -2678,7 +2935,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建等候室事件
+     * @summary Creates a waiting room event.
      *  *
      * @param CreateWaitingRoomEventRequest $request CreateWaitingRoomEventRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -2768,7 +3025,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建等候室事件
+     * @summary Creates a waiting room event.
      *  *
      * @param CreateWaitingRoomEventRequest $request CreateWaitingRoomEventRequest
      *
@@ -2782,7 +3039,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建等候室规则
+     * @summary Creates a waiting room bypass rule.
      *  *
      * @param CreateWaitingRoomRuleRequest $request CreateWaitingRoomRuleRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -2827,7 +3084,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建等候室规则
+     * @summary Creates a waiting room bypass rule.
      *  *
      * @param CreateWaitingRoomRuleRequest $request CreateWaitingRoomRuleRequest
      *
@@ -2841,7 +3098,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除定制场景策略
+     * @summary Deletes a scenario-specific custom policy.
      *  *
      * @param DeleteCustomScenePolicyRequest $request DeleteCustomScenePolicyRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -2874,7 +3131,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除定制场景策略
+     * @summary Deletes a scenario-specific custom policy.
      *  *
      * @param DeleteCustomScenePolicyRequest $request DeleteCustomScenePolicyRequest
      *
@@ -2888,7 +3145,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除边缘容器的应用
+     * @summary Deletes a containerized application.
      *  *
      * @param DeleteEdgeContainerAppRequest $request DeleteEdgeContainerAppRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -2921,7 +3178,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除边缘容器的应用
+     * @summary Deletes a containerized application.
      *  *
      * @param DeleteEdgeContainerAppRequest $request DeleteEdgeContainerAppRequest
      *
@@ -2935,7 +3192,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除一个边缘容器应用的域名记录
+     * @summary Disassociates a domain name from a containerized application. After the dissociation, you can no longer use the domain name to access the containerized application.
      *  *
      * @param DeleteEdgeContainerAppRecordRequest $request DeleteEdgeContainerAppRecordRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -2974,7 +3231,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除一个边缘容器应用的域名记录
+     * @summary Disassociates a domain name from a containerized application. After the dissociation, you can no longer use the domain name to access the containerized application.
      *  *
      * @param DeleteEdgeContainerAppRecordRequest $request DeleteEdgeContainerAppRecordRequest
      *
@@ -2988,7 +3245,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除边缘容器应用的版本
+     * @summary Deletes a version of a containerized application.
      *  *
      * @param DeleteEdgeContainerAppVersionRequest $request DeleteEdgeContainerAppVersionRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -3024,7 +3281,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除边缘容器应用的版本
+     * @summary Deletes a version of a containerized application.
      *  *
      * @param DeleteEdgeContainerAppVersionRequest $request DeleteEdgeContainerAppVersionRequest
      *
@@ -3038,7 +3295,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除Namespace的Key-Value对
+     * @summary Deletes a key-value pair from a namespace.
      *  *
      * @param DeleteKvRequest $request DeleteKvRequest
      * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
@@ -3068,7 +3325,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除Namespace的Key-Value对
+     * @summary Deletes a key-value pair from a namespace.
      *  *
      * @param DeleteKvRequest $request DeleteKvRequest
      *
@@ -3082,7 +3339,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除Namespace
+     * @summary Deletes a namespace from an Alibaba Cloud account.
      *  *
      * @param DeleteKvNamespaceRequest $request DeleteKvNamespaceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -3115,7 +3372,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除Namespace
+     * @summary Deletes a namespace from an Alibaba Cloud account.
      *  *
      * @param DeleteKvNamespaceRequest $request DeleteKvNamespaceRequest
      *
@@ -3129,7 +3386,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除自定义列表
+     * @summary Deletes a custom list that is no longer needed.
      *  *
      * @param DeleteListRequest $request DeleteListRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -3162,7 +3419,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除自定义列表
+     * @summary Deletes a custom list that is no longer needed.
      *  *
      * @param DeleteListRequest $request DeleteListRequest
      *
@@ -3176,7 +3433,54 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除自定义响应页面
+     * @summary 关闭源站防护功能
+     *  *
+     * @param DeleteOriginProtectionRequest $request DeleteOriginProtectionRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteOriginProtectionResponse DeleteOriginProtectionResponse
+     */
+    public function deleteOriginProtectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->siteId)) {
+            $query['SiteId'] = $request->siteId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteOriginProtection',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteOriginProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 关闭源站防护功能
+     *  *
+     * @param DeleteOriginProtectionRequest $request DeleteOriginProtectionRequest
+     *
+     * @return DeleteOriginProtectionResponse DeleteOriginProtectionResponse
+     */
+    public function deleteOriginProtection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteOriginProtectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes a custom error page that is no longer needed.
      *  *
      * @param DeletePageRequest $request DeletePageRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -3209,7 +3513,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除自定义响应页面
+     * @summary Deletes a custom error page that is no longer needed.
      *  *
      * @param DeletePageRequest $request DeletePageRequest
      *
@@ -3223,7 +3527,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除记录
+     * @summary Deletes a DNS record of a website based on the specified RecordId.
      *  *
      * @param DeleteRecordRequest $request DeleteRecordRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -3256,7 +3560,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除记录
+     * @summary Deletes a DNS record of a website based on the specified RecordId.
      *  *
      * @param DeleteRecordRequest $request DeleteRecordRequest
      *
@@ -3270,7 +3574,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除Routine
+     * @summary Deletes a routine in Edge Routine.
      *  *
      * @param DeleteRoutineRequest $request DeleteRoutineRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -3303,7 +3607,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除Routine
+     * @summary Deletes a routine in Edge Routine.
      *  *
      * @param DeleteRoutineRequest $request DeleteRoutineRequest
      *
@@ -3317,7 +3621,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除Routine某版本代码
+     * @summary Deletes a code version of a routine.
      *  *
      * @param DeleteRoutineCodeVersionRequest $request DeleteRoutineCodeVersionRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -3353,7 +3657,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除Routine某版本代码
+     * @summary Deletes a code version of a routine.
      *  *
      * @param DeleteRoutineCodeVersionRequest $request DeleteRoutineCodeVersionRequest
      *
@@ -3367,7 +3671,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除Routine关联域名
+     * @summary Deletes a record that is associated with a routine.
      *  *
      * @param DeleteRoutineRelatedRecordRequest $request DeleteRoutineRelatedRecordRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -3411,7 +3715,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除Routine关联域名
+     * @summary Deletes a record that is associated with a routine.
      *  *
      * @param DeleteRoutineRelatedRecordRequest $request DeleteRoutineRelatedRecordRequest
      *
@@ -3425,7 +3729,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除Routine关联路由
+     * @summary Deletes a route that is associated with a routine.
      *  *
      * @param DeleteRoutineRelatedRouteRequest $request DeleteRoutineRelatedRouteRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -3467,7 +3771,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除Routine关联路由
+     * @summary Deletes a route that is associated with a routine.
      *  *
      * @param DeleteRoutineRelatedRouteRequest $request DeleteRoutineRelatedRouteRequest
      *
@@ -3481,7 +3785,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除单个定时预热计划
+     * @summary Deletes a scheduled prefetch plan based on the plan ID.
      *  *
      * @param DeleteScheduledPreloadExecutionRequest $request DeleteScheduledPreloadExecutionRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -3514,7 +3818,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除单个定时预热计划
+     * @summary Deletes a scheduled prefetch plan based on the plan ID.
      *  *
      * @param DeleteScheduledPreloadExecutionRequest $request DeleteScheduledPreloadExecutionRequest
      *
@@ -3528,7 +3832,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除指定定时预热任务
+     * @summary Deletes a specified scheduled prefetch task based on the task ID.
      *  *
      * @param DeleteScheduledPreloadJobRequest $request DeleteScheduledPreloadJobRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -3561,7 +3865,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除指定定时预热任务
+     * @summary Deletes a specified scheduled prefetch task based on the task ID.
      *  *
      * @param DeleteScheduledPreloadJobRequest $request DeleteScheduledPreloadJobRequest
      *
@@ -3575,7 +3879,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除站点
+     * @summary Deletes a website based on the specified website ID.
      *  *
      * @param DeleteSiteRequest $request DeleteSiteRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -3614,7 +3918,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除站点
+     * @summary Deletes a website based on the specified website ID.
      *  *
      * @param DeleteSiteRequest $request DeleteSiteRequest
      *
@@ -3628,7 +3932,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除一个任务投递
+     * @summary Deletes a real-time log delivery task.
      *  *
      * @param DeleteSiteDeliveryTaskRequest $request DeleteSiteDeliveryTaskRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -3664,7 +3968,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除一个任务投递
+     * @summary Deletes a real-time log delivery task.
      *  *
      * @param DeleteSiteDeliveryTaskRequest $request DeleteSiteDeliveryTaskRequest
      *
@@ -3678,7 +3982,12 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除一个用户任务投递
+     * @summary Deletes a log delivery task from your Alibaba Cloud account.
+     *  *
+     * @description ******>
+     * *   Deleted tasks cannot be restored. Proceed with caution.
+     * *   To call this operation, you must have an account that has the required permissions.
+     * *   The returned `RequestId` value can be used to track the request processing progress and troubleshoot issues.
      *  *
      * @param DeleteUserDeliveryTaskRequest $request DeleteUserDeliveryTaskRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -3711,7 +4020,12 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除一个用户任务投递
+     * @summary Deletes a log delivery task from your Alibaba Cloud account.
+     *  *
+     * @description ******>
+     * *   Deleted tasks cannot be restored. Proceed with caution.
+     * *   To call this operation, you must have an account that has the required permissions.
+     * *   The returned `RequestId` value can be used to track the request processing progress and troubleshoot issues.
      *  *
      * @param DeleteUserDeliveryTaskRequest $request DeleteUserDeliveryTaskRequest
      *
@@ -3725,7 +4039,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除WAF规则
+     * @summary Deletes a Web Application Firewall (WAF) rule, including its configurations and match conditions.
      *  *
      * @param DeleteWafRuleRequest $request DeleteWafRuleRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -3766,7 +4080,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除WAF规则
+     * @summary Deletes a Web Application Firewall (WAF) rule, including its configurations and match conditions.
      *  *
      * @param DeleteWafRuleRequest $request DeleteWafRuleRequest
      *
@@ -3780,7 +4094,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除WAF规则集
+     * @summary Deletes a Web Application Firewall (WAF) ruleset that is no longer needed.
      *  *
      * @param DeleteWafRulesetRequest $request DeleteWafRulesetRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -3821,7 +4135,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除WAF规则集
+     * @summary Deletes a Web Application Firewall (WAF) ruleset that is no longer needed.
      *  *
      * @param DeleteWafRulesetRequest $request DeleteWafRulesetRequest
      *
@@ -3835,7 +4149,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除等候室
+     * @summary Deletes a waiting room.
      *  *
      * @param DeleteWaitingRoomRequest $request DeleteWaitingRoomRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -3871,7 +4185,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除等候室
+     * @summary Deletes a waiting room.
      *  *
      * @param DeleteWaitingRoomRequest $request DeleteWaitingRoomRequest
      *
@@ -3885,7 +4199,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除等候室事件
+     * @summary Deletes a waiting room event.
      *  *
      * @param DeleteWaitingRoomEventRequest $request DeleteWaitingRoomEventRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -3921,7 +4235,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除等候室事件
+     * @summary Deletes a waiting room event.
      *  *
      * @param DeleteWaitingRoomEventRequest $request DeleteWaitingRoomEventRequest
      *
@@ -3935,7 +4249,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除等候室规则
+     * @summary Deletes a waiting room bypass rule.
      *  *
      * @param DeleteWaitingRoomRuleRequest $request DeleteWaitingRoomRuleRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -3971,7 +4285,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除等候室规则
+     * @summary Deletes a waiting room bypass rule.
      *  *
      * @param DeleteWaitingRoomRuleRequest $request DeleteWaitingRoomRuleRequest
      *
@@ -3985,7 +4299,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询定制场景策略配置
+     * @summary Queries the configurations of a scenario-specific policy.
      *  *
      * @param DescribeCustomScenePoliciesRequest $request DescribeCustomScenePoliciesRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -4024,7 +4338,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询定制场景策略配置
+     * @summary Queries the configurations of a scenario-specific policy.
      *  *
      * @param DescribeCustomScenePoliciesRequest $request DescribeCustomScenePoliciesRequest
      *
@@ -4038,7 +4352,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 攻击分析-查询攻击事件列表
+     * @summary Queries DDoS attack events.
      *  *
      * @param DescribeDDoSAllEventListRequest $request DescribeDDoSAllEventListRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -4086,7 +4400,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 攻击分析-查询攻击事件列表
+     * @summary Queries DDoS attack events.
      *  *
      * @param DescribeDDoSAllEventListRequest $request DescribeDDoSAllEventListRequest
      *
@@ -4100,7 +4414,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询HTTP DDoS智能防护配置信息
+     * @summary Queries the configuration of smart HTTP DDoS protection for a website.
      *  *
      * @param DescribeHttpDDoSAttackIntelligentProtectionRequest $request DescribeHttpDDoSAttackIntelligentProtectionRequest
      * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
@@ -4133,7 +4447,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询HTTP DDoS智能防护配置信息
+     * @summary Queries the configuration of smart HTTP DDoS protection for a website.
      *  *
      * @param DescribeHttpDDoSAttackIntelligentProtectionRequest $request DescribeHttpDDoSAttackIntelligentProtectionRequest
      *
@@ -4147,7 +4461,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询HTTP DDoS攻击防护配置信息
+     * @summary Queries the configurations of HTTP DDoS attack protection.
      *  *
      * @param DescribeHttpDDoSAttackProtectionRequest $request DescribeHttpDDoSAttackProtectionRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -4180,7 +4494,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询HTTP DDoS攻击防护配置信息
+     * @summary Queries the configurations of HTTP DDoS attack protection.
      *  *
      * @param DescribeHttpDDoSAttackProtectionRequest $request DescribeHttpDDoSAttackProtectionRequest
      *
@@ -4194,7 +4508,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询账户的KV状态信
+     * @summary Queries whether Edge KV is activated in your Alibaba Cloud account.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -4219,7 +4533,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询账户的KV状态信
+     * @summary Queries whether Edge KV is activated in your Alibaba Cloud account.
      *  *
      * @return DescribeKvAccountStatusResponse DescribeKvAccountStatusResponse
      */
@@ -4231,7 +4545,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 预热任务查询接口
+     * @summary Queries the details of prefetch tasks by time, task status, or prefetch URL.
      *  *
      * @param DescribePreloadTasksRequest $request DescribePreloadTasksRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -4261,7 +4575,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 预热任务查询接口
+     * @summary Queries the details of prefetch tasks by time, task status, or prefetch URL.
      *  *
      * @param DescribePreloadTasksRequest $request DescribePreloadTasksRequest
      *
@@ -4275,7 +4589,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 刷新任务查询接口
+     * @summary Queries the details of purge tasks.
      *  *
      * @param DescribePurgeTasksRequest $request DescribePurgeTasksRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -4305,7 +4619,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 刷新任务查询接口
+     * @summary Queries the details of purge tasks.
      *  *
      * @param DescribePurgeTasksRequest $request DescribePurgeTasksRequest
      *
@@ -4319,7 +4633,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 禁用定制场景策略
+     * @summary Disables a scenario-specific policy.
      *  *
      * @param DisableCustomScenePolicyRequest $request DisableCustomScenePolicyRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -4352,7 +4666,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 禁用定制场景策略
+     * @summary Disables a scenario-specific policy.
      *  *
      * @param DisableCustomScenePolicyRequest $request DisableCustomScenePolicyRequest
      *
@@ -4366,7 +4680,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 编辑站点WAF配置
+     * @summary Modifies the Web Application Firewall (WAF) configuration of a website, such as the client IP address that is identified by WAF.
      *  *
      * @param EditSiteWafSettingsRequest $tmpReq  EditSiteWafSettingsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -4412,7 +4726,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 编辑站点WAF配置
+     * @summary Modifies the Web Application Firewall (WAF) configuration of a website, such as the client IP address that is identified by WAF.
      *  *
      * @param EditSiteWafSettingsRequest $request EditSiteWafSettingsRequest
      *
@@ -4426,7 +4740,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 启动定制场景策略
+     * @summary Enables a scenario-specific policy.
      *  *
      * @param EnableCustomScenePolicyRequest $request EnableCustomScenePolicyRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -4459,7 +4773,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 启动定制场景策略
+     * @summary Enables a scenario-specific policy.
      *  *
      * @param EnableCustomScenePolicyRequest $request EnableCustomScenePolicyRequest
      *
@@ -4473,7 +4787,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 导出记录
+     * @summary Exports all DNS records of a website domain as a TXT file.
      *  *
      * @param ExportRecordsRequest $request ExportRecordsRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -4503,7 +4817,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 导出记录
+     * @summary Exports all DNS records of a website domain as a TXT file.
      *  *
      * @param ExportRecordsRequest $request ExportRecordsRequest
      *
@@ -4517,7 +4831,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询缓存保持实例规格
+     * @summary Queries the available specifications of cache reserve instances.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -4542,7 +4856,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询缓存保持实例规格
+     * @summary Queries the available specifications of cache reserve instances.
      *  *
      * @return GetCacheReserveSpecificationResponse GetCacheReserveSpecificationResponse
      */
@@ -4554,7 +4868,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取边缘容器应用信息
+     * @summary Queries the information about a containerized application, including basic application configurations and health check configurations.
      *  *
      * @param GetEdgeContainerAppRequest $request GetEdgeContainerAppRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -4587,7 +4901,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取边缘容器应用信息
+     * @summary Queries the information about a containerized application, including basic application configurations and health check configurations.
      *  *
      * @param GetEdgeContainerAppRequest $request GetEdgeContainerAppRequest
      *
@@ -4601,7 +4915,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取边缘容器应用的状态信息
+     * @summary Queries the status information about a containerized application, including the deployment, release, and rollback of the application.
      *  *
      * @param GetEdgeContainerAppStatusRequest $request GetEdgeContainerAppStatusRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -4637,7 +4951,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取边缘容器应用的状态信息
+     * @summary Queries the status information about a containerized application, including the deployment, release, and rollback of the application.
      *  *
      * @param GetEdgeContainerAppStatusRequest $request GetEdgeContainerAppStatusRequest
      *
@@ -4651,7 +4965,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取边缘容器应用的某个版本信息
+     * @summary Queries the information about a version of a containerized application. You can select an application version to release based on the version information.
      *  *
      * @param GetEdgeContainerAppVersionRequest $request GetEdgeContainerAppVersionRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -4681,7 +4995,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取边缘容器应用的某个版本信息
+     * @summary Queries the information about a version of a containerized application. You can select an application version to release based on the version information.
      *  *
      * @param GetEdgeContainerAppVersionRequest $request GetEdgeContainerAppVersionRequest
      *
@@ -4695,7 +5009,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取边缘容器应用部署区域
+     * @summary Queries regions where a containerized application is deployed based on the application ID.
      *  *
      * @param GetEdgeContainerDeployRegionsRequest $request GetEdgeContainerDeployRegionsRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -4725,7 +5039,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取边缘容器应用部署区域
+     * @summary Queries regions where a containerized application is deployed based on the application ID.
      *  *
      * @param GetEdgeContainerDeployRegionsRequest $request GetEdgeContainerDeployRegionsRequest
      *
@@ -4739,7 +5053,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取边缘容器日志信息
+     * @summary Queries Edge Container logs.
      *  *
      * @param GetEdgeContainerLogsRequest $request GetEdgeContainerLogsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -4769,7 +5083,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取边缘容器日志信息
+     * @summary Queries Edge Container logs.
      *  *
      * @param GetEdgeContainerLogsRequest $request GetEdgeContainerLogsRequest
      *
@@ -4783,7 +5097,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取应用测试环境部署状态
+     * @summary Queries the deployment status of an application in the staging environment by using the application ID.
      *  *
      * @param GetEdgeContainerStagingDeployStatusRequest $request GetEdgeContainerStagingDeployStatusRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
@@ -4813,7 +5127,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取应用测试环境部署状态
+     * @summary Queries the deployment status of an application in the staging environment by using the application ID.
      *  *
      * @param GetEdgeContainerStagingDeployStatusRequest $request GetEdgeContainerStagingDeployStatusRequest
      *
@@ -4827,7 +5141,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取边缘容器应用终端信息
+     * @summary Queries the terminal information of a containerized application.
      *  *
      * @param GetEdgeContainerTerminalRequest $request GetEdgeContainerTerminalRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -4860,7 +5174,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取边缘容器应用终端信息
+     * @summary Queries the terminal information of a containerized application.
      *  *
      * @param GetEdgeContainerTerminalRequest $request GetEdgeContainerTerminalRequest
      *
@@ -4874,7 +5188,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary GetErService
+     * @summary Checks the status of Edge Routine.
      *  *
      * @param GetErServiceRequest $request GetErServiceRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -4904,7 +5218,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary GetErService
+     * @summary Checks the status of Edge Routine.
      *  *
      * @param GetErServiceRequest $request GetErServiceRequest
      *
@@ -4918,7 +5232,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询Key-Value对的某个Key值
+     * @summary Queries the value of a key in a key-value pair.
      *  *
      * @param GetKvRequest   $request GetKvRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -4948,7 +5262,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询Key-Value对的某个Key值
+     * @summary Queries the value of a key in a key-value pair.
      *  *
      * @param GetKvRequest $request GetKvRequest
      *
@@ -4962,7 +5276,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列出账号下的NS
+     * @summary Queries the Edge KV usage in your Alibaba Cloud account, including the information about all namespaces.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -4987,7 +5301,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列出账号下的NS
+     * @summary Queries the Edge KV usage in your Alibaba Cloud account, including the information about all namespaces.
      *  *
      * @return GetKvAccountResponse GetKvAccountResponse
      */
@@ -4999,7 +5313,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询Namespace信息
+     * @summary Queries the information about a namespace in your Alibaba Cloud account.
      *  *
      * @param GetKvNamespaceRequest $request GetKvNamespaceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -5029,7 +5343,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询Namespace信息
+     * @summary Queries the information about a namespace in your Alibaba Cloud account.
      *  *
      * @param GetKvNamespaceRequest $request GetKvNamespaceRequest
      *
@@ -5043,7 +5357,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取单个自定义列表
+     * @summary Queries the details of a custom list, such as the name, description, type, and content.
      *  *
      * @param GetListRequest $request GetListRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -5076,7 +5390,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取单个自定义列表
+     * @summary Queries the details of a custom list, such as the name, description, type, and content.
      *  *
      * @param GetListRequest $request GetListRequest
      *
@@ -5090,7 +5404,51 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取单个自定义响应页面详情
+     * @summary 查询站点源站防护相关配置，查看回源IP白名单信息
+     *  *
+     * @param GetOriginProtectionRequest $request GetOriginProtectionRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetOriginProtectionResponse GetOriginProtectionResponse
+     */
+    public function getOriginProtectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOriginProtection',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOriginProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询站点源站防护相关配置，查看回源IP白名单信息
+     *  *
+     * @param GetOriginProtectionRequest $request GetOriginProtectionRequest
+     *
+     * @return GetOriginProtectionResponse GetOriginProtectionResponse
+     */
+    public function getOriginProtection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOriginProtectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the details of a custom error page based on the error page ID.
      *  *
      * @param GetPageRequest $request GetPageRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -5123,7 +5481,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取单个自定义响应页面详情
+     * @summary Queries the details of a custom error page based on the error page ID.
      *  *
      * @param GetPageRequest $request GetPageRequest
      *
@@ -5137,7 +5495,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取刷新Quota
+     * @summary Queries the quotas and quota usage for different cache purge options.
      *  *
      * @param GetPurgeQuotaRequest $request GetPurgeQuotaRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -5167,7 +5525,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取刷新Quota
+     * @summary Queries the quotas and quota usage for different cache purge options.
      *  *
      * @param GetPurgeQuotaRequest $request GetPurgeQuotaRequest
      *
@@ -5181,7 +5539,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary ub日志字段列表接口
+     * @summary Queries the fields in real-time logs based on the log category.
      *  *
      * @param GetRealtimeDeliveryFieldRequest $request GetRealtimeDeliveryFieldRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -5211,7 +5569,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary ub日志字段列表接口
+     * @summary Queries the fields in real-time logs based on the log category.
      *  *
      * @param GetRealtimeDeliveryFieldRequest $request GetRealtimeDeliveryFieldRequest
      *
@@ -5269,7 +5627,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询Routine配置信息
+     * @summary Queries the configurations of a routine, including the code versions and the configurations of the environments, associated domain names, and associated routes.
      *  *
      * @param GetRoutineRequest $request GetRoutineRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -5302,7 +5660,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询Routine配置信息
+     * @summary Queries the configurations of a routine, including the code versions and the configurations of the environments, associated domain names, and associated routes.
      *  *
      * @param GetRoutineRequest $request GetRoutineRequest
      *
@@ -5316,7 +5674,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 上传Routine的测试版本代码, 返回上传代码到OSS的参数
+     * @summary Obtains the release information about the routine code that is released to the staging environment. This information can be used to upload the test code to Object Storage Service (OSS).
+     *  *
+     * @description *   Every time the code of a routine is released to the staging environment, a version number is generated. Such code is for tests only.
+     * *   A routine can retain a maximum of 10 code versions. If the number of versions reaches the limit, you must call the DeleteRoutineCodeRevision operation to delete unwanted versions.
      *  *
      * @param GetRoutineStagingCodeUploadInfoRequest $request GetRoutineStagingCodeUploadInfoRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -5352,7 +5713,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 上传Routine的测试版本代码, 返回上传代码到OSS的参数
+     * @summary Obtains the release information about the routine code that is released to the staging environment. This information can be used to upload the test code to Object Storage Service (OSS).
+     *  *
+     * @description *   Every time the code of a routine is released to the staging environment, a version number is generated. Such code is for tests only.
+     * *   A routine can retain a maximum of 10 code versions. If the number of versions reaches the limit, you must call the DeleteRoutineCodeRevision operation to delete unwanted versions.
      *  *
      * @param GetRoutineStagingCodeUploadInfoRequest $request GetRoutineStagingCodeUploadInfoRequest
      *
@@ -5366,7 +5730,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询边缘函数测试环境IP
+     * @summary Queries the IP addresses of staging environments for Edge Routine.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -5391,7 +5755,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询边缘函数测试环境IP
+     * @summary Queries the IP addresses of staging environments for Edge Routine.
      *  *
      * @return GetRoutineStagingEnvIpResponse GetRoutineStagingEnvIpResponse
      */
@@ -5403,7 +5767,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户的Routine列表
+     * @summary Queries the Edge Routine information in your Alibaba Cloud account, including the associated subdomain and created routines.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -5428,7 +5792,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户的Routine列表
+     * @summary Queries the Edge Routine information in your Alibaba Cloud account, including the associated subdomain and created routines.
      *  *
      * @return GetRoutineUserInfoResponse GetRoutineUserInfoResponse
      */
@@ -5440,7 +5804,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询单个定时预热任务
+     * @summary Queries a specified scheduled prefetch task based on the task ID.
      *  *
      * @param GetScheduledPreloadJobRequest $request GetScheduledPreloadJobRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -5470,7 +5834,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询单个定时预热任务
+     * @summary Queries a specified scheduled prefetch task based on the task ID.
      *  *
      * @param GetScheduledPreloadJobRequest $request GetScheduledPreloadJobRequest
      *
@@ -5484,7 +5848,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询单个站点信息
+     * @summary Queries information about a website based on the website ID.
      *  *
      * @param GetSiteRequest $request GetSiteRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -5514,7 +5878,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询单个站点信息
+     * @summary Queries information about a website based on the website ID.
      *  *
      * @param GetSiteRequest $request GetSiteRequest
      *
@@ -5528,7 +5892,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询当前NS列表
+     * @summary Queries the nameservers configured for a website.
      *  *
      * @param GetSiteCurrentNSRequest $request GetSiteCurrentNSRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -5558,7 +5922,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询当前NS列表
+     * @summary Queries the nameservers configured for a website.
      *  *
      * @param GetSiteCurrentNSRequest $request GetSiteCurrentNSRequest
      *
@@ -5572,7 +5936,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取自定义字段
+     * @summary Queries the configuration of custom log fields for a website.
+     *  *
+     * @description *   **Description**: You can call this operation to query the configuration of custom log fields for a website, including custom fields in request headers, response headers, and cookies.
+     * *   **Scenarios**: You can call this operation in scenarios where you need to obtain specific HTTP headers or cookie information for log analysis.
      *  *
      * @param GetSiteCustomLogRequest $request GetSiteCustomLogRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -5602,7 +5969,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取自定义字段
+     * @summary Queries the configuration of custom log fields for a website.
+     *  *
+     * @description *   **Description**: You can call this operation to query the configuration of custom log fields for a website, including custom fields in request headers, response headers, and cookies.
+     * *   **Scenarios**: You can call this operation in scenarios where you need to obtain specific HTTP headers or cookie information for log analysis.
      *  *
      * @param GetSiteCustomLogRequest $request GetSiteCustomLogRequest
      *
@@ -5616,7 +5986,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取一个实时日志任务投递
+     * @summary Queries a real-time log delivery task.
      *  *
      * @param GetSiteDeliveryTaskRequest $request GetSiteDeliveryTaskRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -5646,7 +6016,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取一个实时日志任务投递
+     * @summary Queries a real-time log delivery task.
      *  *
      * @param GetSiteDeliveryTaskRequest $request GetSiteDeliveryTaskRequest
      *
@@ -5660,7 +6030,15 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取日志投递任务quota数
+     * @summary Queries the remaining quota for delivering a specific category of real-time logs in a website.
+     *  *
+     * @description You can call this operation to query the remaining quota for delivering a specific category of real-time logs in a website within an Alibaba Cloud account. This is essential for monitoring and managing your log delivery capacity to ensure that logs can be delivered to the destination and prevent data loss or latency caused by insufficient quota.
+     * **Take note of the following parameters:**
+     * *   ``
+     * *   `BusinessType` is required. You must specify a log category to obtain the corresponding quota information.
+     * *   `SiteId` specifies the ID of a website, which must be a valid integer that corresponds to a website that you configured on Alibaba Cloud.
+     * **Response:**
+     * *   If a request is successful, the system returns the remaining log delivery quota (`FreeQuota`), request ID (`RequestId`), website ID (`SiteId`), and log category (`BusinessType`). You can confirm and record the returned data.
      *  *
      * @param GetSiteLogDeliveryQuotaRequest $request GetSiteLogDeliveryQuotaRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -5690,7 +6068,15 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取日志投递任务quota数
+     * @summary Queries the remaining quota for delivering a specific category of real-time logs in a website.
+     *  *
+     * @description You can call this operation to query the remaining quota for delivering a specific category of real-time logs in a website within an Alibaba Cloud account. This is essential for monitoring and managing your log delivery capacity to ensure that logs can be delivered to the destination and prevent data loss or latency caused by insufficient quota.
+     * **Take note of the following parameters:**
+     * *   ``
+     * *   `BusinessType` is required. You must specify a log category to obtain the corresponding quota information.
+     * *   `SiteId` specifies the ID of a website, which must be a valid integer that corresponds to a website that you configured on Alibaba Cloud.
+     * **Response:**
+     * *   If a request is successful, the system returns the remaining log delivery quota (`FreeQuota`), request ID (`RequestId`), website ID (`SiteId`), and log category (`BusinessType`). You can confirm and record the returned data.
      *  *
      * @param GetSiteLogDeliveryQuotaRequest $request GetSiteLogDeliveryQuotaRequest
      *
@@ -5704,7 +6090,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取站点WAF配置
+     * @summary Queries the Web Application Firewall (WAF) configurations of a website.
      *  *
      * @param GetSiteWafSettingsRequest $request GetSiteWafSettingsRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -5740,7 +6126,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取站点WAF配置
+     * @summary Queries the Web Application Firewall (WAF) configurations of a website.
      *  *
      * @param GetSiteWafSettingsRequest $request GetSiteWafSettingsRequest
      *
@@ -5754,7 +6140,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 文件上传任务查询接口
+     * @summary Queries the execution status and running information of a file upload task based on the task ID.
      *  *
      * @param GetUploadTaskRequest $request GetUploadTaskRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -5784,7 +6170,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 文件上传任务查询接口
+     * @summary Queries the execution status and running information of a file upload task based on the task ID.
      *  *
      * @param GetUploadTaskRequest $request GetUploadTaskRequest
      *
@@ -5798,7 +6184,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取一个用户粒度任务投递
+     * @summary Queries the information about a log delivery task by account.
+     *  *
+     * @description *   This API operation queries the details of a delivery task, including the task name, discard rate, region, log category, status, delivery destination, configuration, and filtering rules.****
+     * *   You can call this operation to query detailed information about a log delivery task to analyze log processing efficiency or troubleshoot delivery problems.****
+     * *   ****````
      *  *
      * @param GetUserDeliveryTaskRequest $request GetUserDeliveryTaskRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -5828,7 +6218,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取一个用户粒度任务投递
+     * @summary Queries the information about a log delivery task by account.
+     *  *
+     * @description *   This API operation queries the details of a delivery task, including the task name, discard rate, region, log category, status, delivery destination, configuration, and filtering rules.****
+     * *   You can call this operation to query detailed information about a log delivery task to analyze log processing efficiency or troubleshoot delivery problems.****
+     * *   ****````
      *  *
      * @param GetUserDeliveryTaskRequest $request GetUserDeliveryTaskRequest
      *
@@ -5842,7 +6236,9 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取日志投递任务用户quota数
+     * @summary Queries the remaining log delivery quota of each log category in your account.
+     *  *
+     * @description This operation allows you to query the remaining real-time log delivery quota of each log category in your Alibaba Cloud account. You must provide your Alibaba Cloud account ID (aliUid) and log category (BusinessType). The system then returns the remaining quota of the log category to help you track the usage.
      *  *
      * @param GetUserLogDeliveryQuotaRequest $request GetUserLogDeliveryQuotaRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -5872,7 +6268,9 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取日志投递任务用户quota数
+     * @summary Queries the remaining log delivery quota of each log category in your account.
+     *  *
+     * @description This operation allows you to query the remaining real-time log delivery quota of each log category in your Alibaba Cloud account. You must provide your Alibaba Cloud account ID (aliUid) and log category (BusinessType). The system then returns the remaining quota of the log category to help you track the usage.
      *  *
      * @param GetUserLogDeliveryQuotaRequest $request GetUserLogDeliveryQuotaRequest
      *
@@ -5886,6 +6284,8 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary Queries the application key (AppKey) that is used for authentication and data exchange in bot behavior detection in Web Application Firewall (WAF).
+     *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
      * @return GetWafBotAppKeyResponse GetWafBotAppKeyResponse
@@ -5909,6 +6309,8 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary Queries the application key (AppKey) that is used for authentication and data exchange in bot behavior detection in Web Application Firewall (WAF).
+     *  *
      * @return GetWafBotAppKeyResponse GetWafBotAppKeyResponse
      */
     public function getWafBotAppKey()
@@ -5919,7 +6321,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 将匹配项转换为表达式
+     * @summary Queries the conditions for matching incoming requests that are configured in a WAF rule category for a website. These conditions define how WAF detects and processes different types of requests.
      *  *
      * @param GetWafFilterRequest $request GetWafFilterRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -5961,7 +6363,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 将匹配项转换为表达式
+     * @summary Queries the conditions for matching incoming requests that are configured in a WAF rule category for a website. These conditions define how WAF detects and processes different types of requests.
      *  *
      * @param GetWafFilterRequest $request GetWafFilterRequest
      *
@@ -5975,7 +6377,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取WAF配额详情
+     * @summary Queries the quotas of Web Application Firewall (WAF) resources, such as managed rule groups, custom lists, custom error pages, and scenario-specific policies.
      *  *
      * @param GetWafQuotaRequest $request GetWafQuotaRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -6008,7 +6410,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取WAF配额详情
+     * @summary Queries the quotas of Web Application Firewall (WAF) resources, such as managed rule groups, custom lists, custom error pages, and scenario-specific policies.
      *  *
      * @param GetWafQuotaRequest $request GetWafQuotaRequest
      *
@@ -6022,7 +6424,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取单个WAF规则详情
+     * @summary Queries the details of a Web Application Firewall (WAF) rule, such as its configuration and status.
      *  *
      * @param GetWafRuleRequest $request GetWafRuleRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -6058,7 +6460,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取单个WAF规则详情
+     * @summary Queries the details of a Web Application Firewall (WAF) rule, such as its configuration and status.
      *  *
      * @param GetWafRuleRequest $request GetWafRuleRequest
      *
@@ -6072,7 +6474,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取WAF规则集详情
+     * @summary Queries the details of a Web Application Firewall (WAF) ruleset, such as the configuration and status.
      *  *
      * @param GetWafRulesetRequest $request GetWafRulesetRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -6111,7 +6513,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取WAF规则集详情
+     * @summary Queries the details of a Web Application Firewall (WAF) ruleset, such as the configuration and status.
      *  *
      * @param GetWafRulesetRequest $request GetWafRulesetRequest
      *
@@ -6125,7 +6527,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询缓存保持实例列表
+     * @summary Queries the cache reserve instances in your Alibaba Cloud account.
      *  *
      * @param ListCacheReserveInstancesRequest $request ListCacheReserveInstancesRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -6155,7 +6557,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询缓存保持实例列表
+     * @summary Queries the cache reserve instances in your Alibaba Cloud account.
      *  *
      * @param ListCacheReserveInstancesRequest $request ListCacheReserveInstancesRequest
      *
@@ -6213,7 +6615,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取一个边缘容器应用的全部域名记录
+     * @summary Lists domain names that are associated with a containerized application.
      *  *
      * @param ListEdgeContainerAppRecordsRequest $request ListEdgeContainerAppRecordsRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -6243,7 +6645,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取一个边缘容器应用的全部域名记录
+     * @summary Lists domain names that are associated with a containerized application.
      *  *
      * @param ListEdgeContainerAppRecordsRequest $request ListEdgeContainerAppRecordsRequest
      *
@@ -6257,7 +6659,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取边缘容器应用的全部版本信息
+     * @summary Lists versions of all containerized applications.
      *  *
      * @param ListEdgeContainerAppVersionsRequest $request ListEdgeContainerAppVersionsRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -6287,7 +6689,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取边缘容器应用的全部版本信息
+     * @summary Lists versions of all containerized applications.
      *  *
      * @param ListEdgeContainerAppVersionsRequest $request ListEdgeContainerAppVersionsRequest
      *
@@ -6301,7 +6703,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户全部边缘容器应用
+     * @summary Queries all containerized applications in your Alibaba Cloud account.
      *  *
      * @param ListEdgeContainerAppsRequest $request ListEdgeContainerAppsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -6349,7 +6751,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户全部边缘容器应用
+     * @summary Queries all containerized applications in your Alibaba Cloud account.
      *  *
      * @param ListEdgeContainerAppsRequest $request ListEdgeContainerAppsRequest
      *
@@ -6363,7 +6765,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询站点的边缘容器记录
+     * @summary Queries the records that are associated with Edge Container for a website.
      *  *
      * @param ListEdgeContainerRecordsRequest $request ListEdgeContainerRecordsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -6393,7 +6795,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询站点的边缘容器记录
+     * @summary Queries the records that are associated with Edge Container for a website.
      *  *
      * @param ListEdgeContainerRecordsRequest $request ListEdgeContainerRecordsRequest
      *
@@ -6407,7 +6809,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户可购买的边缘函数的套餐
+     * @summary Queries Edge Routine plans.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -6432,7 +6834,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户可购买的边缘函数的套餐
+     * @summary Queries Edge Routine plans.
      *  *
      * @return ListEdgeRoutinePlansResponse ListEdgeRoutinePlansResponse
      */
@@ -6444,7 +6846,9 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询站点的边缘路由记录
+     * @summary Queries the records that are associated with Edge Routine routes for a website.
+     *  *
+     * @description >  You can call this operation 100 times per second.
      *  *
      * @param ListEdgeRoutineRecordsRequest $request ListEdgeRoutineRecordsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -6474,7 +6878,9 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询站点的边缘路由记录
+     * @summary Queries the records that are associated with Edge Routine routes for a website.
+     *  *
+     * @description >  You can call this operation 100 times per second.
      *  *
      * @param ListEdgeRoutineRecordsRequest $request ListEdgeRoutineRecordsRequest
      *
@@ -6488,7 +6894,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例或者站点的quota值
+     * @summary Queries the quota details in a subscription plan.
      *  *
      * @param ListInstanceQuotasRequest $request ListInstanceQuotasRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -6518,7 +6924,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例或者站点的quota值
+     * @summary Queries the quota details in a subscription plan.
      *  *
      * @param ListInstanceQuotasRequest $request ListInstanceQuotasRequest
      *
@@ -6532,7 +6938,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询功能quota和用量
+     * @summary Queries quotas and the actual usage in a plan based on the website or plan ID.
      *  *
      * @param ListInstanceQuotasWithUsageRequest $request ListInstanceQuotasWithUsageRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -6562,7 +6968,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询功能quota和用量
+     * @summary Queries quotas and the actual usage in a plan based on the website or plan ID.
      *  *
      * @param ListInstanceQuotasWithUsageRequest $request ListInstanceQuotasWithUsageRequest
      *
@@ -6576,7 +6982,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 遍历Namespace的Key值
+     * @summary Lists all key-value pairs in a namespace in your Alibaba Cloud account.
      *  *
      * @param ListKvsRequest $request ListKvsRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -6606,7 +7012,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 遍历Namespace的Key值
+     * @summary Lists all key-value pairs in a namespace in your Alibaba Cloud account.
      *  *
      * @param ListKvsRequest $request ListKvsRequest
      *
@@ -6620,7 +7026,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列举自定义列表
+     * @summary Queries all custom lists and their details in an Alibaba Cloud account. You can specify query arguments to filter the results and display the returned lists by page.
      *  *
      * @param ListListsRequest $tmpReq  ListListsRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -6664,7 +7070,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列举自定义列表
+     * @summary Queries all custom lists and their details in an Alibaba Cloud account. You can specify query arguments to filter the results and display the returned lists by page.
      *  *
      * @param ListListsRequest $request ListListsRequest
      *
@@ -6678,7 +7084,9 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询负载均衡区域列表
+     * @summary Queries the information that can be used to configure a traffic steering policy based on the originating country or region for a load balancer, such as the code and code descriptions of the regions and subregions of the load balancer.
+     *  *
+     * @description When you call an operation to create a traffic steering policy based on the originating country or region for a load balancer, you can use the code of a region or subregion to specify traffic that is sent from the region or subregion.
      *  *
      * @param ListLoadBalancerRegionsRequest $request ListLoadBalancerRegionsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -6708,7 +7116,9 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询负载均衡区域列表
+     * @summary Queries the information that can be used to configure a traffic steering policy based on the originating country or region for a load balancer, such as the code and code descriptions of the regions and subregions of the load balancer.
+     *  *
+     * @description When you call an operation to create a traffic steering policy based on the originating country or region for a load balancer, you can use the code of a region or subregion to specify traffic that is sent from the region or subregion.
      *  *
      * @param ListLoadBalancerRegionsRequest $request ListLoadBalancerRegionsRequest
      *
@@ -6722,7 +7132,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列举自定义托管规则组
+     * @summary Queries all WAF managed rule groups in your Alibaba Cloud account.
      *  *
      * @param ListManagedRulesGroupsRequest $request ListManagedRulesGroupsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -6758,7 +7168,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列举自定义托管规则组
+     * @summary Queries all WAF managed rule groups in your Alibaba Cloud account.
      *  *
      * @param ListManagedRulesGroupsRequest $request ListManagedRulesGroupsRequest
      *
@@ -6772,7 +7182,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列举自定义响应页面
+     * @summary Lists all custom error pages that you created. You can define the page number and the number of entries per page to display the response.
      *  *
      * @param ListPagesRequest $request ListPagesRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -6808,7 +7218,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列举自定义响应页面
+     * @summary Lists all custom error pages that you created. You can define the page number and the number of entries per page to display the response.
      *  *
      * @param ListPagesRequest $request ListPagesRequest
      *
@@ -6822,7 +7232,9 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询站点下的记录列表
+     * @summary Queries a list of Domain Name System (DNS) records of a website, including the record value, priority, and authentication configurations. Supports filtering by specifying parameters such as RecordName and RecordMatchType.
+     *  *
+     * @description The DNS records related to Edge Container, Edge Routine, and TCP/UDP proxy are not returned in this operation.
      *  *
      * @param ListRecordsRequest $request ListRecordsRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -6852,7 +7264,9 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询站点下的记录列表
+     * @summary Queries a list of Domain Name System (DNS) records of a website, including the record value, priority, and authentication configurations. Supports filtering by specifying parameters such as RecordName and RecordMatchType.
+     *  *
+     * @description The DNS records related to Edge Container, Edge Routine, and TCP/UDP proxy are not returned in this operation.
      *  *
      * @param ListRecordsRequest $request ListRecordsRequest
      *
@@ -6866,7 +7280,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询Routine灰度环境列表
+     * @summary Lists the regions to which Edge Routine code can be released for canary deployment.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -6891,7 +7305,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询Routine灰度环境列表
+     * @summary Lists the regions to which Edge Routine code can be released for canary deployment.
      *  *
      * @return ListRoutineCanaryAreasResponse ListRoutineCanaryAreasResponse
      */
@@ -6903,7 +7317,9 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询Routine可选择规格列表
+     * @summary Queries the specifications that you can select for a routine based on the plan type. The response contains all specifications that you can select for a routine. The IsAvailable parameter indicates whether a specification is available.
+     *  *
+     * @description You can call this operation to query the specifications that you can select for a routine.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -6928,7 +7344,9 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询Routine可选择规格列表
+     * @summary Queries the specifications that you can select for a routine based on the plan type. The response contains all specifications that you can select for a routine. The IsAvailable parameter indicates whether a specification is available.
+     *  *
+     * @description You can call this operation to query the specifications that you can select for a routine.
      *  *
      * @return ListRoutineOptionalSpecsResponse ListRoutineOptionalSpecsResponse
      */
@@ -6940,7 +7358,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列出指定任务下的执行计划
+     * @summary Lists the plans in a scheduled prefetch task by task ID.
      *  *
      * @param ListScheduledPreloadExecutionsRequest $request ListScheduledPreloadExecutionsRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -6970,7 +7388,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列出指定任务下的执行计划
+     * @summary Lists the plans in a scheduled prefetch task by task ID.
      *  *
      * @param ListScheduledPreloadExecutionsRequest $request ListScheduledPreloadExecutionsRequest
      *
@@ -6984,7 +7402,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列出定时预热任务列表
+     * @summary Queries the scheduled prefetch tasks for a website.
      *  *
      * @param ListScheduledPreloadJobsRequest $request ListScheduledPreloadJobsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -7014,7 +7432,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列出定时预热任务列表
+     * @summary Queries the scheduled prefetch tasks for a website.
      *  *
      * @param ListScheduledPreloadJobsRequest $request ListScheduledPreloadJobsRequest
      *
@@ -7028,7 +7446,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列出全部任务投递
+     * @summary Lists all log delivery tasks that are in progress.
      *  *
      * @param ListSiteDeliveryTasksRequest $request ListSiteDeliveryTasksRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -7058,7 +7476,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列出全部任务投递
+     * @summary Lists all log delivery tasks that are in progress.
      *  *
      * @param ListSiteDeliveryTasksRequest $request ListSiteDeliveryTasksRequest
      *
@@ -7072,7 +7490,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询站点列表
+     * @summary Queries the information about websites in your account, such as the name, status, and configuration of each website.
      *  *
      * @param ListSitesRequest $tmpReq  ListSitesRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -7107,7 +7525,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询站点列表
+     * @summary Queries the information about websites in your account, such as the name, status, and configuration of each website.
      *  *
      * @param ListSitesRequest $request ListSitesRequest
      *
@@ -7121,7 +7539,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询云资源已经绑定的标签列表
+     * @summary Queries tags based on the region ID and resource type.
      *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -7175,7 +7593,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询云资源已经绑定的标签列表
+     * @summary Queries tags based on the region ID and resource type.
      *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
@@ -7189,7 +7607,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取文件上传任务
+     * @summary Queries the execution status and running information of file upload tasks based on the task time and type.
      *  *
      * @param ListUploadTasksRequest $request ListUploadTasksRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -7219,7 +7637,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取文件上传任务
+     * @summary Queries the execution status and running information of file upload tasks based on the task time and type.
      *  *
      * @param ListUploadTasksRequest $request ListUploadTasksRequest
      *
@@ -7233,7 +7651,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列出用户全部任务投递
+     * @summary Queries all delivery tasks in your Alibaba Cloud account by page. You can filter the delivery tasks by the category of the delivered real-time logs.
      *  *
      * @param ListUserDeliveryTasksRequest $request ListUserDeliveryTasksRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -7263,7 +7681,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列出用户全部任务投递
+     * @summary Queries all delivery tasks in your Alibaba Cloud account by page. You can filter the delivery tasks by the category of the delivered real-time logs.
      *  *
      * @param ListUserDeliveryTasksRequest $request ListUserDeliveryTasksRequest
      *
@@ -7277,7 +7695,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询该用户下可用的已购套餐实例
+     * @summary Queries the plans that you purchased and the details of the plans.
      *  *
      * @param ListUserRatePlanInstancesRequest $request ListUserRatePlanInstancesRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -7307,7 +7725,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询该用户下可用的已购套餐实例
+     * @summary Queries the plans that you purchased and the details of the plans.
      *  *
      * @param ListUserRatePlanInstancesRequest $request ListUserRatePlanInstancesRequest
      *
@@ -7321,7 +7739,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列举WAF托管规则
+     * @summary Lists all Web Application Firewall (WAF) managed rules or some of them based on specific conditions. You can call this operation to query the details of WAF rules by page.
      *  *
      * @param ListWafManagedRulesRequest $tmpReq  ListWafManagedRulesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -7380,7 +7798,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列举WAF托管规则
+     * @summary Lists all Web Application Firewall (WAF) managed rules or some of them based on specific conditions. You can call this operation to query the details of WAF rules by page.
      *  *
      * @param ListWafManagedRulesRequest $request ListWafManagedRulesRequest
      *
@@ -7394,7 +7812,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列举WAF阶段
+     * @summary Queries the WAF rule categories that are applied to a website and related rulesets.
      *  *
      * @param ListWafPhasesRequest $request ListWafPhasesRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -7430,7 +7848,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列举WAF阶段
+     * @summary Queries the WAF rule categories that are applied to a website and related rulesets.
      *  *
      * @param ListWafPhasesRequest $request ListWafPhasesRequest
      *
@@ -7444,7 +7862,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列举WAF规则
+     * @summary Lists all Web Application Firewall (WAF) rules or some of them based on specific conditions. You can call this operation to query the details of WAF rules by page.
      *  *
      * @param ListWafRulesRequest $tmpReq  ListWafRulesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -7497,7 +7915,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列举WAF规则
+     * @summary Lists all Web Application Firewall (WAF) rules or some of them based on specific conditions. You can call this operation to query the details of WAF rules by page.
      *  *
      * @param ListWafRulesRequest $request ListWafRulesRequest
      *
@@ -7511,7 +7929,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列举WAF规则集
+     * @summary Lists the rulesets in a Web Application Firewall (WAF) rule category. You can call this operation to query the basic information about and status of rulesets by page.
      *  *
      * @param ListWafRulesetsRequest $tmpReq  ListWafRulesetsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -7564,7 +7982,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列举WAF规则集
+     * @summary Lists the rulesets in a Web Application Firewall (WAF) rule category. You can call this operation to query the basic information about and status of rulesets by page.
      *  *
      * @param ListWafRulesetsRequest $request ListWafRulesetsRequest
      *
@@ -7578,7 +7996,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列举WAF模板规则
+     * @summary Queries template rules in Web Application Firewall (WAF). In most cases, these rules are pre-defined rulesets that are used to quickly enable protection against common types of attacks.
      *  *
      * @param ListWafTemplateRulesRequest $tmpReq  ListWafTemplateRulesRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -7622,7 +8040,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列举WAF模板规则
+     * @summary Queries template rules in Web Application Firewall (WAF). In most cases, these rules are pre-defined rulesets that are used to quickly enable protection against common types of attacks.
      *  *
      * @param ListWafTemplateRulesRequest $request ListWafTemplateRulesRequest
      *
@@ -7636,7 +8054,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列举WAF规则使用情况
+     * @summary Queries the usage details of WAF rules.
      *  *
      * @param ListWafUsageOfRulesRequest $request ListWafUsageOfRulesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -7672,7 +8090,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 列举WAF规则使用情况
+     * @summary Queries the usage details of WAF rules.
      *  *
      * @param ListWafUsageOfRulesRequest $request ListWafUsageOfRulesRequest
      *
@@ -7686,7 +8104,9 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询等候室事件
+     * @summary Queries the information about waiting room events for a waiting room.
+     *  *
+     * @description You can call this operation to query details of all waiting room events related to a waiting room in a website.
      *  *
      * @param ListWaitingRoomEventsRequest $request ListWaitingRoomEventsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -7716,7 +8136,9 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询等候室事件
+     * @summary Queries the information about waiting room events for a waiting room.
+     *  *
+     * @description You can call this operation to query details of all waiting room events related to a waiting room in a website.
      *  *
      * @param ListWaitingRoomEventsRequest $request ListWaitingRoomEventsRequest
      *
@@ -7730,7 +8152,9 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询等候室绕过规则
+     * @summary Queries the waiting room bypass rules configured for a waiting room.
+     *  *
+     * @description You can call this operation to query the waiting room bypass rules that are associated with a website.
      *  *
      * @param ListWaitingRoomRulesRequest $request ListWaitingRoomRulesRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -7760,7 +8184,9 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询等候室绕过规则
+     * @summary Queries the waiting room bypass rules configured for a waiting room.
+     *  *
+     * @description You can call this operation to query the waiting room bypass rules that are associated with a website.
      *  *
      * @param ListWaitingRoomRulesRequest $request ListWaitingRoomRulesRequest
      *
@@ -7774,7 +8200,9 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询等候室
+     * @summary Queries the information about all waiting rooms in a website.
+     *  *
+     * @description You can call this operation to query detailed configurations about all waiting rooms in a website, including the status, name, and queuing rules of each waiting room.
      *  *
      * @param ListWaitingRoomsRequest $request ListWaitingRoomsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -7804,7 +8232,9 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询等候室
+     * @summary Queries the information about all waiting rooms in a website.
+     *  *
+     * @description You can call this operation to query detailed configurations about all waiting rooms in a website, including the status, name, and queuing rules of each waiting room.
      *  *
      * @param ListWaitingRoomsRequest $request ListWaitingRoomsRequest
      *
@@ -7818,7 +8248,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 缓存预热
+     * @summary Prefetches cache.
      *  *
      * @param PreloadCachesRequest $tmpReq  PreloadCachesRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -7865,7 +8295,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 缓存预热
+     * @summary Prefetches cache.
      *  *
      * @param PreloadCachesRequest $request PreloadCachesRequest
      *
@@ -7879,7 +8309,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 发布边缘容器应用的某个版本
+     * @summary Releases a specific version of a containerized application. You can call this operation to iterate an application.
      *  *
      * @param PublishEdgeContainerAppVersionRequest $tmpReq  PublishEdgeContainerAppVersionRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -7943,7 +8373,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 发布边缘容器应用的某个版本
+     * @summary Releases a specific version of a containerized application. You can call this operation to iterate an application.
      *  *
      * @param PublishEdgeContainerAppVersionRequest $request PublishEdgeContainerAppVersionRequest
      *
@@ -7957,7 +8387,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 发布Routine某版本代码
+     * @summary Releases a code version of a routine to the staging, canary, or production environment. You can specify the regions where the canary environment is deployed to release your code.
      *  *
      * @param PublishRoutineCodeVersionRequest $tmpReq  PublishRoutineCodeVersionRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -8007,7 +8437,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 发布Routine某版本代码
+     * @summary Releases a code version of a routine to the staging, canary, or production environment. You can specify the regions where the canary environment is deployed to release your code.
      *  *
      * @param PublishRoutineCodeVersionRequest $request PublishRoutineCodeVersionRequest
      *
@@ -8021,7 +8451,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 缓存刷新
+     * @summary Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
      *  *
      * @param PurgeCachesRequest $tmpReq  PurgeCachesRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -8071,7 +8501,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 缓存刷新
+     * @summary Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
      *  *
      * @param PurgeCachesRequest $request PurgeCachesRequest
      *
@@ -8085,7 +8515,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 设置Namespace的Key-Value对
+     * @summary Configures a key-value pair for a namespace. The request body can be up to 2 MB.
      *  *
      * @param PutKvRequest   $request PutKvRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -8135,7 +8565,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 设置Namespace的Key-Value对
+     * @summary Configures a key-value pair for a namespace. The request body can be up to 2 MB.
      *  *
      * @param PutKvRequest $request PutKvRequest
      *
@@ -8149,7 +8579,44 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 设置Namespace的Key-Value对，支持最大25M的Body
+     * @summary Configures a large key-value pair for a namespace. The request body can be up to 25 MB.
+     *  *
+     * @description This operation allows you to upload a larger request body than by using [PutKv](~~PutKv~~). For small request bodies, we recommend that you use [PutKv](~~PutKv~~) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and PutKvWithHighCapacityAdvance to call the operation.
+     *     func TestPutKvWithHighCapacity() {
+     *     	// Initialize the configurations.
+     *     	cfg := new(openapi.Config)
+     *     	cfg.SetAccessKeyId("xxxxxxxxx")
+     *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
+     *     	cli, err := NewClient(cfg)
+     *     	if err != nil {
+     *     		return err
+     *     	}
+     *     	runtime := &util.RuntimeOptions{}
+     *     	// Construct a request for uploading key-value pairs.
+     *     	namespace := "test-put-kv"
+     *     	key := "test_PutKvWithHighCapacity_0"
+     *     	value := strings.Repeat("t", 10*1024*1024)
+     *     	rawReq := &PutKvRequest{
+     *     		Namespace: &namespace,
+     *     		Key:       &key,
+     *     		Value:     &value,
+     *     	}
+     *     	payload, err := json.Marshal(rawReq)
+     *     	if err != nil {
+     *     		return err
+     *     	}
+     *     	// If the payload is greater than 2 MB, call the PutKvWithHighCapacity operation for upload.
+     *     	reqHighCapacity := &PutKvWithHighCapacityAdvanceRequest{
+     *     		Namespace: &namespace,
+     *     		Key:       &key,
+     *     		UrlObject: bytes.NewReader([]byte(payload)),
+     *     	}
+     *     	resp, err := cli.PutKvWithHighCapacityAdvance(reqHighCapacity, runtime)
+     *     	if err != nil {
+     *     		return err
+     *     	}
+     *     	return nil
+     *     }
      *  *
      * @param PutKvWithHighCapacityRequest $request PutKvWithHighCapacityRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -8188,7 +8655,44 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 设置Namespace的Key-Value对，支持最大25M的Body
+     * @summary Configures a large key-value pair for a namespace. The request body can be up to 25 MB.
+     *  *
+     * @description This operation allows you to upload a larger request body than by using [PutKv](~~PutKv~~). For small request bodies, we recommend that you use [PutKv](~~PutKv~~) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and PutKvWithHighCapacityAdvance to call the operation.
+     *     func TestPutKvWithHighCapacity() {
+     *     	// Initialize the configurations.
+     *     	cfg := new(openapi.Config)
+     *     	cfg.SetAccessKeyId("xxxxxxxxx")
+     *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
+     *     	cli, err := NewClient(cfg)
+     *     	if err != nil {
+     *     		return err
+     *     	}
+     *     	runtime := &util.RuntimeOptions{}
+     *     	// Construct a request for uploading key-value pairs.
+     *     	namespace := "test-put-kv"
+     *     	key := "test_PutKvWithHighCapacity_0"
+     *     	value := strings.Repeat("t", 10*1024*1024)
+     *     	rawReq := &PutKvRequest{
+     *     		Namespace: &namespace,
+     *     		Key:       &key,
+     *     		Value:     &value,
+     *     	}
+     *     	payload, err := json.Marshal(rawReq)
+     *     	if err != nil {
+     *     		return err
+     *     	}
+     *     	// If the payload is greater than 2 MB, call the PutKvWithHighCapacity operation for upload.
+     *     	reqHighCapacity := &PutKvWithHighCapacityAdvanceRequest{
+     *     		Namespace: &namespace,
+     *     		Key:       &key,
+     *     		UrlObject: bytes.NewReader([]byte(payload)),
+     *     	}
+     *     	resp, err := cli.PutKvWithHighCapacityAdvance(reqHighCapacity, runtime)
+     *     	if err != nil {
+     *     		return err
+     *     	}
+     *     	return nil
+     *     }
      *  *
      * @param PutKvWithHighCapacityRequest $request PutKvWithHighCapacityRequest
      *
@@ -8281,7 +8785,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 重建边缘容器应用的测试环境
+     * @summary Rebuilds the staging environment for containerized applications.
      *  *
      * @param RebuildEdgeContainerAppStagingEnvRequest $request RebuildEdgeContainerAppStagingEnvRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
@@ -8314,7 +8818,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 重建边缘容器应用的测试环境
+     * @summary Rebuilds the staging environment for containerized applications.
      *  *
      * @param RebuildEdgeContainerAppStagingEnvRequest $request RebuildEdgeContainerAppStagingEnvRequest
      *
@@ -8328,7 +8832,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 重置定时预热任务的进度，从头开始预热
+     * @summary Resets the progress of a scheduled prefetch task and starts the prefetch from the beginning.
      *  *
      * @param ResetScheduledPreloadJobRequest $request ResetScheduledPreloadJobRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -8361,7 +8865,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 重置定时预热任务的进度，从头开始预热
+     * @summary Resets the progress of a scheduled prefetch task and starts the prefetch from the beginning.
      *  *
      * @param ResetScheduledPreloadJobRequest $request ResetScheduledPreloadJobRequest
      *
@@ -8375,7 +8879,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 回滚边缘容器应用的某个版本
+     * @summary Rolls back a version of a containerized application.
      *  *
      * @param RollbackEdgeContainerAppVersionRequest $request RollbackEdgeContainerAppVersionRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -8416,7 +8920,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 回滚边缘容器应用的某个版本
+     * @summary Rolls back a version of a containerized application.
      *  *
      * @param RollbackEdgeContainerAppVersionRequest $request RollbackEdgeContainerAppVersionRequest
      *
@@ -8430,7 +8934,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 设置证书
+     * @summary Configures whether to enable certificates and update certificate information for a website.
      *  *
      * @param SetCertificateRequest $request SetCertificateRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -8495,7 +8999,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 设置证书
+     * @summary Configures whether to enable certificates and update certificate information for a website.
      *  *
      * @param SetCertificateRequest $request SetCertificateRequest
      *
@@ -8509,7 +9013,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 设置HTTP DDoS智能防护配置信息
+     * @summary Configures smart HTTP DDoS protection.
      *  *
      * @param SetHttpDDoSAttackIntelligentProtectionRequest $request SetHttpDDoSAttackIntelligentProtectionRequest
      * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
@@ -8548,7 +9052,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 设置HTTP DDoS智能防护配置信息
+     * @summary Configures smart HTTP DDoS protection.
      *  *
      * @param SetHttpDDoSAttackIntelligentProtectionRequest $request SetHttpDDoSAttackIntelligentProtectionRequest
      *
@@ -8562,7 +9066,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 设置HTTP DDoS攻击防护配置信息
+     * @summary Configures HTTP DDoS attack protection for a website.
      *  *
      * @param SetHttpDDoSAttackProtectionRequest $request SetHttpDDoSAttackProtectionRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -8598,7 +9102,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 设置HTTP DDoS攻击防护配置信息
+     * @summary Configures HTTP DDoS attack protection for a website.
      *  *
      * @param SetHttpDDoSAttackProtectionRequest $request SetHttpDDoSAttackProtectionRequest
      *
@@ -8612,7 +9116,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 开始单个定时预热计划
+     * @summary Starts a scheduled prefetch plan based on the plan ID.
      *  *
      * @param StartScheduledPreloadExecutionRequest $request StartScheduledPreloadExecutionRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -8645,7 +9149,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 开始单个定时预热计划
+     * @summary Starts a scheduled prefetch plan based on the plan ID.
      *  *
      * @param StartScheduledPreloadExecutionRequest $request StartScheduledPreloadExecutionRequest
      *
@@ -8659,7 +9163,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 停止单个定时预热计划
+     * @summary Stops a scheduled prefetch plan based on the plan ID.
      *  *
      * @param StopScheduledPreloadExecutionRequest $request StopScheduledPreloadExecutionRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -8692,7 +9196,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 停止单个定时预热计划
+     * @summary Stops a scheduled prefetch plan based on the plan ID.
      *  *
      * @param StopScheduledPreloadExecutionRequest $request StopScheduledPreloadExecutionRequest
      *
@@ -8706,7 +9210,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 为资源列表统一解绑标签
+     * @summary Deletes a resource tag based on a specified resource ID.
      *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -8757,7 +9261,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 为资源列表统一解绑标签
+     * @summary Deletes a resource tag based on a specified resource ID.
      *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *
@@ -8771,7 +9275,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 修改定制场景策略
+     * @summary Modifies the configurations of a custom scenario-specific policy.
      *  *
      * @param UpdateCustomScenePolicyRequest $request UpdateCustomScenePolicyRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -8819,7 +9323,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 修改定制场景策略
+     * @summary Modifies the configurations of a custom scenario-specific policy.
      *  *
      * @param UpdateCustomScenePolicyRequest $request UpdateCustomScenePolicyRequest
      *
@@ -8833,7 +9337,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 重命名账号下的Namespace
+     * @summary Updates the name of a namespace in Edge KV.
      *  *
      * @param UpdateKvNamespaceRequest $request UpdateKvNamespaceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -8869,7 +9373,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 重命名账号下的Namespace
+     * @summary Updates the name of a namespace in Edge KV.
      *  *
      * @param UpdateKvNamespaceRequest $request UpdateKvNamespaceRequest
      *
@@ -8883,7 +9387,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 更新自定义列表
+     * @summary Updates a custom list.
      *  *
      * @param UpdateListRequest $tmpReq  UpdateListRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -8930,7 +9434,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 更新自定义列表
+     * @summary Updates a custom list.
      *  *
      * @param UpdateListRequest $request UpdateListRequest
      *
@@ -8944,7 +9448,104 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 更新自定义响应页面
+     * @summary 修改源站防护
+     *  *
+     * @param UpdateOriginProtectionRequest $request UpdateOriginProtectionRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateOriginProtectionResponse UpdateOriginProtectionResponse
+     */
+    public function updateOriginProtectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->originConverge)) {
+            $query['OriginConverge'] = $request->originConverge;
+        }
+        if (!Utils::isUnset($request->siteId)) {
+            $query['SiteId'] = $request->siteId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateOriginProtection',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateOriginProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改源站防护
+     *  *
+     * @param UpdateOriginProtectionRequest $request UpdateOriginProtectionRequest
+     *
+     * @return UpdateOriginProtectionResponse UpdateOriginProtectionResponse
+     */
+    public function updateOriginProtection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateOriginProtectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 确认更新站点回源IP白名单到最新版本
+     *  *
+     * @param UpdateOriginProtectionIpWhiteListRequest $request UpdateOriginProtectionIpWhiteListRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateOriginProtectionIpWhiteListResponse UpdateOriginProtectionIpWhiteListResponse
+     */
+    public function updateOriginProtectionIpWhiteListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->siteId)) {
+            $query['SiteId'] = $request->siteId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateOriginProtectionIpWhiteList',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateOriginProtectionIpWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 确认更新站点回源IP白名单到最新版本
+     *  *
+     * @param UpdateOriginProtectionIpWhiteListRequest $request UpdateOriginProtectionIpWhiteListRequest
+     *
+     * @return UpdateOriginProtectionIpWhiteListResponse UpdateOriginProtectionIpWhiteListResponse
+     */
+    public function updateOriginProtectionIpWhiteList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateOriginProtectionIpWhiteListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Modifies the configurations of a custom error page, such as the name, description, content type, and content of the page.
      *  *
      * @param UpdatePageRequest $request UpdatePageRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -8989,7 +9590,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 更新自定义响应页面
+     * @summary Modifies the configurations of a custom error page, such as the name, description, content type, and content of the page.
      *  *
      * @param UpdatePageRequest $request UpdatePageRequest
      *
@@ -9003,7 +9604,15 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 更新记录
+     * @summary Updates multiple types of DNS records and origin authentication configurations.
+     *  *
+     * @description This operation allows you to update multiple types of DNS records, including but not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. You can modify the record content by providing the necessary fields such as Value, Priority, and Flag. For origins added in CNAME records such as OSS and S3, the API enables you to configure authentication details to ensure secure access.
+     * ### [](#)Usage notes
+     * *   The record value (Value) must match the record type. For example, the CNAME record should correspond to the target domain name.
+     * *   You must specify a priority (Priority) for some record types, such as MX and SRV.
+     * *   You must specify specific fields such as Flag and Tag for CAA records.
+     * *   When you update security records such as CERT and SSHFP, you must accurately set fields such as Type and Algorithm.
+     * *   If your origin type is OSS or S3, configure the authentication details in AuthConf based on the permissions.
      *  *
      * @param UpdateRecordRequest $tmpReq  UpdateRecordRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -9068,7 +9677,15 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 更新记录
+     * @summary Updates multiple types of DNS records and origin authentication configurations.
+     *  *
+     * @description This operation allows you to update multiple types of DNS records, including but not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. You can modify the record content by providing the necessary fields such as Value, Priority, and Flag. For origins added in CNAME records such as OSS and S3, the API enables you to configure authentication details to ensure secure access.
+     * ### [](#)Usage notes
+     * *   The record value (Value) must match the record type. For example, the CNAME record should correspond to the target domain name.
+     * *   You must specify a priority (Priority) for some record types, such as MX and SRV.
+     * *   You must specify specific fields such as Flag and Tag for CAA records.
+     * *   When you update security records such as CERT and SSHFP, you must accurately set fields such as Type and Algorithm.
+     * *   If your origin type is OSS or S3, configure the authentication details in AuthConf based on the permissions.
      *  *
      * @param UpdateRecordRequest $request UpdateRecordRequest
      *
@@ -9082,7 +9699,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 更新单个定时预热计划
+     * @summary Updates a scheduled prefetch plan based on the plan ID.
      *  *
      * @param UpdateScheduledPreloadExecutionRequest $request UpdateScheduledPreloadExecutionRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -9129,7 +9746,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 更新单个定时预热计划
+     * @summary Updates a scheduled prefetch plan based on the plan ID.
      *  *
      * @param UpdateScheduledPreloadExecutionRequest $request UpdateScheduledPreloadExecutionRequest
      *
@@ -9143,7 +9760,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 修改站点接入方式
+     * @summary Converts the DNS setup option of a website.
+     *  *
+     * @description When you change the DNS setup of a website from NS to CNAME, take note of the following items:
+     * *   Make sure that the website has only proxied A/AAAA and CNAME records.
+     * *   Make sure that ESA proxy is not disabled for the website and custom nameservers are not configured.
      *  *
      * @param UpdateSiteAccessTypeRequest $request UpdateSiteAccessTypeRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -9179,7 +9800,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 修改站点接入方式
+     * @summary Converts the DNS setup option of a website.
+     *  *
+     * @description When you change the DNS setup of a website from NS to CNAME, take note of the following items:
+     * *   Make sure that the website has only proxied A/AAAA and CNAME records.
+     * *   Make sure that ESA proxy is not disabled for the website and custom nameservers are not configured.
      *  *
      * @param UpdateSiteAccessTypeRequest $request UpdateSiteAccessTypeRequest
      *
@@ -9193,7 +9818,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 更新站点加速区域
+     * @summary Modifies the service location for a single website. This updates the acceleration configuration of the website to adapt to changes in traffic distribution, and improve user experience in specific regions.
      *  *
      * @param UpdateSiteCoverageRequest $request UpdateSiteCoverageRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -9229,7 +9854,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 更新站点加速区域
+     * @summary Modifies the service location for a single website. This updates the acceleration configuration of the website to adapt to changes in traffic distribution, and improve user experience in specific regions.
      *  *
      * @param UpdateSiteCoverageRequest $request UpdateSiteCoverageRequest
      *
@@ -9243,7 +9868,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 修改自定义字段
+     * @summary Modifies the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
      *  *
      * @param UpdateSiteCustomLogRequest $tmpReq  UpdateSiteCustomLogRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -9296,7 +9921,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 修改自定义字段
+     * @summary Modifies the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
      *  *
      * @param UpdateSiteCustomLogRequest $request UpdateSiteCustomLogRequest
      *
@@ -9310,7 +9935,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 修改一个任务投递
+     * @summary Modifies a real-time log delivery task.
      *  *
      * @param UpdateSiteDeliveryTaskRequest $request UpdateSiteDeliveryTaskRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -9355,7 +9980,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 修改一个任务投递
+     * @summary Modifies a real-time log delivery task.
      *  *
      * @param UpdateSiteDeliveryTaskRequest $request UpdateSiteDeliveryTaskRequest
      *
@@ -9369,7 +9994,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 上下线一个任务投递
+     * @summary Changes the status of a real-time log delivery task.
      *  *
      * @param UpdateSiteDeliveryTaskStatusRequest $request UpdateSiteDeliveryTaskStatusRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -9399,7 +10024,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 上下线一个任务投递
+     * @summary Changes the status of a real-time log delivery task.
      *  *
      * @param UpdateSiteDeliveryTaskStatusRequest $request UpdateSiteDeliveryTaskStatusRequest
      *
@@ -9413,7 +10038,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 修改站点自定义NS
+     * @summary Updates the custom nameserver names for a single website.
      *  *
      * @param UpdateSiteVanityNSRequest $request UpdateSiteVanityNSRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -9449,7 +10074,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 修改站点自定义NS
+     * @summary Updates the custom nameserver names for a single website.
      *  *
      * @param UpdateSiteVanityNSRequest $request UpdateSiteVanityNSRequest
      *
@@ -9463,7 +10088,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 修改一个用户粒度任务投递
+     * @summary Modifies the configurations of a delivery task, including the task name, log field, log category, and discard rate.
      *  *
      * @param UpdateUserDeliveryTaskRequest $request UpdateUserDeliveryTaskRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -9505,7 +10130,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 修改一个用户粒度任务投递
+     * @summary Modifies the configurations of a delivery task, including the task name, log field, log category, and discard rate.
      *  *
      * @param UpdateUserDeliveryTaskRequest $request UpdateUserDeliveryTaskRequest
      *
@@ -9519,7 +10144,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 上下线一个用户任务投递
+     * @summary Changes the status of a delivery task in your Alibaba Cloud account.
+     *  *
+     * @description ## [](#)
+     * You can call this operation to enable or disable a delivery task by using TaskName and Method. The response includes the most recent status and operation result details of the task.
      *  *
      * @param UpdateUserDeliveryTaskStatusRequest $request UpdateUserDeliveryTaskStatusRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -9549,7 +10177,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 上下线一个用户任务投递
+     * @summary Changes the status of a delivery task in your Alibaba Cloud account.
+     *  *
+     * @description ## [](#)
+     * You can call this operation to enable or disable a delivery task by using TaskName and Method. The response includes the most recent status and operation result details of the task.
      *  *
      * @param UpdateUserDeliveryTaskStatusRequest $request UpdateUserDeliveryTaskStatusRequest
      *
@@ -9563,7 +10194,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 更新WAF规则页面
+     * @summary Modifies the configuration or status of a Web Application Firewall (WAF) rule.
      *  *
      * @param UpdateWafRuleRequest $tmpReq  UpdateWafRuleRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -9618,7 +10249,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 更新WAF规则页面
+     * @summary Modifies the configuration or status of a Web Application Firewall (WAF) rule.
      *  *
      * @param UpdateWafRuleRequest $request UpdateWafRuleRequest
      *
@@ -9632,7 +10263,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 更新WAF规则集
+     * @summary Updates a WAF ruleset based on its ID.
      *  *
      * @param UpdateWafRulesetRequest $request UpdateWafRulesetRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -9676,7 +10307,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 更新WAF规则集
+     * @summary Updates a WAF ruleset based on its ID.
      *  *
      * @param UpdateWafRulesetRequest $request UpdateWafRulesetRequest
      *
@@ -9690,7 +10321,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 修改等候室
+     * @summary Modifies the configurations of a waiting room.
      *  *
      * @param UpdateWaitingRoomRequest $tmpReq  UpdateWaitingRoomRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -9779,7 +10410,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 修改等候室
+     * @summary Modifies the configurations of a waiting room.
      *  *
      * @param UpdateWaitingRoomRequest $request UpdateWaitingRoomRequest
      *
@@ -9793,7 +10424,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 修改等候室事件
+     * @summary Modifies the configurations of a waiting room event.
      *  *
      * @param UpdateWaitingRoomEventRequest $request UpdateWaitingRoomEventRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -9883,7 +10514,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 修改等候室事件
+     * @summary Modifies the configurations of a waiting room event.
      *  *
      * @param UpdateWaitingRoomEventRequest $request UpdateWaitingRoomEventRequest
      *
@@ -9897,7 +10528,9 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 修改等候室规则
+     * @summary Updates the configurations of a waiting room bypass rule for a website.
+     *  *
+     * @description You can call this API operation to modify the configurations of a waiting room bypass rule for your website, including the rule name, status, and rule content.
      *  *
      * @param UpdateWaitingRoomRuleRequest $request UpdateWaitingRoomRuleRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -9942,7 +10575,9 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 修改等候室规则
+     * @summary Updates the configurations of a waiting room bypass rule for a website.
+     *  *
+     * @description You can call this API operation to modify the configurations of a waiting room bypass rule for your website, including the rule name, status, and rule content.
      *  *
      * @param UpdateWaitingRoomRuleRequest $request UpdateWaitingRoomRuleRequest
      *
@@ -9956,7 +10591,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 缓存刷新文件上传
+     * @summary Uploads the file that contains resources to be purged or prefetched.
+     *  *
+     * @description >
+     * *   The file can be up to 10 MB in size.
+     * *   After the file is uploaded, you can call [SubmitUploadTask](~~SubmitUploadTask~~) to submit the purge or prefetch task.
      *  *
      * @param UploadFileRequest $request UploadFileRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -9998,7 +10637,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 缓存刷新文件上传
+     * @summary Uploads the file that contains resources to be purged or prefetched.
+     *  *
+     * @description >
+     * *   The file can be up to 10 MB in size.
+     * *   After the file is uploaded, you can call [SubmitUploadTask](~~SubmitUploadTask~~) to submit the purge or prefetch task.
      *  *
      * @param UploadFileRequest $request UploadFileRequest
      *
@@ -10091,7 +10734,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 校验站点的归属
+     * @summary Verifies the ownership of a website domain. Websites that pass the verification are automatically activated.
+     *  *
+     * @description 1.  For a website connected by using NS setup, this operation verifies whether the nameservers of the website are the nameservers assigned by Alibaba Cloud.
+     * 2.  For a website connected by using CNAME setup, this operation verifies whether the website has a TXT record whose hostname is  _esaauth.[websiteDomainName] and record value is the value of VerifyCode to the DNS records of your domain. You can see the VerifyCode field in the site information.
      *  *
      * @param VerifySiteRequest $request VerifySiteRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -10124,7 +10770,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 校验站点的归属
+     * @summary Verifies the ownership of a website domain. Websites that pass the verification are automatically activated.
+     *  *
+     * @description 1.  For a website connected by using NS setup, this operation verifies whether the nameservers of the website are the nameservers assigned by Alibaba Cloud.
+     * 2.  For a website connected by using CNAME setup, this operation verifies whether the website has a TXT record whose hostname is  _esaauth.[websiteDomainName] and record value is the value of VerifyCode to the DNS records of your domain. You can see the VerifyCode field in the site information.
      *  *
      * @param VerifySiteRequest $request VerifySiteRequest
      *

@@ -13,42 +13,64 @@ use AlibabaCloud\Tea\Model;
 class GetRoutineResponseBody extends Model
 {
     /**
+     * @description The code versions.
+     *
      * @var codeVersions[]
      */
     public $codeVersions;
 
     /**
+     * @description The time when the routine was created.
+     *
+     * @example 2024-03-11T01:23:21Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The default record name to access.
+     *
+     * @example routine1.example.com
+     *
      * @var string
      */
     public $defaultRelatedRecord;
 
     /**
+     * @description The description of the routine.
+     *
+     * @example ZWRpdCByb3V0aW5lIGNvbmZpZyBkZXNjcmlwdGlvbg
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The information about the environments.
+     *
      * @var envs[]
      */
     public $envs;
 
     /**
+     * @description The records associated with the routine.
+     *
      * @var relatedRecords[]
      */
     public $relatedRecords;
 
     /**
+     * @description The routes associated with the routine.
+     *
      * @var relatedRoutes[]
      */
     public $relatedRoutes;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
      *
      * @var string
      */

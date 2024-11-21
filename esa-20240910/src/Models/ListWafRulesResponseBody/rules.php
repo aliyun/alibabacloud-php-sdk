@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @description The action triggered when requests match conditions defined in the rule.
+     *
      * @example deny
      *
      * @var string
@@ -18,21 +20,29 @@ class rules extends Model
     public $action;
 
     /**
+     * @description The fields in rate limiting rules.
+     *
      * @var string[]
      */
     public $characteristicsFields;
 
     /**
+     * @description The configuration of the rule.
+     *
      * @var WafRuleConfig
      */
     public $config;
 
     /**
+     * @description The fields in the rule.
+     *
      * @var string[]
      */
     public $fields;
 
     /**
+     * @description The rule ID.
+     *
      * @example 20000001
      *
      * @var int
@@ -40,6 +50,8 @@ class rules extends Model
     public $id;
 
     /**
+     * @description The rule name.
+     *
      * @example example
      *
      * @var string
@@ -47,6 +59,8 @@ class rules extends Model
     public $name;
 
     /**
+     * @description The WAF rule category.
+     *
      * @example http_custom
      *
      * @var string
@@ -54,6 +68,8 @@ class rules extends Model
     public $phase;
 
     /**
+     * @description The position of the rule in the ruleset.
+     *
      * @example 1
      *
      * @var int
@@ -61,6 +77,8 @@ class rules extends Model
     public $position;
 
     /**
+     * @description The ruleset ID.
+     *
      * @example 10000001
      *
      * @var int
@@ -68,6 +86,8 @@ class rules extends Model
     public $rulesetId;
 
     /**
+     * @description The skip scope applied when requests match conditions defined in the whitelist rule.
+     *
      * @example part
      *
      * @var string
@@ -75,6 +95,8 @@ class rules extends Model
     public $skip;
 
     /**
+     * @description Indicates whether the rule is enabled.
+     *
      * @example on
      *
      * @var string
@@ -82,16 +104,22 @@ class rules extends Model
     public $status;
 
     /**
+     * @description The skipped WAF rule categories when requests match conditions defined in the whitelist rule.
+     *
      * @var string[]
      */
     public $tags;
 
     /**
+     * @description The time when the rule takes effect.
+     *
      * @var WafTimer
      */
     public $timer;
 
     /**
+     * @description The WAF rule type.
+     *
      * @example http_custom
      *
      * @var string
@@ -99,6 +127,8 @@ class rules extends Model
     public $type;
 
     /**
+     * @description The time when the rule was modified.
+     *
      * @example 2024-01-01T00:00:00Z
      *
      * @var string

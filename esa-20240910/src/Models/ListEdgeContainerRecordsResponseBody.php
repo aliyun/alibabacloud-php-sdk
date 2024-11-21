@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListEdgeContainerRecordsResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListEdgeContainerRecordsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -24,6 +28,8 @@ class ListEdgeContainerRecordsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The records.
+     *
      * @var records[]
      */
     public $records;
@@ -38,6 +44,8 @@ class ListEdgeContainerRecordsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of records returned.
+     *
      * @example 50
      *
      * @var int

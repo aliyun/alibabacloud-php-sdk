@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreatePageRequest extends Model
 {
     /**
+     * @description The Base64-encoded page content. Example: "PGh0bWw+aGVsbG8gcGFnZTwvaHRtbD4=", which indicates "hello page".
+     *
      * @example PGh0bWw+aGVsbG8gcGFnZTwvaHRtbD4=
      *
      * @var string
@@ -16,8 +18,12 @@ class CreatePageRequest extends Model
     public $content;
 
     /**
-     * @description This parameter is required.
+     * @description The Content-Type field in the HTTP header. Valid values:
      *
+     *   text/html
+     *   application/json
+     *
+     * This parameter is required.
      * @example text/html
      *
      * @var string
@@ -25,6 +31,8 @@ class CreatePageRequest extends Model
     public $contentType;
 
     /**
+     * @description The description of the page.
+     *
      * @example a custom deny page
      *
      * @var string
@@ -32,8 +40,9 @@ class CreatePageRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the custom error page.
      *
+     * This parameter is required.
      * @example example
      *
      * @var string

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QuotaListItemsValue extends Model
 {
     /**
+     * @description Indicates whether the item type is configured in the custom list.
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @description The format restrictions for the item type in the custom list.
+     *
      * @var WafQuotaString
      */
     public $value;

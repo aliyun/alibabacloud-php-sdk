@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateListRequest extends Model
 {
     /**
+     * @description The description of the list that you want to create.
+     *
      * @example a custom list
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateListRequest extends Model
     public $description;
 
     /**
+     * @description The items in the list that you want to create.
+     *
      * @example a custom list
      *
      * @var string[]
@@ -23,6 +27,8 @@ class CreateListRequest extends Model
     public $items;
 
     /**
+     * @description The type of the list that you want to create.
+     *
      * @example ip
      *
      * @var string
@@ -30,8 +36,9 @@ class CreateListRequest extends Model
     public $kind;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the list that you want to create.
      *
+     * This parameter is required.
      * @example example
      *
      * @var string

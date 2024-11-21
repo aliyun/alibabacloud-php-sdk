@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListManagedRulesGroupsResponseBody extends Model
 {
     /**
+     * @description The information about the managed rule groups.
+     *
      * @var managedRulesGroups[]
      */
     public $managedRulesGroups;
 
     /**
+     * @description The page number returned.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListManagedRulesGroupsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -29,7 +35,7 @@ class ListManagedRulesGroupsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 36af3fcc-43d0-441c-86b1-428951dc8225
      *
@@ -38,6 +44,8 @@ class ListManagedRulesGroupsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of managed rule groups returned.
+     *
      * @example 5
      *
      * @var int

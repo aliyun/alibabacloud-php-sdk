@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListWafRulesetsShrinkRequest extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListWafRulesetsShrinkRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,8 @@ class ListWafRulesetsShrinkRequest extends Model
     public $pageSize;
 
     /**
+     * @description The WAF rule category of rulesets to query.
+     *
      * @example http_bot
      *
      * @var string
@@ -30,6 +36,8 @@ class ListWafRulesetsShrinkRequest extends Model
     public $phase;
 
     /**
+     * @description The query arguments in the JSON format, which contain filter conditions.
+     *
      * @example http_bot
      *
      * @var string
@@ -37,6 +45,8 @@ class ListWafRulesetsShrinkRequest extends Model
     public $queryArgsShrink;
 
     /**
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,8 @@ class ListWafRulesetsShrinkRequest extends Model
     public $siteId;
 
     /**
+     * @description The version of the website.
+     *
      * @example 1
      *
      * @var int

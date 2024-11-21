@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RebuildEdgeContainerAppStagingEnvRequest extends Model
 {
     /**
+     * @description The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+     *
      * @example app-88068867578379****
      *
      * @var string

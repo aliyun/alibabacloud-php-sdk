@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateSiteCustomLogShrinkRequest extends Model
 {
     /**
+     * @description The cookie fields.
+     *
      * @var string
      */
     public $cookiesShrink;
 
     /**
+     * @description The request header fields.
+     *
      * @var string
      */
     public $requestHeadersShrink;
 
     /**
+     * @description The response header fields.
+     *
      * @var string
      */
     public $responseHeadersShrink;

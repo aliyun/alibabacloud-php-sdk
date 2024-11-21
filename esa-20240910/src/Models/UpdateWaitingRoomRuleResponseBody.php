@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateWaitingRoomRuleResponseBody extends Model
 {
     /**
+     * @description The request ID, which is used to trace a call.
+     *
      * @example 9bfe9d95-7bf6-469d-a628-ed7bc9f25073
      *
      * @var string

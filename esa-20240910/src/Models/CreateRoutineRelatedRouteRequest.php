@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRoutineRelatedRouteRequest extends Model
 {
     /**
+     * @description The routine name.
+     *
      * @example CreateRoutineRelatedRoute
      *
      * @var string
@@ -16,11 +18,19 @@ class CreateRoutineRelatedRouteRequest extends Model
     public $name;
 
     /**
+     * @description The route.
+     *
+     * @example *.example.com/path1*
+     *
      * @var string
      */
     public $route;
 
     /**
+     * @description The website ID.
+     *
+     * @example 54362329990032
+     *
      * @var int
      */
     public $siteId;

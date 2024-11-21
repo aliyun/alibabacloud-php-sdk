@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateKvNamespaceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
      *
+     * This parameter is required.
      * @example ns1
      *
      * @var string
@@ -18,8 +19,9 @@ class UpdateKvNamespaceRequest extends Model
     public $namespace;
 
     /**
-     * @description This parameter is required.
+     * @description The new name of the namespace.
      *
+     * This parameter is required.
      * @example new_ns
      *
      * @var string

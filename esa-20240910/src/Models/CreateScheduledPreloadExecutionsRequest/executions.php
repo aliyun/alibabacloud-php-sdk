@@ -9,25 +9,39 @@ use AlibabaCloud\Tea\Model;
 class executions extends Model
 {
     /**
+     * @description The end time of the prefetch plans.
+     *
+     * @example 2024-06-04T02:02:09Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description This parameter is required.
+     * @description The time interval between each batch execution. Unit: seconds.
+     *
+     * This parameter is required.
+     * @example 30
      *
      * @var int
      */
     public $interval;
 
     /**
-     * @description This parameter is required.
+     * @description The number of URLs prefetched in each batch.
+     *
+     * This parameter is required.
+     * @example 10
      *
      * @var int
      */
     public $sliceLen;
 
     /**
+     * @description The start time of the prefetch plans.
+     *
+     * @example 2024-06-03T16:00:00Z
+     *
      * @var string
      */
     public $startTime;

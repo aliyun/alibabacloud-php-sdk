@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateSiteCustomLogRequest extends Model
 {
     /**
+     * @description The cookie fields.
+     *
      * @var string[]
      */
     public $cookies;
 
     /**
+     * @description The request header fields.
+     *
      * @var string[]
      */
     public $requestHeaders;
 
     /**
+     * @description The response header fields.
+     *
      * @var string[]
      */
     public $responseHeaders;
 
     /**
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+     *
      * @example 11223
      *
      * @var int

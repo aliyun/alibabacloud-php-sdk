@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListPagesRequest extends Model
 {
     /**
+     * @description The page number. Valid values: **1 to 100000**. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListPagesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 20.
+     *
      * @example 20
      *
      * @var int

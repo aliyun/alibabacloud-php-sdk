@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetUploadTaskResponseBody extends Model
 {
     /**
+     * @description The error message returned when the file upload task failed.
+     *
      * @example invalid url
      *
      * @var string
@@ -16,7 +18,7 @@ class GetUploadTaskResponseBody extends Model
     public $description;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example ET5BF670-09D5-4D0B-BEBY-D96A2A52****
      *
@@ -25,6 +27,15 @@ class GetUploadTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The task status.
+     *
+     *   **INIT**: The task is being initialized.
+     *   **activacted**: The task is activated.
+     *   **running**: The task is running.
+     *   **success**: The task is successful.
+     *   **partial**: The task is partially successful.
+     *   **fail**: The task failed.
+     *
      * @example running
      *
      * @var string

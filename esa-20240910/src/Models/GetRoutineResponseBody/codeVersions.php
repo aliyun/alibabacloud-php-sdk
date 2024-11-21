@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class codeVersions extends Model
 {
     /**
+     * @description The description of the code version.
+     *
+     * @example test ver code desc
+     *
      * @var string
      */
     public $codeDescription;
 
     /**
+     * @description The code version.
+     *
+     * @example 1710120201067203242
+     *
      * @var string
      */
     public $codeVersion;
 
     /**
+     * @description The time when the code version was created.
+     *
+     * @example 2024-03-11T01:23:21Z
+     *
      * @var string
      */
     public $createTime;

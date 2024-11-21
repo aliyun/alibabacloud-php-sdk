@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetCertificateResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example A666D44F-19D6-490E-97CF-1A64AB962C57
      *

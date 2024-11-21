@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRoutineRequest extends Model
 {
     /**
+     * @description The routine name.
+     *
      * @example GetRoutine
      *
      * @var string

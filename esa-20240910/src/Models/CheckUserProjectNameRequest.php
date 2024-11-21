@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CheckUserProjectNameRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the real-time log delivery task.
      *
+     * This parameter is required.
      * @example ali-dcdn-log-56
      *
      * @var string

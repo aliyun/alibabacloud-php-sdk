@@ -9,17 +9,23 @@ use AlibabaCloud\Tea\Model;
 class GetCacheReserveSpecificationResponseBody extends Model
 {
     /**
+     * @description The capacities of cache reserve instances that can be created.
+     *
      * @var string[]
      */
     public $cacheReserveCapacity;
 
     /**
+     * @description The regions in which cache reserve instances can be created.
+     *
      * @var string[]
      */
     public $cacheReserveRegion;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
      *
      * @var string
      */

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class FieldContentValue extends Model
 {
     /**
+     * @description The sequence number of the fields.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class FieldContentValue extends Model
     public $sortOrder;
 
     /**
+     * @description The fields.
+     *
      * @var fieldList[]
      */
     public $fieldList;

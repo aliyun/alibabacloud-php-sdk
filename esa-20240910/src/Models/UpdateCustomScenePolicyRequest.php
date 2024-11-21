@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateCustomScenePolicyRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The time when the policy expires.
      *
+     * This parameter is required.
      * @example 2023-04-03T19:00:00Z
      *
      * @var string
@@ -18,8 +19,9 @@ class UpdateCustomScenePolicyRequest extends Model
     public $endTime;
 
     /**
-     * @description This parameter is required.
+     * @description The policy name.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -27,6 +29,8 @@ class UpdateCustomScenePolicyRequest extends Model
     public $name;
 
     /**
+     * @description The IDs of the websites that you want to associate with the policy. Separate multiple IDs with commas (,).
+     *
      * @example 123456****
      *
      * @var string
@@ -34,8 +38,9 @@ class UpdateCustomScenePolicyRequest extends Model
     public $objects;
 
     /**
-     * @description This parameter is required.
+     * @description The policy ID, which can be obtained by calling the [DescribeCustomScenePolicies](https://help.aliyun.com/document_detail/2850508.html) operation.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -43,8 +48,9 @@ class UpdateCustomScenePolicyRequest extends Model
     public $policyId;
 
     /**
-     * @description This parameter is required.
+     * @description The time when the policy takes effect.
      *
+     * This parameter is required.
      * @example 2023-04-03T16:00:00Z
      *
      * @var string
@@ -52,8 +58,11 @@ class UpdateCustomScenePolicyRequest extends Model
     public $startTime;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the policy template. Valid value:
      *
+     *   **promotion**: major events.
+     *
+     * This parameter is required.
      * @example promotion
      *
      * @var string

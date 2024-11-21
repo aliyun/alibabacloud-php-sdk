@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteEdgeContainerAppRequest extends Model
 {
     /**
+     * @description The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+     *
      * @example app-1232321454***
      *
      * @var string

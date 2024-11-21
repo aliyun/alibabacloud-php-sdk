@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListLoadBalancerRegionsResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListLoadBalancerRegionsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 1024
      *
      * @var int
@@ -24,12 +28,14 @@ class ListLoadBalancerRegionsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The regions.
+     *
      * @var regions[]
      */
     public $regions;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 81A5E222-24BF-17EF-9E80-A68D9B8F363D
      *
@@ -38,6 +44,8 @@ class ListLoadBalancerRegionsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 12
      *
      * @var int
@@ -45,6 +53,8 @@ class ListLoadBalancerRegionsResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The total number of pages returned.
+     *
      * @example 1
      *
      * @var int

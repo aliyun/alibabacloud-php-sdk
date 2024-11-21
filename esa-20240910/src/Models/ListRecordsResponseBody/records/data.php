@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The encryption algorithm used for the record. Valid values: 0 to 255. Exclusive to CERT and SSHFP records.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $algorithm;
 
     /**
+     * @description The public key of the certificate. Exclusive to CERT, SMIMEA, and TLSA records.
+     *
      * @example dGVzdGFkYWxrcw==
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $certificate;
 
     /**
+     * @description The public key fingerprint of the record. Exclusive to SSHFP records.
+     *
      * @example abcdef1234567890
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $fingerprint;
 
     /**
+     * @description The flag bit of the record. The Flag for a CAA record indicates its priority and how it is processed. Valid values: 0 to 255. Exclusive to CAA records.
+     *
      * @example 128
      *
      * @var int
@@ -37,6 +45,8 @@ class data extends Model
     public $flag;
 
     /**
+     * @description The public key identification for the record. Valid values: 0 to 65535. Exclusive to CERT records.
+     *
      * @example 0
      *
      * @var int
@@ -44,6 +54,8 @@ class data extends Model
     public $keyTag;
 
     /**
+     * @description The algorithm policy used to match or validate the certificate. Valid values: 0 to 255. Exclusive to SMIMEA and TLSA records.
+     *
      * @example 0
      *
      * @var int
@@ -51,6 +63,8 @@ class data extends Model
     public $matchingType;
 
     /**
+     * @description The port of the record. Valid values: 0 to 65535. Exclusive to SRV records.
+     *
      * @example 80
      *
      * @var int
@@ -58,6 +72,8 @@ class data extends Model
     public $port;
 
     /**
+     * @description The priority of the record. Valid values: 0 to 65535. A smaller value indicates a higher priority. Exclusive to MX, SRV, and URI records.
+     *
      * @example 0
      *
      * @var int
@@ -65,6 +81,8 @@ class data extends Model
     public $priority;
 
     /**
+     * @description The type of certificate or public key. Valid values: 0 to 255. Exclusive to SMIMEA, and TLSA records.
+     *
      * @example 0
      *
      * @var int
@@ -72,6 +90,8 @@ class data extends Model
     public $selector;
 
     /**
+     * @description The tag of the record. The Tag of a CAA record indicate its specific type and usage. Exclusive to CAA records.
+     *
      * @example issue
      *
      * @var string
@@ -79,6 +99,8 @@ class data extends Model
     public $tag;
 
     /**
+     * @description The certificate type of the record (in CERT records), or the public key type (in SSHFP records).
+     *
      * @example 0
      *
      * @var int
@@ -86,6 +108,8 @@ class data extends Model
     public $type;
 
     /**
+     * @description The usage identifier of the record. Valid values: 0 to 255. Exclusive to SMIMEA, and TLSA records.
+     *
      * @example 0
      *
      * @var int
@@ -93,6 +117,17 @@ class data extends Model
     public $usage;
 
     /**
+     * @description Record value or part of the record content. This value is returned when the record is A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, or URI. It has different meanings based on types of records:
+     *
+     *   **A/AAAA**: the IP addresses. IP addresses are separated by commas (,). There is at least one IPv4 address.
+     *   **CNAME**: the pointed/mapped domain name.
+     *   **NS**: the nameservers for the domain name.
+     *   **MX**: a valid domain name of the mail server.
+     *   **TXT**: a valid text string.
+     *   **CAA**: a valid domain name of the certificate authority.
+     *   **SRV**: a valid domain name of the target host.
+     *   **URI**: a valid URI string.
+     *
      * @example CNAME
      *
      * @var string
@@ -100,6 +135,8 @@ class data extends Model
     public $value;
 
     /**
+     * @description The weight of the record. Valid values: 0 to 65535. Exclusive to SRV and URI records.
+     *
      * @example 0
      *
      * @var int

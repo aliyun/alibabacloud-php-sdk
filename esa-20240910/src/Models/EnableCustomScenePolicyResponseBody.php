@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EnableCustomScenePolicyResponseBody extends Model
 {
     /**
+     * @description The policy ID.
+     *
      * @example 1
      *
      * @var int
@@ -16,7 +18,7 @@ class EnableCustomScenePolicyResponseBody extends Model
     public $policyId;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 65C66B7B-671A-8297-9187-2R5477247B76
      *

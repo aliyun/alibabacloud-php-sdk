@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PutKvRequest extends Model
 {
     /**
+     * @description Specifies whether the content of the key is Base64-encoded. Set this parameter to true if you want to store the key content in binary format. When this parameter is set to true, the Value parameter must be Base64-encoded.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class PutKvRequest extends Model
     public $base64;
 
     /**
+     * @description The time when the key-value pair expires, which cannot be earlier than the current time. The value is a timestamp in seconds. If you specify both Expiration and ExpirationTtl, only ExpirationTtl takes effect.
+     *
      * @example 1690081381
      *
      * @var int
@@ -23,6 +27,8 @@ class PutKvRequest extends Model
     public $expiration;
 
     /**
+     * @description The relative expiration time. Unit: seconds. If you specify both Expiration and ExpirationTtl, only ExpirationTtl takes effect.
+     *
      * @example 3600
      *
      * @var int
@@ -30,8 +36,9 @@ class PutKvRequest extends Model
     public $expirationTtl;
 
     /**
-     * @description This parameter is required.
+     * @description The key name. The name can be up to 512 characters in length and cannot contain spaces or backslashes (\\\\).
      *
+     * This parameter is required.
      * @example test_key
      *
      * @var string
@@ -39,8 +46,9 @@ class PutKvRequest extends Model
     public $key;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
      *
+     * This parameter is required.
      * @example test_namespace
      *
      * @var string
@@ -48,8 +56,9 @@ class PutKvRequest extends Model
     public $namespace;
 
     /**
-     * @description This parameter is required.
+     * @description The content of the key, which can be up to 2 MB (2 × 1000 × 1000). If the content is larger than 2 MB, call [PutKvWithHighCapacity](https://help.aliyun.com/document_detail/2850486.html).
      *
+     * This parameter is required.
      * @example test_value
      *
      * @var string

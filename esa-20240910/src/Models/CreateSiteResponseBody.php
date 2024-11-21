@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSiteResponseBody extends Model
 {
     /**
+     * @description The nameservers assigned by ESA. The values are separated by commas (,). This parameter is returned if you set AccessType to NS. In this case, you must change the nameservers of your domain to the assigned ones. Then, you can verify the domain ownership and activate your website.
+     *
      * @example ns1.example.com,ns2.example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateSiteResponseBody extends Model
     public $nameServerList;
 
     /**
+     * @description The request ID.
+     *
      * @example CB1A380B-09F0-41BB-3C82-72F8FD6DA2FE
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateSiteResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The website ID.
+     *
      * @example 1234567890123
      *
      * @var int
@@ -30,6 +36,8 @@ class CreateSiteResponseBody extends Model
     public $siteId;
 
     /**
+     * @description The verification code for the website. If you set AccessType to CNAME, you need to add a TXT record whose hostname is **_esaauth.[websiteDomainName]** and record value is the value of VerifyCode to the DNS records of your domain. ****Then, you can verify the domain ownership and activate your website.
+     *
      * @example verify_aah9dioasmov****
      *
      * @var string

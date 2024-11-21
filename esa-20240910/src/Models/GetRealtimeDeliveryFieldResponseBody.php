@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class GetRealtimeDeliveryFieldResponseBody extends Model
 {
     /**
+     * @description The fields returned.
+     *
      * @var FieldContentValue[]
      */
     public $fieldContent;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 15C66C7B-671A-4297-9187-2C4477247B78
      *

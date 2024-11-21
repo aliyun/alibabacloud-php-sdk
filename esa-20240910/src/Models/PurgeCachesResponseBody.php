@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class PurgeCachesResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example ET5BF670-09D5-4D0B-BEBY-D96A2A528000
      *
@@ -18,6 +18,8 @@ class PurgeCachesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The task ID, which is generated after you create a task.
+     *
      * @example 15940956620
      *
      * @var string

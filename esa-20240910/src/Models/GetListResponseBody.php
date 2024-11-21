@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetListResponseBody extends Model
 {
     /**
-     * @description 自定义响应页面描述
+     * @description The description of the custom list.
      *
      * @example a custom list
      *
@@ -18,7 +18,7 @@ class GetListResponseBody extends Model
     public $description;
 
     /**
-     * @description 自定义响应页面ID
+     * @description The ID of the custom list.[](~~2850217~~)
      *
      * @example 40000001
      *
@@ -27,11 +27,15 @@ class GetListResponseBody extends Model
     public $id;
 
     /**
+     * @description The items in the custom list, which are displayed as an array.
+     *
      * @var string[]
      */
     public $items;
 
     /**
+     * @description The type of the custom list.
+     *
      * @example ip
      *
      * @var string
@@ -39,7 +43,7 @@ class GetListResponseBody extends Model
     public $kind;
 
     /**
-     * @description 自定义响应页面名称
+     * @description The name of the custom list.
      *
      * This parameter is required.
      * @example example
@@ -49,7 +53,7 @@ class GetListResponseBody extends Model
     public $name;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 36af3fcc-43d0-441c-86b1-428951dc8225
      *
@@ -58,6 +62,8 @@ class GetListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The time when the custom list was last modified.
+     *
      * @example 2024-01-01T00:00:00Z
      *
      * @var string

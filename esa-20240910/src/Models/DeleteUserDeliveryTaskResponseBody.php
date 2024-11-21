@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserDeliveryTaskResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 952ea16b-1f05-4a76-bb32-420282d8aeb9
      *

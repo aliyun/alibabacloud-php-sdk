@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateWaitingRoomShrinkRequest extends Model
 {
     /**
+     * @description The name of the custom cookie.
+     *
      * @example __aliwaitingroom_example
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateWaitingRoomShrinkRequest extends Model
     public $cookieName;
 
     /**
+     * @description The content of the custom waiting room page. You must specify this parameter if you set WaitingRoomType to custom. The content must be Base64-encoded.
+     *
      * @example Hello%20world!
      *
      * @var string
@@ -23,11 +27,18 @@ class UpdateWaitingRoomShrinkRequest extends Model
     public $customPageHtml;
 
     /**
+     * @description The description of the waiting room.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Specifies whether to disable session renewal. Valid values:
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string
@@ -35,6 +46,11 @@ class UpdateWaitingRoomShrinkRequest extends Model
     public $disableSessionRenewalEnable;
 
     /**
+     * @description Specifies whether to enable the waiting room. Valid values:
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string
@@ -42,11 +58,18 @@ class UpdateWaitingRoomShrinkRequest extends Model
     public $enable;
 
     /**
+     * @description The hostname and path.
+     *
      * @var string
      */
     public $hostNameAndPathShrink;
 
     /**
+     * @description Specifies whether to enable JSON response. If JSON response is enabled, a JSON body is returned for requests to the waiting room with the header Accept: application/json. Valid values:
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string
@@ -54,6 +77,12 @@ class UpdateWaitingRoomShrinkRequest extends Model
     public $jsonResponseEnable;
 
     /**
+     * @description The language of the waiting room page. You must specify this parameter if you set WaitingRoomType to default. Valid values:
+     *
+     *   enus: English.
+     *   zhcn: Simplified Chinese.
+     *   zhhk: Traditional Chinese.
+     *
      * @example zhcn
      *
      * @var string
@@ -61,11 +90,15 @@ class UpdateWaitingRoomShrinkRequest extends Model
     public $language;
 
     /**
+     * @description The name of the waiting room.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The maximum number of new users per minute.
+     *
      * @example 200
      *
      * @var string
@@ -73,6 +106,11 @@ class UpdateWaitingRoomShrinkRequest extends Model
     public $newUsersPerMinute;
 
     /**
+     * @description Specifies whether to queue all requests. Valid values:
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string
@@ -80,6 +118,13 @@ class UpdateWaitingRoomShrinkRequest extends Model
     public $queueAllEnable;
 
     /**
+     * @description The queuing method. Valid values:
+     *
+     *   random: Users gain access to the origin randomly, regardless of the arrival time.
+     *   fifo: Users gain access to the origin in order of arrival.
+     *   passthrough: Users pass through the waiting room and go straight to the origin.
+     *   reject-all: Users are blocked from reaching the origin.
+     *
      * @example random
      *
      * @var string
@@ -87,6 +132,12 @@ class UpdateWaitingRoomShrinkRequest extends Model
     public $queuingMethod;
 
     /**
+     * @description The HTTP status code to return while a user is in the queue. Valid values:
+     *
+     *   200
+     *   202
+     *   429
+     *
      * @example 200
      *
      * @var string
@@ -94,6 +145,8 @@ class UpdateWaitingRoomShrinkRequest extends Model
     public $queuingStatusCode;
 
     /**
+     * @description The maximum duration for which a session remains valid after a user leaves the origin. Unit: minutes.
+     *
      * @example 5
      *
      * @var string
@@ -101,8 +154,9 @@ class UpdateWaitingRoomShrinkRequest extends Model
     public $sessionDuration;
 
     /**
-     * @description This parameter is required.
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
      *
+     * This parameter is required.
      * @example 7096621098****
      *
      * @var int
@@ -110,6 +164,8 @@ class UpdateWaitingRoomShrinkRequest extends Model
     public $siteId;
 
     /**
+     * @description The maximum number of active users.
+     *
      * @example 300
      *
      * @var string
@@ -117,8 +173,9 @@ class UpdateWaitingRoomShrinkRequest extends Model
     public $totalActiveUsers;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the waiting room, which can be obtained by calling the [ListWaitingRooms](https://help.aliyun.com/document_detail/2850279.html) operation.
      *
+     * This parameter is required.
      * @example 6a51d5bc6460887abd129****
      *
      * @var string
@@ -126,6 +183,11 @@ class UpdateWaitingRoomShrinkRequest extends Model
     public $waitingRoomId;
 
     /**
+     * @description The type of the waiting room. Valid values:
+     *
+     *   default
+     *   custom
+     *
      * @example default
      *
      * @var string

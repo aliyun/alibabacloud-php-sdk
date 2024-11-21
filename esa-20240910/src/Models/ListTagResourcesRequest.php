@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The maximum number of tags to return.
+     *
      * @example 20
      *
      * @var int
@@ -17,6 +19,9 @@ class ListTagResourcesRequest extends Model
     public $maxItem;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
+     * >  This parameter is not required for the first request. If not all results are returned in one query, you can specify the token that is obtained from the previous query as the value of **NextToken**.
      * @example AAAAAZjtYxxxxxxxx
      *
      * @var string
@@ -29,7 +34,7 @@ class ListTagResourcesRequest extends Model
     public $ownerId;
 
     /**
-     * @description 要创建并绑定标签的资源所在的地域ID。
+     * @description The ID of the region where the resources reside.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -39,15 +44,16 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description 资源ID,最多 50个子项
+     * @description The website information. Valid values of he number of website IDs: **1** to **50**.
      *
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @description This parameter is required.
+     * @description The resource type.
      *
+     * This parameter is required.
      * @example site
      *
      * @var string
@@ -60,6 +66,8 @@ class ListTagResourcesRequest extends Model
     public $securityToken;
 
     /**
+     * @description A list of tags. You can enter up to 20 tags.
+     *
      * @var tag[]
      */
     public $tag;

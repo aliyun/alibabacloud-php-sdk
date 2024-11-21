@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetEdgeContainerAppStatusRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
      *
+     * This parameter is required.
      * @example app-88068867578379****
      *
      * @var string
@@ -18,6 +19,8 @@ class GetEdgeContainerAppStatusRequest extends Model
     public $appId;
 
     /**
+     * @description The release environment. Valid values: prod and staging.
+     *
      * @example staging
      *
      * @var string

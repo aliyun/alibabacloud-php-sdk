@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class probeContent extends Model
 {
     /**
+     * @description The probe command.
+     *
      * @example openresty -g  "daemon off;
      *
      * @var string
@@ -16,6 +18,8 @@ class probeContent extends Model
     public $command;
 
     /**
+     * @description The number of consecutive failed health checks required for a container to be considered as unhealthy.
+     *
      * @example 3
      *
      * @var int
@@ -23,6 +27,8 @@ class probeContent extends Model
     public $failureThreshold;
 
     /**
+     * @description The domain name that is used for health checks.
+     *
      * @example test.com
      *
      * @var string
@@ -30,6 +36,8 @@ class probeContent extends Model
     public $host;
 
     /**
+     * @description The request headers that are included in the container health check request.
+     *
      * @example {\\"Content-Type\\":\\"application/json\\"}
      *
      * @var string
@@ -37,6 +45,8 @@ class probeContent extends Model
     public $httpHeaders;
 
     /**
+     * @description The latency for container probe initialization.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +54,8 @@ class probeContent extends Model
     public $initialDelaySeconds;
 
     /**
+     * @description The path of the container health check.
+     *
      * @example /health_check
      *
      * @var string
@@ -51,6 +63,8 @@ class probeContent extends Model
     public $path;
 
     /**
+     * @description The interval between container health checks.
+     *
      * @example 5
      *
      * @var int
@@ -58,6 +72,8 @@ class probeContent extends Model
     public $periodSeconds;
 
     /**
+     * @description The port of the container health check.
+     *
      * @example 80
      *
      * @var int
@@ -65,6 +81,8 @@ class probeContent extends Model
     public $port;
 
     /**
+     * @description The protocol that the container health check request uses.
+     *
      * @example http
      *
      * @var string
@@ -72,6 +90,8 @@ class probeContent extends Model
     public $scheme;
 
     /**
+     * @description The number of consecutive successful health checks required for a container to be considered as healthy.
+     *
      * @example 1
      *
      * @var int
@@ -79,6 +99,8 @@ class probeContent extends Model
     public $successThreshold;
 
     /**
+     * @description The timeout period of the container health check.
+     *
      * @example 30
      *
      * @var int

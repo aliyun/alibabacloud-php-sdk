@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetEdgeContainerAppRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
      *
+     * This parameter is required.
      * @example app-88068867578379****
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CheckSiteNameRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The website name.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExportRecordsRequest extends Model
 {
     /**
+     * @description The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+     *
      * @example 1234567890123
      *
      * @var int

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetSiteCurrentNSResponseBody extends Model
 {
     /**
+     * @description The nameservers of the website.
+     *
      * @var string[]
      */
     public $NSList;
 
     /**
+     * @description The request ID.
+     *
      * @example 2430E05E-1340-5773-B5E1-B743929F46F2
      *
      * @var string

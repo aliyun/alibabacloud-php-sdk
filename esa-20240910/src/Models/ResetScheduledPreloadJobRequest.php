@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResetScheduledPreloadJobRequest extends Model
 {
     /**
+     * @description The ID of the scheduled prefetch task.
+     *
      * @example ResetScheduledPreloadJob
      *
      * @var string

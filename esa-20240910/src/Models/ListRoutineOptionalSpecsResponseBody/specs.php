@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class specs extends Model
 {
     /**
+     * @description Indicates whether the specification is available. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isAvailable;
 
     /**
+     * @description The specification name.
+     *
+     * @example 5ms
+     *
      * @var string
      */
     public $specName;

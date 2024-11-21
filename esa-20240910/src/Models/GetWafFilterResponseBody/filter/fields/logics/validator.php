@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class validator extends Model
 {
     /**
+     * @description The error message when the validation fails.
+     *
      * @example Enter a valid expression
      *
      * @var string
@@ -17,11 +19,15 @@ class validator extends Model
     public $errMsg;
 
     /**
+     * @description The length of the value.
+     *
      * @var WafQuotaInteger
      */
     public $length;
 
     /**
+     * @description The regular expression pattern of the value, which is used to validate strings.
+     *
      * @example ^example$
      *
      * @var string
@@ -29,6 +35,8 @@ class validator extends Model
     public $pattern;
 
     /**
+     * @description The range of the value, which is used to validate numbers.
+     *
      * @var WafQuotaInteger
      */
     public $range;

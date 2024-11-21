@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class queryArgs extends Model
 {
     /**
+     * @description The action that you want WAF to perform on requests that match the rule.
+     *
      * @example deny
      *
      * @var string
@@ -16,6 +18,8 @@ class queryArgs extends Model
     public $action;
 
     /**
+     * @description The rule ID or name for fuzzy search.
+     *
      * @example example
      *
      * @var string
@@ -23,11 +27,15 @@ class queryArgs extends Model
     public $idNameLike;
 
     /**
+     * @description The protection levels of the rules.
+     *
      * @var int[]
      */
     public $protectionLevels;
 
     /**
+     * @description The status.
+     *
      * @example on
      *
      * @var string

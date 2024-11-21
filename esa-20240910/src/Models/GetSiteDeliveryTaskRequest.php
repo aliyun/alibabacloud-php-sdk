@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetSiteDeliveryTaskRequest extends Model
 {
     /**
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+     *
      * @example 123456***
      *
      * @var int
@@ -16,8 +18,9 @@ class GetSiteDeliveryTaskRequest extends Model
     public $siteId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the delivery task.
      *
+     * This parameter is required.
      * @example cdn-test-task
      *
      * @var string

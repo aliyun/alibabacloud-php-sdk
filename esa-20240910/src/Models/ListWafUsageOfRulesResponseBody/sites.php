@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sites extends Model
 {
     /**
+     * @description The website ID.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class sites extends Model
     public $id;
 
     /**
+     * @description The website name.
+     *
      * @example example.com
      *
      * @var string
@@ -23,6 +27,8 @@ class sites extends Model
     public $name;
 
     /**
+     * @description The usage of WAF rules or WAF rulesets.
+     *
      * @example 1
      *
      * @var int

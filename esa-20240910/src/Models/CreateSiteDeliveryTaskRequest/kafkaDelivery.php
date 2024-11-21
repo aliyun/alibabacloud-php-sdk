@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class kafkaDelivery extends Model
 {
     /**
+     * @description The load balancing method.
+     *
+     * @example kafka.LeastBytes
+     *
      * @var string
      */
     public $balancer;
 
     /**
+     * @description The brokers.
+     *
      * @var string[]
      */
     public $brokers;
 
     /**
+     * @description The compression method.
+     *
      * @example gzip
      *
      * @var string
@@ -26,26 +34,46 @@ class kafkaDelivery extends Model
     public $compress;
 
     /**
+     * @description The encryption method.
+     *
+     * @example plain
+     *
      * @var string
      */
     public $machanismType;
 
     /**
+     * @description The password.
+     *
+     * @example ***
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @description The topic.
+     *
+     * @example dqc_test2
+     *
      * @var string
      */
     public $topic;
 
     /**
+     * @description Specifies whether to enable authentication.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $userAuth;
 
     /**
+     * @description The username.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $userName;

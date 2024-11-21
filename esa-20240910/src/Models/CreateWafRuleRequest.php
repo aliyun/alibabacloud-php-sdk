@@ -9,13 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateWafRuleRequest extends Model
 {
     /**
+     * @description The configuration of the rule that you want to create.
+     *
      * @var WafRuleConfig
      */
     public $config;
 
     /**
-     * @description This parameter is required.
+     * @description The WAF rule category.
      *
+     * This parameter is required.
      * @example http_custom
      *
      * @var string
@@ -23,8 +26,9 @@ class CreateWafRuleRequest extends Model
     public $phase;
 
     /**
-     * @description This parameter is required.
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -32,6 +36,10 @@ class CreateWafRuleRequest extends Model
     public $siteId;
 
     /**
+     * @description The version of the website.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $siteVersion;

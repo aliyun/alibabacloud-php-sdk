@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class routines extends Model
 {
     /**
+     * @description The time when the routine was created.
+     *
+     * @example 2024-03-11T01:23:02.883361712Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The routine description, which is Base64-encoded.
+     *
+     * @example ZWRpdCByb3V0aW5lIGNvbmZpZyBkZXNjcmlwdGlvbg
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The routine name.
+     *
+     * @example test-routine1
+     *
      * @var string
      */
     public $routineName;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteWaitingRoomResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 15C66C7B-671A-4297-9187-2C4477247A123425345
      *
      * @var string

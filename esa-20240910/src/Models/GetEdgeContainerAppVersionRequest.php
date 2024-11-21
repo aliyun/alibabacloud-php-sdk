@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetEdgeContainerAppVersionRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
      *
+     * This parameter is required.
      * @example app-88068867578379****
      *
      * @var string
@@ -18,8 +19,9 @@ class GetEdgeContainerAppVersionRequest extends Model
     public $appId;
 
     /**
-     * @description This parameter is required.
+     * @description The version ID, which can be obtained by calling the [ListEdgeContainerAppVersions](~~ListEdgeContainerAppVersions~~) operation.
      *
+     * This parameter is required.
      * @example ver-87962637161651****
      *
      * @var string

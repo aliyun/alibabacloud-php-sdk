@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateSiteDeliveryTaskStatusResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 34DCBC8A-****-****-****-6DAA11D7DDBD
      *
@@ -18,6 +18,11 @@ class UpdateSiteDeliveryTaskStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the delivery task. Valid values:
+     *
+     *   **online**
+     *   **offline**
+     *
      * @example online
      *
      * @var string
@@ -25,6 +30,8 @@ class UpdateSiteDeliveryTaskStatusResponseBody extends Model
     public $status;
 
     /**
+     * @description The name of the delivery task.
+     *
      * @example cdn-test-task
      *
      * @var string

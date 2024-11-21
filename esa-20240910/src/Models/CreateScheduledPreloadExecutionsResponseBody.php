@@ -11,33 +11,49 @@ use AlibabaCloud\Tea\Model;
 class CreateScheduledPreloadExecutionsResponseBody extends Model
 {
     /**
+     * @description The information about prefetch plans that failed to be created.
+     *
      * @var failedExecutions[]
      */
     public $failedExecutions;
 
     /**
+     * @description The information about plan failures.
+     *
      * @var string[]
      */
     public $failedMessages;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example F61CDR30-E83C-4FDA-BF73-9A94CDD44229
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of prefetch plans that are created.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $successCount;
 
     /**
+     * @description The information about created prefetch plans.
+     *
      * @var successExecutions[]
      */
     public $successExecutions;
 
     /**
+     * @description The total number of new plans requested.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

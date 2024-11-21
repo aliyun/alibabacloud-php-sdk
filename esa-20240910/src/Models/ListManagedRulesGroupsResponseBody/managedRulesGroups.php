@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class managedRulesGroups extends Model
 {
     /**
+     * @description The name of the managed rule group.
+     *
      * @example example
      *
      * @var string
@@ -16,6 +18,8 @@ class managedRulesGroups extends Model
     public $name;
 
     /**
+     * @description The number of rules in the managed rule group.
+     *
      * @example 1000
      *
      * @var int

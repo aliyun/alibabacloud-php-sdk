@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PutKvResponseBody extends Model
 {
     /**
+     * @description The length of the value in the key-value pair.
+     *
      * @example 4
      *
      * @var string
@@ -16,7 +18,7 @@ class PutKvResponseBody extends Model
     public $length;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
      *
@@ -25,6 +27,8 @@ class PutKvResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The content of the key. If the content has more than 256 characters in length, the system displays the first 100 and the last 100 characters, and omits the middle part.
+     *
      * @example test
      *
      * @var string

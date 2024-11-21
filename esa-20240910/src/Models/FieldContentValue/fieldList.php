@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class fieldList extends Model
 {
     /**
+     * @description The field name.
+     *
      * @example ClientIp
      *
      * @var string
@@ -16,6 +18,8 @@ class fieldList extends Model
     public $fieldName;
 
     /**
+     * @description The description of the field in English.
+     *
      * @example IP address of the client.
      *
      * @var string
@@ -23,11 +27,15 @@ class fieldList extends Model
     public $description;
 
     /**
+     * @description The description of the field in Chinese.
+     *
      * @var string
      */
     public $descriptionCn;
 
     /**
+     * @description The category of the field.
+     *
      * @example Client
      *
      * @var string
@@ -35,6 +43,8 @@ class fieldList extends Model
     public $category;
 
     /**
+     * @description The data type of the field.
+     *
      * @example String
      *
      * @var string
@@ -42,6 +52,8 @@ class fieldList extends Model
     public $dataType;
 
     /**
+     * @description The sequence number of the field.
+     *
      * @example 1
      *
      * @var int
@@ -49,6 +61,8 @@ class fieldList extends Model
     public $sortOrder;
 
     /**
+     * @description Indicates whether the field is available by default.
+     *
      * @example true
      *
      * @var bool

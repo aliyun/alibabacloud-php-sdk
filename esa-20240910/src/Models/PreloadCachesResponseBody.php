@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class PreloadCachesResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 9732E117-8A37-49FD-A36F-ABBB87556CA7
      *
@@ -18,6 +18,8 @@ class PreloadCachesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The prefetch task ID.
+     *
      * @example 16401427840
      *
      * @var string

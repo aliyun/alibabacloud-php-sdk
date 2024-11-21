@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteRoutineRelatedRecordResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
      *
@@ -18,6 +18,13 @@ class DeleteRoutineRelatedRecordResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the operation is successful.
+     *
+     *   OK
+     *   Fail
+     *
+     * @example OK
+     *
      * @var string
      */
     public $status;

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CommitRoutineStagingCodeRequest extends Model
 {
     /**
+     * @description The description of the code version.
+     *
+     * @example description of this code ver
+     *
      * @var string
      */
     public $codeDescription;
 
     /**
+     * @description The routine name.
+     *
      * @example CommitRoutineStagingCode
      *
      * @var string

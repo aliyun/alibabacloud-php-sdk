@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateWaitingRoomRuleRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The rule content, which is a policy or conditional expression.
      *
+     * This parameter is required.
      * @example (http.request.uri.path.file_name eq \\"jpg\\")
      *
      * @var string
@@ -18,8 +19,12 @@ class UpdateWaitingRoomRuleRequest extends Model
     public $rule;
 
     /**
-     * @description This parameter is required.
+     * @description Specifies whether to enable the rule. Valid values:
      *
+     *   on
+     *   off
+     *
+     * This parameter is required.
      * @example on
      *
      * @var string
@@ -27,8 +32,9 @@ class UpdateWaitingRoomRuleRequest extends Model
     public $ruleEnable;
 
     /**
-     * @description This parameter is required.
+     * @description The rule name.
      *
+     * This parameter is required.
      * @example test1
      *
      * @var string
@@ -36,8 +42,9 @@ class UpdateWaitingRoomRuleRequest extends Model
     public $ruleName;
 
     /**
-     * @description This parameter is required.
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
      *
+     * This parameter is required.
      * @example 123456****
      *
      * @var int
@@ -45,6 +52,8 @@ class UpdateWaitingRoomRuleRequest extends Model
     public $siteId;
 
     /**
+     * @description The ID of the waiting room bypass rule that you want to update. You can call [ListWaitingRoomRules](https://help.aliyun.com/document_detail/2850279.html) to obtain the ID.
+     *
      * @example 8987739839****
      *
      * @var int

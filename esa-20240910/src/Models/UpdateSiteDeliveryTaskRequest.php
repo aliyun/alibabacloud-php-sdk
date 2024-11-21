@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class UpdateSiteDeliveryTaskRequest extends Model
 {
     /**
+     * @description The log category. Valid values:
+     *
+     *   dcdn_log_access_l1 (default): access logs.
+     *   dcdn_log_er: Edge Routine logs.
+     *   dcdn_log_waf: firewall logs.
+     *   dcdn_log_ipa: TCP/UDP proxy logs.
+     *
      * @example dcdn_log_er
      *
      * @var string
@@ -16,6 +23,8 @@ class UpdateSiteDeliveryTaskRequest extends Model
     public $businessType;
 
     /**
+     * @description The discard rate.
+     *
      * @example 0.0
      *
      * @var float
@@ -23,8 +32,9 @@ class UpdateSiteDeliveryTaskRequest extends Model
     public $discardRate;
 
     /**
-     * @description This parameter is required.
+     * @description The log fields that you want to include in real-time logs to be delivered. Separate the log fields with commas (,).
      *
+     * This parameter is required.
      * @example ClientIP,UserAgent
      *
      * @var string
@@ -32,6 +42,8 @@ class UpdateSiteDeliveryTaskRequest extends Model
     public $fieldName;
 
     /**
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+     *
      * @example 123456****
      *
      * @var int
@@ -39,8 +51,9 @@ class UpdateSiteDeliveryTaskRequest extends Model
     public $siteId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the delivery task.
      *
+     * This parameter is required.
      * @example cdn-test-task
      *
      * @var string

@@ -12,96 +12,166 @@ use AlibabaCloud\Tea\Model;
 class httpDelivery extends Model
 {
     /**
+     * @description The compression method.
+     *
+     * @example gzip
+     *
      * @var string
      */
     public $compress;
 
     /**
+     * @description The address of the HTTP server.
+     *
+     * @example http://xxx.aliyun.com/v1/log/upload
+     *
      * @var string
      */
     public $destUrl;
 
     /**
+     * @description The custom headers.
+     *
      * @var HttpDeliveryHeaderParamValue[]
      */
     public $headerParam;
 
     /**
+     * @description The ending separator.
+     *
+     * @example \\n
+     *
      * @var string
      */
     public $lastLogSplit;
 
     /**
+     * @description The prefix of the log delivery package.
+     *
+     * @example cdnVersion:1.0
+     *
      * @var string
      */
     public $logBodyPrefix;
 
     /**
+     * @description The suffix of the log delivery package.
+     *
+     * @example cdnVersion:1.0
+     *
      * @var string
      */
     public $logBodySuffix;
 
     /**
+     * @description Specifies whether to enable log splitting. Default value: true.
+     *
+     * @example true
+     *
      * @var string
      */
     public $logSplit;
 
     /**
+     * @description The log separator.
+     *
+     * @example \\n
+     *
      * @var string
      */
     public $logSplitWords;
 
     /**
+     * @description The maximum backoff time. Unit: milliseconds.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $maxBackoffMS;
 
     /**
+     * @description The maximum size of data for each delivery. Unit: MB.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $maxBatchMB;
 
     /**
+     * @description The maximum number of entries for each delivery.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $maxBatchSize;
 
     /**
+     * @description The maximum number of retries.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $maxRetry;
 
     /**
+     * @description The minimum backoff time. Unit: milliseconds.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $minBackoffMS;
 
     /**
+     * @description The custom query parameters.
+     *
      * @var HttpDeliveryQueryParamValue[]
      */
     public $queryParam;
 
     /**
+     * @description The response field key used for success check.
+     *
+     * @example err_code
+     *
      * @var string
      */
     public $responseBodyKey;
 
     /**
+     * @description Specifies whether to use server authentication.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $standardAuthOn;
 
     /**
+     * @description The authentication configurations.
+     *
      * @var standardAuthParam
      */
     public $standardAuthParam;
 
     /**
+     * @description The custom code for a success.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $successCode;
 
     /**
+     * @description The timeout period. Unit: seconds.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $transformTimeout;

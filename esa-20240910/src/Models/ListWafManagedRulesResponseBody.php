@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListWafManagedRulesResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListWafManagedRulesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -24,6 +28,8 @@ class ListWafManagedRulesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 36af3fcc-43d0-441c-86b1-428951dc8225
      *
      * @var string
@@ -31,11 +37,15 @@ class ListWafManagedRulesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The managed rules.
+     *
      * @var rules[]
      */
     public $rules;
 
     /**
+     * @description The total number of filtered rules.
+     *
      * @example 20
      *
      * @var int

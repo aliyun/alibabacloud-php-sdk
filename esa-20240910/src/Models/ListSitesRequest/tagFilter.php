@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tagFilter extends Model
 {
     /**
+     * @description The tag key. This parameter specifies a filter condition for the query.
+     *
      * @example tag1
      *
      * @var string
@@ -16,6 +18,8 @@ class tagFilter extends Model
     public $key;
 
     /**
+     * @description The tag value. This parameter specifies a filter condition for the query.
+     *
      * @example aaa
      *
      * @var string

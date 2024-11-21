@@ -9,8 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CreateUserDeliveryTaskShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The log category. Valid values:
      *
+     *   dcdn_log_access_l1 (default): access logs.
+     *   dcdn_log_er: Edge Routine logs.
+     *   dcdn_log_waf: firewall logs.
+     *   dcdn_log_ipa: TCP/UDP proxy logs.
+     *
+     * This parameter is required.
      * @example dcdn_log_access_l1
      *
      * @var string
@@ -18,8 +24,12 @@ class CreateUserDeliveryTaskShrinkRequest extends Model
     public $businessType;
 
     /**
-     * @description This parameter is required.
+     * @description The data center. Valid values:
      *
+     *   cn: the Chinese mainland.
+     *   sg: outside the Chinese mainland.
+     *
+     * This parameter is required.
      * @example cn
      *
      * @var string
@@ -27,8 +37,9 @@ class CreateUserDeliveryTaskShrinkRequest extends Model
     public $dataCenter;
 
     /**
-     * @description This parameter is required.
+     * @description The destination of the delivery. Valid values:
      *
+     * This parameter is required.
      * @example sls
      *
      * @var string
@@ -36,6 +47,8 @@ class CreateUserDeliveryTaskShrinkRequest extends Model
     public $deliveryType;
 
     /**
+     * @description The discard rate. Default value: 0.
+     *
      * @example 0
      *
      * @var float
@@ -43,8 +56,9 @@ class CreateUserDeliveryTaskShrinkRequest extends Model
     public $discardRate;
 
     /**
-     * @description This parameter is required.
+     * @description The log field. If you specify multiple fields, separate them with commas (,).
      *
+     * This parameter is required.
      * @example user_agent,ip_address,ip_port
      *
      * @var string
@@ -52,33 +66,44 @@ class CreateUserDeliveryTaskShrinkRequest extends Model
     public $fieldName;
 
     /**
+     * @description The configurations for delivery to an HTTP server.
+     *
      * @var string
      */
     public $httpDeliveryShrink;
 
     /**
+     * @description The configurations for delivery to Kafka.
+     *
      * @var string
      */
     public $kafkaDeliveryShrink;
 
     /**
+     * @description The configurations for delivery to OSS.
+     *
      * @var string
      */
     public $ossDeliveryShrink;
 
     /**
+     * @description The configurations for delivery to Amazon S3 or an S3-compatible service.
+     *
      * @var string
      */
     public $s3DeliveryShrink;
 
     /**
+     * @description The configurations for delivery to SLS.
+     *
      * @var string
      */
     public $slsDeliveryShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The task name.
      *
+     * This parameter is required.
      * @example test_project
      *
      * @var string

@@ -14,8 +14,9 @@ class ChangeResourceGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the resource group to which you want to move the website.
      *
+     * This parameter is required.
      * @example rg-axxxxxx
      *
      * @var string
@@ -28,6 +29,8 @@ class ChangeResourceGroupRequest extends Model
     public $securityToken;
 
     /**
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+     *
      * @example 123456****
      *
      * @var int

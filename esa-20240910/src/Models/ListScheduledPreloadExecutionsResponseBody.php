@@ -10,18 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListScheduledPreloadExecutionsResponseBody extends Model
 {
     /**
+     * @description The information about prefetch plans returned.
+     *
      * @var executions[]
      */
     public $executions;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example ET5BF670-09D5-4D0B-BEBY-D96A2A528000
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

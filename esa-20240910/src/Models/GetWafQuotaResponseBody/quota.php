@@ -13,21 +13,29 @@ use AlibabaCloud\Tea\Model;
 class quota extends Model
 {
     /**
+     * @description The quota information about custom lists.
+     *
      * @var list_
      */
     public $list;
 
     /**
+     * @description The quota information about WAF managed rule groups.
+     *
      * @var managedRulesGroup
      */
     public $managedRulesGroup;
 
     /**
+     * @description The quota information about custom error pages.
+     *
      * @var page
      */
     public $page;
 
     /**
+     * @description The quota information about scenario-specific policies.
+     *
      * @var scenePolicy
      */
     public $scenePolicy;

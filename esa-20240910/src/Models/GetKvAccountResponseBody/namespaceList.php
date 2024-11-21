@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class namespaceList extends Model
 {
     /**
+     * @description The available capacity of the namespace. Unit: bytes.
+     *
      * @example 1073741824
      *
      * @var int
@@ -16,6 +18,8 @@ class namespaceList extends Model
     public $capacity;
 
     /**
+     * @description The available capacity of the namespace.
+     *
      * @example 1 GB
      *
      * @var string
@@ -23,6 +27,8 @@ class namespaceList extends Model
     public $capacityString;
 
     /**
+     * @description The used capacity of the namespace. Unit: bytes.
+     *
      * @example 100048576
      *
      * @var int
@@ -30,6 +36,8 @@ class namespaceList extends Model
     public $capacityUsed;
 
     /**
+     * @description The used capacity of the namespace.
+     *
      * @example 100 MB
      *
      * @var string
@@ -37,6 +45,8 @@ class namespaceList extends Model
     public $capacityUsedString;
 
     /**
+     * @description The description of the namespace.
+     *
      * @example the first namespace
      *
      * @var string
@@ -44,6 +54,8 @@ class namespaceList extends Model
     public $description;
 
     /**
+     * @description The name of the namespace.
+     *
      * @example test_namespace
      *
      * @var string
@@ -51,6 +63,8 @@ class namespaceList extends Model
     public $namespace;
 
     /**
+     * @description The ID of the namespace.
+     *
      * @example 643355322374688768
      *
      * @var string
@@ -58,6 +72,13 @@ class namespaceList extends Model
     public $namespaceId;
 
     /**
+     * @description The status of the namespace. Valid values:
+     *
+     *   **online**: normal.
+     *   **delete**: pending deletion.
+     *   **deleting**: being deleted.
+     *   **deleted**: deleted.
+     *
      * @example online
      *
      * @var string

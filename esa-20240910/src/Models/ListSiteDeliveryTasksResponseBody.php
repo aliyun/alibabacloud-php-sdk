@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListSiteDeliveryTasksResponseBody extends Model
 {
     /**
+     * @description The page number. Default value: 0.
+     *
      * @example 0
      *
      * @var int
@@ -17,6 +19,8 @@ class ListSiteDeliveryTasksResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: **1 to 500**. Default value: **20**.
+     *
      * @example 20
      *
      * @var int
@@ -24,7 +28,7 @@ class ListSiteDeliveryTasksResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 34DCBC8A-****-****-****-6DAA11D7DDBD
      *
@@ -33,11 +37,15 @@ class ListSiteDeliveryTasksResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The delivery tasks.
+     *
      * @var tasks[]
      */
     public $tasks;
 
     /**
+     * @description The total number of log delivery tasks.
+     *
      * @example 20
      *
      * @var int

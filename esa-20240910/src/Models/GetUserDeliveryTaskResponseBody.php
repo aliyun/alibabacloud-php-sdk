@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetUserDeliveryTaskResponseBody extends Model
 {
     /**
+     * @description The log category. Valid values:
+     *
+     *   **dcdn_log_access_l1** (default): access logs.
+     *   **dcdn_log_er**: Edge Routine logs.
+     *   **dcdn_log_waf**: firewall logs.
+     *   **dcdn_log_ipa**: TCP/UDP proxy logs.
+     *
      * @example dcdn_log_er
      *
      * @var string
@@ -16,6 +23,11 @@ class GetUserDeliveryTaskResponseBody extends Model
     public $businessType;
 
     /**
+     * @description The data center. Valid values:
+     *
+     *   cn: the Chinese mainland.
+     *   sg: outside the Chinese mainland.
+     *
      * @example cn
      *
      * @var string
@@ -23,6 +35,15 @@ class GetUserDeliveryTaskResponseBody extends Model
     public $dataCenter;
 
     /**
+     * @description The destination of the delivery. Valid values:
+     *
+     *   sls: Alibaba Cloud Simple Log Service (SLS).
+     *   http: HTTP server.
+     *   aws3: Amazon Simple Storage Service (S3).
+     *   oss: Alibaba Cloud Object Storage Service (OSS).
+     *   kafka: Kafka.
+     *   aws3cmpt: S3-compatible storage service.
+     *
      * @example oss
      *
      * @var string
@@ -30,6 +51,8 @@ class GetUserDeliveryTaskResponseBody extends Model
     public $deliveryType;
 
     /**
+     * @description The discard rate.
+     *
      * @example 0
      *
      * @var float
@@ -37,6 +60,8 @@ class GetUserDeliveryTaskResponseBody extends Model
     public $discardRate;
 
     /**
+     * @description The fields.
+     *
      * @example ClientRequestID,ClientRequestHost
      *
      * @var string
@@ -44,6 +69,8 @@ class GetUserDeliveryTaskResponseBody extends Model
     public $fieldList;
 
     /**
+     * @description The filtering rules.
+     *
      * @example [{"ClientSSLProtocol": {"equals": ["TLSv1.3"]}}]
      *
      * @var string
@@ -51,7 +78,7 @@ class GetUserDeliveryTaskResponseBody extends Model
     public $filterRules;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 7072132a-bd3c-46a6-9e81-aba3e0e3f861
      *
@@ -60,6 +87,8 @@ class GetUserDeliveryTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The delivery configuration.
+     *
      * @example {\\"Project\\": \\"er-online-hjy-pro\\", \\"Logstore\\": \\"er-online-hjy-log\\", \\"Region\\": \\"cn-hangzhou\\", \\"Endpoint\\": \\"cn-hangzhou.log.aliyuncs.com\\", \\"Aliuid\\": \\"1077912128805410\\"}
      *
      * @var mixed
@@ -67,6 +96,8 @@ class GetUserDeliveryTaskResponseBody extends Model
     public $sinkConfig;
 
     /**
+     * @description The status of the delivery task.
+     *
      * @example online
      *
      * @var string
@@ -74,6 +105,8 @@ class GetUserDeliveryTaskResponseBody extends Model
     public $status;
 
     /**
+     * @description The name of the delivery task.
+     *
      * @example testoss11
      *
      * @var string

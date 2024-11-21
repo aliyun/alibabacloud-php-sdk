@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetWafQuotaRequest extends Model
 {
     /**
+     * @description The type of WAF resources. Valid values:
+     *
+     *   managed_rules_group: the managed rule group.
+     *   list: the custom list.
+     *   page: the custom error page.
+     *   scene_policy: the scenario-specific policy.
+     *
      * @example page
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
+     * @description The purged content.
+     *
      * @example http://a.com/1.jpg?b=1
      *
      * @var string
@@ -16,6 +18,8 @@ class tasks extends Model
     public $content;
 
     /**
+     * @description The time when the task was created.
+     *
      * @example 2023-07-26T01:56:15Z
      *
      * @var string
@@ -23,6 +27,8 @@ class tasks extends Model
     public $createTime;
 
     /**
+     * @description The error description returned when the purge task failed.
+     *
      * @example Internal Error
      *
      * @var string
@@ -30,6 +36,8 @@ class tasks extends Model
     public $description;
 
     /**
+     * @description The progress of the task, in percentage.
+     *
      * @example 100%
      *
      * @var string
@@ -37,6 +45,12 @@ class tasks extends Model
     public $process;
 
     /**
+     * @description The task status.
+     *
+     *   **Complete**: The task is complete.
+     *   **Refreshing**: The task is in progress.
+     *   **Failed**: The task failed.
+     *
      * @example Complete
      *
      * @var string
@@ -44,6 +58,8 @@ class tasks extends Model
     public $status;
 
     /**
+     * @description The task ID.
+     *
      * @example 16346513304
      *
      * @var string
@@ -51,6 +67,15 @@ class tasks extends Model
     public $taskId;
 
     /**
+     * @description The type of the purge task. Valid values:
+     *
+     *   **file** (default): purges the cache by file.
+     *   **cachetag**: purges the cache by cache tag.
+     *   **directory**: purges the cache by directory.
+     *   **ignoreParams**: purges the cache by URL with specified parameters ignored.
+     *   **hostname**: purges the cache by hostname.
+     *   **purgeall**: purges all cache.
+     *
      * @example file
      *
      * @var string

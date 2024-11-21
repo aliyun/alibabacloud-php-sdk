@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListUploadTasksRequest extends Model
 {
     /**
+     * @description The time when the task ends. Specify the time in the YYYY-MM-DDThh:mm:ssZ format.
+     *
      * @example 2019-12-06T12:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class ListUploadTasksRequest extends Model
     public $endTime;
 
     /**
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+     *
      * @example 123456****
      *
      * @var int
@@ -23,6 +27,8 @@ class ListUploadTasksRequest extends Model
     public $siteId;
 
     /**
+     * @description The time when the task starts. Specify the time in the YYYY-MM-DDThh:mm:ssZ format.
+     *
      * @example 2018-11-29T00:00:00Z
      *
      * @var string
@@ -30,6 +36,13 @@ class ListUploadTasksRequest extends Model
     public $startTime;
 
     /**
+     * @description The task type. Valid values:
+     *
+     *   **file**: purges the cache by file URL.
+     *   **preload**: prefetches files.
+     *   **directory**: purges the cache by directory.
+     *   **ignoreparams**: purges the cache by URL with specified parameters ignored.
+     *
      * @example file
      *
      * @var string

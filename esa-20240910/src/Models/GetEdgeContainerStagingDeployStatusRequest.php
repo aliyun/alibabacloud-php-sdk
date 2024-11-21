@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetEdgeContainerStagingDeployStatusRequest extends Model
 {
     /**
+     * @description The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+     *
      * @example GetEdgeContainerStagingDeployStatus
      *
      * @var string

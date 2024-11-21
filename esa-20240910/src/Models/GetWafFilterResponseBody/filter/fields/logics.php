@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class logics extends Model
 {
     /**
+     * @description A custom attribute. For example, this parameter can specify whether the value is case-sensitive.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,13 @@ class logics extends Model
     public $attributes;
 
     /**
+     * @description The type of the value input box. Valid values:
+     *
+     *   select:single
+     *   select:multi
+     *   input:single
+     *   input:multi
+     *
      * @example input:single
      *
      * @var string
@@ -24,11 +33,15 @@ class logics extends Model
     public $kind;
 
     /**
+     * @description Indicates whether the match result is inverted.
+     *
      * @var bool
      */
     public $negative;
 
     /**
+     * @description The displayed matching characters.
+     *
      * @example Does not equal
      *
      * @var string
@@ -36,6 +49,8 @@ class logics extends Model
     public $operator;
 
     /**
+     * @description The matching characters in the system.
+     *
      * @example eq
      *
      * @var string
@@ -43,6 +58,8 @@ class logics extends Model
     public $symbol;
 
     /**
+     * @description The tip on how to enter a valid value that is required by the rules.
+     *
      * @example e.g. image/jpeg
      *
      * @var string
@@ -50,6 +67,13 @@ class logics extends Model
     public $tip;
 
     /**
+     * @description The type of the value. Valid values:
+     *
+     *   integer
+     *   integer_slice
+     *   string
+     *   string_slice
+     *
      * @example string
      *
      * @var string
@@ -57,6 +81,8 @@ class logics extends Model
     public $type;
 
     /**
+     * @description The validator, which defines the validation rules for a value.
+     *
      * @var validator
      */
     public $validator;

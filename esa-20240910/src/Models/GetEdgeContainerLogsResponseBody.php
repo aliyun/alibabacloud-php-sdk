@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class GetEdgeContainerLogsResponseBody extends Model
 {
     /**
+     * @description The logs.
+     *
      * @var string[]
      */
     public $items;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 15C66C7B-671A-4297-9187-2C4477247B78
      *

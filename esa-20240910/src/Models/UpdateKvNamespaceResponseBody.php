@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateKvNamespaceResponseBody extends Model
 {
     /**
+     * @description The description of the namespace.
+     *
      * @example this is a test ns.
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateKvNamespaceResponseBody extends Model
     public $description;
 
     /**
+     * @description The updated name of the namespace.
+     *
      * @example new_ns1
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateKvNamespaceResponseBody extends Model
     public $namespace;
 
     /**
+     * @description The ID of the namespace.
+     *
      * @example 643355322374688768
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateKvNamespaceResponseBody extends Model
     public $namespaceId;
 
     /**
+     * @description The request ID.
+     *
      * @example 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
      *
      * @var string
@@ -37,6 +45,13 @@ class UpdateKvNamespaceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the namespace. Valid values:
+     *
+     *   **online**: normal.
+     *   **delete**: pending deletion.
+     *   **deleting**: being deleted.
+     *   **deleted**: deleted.
+     *
      * @example online
      *
      * @var string

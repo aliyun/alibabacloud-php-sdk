@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListWaitingRoomRulesResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID, which is used to trace a call.
      *
      * @example 15C66C7B-671A-4297-9187-2C4477247A123425345
      *
@@ -19,6 +19,8 @@ class ListWaitingRoomRulesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The waiting room bypass rules.
+     *
      * @var waitingRoomRules[]
      */
     public $waitingRoomRules;

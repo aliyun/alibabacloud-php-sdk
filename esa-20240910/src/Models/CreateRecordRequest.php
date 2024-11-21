@@ -11,12 +11,18 @@ use AlibabaCloud\Tea\Model;
 class CreateRecordRequest extends Model
 {
     /**
+     * @description The origin authentication information of the CNAME record.
+     *
      * @var authConf
      */
     public $authConf;
 
     /**
-     * @description 业务场景
+     * @description The business scenario of the record for acceleration. Leave the parameter empty if your record is not proxied. Valid values:
+     *
+     *   **image_video**: video and image.
+     *   **api**: API.
+     *   **web**: web page.
      *
      * @example web
      *
@@ -25,6 +31,8 @@ class CreateRecordRequest extends Model
     public $bizName;
 
     /**
+     * @description The comment of the record. The maximum length is 100 characters.
+     *
      * @example This is a remark.
      *
      * @var string
@@ -32,8 +40,9 @@ class CreateRecordRequest extends Model
     public $comment;
 
     /**
-     * @description This parameter is required.
+     * @description The DNS record information. The format of this field varies based on the record type. For more information, see [References](https://www.alibabacloud.com/help/doc-detail/2708761.html) .
      *
+     * This parameter is required.
      * @example {
      * }
      * @var data
@@ -41,12 +50,22 @@ class CreateRecordRequest extends Model
     public $data;
 
     /**
+     * @description The origin host policy. This policy takes effect when the record type is CNAME. You can set the policy in two modes:
+     *
+     *   **follow_hostname**: Follow the host record.
+     *   **follow_origin_domain**: match the origin\\"s domain name.
+     *
+     * @example follow_origin_domain
+     *
      * @var string
      */
     public $hostPolicy;
 
     /**
-     * @description 是否代理加速
+     * @description Specifies whether to proxy the record. Only CNAME and A/AAAA records can be proxied. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -55,7 +74,7 @@ class CreateRecordRequest extends Model
     public $proxied;
 
     /**
-     * @description 记录名称
+     * @description The record name.
      *
      * This parameter is required.
      * @example www.example.com
@@ -65,8 +84,9 @@ class CreateRecordRequest extends Model
     public $recordName;
 
     /**
-     * @description This parameter is required.
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
      *
+     * This parameter is required.
      * @example 1234567890123
      *
      * @var int
@@ -74,6 +94,15 @@ class CreateRecordRequest extends Model
     public $siteId;
 
     /**
+     * @description The origin type for the CNAME record. This parameter is required when you add a CNAME record. Valid values:
+     *
+     *   **OSS**: OSS bucket.
+     *   **S3**: S3 bucket.
+     *   **LB**: load balancer.
+     *   **OP**: origin pool.
+     *   **Domain**: domain name.
+     *
+     * If you do not pass this parameter or if you leave its value empty, Domain is used by default.
      * @example OSS
      *
      * @var string
@@ -81,6 +110,8 @@ class CreateRecordRequest extends Model
     public $sourceType;
 
     /**
+     * @description The TTL of the record. Unit: seconds. If the value is 1, the TTL of the record is determined by the system.
+     *
      * @example 30
      *
      * @var int
@@ -88,7 +119,7 @@ class CreateRecordRequest extends Model
     public $ttl;
 
     /**
-     * @description 记录类型
+     * @description The type of the DNS record. For example, A/AAAA, TXT, MX, or CNAME.
      *
      * This parameter is required.
      * @example A/AAAA

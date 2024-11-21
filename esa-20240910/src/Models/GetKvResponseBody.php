@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetKvResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
      *
      * @var string
@@ -16,6 +18,8 @@ class GetKvResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The value of the key.
+     *
      * @example test_value
      *
      * @var string

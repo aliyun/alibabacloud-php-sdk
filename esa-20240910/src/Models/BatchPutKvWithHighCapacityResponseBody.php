@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class BatchPutKvWithHighCapacityResponseBody extends Model
 {
     /**
+     * @description The keys that failed to be written.
+     *
      * @var string[]
      */
     public $failKeys;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
      *
@@ -23,6 +25,8 @@ class BatchPutKvWithHighCapacityResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The keys that were written.
+     *
      * @var string[]
      */
     public $successKeys;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetWafRulesetResponseBody extends Model
 {
     /**
-     * @description 自定义响应页面ID
+     * @description The ruleset ID.
      *
      * @example 10000001
      *
@@ -18,7 +18,7 @@ class GetWafRulesetResponseBody extends Model
     public $id;
 
     /**
-     * @description 自定义响应页面名称
+     * @description The ruleset name.
      *
      * This parameter is required.
      * @example example
@@ -28,7 +28,7 @@ class GetWafRulesetResponseBody extends Model
     public $name;
 
     /**
-     * @description 自定义响应页面内容类型
+     * @description The WAF rule category of the ruleset.
      *
      * This parameter is required.
      * @example http_bot
@@ -38,7 +38,7 @@ class GetWafRulesetResponseBody extends Model
     public $phase;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 36af3fcc-43d0-441c-86b1-428951dc8225
      *
@@ -47,16 +47,22 @@ class GetWafRulesetResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The rule configurations in the ruleset.
+     *
      * @var WafRuleConfig[]
      */
     public $rules;
 
     /**
+     * @description The configurations shared by the rules in the ruleset.
+     *
      * @var WafBatchRuleShared
      */
     public $shared;
 
     /**
+     * @description The ruleset status.
+     *
      * @example on
      *
      * @var string
@@ -64,6 +70,8 @@ class GetWafRulesetResponseBody extends Model
     public $status;
 
     /**
+     * @description The time when the ruleset was last modified.
+     *
      * @example 2024-01-01T00:00:00Z
      *
      * @var string

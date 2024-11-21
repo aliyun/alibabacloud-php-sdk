@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class StopScheduledPreloadExecutionRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the prefetch plan.
      *
+     * This parameter is required.
      * @example StopScheduledPreloadExecution
      *
      * @var string

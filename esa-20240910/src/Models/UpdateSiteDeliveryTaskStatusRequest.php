@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateSiteDeliveryTaskStatusRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Specifies whether to enable the delivery task.
      *
+     * This parameter is required.
      * @example online
      *
      * @var string
@@ -18,6 +19,8 @@ class UpdateSiteDeliveryTaskStatusRequest extends Model
     public $method;
 
     /**
+     * @description The website ID.
+     *
      * @example 123456****
      *
      * @var int
@@ -25,8 +28,9 @@ class UpdateSiteDeliveryTaskStatusRequest extends Model
     public $siteId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the delivery task.
      *
+     * This parameter is required.
      * @example cdn-test-task
      *
      * @var string

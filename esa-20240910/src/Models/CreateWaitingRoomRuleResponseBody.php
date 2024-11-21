@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateWaitingRoomRuleResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
      *
      * @var string

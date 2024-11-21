@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListKvsResponseBody extends Model
 {
     /**
+     * @description The key-value pairs.
+     *
      * @var keys[]
      */
     public $keys;
 
     /**
+     * @description The total number of pages returned.
+     *
      * @example 100
      *
      * @var int
@@ -22,6 +26,8 @@ class ListKvsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 50
      *
      * @var int
@@ -29,6 +35,8 @@ class ListKvsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
      *
      * @var string
@@ -36,6 +44,8 @@ class ListKvsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1024
      *
      * @var int

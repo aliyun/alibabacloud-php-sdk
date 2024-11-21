@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class planInfo extends Model
 {
     /**
+     * @description The billing method. Valid values:
+     *
+     *   PREPAY: subscription.
+     *   POSTPAY: pay-as-you-go.
+     *
      * @example POSTPAY
      *
      * @var string
@@ -16,6 +21,8 @@ class planInfo extends Model
     public $billingMode;
 
     /**
+     * @description The maximum number of versions that each routine supports.
+     *
      * @example 20
      *
      * @var string
@@ -23,6 +30,8 @@ class planInfo extends Model
     public $erRoutineCodeVersionQuota;
 
     /**
+     * @description The maximum of routines that can be created.
+     *
      * @example 100
      *
      * @var string
@@ -30,6 +39,8 @@ class planInfo extends Model
     public $erRoutineQuota;
 
     /**
+     * @description The maximum number of websites with which each routine can be associated.
+     *
      * @example 100
      *
      * @var string
@@ -37,6 +48,11 @@ class planInfo extends Model
     public $erRoutineRouteSiteCountQuota;
 
     /**
+     * @description The payment method. Valid values:
+     *
+     *   er_free
+     *   er_pay
+     *
      * @example er_free
      *
      * @var string
@@ -44,6 +60,8 @@ class planInfo extends Model
     public $paymentMethod;
 
     /**
+     * @description The plan name.
+     *
      * @example test_plan
      *
      * @var string

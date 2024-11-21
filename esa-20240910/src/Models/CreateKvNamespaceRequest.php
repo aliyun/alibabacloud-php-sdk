@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateKvNamespaceRequest extends Model
 {
     /**
+     * @description The description of the namespace.
+     *
      * @example this is a test namespace.
      *
      * @var string
@@ -16,8 +18,9 @@ class CreateKvNamespaceRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the namespace.
      *
+     * This parameter is required.
      * @example test_namespace
      *
      * @var string

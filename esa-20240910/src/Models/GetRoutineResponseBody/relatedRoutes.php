@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class relatedRoutes extends Model
 {
     /**
+     * @description The route.
+     *
+     * @example *.example.com/path1*
+     *
      * @var string
      */
     public $route;
 
     /**
+     * @description The route ID.
+     *
+     * @example d501cb8a2c951f32922d260040780c06
+     *
      * @var string
      */
     public $routeId;
 
     /**
+     * @description The website ID.
+     *
+     * @example 54362329990032
+     *
      * @var int
      */
     public $siteId;
 
     /**
+     * @description The website name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $siteName;

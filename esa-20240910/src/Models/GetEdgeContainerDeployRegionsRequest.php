@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetEdgeContainerDeployRegionsRequest extends Model
 {
     /**
+     * @description The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+     *
      * @example GetEdgeContainerDeployRegions
      *
      * @var string

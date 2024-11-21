@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePurgeTasksRequest extends Model
 {
     /**
+     * @description The content to purge. Exact match is supported.
+     *
      * @example http://a.com/1.jpg?b=1
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribePurgeTasksRequest extends Model
     public $content;
 
     /**
+     * @description The end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * >  The end time must be later than the start time.
      * @example 2022-11-18T15:59:59Z
      *
      * @var string
@@ -23,6 +28,8 @@ class DescribePurgeTasksRequest extends Model
     public $endTime;
 
     /**
+     * @description The page number. Valid values: 1 to 100000.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +37,8 @@ class DescribePurgeTasksRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 20. Valid values: 1 to 50.
+     *
      * @example 20
      *
      * @var int
@@ -37,6 +46,8 @@ class DescribePurgeTasksRequest extends Model
     public $pageSize;
 
     /**
+     * @description The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+     *
      * @example 123456789****
      *
      * @var int
@@ -44,6 +55,8 @@ class DescribePurgeTasksRequest extends Model
     public $siteId;
 
     /**
+     * @description The start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2022-11-16T05:33:00Z
      *
      * @var string
@@ -51,6 +64,12 @@ class DescribePurgeTasksRequest extends Model
     public $startTime;
 
     /**
+     * @description The task status. Valid values:
+     *
+     *   **Complete**: The task is complete.
+     *   **Refreshing**: The task is in progress.
+     *   **Failed**: The task failed.
+     *
      * @example Complete
      *
      * @var string
@@ -58,6 +77,15 @@ class DescribePurgeTasksRequest extends Model
     public $status;
 
     /**
+     * @description The task type. Valid values:
+     *
+     *   **file** (default): purges the cache by file.
+     *   **cachetag**: purges the cache by cache tag.
+     *   **directory**: purges the cache by directory.
+     *   **ignoreParams**: purges the cache by URL with specified parameters ignored.
+     *   **hostname**: purges the cache by hostname.
+     *   **purgeall**: purges all cache.
+     *
      * @example file
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetWafFilterRequest extends Model
 {
     /**
+     * @description The WAF rule category to which the filter conditions to query belong.
+     *
      * @example http_bot
      *
      * @var string
@@ -16,6 +18,8 @@ class GetWafFilterRequest extends Model
     public $phase;
 
     /**
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class GetWafFilterRequest extends Model
     public $siteId;
 
     /**
+     * @description The condition for matching incoming requests.
+     *
      * @example characteristics
      *
      * @var string
@@ -30,6 +36,8 @@ class GetWafFilterRequest extends Model
     public $target;
 
     /**
+     * @description The rule type.
+     *
      * @example http_custom_cc
      *
      * @var string

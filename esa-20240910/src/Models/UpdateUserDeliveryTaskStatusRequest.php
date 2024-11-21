@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserDeliveryTaskStatusRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Enables or disables the delivery task. Valid values: online and offline.
      *
+     * This parameter is required.
      * @example online
      *
      * @var string
@@ -18,8 +19,9 @@ class UpdateUserDeliveryTaskStatusRequest extends Model
     public $method;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the delivery task.
      *
+     * This parameter is required.
      * @example test_project
      *
      * @var string

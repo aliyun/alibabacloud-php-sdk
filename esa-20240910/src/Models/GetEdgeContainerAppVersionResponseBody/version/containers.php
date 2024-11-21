@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class containers extends Model
 {
     /**
+     * @description The information about the Container Registry image.
+     *
      * @var ACRImageInfo
      */
     public $ACRImageInfo;
 
     /**
+     * @description The arguments that are passed to the container startup command.
+     *
      * @example -c /path/config.toml
      *
      * @var string
@@ -23,6 +27,8 @@ class containers extends Model
     public $args;
 
     /**
+     * @description The command that is used to start the container.
+     *
      * @example sh abc.sh 1 2 3
      *
      * @var string
@@ -30,6 +36,8 @@ class containers extends Model
     public $command;
 
     /**
+     * @description The environment variables.
+     *
      * @example ENV=prod
      *
      * @var string
@@ -37,6 +45,8 @@ class containers extends Model
     public $envVariables;
 
     /**
+     * @description The image address.
+     *
      * @example nginx:1.14.0
      *
      * @var string
@@ -44,6 +54,8 @@ class containers extends Model
     public $image;
 
     /**
+     * @description Indicates whether the image is a Container Registry image.
+     *
      * @example false
      *
      * @var bool
@@ -51,6 +63,8 @@ class containers extends Model
     public $isACRImage;
 
     /**
+     * @description The version name.
+     *
      * @example version01
      *
      * @var string
@@ -58,6 +72,8 @@ class containers extends Model
     public $name;
 
     /**
+     * @description The command that is run before the container is started. Format: `{"exec":{"command":["cat","/etc/group"\\]}}`. If you want to cancel this configuration, set the parameter value to `""` or `{}`. If you do not specify this parameter, this configuration is ignored.
+     *
      * @example {\\"exec\\":{\\"command\\":[\\"touch\\",\\"/home/admin/checkpoststartV1\\"]}}
      *
      * @var string
@@ -65,6 +81,8 @@ class containers extends Model
     public $postStart;
 
     /**
+     * @description The command that is run before the container is stopped.
+     *
      * @example sh prestop.sh "echo hello world"
      *
      * @var string
@@ -72,11 +90,15 @@ class containers extends Model
     public $preStop;
 
     /**
+     * @description The probe content.
+     *
      * @var probeContent
      */
     public $probeContent;
 
     /**
+     * @description The probe type.
+     *
      * @example httpGet
      *
      * @var string
@@ -84,6 +106,8 @@ class containers extends Model
     public $probeType;
 
     /**
+     * @description The compute specification.
+     *
      * @example 1C2G
      *
      * @var string
@@ -91,6 +115,8 @@ class containers extends Model
     public $spec;
 
     /**
+     * @description The storage capacity of the container. Valid values: 0.5G, 10G, 20G, and 30G.
+     *
      * @var string
      */
     public $storage;

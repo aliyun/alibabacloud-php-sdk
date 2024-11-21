@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListUserRatePlanInstancesResponseBody extends Model
 {
     /**
+     * @description The queried plans.
+     *
      * @var instanceInfo[]
      */
     public $instanceInfo;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListUserRatePlanInstancesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,7 +35,7 @@ class ListUserRatePlanInstancesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example CB1A380B-09F0-41BB-3C82-72F8FD6DA2FE
      *
@@ -38,6 +44,8 @@ class ListUserRatePlanInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 68
      *
      * @var int
@@ -45,6 +53,8 @@ class ListUserRatePlanInstancesResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The total number of pages returned.
+     *
      * @example 1
      *
      * @var int

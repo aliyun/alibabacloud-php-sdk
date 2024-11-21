@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class selector extends Model
 {
     /**
+     * @description The data. This parameter is available only when the value of the Kind parameter is data.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The type of selector. Valid values: data and others.
+     *
      * @example data
      *
      * @var string

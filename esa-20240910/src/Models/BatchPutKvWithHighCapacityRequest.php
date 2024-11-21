@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class BatchPutKvWithHighCapacityRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
      *
+     * This parameter is required.
      * @example test_namespace
      *
      * @var string
@@ -18,8 +19,9 @@ class BatchPutKvWithHighCapacityRequest extends Model
     public $namespace;
 
     /**
-     * @description This parameter is required.
+     * @description The download URL of the key-value pairs that you want to configure. This parameter is automatically filled in when you use the SDK to call the operation.
      *
+     * This parameter is required.
      * @example https://xxxobject.oss-cn-reginon.aliyuncs.com/9d91_xxxxxxxxxxx_158bb6e0f97c477791209bb46bd599f7
      *
      * @var string

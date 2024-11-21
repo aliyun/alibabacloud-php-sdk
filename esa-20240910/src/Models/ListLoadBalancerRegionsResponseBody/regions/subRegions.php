@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class subRegions extends Model
 {
     /**
+     * @description The Chinese name of the region.
+     *
      * @var string
      */
     public $subRegionCnName;
 
     /**
+     * @description The code of the subregion.
+     *
      * @example ID
      *
      * @var string
@@ -21,6 +25,8 @@ class subRegions extends Model
     public $subRegionCode;
 
     /**
+     * @description The English name of the subregion.
+     *
      * @example Indonesia
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePurgeTasksResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribePurgeTasksResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribePurgeTasksResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 15C66C7B-671A-4297-9187-2C4477247A123425345
      *
      * @var string
@@ -31,11 +37,15 @@ class DescribePurgeTasksResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The tasks.
+     *
      * @var tasks[]
      */
     public $tasks;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 15
      *
      * @var int

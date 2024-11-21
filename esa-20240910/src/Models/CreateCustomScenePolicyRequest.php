@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomScenePolicyRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The time when the policy expires.
      *
+     * This parameter is required.
      * @example 2021-11-07T18:00:00Z
      *
      * @var string
@@ -18,8 +19,9 @@ class CreateCustomScenePolicyRequest extends Model
     public $endTime;
 
     /**
-     * @description This parameter is required.
+     * @description The policy name.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -27,6 +29,8 @@ class CreateCustomScenePolicyRequest extends Model
     public $name;
 
     /**
+     * @description The IDs of the websites that you want to associate with the policy. Separate multiple IDs with commas (,).
+     *
      * @example 7096621098****
      *
      * @var string
@@ -34,8 +38,9 @@ class CreateCustomScenePolicyRequest extends Model
     public $objects;
 
     /**
-     * @description This parameter is required.
+     * @description The time when the policy takes effect.
      *
+     * This parameter is required.
      * @example 2021-11-07T17:00:00Z
      *
      * @var string
@@ -43,8 +48,11 @@ class CreateCustomScenePolicyRequest extends Model
     public $startTime;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the policy template. Valid value:
      *
+     *   **promotion**: major events.
+     *
+     * This parameter is required.
      * @example promotion
      *
      * @var string

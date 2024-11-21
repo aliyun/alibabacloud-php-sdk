@@ -10,33 +10,53 @@ use AlibabaCloud\Tea\Model;
 class ListCacheReserveInstancesResponseBody extends Model
 {
     /**
+     * @description The cache reserve instances.
+     *
      * @var instanceInfo[]
      */
     public $instanceInfo;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: **500**. Valid values: **1 to 500**.
+     *
+     * @example 500
+     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example 65C66B7B-671A-8297-9187-2R5477247B76
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 16
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The total number of pages returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalPage;

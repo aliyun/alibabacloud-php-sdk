@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetListRequest extends Model
 {
     /**
+     * @description The ID of the custom list, which can be obtained by calling the [ListLists](https://help.aliyun.com/document_detail/2850217.html) operation.
+     *
      * @example 40000001
      *
      * @var int

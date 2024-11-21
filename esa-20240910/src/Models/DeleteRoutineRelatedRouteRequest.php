@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRoutineRelatedRouteRequest extends Model
 {
     /**
+     * @description The routine name.
+     *
      * @example DeleteRoutineRelatedRoute
      *
      * @var string
@@ -16,16 +18,28 @@ class DeleteRoutineRelatedRouteRequest extends Model
     public $name;
 
     /**
+     * @description The route URL.
+     *
+     * @example *.example.com/path1*
+     *
      * @var string
      */
     public $route;
 
     /**
+     * @description The route ID.
+     *
+     * @example 0c3b82a3d1524e9f750da11d0cc0be0a
+     *
      * @var string
      */
     public $routeId;
 
     /**
+     * @description The website ID.
+     *
+     * @example 54362329990032
+     *
      * @var int
      */
     public $siteId;

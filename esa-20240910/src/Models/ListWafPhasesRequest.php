@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListWafPhasesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -18,6 +19,10 @@ class ListWafPhasesRequest extends Model
     public $siteId;
 
     /**
+     * @description The version of the website.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $siteVersion;

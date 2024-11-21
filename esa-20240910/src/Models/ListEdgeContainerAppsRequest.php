@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ListEdgeContainerAppsRequest extends Model
 {
     /**
+     * @description The sorting field. This parameter is left empty by default. Valid values:
+     *
+     *   Name: the version name.
+     *   CreateTime: the time when the version was created.
+     *   UpdateTime: the time when the version was last modified.
+     *
      * @example CreateTime
      *
      * @var string
@@ -16,6 +22,11 @@ class ListEdgeContainerAppsRequest extends Model
     public $orderKey;
 
     /**
+     * @description The order in which you want to sort the query results. This parameter is left empty by default. Valid values:
+     *
+     *   ASC: in ascending order.
+     *   DESC: in descending order.
+     *
      * @example Asc
      *
      * @var string
@@ -23,6 +34,8 @@ class ListEdgeContainerAppsRequest extends Model
     public $orderType;
 
     /**
+     * @description The page number. Default value: **1**. Valid values: 1 to 65535.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +43,8 @@ class ListEdgeContainerAppsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: **20**. Valid values: 1 to 500.
+     *
      * @example 20
      *
      * @var int
@@ -37,6 +52,8 @@ class ListEdgeContainerAppsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The search keyword.
+     *
      * @example ver-1005682639679266816
      *
      * @var string
@@ -44,6 +61,11 @@ class ListEdgeContainerAppsRequest extends Model
     public $searchKey;
 
     /**
+     * @description The search criterion based on which you want to perform fuzzy search. Valid values:
+     *
+     *   Appid: the application ID.
+     *   Name: the application name.
+     *
      * @example Appid
      *
      * @var string

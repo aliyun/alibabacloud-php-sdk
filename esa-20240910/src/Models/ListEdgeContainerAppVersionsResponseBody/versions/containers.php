@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class containers extends Model
 {
     /**
+     * @description The arguments that are passed to the container startup command.
+     *
      * @example -c a=1
      *
      * @var string
@@ -17,6 +19,8 @@ class containers extends Model
     public $args;
 
     /**
+     * @description The command that is used to start the container.
+     *
      * @example openresty -g \\"daemon off;\\"
      *
      * @var string
@@ -24,6 +28,8 @@ class containers extends Model
     public $command;
 
     /**
+     * @description The environment variables of the container.
+     *
      * @example ENV=prod
      *
      * @var string
@@ -31,6 +37,8 @@ class containers extends Model
     public $envVariables;
 
     /**
+     * @description The address of the container image.
+     *
      * @example nginx
      *
      * @var string
@@ -38,6 +46,8 @@ class containers extends Model
     public $image;
 
     /**
+     * @description The container name.
+     *
      * @example container1
      *
      * @var string
@@ -45,6 +55,9 @@ class containers extends Model
     public $name;
 
     /**
+     * @description The command that is run before the container is started. Format: `{"exec":{"command":["cat","/etc/group"\\]}}`.
+     *
+     * If you want to cancel this configuration, set the parameter value to `""` or `{}`. If you do not specify this parameter, this configuration is ignored.
      * @example {\\"exec\\":{\\"command\\":[\\"bash\\",\\"-c\\",\\"cd /home/admin/
      *
      * @var string
@@ -52,6 +65,8 @@ class containers extends Model
     public $postStart;
 
     /**
+     * @description The command that is run before the container is stopped.
+     *
      * @example sh stop.sh
      *
      * @var string
@@ -59,11 +74,15 @@ class containers extends Model
     public $preStop;
 
     /**
+     * @description The container probe content.
+     *
      * @var probeContent
      */
     public $probeContent;
 
     /**
+     * @description The probe type of the container.
+     *
      * @example httpGet
      *
      * @var string
@@ -71,6 +90,8 @@ class containers extends Model
     public $probeType;
 
     /**
+     * @description The compute specification of the container.
+     *
      * @example 1C2G
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteEdgeContainerAppVersionRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
      *
+     * This parameter is required.
      * @example app-96253477062511****
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteEdgeContainerAppVersionRequest extends Model
     public $appId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the version that you want to delete. To obtain the version ID, call the [ListEdgeContainerAppVersions](~~ListEdgeContainerAppVersions~~) operation.
      *
+     * This parameter is required.
      * @example ver-89884764010378****
      *
      * @var string

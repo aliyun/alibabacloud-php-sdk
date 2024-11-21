@@ -9,13 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateRoutineRelatedRecordResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the operation is successful.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $status;

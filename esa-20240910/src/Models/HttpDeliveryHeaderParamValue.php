@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class HttpDeliveryHeaderParamValue extends Model
 {
     /**
+     * @description The static variable.
+     *
+     * @example alicdn
+     *
      * @var string
      */
     public $staticValue;

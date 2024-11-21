@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class queryArgs extends Model
 {
     /**
+     * @description The rule type.
+     *
      * @example http_directory_traversal
      *
      * @var string

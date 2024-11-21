@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
+     * @description The time when the task was created.
+     *
      * @example 2023-07-26T01:56:15Z
      *
      * @var string
@@ -16,6 +18,8 @@ class tasks extends Model
     public $createTime;
 
     /**
+     * @description The error message returned when the file upload task failed.
+     *
      * @example invalid url
      *
      * @var string
@@ -23,6 +27,13 @@ class tasks extends Model
     public $description;
 
     /**
+     * @description The error code. Multiple error codes are separated by commas (,).
+     *
+     *   **InvalidUrl**: The URL format is incorrect.
+     *   **InvalidDomain**: The domain ownership fails to be verified.
+     *   **QuotaExcess**: The quota limit has been reached.
+     *   **OtherErrors**: Other errors.
+     *
      * @example InvalidUrl,InvalidDomain
      *
      * @var string
@@ -30,6 +41,12 @@ class tasks extends Model
     public $errorCode;
 
     /**
+     * @description The task status.
+     *
+     *   **Complete**: The task is complete.
+     *   **Refreshing**: The task is in progress.
+     *   **Failed**: The task failed.
+     *
      * @example Complete
      *
      * @var string
@@ -37,6 +54,13 @@ class tasks extends Model
     public $status;
 
     /**
+     * @description The task type. Valid values:
+     *
+     *   **file**: purges the cache by file URL.
+     *   **preload**: prefetches files.
+     *   **directory**: purges the cache by directory.
+     *   **ignoreparams**: purges the cache by URL with specified parameters ignored.
+     *
      * @example file
      *
      * @var string
@@ -44,6 +68,8 @@ class tasks extends Model
     public $type;
 
     /**
+     * @description The ID of the file upload task.
+     *
      * @example 159253299357****
      *
      * @var string
@@ -51,6 +77,8 @@ class tasks extends Model
     public $uploadId;
 
     /**
+     * @description The name of the file upload task.
+     *
      * @example purge_file_task
      *
      * @var string

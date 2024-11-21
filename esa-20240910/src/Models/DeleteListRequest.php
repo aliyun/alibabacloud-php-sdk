@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteListRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the custom list, which can be obtained by calling the [ListLists](https://help.aliyun.com/document_detail/2850217.html) operation.
      *
+     * This parameter is required.
      * @example 40000001
      *
      * @var int

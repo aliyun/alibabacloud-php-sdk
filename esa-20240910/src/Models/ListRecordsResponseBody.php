@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListRecordsResponseBody extends Model
 {
     /**
+     * @description The page number returned.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListRecordsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,12 +28,14 @@ class ListRecordsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The DNS record information. The format of this field varies based on the record type. For more information, see Add DNS records.
+     *
      * @var records[]
      */
     public $records;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 15C66C7B-671A-4297-9187-2C4477247A74
      *
@@ -38,6 +44,8 @@ class ListRecordsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of records returned.
+     *
      * @example 20
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRoutineCodeVersionRequest extends Model
 {
     /**
+     * @description The code version.
+     *
      * @example 1710120201067203242
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteRoutineCodeVersionRequest extends Model
     public $codeVersion;
 
     /**
+     * @description The routine name.
+     *
      * @example test-routine1
      *
      * @var string

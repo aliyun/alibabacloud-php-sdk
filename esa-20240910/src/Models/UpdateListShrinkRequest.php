@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateListShrinkRequest extends Model
 {
     /**
+     * @description The new description of the list.
+     *
      * @example a custom list
      *
      * @var string
@@ -16,8 +18,9 @@ class UpdateListShrinkRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the custom list, which can be obtained by calling the [ListLists](https://help.aliyun.com/document_detail/2850217.html) operation.
      *
+     * This parameter is required.
      * @example 40000001
      *
      * @var int
@@ -25,6 +28,8 @@ class UpdateListShrinkRequest extends Model
     public $id;
 
     /**
+     * @description The items in the updated list. The value is a JSON array.
+     *
      * @example a custom list
      *
      * @var string
@@ -32,6 +37,8 @@ class UpdateListShrinkRequest extends Model
     public $itemsShrink;
 
     /**
+     * @description The new name of the list.
+     *
      * @example example
      *
      * @var string

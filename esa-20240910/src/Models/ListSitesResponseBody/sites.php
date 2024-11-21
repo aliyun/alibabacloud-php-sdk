@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class sites extends Model
 {
     /**
+     * @description The DNS setup for the website. Valid values:
+     *
+     *   **NS**
+     *   **CNAME**
+     *
      * @example NS
      *
      * @var string
@@ -16,6 +21,8 @@ class sites extends Model
     public $accessType;
 
     /**
+     * @description The CNAME of the website domain. If you use CNAME setup when you add your website to ESA, the value is the CNAME that you configured then.
+     *
      * @example example.cname.com
      *
      * @var string
@@ -23,6 +30,12 @@ class sites extends Model
     public $cnameZone;
 
     /**
+     * @description The service location for the website. Valid values:
+     *
+     *   **domestic**: the Chinese mainland
+     *   **global**: global
+     *   **overseas**: outside the Chinese mainland
+     *
      * @example domestic
      *
      * @var string
@@ -30,6 +43,8 @@ class sites extends Model
     public $coverage;
 
     /**
+     * @description The time when the website was added. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2023-12-24T02:01:11Z
      *
      * @var string
@@ -37,6 +52,8 @@ class sites extends Model
     public $createTime;
 
     /**
+     * @description The ID of the plan associated with the website.
+     *
      * @example onBvtlmIyeXLbiDw81F9
      *
      * @var string
@@ -44,6 +61,8 @@ class sites extends Model
     public $instanceId;
 
     /**
+     * @description The nameservers assigned to the website domain, which are separated by commas (,).
+     *
      * @example male1-1.ialicdn.com,female1-1.ialicdn.com
      *
      * @var string
@@ -51,6 +70,8 @@ class sites extends Model
     public $nameServerList;
 
     /**
+     * @description The plan name.
+     *
      * @example plan-168656498****
      *
      * @var string
@@ -58,6 +79,8 @@ class sites extends Model
     public $planName;
 
     /**
+     * @description The plan associated with the website.
+     *
      * @example normal
      *
      * @var string
@@ -65,6 +88,8 @@ class sites extends Model
     public $planSpecName;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-aek26g6i6se6pna
      *
      * @var string
@@ -72,6 +97,8 @@ class sites extends Model
     public $resourceGroupId;
 
     /**
+     * @description The website ID.
+     *
      * @example 123456789****
      *
      * @var int
@@ -79,6 +106,8 @@ class sites extends Model
     public $siteId;
 
     /**
+     * @description The website name.
+     *
      * @example example.com
      *
      * @var string
@@ -86,6 +115,13 @@ class sites extends Model
     public $siteName;
 
     /**
+     * @description The website status. Valid values:
+     *
+     *   **pending**: The website is to be configured.
+     *   **active**: The website is active.
+     *   **offline**: The website is suspended.
+     *   **moved**: The website has been added and verified by another Alibaba Cloud account.
+     *
      * @example pending
      *
      * @var string
@@ -93,6 +129,8 @@ class sites extends Model
     public $status;
 
     /**
+     * @description The tags of the website.
+     *
      * @example {"tag1":"value1"}
      *
      * @var mixed[]
@@ -100,6 +138,8 @@ class sites extends Model
     public $tags;
 
     /**
+     * @description The time when the website was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2023-12-24T02:01:11Z
      *
      * @var string
@@ -107,6 +147,8 @@ class sites extends Model
     public $updateTime;
 
     /**
+     * @description The code that is used to verify the website domain ownership. As part of the verification TXT record, this parameter is returned for websites that use CNAME setup.
+     *
      * @example verify_d516cb3740f81f0cef77d162edd1****
      *
      * @var string

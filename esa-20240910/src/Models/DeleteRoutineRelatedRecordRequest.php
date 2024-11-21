@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRoutineRelatedRecordRequest extends Model
 {
     /**
+     * @description The routine name.
+     *
      * @example DeleteRoutineRelatedRecord
      *
      * @var string
@@ -16,16 +18,28 @@ class DeleteRoutineRelatedRecordRequest extends Model
     public $name;
 
     /**
+     * @description The record ID.
+     *
+     * @example 12345
+     *
      * @var int
      */
     public $recordId;
 
     /**
+     * @description The record name.
+     *
+     * @example test-xxx.example.com
+     *
      * @var string
      */
     public $recordName;
 
     /**
+     * @description The website ID.
+     *
+     * @example 12345
+     *
      * @var int
      */
     public $siteId;

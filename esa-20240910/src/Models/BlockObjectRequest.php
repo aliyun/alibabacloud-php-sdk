@@ -9,25 +9,35 @@ use AlibabaCloud\Tea\Model;
 class BlockObjectRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The content to block.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $content;
 
     /**
+     * @description The blocking period that you can extend. Set the value to 2year.
+     *
+     * @example 2year
+     *
      * @var string
      */
     public $extension;
 
     /**
+     * @description The period of time during which the URL is blocked. Unit: seconds. Specify this parameter if Type is set to block.
+     *
+     * @example 864000
+     *
      * @var int
      */
     public $maxage;
 
     /**
-     * @description This parameter is required.
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
      *
+     * This parameter is required.
      * @example BlockObject
      *
      * @var int
@@ -35,7 +45,13 @@ class BlockObjectRequest extends Model
     public $siteId;
 
     /**
-     * @description This parameter is required.
+     * @description The type. Valid values:
+     *
+     *   **block**
+     *   **unblock**
+     *
+     * This parameter is required.
+     * @example block
      *
      * @var string
      */

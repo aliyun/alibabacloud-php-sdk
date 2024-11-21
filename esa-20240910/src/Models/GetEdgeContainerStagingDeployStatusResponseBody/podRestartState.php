@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class podRestartState extends Model
 {
     /**
+     * @description The reason for the last restart.
+     *
+     * @example OOMKilled
+     *
      * @var string
      */
     public $lastTerminatedReason;
 
     /**
+     * @description The number of times that the container restarted.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $restartCount;

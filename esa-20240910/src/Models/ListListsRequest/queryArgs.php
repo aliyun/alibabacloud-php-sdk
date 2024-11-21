@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class queryArgs extends Model
 {
     /**
+     * @description Specifies whether to sort the returned data in descending order.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $desc;
 
     /**
+     * @description The list description for fuzzy search.
+     *
      * @example a custom list
      *
      * @var string
@@ -21,6 +27,8 @@ class queryArgs extends Model
     public $descriptionLike;
 
     /**
+     * @description The list ID for fuzzy search.
+     *
      * @example 40000001
      *
      * @var string
@@ -28,6 +36,8 @@ class queryArgs extends Model
     public $idLike;
 
     /**
+     * @description The list content for fuzzy search.
+     *
      * @example 10.1.1.1
      *
      * @var string
@@ -42,6 +52,8 @@ class queryArgs extends Model
     public $kind;
 
     /**
+     * @description The list name and content for fuzzy search.
+     *
      * @example 10.1.1.1
      *
      * @var string
@@ -49,6 +61,8 @@ class queryArgs extends Model
     public $nameItemLike;
 
     /**
+     * @description The list name for fuzzy search.
+     *
      * @example example
      *
      * @var string
@@ -56,6 +70,8 @@ class queryArgs extends Model
     public $nameLike;
 
     /**
+     * @description The column by which you want to sort the returned data.
+     *
      * @example id
      *
      * @var string

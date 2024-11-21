@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateEdgeContainerAppResponseBody extends Model
 {
     /**
+     * @description The ID of the application that is created.
+     *
      * @example app-880688675783794688
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateEdgeContainerAppResponseBody extends Model
     public $appId;
 
     /**
+     * @description The request ID.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string

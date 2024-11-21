@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListWafRulesResponseBody extends Model
 {
     /**
+     * @description The rule usage of the instance that corresponds to the website in the WAF rule category.
+     *
      * @example 10
      *
      * @var int
@@ -17,6 +19,8 @@ class ListWafRulesResponseBody extends Model
     public $instanceUsage;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -24,6 +28,8 @@ class ListWafRulesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -31,6 +37,8 @@ class ListWafRulesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 36af3fcc-43d0-441c-86b1-428951dc8225
      *
      * @var string
@@ -38,11 +46,15 @@ class ListWafRulesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The rules returned.
+     *
      * @var rules[]
      */
     public $rules;
 
     /**
+     * @description The rule usage of the website.
+     *
      * @example 5
      *
      * @var int
@@ -50,6 +62,8 @@ class ListWafRulesResponseBody extends Model
     public $siteUsage;
 
     /**
+     * @description The total number of filtered rules.
+     *
      * @example 20
      *
      * @var int

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeHttpDDoSAttackIntelligentProtectionResponseBody extends Model
 {
     /**
+     * @description The mode of smart HTTP DDoS protection. Valid values:
+     *
+     *   **observe**: alert.
+     *   **defense**: block.
+     *
      * @example defense
      *
      * @var string
@@ -16,6 +21,13 @@ class DescribeHttpDDoSAttackIntelligentProtectionResponseBody extends Model
     public $aiMode;
 
     /**
+     * @description The level of smart HTTP DDoS protection. Valid values:
+     *
+     *   **level0**: very loose.
+     *   **level30**: loose.
+     *   **level60**: normal.
+     *   **level90**: strict.
+     *
      * @example level60
      *
      * @var string
@@ -23,7 +35,7 @@ class DescribeHttpDDoSAttackIntelligentProtectionResponseBody extends Model
     public $aiTemplate;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example CB1A380B-09F0-41BB-3C82-72F8FD6DA2FE
      *
@@ -32,6 +44,8 @@ class DescribeHttpDDoSAttackIntelligentProtectionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The website ID.
+     *
      * @example 123456****
      *
      * @var int

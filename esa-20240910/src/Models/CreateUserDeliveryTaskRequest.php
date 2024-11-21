@@ -14,8 +14,14 @@ use AlibabaCloud\Tea\Model;
 class CreateUserDeliveryTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The log category. Valid values:
      *
+     *   dcdn_log_access_l1 (default): access logs.
+     *   dcdn_log_er: Edge Routine logs.
+     *   dcdn_log_waf: firewall logs.
+     *   dcdn_log_ipa: TCP/UDP proxy logs.
+     *
+     * This parameter is required.
      * @example dcdn_log_access_l1
      *
      * @var string
@@ -23,8 +29,12 @@ class CreateUserDeliveryTaskRequest extends Model
     public $businessType;
 
     /**
-     * @description This parameter is required.
+     * @description The data center. Valid values:
      *
+     *   cn: the Chinese mainland.
+     *   sg: outside the Chinese mainland.
+     *
+     * This parameter is required.
      * @example cn
      *
      * @var string
@@ -32,8 +42,9 @@ class CreateUserDeliveryTaskRequest extends Model
     public $dataCenter;
 
     /**
-     * @description This parameter is required.
+     * @description The destination of the delivery. Valid values:
      *
+     * This parameter is required.
      * @example sls
      *
      * @var string
@@ -41,6 +52,8 @@ class CreateUserDeliveryTaskRequest extends Model
     public $deliveryType;
 
     /**
+     * @description The discard rate. Default value: 0.
+     *
      * @example 0
      *
      * @var float
@@ -48,8 +61,9 @@ class CreateUserDeliveryTaskRequest extends Model
     public $discardRate;
 
     /**
-     * @description This parameter is required.
+     * @description The log field. If you specify multiple fields, separate them with commas (,).
      *
+     * This parameter is required.
      * @example user_agent,ip_address,ip_port
      *
      * @var string
@@ -57,33 +71,44 @@ class CreateUserDeliveryTaskRequest extends Model
     public $fieldName;
 
     /**
+     * @description The configurations for delivery to an HTTP server.
+     *
      * @var httpDelivery
      */
     public $httpDelivery;
 
     /**
+     * @description The configurations for delivery to Kafka.
+     *
      * @var kafkaDelivery
      */
     public $kafkaDelivery;
 
     /**
+     * @description The configurations for delivery to OSS.
+     *
      * @var ossDelivery
      */
     public $ossDelivery;
 
     /**
+     * @description The configurations for delivery to Amazon S3 or an S3-compatible service.
+     *
      * @var s3Delivery
      */
     public $s3Delivery;
 
     /**
+     * @description The configurations for delivery to SLS.
+     *
      * @var slsDelivery
      */
     public $slsDelivery;
 
     /**
-     * @description This parameter is required.
+     * @description The task name.
      *
+     * This parameter is required.
      * @example test_project
      *
      * @var string

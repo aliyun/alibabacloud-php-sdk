@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetWafFilterResponseBody extends Model
 {
     /**
+     * @description The returned match conditions.
+     *
      * @var filter
      */
     public $filter;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 36af3fcc-43d0-441c-86b1-428951dc8225
      *

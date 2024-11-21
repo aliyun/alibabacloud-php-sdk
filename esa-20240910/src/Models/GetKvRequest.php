@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetKvRequest extends Model
 {
     /**
+     * @description Specifies whether to decode the value by using Base 64. If you call the [PutKv](https://help.aliyun.com/document_detail/2850482.html) operation and set the Base64 parameter to true, set this parameter to true to read the original content.
+     *
      * @example true
      *
      * @var bool
@@ -16,8 +18,9 @@ class GetKvRequest extends Model
     public $base64;
 
     /**
-     * @description This parameter is required.
+     * @description The key name for the query.
      *
+     * This parameter is required.
      * @example test_key
      *
      * @var string
@@ -25,8 +28,9 @@ class GetKvRequest extends Model
     public $key;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
      *
+     * This parameter is required.
      * @example test_namespace
      *
      * @var string

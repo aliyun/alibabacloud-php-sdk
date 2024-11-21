@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class BatchGetExpressionFieldsRequest extends Model
 {
     /**
+     * @description The regular expressions.
+     *
      * @example http_bot
      *
      * @var expressions[]
@@ -17,6 +19,8 @@ class BatchGetExpressionFieldsRequest extends Model
     public $expressions;
 
     /**
+     * @description The WAF rule category.
+     *
      * @example http_bot
      *
      * @var string
@@ -24,6 +28,8 @@ class BatchGetExpressionFieldsRequest extends Model
     public $phase;
 
     /**
+     * @description The website ID.
+     *
      * @example 1
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCustomScenePolicyResponseBody extends Model
 {
     /**
+     * @description The policy ID.
+     *
      * @example 1
      *
      * @var int
@@ -16,7 +18,7 @@ class DeleteCustomScenePolicyResponseBody extends Model
     public $policyId;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 5CC228B4-7A67-4016-9C9F-4A4133494A91
      *

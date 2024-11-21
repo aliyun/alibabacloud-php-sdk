@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class waitingRooms extends Model
 {
     /**
+     * @description The name of the custom cookie.
+     *
      * @example __aliwaitingroom_example
      *
      * @var string
@@ -17,16 +19,25 @@ class waitingRooms extends Model
     public $cookieName;
 
     /**
+     * @description The HTML content or identifier of the custom queuing page. This parameter is valid only when `WaitingRoomType` is set to `custom`. The content must be URL-encoded.
+     *
      * @var string
      */
     public $customPageHtml;
 
     /**
+     * @description The description of the waiting room.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether session renewal is disabled. Valid values:
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string
@@ -34,6 +45,11 @@ class waitingRooms extends Model
     public $disableSessionRenewalEnable;
 
     /**
+     * @description Indicates whether the waiting room is enabled. Valid values:
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string
@@ -41,11 +57,18 @@ class waitingRooms extends Model
     public $enable;
 
     /**
+     * @description The hostname and path.
+     *
      * @var hostNameAndPath[]
      */
     public $hostNameAndPath;
 
     /**
+     * @description Indicates whether JSON response is enabled. If you set this parameter to on, a JSON body is returned for requests to the waiting room with the header Accept: application/json. Valid values:
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string
@@ -53,6 +76,12 @@ class waitingRooms extends Model
     public $jsonResponseEnable;
 
     /**
+     * @description The language of the waiting room page. This parameter is returned when the waiting room type is set to default. Valid values:
+     *
+     *   enus: English.
+     *   zhcn: Simplified Chinese.
+     *   zhhk: Traditional Chinese.
+     *
      * @example zhcn
      *
      * @var string
@@ -60,11 +89,15 @@ class waitingRooms extends Model
     public $language;
 
     /**
+     * @description The name of the waiting room.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The maximum number of new users per minute.
+     *
      * @example 200
      *
      * @var string
@@ -72,6 +105,11 @@ class waitingRooms extends Model
     public $newUsersPerMinute;
 
     /**
+     * @description Indicates whether all requests must be queued. Valid values:
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string
@@ -79,6 +117,13 @@ class waitingRooms extends Model
     public $queueAllEnable;
 
     /**
+     * @description The queuing method. Valid values:
+     *
+     *   random: Users gain access to the origin randomly, regardless of the arrival time.
+     *   fifo: Users gain access to the origin in order of arrival.
+     *   passthrough: Users pass through the waiting room and go straight to the origin.
+     *   reject-all: Users are blocked from reaching the origin.
+     *
      * @example random
      *
      * @var string
@@ -86,6 +131,12 @@ class waitingRooms extends Model
     public $queuingMethod;
 
     /**
+     * @description The HTTP status code to return while a user is in the queue. Valid values:
+     *
+     *   200
+     *   202
+     *   429
+     *
      * @example 200
      *
      * @var string
@@ -93,6 +144,8 @@ class waitingRooms extends Model
     public $queuingStatusCode;
 
     /**
+     * @description The maximum duration for which a session remains valid after a user leaves the origin. Unit: minutes.
+     *
      * @example 3600
      *
      * @var string
@@ -100,6 +153,8 @@ class waitingRooms extends Model
     public $sessionDuration;
 
     /**
+     * @description The maximum number of active users.
+     *
      * @example 300
      *
      * @var string
@@ -107,6 +162,8 @@ class waitingRooms extends Model
     public $totalActiveUsers;
 
     /**
+     * @description The unique ID of the waiting room.
+     *
      * @example 6a51d5bc6460887abd1291dc7d4d****
      *
      * @var string
@@ -114,6 +171,11 @@ class waitingRooms extends Model
     public $waitingRoomId;
 
     /**
+     * @description The type of the waiting room. Valid values:
+     *
+     *   default
+     *   custom
+     *
      * @example default
      *
      * @var string

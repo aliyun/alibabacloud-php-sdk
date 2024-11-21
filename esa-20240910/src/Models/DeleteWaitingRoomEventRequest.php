@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteWaitingRoomEventRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
      *
+     * This parameter is required.
      * @example 123456****
      *
      * @var int
@@ -18,6 +19,8 @@ class DeleteWaitingRoomEventRequest extends Model
     public $siteId;
 
     /**
+     * @description The ID of the waiting room event.
+     *
      * @example 302909890***
      *
      * @var int

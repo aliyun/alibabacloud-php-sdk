@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetKvAccountResponseBody extends Model
 {
     /**
+     * @description The available capacity of all namespaces in the account. Unit: bytes.
+     *
      * @example 1073741824
      *
      * @var int
@@ -17,6 +19,8 @@ class GetKvAccountResponseBody extends Model
     public $capacity;
 
     /**
+     * @description The available capacity of all namespaces in the account.
+     *
      * @example 1 GB
      *
      * @var string
@@ -24,6 +28,8 @@ class GetKvAccountResponseBody extends Model
     public $capacityString;
 
     /**
+     * @description The used capacity of all namespaces in the account. Unit: bytes.
+     *
      * @example 10048576
      *
      * @var int
@@ -31,6 +37,8 @@ class GetKvAccountResponseBody extends Model
     public $capacityUsed;
 
     /**
+     * @description The used capacity of all namespaces in the account.
+     *
      * @example 100 MB
      *
      * @var string
@@ -38,11 +46,15 @@ class GetKvAccountResponseBody extends Model
     public $capacityUsedString;
 
     /**
+     * @description The namespaces in the account.
+     *
      * @var namespaceList[]
      */
     public $namespaceList;
 
     /**
+     * @description The maximum number of namespaces that can be created in the account.
+     *
      * @example 10
      *
      * @var int
@@ -50,6 +62,8 @@ class GetKvAccountResponseBody extends Model
     public $namespaceQuota;
 
     /**
+     * @description The number of created namespaces that store key-value data in the account.
+     *
      * @example 1
      *
      * @var int
@@ -57,6 +71,8 @@ class GetKvAccountResponseBody extends Model
     public $namespaceUsed;
 
     /**
+     * @description The request ID.
+     *
      * @example EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
      *
      * @var string
@@ -64,6 +80,11 @@ class GetKvAccountResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether Edge KV is activated for the Alibaba Cloud account.
+     *
+     *   **online**
+     *   **offline**
+     *
      * @example online
      *
      * @var string

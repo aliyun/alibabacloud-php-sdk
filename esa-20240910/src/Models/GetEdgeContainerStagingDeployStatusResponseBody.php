@@ -10,46 +10,94 @@ use AlibabaCloud\Tea\Model;
 class GetEdgeContainerStagingDeployStatusResponseBody extends Model
 {
     /**
+     * @description Indicates whether the container is ready.
+     *
+     *   ok
+     *   unready
+     *
+     * @example ok
+     *
      * @var string
      */
     public $containersReady;
 
     /**
+     * @description The time when the container was created. The value is a timestamp.
+     *
+     * @example 2024-09-24T06:46:35Z
+     *
      * @var string
      */
     public $creationTimestamp;
 
     /**
+     * @description The initialization status of the container.
+     *
+     *   ok
+     *   unready
+     *
+     * @example ok
+     *
      * @var string
      */
     public $initialized;
 
     /**
+     * @description The status of the container in the staging environment.
+     *
+     *   NoContainer: created.
+     *   Running: running.
+     *   Failed: abnormal.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $phase;
 
     /**
+     * @description The details of container restart.
+     *
      * @var podRestartState
      */
     public $podRestartState;
 
     /**
+     * @description Indicates whether domain names are associated with the container.
+     *
+     *   ok
+     *   unready
+     *
+     * @example ok
+     *
      * @var string
      */
     public $ready;
 
     /**
+     * @description The request ID.
+     *
+     * @example 2F2C992B-3FE2-5EBB-A61F-F9DD4EB257DA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The scheduling status of the container.
+     *
+     *   ok
+     *   unready
+     *
+     * @example ok
+     *
      * @var string
      */
     public $scheduled;
 
     /**
+     * @description The virtual IP addresses.
+     *
      * @var string[]
      */
     public $VIPs;

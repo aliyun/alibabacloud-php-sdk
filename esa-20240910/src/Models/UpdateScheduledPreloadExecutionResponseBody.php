@@ -9,48 +9,88 @@ use AlibabaCloud\Tea\Model;
 class UpdateScheduledPreloadExecutionResponseBody extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
+     * @example 15685865xxx14622
+     *
      * @var string
      */
     public $aliUid;
 
     /**
+     * @description The end time of the prefetch plan.
+     *
+     * @example 2024-05-31T18:10:48.849+08:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the prefetch plan.
+     *
+     * @example 66599bd7397885b43804901c
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The time interval between each batch execution. Unit: seconds.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @description The ID of the prefetch task.
+     *
+     * @example 665d3af3621bccf3fe29e1a4
+     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example 15C66C7B-671A-4297-9187-2C4477247A123425345
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of URLs prefetched in each batch.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $sliceLen;
 
     /**
+     * @description The start time of the prefetch plan.
+     *
+     * @example 2024-05-31T17:10:48.849+08:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The status of the prefetch plan. Valid values:
+     *
+     *   **waiting**
+     *   **running**
+     *   **finished**
+     *   **failed**
+     *   **stopped**
+     *
+     * @example running
+     *
      * @var string
      */
     public $status;

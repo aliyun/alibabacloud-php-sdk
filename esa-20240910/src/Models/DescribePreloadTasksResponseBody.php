@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePreloadTasksResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribePreloadTasksResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribePreloadTasksResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
      *
      * @var string
@@ -31,11 +37,15 @@ class DescribePreloadTasksResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The tasks.
+     *
      * @var tasks[]
      */
     public $tasks;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 83
      *
      * @var int

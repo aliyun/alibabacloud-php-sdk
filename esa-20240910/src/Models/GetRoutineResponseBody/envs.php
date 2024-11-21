@@ -9,26 +9,44 @@ use AlibabaCloud\Tea\Model;
 class envs extends Model
 {
     /**
+     * @description The regions for canary release.
+     *
      * @var string[]
      */
     public $canaryAreaList;
 
     /**
+     * @description The version number for canary release.
+     *
+     * @example 1710120201067577628
+     *
      * @var string
      */
     public $canaryCodeVersion;
 
     /**
+     * @description The version number of the code in the environment.
+     *
+     * @example 1710120201067577628
+     *
      * @var string
      */
     public $codeVersion;
 
     /**
+     * @description The environment type.
+     *
+     * @example production
+     *
      * @var string
      */
     public $env;
 
     /**
+     * @description The specification.
+     *
+     * @example 5ms
+     *
      * @var string
      */
     public $specName;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BatchUpdateWafRulesRequest extends Model
 {
     /**
+     * @description The configurations of rules.
+     *
      * @var WafRuleConfig[]
      */
     public $configs;
 
     /**
+     * @description The WAF rule category.
+     *
      * @example http_custom
      *
      * @var string
@@ -21,6 +25,8 @@ class BatchUpdateWafRulesRequest extends Model
     public $phase;
 
     /**
+     * @description The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) operation.
+     *
      * @example 10000001
      *
      * @var int
@@ -28,11 +34,15 @@ class BatchUpdateWafRulesRequest extends Model
     public $rulesetId;
 
     /**
+     * @description The configurations shared by multiple rules.
+     *
      * @var WafBatchRuleShared
      */
     public $shared;
 
     /**
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+     *
      * @example 1
      *
      * @var int
@@ -40,6 +50,10 @@ class BatchUpdateWafRulesRequest extends Model
     public $siteId;
 
     /**
+     * @description The version of the website.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $siteVersion;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRoutineRequest extends Model
 {
     /**
+     * @description The routine name.
+     *
      * @example test-routine1
      *
      * @var string

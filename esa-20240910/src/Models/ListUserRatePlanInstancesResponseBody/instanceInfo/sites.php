@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sites extends Model
 {
     /**
+     * @description The website ID.
+     *
      * @example 123456****
      *
      * @var int
@@ -16,6 +18,8 @@ class sites extends Model
     public $siteId;
 
     /**
+     * @description The website name.
+     *
      * @example example.com
      *
      * @var string
@@ -23,6 +27,13 @@ class sites extends Model
     public $siteName;
 
     /**
+     * @description The website status. Valid values:
+     *
+     *   pending: The website is to be configured.
+     *   active: The website is active.
+     *   offline: The website is suspended.
+     *   moved: The website has been added and verified by another Alibaba Cloud account.
+     *
      * @example pending
      *
      * @var string

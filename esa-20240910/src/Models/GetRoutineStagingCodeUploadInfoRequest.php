@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetRoutineStagingCodeUploadInfoRequest extends Model
 {
     /**
+     * @description The code description.
+     *
+     * @example the description of code
+     *
      * @var string
      */
     public $codeDescription;
 
     /**
+     * @description The routine name.
+     *
      * @example GetRoutineStagingCodeUploadInfo
      *
      * @var string

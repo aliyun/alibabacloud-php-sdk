@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListUserRatePlanInstancesRequest extends Model
 {
     /**
+     * @description Specifies whether to query only the plans that have remaining quota for associating websites. Valid values:
+     *
+     *   true: queries only the plans that have remaining quota for associating websites.
+     *   false: queries all plans in your account.
+     *
      * @example true
      *
      * @var string
@@ -16,6 +21,8 @@ class ListUserRatePlanInstancesRequest extends Model
     public $checkRemainingSiteQuota;
 
     /**
+     * @description The plan ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+     *
      * @example sp-xcdn-96wblslz****
      *
      * @var string
@@ -23,6 +30,8 @@ class ListUserRatePlanInstancesRequest extends Model
     public $instanceId;
 
     /**
+     * @description The page number. Valid values: **1** to **100000**. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +39,8 @@ class ListUserRatePlanInstancesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 500
      *
      * @var int
@@ -37,6 +48,11 @@ class ListUserRatePlanInstancesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The sorting field. By default, the queried plans are sorted by purchase time. Valid values:
+     *
+     *   CreateTime: the time when the plans were purchased.
+     *   ExpireTime: the time when the plans expire.
+     *
      * @example CreateTime
      *
      * @var string
@@ -44,6 +60,11 @@ class ListUserRatePlanInstancesRequest extends Model
     public $sortBy;
 
     /**
+     * @description The order in which you want to sort the query results. Default value: desc. Valid values:
+     *
+     *   asc: in ascending order.
+     *   desc: in descending order.
+     *
      * @example asc
      *
      * @var string
@@ -51,6 +72,13 @@ class ListUserRatePlanInstancesRequest extends Model
     public $sortOrder;
 
     /**
+     * @description The plan status. Valid values:
+     *
+     *   online: The plan is in service.
+     *   offline: The plan has expired within an allowable period. In this state, the plan is unavailable.
+     *   disable: The plan is released.
+     *   overdue: The plan is stopped due to overdue payments.
+     *
      * @example online
      *
      * @var string

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetSiteResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 9732E117-8A37-49FD-A36F-ABBB87556CA7
      *
@@ -19,6 +19,8 @@ class GetSiteResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The queried website information.
+     *
      * @var siteModel
      */
     public $siteModel;

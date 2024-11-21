@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteRecordRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The record ID, which can be obtained by calling [ListRecords](https://help.aliyun.com/document_detail/2850265.html).
+     *
+     * This parameter is required.
+     * @example 1234567890123
      *
      * @var int
      */

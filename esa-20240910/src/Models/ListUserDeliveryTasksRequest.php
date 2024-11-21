@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListUserDeliveryTasksRequest extends Model
 {
     /**
+     * @description The log category. Valid values:
+     *
+     * 4.  dcdn_log_ipa: TCP/UDP proxy logs.
      * @example dcdn_log_access_l1
      *
      * @var string
@@ -16,6 +19,8 @@ class ListUserDeliveryTasksRequest extends Model
     public $businessType;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +28,8 @@ class ListUserDeliveryTasksRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 20.
+     *
      * @example 20
      *
      * @var int

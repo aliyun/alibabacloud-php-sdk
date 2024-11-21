@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteKvResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
      *

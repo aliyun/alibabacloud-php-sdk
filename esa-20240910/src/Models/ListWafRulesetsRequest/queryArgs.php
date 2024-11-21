@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class queryArgs extends Model
 {
     /**
+     * @description The ruleset ID, ruleset name, rule ID, or rule name for fuzzy search.
+     *
      * @example example
      *
      * @var string
@@ -16,11 +18,15 @@ class queryArgs extends Model
     public $anyLike;
 
     /**
+     * @description Specifies whether to sort the returned data in descending order.
+     *
      * @var bool
      */
     public $desc;
 
     /**
+     * @description The ruleset name for fuzzy search.
+     *
      * @example example
      *
      * @var string
@@ -28,6 +34,8 @@ class queryArgs extends Model
     public $nameLike;
 
     /**
+     * @description The column by which you want to sort the returned data.
+     *
      * @example id
      *
      * @var string

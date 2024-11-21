@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomScenePoliciesResponseBody extends Model
 {
     /**
+     * @description The scenario-specific policies.
+     *
      * @var dataModule[]
      */
     public $dataModule;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeCustomScenePoliciesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeCustomScenePoliciesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The policy quota.
+     *
      * @example 10
      *
      * @var int
@@ -36,7 +44,7 @@ class DescribeCustomScenePoliciesResponseBody extends Model
     public $quota;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 85H66C7B-671A-4297-9187-2C4477247A74
      *
@@ -45,6 +53,8 @@ class DescribeCustomScenePoliciesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

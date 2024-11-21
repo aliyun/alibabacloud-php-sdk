@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class phases extends Model
 {
     /**
+     * @description The name of the WAF rule category.
+     *
+     * @example http_custom
+     *
      * @var string
      */
     public $phase;
 
     /**
+     * @description The WAF rulesets.
+     *
      * @var rulesets[]
      */
     public $rulesets;

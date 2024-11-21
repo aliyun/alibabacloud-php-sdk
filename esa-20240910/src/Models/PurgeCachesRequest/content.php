@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @description The cache tags that are used to purge the cache. This parameter is required if Type is set to cachetag.
+     *
      * @var string[]
      */
     public $cacheTags;
 
     /**
+     * @description The directories that are used to purge the cache. This parameter is required if Type is set to directory.
+     *
      * @var string[]
      */
     public $directories;
 
     /**
+     * @description The files to purge. This parameter is required if Type is set to file.
+     *
      * @var mixed[]
      */
     public $files;
 
     /**
+     * @description The hostnames that are used to purge the cache. This parameter is required if Type is set to hostname.
+     *
      * @var string[]
      */
     public $hostnames;
 
     /**
+     * @description The file URLs with parameters ignored that are used to purge the cache. This parameter is required if Type is set to ignoreParams.
+     *
      * @var string[]
      */
     public $ignoreParams;
 
     /**
+     * @description Specifies whether to purge all cache of the website. Default value: false. The value is true when Type is set to purgeall.
+     *
      * @example true
      *
      * @var bool

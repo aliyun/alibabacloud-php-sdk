@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListEdgeContainerAppRecordsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
      *
+     * This parameter is required.
      * @example app-88068867578379****
      *
      * @var string
@@ -18,6 +19,11 @@ class ListEdgeContainerAppRecordsRequest extends Model
     public $appId;
 
     /**
+     * @description The sorting field. Valid values:
+     *
+     *   CreateTime: the time when the domain name was associated.
+     *   CreateTime: the time when the domain name was last modified.
+     *
      * @example CreateTime
      *
      * @var string
@@ -25,6 +31,11 @@ class ListEdgeContainerAppRecordsRequest extends Model
     public $orderKey;
 
     /**
+     * @description The order in which you want to sort the query results. Valid values:
+     *
+     *   ASC: in ascending order.
+     *   DESC: in descending order.
+     *
      * @example DESC
      *
      * @var string
@@ -32,6 +43,8 @@ class ListEdgeContainerAppRecordsRequest extends Model
     public $orderType;
 
     /**
+     * @description The page number. Valid values: **1** to **100000**. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -39,6 +52,8 @@ class ListEdgeContainerAppRecordsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 20. Valid values: 1 to 500.
+     *
      * @example 10
      *
      * @var int
@@ -46,6 +61,8 @@ class ListEdgeContainerAppRecordsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The keyword that is used for the search.
+     *
      * @example ver-1006157458290860032
      *
      * @var string

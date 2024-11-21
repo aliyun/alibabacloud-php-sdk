@@ -10,13 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListRoutineOptionalSpecsResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example 1234567890ABCDEF01234567890ABCDEF
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The available specifications.
+     *
      * @var specs[]
      */
     public $specs;

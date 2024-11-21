@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetSiteLogDeliveryQuotaResponseBody extends Model
 {
     /**
+     * @description The log category. Valid values:
+     *
+     * 4.  dcdn_log_ipa: TCP/UDP proxy logs.
      * @example dcdn_log_access_l1
      *
      * @var string
@@ -16,6 +19,8 @@ class GetSiteLogDeliveryQuotaResponseBody extends Model
     public $businessType;
 
     /**
+     * @description The remaining quota.
+     *
      * @example 3
      *
      * @var int
@@ -23,7 +28,7 @@ class GetSiteLogDeliveryQuotaResponseBody extends Model
     public $freeQuota;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 4C14840EF0EAAB6D97CDE0C5F6554ACE
      *
@@ -32,6 +37,8 @@ class GetSiteLogDeliveryQuotaResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The website ID.
+     *
      * @example 123456****
      *
      * @var int

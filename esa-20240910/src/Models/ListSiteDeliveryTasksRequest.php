@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListSiteDeliveryTasksRequest extends Model
 {
     /**
+     * @description The log category. Valid values:
+     *
+     *   dcdn_log_access_l1 (default): access logs.
+     *   dcdn_log_er: Edge Routine logs.
+     *   dcdn_log_waf: firewall logs.
+     *   dcdn_log_ipa: TCP/UDP proxy logs.
+     *
      * @example dcdn_log_access_l1
      *
      * @var string
@@ -16,6 +23,8 @@ class ListSiteDeliveryTasksRequest extends Model
     public $businessType;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +32,8 @@ class ListSiteDeliveryTasksRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -30,8 +41,9 @@ class ListSiteDeliveryTasksRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
      *
+     * This parameter is required.
      * @example 123456***
      *
      * @var int

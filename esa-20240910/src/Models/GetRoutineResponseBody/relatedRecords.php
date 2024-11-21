@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class relatedRecords extends Model
 {
     /**
+     * @description The record ID.
+     *
+     * @example 509348423011904
+     *
      * @var int
      */
     public $recordId;
 
     /**
+     * @description The record name.
+     *
+     * @example test-record-1.example.com
+     *
      * @var string
      */
     public $recordName;
 
     /**
+     * @description The website ID.
+     *
+     * @example 54362329990032
+     *
      * @var int
      */
     public $siteId;
 
     /**
+     * @description The website name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $siteName;

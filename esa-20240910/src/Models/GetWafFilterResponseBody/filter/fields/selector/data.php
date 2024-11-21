@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The label of the data.
+     *
      * @example China
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $label;
 
     /**
+     * @description The value of the data.
+     *
      * @example CN
      *
      * @var string

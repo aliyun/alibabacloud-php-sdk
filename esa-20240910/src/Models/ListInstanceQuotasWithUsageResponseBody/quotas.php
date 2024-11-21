@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class quotas extends Model
 {
     /**
+     * @description The quota name.
+     *
      * @example redirect_rules|rule_quota
      *
      * @var string
@@ -17,6 +19,8 @@ class quotas extends Model
     public $quotaName;
 
     /**
+     * @description The quota value.
+     *
      * @example 10
      *
      * @var string
@@ -24,11 +28,15 @@ class quotas extends Model
     public $quotaValue;
 
     /**
+     * @description The usage of the quota in each website associated with the plan.
+     *
      * @var siteUsage[]
      */
     public $siteUsage;
 
     /**
+     * @description The quota usage.
+     *
      * @example 3
      *
      * @var string

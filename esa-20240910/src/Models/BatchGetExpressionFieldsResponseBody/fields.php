@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class fields extends Model
 {
     /**
+     * @description The fields that match the regular expression.
+     *
      * @var string[]
      */
     public $fields;
 
     /**
+     * @description The ID of the regular expression, which corresponds to the expression ID in the request parameter.
+     *
      * @example 1
      *
      * @var string

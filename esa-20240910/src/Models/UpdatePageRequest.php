@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdatePageRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The Base64-encoded content of the error page. The content type is specified by the Content-Type field.
      *
+     * This parameter is required.
      * @example PGh0bWw+aGVsbG8gcGFnZTwvaHRtbD4=
      *
      * @var string
@@ -18,8 +19,12 @@ class UpdatePageRequest extends Model
     public $content;
 
     /**
-     * @description This parameter is required.
+     * @description The Content-Type field in the HTTP header. Valid values:
      *
+     *   text/html
+     *   application/json
+     *
+     * This parameter is required.
      * @example text/html
      *
      * @var string
@@ -27,6 +32,8 @@ class UpdatePageRequest extends Model
     public $contentType;
 
     /**
+     * @description The description of the custom error page.
+     *
      * @example a custom deny page
      *
      * @var string
@@ -34,8 +41,9 @@ class UpdatePageRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the custom error page, which can be obtained by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation.
      *
+     * This parameter is required.
      * @example 50000001
      *
      * @var int
@@ -43,8 +51,9 @@ class UpdatePageRequest extends Model
     public $id;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the custom error page.
      *
+     * This parameter is required.
      * @example example
      *
      * @var string

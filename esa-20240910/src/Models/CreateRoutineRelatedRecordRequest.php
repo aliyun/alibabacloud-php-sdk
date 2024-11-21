@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRoutineRelatedRecordRequest extends Model
 {
     /**
+     * @description The routine name.
+     *
      * @example CreateRoutineRelatedRecord
      *
      * @var string
@@ -16,11 +18,19 @@ class CreateRoutineRelatedRecordRequest extends Model
     public $name;
 
     /**
+     * @description The record name.
+     *
+     * @example test-record-1.example.com
+     *
      * @var string
      */
     public $recordName;
 
     /**
+     * @description The website ID.
+     *
+     * @example 54362329990032
+     *
      * @var int
      */
     public $siteId;

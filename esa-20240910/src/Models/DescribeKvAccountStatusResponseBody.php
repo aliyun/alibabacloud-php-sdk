@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeKvAccountStatusResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
      *
      * @var string
@@ -16,6 +18,11 @@ class DescribeKvAccountStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether Edge KV is activated for the Alibaba Cloud account.
+     *
+     *   **online**
+     *   **offline**
+     *
      * @example online
      *
      * @var string

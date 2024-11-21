@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListWafUsageOfRulesRequest extends Model
 {
     /**
+     * @description The WAF rule category.
+     *
      * @example http_anti_scan
      *
      * @var string
@@ -16,6 +18,8 @@ class ListWafUsageOfRulesRequest extends Model
     public $phase;
 
     /**
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+     *
      * @example ListWafUsageOfRules
      *
      * @var int

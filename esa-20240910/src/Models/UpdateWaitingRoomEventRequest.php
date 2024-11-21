@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateWaitingRoomEventRequest extends Model
 {
     /**
+     * @description The content of the custom waiting room page. You must specify this parameter if you set WaitingRoomType to custom. The content must be Base64-encoded.
+     *
      * @example html-yets-maqi1111
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateWaitingRoomEventRequest extends Model
     public $customPageHtml;
 
     /**
+     * @description The description of the waiting room.
+     *
      * @example http://yywyyw.com
      *
      * @var string
@@ -23,6 +27,11 @@ class UpdateWaitingRoomEventRequest extends Model
     public $description;
 
     /**
+     * @description Specifies whether to disable session renewal. Valid values:
+     *
+     *   on
+     *   off
+     *
      * @example off
      *
      * @var string
@@ -30,6 +39,11 @@ class UpdateWaitingRoomEventRequest extends Model
     public $disableSessionRenewalEnable;
 
     /**
+     * @description Specifies whether to enable the waiting room event. Valid values:
+     *
+     *   `on`
+     *   `off`
+     *
      * @example on
      *
      * @var string
@@ -37,6 +51,8 @@ class UpdateWaitingRoomEventRequest extends Model
     public $enable;
 
     /**
+     * @description The end time of the event. This value is a UNIX timestamp.
+     *
      * @example 1719849600
      *
      * @var string
@@ -44,6 +60,11 @@ class UpdateWaitingRoomEventRequest extends Model
     public $endTime;
 
     /**
+     * @description Specifies whether to enable JSON response. Valid values:
+     *
+     *   on
+     *   off
+     *
      * @example off
      *
      * @var string
@@ -51,6 +72,12 @@ class UpdateWaitingRoomEventRequest extends Model
     public $jsonResponseEnable;
 
     /**
+     * @description The default language. Valid values:
+     *
+     *   `enus`: English.
+     *   `zhcn`: Simplified Chinese.
+     *   `zhhk`: Traditional Chinese.
+     *
      * @example enus
      *
      * @var string
@@ -58,11 +85,15 @@ class UpdateWaitingRoomEventRequest extends Model
     public $language;
 
     /**
+     * @description The name of the waiting room event.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The maximum number of new users per minute.
+     *
      * @example 300
      *
      * @var string
@@ -70,6 +101,11 @@ class UpdateWaitingRoomEventRequest extends Model
     public $newUsersPerMinute;
 
     /**
+     * @description Specifies whether to enable pre-queuing.
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string
@@ -77,6 +113,8 @@ class UpdateWaitingRoomEventRequest extends Model
     public $preQueueEnable;
 
     /**
+     * @description The start time for pre-queuing.
+     *
      * @example 1719763200
      *
      * @var string
@@ -84,6 +122,13 @@ class UpdateWaitingRoomEventRequest extends Model
     public $preQueueStartTime;
 
     /**
+     * @description The queuing method. Valid values:
+     *
+     *   random: Users gain access to the origin randomly, regardless of the arrival time.
+     *   fifo: Users gain access to the origin in order of arrival.
+     *   passthrough: Users pass through the waiting room and go straight to the origin.
+     *   reject-all: All requests are blocked from accessing the origin.
+     *
      * @example fifo
      *
      * @var string
@@ -91,6 +136,12 @@ class UpdateWaitingRoomEventRequest extends Model
     public $queuingMethod;
 
     /**
+     * @description The HTTP status code to return while a user is in the queue. Valid values:
+     *
+     *   200
+     *   202
+     *   429
+     *
      * @example 200
      *
      * @var string
@@ -98,6 +149,11 @@ class UpdateWaitingRoomEventRequest extends Model
     public $queuingStatusCode;
 
     /**
+     * @description Specifies whether to enable random queuing.
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string
@@ -105,6 +161,8 @@ class UpdateWaitingRoomEventRequest extends Model
     public $randomPreQueueEnable;
 
     /**
+     * @description The maximum duration for which a session remains valid after a user leaves the origin. Unit: minutes.
+     *
      * @example 5
      *
      * @var string
@@ -112,8 +170,9 @@ class UpdateWaitingRoomEventRequest extends Model
     public $sessionDuration;
 
     /**
-     * @description This parameter is required.
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
      *
+     * This parameter is required.
      * @example 123456****
      *
      * @var int
@@ -121,6 +180,8 @@ class UpdateWaitingRoomEventRequest extends Model
     public $siteId;
 
     /**
+     * @description The start time of the event. This value is a UNIX timestamp.
+     *
      * @example 1719763200
      *
      * @var string
@@ -128,6 +189,8 @@ class UpdateWaitingRoomEventRequest extends Model
     public $startTime;
 
     /**
+     * @description The maximum number of active users.
+     *
      * @example 200
      *
      * @var string
@@ -135,6 +198,8 @@ class UpdateWaitingRoomEventRequest extends Model
     public $totalActiveUsers;
 
     /**
+     * @description The ID of the waiting room event, which can be obtained by calling the [ListWaitingRoomEvents](https://help.aliyun.com/document_detail/2850279.html) operation.
+     *
      * @example 89677721098****
      *
      * @var int
@@ -142,6 +207,11 @@ class UpdateWaitingRoomEventRequest extends Model
     public $waitingRoomEventId;
 
     /**
+     * @description The type of the waiting room. Valid values:
+     *
+     *   default
+     *   custom
+     *
      * @example custom
      *
      * @var string

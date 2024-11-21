@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateSiteDeliveryTaskResponseBody extends Model
 {
     /**
+     * @description The data center. Valid values:
+     *
+     *   cn: the Chinese mainland.
+     *   oversea: outside the Chinese mainland.
+     *
      * @example cn
      *
      * @var string
@@ -16,7 +21,7 @@ class CreateSiteDeliveryTaskResponseBody extends Model
     public $dataCenter;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 9358E852-992D-5BC7-8BD7-975CA02773A8
      *
@@ -25,6 +30,8 @@ class CreateSiteDeliveryTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The website ID.[](~~2850189~~)
+     *
      * @example 123456****
      *
      * @var string
@@ -32,6 +39,8 @@ class CreateSiteDeliveryTaskResponseBody extends Model
     public $siteId;
 
     /**
+     * @description The name of the delivery task.
+     *
      * @example er-oss
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListEdgeContainerAppsResponseBody extends Model
 {
     /**
+     * @description The queried applications.
+     *
      * @var apps[]
      */
     public $apps;
 
     /**
+     * @description The page number. Default value: **1**. Valid values: 1 to 65535.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListEdgeContainerAppsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 500.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class ListEdgeContainerAppsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 2430E05E-1340-5773-B5E1-B743929F46F2
      *
      * @var string
@@ -36,6 +44,8 @@ class ListEdgeContainerAppsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries.
+     *
      * @example 10
      *
      * @var int

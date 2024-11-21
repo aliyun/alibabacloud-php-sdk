@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UploadFileResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 3C6CCEC4-6B88-4D4A-93E4-D47B3D92CF8F
      *
@@ -18,6 +18,8 @@ class UploadFileResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the file upload task. You can use this ID for task submission or query subsequently.
+     *
      * @example 159253299357****
      *
      * @var int

@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ossDelivery extends Model
 {
     /**
+     * @description The ID of your Alibaba Cloud account.
+     *
+     * @example 1234***
+     *
      * @var string
      */
     public $aliuid;
 
     /**
+     * @description The name of the OSS bucket.
+     *
+     * @example test_rlog
+     *
      * @var string
      */
     public $bucketName;
 
     /**
+     * @description The prefix of the path in which you want to store logs.
+     *
      * @example logriver-test/log
      *
      * @var string
@@ -26,6 +36,8 @@ class ossDelivery extends Model
     public $prefixPath;
 
     /**
+     * @description The region in which the bucket is located.
+     *
      * @example cn-shanghai
      *
      * @var string

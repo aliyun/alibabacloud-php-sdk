@@ -10,18 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListScheduledPreloadJobsResponseBody extends Model
 {
     /**
+     * @description The list of the prefetch tasks.
+     *
      * @var jobs[]
      */
     public $jobs;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of tasks returned.
+     *
+     * @example 5
+     *
      * @var string
      */
     public $totalCount;

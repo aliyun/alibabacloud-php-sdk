@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeHttpDDoSAttackProtectionResponseBody extends Model
 {
     /**
+     * @description The level of HTTP DDoS attack protection. Valid values:
+     *
+     *   **very weak**: very loose.
+     *   **weak**: loose.
+     *   **default**: normal.
+     *   **hard**: strict.
+     *
      * @example default
      *
      * @var string
@@ -16,7 +23,7 @@ class DescribeHttpDDoSAttackProtectionResponseBody extends Model
     public $globalMode;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 35C66C7B-671H-4297-9187-2C4477247A78
      *
@@ -25,6 +32,8 @@ class DescribeHttpDDoSAttackProtectionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The website ID.
+     *
      * @example 123456****
      *
      * @var int

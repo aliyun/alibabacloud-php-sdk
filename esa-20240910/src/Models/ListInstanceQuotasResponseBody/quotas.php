@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class quotas extends Model
 {
     /**
+     * @description The quota name.
+     *
      * @example customHttpCert
      *
      * @var string
@@ -16,6 +18,8 @@ class quotas extends Model
     public $quotaName;
 
     /**
+     * @description The quota value.
+     *
      * @example 10
      *
      * @var string
@@ -23,6 +27,14 @@ class quotas extends Model
     public $quotaValue;
 
     /**
+     * @description The threshold type of the quota. Valid values:
+     *
+     *   value: enumerates the values of the quota.
+     *   bool: specifies whether the quota is available.
+     *   num: the upper limit of the quota.
+     *   range: the value range for the quota.
+     *   custom: other types than the preceding four quota threshold types.
+     *
      * @example bool
      *
      * @var string

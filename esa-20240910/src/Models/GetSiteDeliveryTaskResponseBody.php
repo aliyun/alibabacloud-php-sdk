@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetSiteDeliveryTaskResponseBody extends Model
 {
     /**
+     * @description The log category. Valid values:
+     *
+     *   dcdn_log_access_l1 (default): access logs.
+     *   dcdn_log_er: Edge Routine logs.
+     *   dcdn_log_waf: firewall logs.
+     *   dcdn_log_ipa: TCP/UDP proxy logs.
+     *
      * @example dcdn_log_access_l1
      *
      * @var string
@@ -16,6 +23,9 @@ class GetSiteDeliveryTaskResponseBody extends Model
     public $businessType;
 
     /**
+     * @description The data center. Valid values:
+     *
+     * 2.  sg: outside the Chinese mainland.
      * @example cn
      *
      * @var string
@@ -23,6 +33,9 @@ class GetSiteDeliveryTaskResponseBody extends Model
     public $dataCenter;
 
     /**
+     * @description The destination of the delivery. Valid values:
+     *
+     * 6.  aws3cmpt: S3-compatible storage service.
      * @example sls
      *
      * @var string
@@ -30,6 +43,8 @@ class GetSiteDeliveryTaskResponseBody extends Model
     public $deliveryType;
 
     /**
+     * @description The discard rate.
+     *
      * @example 0.0
      *
      * @var float
@@ -37,6 +52,8 @@ class GetSiteDeliveryTaskResponseBody extends Model
     public $discardRate;
 
     /**
+     * @description The log fields.
+     *
      * @example Client,UserAgent
      *
      * @var string
@@ -44,6 +61,8 @@ class GetSiteDeliveryTaskResponseBody extends Model
     public $fieldList;
 
     /**
+     * @description The filtering rules.
+     *
      * @example []
      *
      * @var string
@@ -51,7 +70,7 @@ class GetSiteDeliveryTaskResponseBody extends Model
     public $filterRules;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 34DCBC8A-****-****-****-6DAA11D7DDBD
      *
@@ -60,6 +79,8 @@ class GetSiteDeliveryTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The delivery configuration.
+     *
      * @example {\\"Region\\": \\"cn-hangzhou\\", \\"Endpoint\\": \\"https://***.oss-cn-hangzhou.aliyuncs.com\\", \\"BucketPath\\": \\"hjy-test002/online-logs\\"}
      *
      * @var mixed
@@ -67,6 +88,8 @@ class GetSiteDeliveryTaskResponseBody extends Model
     public $sinkConfig;
 
     /**
+     * @description The website ID.
+     *
      * @example 123456****
      *
      * @var int
@@ -74,6 +97,8 @@ class GetSiteDeliveryTaskResponseBody extends Model
     public $siteId;
 
     /**
+     * @description The website name.
+     *
      * @example test.***.com
      *
      * @var string
@@ -81,6 +106,11 @@ class GetSiteDeliveryTaskResponseBody extends Model
     public $siteName;
 
     /**
+     * @description The status of the delivery task.
+     *
+     *   **online**
+     *   **offline**
+     *
      * @example online
      *
      * @var string
@@ -88,6 +118,8 @@ class GetSiteDeliveryTaskResponseBody extends Model
     public $status;
 
     /**
+     * @description The name of the delivery task.
+     *
      * @example cdn-test-task
      *
      * @var string

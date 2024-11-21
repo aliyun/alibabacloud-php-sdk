@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetPageResponseBody extends Model
 {
     /**
-     * @description 自定义响应页面内容BASE64编码
+     * @description The Base64-encoded content of the error page. The content type is specified by the Content-Type field.
      *
      * This parameter is required.
      * @example PGh0bWw+aGVsbG8gcGFnZTwvaHRtbD4=
@@ -19,7 +19,7 @@ class GetPageResponseBody extends Model
     public $content;
 
     /**
-     * @description 自定义响应页面内容类型
+     * @description The Content-Type field in the HTTP header.
      *
      * This parameter is required.
      * @example text/html
@@ -29,7 +29,7 @@ class GetPageResponseBody extends Model
     public $contentType;
 
     /**
-     * @description 自定义响应页面描述
+     * @description The description of the custom error page.
      *
      * @example a custom deny page
      *
@@ -38,7 +38,7 @@ class GetPageResponseBody extends Model
     public $description;
 
     /**
-     * @description 自定义响应页面ID
+     * @description The ID of the custom error page.[](~~2850223~~)
      *
      * @example 50000001
      *
@@ -47,6 +47,8 @@ class GetPageResponseBody extends Model
     public $id;
 
     /**
+     * @description The type of the custom response page.
+     *
      * @example custom
      *
      * @var string
@@ -54,7 +56,7 @@ class GetPageResponseBody extends Model
     public $kind;
 
     /**
-     * @description 自定义响应页面名称
+     * @description The name of the custom response page.
      *
      * This parameter is required.
      * @example example
@@ -64,7 +66,7 @@ class GetPageResponseBody extends Model
     public $name;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 36af3fcc-43d0-441c-86b1-428951dc8225
      *
@@ -73,6 +75,8 @@ class GetPageResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The time when the custom error page was last modified.
+     *
      * @example 2024-01-01T00:00:00Z
      *
      * @var string

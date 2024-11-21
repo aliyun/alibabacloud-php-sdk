@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class PreloadCachesRequest extends Model
 {
     /**
+     * @description The files to be prefetched.
+     *
      * @var string[]
      */
     public $content;
 
     /**
+     * @description By default, prefetch requests include the Accept-Encoding:gzip header. If you want a prefetch request to include other headers or implement multi-replica prefetch, you can specify a custom prefetch header by configuring the Headers parameter.
+     *
      * @var string[]
      */
     public $headers;
 
     /**
+     * @description The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+     *
      * @example 123456789****
      *
      * @var int

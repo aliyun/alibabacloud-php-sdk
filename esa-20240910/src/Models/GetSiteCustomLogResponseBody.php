@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetSiteCustomLogResponseBody extends Model
 {
     /**
+     * @description The ID of the custom log field configuration.
+     *
      * @example 6befa4aa-2a94-4f51-a245-295787192d2c
      *
      * @var int
@@ -17,6 +19,8 @@ class GetSiteCustomLogResponseBody extends Model
     public $configId;
 
     /**
+     * @description Indicates whether the custom configuration exists.
+     *
      * @example true
      *
      * @var bool
@@ -24,12 +28,14 @@ class GetSiteCustomLogResponseBody extends Model
     public $isExist;
 
     /**
+     * @description The custom fields.
+     *
      * @var logCustomField
      */
     public $logCustomField;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 6befa4aa-2a94-4f51-a245-295787192d2c
      *
@@ -38,6 +44,8 @@ class GetSiteCustomLogResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The website ID.
+     *
      * @example 167026711***
      *
      * @var int

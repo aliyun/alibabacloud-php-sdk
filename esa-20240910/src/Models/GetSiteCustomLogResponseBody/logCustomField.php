@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class logCustomField extends Model
 {
     /**
+     * @description The cookie fields.
+     *
      * @var string[]
      */
     public $cookies;
 
     /**
+     * @description The request header fields.
+     *
      * @var string[]
      */
     public $requestHeaders;
 
     /**
+     * @description The response header fields.
+     *
      * @var string[]
      */
     public $responseHeaders;

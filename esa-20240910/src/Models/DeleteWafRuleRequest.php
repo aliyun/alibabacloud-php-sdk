@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteWafRuleRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) operation.
      *
+     * This parameter is required.
      * @example 20000001
      *
      * @var int
@@ -18,8 +19,9 @@ class DeleteWafRuleRequest extends Model
     public $id;
 
     /**
-     * @description This parameter is required.
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -27,6 +29,8 @@ class DeleteWafRuleRequest extends Model
     public $siteId;
 
     /**
+     * @description The version of the website.
+     *
      * @example 1
      *
      * @var int

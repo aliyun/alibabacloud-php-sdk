@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateCustomScenePolicyResponseBody extends Model
 {
     /**
+     * @description The time when the policy expires.
+     *
+     * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      * @example 2023-04-03T19:00:00Z
      *
      * @var string
@@ -16,6 +19,8 @@ class UpdateCustomScenePolicyResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The policy name.
+     *
      * @example test
      *
      * @var string
@@ -23,11 +28,15 @@ class UpdateCustomScenePolicyResponseBody extends Model
     public $name;
 
     /**
+     * @description The IDs of websites associated.
+     *
      * @var string[]
      */
     public $objects;
 
     /**
+     * @description The policy ID.
+     *
      * @example 1
      *
      * @var int
@@ -35,7 +44,7 @@ class UpdateCustomScenePolicyResponseBody extends Model
     public $policyId;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
@@ -44,6 +53,9 @@ class UpdateCustomScenePolicyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The time when the policy takes effect.
+     *
+     * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      * @example 2023-04-03T16:00:00Z
      *
      * @var string
@@ -51,6 +63,10 @@ class UpdateCustomScenePolicyResponseBody extends Model
     public $startTime;
 
     /**
+     * @description The name of the policy template. Valid value:
+     *
+     *   **promotion**: major events.
+     *
      * @example promotion
      *
      * @var string

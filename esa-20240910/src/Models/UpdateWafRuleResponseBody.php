@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateWafRuleResponseBody extends Model
 {
     /**
+     * @description The ID of the WAF rule.[](~~2850237~~)
+     *
+     * @example 20000001
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The request ID.
+     *
      * @example 36af3fcc-43d0-441c-86b1-428951dc8225
      *
      * @var string

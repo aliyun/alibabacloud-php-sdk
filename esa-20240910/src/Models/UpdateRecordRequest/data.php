@@ -9,71 +9,136 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The encryption algorithm used for the record, specified within the range from 0 to 255. This parameter is required when you add CERT or SSHFP records.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $algorithm;
 
     /**
+     * @description The public key of the certificate. This parameter is required when you add CERT, SMIMEA, or TLSA records.
+     *
+     * @example dGVzdGFkYWxrcw==
+     *
      * @var string
      */
     public $certificate;
 
     /**
+     * @description The public key fingerprint of the record. This parameter is required when you add a SSHFP record.
+     *
+     * @example abcdef1234567890
+     *
      * @var string
      */
     public $fingerprint;
 
     /**
+     * @description The flag bit of the record. The Flag for a CAA record indicates its priority and how it is processed, specified within the range of 0 to 255. This parameter is required when you add a CAA record.
+     *
+     * @example 128
+     *
      * @var int
      */
     public $flag;
 
     /**
+     * @description The public key identification for the record, specified within the range of 0 to 65,535. This parameter is required when you add a CAA record.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $keyTag;
 
     /**
+     * @description The algorithm policy used to match or validate the certificate, specified within the range 0 to 255. This parameter is required when you add SMIMEA or TLSA records.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $matchingType;
 
     /**
+     * @description The port of the record, specified within the range of 0 to 65,535. This parameter is required when you add an SRV record.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The priority of the record, specified within the range of 0 to 65,535. A smaller value indicates a higher priority. This parameter is required when you add MX, SRV, and URI records.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @description The type of certificate or public key, specified within the range of 0 to 255. This parameter is required when you add SMIMEA or TLSA records.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $selector;
 
     /**
+     * @description The label of the record. The Tag of a CAA record indicate its specific type and usage. This parameter is required when you add a CAA record.
+     *
+     * @example issue
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @description The certificate type of the record (in CERT records), or the public key type (in SSHFP records). This parameter is required when you add CERT or SSHFP records.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @description The usage identifier of the record, specified within the range of 0 to 255. This parameter is required when you add SMIMEA or TLSA records.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $usage;
 
     /**
+     * @description The record value or part of the record content. This parameter is required when you add A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI records. It has different meanings based on different types of records:
+     *
+     *   **A/AAAA**: the IP address(es). Separate multiple IPs with commas (,). You must have at least one IPv4 address.
+     *   **CNAME**: the target domain name.
+     *   **NS**: the name servers for the domain name.
+     *   **MX**: a valid domain name of the target mail server.
+     *   **TXT**: a valid text string.
+     *   **CAA**: a valid domain name of the certificate authority.
+     *   **SRV**: a valid domain name of the target host.
+     *   **URI**: a valid URI string.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $value;
 
     /**
+     * @description The weight of the record, specified within the range of 0 to 65,535. This parameter is required when you add SRV or URI records.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $weight;

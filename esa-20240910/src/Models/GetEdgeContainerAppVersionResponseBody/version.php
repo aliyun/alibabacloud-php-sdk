@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class version extends Model
 {
     /**
+     * @description The application ID.
+     *
      * @example app-88068867578379****
      *
      * @var string
@@ -17,11 +19,15 @@ class version extends Model
     public $appId;
 
     /**
+     * @description The container images deployed for this version.
+     *
      * @var containers[]
      */
     public $containers;
 
     /**
+     * @description The time when the version was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2022-07-01T09:32:33Z
      *
      * @var string
@@ -29,6 +35,8 @@ class version extends Model
     public $createTime;
 
     /**
+     * @description The time when the version was last released. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     *
      * @example 2023-07-25T04:58:05Z
      *
      * @var string
@@ -36,6 +44,8 @@ class version extends Model
     public $lastPublishTime;
 
     /**
+     * @description The version name.
+     *
      * @example test
      *
      * @var string
@@ -43,6 +53,8 @@ class version extends Model
     public $name;
 
     /**
+     * @description The time when the version was released. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     *
      * @example 2022-11-14T02:04:03Z
      *
      * @var string
@@ -50,6 +62,8 @@ class version extends Model
     public $publishTime;
 
     /**
+     * @description The remarks.
+     *
      * @example aaa
      *
      * @var string
@@ -57,6 +71,12 @@ class version extends Model
     public $remarks;
 
     /**
+     * @description The status of the current version. Valid values:
+     *
+     *   created: The version is created.
+     *   failed: The version failed to be created.
+     *   creating: The version is being created.
+     *
      * @example created
      *
      * @var string
@@ -64,6 +84,8 @@ class version extends Model
     public $status;
 
     /**
+     * @description The time when the version was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     *
      * @example 2021-12-03T10:52:52Z
      *
      * @var string
@@ -71,6 +93,8 @@ class version extends Model
     public $updateTime;
 
     /**
+     * @description The ID of the created version.
+     *
      * @example ver-87962637161651****
      *
      * @var string

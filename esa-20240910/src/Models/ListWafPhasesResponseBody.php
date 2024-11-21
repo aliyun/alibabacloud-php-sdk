@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListWafPhasesResponseBody extends Model
 {
     /**
+     * @description The WAF rule categories.
+     *
      * @var phases[]
      */
     public $phases;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 36af3fcc-43d0-441c-86b1-428951dc8225
      *

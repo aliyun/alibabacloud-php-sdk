@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class slsDelivery extends Model
 {
     /**
+     * @description The name of the SLS Logstore.
+     *
+     * @example accesslog-test
+     *
      * @var string
      */
     public $SLSLogStore;
 
     /**
+     * @description The name of the SLS project.
+     *
+     * @example dcdn-test20240417
+     *
      * @var string
      */
     public $SLSProject;
 
     /**
+     * @description The region in which the SLS project resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $SLSRegion;

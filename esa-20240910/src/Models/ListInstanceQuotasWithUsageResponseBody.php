@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceQuotasWithUsageResponseBody extends Model
 {
     /**
+     * @description The plan ID.[](~~2850189~~)
+     *
      * @example sp-xcdn-96wblslz****
      *
      * @var string
@@ -17,12 +19,14 @@ class ListInstanceQuotasWithUsageResponseBody extends Model
     public $instanceId;
 
     /**
+     * @description The quotas and their actual usage in the plan.
+     *
      * @var quotas[]
      */
     public $quotas;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 85H66C7B-671A-4297-9187-2C4477247A74
      *
@@ -31,6 +35,12 @@ class ListInstanceQuotasWithUsageResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The plan status. Valid values:
+     *
+     *   online: The plan is in service.
+     *   offline: The plan has expired within an allowable period. In this state, the plan is unavailable.
+     *   disable: The plan is released.
+     *
      * @example online
      *
      * @var string

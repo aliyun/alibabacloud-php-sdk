@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RollbackEdgeContainerAppVersionRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The application ID.
      *
+     * This parameter is required.
      * @example app-88068867578379****
      *
      * @var string
@@ -18,6 +19,8 @@ class RollbackEdgeContainerAppVersionRequest extends Model
     public $appId;
 
     /**
+     * @description The remarks.
+     *
      * @example test rollback app
      *
      * @var string
@@ -25,8 +28,9 @@ class RollbackEdgeContainerAppVersionRequest extends Model
     public $remarks;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of version that you want to roll back.
      *
+     * This parameter is required.
      * @example ver-87962637161651****
      *
      * @var string

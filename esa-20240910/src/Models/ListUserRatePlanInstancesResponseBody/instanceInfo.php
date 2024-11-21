@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class instanceInfo extends Model
 {
     /**
+     * @description The billing method. Valid values:
+     *
+     *   PREPAY: subscription.
+     *   POSTPAY: pay-as-you-go.
+     *
      * @example PREPAY
      *
      * @var string
@@ -22,6 +27,12 @@ class instanceInfo extends Model
     public $botInstanceLevel;
 
     /**
+     * @description The service locations for the websites that can be associated with the plan. Multiple values are separated by commas (,). Valid values:
+     *
+     *   domestic: the Chinese mainland.
+     *   overseas: outside the Chinese mainland.
+     *   global: global.
+     *
      * @example domestic,overseas
      *
      * @var string
@@ -29,6 +40,8 @@ class instanceInfo extends Model
     public $coverages;
 
     /**
+     * @description The time when the plan was purchased.
+     *
      * @example YYYY-MM-DDThh:mm:ssZ
      *
      * @var string
@@ -56,6 +69,8 @@ class instanceInfo extends Model
     public $ddosInstanceLevel;
 
     /**
+     * @description The subscription duration of the plan. Unit: month.
+     *
      * @example 3
      *
      * @var int
@@ -73,6 +88,8 @@ class instanceInfo extends Model
     public $edgeWafRequest;
 
     /**
+     * @description The time when the plan expires.
+     *
      * @example YYYY-MM-DDThh:mm:ssZ
      *
      * @var string
@@ -80,6 +97,8 @@ class instanceInfo extends Model
     public $expireTime;
 
     /**
+     * @description The plan ID.
+     *
      * @example sp-xcdn-96wblslz****
      *
      * @var string
@@ -97,6 +116,8 @@ class instanceInfo extends Model
     public $layer4TrafficIntl;
 
     /**
+     * @description The plan name.
+     *
      * @example basic
      *
      * @var string
@@ -109,6 +130,11 @@ class instanceInfo extends Model
     public $planTraffic;
 
     /**
+     * @description The plan type. Valid values:
+     *
+     *   normal
+     *   enterprise
+     *
      * @example normal
      *
      * @var string
@@ -116,6 +142,8 @@ class instanceInfo extends Model
     public $planType;
 
     /**
+     * @description The maximum number of websites that can be associated with the plan.
+     *
      * @example 1
      *
      * @var string
@@ -123,6 +151,8 @@ class instanceInfo extends Model
     public $siteQuota;
 
     /**
+     * @description The websites that have been associated with the plan.
+     *
      * @var sites[]
      */
     public $sites;
@@ -138,6 +168,12 @@ class instanceInfo extends Model
     public $staticRequest;
 
     /**
+     * @description The plan status. Valid values:
+     *
+     *   online: The plan is in service.
+     *   offline: The plan has expired within an allowable period. In this state, the plan is unavailable.
+     *   disable: The plan is released.
+     *
      * @example online
      *
      * @var string

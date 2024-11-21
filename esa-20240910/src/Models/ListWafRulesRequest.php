@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListWafRulesRequest extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example http_custom
      *
      * @var int
@@ -17,6 +19,8 @@ class ListWafRulesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 1
      *
      * @var int
@@ -24,6 +28,8 @@ class ListWafRulesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The WAF rule category. You can filter rules of a specific category.
+     *
      * @example 0
      *
      * @var string
@@ -31,6 +37,8 @@ class ListWafRulesRequest extends Model
     public $phase;
 
     /**
+     * @description The filter conditions.
+     *
      * @example http_custom
      *
      * @var queryArgs
@@ -38,8 +46,9 @@ class ListWafRulesRequest extends Model
     public $queryArgs;
 
     /**
-     * @description This parameter is required.
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -47,6 +56,8 @@ class ListWafRulesRequest extends Model
     public $siteId;
 
     /**
+     * @description The version of the website.
+     *
      * @example 1
      *
      * @var int

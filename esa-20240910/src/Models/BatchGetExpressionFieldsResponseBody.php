@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class BatchGetExpressionFieldsResponseBody extends Model
 {
     /**
+     * @description The fields that match the regular expressions.
+     *
      * @var fields[]
      */
     public $fields;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 36af3fcc-43d0-441c-86b1-428951dc8225
      *

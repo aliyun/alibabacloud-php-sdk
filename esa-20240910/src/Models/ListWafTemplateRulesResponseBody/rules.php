@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @description The configuration of the rule.
+     *
      * @var WafRuleConfig
      */
     public $config;
 
     /**
+     * @description The rule name.
+     *
      * @example HTTP Directory Traversal Rule [Template]
      *
      * @var string
@@ -22,6 +26,8 @@ class rules extends Model
     public $name;
 
     /**
+     * @description The WAF rule category.
+     *
      * @example http_anti_scan
      *
      * @var string
@@ -29,6 +35,8 @@ class rules extends Model
     public $phase;
 
     /**
+     * @description Indicates whether the rule is enabled.
+     *
      * @example on
      *
      * @var string
@@ -36,6 +44,8 @@ class rules extends Model
     public $status;
 
     /**
+     * @description The rule type.
+     *
      * @example http_directory_traversal
      *
      * @var string
