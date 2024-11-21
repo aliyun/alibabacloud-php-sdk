@@ -124,6 +124,11 @@ class InitializeRequest extends Model
     public $ocr;
 
     /**
+     * @var string
+     */
+    public $procedurePriority;
+
+    /**
      * @example eKYC
      *
      * @var string
@@ -193,6 +198,7 @@ class InitializeRequest extends Model
         'metaInfo'          => 'MetaInfo',
         'model'             => 'Model',
         'ocr'               => 'Ocr',
+        'procedurePriority' => 'ProcedurePriority',
         'productCode'       => 'ProductCode',
         'productFlow'       => 'ProductFlow',
         'returnUrl'         => 'ReturnUrl',
@@ -267,6 +273,9 @@ class InitializeRequest extends Model
         }
         if (null !== $this->ocr) {
             $res['Ocr'] = $this->ocr;
+        }
+        if (null !== $this->procedurePriority) {
+            $res['ProcedurePriority'] = $this->procedurePriority;
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
@@ -363,6 +372,9 @@ class InitializeRequest extends Model
         }
         if (isset($map['Ocr'])) {
             $model->ocr = $map['Ocr'];
+        }
+        if (isset($map['ProcedurePriority'])) {
+            $model->procedurePriority = $map['ProcedurePriority'];
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];

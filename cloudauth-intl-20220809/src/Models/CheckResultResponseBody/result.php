@@ -37,6 +37,11 @@ class result extends Model
     public $extIdInfo;
 
     /**
+     * @var string
+     */
+    public $extInfo;
+
+    /**
      * @example **
      *
      * @var string
@@ -61,6 +66,7 @@ class result extends Model
         'extBasicInfo' => 'ExtBasicInfo',
         'extFaceInfo'  => 'ExtFaceInfo',
         'extIdInfo'    => 'ExtIdInfo',
+        'extInfo'      => 'ExtInfo',
         'extRiskInfo'  => 'ExtRiskInfo',
         'passed'       => 'Passed',
         'subCode'      => 'SubCode',
@@ -84,6 +90,9 @@ class result extends Model
         }
         if (null !== $this->extIdInfo) {
             $res['ExtIdInfo'] = $this->extIdInfo;
+        }
+        if (null !== $this->extInfo) {
+            $res['ExtInfo'] = $this->extInfo;
         }
         if (null !== $this->extRiskInfo) {
             $res['ExtRiskInfo'] = $this->extRiskInfo;
@@ -117,6 +126,9 @@ class result extends Model
         }
         if (isset($map['ExtIdInfo'])) {
             $model->extIdInfo = $map['ExtIdInfo'];
+        }
+        if (isset($map['ExtInfo'])) {
+            $model->extInfo = $map['ExtInfo'];
         }
         if (isset($map['ExtRiskInfo'])) {
             $model->extRiskInfo = $map['ExtRiskInfo'];

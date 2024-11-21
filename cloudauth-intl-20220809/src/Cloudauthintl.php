@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\EkycVerifyRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\EkycVerifyResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceGuardRiskRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceGuardRiskResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceLivenessRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceLivenessResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FraudResultCallBackRequest;
@@ -483,6 +485,62 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
+     * @summary 国际人脸保镖纯服务端接口
+     *  *
+     * @param FaceGuardRiskRequest $request FaceGuardRiskRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return FaceGuardRiskResponse FaceGuardRiskResponse
+     */
+    public function faceGuardRiskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->deviceToken)) {
+            $query['DeviceToken'] = $request->deviceToken;
+        }
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FaceGuardRisk',
+            'version'     => '2022-08-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return FaceGuardRiskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 国际人脸保镖纯服务端接口
+     *  *
+     * @param FaceGuardRiskRequest $request FaceGuardRiskRequest
+     *
+     * @return FaceGuardRiskResponse FaceGuardRiskResponse
+     */
+    public function faceGuardRisk($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->faceGuardRiskWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 静默活体API 纯服务端
      *  *
      * @param FaceLivenessRequest $request FaceLivenessRequest
@@ -729,6 +787,9 @@ class Cloudauthintl extends OpenApiClient
         }
         if (!Utils::isUnset($request->ocr)) {
             $query['Ocr'] = $request->ocr;
+        }
+        if (!Utils::isUnset($request->procedurePriority)) {
+            $query['ProcedurePriority'] = $request->procedurePriority;
         }
         if (!Utils::isUnset($request->productCode)) {
             $query['ProductCode'] = $request->productCode;
