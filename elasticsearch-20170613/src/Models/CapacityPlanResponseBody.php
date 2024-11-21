@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CapacityPlanResponseBody extends Model
 {
     /**
-     * @description The response of the request.
+     * @description ID of the current request.
      *
      * @example E91B7129-A669-4D9D-A743-F90A0FF1F5EF
      *
@@ -19,7 +19,7 @@ class CapacityPlanResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The extension configuration information.
+     * @description Returned result of the request.
      *
      * @var result
      */

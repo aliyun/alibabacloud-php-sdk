@@ -11,6 +11,9 @@ use AlibabaCloud\Tea\Model;
 class CapacityPlanRequest extends Model
 {
     /**
+     * @description Indicates whether there is a need for complex aggregation queries. Options:
+     *
+     * - false (default): No
      * @example true
      *
      * @var bool
@@ -18,16 +21,23 @@ class CapacityPlanRequest extends Model
     public $complexQueryAvailable;
 
     /**
+     * @description Disk usage status.
+     *
      * @var dataInfo[]
      */
     public $dataInfo;
 
     /**
+     * @description Metrics information including disk usage, search and write operations, aggregation requests, etc.
+     *
      * @var metric[]
      */
     public $metric;
 
     /**
+     * @description Usage scenarios, options:
+     *
+     * - log: Log scenario
      * @example general
      *
      * @var string

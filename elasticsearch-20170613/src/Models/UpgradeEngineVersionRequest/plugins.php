@@ -11,6 +11,11 @@ class plugins extends Model
     /**
      * @var string
      */
+    public $enable;
+
+    /**
+     * @var string
+     */
     public $fileVersion;
 
     /**
@@ -23,6 +28,7 @@ class plugins extends Model
      */
     public $version;
     protected $_name = [
+        'enable'      => 'enable',
         'fileVersion' => 'fileVersion',
         'name'        => 'name',
         'version'     => 'version',
@@ -35,6 +41,9 @@ class plugins extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->enable) {
+            $res['enable'] = $this->enable;
+        }
         if (null !== $this->fileVersion) {
             $res['fileVersion'] = $this->fileVersion;
         }
@@ -56,6 +65,9 @@ class plugins extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['enable'])) {
+            $model->enable = $map['enable'];
+        }
         if (isset($map['fileVersion'])) {
             $model->fileVersion = $map['fileVersion'];
         }

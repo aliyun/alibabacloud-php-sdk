@@ -9,6 +9,8 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetRegionalInstanceConfigRes
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetRegionalInstanceConfigResponseBody\result\dataNodeAmountRange;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetRegionalInstanceConfigResponseBody\result\dataNodeDiskList;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetRegionalInstanceConfigResponseBody\result\masterDiskList;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetRegionalInstanceConfigResponseBody\result\warmNodeAmountRange;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetRegionalInstanceConfigResponseBody\result\warmNodeDiskList;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ResultSpecInfoMapValue;
 use AlibabaCloud\Tea\Model;
 
@@ -73,6 +75,21 @@ class result extends Model
      * @var string[]
      */
     public $versions;
+
+    /**
+     * @var warmNodeAmountRange
+     */
+    public $warmNodeAmountRange;
+
+    /**
+     * @var warmNodeDiskList[]
+     */
+    public $warmNodeDiskList;
+
+    /**
+     * @var string[]
+     */
+    public $warmNodeSpecs;
     protected $_name = [
         'clientNodeAmountRange' => 'clientNodeAmountRange',
         'clientNodeDiskList'    => 'clientNodeDiskList',
@@ -86,6 +103,9 @@ class result extends Model
         'masterSpecs'           => 'masterSpecs',
         'specInfoMap'           => 'specInfoMap',
         'versions'              => 'versions',
+        'warmNodeAmountRange'   => 'warmNodeAmountRange',
+        'warmNodeDiskList'      => 'warmNodeDiskList',
+        'warmNodeSpecs'         => 'warmNodeSpecs',
     ];
 
     public function validate()
@@ -153,6 +173,21 @@ class result extends Model
         }
         if (null !== $this->versions) {
             $res['versions'] = $this->versions;
+        }
+        if (null !== $this->warmNodeAmountRange) {
+            $res['warmNodeAmountRange'] = null !== $this->warmNodeAmountRange ? $this->warmNodeAmountRange->toMap() : null;
+        }
+        if (null !== $this->warmNodeDiskList) {
+            $res['warmNodeDiskList'] = [];
+            if (null !== $this->warmNodeDiskList && \is_array($this->warmNodeDiskList)) {
+                $n = 0;
+                foreach ($this->warmNodeDiskList as $item) {
+                    $res['warmNodeDiskList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->warmNodeSpecs) {
+            $res['warmNodeSpecs'] = $this->warmNodeSpecs;
         }
 
         return $res;
@@ -230,6 +265,23 @@ class result extends Model
         if (isset($map['versions'])) {
             if (!empty($map['versions'])) {
                 $model->versions = $map['versions'];
+            }
+        }
+        if (isset($map['warmNodeAmountRange'])) {
+            $model->warmNodeAmountRange = warmNodeAmountRange::fromMap($map['warmNodeAmountRange']);
+        }
+        if (isset($map['warmNodeDiskList'])) {
+            if (!empty($map['warmNodeDiskList'])) {
+                $model->warmNodeDiskList = [];
+                $n                       = 0;
+                foreach ($map['warmNodeDiskList'] as $item) {
+                    $model->warmNodeDiskList[$n++] = null !== $item ? warmNodeDiskList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['warmNodeSpecs'])) {
+            if (!empty($map['warmNodeSpecs'])) {
+                $model->warmNodeSpecs = $map['warmNodeSpecs'];
             }
         }
 

@@ -39,7 +39,7 @@ class ListSearchLogRequest extends Model
      * @description 1
      *
      * This parameter is required.
-     * @example host:172.16.\*\*.** AND content:netty
+     * @example host:``172.16.**.**`` AND content:netty
      *
      * @var string
      */

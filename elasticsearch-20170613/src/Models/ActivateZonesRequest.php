@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ActivateZonesRequest extends Model
 {
     /**
+     * @description 请求体参数。
+     *
+     * @example ["cn-hangzhou-i","cn-hangzhou-h"]
+     *
      * @var string
      */
     public $body;

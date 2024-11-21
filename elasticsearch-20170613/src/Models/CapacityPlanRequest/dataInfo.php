@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class dataInfo extends Model
 {
     /**
+     * @description Disk data metric code. Options:
+     *
+     * - replica: Replica settings
      * @example totalRawData
      *
      * @var string
@@ -16,6 +19,8 @@ class dataInfo extends Model
     public $code;
 
     /**
+     * @description Disk usage metric value.
+     *
      * @example 100
      *
      * @var int
@@ -23,6 +28,8 @@ class dataInfo extends Model
     public $size;
 
     /**
+     * @description Total number of data entries.
+     *
      * @example 10000
      *
      * @var int
@@ -30,6 +37,9 @@ class dataInfo extends Model
     public $totalCount;
 
     /**
+     * @description Disk data type. Options:
+     *
+     * - warm: Cold data
      * @example hot
      *
      * @var string
@@ -37,6 +47,9 @@ class dataInfo extends Model
     public $type;
 
     /**
+     * @description Data or time unit. Options:
+     *
+     * - Time units: DAYS, WEEKS, MONTHS, YEARS
      * @example MiB
      *
      * @var string

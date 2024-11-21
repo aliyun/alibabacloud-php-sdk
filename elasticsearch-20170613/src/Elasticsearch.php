@@ -713,7 +713,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @summary 容量规划
+     * @summary Capacity Planning
      *  *
      * @param CapacityPlanRequest $request CapacityPlanRequest
      * @param string[]            $headers map
@@ -757,7 +757,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @summary 容量规划
+     * @summary Capacity Planning
      *  *
      * @param CapacityPlanRequest $request CapacityPlanRequest
      *
@@ -875,7 +875,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @summary 关闭索引托管
+     * @summary Disable Managed Index
      *  *
      * @param string                   $InstanceId
      * @param string                   $Index
@@ -912,7 +912,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @summary 关闭索引托管
+     * @summary Disable Managed Index
      *  *
      * @param string                   $InstanceId
      * @param string                   $Index
@@ -1488,7 +1488,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @summary Call deactivatezones to offline part of the zone when multiple zones are available. And you need to migrate the nodes in the offline zone to other zones.
+     * @summary Invoke DeactivateZones to offline certain zones when there are multiple availability zones, and migrate nodes in the offline zones to other availability zones.
      *  *
      * @param string                 $InstanceId
      * @param DeactivateZonesRequest $request    DeactivateZonesRequest
@@ -1525,7 +1525,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @summary Call deactivatezones to offline part of the zone when multiple zones are available. And you need to migrate the nodes in the offline zone to other zones.
+     * @summary Invoke DeactivateZones to offline certain zones when there are multiple availability zones, and migrate nodes in the offline zones to other availability zones.
      *  *
      * @param string                 $InstanceId
      * @param DeactivateZonesRequest $request    DeactivateZonesRequest
@@ -2247,7 +2247,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @summary DescribeApm
+     * @summary Describe APM
      *  *
      * @param string         $instanceId
      * @param string[]       $headers    map
@@ -2276,7 +2276,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @summary DescribeApm
+     * @summary Describe APM
      *  *
      * @param string $instanceId
      *

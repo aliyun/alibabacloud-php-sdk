@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class nodeConfigurations extends Model
 {
     /**
-     * @description The number of CPUs of the cloud desktop.
+     * @description Number of nodes.
      *
      * @example 10
      *
@@ -18,7 +18,7 @@ class nodeConfigurations extends Model
     public $amount;
 
     /**
-     * @description The size of the disk. Unit: GiB.
+     * @description Number of CPUs.
      *
      * @example 1
      *
@@ -27,13 +27,7 @@ class nodeConfigurations extends Model
     public $cpu;
 
     /**
-     * @description The type of the hard disk. Valid values:
-     *
-     *   cloud_essd: enhanced SSD (ESSD)
-     *   cloud_ssd: standard SSD
-     *   cloud_efficiency: ultra disk
-     *   local_ssd: local SSD
-     *   local_efficiency: local ultra disk
+     * @description Disk size, in GiB.
      *
      * @example 20
      *
@@ -42,8 +36,9 @@ class nodeConfigurations extends Model
     public $disk;
 
     /**
-     * @description The memory size of the current node role.
+     * @description Disk type, with meanings as follows:
      *
+     * - local_efficiency: Local Efficient Disk
      * @example cloud_ssd
      *
      * @var string
@@ -51,14 +46,7 @@ class nodeConfigurations extends Model
     public $diskType;
 
     /**
-     * @description The type of the node. Supported types are as follows:
-     *
-     *   WORKER: data node
-     *   WORKER_WARM: cold data node
-     *   MASTER: dedicated master node
-     *   KIBANA: Kibana node
-     *   COORDINATING: client node
-     *   ELASTIC_WORKER: elastic node
+     * @description Specified memory size for the current node role.
      *
      * @example 2
      *
@@ -67,11 +55,9 @@ class nodeConfigurations extends Model
     public $memory;
 
     /**
-     * @description The result calculated based on the capacity planning. No default value is available. The values are as follows:
+     * @description Node type, with supported types as follows:
      *
-     *   true: indicates that the number of data nodes calculated by capacity planning exceeds the threshold of 50.
-     *   false: The number of data nodes calculated by capacity planning is less than 50.
-     *
+     * - ELASTIC_WORKER: Elastic Node
      * @example WORKER
      *
      * @var string

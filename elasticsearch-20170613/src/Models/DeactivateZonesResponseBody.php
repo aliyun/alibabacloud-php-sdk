@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeactivateZonesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description Request ID.
      *
      * @example F99407AB-2FA9-489E-A259-40CF6DCC****
      *
@@ -18,11 +18,9 @@ class DeactivateZonesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Return results:
+     * @description Return result:
      *
-     *   true: offline zone successfully
-     *   false: offline zone successfully failed
-     *
+     * - false: Zone offline failed
      * @example true
      *
      * @var bool

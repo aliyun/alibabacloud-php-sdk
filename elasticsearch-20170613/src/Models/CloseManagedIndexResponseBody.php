@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CloseManagedIndexResponseBody extends Model
 {
     /**
+     * @description Request ID.
+     *
      * @example F99407AB-2FA9-489E-A259-40CF6DCC****
      *
      * @var string
@@ -16,6 +18,9 @@ class CloseManagedIndexResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the index\\"s cloud management has been successfully closed:
+     *
+     * - false: Failure
      * @example true
      *
      * @var bool

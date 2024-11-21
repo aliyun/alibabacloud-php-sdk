@@ -11,16 +11,16 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The type of the configuration. Set the value to sharedDisk.
+     * @description Extended configuration information.
      *
-     * >  The extendConfigs attribute that may occur when the planned instance type is enhanced (advanced).
      * @var extendConfigs[]
      */
     public $extendConfigs;
 
     /**
-     * @description The node information.
+     * @description Edition type, with values meaning as follows:
      *
+     * - community: Community Edition
      * @example advanced
      *
      * @var string
@@ -28,13 +28,16 @@ class result extends Model
     public $instanceCategory;
 
     /**
-     * @description The number of cores.
+     * @description Node information.
      *
      * @var nodeConfigurations[]
      */
     public $nodeConfigurations;
 
     /**
+     * @description Based on the capacity planning calculation, there is no default value. The meanings of the values are as follows:
+     *
+     * - false: The number of data nodes calculated by the capacity planning is within 50.
      * @example true
      *
      * @var bool

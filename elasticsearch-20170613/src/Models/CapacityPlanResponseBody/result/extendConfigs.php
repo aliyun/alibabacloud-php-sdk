@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class extendConfigs extends Model
 {
     /**
-     * @description The size of the disk. Unit: GiB.
+     * @description Configuration type, with a single value: sharedDisk.
      *
+     * > This extendConfigs attribute may appear when the planned instance type is Advanced.
      * @example sharedDisk
      *
      * @var string
@@ -18,9 +19,8 @@ class extendConfigs extends Model
     public $configType;
 
     /**
-     * @description The type of the disk. Valid value: CPFS_PREMIUM.
+     * @description Disk size, in GiB.
      *
-     * >  The extendConfigs attribute that may occur when the planned instance type is enhanced (advanced).
      * @example 2048
      *
      * @var int
@@ -28,12 +28,9 @@ class extendConfigs extends Model
     public $disk;
 
     /**
-     * @description The version type. Valid values:
+     * @description Disk type, with a single value: CPFS_PREMIUM.
      *
-     *   advanced: enhanced edition
-     *   x-pack: Commercial Edition
-     *   community: community version
-     *
+     * > This extendConfigs attribute may appear when the planned instance type is Advanced.
      * @example CPFS_PREMIUM
      *
      * @var string

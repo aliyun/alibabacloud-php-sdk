@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class metric extends Model
 {
     /**
+     * @description Average QPS.
+     *
      * @example 30
      *
      * @var int
@@ -16,6 +18,9 @@ class metric extends Model
     public $averageQps;
 
     /**
+     * @description Search or write metric code. Options:
+     *
+     * - search: Search
      * @example write
      *
      * @var string
@@ -23,6 +28,8 @@ class metric extends Model
     public $code;
 
     /**
+     * @description Concurrent number.
+     *
      * @example 2
      *
      * @var int
@@ -30,6 +37,8 @@ class metric extends Model
     public $concurrent;
 
     /**
+     * @description Peak QPS.
+     *
      * @example 30
      *
      * @var int
@@ -37,6 +46,8 @@ class metric extends Model
     public $peakQps;
 
     /**
+     * @description Expected average response time, unit: milliseconds.
+     *
      * @example 100
      *
      * @var int
@@ -44,6 +55,8 @@ class metric extends Model
     public $responseTime;
 
     /**
+     * @description Throughput, unit: MB/S.
+     *
      * @example 100
      *
      * @var int
@@ -51,6 +64,9 @@ class metric extends Model
     public $throughput;
 
     /**
+     * @description Search/write peak type. Options:
+     *
+     * - peak: Peak
      * @example common
      *
      * @var string

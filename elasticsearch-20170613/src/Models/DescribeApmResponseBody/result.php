@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Instance domain.
+     *
      * @example apm-cn-i7m2fuae****.apm.elasticsearch.aliyuncs.com:8200
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $apmServerDomain;
 
     /**
+     * @description Creation time.
+     *
      * @example 2021-11-16T07:15:51.967Z
      *
      * @var string
@@ -23,6 +27,8 @@ class result extends Model
     public $createdAt;
 
     /**
+     * @description Deployed replica count.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class result extends Model
     public $deployedReplica;
 
     /**
+     * @description Instance name.
+     *
      * @example APMtest
      *
      * @var string
@@ -37,6 +45,8 @@ class result extends Model
     public $description;
 
     /**
+     * @description Instance expiration time.
+     *
      * @example 4792752000000
      *
      * @var int
@@ -44,6 +54,8 @@ class result extends Model
     public $endTime;
 
     /**
+     * @description Instance ID.
+     *
      * @example apm-cn-i7m2fuae****
      *
      * @var string
@@ -51,6 +63,8 @@ class result extends Model
     public $instanceId;
 
     /**
+     * @description Number of nodes.
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +72,8 @@ class result extends Model
     public $nodeAmount;
 
     /**
+     * @description Associated Elasticsearch instance.
+     *
      * @example es-cn-i7m2fsfhc001x****
      *
      * @var string
@@ -65,6 +81,8 @@ class result extends Model
     public $outputES;
 
     /**
+     * @description Username of the associated Elasticsearch instance.
+     *
      * @example elastic
      *
      * @var string
@@ -72,6 +90,8 @@ class result extends Model
     public $outputESUserName;
 
     /**
+     * @description User account ID.
+     *
      * @example 133071096032****
      *
      * @var string
@@ -79,6 +99,9 @@ class result extends Model
     public $ownerId;
 
     /**
+     * @description Payment method, with the following values:
+     *
+     * - prepaid: Subscription.
      * @example postpaid
      *
      * @var string
@@ -86,6 +109,8 @@ class result extends Model
     public $paymentType;
 
     /**
+     * @description Region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -93,6 +118,8 @@ class result extends Model
     public $region;
 
     /**
+     * @description Replica count.
+     *
      * @example 1
      *
      * @var int
@@ -100,6 +127,9 @@ class result extends Model
     public $replica;
 
     /**
+     * @description Specification, with the following values:
+     *
+     * - C2M4 (2 cores, 4 GB)
      * @example C1M2
      *
      * @var string
@@ -107,6 +137,9 @@ class result extends Model
     public $resourceSpec;
 
     /**
+     * @description Lifecycle status, with the following values:
+     *
+     * - INVALID: Invalid.
      * @example active
      *
      * @var string
@@ -114,6 +147,8 @@ class result extends Model
     public $status;
 
     /**
+     * @description Version information.
+     *
      * @example 7.10.2
      *
      * @var string
@@ -121,6 +156,8 @@ class result extends Model
     public $version;
 
     /**
+     * @description VPC ID.
+     *
      * @example vpc-bp1530vdhqkamm9s0****
      *
      * @var string
@@ -128,6 +165,8 @@ class result extends Model
     public $vpcId;
 
     /**
+     * @description Availability zone where the switch is located.
+     *
      * @example cn-hangzhou-i
      *
      * @var string
@@ -135,6 +174,8 @@ class result extends Model
     public $vsArea;
 
     /**
+     * @description Switch ID.
+     *
      * @example vsw-bp1j1mql6r9g5vfb4****
      *
      * @var string
