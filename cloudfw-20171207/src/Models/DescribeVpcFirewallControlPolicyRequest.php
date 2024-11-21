@@ -34,7 +34,6 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
     /**
      * @description The number of the page to return.
      *
-     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -86,7 +85,7 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
-     * This parameter is required.
+     * Maximum value: 50.
      * @example 10
      *
      * @var string
