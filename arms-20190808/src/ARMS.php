@@ -330,10 +330,19 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\ListDispatchRuleRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListDispatchRuleResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvCustomJobsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvCustomJobsResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentAddonsRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentAddonsResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentAlertRulesRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentAlertRulesResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentDashboardsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentDashboardsResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentFeaturesRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentFeaturesResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentKubeResourcesRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentKubeResourcesResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentKubeResourcesShrinkRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentMetricTargetsRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentMetricTargetsResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentsResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentsShrinkRequest;
@@ -9961,6 +9970,112 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @summary 环境addon列表
+     *  *
+     * @param ListEnvironmentAddonsRequest $request ListEnvironmentAddonsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListEnvironmentAddonsResponse ListEnvironmentAddonsResponse
+     */
+    public function listEnvironmentAddonsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEnvironmentAddons',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEnvironmentAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 环境addon列表
+     *  *
+     * @param ListEnvironmentAddonsRequest $request ListEnvironmentAddonsRequest
+     *
+     * @return ListEnvironmentAddonsResponse ListEnvironmentAddonsResponse
+     */
+    public function listEnvironmentAddons($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEnvironmentAddonsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 环境的告警组列表
+     *  *
+     * @param ListEnvironmentAlertRulesRequest $request ListEnvironmentAlertRulesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListEnvironmentAlertRulesResponse ListEnvironmentAlertRulesResponse
+     */
+    public function listEnvironmentAlertRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addonName)) {
+            $query['AddonName'] = $request->addonName;
+        }
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->scene)) {
+            $query['Scene'] = $request->scene;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEnvironmentAlertRules',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEnvironmentAlertRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 环境的告警组列表
+     *  *
+     * @param ListEnvironmentAlertRulesRequest $request ListEnvironmentAlertRulesRequest
+     *
+     * @return ListEnvironmentAlertRulesResponse ListEnvironmentAlertRulesResponse
+     */
+    public function listEnvironmentAlertRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEnvironmentAlertRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries information about a dashboard of an environment instance.
      *  *
      * @param ListEnvironmentDashboardsRequest $request ListEnvironmentDashboardsRequest
@@ -10067,6 +10182,123 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listEnvironmentFeaturesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 环境中的kube资源列表
+     *  *
+     * @param ListEnvironmentKubeResourcesRequest $tmpReq  ListEnvironmentKubeResourcesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListEnvironmentKubeResourcesResponse ListEnvironmentKubeResourcesResponse
+     */
+    public function listEnvironmentKubeResourcesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListEnvironmentKubeResourcesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->labelSelectors)) {
+            $request->labelSelectorsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->labelSelectors, 'LabelSelectors', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->kind)) {
+            $query['Kind'] = $request->kind;
+        }
+        if (!Utils::isUnset($request->labelSelectorsShrink)) {
+            $query['LabelSelectors'] = $request->labelSelectorsShrink;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEnvironmentKubeResources',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEnvironmentKubeResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 环境中的kube资源列表
+     *  *
+     * @param ListEnvironmentKubeResourcesRequest $request ListEnvironmentKubeResourcesRequest
+     *
+     * @return ListEnvironmentKubeResourcesResponse ListEnvironmentKubeResourcesResponse
+     */
+    public function listEnvironmentKubeResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEnvironmentKubeResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 环境指标target列表
+     *  *
+     * @param ListEnvironmentMetricTargetsRequest $request ListEnvironmentMetricTargetsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListEnvironmentMetricTargetsResponse ListEnvironmentMetricTargetsResponse
+     */
+    public function listEnvironmentMetricTargetsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->jobName)) {
+            $query['JobName'] = $request->jobName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEnvironmentMetricTargets',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEnvironmentMetricTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 环境指标target列表
+     *  *
+     * @param ListEnvironmentMetricTargetsRequest $request ListEnvironmentMetricTargetsRequest
+     *
+     * @return ListEnvironmentMetricTargetsResponse ListEnvironmentMetricTargetsResponse
+     */
+    public function listEnvironmentMetricTargets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEnvironmentMetricTargetsWithOptions($request, $runtime);
     }
 
     /**
