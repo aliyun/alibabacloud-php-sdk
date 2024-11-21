@@ -375,6 +375,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListBusinessResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListCalcEnginesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListCalcEnginesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListCheckProcessesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListCheckProcessesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListClusterConfigsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListClusterConfigsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListClustersRequest;
@@ -11115,6 +11117,68 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCalcEnginesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询扩展事件的检查列表
+     *  *
+     * @param ListCheckProcessesRequest $request ListCheckProcessesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListCheckProcessesResponse ListCheckProcessesResponse
+     */
+    public function listCheckProcessesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->eventCode)) {
+            $body['EventCode'] = $request->eventCode;
+        }
+        if (!Utils::isUnset($request->operator)) {
+            $body['Operator'] = $request->operator;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCheckProcesses',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCheckProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询扩展事件的检查列表
+     *  *
+     * @param ListCheckProcessesRequest $request ListCheckProcessesRequest
+     *
+     * @return ListCheckProcessesResponse ListCheckProcessesResponse
+     */
+    public function listCheckProcesses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCheckProcessesWithOptions($request, $runtime);
     }
 
     /**
