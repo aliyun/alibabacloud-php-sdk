@@ -47,6 +47,8 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyTokenRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyTokenResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DetectFaceAttributesRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DetectFaceAttributesResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaStandardVerifyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaStandardVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InitFaceVerifyRequest;
@@ -1426,6 +1428,59 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detectFaceAttributesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 身份二要素标准版
+     *  *
+     * @param Id2MetaStandardVerifyRequest $request Id2MetaStandardVerifyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return Id2MetaStandardVerifyResponse Id2MetaStandardVerifyResponse
+     */
+    public function id2MetaStandardVerifyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->identifyNum)) {
+            $body['IdentifyNum'] = $request->identifyNum;
+        }
+        if (!Utils::isUnset($request->paramType)) {
+            $body['ParamType'] = $request->paramType;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $body['UserName'] = $request->userName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'Id2MetaStandardVerify',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return Id2MetaStandardVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 身份二要素标准版
+     *  *
+     * @param Id2MetaStandardVerifyRequest $request Id2MetaStandardVerifyRequest
+     *
+     * @return Id2MetaStandardVerifyResponse Id2MetaStandardVerifyResponse
+     */
+    public function id2MetaStandardVerify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->id2MetaStandardVerifyWithOptions($request, $runtime);
     }
 
     /**
