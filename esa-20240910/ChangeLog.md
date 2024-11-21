@@ -6,6 +6,14 @@
 - Support API UpdateOriginProtectionIpWhiteList.
 
 
+2024-11-21 Version: 2.5.0
+- Support API CreateOriginProtection.
+- Support API DeleteOriginProtection.
+- Support API GetOriginProtection.
+- Support API UpdateOriginProtection.
+- Support API UpdateOriginProtectionIpWhiteList.
+
+
 2024-11-20 Version: 2.4.6
 - Generated php 2024-09-10 for ESA.
 
