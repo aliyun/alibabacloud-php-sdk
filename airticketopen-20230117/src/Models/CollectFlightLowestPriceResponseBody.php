@@ -16,6 +16,8 @@ class CollectFlightLowestPriceResponseBody extends Model
     public $requestId;
 
     /**
+     * @example null
+     *
      * @var mixed[]
      */
     public $data;

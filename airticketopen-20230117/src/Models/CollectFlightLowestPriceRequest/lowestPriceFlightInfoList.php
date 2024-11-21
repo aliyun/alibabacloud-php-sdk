@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\CollectFlightLowestPriceRequest;
 
-use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\CollectFlightLowestPriceRequest\lowestPriceFlightList\flightNumberInfo;
 use AlibabaCloud\Tea\Model;
 
-class lowestPriceFlightList extends Model
+class lowestPriceFlightInfoList extends Model
 {
     /**
      * @description This parameter is required.
@@ -39,9 +38,11 @@ class lowestPriceFlightList extends Model
     /**
      * @description This parameter is required.
      *
-     * @var flightNumberInfo
+     * @example CA123,CA456
+     *
+     * @var string
      */
-    public $flightNumberInfo;
+    public $departureFlightNumber;
 
     /**
      * @description This parameter is required.
@@ -67,6 +68,22 @@ class lowestPriceFlightList extends Model
     public $returnDate;
 
     /**
+     * @example CA123,CA456
+     *
+     * @var string
+     */
+    public $returnFlightNumber;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
+     *
+     * @var string
+     */
+    public $solutionId;
+
+    /**
      * @description This parameter is required.
      *
      * @example 100.1
@@ -84,15 +101,17 @@ class lowestPriceFlightList extends Model
      */
     public $tripType;
     protected $_name = [
-        'arrivalCity'      => 'arrival_city',
-        'departureCity'    => 'departure_city',
-        'departureDate'    => 'departure_date',
-        'flightNumberInfo' => 'flight_number_info',
-        'marketTotalPrice' => 'market_total_price',
-        'requestId'        => 'request_id',
-        'returnDate'       => 'return_date',
-        'suezTotalPrice'   => 'suez_total_price',
-        'tripType'         => 'trip_type',
+        'arrivalCity'           => 'arrival_city',
+        'departureCity'         => 'departure_city',
+        'departureDate'         => 'departure_date',
+        'departureFlightNumber' => 'departure_flight_number',
+        'marketTotalPrice'      => 'market_total_price',
+        'requestId'             => 'request_id',
+        'returnDate'            => 'return_date',
+        'returnFlightNumber'    => 'return_flight_number',
+        'solutionId'            => 'solution_id',
+        'suezTotalPrice'        => 'suez_total_price',
+        'tripType'              => 'trip_type',
     ];
 
     public function validate()
@@ -111,8 +130,8 @@ class lowestPriceFlightList extends Model
         if (null !== $this->departureDate) {
             $res['departure_date'] = $this->departureDate;
         }
-        if (null !== $this->flightNumberInfo) {
-            $res['flight_number_info'] = null !== $this->flightNumberInfo ? $this->flightNumberInfo->toMap() : null;
+        if (null !== $this->departureFlightNumber) {
+            $res['departure_flight_number'] = $this->departureFlightNumber;
         }
         if (null !== $this->marketTotalPrice) {
             $res['market_total_price'] = $this->marketTotalPrice;
@@ -122,6 +141,12 @@ class lowestPriceFlightList extends Model
         }
         if (null !== $this->returnDate) {
             $res['return_date'] = $this->returnDate;
+        }
+        if (null !== $this->returnFlightNumber) {
+            $res['return_flight_number'] = $this->returnFlightNumber;
+        }
+        if (null !== $this->solutionId) {
+            $res['solution_id'] = $this->solutionId;
         }
         if (null !== $this->suezTotalPrice) {
             $res['suez_total_price'] = $this->suezTotalPrice;
@@ -136,7 +161,7 @@ class lowestPriceFlightList extends Model
     /**
      * @param array $map
      *
-     * @return lowestPriceFlightList
+     * @return lowestPriceFlightInfoList
      */
     public static function fromMap($map = [])
     {
@@ -150,8 +175,8 @@ class lowestPriceFlightList extends Model
         if (isset($map['departure_date'])) {
             $model->departureDate = $map['departure_date'];
         }
-        if (isset($map['flight_number_info'])) {
-            $model->flightNumberInfo = flightNumberInfo::fromMap($map['flight_number_info']);
+        if (isset($map['departure_flight_number'])) {
+            $model->departureFlightNumber = $map['departure_flight_number'];
         }
         if (isset($map['market_total_price'])) {
             $model->marketTotalPrice = $map['market_total_price'];
@@ -161,6 +186,12 @@ class lowestPriceFlightList extends Model
         }
         if (isset($map['return_date'])) {
             $model->returnDate = $map['return_date'];
+        }
+        if (isset($map['return_flight_number'])) {
+            $model->returnFlightNumber = $map['return_flight_number'];
+        }
+        if (isset($map['solution_id'])) {
+            $model->solutionId = $map['solution_id'];
         }
         if (isset($map['suez_total_price'])) {
             $model->suezTotalPrice = $map['suez_total_price'];

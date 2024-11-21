@@ -13,9 +13,9 @@ class CollectFlightLowestPriceShrinkRequest extends Model
      *
      * @var string
      */
-    public $lowestPriceFlightListShrink;
+    public $lowestPriceFlightInfoListShrink;
     protected $_name = [
-        'lowestPriceFlightListShrink' => 'lowestPriceFlightList',
+        'lowestPriceFlightInfoListShrink' => 'lowest_price_flight_info_list',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class CollectFlightLowestPriceShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lowestPriceFlightListShrink) {
-            $res['lowestPriceFlightList'] = $this->lowestPriceFlightListShrink;
+        if (null !== $this->lowestPriceFlightInfoListShrink) {
+            $res['lowest_price_flight_info_list'] = $this->lowestPriceFlightInfoListShrink;
         }
 
         return $res;
@@ -40,8 +40,8 @@ class CollectFlightLowestPriceShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['lowestPriceFlightList'])) {
-            $model->lowestPriceFlightListShrink = $map['lowestPriceFlightList'];
+        if (isset($map['lowest_price_flight_info_list'])) {
+            $model->lowestPriceFlightInfoListShrink = $map['lowest_price_flight_info_list'];
         }
 
         return $model;

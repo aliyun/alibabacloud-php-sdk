@@ -835,12 +835,12 @@ class AirticketOpen extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new CollectFlightLowestPriceShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->lowestPriceFlightList)) {
-            $request->lowestPriceFlightListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lowestPriceFlightList, 'lowestPriceFlightList', 'json');
+        if (!Utils::isUnset($tmpReq->lowestPriceFlightInfoList)) {
+            $request->lowestPriceFlightInfoListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lowestPriceFlightInfoList, 'lowest_price_flight_info_list', 'json');
         }
         $body = [];
-        if (!Utils::isUnset($request->lowestPriceFlightListShrink)) {
-            $body['lowestPriceFlightList'] = $request->lowestPriceFlightListShrink;
+        if (!Utils::isUnset($request->lowestPriceFlightInfoListShrink)) {
+            $body['lowest_price_flight_info_list'] = $request->lowestPriceFlightInfoListShrink;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
