@@ -1,3 +1,8 @@
+2024-11-21 Version: 2.5.2
+- Update API CreateStackInstances: add param DeploymentOptions.
+- Update API UpdateStackGroup: add param DeploymentOptions.
+
+
 2024-11-20 Version: 2.5.1
 - Generated php 2019-09-10 for ROS.
 

@@ -59,6 +59,11 @@ class UpdateStackGroupShrinkRequest extends Model
     public $clientToken;
 
     /**
+     * @var string[]
+     */
+    public $deploymentOptions;
+
+    /**
      * @description The ID of the request.
      *
      * @example {"RdFolderIds": ["fd-4PvlVLOL8v"]}
@@ -208,6 +213,7 @@ class UpdateStackGroupShrinkRequest extends Model
         'autoDeploymentShrink'       => 'AutoDeployment',
         'capabilities'               => 'Capabilities',
         'clientToken'                => 'ClientToken',
+        'deploymentOptions'          => 'DeploymentOptions',
         'deploymentTargetsShrink'    => 'DeploymentTargets',
         'description'                => 'Description',
         'executionRoleName'          => 'ExecutionRoleName',
@@ -245,6 +251,9 @@ class UpdateStackGroupShrinkRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->deploymentOptions) {
+            $res['DeploymentOptions'] = $this->deploymentOptions;
         }
         if (null !== $this->deploymentTargetsShrink) {
             $res['DeploymentTargets'] = $this->deploymentTargetsShrink;
@@ -322,6 +331,11 @@ class UpdateStackGroupShrinkRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DeploymentOptions'])) {
+            if (!empty($map['DeploymentOptions'])) {
+                $model->deploymentOptions = $map['DeploymentOptions'];
+            }
         }
         if (isset($map['DeploymentTargets'])) {
             $model->deploymentTargetsShrink = $map['DeploymentTargets'];

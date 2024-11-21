@@ -30,6 +30,11 @@ class CreateStackInstancesRequest extends Model
     public $clientToken;
 
     /**
+     * @var string[]
+     */
+    public $deploymentOptions;
+
+    /**
      * @description The folders in which ROS deploy stacks in service-managed permission model.
      *
      * > You must specify one of the following parameters: `AccountIds` and `DeploymentTargets`.
@@ -123,6 +128,7 @@ class CreateStackInstancesRequest extends Model
     protected $_name = [
         'accountIds'           => 'AccountIds',
         'clientToken'          => 'ClientToken',
+        'deploymentOptions'    => 'DeploymentOptions',
         'deploymentTargets'    => 'DeploymentTargets',
         'disableRollback'      => 'DisableRollback',
         'operationDescription' => 'OperationDescription',
@@ -146,6 +152,9 @@ class CreateStackInstancesRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->deploymentOptions) {
+            $res['DeploymentOptions'] = $this->deploymentOptions;
         }
         if (null !== $this->deploymentTargets) {
             $res['DeploymentTargets'] = null !== $this->deploymentTargets ? $this->deploymentTargets->toMap() : null;
@@ -199,6 +208,11 @@ class CreateStackInstancesRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DeploymentOptions'])) {
+            if (!empty($map['DeploymentOptions'])) {
+                $model->deploymentOptions = $map['DeploymentOptions'];
+            }
         }
         if (isset($map['DeploymentTargets'])) {
             $model->deploymentTargets = deploymentTargets::fromMap($map['DeploymentTargets']);

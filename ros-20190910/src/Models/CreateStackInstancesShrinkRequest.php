@@ -29,6 +29,11 @@ class CreateStackInstancesShrinkRequest extends Model
     public $clientToken;
 
     /**
+     * @var string[]
+     */
+    public $deploymentOptions;
+
+    /**
      * @description The folders in which ROS deploy stacks in service-managed permission model.
      *
      * > You must specify one of the following parameters: `AccountIds` and `DeploymentTargets`.
@@ -122,6 +127,7 @@ class CreateStackInstancesShrinkRequest extends Model
     protected $_name = [
         'accountIdsShrink'           => 'AccountIds',
         'clientToken'                => 'ClientToken',
+        'deploymentOptions'          => 'DeploymentOptions',
         'deploymentTargetsShrink'    => 'DeploymentTargets',
         'disableRollback'            => 'DisableRollback',
         'operationDescription'       => 'OperationDescription',
@@ -145,6 +151,9 @@ class CreateStackInstancesShrinkRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->deploymentOptions) {
+            $res['DeploymentOptions'] = $this->deploymentOptions;
         }
         if (null !== $this->deploymentTargetsShrink) {
             $res['DeploymentTargets'] = $this->deploymentTargetsShrink;
@@ -196,6 +205,11 @@ class CreateStackInstancesShrinkRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DeploymentOptions'])) {
+            if (!empty($map['DeploymentOptions'])) {
+                $model->deploymentOptions = $map['DeploymentOptions'];
+            }
         }
         if (isset($map['DeploymentTargets'])) {
             $model->deploymentTargetsShrink = $map['DeploymentTargets'];

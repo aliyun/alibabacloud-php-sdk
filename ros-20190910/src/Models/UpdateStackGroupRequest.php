@@ -61,6 +61,11 @@ class UpdateStackGroupRequest extends Model
     public $clientToken;
 
     /**
+     * @var string[]
+     */
+    public $deploymentOptions;
+
+    /**
      * @description The ID of the request.
      *
      * @example {"RdFolderIds": ["fd-4PvlVLOL8v"]}
@@ -210,6 +215,7 @@ class UpdateStackGroupRequest extends Model
         'autoDeployment'         => 'AutoDeployment',
         'capabilities'           => 'Capabilities',
         'clientToken'            => 'ClientToken',
+        'deploymentOptions'      => 'DeploymentOptions',
         'deploymentTargets'      => 'DeploymentTargets',
         'description'            => 'Description',
         'executionRoleName'      => 'ExecutionRoleName',
@@ -247,6 +253,9 @@ class UpdateStackGroupRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->deploymentOptions) {
+            $res['DeploymentOptions'] = $this->deploymentOptions;
         }
         if (null !== $this->deploymentTargets) {
             $res['DeploymentTargets'] = null !== $this->deploymentTargets ? $this->deploymentTargets->toMap() : null;
@@ -326,6 +335,11 @@ class UpdateStackGroupRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DeploymentOptions'])) {
+            if (!empty($map['DeploymentOptions'])) {
+                $model->deploymentOptions = $map['DeploymentOptions'];
+            }
         }
         if (isset($map['DeploymentTargets'])) {
             $model->deploymentTargets = deploymentTargets::fromMap($map['DeploymentTargets']);

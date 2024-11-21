@@ -967,6 +967,9 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->deploymentOptions)) {
+            $query['DeploymentOptions'] = $request->deploymentOptions;
+        }
         if (!Utils::isUnset($request->deploymentTargetsShrink)) {
             $query['DeploymentTargets'] = $request->deploymentTargetsShrink;
         }
@@ -5782,6 +5785,9 @@ class ROS extends OpenApiClient
         }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->deploymentOptions)) {
+            $query['DeploymentOptions'] = $request->deploymentOptions;
         }
         if (!Utils::isUnset($request->deploymentTargetsShrink)) {
             $query['DeploymentTargets'] = $request->deploymentTargetsShrink;
