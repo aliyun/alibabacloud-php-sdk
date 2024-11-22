@@ -2260,8 +2260,8 @@ class EnergyExpertExternal extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->dataType)) {
-            $query['dataType'] = $request->dataType;
+        if (!Utils::isUnset($request->analysisType)) {
+            $query['analysisType'] = $request->analysisType;
         }
         if (!Utils::isUnset($request->fileName)) {
             $query['fileName'] = $request->fileName;

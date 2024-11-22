@@ -12,7 +12,7 @@ class SubmitDocumentAnalyzeJobAdvanceRequest extends Model
     /**
      * @var string
      */
-    public $dataType;
+    public $analysisType;
 
     /**
      * @description This parameter is required.
@@ -44,7 +44,7 @@ class SubmitDocumentAnalyzeJobAdvanceRequest extends Model
      */
     public $templateId;
     protected $_name = [
-        'dataType'      => 'dataType',
+        'analysisType'  => 'analysisType',
         'fileName'      => 'fileName',
         'fileUrlObject' => 'fileUrl',
         'folderId'      => 'folderId',
@@ -58,8 +58,8 @@ class SubmitDocumentAnalyzeJobAdvanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dataType) {
-            $res['dataType'] = $this->dataType;
+        if (null !== $this->analysisType) {
+            $res['analysisType'] = $this->analysisType;
         }
         if (null !== $this->fileName) {
             $res['fileName'] = $this->fileName;
@@ -85,8 +85,8 @@ class SubmitDocumentAnalyzeJobAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['dataType'])) {
-            $model->dataType = $map['dataType'];
+        if (isset($map['analysisType'])) {
+            $model->analysisType = $map['analysisType'];
         }
         if (isset($map['fileName'])) {
             $model->fileName = $map['fileName'];
