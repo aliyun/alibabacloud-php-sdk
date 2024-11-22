@@ -261,6 +261,9 @@ class BDRC extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->dataRedundancyType)) {
+            $query['DataRedundancyType'] = $request->dataRedundancyType;
+        }
         if (!Utils::isUnset($request->failedRuleTemplate)) {
             $query['FailedRuleTemplate'] = $request->failedRuleTemplate;
         }
@@ -281,6 +284,9 @@ class BDRC extends OpenApiClient
         }
         if (!Utils::isUnset($request->sortOrder)) {
             $query['SortOrder'] = $request->sortOrder;
+        }
+        if (!Utils::isUnset($request->storageClass)) {
+            $query['StorageClass'] = $request->storageClass;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,

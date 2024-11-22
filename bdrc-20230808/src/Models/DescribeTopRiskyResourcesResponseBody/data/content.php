@@ -37,6 +37,11 @@ class content extends Model
     public $createTime;
 
     /**
+     * @var string
+     */
+    public $dataRedundancyType;
+
+    /**
      * @example true
      *
      * @var bool
@@ -128,6 +133,11 @@ class content extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $storageClass;
+
+    /**
      * @example 0
      *
      * @var int
@@ -163,6 +173,7 @@ class content extends Model
         'checkFailedCount'           => 'CheckFailedCount',
         'coldArchiveDataSize'        => 'ColdArchiveDataSize',
         'createTime'                 => 'CreateTime',
+        'dataRedundancyType'         => 'DataRedundancyType',
         'enableCheck'                => 'EnableCheck',
         'iaDataSize'                 => 'IaDataSize',
         'productType'                => 'ProductType',
@@ -176,6 +187,7 @@ class content extends Model
         'riskCount'                  => 'RiskCount',
         'standardDataSize'           => 'StandardDataSize',
         'status'                     => 'Status',
+        'storageClass'               => 'StorageClass',
         'totalDataSize'              => 'TotalDataSize',
         'vSwitchId'                  => 'VSwitchId',
         'vpcId'                      => 'VpcId',
@@ -200,6 +212,9 @@ class content extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->dataRedundancyType) {
+            $res['DataRedundancyType'] = $this->dataRedundancyType;
         }
         if (null !== $this->enableCheck) {
             $res['EnableCheck'] = $this->enableCheck;
@@ -240,6 +255,9 @@ class content extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+        if (null !== $this->storageClass) {
+            $res['StorageClass'] = $this->storageClass;
+        }
         if (null !== $this->totalDataSize) {
             $res['TotalDataSize'] = $this->totalDataSize;
         }
@@ -275,6 +293,9 @@ class content extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['DataRedundancyType'])) {
+            $model->dataRedundancyType = $map['DataRedundancyType'];
         }
         if (isset($map['EnableCheck'])) {
             $model->enableCheck = $map['EnableCheck'];
@@ -314,6 +335,9 @@ class content extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['StorageClass'])) {
+            $model->storageClass = $map['StorageClass'];
         }
         if (isset($map['TotalDataSize'])) {
             $model->totalDataSize = $map['TotalDataSize'];

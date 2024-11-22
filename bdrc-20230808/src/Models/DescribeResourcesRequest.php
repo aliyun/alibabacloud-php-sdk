@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourcesRequest extends Model
 {
     /**
+     * @example LRS
+     *
+     * @var string
+     */
+    public $dataRedundancyType;
+
+    /**
      * @example rule-000c***yc9
      *
      * @var string
@@ -56,7 +63,15 @@ class DescribeResourcesRequest extends Model
      * @var string
      */
     public $sortOrder;
+
+    /**
+     * @example ARCHIVE
+     *
+     * @var string
+     */
+    public $storageClass;
     protected $_name = [
+        'dataRedundancyType' => 'DataRedundancyType',
         'failedRuleTemplate' => 'FailedRuleTemplate',
         'maxResults'         => 'MaxResults',
         'nextToken'          => 'NextToken',
@@ -64,6 +79,7 @@ class DescribeResourcesRequest extends Model
         'resourceType'       => 'ResourceType',
         'sortBy'             => 'SortBy',
         'sortOrder'          => 'SortOrder',
+        'storageClass'       => 'StorageClass',
     ];
 
     public function validate()
@@ -73,6 +89,9 @@ class DescribeResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dataRedundancyType) {
+            $res['DataRedundancyType'] = $this->dataRedundancyType;
+        }
         if (null !== $this->failedRuleTemplate) {
             $res['FailedRuleTemplate'] = $this->failedRuleTemplate;
         }
@@ -94,6 +113,9 @@ class DescribeResourcesRequest extends Model
         if (null !== $this->sortOrder) {
             $res['SortOrder'] = $this->sortOrder;
         }
+        if (null !== $this->storageClass) {
+            $res['StorageClass'] = $this->storageClass;
+        }
 
         return $res;
     }
@@ -106,6 +128,9 @@ class DescribeResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DataRedundancyType'])) {
+            $model->dataRedundancyType = $map['DataRedundancyType'];
+        }
         if (isset($map['FailedRuleTemplate'])) {
             $model->failedRuleTemplate = $map['FailedRuleTemplate'];
         }
@@ -126,6 +151,9 @@ class DescribeResourcesRequest extends Model
         }
         if (isset($map['SortOrder'])) {
             $model->sortOrder = $map['SortOrder'];
+        }
+        if (isset($map['StorageClass'])) {
+            $model->storageClass = $map['StorageClass'];
         }
 
         return $model;
