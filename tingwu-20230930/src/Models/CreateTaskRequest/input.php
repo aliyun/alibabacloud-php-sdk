@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class input extends Model
 {
     /**
+     * @var string
+     */
+    public $audioChannelMode;
+
+    /**
      * @example http://xxx.com/zzz/1.wav
      *
      * @var string
@@ -70,6 +75,7 @@ class input extends Model
      */
     public $taskKey;
     protected $_name = [
+        'audioChannelMode'            => 'AudioChannelMode',
         'fileUrl'                     => 'FileUrl',
         'format'                      => 'Format',
         'languageHints'               => 'LanguageHints',
@@ -89,6 +95,9 @@ class input extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->audioChannelMode) {
+            $res['AudioChannelMode'] = $this->audioChannelMode;
+        }
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
@@ -131,6 +140,9 @@ class input extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AudioChannelMode'])) {
+            $model->audioChannelMode = $map['AudioChannelMode'];
+        }
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }
