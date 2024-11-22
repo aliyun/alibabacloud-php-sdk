@@ -19,7 +19,7 @@ class ListCloudResourcesResponseBody extends Model
     public $currentPage;
 
     /**
-     * @description The response parameters.
+     * @description The data returned for the request.
      *
      * @var data[]
      */
@@ -35,7 +35,7 @@ class ListCloudResourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of certificate authority (CA) certificates per page. Default value: **20**.
+     * @description The number of entries per page. Default value: **20**.
      *
      * @example 20
      *

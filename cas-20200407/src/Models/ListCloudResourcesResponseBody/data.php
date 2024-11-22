@@ -45,9 +45,9 @@ class data extends Model
     public $certStartTime;
 
     /**
-     * @description The AccessKey ID used to access cloud resources.
+     * @description The AccessKey ID that is used to access cloud resources.
      *
-     * >  This parameter is required only when you deploy certificates to services of multiple clouds.
+     * >  This parameter is returned only when you deploy certificates to cloud services of third-party clouds.
      * @example 1234
      *
      * @var string
@@ -55,10 +55,14 @@ class data extends Model
     public $cloudAccessId;
 
     /**
-     * @description The cloud service provider of the cloud resource. Valid values:
+     * @description The cloud service provider.
      *
-     *   **aliyun**: Alibaba Cloud
-     *   **Tencent**: Tencent Cloud
+     * Valid values:
+     *
+     *   Tencent
+     *   Huawei
+     *   Aws
+     *   aliyun
      *
      * @example aliyun
      *
@@ -109,8 +113,8 @@ class data extends Model
     /**
      * @description Indicates whether HTTPS is enabled for the cloud resource. Valid values:
      *
-     *   **1**: yes
-     *   **0**: no
+     *   **1**: yes.
+     *   **0**: no.
      *
      * @example 1
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCloudResourcesShrinkRequest extends Model
 {
     /**
+     * @description The certificate IDs.
+     *
      * @var string
      */
     public $certIdsShrink;
@@ -18,8 +20,10 @@ class ListCloudResourcesShrinkRequest extends Model
      *
      * Valid values:
      *
-     *   Tencent: Tencent Cloud
-     *   aliyun: Alibaba Cloud
+     *   Tencent
+     *   Huawei
+     *   Aws
+     *   aliyun
      *
      * @example Tencent
      *
@@ -28,7 +32,44 @@ class ListCloudResourcesShrinkRequest extends Model
     public $cloudName;
 
     /**
-     * @description The cloud service. Only Content Delivery Network (CDN) is supported for Tencent Cloud.
+     * @description The cloud service.
+     *
+     * Valid values when CloudName is set to aliyun:
+     *
+     *   SLB: Classic Load Balancer (CLB). This value is available only on the China site (aliyun.com).
+     *   LIVE: ApsaraVideo Live. This value is available only on the China site (aliyun.com).
+     *   webHosting: Cloud Web Hosting. This value is available only on the China site (aliyun.com).
+     *   VOD: ApsaraVideo VOD. This value is available only on the China site (aliyun.com).
+     *   CR: Container Registry. This value is available only on the China site (aliyun.com).
+     *   DCDN: Dynamic Content Delivery Network (DCDN).
+     *   DDOS: Anti-DDoS.
+     *   CDN: Alibaba Cloud CDN (CDN).
+     *   ALB: Application Load Balancer (ALB).
+     *   APIGateway: API Gateway.
+     *   FC: Function Compute.
+     *   GA: Global Accelerator (GA).
+     *   MSE: Microservices Engine (MSE).
+     *   NLB: Network Load Balancer (NLB).
+     *   OSS: Object Storage Service (OSS).
+     *   SAE: Serverless App Engine (SAE).
+     *   WAF: Web Application Firewall (WAF).
+     *
+     * Valid values when CloudName is set to Tencent:
+     *
+     *   TencentCDN: Content Delivery Network (CDN).
+     *   TencentCLB: CLB.
+     *   TencentWAF: WAF.
+     *
+     * Valid value when CloudName is set to Huawei:
+     *
+     *   HuaweiCDN: CDN.
+     *
+     * Valid values when CloudName is set to Aws:
+     *
+     *   AwsCloudFront: Amazon CloudFront.
+     *   AwsCLB: CLB.
+     *   AwsALB: ALB.
+     *   AwsNLB: NLB.
      *
      * @example SLB
      *
@@ -46,7 +87,7 @@ class ListCloudResourcesShrinkRequest extends Model
     public $currentPage;
 
     /**
-     * @description The domain name bound to the cloud resource.
+     * @description The keyword of the domain name or instance ID bound to the cloud resource.
      *
      * @example cert-instanceId
      *
@@ -55,7 +96,7 @@ class ListCloudResourcesShrinkRequest extends Model
     public $keyword;
 
     /**
-     * @description The AccessKey ID used to access cloud resources.
+     * @description The AccessKey ID that is used to access cloud resources.
      *
      * @example 21
      *
@@ -64,7 +105,7 @@ class ListCloudResourcesShrinkRequest extends Model
     public $secretId;
 
     /**
-     * @description The number of revoked certificates per page. Default value: **20**.
+     * @description The number of entries per page. Default value: **20**.
      *
      * @example 20
      *

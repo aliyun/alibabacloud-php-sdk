@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetUserCertificateDetailResponseBody\certChain;
 use AlibabaCloud\Tea\Model;
 
 class GetUserCertificateDetailResponseBody extends Model
@@ -37,6 +38,13 @@ class GetUserCertificateDetailResponseBody extends Model
      * @var string
      */
     public $cert;
+
+    /**
+     * @description The certificate chain.
+     *
+     * @var certChain[]
+     */
+    public $certChain;
 
     /**
      * @description The unique identifier of the certificate. The value of this parameter must be in the {Certificate ID}-cn-hangzhou format.
@@ -134,7 +142,7 @@ class GetUserCertificateDetailResponseBody extends Model
     public $id;
 
     /**
-     * @description The instance ID.
+     * @description The instance ID of the resource.
      *
      * @example cas-upload-50yf1q
      *
@@ -224,7 +232,7 @@ class GetUserCertificateDetailResponseBody extends Model
     public $sans;
 
     /**
-     * @description The certificate serial No.
+     * @description The serial number of the certificate.
      *
      * @example 06ea4879591ddf84e6c8b6ba43607ccf
      *
@@ -233,7 +241,7 @@ class GetUserCertificateDetailResponseBody extends Model
     public $serialNo;
 
     /**
-     * @description The certificate sha2 value.
+     * @description The SHA-2 value of the certificate.
      *
      * @example 840707695D5EE41323102DDC2CB4924AA561012FBDC4E1A6324147119ED3C339
      *
@@ -273,6 +281,7 @@ class GetUserCertificateDetailResponseBody extends Model
         'algorithm'         => 'Algorithm',
         'buyInAliyun'       => 'BuyInAliyun',
         'cert'              => 'Cert',
+        'certChain'         => 'CertChain',
         'certIdentifier'    => 'CertIdentifier',
         'city'              => 'City',
         'common'            => 'Common',
@@ -315,6 +324,15 @@ class GetUserCertificateDetailResponseBody extends Model
         }
         if (null !== $this->cert) {
             $res['Cert'] = $this->cert;
+        }
+        if (null !== $this->certChain) {
+            $res['CertChain'] = [];
+            if (null !== $this->certChain && \is_array($this->certChain)) {
+                $n = 0;
+                foreach ($this->certChain as $item) {
+                    $res['CertChain'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->certIdentifier) {
             $res['CertIdentifier'] = $this->certIdentifier;
@@ -411,6 +429,15 @@ class GetUserCertificateDetailResponseBody extends Model
         }
         if (isset($map['Cert'])) {
             $model->cert = $map['Cert'];
+        }
+        if (isset($map['CertChain'])) {
+            if (!empty($map['CertChain'])) {
+                $model->certChain = [];
+                $n                = 0;
+                foreach ($map['CertChain'] as $item) {
+                    $model->certChain[$n++] = null !== $item ? certChain::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['CertIdentifier'])) {
             $model->certIdentifier = $map['CertIdentifier'];
