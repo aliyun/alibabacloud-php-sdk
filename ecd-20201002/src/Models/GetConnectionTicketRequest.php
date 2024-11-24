@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201002\Models;
 
+use AlibabaCloud\SDK\Ecd\V20201002\Models\GetConnectionTicketRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class GetConnectionTicketRequest extends Model
@@ -91,6 +92,11 @@ class GetConnectionTicketRequest extends Model
     public $sessionId;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @example 2afbad19-778a-4fc5-9674-1f19c638****
      *
      * @var string
@@ -114,6 +120,7 @@ class GetConnectionTicketRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'sessionId'            => 'SessionId',
+        'tag'                  => 'Tag',
         'taskId'               => 'TaskId',
         'uuid'                 => 'Uuid',
     ];
@@ -160,6 +167,15 @@ class GetConnectionTicketRequest extends Model
         }
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -214,6 +230,15 @@ class GetConnectionTicketRequest extends Model
         }
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

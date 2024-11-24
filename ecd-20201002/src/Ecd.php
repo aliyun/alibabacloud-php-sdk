@@ -823,6 +823,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->sessionId)) {
             $query['SessionId'] = $request->sessionId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->taskId)) {
             $query['TaskId'] = $request->taskId;
         }
