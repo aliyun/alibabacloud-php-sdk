@@ -36,6 +36,8 @@ class CreateClusterNodePoolRequest extends Model
     public $count;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hostNetwork;
@@ -63,6 +65,8 @@ class CreateClusterNodePoolRequest extends Model
     public $interconnectMode;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $intranet;

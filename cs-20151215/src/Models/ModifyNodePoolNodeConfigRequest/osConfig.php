@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class osConfig extends Model
 {
     /**
-     * @description sysctl parameter configuration
+     * @description The sysctl configuration.
      *
      * @var mixed[]
      */

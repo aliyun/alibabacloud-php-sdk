@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventsForRegionResponseBody extends Model
 {
     /**
+     * @description The events.
+     *
      * @var events[]
      */
     public $events;
 
     /**
+     * @description The pagination details.
+     *
      * @var pageInfo
      */
     public $pageInfo;

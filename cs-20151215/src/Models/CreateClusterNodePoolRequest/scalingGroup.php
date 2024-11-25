@@ -27,7 +27,10 @@ class scalingGroup extends Model
     public $autoRenew;
 
     /**
-     * @description The auto-renewal duration of nodes in the node pool. This parameter is available and required only if you set instance_charge_type to PrePaid and auto_renew to true. If `PeriodUnit=Month` is configured, the valid values are 1, 2, 3, 6, and 12.
+     * @description The auto-renewal period. Valid values:
+     *
+     *   Valid values when PeriodUnit is set to Week: 1, 2, and 3
+     *   Valid values when PeriodUnit is set to Month: 1, 2, 3, 6, 12, 24, 36, 48, and 60
      *
      * Default value: 1.
      * @example 1

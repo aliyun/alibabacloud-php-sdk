@@ -59,7 +59,7 @@ class scalingGroup extends Model
     public $compensateWithOnDemand;
 
     /**
-     * @description The configurations of the data disks that are attached to the nodes in the node pool. The configurations include the disk type and disk size.
+     * @description The configurations of the data disks that are attached to the nodes in the node pool. The configurations include the disk category and disk size.
      *
      * @var DataDisk[]
      */
@@ -114,7 +114,7 @@ class scalingGroup extends Model
     public $instanceChargeType;
 
     /**
-     * @description Instance attributes
+     * @description The instance properties.
      *
      * @var InstancePatterns[]
      */
@@ -384,14 +384,14 @@ class scalingGroup extends Model
     public $systemDiskBurstingEnabled;
 
     /**
-     * @description The system disk types. The system attempts to create system disks from a disk type with a lower priority when the disk type with a higher priority is unavailable. Valid values: Valid values:
+     * @description The categories of the system disk for nodes. The system attempts to create system disks of a disk category with a lower priority if the disk category with a higher priority is unavailable. Valid values: Valid values:
      *
-     *   `cloud`: basic disk
-     *   `cloud_efficiency`: ultra disk
-     *   `cloud_ssd`: standard SSD
-     *   `cloud_essd`: ESSD
-     *   `cloud_auto`: ESSD AutoPL disk
-     *   `cloud_essd_entry`: ESSD Entry disk
+     *   `cloud`: basic disk.
+     *   `cloud_efficiency`: ultra disk.
+     *   `cloud_ssd`: standard SSD.
+     *   `cloud_essd`: Enterprise SSD (ESSD).
+     *   `cloud_auto`: ESSD AutoPL disk.
+     *   `cloud_essd_entry`: ESSD Entry disk.
      *
      * Default value: `cloud_efficiency`.
      * @var string[]
@@ -416,7 +416,7 @@ class scalingGroup extends Model
     public $systemDiskCategory;
 
     /**
-     * @description Encryption algorithm used for the system disk. Valid values: aes-256.
+     * @description The encryption algorithm that is used to encrypt the system disk. Set the value to aes-256.
      *
      * @example aes-256
      *
@@ -474,9 +474,9 @@ class scalingGroup extends Model
     public $systemDiskSize;
 
     /**
-     * @description The labels that you want to add to the ECS instances.
+     * @description The labels that you want to add only to ECS instances.
      *
-     * A key must be unique and cannot exceed 128 characters in length. Neither keys nor values can start with aliyun or acs:. Neither keys nor values can contain https:// or http://.
+     * The label key must be unique and cannot exceed 128 characters in length. The label key and value cannot start with aliyun or acs: or contain https:// or http://.
      * @var Tag[]
      */
     public $tags;

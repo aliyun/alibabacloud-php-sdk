@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\controlPlaneConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\operationPolicy;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest\workerDataDisks;
 use AlibabaCloud\Tea\Model;
@@ -109,6 +110,8 @@ class CreateClusterRequest extends Model
      * Default value: `false`
      * @example true
      *
+     * @deprecated
+     *
      * @var bool
      */
     public $cloudMonitorFlags;
@@ -158,6 +161,11 @@ class CreateClusterRequest extends Model
     public $containerCidr;
 
     /**
+     * @var controlPlaneConfig
+     */
+    public $controlPlaneConfig;
+
+    /**
      * @description The control plane component for which you want to enable log collection.
      *
      * By default, the log of kube-apiserver, kube-controller-manager, and kube-scheduler is collected.
@@ -191,6 +199,8 @@ class CreateClusterRequest extends Model
      *
      * Default value: `none`.
      * @example none
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -278,6 +288,8 @@ class CreateClusterRequest extends Model
      *
      * @example false
      *
+     * @deprecated
+     *
      * @var bool
      */
     public $formatDisk;
@@ -286,6 +298,8 @@ class CreateClusterRequest extends Model
      * @description The custom image. By default, the image provided by ACK is used. You can select a custom image to replace the default image. For more information, see [Use a custom image to create an ACK cluster](https://help.aliyun.com/document_detail/146647.html).
      *
      * @example m-bp16z7xko3vvv8gt****
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -307,6 +321,8 @@ class CreateClusterRequest extends Model
      * Default value: `CentOS`.
      * @example AliyunLinux
      *
+     * @deprecated
+     *
      * @var string
      */
     public $imageType;
@@ -315,6 +331,8 @@ class CreateClusterRequest extends Model
      * @description The existing Elastic Compute Service (ECS) instances that are specified as worker nodes for the cluster.
      *
      * >  This parameter is required if you create worker nodes on existing ECS instances.
+     * @deprecated
+     *
      * @var string[]
      */
     public $instances;
@@ -352,6 +370,8 @@ class CreateClusterRequest extends Model
      * Default value: `true`
      * @example true
      *
+     * @deprecated
+     *
      * @var bool
      */
     public $keepInstanceName;
@@ -360,6 +380,8 @@ class CreateClusterRequest extends Model
      * @description The name of the key pair. You must configure this parameter or the `login_password` parameter.
      *
      * @example secrity-key
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -397,6 +419,8 @@ class CreateClusterRequest extends Model
      * Default value: `slb.s2.small`.
      * @example slb.s2.small
      *
+     * @deprecated
+     *
      * @var string
      */
     public $loadBalancerSpec;
@@ -414,6 +438,8 @@ class CreateClusterRequest extends Model
      * @description The password for SSH logon. You must set this parameter or `key_pair`. The password must be 8 to 30 characters in length, and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
      *
      * @example Hello@1234
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -435,6 +461,8 @@ class CreateClusterRequest extends Model
      * Default value: `true`
      * @example true
      *
+     * @deprecated
+     *
      * @var bool
      */
     public $masterAutoRenew;
@@ -445,6 +473,8 @@ class CreateClusterRequest extends Model
      * Default value: 1.
      * @example 1
      *
+     * @deprecated
+     *
      * @var int
      */
     public $masterAutoRenewPeriod;
@@ -454,6 +484,8 @@ class CreateClusterRequest extends Model
      *
      * Default value: `3`.
      * @example 3
+     *
+     * @deprecated
      *
      * @var int
      */
@@ -468,12 +500,16 @@ class CreateClusterRequest extends Model
      * Default value: `PostPaid`
      * @example PrePaid
      *
+     * @deprecated
+     *
      * @var string
      */
     public $masterInstanceChargeType;
 
     /**
      * @description The instance types of master nodes. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
+     *
+     * @deprecated
      *
      * @var string[]
      */
@@ -485,6 +521,8 @@ class CreateClusterRequest extends Model
      * Default value: 1.
      * @example 1
      *
+     * @deprecated
+     *
      * @var int
      */
     public $masterPeriod;
@@ -494,6 +532,8 @@ class CreateClusterRequest extends Model
      *
      * Valid value: `Month`, which indicates that master nodes are billed only on a monthly basis.
      * @example Month
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -509,6 +549,8 @@ class CreateClusterRequest extends Model
      * Default value: `cloud_ssd`. The default value may vary in different zones.
      * @example cloud_ssd
      *
+     * @deprecated
+     *
      * @var string
      */
     public $masterSystemDiskCategory;
@@ -517,6 +559,8 @@ class CreateClusterRequest extends Model
      * @description The performance level (PL) of the system disk that you want to use for master nodes. This parameter takes effect only for ESSDs. For more information about the relationship between disk PLs and disk sizes, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
      *
      * @example PL1
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -528,6 +572,8 @@ class CreateClusterRequest extends Model
      * Default value: `120`.
      * @example 120
      *
+     * @deprecated
+     *
      * @var int
      */
     public $masterSystemDiskSize;
@@ -537,6 +583,8 @@ class CreateClusterRequest extends Model
      *
      * @example sp-2zej1nogjvovnz4z****
      *
+     * @deprecated
+     *
      * @var string
      */
     public $masterSystemDiskSnapshotPolicyId;
@@ -545,6 +593,8 @@ class CreateClusterRequest extends Model
      * @description The IDs of the vSwitches that are specified for master nodes. You can specify up to three vSwitches. We recommend that you specify three vSwitches in different zones to ensure high availability.
      *
      * The number of vSwitches must be the same as that specified in `master_count` and the same as those specified in `master_vswitch_ids`.
+     * @deprecated
+     *
      * @var string[]
      */
     public $masterVswitchIds;
@@ -588,6 +638,8 @@ class CreateClusterRequest extends Model
      *
      * For example, if the node IP address is 192.168.0.55, the prefix is aliyun.com, the IP substring length is 5, and the suffix is test, the node name is aliyun.com00055test.
      * @example aliyun.com00055test
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -637,6 +689,8 @@ class CreateClusterRequest extends Model
      * Default value: `Linux`.
      * @example Linux
      *
+     * @deprecated
+     *
      * @var string
      */
     public $osType;
@@ -673,6 +727,8 @@ class CreateClusterRequest extends Model
      *
      * Default value: `CentOS`.
      * @example CentOS
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -715,6 +771,8 @@ class CreateClusterRequest extends Model
 
     /**
      * @description The ApsaraDB RDS instances. Select the ApsaraDB RDS instances that you want to add to the whitelist. We recommend that you add the pod CIDR block and node CIDR block to the ApsaraDB RDS instances in the ApsaraDB RDS console. When you configure the ApsaraDB RDS instances, you cannot scale out the number of nodes because the instances are not in the Running state.
+     *
+     * @deprecated
      *
      * @var string[]
      */
@@ -764,6 +822,8 @@ class CreateClusterRequest extends Model
      *
      * Default value: `false`
      * @example false
+     *
+     * @deprecated
      *
      * @var bool
      */
@@ -824,6 +884,8 @@ class CreateClusterRequest extends Model
      * Default value: `false`
      * @example false
      *
+     * @deprecated
+     *
      * @var bool
      */
     public $socEnabled;
@@ -854,6 +916,8 @@ class CreateClusterRequest extends Model
     /**
      * @description The taint. Taints can be used together with tolerations to avoid scheduling pods to specified nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
      *
+     * @deprecated
+     *
      * @var Taint[]
      */
     public $taints;
@@ -863,6 +927,8 @@ class CreateClusterRequest extends Model
      *
      * Default value: `60`.
      * @example 60
+     *
+     * @deprecated
      *
      * @var int
      */
@@ -1095,6 +1161,7 @@ class CreateClusterRequest extends Model
         'clusterSpec'                      => 'cluster_spec',
         'clusterType'                      => 'cluster_type',
         'containerCidr'                    => 'container_cidr',
+        'controlPlaneConfig'               => 'control_plane_config',
         'controlplaneLogComponents'        => 'controlplane_log_components',
         'controlplaneLogProject'           => 'controlplane_log_project',
         'controlplaneLogTtl'               => 'controlplane_log_ttl',
@@ -1230,6 +1297,9 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->containerCidr) {
             $res['container_cidr'] = $this->containerCidr;
+        }
+        if (null !== $this->controlPlaneConfig) {
+            $res['control_plane_config'] = null !== $this->controlPlaneConfig ? $this->controlPlaneConfig->toMap() : null;
         }
         if (null !== $this->controlplaneLogComponents) {
             $res['controlplane_log_components'] = $this->controlplaneLogComponents;
@@ -1565,6 +1635,9 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['container_cidr'])) {
             $model->containerCidr = $map['container_cidr'];
+        }
+        if (isset($map['control_plane_config'])) {
+            $model->controlPlaneConfig = controlPlaneConfig::fromMap($map['control_plane_config']);
         }
         if (isset($map['controlplane_log_components'])) {
             if (!empty($map['controlplane_log_components'])) {

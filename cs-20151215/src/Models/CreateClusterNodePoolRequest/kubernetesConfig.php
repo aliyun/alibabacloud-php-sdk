@@ -89,7 +89,7 @@ class kubernetesConfig extends Model
     public $runtimeVersion;
 
     /**
-     * @description The taints.
+     * @description The configuration of the taint.
      *
      * @var Taint[]
      */

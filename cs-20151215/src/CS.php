@@ -1027,6 +1027,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->containerCidr)) {
             $body['container_cidr'] = $request->containerCidr;
         }
+        if (!Utils::isUnset($request->controlPlaneConfig)) {
+            $body['control_plane_config'] = $request->controlPlaneConfig;
+        }
         if (!Utils::isUnset($request->controlplaneLogComponents)) {
             $body['controlplane_log_components'] = $request->controlplaneLogComponents;
         }
@@ -3837,7 +3840,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 查询指定地域内全部事件列表
+     * @summary Queries all events in a specified region.
      *  *
      * @param string                         $regionId
      * @param DescribeEventsForRegionRequest $request  DescribeEventsForRegionRequest
@@ -3879,7 +3882,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 查询指定地域内全部事件列表
+     * @summary Queries all events in a specified region.
      *  *
      * @param string                         $regionId
      * @param DescribeEventsForRegionRequest $request  DescribeEventsForRegionRequest
@@ -5839,6 +5842,9 @@ class CS extends OpenApiClient
         }
         if (!Utils::isUnset($request->clusterName)) {
             $body['cluster_name'] = $request->clusterName;
+        }
+        if (!Utils::isUnset($request->controlPlaneConfig)) {
+            $body['control_plane_config'] = $request->controlPlaneConfig;
         }
         if (!Utils::isUnset($request->deletionProtection)) {
             $body['deletion_protection'] = $request->deletionProtection;

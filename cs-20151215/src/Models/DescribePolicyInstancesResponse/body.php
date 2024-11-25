@@ -105,6 +105,10 @@ class body extends Model
     public $policyAction;
 
     /**
+     * @description Creation time (deprecated, do not use).
+     *
+     * @example 2024-10-29T18:09:12+08:00
+     *
      * @deprecated
      *
      * @var string
@@ -112,6 +116,10 @@ class body extends Model
     public $created;
 
     /**
+     * @description Update time (deprecated, do not use).
+     *
+     * @example 2024-10-29T18:09:12+08:00
+     *
      * @deprecated
      *
      * @var string
@@ -119,6 +127,10 @@ class body extends Model
     public $updated;
 
     /**
+     * @description Resource ID (deprecated, do not use).
+     *
+     * @example 123456***
+     *
      * @deprecated
      *
      * @var string
@@ -126,6 +138,10 @@ class body extends Model
     public $resourceId;
 
     /**
+     * @description Violation count processing in the cluster (deprecated, do not use).
+     *
+     * @example 0
+     *
      * @deprecated
      *
      * @var int
@@ -133,6 +149,10 @@ class body extends Model
     public $totalViolations;
 
     /**
+     * @description Deletion status (deprecated, do not use).
+     *
+     * @example 0
+     *
      * @deprecated
      *
      * @var int

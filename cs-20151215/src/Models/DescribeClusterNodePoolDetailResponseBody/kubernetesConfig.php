@@ -35,10 +35,10 @@ class kubernetesConfig extends Model
     public $cpuPolicy;
 
     /**
-     * @description The labels of the nodes in the node pool. You can add labels to the nodes in the cluster. You must add labels based on the following rules:
+     * @description The labels that you want to add to the nodes in the cluster. You must add labels based on the following rules:
      *
-     *   Each label is a case-sensitive key-value pair. You can add up to 20 labels.
-     *   A key must be unique and cannot exceed 64 characters in length. A value can be empty and cannot exceed 128 characters in length. Keys and values cannot start with `aliyun`, `acs:`, `https://`, or `http://`. For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
+     *   A label is a case-sensitive key-value pair. You can add up to 20 labels.
+     *   The key must be unique and cannot exceed 64 characters in length. The value can be empty and cannot exceed 128 characters in length. Keys and values cannot start with `aliyun`, `acs:`, `https://`, or `http://`. For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
      *
      * @var Tag[]
      */
@@ -59,6 +59,8 @@ class kubernetesConfig extends Model
 
     /**
      * @description The custom script to be executed before nodes in the node pool are initialized. For more information, see [Generate user-defined data](https://help.aliyun.com/document_detail/49121.html).
+     *
+     * @example dGhpcyBpcyBhIGV4YW1wbGU
      *
      * @var string
      */
@@ -83,7 +85,7 @@ class kubernetesConfig extends Model
     public $runtimeVersion;
 
     /**
-     * @description The taints of the nodes in the node pool. Taints are added to nodes to prevent pods from being scheduled to inappropriate nodes. However, tolerations allow pods to be scheduled to nodes with matching taints. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
+     * @description The taints that you want to add to nodes. Taints can be used together with tolerations to prevent pods from being scheduled to specific nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
      *
      * @var Taint[]
      */

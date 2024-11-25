@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventsForRegionRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example cf62854ac2130470897be7a27ed1f****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeEventsForRegionRequest extends Model
     public $clusterId;
 
     /**
+     * @description The number of pages.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeEventsForRegionRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of records on each page.
+     *
      * @example 50
      *
      * @var int

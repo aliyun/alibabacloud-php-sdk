@@ -41,7 +41,7 @@ class DescribeClusterAttachScriptsRequest extends Model
      *   `true`: retains the instance name.
      *   `false`: does not retain the instance name.
      *
-     * Default value: `true`
+     * Default value: `true`.
      * @example true
      *
      * @var bool
@@ -49,9 +49,9 @@ class DescribeClusterAttachScriptsRequest extends Model
     public $keepInstanceName;
 
     /**
-     * @description The ID of the node pool to which you want to add an existing node. This parameter allows you to add an existing node to a specified node pool.
+     * @description The ID of the node pool to which you want to add an existing node.
      *
-     * >  If you do not specify a node pool ID, the node is added to the default node pool.
+     * >  If you do not specify a node pool ID, the node is added to a default node pool.
      * @example np1c9229d9be2d432c93f77a88fca0****
      *
      * @var string
@@ -69,7 +69,7 @@ class DescribeClusterAttachScriptsRequest extends Model
     public $options;
 
     /**
-     * @description After you specify the list of RDS instances, the ECS instances in the cluster are automatically added to the whitelist of the RDS instances.
+     * @description The ApsaraDB RDS instances. If you specify a list of ApsaraDB RDS instances, ECS instances in the cluster are automatically added to the whitelist of the ApsaraDB RDS instances.
      *
      * @var string[]
      */

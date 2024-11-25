@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterRequest\apiServerCustomCertSans;
+use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterRequest\controlPlaneConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterRequest\operationPolicy;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterRequest\systemEventsLogging;
 use AlibabaCloud\Tea\Model;
@@ -55,6 +56,11 @@ class ModifyClusterRequest extends Model
      * @var string
      */
     public $clusterName;
+
+    /**
+     * @var controlPlaneConfig
+     */
+    public $controlPlaneConfig;
 
     /**
      * @description Specifies whether to enable cluster deletion protection. If you enable this option, the cluster cannot be deleted in the console or by calling API operations. Valid values:
@@ -156,6 +162,7 @@ class ModifyClusterRequest extends Model
         'apiServerEip'               => 'api_server_eip',
         'apiServerEipId'             => 'api_server_eip_id',
         'clusterName'                => 'cluster_name',
+        'controlPlaneConfig'         => 'control_plane_config',
         'deletionProtection'         => 'deletion_protection',
         'enableRrsa'                 => 'enable_rrsa',
         'ingressDomainRebinding'     => 'ingress_domain_rebinding',
@@ -189,6 +196,9 @@ class ModifyClusterRequest extends Model
         }
         if (null !== $this->clusterName) {
             $res['cluster_name'] = $this->clusterName;
+        }
+        if (null !== $this->controlPlaneConfig) {
+            $res['control_plane_config'] = null !== $this->controlPlaneConfig ? $this->controlPlaneConfig->toMap() : null;
         }
         if (null !== $this->deletionProtection) {
             $res['deletion_protection'] = $this->deletionProtection;
@@ -248,6 +258,9 @@ class ModifyClusterRequest extends Model
         }
         if (isset($map['cluster_name'])) {
             $model->clusterName = $map['cluster_name'];
+        }
+        if (isset($map['control_plane_config'])) {
+            $model->controlPlaneConfig = controlPlaneConfig::fromMap($map['control_plane_config']);
         }
         if (isset($map['deletion_protection'])) {
             $model->deletionProtection = $map['deletion_protection'];

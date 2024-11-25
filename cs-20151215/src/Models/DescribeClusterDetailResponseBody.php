@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterDetailResponseBody\controlPlaneConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterDetailResponseBody\operationPolicy;
 use AlibabaCloud\Tea\Model;
 
@@ -58,6 +59,11 @@ class DescribeClusterDetailResponseBody extends Model
      * @var string
      */
     public $containerCidr;
+
+    /**
+     * @var controlPlaneConfig
+     */
+    public $controlPlaneConfig;
 
     /**
      * @description The time when the cluster was created.
@@ -399,6 +405,7 @@ class DescribeClusterDetailResponseBody extends Model
         'clusterSpec'            => 'cluster_spec',
         'clusterType'            => 'cluster_type',
         'containerCidr'          => 'container_cidr',
+        'controlPlaneConfig'     => 'control_plane_config',
         'created'                => 'created',
         'currentVersion'         => 'current_version',
         'deletionProtection'     => 'deletion_protection',
@@ -456,6 +463,9 @@ class DescribeClusterDetailResponseBody extends Model
         }
         if (null !== $this->containerCidr) {
             $res['container_cidr'] = $this->containerCidr;
+        }
+        if (null !== $this->controlPlaneConfig) {
+            $res['control_plane_config'] = null !== $this->controlPlaneConfig ? $this->controlPlaneConfig->toMap() : null;
         }
         if (null !== $this->created) {
             $res['created'] = $this->created;
@@ -591,6 +601,9 @@ class DescribeClusterDetailResponseBody extends Model
         }
         if (isset($map['container_cidr'])) {
             $model->containerCidr = $map['container_cidr'];
+        }
+        if (isset($map['control_plane_config'])) {
+            $model->controlPlaneConfig = controlPlaneConfig::fromMap($map['control_plane_config']);
         }
         if (isset($map['created'])) {
             $model->created = $map['created'];

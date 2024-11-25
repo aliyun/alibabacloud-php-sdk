@@ -25,6 +25,10 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
     public $autoScaling;
 
     /**
+     * @description Indicates whether the pods in the edge node pool can use the host network.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $hostNetwork;
@@ -46,12 +50,16 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
     public $interconnectMode;
 
     /**
+     * @description Indicates whether all nodes in the edge node pool can communicate with each other at Layer 3.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $intranet;
 
     /**
-     * @description The configurations of the cluster in which the node pool is deployed.
+     * @description The configurations of the cluster.
      *
      * @var kubernetesConfig
      */
@@ -74,7 +82,7 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
     public $maxNodes;
 
     /**
-     * @description Node configuration.
+     * @description The node configurations.
      *
      * @var nodeConfig
      */
@@ -88,7 +96,7 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
     public $nodepoolInfo;
 
     /**
-     * @description The configurations of the scaling group.
+     * @description The configurations of the scaling group used by the node pool.
      *
      * @var scalingGroup
      */

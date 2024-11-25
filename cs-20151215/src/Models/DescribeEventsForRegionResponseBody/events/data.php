@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The severity level of the event.
+     *
      * @example info
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $level;
 
     /**
+     * @description The details of the event.
+     *
      * @example Start to upgrade NodePool nodePool/nodePool-A
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $message;
 
     /**
+     * @description The event status.
+     *
      * @example Started
      *
      * @var string
