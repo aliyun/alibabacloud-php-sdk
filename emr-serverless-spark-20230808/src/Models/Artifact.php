@@ -16,6 +16,11 @@ class Artifact extends Model
     public $bizId;
 
     /**
+     * @var string
+     */
+    public $catagoryBizId;
+
+    /**
      * @description This parameter is required.
      *
      * @var int
@@ -26,6 +31,11 @@ class Artifact extends Model
      * @var Credential
      */
     public $credential;
+
+    /**
+     * @var string[]
+     */
+    public $fullPath;
 
     /**
      * @description This parameter is required.
@@ -62,14 +72,16 @@ class Artifact extends Model
      */
     public $name;
     protected $_name = [
-        'bizId'       => 'bizId',
-        'creator'     => 'creator',
-        'credential'  => 'credential',
-        'gmtCreated'  => 'gmtCreated',
-        'gmtModified' => 'gmtModified',
-        'location'    => 'location',
-        'modifier'    => 'modifier',
-        'name'        => 'name',
+        'bizId'         => 'bizId',
+        'catagoryBizId' => 'catagoryBizId',
+        'creator'       => 'creator',
+        'credential'    => 'credential',
+        'fullPath'      => 'fullPath',
+        'gmtCreated'    => 'gmtCreated',
+        'gmtModified'   => 'gmtModified',
+        'location'      => 'location',
+        'modifier'      => 'modifier',
+        'name'          => 'name',
     ];
 
     public function validate()
@@ -82,11 +94,17 @@ class Artifact extends Model
         if (null !== $this->bizId) {
             $res['bizId'] = $this->bizId;
         }
+        if (null !== $this->catagoryBizId) {
+            $res['catagoryBizId'] = $this->catagoryBizId;
+        }
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
         }
         if (null !== $this->credential) {
             $res['credential'] = null !== $this->credential ? $this->credential->toMap() : null;
+        }
+        if (null !== $this->fullPath) {
+            $res['fullPath'] = $this->fullPath;
         }
         if (null !== $this->gmtCreated) {
             $res['gmtCreated'] = $this->gmtCreated;
@@ -118,11 +136,19 @@ class Artifact extends Model
         if (isset($map['bizId'])) {
             $model->bizId = $map['bizId'];
         }
+        if (isset($map['catagoryBizId'])) {
+            $model->catagoryBizId = $map['catagoryBizId'];
+        }
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
         }
         if (isset($map['credential'])) {
             $model->credential = Credential::fromMap($map['credential']);
+        }
+        if (isset($map['fullPath'])) {
+            if (!empty($map['fullPath'])) {
+                $model->fullPath = $map['fullPath'];
+            }
         }
         if (isset($map['gmtCreated'])) {
             $model->gmtCreated = $map['gmtCreated'];

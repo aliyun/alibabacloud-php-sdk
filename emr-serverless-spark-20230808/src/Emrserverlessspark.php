@@ -581,7 +581,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 获取日志内容
+     * @summary Obtains the log content.
      *  *
      * @param string                 $workspaceId
      * @param ListLogContentsRequest $request     ListLogContentsRequest
@@ -626,7 +626,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 获取日志内容
+     * @summary Obtains the log content.
      *  *
      * @param string                 $workspaceId
      * @param ListLogContentsRequest $request     ListLogContentsRequest
@@ -704,7 +704,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of sessions.
+     * @summary Queries the list of sessions.
      *  *
      * @param string                     $workspaceId
      * @param ListSessionClustersRequest $request     ListSessionClustersRequest
@@ -755,7 +755,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of sessions.
+     * @summary Queries the list of sessions.
      *  *
      * @param string                     $workspaceId
      * @param ListSessionClustersRequest $request     ListSessionClustersRequest
@@ -771,7 +771,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 查看工作空间队列列表
+     * @summary Queries the list of queues in a Spark workspace.
      *  *
      * @param string                     $workspaceId
      * @param ListWorkspaceQueuesRequest $request     ListWorkspaceQueuesRequest
@@ -810,7 +810,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 查看工作空间队列列表
+     * @summary Queries the list of queues in a Spark workspace.
      *  *
      * @param string                     $workspaceId
      * @param ListWorkspaceQueuesRequest $request     ListWorkspaceQueuesRequest

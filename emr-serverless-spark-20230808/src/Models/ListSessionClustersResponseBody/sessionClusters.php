@@ -46,6 +46,11 @@ class sessionClusters extends Model
     public $domain;
 
     /**
+     * @var string
+     */
+    public $domainInner;
+
+    /**
      * @description The ID of the job that is associated with the session.
      *
      * @example TSK-xxxxxxxxx
@@ -62,6 +67,11 @@ class sessionClusters extends Model
      * @var bool
      */
     public $fusion;
+
+    /**
+     * @var int
+     */
+    public $gmtCreate;
 
     /**
      * @description The session type.
@@ -115,6 +125,11 @@ class sessionClusters extends Model
     public $sessionClusterId;
 
     /**
+     * @var int
+     */
+    public $startTime;
+
+    /**
      * @description The status of the session.
      *
      * @example Running
@@ -140,7 +155,7 @@ class sessionClusters extends Model
     public $userId;
 
     /**
-     * @description The name of the user.
+     * @description The username.
      *
      * @example test_user
      *
@@ -171,13 +186,16 @@ class sessionClusters extends Model
         'autoStopConfiguration'  => 'autoStopConfiguration',
         'displayReleaseVersion'  => 'displayReleaseVersion',
         'domain'                 => 'domain',
+        'domainInner'            => 'domainInner',
         'draftId'                => 'draftId',
         'fusion'                 => 'fusion',
+        'gmtCreate'              => 'gmtCreate',
         'kind'                   => 'kind',
         'name'                   => 'name',
         'queueName'              => 'queueName',
         'releaseVersion'         => 'releaseVersion',
         'sessionClusterId'       => 'sessionClusterId',
+        'startTime'              => 'startTime',
         'state'                  => 'state',
         'stateChangeReason'      => 'stateChangeReason',
         'userId'                 => 'userId',
@@ -214,11 +232,17 @@ class sessionClusters extends Model
         if (null !== $this->domain) {
             $res['domain'] = $this->domain;
         }
+        if (null !== $this->domainInner) {
+            $res['domainInner'] = $this->domainInner;
+        }
         if (null !== $this->draftId) {
             $res['draftId'] = $this->draftId;
         }
         if (null !== $this->fusion) {
             $res['fusion'] = $this->fusion;
+        }
+        if (null !== $this->gmtCreate) {
+            $res['gmtCreate'] = $this->gmtCreate;
         }
         if (null !== $this->kind) {
             $res['kind'] = $this->kind;
@@ -234,6 +258,9 @@ class sessionClusters extends Model
         }
         if (null !== $this->sessionClusterId) {
             $res['sessionClusterId'] = $this->sessionClusterId;
+        }
+        if (null !== $this->startTime) {
+            $res['startTime'] = $this->startTime;
         }
         if (null !== $this->state) {
             $res['state'] = $this->state;
@@ -286,11 +313,17 @@ class sessionClusters extends Model
         if (isset($map['domain'])) {
             $model->domain = $map['domain'];
         }
+        if (isset($map['domainInner'])) {
+            $model->domainInner = $map['domainInner'];
+        }
         if (isset($map['draftId'])) {
             $model->draftId = $map['draftId'];
         }
         if (isset($map['fusion'])) {
             $model->fusion = $map['fusion'];
+        }
+        if (isset($map['gmtCreate'])) {
+            $model->gmtCreate = $map['gmtCreate'];
         }
         if (isset($map['kind'])) {
             $model->kind = $map['kind'];
@@ -306,6 +339,9 @@ class sessionClusters extends Model
         }
         if (isset($map['sessionClusterId'])) {
             $model->sessionClusterId = $map['sessionClusterId'];
+        }
+        if (isset($map['startTime'])) {
+            $model->startTime = $map['startTime'];
         }
         if (isset($map['state'])) {
             $model->state = $map['state'];

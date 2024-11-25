@@ -45,7 +45,7 @@ class CreateSqlStatementRequest extends Model
     public $limit;
 
     /**
-     * @description The SQL compute ID. You can create an SQL compute in the workspace created in EMR Serverless Spark.
+     * @description The SQL session ID. You can create an SQL session in the workspace created in EMR Serverless Spark.
      *
      * @example sc-dfahdfjafhajd****
      *

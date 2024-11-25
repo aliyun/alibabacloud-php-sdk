@@ -18,7 +18,7 @@ class applicationConfigs extends Model
     public $configFileName;
 
     /**
-     * @description The key of the configuration item.
+     * @description The key of the configuration.
      *
      * @example spark.app.name
      *
@@ -27,7 +27,7 @@ class applicationConfigs extends Model
     public $configItemKey;
 
     /**
-     * @description The value of the configuration item.
+     * @description The configuration value.
      *
      * @example test_application
      *

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models;
 
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\Task\credential;
 use AlibabaCloud\Tea\Model;
 
 class Task extends Model
@@ -43,6 +44,11 @@ class Task extends Model
     public $creator;
 
     /**
+     * @var credential
+     */
+    public $credential;
+
+    /**
      * @var string
      */
     public $defaultCatalogId;
@@ -66,6 +72,11 @@ class Task extends Model
      * @var string
      */
     public $deploymentId;
+
+    /**
+     * @var string
+     */
+    public $environmentId;
 
     /**
      * @var string[]
@@ -241,11 +252,13 @@ class Task extends Model
         'categoryBizId'          => 'categoryBizId',
         'content'                => 'content',
         'creator'                => 'creator',
+        'credential'             => 'credential',
         'defaultCatalogId'       => 'defaultCatalogId',
         'defaultDatabase'        => 'defaultDatabase',
         'defaultResourceQueueId' => 'defaultResourceQueueId',
         'defaultSqlComputeId'    => 'defaultSqlComputeId',
         'deploymentId'           => 'deploymentId',
+        'environmentId'          => 'environmentId',
         'extraArtifactIds'       => 'extraArtifactIds',
         'extraSparkSubmitParams' => 'extraSparkSubmitParams',
         'files'                  => 'files',
@@ -301,6 +314,9 @@ class Task extends Model
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
         }
+        if (null !== $this->credential) {
+            $res['credential'] = null !== $this->credential ? $this->credential->toMap() : null;
+        }
         if (null !== $this->defaultCatalogId) {
             $res['defaultCatalogId'] = $this->defaultCatalogId;
         }
@@ -315,6 +331,9 @@ class Task extends Model
         }
         if (null !== $this->deploymentId) {
             $res['deploymentId'] = $this->deploymentId;
+        }
+        if (null !== $this->environmentId) {
+            $res['environmentId'] = $this->environmentId;
         }
         if (null !== $this->extraArtifactIds) {
             $res['extraArtifactIds'] = $this->extraArtifactIds;
@@ -438,6 +457,9 @@ class Task extends Model
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
         }
+        if (isset($map['credential'])) {
+            $model->credential = credential::fromMap($map['credential']);
+        }
         if (isset($map['defaultCatalogId'])) {
             $model->defaultCatalogId = $map['defaultCatalogId'];
         }
@@ -452,6 +474,9 @@ class Task extends Model
         }
         if (isset($map['deploymentId'])) {
             $model->deploymentId = $map['deploymentId'];
+        }
+        if (isset($map['environmentId'])) {
+            $model->environmentId = $map['environmentId'];
         }
         if (isset($map['extraArtifactIds'])) {
             if (!empty($map['extraArtifactIds'])) {

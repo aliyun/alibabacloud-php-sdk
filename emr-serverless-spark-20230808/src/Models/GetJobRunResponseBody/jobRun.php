@@ -48,6 +48,11 @@ class jobRun extends Model
     public $endTime;
 
     /**
+     * @var string
+     */
+    public $environmentId;
+
+    /**
      * @description The timeout period of the job.
      *
      * @example 3600
@@ -174,6 +179,7 @@ class jobRun extends Model
         'configurationOverrides'  => 'configurationOverrides',
         'displayReleaseVersion'   => 'displayReleaseVersion',
         'endTime'                 => 'endTime',
+        'environmentId'           => 'environmentId',
         'executionTimeoutSeconds' => 'executionTimeoutSeconds',
         'fusion'                  => 'fusion',
         'jobDriver'               => 'jobDriver',
@@ -209,6 +215,9 @@ class jobRun extends Model
         }
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
+        }
+        if (null !== $this->environmentId) {
+            $res['environmentId'] = $this->environmentId;
         }
         if (null !== $this->executionTimeoutSeconds) {
             $res['executionTimeoutSeconds'] = $this->executionTimeoutSeconds;
@@ -284,6 +293,9 @@ class jobRun extends Model
         }
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
+        }
+        if (isset($map['environmentId'])) {
+            $model->environmentId = $map['environmentId'];
         }
         if (isset($map['executionTimeoutSeconds'])) {
             $model->executionTimeoutSeconds = $map['executionTimeoutSeconds'];
