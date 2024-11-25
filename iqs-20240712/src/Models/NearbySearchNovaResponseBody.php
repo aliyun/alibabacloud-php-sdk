@@ -29,6 +29,11 @@ class NearbySearchNovaResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @example True
      *
      * @var bool
@@ -38,6 +43,7 @@ class NearbySearchNovaResponseBody extends Model
         'data'         => 'data',
         'errorCode'    => 'errorCode',
         'errorMessage' => 'errorMessage',
+        'requestId'    => 'requestId',
         'success'      => 'success',
     ];
 
@@ -62,6 +68,9 @@ class NearbySearchNovaResponseBody extends Model
         }
         if (null !== $this->errorMessage) {
             $res['errorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['success'] = $this->success;
@@ -92,6 +101,9 @@ class NearbySearchNovaResponseBody extends Model
         }
         if (isset($map['errorMessage'])) {
             $model->errorMessage = $map['errorMessage'];
+        }
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
         if (isset($map['success'])) {
             $model->success = $map['success'];

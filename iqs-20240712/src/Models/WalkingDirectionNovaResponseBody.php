@@ -29,6 +29,11 @@ class WalkingDirectionNovaResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @example true
      *
      * @var bool
@@ -38,6 +43,7 @@ class WalkingDirectionNovaResponseBody extends Model
         'data'         => 'data',
         'errorCode'    => 'errorCode',
         'errorMessage' => 'errorMessage',
+        'requestId'    => 'requestId',
         'success'      => 'success',
     ];
 
@@ -56,6 +62,9 @@ class WalkingDirectionNovaResponseBody extends Model
         }
         if (null !== $this->errorMessage) {
             $res['errorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['success'] = $this->success;
@@ -80,6 +89,9 @@ class WalkingDirectionNovaResponseBody extends Model
         }
         if (isset($map['errorMessage'])) {
             $model->errorMessage = $map['errorMessage'];
+        }
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
         if (isset($map['success'])) {
             $model->success = $map['success'];
