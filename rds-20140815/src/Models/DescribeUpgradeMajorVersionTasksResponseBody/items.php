@@ -83,6 +83,16 @@ class items extends Model
     public $startTime;
 
     /**
+     * @description The end time of the switching from the original instance to the new instance.
+     *
+     * Expressed in Unix timestamp. Unit: milliseconds.
+     * @example 1714237539000
+     *
+     * @var string
+     */
+    public $switchEndTime;
+
+    /**
      * @description The time at which your workloads are switched over from the original instance to the new instance.
      *
      * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
@@ -147,6 +157,7 @@ class items extends Model
         'sourceInsName'      => 'SourceInsName',
         'sourceMajorVersion' => 'SourceMajorVersion',
         'startTime'          => 'StartTime',
+        'switchEndTime'      => 'SwitchEndTime',
         'switchTime'         => 'SwitchTime',
         'targetInsName'      => 'TargetInsName',
         'targetMajorVersion' => 'TargetMajorVersion',
@@ -181,6 +192,9 @@ class items extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->switchEndTime) {
+            $res['SwitchEndTime'] = $this->switchEndTime;
         }
         if (null !== $this->switchTime) {
             $res['SwitchTime'] = $this->switchTime;
@@ -229,6 +243,9 @@ class items extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['SwitchEndTime'])) {
+            $model->switchEndTime = $map['SwitchEndTime'];
         }
         if (isset($map['SwitchTime'])) {
             $model->switchTime = $map['SwitchTime'];

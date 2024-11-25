@@ -78,6 +78,11 @@ class images extends Model
     public $isPublic;
 
     /**
+     * @var bool
+     */
+    public $isSupportRdsCustom;
+
+    /**
      * @description The display name of the operating system in Chinese.
      *
      * @var string
@@ -140,19 +145,20 @@ class images extends Model
      */
     public $usage;
     protected $_name = [
-        'architecture' => 'Architecture',
-        'creationTime' => 'CreationTime',
-        'description'  => 'Description',
-        'imageId'      => 'ImageId',
-        'imageName'    => 'ImageName',
-        'imageVersion' => 'ImageVersion',
-        'isPublic'     => 'IsPublic',
-        'OSName'       => 'OSName',
-        'OSNameEn'     => 'OSNameEn',
-        'OSType'       => 'OSType',
-        'size'         => 'Size',
-        'status'       => 'Status',
-        'usage'        => 'Usage',
+        'architecture'       => 'Architecture',
+        'creationTime'       => 'CreationTime',
+        'description'        => 'Description',
+        'imageId'            => 'ImageId',
+        'imageName'          => 'ImageName',
+        'imageVersion'       => 'ImageVersion',
+        'isPublic'           => 'IsPublic',
+        'isSupportRdsCustom' => 'IsSupportRdsCustom',
+        'OSName'             => 'OSName',
+        'OSNameEn'           => 'OSNameEn',
+        'OSType'             => 'OSType',
+        'size'               => 'Size',
+        'status'             => 'Status',
+        'usage'              => 'Usage',
     ];
 
     public function validate()
@@ -182,6 +188,9 @@ class images extends Model
         }
         if (null !== $this->isPublic) {
             $res['IsPublic'] = $this->isPublic;
+        }
+        if (null !== $this->isSupportRdsCustom) {
+            $res['IsSupportRdsCustom'] = $this->isSupportRdsCustom;
         }
         if (null !== $this->OSName) {
             $res['OSName'] = $this->OSName;
@@ -233,6 +242,9 @@ class images extends Model
         }
         if (isset($map['IsPublic'])) {
             $model->isPublic = $map['IsPublic'];
+        }
+        if (isset($map['IsSupportRdsCustom'])) {
+            $model->isSupportRdsCustom = $map['IsSupportRdsCustom'];
         }
         if (isset($map['OSName'])) {
             $model->OSName = $map['OSName'];

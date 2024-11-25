@@ -51,6 +51,9 @@ class ModifyDBProxyInstanceShrinkRequest extends Model
     public $DBProxyInstanceType;
 
     /**
+     * @description List of proxy nodes.
+     *
+     * > This parameter must be passed when the current proxy instance is deployed in multiple availability zones.
      * @var string
      */
     public $DBProxyNodesShrink;
@@ -80,6 +83,9 @@ class ModifyDBProxyInstanceShrinkRequest extends Model
     public $effectiveTime;
 
     /**
+     * @description The list of available zones for migration agents.
+     *
+     * > Currently, only RDS MySQL cloud disk version agent instance migration is supported.
      * @var string
      */
     public $migrateAZShrink;

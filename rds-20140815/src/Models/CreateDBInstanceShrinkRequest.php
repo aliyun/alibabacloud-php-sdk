@@ -38,7 +38,7 @@ class CreateDBInstanceShrinkRequest extends Model
     /**
      * @description Specifies whether to enable the automatic payment feature. Valid values:
      *
-     *   **true**: enables the feature. You must make sure that your account balance is sufficient.
+     *   **true**: enables the feature. Make sure that your account balance is sufficient.
      *   **false**: disables the feature. An unpaid order is generated.
      *
      * >  Default value: true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
@@ -61,6 +61,18 @@ class CreateDBInstanceShrinkRequest extends Model
      * @var string
      */
     public $autoRenew;
+
+    /**
+     * @description Specifies whether to use a coupon. Valid values:
+     *
+     *   **true**: uses a coupon.
+     *   **false** (default): does not use a coupon.
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $autoUseCoupon;
 
     /**
      * @description The configuration of the Babelfish feature for the instance that runs PostgreSQL.
@@ -127,10 +139,9 @@ class CreateDBInstanceShrinkRequest extends Model
      *   **serverless_standard**: RDS High-availability Edition for serverless instances. This edition is available only for instances that run MySQL and PostgreSQL.
      *   **serverless_ha**: RDS High-availability Edition for serverless instances. This edition is available only for instances that run SQL Server.
      *
-     **
      *
-     **Note** This parameter is required when you create a serverless instance.
      *
+     * > This parameter is required when you create a serverless instance.
      * @example HighAvailability
      *
      * @var string
@@ -391,15 +402,10 @@ class CreateDBInstanceShrinkRequest extends Model
      *   Valid values when you set Engine to SQLServer: **2016_std_sl**, **2017_std_sl**, and **2019_std_sl**
      *   Valid values when you set Engine to PostgreSQL: **14.0**, **15.0**, and **16.0**
      *
-     * >
-     *
-     *   ApsaraDB RDS for MariaDB does not support serverless instances.
-     *
-     *   RDS instances that run SQL Server: `_ent` specifies SQL Server EE (Always On), `_ent_ha` specifies SQL Server EE, `_std_ha` specifies SQL Server SE, and `_web` specifies SQL Server Web.
-     *
-     *   RDS instances that run SQL Server 2014 are not available for purchase on the international site (alibabacloud.com).
-     *
-     *   Babelfish is supported only for RDS instances that run PostgreSQL 15.
+     * > *   ApsaraDB RDS for MariaDB does not support serverless instances.
+     * > *   RDS instances that run SQL Server: `_ent` specifies SQL Server EE (Always On), `_ent_ha` specifies SQL Server EE, `_std_ha` specifies SQL Server SE, and `_web` specifies SQL Server Web.
+     * > *   RDS instances that run SQL Server 2014 are not available for purchase on the international site (alibabacloud.com).
+     * > *   Babelfish is supported only for RDS instances that run PostgreSQL 15.
      *
      * This parameter is required.
      * @example 5.6
@@ -411,7 +417,7 @@ class CreateDBInstanceShrinkRequest extends Model
     /**
      * @description The network type of the instance. Valid values:
      *
-     *   **VPC**: virtual private cloud (VPC)
+     *   **VPC**: a virtual private cloud (VPC)
      *   **Classic**: the classic network
      *
      * >
@@ -488,6 +494,15 @@ class CreateDBInstanceShrinkRequest extends Model
      * @var string
      */
     public $privateIpAddress;
+
+    /**
+     * @description The coupon code.
+     *
+     * @example aliwood-1688-mobile-promotion
+     *
+     * @var string
+     */
+    public $promotionCode;
 
     /**
      * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
@@ -704,10 +719,11 @@ class CreateDBInstanceShrinkRequest extends Model
     public $VPCId;
 
     /**
-     * @description The ID of the vSwitch. The vSwitch must belong to the zone that is specified by **ZoneId**.
+     * @description The vSwitch ID. The vSwitch must belong to the zone that is specified by **ZoneId**.
      *
      *   If you set **InstanceNetworkType** to **VPC**, you must also specify this parameter.
-     *   If you specify the ZoneSlaveId1 parameter, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,).
+     *   If you set the **ZoneSlaveId1** parameter to a value that is not **Auto**, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,). The ZoneSlaveId1 parameter specifies the zone ID of the secondary node.
+     *   The value cannot contain `spaces`, exclamation points `(!)`, or special characters such as number signs `(#)`, dollar signs `($)`, ampersands `(&)`, and percent signs `(%)`.
      *
      * @example vsw-*****
      *
@@ -752,7 +768,7 @@ class CreateDBInstanceShrinkRequest extends Model
     public $zoneIdSlave1;
 
     /**
-     * @description This parameter is deprecated.
+     * @description The zone ID of the other secondary node. When you create an ApsaraDB RDS for MySQL cluster, you can create one to two secondary nodes for the cluster. This parameter applies if you create a cluster that contains two secondary nodes.
      *
      * @example cn-hangzhou-d
      *
@@ -764,6 +780,7 @@ class CreateDBInstanceShrinkRequest extends Model
         'autoCreateProxy'                => 'AutoCreateProxy',
         'autoPay'                        => 'AutoPay',
         'autoRenew'                      => 'AutoRenew',
+        'autoUseCoupon'                  => 'AutoUseCoupon',
         'babelfishConfig'                => 'BabelfishConfig',
         'bpeEnabled'                     => 'BpeEnabled',
         'burstingEnabled'                => 'BurstingEnabled',
@@ -794,6 +811,7 @@ class CreateDBInstanceShrinkRequest extends Model
         'period'                         => 'Period',
         'port'                           => 'Port',
         'privateIpAddress'               => 'PrivateIpAddress',
+        'promotionCode'                  => 'PromotionCode',
         'regionId'                       => 'RegionId',
         'resourceGroupId'                => 'ResourceGroupId',
         'resourceOwnerId'                => 'ResourceOwnerId',
@@ -837,6 +855,9 @@ class CreateDBInstanceShrinkRequest extends Model
         }
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
+        }
+        if (null !== $this->autoUseCoupon) {
+            $res['AutoUseCoupon'] = $this->autoUseCoupon;
         }
         if (null !== $this->babelfishConfig) {
             $res['BabelfishConfig'] = $this->babelfishConfig;
@@ -927,6 +948,9 @@ class CreateDBInstanceShrinkRequest extends Model
         }
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
+        }
+        if (null !== $this->promotionCode) {
+            $res['PromotionCode'] = $this->promotionCode;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -1027,6 +1051,9 @@ class CreateDBInstanceShrinkRequest extends Model
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
+        if (isset($map['AutoUseCoupon'])) {
+            $model->autoUseCoupon = $map['AutoUseCoupon'];
+        }
         if (isset($map['BabelfishConfig'])) {
             $model->babelfishConfig = $map['BabelfishConfig'];
         }
@@ -1116,6 +1143,9 @@ class CreateDBInstanceShrinkRequest extends Model
         }
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
+        }
+        if (isset($map['PromotionCode'])) {
+            $model->promotionCode = $map['PromotionCode'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

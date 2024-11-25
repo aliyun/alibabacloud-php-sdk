@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCDeploymentSetRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateRCDeploymentSetRequest extends Model
@@ -81,6 +82,11 @@ class CreateRCDeploymentSetRequest extends Model
      * @var string
      */
     public $strategy;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'clientToken'                      => 'ClientToken',
         'deploymentSetName'                => 'DeploymentSetName',
@@ -89,6 +95,7 @@ class CreateRCDeploymentSetRequest extends Model
         'onUnableToRedeployFailedInstance' => 'OnUnableToRedeployFailedInstance',
         'regionId'                         => 'RegionId',
         'strategy'                         => 'Strategy',
+        'tag'                              => 'Tag',
     ];
 
     public function validate()
@@ -118,6 +125,15 @@ class CreateRCDeploymentSetRequest extends Model
         }
         if (null !== $this->strategy) {
             $res['Strategy'] = $this->strategy;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -151,6 +167,15 @@ class CreateRCDeploymentSetRequest extends Model
         }
         if (isset($map['Strategy'])) {
             $model->strategy = $map['Strategy'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

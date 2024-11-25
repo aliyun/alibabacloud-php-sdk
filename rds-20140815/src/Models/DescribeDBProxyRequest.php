@@ -19,7 +19,7 @@ class DescribeDBProxyRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description A reserved parameter. You do not need to specify this parameter.
+     * @description A deprecated parameter. You do not need to specify this parameter.
      *
      * @example normal
      *

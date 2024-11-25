@@ -219,6 +219,15 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     /**
      * @var string
      */
+    public $promotionCode;
+
+    /**
+     * @description Target specifications for read-only instances when changing a MySQL high-availability local disk instance to a cloud disk.
+     *
+     * @example mysqlro.n2.large.c
+     *
+     * @var string
+     */
     public $readOnlyDBInstanceClass;
 
     /**
@@ -339,6 +348,7 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
         'ownerAccount'                  => 'OwnerAccount',
         'ownerId'                       => 'OwnerId',
         'payType'                       => 'PayType',
+        'promotionCode'                 => 'PromotionCode',
         'readOnlyDBInstanceClass'       => 'ReadOnlyDBInstanceClass',
         'resourceGroupId'               => 'ResourceGroupId',
         'resourceOwnerAccount'          => 'ResourceOwnerAccount',
@@ -410,6 +420,9 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
+        }
+        if (null !== $this->promotionCode) {
+            $res['PromotionCode'] = $this->promotionCode;
         }
         if (null !== $this->readOnlyDBInstanceClass) {
             $res['ReadOnlyDBInstanceClass'] = $this->readOnlyDBInstanceClass;
@@ -509,6 +522,9 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
+        }
+        if (isset($map['PromotionCode'])) {
+            $model->promotionCode = $map['PromotionCode'];
         }
         if (isset($map['ReadOnlyDBInstanceClass'])) {
             $model->readOnlyDBInstanceClass = $map['ReadOnlyDBInstanceClass'];

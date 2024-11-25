@@ -38,6 +38,36 @@ class items extends Model
     public $effectiveTime;
 
     /**
+     * @description The minimum recommended disk capacity for upgrading. Unit: GB.
+     *
+     * > This parameter is returned only for RDS PostgreSQL instances.
+     * @example 100
+     *
+     * @var int
+     */
+    public $recommendDiskSize;
+
+    /**
+     * @description The minimum recommended memory for upgrading. Unit: GB.
+     *
+     * > This parameter is returned only for RDS PostgreSQL instances.
+     * @example 8
+     *
+     * @var int
+     */
+    public $recommendLeastMemSize;
+
+    /**
+     * @description Recommended memory when upgrading. Unit: GB.
+     *
+     * > This parameter is returned only for RDS PostgreSQL instances.
+     * @example 32
+     *
+     * @var int
+     */
+    public $recommendMemSize;
+
+    /**
      * @description The result of the upgrade check.
      *
      * Valid values:
@@ -79,13 +109,16 @@ class items extends Model
      */
     public $taskId;
     protected $_name = [
-        'checkTime'          => 'CheckTime',
-        'detail'             => 'Detail',
-        'effectiveTime'      => 'EffectiveTime',
-        'result'             => 'Result',
-        'sourceMajorVersion' => 'SourceMajorVersion',
-        'targetMajorVersion' => 'TargetMajorVersion',
-        'taskId'             => 'TaskId',
+        'checkTime'             => 'CheckTime',
+        'detail'                => 'Detail',
+        'effectiveTime'         => 'EffectiveTime',
+        'recommendDiskSize'     => 'RecommendDiskSize',
+        'recommendLeastMemSize' => 'RecommendLeastMemSize',
+        'recommendMemSize'      => 'RecommendMemSize',
+        'result'                => 'Result',
+        'sourceMajorVersion'    => 'SourceMajorVersion',
+        'targetMajorVersion'    => 'TargetMajorVersion',
+        'taskId'                => 'TaskId',
     ];
 
     public function validate()
@@ -103,6 +136,15 @@ class items extends Model
         }
         if (null !== $this->effectiveTime) {
             $res['EffectiveTime'] = $this->effectiveTime;
+        }
+        if (null !== $this->recommendDiskSize) {
+            $res['RecommendDiskSize'] = $this->recommendDiskSize;
+        }
+        if (null !== $this->recommendLeastMemSize) {
+            $res['RecommendLeastMemSize'] = $this->recommendLeastMemSize;
+        }
+        if (null !== $this->recommendMemSize) {
+            $res['RecommendMemSize'] = $this->recommendMemSize;
         }
         if (null !== $this->result) {
             $res['Result'] = $this->result;
@@ -136,6 +178,15 @@ class items extends Model
         }
         if (isset($map['EffectiveTime'])) {
             $model->effectiveTime = $map['EffectiveTime'];
+        }
+        if (isset($map['RecommendDiskSize'])) {
+            $model->recommendDiskSize = $map['RecommendDiskSize'];
+        }
+        if (isset($map['RecommendLeastMemSize'])) {
+            $model->recommendLeastMemSize = $map['RecommendLeastMemSize'];
+        }
+        if (isset($map['RecommendMemSize'])) {
+            $model->recommendMemSize = $map['RecommendMemSize'];
         }
         if (isset($map['Result'])) {
             $model->result = $map['Result'];

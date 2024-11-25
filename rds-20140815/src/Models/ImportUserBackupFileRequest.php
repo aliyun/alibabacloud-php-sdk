@@ -44,6 +44,15 @@ class ImportUserBackupFileRequest extends Model
     public $comment;
 
     /**
+     * @description The instance ID.
+     *
+     * @example rm-uf6wjk5****
+     *
+     * @var string
+     */
+    public $DBInstanceId;
+
+    /**
      * @description The version of the database engine that is run on the self-managed MySQL database and ApsaraDB RDS for MySQL instance. Set the value to **5.7**.
      *
      * @example 5.7
@@ -123,6 +132,7 @@ class ImportUserBackupFileRequest extends Model
         'backupFile'           => 'BackupFile',
         'bucketRegion'         => 'BucketRegion',
         'comment'              => 'Comment',
+        'DBInstanceId'         => 'DBInstanceId',
         'engineVersion'        => 'EngineVersion',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -149,6 +159,9 @@ class ImportUserBackupFileRequest extends Model
         }
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
+        }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
         }
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
@@ -197,6 +210,9 @@ class ImportUserBackupFileRequest extends Model
         }
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
+        }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
         }
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];

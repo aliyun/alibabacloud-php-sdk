@@ -53,6 +53,9 @@ class ModifyDBProxyInstanceRequest extends Model
     public $DBProxyInstanceType;
 
     /**
+     * @description List of proxy nodes.
+     *
+     * > This parameter must be passed when the current proxy instance is deployed in multiple availability zones.
      * @var DBProxyNodes[]
      */
     public $DBProxyNodes;
@@ -82,6 +85,9 @@ class ModifyDBProxyInstanceRequest extends Model
     public $effectiveTime;
 
     /**
+     * @description The list of available zones for migration agents.
+     *
+     * > Currently, only RDS MySQL cloud disk version agent instance migration is supported.
      * @var migrateAZ[]
      */
     public $migrateAZ;

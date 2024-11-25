@@ -19,6 +19,11 @@ class performanceKey extends Model
     public $key;
 
     /**
+     * @var string
+     */
+    public $service;
+
+    /**
      * @description The format in which the value of the performance metric is returned.
      *
      * @example docker_container_cpu
@@ -35,6 +40,7 @@ class performanceKey extends Model
     public $values;
     protected $_name = [
         'key'         => 'Key',
+        'service'     => 'Service',
         'valueFormat' => 'ValueFormat',
         'values'      => 'Values',
     ];
@@ -48,6 +54,9 @@ class performanceKey extends Model
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
+        }
+        if (null !== $this->service) {
+            $res['Service'] = $this->service;
         }
         if (null !== $this->valueFormat) {
             $res['ValueFormat'] = $this->valueFormat;
@@ -69,6 +78,9 @@ class performanceKey extends Model
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
+        }
+        if (isset($map['Service'])) {
+            $model->service = $map['Service'];
         }
         if (isset($map['ValueFormat'])) {
             $model->valueFormat = $map['ValueFormat'];

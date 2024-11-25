@@ -22,6 +22,11 @@ class ResizeRCInstanceDiskRequest extends Model
     public $autoPay;
 
     /**
+     * @var string
+     */
+    public $diskId;
+
+    /**
      * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
      *
      *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and insufficient inventory errors.
@@ -73,6 +78,7 @@ class ResizeRCInstanceDiskRequest extends Model
     public $type;
     protected $_name = [
         'autoPay'    => 'AutoPay',
+        'diskId'     => 'DiskId',
         'dryRun'     => 'DryRun',
         'instanceId' => 'InstanceId',
         'newSize'    => 'NewSize',
@@ -89,6 +95,9 @@ class ResizeRCInstanceDiskRequest extends Model
         $res = [];
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
+        }
+        if (null !== $this->diskId) {
+            $res['DiskId'] = $this->diskId;
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
@@ -119,6 +128,9 @@ class ResizeRCInstanceDiskRequest extends Model
         $model = new self();
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
+        }
+        if (isset($map['DiskId'])) {
+            $model->diskId = $map['DiskId'];
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];

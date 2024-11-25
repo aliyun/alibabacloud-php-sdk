@@ -558,6 +558,10 @@ class DBInstanceAttribute extends Model
     public $maxIOPS;
 
     /**
+     * @description Indicates whether auto scaling is being performed on the instance. If the value **true** is returned, auto scaling is being performed on the instance. If no value is returned, auto scaling is not being performed on the instance.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $multipleTempUpgrade;

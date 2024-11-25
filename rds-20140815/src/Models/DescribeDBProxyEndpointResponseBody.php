@@ -59,12 +59,13 @@ class DescribeDBProxyEndpointResponseBody extends Model
     public $DBProxyEngineType;
 
     /**
-     * @description The configuration of the proxy terminal. The value of this parameter is a JSON string that consists of the following fields:
+     * @description The configuration of the proxy terminal. The value of this parameter is a JSON string that consists of the following parameters:
      *
      *   **TransactionReadSqlRouteOptimizeStatus**: the status of the transaction splitting feature. Valid values: **0** and **1**. The value 0 indicates that the feature is disabled. The value 1 indicates that the feature is enabled.
-     *   **ConnectionPersist**: the status of the connection pooling feature. Valid values: **0**, **1**, and **2**. The value 0 indicates that the connection pooling feature is disabled. The value 1 indicates that the session connection pooling feature is enabled. The value 2 indicates that the transaction connection pooling feature is enabled.
+     *   **ConnectionPersist**: the status of the connection pooling feature. Valid values: **0**, **1**, and **2**. The value 0 indicates that the connection pooling feature is disabled. The value 1 indicates that the session-level connection pooling feature is enabled. The value 2 indicates that the transaction-level connection pooling feature is enabled.
      *   **ReadWriteSpliting**: the status of the read/write splitting feature. Valid values: **0** and **1**. The value 0 indicates that the feature is disabled. The value 1 indicates that the feature is enabled.
-     *   **PinPreparedStmt**: an internal field that is available only for ApsaraDB RDS for PostgreSQL instances.
+     *   **AZProximityAccess**: the status of the nearest access feature. Valid values: **0** and **1**. The value 0 indicates that the feature is disabled. The value 1 indicates that the feature is enabled.
+     *   **PinPreparedStmt**: an internal parameter that is available only for ApsaraDB RDS for PostgrSQL instances.
      *
      * >  If the instance runs PostgreSQL, you can change only the value of the **ReadWriteSpliting** field. The **TransactionReadSqlRouteOptimizeStatus** and **PinPreparedStmt** fields are set to their default values 1.
      * @example TransactionReadSqlRouteOptimizeStatus:1;ConnectionPersist:0;ReadWriteSpliting:1
@@ -74,6 +75,8 @@ class DescribeDBProxyEndpointResponseBody extends Model
     public $DBProxyFeatures;
 
     /**
+     * @description The proxy nodes that are associated with the proxy terminal.
+     *
      * @var DBProxyNodes
      */
     public $DBProxyNodes;
@@ -100,11 +103,19 @@ class DescribeDBProxyEndpointResponseBody extends Model
     public $dbProxyEndpointReadWriteMode;
 
     /**
+     * @description The vSwitch ID of the proxy terminal.
+     *
+     * @example vsw-****
+     *
      * @var string
      */
     public $dbProxyEndpointVswitchId;
 
     /**
+     * @description The zone ID of the proxy terminal.
+     *
+     * @example cn-hangzhou-c
+     *
      * @var string
      */
     public $dbProxyEndpointZoneId;

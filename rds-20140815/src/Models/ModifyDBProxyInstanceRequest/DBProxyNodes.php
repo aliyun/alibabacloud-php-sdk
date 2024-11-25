@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DBProxyNodes extends Model
 {
     /**
+     * @description The number of cpu cores for the node, valid values: **1** to **16**.
+     * >This parameter is required when selecting **DBProxyNodes**.
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class DBProxyNodes extends Model
     public $cpuCores;
 
     /**
+     * @description The number of proxy nodes in the availability zone, valid values: **1** to **16**.
+     * >This parameter is required when selecting **DBProxyNodes**.
      * @example 2
      *
      * @var string
@@ -23,6 +27,8 @@ class DBProxyNodes extends Model
     public $nodeCounts;
 
     /**
+     * @description The id of the availability zone where the node is located.
+     * >This parameter is required when selecting **DBProxyNodes**.
      * @example cn-hagnzhou-c
      *
      * @var string

@@ -16,8 +16,18 @@ class CheckAccountNameAvailableResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'requestId'       => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -29,6 +39,9 @@ class CheckAccountNameAvailableResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -44,6 +57,9 @@ class CheckAccountNameAvailableResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

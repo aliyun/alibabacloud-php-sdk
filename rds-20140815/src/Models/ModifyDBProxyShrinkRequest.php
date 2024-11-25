@@ -11,8 +11,9 @@ class ModifyDBProxyShrinkRequest extends Model
     /**
      * @description Specifies whether to enable or disable the database proxy feature. Valid values:
      *
-     *   **Startup**: enables the database proxy feature.
-     *   **Shutdown**: disables the database proxy feature.
+     *   **Startup**: enables the feature.
+     *   **Shutdown**: disables the feature.
+     *   **Modify**: modifies the configuration of the feature.
      *
      * This parameter is required.
      * @example Startup
@@ -32,7 +33,7 @@ class ModifyDBProxyShrinkRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description A reserved parameter. You do not need to specify this parameter.
+     * @description A deprecated parameter. You do not need to specify this parameter.
      *
      * @example normal
      *
@@ -51,7 +52,10 @@ class ModifyDBProxyShrinkRequest extends Model
     public $DBProxyInstanceNum;
 
     /**
-     * @description This parameter is reserved. You do not need to specify this parameter.
+     * @description The database proxy type. Valid values:
+     *
+     *   **common**: general-purpose database proxy
+     *   **exclusive** (default): dedicated database proxy
      *
      * @example common
      *
@@ -60,6 +64,8 @@ class ModifyDBProxyShrinkRequest extends Model
     public $DBProxyInstanceType;
 
     /**
+     * @description The proxy nodes.
+     *
      * @var string
      */
     public $DBProxyNodesShrink;
@@ -80,10 +86,17 @@ class ModifyDBProxyShrinkRequest extends Model
     public $ownerId;
 
     /**
-     * @description Whether to enable connection keep. Valid values:
+     * @description Specifies whether to enable persistent connections. Valid values:
      *
-     * > - This parameter is supported only for an ApsaraDB RDS for MySQL.
-     * > - When you modify the connection persistence state, the value of **ConfigDBProxyService** is modify.
+     *   **Enabled**
+     *   **Disabled**
+     *
+     * >
+     *
+     *   This parameter is available only for instances that run MySQL.
+     *
+     *   If you want to modify persistent connections, you must set the **ConfigDBProxyService** parameter to **Modify**.
+     *
      * @example Enabled
      *
      * @var string

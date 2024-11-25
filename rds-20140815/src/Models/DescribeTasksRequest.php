@@ -38,7 +38,7 @@ class DescribeTasksRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Valid values: any non-zero positive integer. Default value: **1**.
+     * @description The page number. Valid values: any non-zero positive integer. Default value: **1**.
      *
      * @example 1
      *
@@ -47,7 +47,7 @@ class DescribeTasksRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **30 to 100**. Default value: **30**.
+     * @description The number of entries to return per page. Valid values: **30 to 100**. Default value: **30**.
      *
      * @example 30
      *

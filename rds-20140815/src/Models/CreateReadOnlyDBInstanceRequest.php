@@ -11,8 +11,8 @@ class CreateReadOnlyDBInstanceRequest extends Model
     /**
      * @description Specifies whether to automatically create database proxies. Valid values:
      *
-     *   **true**: enables the feature. By default, general-purpose database proxies are created.
-     *   **false**: disables the feature. No database proxies are created.
+     *   **true**: automatically creates database proxies. By default, general-purpose database proxies are created.
+     *   **false**: does not automatically create database proxies.
      *
      * @example false
      *
@@ -21,12 +21,12 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public $autoCreateProxy;
 
     /**
-     * @description Specifies whether to enable the automatic payment feature. Valid values:
+     * @description Specifies whether to automatically complete the payment. Valid values:
      *
-     * 1.  **true**: enables the feature. Make sure that your account balance is sufficient.
-     * 2.  **false**: disables the feature. An unpaid order is generated.
+     * 1.  **true**: automatically completes the payment. Make sure that your account balance is sufficient.
+     * 2.  **false**: does not automatically complete the payment. An unpaid order is generated.
      *
-     * >  The default value is true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
+     * >  Default value: true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
      * @example false
      *
      * @var bool
@@ -46,6 +46,11 @@ class CreateReadOnlyDBInstanceRequest extends Model
      * @var string
      */
     public $autoRenew;
+
+    /**
+     * @var bool
+     */
+    public $autoUseCoupon;
 
     /**
      * @description A reserved parameter. You do not need to specify this parameter.
@@ -198,7 +203,7 @@ class CreateReadOnlyDBInstanceRequest extends Model
      *
      * Default value: VPC. If you set this parameter to VPC, you must also specify the **VPCId** and **VSwitchId** parameters.
      *
-     * > The network type of the read-only instance can be different from the network type of the primary instance.
+     * >  The network type of the read-only instance can be different from the network type of the primary instance.
      * @example Classic
      *
      * @var string
@@ -276,6 +281,11 @@ class CreateReadOnlyDBInstanceRequest extends Model
      * @var string
      */
     public $privateIpAddress;
+
+    /**
+     * @var string
+     */
+    public $promotionCode;
 
     /**
      * @description The region ID. The read-only instance and the primary instance must reside in the same region. You can call the DescribeRegions operation to query the most recent region list.
@@ -369,6 +379,10 @@ class CreateReadOnlyDBInstanceRequest extends Model
     /**
      * @description The zone ID. You can call the DescribeRegions operation to query the zone ID.
      *
+     *   If you use the single-zone deployment method, set this parameter to the ID of one zone. Example: `cn-hangzhou-b`.
+     *   If you use the multi-zone deployment method, set this parameter to the IDs of multiple zones and separate the IDs with colons (:). Example: `cn-hangzhou-b:cn-hangzhou-c`.
+     *   The number of zone IDs that you specify must be less than or equal to the number of nodes created for the read-only instance. If you create a read-only instance that runs RDS Basic Edition, only one node is provisioned. If you create a read-only instance that runs RDS High-availability Edition, one primary node and one secondary node are provisioned.
+     *
      * This parameter is required.
      * @example cn-hangzhou-b
      *
@@ -379,6 +393,7 @@ class CreateReadOnlyDBInstanceRequest extends Model
         'autoCreateProxy'                => 'AutoCreateProxy',
         'autoPay'                        => 'AutoPay',
         'autoRenew'                      => 'AutoRenew',
+        'autoUseCoupon'                  => 'AutoUseCoupon',
         'bpeEnabled'                     => 'BpeEnabled',
         'burstingEnabled'                => 'BurstingEnabled',
         'category'                       => 'Category',
@@ -401,6 +416,7 @@ class CreateReadOnlyDBInstanceRequest extends Model
         'period'                         => 'Period',
         'port'                           => 'Port',
         'privateIpAddress'               => 'PrivateIpAddress',
+        'promotionCode'                  => 'PromotionCode',
         'regionId'                       => 'RegionId',
         'resourceGroupId'                => 'ResourceGroupId',
         'resourceOwnerAccount'           => 'ResourceOwnerAccount',
@@ -429,6 +445,9 @@ class CreateReadOnlyDBInstanceRequest extends Model
         }
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
+        }
+        if (null !== $this->autoUseCoupon) {
+            $res['AutoUseCoupon'] = $this->autoUseCoupon;
         }
         if (null !== $this->bpeEnabled) {
             $res['BpeEnabled'] = $this->bpeEnabled;
@@ -496,6 +515,9 @@ class CreateReadOnlyDBInstanceRequest extends Model
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
+        if (null !== $this->promotionCode) {
+            $res['PromotionCode'] = $this->promotionCode;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -549,6 +571,9 @@ class CreateReadOnlyDBInstanceRequest extends Model
         }
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
+        }
+        if (isset($map['AutoUseCoupon'])) {
+            $model->autoUseCoupon = $map['AutoUseCoupon'];
         }
         if (isset($map['BpeEnabled'])) {
             $model->bpeEnabled = $map['BpeEnabled'];
@@ -615,6 +640,9 @@ class CreateReadOnlyDBInstanceRequest extends Model
         }
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
+        }
+        if (isset($map['PromotionCode'])) {
+            $model->promotionCode = $map['PromotionCode'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

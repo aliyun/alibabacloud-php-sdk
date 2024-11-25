@@ -43,6 +43,11 @@ class RenewInstanceRequest extends Model
     public $autoRenew;
 
     /**
+     * @var bool
+     */
+    public $autoUseCoupon;
+
+    /**
      * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the generated token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example ETnLKlblzczshOTUbOCzxxxxxxxxxx
@@ -86,6 +91,11 @@ class RenewInstanceRequest extends Model
     /**
      * @var string
      */
+    public $promotionCode;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -95,10 +105,12 @@ class RenewInstanceRequest extends Model
     protected $_name = [
         'autoPay'              => 'AutoPay',
         'autoRenew'            => 'AutoRenew',
+        'autoUseCoupon'        => 'AutoUseCoupon',
         'clientToken'          => 'ClientToken',
         'DBInstanceId'         => 'DBInstanceId',
         'ownerId'              => 'OwnerId',
         'period'               => 'Period',
+        'promotionCode'        => 'PromotionCode',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
     ];
@@ -116,6 +128,9 @@ class RenewInstanceRequest extends Model
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
+        if (null !== $this->autoUseCoupon) {
+            $res['AutoUseCoupon'] = $this->autoUseCoupon;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -127,6 +142,9 @@ class RenewInstanceRequest extends Model
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
+        }
+        if (null !== $this->promotionCode) {
+            $res['PromotionCode'] = $this->promotionCode;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -152,6 +170,9 @@ class RenewInstanceRequest extends Model
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
+        if (isset($map['AutoUseCoupon'])) {
+            $model->autoUseCoupon = $map['AutoUseCoupon'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
@@ -163,6 +184,9 @@ class RenewInstanceRequest extends Model
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
+        }
+        if (isset($map['PromotionCode'])) {
+            $model->promotionCode = $map['PromotionCode'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

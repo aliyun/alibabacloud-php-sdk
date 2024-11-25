@@ -96,12 +96,13 @@ class DescribeDBProxyResponseBody extends Model
     public $DBProxyInstanceStatus;
 
     /**
-     * @description The type of the database proxy that is enabled on the instance.
+     * @description The type of the database proxy that is enabled on the instance. Valid values:
      *
-     *   1: shared proxy
-     *   2: dedicated proxy
+     *   1: shared database proxy
+     *   2: dedicated database proxy
+     *   3: general-purpose database proxy
      *
-     * >  ApsaraDB RDS for PostgreSQL instances support only dedicated proxies.
+     * >  ApsaraDB RDS for PostgreSQL does not support shared database proxies.
      * @example 2
      *
      * @var string
@@ -109,19 +110,28 @@ class DescribeDBProxyResponseBody extends Model
     public $DBProxyInstanceType;
 
     /**
+     * @description Internal parameters, no need to pay attention.
+     *
+     * @example 18
+     *
      * @var string
      */
     public $DBProxyKindCode;
 
     /**
+     * @description The proxy node list.
+     *
      * @var DBProxyNodes
      */
     public $DBProxyNodes;
 
     /**
-     * @description Connection Persistence State.
+     * @description The status of persistence connections. Valid values:
      *
-     * - Unsupported: The instance does not support connection persistence
+     *   **Enabled**
+     *   **Disabled**
+     *   **Unsupported**
+     *
      * @example Disabled
      *
      * @var string

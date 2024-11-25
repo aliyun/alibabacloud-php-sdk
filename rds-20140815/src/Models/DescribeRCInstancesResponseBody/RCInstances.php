@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstancesResponseBody;
 
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstancesResponseBody\RCInstances\tagResources;
 use AlibabaCloud\Tea\Model;
 
 class RCInstances extends Model
@@ -107,6 +108,11 @@ class RCInstances extends Model
     public $status;
 
     /**
+     * @var tagResources[]
+     */
+    public $tagResources;
+
+    /**
      * @description The VPC ID.
      *
      * @example vpc-uf6f7l4fg90****
@@ -114,6 +120,11 @@ class RCInstances extends Model
      * @var string
      */
     public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'clusterName'        => 'ClusterName',
         'createMode'         => 'CreateMode',
@@ -126,7 +137,9 @@ class RCInstances extends Model
         'instanceId'         => 'InstanceId',
         'regionId'           => 'RegionId',
         'status'             => 'Status',
+        'tagResources'       => 'TagResources',
         'vpcId'              => 'VpcId',
+        'zoneId'             => 'ZoneId',
     ];
 
     public function validate()
@@ -169,8 +182,20 @@ class RCInstances extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+        if (null !== $this->tagResources) {
+            $res['TagResources'] = [];
+            if (null !== $this->tagResources && \is_array($this->tagResources)) {
+                $n = 0;
+                foreach ($this->tagResources as $item) {
+                    $res['TagResources'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -217,8 +242,20 @@ class RCInstances extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+        if (isset($map['TagResources'])) {
+            if (!empty($map['TagResources'])) {
+                $model->tagResources = [];
+                $n                   = 0;
+                foreach ($map['TagResources'] as $item) {
+                    $model->tagResources[$n++] = null !== $item ? tagResources::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

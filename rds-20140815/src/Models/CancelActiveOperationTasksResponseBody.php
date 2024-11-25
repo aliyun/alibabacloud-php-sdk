@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CancelActiveOperationTasksResponseBody extends Model
 {
     /**
-     * @description Batch cancellation task IDs, separated by English commas (,).
+     * @description The IDs of the tasks that are canceled. Multiple task IDs are separated with commas (,).
      *
      * @example 188****,188****,188****
      *
@@ -18,7 +18,7 @@ class CancelActiveOperationTasksResponseBody extends Model
     public $ids;
 
     /**
-     * @description Request ID.
+     * @description The request ID.
      *
      * @example A807C95D-410C-5BB5-96C0-C6E09F2C3D36
      *

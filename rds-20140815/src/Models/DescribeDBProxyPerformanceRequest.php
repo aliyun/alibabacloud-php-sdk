@@ -40,6 +40,11 @@ class DescribeDBProxyPerformanceRequest extends Model
     public $DBProxyInstanceType;
 
     /**
+     * @var string
+     */
+    public $dimension;
+
+    /**
      * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
      * This parameter is required.
@@ -109,6 +114,7 @@ class DescribeDBProxyPerformanceRequest extends Model
         'DBInstanceId'         => 'DBInstanceId',
         'DBProxyEngineType'    => 'DBProxyEngineType',
         'DBProxyInstanceType'  => 'DBProxyInstanceType',
+        'dimension'            => 'Dimension',
         'endTime'              => 'EndTime',
         'metricsName'          => 'MetricsName',
         'ownerId'              => 'OwnerId',
@@ -133,6 +139,9 @@ class DescribeDBProxyPerformanceRequest extends Model
         }
         if (null !== $this->DBProxyInstanceType) {
             $res['DBProxyInstanceType'] = $this->DBProxyInstanceType;
+        }
+        if (null !== $this->dimension) {
+            $res['Dimension'] = $this->dimension;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -175,6 +184,9 @@ class DescribeDBProxyPerformanceRequest extends Model
         }
         if (isset($map['DBProxyInstanceType'])) {
             $model->DBProxyInstanceType = $map['DBProxyInstanceType'];
+        }
+        if (isset($map['Dimension'])) {
+            $model->dimension = $map['Dimension'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];

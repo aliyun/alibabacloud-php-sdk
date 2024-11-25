@@ -61,6 +61,11 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $dataDisks;
 
     /**
+     * @var string
+     */
+    public $dbType;
+
+    /**
      * @description The attributes of the dedicated hosts.
      *
      * @var dedicatedHostAttribute
@@ -385,6 +390,7 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         'creationTime'            => 'CreationTime',
         'creditSpecification'     => 'CreditSpecification',
         'dataDisks'               => 'DataDisks',
+        'dbType'                  => 'DbType',
         'dedicatedHostAttribute'  => 'DedicatedHostAttribute',
         'deploymentSetId'         => 'DeploymentSetId',
         'description'             => 'Description',
@@ -443,6 +449,9 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         }
         if (null !== $this->dataDisks) {
             $res['DataDisks'] = null !== $this->dataDisks ? $this->dataDisks->toMap() : null;
+        }
+        if (null !== $this->dbType) {
+            $res['DbType'] = $this->dbType;
         }
         if (null !== $this->dedicatedHostAttribute) {
             $res['DedicatedHostAttribute'] = null !== $this->dedicatedHostAttribute ? $this->dedicatedHostAttribute->toMap() : null;
@@ -575,6 +584,9 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         }
         if (isset($map['DataDisks'])) {
             $model->dataDisks = dataDisks::fromMap($map['DataDisks']);
+        }
+        if (isset($map['DbType'])) {
+            $model->dbType = $map['DbType'];
         }
         if (isset($map['DedicatedHostAttribute'])) {
             $model->dedicatedHostAttribute = dedicatedHostAttribute::fromMap($map['DedicatedHostAttribute']);

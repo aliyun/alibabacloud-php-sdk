@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCDeploymentSetsResponse
 
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCDeploymentSetsResponseBody\deploymentSets\deploymentSet\capacities;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCDeploymentSetsResponseBody\deploymentSets\deploymentSet\instanceIds;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCDeploymentSetsResponseBody\deploymentSets\deploymentSet\tagResources;
 use AlibabaCloud\Tea\Model;
 
 class deploymentSet extends Model
@@ -114,6 +115,11 @@ class deploymentSet extends Model
      * @var string
      */
     public $strategy;
+
+    /**
+     * @var tagResources
+     */
+    public $tagResources;
     protected $_name = [
         'capacities'               => 'Capacities',
         'createTime'               => 'CreateTime',
@@ -127,6 +133,7 @@ class deploymentSet extends Model
         'instanceAmount'           => 'InstanceAmount',
         'instanceIds'              => 'InstanceIds',
         'strategy'                 => 'Strategy',
+        'tagResources'             => 'TagResources',
     ];
 
     public function validate()
@@ -171,6 +178,9 @@ class deploymentSet extends Model
         }
         if (null !== $this->strategy) {
             $res['Strategy'] = $this->strategy;
+        }
+        if (null !== $this->tagResources) {
+            $res['TagResources'] = null !== $this->tagResources ? $this->tagResources->toMap() : null;
         }
 
         return $res;
@@ -219,6 +229,9 @@ class deploymentSet extends Model
         }
         if (isset($map['Strategy'])) {
             $model->strategy = $map['Strategy'];
+        }
+        if (isset($map['TagResources'])) {
+            $model->tagResources = tagResources::fromMap($map['TagResources']);
         }
 
         return $model;

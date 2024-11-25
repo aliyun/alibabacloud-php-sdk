@@ -19,15 +19,15 @@ class ModifyDBProxyEndpointAddressRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The network type of the proxy endpoint. Valid values:
+     * @description The network type of the database proxy endpoint. Valid values:
      *
      *   **Public**: Internet
      *   **VPC**: virtual private cloud (VPC)
      *   **Classic**: classic network
      *
-     * If the instance runs MySQL, the default value of this parameter is **Classic**.
+     * If the instance runs MySQL, the default value is **Classic**.
      *
-     * > If the instance runs PostgreSQL, you must set this parameter to **Public** or **VPC**.
+     * >  If the instance runs PostgreSQL, you must set this parameter to **Public** or **VPC**.
      * @example Public
      *
      * @var string
@@ -35,7 +35,7 @@ class ModifyDBProxyEndpointAddressRequest extends Model
     public $DBProxyConnectStringNetType;
 
     /**
-     * @description The ID of the dedicated proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the ID of the proxy endpoint.
+     * @description The ID of the database proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the ID of the database proxy endpoint.
      *
      * This parameter is required.
      * @example ta9um4****
@@ -45,7 +45,7 @@ class ModifyDBProxyEndpointAddressRequest extends Model
     public $DBProxyEndpointId;
 
     /**
-     * @description A reserved parameter. You do not need to specify this parameter.
+     * @description A deprecated parameter. You do not need to specify this parameter.
      *
      * @example normal
      *
@@ -54,9 +54,9 @@ class ModifyDBProxyEndpointAddressRequest extends Model
     public $DBProxyEngineType;
 
     /**
-     * @description The new prefix of the proxy endpoint. Enter a prefix.
+     * @description The prefix of the new database proxy endpoint. A custom value is supported.
      *
-     * > You must specify at least one of the **DBProxyNewConnectString** and **DBProxyNewConnectStringPort** parameters.
+     * >  You must specify at least one of the **DBProxyNewConnectString** and **DBProxyNewConnectStringPort** parameters.
      * @example test123456
      *
      * @var string
@@ -64,9 +64,9 @@ class ModifyDBProxyEndpointAddressRequest extends Model
     public $DBProxyNewConnectString;
 
     /**
-     * @description The port number that is associated with the proxy endpoint. Enter a port number.
+     * @description The port number that is associated with the database proxy endpoint. A custom value is supported.
      *
-     * > You must specify at least one of the **DBProxyNewConnectString** and **DBProxyNewConnectStringPort** parameters.
+     * >  You must specify at least one of the **DBProxyNewConnectString** and **DBProxyNewConnectStringPort** parameters.
      * @example 3307
      *
      * @var string

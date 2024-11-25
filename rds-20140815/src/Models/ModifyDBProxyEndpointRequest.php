@@ -105,11 +105,27 @@ class ModifyDBProxyEndpointRequest extends Model
     public $dbEndpointType;
 
     /**
+     * @description The specified time takes effect. Format: yyyy-MM-ddTHH:mm:ssZ (UTC time).
+     *
+     * > This parameter must be passed when EffectiveTime is SpecificTime.
+     * @example 2023-05-06T07:08:09Z
+     *
      * @var string
      */
     public $effectiveSpecificTime;
 
     /**
+     * @description Effective time, value:
+     *
+     * - **Immediate**: effective immediately.
+     *
+     * - **MaintainTime**: effective during the operational and maintainable time period, see ModifyDBInstanceMaintainTime.
+     *
+     * - **SpecificTime**: effective at a specified time.
+     *
+     * Default value: MaintainTime.
+     * @example MaintainTime
+     *
      * @var string
      */
     public $effectiveTime;
@@ -180,6 +196,8 @@ class ModifyDBProxyEndpointRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies the switch ID corresponding to the availability zone of the proxy connection address. By default, it is the switch ID corresponding to the default terminal of the proxy instance. You can query the created switch by calling the DescribeVSwitches interface.
+     *
      * @example vsw-uf6adz52c2p****
      *
      * @var string

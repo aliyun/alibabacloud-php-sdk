@@ -135,7 +135,7 @@ class DescribePriceRequest extends Model
     public $instanceUsedType;
 
     /**
-     * @description The order type. Valid values:
+     * @description The type of the order. Valid values:
      *
      *   **BUY**: purchase order
      *   **UPGRADE**: specification change order
@@ -219,7 +219,7 @@ class DescribePriceRequest extends Model
     public $timeType;
 
     /**
-     * @description The subscription duration of the instance.
+     * @description The subscription duration of the instance. Valid values:
      *
      *   If you set the **TimeType** parameter to **Year**, the value of the UsedTime parameter ranges from **1 to 100**.
      *   If you set the **TimeType** parameter to **Month**, the value of the UsedTime parameter ranges from **1 to 999**.

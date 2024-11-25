@@ -68,6 +68,11 @@ class DescribeRCDeploymentSetsRequest extends Model
      * @var string
      */
     public $strategy;
+
+    /**
+     * @var string
+     */
+    public $tag;
     protected $_name = [
         'deploymentSetIds'  => 'DeploymentSetIds',
         'deploymentSetName' => 'DeploymentSetName',
@@ -75,6 +80,7 @@ class DescribeRCDeploymentSetsRequest extends Model
         'pageSize'          => 'PageSize',
         'regionId'          => 'RegionId',
         'strategy'          => 'Strategy',
+        'tag'               => 'Tag',
     ];
 
     public function validate()
@@ -101,6 +107,9 @@ class DescribeRCDeploymentSetsRequest extends Model
         }
         if (null !== $this->strategy) {
             $res['Strategy'] = $this->strategy;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
 
         return $res;
@@ -131,6 +140,9 @@ class DescribeRCDeploymentSetsRequest extends Model
         }
         if (isset($map['Strategy'])) {
             $model->strategy = $map['Strategy'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
 
         return $model;

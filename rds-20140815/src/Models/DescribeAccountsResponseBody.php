@@ -35,6 +35,15 @@ class DescribeAccountsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-acfmy****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The first time when the system admin account was enabled. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * >  This parameter is returned only for instances that run SQL Server.
@@ -69,6 +78,7 @@ class DescribeAccountsResponseBody extends Model
         'accounts'                              => 'Accounts',
         'pageNumber'                            => 'PageNumber',
         'requestId'                             => 'RequestId',
+        'resourceGroupId'                       => 'ResourceGroupId',
         'systemAdminAccountFirstActivationTime' => 'SystemAdminAccountFirstActivationTime',
         'systemAdminAccountStatus'              => 'SystemAdminAccountStatus',
         'totalRecordCount'                      => 'TotalRecordCount',
@@ -89,6 +99,9 @@ class DescribeAccountsResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->systemAdminAccountFirstActivationTime) {
             $res['SystemAdminAccountFirstActivationTime'] = $this->systemAdminAccountFirstActivationTime;
@@ -119,6 +132,9 @@ class DescribeAccountsResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SystemAdminAccountFirstActivationTime'])) {
             $model->systemAdminAccountFirstActivationTime = $map['SystemAdminAccountFirstActivationTime'];

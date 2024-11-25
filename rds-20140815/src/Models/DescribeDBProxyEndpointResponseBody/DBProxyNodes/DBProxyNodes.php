@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DBProxyNodes extends Model
 {
     /**
+     * @description The number of CPU cores of the node.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $cpuCores;
 
     /**
+     * @description The ID of the node in the zone.
+     *
+     * @example pn-xxxxxxx01
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The zone ID of the node.
+     *
+     * @example cn-hangzhou-c
+     *
      * @var string
      */
     public $zoneId;

@@ -18,6 +18,15 @@ class DescribeDBInstanceTDEResponseBody extends Model
     public $databases;
 
     /**
+     * @description The ID of the custom key.
+     *
+     * @example 749c1df7-****-****-****-****
+     *
+     * @var string
+     */
+    public $encryptionKey;
+
+    /**
      * @description The ID of the request.
      *
      * @example C816A4BF-A6EC-4722-95F9-2055859CCFD2
@@ -51,10 +60,11 @@ class DescribeDBInstanceTDEResponseBody extends Model
      */
     public $TDEStatus;
     protected $_name = [
-        'databases' => 'Databases',
-        'requestId' => 'RequestId',
-        'TDEMode'   => 'TDEMode',
-        'TDEStatus' => 'TDEStatus',
+        'databases'     => 'Databases',
+        'encryptionKey' => 'EncryptionKey',
+        'requestId'     => 'RequestId',
+        'TDEMode'       => 'TDEMode',
+        'TDEStatus'     => 'TDEStatus',
     ];
 
     public function validate()
@@ -66,6 +76,9 @@ class DescribeDBInstanceTDEResponseBody extends Model
         $res = [];
         if (null !== $this->databases) {
             $res['Databases'] = null !== $this->databases ? $this->databases->toMap() : null;
+        }
+        if (null !== $this->encryptionKey) {
+            $res['EncryptionKey'] = $this->encryptionKey;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -90,6 +103,9 @@ class DescribeDBInstanceTDEResponseBody extends Model
         $model = new self();
         if (isset($map['Databases'])) {
             $model->databases = databases::fromMap($map['Databases']);
+        }
+        if (isset($map['EncryptionKey'])) {
+            $model->encryptionKey = $map['EncryptionKey'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

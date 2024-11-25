@@ -21,6 +21,16 @@ class DescribeRCImageListRequest extends Model
     public $architecture;
 
     /**
+     * @var string
+     */
+    public $imageId;
+
+    /**
+     * @var string
+     */
+    public $imageName;
+
+    /**
      * @description The page number.
      *
      * @example 1
@@ -58,6 +68,8 @@ class DescribeRCImageListRequest extends Model
     public $type;
     protected $_name = [
         'architecture' => 'Architecture',
+        'imageId'      => 'ImageId',
+        'imageName'    => 'ImageName',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
         'regionId'     => 'RegionId',
@@ -73,6 +85,12 @@ class DescribeRCImageListRequest extends Model
         $res = [];
         if (null !== $this->architecture) {
             $res['Architecture'] = $this->architecture;
+        }
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->imageName) {
+            $res['ImageName'] = $this->imageName;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -100,6 +118,12 @@ class DescribeRCImageListRequest extends Model
         $model = new self();
         if (isset($map['Architecture'])) {
             $model->architecture = $map['Architecture'];
+        }
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['ImageName'])) {
+            $model->imageName = $map['ImageName'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

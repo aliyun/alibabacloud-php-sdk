@@ -22,7 +22,7 @@ class systemDisk extends Model
      *
      * @example 20
      *
-     * @var string
+     * @var int
      */
     public $size;
     protected $_name = [
