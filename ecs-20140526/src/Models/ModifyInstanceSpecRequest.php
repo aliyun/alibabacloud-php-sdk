@@ -22,7 +22,7 @@ class ModifyInstanceSpecRequest extends Model
     public $temporary;
 
     /**
-     * @description Specifies whether cross-cluster instance type upgrades are supported. Valid values:
+     * @description Specifies whether to allow cross-cluster instance type upgrade.
      *
      *   true
      *   false
@@ -122,6 +122,11 @@ class ModifyInstanceSpecRequest extends Model
 
     /**
      * @description >  This parameter is not publicly available.
+     *
+     * Valid values:
+     *
+     *   Online
+     *   Offline
      *
      * @example null
      *

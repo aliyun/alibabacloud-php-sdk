@@ -18,11 +18,12 @@ class DeleteInstancesRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to perform only a dry run without performing the actual request. Default value: false. Valid values:
+     * @description Specifies whether to perform only a dry run, without performing the actual request.
      *
-     *   true: performs only a dry run. The system checks whether your AccessKey pair is valid, whether RAM users are granted permissions, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DRYRUN.SUCCESS error code is returned.
+     *   true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized Resource Access Management (RAM) users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DRYRUN.SUCCESS error code is returned.
      *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -32,8 +33,12 @@ class DeleteInstancesRequest extends Model
     /**
      * @description Specifies whether to forcefully release the ECS instance in the **Running** (`Running`) state. Valid values:
      *
-     *   true: forcefully releases the ECS instance in the **Running** (`Running`) state. When Force is set to true, this operation is equivalent to a power-off operation. Temporary data in the memory and storage of the instance is erased and cannot be restored.
-     *   false (default): normally releases the ECS instance. This value is valid only for instances that are in the **Stopped** (`Stopped`) state.
+     *   true: forcefully releases the ECS instance in the **Running** (`Running`) state.
+     *   false: normally releases the ECS instance. This value is valid only if the instance is in the **Stopped** (`Stopped`) state.
+     *
+     **
+     *
+     **Warning** When the Force parameter is set to true, this operation is equivalent to a power-off operation. Temporary data in the memory and storage of the instance is erased and cannot be restored.
      *
      * @example false
      *
@@ -42,7 +47,7 @@ class DeleteInstancesRequest extends Model
     public $force;
 
     /**
-     * @description The IDs of instances. You can specify up to 100 instance IDs in a single request.
+     * @description The IDs of ECS instances. You can specify 1 to 100 ECS instances.
      *
      * This parameter is required.
      * @example i-bp1g6zv0ce8oghu7****
@@ -82,7 +87,10 @@ class DeleteInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Specifies whether to release the expired subscription instance.
+     * @description Specifies whether to release the expired subscription instance. Valid values:
+     *
+     *   true
+     *   false
      *
      * Default value: false.
      * @example false

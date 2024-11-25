@@ -11,8 +11,8 @@ class networkInterface extends Model
     /**
      * @description Specifies whether to release ENI N when the associated instance is released. Valid values:
      *
-     *   true
-     *   false
+     *   true: releases the ENI when the associated instance is released.
+     *   false: retains the ENI when the associated instance is released.
      *
      * >  This parameter takes effect only for secondary ENIs.
      * @example true
@@ -41,8 +41,8 @@ class networkInterface extends Model
      *
      * Valid values:
      *
-     *   Primary: primary ENI.
-     *   Secondary: secondary ENI.
+     *   Primary: the primary ENI
+     *   Secondary: the secondary ENI
      *
      * Default value: Secondary.
      * @example Secondary
@@ -84,9 +84,9 @@ class networkInterface extends Model
      *
      * When you specify this parameter, take note of the following items:
      *
-     *   You can specify network card indexes only for instances of specific instance types.
+     *   You can specify NIC indexes only for instances of specific instance types.
      *   If you set NetworkInterface.N.InstanceType to Primary, you can set NetworkInterface.N.NetworkCardIndex only to 0 for instance types that support network cards.
-     *   If you set NetworkInterface.N.InstanceType to Secondary or do not specify the parameter, you can specify NetworkInterface.N.NetworkCardIndex based on instance types if the instance types support network cards. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
+     *   If you set NetworkInterface.N.InstanceType to Secondary or leave NetworkInterface.N.InstanceType empty, you can specify NetworkInterface.N.NetworkCardIndex based on instance types if the instance types support network cards. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
      *
      * @example 0
      *
@@ -162,7 +162,7 @@ class networkInterface extends Model
      *
      *   The value of N cannot exceed the maximum number of ENIs per instance that the instance type supports. For the maximum number of ENIs per instance that an instance type supports, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) operation.
      *   The value of this parameter cannot exceed the maximum number of queues allowed per ENI.
-     *   The total number of queues for all ENIs on the instance cannot exceed the queue quota for the instance type. To query the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation and check the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` values in the response.
+     *   The total number of queues for all ENIs on an instance cannot exceed the queue quota for the instance type. To query the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation and check the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` values in the response.
      *   If you specify this parameter and set `NetworkInterface.N.InstanceType` to `Primary`, you cannot specify `NetworkInterfaceQueueNumber`.
      *
      * @example 8

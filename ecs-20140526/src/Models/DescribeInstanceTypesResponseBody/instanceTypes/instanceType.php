@@ -43,6 +43,8 @@ class instanceType extends Model
     public $cpuCoreCount;
 
     /**
+     * @description The CPU options.
+     *
      * @var cpuOptions
      */
     public $cpuOptions;
@@ -268,6 +270,11 @@ class instanceType extends Model
     public $instanceTypeId;
 
     /**
+     * @var bool
+     */
+    public $jumboFrameSupport;
+
+    /**
      * @description The number of local disks per instance.
      *
      * @example 1
@@ -433,6 +440,7 @@ class instanceType extends Model
         'instancePpsTx'               => 'InstancePpsTx',
         'instanceTypeFamily'          => 'InstanceTypeFamily',
         'instanceTypeId'              => 'InstanceTypeId',
+        'jumboFrameSupport'           => 'JumboFrameSupport',
         'localStorageAmount'          => 'LocalStorageAmount',
         'localStorageCapacity'        => 'LocalStorageCapacity',
         'localStorageCategory'        => 'LocalStorageCategory',
@@ -534,6 +542,9 @@ class instanceType extends Model
         }
         if (null !== $this->instanceTypeId) {
             $res['InstanceTypeId'] = $this->instanceTypeId;
+        }
+        if (null !== $this->jumboFrameSupport) {
+            $res['JumboFrameSupport'] = $this->jumboFrameSupport;
         }
         if (null !== $this->localStorageAmount) {
             $res['LocalStorageAmount'] = $this->localStorageAmount;
@@ -669,6 +680,9 @@ class instanceType extends Model
         }
         if (isset($map['InstanceTypeId'])) {
             $model->instanceTypeId = $map['InstanceTypeId'];
+        }
+        if (isset($map['JumboFrameSupport'])) {
+            $model->jumboFrameSupport = $map['JumboFrameSupport'];
         }
         if (isset($map['LocalStorageAmount'])) {
             $model->localStorageAmount = $map['LocalStorageAmount'];

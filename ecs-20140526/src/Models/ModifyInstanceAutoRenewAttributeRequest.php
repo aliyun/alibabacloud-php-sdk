@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceAutoRenewAttributeRequest extends Model
 {
     /**
-     * @description Specifies whether to enable auto-renewal for the instance.
+     * @description Specifies whether to enable auto-renewal.
      *
      * Default value: false.
      * @example true

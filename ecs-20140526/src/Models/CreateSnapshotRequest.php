@@ -108,9 +108,9 @@ class CreateSnapshotRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The snapshot name. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+     * @description The retention period of the snapshot. Unit: days. Valid values: 1 to 65536. After the retention period ends, the snapshot is automatically released.
      *
-     * The name cannot start with `auto` because snapshots whose names start with auto are recognized as automatic snapshots.
+     * This parameter is left empty by default, which indicates that the snapshot is not automatically released.
      * @example 30
      *
      * @var int
@@ -118,9 +118,9 @@ class CreateSnapshotRequest extends Model
     public $retentionDays;
 
     /**
-     * @description The name of the snapshot. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+     * @description The name of the snapshot. The name must be 2 to 128 characters in length and start with a letter. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
-     * The name cannot start with `auto` because snapshots whose names start with auto are recognized as automatic snapshots.
+     * >  The name cannot start with http:// or https://. The name cannot start with `auto` because the names of automatic snapshots start with auto.
      * @example testSnapshotName
      *
      * @var string

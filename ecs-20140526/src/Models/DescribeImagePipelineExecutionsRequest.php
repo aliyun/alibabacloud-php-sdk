@@ -28,7 +28,7 @@ class DescribeImagePipelineExecutionsRequest extends Model
     public $imagePipelineId;
 
     /**
-     * @description The maximum number of entries per page. Valid values: 1 to 500.
+     * @description The number of entries per page. Valid values: 1 to 500.
      *
      * Default value: 50.
      * @example 50
@@ -79,15 +79,20 @@ class DescribeImagePipelineExecutionsRequest extends Model
     /**
      * @description The status of the image creation task. You can specify multiple values. Separate the values with commas (,). Example: `BUILDING,DISTRIBUTING`. Valid values:
      *
-     *   BUILDING
-     *   DISTRIBUTING
-     *   RELEASING
-     *   SUCCESS
-     *   FAILED
-     *   CANCELLING
-     *   CANCELLED
+     *   PREPARING: Resources, such as the intermediate instance, are being created.
+     *   REPAIRING: The source image is being repaired.
+     *   BUILDING: The user-defined commands are being run and an image is being created.
+     *   TESTING: The user-defined test commands are being run.
+     *   DISTRIBUTING: The created image is being copied and shared.
+     *   RELEASING: The temporary resources generated during the image creation process are being released.
+     *   SUCCESS: The image creation task is completed.
+     *   PARTITION_SUCCESS: The image creation task is partially completed. The image is created, but exceptions may occur when the image was copied or shared or when temporary resources were released.
+     *   FAILED: The image creation task fails.
+     *   TEST_FAILED: The image is created, but the test fails.
+     *   CANCELLING: The image creation task is being canceled.
+     *   CANCELLED: The image creation task is canceled.
      *
-     * > If you want to query the image creation tasks in all states, specify all values.
+     * >  If you leave this parameter empty, all image creation tasks are queried regardless of task status.
      * @example BUILDING
      *
      * @var string

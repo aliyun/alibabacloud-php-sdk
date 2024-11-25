@@ -10,7 +10,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageComponentsRequest extends Model
 {
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
+     * @description The type of the image component.
+     *
+     * Valid values:
+     *
+     *   Build
+     *   Test
      *
      * @example null
      *
@@ -19,8 +24,9 @@ class DescribeImageComponentsRequest extends Model
     public $componentType;
 
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
+     * @description The version number of the image component in the \\<major>.\\<minor>.\\<patch> format. You can set \\<major>, \\<minor>, and \\<patch> to non-negative integers, or set one of \\<major>, \\<minor>, and \\<patch> to the wildcard (\\*) and the other two to non-negative integers.
      *
+     * >  This parameter takes effect only if you specify Name.
      * @example null
      *
      * @var string
@@ -117,7 +123,12 @@ class DescribeImageComponentsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
+     * @description The type of the operating system supported by the image component.
+     *
+     * Valid values:
+     *
+     *   Linux
+     *   Windows
      *
      * @example null
      *

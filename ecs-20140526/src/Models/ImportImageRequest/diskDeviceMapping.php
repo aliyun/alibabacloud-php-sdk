@@ -19,12 +19,12 @@ class diskDeviceMapping extends Model
     public $device;
 
     /**
-     * @description The size of disk N in the custom image. Unit: GiB
+     * @description The size of disk N in the custom image. Unit: GiB.
      *
      * You can use this parameter to specify the sizes of the system disk and data disks in the custom image. When you specify the size of the system disk, make sure that the specified size is greater than or equal to the size of the imported image file. Unit: GiB. Valid values:
      *
-     *   When the N value is 1, this parameter specifies the size of the system disk in the custom image. Valid values: 5 to 500.
-     *   When the N value is an integer in the range of 2 to 17, this parameter specifies the size of a data disk in the custom image. Valid values: 5 to 2000.
+     *   When the N value is 1, this parameter specifies the size of the system disk in the custom image. Valid values: 1 to 2048.
+     *   When the N value is an integer in the range of 2 to 17, this parameter specifies the size of a data disk in the custom image. Valid values: 1 to 2048.
      *
      * >  This parameter will be removed in the future. We recommend that you use `DiskDeviceMapping.N.DiskImageSize` to ensure future compatibility.
      * @example 80
@@ -38,8 +38,8 @@ class diskDeviceMapping extends Model
      *
      * You can use this parameter to specify the sizes of the system disk and data disks in the custom image. When you specify the size of the system disk, make sure that the specified size is greater than or equal to the size of the imported image file. Unit: GiB. Valid values:
      *
-     *   When the N value is 1, this parameter specifies the size of the system disk in the custom image. Valid values: 5 to 500.
-     *   When the N value is an integer in the range of 2 to 17, this parameter specifies the size of a data disk in the custom image. Valid values: 5 to 2000.
+     *   When the N value is 1, this parameter specifies the size of the system disk in the custom image. Valid values: 1 to 2048.
+     *   When the N value is an integer in the range of 2 to 17, this parameter specifies the size of a data disk in the custom image. Valid values: 1 to 2048.
      *
      * After the image file is uploaded to an OSS bucket, you can view the size of the image file in the OSS bucket.
      * @example 80

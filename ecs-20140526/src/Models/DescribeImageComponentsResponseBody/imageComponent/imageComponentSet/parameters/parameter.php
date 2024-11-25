@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class parameter extends Model
 {
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
+     * @description The default value of the parameter.
      *
      * @example null
      *
@@ -18,7 +18,7 @@ class parameter extends Model
     public $defaultValue;
 
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
+     * @description The name of the parameter.
      *
      * @example null
      *
@@ -27,7 +27,13 @@ class parameter extends Model
     public $name;
 
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
+     * @description The type of the parameter.
+     *
+     * Valid values:
+     *
+     *   String
+     *   Number
+     *   Boolean
      *
      * @example null
      *

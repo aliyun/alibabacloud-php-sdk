@@ -18,10 +18,11 @@ class DescribeInstancesRequest extends Model
     /**
      * @description The additional attributes. Valid values of N: 1 to 20. Valid values:
      *
-     *   META_OPTIONS: instance metadata
-     *   DDH_CLUSTER: dedicated host cluster
-     *   NETWORK_PRIMARY_ENI_IP: secondary IP address associated with the primary ENI
-     *   CPU_OPTIONS_TOPOLOGY_TYPE: CPU topology type of the instance
+     *   META_OPTIONS: instance metadata.
+     *   DDH_CLUSTER: dedicated host cluster.
+     *   NETWORK_PRIMARY_ENI_IP: secondary IP address associated with the primary ENI.
+     *   CPU_OPTIONS_TOPOLOGY_TYPE: CPU topology type of the instance.
+     *   CURRENT_OS_NVME_SUPPORTED: specifies whether the operating system supports access to disks over the Non-Volatile Memory Express (NVMe) protocol.
      *
      * @example META_OPTIONS
      *

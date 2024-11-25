@@ -298,9 +298,8 @@ class RunInstancesRequest extends Model
     public $httpEndpoint;
 
     /**
-     * @description The HTTP PUT response hop limit for accessing instance metadata. Valid values: 1 to 64.
+     * @description >  This parameter is not publicly available.
      *
-     * Default value: 1.
      * @example 3
      *
      * @var int
@@ -367,7 +366,7 @@ class RunInstancesRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The name of the instance. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). The default value of this parameter is the `InstanceId` value.
+     * @description The name of the ECS instance. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). The default value of this parameter is the `InstanceId` value.
      *
      * When you batch create instances, you can batch configure sequential names for the instances. The sequential names can contain brackets ([ ]) and commas (,). For more information, see [Batch configure sequential names or hostnames for multiple instances](https://help.aliyun.com/document_detail/196048.html).
      * @example k8s-node-[1,4]-alibabacloud

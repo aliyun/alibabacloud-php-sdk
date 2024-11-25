@@ -79,7 +79,7 @@ class imagePipelineSet extends Model
     public $description;
 
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
+     * @description The image family.
      *
      * @example null
      *
@@ -133,7 +133,11 @@ class imagePipelineSet extends Model
     public $name;
 
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
+     * @description The repair mode of the image template.
+     *
+     * Valid values:
+     *
+     *   Standard: the standard mode
      *
      * @example null
      *
@@ -167,7 +171,7 @@ class imagePipelineSet extends Model
     public $tags;
 
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
+     * @description The content of the image test template.
      *
      * @example null
      *

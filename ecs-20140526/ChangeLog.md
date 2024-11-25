@@ -1,3 +1,12 @@
+2024-11-25 Version: 4.4.8
+- Update API DescribeInstanceTypes: update response param.
+- Update API ImportImage: add param ClientToken.
+- Update API RedeployDedicatedHost: add param MigrationType.
+- Update API RunInstances: update param NetworkInterface.
+- Update API RunInstances: update param SecurityGroupId.
+- Update API RunInstances: update param SecurityGroupIds.
+
+
 2024-11-13 Version: 4.4.7
 - Update API DescribeInstanceHistoryEvents: add param MaxResults.
 - Update API DescribeInstanceHistoryEvents: add param NextToken.

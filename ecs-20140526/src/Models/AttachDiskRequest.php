@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class AttachDiskRequest extends Model
 {
     /**
-     * @description Specifies whether to attach the disk as a system disk.
+     * @description Specifies whether to attach the disk as the system disk. Valid values:
+     *
+     *   true: attaches the disk as the system disk.
+     *   false: does not attach the disk as the system disk.
      *
      * >  You can set `Bootable` to true only if the instance does not have a system disk.
      * @example false
@@ -19,7 +22,7 @@ class AttachDiskRequest extends Model
     public $bootable;
 
     /**
-     * @description Specifies whether to release the disk when the instance is released.
+     * @description Specifies whether to release the disk when the instance is released. Valid values:
      *
      *   true: releases the disk when the instance is released.
      *   false: does not release the disk when the instance is released. The disk is retained as a pay-as-you-go data disk.
@@ -28,7 +31,7 @@ class AttachDiskRequest extends Model
      *
      *   If `OperationLocks` in the DescribeInstances response contains `"LockReason" : "security"` for the instance to which the disk is attached, the instance is locked for security reasons. Regardless of whether you set `DeleteWithInstance` to `false`, the DeleteWithInstance setting is ignored, and the disk is released when the instance is released.
      *   If you want to attach an `elastic ephemeral disk`, you must set `DeleteWithInstance` to `true`.
-     *   This parameter is unavailable for disks for which the multi-attach feature is enabled.
+     *   You cannot specify DeleteWithInstance for disks for which the multi-attach feature is enabled.
      *
      * @example false
      *
@@ -57,12 +60,12 @@ class AttachDiskRequest extends Model
     public $diskId;
 
     /**
-     * @description Specifies whether to forcefully attach the disk to the instance.
+     * @description Specifies whether to force attach the disk to the instance. Valid values:
      *
-     *   true
-     *   false
+     *   true: force attaches the disk to the instance.
+     *   false: does not force attach the disk to the instance.
      *
-     * Default value: false.
+     * >  You can set this parameter to true only for Regional Enterprise SSDs (ESSDs) (cloud_regional_disk_auto).
      * @example false
      *
      * @var bool

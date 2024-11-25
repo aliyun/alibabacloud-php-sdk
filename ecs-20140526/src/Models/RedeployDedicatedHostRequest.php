@@ -19,6 +19,13 @@ class RedeployDedicatedHostRequest extends Model
     public $dedicatedHostId;
 
     /**
+     * @example Reboot
+     *
+     * @var string
+     */
+    public $migrationType;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -49,6 +56,7 @@ class RedeployDedicatedHostRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'dedicatedHostId'      => 'DedicatedHostId',
+        'migrationType'        => 'MigrationType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -65,6 +73,9 @@ class RedeployDedicatedHostRequest extends Model
         $res = [];
         if (null !== $this->dedicatedHostId) {
             $res['DedicatedHostId'] = $this->dedicatedHostId;
+        }
+        if (null !== $this->migrationType) {
+            $res['MigrationType'] = $this->migrationType;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -95,6 +106,9 @@ class RedeployDedicatedHostRequest extends Model
         $model = new self();
         if (isset($map['DedicatedHostId'])) {
             $model->dedicatedHostId = $map['DedicatedHostId'];
+        }
+        if (isset($map['MigrationType'])) {
+            $model->migrationType = $map['MigrationType'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

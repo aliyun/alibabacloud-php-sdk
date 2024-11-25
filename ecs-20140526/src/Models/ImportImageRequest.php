@@ -39,6 +39,11 @@ class ImportImageRequest extends Model
     public $bootMode;
 
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description The image description. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
      *
      * @example TestDescription
@@ -58,18 +63,28 @@ class ImportImageRequest extends Model
     public $detectionStrategy;
 
     /**
-     * @description The information about the custom image.
+     * @description The information of disks from which the custom images are created.
      *
      * @var diskDeviceMapping[]
      */
     public $diskDeviceMapping;
 
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     *
+     *   true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized RAM users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *
+     * Default value: false.
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @description The attributes of the custom image.
+     *
      * @var features
      */
     public $features;
@@ -209,6 +224,7 @@ class ImportImageRequest extends Model
     protected $_name = [
         'architecture'         => 'Architecture',
         'bootMode'             => 'BootMode',
+        'clientToken'          => 'ClientToken',
         'description'          => 'Description',
         'detectionStrategy'    => 'DetectionStrategy',
         'diskDeviceMapping'    => 'DiskDeviceMapping',
@@ -240,6 +256,9 @@ class ImportImageRequest extends Model
         }
         if (null !== $this->bootMode) {
             $res['BootMode'] = $this->bootMode;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -321,6 +340,9 @@ class ImportImageRequest extends Model
         }
         if (isset($map['BootMode'])) {
             $model->bootMode = $map['BootMode'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

@@ -126,6 +126,12 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $hostName;
 
     /**
+     * @description Specifies whether to enable the access channel for instance metadata. Valid values:
+     *
+     *   enabled
+     *   disabled
+     *
+     * >  For information about instance metadata, see [Obtain information about an ECS instance, such as instance attributes inside ECS instances from instance metadata service](https://help.aliyun.com/document_detail/108460.html).
      * @example enabled
      *
      * @var string
@@ -133,6 +139,8 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $httpEndpoint;
 
     /**
+     * @description >  This parameter is not publicly available.
+     *
      * @example 3
      *
      * @var int
@@ -140,6 +148,12 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $httpPutResponseHopLimit;
 
     /**
+     * @description Specifies whether to forcefully use the security hardening mode (IMDSv2) to access instance metadata. Valid values:
+     *
+     *   optional: does not forcefully use the security hardening mode (IMDSv2).
+     *   required: forcefully uses the security hardening mode (IMDSv2). After you set this parameter to required, you cannot access instance metadata in normal mode.
+     *
+     * >  For information about the modes of accessing instance metadata, see [Obtain information about an ECS instance, such as instance attributes inside ECS instances from instance metadata service](https://help.aliyun.com/document_detail/108460.html).
      * @example optional
      *
      * @var string

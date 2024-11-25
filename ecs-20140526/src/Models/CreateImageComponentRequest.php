@@ -19,9 +19,14 @@ class CreateImageComponentRequest extends Model
     public $clientToken;
 
     /**
-     * @description The type of the image component. Only image build components are supported. Set the value to Build.
+     * @description The type of the image component. Only image building components and image test components are supported.
      *
-     * Default value: Build.
+     * Valid values:
+     *
+     *   Build
+     *   Test
+     *
+     * >  Image building components can be used only in image building templates. Image test components can be used only in image test templates.
      * @example Build
      *
      * @var string
@@ -29,8 +34,9 @@ class CreateImageComponentRequest extends Model
     public $componentType;
 
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
+     * @description The version number of the image component, which is used together with the name of the image component. The version number is in the \\<major>.\\<minor>.\\<patch> format. Set \\<major>, \\<minor>, and \\<patch> to non-negative integers.
      *
+     * Default value: (x + 1).0.0, in which x is the maximum major version number of the image component.
      * @example null
      *
      * @var string
@@ -105,7 +111,12 @@ class CreateImageComponentRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the operating system supported by the image component. Only Linux operating systems are supported. Set the value to Linux.
+     * @description The type of the operating system supported by the image component.
+     *
+     * Valid values:
+     *
+     *   Linux
+     *   Windows
      *
      * Default value: Linux.
      * @example Linux
