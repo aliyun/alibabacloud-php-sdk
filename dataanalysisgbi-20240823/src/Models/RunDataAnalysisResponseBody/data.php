@@ -30,6 +30,11 @@ class data extends Model
     public $evidence;
 
     /**
+     * @var int
+     */
+    public $httpStatusCode;
+
+    /**
      * @example DA2578F7-88A5-5D6E-9305-33E724E97D60
      *
      * @var string
@@ -77,17 +82,18 @@ class data extends Model
      */
     public $visualization;
     protected $_name = [
-        'errorMessage'  => 'errorMessage',
-        'event'         => 'event',
-        'evidence'      => 'evidence',
-        'requestId'     => 'requestId',
-        'rewrite'       => 'rewrite',
-        'selector'      => 'selector',
-        'sessionId'     => 'sessionId',
-        'sql'           => 'sql',
-        'sqlData'       => 'sqlData',
-        'sqlError'      => 'sqlError',
-        'visualization' => 'visualization',
+        'errorMessage'   => 'errorMessage',
+        'event'          => 'event',
+        'evidence'       => 'evidence',
+        'httpStatusCode' => 'httpStatusCode',
+        'requestId'      => 'requestId',
+        'rewrite'        => 'rewrite',
+        'selector'       => 'selector',
+        'sessionId'      => 'sessionId',
+        'sql'            => 'sql',
+        'sqlData'        => 'sqlData',
+        'sqlError'       => 'sqlError',
+        'visualization'  => 'visualization',
     ];
 
     public function validate()
@@ -105,6 +111,9 @@ class data extends Model
         }
         if (null !== $this->evidence) {
             $res['evidence'] = $this->evidence;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['httpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
@@ -150,6 +159,9 @@ class data extends Model
         }
         if (isset($map['evidence'])) {
             $model->evidence = $map['evidence'];
+        }
+        if (isset($map['httpStatusCode'])) {
+            $model->httpStatusCode = $map['httpStatusCode'];
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
