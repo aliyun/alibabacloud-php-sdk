@@ -32,6 +32,11 @@ class instanceVO extends Model
     public $autoCreateTopicEnable;
 
     /**
+     * @var string
+     */
+    public $backupZoneId;
+
+    /**
      * @description The parameters that are returned for the ApsaraMQ for Confluent instance.
      *
      * @var confluentConfig
@@ -468,6 +473,7 @@ class instanceVO extends Model
         'allConfig'                 => 'AllConfig',
         'autoCreateGroupEnable'     => 'AutoCreateGroupEnable',
         'autoCreateTopicEnable'     => 'AutoCreateTopicEnable',
+        'backupZoneId'              => 'BackupZoneId',
         'confluentConfig'           => 'ConfluentConfig',
         'createTime'                => 'CreateTime',
         'defaultPartitionNum'       => 'DefaultPartitionNum',
@@ -527,6 +533,9 @@ class instanceVO extends Model
         }
         if (null !== $this->autoCreateTopicEnable) {
             $res['AutoCreateTopicEnable'] = $this->autoCreateTopicEnable;
+        }
+        if (null !== $this->backupZoneId) {
+            $res['BackupZoneId'] = $this->backupZoneId;
         }
         if (null !== $this->confluentConfig) {
             $res['ConfluentConfig'] = null !== $this->confluentConfig ? $this->confluentConfig->toMap() : null;
@@ -674,6 +683,9 @@ class instanceVO extends Model
         }
         if (isset($map['AutoCreateTopicEnable'])) {
             $model->autoCreateTopicEnable = $map['AutoCreateTopicEnable'];
+        }
+        if (isset($map['BackupZoneId'])) {
+            $model->backupZoneId = $map['BackupZoneId'];
         }
         if (isset($map['ConfluentConfig'])) {
             $model->confluentConfig = confluentConfig::fromMap($map['ConfluentConfig']);
