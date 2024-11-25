@@ -5,6 +5,13 @@
 - Update API DescribeChangeLogs: update response param.
 
 
+2024-11-25 Version: 1.5.0
+- Support API DescribeUserServiceStatus.
+- Update API BindResolverRuleVpc: update param Vpc.
+- Update API BindZoneVpc: update param Vpcs.
+- Update API DescribeChangeLogs: update response param.
+
+
 2024-08-01 Version: 1.4.0
 - Support API AddCustomLine.
 - Support API ChangeZoneDnsGroup.
