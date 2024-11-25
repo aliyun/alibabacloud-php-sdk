@@ -28,6 +28,8 @@ use AlibabaCloud\SDK\Amqpopen\V20191212\Models\DeleteQueueRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\DeleteQueueResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\DeleteVirtualHostRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\DeleteVirtualHostResponse;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\GetInstanceRequest;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\GetMetadataAmountRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\GetMetadataAmountResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListAccountsRequest;
@@ -311,11 +313,17 @@ class Amqpopen extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->encryptedInstance)) {
+            $query['EncryptedInstance'] = $request->encryptedInstance;
+        }
         if (!Utils::isUnset($request->instanceName)) {
             $query['InstanceName'] = $request->instanceName;
         }
         if (!Utils::isUnset($request->instanceType)) {
             $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->kmsKeyId)) {
+            $query['KmsKeyId'] = $request->kmsKeyId;
         }
         if (!Utils::isUnset($request->maxConnections)) {
             $query['MaxConnections'] = $request->maxConnections;
@@ -801,6 +809,50 @@ class Amqpopen extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteVirtualHostWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取实例详情
+     *  *
+     * @param GetInstanceRequest $request GetInstanceRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetInstanceResponse GetInstanceResponse
+     */
+    public function getInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetInstance',
+            'version'     => '2019-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取实例详情
+     *  *
+     * @param GetInstanceRequest $request GetInstanceRequest
+     *
+     * @return GetInstanceResponse GetInstanceResponse
+     */
+    public function getInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -1309,11 +1361,17 @@ class Amqpopen extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->encryptedInstance)) {
+            $query['EncryptedInstance'] = $request->encryptedInstance;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
         if (!Utils::isUnset($request->instanceType)) {
             $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->kmsKeyId)) {
+            $query['KmsKeyId'] = $request->kmsKeyId;
         }
         if (!Utils::isUnset($request->maxConnections)) {
             $query['MaxConnections'] = $request->maxConnections;

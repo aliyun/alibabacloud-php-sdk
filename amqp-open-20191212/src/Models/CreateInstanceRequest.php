@@ -40,6 +40,11 @@ class CreateInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $encryptedInstance;
+
+    /**
      * @description The instance name. We recommend that you specify a name that does not exceed 64 characters in length.
      *
      * @example amqp-xxxxx
@@ -60,6 +65,13 @@ class CreateInstanceRequest extends Model
      * @var string
      */
     public $instanceType;
+
+    /**
+     * @example key-xxx
+     *
+     * @var string
+     */
+    public $kmsKeyId;
 
     /**
      * @description The maximum number of connections that can be established to the instance. Configure this parameter based on the values provided on the [ApsaraMQ for RocketMQ buy page](https://common-buy.aliyun.com/?commodityCode=ons_onsproxy_pre).
@@ -230,8 +242,10 @@ class CreateInstanceRequest extends Model
         'autoRenew'            => 'AutoRenew',
         'autoRenewPeriod'      => 'AutoRenewPeriod',
         'clientToken'          => 'ClientToken',
+        'encryptedInstance'    => 'EncryptedInstance',
         'instanceName'         => 'InstanceName',
         'instanceType'         => 'InstanceType',
+        'kmsKeyId'             => 'KmsKeyId',
         'maxConnections'       => 'MaxConnections',
         'maxEipTps'            => 'MaxEipTps',
         'maxPrivateTps'        => 'MaxPrivateTps',
@@ -265,11 +279,17 @@ class CreateInstanceRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->encryptedInstance) {
+            $res['EncryptedInstance'] = $this->encryptedInstance;
+        }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->kmsKeyId) {
+            $res['KmsKeyId'] = $this->kmsKeyId;
         }
         if (null !== $this->maxConnections) {
             $res['MaxConnections'] = $this->maxConnections;
@@ -337,11 +357,17 @@ class CreateInstanceRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['EncryptedInstance'])) {
+            $model->encryptedInstance = $map['EncryptedInstance'];
+        }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['KmsKeyId'])) {
+            $model->kmsKeyId = $map['KmsKeyId'];
         }
         if (isset($map['MaxConnections'])) {
             $model->maxConnections = $map['MaxConnections'];

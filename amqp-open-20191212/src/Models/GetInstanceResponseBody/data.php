@@ -2,16 +2,14 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListInstancesResponseBody\data;
+namespace AlibabaCloud\SDK\Amqpopen\V20191212\Models\GetInstanceResponseBody;
 
-use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListInstancesResponseBody\data\instances\tags;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\GetInstanceResponseBody\data\tags;
 use AlibabaCloud\Tea\Model;
 
-class instances extends Model
+class data extends Model
 {
     /**
-     * @description Indicates whether the instance is automatically renewed.
-     *
      * @example false
      *
      * @var bool
@@ -19,8 +17,6 @@ class instances extends Model
     public $autoRenewInstance;
 
     /**
-     * @description The endpoint that is used to access the instance over the classic network. This parameter is no longer available.
-     *
      * @example amqp-cn-st21x7kv****.not-support
      *
      * @var string
@@ -33,8 +29,6 @@ class instances extends Model
     public $encryptedInstance;
 
     /**
-     * @description The timestamp that indicates when the instance expires. Unit: milliseconds.
-     *
      * @example 1651507200000
      *
      * @var int
@@ -42,31 +36,21 @@ class instances extends Model
     public $expireTime;
 
     /**
-     * @description The instance ID
-     *
-     * @example amqp-cn-st21x7kv****
+     * @example amqp-cn-*********
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The instance name.
-     *
-     * @example amqp-cn-st21x7kv****
+     * @example yunQi-instance
      *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description The instance type.
-     *
-     *   PROFESSIONAL: Professional Edition
-     *   ENTERPRISE: Enterprise Edition
-     *   VIP: Enterprise Platinum Edition
-     *
-     * @example professional
+     * @example enterprise
      *
      * @var string
      */
@@ -78,35 +62,34 @@ class instances extends Model
     public $kmsKeyId;
 
     /**
-     * @description The maximum number of Internet-based transactions per second (TPS) for the instance.
+     * @example 1500
      *
-     * @example 24832
+     * @var int
+     */
+    public $maxConnections;
+
+    /**
+     * @example 1000
      *
      * @var int
      */
     public $maxEipTps;
 
     /**
-     * @description The maximum number of queues on the instance.
-     *
-     * @example 50
+     * @example 1000
      *
      * @var int
      */
     public $maxQueue;
 
     /**
-     * @description The maximum number of VPC-based TPS for the instance.
-     *
-     * @example 5000
+     * @example 1000
      *
      * @var int
      */
     public $maxTps;
 
     /**
-     * @description The maximum number of vhosts on the instance.
-     *
      * @example 50
      *
      * @var int
@@ -114,20 +97,13 @@ class instances extends Model
     public $maxVhost;
 
     /**
-     * @description The timestamp that indicates when the order was created. Unit: milliseconds.
-     *
-     * @example 1572441939000
+     * @example 1651507200000
      *
      * @var int
      */
     public $orderCreateTime;
 
     /**
-     * @description The billing method. Valid values:
-     *
-     *   PrePaid: the subscription billing method.
-     *   POST_PAID: the pay-as-you-go billing method.
-     *
      * @example PRE_PAID
      *
      * @var string
@@ -135,8 +111,6 @@ class instances extends Model
     public $orderType;
 
     /**
-     * @description The virtual private cloud (VPC) endpoint of the instance.
-     *
      * @example amqp-cn-st21x7kv****.mq-amqp.cn-hangzhou-a.aliyuncs.com
      *
      * @var string
@@ -144,9 +118,7 @@ class instances extends Model
     public $privateEndpoint;
 
     /**
-     * @description The public endpoint of the instance.
-     *
-     * @example amqp-cn-st21x7kv****.mq-amqp.cn-hangzhou-a.aliyuncs.com
+     * @example xxx.cn-hangzhou.xxx.net.mq.amqp.aliyuncs.com
      *
      * @var string
      */
@@ -158,13 +130,6 @@ class instances extends Model
     public $resourceGroupId;
 
     /**
-     * @description The instance status. Valid values:
-     *
-     *   DEPLOYING: The instance is being deployed.
-     *   EXPIRED: The instance is expired.
-     *   SERVING: The instance is running.
-     *   RELEASED: The instance is released.
-     *
      * @example SERVING
      *
      * @var string
@@ -172,9 +137,6 @@ class instances extends Model
     public $status;
 
     /**
-     * @description The disk size. Unit: GB.
-     *
-     * >  For Professional Edition instances and Enterprise Edition instances, this parameter is unavailable and \\*\\*-1\\*\\* is returned.
      * @example 200
      *
      * @var int
@@ -182,8 +144,6 @@ class instances extends Model
     public $storageSize;
 
     /**
-     * @description Indicates whether the instance supports elastic IP addresses (EIPs).
-     *
      * @example true
      *
      * @var bool
@@ -191,33 +151,48 @@ class instances extends Model
     public $supportEIP;
 
     /**
-     * @description 标签列表。
+     * @example True
      *
+     * @var bool
+     */
+    public $supportTracing;
+
+    /**
      * @var tags[]
      */
     public $tags;
+
+    /**
+     * @example 15
+     *
+     * @var int
+     */
+    public $tracingStorageTime;
     protected $_name = [
-        'autoRenewInstance' => 'AutoRenewInstance',
-        'classicEndpoint'   => 'ClassicEndpoint',
-        'encryptedInstance' => 'EncryptedInstance',
-        'expireTime'        => 'ExpireTime',
-        'instanceId'        => 'InstanceId',
-        'instanceName'      => 'InstanceName',
-        'instanceType'      => 'InstanceType',
-        'kmsKeyId'          => 'KmsKeyId',
-        'maxEipTps'         => 'MaxEipTps',
-        'maxQueue'          => 'MaxQueue',
-        'maxTps'            => 'MaxTps',
-        'maxVhost'          => 'MaxVhost',
-        'orderCreateTime'   => 'OrderCreateTime',
-        'orderType'         => 'OrderType',
-        'privateEndpoint'   => 'PrivateEndpoint',
-        'publicEndpoint'    => 'PublicEndpoint',
-        'resourceGroupId'   => 'ResourceGroupId',
-        'status'            => 'Status',
-        'storageSize'       => 'StorageSize',
-        'supportEIP'        => 'SupportEIP',
-        'tags'              => 'Tags',
+        'autoRenewInstance'  => 'AutoRenewInstance',
+        'classicEndpoint'    => 'ClassicEndpoint',
+        'encryptedInstance'  => 'EncryptedInstance',
+        'expireTime'         => 'ExpireTime',
+        'instanceId'         => 'InstanceId',
+        'instanceName'       => 'InstanceName',
+        'instanceType'       => 'InstanceType',
+        'kmsKeyId'           => 'KmsKeyId',
+        'maxConnections'     => 'MaxConnections',
+        'maxEipTps'          => 'MaxEipTps',
+        'maxQueue'           => 'MaxQueue',
+        'maxTps'             => 'MaxTps',
+        'maxVhost'           => 'MaxVhost',
+        'orderCreateTime'    => 'OrderCreateTime',
+        'orderType'          => 'OrderType',
+        'privateEndpoint'    => 'PrivateEndpoint',
+        'publicEndpoint'     => 'PublicEndpoint',
+        'resourceGroupId'    => 'ResourceGroupId',
+        'status'             => 'Status',
+        'storageSize'        => 'StorageSize',
+        'supportEIP'         => 'SupportEIP',
+        'supportTracing'     => 'SupportTracing',
+        'tags'               => 'Tags',
+        'tracingStorageTime' => 'TracingStorageTime',
     ];
 
     public function validate()
@@ -250,6 +225,9 @@ class instances extends Model
         }
         if (null !== $this->kmsKeyId) {
             $res['KmsKeyId'] = $this->kmsKeyId;
+        }
+        if (null !== $this->maxConnections) {
+            $res['MaxConnections'] = $this->maxConnections;
         }
         if (null !== $this->maxEipTps) {
             $res['MaxEipTps'] = $this->maxEipTps;
@@ -287,6 +265,9 @@ class instances extends Model
         if (null !== $this->supportEIP) {
             $res['SupportEIP'] = $this->supportEIP;
         }
+        if (null !== $this->supportTracing) {
+            $res['SupportTracing'] = $this->supportTracing;
+        }
         if (null !== $this->tags) {
             $res['Tags'] = [];
             if (null !== $this->tags && \is_array($this->tags)) {
@@ -296,6 +277,9 @@ class instances extends Model
                 }
             }
         }
+        if (null !== $this->tracingStorageTime) {
+            $res['TracingStorageTime'] = $this->tracingStorageTime;
+        }
 
         return $res;
     }
@@ -303,7 +287,7 @@ class instances extends Model
     /**
      * @param array $map
      *
-     * @return instances
+     * @return data
      */
     public static function fromMap($map = [])
     {
@@ -331,6 +315,9 @@ class instances extends Model
         }
         if (isset($map['KmsKeyId'])) {
             $model->kmsKeyId = $map['KmsKeyId'];
+        }
+        if (isset($map['MaxConnections'])) {
+            $model->maxConnections = $map['MaxConnections'];
         }
         if (isset($map['MaxEipTps'])) {
             $model->maxEipTps = $map['MaxEipTps'];
@@ -368,6 +355,9 @@ class instances extends Model
         if (isset($map['SupportEIP'])) {
             $model->supportEIP = $map['SupportEIP'];
         }
+        if (isset($map['SupportTracing'])) {
+            $model->supportTracing = $map['SupportTracing'];
+        }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
@@ -376,6 +366,9 @@ class instances extends Model
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TracingStorageTime'])) {
+            $model->tracingStorageTime = $map['TracingStorageTime'];
         }
 
         return $model;

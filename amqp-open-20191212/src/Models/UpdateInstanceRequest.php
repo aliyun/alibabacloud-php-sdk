@@ -16,6 +16,11 @@ class UpdateInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $encryptedInstance;
+
+    /**
      * @description This parameter is required.
      *
      * @example amqp-cn-jtexxxxx
@@ -30,6 +35,13 @@ class UpdateInstanceRequest extends Model
      * @var string
      */
     public $instanceType;
+
+    /**
+     * @example key-xxx
+     *
+     * @var string
+     */
+    public $kmsKeyId;
 
     /**
      * @example 1000
@@ -104,8 +116,10 @@ class UpdateInstanceRequest extends Model
     public $tracingStorageTime;
     protected $_name = [
         'clientToken'          => 'ClientToken',
+        'encryptedInstance'    => 'EncryptedInstance',
         'instanceId'           => 'InstanceId',
         'instanceType'         => 'InstanceType',
+        'kmsKeyId'             => 'KmsKeyId',
         'maxConnections'       => 'MaxConnections',
         'maxEipTps'            => 'MaxEipTps',
         'maxPrivateTps'        => 'MaxPrivateTps',
@@ -128,11 +142,17 @@ class UpdateInstanceRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->encryptedInstance) {
+            $res['EncryptedInstance'] = $this->encryptedInstance;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->kmsKeyId) {
+            $res['KmsKeyId'] = $this->kmsKeyId;
         }
         if (null !== $this->maxConnections) {
             $res['MaxConnections'] = $this->maxConnections;
@@ -179,11 +199,17 @@ class UpdateInstanceRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['EncryptedInstance'])) {
+            $model->encryptedInstance = $map['EncryptedInstance'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['KmsKeyId'])) {
+            $model->kmsKeyId = $map['KmsKeyId'];
         }
         if (isset($map['MaxConnections'])) {
             $model->maxConnections = $map['MaxConnections'];
